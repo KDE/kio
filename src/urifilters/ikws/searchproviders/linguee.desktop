@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Linguee
 Name[ar]=Linguee
+Name[ast]=Linguee
 Name[az]=Linguee
 Name[be]=Linguee
 Name[be@latin]=Linguee
@@ -42,6 +43,7 @@ Type=Service
 Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ar]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[ast]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[az]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[be]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[be@latin]=https://www.linguee.com/search?source=auto&query=\\{@}

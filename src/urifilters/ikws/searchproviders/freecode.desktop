@@ -65,7 +65,6 @@ Name[zh_TW]=Freecode
 Keys=fc,freecode
 Query=http://freecode.com/search?q=\\{@}
 Query[ar]=http://freecode.com/search?q=\\{@}
-Query[ast]=http://freecode.com/search?q=\\{@}
 Query[az]=http://freecode.com/search?q=\\{@}
 Query[be]=http://freecode.com/search?q=\\{@}
 Query[be@latin]=http://freecode.com/search?q=\\{@}

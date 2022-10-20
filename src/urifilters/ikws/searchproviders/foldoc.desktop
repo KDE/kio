@@ -94,7 +94,6 @@ Name[zh_TW]=免費的線上電腦辭典
 Keys=fd,foldoc
 Query=https://foldoc.org/\\{@}
 Query[ar]=https://foldoc.org/\\{@}
-Query[ast]=https://foldoc.org/\\{@}
 Query[az]=https://foldoc.org/\\{@}
 Query[be]=https://foldoc.org/\\{@}
 Query[be@latin]=https://foldoc.org/\\{@}

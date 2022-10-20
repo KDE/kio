@@ -2,6 +2,7 @@
 Keys=inventissues,invissues,issues,issue
 Name=KDE Invent Issues
 Name[ar]=مشكلات KDE Invent
+Name[ast]=Problemes de KDE Invent
 Name[az]=KDE Invent problemləri
 Name[be]=Праблемы KDE Invent
 Name[be@latin]=Prabliemy KDE Invent
@@ -40,6 +41,7 @@ Name[x-test]=xxKDE Invent Issuesxx
 Name[zh_CN]=KDE Invent 问题
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ar]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ast]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[az]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[be]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[be@latin]=https://invent.kde.org/search?scope=issues&search=\\{@}

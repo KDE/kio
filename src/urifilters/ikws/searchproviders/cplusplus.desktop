@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=CPlusPlus
 Name[ar]=CPlusPlus
+Name[ast]=CPlusPlus
 Name[az]=CPlusPlus
 Name[be]=CPlusPlus
 Name[be@latin]=CPlusPlus
@@ -43,6 +44,7 @@ Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
 Query[ar]=http://cplusplus.com/search.do?q=\\{@}
+Query[ast]=http://cplusplus.com/search.do?q=\\{@}
 Query[az]=http://cplusplus.com/search.do?q=\\{@}
 Query[be]=http://cplusplus.com/search.do?q=\\{@}
 Query[be@latin]=http://cplusplus.com/search.do?q=\\{@}

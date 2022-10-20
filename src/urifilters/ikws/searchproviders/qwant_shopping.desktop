@@ -2,6 +2,7 @@
 Keys=qwsh
 Name=Qwant Shopping
 Name[ar]=تسوّق Qwant
+Name[ast]=Qwant Shopping
 Name[az]=Qwant Alış-Veriş
 Name[be]=Куплі Qwant
 Name[be@latin]=Kupli Qwant
@@ -59,7 +60,6 @@ Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
-Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

@@ -80,7 +80,6 @@ Name[zh_CN]=7Digital
 Name[zh_TW]=7Digital
 Query=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ar]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-Query[ast]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[az]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[be]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[be@latin]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

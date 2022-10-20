@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Krita Manual
 Name[ar]=دليل كريتا
+Name[ast]=Manual de Krita
 Name[az]=Krita təlimatı
 Name[be]=Дапаможнік Krita
 Name[be@latin]=Dapamožnik Krita
@@ -42,6 +43,7 @@ Type=Service
 Keys=kritadocs,kritamanual,krita
 Query=https://docs.krita.org/en/search.html?q=\\{@}
 Query[ar]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[ast]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[az]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[be]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[be@latin]=https://docs.krita.org/en/search.html?q=\\{@}

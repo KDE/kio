@@ -98,7 +98,6 @@ Name[zh_TW]=Google 群組
 Keys=ggg,groups,dj,deja
 Query=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ar]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
-Query[ast]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[az]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[be]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[be@latin]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

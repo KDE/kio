@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=KPropertiesDialog/Plugin
 Comment=Plugin for the Properties Dialog
 Comment[ar]=ملحقة لحواري الخصائص
+Comment[ast]=Plugin pal diálogu de les propiedaes
 Comment[az]=Xüsusiyyətlər Dialogu üçün plaqin
 Comment[be]=Убудова дыялогавага акна ўласцівасцяў
 Comment[be@latin]=Ubudova dyjalohavaha akna ŭlascivasciaŭ

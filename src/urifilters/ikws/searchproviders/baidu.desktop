@@ -79,7 +79,6 @@ Name[zh_TW]=百度
 Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
 Query[ar]=https://www.baidu.com/s?wd=\\{@}
-Query[ast]=https://www.baidu.com/s?wd=\\{@}
 Query[az]=https://www.baidu.com/s?wd=\\{@}
 Query[be]=https://www.baidu.com/s?wd=\\{@}
 Query[be@latin]=https://www.baidu.com/s?wd=\\{@}

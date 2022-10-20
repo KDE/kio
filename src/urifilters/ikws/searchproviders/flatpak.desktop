@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Flatpak Documentation
 Name[ar]=توثيق فلاتباك
+Name[ast]=Documentación de Flatpak
 Name[az]=Flatpak sənədləşməsi
 Name[be]=Дакументацыя Flatpak
 Name[be@latin]=Dakumientacyja Flatpak
@@ -42,6 +43,7 @@ Type=Service
 Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ar]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[ast]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[az]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[be]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[be@latin]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

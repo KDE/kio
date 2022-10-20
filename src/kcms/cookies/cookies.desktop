@@ -75,7 +75,7 @@ Comment=Configure the way cookies work
 Comment[af]=Konfigureer die weg koekies werk
 Comment[ar]=اضبط طريقة عمل الكعكات
 Comment[as]=কুকিৰ কাম কৰা প্ৰক্ৰিয়া বিন্যাস কৰক
-Comment[ast]=Configura la forma en que funcionen les cookies
+Comment[ast]=Configura cómo funcionen les cookies
 Comment[az]=Kukilərin işini tənzimləyin
 Comment[be]=Наладжванне cookies
 Comment[be@latin]=Naladžvannie cookies
@@ -166,7 +166,6 @@ Comment[zh_TW]=設定 cookies 運作方式
 
 X-KDE-Keywords=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
 X-KDE-Keywords[ar]=كعكات,تصفح,انترنت,www,شبكة,سياسة,نطاقات
-X-KDE-Keywords[ast]=Cookies,Restolar,Internet,WWW,Rede,Conexón,Dominios
 X-KDE-Keywords[az]=Kukilər, Baxış, İnternet, WWW,Şəbəkə,Davranış, Xidmətlər
 X-KDE-Keywords[be]=Cookie,Агляд,Інтэрнэт,WWW,Сетка,Палітыка,Дамены
 X-KDE-Keywords[be@latin]=Cookie,Ahliad,Internet,WWW,Sietka,Palityka,Damieny

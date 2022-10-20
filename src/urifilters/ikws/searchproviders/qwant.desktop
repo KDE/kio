@@ -61,7 +61,6 @@ Name[zh_CN]=Qwant
 Name[zh_TW]=Qwant
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
-Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

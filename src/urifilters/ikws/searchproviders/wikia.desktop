@@ -79,7 +79,6 @@ Name[zh_CN]=Wikia
 Name[zh_TW]=Wikia
 Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[ar]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
-Query[ast]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[az]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[be]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[be@latin]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

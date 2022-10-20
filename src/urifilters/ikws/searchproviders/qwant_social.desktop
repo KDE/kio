@@ -2,6 +2,7 @@
 Keys=qwso
 Name=Qwant Social
 Name[ar]=مجتمع Qwant
+Name[ast]=Qwant Social
 Name[az]=Qwant Sosial
 Name[be]=Qwant Social
 Name[be@latin]=Qwant Social
@@ -60,7 +61,6 @@ Name[zh_CN]=Qwant 社会
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
-Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

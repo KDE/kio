@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Learn CPP
 Name[ar]=Learn CPP
+Name[ast]=Learn CPP
 Name[az]=CPP öyrənin
 Name[be]=Вывучэнне CPP
 Name[be@latin]=Vyvučennie CPP
@@ -42,6 +43,7 @@ Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ar]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ast]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[az]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[be]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[be@latin]=https://www.learncpp.com/gsearch/?q=\\{@}

@@ -1,6 +1,7 @@
 [General]
 Name=C++
 Name[ar]=سي++
+Name[ast]=C++
 Name[az]=C++
 Name[bg]=C++
 Name[ca]=C++
@@ -18,6 +19,7 @@ Name[nl]=C++
 Name[nn]=C++
 Name[pl]=C++
 Name[pt]=C++
+Name[pt_BR]=C++
 Name[ru]=C++
 Name[sl]=C++
 Name[sv]=C++
@@ -44,6 +46,7 @@ Comment[nl]=Sjabloon van KIO-worker
 Comment[nn]=KIO-arbeidarmal
 Comment[pl]=Wzorzec pracownika KIO
 Comment[pt]=Modelo de Módulo do KIO
+Comment[pt_BR]=Modelo de KIO worker
 Comment[ru]=Шаблон модуля KIO
 Comment[sl]=Predloga za KIO Worker
 Comment[sv]=I/O-arbetarmall

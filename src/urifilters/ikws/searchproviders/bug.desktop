@@ -2,6 +2,7 @@
 Keys=bug,bugft,bugno,bugnr,feature,ccbug
 Name=KDE Bugs
 Name[ar]=علل كدي
+Name[ast]=KDE Bugs
 Name[az]=KDE Xətaları
 Name[be]=Адсочванне хібаў KDE
 Name[be@latin]=Adsočvannie chibaŭ KDE
@@ -50,7 +51,6 @@ Name[x-test]=xxKDE Bugsxx
 Name[zh_CN]=KDE Bugs
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
-Query[ast]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[az]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[be]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[be@latin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

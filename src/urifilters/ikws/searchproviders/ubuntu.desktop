@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Ubuntu Package Search
 Name[ar]=بحث حزم أوبنتو
+Name[ast]=Busca de paquetes d'Ubuntu
 Name[az]=Ubuntu paket axtarışı
 Name[be]=Пакункі Ubuntu
 Name[be@latin]=Pakunki Ubuntu
@@ -42,6 +43,7 @@ Type=Service
 Keys=ubuntu
 Query=https://packages.ubuntu.com/\\{@}
 Query[ar]=https://packages.ubuntu.com/\\{@}
+Query[ast]=https://packages.ubuntu.com/\\{@}
 Query[az]=https://packages.ubuntu.com/\\{@}
 Query[be]=https://packages.ubuntu.com/\\{@}
 Query[be@latin]=https://packages.ubuntu.com/\\{@}

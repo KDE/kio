@@ -94,7 +94,6 @@ Name[zh_CN]=OpenPGP 密钥搜索
 Name[zh_TW]=OpenPGP 金鑰搜尋
 Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
-Query[ast]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[be]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[be@latin]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

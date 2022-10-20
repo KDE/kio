@@ -94,7 +94,6 @@ Type=Service
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
 Query[ar]=https://nos.nl/teletekst#\\{@}
-Query[ast]=https://nos.nl/teletekst#\\{@}
 Query[az]=https://nos.nl/teletekst#\\{@}
 Query[be]=https://nos.nl/teletekst#\\{@}
 Query[be@latin]=https://nos.nl/teletekst#\\{@}

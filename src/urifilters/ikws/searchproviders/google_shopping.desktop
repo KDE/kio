@@ -2,6 +2,7 @@
 Type=Service
 Name=Google Shopping
 Name[ar]=تسوّق جوجل
+Name[ast]=Google Shopping
 Name[az]=Google Alış-Veriş
 Name[be]=Куплі Google
 Name[be@latin]=Kupli Google
@@ -64,7 +65,6 @@ Name[zh_TW]=Google Shopping
 Keys=ggs,ggshopping
 Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ar]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
-Query[ast]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[az]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[be]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[be@latin]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

@@ -43,7 +43,6 @@ Name[x-test]=xxQt5 Online Documentationxx
 Name[zh_CN]=Qt5 在线文档
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
-Query[ast]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[az]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[be]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[be@latin]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

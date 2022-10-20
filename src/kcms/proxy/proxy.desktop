@@ -108,7 +108,6 @@ Comment=Configure the proxy servers used
 Comment[af]=Konfigureer die volmag bedieners gebruik word
 Comment[ar]=اضبط خواديم الوسطاء المستخدمة
 Comment[as]=ব্যৱহাৰ কৰা প্ৰশমক সেৱক বিন্যাস কৰক
-Comment[ast]=Configura los sirvidores proxy usaos
 Comment[az]=Bağlantını proxy serverlə qurun
 Comment[be]=Наладжванне сервераў проксі
 Comment[be@latin]=Naladžvannie siervieraŭ proksi
@@ -199,7 +198,6 @@ Comment[zh_TW]=設定使用的代理伺服器
 
 X-KDE-Keywords=Proxy,Proxy server,Firewall,Squid
 X-KDE-Keywords[ar]=وسيط,خادم وسيط,جدار حماية,سكود
-X-KDE-Keywords[ast]=Proxy,Sirvidor proxy,Tornafuéu,Squid
 X-KDE-Keywords[az]=Proxy,Proxy server,Firewall,Squid
 X-KDE-Keywords[be]=Проксі,Проксі-сервер,Файрвол,Squid
 X-KDE-Keywords[be@latin]=Proksi,Proksi-siervier,Fajrvol,Squid

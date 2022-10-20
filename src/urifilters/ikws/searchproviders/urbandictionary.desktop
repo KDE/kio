@@ -4,7 +4,6 @@ Hidden=false
 Keys=urbandictionary,ud
 Name=Urban Dictionary
 Name[ar]=قاموس Urban
-Name[ast]=Urban Dictionary
 Name[az]=Urban Lüğəti
 Name[be]=Слоўнік Urban
 Name[be@latin]=Sloŭnik Urban
@@ -79,7 +78,6 @@ Name[zh_CN]=都市词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ar]=https://www.urbandictionary.com/define.php?term=\\{@}
-Query[ast]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[az]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[be]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[be@latin]=https://www.urbandictionary.com/define.php?term=\\{@}

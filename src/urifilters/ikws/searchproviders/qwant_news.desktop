@@ -2,6 +2,7 @@
 Keys=qwn
 Name=Qwant News
 Name[ar]=أخبار Qwant
+Name[ast]=Qwant News
 Name[az]=Qwant Xəbərlər
 Name[be]=Навіны Qwant
 Name[be@latin]=Naviny Qwant
@@ -60,7 +61,6 @@ Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
-Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

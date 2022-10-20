@@ -42,6 +42,7 @@ Type=Service
 Keys=cppreference,cppref,cpp
 Query=https://cppreference.com/w/?search=\\{@}
 Query[ar]=https://cppreference.com/w/?search=\\{@}
+Query[ast]=https://cppreference.com/w/?search=\\{@}
 Query[az]=https://cppreference.com/w/?search=\\{@}
 Query[be]=https://cppreference.com/w/?search=\\{@}
 Query[be@latin]=https://cppreference.com/w/?search=\\{@}

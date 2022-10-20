@@ -4,7 +4,6 @@ Hidden=false
 Keys=kdeuserbase,userbase,ub
 Name=KDE UserBase
 Name[ar]=قاعدة مستخدمي KDE
-Name[ast]=KDE UserBase
 Name[az]=KDE İstifadəçi Baza
 Name[be]=База карыстальніка KDE
 Name[be@latin]=Baza karystaĺnika KDE
@@ -80,7 +79,6 @@ Name[zh_CN]=KDE 用户信息库
 Name[zh_TW]=KDE UserBase
 Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
-Query[ast]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[az]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[be]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[be@latin]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

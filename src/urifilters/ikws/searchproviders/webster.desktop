@@ -96,7 +96,6 @@ Name[zh_TW]=韋氏詞典
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ar]=https://www.merriam-webster.com/dictionary/\\{@}
-Query[ast]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[az]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[be]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[be@latin]=https://www.merriam-webster.com/dictionary/\\{@}

@@ -2,6 +2,7 @@
 Keys=qwi
 Name=Qwant Images
 Name[ar]=صور Qwant
+Name[ast]=Qwant Images
 Name[az]=Qwant Şəkillər
 Name[be]=Выявы Qwant
 Name[be@latin]=Vyjavy Qwant
@@ -59,7 +60,6 @@ Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
-Query[ast]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[be@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

@@ -2,7 +2,6 @@
 Type=Service
 Name=HTTP Cache Cleaner
 Name[ar]=منظّف خبيئة HTTP
-Name[ast]=Llimpiador de la caché HTTP
 Name[az]=HTTP Keş Təmizləyici
 Name[be]=Ачышчэнне кэшу HTTP
 Name[be@latin]=Ačyščennie kešu HTTP
@@ -69,7 +68,6 @@ Name[zh_TW]=HTTP 快取清除程式
 Exec=kio_http_cache_cleaner
 Comment=Cleans up old entries from the HTTP cache
 Comment[ar]=ينظّف خبيئة HTTP من المُدخلات القديمة
-Comment[ast]=Llimpia les entraes vieyes de la caché HTTP
 Comment[az]=Köhnə girişləri HTTP keşindən təmizləyin
 Comment[be]=Ачышчае старыя запісы з кэшу HTTP
 Comment[be@latin]=Ačyščaje staryja zapisy z kešu HTTP

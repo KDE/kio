@@ -80,7 +80,6 @@ Name[zh_CN]=Facebook
 Name[zh_TW]=Facebook
 Query=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ar]=https://www.facebook.com/search/?q=\\{@}&init=quick
-Query[ast]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[az]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[be]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[be@latin]=https://www.facebook.com/search/?q=\\{@}&init=quick

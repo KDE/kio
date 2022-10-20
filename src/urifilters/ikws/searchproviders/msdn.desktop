@@ -95,7 +95,6 @@ Name[zh_TW]=微軟開發者網路搜尋
 Keys=msdn
 Query=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ar]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
-Query[ast]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[az]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[be]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[be@latin]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
