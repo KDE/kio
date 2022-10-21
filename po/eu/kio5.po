@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 05:54+0200\n"
+"PO-Revision-Date: 2022-10-20 06:42+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -825,8 +825,7 @@ msgstr ""
 "Saiatu berriz baimenak aldatu ondoren."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "Fitxategia handiegia da zakarrontzira botatzeko."
 
@@ -9365,20 +9364,14 @@ msgstr ""
 "Bertan behera utziko da, ostalariaren identitatea ezin baita jakin."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Benetan ezabatu nahi duzu betirako elementu hau?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Ekintza hau ezin da desegin.</"
-"emphasis>"
+"filename><emphasis strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9397,31 +9390,19 @@ msgstr[1] ""
 "strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Benetan ezabatu nahi duzu betirako elementu hau?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Ekintza hau ezin da desegin.</"
-"emphasis>"
+"Elementu hau zakarrontzira eramatea huts egin du handiegia delako. Horren "
+"ordez betirako ezabatu?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Ekintza hau ezin da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9432,11 +9413,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Benetan ezabatu nahi duzu elementu hau betirako?<nl/><nl/><emphasis "
-"strong='true'>Ekintza hau ezin da desegin.</emphasis>"
+"%1 elementu hau zakarrontzira eramatea huts egin du handiegia delako.Horren "
+"ordez betirako ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin da "
+"desegin.</emphasis>"
 msgstr[1] ""
-"Benetan ezabatu nahi dituzu %1 elementu hauek betirako?<nl/><nl/><emphasis "
-"strong='true'>Ekintza hau ezin da desegin.</emphasis>"
+"%1 elementu hauek zakarrontzira eramatea huts egin du handiegiak direlako."
+"Horren ordez betirako ezabatu?<nl/><emphasis strong='true'>Ekintza hau ezin "
+"da desegin.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

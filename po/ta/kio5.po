@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-06 21:48+0530\n"
+"PO-Revision-Date: 2022-10-20 21:56+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -813,8 +813,7 @@ msgstr ""
 "அனுமதிகளை மாற்றியபின் மறுபடியும் முயற்சிக்கவும்."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "கோப்பு பெரிதாக இருப்பதால் அகற்றிடத்துக்கு அனுப்ப முடியாது."
 
@@ -9220,19 +9219,14 @@ msgstr ""
 "புரவனின் அடையாளத்தை உறுதிப்படுத்த முடியாததால் கைவிடப்படுகிறது."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"நீங்கள் இந்த உருப்படியை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
+"நீங்கள் இந்த உருப்படியை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><filename>%1</"
+"filename><emphasis strong='true'>இந்த செயலை திரும்பப் பெற முடியாது.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9251,30 +9245,19 @@ msgstr[1] ""
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"நீங்கள் இந்த உருப்படியை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
+"இது மிகப்பெரிதாக உள்ளதால் அகற்றிடத்திற்கு இதை நகர்த்த முடியவில்லை. பதிலாக இதை "
+"நிரந்தரமாக அழிக்கலாமா?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>இந்த செயலை திரும்பப் பெற முடியாது.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9285,11 +9268,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"நீங்கள் இந்த உருப்படியை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
-"strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
+"இந்த %1 உருப்படி மிகப்பெரிதாக உள்ளதால் அகற்றிடத்திற்கு இதை நகர்த்த முடியவில்லை. பதிலாக "
+"இதை நிரந்தரமாக அழிக்கலாமா?<nl/><emphasis strong='true'>இந்த செயலை திரும்பப் பெற "
+"முடியாது.</emphasis>"
 msgstr[1] ""
-"நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
-"strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
+"இந்த %1 உருப்படிகள் மிகப்பெரிதாக உள்ளதால் அகற்றிடத்திற்கு இவற்றை நகர்த்த முடியவில்லை. "
+"பதிலாக இவற்றை நிரந்தரமாக அழிக்கலாமா?<nl/><emphasis strong='true'>இந்த செயலை "
+"திரும்பப் பெற முடியாது.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

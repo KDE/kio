@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 22:07+0200\n"
+"PO-Revision-Date: 2022-10-20 12:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -829,10 +829,9 @@ msgstr ""
 "Reintenteu després de canviar els permisos."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Este fitxer és massa gran per a anar a la paperera."
+msgstr "El fitxer és massa gros per a anar a la paperera."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -3715,8 +3714,8 @@ msgid ""
 "filters in the drop down menu, or you may enter a custom filter directly "
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
-"<qt>Este és el filtre a aplicar a la llista de fitxers. Els fitxers que no "
-"casen amb el filtre no es mostraran.<p>Podeu seleccionar un dels filtres "
+"<qt>Este és el filtre que s'aplicarà a la llista de fitxers. Els fitxers que "
+"no casen amb el filtre no es mostraran.<p>Podeu seleccionar un dels filtres "
 "preseleccionats en el menú desplegable, o podeu introduir un filtre a mida "
 "directament a l'àrea de text.</p><p>Es permeten comodins com ara «*» i «?».</"
 "p></qt>"
@@ -9448,20 +9447,14 @@ msgstr ""
 "S'interromp perquè no s'ha pogut establir la identitat de l'ordinador."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Segur que voleu suprimir permanentment este element?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acció no es podrà desfer.</"
-"emphasis>"
+"filename><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9480,31 +9473,19 @@ msgstr[1] ""
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Segur que voleu suprimir permanentment este element?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acció no es podrà desfer.</"
-"emphasis>"
+"No s'ha pogut moure este element a la paperera perquè és massa gros. Voleu "
+"suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9515,11 +9496,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Segur que voleu suprimir permanentment este element?<nl/><nl/><emphasis "
+"No s'ha pogut moure este %1 element a la paperera perquè és massa gros. "
+"Voleu suprimir-lo permanentment?<filename></filename><emphasis "
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 msgstr[1] ""
-"Segur que voleu suprimir permanentment estos %1 elements?<nl/><nl/><emphasis "
-"strong='true'>Esta acció no es podrà desfer.</emphasis>"
+"No s'ha pogut moure estos %1 elements a la paperera perquè són massa "
+"grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
+"><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

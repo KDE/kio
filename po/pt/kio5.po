@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 11:25+0100\n"
+"PO-Revision-Date: 2022-10-20 09:31+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -891,8 +891,7 @@ msgstr ""
 "Repita por favor após a mudança das permissões."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "O ficheiro é demasiado grande para ir para o lixo."
 
@@ -9462,19 +9461,14 @@ msgstr ""
 "da máquina."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Deseja apagar de forma permanente este item?<nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Esta acção não pode ser anulada.</emphasis>"
+"Deseja apagar de forma permanente este item?<nl/><filename>%1</"
+"filename><emphasis strong='true'>Esta acção não pode ser anulada.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9493,30 +9487,19 @@ msgstr[1] ""
 "strong='true'>Esta acção não pode ser anulada.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Deseja apagar de forma permanente este item?<nl/><filename>%1</filename><nl/"
+"Não foi possível enviar este item para o Lixo, por ser demasiado grande. "
+"Prefere removê-lo de forma definitiva?<nl/><nl/><filename>%1</filename><nl/"
 "><nl/><emphasis strong='true'>Esta acção não pode ser anulada.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9527,10 +9510,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Deseja apagar de forma permanente este item?<nl/><nl/><emphasis "
-"strong='true'>Esta acção não pode ser anulada.</emphasis>"
+"Não foi possível enviar este %1 item para o Lixo, por ser demasiado grande. "
+"Prefere removê-lo de forma definitiva?<nl/><nl/><emphasis strong='true'>Esta "
+"acção não pode ser anulada.</emphasis>"
 msgstr[1] ""
-"Deseja apagar de forma permanente estes %1 itens?<nl/><nl/><emphasis "
+"Não foi possível enviar estes %1 itens para o Lixo, por serem demasiado "
+"grandes. Prefere removê-los de forma definitiva?<nl/><nl/><emphasis "
 "strong='true'>Esta acção não pode ser anulada.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276

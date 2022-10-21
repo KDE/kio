@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 05:07+0200\n"
+"PO-Revision-Date: 2022-10-20 18:33+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr ""
 "com>\n"
 "com>\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -832,10 +832,9 @@ msgstr ""
 "Vuelva a intentarlo tras cambiar los permisos."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "El archivo es demasiado grande para ir a la papelera."
+msgstr "El archivo es demasiado grande para enviarlo a la papelera."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -9454,20 +9453,14 @@ msgstr ""
 "Cancelando porque no se puede determinar la identidad del servidor."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "¿Realmente desea borrar de forma permanente este elemento?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acción no se puede deshacer."
-"</emphasis>"
+"filename><emphasis strong='true'>Esta acción no se puede deshacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format

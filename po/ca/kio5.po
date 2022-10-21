@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 22:07+0200\n"
+"PO-Revision-Date: 2022-10-20 12:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -829,10 +829,9 @@ msgstr ""
 "Reintenteu després de canviar els permisos."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Aquest fitxer és massa gran per a anar a la paperera."
+msgstr "El fitxer és massa gros per a anar a la paperera."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -9442,20 +9441,15 @@ msgstr ""
 "S'interromp perquè no s'ha pogut establir la identitat de l'ordinador."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Esteu segur que voleu suprimir permanentment aquest element?<nl/><filename>"
-"%1</filename><nl/><nl/><emphasis strong='true'>Aquesta acció no es podrà "
-"desfer.</emphasis>"
+"%1</filename><emphasis strong='true'>Aquesta acció no es podrà desfer.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9474,31 +9468,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Esteu segur que voleu suprimir permanentment aquest element?<nl/><filename>"
-"%1</filename><nl/><nl/><emphasis strong='true'>Aquesta acció no es podrà "
-"desfer.</emphasis>"
+"Ha fallat en moure aquest element a la paperera perquè és massa gros. Voleu "
+"suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9509,10 +9491,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Esteu segur que voleu suprimir permanentment aquest element?<nl/><nl/"
-"><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
+"Ha fallat en moure aquest %1 element a la paperera perquè és massa gros. "
+"Voleu suprimir-lo permanentment?<filename></filename><emphasis "
+"strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 msgstr[1] ""
-"Esteu segur que voleu suprimir permanentment aquests %1 elements?<nl/><nl/"
+"Ha fallat en moure aquests %1 elements a la paperera perquè són massa "
+"grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276

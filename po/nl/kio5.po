@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-12 10:19+0200\n"
+"PO-Revision-Date: 2022-10-20 14:59+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -825,10 +825,9 @@ msgstr ""
 "Probeer opnieuw na wijziging van rechten."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Dit bestand is te groot voor de prullenbak."
+msgstr "Bestand is te groot voor de prullenbak."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -7324,7 +7323,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 "Wilt u dit item permanent verwijderen?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'> Deze actie kan niet ongedaan worden gemaakt.</"
+"><emphasis strong='true'>Deze actie kan niet ongedaan worden gemaakt.</"
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
@@ -9483,20 +9482,14 @@ msgstr ""
 "afgebroken."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Wilt u dit item permanent verwijderen?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'> Deze actie kan niet ongedaan worden gemaakt.</"
-"emphasis>"
+"Wilt u dit item permanent verwijderen?<nl/><filename>%1</filename><emphasis "
+"strong='true'><nl/>Deze actie kan niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9515,31 +9508,19 @@ msgstr[1] ""
 "actie kan niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Wilt u dit item permanent verwijderen?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'> Deze actie kan niet ongedaan worden gemaakt.</"
-"emphasis>"
+"Dit item naar de prullenbak verplaatsen is mislukt. Het in plaats daarvan "
+"permanent verwijderen?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Deze actie kan niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9550,11 +9531,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Wilt u dit item permanent verwijderen? <nl/><nl/><emphasis "
+"Dit %1 item naar de prullenbak verplaatsten is mislukt omdat het te groot "
+"is. Het in plaats daarvan permanent verwijderen?<nl/><emphasis "
 "strong='true'>Deze actie kan niet ongedaan worden gemaakt.</emphasis>"
 msgstr[1] ""
-"Wilt u deze %1 items verwijderen?<nl/><nl/><emphasis strong='true'>Deze "
-"actie kan niet ongedaan worden gemaakt.</emphasis>"
+"Deze %1 items naar de prullenbak verplaatsten is mislukt omdat ze te groot "
+"zijn. Het in plaats daarvan permanent verwijderen?<nl/><nl/><emphasis "
+"strong='true'>Deze actie kan niet ongedaan worden gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

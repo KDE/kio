@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-18 06:08+0300\n"
+"PO-Revision-Date: 2022-10-20 12:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -139,12 +139,12 @@ msgstr "'%1' programı bulunamadı"
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
-"\"%1\" programı \"%2\" konumunda bulundu; ancak çalıştırma izinleri eksik."
+"\"%1\" programı \"%2\" konumunda bulundu; ancak yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "\"%1\" programında çalıştırma izinleri eksik."
+msgstr "\"%1\" programında yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:380
 #, kde-format
@@ -834,10 +834,9 @@ msgstr ""
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Bu dosya çöp kutusuna taşınmak için çok büyük."
+msgstr "Dosya çöp kutusuna taşınmak için çok büyük."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -2396,7 +2395,7 @@ msgstr "'%1' protokolü için io-slave başlatmak üzere soket oluşturulamıyor
 #: core/slave.cpp:480
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
-msgstr "'%1' konumunda 'kioslave5' çalıştırılabiliri bulunamadı"
+msgstr "'%1' konumunda 'kioslave5' yürütülebiliri bulunamadı"
 
 #: core/slavebase.cpp:866
 #, kde-format
@@ -3872,7 +3871,7 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"%1 hizmeti çalıştırılabilir yapılamadı, çalıştırma iptal ediliyor.\n"
+"%1 hizmeti yürütülebilir yapılamadı, yürütme iptal ediliyor.\n"
 "%2."
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
@@ -3952,8 +3951,8 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"\"%1\" çalıştırılabilir dosyası uzak bir dosya sisteminde bulunuyor. "
-"Güvenlik nedenlerinden dolayı başlatılmayacak."
+"\"%1\" yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
+"nedenlerinden dolayı başlatılmayacak."
 
 #: gui/openurljob.cpp:400
 #, kde-format
@@ -3968,9 +3967,7 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
-"Program \"%1\" başlatılmadan önce çalıştırılabilir iznine sahip olması "
-"gerekir."
+msgstr "Program \"%1\" başlatılmadan önce yürütme iznine sahip olması gerekir."
 
 #: gui/openurljob.cpp:441
 #, kde-format
@@ -3978,7 +3975,7 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"\"%1\" dosyası çalıştırılabilir yapılamadı.\n"
+"\"%1\" dosyası yürütülebilir yapılamadı.\n"
 "%2."
 
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
@@ -4315,7 +4312,7 @@ msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
-"Hedef öz kaynak, öz kaynağın bu metodun çalıştırılmasından sonraki durumunu "
+"Hedef özkaynak, özkaynağın bu yönteminin yürütülmesinden sonraki durumunu "
 "kaydedecek alana sahip değil."
 
 #: ioslaves/http/http.cpp:1790
@@ -7765,14 +7762,14 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"'%1''den çalıştırılabilir ad çıkarılamıyor, lütfen geçerli bir uygulama adı "
-"giriniz."
+"'%1'' ögesinden yürütülebilir ad çıkarılamıyor, lütfen geçerli bir uygulama "
+"adı girin."
 
 #: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "<filename>%1</filename>, çalıştırılabilir bir program gibi görünmüyor."
+msgstr "<filename>%1</filename>, yürütülebilir bir program gibi görünmüyor."
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7781,7 +7778,7 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
-"<filename>%1</filename> bulunamadı; lütfen çalıştırılabilir bir programın "
+"<filename>%1</filename> bulunamadı; lütfen yürütülebilir bir programın "
 "geçerli yolunu girin."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
@@ -8035,7 +8032,7 @@ msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
 msgstr ""
-"İstenen programı bulmak için dosya sistemini aramak amacıyla buraya "
+"İstenen yürütülebiliri bulmak için dosya sistemini aramak amacıyla buraya "
 "tıklayabilirsiniz."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
@@ -8384,7 +8381,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1910
 #, kde-format
 msgid "Is &executable"
-msgstr "Ça&lıştırılabilir"
+msgstr "Yü&rütülebilir"
 
 #: widgets/kpropertiesdialog.cpp:1913
 #, kde-format
@@ -8404,7 +8401,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Dosyaları çalıştırılabilir olarak imlemek için bu seçeneği etkinleştirin. Bu "
+"Dosyaları yürütülebilir olarak imlemek için bu seçeneği etkinleştirin. Bu "
 "yalnızca program ve betikleri ilgilendirir. Onları yürütmek istediğinizde "
 "gerekecektir."
 
@@ -8515,7 +8512,7 @@ msgstr "Çalıştır"
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
-"Dosya'nın bir program gibi çalıştırılabilmesine izin vermek için bu bayrağı "
+"Dosyanın bir program gibi yürütülmesine izin vermek için bu bayrağı "
 "etkinleştirin."
 
 #: widgets/kpropertiesdialog.cpp:2113
@@ -8745,7 +8742,7 @@ msgstr "Eklenecek dosya türlerini seçin:"
 #: widgets/kpropertiesdialog.cpp:3584
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "Yalnızca yerel dosya sistemindeki programlar çalıştırılabilir."
+msgstr "Yalnızca yerel dosya sistemindeki yürütülebilirler desteklenir."
 
 #: widgets/kpropertiesdialog.cpp:3599
 #, kde-format
@@ -8786,7 +8783,7 @@ msgstr "Veren"
 #: widgets/ksslinfodialog.cpp:83
 #, kde-format
 msgid "Current connection is secured with SSL."
-msgstr "Mevcut bağlantı SSL üzerinden güvenlidir."
+msgstr "Geçerli bağlantı, SSL ile güvenli duruma getirilmiştir."
 
 #: widgets/ksslinfodialog.cpp:87
 #, kde-format
@@ -9293,19 +9290,14 @@ msgstr ""
 "Makinenin kimliğine erişilemediği için iptal ediliyor."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"filename><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9324,30 +9316,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Bu öge çok büyük olduğundan Çöp'e taşıma başarısız oldu. Bunun yerine, "
+"kalıcı olarak silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9358,11 +9339,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><nl/><emphasis "
-"strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Bu %1 öge çok büyük olduğundan Çöp'e taşıma başarısız oldu. Bunun yerine, "
+"kalıcı olarak silinsin mi?<nl/><emphasis strong='true'>Bu eylem geri "
+"alınamaz.</emphasis>"
 msgstr[1] ""
-"Bu %1 ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
-"><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Bu %1 öge çok büyük olduğundan Çöp'e taşıma başarısız oldu. Bunun yerine, "
+"kalıcı olarak silinsinler mi?<nl/><emphasis strong='true'>Bu eylem geri "
+"alınamaz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

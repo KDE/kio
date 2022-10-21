@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 06:58+0300\n"
+"PO-Revision-Date: 2022-10-20 16:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -839,10 +839,9 @@ msgstr ""
 "користувача."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Цей файл завеликий для смітника."
+msgstr "Файл завеликий для смітника."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -9439,20 +9438,15 @@ msgstr ""
 "З'єднання перервано через неможливість встановити автентичність вузла."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Ви справді хочете остаточно вилучити цей об'єкт?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Відновити вилучені таким чином "
-"об'єкти буде дуже важко.</emphasis>"
+"filename><emphasis strong='true'>Відновити вилучені таким чином об'єкти буде "
+"дуже важко.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9481,31 +9475,20 @@ msgstr[3] ""
 "emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Ви справді хочете остаточно вилучити цей об'єкт?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Відновити вилучені таким чином "
-"об'єкти буде дуже важко.</emphasis>"
+"Спроба пересунути цей об'єкт до смітника завершилася невдало через його "
+"надто великий розмір. Вилучити його остаточно?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Скасувати наслідки цієї дії буде "
+"дуже важко.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9516,21 +9499,21 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Бажаєте остаточно вилучити цей %1 об'єкт?<nl/><nl/><emphasis "
-"strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
-"emphasis>"
+"Спроба пересунути цей %1 об'єкт до смітника завершилася невдало через надто "
+"великий розмір. Вилучити їх остаточно?<nl/><emphasis strong='true'>Скасувати "
+"наслідки цієї дії буде дуже важко.</emphasis>"
 msgstr[1] ""
-"Бажаєте остаточно вилучити ці %1 об'єкти?<nl/><nl/><emphasis "
-"strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
-"emphasis>"
+"Спроба пересунути ці %1 об'єкти до смітника завершилася невдало через надто "
+"великий розмір. Вилучити їх остаточно?<nl/><emphasis strong='true'>Скасувати "
+"наслідки цієї дії буде дуже важко.</emphasis>"
 msgstr[2] ""
-"Бажаєте остаточно вилучити ці %1 об'єктів?<nl/><nl/><emphasis "
-"strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
-"emphasis>"
+"Спроба пересунути ці %1 об'єктів до смітника завершилася невдало через надто "
+"великий розмір. Вилучити їх остаточно?<nl/><emphasis strong='true'>Скасувати "
+"наслідки цієї дії буде дуже важко.</emphasis>"
 msgstr[3] ""
-"Бажаєте остаточно вилучити цей об'єкт?<nl/><nl/><emphasis "
-"strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
-"emphasis>"
+"Спроба пересунути цей об'єкт до смітника завершилася невдало через надто "
+"великий розмір. Вилучити його остаточно?<nl/><emphasis "
+"strong='true'>Скасувати наслідки цієї дії буде дуже важко.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
