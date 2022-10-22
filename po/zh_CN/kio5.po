@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-19 13:22\n"
+"PO-Revision-Date: 2022-10-22 05:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -797,10 +797,9 @@ msgstr ""
 "请更改权限后重试。"
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "此文件太大，无法移动到回收站。"
+msgstr ""
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -8911,19 +8910,12 @@ msgstr ""
 "因此无法和主机建立验证连接，操作已经取消。"
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"您真的想永久删除此项吗？<nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -8939,30 +8931,16 @@ msgstr[0] ""
 "销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"您真的想永久删除此项吗？<nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -8973,8 +8951,6 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"您真的想永久删除这 %1 项吗？<nl/><nl/><emphasis strong='true'>此操作无法撤"
-"销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

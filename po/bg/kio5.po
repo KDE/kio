@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-09 07:11+0200\n"
+"PO-Revision-Date: 2022-10-22 07:06+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -822,8 +822,7 @@ msgstr ""
 "Моля, опитайте отново след промяна на разрешенията."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "Файлът е твърде голям, за да бъде прехвърлен в кошчето."
 
@@ -9364,20 +9363,15 @@ msgstr ""
 "Прекъсване, защото самоличността на хоста не може да бъде установена."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Наистина ли искате да изтриете за постоянно този елемент?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'> Това действие не може да бъде "
-"отменено.</emphasis>"
+"filename><emphasis strong='true'>Това действие не може да бъде отменено.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9396,31 +9390,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Действието не може да бъде отменено.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Наистина ли искате да изтриете за постоянно този елемент?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'> Това действие не може да бъде "
-"отменено.</emphasis>"
+"Преместването на този елемент в кошчето е неуспешно. Да се изтрие ли за "
+"постоянно?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Това действие не може да бъде отменено.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9431,8 +9413,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Наистина ли искате да изтриете за постоянно този елемент?<nl/><nl/><emphasis "
-"strong='true'>Действието не може да бъде отменено.</emphasis>"
+"Преместването на този елемент в кошчето е неуспешно, защото е твърде голям. "
+"Да се изтрие ли за постоянно?<nl/><emphasis strong='true'>Това действие не "
+"може да бъде отменено..</emphasis>"
 msgstr[1] ""
 "Наистина ли искате да изтриете за постоянно тези %1 елемента?<nl/><nl/"
 "><emphasis strong='true'>Действието не може да бъде отменено.</emphasis>"
