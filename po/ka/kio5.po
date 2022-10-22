@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-03 05:51+0200\n"
+"PO-Revision-Date: 2022-10-21 05:56+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -803,8 +803,7 @@ msgstr ""
 "სცადეთ თავიდან წვდომების შეცვლის შემდეგ."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "ფაილი მეტისმეტად დიდია ნაგავში ჩასაგდებად."
 
@@ -1505,7 +1504,7 @@ msgstr ""
 #: core/job_error.cpp:763
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
-msgstr ""
+msgstr "შეტანის/გამოტანის მოწყობილობის ინიციალიზაციის შეცდომა"
 
 #: core/job_error.cpp:764
 #, kde-format
@@ -1545,7 +1544,7 @@ msgstr ""
 #: core/job_error.cpp:787
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
-msgstr ""
+msgstr "შეტანის/გამოტანის მოწყობილობის ინიციალიზაციის გაუქმების შეცდომა"
 
 #: core/job_error.cpp:788
 #, kde-format
@@ -1673,7 +1672,7 @@ msgstr "რესურსის სტატუსის განსაზღ�
 #: core/job_error.cpp:904
 #, kde-format
 msgid "Could Not Stat Resource"
-msgstr ""
+msgstr "რესურსის აღმოჩენის შეცდომა"
 
 #: core/job_error.cpp:906
 #, kde-format
@@ -1696,7 +1695,7 @@ msgstr ""
 #: core/job_error.cpp:923
 #, kde-format
 msgid "FIXME: Document this"
-msgstr ""
+msgstr "FIXME: საჭიროა დოკუმენტირება"
 
 #: core/job_error.cpp:927
 #, kde-format
@@ -1868,7 +1867,7 @@ msgstr ""
 #: core/job_error.cpp:1047
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr ""
+msgstr "დაამოწმეთ პროქსის პარამეტრები და თავიდან სცადეთ."
 
 #: core/job_error.cpp:1051
 #, kde-format
@@ -2388,7 +2387,7 @@ msgstr "ჩატვირთვის გაგრძელება"
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
-msgstr ""
+msgstr "%1: SSL მიმოცვლის შეცდომა"
 
 #: core/tcpslavebase.cpp:480 core/tcpworkerbase.cpp:474
 #, kde-format
@@ -2444,7 +2443,7 @@ msgstr "საქაღალდის შექმნის უფლება 
 #: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
 msgid "You did not select a file to delete."
-msgstr ""
+msgstr "წასაშლელად არაფერი მოგინიშნავთ."
 
 #: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
 #, kde-format
@@ -2454,7 +2453,7 @@ msgstr "წასაშლელი არაფერია"
 #: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
 msgid "You did not select a file to trash."
-msgstr ""
+msgstr "სანაგვე ყუთში გადასატანად არაფერი მოგინიშნავთ."
 
 #: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
 #, kde-format
@@ -6088,12 +6087,12 @@ msgstr "ნაგულისხმები"
 #: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgid "Modify Web Shortcut"
-msgstr ""
+msgstr "ვების მალსახმობის ჩასწორება"
 
 #: urifilters/ikws/searchproviderdlg.cpp:57
 #, kde-format
 msgid "New Web Shortcut"
-msgstr ""
+msgstr "ახალი ვების მალსახმობი"
 
 #: urifilters/ikws/searchproviderdlg.cpp:118
 #, kde-format
@@ -7202,13 +7201,13 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:142
 #, kde-format
 msgid "Discrete GPU"
-msgstr ""
+msgstr "დისკრეტული GPU"
 
 #. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr ""
+msgstr "დისკრეტული ვიდეობარათით გაშვება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -7734,6 +7733,8 @@ msgid ""
 "Write\n"
 "Entries"
 msgstr ""
+"ჩანაწერების\n"
+"ჩაწერა"
 
 #: widgets/kpropertiesdialog.cpp:2091
 #, kde-format
@@ -7972,7 +7973,7 @@ msgstr "%1-სთვის ფაილის ტიპის დამატე
 #: widgets/kpropertiesdialog.cpp:3438
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr ""
+msgstr "დასამატებლად აირჩიეთ ერთი ან მეტი ფაილის ტიპი:"
 
 #: widgets/kpropertiesdialog.cpp:3584
 #, kde-format

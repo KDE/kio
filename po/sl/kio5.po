@@ -16,15 +16,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-14 09:39+0200\n"
+"PO-Revision-Date: 2022-10-21 08:30+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -841,10 +841,9 @@ msgstr ""
 "Prosimo poskusite ponovno po ustrezni spremembi dovoljenj."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Datoteka je prevelika za Smeti."
+msgstr "Datoteka je prevelika za v Smeti."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -9389,19 +9388,14 @@ msgstr ""
 "Prekinjam, ker istovetnosti gostitelja ni mogoče potrditi."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Ali želite trajno izbrisati to postavko? <nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"><nl/><emphasis strong='true'>Tega dejanja ni mogoče razveljaviti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9426,30 +9420,19 @@ msgstr[3] ""
 "strong='true'>Tega dejanja ni mogoče razveljaviti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Ali želite trajno izbrisati to postavko? <nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"Prenos te postavke v smeti ni uspelo, ker je prevelika. Ali želite namesto "
+"tega trajno izbrisati to postavko?<nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Tega dejanja ni mogoče razveljaviti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9460,17 +9443,21 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Ali želite trajno izbrisati to %1 postavko?<nl/><nl/><emphasis "
-"strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"Prenos te %1 postavke v smeti ni uspelo, ker je prevelika. Jo želite namesto "
+"tega trajno izbrisati?<nl/><nl/><emphasis strong='true'>Tega dejanja ni "
+"mogoče razveljaviti.</emphasis>"
 msgstr[1] ""
-"Ali želite trajno izbrisati ti %1 postavki?<nl/><nl/><emphasis "
-"strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"Prenos teh %1 postavk v smeti ni uspelo, ker sta preveliki. Ju želite "
+"namesto tega trajno izbrisati?<nl/><nl/><emphasis strong='true'>Tega dejanja "
+"ni mogoče razveljaviti.</emphasis>"
 msgstr[2] ""
-"Ali želite trajno izbrisati te %1 postavke?<nl/><nl/><emphasis "
-"strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"Prenos teh %1 postavk v smeti ni uspelo, ker so prevelike. Jih želite "
+"namesto tega trajno izbrisati?<nl/><nl/><emphasis strong='true'>Tega dejanja "
+"ni mogoče razveljaviti.</emphasis>"
 msgstr[3] ""
-"Ali želite trajno izbrisati teh %1 postavk?<nl/><nl/><emphasis "
-"strong='true'>Tega ni mogoče razveljaviti.</emphasis>"
+"Prenos teh %1 postavk v smeti ni uspelo, ker so prevelike. Jih želite "
+"namesto tega trajno izbrisati?<nl/><nl/><emphasis strong='true'>Tega dejanja "
+"ni mogoče razveljaviti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

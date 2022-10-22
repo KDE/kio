@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 19:56+0200\n"
+"PO-Revision-Date: 2022-10-21 07:25+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -858,8 +858,7 @@ msgstr ""
 "Veuillez ré-essayer après avoir modifié les permissions."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "Ce fichier est trop gros pour être mis à la corbeille."
 
@@ -9548,20 +9547,15 @@ msgstr ""
 "Abandon car il est impossible de connaître l'identité de cet hôte."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 "Voulez-vous vraiment supprimer définitivement cet élément ?<nl/><filename>"
-"%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
-"irréversible.</emphasis>"
+"%1</filename><emphasis strong='true'>Cette action ne peut être annulée.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9581,31 +9575,20 @@ msgstr[1] ""
 "peut être annulée.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Voulez-vous vraiment supprimer définitivement cet élément ?<nl/><filename>"
-"%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
-"irréversible.</emphasis>"
+"Il a été impossible de déplacer cet élément dans la corbeille car il est "
+"trop volumineux. Voulez-vous vraiment le supprimer définitivement ?<nl/> <nl/"
+"><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action ne "
+"peut être annulée.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9616,8 +9599,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Voulez-vous vraiment supprimer définitivement cet élément ?<nl/><nl/> "
-"<emphasis strong='true'>Cette action est irréversible.</emphasis>"
+"Il a été impossible de déplacer cet élément %1 dans la corbeille car il est "
+"trop volumineux. Voulez-vous vraiment le supprimer définitivement ? <nl/> "
+"<emphasis strong='true'>Cette action ne peut être annulée.</emphasis>"
 msgstr[1] ""
 "Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/"
 "><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
