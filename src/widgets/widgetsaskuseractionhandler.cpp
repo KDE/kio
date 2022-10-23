@@ -232,7 +232,7 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
                                "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                                urlCount);
         }
-        res.acceptButton = KStandardGuiItem::del();
+        res.acceptButton = KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete"));
         break;
     }
     case AskIface::DeleteInsteadOfTrash: {
@@ -254,7 +254,7 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
                                "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                                urlCount);
         }
-        res.acceptButton = KStandardGuiItem::del();
+        res.acceptButton = KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete"));
         break;
     }
     case AskIface::EmptyTrash: {

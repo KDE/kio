@@ -283,7 +283,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
                            "cannot be undone.</emphasis>",
                            prettyList.first()),
                     i18n("Delete Permanently"),
-                    KStandardGuiItem::del(),
+                    KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete")),
                     KStandardGuiItem::cancel(),
                     keyName,
                     options);
@@ -297,7 +297,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
                         prettyList.count()),
                     prettyList,
                     i18n("Delete Permanently"),
-                    KStandardGuiItem::del(),
+                    KGuiItem(i18nc("@action:button", "Delete Permanently"), QStringLiteral("edit-delete")),
                     KStandardGuiItem::cancel(),
                     keyName,
                     options);
