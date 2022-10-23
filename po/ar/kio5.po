@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:43+0000\n"
-"PO-Revision-Date: 2022-10-05 16:42+0400\n"
+"PO-Revision-Date: 2022-10-22 18:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -831,8 +831,7 @@ msgstr ""
 "الرجاء إعادة المحاولة بعد تغيير الصلاحيات."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "الملفّ كبير جدًّا ليُنقل إلى المهملات."
 
@@ -9295,18 +9294,13 @@ msgstr ""
 "سأُجهض هذا بسبب تعذّر إنشاء هويّة المضيف."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><filename>%1</"
 "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"أتريد حذف هذا الملف <nl/><filename>%1</filename><nl/><nl/>للأبد؟<emphasis "
+"أتريد حذف هذا الملف للأبد؟ <nl/><filename>%1</filename><emphasis "
 "strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
@@ -9338,30 +9332,19 @@ msgstr[5] ""
 "إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"أتريد حذف هذا الملف <nl/><filename>%1</filename><nl/><nl/>للأبد؟<emphasis "
-"strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"فشلت عملية نقل العنصر إلى المهملات لأنه ضخم جداً.  هل أحذفه للأبد؟<nl/><nl/"
+"><filename>%1</filename><nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة "
+"فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9372,23 +9355,23 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
-"لا عودة فيه.</emphasis>"
+"فشلت عملية نقل العنصر %1 هذا إلى المهملات لأنه ضخم جداً.  هل أحذفه للأبد؟ <nl/"
+"><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[1] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
-"لا عودة فيه.</emphasis>"
+"فشلت عملية نقل العنصر هذا إلى المهملات لأنه ضخم جداً.  هل أحذفه للأبد؟ <nl/"
+"><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[2] ""
-"أتريد حقاً حذف هذين الملفين للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
-"إجراء لا عودة فيه.</emphasis>"
+"فشلت عملية نقل العنصرين إلى المهملات لأنهما ضخمين جداً.  هل أحذفه للأبد؟ <nl/"
+"><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[3] ""
-"أتريد حقاً حذف %1 ملفات هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
-"إجراء لا عودة فيه.</emphasis>"
+"فشلت عملية نقل %1 العناصر هذه إلى المهملات لأنها ضخمة جداً.  هل أحذفه للأبد؟ "
+"<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[4] ""
-"أتريد حقاً حذف %1 ملفا هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
-"إجراء لا عودة فيه.</emphasis>"
+"فشلت عملية نقل %1 عنصراً هذه إلى المهملات لأنها ضخمة جداً.  هل أحذفه للأبد؟ "
+"<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[5] ""
-"أتريد حقاً حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
-"إجراء لا عودة فيه.</emphasis>"
+"فشلت عملية نقل %1 عنصر هذه إلى المهملات لأنها ضخمة جداً.  هل أحذفه للأبد؟ <nl/"
+"><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
