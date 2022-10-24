@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:43+0000\n"
+"POT-Creation-Date: 2022-10-24 00:45+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -6680,6 +6680,14 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
 #: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, kde-format
+msgid "Delete Permanently"
+msgstr ""
+
+#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:257
+#, kde-format
+msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr ""
 

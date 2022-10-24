@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:43+0000\n"
+"POT-Creation-Date: 2022-10-24 00:45+0000\n"
 "PO-Revision-Date: 2022-10-14 09:39+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -7093,6 +7093,15 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
 #: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, kde-format
+msgid "Delete Permanently"
+msgstr "Eyða endanlega"
+
+#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:257
+#, fuzzy, kde-format
+#| msgid "Delete Permanently"
+msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Eyða endanlega"
 

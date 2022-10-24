@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:43+0000\n"
+"POT-Creation-Date: 2022-10-24 00:45+0000\n"
 "PO-Revision-Date: 2022-10-06 13:58+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -7163,6 +7163,15 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
 #: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, kde-format
+msgid "Delete Permanently"
+msgstr "Xoá hoàn toàn"
+
+#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:257
+#, fuzzy, kde-format
+#| msgid "Delete Permanently"
+msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Xoá hoàn toàn"
 
