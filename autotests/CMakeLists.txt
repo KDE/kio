@@ -65,7 +65,8 @@ ecm_add_test(
     LINK_LIBRARIES KF5::KIOCore KF5::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
 )
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux") # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
+# as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     include(FindGem)
     find_gem(ftpd)
     set_package_properties(Gem_ftpd PROPERTIES TYPE REQUIRED
