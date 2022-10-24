@@ -462,6 +462,13 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     d->m_locationEdit->setFocus();
 
+    const QAction *showHiddenAction = d->m_ops->action(KDirOperator::ShowHiddenFiles);
+    Q_ASSERT(showHiddenAction);
+    d->m_urlNavigator->setShowHiddenFolders(showHiddenAction->isChecked());
+    connect(showHiddenAction, &QAction::toggled, this, [this](bool checked) {
+        d->m_urlNavigator->setShowHiddenFolders(checked);
+    });
+
     const QAction *hiddenFilesLastAction = d->m_ops->action(KDirOperator::SortHiddenFilesLast);
     Q_ASSERT(hiddenFilesLastAction);
     d->m_urlNavigator->setSortHiddenFoldersLast(hiddenFilesLastAction->isChecked());
