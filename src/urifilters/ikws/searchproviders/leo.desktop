@@ -41,6 +41,7 @@ Name[hsb]=LEO-přełožowanje
 Name[hu]=LEO-Translate
 Name[ia]=LEO-Traduce
 Name[id]=LEO-Translate
+Name[ie]=LEO-Translate
 Name[is]=LEO-þýðandi
 Name[it]=Traduzioni LEO
 Name[ka]=LEO-თარგმანი
@@ -119,6 +120,7 @@ Query[gl]=https://dict.leo.org/?search=\\{@}
 Query[hu]=https://dict.leo.org/?search=\\{@}
 Query[ia]=https://dict.leo.org/?search=\\{@}
 Query[id]=https://dict.leo.org/?search=\\{@}
+Query[ie]=https://dict.leo.org/?search=\\{@}
 Query[is]=https://dict.leo.org/?search=\\{@}
 Query[it]=https://dict.leo.org/?search=\\{@}
 Query[ka]=https://dict.leo.org/?search=\\{@}

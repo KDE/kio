@@ -42,6 +42,7 @@ Name[hsb]=TV Tome
 Name[hu]=TV Tome
 Name[ia]=TV Tome
 Name[id]=TV Tome
+Name[ie]=TV Tome
 Name[is]=TV Tome
 Name[it]=TV Tome
 Name[ka]=TV Tome
@@ -117,6 +118,7 @@ Query[gl]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[hu]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ia]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[id]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[ie]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[is]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[it]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ka]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

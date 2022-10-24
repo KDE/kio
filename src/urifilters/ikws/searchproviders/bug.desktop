@@ -25,6 +25,7 @@ Name[gl]=Fallos de KDE
 Name[hu]=KDE Bugs
 Name[ia]=KDE Bugs
 Name[id]=KDE Bugs
+Name[ie]=Defectes de KDE
 Name[is]=KDE villur
 Name[it]=Bug di KDE
 Name[ka]=KDE შეცდომები
@@ -75,6 +76,7 @@ Query[hi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ia]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[id]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[ie]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[is]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[it]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ka]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

@@ -19,6 +19,7 @@ Name[fi]=Yandex
 Name[fr]=Yandex
 Name[ia]=Yandex
 Name[id]=Yandex
+Name[ie]=Yandex
 Name[is]=Yandex
 Name[it]=Yandex
 Name[ka]=Yandex
@@ -58,6 +59,7 @@ Query[fi]=https://yandex.ru/search/?text=\\{@}
 Query[fr]=https://yandex.ru/search/?text=\\{@}
 Query[ia]=https://yandex.ru/search/?text=\\{@}
 Query[id]=https://yandex.ru/search/?text=\\{@}
+Query[ie]=https://yandex.ru/search/?text=\\{@}
 Query[is]=https://yandex.ru/search/?text=\\{@}
 Query[it]=https://yandex.ru/search/?text=\\{@}
 Query[ka]=https://yandex.ru/search/?text=\\{@}

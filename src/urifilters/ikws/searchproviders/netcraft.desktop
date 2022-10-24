@@ -42,6 +42,7 @@ Name[hsb]=Netcraft
 Name[hu]=Netcraft
 Name[ia]=Netcraft
 Name[id]=Netcraft
+Name[ie]=Netcraft
 Name[is]=Netcraft
 Name[it]=Netcraft
 Name[ka]=Netcraft
@@ -119,6 +120,7 @@ Query[gl]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[hu]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ia]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[id]=https://uptime.netcraft.com/up/graph?site=\\{@}
+Query[ie]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[is]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[it]=https://uptime.netcraft.com/up/graph?site=\\{@}
 Query[ka]=https://uptime.netcraft.com/up/graph?site=\\{@}

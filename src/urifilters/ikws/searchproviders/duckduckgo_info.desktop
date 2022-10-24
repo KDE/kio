@@ -35,6 +35,7 @@ Name[hr]=Duck Duck Go Info
 Name[hu]=Duck Duck Go Info
 Name[ia]=Duck Duck Go Info
 Name[id]=Info Duck Duck Go
+Name[ie]=Duck Duck Go Info
 Name[is]=Duck Duck Go upplýsingar
 Name[it]=Informazioni di Duck Duck Go
 Name[ka]=Duck Duck Go ინფორმაცია
@@ -102,6 +103,7 @@ Query[hi]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ia]=http://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[ie]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

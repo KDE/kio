@@ -36,6 +36,7 @@ Name[hr]=7Digital
 Name[hu]=7Digital
 Name[ia]=7Digital
 Name[id]=7Digital
+Name[ie]=7Digital
 Name[is]=7Digital
 Name[it]=7Digital
 Name[ka]=7Digital
@@ -102,6 +103,7 @@ Query[gl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[hu]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ia]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[id]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ie]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[is]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ka]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

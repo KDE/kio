@@ -42,6 +42,7 @@ Name[hsb]=Technorati
 Name[hu]=Technorati
 Name[ia]=Technorati
 Name[id]=Technorati
+Name[ie]=Technorati
 Name[is]=Technorati
 Name[it]=Technorati
 Name[ka]=Technorati
@@ -118,6 +119,7 @@ Query[gl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[hu]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ia]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[id]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ie]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[is]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[it]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ka]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

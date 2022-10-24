@@ -25,6 +25,7 @@ Name[gl]=ArchWiki
 Name[hu]=ArchWiki
 Name[ia]=ArchWiki
 Name[id]=ArchWiki
+Name[ie]=ArchWiki
 Name[is]=ArchWiki
 Name[it]=ArchWiki
 Name[ka]=ArchWiki
@@ -74,6 +75,7 @@ Query[gl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[hu]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ia]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[id]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[ie]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[is]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[it]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ka]=https://wiki.archlinux.org/index.php?search=\\{@}

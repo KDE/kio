@@ -27,6 +27,7 @@ Name[gl]=Gran Enciclopèdia Catalana
 Name[hu]=Katalán nagyszótár (GRan Enciclopèdia  Catalana)
 Name[ia]=Grande Dictionario del Linguage Catalan (GRan Enciclopèdia  Catalana)
 Name[id]=Kamus Besar Bahasa Catalan (GRan Enciclopèdia Catalana)
+Name[ie]=Li grand dictionarium del catalan lingue (GRan Enciclopèdia Catalana)
 Name[is]=Stóra orðabók katalónska tungumálsins (GRan Enciclopèdia  Catalana)
 Name[it]=Grande dizionario della lingua catalana (GRan Enciclopèdia Catalana)
 Name[ka]=კატალანური ენის დიდი ლექსიკონი (GRan Enciclopèdia Catalana)
@@ -91,6 +92,7 @@ Query[hr]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[hu]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ia]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[id]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[ie]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[is]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[it]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ka]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}

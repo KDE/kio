@@ -44,6 +44,7 @@ Name[hsb]=KDE API-dokumentacija
 Name[hu]=A KDE API dokumentációja
 Name[ia]=Documentation de KDE API 
 Name[id]=Dokumentasi API KDE
+Name[ie]=KDE API Documentation
 Name[is]=KDE forritunarviðmótsleiðbeiningar
 Name[it]=Documentazione dell'API di KDE
 Name[ka]=KDE API დოკუმენტაცია
@@ -115,6 +116,7 @@ Query[fr]=https://api.kde.org/search.html?query=\\{@}
 Query[gl]=https://api.kde.org/search.html?query=\\{@}
 Query[ia]=https://api.kde.org/search.html?query=\\{@}
 Query[id]=https://api.kde.org/search.html?query=\\{@}
+Query[ie]=https://api.kde.org/search.html?query=\\{@}
 Query[is]=https://api.kde.org/search.html?query=\\{@}
 Query[it]=https://api.kde.org/search.html?query=\\{@}
 Query[ka]=https://api.kde.org/search.html?query=\\{@}

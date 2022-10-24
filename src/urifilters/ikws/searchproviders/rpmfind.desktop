@@ -41,6 +41,7 @@ Name[hsb]=RPM-Find
 Name[hu]=RPM-Find
 Name[ia]=RPM-Find
 Name[id]=RPM-Find
+Name[ie]=RPM-Find
 Name[is]=RPM-leit
 Name[it]=Ricerca di RPM
 Name[ka]=RPM-Find
@@ -118,6 +119,7 @@ Query[gl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[hu]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ia]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[id]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ie]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[is]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[it]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ka]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

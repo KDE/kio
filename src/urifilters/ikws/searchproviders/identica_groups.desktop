@@ -35,6 +35,7 @@ Name[hr]=Grupe na Identi.ci
 Name[hu]=Identi.ca csoportok
 Name[ia]=Gruppos de Identi.ca
 Name[id]=Identi.ca Groups
+Name[ie]=Identi.ca Groups
 Name[is]=Identi.ca hópar
 Name[it]=Gruppi di Identi.ca
 Name[ka]=Identi.ca ჯგუფები
@@ -104,6 +105,7 @@ Query[hi]=https://identi.ca/search/group?q=\\{@}
 Query[hu]=https://identi.ca/search/group?q=\\{@}
 Query[ia]=https://identi.ca/search/group?q=\\{@}
 Query[id]=https://identi.ca/search/group?q=\\{@}
+Query[ie]=https://identi.ca/search/group?q=\\{@}
 Query[is]=https://identi.ca/search/group?q=\\{@}
 Query[it]=https://identi.ca/search/group?q=\\{@}
 Query[ka]=https://identi.ca/search/group?q=\\{@}

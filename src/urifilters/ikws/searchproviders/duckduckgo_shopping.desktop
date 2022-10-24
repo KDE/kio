@@ -35,6 +35,7 @@ Name[hr]=Duck Duck Go Shopping
 Name[hu]=Duck Duck Go Shopping
 Name[ia]=Duck Duck Go Shopping
 Name[id]=Belanja Duck Duck Go
+Name[ie]=Duck Duck Go Shopping
 Name[is]=Duck Duck Go verslun
 Name[it]=Acquisti di Duck Duck Go
 Name[ka]=Duck Duck Go საყიდლები
@@ -103,6 +104,7 @@ Query[hi]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ia]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[id]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[ie]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

@@ -34,6 +34,7 @@ Name[hr]=Baidu
 Name[hu]=Baidu
 Name[ia]=Baidu
 Name[id]=Baidu
+Name[ie]=Baidu
 Name[is]=Baidu
 Name[it]=Baidu
 Name[ka]=Baidu
@@ -101,6 +102,7 @@ Query[gl]=https://www.baidu.com/s?wd=\\{@}
 Query[hu]=https://www.baidu.com/s?wd=\\{@}
 Query[ia]=https://www.baidu.com/s?wd=\\{@}
 Query[id]=https://www.baidu.com/s?wd=\\{@}
+Query[ie]=https://www.baidu.com/s?wd=\\{@}
 Query[is]=https://www.baidu.com/s?wd=\\{@}
 Query[it]=https://www.baidu.com/s?wd=\\{@}
 Query[ka]=https://www.baidu.com/s?wd=\\{@}

@@ -36,6 +36,7 @@ Name[hr]=Flickr
 Name[hu]=Flickr
 Name[ia]=Flickr
 Name[id]=Flickr
+Name[ie]=Flickr
 Name[is]=Flickr
 Name[it]=Flickr
 Name[ka]=Flickr
@@ -103,6 +104,7 @@ Query[gl]=https://www.flickr.com/search/?q=\\{@}
 Query[hu]=https://www.flickr.com/search/?q=\\{@}
 Query[ia]=https://www.flickr.com/search/?q=\\{@}
 Query[id]=https://www.flickr.com/search/?q=\\{@}
+Query[ie]=https://www.flickr.com/search/?q=\\{@}
 Query[is]=https://www.flickr.com/search/?q=\\{@}
 Query[it]=https://www.flickr.com/search/?q=\\{@}
 Query[ka]=https://www.flickr.com/search/?q=\\{@}

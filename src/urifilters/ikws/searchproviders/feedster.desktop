@@ -42,6 +42,7 @@ Name[hsb]=Feedster
 Name[hu]=Feedster
 Name[ia]=Feedster
 Name[id]=Feedster
+Name[ie]=Feedster
 Name[is]=Feedster
 Name[it]=Feedster
 Name[ka]=Feedster
@@ -118,6 +119,7 @@ Query[gl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[hu]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ia]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[id]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[ie]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[is]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[it]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ka]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

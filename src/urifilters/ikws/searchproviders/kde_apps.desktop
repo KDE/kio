@@ -40,6 +40,7 @@ Name[hsb]=KDE App Search
 Name[hu]=KDE alkalmazások keresése
 Name[ia]=Cerca de KDE App 
 Name[id]=Pencarian Aplikasi KDE
+Name[ie]=KDE App Search
 Name[is]=KDE App Search
 Name[it]=Ricerca di applicazioni per KDE
 Name[ka]=KDE App ძებნა
@@ -118,6 +119,7 @@ Query[gl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[hu]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ia]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[id]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ie]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[is]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ka]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

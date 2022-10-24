@@ -26,6 +26,7 @@ Name[gl]=Imaxes en Qwant
 Name[hu]=Qwant képek
 Name[ia]=Qwant Images
 Name[id]=Qwant Images
+Name[ie]=Qwant Images
 Name[is]=Qwant myndir
 Name[it]=Immagini di Qwant
 Name[ka]=Qwant სურათი
@@ -82,6 +83,7 @@ Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ie]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

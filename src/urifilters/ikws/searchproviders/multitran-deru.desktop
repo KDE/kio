@@ -41,6 +41,7 @@ Name[hsb]=Multitran - přełožowanje z němčiny a rušćiny
 Name[hu]=Multitran - Fordítás németről oroszra (mindkét irányban)
 Name[ia]=Multitran - Traduce Inter Germano e Russo
 Name[id]=Multitran - Penerjemahan Antara Bahasa Jerman dan Rusia
+Name[ie]=Multitran - Traducter inter german e russ
 Name[is]=Multitran - Þýða á milli þýsku og rússnesku
 Name[it]=Multitran - Traduzioni tra tedesco e russo
 Name[ka]=Multitran თარგმანი გერმანულიდან რუსულზე და პირიქით
@@ -114,6 +115,7 @@ Query[gl]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[hu]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ia]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[id]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[ie]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

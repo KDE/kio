@@ -18,6 +18,7 @@ Name[fr]=Documentation de Rust STD
 Name[gl]=Documentación de Rust STD
 Name[ia]=Documentation STD de Rust
 Name[id]=Dokumentasi Rust STD
+Name[ie]=Rust STD Documentation
 Name[is]=Rust STD handbækur
 Name[it]=Documentazione di STD di Rust
 Name[ko]=Rust STD 문서
@@ -59,6 +60,7 @@ Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[id]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[ie]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[is]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[it]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ka]=https://doc.rust-lang.org/std/index.html?search=\\{@}

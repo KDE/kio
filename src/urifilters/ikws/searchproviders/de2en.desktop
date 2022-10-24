@@ -42,6 +42,7 @@ Name[hsb]=dict.cc přełožowanje: němsce -> jendźelsce
 Name[hu]=Dict.cc - Fordítás németről angolra
 Name[ia]=dict.cc Traduction: Germano a Anglese
 Name[id]=Terjemahan dict.cc: Bahasa Jerman ke Inggris
+Name[ie]=Traduction dict.cc: german a anglesi
 Name[is]=dict.cc Þýðing: Þýska til ensku
 Name[it]=Traduzione dict.cc: dal tedesco all'inglese
 Name[ka]=dict.cc-ის თარგმანი. გერმანულიდან ინგლისურზე
@@ -117,6 +118,7 @@ Query[gl]=https://www.dict.cc/?s=\\{@}
 Query[hu]=https://www.dict.cc/?s=\\{@}
 Query[ia]=https://www.dict.cc/?s=\\{@}
 Query[id]=https://www.dict.cc/?s=\\{@}
+Query[ie]=https://www.dict.cc/?s=\\{@}
 Query[is]=https://www.dict.cc/?s=\\{@}
 Query[it]=https://www.dict.cc/?s=\\{@}
 Query[ka]=https://www.dict.cc/?s=\\{@}

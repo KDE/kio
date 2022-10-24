@@ -41,6 +41,7 @@ Name[hsb]=Internetowa datowa baza filmow
 Name[hu]=IMDb filmadatbázis
 Name[ia]=Internet Movie Database
 Name[id]=Basis Data Film Internet
+Name[ie]=Internet Movie Database
 Name[is]=IMDB internet kvikmyndagagnagrunnurinn
 Name[it]=Banca dati cinematografica in rete
 Name[ka]=ინტერნეტის ფილმების ბაზა
@@ -117,6 +118,7 @@ Query[gl]=https://imdb.com/find?s=all&q=\\{@}
 Query[hu]=https://imdb.com/find?s=all&q=\\{@}
 Query[ia]=https://imdb.com/find?s=all&q=\\{@}
 Query[id]=https://imdb.com/find?s=all&q=\\{@}
+Query[ie]=https://imdb.com/find?s=all&q=\\{@}
 Query[is]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
 Query[ka]=https://imdb.com/find?s=all&q=\\{@}

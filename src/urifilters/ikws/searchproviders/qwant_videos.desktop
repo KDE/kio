@@ -27,6 +27,7 @@ Name[gl]=Vídeos en Qwant
 Name[hu]=Qwant videók
 Name[ia]=Qwant Videos
 Name[id]=Qwant Video
+Name[ie]=Qwant Videos
 Name[is]=Qwant myndskeið
 Name[it]=Video di Qwant
 Name[ka]=Qwant ვიდეოები
@@ -83,6 +84,7 @@ Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ie]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

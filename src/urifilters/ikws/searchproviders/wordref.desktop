@@ -43,6 +43,7 @@ Name[hsb]=WordReference.com English Dictionary
 Name[hu]=WordReference.com angol szótár
 Name[ia]=WordReference.com Dictionario Anglese
 Name[id]=Kamus Bahasa Inggris WordReference.com
+Name[ie]=Dictionarium anglesi de WordReference.com
 Name[is]=WordReference.com ensk orðabók
 Name[it]=Dizionario inglese WordReference.com
 Name[ka]=WordReference.com ინგლისური ლექსიკონი
@@ -118,6 +119,7 @@ Query[gl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[hu]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ia]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[id]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[ie]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[is]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[it]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ka]=https://www.wordreference.com/english/definition.asp?en=\\{@}

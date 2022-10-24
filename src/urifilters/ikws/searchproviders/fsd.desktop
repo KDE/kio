@@ -41,6 +41,7 @@ Name[hsb]=FSF/UNESCO Free Software Directory
 Name[hu]=FSF/UNESCO szabadszoftver-gyűjtemény
 Name[ia]=FSF/UNESCO Free Software Directory (Directorio de software libere)
 Name[id]=Direktori Perangkat Lunak Gratis FSF/UNESCO
+Name[ie]=FSF/UNESCO Free Software Directory
 Name[is]=FSF/UNESCO Free Software Directory
 Name[it]=Elenco di software libero di FSF e UNESCO
 Name[ka]=FSF/UNESCO უფასო პროგრამული უზრუნველყოფის სია
@@ -116,6 +117,7 @@ Query[gl]=https://directory.fsf.org/search/?query=\\{@}
 Query[hu]=https://directory.fsf.org/search/?query=\\{@}
 Query[ia]=https://directory.fsf.org/search/?query=\\{@}
 Query[id]=https://directory.fsf.org/search/?query=\\{@}
+Query[ie]=https://directory.fsf.org/search/?query=\\{@}
 Query[is]=https://directory.fsf.org/search/?query=\\{@}
 Query[it]=https://directory.fsf.org/search/?query=\\{@}
 Query[ka]=https://directory.fsf.org/search/?query=\\{@}

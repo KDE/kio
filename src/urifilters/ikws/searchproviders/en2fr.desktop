@@ -42,6 +42,7 @@ Name[hsb]=WordReference.com přełožowanje: jendźelsce -> francosce
 Name[hu]=WordReference.com fordítás: angolról franciára
 Name[ia]=WordReference.com Traduction: Anglese a Francese
 Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Perancis
+Name[ie]=Traduction de WordReference.com: anglesi a francesi
 Name[is]=WordReference.com þýðing: Ensk/frönsk
 Name[it]=Traduzione WordReference.com: dall'inglese al francese
 Name[ka]=WordReference.com თარგმანი: ინგლისურიდან ფრანგულზე
@@ -116,6 +117,7 @@ Query[gl]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[hu]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ia]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[id]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[ie]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[is]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[it]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[ka]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

@@ -20,6 +20,7 @@ Name[fr]=Documentation de Flatpak
 Name[gl]=Documentación de Flatpak
 Name[ia]=Documentation de Flatpak
 Name[id]=Dokumentasi Flatpak
+Name[ie]=Documentation de Flatpak
 Name[is]=Flatpak hjálparskjöl
 Name[it]=Documentazione Flatpak
 Name[ko]=Flatpak 문서
@@ -62,6 +63,7 @@ Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[gl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[id]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[ie]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[is]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[it]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ka]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

@@ -20,6 +20,7 @@ Name[fr]=KDE Reddit
 Name[gl]=KDE Reddit
 Name[ia]=KDE Reddit
 Name[id]=KDE Reddit
+Name[ie]=Reddit de KDE
 Name[is]=KDE Reddit
 Name[it]=KDE Reddit
 Name[ko]=KDE Reddit
@@ -61,6 +62,7 @@ Query[fr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[gl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ia]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[id]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ie]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[is]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[it]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ka]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

@@ -42,6 +42,7 @@ Name[hsb]=Wikisłownik - Swobodny słownik
 Name[hu]=Wiktionary
 Name[ia]=Wiktionary - Le Dictionario Libere e Gratuite
 Name[id]=Wiktionary - Kamus Gratis
+Name[ie]=Wiktionarium - Li líber dictionarium
 Name[is]=Wiktionary - Frjálsa orðabókin
 Name[it]=Wiktionary - Il dizionario libero
 Name[ka]=Wiktionary - უფასო ლექსიკონი
@@ -121,6 +122,7 @@ Query[hi]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hu]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ia]=http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ie]=https://ie.wiktionary.org/wiki/Special:Serchar?search=\\{@}&go=Continuar
 Query[is]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ka]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

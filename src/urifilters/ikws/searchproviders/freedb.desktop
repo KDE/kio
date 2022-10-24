@@ -42,6 +42,7 @@ Name[hsb]=FreeDB
 Name[hu]=FreeDB
 Name[ia]=FreeDB
 Name[id]=FreeDB
+Name[ie]=FreeDB
 Name[is]=FreeDB
 Name[it]=FreeDB
 Name[ka]=FreeDB
@@ -135,6 +136,7 @@ Query[hsb]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[hu]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ia]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[id]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[ie]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[is]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[it]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ka]=http://www.freedb.org/freedb_search.php?words=\\{@}

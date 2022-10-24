@@ -22,6 +22,7 @@ Name[fr]=Boutique de KDE
 Name[gl]=Tenda KDE
 Name[ia]=KDE Store (Immagazina de KDE)
 Name[id]=KDE Store
+Name[ie]=KDE Store
 Name[is]=KDE-verslunin
 Name[it]=KDE Store
 Name[ka]=KDE -ის მაღაზია
@@ -62,6 +63,7 @@ Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ia]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[id]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[ie]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[is]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ka]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

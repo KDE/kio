@@ -40,6 +40,7 @@ Name[hsb]=Microsoft Developer Network Search
 Name[hu]=Microsoft Developer Network Search
 Name[ia]=Microsoft Developer Network Search
 Name[id]=Pencarian Jaringan Pengembang Microsoft
+Name[ie]=Serchar in li Microsoft Developer Network
 Name[is]=Microsoft Developer Network leit
 Name[it]=Ricerca su Microsoft Developer Network
 Name[ka]=Microsoft Developer Network-ში ძებნა
@@ -120,6 +121,7 @@ Query[hi]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[hu]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ia]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[id]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[ie]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[is]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[it]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ka]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

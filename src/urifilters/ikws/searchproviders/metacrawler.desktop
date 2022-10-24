@@ -42,6 +42,7 @@ Name[hsb]=MetaCrawler
 Name[hu]=MetaCrawler
 Name[ia]=MetaCrawler
 Name[id]=MetaCrawler
+Name[ie]=MetaCrawler
 Name[is]=MetaCrawler
 Name[it]=MetaCrawler
 Name[ka]=MetaCrawler
@@ -119,6 +120,7 @@ Query[gl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[hu]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ia]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[id]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[ie]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[is]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[it]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ka]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

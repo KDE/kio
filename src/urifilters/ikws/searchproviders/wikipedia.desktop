@@ -43,6 +43,7 @@ Name[hsb]=Wikipedia - Swobodna encyklopedija
 Name[hu]=Wikipédia - A szabad enciklopédia
 Name[ia]=Wikipedia - Le Encyclopedia Libere e Gratuite
 Name[id]=Wikipedia - Ensiklopedia Gratis
+Name[ie]=Wikipedia - Li líber enciclopedie
 Name[is]=Wikipedia - Frjálst alfræðiorðasafn
 Name[it]=Wikipedia - L'enciclopedia libera
 Name[ka]=Wikipedia - უფასო ენციკლოპედია
@@ -123,6 +124,7 @@ Query[hi]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ia]=http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ie]=https://ie.wikipedia.org/wiki/Special:Serchar?search=\\{@}&go=Continuar
 Query[is]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ka]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

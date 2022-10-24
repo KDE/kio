@@ -41,6 +41,7 @@ Name[hsb]=Google pytanje za wobrazami
 Name[hu]=Google képkereső
 Name[ia]=Google Image Search : cerca de Imagine de Google
 Name[id]=Penelusuran Citra Google
+Name[ie]=Sercha de images de Google
 Name[is]=Google - Myndaleit
 Name[it]=Ricerca di immagini di Google
 Name[ka]=Google სურათების ძებნა
@@ -123,6 +124,7 @@ Query[hi]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[hu]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ia]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[id]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ie]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[is]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

@@ -36,6 +36,7 @@ Name[hr]=Vimeo
 Name[hu]=Vimeo
 Name[ia]=Vimeo
 Name[id]=Vimeo
+Name[ie]=Vimeo
 Name[is]=Vimeo
 Name[it]=Vimeo
 Name[ka]=Vimeo
@@ -102,6 +103,7 @@ Query[gl]=https://vimeo.com/search?q=\\{@}
 Query[hu]=https://vimeo.com/search?q=\\{@}
 Query[ia]=https://vimeo.com/search?q=\\{@}
 Query[id]=https://vimeo.com/search?q=\\{@}
+Query[ie]=https://vimeo.com/search?q=\\{@}
 Query[is]=https://vimeo.com/search?q=\\{@}
 Query[it]=https://vimeo.com/search?q=\\{@}
 Query[ka]=https://vimeo.com/search?q=\\{@}

@@ -41,6 +41,7 @@ Name[hsb]=Multitran - přełožowanje ze španšćiny a rušćiny
 Name[hu]=Multitran - Fordítás spanyolról oroszra (mindkét irányban)
 Name[ia]=Multitran - Traduce Inter Espaniol e Russo
 Name[id]=Multitran - Penerjemahan Antara Bahasa Spanyol dan Rusia
+Name[ie]=Multitran - Traducter inter hispan e russ
 Name[is]=Multitran - Þýða á milli spænsku og rússnesku
 Name[it]=Multitran - Traduzioni tra spagnolo e russo
 Name[ka]=Multitran თარგმანი ესპანურიდან რუსულზე და პირიქით
@@ -114,6 +115,7 @@ Query[gl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[hu]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ia]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[id]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[ie]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

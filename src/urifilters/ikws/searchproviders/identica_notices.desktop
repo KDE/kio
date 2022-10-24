@@ -35,6 +35,7 @@ Name[hr]=Poruke na Identi.ci
 Name[hu]=Identi.ca üzenetek
 Name[ia]=Novas de Identi.ca
 Name[id]=Identi.ca Notices
+Name[ie]=Noticies de Identi.ca
 Name[is]=Identi.ca tilkynningar
 Name[it]=Notifiche di Identi.ca
 Name[ka]=Identi.ca შენიშვნებ
@@ -104,6 +105,7 @@ Query[hi]=https://identi.ca/search/notice?q=\\{@}
 Query[hu]=https://identi.ca/search/notice?q=\\{@}
 Query[ia]=https://identi.ca/search/notice?q=\\{@}
 Query[id]=https://identi.ca/search/notice?q=\\{@}
+Query[ie]=https://identi.ca/search/notice?q=\\{@}
 Query[is]=https://identi.ca/search/notice?q=\\{@}
 Query[it]=https://identi.ca/search/notice?q=\\{@}
 Query[ka]=https://identi.ca/search/notice?q=\\{@}

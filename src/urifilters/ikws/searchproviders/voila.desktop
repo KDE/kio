@@ -42,6 +42,7 @@ Name[hsb]=Voila
 Name[hu]=Voila
 Name[ia]=Voila
 Name[id]=Voila
+Name[ie]=Voila
 Name[is]=Voila
 Name[it]=Voila
 Name[ka]=Voila
@@ -120,6 +121,7 @@ Query[gl]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[hu]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ia]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[id]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[ie]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[is]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[it]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ka]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

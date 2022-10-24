@@ -36,6 +36,7 @@ Name[hr]=Amazon MP3
 Name[hu]=Amazon MP3
 Name[ia]=Amazon MP3
 Name[id]=Amazon MP3
+Name[ie]=Amazon MP3
 Name[is]=Amazon MP3
 Name[it]=Amazon MP3
 Name[ka]=ამაზონის MP3
@@ -103,6 +104,7 @@ Query[gl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music
 Query[hu]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ia]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[id]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[ie]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[is]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[it]=https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ka]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

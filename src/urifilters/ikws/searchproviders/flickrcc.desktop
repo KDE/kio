@@ -35,6 +35,7 @@ Name[hr]=Flickr Creative Commons
 Name[hu]=Flickr Creative Commons
 Name[ia]=Flickr Creative Commons
 Name[id]=Flickr Creative Commons
+Name[ie]=Flickr Creative Commons
 Name[is]=Flickr Creative Commons
 Name[it]=Creative Commons su Flickr
 Name[ka]=Flickr Creative Commons
@@ -103,6 +104,7 @@ Query[hi]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[hu]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ia]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[id]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[ie]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[is]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[it]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ka]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

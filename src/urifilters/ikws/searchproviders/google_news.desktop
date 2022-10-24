@@ -42,6 +42,7 @@ Name[hsb]=Google nowiny
 Name[hu]=Google hírek
 Name[ia]=Google News - Novas de Google
 Name[id]=Google News
+Name[ie]=Google News
 Name[is]=Google fréttir
 Name[it]=Notizie di Google
 Name[ka]=Google სიახლეები
@@ -123,6 +124,7 @@ Query[hi]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[hu]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ia]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[id]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ie]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[is]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

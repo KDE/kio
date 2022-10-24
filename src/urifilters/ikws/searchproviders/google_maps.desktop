@@ -34,6 +34,7 @@ Name[hr]=Google Maps
 Name[hu]=Google térkép
 Name[ia]=Google Maps : Mappas de Google
 Name[id]=Google Maps
+Name[ie]=Google Maps
 Name[is]=Google Kort
 Name[it]=Mappe di Google
 Name[ka]=Google Maps
@@ -104,6 +105,7 @@ Query[hi]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[hu]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ia]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[id]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[ie]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[is]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[it]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ka]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
