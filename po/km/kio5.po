@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:45+0000\n"
+"POT-Creation-Date: 2022-10-25 00:43+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3364,27 +3364,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:659
 #, kde-format
 msgid "You can only select one file"
 msgstr "អ្នក​អាច​​ជ្រើស​តែ​ឯកសារ​មួយ​ប៉ុណ្ណោះ"
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:659
 #, kde-format
 msgid "More than one file provided"
 msgstr "បាន​ផ្ដល់​ឯកសារ​ច្រើនជាង​មួយ"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "You can only select local files"
 msgstr "អ្នក​អាច​ជ្រើស​តែ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "មិនបាន​ទទួល​ឯកសារ​ពី​ចម្ងាយ​ទេ"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:837
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3394,12 +3394,12 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:836
+#: filewidgets/kfilewidget.cpp:843
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3409,12 +3409,12 @@ msgstr ""
 "មានថត​ច្រើនជាង​មួយ​ត្រូវ​បាន​ជ្រើស ហើយ​ប្រអប់​នេះ​មិន​ទទួល​យក​ថត​ទេ ដូច្នេះ​វា​មិនអាច​សម្រេចចិត្ត​ថាតើ​ត្រូវ​"
 "បញ្ចូល​​ថត​មួយណាទេ ។ សូម​ជ្រើស​តែ​ថត​មួយ​ប៉ុណ្ណោះ​ដើម្បី​រាយ​វា ។"
 
-#: filewidgets/kfilewidget.cpp:854
+#: filewidgets/kfilewidget.cpp:861
 #, kde-format
 msgid "More than one folder provided"
 msgstr "បានផ្ដល់​ថត​ច្រើន​ជាង​មួយ"
 
-#: filewidgets/kfilewidget.cpp:864
+#: filewidgets/kfilewidget.cpp:871
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3423,22 +3423,22 @@ msgstr ""
 "យ៉ាង​ហោចណាស់​មាន​ថត និង​ឯកសារ​ត្រូវ​បាន​ជ្រើស ។ ឯកសារ​ដែល​បាន​ជ្រើស​នឹង​ត្រូវ​បាន​មិនអើពើ​ និង​ថត​ដែល​បាន​"
 "ជ្រើស​នឹង​ត្រូវ​បាន​រាយ"
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:872
 #, kde-format
 msgid "Files and folders selected"
 msgstr "បាន​ជ្រើស​​ឯកសារ​ និង​ថត"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:890
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "មិនអាច​រកឃើញ​ឯកសារ \"%1\" ទេ"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:890
 #, kde-format
 msgid "Cannot open file"
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
 
-#: filewidgets/kfilewidget.cpp:1260
+#: filewidgets/kfilewidget.cpp:1267
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3452,44 +3452,44 @@ msgstr ""
 "<qt>ចុច​ប៊ូតុង​នេះ​ដើម្បីបញ្ចូល​ថត​មេ ។<br /><br />ឧទាហរណ៍ ប្រសិន​បើ​ថត​បច្ចុប្បន្ន​គឺ file:/home/%1 "
 "ដោយ​ចុច​ប៊ូតុង​នេះ​នឹង​នាំ​អ្នក​ទៅ​កាន់ file:/home ។</qt>"
 
-#: filewidgets/kfilewidget.cpp:1264
+#: filewidgets/kfilewidget.cpp:1271
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្លាស់ទី​ថយក្រោយ​មួយ​ជំហាន​ក្នុង​ប្រវត្តិ​ការ​រុករក ។"
 
-#: filewidgets/kfilewidget.cpp:1265
+#: filewidgets/kfilewidget.cpp:1272
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្លាស់ទី​ទៅ​មុខ​មួយ​ជំហាន ក្នុង​ប្រវត្តិ​ការរុករក ។"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1274
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្ទុក​មាតិកា​របស់​ទីតាំង​បច្ចុប្បន្ន​ឡើង​វិញ ។"
 
-#: filewidgets/kfilewidget.cpp:1269
+#: filewidgets/kfilewidget.cpp:1276
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​បង្កើត​ថត​ថ្មី​មួយ ។"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1278
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "បង្ហាញ​បន្ទះ​រុករក​ទីតាំង"
 
-#: filewidgets/kfilewidget.cpp:1278
+#: filewidgets/kfilewidget.cpp:1285
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "បង្ហាញ​ចំណាំ"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1292
 #, kde-format
 msgid "Options"
 msgstr "ជម្រើស"
 
-#: filewidgets/kfilewidget.cpp:1288
+#: filewidgets/kfilewidget.cpp:1295
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3509,12 +3509,12 @@ msgstr ""
 "រូបតំណាង និង​បញ្ជី</li><li>ការ​បង្ហាញ​ឯកសារ​ដែលលាក់</li><li>បន្ទះ​រុករក​ទីតាំង</li><li>មើល​"
 "ឯកសារ​ជាមុន</li><li>បំបែក​ថត​ចេញ​ពី​​ឯកសារ</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1307
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid "Bookmarks"
 msgstr "ចំណាំ"
 
-#: filewidgets/kfilewidget.cpp:1311
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3527,12 +3527,12 @@ msgstr ""
 "មិនដូចនោះ​ទេ វា​​ប្រតិបត្តិ​ដូច​ចំណាំ​នៅ​កន្លែង​ផ្សេងទៀត​នៅ​ក្នុង KDE អញ្ចឹង ។</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1350 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1357 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "ឈ្មោះ ៖ "
 
-#: filewidgets/kfilewidget.cpp:1425
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3544,12 +3544,12 @@ msgstr ""
 "ត្រូវបាន​ត្រួតពិនិត្យ​ដោយ​ការ​ចុច​កណ្ដុរ​ខាងស្ដាំ ហើយ​ជ្រើស​របៀប​ដែល​ចូលចិត្ត​ពី​ម៉ឺនុយ <b>ការ​បំពេញ​អត្ថបទ</b> ។"
 "</qt>"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "នេះ​ជា​ឈ្មោះ​សម្រាប់​ឯកសារ​ដែលត្រូវ​រក្សាទុក ។"
 
-#: filewidgets/kfilewidget.cpp:1435
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3558,79 +3558,79 @@ msgstr ""
 "នេះ​គឺ​ជា​បញ្ជី​ឯកសារ​ដែល​ត្រូវ​បើក ។ ឯកសារ​ច្រើន​ជាង​មួយ អាច​បញ្ជាក់​ដោយ​ការ​រាយ​ឯកសារ​ជា​ច្រើនក្នុង​បញ្ជី "
 "ដែល​ខណ្ឌចែក​ដោយ​ដកឃ្លា ។"
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "នេះ​គឺ​ជា​ឈ្មោះ​របស់​ឯកសារ​ដែល​ត្រូវ​បើក ។"
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Places"
 
-#: filewidgets/kfilewidget.cpp:1671
+#: filewidgets/kfilewidget.cpp:1678
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "មាន​ឯកសារ \"%1\" រួច​ហើយ ។ តើអ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬទេ ?"
 
-#: filewidgets/kfilewidget.cpp:1672
+#: filewidgets/kfilewidget.cpp:1679
 #, kde-format
 msgid "Overwrite File?"
 msgstr "សរសេរ​ជាន់​លើ​ឯកសារ ?"
 
-#: filewidgets/kfilewidget.cpp:1895
+#: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "You can only select local files."
 msgstr "អ្នក​អាច​ជ្រើស​តែ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: filewidgets/kfilewidget.cpp:1895
+#: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "មិន​ទទួល​យក​ឯកសារ​ពី​ចម្ងាយ​ទេ"
 
-#: filewidgets/kfilewidget.cpp:1989
+#: filewidgets/kfilewidget.cpp:1996
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|ថត​ទាំងអស់"
 
-#: filewidgets/kfilewidget.cpp:1991
+#: filewidgets/kfilewidget.cpp:1998
 #, kde-format
 msgid "*|All Files"
 msgstr "*|ឯកសារ​ទាំងអស់"
 
-#: filewidgets/kfilewidget.cpp:2141 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2148 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "បើក"
 
-#: filewidgets/kfilewidget.cpp:2241
+#: filewidgets/kfilewidget.cpp:2248
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ទំហំ​រូបតំណាង ៖ %1 ភីកសែល"
 
-#: filewidgets/kfilewidget.cpp:2389
+#: filewidgets/kfilewidget.cpp:2396
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ជ្រើស​កន្ទុយ​ឈ្មោះ​ឯកសារ (%1) ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: filewidgets/kfilewidget.cpp:2390
+#: filewidgets/kfilewidget.cpp:2397
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "កន្ទុយឯកសារ <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2403
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ជ្រើស​កន្ទុយ​​ឈ្មោះ​ឯកសារ​ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: filewidgets/kfilewidget.cpp:2397
+#: filewidgets/kfilewidget.cpp:2404
 #, kde-format
 msgid "a suitable extension"
 msgstr "កន្ទុយឯកសារ​សមរម្យ"
 
-#: filewidgets/kfilewidget.cpp:2405
+#: filewidgets/kfilewidget.cpp:2412
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3655,25 +3655,25 @@ msgstr ""
 "ទៅ​ខាងចុង​ឈ្មោះ​ឯកសារ (ចំណុច​នឹង​ត្រូវបាន​យកចេញ​ដោយ​ស្វ័យប្រវត្តិ) ។</li></ol>ប្រសិន​បើ​មិនប្រាកដ គឺ​ទុក​"
 "ជម្រើស​នេះ​ឲ្យ​នៅ​បើក​ដដែល ព្រោះ​វា​ធ្វើ​ឲ្យ​ឯកសារ​របស់​អ្នក​កាន់តែ​អាច​គ្រប់គ្រងបាន ។"
 
-#: filewidgets/kfilewidget.cpp:2861
+#: filewidgets/kfilewidget.cpp:2868
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "តម្រង ៖ "
 
-#: filewidgets/kfilewidget.cpp:2862
+#: filewidgets/kfilewidget.cpp:2869
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2864
+#: filewidgets/kfilewidget.cpp:2871
 #, kde-format
 msgid "&Filter:"
 msgstr "តម្រង ៖ "
 
-#: filewidgets/kfilewidget.cpp:2866
+#: filewidgets/kfilewidget.cpp:2873
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
