@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:43+0000\n"
+"POT-Creation-Date: 2022-10-26 00:43+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2986,155 +2986,176 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "တပ်ဂ်များ"
 
-#: filewidgets/kfileplacesmodel.cpp:164
+#: filewidgets/kfileplacesmodel.cpp:165
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "တပ်ဂ်အားလုံး"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "အိမ်"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:296
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "ဒက်စ်တော့ပ်"
 
-#: filewidgets/kfileplacesmodel.cpp:301 filewidgets/kfileplacesmodel.cpp:460
+#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "မှတ်တမ်းစာအုပ်"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "ဒေါင်းလုတ်"
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "ဆ.သ.ရ-ကွန်ရက်"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:320
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "အမှိုက်ပုံး"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:381
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "ဂီတ"
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:388
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "ပုံ"
 
-#: filewidgets/kfileplacesmodel.cpp:395 filewidgets/kfileplacesmodel.cpp:472
+#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ဗီဒီယိုများ"
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "မကြာသေးမီကဖိုင်လ်များ"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:429
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "မကြားသေးမီကသွားခဲ့သောတည်နေရာများ"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "ယနေ့မွမ်းမံခဲ့မှုများ"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:456
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "မနေ့ကမွမ်းမံခဲ့မှုများ"
 
-#: filewidgets/kfileplacesmodel.cpp:464
+#: filewidgets/kfileplacesmodel.cpp:466
 msgctxt "KFile System Bookmarks"
 msgid "Images"
 msgstr "ပုံရိပ်"
 
-#: filewidgets/kfileplacesmodel.cpp:468
+#: filewidgets/kfileplacesmodel.cpp:470
 msgctxt "KFile System Bookmarks"
 msgid "Audio"
 msgstr "အော်ဒီယို"
 
-#: filewidgets/kfileplacesmodel.cpp:1159
+#: filewidgets/kfileplacesmodel.cpp:1161
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "နေရာများပန်နယ်သို့ မထည့်သွင်းနိုင်ခဲ့ပါ- %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1166
+#: filewidgets/kfileplacesmodel.cpp:1168
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "နေရာများပန်နယ်သို့ ဖိုလ်ဒါများသာထည့်သွင်းနိုင်သည်။"
 
-#: filewidgets/kfileplacesmodel.cpp:1430
+#: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "လွှတ်နေသည်…"
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1434
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Rလွှတ်"
 
-#: filewidgets/kfileplacesmodel.cpp:1436
+#: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "အထိအခိုက်မရှိစွာ ဖယ်ရှားနေသည်…"
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1440
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Sအထိအခိုက်မရှိစွာဖယ်ရှားမည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1443
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "ဖြုတ်နေသည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1447
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Uဖြုတ်ရန်"
 
-#: filewidgets/kfileplacesmodel.cpp:1469
+#: filewidgets/kfileplacesmodel.cpp:1471
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Eထုတ်မည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1505
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' စက်သည် မှတ်ဉာဏ်စက်မဟုတ်ပါ။ သို့ဖြစ်ပါ၍ ဖြုတ်မရပါ။"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1'ရယူအသုံးပြုနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်၊ စစ်စတမ်အကြောင်းပြန်ချက် - %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1542
+#: filewidgets/kfileplacesmodel.cpp:1555
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1'ရယူအသုံးပြုနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်"
+
+#: filewidgets/kfileplacesmodel.cpp:1581
+#, kde-format
+msgid "One or more files on this device are open within an application."
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:1584
+#, kde-kuit-format
+msgid ""
+"One or more files on this device are opened in application <application>"
+"\"%2\"</application>."
+msgid_plural ""
+"One or more files on this device are opened in following applications: "
+"<application>%2</application>."
+msgstr[0] ""
+
+#: filewidgets/kfileplacesmodel.cpp:1587
+#, kde-format
+msgctxt "separator in list of apps blocking device unmount"
+msgid ", "
+msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format

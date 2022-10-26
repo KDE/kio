@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:43+0000\n"
+"POT-Creation-Date: 2022-10-26 00:43+0000\n"
 "PO-Revision-Date: 2022-10-17 23:43+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3084,155 +3084,177 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "Hədəflər"
 
-#: filewidgets/kfileplacesmodel.cpp:164
+#: filewidgets/kfileplacesmodel.cpp:165
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Bütün etiketlər"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Ev"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:296
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: filewidgets/kfileplacesmodel.cpp:301 filewidgets/kfileplacesmodel.cpp:460
+#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Sənədlər"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Yükləmələr"
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Şəbəkə"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:320
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Səbət"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:381
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Musiqi"
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:388
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Şəkillər"
 
-#: filewidgets/kfileplacesmodel.cpp:395 filewidgets/kfileplacesmodel.cpp:472
+#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videolar"
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Əvvəlki Fayllar"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:429
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Əvvəlku Məkanlar"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Bugün Dəyişdirili"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:456
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Dünən Dəyişdirildi"
 
-#: filewidgets/kfileplacesmodel.cpp:464
+#: filewidgets/kfileplacesmodel.cpp:466
 msgctxt "KFile System Bookmarks"
 msgid "Images"
 msgstr "Şəkillər"
 
-#: filewidgets/kfileplacesmodel.cpp:468
+#: filewidgets/kfileplacesmodel.cpp:470
 msgctxt "KFile System Bookmarks"
 msgid "Audio"
 msgstr "Audio"
 
-#: filewidgets/kfileplacesmodel.cpp:1159
+#: filewidgets/kfileplacesmodel.cpp:1161
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Yerlər panelinə əlavə edilə bilmədi: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1166
+#: filewidgets/kfileplacesmodel.cpp:1168
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Yerlər panelinə yalnız qovluqlar əlavə edilə bilər."
 
-#: filewidgets/kfileplacesmodel.cpp:1430
+#: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Buraxılış..."
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1434
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Buraxılış"
 
-#: filewidgets/kfileplacesmodel.cpp:1436
+#: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Təhlükəsiz çıxartmaq..."
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1440
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Təhlükəsiz çıxartmaq"
 
-#: filewidgets/kfileplacesmodel.cpp:1443
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Ayrılır..."
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1447
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Ayırmaq"
 
-#: filewidgets/kfileplacesmodel.cpp:1469
+#: filewidgets/kfileplacesmodel.cpp:1471
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Çıxartmaq"
 
-#: filewidgets/kfileplacesmodel.cpp:1505
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Bu qurğu '%1' disk deyil və çıxarıla bilməz."
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1' giriş zamanl xəta baş verdi, fayl sisteminin cavabı: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1542
+#: filewidgets/kfileplacesmodel.cpp:1555
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1' giriş zamanı xəta baş verdi"
+
+#: filewidgets/kfileplacesmodel.cpp:1581
+#, kde-format
+msgid "One or more files on this device are open within an application."
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:1584
+#, kde-kuit-format
+msgid ""
+"One or more files on this device are opened in application <application>"
+"\"%2\"</application>."
+msgid_plural ""
+"One or more files on this device are opened in following applications: "
+"<application>%2</application>."
+msgstr[0] ""
+msgstr[1] ""
+
+#: filewidgets/kfileplacesmodel.cpp:1587
+#, kde-format
+msgctxt "separator in list of apps blocking device unmount"
+msgid ", "
+msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format

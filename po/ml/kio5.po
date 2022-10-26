@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:43+0000\n"
+"POT-Creation-Date: 2022-10-26 00:43+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -2993,7 +2993,7 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "ടാഗുകൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:164
+#: filewidgets/kfileplacesmodel.cpp:165
 #, fuzzy
 #| msgid "All tags"
 msgctxt "KFile System Bookmarks"
@@ -3002,127 +3002,127 @@ msgstr "എല്ലാ ടാഗുകളും"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:287
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "ഹോം"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:296
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "ഡെസ്ക്ടോപ്പ്"
 
-#: filewidgets/kfileplacesmodel.cpp:301 filewidgets/kfileplacesmodel.cpp:460
+#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "രേഖകൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "ഡൗൺലോഡുകൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:315
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "നെറ്റ്‌വര്‍ക്ക്"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:320
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "ചവറ്റുകുട്ട"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:381
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "സംഗീതം"
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:388
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "ചിത്രങ്ങൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:395 filewidgets/kfileplacesmodel.cpp:472
+#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "വീഡിയോകൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:424
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "ഫയലുകള്‍ വെട്ടിമാറ്റുക"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:429
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "ശരിയായ തിരിച്ചറിയല്‍:"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "ഇന്ന് പരിഷ്ക്കരിച്ചു"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:456
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "ഇന്നലെ പരിഷ്ക്കരിച്ചു"
 
-#: filewidgets/kfileplacesmodel.cpp:464
+#: filewidgets/kfileplacesmodel.cpp:466
 msgctxt "KFile System Bookmarks"
 msgid "Images"
 msgstr "ചിത്രങ്ങൾ"
 
-#: filewidgets/kfileplacesmodel.cpp:468
+#: filewidgets/kfileplacesmodel.cpp:470
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Audio"
 msgstr "ഫയലുകള്‍ ലഭ്യമല്ല"
 
-#: filewidgets/kfileplacesmodel.cpp:1159
+#: filewidgets/kfileplacesmodel.cpp:1161
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "'%1' പ്രമേയം കണ്ടെത്താനായില്ല"
 
-#: filewidgets/kfileplacesmodel.cpp:1166
+#: filewidgets/kfileplacesmodel.cpp:1168
 #, fuzzy, kde-format
 #| msgid "A folder cannot be moved into itself"
 msgid "Only folders can be added to the Places panel."
 msgstr "ഒരു അറ അതിലേക്ക് നീക്കാൻ കഴിയില്ല"
 
-#: filewidgets/kfileplacesmodel.cpp:1430
+#: filewidgets/kfileplacesmodel.cpp:1432
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "'%1' &സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1434
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "'%1' &സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
-
-#: filewidgets/kfileplacesmodel.cpp:1436
-#, fuzzy, kde-format
-#| msgid "&Safely Remove '%1'"
-msgctxt "@action:inmenu"
-msgid "Safely Removing…"
 msgstr "'%1' &സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
+msgid "Safely Removing…"
+msgstr "'%1' &സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
+
+#: filewidgets/kfileplacesmodel.cpp:1440
+#, fuzzy, kde-format
+#| msgid "&Safely Remove '%1'"
+msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "'%1' &സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
 
-#: filewidgets/kfileplacesmodel.cpp:1443
+#: filewidgets/kfileplacesmodel.cpp:1445
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3130,7 +3130,7 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "അണ്‍മൌണ്ടു് ചെയ്യുന്നു"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1447
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3138,27 +3138,49 @@ msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "അണ്‍മൌണ്ടു് ചെയ്യുന്നു"
 
-#: filewidgets/kfileplacesmodel.cpp:1469
+#: filewidgets/kfileplacesmodel.cpp:1471
 #, fuzzy, kde-format
 #| msgid "&Reject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "നിരസിക്കുക (&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1505
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' ഉപകരണം ഒരു ഡിസ്ക് അല്ല, അതുകൊണ്ട് പുറന്തള്ളാൻ കഴിയില്ല."
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1542
+#: filewidgets/kfileplacesmodel.cpp:1555
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1' ലഭ്യമാക്കുമ്പോള്‍ ഒരു പിശകു് സംഭവിച്ചിരിക്കുന്നു"
+
+#: filewidgets/kfileplacesmodel.cpp:1581
+#, kde-format
+msgid "One or more files on this device are open within an application."
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:1584
+#, kde-kuit-format
+msgid ""
+"One or more files on this device are opened in application <application>"
+"\"%2\"</application>."
+msgid_plural ""
+"One or more files on this device are opened in following applications: "
+"<application>%2</application>."
+msgstr[0] ""
+msgstr[1] ""
+
+#: filewidgets/kfileplacesmodel.cpp:1587
+#, kde-format
+msgctxt "separator in list of apps blocking device unmount"
+msgid ", "
+msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
