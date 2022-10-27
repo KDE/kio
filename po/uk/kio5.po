@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:43+0000\n"
-"PO-Revision-Date: 2022-10-24 13:55+0300\n"
+"PO-Revision-Date: 2022-10-26 16:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3262,7 +3262,7 @@ msgstr "Трапилась помилка під час доступу до «%1
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Один або декілька файлів з цього пристрою відкрито у програмі."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3273,15 +3273,23 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Один або декілька файлів з цього пристрою відкрито у таких програмах: "
+"<application>%2</application>."
 msgstr[1] ""
+"Один або декілька файлів з цього пристрою відкрито у таких програмах: "
+"<application>%2</application>."
 msgstr[2] ""
+"Один або декілька файлів з цього пристрою відкрито у таких програмах: "
+"<application>%2</application>."
 msgstr[3] ""
+"Один або декілька файлів з цього пристрою відкрито у програмі <application>"
+"%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format

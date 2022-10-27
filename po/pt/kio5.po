@@ -3325,6 +3325,7 @@ msgstr "Ocorreu um erro ao aceder ao '%1'"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Um ou mais ficheiros deste dispositivo estão abertos dentro de uma aplicação."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3335,13 +3336,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Estão abertos um ou mais ficheiros deste dispositivo na aplicação "
+"<application>\"%2\"</application>."
 msgstr[1] ""
+"Estão abertos um ou mais ficheiros deste dispositivo nas seguintes "
+"aplicações: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
