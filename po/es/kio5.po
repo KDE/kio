@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:43+0000\n"
-"PO-Revision-Date: 2022-10-25 00:14+0200\n"
+"PO-Revision-Date: 2022-10-27 12:38+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3301,6 +3301,7 @@ msgstr "Se produjo un error mientras se accedía a «%1»"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Uno o más archivos de este dispositivo están abiertos en alguna aplicación."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3311,13 +3312,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Uno o más archivos de este dispositivo están abiertos en la aplicación "
+"<application>«%2»</application>."
 msgstr[1] ""
+"Uno o más archivos de este dispositivo están abiertos en las siguientes "
+"aplicaciones: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format

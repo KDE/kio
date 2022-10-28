@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:43+0000\n"
-"PO-Revision-Date: 2022-10-24 22:11+0400\n"
+"PO-Revision-Date: 2022-10-27 10:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3178,7 +3178,7 @@ msgstr "حدث خطأ أثناء النّفاذ إلى ’%1‘"
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "ثمّة ملفّ أو أكثر في هذا الجهاز مفتوح في تطبيق آخر."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3189,17 +3189,29 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"ثمّة ملفّ أو أكثر في هذا الجهاز مفتوح في تطبيق <application>\"%2\"</"
+"application>."
 msgstr[1] ""
+"ثمّة ملفّ أو أكثر في هذا الجهاز مفتوح في التطبيقات التالية:  <application>"
+"\"%2\"</application>."
 msgstr[2] ""
+"ثمّة ملفّين أو أكثر في هذا الجهاز مفتوحة في التطبيقات التالية:  <application>"
+"\"%2\"</application>."
 msgstr[3] ""
+"ثمّة ملفات مفتوحة في هذا الجهاز في التطبيقات التالية:  <application>\"%2\"</"
+"application>."
 msgstr[4] ""
+"ثمّة ملفات مفتوحة في هذا الجهاز في التطبيقات التالية:  <application>\"%2\"</"
+"application>."
 msgstr[5] ""
+"ثمّة ملفات مفتوحة في هذا الجهاز في التطبيقات التالية:  <application>\"%2\"</"
+"application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr "، "
 
 # %1 هو اسم مجموعة (يمكن يكون بالإنجليزي)
 #: filewidgets/kfileplacesview.cpp:591

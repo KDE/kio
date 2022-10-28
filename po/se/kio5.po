@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:42+0000\n"
+"POT-Creation-Date: 2022-10-26 00:43+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -76,13 +76,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:579
+#: core/copyjob.cpp:1397 core/job_error.cpp:582
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Máhppa gávdno juo"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:568 widgets/paste.cpp:80
+#: core/job_error.cpp:571 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fiila gávdno juo"
@@ -784,88 +784,93 @@ msgstr ""
 
 #: core/job_error.cpp:257
 #, kde-format
+msgid "File is too large to be trashed."
+msgstr ""
+
+#: core/job_error.cpp:260
+#, kde-format
 msgid ""
 "Unknown error code %1\n"
 "%2\n"
 "Please send a full bug report at https://bugs.kde.org."
 msgstr ""
 
-#: core/job_error.cpp:288
+#: core/job_error.cpp:291
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(amas)"
 
-#: core/job_error.cpp:294
+#: core/job_error.cpp:297
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:298
+#: core/job_error.cpp:301
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Teknihkalaš sivva</b>: "
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Bienat jearahusa birra</b>:"
 
-#: core/job_error.cpp:300
+#: core/job_error.cpp:303
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:302
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protokolla: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Dáhton ja áigi: %1</li>"
 
-#: core/job_error.cpp:304
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Lassedieđut: %1</li>"
 
-#: core/job_error.cpp:306
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Vejolaš sivat</b>"
 
-#: core/job_error.cpp:310
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Vejolaš čovdosat</b>"
 
-#: core/job_error.cpp:354
+#: core/job_error.cpp:357
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(amas)"
 
-#: core/job_error.cpp:367
+#: core/job_error.cpp:370
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr "Oza veahkki geavaheaddjeveahkis dahje vuogádathálddašeaddjis."
 
-#: core/job_error.cpp:371
+#: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Váldde oktavuođa vuogádathálddašeddjiin eanet veahkki oažžut."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Dárkkis du beassanvuoigatvuođaid dán resursii."
 
-#: core/job_error.cpp:376
+#: core/job_error.cpp:379
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -873,7 +878,7 @@ msgid ""
 msgstr ""
 "Dus eai leat doarvái beassanvuoigatvuođat čáđahit doaimma dán resurssas."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:382
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -881,7 +886,7 @@ msgstr ""
 "Eará geavaheaddji dahje prográmma dáidá leat dán fiilla geavaheamen (ja "
 "danne lohkadan dan)."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:385
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -890,17 +895,17 @@ msgstr ""
 "Dárkkis ahte eará geavaheaddjit dahje prográmmat eai leat geavaheamen dahje "
 "lohkadan fiilla."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:388
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Dáida maid leat vihkki mašiinnas, vaikko ii leat nu jáhkkehahtti."
 
-#: core/job_error.cpp:387
+#: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Várra leat gávdnat dihkki prográmmas."
 
-#: core/job_error.cpp:389
+#: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -909,7 +914,7 @@ msgstr ""
 "Árvideames dát dáhpáhuvvá danne go lea vihki prográmmas. Berret sáddet "
 "vihkkeraportta nugo čilgejuvvo dás vuolábealde."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:395
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -918,7 +923,7 @@ msgstr ""
 "Ođasmahte prográmma ođđamus veršuvdnii. Du distribušuvnnas leat árvideames "
 "reaiddut mainna ođasmahtá prográmmaid."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:398
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -930,12 +935,12 @@ msgid ""
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
 
-#: core/job_error.cpp:404
+#: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Sáhttá lea váttisvuođat fierpmádatoktavuođain."
 
-#: core/job_error.cpp:408
+#: core/job_error.cpp:411
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -944,49 +949,49 @@ msgstr ""
 "Sáhttá lea váttisvuođat fierpmádatheivehusain. Muhto ii leat nu jáhkehahtti "
 "jos eai leat leamáš váttisvuođat fierpmádatoktavuođain dál easka."
 
-#: core/job_error.cpp:412
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
 msgstr "Váttisvuođat sáhttá leat gosnu bálvá ja dán dihtora gaskkas."
 
-#: core/job_error.cpp:414
+#: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Geahččal ođđasit, dálánaga dahje veaháš maŋŋileabbut."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:418
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Protokollameattáhus dahje -inkompatibilitehta dáidá leat dáhpáhuvvan."
 
-#: core/job_error.cpp:416
+#: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Dárkkis ahte resursa duođas gávdno, ja geahččal ođđasit."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Jearahuvvon ressurssa várra ii gávdno."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:422
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "Dárkkis ođđasit čujuhusa jea geahččal fas."
 
-#: core/job_error.cpp:421
+#: core/job_error.cpp:424
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Dárkkis ahte fierpmádatoktavuohta doaibmá."
 
-#: core/job_error.cpp:425
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Ii sáhte rahpat resurssa lohkandihte"
 
-#: core/job_error.cpp:427
+#: core/job_error.cpp:430
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -995,17 +1000,17 @@ msgstr ""
 "Dát máksá ahte ii lean vejolaš lohkat fiilla dahje máhpa <strong>%1</strong> "
 "sisdoalu, danne go dus ii leat lohkanvuoigatvuohta."
 
-#: core/job_error.cpp:432
+#: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "Várra dus eai leat vuoigatvuođat lohkat fiilla dahje ráhpat máhpa."
 
-#: core/job_error.cpp:439
+#: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Ii sáhte rahpat resurssa čállindihte"
 
-#: core/job_error.cpp:441
+#: core/job_error.cpp:444
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1014,17 +1019,17 @@ msgstr ""
 "Dát máksá ahte ii lean vejolaš čállit <strong>%1</strong>-fiilii, danne go "
 "dus ii leat čállinvuoigatvuohta."
 
-#: core/job_error.cpp:450
+#: core/job_error.cpp:453
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr ""
 
-#: core/job_error.cpp:451
+#: core/job_error.cpp:454
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Ii sáhttán álggahit proseassa"
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:456
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1032,7 +1037,7 @@ msgid ""
 "technical reasons."
 msgstr ""
 
-#: core/job_error.cpp:458
+#: core/job_error.cpp:461
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1043,12 +1048,12 @@ msgstr ""
 "ođasmahtton seamma áiggis go KDE. Dát dáidá dagahit ahte prográmma ii leat "
 "heivvolaš dáinna veršuvnnain, ja danne ii mana johtui."
 
-#: core/job_error.cpp:467
+#: core/job_error.cpp:470
 #, kde-format
 msgid "Internal Error"
 msgstr "Siskkildas meattáhus"
 
-#: core/job_error.cpp:469
+#: core/job_error.cpp:472
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1057,12 +1062,12 @@ msgstr ""
 "Prográmma mii addá oktavuođa <strong>%1</strong>-protokollain lea almmuhan "
 "siskkildas meattáhusa."
 
-#: core/job_error.cpp:477
+#: core/job_error.cpp:480
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Boastohámát URL:a"
 
-#: core/job_error.cpp:479
+#: core/job_error.cpp:482
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1076,12 +1081,12 @@ msgstr ""
 "<blockquote><strong>protokolla://geavaheaddji:beassansátni@www.ovdamearka."
 "org:verrát/máhppa/fiilanamma.geažus?jearaldat=árvu</strong></blockquote>"
 
-#: core/job_error.cpp:488
+#: core/job_error.cpp:491
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Protokolla %1 ii dorjojuvo"
 
-#: core/job_error.cpp:490
+#: core/job_error.cpp:493
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1090,12 +1095,12 @@ msgstr ""
 "KDE-prográmmat mat leat sajáiduhttojuvvon dán dihtorii eai doarjjo <strong>"
 "%1</strong> protokolla."
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:496
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Jearahuvvon protokolla ii dáidde dorjojuvvut."
 
-#: core/job_error.cpp:495
+#: core/job_error.cpp:498
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1103,7 +1108,7 @@ msgid ""
 msgstr ""
 "Dát dihtor ja bálvá eai dáidde doarjut seamma veršuvnna %1-protokollas."
 
-#: core/job_error.cpp:499
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a KDE program (called a "
@@ -1112,17 +1117,17 @@ msgid ""
 "\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgstr ""
 
-#: core/job_error.cpp:508
+#: core/job_error.cpp:511
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL:a ii bájut makkárge resursii."
 
-#: core/job_error.cpp:509
+#: core/job_error.cpp:512
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokolla lea sillenprotokolla"
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:514
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1131,7 +1136,7 @@ msgstr ""
 "<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
 "(URL) maid čállet ii bájut dihto resursii."
 
-#: core/job_error.cpp:515
+#: core/job_error.cpp:518
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1144,12 +1149,12 @@ msgstr ""
 "dakkár dilli. Dát lea hárves dáhpáhus  ja árvideames lea "
 "programmerenmeattáhus."
 
-#: core/job_error.cpp:523
+#: core/job_error.cpp:526
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Doarjjakeahtes doaibma: %1"
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:528
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1158,7 +1163,7 @@ msgstr ""
 "KDE-prográmma mii implementere <strong>%1</strong>-protokolla ii doarjjo "
 "doaimma."
 
-#: core/job_error.cpp:529
+#: core/job_error.cpp:532
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1166,17 +1171,17 @@ msgid ""
 "input/output architecture."
 msgstr ""
 
-#: core/job_error.cpp:533
+#: core/job_error.cpp:536
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Geahččal gávdnat eará vuogi dahkat dán barggu."
 
-#: core/job_error.cpp:538
+#: core/job_error.cpp:541
 #, kde-format
 msgid "File Expected"
 msgstr "Fiila vuordejuvvui"
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:543
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1184,17 +1189,17 @@ msgid ""
 msgstr ""
 "Jearahus vurddii fiilla, muhto gávnnai baicce máhppa <strong>%1</strong>."
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:546
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Dáidá leat meattáhus bálvvá bealis."
 
-#: core/job_error.cpp:548
+#: core/job_error.cpp:551
 #, kde-format
 msgid "Folder Expected"
 msgstr "Máhppa vuordejuvvui"
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:553
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1202,17 +1207,17 @@ msgid ""
 msgstr ""
 "Jearahus vurddii máhpa, muhto gávnnai baicce fiilla <strong>%1</strong>."
 
-#: core/job_error.cpp:558
+#: core/job_error.cpp:561
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Fiila dahje máhppa ii gávdno."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:563
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Addejuvvon fiila dahje máhppa <strong>%1</strong> ii gávdno."
 
-#: core/job_error.cpp:570
+#: core/job_error.cpp:573
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1220,22 +1225,22 @@ msgid ""
 msgstr ""
 "Ii sáhttán ráhkadit jearahuvvon fiilla danne go juo gávdno fiilla dan namas."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:576
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Geahččal vuos sirdit boares fiilla eret."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Sihko boares fiilla ja geahččal ođđasit."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:578
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Vállje eará nama ođđa fiilii."
 
-#: core/job_error.cpp:581
+#: core/job_error.cpp:584
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1243,27 +1248,27 @@ msgid ""
 msgstr ""
 "Ii sáhttán ráhkadit jearahuvvon máhpa danne go juo gávdno máhppa dan namas."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:587
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Geahččal vuos sirdit boares máhpa eret, ja geahččal ođđasit."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Sihko boares máhpa ja geahččal ođđasit."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:589
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Vállje eará nama ođđa máhpii."
 
-#: core/job_error.cpp:590
+#: core/job_error.cpp:593
 #, kde-format
 msgid "Unknown Host"
 msgstr "Amas guossoheaddji"
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:595
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1272,34 +1277,34 @@ msgstr ""
 "Dát meattáhusdiehtu mearkkaša dábálaččat ahte jearahuvvon bálvá <strong>%1</"
 "strong>, ii gávdnon Interneahtas."
 
-#: core/job_error.cpp:597
+#: core/job_error.cpp:600
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Nama, %1, maid čállet ii dáidde gávdnot, varra leat dan boastoláhkái čállan."
 
-#: core/job_error.cpp:605
+#: core/job_error.cpp:608
 #, kde-format
 msgid "Access Denied"
 msgstr "Beassan hilgojuvvui."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:610
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Beassan hilgojuvvui meroštuvvon resursii, <strong>%1</strong>."
 
-#: core/job_error.cpp:611 core/job_error.cpp:887
+#: core/job_error.cpp:614 core/job_error.cpp:890
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "Varra leat addán boasto dahje ii makkárge autentiserendieđuid."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Varra du kontus ii leat beassanvuoigatvuođat dán resursii."
 
-#: core/job_error.cpp:617 core/job_error.cpp:894 core/job_error.cpp:912
+#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1307,12 +1312,12 @@ msgid ""
 msgstr ""
 "Geahččal jearahusa oktii vel, ja dárkkis ahte autentiserendieđut leat riektá."
 
-#: core/job_error.cpp:626
+#: core/job_error.cpp:629
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Ii leat čállinvuogatvuođat"
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:631
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1320,12 +1325,12 @@ msgid ""
 msgstr ""
 "Dát máksá ahte geahččaleapmi čállit <strong>%1</strong>-fiilii  hilgojuvvui."
 
-#: core/job_error.cpp:636
+#: core/job_error.cpp:639
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Ii sáhttán mannat máhpii"
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:641
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1334,17 +1339,17 @@ msgstr ""
 "Dát máksá ahte geahččaleapmi rahpat jearahuvon máhpa <strong>%1</strong> "
 "hilgojuvvui."
 
-#: core/job_error.cpp:646
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Máhppalistu ii leat olamuttus"
 
-#: core/job_error.cpp:647
+#: core/job_error.cpp:650
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokolla %1 ii leat fiilavuogádat"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:652
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1354,12 +1359,12 @@ msgstr ""
 "Dát máksá ahte jearahus mii dahkoi gáibida máhpa sisdoalu, ja KDE-prográmma "
 "mii doarju dán prográmma ii sáhte dan bargat."
 
-#: core/job_error.cpp:657
+#: core/job_error.cpp:660
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Syklalaš liŋka gávdnui"
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:662
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1371,34 +1376,34 @@ msgstr ""
 "dahje báikái. KDE gávnnai liŋka dahje liŋkavidji mii lea ágalaš fárfu. Fiila "
 "lea dán láhkái (varra gávččaldaga bokte) leŋkejuvvon alccesis."
 
-#: core/job_error.cpp:664 core/job_error.cpp:690
+#: core/job_error.cpp:667 core/job_error.cpp:693
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
 "loop, and try again."
 msgstr "Sihko ovtta oasi dán fárffus, ja geahččal ođđasit."
 
-#: core/job_error.cpp:674
+#: core/job_error.cpp:677
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Geavaheaddji gaskkalduhtii jearahusa"
 
-#: core/job_error.cpp:676 core/job_error.cpp:1065
+#: core/job_error.cpp:679 core/job_error.cpp:1068
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Jearahus ii geargan danne go gaskkalduvui."
 
-#: core/job_error.cpp:678 core/job_error.cpp:933 core/job_error.cpp:1067
+#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
 #, kde-format
 msgid "Retry the request."
 msgstr "Geahččal jearahusa ođđasit."
 
-#: core/job_error.cpp:682
+#: core/job_error.cpp:685
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Syklalaš liŋka gávdnui máŋgedettiin"
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:687
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1410,17 +1415,17 @@ msgstr ""
 "dahje báikái. KDE gávnnai liŋka dahje liŋkavidji mii lea ágalaš fárfu. Fiila "
 "lea dán láhkái (varra gávččaldaga bokte) leŋkejuvvon alccesis."
 
-#: core/job_error.cpp:696
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Ii sáhttán ráhpat fierpmádatoktavuođa"
 
-#: core/job_error.cpp:697
+#: core/job_error.cpp:700
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Ii sáhttán ráhkadit socket:a"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:702
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1429,8 +1434,8 @@ msgstr ""
 "Dát lea oalle teknihkálaš meattáhus mii máksá ahte ii lean vejolaš ráhkadit "
 "muhton ovttadaga fierpmádatoktavuođas (socket)."
 
-#: core/job_error.cpp:702 core/job_error.cpp:851 core/job_error.cpp:864
-#: core/job_error.cpp:875
+#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1439,19 +1444,19 @@ msgstr ""
 "Fierpmádatoktavuohta lea varra boastoláhkái heivehuvvon dahje ii leat "
 "aktiivalaš."
 
-#: core/job_error.cpp:708
+#: core/job_error.cpp:711
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Oktavuohta bálvái hilgojuvvui"
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:713
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "Bálvá <strong>%1</strong> hilggui oktavuođa dán dihtoris."
 
-#: core/job_error.cpp:714
+#: core/job_error.cpp:717
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1460,7 +1465,7 @@ msgstr ""
 "Bálvás ii dáidde leat lohpi vuostáiváldit jearahusaid, vaikkoge lea "
 "čatnašuvvon internehttii."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1469,7 +1474,7 @@ msgstr ""
 "Jearahuvvon bálválus (%1) ii dáidde leat jođus bálvvás, vaikkoge lea "
 "čatnojuvvon internehttii."
 
-#: core/job_error.cpp:721
+#: core/job_error.cpp:724
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1479,12 +1484,12 @@ msgstr ""
 "Jearahus hilgojuvvui, varra buollinmuvrras (ovttadat mii rádje oktavuohta "
 "internehttii) mii lea du fierpmádagas dahje bálvvá fierpmádagas."
 
-#: core/job_error.cpp:728
+#: core/job_error.cpp:731
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Oktavuohta bálvái botkejuvvui vuorddekeahttá"
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:733
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1493,7 +1498,7 @@ msgstr ""
 "Vaikkoge oaččui oktavuođa <strong>%1</strong>:ain, de oktavuohta "
 "vuordemeahttun botkejuvvui."
 
-#: core/job_error.cpp:736
+#: core/job_error.cpp:739
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1501,17 +1506,17 @@ msgid ""
 msgstr ""
 "Sáhttá leat protokollameattáhus dáhpáhuvvan, nu ahta bálvá botkii oktavuođa."
 
-#: core/job_error.cpp:742
+#: core/job_error.cpp:745
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Gustohis URL-resursa."
 
-#: core/job_error.cpp:743
+#: core/job_error.cpp:746
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "%1-protokolla ii lea sillenprotokolla"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:748
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1519,7 +1524,7 @@ msgid ""
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
 
-#: core/job_error.cpp:752
+#: core/job_error.cpp:755
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1532,17 +1537,17 @@ msgstr ""
 "doarjjo dán lágan geavahusa. Dát lea hárves dáhpáhus ja árvideames lea "
 "programmerenmeattáhus."
 
-#: core/job_error.cpp:760
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Ii sáhttán gárvet sisa-/olggosovttadaga."
 
-#: core/job_error.cpp:761
+#: core/job_error.cpp:764
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Ii sáhttán čatnat ovttadaga"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:766
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1550,7 +1555,7 @@ msgid ""
 msgstr ""
 "Ii sáhttán čatnat ovttadaga. Almmuhuvvon meattáhus lei: <strong>%1</strong>"
 
-#: core/job_error.cpp:767
+#: core/job_error.cpp:770
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1561,7 +1566,7 @@ msgstr ""
 "ovttadagas (nugo ahte váilo CD-skearru CD-čuojanis), dahje ahte ovttadat ii "
 "leat laktašuvvon dihtorii."
 
-#: core/job_error.cpp:772
+#: core/job_error.cpp:775
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1571,7 +1576,7 @@ msgstr ""
 "Varra dus eai leat vuoigatvuođat čatnat ovttadaga. UNIX-vuogádagain lea "
 "dušše vuogádathálddašesddjis lohpi dán dahkat."
 
-#: core/job_error.cpp:777
+#: core/job_error.cpp:780
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1580,17 +1585,17 @@ msgstr ""
 "Dárkkis jos ovttadat leat válmmas; jos lea vurkenmedium ja jos ovttadat lea "
 "laktašuvvon ja alde."
 
-#: core/job_error.cpp:784
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Ii sáhttán gálgat sisa-/olggos-ovttadaga"
 
-#: core/job_error.cpp:785
+#: core/job_error.cpp:788
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Ii sáhttán gálgat ovttadaga"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:790
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1598,7 +1603,7 @@ msgid ""
 msgstr ""
 "Ii sáhttán gálgat ovttadaga. Almmuhuvvon meattáhus lei: <strong>%1</strong>"
 
-#: core/job_error.cpp:791
+#: core/job_error.cpp:794
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1608,7 +1613,7 @@ msgstr ""
 "Ovttadat dáidá leat geavahusas, eará prográmmas dahje geavaheaddjis. Rabas "
 "láse fiilagieđahallis sáhttá dagahit ahte ovttadat lea geavahusas."
 
-#: core/job_error.cpp:796
+#: core/job_error.cpp:799
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1618,19 +1623,19 @@ msgstr ""
 "Varra dus eai leat vuoigatvuođat gálgat ovttadaga. UNIX-vuogádagain lea "
 "dušše vuogádathálddašesddjis lohpi dán dahkat."
 
-#: core/job_error.cpp:801
+#: core/job_error.cpp:804
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Dárkkis ahte eai leat prográmmat mat geavahit dán ovttadaga ja geahččal "
 "ođđasit."
 
-#: core/job_error.cpp:807
+#: core/job_error.cpp:810
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Ii sáhttán lohkat resurssas"
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:812
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1639,17 +1644,17 @@ msgstr ""
 "Dát máksá ahte šattai meattáhus lohkadettiin resurssa <strong>%1</strong> "
 "sisdoalu, vaikkoge lei vejolaš resurssa rahpat."
 
-#: core/job_error.cpp:813
+#: core/job_error.cpp:816
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Dus ii dáidde leat lohpi lohkat resurssas."
 
-#: core/job_error.cpp:826
+#: core/job_error.cpp:829
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Ii sáhttán čállit resursii"
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:831
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1658,22 +1663,22 @@ msgstr ""
 "Dát máksá ahte vaikkoge lei vejolaš rahpat <strong>%1</strong> resurssa, de "
 "šattai meattáhus čállidettiin resursii."
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:834
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Dus eai dáidde leat čállinvuoigatvuođat dán resursii."
 
-#: core/job_error.cpp:844 core/job_error.cpp:857
+#: core/job_error.cpp:847 core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Ii sáhttán guldalit fierpmádatoktavuođaid"
 
-#: core/job_error.cpp:845
+#: core/job_error.cpp:848
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Ii sáhttán čatnat"
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1681,17 +1686,17 @@ msgid ""
 "network connections."
 msgstr ""
 
-#: core/job_error.cpp:858
+#: core/job_error.cpp:861
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Ii sáhttán guldalit"
 
-#: core/job_error.cpp:870
+#: core/job_error.cpp:873
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Ii sáhttán dohkkehit fierpmádatoktavuođa"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:875
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1700,33 +1705,33 @@ msgstr ""
 "Dát lea oalle teknihkalaš meattáhus mii dáhpáhuvvai go galggai dohkkehit "
 "boahtti fierbmelaktašumi."
 
-#: core/job_error.cpp:877
+#: core/job_error.cpp:880
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Dus eai dáidde leat vuoigatvuođat vuostáiváldit oktavuođa."
 
-#: core/job_error.cpp:882
+#: core/job_error.cpp:885
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Ii lean vejolaš du sisačálihit: %1"
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:887
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "Sisačáliheapmi vai čađahit jearahuvvon barggu filtii."
 
-#: core/job_error.cpp:900
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Ii sáhttán mearridit resurssa stáhtusa."
 
-#: core/job_error.cpp:901
+#: core/job_error.cpp:904
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Ii sáhttán mearridit resurssa stáhtusa."
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:906
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1735,68 +1740,68 @@ msgstr ""
 "Ii sáhttán resurssa <strong>%1</strong> stáhtusa gávdnat, nugo nama, slája, "
 "sturrodaga, jna. "
 
-#: core/job_error.cpp:908
+#: core/job_error.cpp:911
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Válljejuvvon resursa ii dáidde gávdnot dahje ii leat olamuttus."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:919
+#: core/job_error.cpp:922
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Ii sáhttán heaittihit listema."
 
-#: core/job_error.cpp:920
+#: core/job_error.cpp:923
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "DIVO_MU: Čále dokumentašuvnna"
 
-#: core/job_error.cpp:924
+#: core/job_error.cpp:927
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Ii sáhttán ráhkadit máhpa"
 
-#: core/job_error.cpp:925
+#: core/job_error.cpp:928
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Filtii ráhkadit jearahuvvon máhpa."
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:931
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Báiki gos vigget máhpa ráhkadit ii dáidde gávdnot."
 
-#: core/job_error.cpp:937
+#: core/job_error.cpp:940
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Ii sáhttán váldit eret máhpa"
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:942
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Filtii váldit eret válljejuvvon máhpa <strong>%1</strong>."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Válljejuvvon máhppa ii dáidde gávdnot."
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:945
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Válljejuvvon máhppa ii dáidde leat guorus."
 
-#: core/job_error.cpp:947
+#: core/job_error.cpp:950
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Dárkkis ahte máhppa gávdno ja lea guorus ovdal geahččalat fas."
 
-#: core/job_error.cpp:953
+#: core/job_error.cpp:956
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Ii sáhttán joatkkašit fiilaviežžama"
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:958
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1805,66 +1810,66 @@ msgstr ""
 "Meroštuvvon jearahus gaibidii ahte fiila <strong>%1</strong> joaktašuvvui "
 "vissis báikki rájes. Dat ii lean vejolaš."
 
-#: core/job_error.cpp:960
+#: core/job_error.cpp:963
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Protokolla dahje bálvá ii dáidde doarjut fiilajoatkašumi."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:966
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Geahččal jearaldaga ođđasit, alege geahččal joatkit sirdima."
 
-#: core/job_error.cpp:968
+#: core/job_error.cpp:971
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Ii sáhttán molsut resurssa nama"
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:973
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Filtii <strong>%1</strong>-resurssa nama molssodettiin."
 
-#: core/job_error.cpp:981
+#: core/job_error.cpp:984
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Ii sáhttán rievdadit resurssa vuoigatvuođaid"
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:986
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr "Filtii rievdadettiin <strong>%1</strong>-resurssa vuoigatvuođaid."
 
-#: core/job_error.cpp:991
+#: core/job_error.cpp:994
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Ii sáhttán rievdadit resurssa oamasteaddji"
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:996
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr "Filtii rievdadettiin <strong>%1</strong>-resurssa oamasteaddji."
 
-#: core/job_error.cpp:1001
+#: core/job_error.cpp:1004
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Ii sáhttán sihkut resurssa"
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1006
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Filtii sihkodettiin <strong>%1</strong>-resurssa."
 
-#: core/job_error.cpp:1011
+#: core/job_error.cpp:1014
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Vuordemeahttun prográmmaheaittiheapmi"
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1016
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1873,12 +1878,12 @@ msgstr ""
 "Prográmma mii addá oktavuođa <strong>%1</strong>-protokolla bokte, "
 "heaittihuvvui báifahkka."
 
-#: core/job_error.cpp:1021
+#: core/job_error.cpp:1024
 #, kde-format
 msgid "Out of Memory"
 msgstr "Muitu lea nohkan"
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1026
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1887,12 +1892,12 @@ msgstr ""
 "Prográmma du dihtoris mii geavaha <strong>%1</strong>-protokolla, ii sáhttán "
 "vuoruhit alcces muittu, ja danne bissehuvvo."
 
-#: core/job_error.cpp:1032
+#: core/job_error.cpp:1035
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Amas gaskabálva"
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1037
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1903,7 +1908,7 @@ msgstr ""
 "čuožžilii «amas guossoheaddji»-meattáhus. Dát meattáhus geažuha ahte bálvá "
 "ii gávdnon neahtas."
 
-#: core/job_error.cpp:1040
+#: core/job_error.cpp:1043
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1914,17 +1919,17 @@ msgstr ""
 "guossoheaddjinama. Jus leat beassan internehttii váttisvuođaid haga ovdal, "
 "de dát ii dáidde leat váttisvuohta."
 
-#: core/job_error.cpp:1044
+#: core/job_error.cpp:1047
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Dárkkis du gaskabálvá heivehusaid oktii vel ja geahččal ođđasit."
 
-#: core/job_error.cpp:1048
+#: core/job_error.cpp:1051
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Autentiseren filtii: %1-vuohki ii dorjojuvvo"
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1053
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1935,24 +1940,24 @@ msgstr ""
 "dannego vuogi maid bálvá geavaha ii dorjo KDE-prográmmas mii čađaha %1-"
 "protokolla."
 
-#: core/job_error.cpp:1056
+#: core/job_error.cpp:1059
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
 
-#: core/job_error.cpp:1063
+#: core/job_error.cpp:1066
 #, kde-format
 msgid "Request Aborted"
 msgstr "Jearahus gaskkalduvvui"
 
-#: core/job_error.cpp:1071
+#: core/job_error.cpp:1074
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Siskkildas meattáhus bálvvás"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1076
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1961,7 +1966,7 @@ msgstr ""
 "Prográmma bálvvás mii addá oktavuođa <strong>%1</strong>-protokollain lea "
 "almmuhan siskkildas meattáhusa: %2."
 
-#: core/job_error.cpp:1079
+#: core/job_error.cpp:1082
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1970,12 +1975,12 @@ msgstr ""
 "Dát lea árvideames meattáhus bálvaprográmmas. Sáddes dievaslaš "
 "meattáhusraportta nugo lea evttohuvvon dás vuolábealde."
 
-#: core/job_error.cpp:1083
+#: core/job_error.cpp:1086
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Váldde oktavuođa bálvvá hálddášeddjiin, ja dieđit váttisvuođaid birra."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1089
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -1984,12 +1989,12 @@ msgstr ""
 "Jus dovddat čállit geat leat ráhkadan bálvaprográmmaid, sáddes "
 "meattáhusraportta njuolgga daidda."
 
-#: core/job_error.cpp:1091
+#: core/job_error.cpp:1094
 #, kde-format
 msgid "Timeout Error"
 msgstr "Áigemearremeattáhus"
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1096
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2006,17 +2011,17 @@ msgstr ""
 "beassat gaskabálvváide: %3 sekundda</li> </ul> Fuomáš ahte sáhtát rievdadit "
 "áigemearreheivehusaid KDE stivrenguovddážis jus válljet Fierpmádat➜Oidimat."
 
-#: core/job_error.cpp:1106
+#: core/job_error.cpp:1109
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Bálvás lei nu hoahppu ahte ii geargan vástidit."
 
-#: core/job_error.cpp:1112 core/slavebase.cpp:1594
+#: core/job_error.cpp:1115 core/slavebase.cpp:1610
 #, kde-format
 msgid "Unknown Error"
 msgstr "Amas meattáhus"
 
-#: core/job_error.cpp:1114
+#: core/job_error.cpp:1117
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2025,12 +2030,12 @@ msgstr ""
 "Prográmma du dihtoris mii geavaha <strong>%1</strong>-protokollii váidala "
 "ahte amas gaskkaldumi lea dáhpáhuvvan: %2"
 
-#: core/job_error.cpp:1124
+#: core/job_error.cpp:1127
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Amas gaskkaldupmi"
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1129
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2039,12 +2044,12 @@ msgstr ""
 "Prográmma du dihtoris mii geavaha <strong>%1</strong>-protokollii váidala "
 "ahte amas gaskkaldumi lea dáhpáhuvvan: %2"
 
-#: core/job_error.cpp:1136
+#: core/job_error.cpp:1139
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Ii sáhttán sihkkut álgovuolggalaš fiilla"
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1141
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2055,12 +2060,12 @@ msgstr ""
 "loahpas fiilasirdimis. Álgovuolggalaš fiila, <strong>%1</strong>, ii lean "
 "vejolaš sihkkut."
 
-#: core/job_error.cpp:1147
+#: core/job_error.cpp:1150
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Ii sáhttán sihkut gaskaboddosaš fiilla"
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1152
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2071,12 +2076,12 @@ msgstr ""
 "fiilla dan botta vižžo. Dán gaskaboddosaš fiila, <strong>%1</strong>, ii "
 "lean vejolaš sihkkut."
 
-#: core/job_error.cpp:1159
+#: core/job_error.cpp:1162
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Ii sáhttán molsut álgovuolggalaš fiilla nama"
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1164
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2085,12 +2090,12 @@ msgstr ""
 "Jearahuvvon bargu gáibida ahte algovuolggalaš fiila, <strong>%1</strong>, "
 "molsu nama, muhto ii lean vejolaš dan bargat."
 
-#: core/job_error.cpp:1170
+#: core/job_error.cpp:1173
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Ii sáhttán molsut gaskaboddosaš fiilla nama"
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1175
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2099,32 +2104,32 @@ msgstr ""
 "Jearahuvvon bargu gáibida ahte gaskaboddosaš fiila, <strong>%1</strong>, "
 "ráhkaduvvo, muhto ii lean vejolaš dan ráhkadit."
 
-#: core/job_error.cpp:1181
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Ii sáhttán ráhkadit liŋkka"
 
-#: core/job_error.cpp:1182
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Ii sáhttán ráhkadit symbolalaš liŋkka"
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1186
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Ii lean vejolaš ráhkadit jearahuvvon symbolalaš liŋkka %1."
 
-#: core/job_error.cpp:1189
+#: core/job_error.cpp:1192
 #, kde-format
 msgid "No Content"
 msgstr "Ii sisdoallu"
 
-#: core/job_error.cpp:1194
+#: core/job_error.cpp:1197
 #, kde-format
 msgid "Disk Full"
 msgstr "Skearru lea dievva"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1199
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2133,7 +2138,7 @@ msgstr ""
 "Ii sáhttán čállit jearahuvvon <strong>%1</strong>-fiilla dannego lea menddo "
 "unnán sadji skearrus."
 
-#: core/job_error.cpp:1200
+#: core/job_error.cpp:1203
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2144,105 +2149,105 @@ msgstr ""
 "fiillaid sirdehahtti mediai, nugo CD-skearrut; dahje 3) skáhput eanet "
 "vurkensaji."
 
-#: core/job_error.cpp:1207
+#: core/job_error.cpp:1210
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Gáldu ja ulbmil lea seamma fiila."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1212
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "Ii sáhttán čađahit barggu dannego gáldu ja ulbmil lea seamma fiila."
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1214
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Vállje eará nama ulbmilfiilii."
 
-#: core/job_error.cpp:1215
+#: core/job_error.cpp:1218
 #, fuzzy, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fiila dahje máhppa ii gávdno."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1220
 #, fuzzy, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "Ii sáhttán čađahit barggu dannego gáldu ja ulbmil lea seamma fiila."
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1222
 #, fuzzy, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "máŋge válljejuvvon fiilla dahje máhpa"
 
-#: core/job_error.cpp:1229
+#: core/job_error.cpp:1232
 #, kde-format
 msgid "Folder moved into itself"
 msgstr ""
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1234
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr ""
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1236
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr ""
 
-#: core/job_error.cpp:1237
+#: core/job_error.cpp:1240
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1242
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1244
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1245
+#: core/job_error.cpp:1248
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ii sáhte válbmet %1-protokolla"
 
-#: core/job_error.cpp:1246
+#: core/job_error.cpp:1249
 #, kde-format
 msgid "Unable to Create io-slave"
 msgstr ""
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1251
 #, kde-format
 msgid ""
 "The io-slave which provides access to the <strong>%1</strong> protocol could "
 "not be started. This is usually due to technical reasons."
 msgstr ""
 
-#: core/job_error.cpp:1253
+#: core/job_error.cpp:1256
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1259
+#: core/job_error.cpp:1262
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1264
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2250,14 +2255,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1267
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1269
+#: core/job_error.cpp:1272
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Ii-dokumenterejuvvon meattáhus"
@@ -2407,12 +2412,12 @@ msgstr "%1-protokollain ii leat vejolaš rahpat fiillaid."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1-protokolla ii doarjjo %2-doaimma"
 
-#: core/slavebase.cpp:1064
+#: core/slavebase.cpp:1077
 #, kde-format
 msgid "&Yes"
 msgstr "&Jo"
 
-#: core/slavebase.cpp:1065
+#: core/slavebase.cpp:1078
 #, kde-format
 msgid "&No"
 msgstr "&Ii"
@@ -2585,7 +2590,7 @@ msgstr "Ođđa máhppa …"
 
 #: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Sirdde ruskalihttái"
@@ -2966,157 +2971,179 @@ msgctxt "@item"
 msgid "Tags"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:164
+#: filewidgets/kfileplacesmodel.cpp:165
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr ""
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Ruokto"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:296
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:301 filewidgets/kfileplacesmodel.cpp:460
+#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Fierbmi"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:320
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Ruskalihtti"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:381
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:388
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:395 filewidgets/kfileplacesmodel.cpp:472
+#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:429
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:456
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:464
+#: filewidgets/kfileplacesmodel.cpp:466
 msgctxt "KFile System Bookmarks"
 msgid "Images"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:468
+#: filewidgets/kfileplacesmodel.cpp:470
 msgctxt "KFile System Bookmarks"
 msgid "Audio"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1159
+#: filewidgets/kfileplacesmodel.cpp:1161
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1166
+#: filewidgets/kfileplacesmodel.cpp:1168
 #, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr ""
-
-#: filewidgets/kfileplacesmodel.cpp:1430
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Releasing…"
 msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1432
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "&Release"
+msgid "Releasing…"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1436
+#: filewidgets/kfileplacesmodel.cpp:1434
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Safely Removing…"
+msgid "&Release"
 msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1438
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "&Safely Remove"
+msgid "Safely Removing…"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1443
+#: filewidgets/kfileplacesmodel.cpp:1440
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Unmounting…"
+msgid "&Safely Remove"
 msgstr ""
 
 #: filewidgets/kfileplacesmodel.cpp:1445
 #, kde-format
 msgctxt "@action:inmenu"
+msgid "Unmounting…"
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:1447
+#, kde-format
+msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1469
+#: filewidgets/kfileplacesmodel.cpp:1471
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1505
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr ""
 "Ovttadat «%1» ii leat skearru, ja danne ii leat vejolaš bálkestit olggos."
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Meattáhus dáhpahuvvui geahččalettiin beassat «%1:i», vuogádat vástidii: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1542
+#: filewidgets/kfileplacesmodel.cpp:1555
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Šattai meattáhus go geahččalii beastt «%1»:ii"
+
+#: filewidgets/kfileplacesmodel.cpp:1581
+#, kde-format
+msgid "One or more files on this device are open within an application."
+msgstr ""
+
+#: filewidgets/kfileplacesmodel.cpp:1584
+#, kde-kuit-format
+msgid ""
+"One or more files on this device are opened in application <application>"
+"\"%2\"</application>."
+msgid_plural ""
+"One or more files on this device are opened in following applications: "
+"<application>%2</application>."
+msgstr[0] ""
+msgstr[1] ""
+
+#: filewidgets/kfileplacesmodel.cpp:1587
+#, kde-format
+msgctxt "separator in list of apps blocking device unmount"
+msgid ", "
+msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -3226,27 +3253,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:659
 #, kde-format
 msgid "You can only select one file"
 msgstr "Sáhtát válljet dušše ovtta fiilla"
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:659
 #, kde-format
 msgid "More than one file provided"
 msgstr "Eanetgo okta fiila lea addon"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "You can only select local files"
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:837
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3257,12 +3284,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:836
+#: filewidgets/kfilewidget.cpp:843
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3273,12 +3300,12 @@ msgstr ""
 "leat vejolaš mearridit guđe máhppii galgá mannat. Válljes dušše ovtta máhppa "
 "vai oaidnit dan merkošiid listtus"
 
-#: filewidgets/kfilewidget.cpp:854
+#: filewidgets/kfilewidget.cpp:861
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Eanetgo okta máhpa addon"
 
-#: filewidgets/kfilewidget.cpp:864
+#: filewidgets/kfilewidget.cpp:871
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3287,22 +3314,22 @@ msgstr ""
 "Goit okta máhpa ja okta fiila leat válljejuvvon. Badjelgeahčá válljejuvvon "
 "fiillaid ja čájeha válljejuvvon máhpa sisdoalu"
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:872
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Fiillat ja máhpat válljejuvvon"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:890
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Fiila «%1» ii gávdnon"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:890
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ii sáhte rahpat fiilla"
 
-#: filewidgets/kfilewidget.cpp:1260
+#: filewidgets/kfilewidget.cpp:1267
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3310,42 +3337,42 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1264
+#: filewidgets/kfilewidget.cpp:1271
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat ovddit lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1265
+#: filewidgets/kfilewidget.cpp:1272
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat boahtte lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1274
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Coahkkal dán boalu vai viežžat dán báikki sisdoalu ođđasit."
 
-#: filewidgets/kfilewidget.cpp:1269
+#: filewidgets/kfilewidget.cpp:1276
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Coahkkal dán boalu vai ráhkadit ođđa máhpa."
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1278
 #, kde-format
 msgid "Show Places Panel"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1278
+#: filewidgets/kfilewidget.cpp:1285
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1292
 #, kde-format
 msgid "Options"
 msgstr "Molssaeavttut"
 
-#: filewidgets/kfilewidget.cpp:1288
+#: filewidgets/kfilewidget.cpp:1295
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3355,12 +3382,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1307
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid "Bookmarks"
 msgstr "Girjemearkkat"
 
-#: filewidgets/kfilewidget.cpp:1311
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3374,12 +3401,12 @@ msgstr ""
 "muhto doibmet nugo girjemearkkat eará báikkiin KDE:s.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1350 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1357 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Namma:"
 
-#: filewidgets/kfilewidget.cpp:1425
+#: filewidgets/kfilewidget.cpp:1432
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3391,12 +3418,12 @@ msgstr ""
 "stivret doaimma jus coahkkalat olgeš sáhpánboalu ja válljet modusa maid "
 "háliidat geavahit <b>Teakstaollášuhttin</b>-fálus.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1439
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dán nammii fiila vurkejuvvo."
 
-#: filewidgets/kfilewidget.cpp:1435
+#: filewidgets/kfilewidget.cpp:1442
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3405,79 +3432,79 @@ msgstr ""
 "Dát listu fiillain maid lea vejolaš rahpat. Sáhtát rahpat máŋga fiilla jus "
 "earohat fiilanamaid gaskkaiguin."
 
-#: filewidgets/kfilewidget.cpp:1440
+#: filewidgets/kfilewidget.cpp:1447
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dát lea nama dan fiillas mii rahppo."
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Báikkit"
 
-#: filewidgets/kfilewidget.cpp:1671
+#: filewidgets/kfilewidget.cpp:1678
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fiila %1 gávdno juo. Háliidatgo duođas dan buhttet?"
 
-#: filewidgets/kfilewidget.cpp:1672
+#: filewidgets/kfilewidget.cpp:1679
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Buhtte fiilla?"
 
-#: filewidgets/kfilewidget.cpp:1895
+#: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "You can only select local files."
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:1895
+#: filewidgets/kfilewidget.cpp:1902
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:1989
+#: filewidgets/kfilewidget.cpp:1996
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Buot máhpat"
 
-#: filewidgets/kfilewidget.cpp:1991
+#: filewidgets/kfilewidget.cpp:1998
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Buot fiillat"
 
-#: filewidgets/kfilewidget.cpp:2141 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2148 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
 
-#: filewidgets/kfilewidget.cpp:2241
+#: filewidgets/kfilewidget.cpp:2248
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Govašsturrodat: %1 govvačuoggá"
 
-#: filewidgets/kfilewidget.cpp:2389
+#: filewidgets/kfilewidget.cpp:2396
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automáhtalaččat vállje fiila&dovddaldaga (%1)"
 
-#: filewidgets/kfilewidget.cpp:2390
+#: filewidgets/kfilewidget.cpp:2397
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "dovddaldat <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2403
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automáhtalaččat vállje &fiiladovddaldaga"
 
-#: filewidgets/kfilewidget.cpp:2397
+#: filewidgets/kfilewidget.cpp:2404
 #, kde-format
 msgid "a suitable extension"
 msgstr "heivvolaš dovddaldat"
 
-#: filewidgets/kfilewidget.cpp:2405
+#: filewidgets/kfilewidget.cpp:2412
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3504,24 +3531,24 @@ msgstr ""
 "li> </ol> Jus ii leat sihkkar maid háliidat bargat, divtte dán molssaeavttu "
 "leat, dannego šaddá álkibut gieđahallat iežat fiillaid. "
 
-#: filewidgets/kfilewidget.cpp:2861
+#: filewidgets/kfilewidget.cpp:2868
 #, kde-format
 msgid "&File type:"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2862
+#: filewidgets/kfilewidget.cpp:2869
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2864
+#: filewidgets/kfilewidget.cpp:2871
 #, kde-format
 msgid "&Filter:"
 msgstr "&Silli:"
 
-#: filewidgets/kfilewidget.cpp:2866
+#: filewidgets/kfilewidget.cpp:2873
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4699,11 +4726,6 @@ msgstr "Gurre ruskalihti"
 #, kde-format
 msgid "Restore a trashed file to its original location"
 msgstr "Máhcat bálkestuvvon fiilla álggovuolggálaš báikái"
-
-#: ioslaves/trash/trashimpl.cpp:1323
-#, kde-format
-msgid "The file is too large to be trashed."
-msgstr ""
 
 #: ioslaves/trash/trashimpl.cpp:1329
 #, kde-format
@@ -6686,8 +6708,16 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
 #, kde-format
+msgid "Delete Permanently"
+msgstr ""
+
+#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:257
+#, kde-format
+msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr ""
 
@@ -6703,7 +6733,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6711,13 +6741,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Gurre ruskalihti"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6732,12 +6762,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:465
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Peer-SSL-sertifikáhtta orroleamen billašuvvon."
 
-#: widgets/jobuidelegate.cpp:436 widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8772,7 +8802,15 @@ msgstr ""
 "Gáiddus bálvá ii sádden SSL-duođaštusaid.\n"
 "Gaskkalduhttá dannego ii leat vejolaš duođaštit guossoheaddji identitehta."
 
-#: widgets/widgetsaskuseractionhandler.cpp:246
+#: widgets/widgetsaskuseractionhandler.cpp:223
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Do you really want to permanently delete this item?<nl/><filename>%1</"
+"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8784,7 +8822,30 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:242
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this item to Trash failed as it is too large. Permanently delete it "
+"instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>This action cannot be undone.</emphasis>"
+msgstr ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Moving this %1 item to Trash failed as it is too large. Permanently delete "
+"it instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
+msgid_plural ""
+"Moving these %1 items to Trash failed as they are too large. Permanently "
+"delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
+"undone.</emphasis>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -8792,19 +8853,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:289
+#: widgets/widgetsaskuseractionhandler.cpp:332
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:331
+#: widgets/widgetsaskuseractionhandler.cpp:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:356
+#: widgets/widgetsaskuseractionhandler.cpp:403
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
