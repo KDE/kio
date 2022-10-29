@@ -14,7 +14,6 @@ Dependencies:
     'frameworks/kjobwidgets' : '@same'
     'frameworks/kiconthemes' : '@same'
     'frameworks/kwindowsystem' : '@same'
-    'frameworks/kcrash' : '@same'
     'frameworks/kcompletion' : '@same'
     'frameworks/ktextwidgets' : '@same'
     'frameworks/kxmlgui' : '@same'
@@ -24,6 +23,7 @@ Dependencies:
 
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
+    'frameworks/kcrash' : '@same'
     'frameworks/kdbusaddons' : '@same'
     'frameworks/kdoctools' : '@same'
 
