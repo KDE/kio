@@ -314,8 +314,6 @@ void SlaveBase::dispatchLoop()
             d->nextTimeout.invalidate();
             d->timeoutData = QByteArray();
             special(data);
-            // NB: not performing state validation since http slave is misbehaving and not emitting anything at the time of writing - August 2022
-            d->m_state = d->Idle;
         }
 
         Q_ASSERT(d->appConnection.inited());
