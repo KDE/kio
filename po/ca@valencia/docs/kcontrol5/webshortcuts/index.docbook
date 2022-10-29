@@ -122,7 +122,7 @@
 ></term>
 <listitem>
 <para
->Seleccioneu el motor de busca a utilitzar en els quadros d'entrada que proporcionen el servei de busca automàtica quan teclegeu paraules normals o frases en lloc d'un &URL;. Per a desactivar esta característica seleccioneu <guilabel
+>Seleccioneu el motor de busca que s'utilitzarà en els quadros d'entrada que proporcionen el servei de busca automàtica quan teclegeu paraules normals o frases en lloc d'un &URL;. Per a desactivar esta característica seleccioneu <guilabel
 >Cap</guilabel
 > a la llista. </para
 ></listitem>
@@ -152,7 +152,7 @@
 >URL de la drecera:</guilabel
 > o <guilabel
 >Dreceres</guilabel
->. Feu clic a <guibutton
+>. Feu clic en <guibutton
 >D'acord</guibutton
 > per a guardar els vostres canvis i a <guibutton
 >Cancel·la</guibutton
