@@ -181,9 +181,6 @@ void SimpleJobPrivate::workerDone()
 {
     Q_Q(SimpleJob);
     if (m_worker) {
-        if (m_command == CMD_OPEN) {
-            m_worker->send(CMD_CLOSE);
-        }
         q->disconnect(m_worker); // Remove all signals between worker and job
     }
     // only finish a job once; Scheduler::jobFinished() resets schedSerial to zero.
