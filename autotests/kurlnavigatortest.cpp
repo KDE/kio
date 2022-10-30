@@ -273,6 +273,15 @@ void KUrlNavigatorTest::testRelativePaths()
     // Back to tempDir
     m_navigator->setLocationUrl(tempDirUrl);
     QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
+
+    // Replace all the text with "/a" - make sure this is handled as absolute path
+    m_navigator->editor()->setCurrentText(QStringLiteral("/a"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile("/a"));
+
+    // Back to tempDir
+    m_navigator->setLocationUrl(tempDirUrl);
+    QCOMPARE(m_navigator->locationUrl(), tempDirUrl);
     // Replace all the text with "l" which is a symlink to dirA
     m_navigator->editor()->setCurrentText(QStringLiteral("l"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
