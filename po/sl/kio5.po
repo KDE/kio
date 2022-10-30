@@ -16,15 +16,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-26 00:43+0000\n"
-"PO-Revision-Date: 2022-10-25 08:57+0200\n"
+"PO-Revision-Date: 2022-10-29 08:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -3252,7 +3252,7 @@ msgstr "Med dostopanjem do '%1' je prišlo do napake"
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Ena ali več datotek na tej napravi je odprtih v aplikaciji."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3263,15 +3263,23 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Ena ali več datotek na tej napravi je odprtih v aplikaciji <application>"
+"\"%2\"</application>."
 msgstr[1] ""
+"Ena ali več datotek na tej napravi je odprtih v aplikaciji <application>"
+"\"%2\"</application>."
 msgstr[2] ""
+"Ena ali več datotek na tej napravi je odprtih v aplikaciji <application>"
+"\"%2\"</application>."
 msgstr[3] ""
+"Ena ali več datotek na tej napravi je odprtih v aplikaciji <application>"
+"\"%2\"</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
