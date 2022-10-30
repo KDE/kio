@@ -891,11 +891,13 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     QString mimeComment = firstItem.mimeComment();
     d->mimeType = firstItem.mimetype();
     KIO::filesize_t totalSize = firstItem.size();
+    QString magicMimeName;
     QString magicMimeComment;
     QMimeDatabase db;
     if (isLocal) {
         QMimeType magicMimeType = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchContent);
         if (magicMimeType.isValid() && !magicMimeType.isDefault()) {
+            magicMimeName = magicMimeType.name();
             magicMimeComment = magicMimeType.comment();
         }
     }
@@ -982,6 +984,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             if (isLocal && !magicMimeComment.isNull()) {
                 QMimeType magicMimeType = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchContent);
                 if (magicMimeType.isValid() && magicMimeType.comment() != magicMimeComment) {
+                    magicMimeName.clear();
                     magicMimeComment.clear();
                 }
             }
@@ -1083,6 +1086,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     if (!magicMimeComment.isEmpty() && magicMimeComment != mimeComment) {
         d->m_ui->magicMimeCommentLabel->setText(magicMimeComment);
+        d->m_ui->magicMimeCommentLabel->setToolTip(magicMimeName);
     } else {
         d->m_ui->contentLabel->hide();
         d->m_ui->magicMimeCommentLabel->hide();
