@@ -345,8 +345,13 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
         }
     }
 
-    const QString path = Utils::slashAppended(url.path());
-    url.setPath(path + text);
+    // Treat absolute paths as absolute paths.
+    // Relative paths get appended to the current path.
+    if (text.startsWith(QLatin1Char('/'))) {
+        url.setPath(text);
+    } else {
+        url.setPath(Utils::concatPaths(url.path(), text));
+    }
 
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
