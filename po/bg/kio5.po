@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:43+0000\n"
+"POT-Creation-Date: 2022-10-31 00:42+0000\n"
 "PO-Revision-Date: 2022-10-25 08:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -3839,7 +3839,7 @@ msgstr "Работният плот е изключен"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:519 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3847,34 +3847,34 @@ msgid "Copy"
 msgstr "Копиране"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:523 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Поставяне"
 
-#: filewidgets/kurlnavigator.cpp:543
+#: filewidgets/kurlnavigator.cpp:548
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Отваряне на \"%1\" в нов раздел"
 
-#: filewidgets/kurlnavigator.cpp:551
+#: filewidgets/kurlnavigator.cpp:556
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Отваряне на \"%1\" в нов прозорец"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:565
 #, kde-format
 msgid "Edit"
 msgstr "Редактиране"
 
-#: filewidgets/kurlnavigator.cpp:563
+#: filewidgets/kurlnavigator.cpp:568
 #, kde-format
 msgid "Navigate"
 msgstr "Навигация"
 
-#: filewidgets/kurlnavigator.cpp:578
+#: filewidgets/kurlnavigator.cpp:583
 #, kde-format
 msgid "Show Full Path"
 msgstr "Показване на целия път"

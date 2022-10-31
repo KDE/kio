@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:43+0000\n"
+"POT-Creation-Date: 2022-10-31 00:42+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3826,7 +3826,7 @@ msgstr "שולחן העבודה אינו מקוון"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:519 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3834,36 +3834,36 @@ msgid "Copy"
 msgstr "העתק"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:523 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "הדבק"
 
-#: filewidgets/kurlnavigator.cpp:543
+#: filewidgets/kurlnavigator.cpp:548
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "פתח באמצעות"
 
-#: filewidgets/kurlnavigator.cpp:551
+#: filewidgets/kurlnavigator.cpp:556
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "פתח באמצעות"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:565
 #, kde-format
 msgid "Edit"
 msgstr "ערוך"
 
-#: filewidgets/kurlnavigator.cpp:563
+#: filewidgets/kurlnavigator.cpp:568
 #, kde-format
 msgid "Navigate"
 msgstr "נווט"
 
-#: filewidgets/kurlnavigator.cpp:578
+#: filewidgets/kurlnavigator.cpp:583
 #, kde-format
 msgid "Show Full Path"
 msgstr "הצג נתיב מלא"

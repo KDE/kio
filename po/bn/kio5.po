@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:43+0000\n"
+"POT-Creation-Date: 2022-10-31 00:42+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -3604,7 +3604,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:519 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, fuzzy, kde-format
@@ -3612,36 +3612,36 @@ msgid "Copy"
 msgstr "কপি করা হচ্ছে"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:523 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
 #, fuzzy, kde-format
 msgid "Paste"
 msgstr "তারিখ"
 
-#: filewidgets/kurlnavigator.cpp:543
+#: filewidgets/kurlnavigator.cpp:548
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "খুলতে ব্যবহার করো"
 
-#: filewidgets/kurlnavigator.cpp:551
+#: filewidgets/kurlnavigator.cpp:556
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "খুলতে ব্যবহার করো"
 
-#: filewidgets/kurlnavigator.cpp:560
+#: filewidgets/kurlnavigator.cpp:565
 #, fuzzy, kde-format
 msgid "Edit"
 msgstr "&সম্পাদন করো..."
 
-#: filewidgets/kurlnavigator.cpp:563
+#: filewidgets/kurlnavigator.cpp:568
 #, kde-format
 msgid "Navigate"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:578
+#: filewidgets/kurlnavigator.cpp:583
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
