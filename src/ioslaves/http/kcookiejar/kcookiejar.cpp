@@ -34,15 +34,6 @@
 
 Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf.kio.slaves.http.cookiejar")
 
-// BR87227
-// Waba: Should the number of cookies be limited?
-// I am not convinced of the need of such limit
-// Mozilla seems to limit to 20 cookies / domain
-// but it is unclear which policy it uses to expire
-// cookies when it exceeds that amount
-#undef MAX_COOKIE_LIMIT
-
-static constexpr int s_maxCookiesPerHost = 25;
 static constexpr int s_readBufferSize = 8192;
 static constexpr char s_ipAddressExpression[] = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
 
@@ -912,24 +903,6 @@ static bool compareCookies(const KHttpCookie &item1, const KHttpCookie &item2)
     return item1.path().length() > item2.path().length();
 }
 
-#ifdef MAX_COOKIE_LIMIT
-static void makeRoom(KHttpCookieList *cookieList, KHttpCookiePtr &cookiePtr)
-{
-    // Too many cookies: throw one away, try to be somewhat clever
-    KHttpCookiePtr lastCookie = 0;
-    for (KHttpCookiePtr cookie = cookieList->first(); cookie; cookie = cookieList->next()) {
-        if (compareCookies(cookie, cookiePtr)) {
-            break;
-        }
-        lastCookie = cookie;
-    }
-    if (!lastCookie) {
-        lastCookie = cookieList->first();
-    }
-    cookieList->removeRef(lastCookie);
-}
-#endif
-
 //
 // This function hands a KHttpCookie object over to the cookie jar.
 //
@@ -990,11 +963,6 @@ void KCookieJar::addCookie(KHttpCookie &cookie)
     // Add the cookie to the cookie list
     // The cookie list is sorted 'longest path first'
     if (!cookie.isExpired()) {
-#ifdef MAX_COOKIE_LIMIT
-        if (cookieList->count() >= s_maxCookiesPerHost) {
-            makeRoom(cookieList, cookie); // Delete a cookie
-        }
-#endif
         cookieList->push_back(cookie);
         // Use a stable sort so that unit tests are reliable.
         // In practice it doesn't matter though.
