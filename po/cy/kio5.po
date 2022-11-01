@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-31 00:42+0000\n"
+"POT-Creation-Date: 2022-11-01 00:43+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -7428,7 +7428,7 @@ msgstr "Perchennog"
 msgid "Owning Group"
 msgstr "Grŵp Perchennogiedig"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2135
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2139
 #, kde-format
 msgid "Others"
 msgstr "Eraill"
@@ -8327,41 +8327,41 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr "Cyfrannu"
 
-#: widgets/kpropertiesdialog.cpp:917
+#: widgets/kpropertiesdialog.cpp:919
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Cyffredin"
 
-#: widgets/kpropertiesdialog.cpp:1115
+#: widgets/kpropertiesdialog.cpp:1119
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Archwilio yn %1"
 
-#: widgets/kpropertiesdialog.cpp:1126 widgets/kpropertiesdialog.cpp:1391
+#: widgets/kpropertiesdialog.cpp:1130 widgets/kpropertiesdialog.cpp:1395
 #, kde-format
 msgid "Refresh"
 msgstr "Adnewyddu"
 
-#: widgets/kpropertiesdialog.cpp:1241
+#: widgets/kpropertiesdialog.cpp:1245
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialog.cpp:1351
+#: widgets/kpropertiesdialog.cpp:1355
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1rhydd o %2 (defnyddir %3%)"
 
-#: widgets/kpropertiesdialog.cpp:1358
+#: widgets/kpropertiesdialog.cpp:1362
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Maint anhysbys"
 
-#: widgets/kpropertiesdialog.cpp:1368
+#: widgets/kpropertiesdialog.cpp:1372
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -8370,137 +8370,137 @@ msgstr ""
 "Cyfrifo ... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialog.cpp:1371 widgets/kpropertiesdialog.cpp:1386
+#: widgets/kpropertiesdialog.cpp:1375 widgets/kpropertiesdialog.cpp:1390
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 ffeil"
 msgstr[1] "%1 o ffeiliau"
 
-#: widgets/kpropertiesdialog.cpp:1372 widgets/kpropertiesdialog.cpp:1387
+#: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 isblygell"
 msgstr[1] "%1 o isblygyllau"
 
-#: widgets/kpropertiesdialog.cpp:1400
+#: widgets/kpropertiesdialog.cpp:1404
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Cyfrifo ...\n"
 
-#: widgets/kpropertiesdialog.cpp:1423
+#: widgets/kpropertiesdialog.cpp:1427
 #, kde-format
 msgid "At least %1\n"
 msgstr "Am leiaf : %1\n"
 
-#: widgets/kpropertiesdialog.cpp:1469
+#: widgets/kpropertiesdialog.cpp:1473
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Mae enw'r ffeil newydd yn wag."
 
-#: widgets/kpropertiesdialog.cpp:1667
+#: widgets/kpropertiesdialog.cpp:1671
 #, fuzzy, kde-format
 #| msgid "&Supported file types:"
 msgid "No registered file type"
 msgstr "Mat&hau ffeil a gynhelir:"
 
-#: widgets/kpropertiesdialog.cpp:1669
+#: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
 msgid "No associated application"
 msgstr "Dim cymhwysiad cyfathrachol"
 
-#: widgets/kpropertiesdialog.cpp:1675
+#: widgets/kpropertiesdialog.cpp:1679
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Creuwyd:"
 
-#: widgets/kpropertiesdialog.cpp:1678
+#: widgets/kpropertiesdialog.cpp:1682
 #, fuzzy, kde-format
 #| msgid "Change..."
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Newid..."
 
-#: widgets/kpropertiesdialog.cpp:1754 widgets/kpropertiesdialog.cpp:1755
-#: widgets/kpropertiesdialog.cpp:1757
+#: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
+#: widgets/kpropertiesdialog.cpp:1761
 msgid "No Access"
 msgstr "Dim Mynediad"
 
-#: widgets/kpropertiesdialog.cpp:1754
+#: widgets/kpropertiesdialog.cpp:1758
 msgid "Can Only View"
 msgstr "Gallu Dim Ond Edrych"
 
-#: widgets/kpropertiesdialog.cpp:1754
+#: widgets/kpropertiesdialog.cpp:1758
 msgid "Can View & Modify"
 msgstr "Gallu Edrych & Amnewid"
 
-#: widgets/kpropertiesdialog.cpp:1755
+#: widgets/kpropertiesdialog.cpp:1759
 msgid "Can Only View Content"
 msgstr "Gallu Edrych ar Gynnwys"
 
-#: widgets/kpropertiesdialog.cpp:1755
+#: widgets/kpropertiesdialog.cpp:1759
 msgid "Can View & Modify Content"
 msgstr "Gallu Edrych ar a Newid Cynnwys"
 
-#: widgets/kpropertiesdialog.cpp:1757
+#: widgets/kpropertiesdialog.cpp:1761
 msgid "Can Only View/Read Content"
 msgstr "Gallu Edrych ar Gynnwys"
 
-#: widgets/kpropertiesdialog.cpp:1757
+#: widgets/kpropertiesdialog.cpp:1761
 msgid "Can View/Read & Modify/Write"
 msgstr "Gallu Edrych/Darllen a Newid/Ysgrifennu"
 
-#: widgets/kpropertiesdialog.cpp:1856
+#: widgets/kpropertiesdialog.cpp:1860
 #, kde-format
 msgid "&Permissions"
 msgstr "&Caniatadau"
 
-#: widgets/kpropertiesdialog.cpp:1868 widgets/kpropertiesdialog.cpp:2064
+#: widgets/kpropertiesdialog.cpp:1872 widgets/kpropertiesdialog.cpp:2068
 #, kde-format
 msgid "Access Permissions"
 msgstr "Caniatadau Cyrchu"
 
-#: widgets/kpropertiesdialog.cpp:1877
+#: widgets/kpropertiesdialog.cpp:1881
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Mae'r ffeil yma yn gyswllt ac nid oes ganddo ganiatadau."
 msgstr[1] "Mae'r ffeiliau i gyd yn gysylltau ac nid oes ganddynt ganiatadau."
 
-#: widgets/kpropertiesdialog.cpp:1879
+#: widgets/kpropertiesdialog.cpp:1883
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Neb ond y perchennog sy'n gallu newid caniatadau."
 
-#: widgets/kpropertiesdialog.cpp:1883
+#: widgets/kpropertiesdialog.cpp:1887
 #, kde-format
 msgid "O&wner:"
 msgstr "P&erchennog:"
 
-#: widgets/kpropertiesdialog.cpp:1889
+#: widgets/kpropertiesdialog.cpp:1893
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Penodi'r gweithrediadau y mae'r perchennog yn cael gwneud."
 
-#: widgets/kpropertiesdialog.cpp:1891
+#: widgets/kpropertiesdialog.cpp:1895
 #, kde-format
 msgid "Gro&up:"
 msgstr "G&rŵp:"
 
-#: widgets/kpropertiesdialog.cpp:1897
+#: widgets/kpropertiesdialog.cpp:1901
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Penodi'r gweithrediadau y mae aelodau'r grw^p yn cael gwneud."
 
-#: widgets/kpropertiesdialog.cpp:1899
+#: widgets/kpropertiesdialog.cpp:1903
 #, kde-format
 msgid "O&thers:"
 msgstr "E&raill:"
 
-#: widgets/kpropertiesdialog.cpp:1906
+#: widgets/kpropertiesdialog.cpp:1910
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -8509,17 +8509,17 @@ msgstr ""
 "Penodi'r gweithrediadau y mae pob defnyddiwr, sy ddim yn berchennog neu "
 "aelod y grw^p, yn cael gwneud."
 
-#: widgets/kpropertiesdialog.cpp:1910
+#: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "Neb ond y per&chennog sy'n cael ail-enwi a dileu cynnwys plygell"
 
-#: widgets/kpropertiesdialog.cpp:1910
+#: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
 msgid "Is &executable"
 msgstr "Gallu ei &Weithredu"
 
-#: widgets/kpropertiesdialog.cpp:1913
+#: widgets/kpropertiesdialog.cpp:1917
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -8530,7 +8530,7 @@ msgstr ""
 "ail-enwi'r ffeiliau neu plygyll sydd ynddo.  Mae defnyddwyr eraill yn gallu "
 "ychwanegu dim ond ffeiliau newydd, sy'n galw am y caniatad 'Addasu Cynnwys'."
 
-#: widgets/kpropertiesdialog.cpp:1917
+#: widgets/kpropertiesdialog.cpp:1921
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -8540,42 +8540,42 @@ msgstr ""
 "gwneud synnwyr i ddim ond rhaglenni a sgriptiau.  Mae'n angenrheidiol os "
 "byddwch eisiau eu gweithredu."
 
-#: widgets/kpropertiesdialog.cpp:1924
+#: widgets/kpropertiesdialog.cpp:1928
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "C&aniatadau Uwch"
 
-#: widgets/kpropertiesdialog.cpp:1932
+#: widgets/kpropertiesdialog.cpp:1936
 #, kde-format
 msgid "Ownership"
 msgstr "Perchenogaeth"
 
-#: widgets/kpropertiesdialog.cpp:1939
+#: widgets/kpropertiesdialog.cpp:1943
 #, kde-format
 msgid "User:"
 msgstr "Defnyddiwr:"
 
-#: widgets/kpropertiesdialog.cpp:1978
+#: widgets/kpropertiesdialog.cpp:1982
 #, kde-format
 msgid "Group:"
 msgstr "Grŵp:"
 
-#: widgets/kpropertiesdialog.cpp:2013
+#: widgets/kpropertiesdialog.cpp:2017
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Gosod newidiadau i bob is-blygell a'i gynnwys"
 
-#: widgets/kpropertiesdialog.cpp:2055
+#: widgets/kpropertiesdialog.cpp:2059
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Caniatadau Uwch"
 
-#: widgets/kpropertiesdialog.cpp:2072
+#: widgets/kpropertiesdialog.cpp:2076
 #, kde-format
 msgid "Class"
 msgstr "Dosbarth"
 
-#: widgets/kpropertiesdialog.cpp:2079
+#: widgets/kpropertiesdialog.cpp:2083
 #, kde-format
 msgid ""
 "Show\n"
@@ -8584,22 +8584,22 @@ msgstr ""
 "Dangos\n"
 "Cofnodion"
 
-#: widgets/kpropertiesdialog.cpp:2080
+#: widgets/kpropertiesdialog.cpp:2084
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Mae'r faner yma yn gadael gweld cynnwys y plygell."
 
-#: widgets/kpropertiesdialog.cpp:2082
+#: widgets/kpropertiesdialog.cpp:2086
 #, kde-format
 msgid "Read"
 msgstr "Darllen"
 
-#: widgets/kpropertiesdialog.cpp:2083
+#: widgets/kpropertiesdialog.cpp:2087
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Mae'r faner Ddarllen yn gadael gweld cynnwys y ffeil."
 
-#: widgets/kpropertiesdialog.cpp:2089
+#: widgets/kpropertiesdialog.cpp:2093
 #, kde-format
 msgid ""
 "Write\n"
@@ -8608,7 +8608,7 @@ msgstr ""
 "Ysgrifennu\n"
 "Cofnodion"
 
-#: widgets/kpropertiesdialog.cpp:2091
+#: widgets/kpropertiesdialog.cpp:2095
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -8617,43 +8617,43 @@ msgstr ""
 "Mae'r faner yma yn gadael ychwanegu, ail-enwi a dileu ffeiliau.  Noder: "
 "gellir cyfyngu dileu ac ail-enwi gan ddefnyddio'r faner Gludiog."
 
-#: widgets/kpropertiesdialog.cpp:2094
+#: widgets/kpropertiesdialog.cpp:2098
 #, kde-format
 msgid "Write"
 msgstr "Ysgrifennu"
 
-#: widgets/kpropertiesdialog.cpp:2095
+#: widgets/kpropertiesdialog.cpp:2099
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Mae'r faner Ysgrifennu yn gadael addasu cynnwys y ffeil."
 
-#: widgets/kpropertiesdialog.cpp:2101
+#: widgets/kpropertiesdialog.cpp:2105
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Mynd i mewn"
 
-#: widgets/kpropertiesdialog.cpp:2102
+#: widgets/kpropertiesdialog.cpp:2106
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Galluogi'r faner yma i adael mynd i mewn i'r plygell."
 
-#: widgets/kpropertiesdialog.cpp:2104
+#: widgets/kpropertiesdialog.cpp:2108
 #, kde-format
 msgid "Exec"
 msgstr "Gweithredu"
 
-#: widgets/kpropertiesdialog.cpp:2105
+#: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Galluogi'r faner yma i adael gweithredu'r ffeil fel rhaglen."
 
-#: widgets/kpropertiesdialog.cpp:2113
+#: widgets/kpropertiesdialog.cpp:2117
 #, kde-format
 msgid "Special"
 msgstr "Arbennig"
 
-#: widgets/kpropertiesdialog.cpp:2118
+#: widgets/kpropertiesdialog.cpp:2122
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -8662,7 +8662,7 @@ msgstr ""
 "Baner arbennig. Dilys i'r plygell cyfan. Gall ystyr cywir y faner gael ei "
 "weld yn y golofn dde."
 
-#: widgets/kpropertiesdialog.cpp:2122
+#: widgets/kpropertiesdialog.cpp:2126
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -8670,17 +8670,17 @@ msgid ""
 msgstr ""
 "Baner arbennig.  Gall ystyr cywir y faner gael ei weld yn y golofn dde."
 
-#: widgets/kpropertiesdialog.cpp:2127
+#: widgets/kpropertiesdialog.cpp:2131
 #, kde-format
 msgid "User"
 msgstr "Defnyddiwr"
 
-#: widgets/kpropertiesdialog.cpp:2131
+#: widgets/kpropertiesdialog.cpp:2135
 #, kde-format
 msgid "Group"
 msgstr "Grŵp"
 
-#: widgets/kpropertiesdialog.cpp:2142
+#: widgets/kpropertiesdialog.cpp:2146
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -8689,7 +8689,7 @@ msgstr ""
 "Os osodir y faner yma, bydd perchennog y plygell yma yn biau pob ffeil "
 "newydd."
 
-#: widgets/kpropertiesdialog.cpp:2146
+#: widgets/kpropertiesdialog.cpp:2150
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -8698,7 +8698,7 @@ msgstr ""
 "Os mae'r ffeil yma yn weithredadwy ac mae'r faner wedi ei gosod, bydd o'n "
 "cael ei weithredu efo caniatadau'r perchennog."
 
-#: widgets/kpropertiesdialog.cpp:2153
+#: widgets/kpropertiesdialog.cpp:2157
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -8706,7 +8706,7 @@ msgstr ""
 "Os osodir y faner yma, bydd cylch y plygell yma yn cael ei osod am bob ffeil "
 "newydd."
 
-#: widgets/kpropertiesdialog.cpp:2157
+#: widgets/kpropertiesdialog.cpp:2161
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -8715,7 +8715,7 @@ msgstr ""
 "Os mae'r ffeil yma yn weithredadwy ac mae'r faner wedi ei gosod, bydd o'n "
 "cael ei weithredu efo caniatadau'r grŵp."
 
-#: widgets/kpropertiesdialog.cpp:2164
+#: widgets/kpropertiesdialog.cpp:2168
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -8725,7 +8725,7 @@ msgstr ""
 "gallu dileu neu ail-enwi ffeiliau. Fel arall, mae pawb sydd efo caniatadau "
 "ysgrifennu yn gallu gwneud hyn."
 
-#: widgets/kpropertiesdialog.cpp:2169
+#: widgets/kpropertiesdialog.cpp:2173
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -8734,82 +8734,82 @@ msgstr ""
 "Mae'r faner Gludiog ar ffeil yn cael ei anywbyddu ar Linux, ond gall ei "
 "defnyddio ar rhai cysodau"
 
-#: widgets/kpropertiesdialog.cpp:2230
+#: widgets/kpropertiesdialog.cpp:2234
 #, kde-format
 msgid "Set UID"
 msgstr "Gosod UID"
 
-#: widgets/kpropertiesdialog.cpp:2234
+#: widgets/kpropertiesdialog.cpp:2238
 #, kde-format
 msgid "Set GID"
 msgstr "Gosod GID"
 
-#: widgets/kpropertiesdialog.cpp:2238
+#: widgets/kpropertiesdialog.cpp:2242
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Gludiog"
 
-#: widgets/kpropertiesdialog.cpp:2345
+#: widgets/kpropertiesdialog.cpp:2349
 #, kde-format
 msgid "Link"
 msgstr "Cyswllt"
 
-#: widgets/kpropertiesdialog.cpp:2365
+#: widgets/kpropertiesdialog.cpp:2369
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Amrywio (Dim Newid)"
 
-#: widgets/kpropertiesdialog.cpp:2476
+#: widgets/kpropertiesdialog.cpp:2480
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Mae'r ffeil yma yn defnyddio caniatadau uwch"
 msgstr[1] "Mae'r ffeiliau yma yn defnyddio caniatadau uwch."
 
-#: widgets/kpropertiesdialog.cpp:2498
+#: widgets/kpropertiesdialog.cpp:2502
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Mae'r plygell yma yn defnyddio caniatadau uwch."
 msgstr[1] "Mae'r plygyllau yma yn defnyddio caniatadau uwch."
 
-#: widgets/kpropertiesdialog.cpp:2512
+#: widgets/kpropertiesdialog.cpp:2516
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Mae'r ffeiliau yma yn defnyddio caniatadau uwch."
 
-#: widgets/kpropertiesdialog.cpp:2758
+#: widgets/kpropertiesdialog.cpp:2762
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "G%wiriogyfansymiau"
 
-#: widgets/kpropertiesdialog.cpp:2823 widgets/kpropertiesdialog.cpp:2834
-#: widgets/kpropertiesdialog.cpp:2845 widgets/kpropertiesdialog.cpp:2856
+#: widgets/kpropertiesdialog.cpp:2827 widgets/kpropertiesdialog.cpp:2838
+#: widgets/kpropertiesdialog.cpp:2849 widgets/kpropertiesdialog.cpp:2860
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "Cyfrifo..."
 
-#: widgets/kpropertiesdialog.cpp:3012
+#: widgets/kpropertiesdialog.cpp:3016
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Gwiriogyfanswm annilys."
 
-#: widgets/kpropertiesdialog.cpp:3015
+#: widgets/kpropertiesdialog.cpp:3019
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Nid ydy'r mewnbynniad rhowyd yn wiriogyfanswm dilys MD5, SHA1 neu SHA256."
 
-#: widgets/kpropertiesdialog.cpp:3026
+#: widgets/kpropertiesdialog.cpp:3030
 #, kde-format
 msgid "Checksums match."
 msgstr "Cydgyffelybir Gwiriogyfansymiau."
 
-#: widgets/kpropertiesdialog.cpp:3029
+#: widgets/kpropertiesdialog.cpp:3033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
@@ -8817,7 +8817,7 @@ msgstr ""
 "Mae'r gwiriogyfanswm cyfrifedig a'r gwiriogyfanswm disgwyliedig yn cael eu "
 "chydgyffelybu."
 
-#: widgets/kpropertiesdialog.cpp:3041
+#: widgets/kpropertiesdialog.cpp:3045
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -8828,7 +8828,7 @@ msgstr ""
 "llawrlwythiad gwallus. Ceisiwch ail-lawrlwytho y ffeil. <br/>Os y mae'r "
 "gwiriadaeth yn dal yn ei methu, cysylltiwch y tarddiad o'r ffeil."
 
-#: widgets/kpropertiesdialog.cpp:3046
+#: widgets/kpropertiesdialog.cpp:3050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
@@ -8836,23 +8836,23 @@ msgstr ""
 "Mae'r gwiriogyfanswm cyfrifedig a'r gwiriogyfanswm disgwyliedig yn cael eu "
 "gwahaniaethu."
 
-#: widgets/kpropertiesdialog.cpp:3054
+#: widgets/kpropertiesdialog.cpp:3058
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
 msgstr "Gwirio gwiriogyfanswm..."
 
-#: widgets/kpropertiesdialog.cpp:3143
+#: widgets/kpropertiesdialog.cpp:3147
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialog.cpp:3150
+#: widgets/kpropertiesdialog.cpp:3154
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3219 widgets/kpropertiesdialog.cpp:3499
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8860,28 +8860,28 @@ msgstr ""
 "Ni allai achub priodoleddau. Mae'r dim ond dodiadau ar gyfundrefnau ffeil "
 "leol yn eu chynhaliwyd."
 
-#: widgets/kpropertiesdialog.cpp:3294
+#: widgets/kpropertiesdialog.cpp:3298
 #, kde-format
 msgid "&Application"
 msgstr "&Cymhwysiad"
 
-#: widgets/kpropertiesdialog.cpp:3437
+#: widgets/kpropertiesdialog.cpp:3441
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Ychwanegu Math Ffeil am %1"
 
-#: widgets/kpropertiesdialog.cpp:3438
+#: widgets/kpropertiesdialog.cpp:3442
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Dewis un neu fwy o fathau ffeil i'w ychwanegu:"
 
-#: widgets/kpropertiesdialog.cpp:3584
+#: widgets/kpropertiesdialog.cpp:3588
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Mae'r dim ond gweithrediadwyion ar gyfundrefnau ffeil leol yn eu chynhaliwyd."
 
-#: widgets/kpropertiesdialog.cpp:3599
+#: widgets/kpropertiesdialog.cpp:3603
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Dewisiadau Uwch am %1"
