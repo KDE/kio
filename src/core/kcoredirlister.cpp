@@ -2381,6 +2381,7 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
 void KCoreDirLister::setMimeExcludeFilter(const QStringList &mimeExcludeFilter)
 {
     if (d->settings.mimeExcludeFilter == mimeExcludeFilter) {
@@ -2390,6 +2391,7 @@ void KCoreDirLister::setMimeExcludeFilter(const QStringList &mimeExcludeFilter)
     d->prepareForSettingsChange();
     d->settings.mimeExcludeFilter = mimeExcludeFilter;
 }
+#endif
 
 void KCoreDirLister::clearMimeFilter()
 {

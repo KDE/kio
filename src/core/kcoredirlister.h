@@ -401,6 +401,7 @@ public:
      */
     virtual void setMimeFilter(const QStringList &mimeList); // TODO KF6: remove virtual
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     /**
      * Filtering should be done with KFileFilter. This will be implemented in a later
      * revision of KCoreDirLister. This method may be removed then.
@@ -414,8 +415,11 @@ public:
      * @see clearMimeFilter
      * @see matchesMimeFilter
      * @internal
+     * @deprecated since 5.100, no known users.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 100, "No known users.")
     void setMimeExcludeFilter(const QStringList &mimeList);
+#endif
 
     /**
      * Clears the MIME type based filter.
