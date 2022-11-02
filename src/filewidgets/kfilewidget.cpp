@@ -1953,7 +1953,7 @@ void KFileWidget::showEvent(QShowEvent *event)
     if (!d->m_hasView) { // delayed view-creation
         Q_ASSERT(d);
         Q_ASSERT(d->m_ops);
-        d->m_ops->setView(KFile::Default);
+        d->m_ops->setViewMode(KFile::Default);
         d->m_hasView = true;
 
         connect(d->m_ops->view(), &QAbstractItemView::doubleClicked, this, [this](const QModelIndex &index) {
@@ -2995,7 +2995,7 @@ QSize KFileWidget::dialogSizeHint() const
 
 void KFileWidget::setViewMode(KFile::FileView mode)
 {
-    d->m_ops->setView(mode);
+    d->m_ops->setViewMode(mode);
     d->m_hasView = true;
 }
 

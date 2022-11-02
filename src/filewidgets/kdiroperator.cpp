@@ -431,7 +431,7 @@ void KDirOperator::setPreviewWidget(KPreviewWidgetBase *w)
     KToggleAction *previewAction = static_cast<KToggleAction *>(action(ShowPreviewPanel));
     previewAction->setEnabled(showPreview);
     previewAction->setChecked(showPreview);
-    setView(static_cast<KFile::FileView>(d->m_viewKind));
+    setViewMode(static_cast<KFile::FileView>(d->m_viewKind));
 }
 
 KFileItemList KDirOperator::selectedItems() const
@@ -511,7 +511,7 @@ void KDirOperatorPrivate::slotDetailedView()
     writeIconZoomSettingsIfNeeded();
 
     KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Detail);
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotSimpleView()
@@ -520,7 +520,7 @@ void KDirOperatorPrivate::slotSimpleView()
     writeIconZoomSettingsIfNeeded();
 
     KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotTreeView()
@@ -529,7 +529,7 @@ void KDirOperatorPrivate::slotTreeView()
     writeIconZoomSettingsIfNeeded();
 
     KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Tree);
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotDetailedTreeView()
@@ -538,7 +538,7 @@ void KDirOperatorPrivate::slotDetailedTreeView()
     writeIconZoomSettingsIfNeeded();
 
     KFile::FileView view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::DetailTree);
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotToggleAllowExpansion(bool allow)
@@ -547,7 +547,7 @@ void KDirOperatorPrivate::slotToggleAllowExpansion(bool allow)
     if (allow) {
         view = KFile::DetailTree;
     }
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotToggleHidden(bool show)
@@ -656,7 +656,7 @@ void KDirOperatorPrivate::slotIconsView()
 
     // Switch to simple view
     KFile::FileView fileView = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
-    q->setView(fileView);
+    q->setViewMode(fileView);
 }
 
 void KDirOperatorPrivate::slotCompactView()
@@ -670,7 +670,7 @@ void KDirOperatorPrivate::slotCompactView()
 
     // Switch to simple view
     KFile::FileView fileView = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Simple);
-    q->setView(fileView);
+    q->setViewMode(fileView);
 }
 
 void KDirOperatorPrivate::slotDetailsView()
@@ -684,7 +684,7 @@ void KDirOperatorPrivate::slotDetailsView()
     } else {
         view = static_cast<KFile::FileView>((m_viewKind & ~allViews()) | KFile::Detail);
     }
-    q->setView(view);
+    q->setViewMode(view);
 }
 
 void KDirOperatorPrivate::slotToggleIgnoreCase()
@@ -1576,7 +1576,7 @@ void KDirOperator::setDropOptions(int options)
     //   d->fileView->setDropOptions(options);
 }
 
-void KDirOperator::setView(KFile::FileView viewKind)
+void KDirOperator::setViewMode(KFile::FileView viewKind)
 {
     bool preview = (KFile::isPreviewInfo(viewKind) || KFile::isPreviewContents(viewKind));
 
@@ -1608,6 +1608,13 @@ void KDirOperator::setView(KFile::FileView viewKind)
 
     d->togglePreview(preview);
 }
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
+void KDirOperator::setView(KFile::FileView viewKind)
+{
+    setViewMode(viewKind);
+}
+#endif
 
 KFile::FileView KDirOperator::viewMode() const
 {
@@ -1645,7 +1652,7 @@ void KDirOperator::setMode(KFile::Modes mode)
 
     // reset the view with the different mode
     if (d->m_itemView != nullptr) {
-        setView(static_cast<KFile::FileView>(d->m_viewKind));
+        setViewMode(static_cast<KFile::FileView>(d->m_viewKind));
     }
 }
 

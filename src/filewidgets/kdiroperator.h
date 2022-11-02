@@ -80,7 +80,7 @@ class KDirOperatorPrivate;
  *
  *   KConfigGroup grp(KSharedConfig::openConfig(),"Your KDiroperator ConfigGroup" );
  *   op->readConfig( &grp);
- *   op->setView(KFile::Default);
+ *   op->setViewMode(KFile::Default);
  * \endcode
  *
  * This will create a childwidget of 'this' showing the directory contents
@@ -387,11 +387,21 @@ public:
      */
     QAbstractItemView *view() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * Sets one of the predefined fileviews.
      * @see KFile::FileView
      */
     virtual void setView(KFile::FileView viewKind);
+#endif
+
+    /**
+     * Set the view mode to one of the predefined modes.
+     * @see KFile::FileView
+     *
+     * @since 5.100
+     */
+    void setViewMode(KFile::FileView viewKind);
 
     /**
      * Returns the current view mode.
@@ -591,7 +601,7 @@ public:
      * Also reads the sorting and whether hidden files should be shown.
      * Note: the default view will not be set - you have to call
      * \code
-     * setView( KFile::Default )
+     * setViewMode( KFile::Default )
      * \endcode
      * to apply it.
      *

@@ -50,10 +50,10 @@ private Q_SLOTS:
 
     void testReadConfig()
     {
-        // Test: Make sure readConfig() and then setView() restores
+        // Test: Make sure readConfig() and then setViewMode() restores
         // the correct kind of view.
         KDirOperator *dirOp = new KDirOperator;
-        dirOp->setView(KFile::DetailTree);
+        dirOp->setViewMode(KFile::DetailTree);
         dirOp->setShowHiddenFiles(true);
         KConfigGroup cg(KSharedConfig::openConfig(), "diroperator");
         dirOp->writeConfig(cg);
@@ -61,7 +61,7 @@ private Q_SLOTS:
 
         dirOp = new KDirOperator;
         dirOp->readConfig(cg);
-        dirOp->setView(KFile::Default);
+        dirOp->setViewMode(KFile::Default);
         QVERIFY(dirOp->showHiddenFiles());
         // KDirOperatorDetail inherits QTreeView, so this test should work
         QVERIFY(qobject_cast<QTreeView *>(dirOp->view()));
@@ -85,7 +85,7 @@ private Q_SLOTS:
 
         KDirOperator dirOp(kFileDirUrl);
         QSignalSpy completedSpy(dirOp.dirLister(), qOverload<>(&KCoreDirLister::completed));
-        dirOp.setView(KFile::DetailTree);
+        dirOp.setViewMode(KFile::DetailTree);
         completedSpy.wait(1000);
         dirOp.setCurrentItem(QUrl(QStringLiteral("file:///")));
         dirOp.setCurrentItem(QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp")));
@@ -145,7 +145,7 @@ private Q_SLOTS:
         dirOp.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&dirOp));
 
-        dirOp.setView(KFile::Default);
+        dirOp.setViewMode(KFile::Default);
 
         // first case, go up...
         dirOp.cdUp();
@@ -211,7 +211,7 @@ private Q_SLOTS:
         dirOp.activateWindow();
         QVERIFY(QTest::qWaitForWindowActive(&dirOp));
 
-        dirOp.setView(KFile::Default);
+        dirOp.setViewMode(KFile::Default);
 
         // finishedLoading is emitted when the dirLister emits the completed signal
         QSignalSpy finishedSpy(&dirOp, &KDirOperator::finishedLoading);
