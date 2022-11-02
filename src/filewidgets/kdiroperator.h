@@ -372,7 +372,8 @@ public:
      */
     void setCurrentItems(const KFileItemList &items);
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
+    // Not _ENABLED_ because this is a virtual method
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
     /**
      * Sets a new view to be used for showing and browsing files.
      * Note: this will read the current url() to fill the view.
@@ -392,7 +393,8 @@ public:
      */
     QAbstractItemView *view() const;
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
+    // Not _ENABLED_ because this is a virtual method
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
     /**
      * Sets one of the predefined fileviews.
      * @see KFile::FileView

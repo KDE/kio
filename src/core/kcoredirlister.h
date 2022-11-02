@@ -215,7 +215,8 @@ public:
      */
     bool showHiddenFiles() const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
+    // Not _ENABLED_ because this is a virtual method
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     /**
      * Toggles whether hidden files (files whose name start with '.') are shown, by default
      * hidden files are not shown.
