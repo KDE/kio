@@ -139,7 +139,7 @@
 >HTTP_PROXY</envar
 > per a permetre que les aplicacions gràfiques i no gràfiques compartisquen la mateixa informació de configuració de l'intermediari.</para>
 <para
->Si sabeu que açò vos és aplicable, seleccioneu esta opció i feu clic sobre el botó <guibutton
+>Si sabeu que açò vos és aplicable, seleccioneu esta opció i feu clic damunt del botó <guibutton
 >Detecta automàticament</guibutton
 > per a proveir els noms de les variables d'entorn utilitzades per a establir l'adreça dels servidors intermediari/s.</para>
 <!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->

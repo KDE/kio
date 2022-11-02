@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:43+0000\n"
+"POT-Creation-Date: 2022-11-02 00:44+0000\n"
 "PO-Revision-Date: 2022-10-24 11:42+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -442,7 +442,7 @@ msgstr ""
 "São necessários privilégios de 'root' para terminar a mudança de nomes. "
 "Deseja continuar?"
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:627
+#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
@@ -2750,216 +2750,216 @@ msgstr "Nada a Enviar para o Lixo"
 msgid "The specified folder does not exist or was not readable."
 msgstr "A pasta indicada não existe ou não está acessível para leitura."
 
-#: filewidgets/kdiroperator.cpp:2006
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2009
 #, kde-format
 msgid "Parent Folder"
 msgstr "Pasta-Mãe"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2016
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Recuar"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2020
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Avançar"
 
-#: filewidgets/kdiroperator.cpp:2027
+#: filewidgets/kdiroperator.cpp:2024
 #, kde-format
 msgid "Home Folder"
 msgstr "Pasta Pessoal"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2028
 #, kde-format
 msgid "Reload"
 msgstr "Actualizar"
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "New Folder..."
 msgstr "Nova Pasta..."
 
-#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2043 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Enviar para o Lixo"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2050
 #, kde-format
 msgid "Delete"
 msgstr "Apagar"
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2058
 #, kde-format
 msgid "Sorting"
 msgstr "Ordenação"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordenar pelo Nome"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ordenar pelo Tamanho"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2078
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordenar pela Data"
 
-#: filewidgets/kdiroperator.cpp:2088
+#: filewidgets/kdiroperator.cpp:2085
 #, kde-format
 msgid "Sort by Type"
 msgstr "Ordenar pelo Tipo"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2103
 #, kde-format
 msgid "Descending"
 msgstr "Descendente"
 
-#: filewidgets/kdiroperator.cpp:2114
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Folders First"
 msgstr "Pastas Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2121
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Ficheiros Escondidos em Último"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Icons View"
 msgstr "Vista em Ícones"
 
-#: filewidgets/kdiroperator.cpp:2137
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Compact View"
 msgstr "Vista Compacta"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Details View"
 msgstr "Vista Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2165
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Icon Position"
 msgstr "Posição dos Ícones"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2166
 #, kde-format
 msgid "Next to File Name"
 msgstr "A Seguir ao Nome do Ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2173
 #, kde-format
 msgid "Above File Name"
 msgstr "Sobre o Nome do Ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2191
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Short View"
 msgstr "Vista Abreviada"
 
-#: filewidgets/kdiroperator.cpp:2199
+#: filewidgets/kdiroperator.cpp:2196
 #, kde-format
 msgid "Detailed View"
 msgstr "Vista Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2204
 #, kde-format
 msgid "Tree View"
 msgstr "Vista em Árvore"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2212
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Árvore Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2226
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Permitir a Expansão na Área de Detalhes"
 
-#: filewidgets/kdiroperator.cpp:2236
+#: filewidgets/kdiroperator.cpp:2233
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Mostrar os Ficheiros Escondidos"
 
-#: filewidgets/kdiroperator.cpp:2244
+#: filewidgets/kdiroperator.cpp:2241
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Mostrar o Painel de Antevisão"
 
-#: filewidgets/kdiroperator.cpp:2252
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Preview"
 msgstr "Mostrar a Antevisão"
 
-#: filewidgets/kdiroperator.cpp:2260
+#: filewidgets/kdiroperator.cpp:2257
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Abrir a Pasta Respectiva"
 
-#: filewidgets/kdiroperator.cpp:2268 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2265 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Propriedades"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2275
 #, kde-format
 msgid "&View Mode"
 msgstr "Modo de &Visualização"
 
-#: filewidgets/kdiroperator.cpp:2382 filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2379 filewidgets/kdiroperator.cpp:2391
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2383 filewidgets/kdiroperator.cpp:2395
+#: filewidgets/kdiroperator.cpp:2380 filewidgets/kdiroperator.cpp:2392
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2386
+#: filewidgets/kdiroperator.cpp:2383
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Mais Recentes Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2387
+#: filewidgets/kdiroperator.cpp:2384
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Mais Antigos Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2390
+#: filewidgets/kdiroperator.cpp:2387
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Maiores Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2388
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3781,33 +3781,33 @@ msgstr ""
 "personalizado, directamente no campo de texto.</p><p>Os caracteres especiais "
 "como o * e o ? são permitidos.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:469
+#: filewidgets/knewfilemenu.cpp:474
 #, kde-format
 msgid "Sorry"
 msgstr "Desculpe"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:485
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>O ficheiro do modelo <b>%1</b> não existe.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:624 filewidgets/knewfilemenu.cpp:689
+#: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nome da nova ligação:"
 
-#: filewidgets/knewfilemenu.cpp:693
+#: filewidgets/knewfilemenu.cpp:698
 #, kde-format
 msgid "Create link to URL"
 msgstr "Criar um atalho para o URL"
 
-#: filewidgets/knewfilemenu.cpp:735 filewidgets/knewfilemenu.cpp:791
+#: filewidgets/knewfilemenu.cpp:740 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3817,7 +3817,7 @@ msgstr ""
 "Não foi possível usar o nome <filename>%1</filename> por estar reservado "
 "para ser usado pelo sistema operativo."
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3827,7 +3827,7 @@ msgstr ""
 "O nome <filename>%1</filename> começa por um ponto; como tal, ficará "
 "escondido por omissão."
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3839,29 +3839,29 @@ msgstr ""
 "apresentado antes dos outros itens numa ordenação alfabética, entre outras "
 "potenciais peculiaridades."
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "O uso das barras nos nomes das pastas irão criar sub-pastas, como por "
 "exemplo:"
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1199
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "O uso das barras nos nomes das pastas irão criar sub-pastas."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Não pode usar as barras nos nomes dos ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Não pode usar as barras invertidas nos nomes dos ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1226
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3870,41 +3870,41 @@ msgstr ""
 "O início de um nome de ficheiro ou pasta com um til (~) não é recomendado, "
 "porque poderá ser confuso ou perigoso se usar o terminal para apagar coisas."
 
-#: filewidgets/knewfilemenu.cpp:1278
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Já existe uma pasta chamada <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1280
+#: filewidgets/knewfilemenu.cpp:1296
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Já existe um ficheiro chamado <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1366
+#: filewidgets/knewfilemenu.cpp:1383 filewidgets/knewfilemenu.cpp:1405
 #, kde-format
 msgid "Create New"
 msgstr "Criar um Novo"
 
-#: filewidgets/knewfilemenu.cpp:1382
+#: filewidgets/knewfilemenu.cpp:1400 filewidgets/knewfilemenu.cpp:1417
 #, kde-format
 msgid "Link to Device"
 msgstr "Atalho para Dispositivo"
 
-#: filewidgets/knewfilemenu.cpp:1422
+#: filewidgets/knewfilemenu.cpp:1457
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1441
+#: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "Nova Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1443
+#: filewidgets/knewfilemenu.cpp:1478
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Criar uma pasta nova em %1:"

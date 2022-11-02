@@ -140,7 +140,7 @@
 </variablelist>
 
 <para
->Si feu doble clic damunt d'una entrada específica de la llista de proveïdors de busca o feu clic sobre el botó <guibutton
+>Si feu doble clic damunt d'una entrada específica de la llista de proveïdors de busca o feu clic damunt del botó <guibutton
 >Canvia...</guibutton
 >, es mostraran els detalls d'esta entrada en un diàleg emergent. A més del nom descriptiu per a l'element, també podeu veure l'&URI; emprat, així com la drecera associada que podreu escriure a qualsevol lloc de &kde; a on s'espere un &URI;. Un proveïdor de busca pot tindre múltiples dreceres, separades per una coma.</para>
 
@@ -163,7 +163,7 @@
 >URL de la drecera:</guilabel
 >, trobareu que la majoria de les entrades, si no totes, tenen un <option
 >\{@}</option
->. Esta seqüència de quatre caràcters actua com a paràmetre, indicant que serà substituïda per qualsevol cosa que introduïu després dels dos punts que estan entre la drecera i el seu paràmetre. Per a afegir este text variable de consulta a un &URL; de drecera, feu clic sobre el botó a la dreta del quadro de text. Vegem alguns exemples per a aclarir com utilitzar les dreceres web.</para>
+>. Esta seqüència de quatre caràcters actua com a paràmetre, indicant que serà substituïda per qualsevol cosa que introduïu després dels dos punts que estan entre la drecera i el seu paràmetre. Per a afegir este text variable de consulta a un &URL; de drecera, feu clic damunt del botó a la dreta del quadro de text. Vegem alguns exemples per a aclarir com utilitzar les dreceres web.</para>
 
 <para
 >Suposem que l'&URI; és <userinput

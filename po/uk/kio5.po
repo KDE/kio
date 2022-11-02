@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:43+0000\n"
+"POT-Creation-Date: 2022-11-02 00:44+0000\n"
 "PO-Revision-Date: 2022-10-26 16:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -387,7 +387,7 @@ msgstr ""
 "Для завершення дії з перейменовування потрібні права доступу користувача "
 "root (адміністратора). Продовжити спробу виконати цю дію?"
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:627
+#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
@@ -2688,216 +2688,216 @@ msgstr "Нічого викидати"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Вказана тека не існує або недостатньо прав для перегляду."
 
-#: filewidgets/kdiroperator.cpp:2006
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Menu"
 msgstr "Меню"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2009
 #, kde-format
 msgid "Parent Folder"
 msgstr "Батьківська тека"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2016
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Назад"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2020
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Вперед"
 
-#: filewidgets/kdiroperator.cpp:2027
+#: filewidgets/kdiroperator.cpp:2024
 #, kde-format
 msgid "Home Folder"
 msgstr "Домівка"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2028
 #, kde-format
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "New Folder..."
 msgstr "Нова тека..."
 
-#: filewidgets/kdiroperator.cpp:2046 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2043 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Пересунути в смітник"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2050
 #, kde-format
 msgid "Delete"
 msgstr "Вилучити"
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2058
 #, kde-format
 msgid "Sorting"
 msgstr "Упорядкування"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Sort by Name"
 msgstr "Упорядкувати за назвою"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Sort by Size"
 msgstr "Упорядкувати за розміром"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2078
 #, kde-format
 msgid "Sort by Date"
 msgstr "Упорядкувати за датою"
 
-#: filewidgets/kdiroperator.cpp:2088
+#: filewidgets/kdiroperator.cpp:2085
 #, kde-format
 msgid "Sort by Type"
 msgstr "Упорядкувати за типом"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Ascending"
 msgstr "За зростанням"
 
-#: filewidgets/kdiroperator.cpp:2106
+#: filewidgets/kdiroperator.cpp:2103
 #, kde-format
 msgid "Descending"
 msgstr "За спаданням"
 
-#: filewidgets/kdiroperator.cpp:2114
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Folders First"
 msgstr "Теки спочатку"
 
-#: filewidgets/kdiroperator.cpp:2121
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Приховані файли останніми"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Icons View"
 msgstr "Перегляд піктограм"
 
-#: filewidgets/kdiroperator.cpp:2137
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Compact View"
 msgstr "Стислий перегляд"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Details View"
 msgstr "Докладний перегляд"
 
-#: filewidgets/kdiroperator.cpp:2165
+#: filewidgets/kdiroperator.cpp:2162
 #, kde-format
 msgid "Icon Position"
 msgstr "Розташування піктограм"
 
-#: filewidgets/kdiroperator.cpp:2169
+#: filewidgets/kdiroperator.cpp:2166
 #, kde-format
 msgid "Next to File Name"
 msgstr "Поряд з назвою файла"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2173
 #, kde-format
 msgid "Above File Name"
 msgstr "Над назвою файла"
 
-#: filewidgets/kdiroperator.cpp:2191
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Short View"
 msgstr "Стислий вигляд"
 
-#: filewidgets/kdiroperator.cpp:2199
+#: filewidgets/kdiroperator.cpp:2196
 #, kde-format
 msgid "Detailed View"
 msgstr "Детальний вигляд"
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2204
 #, kde-format
 msgid "Tree View"
 msgstr "Ієрархічний вигляд"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2212
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Детальний ієрархічний вигляд"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2226
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Дозволити розгортання для докладного перегляду"
 
-#: filewidgets/kdiroperator.cpp:2236
+#: filewidgets/kdiroperator.cpp:2233
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Показувати приховані файли"
 
-#: filewidgets/kdiroperator.cpp:2244
+#: filewidgets/kdiroperator.cpp:2241
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Показати панель перегляду"
 
-#: filewidgets/kdiroperator.cpp:2252
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Preview"
 msgstr "Показати перегляд"
 
-#: filewidgets/kdiroperator.cpp:2260
+#: filewidgets/kdiroperator.cpp:2257
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Відкрити теку об'єкта"
 
-#: filewidgets/kdiroperator.cpp:2268 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2265 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Властивості"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2275
 #, kde-format
 msgid "&View Mode"
 msgstr "Ре&жим перегляду"
 
-#: filewidgets/kdiroperator.cpp:2382 filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2379 filewidgets/kdiroperator.cpp:2391
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Я-А"
 
-#: filewidgets/kdiroperator.cpp:2383 filewidgets/kdiroperator.cpp:2395
+#: filewidgets/kdiroperator.cpp:2380 filewidgets/kdiroperator.cpp:2392
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "А-Я"
 
-#: filewidgets/kdiroperator.cpp:2386
+#: filewidgets/kdiroperator.cpp:2383
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Найновіші першими"
 
-#: filewidgets/kdiroperator.cpp:2387
+#: filewidgets/kdiroperator.cpp:2384
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Найстаріші першими"
 
-#: filewidgets/kdiroperator.cpp:2390
+#: filewidgets/kdiroperator.cpp:2387
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Найбільші першими"
 
-#: filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2388
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3730,33 +3730,33 @@ msgstr ""
 "попередньо встановлених фільтрів зі спадного меню або ввести власний фільтр."
 "</p><p>Можна користуватися шаблонами * та ?.</p></qt>"
 
-#: filewidgets/knewfilemenu.cpp:469
+#: filewidgets/knewfilemenu.cpp:474
 #, kde-format
 msgid "Sorry"
 msgstr "Вибачте"
 
-#: filewidgets/knewfilemenu.cpp:480
+#: filewidgets/knewfilemenu.cpp:485
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файла шаблону <b>%1</b> не існує.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:624 filewidgets/knewfilemenu.cpp:689
+#: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Name for new link:"
 msgstr "Назва нового посилання:"
 
-#: filewidgets/knewfilemenu.cpp:693
+#: filewidgets/knewfilemenu.cpp:698
 #, kde-format
 msgid "Create link to URL"
 msgstr "Створити посилання на URL"
 
-#: filewidgets/knewfilemenu.cpp:735 filewidgets/knewfilemenu.cpp:791
+#: filewidgets/knewfilemenu.cpp:740 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3766,7 +3766,7 @@ msgstr ""
 "Не можна скористатися назвою <filename>%1</filename>, оскільки таку назву "
 "зарезервовано операційною системою."
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3776,7 +3776,7 @@ msgstr ""
 "Назва файла <filename>%1</filename> починається з крапки. Типово, такі файли "
 "вважаються прихованими."
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3788,32 +3788,32 @@ msgstr ""
 "проблем, це призведе до того, що її буде показано перед іншими записами при "
 "упорядковуванні за абеткою."
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Додавання символів похилих рисок до назв тек призведе до створення підтек, "
 "ось так:"
 
-#: filewidgets/knewfilemenu.cpp:1183
+#: filewidgets/knewfilemenu.cpp:1199
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Додавання символів похилих рисок до назв тек призведе до створення підтек."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Не можна використовувати символи похилої риски у назва файлів і тек"
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Не можна використовувати символи зворотної похилої риски у назвах файлів і "
 "тек."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1226
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3823,41 +3823,41 @@ msgstr ""
 "такі назви можуть призводити до помилок або введення небезпечних команд у "
 "терміналі, коли ви захочете щось вилучити."
 
-#: filewidgets/knewfilemenu.cpp:1278
+#: filewidgets/knewfilemenu.cpp:1294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Каталог із назвою <filename>%1</filename> вже існує."
 
-#: filewidgets/knewfilemenu.cpp:1280
+#: filewidgets/knewfilemenu.cpp:1296
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Файл із назвою <filename>%1</filename> вже існує."
 
-#: filewidgets/knewfilemenu.cpp:1366
+#: filewidgets/knewfilemenu.cpp:1383 filewidgets/knewfilemenu.cpp:1405
 #, kde-format
 msgid "Create New"
 msgstr "Створити"
 
-#: filewidgets/knewfilemenu.cpp:1382
+#: filewidgets/knewfilemenu.cpp:1400 filewidgets/knewfilemenu.cpp:1417
 #, kde-format
 msgid "Link to Device"
 msgstr "Посилання на пристрій"
 
-#: filewidgets/knewfilemenu.cpp:1422
+#: filewidgets/knewfilemenu.cpp:1457
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Нова тека"
 
-#: filewidgets/knewfilemenu.cpp:1441
+#: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
 msgstr "Нова тека"
 
-#: filewidgets/knewfilemenu.cpp:1443
+#: filewidgets/knewfilemenu.cpp:1478
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Створити теку у %1:"

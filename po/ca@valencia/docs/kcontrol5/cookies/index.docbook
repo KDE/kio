@@ -177,7 +177,7 @@
 > quan vos demane de confirmar una galeta).</para>
 
 <para
->També podeu seleccionar un domini d'amfitrió específic des de la llista i fer clic sobre el botó <guibutton
+>També podeu seleccionar un domini d'amfitrió específic des de la llista i fer clic damunt del botó <guibutton
 >Canvia...</guibutton
 > per a escollir una política diferent per a este domini.</para>
 
@@ -198,7 +198,7 @@
 > podreu navegar i anar eliminant selectivament les galetes que varen ser establides en el passat.</para>
 
 <para
->En la part superior d'este diàleg veureu una llista de dominis, mostrats en forma d'arbre. Feu clic sobre la xicoteta icona <guiicon
+>En la part superior d'este diàleg veureu una llista de dominis, mostrats en forma d'arbre. Feu clic damunt de la xicoteta icona <guiicon
 >&gt;</guiicon
 > al costat d'un domini per a veure totes les galetes que s'han acceptat per a este domini de destinació en particular. Si seleccioneu una d'estes galetes, advertireu que els seus continguts es mostraran en el marc inferior <guilabel
 >Detalls</guilabel
