@@ -2106,7 +2106,7 @@ KCoreDirLister::KCoreDirLister(QObject *parent)
 
     setAutoUpdate(true);
     setDirOnlyMode(false);
-    setShowingDotFiles(false);
+    setShowHiddenFiles(false);
 }
 
 KCoreDirLister::~KCoreDirLister()
@@ -2163,20 +2163,34 @@ void KCoreDirLister::setAutoUpdate(bool enable)
     kDirListerCache()->setAutoUpdate(this, enable);
 }
 
-bool KCoreDirLister::showingDotFiles() const
+bool KCoreDirLister::showHiddenFiles() const
 {
     return d->settings.isShowingDotFiles;
 }
 
-void KCoreDirLister::setShowingDotFiles(bool showDotFiles)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
+bool KCoreDirLister::showingDotFiles() const
 {
-    if (d->settings.isShowingDotFiles == showDotFiles) {
+    return showHiddenFiles();
+}
+#endif
+
+void KCoreDirLister::setShowHiddenFiles(bool setShowHiddenFiles)
+{
+    if (d->settings.isShowingDotFiles == setShowHiddenFiles) {
         return;
     }
 
     d->prepareForSettingsChange();
-    d->settings.isShowingDotFiles = showDotFiles;
+    d->settings.isShowingDotFiles = setShowHiddenFiles;
 }
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
+void KCoreDirLister::setShowingDotFiles(bool showDotFiles)
+{
+    setShowHiddenFiles(showDotFiles);
+}
+#endif
 
 bool KCoreDirLister::dirOnlyMode() const
 {

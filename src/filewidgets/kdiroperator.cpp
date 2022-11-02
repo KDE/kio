@@ -552,7 +552,7 @@ void KDirOperatorPrivate::slotToggleAllowExpansion(bool allow)
 
 void KDirOperatorPrivate::slotToggleHidden(bool show)
 {
-    m_dirLister->setShowingDotFiles(show);
+    m_dirLister->setShowHiddenFiles(show);
     q->updateDir();
     assureVisibleSelection();
 }
@@ -2447,7 +2447,7 @@ void KDirOperator::readConfig(const KConfigGroup &configGroup)
 
     if (configGroup.readEntry(QStringLiteral("Show hidden files"), DefaultShowHidden)) {
         action(KDirOperator::ShowHiddenFiles)->setChecked(true);
-        d->m_dirLister->setShowingDotFiles(true);
+        d->m_dirLister->setShowHiddenFiles(true);
     }
 
     if (configGroup.readEntry(QStringLiteral("Allow Expansion"), DefaultShowHidden)) {

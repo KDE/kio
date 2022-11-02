@@ -1114,7 +1114,7 @@ void KDirModelTest::testShowHiddenFiles() // #174788
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
     QSignalSpy spyNewItems(dirLister, &KCoreDirLister::newItems);
     QSignalSpy spyRowsInserted(m_dirModel, &QAbstractItemModel::rowsInserted);
-    dirLister->setShowingDotFiles(true);
+    dirLister->setShowHiddenFiles(true);
     dirLister->emitChanges();
     const int numberOfDotFiles = 2;
     QCOMPARE(spyNewItems.count(), 1);
@@ -1124,7 +1124,7 @@ void KDirModelTest::testShowHiddenFiles() // #174788
     spyNewItems.clear();
     spyRowsInserted.clear();
 
-    dirLister->setShowingDotFiles(false);
+    dirLister->setShowHiddenFiles(false);
     dirLister->emitChanges();
     QCOMPARE(spyNewItems.count(), 0);
     QCOMPARE(spyRowsInserted.count(), 0);
@@ -1370,7 +1370,7 @@ void KDirModelTest::testHasChildren()
     QFETCH(bool, withHidden);
 
     m_dirModel->dirLister()->setDirOnlyMode(dirsOnly);
-    m_dirModel->dirLister()->setShowingDotFiles(withHidden);
+    m_dirModel->dirLister()->setShowHiddenFiles(withHidden);
     fillModel(true, false);
 
     QVERIFY(m_dirModel->hasChildren());
@@ -1429,7 +1429,7 @@ void KDirModelTest::testHasChildren()
     QCOMPARE(m_dirModel->hasChildren(testDirIndex), !dirsOnly);
 
     m_dirModel->dirLister()->setDirOnlyMode(false);
-    m_dirModel->dirLister()->setShowingDotFiles(false);
+    m_dirModel->dirLister()->setShowHiddenFiles(false);
 }
 
 void KDirModelTest::testInvalidUrl()
