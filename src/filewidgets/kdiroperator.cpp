@@ -1599,7 +1599,7 @@ void KDirOperator::setViewMode(KFile::FileView viewKind)
     viewKind = static_cast<KFile::FileView>(d->m_viewKind);
 
     QAbstractItemView *newView = createView(this, viewKind);
-    setView(newView);
+    setViewInternal(newView);
 
     if (acceptDrops()) {
         newView->setAcceptDrops(true);
@@ -1656,7 +1656,14 @@ void KDirOperator::setMode(KFile::Modes mode)
     }
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
 void KDirOperator::setView(QAbstractItemView *view)
+{
+    setViewInternal(view);
+}
+#endif
+
+void KDirOperator::setViewInternal(QAbstractItemView *view)
 {
     if (view == d->m_itemView) {
         return;

@@ -372,14 +372,19 @@ public:
      */
     void setCurrentItems(const KFileItemList &items);
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * Sets a new view to be used for showing and browsing files.
      * Note: this will read the current url() to fill the view.
      *
      * @see KFileTreeView
      * @see view
+     *
+     * @deprecated since 5.100, no known users.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "No known users.")
     virtual void setView(QAbstractItemView *view);
+#endif
 
     /**
      * @returns the currently used view.
@@ -1151,6 +1156,7 @@ Q_SIGNALS:
     void renamingFinished(const QList<QUrl> &urls);
 
 private:
+    void setViewInternal(QAbstractItemView *view);
     friend class KDirOperatorPrivate;
     std::unique_ptr<KDirOperatorPrivate> d;
 };
