@@ -1247,7 +1247,7 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
             filters |= QDir::Files | QDir::System;
         }
 
-        if (d->m_dirLister->showingDotFiles()) {
+        if (d->m_dirLister->showHiddenFiles()) {
             filters |= QDir::Hidden;
         }
 
