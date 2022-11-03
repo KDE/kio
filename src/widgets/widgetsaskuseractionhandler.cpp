@@ -220,8 +220,8 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         res.dialogType = KMessageDialog::WarningTwoActions;
         if (res.isSingleUrl) {
             res.text = xi18nc("@info",
-                              "Do you really want to permanently delete this item?<nl/>"
-                              "<filename>%1</filename>"
+                              "Do you really want to permanently delete this item?<nl/><nl/>"
+                              "<filename>%1</filename><nl/><nl/>"
                               "<emphasis strong='true'>This action cannot be undone.</emphasis>",
                               res.prettyList.at(0));
         } else {
