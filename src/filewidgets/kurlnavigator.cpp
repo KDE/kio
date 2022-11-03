@@ -762,11 +762,11 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         availableWidth -= m_protocols->width();
     }
 
-    auto MinWidth = [](const KUrlNavigatorButton *button) {
-        return button->minimumWidth();
-    };
     // Check whether buttons must be hidden at all...
-    const int requiredButtonWidth = std::transform_reduce(m_navButtons.cbegin(), m_navButtons.cend(), 0, std::plus<>(), MinWidth);
+    int requiredButtonWidth = 0;
+    for (const auto *button : std::as_const(m_navButtons)) {
+        requiredButtonWidth += button->minimumWidth();
+    }
 
     if (requiredButtonWidth > availableWidth) {
         // At least one button must be hidden. This implies that the
