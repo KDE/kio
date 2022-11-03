@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-02 00:44+0000\n"
+"POT-Creation-Date: 2022-11-03 00:42+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2681,218 +2681,218 @@ msgstr "Nav ko izmest"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Norādītā mape nepastāv vai nav pieejama."
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2017
 #, kde-format
 msgid "Menu"
 msgstr "Izvēlne"
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:2023
 #, kde-format
 msgid "Parent Folder"
 msgstr "Vecāka mape"
 
-#: filewidgets/kdiroperator.cpp:2016
+#: filewidgets/kdiroperator.cpp:2030
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2020
+#: filewidgets/kdiroperator.cpp:2034
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2024
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Home Folder"
 msgstr "Mājas mape"
 
-#: filewidgets/kdiroperator.cpp:2028
+#: filewidgets/kdiroperator.cpp:2042
 #, kde-format
 msgid "Reload"
 msgstr "Pārielādēt"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "New Folder..."
 msgstr "Jauna mape..."
 
-#: filewidgets/kdiroperator.cpp:2043 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2057 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Pārvietot uz miskasti"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Delete"
 msgstr "Dzēst"
 
-#: filewidgets/kdiroperator.cpp:2058
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Sorting"
 msgstr "Kārtošana"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2078
 #, kde-format
 msgid "Sort by Name"
 msgstr "Kārtot pēc nosaukuma"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2085
 #, kde-format
 msgid "Sort by Size"
 msgstr "Kārtot pēc izmēra"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Sort by Date"
 msgstr "Kārtot pēc datuma"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Type"
 msgstr "Kārtot pēc tipa"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Ascending"
 msgstr "Augoši"
 
-#: filewidgets/kdiroperator.cpp:2103
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Descending"
 msgstr "Dilstoši"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Folders First"
 msgstr "Mapes vispirms"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2132
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Rādīt slēptos failus"
 
-#: filewidgets/kdiroperator.cpp:2126
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Icons View"
 msgstr "Ikonu skatījums"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Compact View"
 msgstr "Kompakts skatījums"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Details View"
 msgstr "Detalizēts skatījums"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Icon Position"
 msgstr "Ikonas novietojums"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2180
 #, kde-format
 msgid "Next to File Name"
 msgstr "Blakus faila nosaukumam"
 
-#: filewidgets/kdiroperator.cpp:2173
+#: filewidgets/kdiroperator.cpp:2187
 #, kde-format
 msgid "Above File Name"
 msgstr "Virs faila nosaukuma"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Short View"
 msgstr "Īss skatījums"
 
-#: filewidgets/kdiroperator.cpp:2196
+#: filewidgets/kdiroperator.cpp:2210
 #, kde-format
 msgid "Detailed View"
 msgstr "Detalizēts skatījums"
 
-#: filewidgets/kdiroperator.cpp:2204
+#: filewidgets/kdiroperator.cpp:2218
 #, kde-format
 msgid "Tree View"
 msgstr "Koka skatījums"
 
-#: filewidgets/kdiroperator.cpp:2212
+#: filewidgets/kdiroperator.cpp:2226
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Detalizēts koka skatījums"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2240
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2233
+#: filewidgets/kdiroperator.cpp:2247
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Rādīt slēptos failus"
 
-#: filewidgets/kdiroperator.cpp:2241
+#: filewidgets/kdiroperator.cpp:2255
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Rādīt priekšskatījumu paneli"
 
-#: filewidgets/kdiroperator.cpp:2249
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "Rādīt priekšskatījumu"
 
-#: filewidgets/kdiroperator.cpp:2257
+#: filewidgets/kdiroperator.cpp:2271
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2265 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2279 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Īpašības"
 
-#: filewidgets/kdiroperator.cpp:2275
+#: filewidgets/kdiroperator.cpp:2289
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Skats"
 
-#: filewidgets/kdiroperator.cpp:2379 filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2393 filewidgets/kdiroperator.cpp:2405
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2380 filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2394 filewidgets/kdiroperator.cpp:2406
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2383
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Jaunākos vispirms"
 
-#: filewidgets/kdiroperator.cpp:2384
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Vecākos vispirms"
 
-#: filewidgets/kdiroperator.cpp:2387
+#: filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Lielākos vispirms"
 
-#: filewidgets/kdiroperator.cpp:2388
+#: filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"

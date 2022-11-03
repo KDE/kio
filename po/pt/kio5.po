@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-02 00:44+0000\n"
+"POT-Creation-Date: 2022-11-03 00:42+0000\n"
 "PO-Revision-Date: 2022-10-24 11:42+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -2750,216 +2750,216 @@ msgstr "Nada a Enviar para o Lixo"
 msgid "The specified folder does not exist or was not readable."
 msgstr "A pasta indicada não existe ou não está acessível para leitura."
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2017
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:2009
+#: filewidgets/kdiroperator.cpp:2023
 #, kde-format
 msgid "Parent Folder"
 msgstr "Pasta-Mãe"
 
-#: filewidgets/kdiroperator.cpp:2016
+#: filewidgets/kdiroperator.cpp:2030
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Recuar"
 
-#: filewidgets/kdiroperator.cpp:2020
+#: filewidgets/kdiroperator.cpp:2034
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Avançar"
 
-#: filewidgets/kdiroperator.cpp:2024
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Home Folder"
 msgstr "Pasta Pessoal"
 
-#: filewidgets/kdiroperator.cpp:2028
+#: filewidgets/kdiroperator.cpp:2042
 #, kde-format
 msgid "Reload"
 msgstr "Actualizar"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "New Folder..."
 msgstr "Nova Pasta..."
 
-#: filewidgets/kdiroperator.cpp:2043 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2057 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Enviar para o Lixo"
 
-#: filewidgets/kdiroperator.cpp:2050
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Delete"
 msgstr "Apagar"
 
-#: filewidgets/kdiroperator.cpp:2058
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Sorting"
 msgstr "Ordenação"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2078
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordenar pelo Nome"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2085
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ordenar pelo Tamanho"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordenar pela Data"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Type"
 msgstr "Ordenar pelo Tipo"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: filewidgets/kdiroperator.cpp:2103
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Descending"
 msgstr "Descendente"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Folders First"
 msgstr "Pastas Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Ficheiros Escondidos em Último"
 
-#: filewidgets/kdiroperator.cpp:2126
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Icons View"
 msgstr "Vista em Ícones"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Compact View"
 msgstr "Vista Compacta"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Details View"
 msgstr "Vista Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2162
+#: filewidgets/kdiroperator.cpp:2176
 #, kde-format
 msgid "Icon Position"
 msgstr "Posição dos Ícones"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2180
 #, kde-format
 msgid "Next to File Name"
 msgstr "A Seguir ao Nome do Ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2173
+#: filewidgets/kdiroperator.cpp:2187
 #, kde-format
 msgid "Above File Name"
 msgstr "Sobre o Nome do Ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2202
 #, kde-format
 msgid "Short View"
 msgstr "Vista Abreviada"
 
-#: filewidgets/kdiroperator.cpp:2196
+#: filewidgets/kdiroperator.cpp:2210
 #, kde-format
 msgid "Detailed View"
 msgstr "Vista Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2204
+#: filewidgets/kdiroperator.cpp:2218
 #, kde-format
 msgid "Tree View"
 msgstr "Vista em Árvore"
 
-#: filewidgets/kdiroperator.cpp:2212
+#: filewidgets/kdiroperator.cpp:2226
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Árvore Detalhada"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2240
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Permitir a Expansão na Área de Detalhes"
 
-#: filewidgets/kdiroperator.cpp:2233
+#: filewidgets/kdiroperator.cpp:2247
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Mostrar os Ficheiros Escondidos"
 
-#: filewidgets/kdiroperator.cpp:2241
+#: filewidgets/kdiroperator.cpp:2255
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Mostrar o Painel de Antevisão"
 
-#: filewidgets/kdiroperator.cpp:2249
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "Mostrar a Antevisão"
 
-#: filewidgets/kdiroperator.cpp:2257
+#: filewidgets/kdiroperator.cpp:2271
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Abrir a Pasta Respectiva"
 
-#: filewidgets/kdiroperator.cpp:2265 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2279 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Propriedades"
 
-#: filewidgets/kdiroperator.cpp:2275
+#: filewidgets/kdiroperator.cpp:2289
 #, kde-format
 msgid "&View Mode"
 msgstr "Modo de &Visualização"
 
-#: filewidgets/kdiroperator.cpp:2379 filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2393 filewidgets/kdiroperator.cpp:2405
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2380 filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2394 filewidgets/kdiroperator.cpp:2406
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2383
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Mais Recentes Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2384
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Mais Antigos Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2387
+#: filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Maiores Primeiro"
 
-#: filewidgets/kdiroperator.cpp:2388
+#: filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
