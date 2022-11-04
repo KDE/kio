@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:42+0000\n"
+"POT-Creation-Date: 2022-11-04 00:42+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -2348,265 +2348,265 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:746
+#: filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "%1 नावाची फाईल किंवा संचयीका अगोदरच अस्तित्वात आहे."
 
-#: filewidgets/kdiroperator.cpp:749
+#: filewidgets/kdiroperator.cpp:751
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "हि संचयीका तयार करण्याची तुम्हाला परवानगी नाही."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "तुम्ही काढून टाकण्याची फाईल निवडली नाही."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "काढून टाकण्याकरिता काही नाही"
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "तुम्ही कचरापेटीत टाकण्याची फाईल निवडली नाही."
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "कचरापेटीत टाकण्याकरिता काही नाही"
 
-#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
+#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "दिलेली संचयीका अस्तित्वात नाही किंवा वाचण्याजोगी नाही."
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Parent Folder"
 msgstr "पालक संचयीका"
 
-#: filewidgets/kdiroperator.cpp:2030
+#: filewidgets/kdiroperator.cpp:2042
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgid "Home Folder"
 msgstr "मुख्य संचयीका"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Reload"
 msgstr "पुन्हा दाखल करा"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "New Folder..."
 msgstr "नवीन संचयीका..."
 
-#: filewidgets/kdiroperator.cpp:2057 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "कचरापेटीत टाका"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Delete"
 msgstr "काढून टाका"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Sorting"
 msgstr "अनुक्रमीत"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2109
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "स्थळ नाव"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2118
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "लहान दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2127
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "दिनांका प्रमाणे"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2136
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "नोंद प्रकार"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2148
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "उतरत्या क्रमाने"
 
-#: filewidgets/kdiroperator.cpp:2117
+#: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Descending"
 msgstr "उतरत्या क्रमाने"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2168
 #, kde-format
 msgid "Folders First"
 msgstr "संचयीका आधी"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2177
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "लपलेल्या फाईल्स दर्शवा"
 
-#: filewidgets/kdiroperator.cpp:2140
+#: filewidgets/kdiroperator.cpp:2187
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "लहान दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2197
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "लहान दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2207
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "तपशीलवार दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Icon Position"
 msgstr "चिन्ह स्थिती"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Next to File Name"
 msgstr "फाईल नावा शेजारी"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Above File Name"
 msgstr "फाईल नावा वर"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2261
 #, kde-format
 msgid "Short View"
 msgstr "लहान दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2210
+#: filewidgets/kdiroperator.cpp:2271
 #, kde-format
 msgid "Detailed View"
 msgstr "तपशीलवार दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2218
+#: filewidgets/kdiroperator.cpp:2281
 #, kde-format
 msgid "Tree View"
 msgstr "ट्री दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2291
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "तपशीलवार ट्री दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2307
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2247
+#: filewidgets/kdiroperator.cpp:2316
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "लपलेल्या फाईल्स दर्शवा"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2326
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "पूर्वावलोकन दर्शवा"
 
-#: filewidgets/kdiroperator.cpp:2263
+#: filewidgets/kdiroperator.cpp:2336
 #, kde-format
 msgid "Show Preview"
 msgstr "पूर्वावलोकन दर्शवा"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "गुणधर्म"
 
-#: filewidgets/kdiroperator.cpp:2289
+#: filewidgets/kdiroperator.cpp:2368
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "दृश्य (&V)"
 
-#: filewidgets/kdiroperator.cpp:2393 filewidgets/kdiroperator.cpp:2405
+#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2394 filewidgets/kdiroperator.cpp:2406
+#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2486
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "संचयीका आधी"
 
-#: filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2487
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "संचयीका आधी"
 
-#: filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2490
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "संचयीका आधी"
 
-#: filewidgets/kdiroperator.cpp:2402
+#: filewidgets/kdiroperator.cpp:2491
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -3128,27 +3128,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "तुम्ही फक्त एक फाईल निवडू शकता"
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "एका पेक्षा जास्त फाईल्स पुरविल्या"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "तुम्ही फक्त स्थानिक फाईल्स निवडू शकता"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "दूरस्थ फाईल्स स्वीकारल्या जाणार नाहीत"
 
-#: filewidgets/kfilewidget.cpp:837
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3159,12 +3159,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:843
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:859
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3172,34 +3172,34 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:861
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "एका पेक्षा जास्त संचयीका पुरविल्या"
 
-#: filewidgets/kfilewidget.cpp:871
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:872
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "फाईल्स व संचयीका निवडल्या"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" हि फाईल आढळली नाही"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "फाईल उघडू शकत नाही"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3207,44 +3207,44 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "संचारण इतिहास अंतर्गत एक पायरी मागे जाण्यासाठी हे बटन क्लिक करा."
 
-#: filewidgets/kfilewidget.cpp:1272
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "संचारण इतिहास अंतर्गत एक पायरी पुढे जाण्यासाठी हे बटन क्लिक करा."
 
-#: filewidgets/kfilewidget.cpp:1274
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "वर्तमान स्थानाचा मजकूर पुन्हा दाखल करण्याकरिता हे बटन क्लिक करा."
 
-#: filewidgets/kfilewidget.cpp:1276
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "नवीन संचयीका तयार करण्याकरिता या बटनावर क्लिक करा."
 
-#: filewidgets/kfilewidget.cpp:1278
+#: filewidgets/kfilewidget.cpp:1325
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "जागा संचारण पटल दर्शवा"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1336
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "ओळखचिन्ह दर्शवा"
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "पर्याय"
 
-#: filewidgets/kfilewidget.cpp:1295
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3254,12 +3254,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1314
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "ओळखचिन्ह"
 
-#: filewidgets/kfilewidget.cpp:1318
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3269,12 +3269,12 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1357 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "नाव (&N):"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3283,91 +3283,91 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1439
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "साठवल्या जाणाऱ्या फाईलचे हे नाव आहे."
 
-#: filewidgets/kfilewidget.cpp:1442
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1447
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "उघडावयाच्या फाईलचे हे नाव आहे."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "जागा"
 
-#: filewidgets/kfilewidget.cpp:1678
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" फाईल आधीपासूनच अस्तित्वात आहे, तुम्हाला ती खोडून पुन्हा लिहायची आहे का?"
 
-#: filewidgets/kfilewidget.cpp:1679
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "फाईल खोडून पुन्हा लिहायची का?"
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "तुम्ही फक्त स्थानिक फाईल्स निवडू शकता."
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "दूरस्थ फाईल्स स्वीकारल्या जाणार नाहीत"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|सर्व संचयीका"
 
-#: filewidgets/kfilewidget.cpp:1998
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|सर्व फाईल्स"
 
-#: filewidgets/kfilewidget.cpp:2148 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "उघडा (&O)"
 
-#: filewidgets/kfilewidget.cpp:2248
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "चिन्ह आकार : %1 पिक्सेल्स"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "स्वयंचलितरित्या फाईलनाव विस्तारण निवडा (%1) (&X)"
 
-#: filewidgets/kfilewidget.cpp:2397
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "विस्तारण <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "स्वयंचलितरित्या फाईलनाव विस्तारण निवडा (&X)"
 
-#: filewidgets/kfilewidget.cpp:2404
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "एक अनुकूल विस्तारण"
 
-#: filewidgets/kfilewidget.cpp:2412
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3383,25 +3383,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2868
+#: filewidgets/kfilewidget.cpp:2934
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "गाळणी (&F):"
 
-#: filewidgets/kfilewidget.cpp:2869
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2871
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "गाळणी (&F):"
 
-#: filewidgets/kfilewidget.cpp:2873
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -8681,8 +8681,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"Do you really want to permanently delete this item?<nl/><filename>%1</"
-"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+"Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
 msgstr ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:229

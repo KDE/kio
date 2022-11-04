@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:42+0000\n"
+"POT-Creation-Date: 2022-11-04 00:42+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2705,265 +2705,265 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Θέλετε να δέχεστε αυτό το πιστοποιητικό για πάντα χωρίς προτροπή;"
 
-#: filewidgets/kdiroperator.cpp:746
+#: filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "Ένα αρχείο ή φάκελος με όνομα %1 υπάρχει ήδη."
 
-#: filewidgets/kdiroperator.cpp:749
+#: filewidgets/kdiroperator.cpp:751
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "Δεν έχετε άδεια να δημιουργήσετε αυτόν το φάκελο."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Δεν επιλέξατε κάποιο αρχείο για διαγραφή."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Τίποτα για διαγραφή"
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Δεν επιλέξατε κάποιο αρχείο για μετακίνηση στα απορρίμματα."
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Τίποτα για μετακίνηση στα απορρίμματα"
 
-#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
+#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Ο καθορισμένος φάκελος δεν υπάρχει ή δεν ήταν αναγνώσιμος."
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgid "Menu"
 msgstr "Μενού"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Parent Folder"
 msgstr "Γονικός φάκελος"
 
-#: filewidgets/kdiroperator.cpp:2030
+#: filewidgets/kdiroperator.cpp:2042
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgid "Home Folder"
 msgstr "Προσωπικός φάκελος"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "New Folder..."
 msgstr "Νέος φάκελος..."
 
-#: filewidgets/kdiroperator.cpp:2057 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Μετακίνηση στα απορρίμματα"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Sorting"
 msgstr "Ταξινόμηση"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2109
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "Όνομα ιστοσελίδας"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2118
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Σύντομη προβολή"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2127
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "Κατά ημερομηνία"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2136
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "Τύπος καταχώρησης"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2148
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "Φθίνουσα"
 
-#: filewidgets/kdiroperator.cpp:2117
+#: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2168
 #, kde-format
 msgid "Folders First"
 msgstr "Πρώτα οι φάκελοι"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2177
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Εμφάνιση κρυφών αρχείων"
 
-#: filewidgets/kdiroperator.cpp:2140
+#: filewidgets/kdiroperator.cpp:2187
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Σύντομη προβολή"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2197
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Σύντομη προβολή"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2207
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Λεπτομερής προβολή"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Icon Position"
 msgstr "Θέση εικονιδίου"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Next to File Name"
 msgstr "Δίπλα στο όνομα αρχείου"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Above File Name"
 msgstr "Πάνω από το όνομα αρχείου"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2261
 #, kde-format
 msgid "Short View"
 msgstr "Σύντομη προβολή"
 
-#: filewidgets/kdiroperator.cpp:2210
+#: filewidgets/kdiroperator.cpp:2271
 #, kde-format
 msgid "Detailed View"
 msgstr "Λεπτομερής προβολή"
 
-#: filewidgets/kdiroperator.cpp:2218
+#: filewidgets/kdiroperator.cpp:2281
 #, kde-format
 msgid "Tree View"
 msgstr "Προβολή δέντρου"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2291
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Λεπτομερής προβολή δέντρου"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2307
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2247
+#: filewidgets/kdiroperator.cpp:2316
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Εμφάνιση κρυφών αρχείων"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2326
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Εμφάνιση προεπισκόπησης"
 
-#: filewidgets/kdiroperator.cpp:2263
+#: filewidgets/kdiroperator.cpp:2336
 #, kde-format
 msgid "Show Preview"
 msgstr "Εμφάνιση προεπισκόπησης"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Ιδιότητες"
 
-#: filewidgets/kdiroperator.cpp:2289
+#: filewidgets/kdiroperator.cpp:2368
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "Π&ροβολή"
 
-#: filewidgets/kdiroperator.cpp:2393 filewidgets/kdiroperator.cpp:2405
+#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2394 filewidgets/kdiroperator.cpp:2406
+#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2486
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Πρώτα οι φάκελοι"
 
-#: filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2487
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Πρώτα οι φάκελοι"
 
-#: filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2490
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Πρώτα οι φάκελοι"
 
-#: filewidgets/kdiroperator.cpp:2402
+#: filewidgets/kdiroperator.cpp:2491
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -3495,27 +3495,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "Μπορείτε να επιλέξετε μόνο ένα αρχείο"
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "Δόθηκαν πάνω από ένα αρχεία"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "Μπορείτε να επιλέξετε μόνο τοπικά αρχεία"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Απομακρυσμένα αρχεία δε γίνονται αποδεκτά"
 
-#: filewidgets/kfilewidget.cpp:837
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3526,12 +3526,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:843
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:859
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3542,12 +3542,12 @@ msgstr ""
 "φακέλους, ενώ είναι αδύνατο να καθοριστεί η μετάβαση σε έναν από αυτούς. "
 "Παρακαλώ επιλέξτε μόνο έναν φάκελο για εμφάνιση"
 
-#: filewidgets/kfilewidget.cpp:861
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Δόθηκαν περισσότεροι από ένας φάκελοι"
 
-#: filewidgets/kfilewidget.cpp:871
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3555,22 +3555,22 @@ msgid ""
 msgstr ""
 "Έχει επιλεγεί τουλάχιστον ένας φάκελος και ένα αρχείο. Θα γίνει αγνόηση των  επιλεγμένων αρχείων και θα γίνει εμφάνιση του επιλεγμένου φακέλου."
 
-#: filewidgets/kfilewidget.cpp:872
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Επιλέχθηκαν αρχεία και φάκελοι"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Το αρχείο %1 δεν βρέθηκε"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "Αδυναμία ανοίγματος αρχείου"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1314
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3585,50 +3585,50 @@ msgstr ""
 ">Για παράδειγμα, αν η τρέχουσα τοποθεσία είναι file:/home/%1 κάνοντας κλικ "
 "σε αυτό το κουμπί θα πάτε στο file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Κάντε κλικ σε αυτό το κουμπί για να μετακινηθείτε ένα βήμα πίσω στο ιστορικό "
 "περιήγησης."
 
-#: filewidgets/kfilewidget.cpp:1272
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Κάντε κλικ σε αυτό το κουμπί για να μετακινηθείτε ένα βήμα μπροστά στο "
 "ιστορικό περιήγησης."
 
-#: filewidgets/kfilewidget.cpp:1274
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Κάντε κλικ σε αυτό το κουμπί για να επαναφορτωθούν τα περιεχόμενα της "
 "τρέχουσας τοποθεσίας."
 
-#: filewidgets/kfilewidget.cpp:1276
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Κάντε κλικ σε αυτό το κουμπί για να δημιουργήσετε ένα νέο φάκελο."
 
-#: filewidgets/kfilewidget.cpp:1278
+#: filewidgets/kfilewidget.cpp:1325
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Εμφάνιση πίνακα πλοήγησης τοποθεσιών"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1336
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Εμφάνιση σελιδοδεικτών"
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Επιλογές"
 
-#: filewidgets/kfilewidget.cpp:1295
+#: filewidgets/kfilewidget.cpp:1354
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3650,12 +3650,12 @@ msgstr ""
 "αρχείων</li><li>το πλαίσιο πλοήγησης τοποθεσιών</li><li>προεπισκοπήσεις "
 "αρχείου</li><li>ο διαχωρισμός των φακέλων από τα αρχεία</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1314
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
-#: filewidgets/kfilewidget.cpp:1318
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3671,12 +3671,12 @@ msgstr ""
 "σελιδοδείκτες στο KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1357 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "Ό&νομα:"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3689,12 +3689,12 @@ msgstr ""
 "κάνοντας κλικ με το δεξί πλήκτρο του ποντικιού και επιλέγοντας την "
 "προτιμώμενη κατάσταση από το μενού <b>Συμπλήρωση κειμένου</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1439
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Αυτό είναι το όνομα με το οποίο θα αποθηκευτεί το αρχείο."
 
-#: filewidgets/kfilewidget.cpp:1442
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3703,79 +3703,79 @@ msgstr ""
 "Αυτή είναι η λίστα των αρχείων για άνοιγμα. Περισσότερα από ένα αρχεία "
 "μπορεί να καθοριστούν παραθέτοντας τα διαχωρισμένα με κενά."
 
-#: filewidgets/kfilewidget.cpp:1447
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Αυτό είναι το όνομα του αρχείου για άνοιγμα."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Τοποθεσίες"
 
-#: filewidgets/kfilewidget.cpp:1678
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Το αρχείο \"%1\" υπάρχει ήδη. Επιθυμείτε την αντικατάστασή του;"
 
-#: filewidgets/kfilewidget.cpp:1679
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Αντικατάσταση αρχείου;"
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Μπορείτε να επιλέξετε μόνο τοπικά αρχεία."
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Απομακρυσμένα αρχεία δε γίνονται αποδεκτά"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Όλοι οι φάκελοι"
 
-#: filewidgets/kfilewidget.cpp:1998
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Όλα τα αρχεία"
 
-#: filewidgets/kfilewidget.cpp:2148 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "Ά&νοιγμα"
 
-#: filewidgets/kfilewidget.cpp:2248
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Μέγεθος εικονιδίων: %1 εικονοστοιχεία"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Αυτόματη επιλογή κατάλη&ξης αρχείου (%1)"
 
-#: filewidgets/kfilewidget.cpp:2397
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "η κατάληξη <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Αυτόματη επιλογή κατάλη&ξης αρχείου"
 
-#: filewidgets/kfilewidget.cpp:2404
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "μια κατάλληλη κατάληξη"
 
-#: filewidgets/kfilewidget.cpp:2412
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3803,25 +3803,25 @@ msgstr ""
 "αφαιρεθεί αυτόματα).</li></ol>Αν δεν είστε σίγουροι, διατηρήστε αυτή την "
 "επιλογή ενεργοποιημένη καθώς καθιστά τα αρχεία σας πιο εύκολα διαχειρίσιμα."
 
-#: filewidgets/kfilewidget.cpp:2868
+#: filewidgets/kfilewidget.cpp:2934
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Φίλτρο:"
 
-#: filewidgets/kfilewidget.cpp:2869
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2871
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Φίλτρο:"
 
-#: filewidgets/kfilewidget.cpp:2873
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -9818,8 +9818,9 @@ msgstr ""
 #| "cannot be undone."
 msgctxt "@info"
 msgid ""
-"Do you really want to permanently delete this item?<nl/><filename>%1</"
-"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+"Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
 msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
@@ -9932,6 +9933,19 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid ""
+#~| "Do you want to permanently delete all items from Trash? This action "
+#~| "cannot be undone."
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
+#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#~ msgstr ""
+#~ "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; "
+#~ "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
 
 #~ msgid "Co&mmand:"
 #~ msgstr "Ε&ντολή:"

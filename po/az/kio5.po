@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:42+0000\n"
+"POT-Creation-Date: 2022-11-04 00:42+0000\n"
 "PO-Revision-Date: 2022-10-17 23:43+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2628,251 +2628,251 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Siz bu sertifikatı həmişəlik sorğu-sualsız qəbul etmək istəyirsiniz?"
 
-#: filewidgets/kdiroperator.cpp:746
+#: filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "A file or folder named %1 already exists."
 msgstr "Fayl və Qovluq %1 adı artıq mövcuddur."
 
-#: filewidgets/kdiroperator.cpp:749
+#: filewidgets/kdiroperator.cpp:751
 #, kde-format
 msgid "You do not have permission to create that folder."
 msgstr "Sizin bu qovluğu yaratmağa icazəniz yoxdur."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Siz silmək üçün fayl seçmədiniz."
 
-#: filewidgets/kdiroperator.cpp:762 filewidgets/kdiroperator.cpp:794
+#: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Silməyə bir şey yoxdur"
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Siz səbətə atmaq üçün fayl seçmədiniz."
 
-#: filewidgets/kdiroperator.cpp:806 filewidgets/kdiroperator.cpp:902
+#: filewidgets/kdiroperator.cpp:808 filewidgets/kdiroperator.cpp:904
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Səbətə atmağa heç nə yoxdur"
 
-#: filewidgets/kdiroperator.cpp:985 filewidgets/kdiroperator.cpp:1117
+#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Göstərilən qovluq ya mövcud deyol ya da oxuna bilmir."
 
-#: filewidgets/kdiroperator.cpp:2017
+#: filewidgets/kdiroperator.cpp:2021
 #, kde-format
 msgid "Menu"
 msgstr "Menyu"
 
-#: filewidgets/kdiroperator.cpp:2023
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Parent Folder"
 msgstr "Ana Qovluq"
 
-#: filewidgets/kdiroperator.cpp:2030
+#: filewidgets/kdiroperator.cpp:2042
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Geriyə"
 
-#: filewidgets/kdiroperator.cpp:2034
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "İrəli"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgid "Home Folder"
 msgstr "Ev Qovluğu"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Reload"
 msgstr "Yenilə"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "New Folder..."
 msgstr "Yeni Qovluq..."
 
-#: filewidgets/kdiroperator.cpp:2057 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgid "Move to Trash"
 msgstr "Səbətə Daşı"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2091
 #, kde-format
 msgid "Delete"
 msgstr "Sil"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Sorting"
 msgstr "Çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2078
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ada görə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2085
+#: filewidgets/kdiroperator.cpp:2118
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ölçüyə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2092
+#: filewidgets/kdiroperator.cpp:2127
 #, kde-format
 msgid "Sort by Date"
 msgstr "Tarixə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2136
 #, kde-format
 msgid "Sort by Type"
 msgstr "Növünə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Ascending"
 msgstr "Artan"
 
-#: filewidgets/kdiroperator.cpp:2117
+#: filewidgets/kdiroperator.cpp:2158
 #, kde-format
 msgid "Descending"
 msgstr "Azalan"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2168
 #, kde-format
 msgid "Folders First"
 msgstr "Öncə Qovluqlar"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2177
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Gizli fayllar sonda"
 
-#: filewidgets/kdiroperator.cpp:2140
+#: filewidgets/kdiroperator.cpp:2187
 #, kde-format
 msgid "Icons View"
 msgstr "İkonları Göstər"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2197
 #, kde-format
 msgid "Compact View"
 msgstr "Yığcam Baxış"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2207
 #, kde-format
 msgid "Details View"
 msgstr "Ətraflı Baxış"
 
-#: filewidgets/kdiroperator.cpp:2176
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Icon Position"
 msgstr "İkon Mövqeyi"
 
-#: filewidgets/kdiroperator.cpp:2180
+#: filewidgets/kdiroperator.cpp:2235
 #, kde-format
 msgid "Next to File Name"
 msgstr "Fayl Adının Yanında"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2244
 #, kde-format
 msgid "Above File Name"
 msgstr "Fayl Adının Üstündə"
 
-#: filewidgets/kdiroperator.cpp:2202
+#: filewidgets/kdiroperator.cpp:2261
 #, kde-format
 msgid "Short View"
 msgstr "Qısa Baxış"
 
-#: filewidgets/kdiroperator.cpp:2210
+#: filewidgets/kdiroperator.cpp:2271
 #, kde-format
 msgid "Detailed View"
 msgstr "Ətraflı Baxış"
 
-#: filewidgets/kdiroperator.cpp:2218
+#: filewidgets/kdiroperator.cpp:2281
 #, kde-format
 msgid "Tree View"
 msgstr "Budaqlanan"
 
-#: filewidgets/kdiroperator.cpp:2226
+#: filewidgets/kdiroperator.cpp:2291
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Ətraflı Budaqlanan"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2307
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Ətraflı Baxışda Genişləndirməyə icazə verin"
 
-#: filewidgets/kdiroperator.cpp:2247
+#: filewidgets/kdiroperator.cpp:2316
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Gizli Faylları Göstər"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2326
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Oncədən Baxış Panelini Göstərin"
 
-#: filewidgets/kdiroperator.cpp:2263
+#: filewidgets/kdiroperator.cpp:2336
 #, kde-format
 msgid "Show Preview"
 msgstr "Öncədən Baxışı Göstər"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2346
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Bu tərkibli qovluğu açın"
 
-#: filewidgets/kdiroperator.cpp:2279 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Xüsusiyyətlər"
 
-#: filewidgets/kdiroperator.cpp:2289
+#: filewidgets/kdiroperator.cpp:2368
 #, kde-format
 msgid "&View Mode"
 msgstr "&Baxış rejimi"
 
-#: filewidgets/kdiroperator.cpp:2393 filewidgets/kdiroperator.cpp:2405
+#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2394 filewidgets/kdiroperator.cpp:2406
+#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2486
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Öncə Ən Yeniləri"
 
-#: filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2487
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Öncə Ən Köhnələri"
 
-#: filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Ən Böyük Fayllar"
 
-#: filewidgets/kdiroperator.cpp:2402
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3364,27 +3364,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Nəhəng (%1x%)"
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "Siz ancaq bir fayl seşə bilərsiniz"
 
-#: filewidgets/kfilewidget.cpp:659
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "Birdən çox fayl təqdim edildi"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "Siz ancaq lokal fayl seçə bilərsiniz"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Uzaqdan sənədlər qəbul edilmir"
 
-#: filewidgets/kfilewidget.cpp:837
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3399,12 +3399,12 @@ msgstr[1] ""
 "Seçilmiş URL dəstəklənməyn sxem istifadə edir. Lütfən bu seçimlərdən birini "
 "istifadə edin: %2"
 
-#: filewidgets/kfilewidget.cpp:843
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Dəstəklənmyən URL sxemi"
 
-#: filewidgets/kfilewidget.cpp:859
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3415,12 +3415,12 @@ msgstr ""
 "hansının girəcəyinə qərar vermək mümkün deyil. lütfən sıralamaq yalnız bir "
 "qovluq seçin."
 
-#: filewidgets/kfilewidget.cpp:861
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Birdən çox qovluq təqdim edildi"
 
-#: filewidgets/kfilewidget.cpp:871
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3429,22 +3429,22 @@ msgstr ""
 "Ən azından Bir qovluq və bir fayl seçildi. Seçilən fayllar nəzərə "
 "alınmayacaq, seçilən qovluqlar isə siyahıya salınacaq"
 
-#: filewidgets/kfilewidget.cpp:872
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Faylar və qovluqlar seçildi"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" faylı tapılmadı"
 
-#: filewidgets/kfilewidget.cpp:890
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "Fayl açılmır"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3455,42 +3455,42 @@ msgstr ""
 "məkan file:/home/konqi olarsa bu düyməyə vurmaq sizi file:/home. qovluğuna "
 "götürəcək.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Bu düyməy vurmaq sizi geriyə sonuncu baxdığınız qovluğa götürəcək."
 
-#: filewidgets/kfilewidget.cpp:1272
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Bu düyməyə vurmaq sizi irəli baxdığınız qovluğa götürəcək."
 
-#: filewidgets/kfilewidget.cpp:1274
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Bu düyməyə vurmaq cari qovluğu yeniləyir."
 
-#: filewidgets/kfilewidget.cpp:1276
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Bu düyməyə vursanız yeni qovluq yaranacaq."
 
-#: filewidgets/kfilewidget.cpp:1278
+#: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Giriş Nöqtəsi panelini Göstərin"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1336
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Əlfəcinlər Düyməsini Göstərin"
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Seçimlər"
 
-#: filewidgets/kfilewidget.cpp:1295
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3505,12 +3505,12 @@ msgstr ""
 "li><li>gizli faylların göstərilməsi < / li><li>Yerlər paneli</li><li>fayl "
 "önizləmələri</li><li>qovluqları fayllardan ayırmaq</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1314
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Əlfəcinlər"
 
-#: filewidgets/kfilewidget.cpp:1318
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3524,12 +3524,12 @@ msgstr ""
 "yerlərində əlfəcinlər kimi fəaliyyət göstərir.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1357 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Ad:"
 
-#: filewidgets/kfilewidget.cpp:1432
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3541,12 +3541,12 @@ msgstr ""
 "bilər. Bu xüsusiyyət siçan sağ düyməsini basaraq və <b>Mətn Tamamlanması</b> "
 "menyusundan üstünlük verilən bir rejimi seçməklə idarə edilə bilər.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1439
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Bu ad faylı fərqli saxlamaq üçündür."
 
-#: filewidgets/kfilewidget.cpp:1442
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3555,80 +3555,80 @@ msgstr ""
 "Bu açılacaq faylların siyahısıdır. Bəzi faylları boşluq qoymaqla sıralayaraq "
 "birdən çox faylı göstərmək olar."
 
-#: filewidgets/kfilewidget.cpp:1447
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Bu açılacaq faylın adıdır."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Yerlər"
 
-#: filewidgets/kfilewidget.cpp:1678
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 "\"%1\" faylı artıq mövcuddur. Həmin faylın üzərinə yazmaq istəyirsiniz?"
 
-#: filewidgets/kfilewidget.cpp:1679
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Faylın Üzərinə Yazmaq?"
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Siz ancaq lokal fayl seçə bilərsiniz."
 
-#: filewidgets/kfilewidget.cpp:1902
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Uzaqdan Fayllar Dəstəklənmir"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Bütün qovluqlar"
 
-#: filewidgets/kfilewidget.cpp:1998
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Bütün Fayllar"
 
-#: filewidgets/kfilewidget.cpp:2148 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Aç"
 
-#: filewidgets/kfilewidget.cpp:2248
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "İkonun ölçüsü: %1 piksel"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Avtomatik olaraq fayl adının u&zantısını seçin (%1)"
 
-#: filewidgets/kfilewidget.cpp:2397
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "Uzantı <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Avtomatik olaraq fayl adının u&zantısını seçin"
 
-#: filewidgets/kfilewidget.cpp:2404
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "uyğun bir uzantı"
 
-#: filewidgets/kfilewidget.cpp:2412
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3655,12 +3655,12 @@ msgstr ""
 "avtomatik olaraq silinəcək).</li></ol>Əmin deyilsinizsə bu seçimi aktiv "
 "saxlayın, beləki, bu sizin faylınızı daha idarə olunan edir."
 
-#: filewidgets/kfilewidget.cpp:2868
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr "&Fayl növü:"
 
-#: filewidgets/kfilewidget.cpp:2869
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3669,12 +3669,12 @@ msgstr ""
 "<qt>Bu fayl növü seçicisidir. Faylın qeyd olunduğu formatı seçmək üçün "
 "istifadə olunur.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2871
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Süzgəc:"
 
-#: filewidgets/kfilewidget.cpp:2873
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -9348,8 +9348,9 @@ msgstr ""
 #| "emphasis>"
 msgctxt "@info"
 msgid ""
-"Do you really want to permanently delete this item?<nl/><filename>%1</"
-"filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+"Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
+"emphasis>"
 msgstr ""
 "Bu obyekti həmişəlik silinsin?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Bu ləğv edilə bilməz.</emphasis>"
@@ -9453,6 +9454,20 @@ msgstr "Bu proqramı başladacaq:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Bu proqrama etibar etmirsinizsə, \"Ləğv et\" vurun"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid ""
+#~| "Do you really want to permanently delete this item?<nl/><filename>%1</"
+#~| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone."
+#~| "</emphasis>"
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
+#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#~ msgstr ""
+#~ "Bu obyekti həmişəlik silinsin?<nl/><filename>%1</filename><nl/><nl/"
+#~ "><emphasis strong='true'>Bu ləğv edilə bilməz.</emphasis>"
 
 #~ msgid "Co&mmand:"
 #~ msgstr "Ə&mr:"
