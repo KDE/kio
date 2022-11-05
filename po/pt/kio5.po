@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-24 11:42+0100\n"
+"PO-Revision-Date: 2022-11-04 10:45+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -9496,20 +9496,16 @@ msgstr ""
 "da máquina."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Deseja apagar de forma permanente este item?<nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Esta acção não pode ser anulada.</emphasis>"
+"Deseja apagar de forma permanente este item?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Esta acção não pode ser anulada.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9601,12 +9597,3 @@ msgstr "Isto irá iniciar o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se não confiar neste programa, carregue em Cancelar"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "Deseja apagar de forma permanente este item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>Esta acção não pode ser anulada.</"
-#~ "emphasis>"

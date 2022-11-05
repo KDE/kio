@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-26 23:04+0200\n"
+"PO-Revision-Date: 2022-11-04 09:34+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -9516,21 +9516,16 @@ msgstr ""
 "afgebroken."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Wilt u dit item permanent verwijderen?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Deze actie kan niet ongedaan worden gemaakt.</"
-"emphasis>"
+"Wilt u dit item permanent verwijderen?<nl/><nl/><filename>%1</filename><nl/"
+"><nl/><nl/><emphasis strong='true'>Deze actie kan niet ongedaan worden "
+"gemaakt.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format

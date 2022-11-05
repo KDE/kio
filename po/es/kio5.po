@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-27 12:38+0200\n"
+"PO-Revision-Date: 2022-11-04 10:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -9488,21 +9488,16 @@ msgstr ""
 "Cancelando porque no se puede determinar la identidad del servidor."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"¿Realmente desea borrar de forma permanente este elemento?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acción no se puede deshacer."
-"</emphasis>"
+"¿Realmente desea borrar de forma permanente este elemento?<nl/><nl/"
+"><filename>%1</filename><nl/><nl/><emphasis strong='true'>Esta acción no se "
+"puede deshacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format

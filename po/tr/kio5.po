@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-26 10:10+0300\n"
+"PO-Revision-Date: 2022-11-04 10:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -457,12 +457,12 @@ msgstr "%1 protokolü yalnızca bir süzgeç protokolüdür."
 #: core/job_error.cpp:58
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1 bir klasör ama bir dosya bekleniyordu."
+msgstr "%1 bir klasör; ancak bir dosya bekleniyordu."
 
 #: core/job_error.cpp:61
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1 bir dosya ama bir klasör bekleniyordu."
+msgstr "%1 bir dosya; ancak bir klasör bekleniyordu."
 
 #: core/job_error.cpp:64
 #, kde-format
@@ -526,7 +526,7 @@ msgstr "%1 dosyasının kopyalanması sırasında bir çembersel bağlantı bulu
 #: core/job_error.cpp:94
 #, kde-format
 msgid "Could not create socket for accessing %1."
-msgstr "%1 adresine erişmek için soket oluşturulamıyor."
+msgstr "%1 adresine erişmek için yuva oluşturulamıyor."
 
 #: core/job_error.cpp:97
 #, kde-format
@@ -618,17 +618,17 @@ msgstr "%1 dosyası sürdürülemiyor."
 #: core/job_error.cpp:145
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "%1'in adı değiştirilemedi."
+msgstr "%1 dosyası yeniden adlandırılamadı."
 
 #: core/job_error.cpp:148
 #, kde-format
 msgid "Could not change permissions for %1."
-msgstr "%1 için izinler değiştirilemiyor."
+msgstr "%1 izinleri değiştirilemiyor."
 
 #: core/job_error.cpp:151
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "%1 ögesinin izinleri değiştirilemiyor."
+msgstr "%1 sahipliği değiştirilemiyor."
 
 #: core/job_error.cpp:154
 #, kde-format
@@ -714,7 +714,7 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Orijinal dosya %1 silinemedi.\n"
+"Özgün dosya %1 silinemedi.\n"
 "Lütfen izinlerinizi denetleyin."
 
 #: core/job_error.cpp:198
@@ -732,7 +732,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Orijinal dosya %1 yeniden adlandırılamadı.\n"
+"Özgün dosya %1 yeniden adlandırılamadı.\n"
 "Lütfen izinlerinizi denetleyin."
 
 #: core/job_error.cpp:204
@@ -9324,20 +9324,16 @@ msgstr ""
 "Makinenin kimliğine erişilemediği için iptal ediliyor."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
+"Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><nl/><filename>"
+"%1</filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
