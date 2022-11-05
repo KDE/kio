@@ -131,7 +131,7 @@ public:
     qint64 nextTimeoutMsecs;
     KIO::filesize_t totalSize;
     KRemoteEncoding *remotefile = nullptr;
-    enum { Idle, InsideMethod, FinishedCalled, ErrorCalled } m_state;
+    enum { Idle, InsideMethod, InsideTimeoutSpecial, FinishedCalled, ErrorCalled } m_state;
     bool m_finalityCommand = true; // whether finished() or error() may/must be called
     QByteArray timeoutData;
 
@@ -316,8 +316,8 @@ void SlaveBase::dispatchLoop()
             QByteArray data = d->timeoutData;
             d->nextTimeout.invalidate();
             d->timeoutData = QByteArray();
+            d->m_state = d->InsideTimeoutSpecial;
             special(data);
-            // NB: not performing state validation since http slave is misbehaving and not emitting anything at the time of writing - August 2022
             d->m_state = d->Idle;
         }
 
@@ -506,6 +506,11 @@ void SlaveBase::opened()
 
 void SlaveBase::error(int _errid, const QString &_text)
 {
+    if (d->m_state == d->InsideTimeoutSpecial) {
+        qWarning(KIO_CORE) << "TimeoutSpecialCommand failed with" << _errid << _text;
+        return;
+    }
+
     KIO_STATE_ASSERT(
         d->m_finalityCommand,
         Q_FUNC_INFO,
@@ -545,6 +550,10 @@ void SlaveBase::connected()
 
 void SlaveBase::finished()
 {
+    if (d->m_state == d->InsideTimeoutSpecial) {
+        return;
+    }
+
     if (!d->pendingListEntries.isEmpty()) {
         if (!d->m_rootEntryListed) {
             qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
