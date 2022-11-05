@@ -526,11 +526,13 @@ protected Q_SLOTS:
         const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
         for (QWidget *widget : widgetsList) {
             if (KPasswordDialog *dialog = qobject_cast<KPasswordDialog *>(widget)) {
+                qDebug() << "Found dialog" << dialog;
                 if (code == QDialog::Accepted) {
                     QCOMPARE(dialog->username(), getUserNameFrom(info));
                     QCOMPARE(dialog->password(), info.password);
                     dialog->setUsername(filledInfo.username);
                     dialog->setPassword(filledInfo.password);
+                    qDebug() << "Filled dialog with" << filledInfo.username << filledInfo.password;
                 }
                 dialog->done(code);
                 return;
@@ -545,6 +547,7 @@ protected Q_SLOTS:
         for (QWidget *widget : widgetsList) {
             QDialog *dialog = qobject_cast<QDialog *>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
+                qDebug() << "Closing dialog" << dialog << "with code" << code;
                 dialog->done(code);
                 return;
             }
