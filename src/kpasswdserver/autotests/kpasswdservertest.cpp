@@ -51,6 +51,7 @@ private Q_SLOTS:
 
         KIO::AuthInfo info;
         info.url = QUrl(QStringLiteral("http://www.example.com"));
+        info.keepPassword = true;
 
         // Make a check for that host, should say "not found"
         QVERIFY(noCheckAuth(server, info));
@@ -122,6 +123,7 @@ private Q_SLOTS:
         server.setWalletDisabled(true);
         KIO::AuthInfo info;
         info.url = QUrl(QStringLiteral("http://www.example.com"));
+        info.keepPassword = true;
 
         // Add auth to the cache
         const qlonglong windowId = 42;
@@ -268,6 +270,7 @@ private Q_SLOTS:
         authInfo.url = QUrl(QStringLiteral("http://www.example.com/test/test.html"));
         authInfo.username = QStringLiteral("toto");
         authInfo.password = QStringLiteral("foobar");
+        authInfo.keepPassword = true;
         server.addAuthInfo(authInfo, windowId);
 
         KIO::AuthInfo queryAuthInfo;
