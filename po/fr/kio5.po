@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-26 19:17+0200\n"
+"PO-Revision-Date: 2022-11-04 22:01+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -7450,9 +7450,8 @@ msgstr[0] ""
 "Voulez-vous vraiment supprimer définitivement cet élément ?<nl/><nl/> "
 "<emphasis strong='true'>Cette action est irréversible.</emphasis>"
 msgstr[1] ""
-"Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/"
-"><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
-"irréversible.</emphasis>"
+"Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/> <nl/> "
+"<emphasis strong='true'>Cette action est irréversible.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
@@ -9583,20 +9582,15 @@ msgstr ""
 "Abandon car il est impossible de connaître l'identité de cet hôte."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Voulez-vous vraiment supprimer définitivement cet élément ?<nl/><filename>"
-"%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
+"Voulez-vous vraiment supprimer définitivement cet élément ?<nl/> <nl/"
+"><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
 "irréversible.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
@@ -9612,9 +9606,8 @@ msgstr[0] ""
 "Voulez-vous vraiment supprimer définitivement cet élément %1 ?<nl/><nl/> "
 "<emphasis strong='true'>Cette action ne peut être annulée.</emphasis>"
 msgstr[1] ""
-"Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/"
-"><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action ne "
-"peut être annulée.</emphasis>"
+"Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/><nl/> "
+"<emphasis strong='true'>Cette action ne peut être annulée.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
 #, kde-kuit-format
