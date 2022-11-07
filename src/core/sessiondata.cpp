@@ -16,7 +16,7 @@
 #include <KSharedConfig>
 #include <kprotocolmanager.h>
 
-#include "http_slave_defaults.h"
+#include "http_worker_defaults.h"
 #include <kio/slaveconfig.h>
 
 namespace KIO

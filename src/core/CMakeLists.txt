@@ -328,12 +328,17 @@ endif()
 install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 list(APPEND KIO_namespaced_HEADERS
-  http_slave_defaults.h
+  http_worker_defaults.h
   ioslave_defaults.h
   ioworker_defaults.h
   job_base.h
   jobclasses.h
 )
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.101.0)
+    list(APPEND KIO_namespaced_HEADERS http_slave_defaults.h)
+endif()
+
 install(FILES
   ${KIO_namespaced_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/kio COMPONENT Devel

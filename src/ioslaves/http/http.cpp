@@ -52,7 +52,7 @@
 #include <QSslSocket>
 #include <kremoteencoding.h>
 
-#include <http_slave_defaults.h>
+#include <http_worker_defaults.h>
 #include <ioworker_defaults.h>
 
 #include <QDBusReply>

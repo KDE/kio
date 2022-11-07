@@ -297,7 +297,7 @@ public:
      * Returns the maximum size that can be used for caching.
      *
      * By default this function returns the DEFAULT_MAX_CACHE_SIZE
-     * value as defined in http_slave_defaults.h.  Not that the
+     * value as defined in http_worker_defaults.h.  Not that the
      * value returned is in bytes, hence a value of 5120 would mean
      * 5 Kb.
      *
