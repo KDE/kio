@@ -463,7 +463,7 @@ public:
                 return 0;
             }
 
-            // adjust the use count, to make sure that we actually count up. (slaves read the file
+            // adjust the use count, to make sure that we actually count up. (workers read the file
             // asynchronously...)
             const quint32 newUseCount = fiFromDisk.useCount + 1;
             QByteArray newHeader = cmd.mid(0, SerializedCacheFileInfo::size);
@@ -604,7 +604,7 @@ public:
     }
 
     // Delete some of the files that need to be deleted. Return true when done, false otherwise.
-    // This makes interleaved cleaning / serving ioslaves possible.
+    // This makes interleaved cleaning / serving KIO workers possible.
     bool processSlice(Scoreboard *scoreboard = nullptr)
     {
         QElapsedTimer t;
@@ -816,7 +816,7 @@ int main(int argc, char **argv)
             }
         }
 
-        // interleave cleaning with serving ioslaves to reduce "garbage collection pauses"
+        // interleave cleaning with serving KIO workers to reduce "garbage collection pauses"
         if (cleaner) {
             if (cleaner->processSlice(&scoreboard)) {
                 // that was the last slice, done

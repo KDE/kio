@@ -16,7 +16,7 @@
 #include "http.h"
 
 #include "../utils_p.h"
-#include <config-kioslave-http.h>
+#include <config-kioworker-http.h>
 
 #include <limits>
 #include <qplatformdefs.h> // must be explicitly included for MacOSX

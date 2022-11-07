@@ -1,7 +1,7 @@
 include(ECMMarkNonGuiExecutable)
 
 include(ConfigureChecks.cmake)
-configure_file(config-kioslave-http.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-http.h )
+configure_file(config-kioworker-http.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kioworker-http.h )
 
 if(GSSAPI_FOUND)
     set(HAVE_LIBGSSAPI 1)
@@ -18,7 +18,7 @@ else()
     set(GSSAPI_MIT 0)
 endif()
 
-configure_file(config-gssapi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-gssapi.h )
+configure_file(config-gssapi.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-gssapi.h )
 
 if (NOT KIOCORE_ONLY)
 add_subdirectory( kcookiejar )

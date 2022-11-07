@@ -14,7 +14,7 @@
 #include <QTest>
 #include <qplatformdefs.h>
 
-#include "../../src/ioslaves/http/kcookiejar/kcookiejar.cpp"
+#include "../../src/kioworkers/http/kcookiejar/kcookiejar.cpp"
 
 static KCookieJar *jar;
 static QString *lastYear;

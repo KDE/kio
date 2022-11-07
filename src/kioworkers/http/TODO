@@ -7,7 +7,7 @@ Close the connection ourselves when the timeout has expired. That way
 we don't loose time sending stuff to an already closed connection.
 
 - HTTP/1.1 Pipelining support
-This more of an optimization of the http io-slave that is intended to make it
+This more of an optimization of the http KIO worker that is intended to make it
 faster while using as few resources as possible.  Work on this is currently
 being done to add this support for KDE 3.x version.
 
