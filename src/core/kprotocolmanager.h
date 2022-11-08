@@ -24,7 +24,7 @@ class QExplicitlySharedDataPointer;
 typedef QExplicitlySharedDataPointer<KSharedConfig> KSharedConfigPtr;
 namespace KIO
 {
-class SlaveConfigPrivate;
+class WorkerConfigPrivate;
 } // namespace KIO
 
 /**
@@ -712,11 +712,11 @@ public:
     static bool supportsPermissions(const QUrl &url);
 
 private:
-    friend class KIO::SlaveConfigPrivate;
+    friend class KIO::WorkerConfigPrivate;
 
     /**
      * @internal
-     * (Shared with SlaveConfig)
+     * (Shared with WorkerConfig)
      */
     KIOCORE_NO_EXPORT static QMap<QString, QString> entryMap(const QString &group);
 };

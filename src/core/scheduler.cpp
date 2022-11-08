@@ -14,7 +14,7 @@
 #include "job_p.h"
 #include "sessiondata_p.h"
 #include "slave.h"
-#include "slaveconfig.h"
+#include "workerconfig.h"
 
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
@@ -418,7 +418,7 @@ void ConnectedSlaveQueue::startRunnableJobs()
         const int port = url.port() == -1 ? 0 : url.port();
 
         if (slave->host() == QLatin1String("<reset>")) {
-            MetaData configData = SlaveConfig::self()->configData(url.scheme(), url.host());
+            MetaData configData = WorkerConfig::self()->configData(url.scheme(), url.host());
             slave->setConfig(configData);
             slave->setProtocol(url.scheme());
             slave->setHost(url.host(), port, url.userName(), url.password());
@@ -904,7 +904,7 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
 
     // qDebug() << "proto=" << proto;
     KProtocolManager::reparseConfiguration();
-    SlaveConfig::self()->reset();
+    WorkerConfig::self()->reset();
     sessionData.reset();
     NetRC::self()->reload();
 
@@ -1028,7 +1028,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
 MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url)
 {
     const QString host = url.host();
-    MetaData configData = SlaveConfig::self()->configData(protocol, host);
+    MetaData configData = WorkerConfig::self()->configData(protocol, host);
     sessionData.configDataFor(configData, protocol, host);
     if (proxyList.isEmpty()) {
         configData.remove(QStringLiteral("UseProxy"));
@@ -1235,7 +1235,7 @@ ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &hos
         int maxWorkersPerHost = -1;
         if (!host.isEmpty()) {
             bool ok = false;
-            const int value = SlaveConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
+            const int value = WorkerConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
             if (ok) {
                 maxWorkersPerHost = value;
             }
@@ -1285,9 +1285,9 @@ void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
     while (it.hasNext()) {
         it.next();
         if (it.key().startsWith(currHostToken, Qt::CaseInsensitive)) {
-            SlaveConfig::self()->setConfigData(jobUrl.scheme(), jobUrl.host(), it.key().mid(currHostToken.size()), it.value());
+            WorkerConfig::self()->setConfigData(jobUrl.scheme(), jobUrl.host(), it.key().mid(currHostToken.size()), it.value());
         } else if (it.key().startsWith(allHostsToken, Qt::CaseInsensitive)) {
-            SlaveConfig::self()->setConfigData(jobUrl.scheme(), QString(), it.key().mid(allHostsToken.size()), it.value());
+            WorkerConfig::self()->setConfigData(jobUrl.scheme(), QString(), it.key().mid(allHostsToken.size()), it.value());
         }
     }
 }

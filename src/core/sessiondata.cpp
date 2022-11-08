@@ -17,7 +17,7 @@
 #include <kprotocolmanager.h>
 
 #include "http_worker_defaults.h"
-#include <kio/slaveconfig.h>
+#include "workerconfig.h"
 
 namespace KIO
 {

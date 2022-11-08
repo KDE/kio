@@ -53,7 +53,7 @@
 
 #include "http_worker_defaults.h"
 #include "ioworker_defaults.h"
-#include "slaveconfig.h"
+#include "workerconfig.h"
 
 using SubnetPair = QPair<QHostAddress, int>;
 
@@ -271,7 +271,7 @@ void KProtocolManager::reparseConfiguration()
     lock.unlock();
 
     // Force the slave config to re-read its config...
-    KIO::SlaveConfig::self()->reset();
+    KIO::WorkerConfig::self()->reset();
 }
 
 static KSharedConfig::Ptr config()
@@ -715,12 +715,12 @@ QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList
 
 QString KProtocolManager::userAgentForHost(const QString &hostname)
 {
-    const QString sendUserAgent = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("SendUserAgent")).toLower();
+    const QString sendUserAgent = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("SendUserAgent")).toLower();
     if (sendUserAgent == QLatin1String("false")) {
         return QString();
     }
 
-    const QString useragent = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("UserAgent"));
+    const QString useragent = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("UserAgent"));
 
     // Return the default user-agent if none is specified
     // for the requested host.
@@ -733,7 +733,7 @@ QString KProtocolManager::userAgentForHost(const QString &hostname)
 
 QString KProtocolManager::defaultUserAgent()
 {
-    const QString modifiers = KIO::SlaveConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
+    const QString modifiers = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
     return defaultUserAgent(modifiers);
 }
 
@@ -1205,7 +1205,7 @@ QString KProtocolManager::protocolForArchiveMimetype(const QString &mimeType)
 
 QString KProtocolManager::charsetFor(const QUrl &url)
 {
-    return KIO::SlaveConfig::self()->configData(url.scheme(), url.host(), QStringLiteral("Charset"));
+    return KIO::WorkerConfig::self()->configData(url.scheme(), url.host(), QStringLiteral("Charset"));
 }
 
 bool KProtocolManager::supportsPermissions(const QUrl &url)
