@@ -53,7 +53,7 @@ public:
     QString m_defaultMimetype;
     QString m_icon;
     QString m_config;
-    int m_maxSlaves;
+    int m_maxWorkers;
 
     QString m_docPath;
     QString m_protClass;
@@ -63,7 +63,7 @@ public:
     QStringList m_capabilities;
     QStringList m_slaveHandlesNotify;
     QString m_proxyProtocol;
-    int m_maxSlavesPerHost;
+    int m_maxWorkersPerHost;
 };
 
 #endif

@@ -185,6 +185,7 @@ public:
      */
     static QString config(const QString &protocol);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the soft limit on the number of slaves for this protocol.
      * This limits the number of slaves used for a single operation, note
@@ -196,9 +197,13 @@ public:
      *
      * @param protocol the protocol to check
      * @return the maximum number of slaves, or 1 if unknown
+     *
+     * @deprecated Since 5.101, use maxWorkers(const QString &)
      */
-    static int maxSlaves(const QString &protocol);
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use maxWorkers(const QString&)") int maxSlaves(const QString &protocol);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the limit on the number of slaves for this protocol per host.
      *
@@ -209,8 +214,39 @@ public:
      * @return the maximum number of slaves, or 1 if unknown
      *
      * @since 4.4
+     * @deprecated Since 5.101, use maxWorkersPerHost(const QString &)
      */
-    static int maxSlavesPerHost(const QString &protocol);
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use maxWorkersPerHost(const QString&)") int maxSlavesPerHost(const QString &protocol);
+#endif
+
+    /**
+     * Returns the soft limit on the number of KIO workers for this protocol.
+     * This limits the number of workers used for a single operation, note
+     * that multiple operations may result in a number of instances that
+     * exceeds this soft limit.
+     *
+     * This corresponds to the "maxInstances=" field in the protocol's worker metadata.
+     * The default is 1.
+     *
+     * @param protocol the protocol to check
+     * @return the maximum number of workers, or 1 if unknown
+     *
+     * @since 5.101
+     */
+    static int maxWorkers(const QString &protocol);
+
+    /**
+     * Returns the limit on the number of KIO workers for this protocol per host.
+     *
+     * This corresponds to the "maxInstancesPerHost=" field in the protocol's worker metadata.
+     * The default is 0 which means there is no per host limit.
+     *
+     * @param protocol the protocol to check
+     * @return the maximum number of workers, or 1 if unknown
+     *
+     * @since 5.101
+     */
+    static int maxWorkersPerHost(const QString &protocol);
 
     /**
      * Returns whether MIME types can be determined based on extension for this

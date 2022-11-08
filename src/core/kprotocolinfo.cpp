@@ -68,8 +68,8 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
     m_archiveMimeTypes = config.readEntry("archiveMimetype", QStringList());
     m_icon = config.readEntry("Icon");
     m_config = config.readEntry("config", m_name);
-    m_maxSlaves = config.readEntry("maxInstances", 1);
-    m_maxSlavesPerHost = config.readEntry("maxInstancesPerHost", 0);
+    m_maxWorkers = config.readEntry("maxInstances", 1);
+    m_maxWorkersPerHost = config.readEntry("maxInstancesPerHost", 0);
 
     QString tmp = config.readEntry("input");
     if (tmp == QLatin1String("filesystem")) {
@@ -172,9 +172,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     m_config = json.value(QStringLiteral("config")).toString(m_name);
 
     // max slaves has fallback to 1 if not set
-    m_maxSlaves = json.value(QStringLiteral("maxInstances")).toInt(1);
+    m_maxWorkers = json.value(QStringLiteral("maxInstances")).toInt(1);
 
-    m_maxSlavesPerHost = json.value(QStringLiteral("maxInstancesPerHost")).toInt();
+    m_maxWorkersPerHost = json.value(QStringLiteral("maxInstancesPerHost")).toInt();
 
     QString tmp = json.value(QStringLiteral("input")).toString();
     if (tmp == QLatin1String("filesystem")) {
@@ -276,24 +276,38 @@ QString KProtocolInfo::config(const QString &_protocol)
     return QStringLiteral("kio_%1rc").arg(prot->m_config);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 int KProtocolInfo::maxSlaves(const QString &_protocol)
+{
+    return maxWorkers(_protocol);
+}
+#endif
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+int KProtocolInfo::maxSlavesPerHost(const QString &_protocol)
+{
+    return maxWorkersPerHost(_protocol);
+}
+#endif
+
+int KProtocolInfo::maxWorkers(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
     if (!prot) {
         return 1;
     }
 
-    return prot->m_maxSlaves;
+    return prot->m_maxWorkers;
 }
 
-int KProtocolInfo::maxSlavesPerHost(const QString &_protocol)
+int KProtocolInfo::maxWorkersPerHost(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
     if (!prot) {
         return 0;
     }
 
-    return prot->m_maxSlavesPerHost;
+    return prot->m_maxWorkersPerHost;
 }
 
 bool KProtocolInfo::determineMimetypeFromExtension(const QString &_protocol)

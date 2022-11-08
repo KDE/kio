@@ -469,16 +469,16 @@ static void verifyRunningJobsCount(QHash<QString, HostQueue> *queues, int runnin
 #endif
 }
 
-ProtoQueue::ProtoQueue(int maxSlaves, int maxSlavesPerHost)
-    : m_maxConnectionsPerHost(maxSlavesPerHost ? maxSlavesPerHost : maxSlaves)
-    , m_maxConnectionsTotal(qMax(maxSlaves, maxSlavesPerHost))
+ProtoQueue::ProtoQueue(int maxWorkers, int maxWorkersPerHost)
+    : m_maxConnectionsPerHost(maxWorkersPerHost ? maxWorkersPerHost : maxWorkers)
+    , m_maxConnectionsTotal(qMax(maxWorkers, maxWorkersPerHost))
     , m_runningJobsCount(0)
 
 {
     /*qDebug() << "m_maxConnectionsTotal:" << m_maxConnectionsTotal
                  << "m_maxConnectionsPerHost:" << m_maxConnectionsPerHost;*/
     Q_ASSERT(m_maxConnectionsPerHost >= 1);
-    Q_ASSERT(maxSlaves >= maxSlavesPerHost);
+    Q_ASSERT(maxWorkers >= maxWorkersPerHost);
     m_startJobTimer.setSingleShot(true);
     connect(&m_startJobTimer, &QTimer::timeout, this, &ProtoQueue::startAJob);
 }
@@ -1210,20 +1210,20 @@ ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &hos
     if (!pq) {
         // qDebug() << "creating ProtoQueue instance for" << protocol;
 
-        const int maxSlaves = KProtocolInfo::maxSlaves(protocol);
-        int maxSlavesPerHost = -1;
+        const int maxWorkers = KProtocolInfo::maxWorkers(protocol);
+        int maxWorkersPerHost = -1;
         if (!host.isEmpty()) {
             bool ok = false;
             const int value = SlaveConfig::self()->configData(protocol, host, QStringLiteral("MaxConnections")).toInt(&ok);
             if (ok) {
-                maxSlavesPerHost = value;
+                maxWorkersPerHost = value;
             }
         }
-        if (maxSlavesPerHost == -1) {
-            maxSlavesPerHost = KProtocolInfo::maxSlavesPerHost(protocol);
+        if (maxWorkersPerHost == -1) {
+            maxWorkersPerHost = KProtocolInfo::maxWorkersPerHost(protocol);
         }
-        // Never allow maxSlavesPerHost to exceed maxSlaves.
-        pq = new ProtoQueue(maxSlaves, qMin(maxSlaves, maxSlavesPerHost));
+        // Never allow maxWorkersPerHost to exceed maxWorkers.
+        pq = new ProtoQueue(maxWorkers, qMin(maxWorkers, maxWorkersPerHost));
         m_protocols.insert(protocol, pq);
     }
     return pq;

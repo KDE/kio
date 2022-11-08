@@ -151,7 +151,7 @@ class ProtoQueue : public QObject
 {
     Q_OBJECT
 public:
-    ProtoQueue(int maxSlaves, int maxSlavesPerHost);
+    ProtoQueue(int maxWorkers, int maxWorkersPerHost);
     ~ProtoQueue() override;
 
     void queueJob(KIO::SimpleJob *job);
