@@ -24,7 +24,7 @@ private Q_SLOTS:
     void testBasic();
     void testExtraFields();
     void testShowFilePreview();
-    void testSlaveProtocol();
+    void testWorkerProtocol();
     void testProxySettings_data();
     void testProxySettings();
     void testCapabilities();
@@ -74,16 +74,16 @@ void KProtocolInfoTest::testShowFilePreview()
     QVERIFY(!KProtocolInfo::showFilePreview(QStringLiteral("audiocd")));
 }
 
-void KProtocolInfoTest::testSlaveProtocol()
+void KProtocolInfoTest::testWorkerProtocol()
 {
     QString proxy;
-    QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
-    protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
 }
 
@@ -107,7 +107,7 @@ void KProtocolInfoTest::testProxySettings()
     cfg.sync();
     KProtocolManager::reparseConfiguration();
     QString proxy;
-    QString protocol = KProtocolManager::slaveProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(KProtocolManager::useProxy());
 

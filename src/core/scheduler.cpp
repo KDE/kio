@@ -940,7 +940,7 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     // qDebug() << job;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     jobPriv->m_proxyList.clear();
-    jobPriv->m_protocol = KProtocolManager::slaveProtocol(job->url(), jobPriv->m_proxyList);
+    jobPriv->m_protocol = KProtocolManager::workerProtocol(job->url(), jobPriv->m_proxyList);
 
     ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
     proto->queueJob(job);
@@ -1187,7 +1187,7 @@ void SchedulerPrivate::removeSlaveOnHold()
 Slave *SchedulerPrivate::getConnectedSlave(const QUrl &url, const KIO::MetaData &config)
 {
     QStringList proxyList;
-    const QString protocol = KProtocolManager::slaveProtocol(url, proxyList);
+    const QString protocol = KProtocolManager::workerProtocol(url, proxyList);
     ProtoQueue *pq = protoQ(protocol, url.host());
 
     Slave *slave = pq->createSlave(protocol, /* job */ nullptr, url);

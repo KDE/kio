@@ -613,11 +613,17 @@ void KProtocolManager::badProxy(const QString &proxy)
         d->cachedProxyData[key]->removeAddress(proxy);
     }
 }
-
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 QString KProtocolManager::slaveProtocol(const QUrl &url, QString &proxy)
 {
+    return workerProtocol(url, proxy);
+}
+#endif
+
+QString KProtocolManager::workerProtocol(const QUrl &url, QString &proxy)
+{
     QStringList proxyList;
-    const QString protocol = KProtocolManager::slaveProtocol(url, proxyList);
+    const QString protocol = KProtocolManager::workerProtocol(url, proxyList);
     if (!proxyList.isEmpty()) {
         proxy = proxyList.first();
     }
@@ -636,7 +642,14 @@ static QString extractProxyCacheKeyFromUrl(const QUrl &u)
     return key;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
+{
+    return workerProtocol(url, proxyList);
+}
+#endif
+
+QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList)
 {
     proxyList.clear();
 
@@ -968,7 +981,7 @@ static KProtocolInfoPrivate *findProtocol(const QUrl &url)
     QString protocol = url.scheme();
     if (!KProtocolInfo::proxiedBy(protocol).isEmpty()) {
         QString dummy;
-        protocol = KProtocolManager::slaveProtocol(url, dummy);
+        protocol = KProtocolManager::workerProtocol(url, dummy);
     }
 
     return KProtocolInfoFactory::self()->findProtocol(protocol);
