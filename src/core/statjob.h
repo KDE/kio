@@ -37,7 +37,7 @@ public:
     /**
      * A stat() can have two meanings. Either we want to read from this URL,
      * or to check if we can write to it. First case is "source", second is "dest".
-     * It is necessary to know what the StatJob is for, to tune the kioslave's behavior
+     * It is necessary to know what the StatJob is for, to tune the KIO worker's behavior
      * (e.g. with FTP).
      * By default it is SourceSide.
      * @param side SourceSide or DestinationSide
@@ -48,7 +48,7 @@ public:
     /**
      * A stat() can have two meanings. Either we want to read from this URL,
      * or to check if we can write to it. First case is "source", second is "dest".
-     * It is necessary to know what the StatJob is for, to tune the kioslave's behavior
+     * It is necessary to know what the StatJob is for, to tune the KIO worker's behavior
      * (e.g. with FTP).
      * @param source true for "source" mode, false for "dest" mode
      * @deprecated Since 4.0, use setSide(StatSide side).
@@ -96,9 +96,9 @@ public:
      * @brief most local URL
      *
      * Since this method depends on UDSEntry::UDS_LOCAL_PATH having been previously set
-     * by a KIO slave, ideally you should first check that the protocol Class of the URL
+     * by a KIO worker, ideally you should first check that the protocol Class of the URL
      * being stat'ed is ":local" before creating the StatJob at all. Typically only ":local"
-     * KIO slaves set UDS_LOCAL_PATH. See KProtocolInfo::protocolClass().
+     * KIO workers set UDS_LOCAL_PATH. See KProtocolInfo::protocolClass().
      *
      * Call this in a slot connected to the result signal, and only after making sure no error
      * happened.
@@ -172,10 +172,10 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * @param url the URL of the file
  * @param side is SourceSide when stating a source file (we will do a get on it if
  * the stat works) and DestinationSide when stating a destination file (target of a copy).
- * The reason for this parameter is that in some cases the kioslave might not
+ * The reason for this parameter is that in some cases the KIO worker might not
  * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
  * has issues with case-sensitivity on some systems).
- * When the slave can't reliably determine the existence of a file, it will:
+ * When the worker can't reliably determine the existence of a file, it will:
  * @li be optimistic if SourceSide, i.e. it will assume the file exists,
  * and if it doesn't this will appear when actually trying to download it
  * @li be pessimistic if DestinationSide, i.e. it will assume the file
@@ -200,10 +200,10 @@ statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails detai
  * @param url the URL of the file
  * @param side is SourceSide when stating a source file (we will do a get on it if
  * the stat works) and DestinationSide when stating a destination file (target of a copy).
- * The reason for this parameter is that in some cases the kioslave might not
+ * The reason for this parameter is that in some cases the KIO worker might not
  * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
  * has issues with case-sensitivity on some systems).
- * When the slave can't reliably determine the existence of a file, it will:
+ * When the worker can't reliably determine the existence of a file, it will:
  * @li be optimistic if SourceSide, i.e. it will assume the file exists,
  * and if it doesn't this will appear when actually trying to download it
  * @li be pessimistic if DestinationSide, i.e. it will assume the file
@@ -246,10 +246,10 @@ KIO::StatDetails detailsToStatDetails(int details);
  * @param url the URL of the file
  * @param sideIsSource is true when stating a source file (we will do a get on it if
  * the stat works) and false when stating a destination file (target of a copy).
- * The reason for this parameter is that in some cases the kioslave might not
+ * The reason for this parameter is that in some cases the KIO worker might not
  * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
  * has issues with case-sensitivity on some systems).
- * When the slave can't reliably determine the existence of a file, it will:
+ * When the worker can't reliably determine the existence of a file, it will:
  * @li be optimistic if sideIsSource=true, i.e. it will assume the file exists,
  * and if it doesn't this will appear when actually trying to download it
  * @li be pessimistic if sideIsSource=false, i.e. it will assume the file
@@ -274,7 +274,7 @@ StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags fl
 
 /**
  * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for
- * protocols that have Class ":local" (such protocols most likely have KIO Slaves that set
+ * protocols that have Class ":local" (such protocols most likely have KIO workers that set
  * UDSEntry::UDS_LOCAL_PATH); ideally you should check the URL protocol Class before creating
  * a StatJob. See KProtocolInfo::protocolClass().
  *
@@ -287,7 +287,7 @@ StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags fl
  *
  * Sample usage:
  *
- * Here the KIO slave name is "foo", which for example could be:
+ * Here the KIO worker name is "foo", which for example could be:
  *  - "desktop", "fonts", "kdeconnect", these have class ":local"
  *  - "ftp", "sftp", "smb", these have class ":internet"
  *

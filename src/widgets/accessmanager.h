@@ -184,7 +184,7 @@ public:
     KIO::MetaData &sessionMetaData();
 
     /**
-     * Puts the ioslave associated with the given @p reply on hold.
+     * Puts the KIO worker associated with the given @p reply on hold.
      *
      * This function is intended to make possible the implementation of
      * the special case mentioned in KIO::get's documentation within the
@@ -203,7 +203,7 @@ public:
      *
      * Calling this function will force the code connecting to QNetworkReply's
      * readyRead signal to prematurely start dealing with the content that might
-     * not yet have arrived. However, it is essential to make the put ioslave on
+     * not yet have arrived. However, it is essential to make the put worker on
      * hold functionality of KIO work in libraries like QtWebKit.
      *
      * @see QNetworkReply::metaDataChanged

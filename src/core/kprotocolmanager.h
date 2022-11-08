@@ -540,7 +540,7 @@ public:
      * This setting defines the strategy to use for generating a filename, when
      * copying a file or directory to another directory. By default the destination
      * filename is made out of the filename in the source URL. However if the
-     * ioslave displays names that are different from the filename of the URL
+     * KIO worker displays names that are different from the filename of the URL
      * (e.g. kio_fonts shows Arial for arial.ttf, or kio_trash shows foo.txt and
      * uses some internal URL), using Name means that the display name (UDS_NAME)
      * will be used to as the filename in the destination directory.

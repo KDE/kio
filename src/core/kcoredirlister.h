@@ -267,9 +267,9 @@ public:
     virtual void setDirOnlyMode(bool dirsOnly); // TODO KF6: remove virtual
 
     /**
-     * Checks whether this KCoreDirLister requests the mime type of files from the slave.
+     * Checks whether this KCoreDirLister requests the MIME type of files from the worker.
      *
-     * Enabling this will tell the slave used for listing that it should try to
+     * Enabling this will tell the worker used for listing that it should try to
      * determine the mime type of entries while listing them. This potentially
      * reduces the speed at which entries are listed but ensures mime types are
      * immediately available when an entry is added, greatly speeding up things
@@ -277,7 +277,7 @@ public:
      *
      * By default this is disabled.
      *
-     * @return @c true if the slave is asked for mime types, @c false otherwise.
+     * @return @c true if the worker is asked for MIME types, @c false otherwise.
      *
      * @see setRequestMimeTypeWhileListing(bool)
      *
@@ -286,9 +286,9 @@ public:
     bool requestMimeTypeWhileListing() const;
 
     /**
-     * Toggles whether to request mime types from the slave or in-process.
+     * Toggles whether to request MIME types from the worker or in-process.
      *
-     * @param request set to @c true to request mime types from the slave.
+     * @param request set to @c true to request MIME types from the worker.
      *
      * @note If this is changed while the lister is already listing a directory,
      * it will only have an effect the next time openUrl() is called.

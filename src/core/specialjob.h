@@ -18,13 +18,13 @@ class SpecialJobPrivate;
 /**
  * @class KIO::SpecialJob specialjob.h <KIO/SpecialJob>
  *
- * A class that sends a special command to an ioslave.
- * This allows you to send a binary blob to an ioslave and handle
- * its responses. The ioslave will receive the binary data as an
- * argument to the "special" function (inherited from SlaveBase::special()).
+ * A class that sends a special command to a KIO worker.
+ * This allows you to send a binary blob to a worker and handle
+ * its responses. The worker will receive the binary data as an
+ * argument to the "special" function (inherited from WorkerBase::special()).
  *
- * Use this only on ioslaves that belong to your application. Sending
- * special commands to other ioslaves may cause unexpected behaviour.
+ * Use this only on KIO workers that belong to your application. Sending
+ * special commands to other workers may cause unexpected behaviour.
  *
  * @see KIO::special
  */
@@ -35,20 +35,20 @@ public:
     /**
      * Creates a KIO::SpecialJob.
      *
-     * @param url the URL to be passed to the ioslave
-     * @param data the data to be sent to the SlaveBase::special() function.
+     * @param url the URL to be passed to the worker
+     * @param data the data to be sent to the WorkerBase::special() function.
      */
     explicit SpecialJob(const QUrl &url, const QByteArray &data = QByteArray());
 
     /**
-     * Sets the QByteArray that is passed to SlaveBase::special() on
-     * the ioslave.
+     * Sets the QByteArray that is passed to WorkerBase::special() on
+     * the worker.
      */
     void setArguments(const QByteArray &data);
 
     /**
      * Returns the QByteArray data that will be sent (or has been sent) to the
-     * ioslave.
+     * worker.
      */
     QByteArray arguments() const;
 

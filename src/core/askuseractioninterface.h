@@ -182,7 +182,7 @@ public:
     };
 
     /**
-     * This function allows for the delegation of user prompts from the ioslaves.
+     * This function allows for the delegation of user prompts from the KIO worker.
      *
      * @param type the desired type of message box, see the MessageDialogType enum
      * @param text the message to show to the user
@@ -250,7 +250,7 @@ Q_SIGNALS:
      * by requestUserMessageBox() finishes, to notify the caller of the dialog's result
      * (exit code).
      *
-     * @param result the exit code of the dialog, one of KIO::SlaveBase::ButtonCode enum
+     * @param result the exit code of the dialog, one of KIO::WorkerBase::ButtonCode enum
      */
     void messageBoxResult(int result); // TODO KF6: add a QObject* to identify requests? Or return an int from the request method and pass it back here?
 

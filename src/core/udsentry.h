@@ -242,12 +242,12 @@ public:
         /// UDS_NAME must always be set and never be empty, neither contain '/'.
         ///
         /// Note that KIO will append the UDS_NAME to the url of their
-        /// parent directory, so all kioslaves must use that naming scheme
+        /// parent directory, so all KIO workers must use that naming scheme
         /// ("url_of_parent/filename" will be the full url of that file).
         /// To customize the appearance of files without changing the url
         /// of the items, use UDS_DISPLAY_NAME.
         UDS_NAME = 6 | UDS_STRING,
-        /// A local file path if the ioslave display files sitting
+        /// A local file path if the KIO worker display files sitting
         /// on the local filesystem (but in another hierarchy, e.g.\ settings:/ or remote:/)
         UDS_LOCAL_PATH = 7 | UDS_STRING,
         /// Treat the file as a hidden file (if set to 1) or as a normal file (if set to 0).
@@ -274,7 +274,7 @@ public:
         /// Use UDS_DISPLAY_NAME if you simply want to customize the user-visible filenames, or use
         /// UDS_TARGET_URL if you want "links" to unrelated urls.
         UDS_URL = 15 | UDS_STRING,
-        /// A MIME type; the slave should set it if it's known.
+        /// A MIME type; the KIO worker should set it if it's known.
         UDS_MIME_TYPE = 16 | UDS_STRING,
         /// A MIME type to be used for displaying only.
         /// But when 'running' the file, the MIME type is re-determined

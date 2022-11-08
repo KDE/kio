@@ -172,7 +172,7 @@ typedef RenameDialog_Result SkipDialog_Result;
  * \li asking what to do in case of a conflict while copying/moving files or directories
  * \li asking what to do in case of an error while copying/moving files or directories
  * \li asking for confirmation before deleting files or directories
- * \li popping up message boxes when the slave requests it
+ * \li popping up message boxes when the worker requests it
  * @since 5.0
  */
 class KIOCORE_EXPORT JobUiDelegateExtension
@@ -257,7 +257,7 @@ public:
     /**
      * Message box types.
      *
-     * Should be kept in sync with SlaveBase::MessageBoxType.
+     * Should be kept in sync with WorkerBase::MessageBoxType.
      *
      * @since 4.11
      */
@@ -281,7 +281,7 @@ public:
     };
 
     /**
-     * This function allows for the delegation user prompts from the ioslaves.
+     * This function allows for the delegation user prompts from the KIO workers.
      *
      * @param type the desired type of message box.
      * @param text the message shown to the user.

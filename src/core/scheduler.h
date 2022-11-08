@@ -23,16 +23,16 @@ class SchedulerPrivate;
 /**
  * @class KIO::Scheduler scheduler.h <KIO/Scheduler>
  *
- * The KIO::Scheduler manages io-slaves for the application.
- * It also queues jobs and assigns the job to a slave when one
+ * The KIO::Scheduler manages KIO workers for the application.
+ * It also queues jobs and assigns the job to a worker when one
  * becomes available.
  *
- * There are 3 possible ways for a job to get a slave:
+ * There are 3 possible ways for a job to get a worker:
  *
  * <h3>1. Direct</h3>
  * This is the default. When you create a job the
  * KIO::Scheduler will be notified and will find either an existing
- * slave that is idle or it will create a new slave for the job.
+ * worker that is idle or it will create a new worker for the job.
  *
  * Example:
  * \code
@@ -42,9 +42,9 @@ class SchedulerPrivate;
  *
  * <h3>2. Scheduled</h3>
  * If you create a lot of jobs, you might want not want to have a
- * slave for each job. If you schedule a job, a maximum number
- * of slaves will be created. When more jobs arrive, they will be
- * queued. When a slave is finished with a job, it will be assigned
+ * worker for each job. If you schedule a job, a maximum number
+ * of workers will be created. When more jobs arrive, they will be
+ * queued. When a worker is finished with a job, it will be assigned
  * a job from the queue.
  *
  * Example:
@@ -100,7 +100,7 @@ class KIOCORE_EXPORT Scheduler : public QObject
 public:
     /**
      * Register @p job with the scheduler.
-     * The default is to create a new slave for the job if no slave
+     * The default is to create a new worker for the job if no worker
      * is available. This can be changed by calling setJobPriority.
      * @param job the job to register
      */

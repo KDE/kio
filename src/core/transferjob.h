@@ -17,10 +17,10 @@ class TransferJobPrivate;
 /**
  * @class KIO::TransferJob transferjob.h <KIO/TransferJob>
  *
- * The transfer job pumps data into and/or out of a Slave.
- * Data is sent to the slave on request of the slave ( dataReq).
- * If data coming from the slave can not be handled, the
- * reading of data from the slave should be suspended.
+ * The transfer job pumps data into and/or out of a KIO worker.
+ * Data is sent to the worker on request of the worker ( dataReq).
+ * If data coming from the worker can not be handled, the
+ * reading of data from the worker should be suspended.
  */
 class KIOCORE_EXPORT TransferJob : public SimpleJob
 {
@@ -31,7 +31,7 @@ public:
 
     /**
      * Sets the modification time of the file to be created (by KIO::put)
-     * Note that some kioslaves might ignore this.
+     * Note that some KIO workers might ignore this.
      */
     void setModificationTime(const QDateTime &mtime);
 
@@ -120,9 +120,9 @@ protected:
 
 Q_SIGNALS:
     /**
-     * Data from the slave has arrived.
+     * Data from the worker has arrived.
      * @param job the job that emitted this signal
-     * @param data data received from the slave.
+     * @param data data received from the worker.
      *
      * End of data (EOD) has been reached if data.size() == 0, however, you
      * should not be certain of data.size() == 0 ever happening (e.g. in case
@@ -139,7 +139,7 @@ Q_SIGNALS:
      *
      * @param job the job that emitted this signal
      * @param data buffer to fill with data to send to the
-     * slave. An empty buffer indicates end of data. (EOD)
+     * worker. An empty buffer indicates end of data. (EOD)
      */
     void dataReq(KIO::Job *job, QByteArray &data);
 
@@ -211,7 +211,7 @@ private:
 /**
  * Get (means: read).
  * This is the job to use in order to "download" a file into memory.
- * The slave emits the data through the data() signal.
+ * The worker emits the data through the data() signal.
  *
  * Special case: if you want to determine the MIME type of the file first,
  * and then read it with the appropriate component, you can still use

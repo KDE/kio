@@ -26,12 +26,12 @@ KIOCORE_EXPORT QString buildErrorString(int errorCode, const QString &errorText)
 /**
  * Returns translated error details for @p errorCode using the
  * additional error information provided by @p errorText , @p reqUrl
- * (the request URL), and the ioslave @p method .
+ * (the request URL), and the KIO worker @p method .
  *
  * @param errorCode the error code
  * @param errorText the additional error text
  * @param reqUrl the request URL
- * @param method the ioslave method
+ * @param method the KIO worker method
  * @return the following data:
  * @li QString errorName - the name of the error
  * @li QString techName - if not null, the more technical name of the error

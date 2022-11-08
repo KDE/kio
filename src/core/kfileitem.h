@@ -341,7 +341,7 @@ public:
 
     /**
      * Returns the target url of the file, which is the same as url()
-     * in cases where the slave doesn't specify UDS_TARGET_URL
+     * in cases where the worker doesn't specify UDS_TARGET_URL
      * @return the target url.
      * @since 4.1
      */

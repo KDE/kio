@@ -348,7 +348,7 @@ public:
 class DirectCopyJobPrivate;
 /**
  * @internal
- * Used for direct copy from or to the local filesystem (i.e.\ SlaveBase::copy())
+ * Used for direct copy from or to the local filesystem (i.e.\ WorkerBase::copy())
  */
 class DirectCopyJob : public SimpleJob
 {

@@ -45,10 +45,10 @@ public:
 Q_SIGNALS:
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
     /**
-     * Data from the slave has arrived.
+     * Data from the worker has arrived.
      *
      * @param id the id of the request
-     * @param data data received from the slave.
+     * @param data data received from the worker.
      * End of data (EOD) has been reached if data.size() == 0
      *
      * @deprecated since 5.79, use KIO::MultiGetJob::dataReceived(long, const QByteArray &)
@@ -58,10 +58,10 @@ Q_SIGNALS:
 #endif
 
     /**
-     * Data from the slave has arrived.
+     * Data from the worker has arrived.
      *
      * @param id the id of the request
-     * @param data data received from the slave.
+     * @param data data received from the worker.
      * End of data (EOD) has been reached if data.size() == 0
      *
      * @since 5.79

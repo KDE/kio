@@ -27,7 +27,7 @@ class KPasswdServerClientPrivate;
  * @class KPasswdServerClient kpasswdserverclient.h <KPasswdServerClient>
  *
  * Interface class for kpasswdserver.
- * KIOSlaves should not use this directly but via the SlaveBase API.
+ * KIO workers should not use this directly but via the WorkerBase API.
  * @since 5.30
  */
 class KIOCORE_EXPORT KPasswdServerClient

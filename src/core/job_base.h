@@ -150,7 +150,7 @@ public:
     Job *parentJob() const;
 
     /**
-     * Set meta data to be sent to the slave, replacing existing
+     * Set meta data to be sent to the worker, replacing existing
      * meta data.
      * @param metaData the meta data to set
      * @see addMetaData()
@@ -159,7 +159,7 @@ public:
     void setMetaData(const KIO::MetaData &metaData);
 
     /**
-     * Add key/value pair to the meta data that is sent to the slave.
+     * Add key/value pair to the meta data that is sent to the worker.
      * @param key the key of the meta data
      * @param value the value of the meta data
      * @see setMetaData()
@@ -168,7 +168,7 @@ public:
     void addMetaData(const QString &key, const QString &value);
 
     /**
-     * Add key/value pairs to the meta data that is sent to the slave.
+     * Add key/value pairs to the meta data that is sent to the worker.
      * If a certain key already existed, it will be overridden.
      * @param values the meta data to add
      * @see setMetaData()
@@ -177,7 +177,7 @@ public:
     void addMetaData(const QMap<QString, QString> &values);
 
     /**
-     * Add key/value pairs to the meta data that is sent to the slave.
+     * Add key/value pairs to the meta data that is sent to the worker.
      * If a certain key already existed, it will remain unchanged.
      * @param values the meta data to merge
      * @see setMetaData()
@@ -191,15 +191,15 @@ public:
     MetaData outgoingMetaData() const;
 
     /**
-     * Get meta data received from the slave.
-     * (Valid when first data is received and/or slave is finished)
+     * Get meta data received from the worker.
+     * (Valid when first data is received and/or worker is finished)
      * @return the job's meta data
      */
     MetaData metaData() const;
 
     /**
-     * Query meta data received from the slave.
-     * (Valid when first data is received and/or slave is finished)
+     * Query meta data received from the worker.
+     * (Valid when first data is received and/or worker is finished)
      * @param key the key of the meta data to retrieve
      * @return the value of the meta data, or QString() if the
      *         @p key does not exist
@@ -221,8 +221,8 @@ Q_SIGNALS:
 #endif
 
     /**
-     * Emitted when the slave successfully connected to the host.
-     * There is no guarantee the slave will send this, and this is
+     * Emitted when the worker successfully connected to the host.
+     * There is no guarantee the worker will send this, and this is
      * currently unused (in the applications).
      * @param job the job that emitted this signal
      */
@@ -232,7 +232,7 @@ protected:
     /**
      * Add a job that has to be finished before a result
      * is emitted. This has obviously to be called before
-     * the finish signal is emitted by the slave.
+     * the finish signal is emitted by the worker.
      *
      * @param job the subjob to add
      */
@@ -290,7 +290,7 @@ enum JobFlag {
     Overwrite = 4,
 
     /**
-     * When set, notifies the slave that application/job does not want privilege execution.
+     * When set, notifies the worker that application/job does not want privilege execution.
      * So in case of failure due to insufficient privileges show an error without attempting
      * to run the operation as root first.
      *

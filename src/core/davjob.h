@@ -32,10 +32,10 @@ class DavJobPrivate;
 /**
  * @class KIO::DavJob davjob.h <KIO/DavJob>
  *
- * The transfer job pumps data into and/or out of a Slave.
- * Data is sent to the slave on request of the slave ( dataReq).
- * If data coming from the slave can not be handled, the
- * reading of data from the slave should be suspended.
+ * The transfer job pumps data into and/or out of a KIO worker.
+ * Data is sent to the worker on request of the worker ( dataReq).
+ * If data coming from the worker can not be handled, the
+ * reading of data from the worker should be suspended.
  * @see KIO::davPropFind()
  * @see KIO::davPropPatch()
  * @see KIO::davSearch()

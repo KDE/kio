@@ -160,7 +160,7 @@ public:
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
 
     /**
-     * This function allows for the delegation user prompts from the ioslaves.
+     * This function allows for the delegation user prompts from the KIO workers.
      *
      * @param type the desired type of message box.
      * @param text the message shown to the user.

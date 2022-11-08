@@ -22,13 +22,13 @@ class KRemoteEncodingPrivate;
  * Allows encoding and decoding properly remote filenames into Unicode.
  *
  * Certain protocols do not specify an appropriate encoding for decoding
- * their 8-bit data into proper Unicode forms. Therefore, ioslaves should
+ * their 8-bit data into proper Unicode forms. Therefore, KIO workers should
  * use this class in order to convert those forms into QStrings before
  * creating the respective KIO::UDSEntry. The same is true for decoding
  * URLs to its components.
  *
- * Each KIO::SlaveBase has one object of this kind, even if it is not necessary.
- * It can be accessed through KIO::SlaveBase::remoteEncoding.
+ * Each KIO::WorkerBase has one object of this kind, even if it is not necessary.
+ * It can be accessed through KIO::WorkerBase::remoteEncoding.
  *
  * @short A class for handling remote filenames
  * @author Thiago Macieira <thiago.macieira@kdemail.net>
@@ -70,7 +70,7 @@ public:
 
     /**
      * Converts the given URL into 8-bit form and separate the
-     * dirname from the filename. This is useful for slave functions
+     * dirname from the filename. This is useful for worker functions
      * like stat or get.
      *
      * The dirname is returned with the final slash always stripped
