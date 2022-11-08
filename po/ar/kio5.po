@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:42+0000\n"
-"PO-Revision-Date: 2022-10-27 10:43+0400\n"
+"PO-Revision-Date: 2022-11-07 19:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -9340,20 +9340,15 @@ msgstr ""
 "سأُجهض هذا بسبب تعذّر إنشاء هويّة المضيف."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"أتريد حذف هذا الملف <nl/><filename>%1</filename><nl/><nl/>للأبد؟<emphasis "
-"strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"أتريد حذف هذا الملف <nl/><nl/><filename>%1</filename><nl/><nl/>للأبد؟"
+"<emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format

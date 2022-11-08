@@ -1272,7 +1272,7 @@ msgstr ""
 #: core/job_error.cpp:546
 #, kde-format
 msgid "This may be an error on the server side."
-msgstr "Açò pot ser un error a la banda del servidor."
+msgstr "Açò pot ser un error en la banda del servidor."
 
 #: core/job_error.cpp:551
 #, kde-format
