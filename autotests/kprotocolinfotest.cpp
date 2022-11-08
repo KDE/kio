@@ -6,11 +6,14 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KPluginMetaData>
 #include <QDebug>
 #include <QFile>
+#include <QJsonObject>
 #include <QStandardPaths>
 #include <QTest>
 #include <QUrl>
+#include <algorithm>
 #include <kprotocolmanager.h>
 
 // Tests both KProtocolInfo and KProtocolManager
@@ -126,10 +129,18 @@ void KProtocolInfoTest::testCapabilities()
 
 void KProtocolInfoTest::testProtocolForArchiveMimetype()
 {
-    if (!QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + "zip.protocol"))) {
-        QSKIP("kdebase not installed");
+    // The zip protocol is available at least with the kio_archive worker from kio-extras repo (11 2022)
+    auto supportsZipProtocol = [](const KPluginMetaData &metaData) {
+        const QJsonObject protocols = metaData.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject();
+        return (protocols.find(QLatin1String("zip")) != protocols.end());
+    };
+
+    const QVector<KPluginMetaData> workers = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio"));
+    if (std::none_of(workers.cbegin(), workers.cend(), supportsZipProtocol)) {
+        QSKIP("kio-extras not installed");
     } else {
         const QString zip = KProtocolManager::protocolForArchiveMimetype(QStringLiteral("application/zip"));
+        // Krusader's kio_krarc.so also provides the zip protocol and might be found before/instead
         QVERIFY(zip == QLatin1String("zip") || zip == QLatin1String("krarc"));
     }
 }
