@@ -216,7 +216,10 @@ void SimpleJob::slotFinished()
                 QDataStream str(d->m_packedArgs);
                 str >> src >> dst;
                 if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't renaming. Only renaming is.
-                    && !KProtocolInfo::slaveHandlesNotify(dst.scheme()).contains(QLatin1String("Rename"))) {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+                    && !KProtocolInfo::slaveHandlesNotify(dst.scheme()).contains(QLatin1String("Rename"))
+#endif
+                ) {
 #ifndef KIO_ANDROID_STUB
                     org::kde::KDirNotify::emitFileRenamed(src, dst);
 #endif

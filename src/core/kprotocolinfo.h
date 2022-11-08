@@ -341,6 +341,7 @@ public:
      */
     static QStringList archiveMimetypes(const QString &protocol);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the list of notification types the kioslave implementing this
      * protocol will produce on its own, making it unnecessary for job
@@ -351,8 +352,10 @@ public:
      * This corresponds to "slaveHandlesNotify=" in the protocol description file.
      *
      * @since 5.20
+     * @deprecated Since 5.101, no known users
      */
-    static QStringList slaveHandlesNotify(const QString &protocol);
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "No known users") QStringList slaveHandlesNotify(const QString &protocol);
+#endif
 
     /**
      * Returns the name of the protocol through which the request

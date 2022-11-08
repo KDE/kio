@@ -61,7 +61,9 @@ public:
     KProtocolInfo::ExtraFieldList m_extraFields;
     KProtocolInfo::FileNameUsedForCopying m_fileNameUsedForCopying;
     QStringList m_capabilities;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
     QStringList m_slaveHandlesNotify;
+#endif
     QString m_proxyProtocol;
     int m_maxWorkersPerHost;
 };
