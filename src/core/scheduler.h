@@ -17,7 +17,9 @@
 namespace KIO
 {
 class Slave;
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 102)
 class SlaveConfig;
+#endif
 
 class SchedulerPrivate;
 /**
