@@ -149,6 +149,7 @@ public:
      */
     static void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Puts a slave on notice. A next job may reuse this slave if it
      * requests the same URL.
@@ -159,14 +160,44 @@ public:
      * by simply asking for the same URL again.
      * @param job the job that should be stopped
      * @param url the URL that is handled by the @p url
+     *
+     * @deprecated Since 5.101, use putWorkerOnHold(KIO::SimpleJob *, const QUrl &)
      */
-    static void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use putWorkerOnHold(KIO::SimpleJob *, const QUrl &)") void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
+#endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Removes any slave that might have been put on hold. If a slave
      * was put on hold it will be killed.
+     *
+     * @deprecated Since 5.101, use removeWorkerOnHold()
      */
-    static void removeSlaveOnHold();
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use removeWorkerOnHold()") void removeSlaveOnHold();
+#endif
+
+    /**
+     * Puts a worker on notice. A next job may reuse this worker if it
+     * requests the same URL.
+     *
+     * A job can be put on hold after it has emit'ed its mimetype() signal.
+     * Based on the MIME type, the program can give control to another
+     * component in the same process which can then resume the job
+     * by simply asking for the same URL again.
+     * @param job the job that should be stopped
+     * @param url the URL that is handled by the @p url
+     *
+     * @since 5.101
+     */
+    static void putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url);
+
+    /**
+     * Removes any worker that might have been put on hold. If a worker
+     * was put on hold it will be killed.
+     *
+     * @since 5.101
+     */
+    static void removeWorkerOnHold();
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
@@ -264,12 +295,22 @@ public:
 
     static void emitReparseSlaveConfiguration();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns true if there is a slave on hold for @p url.
      *
      * @since 4.7
+     * @deprecated Since 5.101, use isWorkerOnHoldFor(const QUrl &)
      */
-    static bool isSlaveOnHoldFor(const QUrl &url);
+    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use isWorkerOnHoldFor(const QUrl &)") bool isSlaveOnHoldFor(const QUrl &url);
+#endif
+
+    /**
+     * Returns true if there is a worker on hold for @p url.
+     *
+     * @since 5.101
+     */
+    static bool isWorkerOnHoldFor(const QUrl &url);
 
     /**
      * Updates the internal metadata from job.

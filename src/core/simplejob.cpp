@@ -77,7 +77,7 @@ void SimpleJob::putOnHold()
     Q_D(SimpleJob);
     Q_ASSERT(d->m_slave);
     if (d->m_slave) {
-        Scheduler::putSlaveOnHold(this, d->m_url);
+        Scheduler::putWorkerOnHold(this, d->m_url);
     }
     // we should now be disassociated from the slave
     Q_ASSERT(!d->m_slave);
@@ -86,7 +86,7 @@ void SimpleJob::putOnHold()
 
 void SimpleJob::removeOnHold()
 {
-    Scheduler::removeSlaveOnHold();
+    Scheduler::removeWorkerOnHold();
 }
 
 bool SimpleJob::isRedirectionHandlingEnabled() const

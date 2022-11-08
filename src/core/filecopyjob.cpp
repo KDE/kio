@@ -163,7 +163,7 @@ void FileCopyJobPrivate::startBestCopyMethod()
         startCopyJob();
     } else if (m_src.isLocalFile() && KProtocolManager::canCopyFromFile(m_dest)) {
         startCopyJob(m_dest);
-    } else if (m_dest.isLocalFile() && KProtocolManager::canCopyToFile(m_src) && !KIO::Scheduler::isSlaveOnHoldFor(m_src)) {
+    } else if (m_dest.isLocalFile() && KProtocolManager::canCopyToFile(m_src) && !KIO::Scheduler::isWorkerOnHoldFor(m_src)) {
         startCopyJob(m_src);
     } else {
         startDataPump();

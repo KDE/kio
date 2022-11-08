@@ -791,12 +791,26 @@ void Scheduler::jobFinished(KIO::SimpleJob *job, KIO::Slave *slave)
     schedulerPrivate()->jobFinished(job, slave);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 void Scheduler::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)
 {
     schedulerPrivate()->putSlaveOnHold(job, url);
 }
+#endif
 
+void Scheduler::putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url)
+{
+    schedulerPrivate()->putSlaveOnHold(job, url);
+}
+
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 void Scheduler::removeSlaveOnHold()
+{
+    schedulerPrivate()->removeSlaveOnHold();
+}
+#endif
+
+void Scheduler::removeWorkerOnHold()
 {
     schedulerPrivate()->removeSlaveOnHold();
 }
@@ -807,7 +821,14 @@ void Scheduler::publishSlaveOnHold()
 }
 #endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 bool Scheduler::isSlaveOnHoldFor(const QUrl &url)
+{
+    return schedulerPrivate()->isSlaveOnHoldFor(url);
+}
+#endif
+
+bool Scheduler::isWorkerOnHoldFor(const QUrl &url)
 {
     return schedulerPrivate()->isSlaveOnHoldFor(url);
 }
