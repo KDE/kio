@@ -112,7 +112,11 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &path)
 
     m_capabilities = config.readEntry("Capabilities", QStringList());
 
-    m_slaveHandlesNotify = config.readEntry("slaveHandlesNotify", QStringList());
+    m_workerHandlesNotify = config.readEntry("workerHandlesNotify", QStringList());
+    // backward compat:
+    if (m_workerHandlesNotify.isEmpty()) {
+        m_workerHandlesNotify = config.readEntry("slaveHandlesNotify", QStringList());
+    }
 
     m_proxyProtocol = config.readEntry("ProxiedBy");
 }
@@ -225,7 +229,13 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
 
     m_capabilities = json.value(QStringLiteral("Capabilities")).toVariant().toStringList();
 
-    m_slaveHandlesNotify = json.value(QStringLiteral("slaveHandlesNotify")).toVariant().toStringList();
+    m_workerHandlesNotify = json.value(QStringLiteral("workerHandlesNotify")).toVariant().toStringList();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+    // backward compat:
+    if (m_workerHandlesNotify.isEmpty()) {
+        m_workerHandlesNotify = json.value(QStringLiteral("slaveHandlesNotify")).toVariant().toStringList();
+    }
+#endif
 
     m_proxyProtocol = json.value(QStringLiteral("ProxiedBy")).toString();
 }
@@ -384,14 +394,21 @@ QStringList KProtocolInfo::archiveMimetypes(const QString &protocol)
     return prot->m_archiveMimeTypes;
 }
 
-QStringList KProtocolInfo::slaveHandlesNotify(const QString &_protocol)
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+QStringList KProtocolInfo::slaveHandlesNotify(const QString &protocol)
+{
+    return workerHandlesNotify(protocol);
+}
+#endif
+
+QStringList KProtocolInfo::workerHandlesNotify(const QString &_protocol)
 {
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
     if (!prot) {
         return QStringList();
     }
 
-    return prot->m_slaveHandlesNotify;
+    return prot->m_workerHandlesNotify;
 }
 
 QString KProtocolInfo::proxiedBy(const QString &_protocol)
