@@ -77,6 +77,19 @@
       </widget>
      </item>
      <item row="3" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Environment Variables:</string>
+       </property>
+       <property name="buddy">
+        <cstring>envarsEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="envarsEdit"/>
+     </item>
+     <item row="4" column="0">
       <widget class="QLabel" name="textLabel4">
        <property name="whatsThis">
         <string>Type the command to start this application here.
@@ -99,7 +112,7 @@ Following the command, you can have several placeholders which will be replaced 
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="4" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QLineEdit" name="programEdit">
@@ -130,7 +143,7 @@ Following the command, you can have several placeholders which will be replaced 
        </item>
       </layout>
      </item>
-     <item row="5" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="textLabel5">
        <property name="whatsThis">
         <string>Sets the working directory for your application.</string>
@@ -143,21 +156,21 @@ Following the command, you can have several placeholders which will be replaced 
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
+     <item row="6" column="1">
       <widget class="KUrlRequester" name="pathEdit">
        <property name="whatsThis">
         <string>Sets the working directory for your application.</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
+     <item row="5" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Arguments:</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="5" column="1">
       <widget class="QLineEdit" name="argumentsEdit"/>
      </item>
     </layout>

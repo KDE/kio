@@ -3305,6 +3305,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     connect(d->w->nameEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->genNameEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->commentEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
+    connect(d->w->envarsEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->programEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->argumentsEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->w->pathEdit, &KUrlRequester::textChanged, this, &KPropertiesDialogPlugin::changed);
@@ -3397,13 +3398,28 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->w->commentEdit->setText(commentStr);
 
     QStringList execLine = KShell::splitArgs(commandStr);
+    QStringList enVars = {};
 
     if (!execLine.isEmpty()) {
+        // check for apps that use the env executable
+        // to set the environment
+        if (execLine[0] == QLatin1String("env")) {
+            execLine.pop_front();
+        }
+        for (auto env : execLine) {
+            if (!env.contains(QLatin1String("="))) {
+                break;
+            }
+            enVars += env;
+            execLine.pop_front();
+        }
+
         d->w->programEdit->setText(execLine.takeFirst());
     } else {
         d->w->programEdit->clear();
     }
     d->w->argumentsEdit->setText(KShell::joinArgs(execLine));
+    d->w->envarsEdit->setText(KShell::joinArgs(enVars));
 
     d->w->pathEdit->lineEdit()->setText(pathStr);
 
@@ -3742,7 +3758,12 @@ bool KDesktopPropsPlugin::supports(const KFileItemList &_items)
 
 QString KDesktopPropsPlugin::KDesktopPropsPluginPrivate::command() const
 {
-    QStringList execSplit = QStringList(w->programEdit->text()) + KShell::splitArgs(w->argumentsEdit->text());
+    QStringList execSplit = KShell::splitArgs(w->envarsEdit->text()) + QStringList(w->programEdit->text()) + KShell::splitArgs(w->argumentsEdit->text());
+
+    if (KShell::splitArgs(w->envarsEdit->text()).length()) {
+        execSplit.push_front(QLatin1String("env"));
+    }
+
     return KShell::joinArgs(execSplit);
 }
 
