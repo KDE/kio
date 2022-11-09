@@ -205,12 +205,12 @@ void StatJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 void StatJob::slotMetaData(const KIO::MetaData &_metaData)
 {
-    Q_D(StatJob);
     SimpleJob::slotMetaData(_metaData);
-    storeSSLSessionFromJob(d->m_redirectionURL);
 }
+#endif
 
 StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 {

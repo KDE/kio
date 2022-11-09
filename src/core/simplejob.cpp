@@ -317,10 +317,12 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
     }
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 void SimpleJob::storeSSLSessionFromJob(const QUrl &redirectionURL)
 {
     Q_UNUSED(redirectionURL);
 }
+#endif
 
 void SimpleJobPrivate::slotPrivilegeOperationRequested()
 {
