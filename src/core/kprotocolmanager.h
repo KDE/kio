@@ -633,7 +633,7 @@ public:
 
     /**
      * Force a reload of the general config file of
-     * io-slaves ( kioslaverc).
+     * KIO workers ( kioslaverc).
      */
     static void reparseConfiguration();
 

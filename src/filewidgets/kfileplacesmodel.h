@@ -406,11 +406,11 @@ public:
     /**
      * @brief  Converts the URL, which contains "virtual" URLs for system-items like
      *         "timeline:/lastmonth" into a Query-URL "timeline:/2017-10"
-     *         that will be handled by the corresponding IO-slave.
+     *         that will be handled by the corresponding KIO worker.
      *         Virtual URLs for bookmarks are used to be independent from
      *         internal format changes.
      * @param an url
-     * @return the converted URL, which can be handled by an ioslave
+     * @return the converted URL, which can be handled by a KIO worker
      * @since 5.41
      */
     static QUrl convertedUrl(const QUrl &url);
