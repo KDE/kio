@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:42+0000\n"
+"POT-Creation-Date: 2022-11-10 00:43+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -7898,9 +7898,16 @@ msgstr "Taip sebarang komen yang anda fikir berguna di sini."
 msgid "Comm&ent:"
 msgstr "&Komen:"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Guna &variabel persekitaran proksi praset"
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
 #, fuzzy, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
@@ -7932,13 +7939,13 @@ msgstr ""
 "%c - the caption"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:95
+#: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:124
+#: widgets/kpropertiesdesktopbase.ui:137
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -7948,33 +7955,33 @@ msgstr ""
 "dikehendaki."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:127
+#: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
 msgstr "Lun&gsur."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:149
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Mengeset direktori kerja untuk aplikasi anda."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:139
+#: widgets/kpropertiesdesktopbase.ui:152
 #, kde-format
 msgid "&Work path:"
 msgstr "Laluan &kerja:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:156
+#: widgets/kpropertiesdesktopbase.ui:169
 #, fuzzy, kde-format
 msgid "Arguments:"
 msgstr "FIXME: Dokumenkan "
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:173 widgets/kpropertiesdesktopbase.ui:194
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -8008,25 +8015,25 @@ msgstr ""
 "butang <b>Buang</b> di bawah.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:176
+#: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Jenis fail yang disokong:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
 msgstr "Jenis mime"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:212
+#: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
 msgstr "Huraian"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:222
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -8036,13 +8043,13 @@ msgstr ""
 "boleh dikendalikan oleh aplikasi anda."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
 msgstr "Tambah..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:232
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -8053,13 +8060,13 @@ msgstr ""
 "butang ini."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:248
 #, fuzzy, kde-format
 msgid "Remove"
 msgstr "&Buang Input"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:271
 #, fuzzy, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -8069,7 +8076,7 @@ msgstr ""
 "maklum balas, opsyen DCOP atau jalankan ia sebagai pengguna berbeza."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:261
+#: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Opsyen &Lanjutan"
@@ -8630,7 +8637,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
 #, fuzzy, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8641,22 +8648,22 @@ msgstr "Hanya boleh laksana dalam sistem fail setempat adalah disokong."
 msgid "&Application"
 msgstr "&Aplikasi"
 
-#: widgets/kpropertiesdialog.cpp:3441
+#: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Tambah Jenis Fail untuk %1"
 
-#: widgets/kpropertiesdialog.cpp:3442
+#: widgets/kpropertiesdialog.cpp:3458
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Pilih satu atau lebih jenis fail untk tambah:"
 
-#: widgets/kpropertiesdialog.cpp:3588
+#: widgets/kpropertiesdialog.cpp:3604
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Hanya boleh laksana dalam sistem fail setempat adalah disokong."
 
-#: widgets/kpropertiesdialog.cpp:3603
+#: widgets/kpropertiesdialog.cpp:3619
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opsyen Lanjutan untuk %1"
@@ -10395,9 +10402,6 @@ msgstr ""
 #~ "aplikasi grafik dan bukan grafik perlu berkongsi maklumat konfigurasi "
 #~ "yang sama.\n"
 #~ "</qt>"
-
-#~ msgid "Use preset proxy environment &variables"
-#~ msgstr "Guna &variabel persekitaran proksi praset"
 
 #~ msgid "Show the proxy environment variable configuration dialog."
 #~ msgstr "Paparkan dialog konfigurasi pembolehubah persekitaran bagi proksi."

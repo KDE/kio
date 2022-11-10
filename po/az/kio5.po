@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:42+0000\n"
+"POT-Creation-Date: 2022-11-10 00:43+0000\n"
 "PO-Revision-Date: 2022-10-17 23:43+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -8052,9 +8052,15 @@ msgstr "Burada faydalı hesab etdiyiniz hər hansı bir şərh yazın."
 msgid "Comm&ent:"
 msgstr "Şə&rh:"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr ""
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
 #, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
@@ -8083,13 +8089,13 @@ msgstr ""
 "%k - masaüstü faylının mövqeyi"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:95
+#: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
 msgstr "Proqram:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:124
+#: widgets/kpropertiesdesktopbase.ui:137
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -8098,33 +8104,33 @@ msgstr ""
 "İstədiyinizi tapmaq məqsəfi ilə fayl sisteminizə baxmaq üçün buraya vurun."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:127
+#: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
 msgstr "&Bax..."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:149
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Tətbiqiniz üçün işləyən qovluğu təyin edir."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:139
+#: widgets/kpropertiesdesktopbase.ui:152
 #, kde-format
 msgid "&Work path:"
 msgstr "&İş qovluğu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:156
+#: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "Arguments:"
 msgstr "Arqumentlər:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:173 widgets/kpropertiesdesktopbase.ui:194
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -8159,25 +8165,25 @@ msgstr ""
 "<b>Sil</b> düyməsini vuraraq siyahıdan silə bilərsiniz.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:176
+#: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Dəstəklənən fayl növləri:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
 msgstr "Mimetype"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:212
+#: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
 msgstr "Xüsusiyyətlər"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:222
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -8187,13 +8193,13 @@ msgstr ""
 "istəyirsinizsə bu düyməni vurun."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
 msgstr "Əlavə et..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:232
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -8203,13 +8209,13 @@ msgstr ""
 "istəyirsinizsə, yuxarıdakı siyahıdakı mimetipi seçin və bu düyməni vurun."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Remove"
 msgstr "Sil"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:271
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -8219,7 +8225,7 @@ msgstr ""
 "başlatmaq və ya fərqli bir istifadəçi kimi işlətmək üçün buraya vurun."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:261
+#: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Ə&lavə seçimlər"
@@ -8770,7 +8776,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8783,22 +8789,22 @@ msgstr ""
 msgid "&Application"
 msgstr "&Tətbiq"
 
-#: widgets/kpropertiesdialog.cpp:3441
+#: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 üçün fayl tipini əlavə edin"
 
-#: widgets/kpropertiesdialog.cpp:3442
+#: widgets/kpropertiesdialog.cpp:3458
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Əlavə etmək üçün bir və ya daha çox fayl növünü seçin:"
 
-#: widgets/kpropertiesdialog.cpp:3588
+#: widgets/kpropertiesdialog.cpp:3604
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Yalnız yerli fayl sistemlərindəki icra faylları dəstəklənir."
 
-#: widgets/kpropertiesdialog.cpp:3603
+#: widgets/kpropertiesdialog.cpp:3619
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 üçün əlavə seçimlər"

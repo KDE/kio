@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:42+0000\n"
+"POT-Creation-Date: 2022-11-10 00:43+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -8145,9 +8145,16 @@ msgstr ""
 msgid "Comm&ent:"
 msgstr "Nóta:"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Úsáid &athróga réamhshocraithe timpeallachta don seachfhreastalaí"
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
 #, fuzzy, no-c-format, kde-format
 #| msgid ""
 #| "Following the command, you can have several place holders which will be "
@@ -8191,13 +8198,13 @@ msgstr ""
 "%c - nóta"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:95
+#: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:124
+#: widgets/kpropertiesdesktopbase.ui:137
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -8205,26 +8212,26 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:127
+#: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
 msgstr "&Brabhsáil..."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:149
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:139
+#: widgets/kpropertiesdesktopbase.ui:152
 #, kde-format
 msgid "&Work path:"
 msgstr "&Conair oibre:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:156
+#: widgets/kpropertiesdesktopbase.ui:169
 #, fuzzy, kde-format
 #| msgid "FIXME: Document this"
 msgid "Arguments:"
@@ -8232,7 +8239,7 @@ msgstr "FIXME: Doiciméadaigh é seo"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:173 widgets/kpropertiesdesktopbase.ui:194
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -8252,25 +8259,25 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:176
+#: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Cineálacha comhaid a dtacaítear leo:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
 msgstr "Cineál MIME"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:212
+#: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
 msgstr "Cur Síos"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:222
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -8278,13 +8285,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
 msgstr "Cuir Leis..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:232
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -8292,13 +8299,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Remove"
 msgstr "Bain"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:271
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -8309,7 +8316,7 @@ msgstr ""
 "mar úsáideoir eile."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:261
+#: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Ro&ghanna Casta"
@@ -8901,7 +8908,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -8913,22 +8920,22 @@ msgstr "Tacaítear le comhaid inrite ar chórais comhad logánta amháin."
 msgid "&Application"
 msgstr "&Feidhmchlár"
 
-#: widgets/kpropertiesdialog.cpp:3441
+#: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
 msgid "Add File Type for %1"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3442
+#: widgets/kpropertiesdialog.cpp:3458
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Roghnaigh cineál nó cineálacha comhaid le cur leis:"
 
-#: widgets/kpropertiesdialog.cpp:3588
+#: widgets/kpropertiesdialog.cpp:3604
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Tacaítear le comhaid inrite ar chórais comhad logánta amháin."
 
-#: widgets/kpropertiesdialog.cpp:3603
+#: widgets/kpropertiesdialog.cpp:3619
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Ardroghanna le haghaidh %1"
@@ -10810,9 +10817,6 @@ msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
 #~ "feidhmchláir ghrafacha agus neamhghrafacha an fhaisnéis chéanna faoin "
 #~ "seachfhreastalaí a chomhroinnt.\n"
 #~ "</qt>"
-
-#~ msgid "Use preset proxy environment &variables"
-#~ msgstr "Úsáid &athróga réamhshocraithe timpeallachta don seachfhreastalaí"
 
 #~ msgid "Show the proxy environment variable configuration dialog."
 #~ msgstr ""

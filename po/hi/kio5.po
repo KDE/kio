@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:42+0000\n"
+"POT-Creation-Date: 2022-11-10 00:43+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -7926,9 +7926,16 @@ msgstr "कोई टिप्पणी जो आप समझते हैं,
 msgid "Comm&ent:"
 msgstr "टिप्पणीः (&e)"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "पहले से तय प्रॉक्सी एनवायनमेंट वेरिएबल इस्तेमाल करें (&v)"
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
 #, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
@@ -7946,13 +7953,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:95
+#: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:124
+#: widgets/kpropertiesdesktopbase.ui:137
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -7960,26 +7967,26 @@ msgid ""
 msgstr "वांछित एक्जीक्यूटेबल को ढूंढने के लिए फ़ाइल तंत्र को ब्राउज़ करने के लिए यहाँ क्लिक करें."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:127
+#: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
 msgstr "ब्राउज... (&B)"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:149
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "आपके अनुप्रयोग के लिए कार्यशील डिरेक्ट्री सेट करता है."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:139
+#: widgets/kpropertiesdesktopbase.ui:152
 #, kde-format
 msgid "&Work path:"
 msgstr "कार्य पथः (&W)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:156
+#: widgets/kpropertiesdesktopbase.ui:169
 #, fuzzy, kde-format
 #| msgid "FIXME: Document this"
 msgid "Arguments:"
@@ -7987,7 +7994,7 @@ msgstr "FIXME: इसका दस्तावेज़ बनाएँ"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:173 widgets/kpropertiesdesktopbase.ui:194
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -8007,25 +8014,25 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:176
+#: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
 msgstr "समर्थित फ़ाइल क़िस्मः (&S)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
 msgstr "माइम क़िस्म"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:212
+#: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
 msgstr "वर्णन"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:222
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -8035,13 +8042,13 @@ msgstr ""
 "चला सकता है."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
 msgstr "जोड़ें..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:232
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -8049,13 +8056,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Remove"
 msgstr "हटाएँ"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:271
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click here to modify the way this application will run, launch feedback, "
@@ -8068,7 +8075,7 @@ msgstr ""
 "विकल्पों के लिए या इसे एक भिन्न उपयोक्ता के रूप में चलाने के लिए यहाँ क्लिक करें."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:261
+#: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "विस्तृत विकल्प...(&v)"
@@ -8632,7 +8639,7 @@ msgstr "यूआरएल (&R)"
 msgid "URL:"
 msgstr "यूआरएल:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -8644,22 +8651,22 @@ msgstr "सिर्फ स्थानीय फ़ाइल तंत्र �
 msgid "&Application"
 msgstr "अनुप्रयोग (&A)"
 
-#: widgets/kpropertiesdialog.cpp:3441
+#: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
 msgid "Add File Type for %1"
 msgstr " %1 के लिए फ़ाइल क़िस्म चुनें"
 
-#: widgets/kpropertiesdialog.cpp:3442
+#: widgets/kpropertiesdialog.cpp:3458
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "एक या अधिक फ़ाइल क़िस्म जोड़ने के लिए चुनें:"
 
-#: widgets/kpropertiesdialog.cpp:3588
+#: widgets/kpropertiesdialog.cpp:3604
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "सिर्फ स्थानीय फ़ाइल तंत्र पर एक्जीक्यूटेबल समर्थित हैं."
 
-#: widgets/kpropertiesdialog.cpp:3603
+#: widgets/kpropertiesdialog.cpp:3619
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 के लिए विस्तृत विकल्प "
@@ -10138,9 +10145,6 @@ msgstr ""
 
 #~ msgid "Connect to the &Internet directly"
 #~ msgstr "इंटरनेट से सीधे कनेक्ट हों (&I)"
-
-#~ msgid "Use preset proxy environment &variables"
-#~ msgstr "पहले से तय प्रॉक्सी एनवायनमेंट वेरिएबल इस्तेमाल करें (&v)"
 
 #~ msgid "Show the proxy environment variable configuration dialog."
 #~ msgstr "प्रॉक्सी एनवायरनमेंट वेरिएबल कॉन्फ़िगरेशन संवाद दिखाएँ."
