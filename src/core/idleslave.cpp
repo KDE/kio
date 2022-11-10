@@ -13,6 +13,8 @@
 
 #include <QDataStream>
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+
 using namespace KIO;
 
 class KIO::IdleSlavePrivate
@@ -154,3 +156,5 @@ bool IdleSlave::hasTempAuthorization() const
 {
     return d->mHasTempAuth;
 }
+
+#endif

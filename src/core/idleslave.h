@@ -15,6 +15,8 @@
 #include <QScopedPointer>
 #include <QUrl>
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
 class IdleSlavePrivate;
@@ -26,6 +28,7 @@ class Connection;
  * Used by klauncher.
  * Do not use outside KIO and klauncher!
  * @since 5.0
+ * @deprecated Since 5.101, as KLauncher/KInit is deprecated.
  */
 class KIOCORE_EXPORT IdleSlave : public QObject
 {
@@ -56,5 +59,7 @@ private:
 };
 
 } // namespace KIO
+
+#endif
 
 #endif // IDLESLAVE_H
