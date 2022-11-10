@@ -55,6 +55,7 @@
 #include <KMessageWidget>
 #include <KSharedConfig>
 #include <KShell>
+#include <KStandardAction>
 #include <KToolBar>
 
 #include <QAbstractProxyModel>
