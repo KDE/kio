@@ -19,7 +19,7 @@ class QWidget;
  *
  * Base class for thumbnail generator plugins.
  *
- * KIO::PreviewJob, via the "thumbnail" kioslave, uses instances of this class
+ * KIO::PreviewJob, via the "thumbnail" KIO worker, uses instances of this class
  * to generate the thumbnail previews.
  *
  * To add support for a new document type, subclass ThumbCreator and implement
