@@ -66,16 +66,16 @@ public:
     void write(const QByteArray &data);
 
     /**
-     * Closes the file-slave
+     * Closes the file KIO worker.
      *
-     * The slave emits close() and result().
+     * The worker emits close() and result().
      */
     void close();
 
     /**
      * Seek
      *
-     * The slave emits position() on successful seek to the specified \p offset.
+     * The worker emits position() on successful seek to the specified \p offset.
      *
      * On error the position() signal is not emitted. To catch errors please
      * connect to the result() signal.
@@ -87,7 +87,7 @@ public:
     /**
      * Truncate
      *
-     * The slave emits truncated() on successful truncation to the specified \p length.
+     * The worker emits truncated() on successful truncation to the specified \p length.
      *
      * On error the truncated() signal is not emitted. To catch errors please
      * connect to the result() signal.
@@ -106,13 +106,13 @@ public:
 
 Q_SIGNALS:
     /**
-     * Data from the slave has arrived. Emitted after read().
+     * Data from the worker has arrived. Emitted after read().
      *
      * Unless a read() request was sent for 0 bytes, End of data (EOD) has been
      * reached if data.size() == 0
      *
      * @param job the job that emitted this signal
-     * @param data data received from the slave.
+     * @param data data received from the worker.
      *
      */
     void data(KIO::Job *job, const QByteArray &data);
@@ -146,7 +146,7 @@ Q_SIGNALS:
 
     /**
      * File is open, metadata has been determined and the
-     * file-slave is ready to receive commands.
+     * file KIO worker is ready to receive commands.
      * @param job the job that emitted this signal
      */
     void open(KIO::Job *job);
