@@ -20,7 +20,7 @@ class FileJobPrivate;
  *  The file-job is an asynchronous version of normal file handling.
  *  It allows block-wise reading and writing, and allows seeking and truncation. Results are returned through signals.
  *
- *  Should always be created using KIO::open(QUrl)
+ *  Should always be created using KIO::open(const QUrl&, QIODevice::OpenMode).
  */
 
 class KIOCORE_EXPORT FileJob : public SimpleJob
