@@ -26,6 +26,8 @@
 using namespace KIO;
 // using namespace KNetwork;
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
 Q_DECLARE_OPERATORS_FOR_FLAGS(TCPSlaveBase::SslResult)
@@ -607,3 +609,5 @@ void TCPSlaveBase::virtual_hook(int id, void *data)
         SlaveBase::virtual_hook(id, data);
     }
 }
+
+#endif

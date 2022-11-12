@@ -22,12 +22,17 @@
 class QIODevice;
 class QSslSocket;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
+
 /**
  * @class KIO::TCPSlaveBase tcpslavebase.h <KIO/TCPSlaveBase>
  *
  * A SlaveBase with convenience methods for TCP-connected storages.
+ *
+ * @deprecated Since 5.99, use TCPWorkerBase.
  */
 class KIOCORE_EXPORT TCPSlaveBase : public SlaveBase
 {
@@ -39,6 +44,7 @@ public:
      *                connecting. In the absence of errors the use of SSL will
      *                therefore be transparent to higher layers.
      */
+    KIOCORE_DEPRECATED_VERSION_BELATED(5, 101, 5, 99, "Use TCPWorkerBase")
     TCPSlaveBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket, bool autoSsl = false);
 
     ~TCPSlaveBase() override;
@@ -216,5 +222,7 @@ private:
 };
 
 }
+
+#endif
 
 #endif
