@@ -216,6 +216,7 @@ ecm_add_tests(
  kfileplacesmodeltest.cpp
  kfileplacesviewtest.cpp
  kurlrequestertest.cpp
+ kfilefiltercombotest.cpp
  NAME_PREFIX "kiofilewidgets-"
  LINK_LIBRARIES KF5::KIOFileWidgets KF5::KIOWidgets KF5::XmlGui KF5::Bookmarks Qt${QT_MAJOR_VERSION}::Test KF5::I18n
 )
