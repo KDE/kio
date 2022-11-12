@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:42+0000\n"
-"PO-Revision-Date: 2022-10-17 23:43+0400\n"
+"PO-Revision-Date: 2022-11-11 12:27+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -817,10 +817,9 @@ msgstr ""
 "Lütfən, icazələri dəyişdirdikdən sonra yenidən cəhd edin."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Bu fayl səbətə atılmaq üçün çox böyükdür."
+msgstr "Səbətə atmaq üçün bu fayl çox böyükdür."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -3238,6 +3237,8 @@ msgstr "'%1' giriş zamanı xəta baş verdi"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Bu cihazdakı bir və ya bir neçə fayl hansısa tətbiq tərəfindən istifadə "
+"olunur."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3248,13 +3249,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Bu cihazdalkı bir və ya bir neçə fayl <application>\"%2\"</application> "
+"tətbiqində açılıb."
 msgstr[1] ""
+"Bu cihazdakı bir və ya bir neçə fayl aşağıdakı tətbiqlərdə açılıb: "
+"<application>%2</application>"
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -7224,11 +7229,10 @@ msgstr "Həmişəlik Silin"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "Həmişəlik Silin"
+msgstr "Həmişəlik sil"
 
 #: widgets/jobuidelegate.cpp:295
 #, kde-kuit-format
@@ -8056,7 +8060,7 @@ msgstr "Şə&rh:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Mühit dəyişənləri:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9346,20 +9350,15 @@ msgstr ""
 "Əməliyyat ləğv olunur çünki qovşağın etibarlılığı yoxlanıla bilmədi."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Bu obyekti həmişəlik silinsin?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Bu ləğv edilə bilməz.</emphasis>"
+"Bu obyekti həmişəlik silinsin?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Bu silinən geri qaytarıla bilməz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9371,37 +9370,26 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"Siz bu %1 obyekti həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
-"strong='true'> Bu əməl ləğv edilə bilməz.</emphasis>"
+"Siz bu %1 elemnti həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
+"strong='true'> Bu silinən geri qaytarıla bilməz.</emphasis>"
 msgstr[1] ""
-"Siz %1 obyektlərini həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
-"strong='true'> Bu əməl ləğv edilə bilməz.</emphasis>"
+"Siz %1 elemntləri həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
+"strong='true'> Bu silinən geri qaytarıla bilməz.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Bu obyekti həmişəlik silinsin?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Bu ləğv edilə bilməz.</emphasis>"
+"Çox böyük olduğu üçün bu elementi səbətə atmaq mümükün deyil. Əvəzinə o, "
+"həmişəlik silinsin?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Bu silinəni geri qytarmaq mümkün olmayacaq.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9412,11 +9400,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Siz bu obyekti həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
-"strong='true'> Bu əməl ləğv edilə bilməz.</emphasis>"
+"%1 elementi çox böyük olduğu üçün onu səbətə atmaq mümkün deyil. Əvəzinə "
+"həmişəlik silinsin?<nl/><emphasis strong='true'>Bu silinəni geri qaytarmaq "
+"mümkün olmayacaq.</emphasis>"
 msgstr[1] ""
-"Siz %1 obyektlərini həmişəlik silmək istəyirsiniz?<nl/><nl/><emphasis "
-"strong='true'> Bu əməl ləğv edilə bilməz.</emphasis>"
+"%1 çox böyük olduğundan onu səbətə atmaq mümkün deyil. Əvəzinə o, həmişəlik "
+"silinsin?<nl/><nl/><emphasis strong='true'>bu silinəni geri qaytarmaq mümkün "
+"olmayacaq.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

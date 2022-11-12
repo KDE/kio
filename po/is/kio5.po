@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:42+0000\n"
-"PO-Revision-Date: 2022-10-14 09:39+0000\n"
+"PO-Revision-Date: 2022-11-11 09:24+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -822,10 +822,9 @@ msgstr ""
 "Prófaðu aftur eftir að heimildum hefur verið breytt."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Þessi skrá er of stór til að fara í ruslið."
+msgstr "Skráin er of stór til að fara í ruslið."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -3248,7 +3247,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -7121,8 +7120,7 @@ msgstr "Eyða endanlega"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Eyða endanlega"
@@ -7947,10 +7945,9 @@ msgstr "Ath&ugasemd:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Forsettar umh&verfisbreytur"
+msgstr "Umhverfisbreytur:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9235,20 +9232,16 @@ msgstr ""
 "Hætti við vegna þess að ekki var hægt að sannreyna auðkenni vélarinnar."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Viltu eyða endanlega þessu  atriði?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Þessi aðgerð er ekki afturkallanleg.</emphasis>"
+"Viltu í alvörunni eyða þessu atriði endanlega?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Þessi aðgerð er ekki "
+"afturkallanleg.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9267,30 +9260,19 @@ msgstr[1] ""
 "strong='true'>Þessi aðgerð er ekki afturkallanleg.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Viltu eyða endanlega þessu  atriði?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Þessi aðgerð er ekki afturkallanleg.</emphasis>"
+"Ekki tókst að færa þetta atriði í ruslið því það er of stórt. Viltu í "
+"staðinn eyða þessu atriði endanlega?<nl/><nl/><filename>%1</filename><nl/"
+"><nl/><emphasis strong='true'>Þessi aðgerð er ekki afturkallanleg.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9301,11 +9283,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Viltu eyða endanlega þessu  atriði? <nl/><nl/><emphasis strong='true'>Þessi "
+"Ekki tókst að færa þetta %1 atriði í ruslið því það er of stórt. Viltu í "
+"staðinn eyða þessu atriði endanlega?<nl/><emphasis strong='true'>Þessi "
 "aðgerð er ekki afturkallanleg.</emphasis>"
 msgstr[1] ""
-"Viltu eyða endanlega þessum %1 atriðum? <nl/><nl/><emphasis "
-"strong='true'>Þessi aðgerð er ekki afturkallanleg.</emphasis>"
+"Ekki tókst að færa þessi %1 atriði í ruslið því þau eru of stór. Viltu í "
+"staðinn eyða þeim endanlega?<nl/><emphasis strong='true'>Þessi aðgerð er "
+"ekki afturkallanleg.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
