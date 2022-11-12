@@ -19,6 +19,8 @@
 #include "kiofilewidgets_export.h"
 #include <QWidget>
 
+#include "kfilefilter.h"
+
 #include <memory>
 
 class QUrl;
@@ -218,6 +220,7 @@ public:
      */
     bool keepsLocation() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Sets the filter to be used to @p filter.
      *
@@ -251,18 +254,47 @@ public:
      *
      * @see filterChanged
      * @see setMimeFilter
+     *
+     * @deprecated since 5.101, use setFileFilters() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "Use setFileFilters() instead")
     void setFilter(const QString &filter);
+#endif
 
+    /**
+     * Set the filters to be used.
+     *
+     * Each item of the list corresponds to a selectable filter.
+     *
+     * Only one filter is active at a time.
+     *
+     * @since 5.101
+     *
+     */
+    void setFileFilters(const QVector<KFileFilter> &filters, const KFileFilter &activeFilter = KFileFilter());
+
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the current filter as entered by the user or one of the
      * predefined set via setFilter().
      *
      * @see setFilter()
      * @see filterChanged()
+     *
+     * @deprecated since 5.101, use currentFileFilter() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "Use currentFileFilter() instead")
     QString currentFilter() const;
+#endif
 
+    /**
+     * Returns the currently selected/active filter;
+     *
+     * @since 5.101
+     */
+    KFileFilter currentFileFilter() const;
+
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the MIME type for the desired output format.
      *
@@ -270,9 +302,14 @@ public:
      * previously.
      *
      * @see setFilterMimeType()
+     *
+     * @deprecated since 5.101, no known users.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "No known users")
     QMimeType currentFilterMimeType();
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Sets the filter up to specify the output type.
      *
@@ -283,9 +320,14 @@ public:
      * Typically, @p defaultType should be empty for loading and set for saving.
      *
      * Do not use in conjunction with setFilter()
+     *
+     * @deprecated since 5.101, use setFileFilters().
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "Use setFileFilters()")
     void setMimeFilter(const QStringList &types, const QString &defaultType = QString());
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * The MIME type for the desired output format.
      *
@@ -293,8 +335,12 @@ public:
      * previously.
      *
      * @see setMimeFilter()
+     *
+     * @deprecated since 5.101, use currentFileFilter() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "Use currentFileFilter() instead")
     QString currentMimeFilter() const;
+#endif
 
     /**
      *  Clears any MIME type or name filter. Does not reload the directory.
@@ -565,6 +611,7 @@ Q_SIGNALS:
      */
     void selectionChanged();
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
      * Emitted when the filter changed, i.e.\ the user entered an own filter
      * or chose one of the predefined set via setFilter().
@@ -574,8 +621,25 @@ Q_SIGNALS:
      *
      * @see setFilter()
      * @see currentFilter()
+     *
+     * @deprecated since 5.101, use fileFilterChanged() instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 101, "Use fileFilterChanged() instead")
     void filterChanged(const QString &filter);
+#endif
+
+    /**
+     * Emitted when the filter changed, i.e.\ the user entered an own filter
+     * or chose one of the predefined set via setFileFilter().
+     *
+     * @param filter the new filter
+     *
+     * @see setFileFilter()
+     * @see currentFileFilter()
+     *
+     * @since 5.101
+     */
+    void fileFilterChanged(const KFileFilter &filter);
 
     /**
      * Emitted by slotOk() (directly or asynchronously) once everything has

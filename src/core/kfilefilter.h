@@ -86,6 +86,10 @@ private:
     static QVector<KFileFilter> fromFilterString(const QString &filterString);
     friend class KFileFilterCombo;
     friend class KFileFilterTest;
+    friend class KFileFilterComboPrivate;
+    friend class KFileWidget;
+    friend class KFileFilterComboTest;
+    friend class KFileWidgetTest;
 
     QSharedDataPointer<KFileFilterPrivate> d;
 };

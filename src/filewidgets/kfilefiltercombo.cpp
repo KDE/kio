@@ -14,6 +14,7 @@
 #include <QEvent>
 #include <QLineEdit>
 #include <QMimeDatabase>
+#include <QtGlobal>
 
 #include <config-kiofilewidgets.h>
 
@@ -39,7 +40,7 @@ public:
     // true when setMimeFilter was called
     bool m_isMimeFilter = false;
     QString m_lastFilter;
-    QString m_defaultFilter = i18nc("Default mime type filter that shows all file types", "*|All Files");
+    KFileFilter m_defaultFilter = KFileFilter::fromFilterString(i18nc("Default mime type filter that shows all file types", "*|All Files")).first();
 
     QVector<KFileFilter> m_filters;
     bool m_allTypes;
@@ -62,80 +63,7 @@ KFileFilterCombo::KFileFilterCombo(QWidget *parent)
 
 KFileFilterCombo::~KFileFilterCombo() = default;
 
-void KFileFilterCombo::setFilter(const QString &filterString)
-{
-    clear();
-    d->m_filters.clear();
-    d->m_hasAllSupportedFiles = false;
-
-    const QVector<KFileFilter> filters = KFileFilter::fromFilterString(filterString);
-
-    if (!filters.isEmpty()) {
-        d->m_filters = filters;
-    } else {
-        d->m_filters = KFileFilter::fromFilterString(d->m_defaultFilter);
-    }
-
-    for (const KFileFilter &filter : std::as_const(d->m_filters)) {
-        addItem(filter.label());
-    }
-
-    d->m_lastFilter = currentText();
-    d->m_isMimeFilter = false;
-}
-
-QString KFileFilterCombo::currentFilter() const
-{
-    QString f = currentText();
-    if (f == itemText(currentIndex())) { // user didn't edit the text
-        f = d->m_filters.value(currentIndex()).toFilterString();
-        if (d->m_isMimeFilter || (currentIndex() == 0 && d->m_hasAllSupportedFiles)) {
-            return f; // we have a MIME type as filter
-        }
-    }
-
-    int tab = f.indexOf(QLatin1Char('|'));
-    if (tab < 0) {
-        return f;
-    } else {
-        return f.left(tab);
-    }
-}
-
-bool KFileFilterCombo::showsAllTypes() const
-{
-    return d->m_allTypes;
-}
-
-QStringList KFileFilterCombo::filters() const
-{
-    QStringList result;
-
-    for (const KFileFilter &filter : std::as_const(d->m_filters)) {
-        result << filter.toFilterString();
-    }
-
-    return result;
-}
-
-void KFileFilterCombo::setCurrentFilter(const QString &filterString)
-{
-    auto it = std::find_if(d->m_filters.cbegin(), d->m_filters.cend(), [filterString](const KFileFilter &filter) {
-        return filterString == filter.toFilterString();
-    });
-
-    if (it == d->m_filters.cend()) {
-        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "Could not find filter" << filterString;
-        setCurrentIndex(-1);
-        Q_EMIT filterChanged();
-        return;
-    }
-
-    setCurrentIndex(std::distance(d->m_filters.cbegin(), it));
-    Q_EMIT filterChanged();
-}
-
-void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &defaultType)
+void KFileFilterCombo::setFileFilters(const QVector<KFileFilter> &types, const KFileFilter &defaultFilter)
 {
     clear();
     d->m_filters.clear();
@@ -144,47 +72,65 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
     bool hasAllFilesFilter = false;
     QMimeDatabase db;
 
-    d->m_allTypes = defaultType.isEmpty() && (types.count() > 1);
+    if (types.isEmpty()) {
+        d->m_filters = {d->m_defaultFilter};
+        addItem(d->m_defaultFilter.label());
+
+        d->m_lastFilter = currentText();
+        return;
+    }
+
+    d->m_allTypes = defaultFilter.isEmpty() && (types.count() > 1);
+
+    if (!types.isEmpty() && types.first().mimePatterns().isEmpty()) {
+        d->m_allTypes = false;
+    }
 
     // If there's MIME types that have the same comment, we will show the extension
     // in addition to the MIME type comment
     QHash<QString, int> allTypeComments;
-    for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
-        const QMimeType type = db.mimeTypeForName(*it);
-        if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
-            continue;
-        }
-
-        allTypeComments[type.comment()] += 1;
+    for (const KFileFilter &filter : types) {
+        allTypeComments[filter.label()] += 1;
     }
 
-    for (QStringList::ConstIterator it = types.begin(); it != types.end(); ++it) {
-        // qDebug() << *it;
-        const QMimeType type = db.mimeTypeForName(*it);
-        if (!type.isValid()) {
-            qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << *it << "is not a valid MIME type";
-            continue;
-        }
+    for (const KFileFilter &filter : types) {
+        const QStringList mimeTypes = filter.mimePatterns();
 
-        if (type.name().startsWith(QLatin1String("all/")) || type.isDefault()) {
+        const bool isAllFileFilters = std::any_of(mimeTypes.cbegin(), mimeTypes.cend(), [&db](const QString &mimeTypeName) {
+            const QMimeType type = db.mimeTypeForName(mimeTypeName);
+
+            if (!type.isValid()) {
+                qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << mimeTypeName << "is not a valid MIME type";
+                return false;
+            }
+
+            return type.name().startsWith(QLatin1String("all/")) || type.isDefault();
+        });
+
+        if (isAllFileFilters) {
             hasAllFilesFilter = true;
             continue;
         }
 
-        KFileFilter filter;
+        if (allTypeComments.value(filter.label()) > 1) {
+            QStringList mimeSuffixes;
 
-        if (allTypeComments.value(type.comment()) > 1) {
-            const QString label = i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", type.comment(), type.suffixes().join(QLatin1String(", ")));
-            filter = KFileFilter(label, {}, {*it});
+            for (const QString &mimeTypeName : filter.mimePatterns()) {
+                const QMimeType type = db.mimeTypeForName(mimeTypeName);
+                mimeSuffixes << type.suffixes();
+            }
+
+            const QString label = i18nc("%1 is the mimetype name, %2 is the extensions", "%1 (%2)", filter.label(), mimeSuffixes.join(QLatin1String(", ")));
+            KFileFilter newFilter(label, filter.filePatterns(), filter.mimePatterns());
+
+            d->m_filters.append(newFilter);
+            addItem(newFilter.label());
         } else {
-            filter = KFileFilter::fromMimeType(*it);
+            d->m_filters.append(filter);
+            addItem(filter.label());
         }
 
-        d->m_filters.append(filter);
-        addItem(filter.label());
-
-        if (type.name() == defaultType) {
+        if (filter == defaultFilter) {
             setCurrentIndex(count() - 1);
         }
     }
@@ -224,8 +170,134 @@ void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &de
     }
 
     d->m_lastFilter = currentText();
+}
+
+QVector<KFileFilter> KFileFilterCombo::fileFilters() const
+{
+    return d->m_filters;
+}
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+void KFileFilterCombo::setFilter(const QString &filterString)
+{
+    d->m_hasAllSupportedFiles = false;
+
+    const QVector<KFileFilter> filters = KFileFilter::fromFilterString(filterString);
+
+    setFileFilters(filters, KFileFilter{});
+
+    d->m_lastFilter = currentText();
+    d->m_isMimeFilter = false;
+}
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+QString KFileFilterCombo::currentFilter() const
+{
+    QString f = currentText();
+    if (f == itemText(currentIndex())) { // user didn't edit the text
+        f = d->m_filters.value(currentIndex()).toFilterString();
+        if (d->m_isMimeFilter || (currentIndex() == 0 && d->m_hasAllSupportedFiles)) {
+            return f; // we have a MIME type as filter
+        }
+    }
+
+    int tab = f.indexOf(QLatin1Char('|'));
+    if (tab < 0) {
+        return f;
+    } else {
+        return f.left(tab);
+    }
+}
+#endif
+
+KFileFilter KFileFilterCombo::currentFileFilter() const
+{
+    if (currentText() != itemText(currentIndex())) {
+        // The user edited the text
+
+        const QVector<KFileFilter> filter = KFileFilter::fromFilterString(currentText());
+
+        if (!filter.isEmpty()) {
+            return filter.first();
+        } else {
+            return KFileFilter();
+        }
+    } else {
+        if (currentIndex() == -1) {
+            return KFileFilter();
+        }
+
+        return d->m_filters[currentIndex()];
+    }
+}
+
+bool KFileFilterCombo::showsAllTypes() const
+{
+    return d->m_allTypes;
+}
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+QStringList KFileFilterCombo::filters() const
+{
+    QStringList result;
+
+    for (const KFileFilter &filter : std::as_const(d->m_filters)) {
+        result << filter.toFilterString();
+    }
+
+    return result;
+}
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+void KFileFilterCombo::setCurrentFilter(const QString &filterString)
+{
+    auto it = std::find_if(d->m_filters.cbegin(), d->m_filters.cend(), [filterString](const KFileFilter &filter) {
+        return filterString == filter.toFilterString();
+    });
+
+    if (it == d->m_filters.cend()) {
+        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "Could not find filter" << filterString;
+        setCurrentIndex(-1);
+        Q_EMIT filterChanged();
+        return;
+    }
+
+    setCurrentIndex(std::distance(d->m_filters.cbegin(), it));
+    Q_EMIT filterChanged();
+}
+#endif
+
+void KFileFilterCombo::setCurrentFileFilter(const KFileFilter &filter)
+{
+    auto it = std::find(d->m_filters.cbegin(), d->m_filters.cend(), filter);
+
+    if (it == d->m_filters.cend()) {
+        qCWarning(KIO_KFILEWIDGETS_KFILEFILTERCOMBO) << "Could not find file filter";
+        setCurrentIndex(-1);
+        Q_EMIT filterChanged();
+        return;
+    }
+
+    setCurrentIndex(std::distance(d->m_filters.cbegin(), it));
+    Q_EMIT filterChanged();
+}
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+void KFileFilterCombo::setMimeFilter(const QStringList &types, const QString &defaultType)
+{
+    QVector<KFileFilter> filters;
+
+    for (const QString &type : types) {
+        filters << KFileFilter::fromMimeType(type);
+    }
+
+    setFileFilters(filters, KFileFilter::fromMimeType(defaultType));
+
     d->m_isMimeFilter = true;
 }
+#endif
 
 void KFileFilterComboPrivate::slotFilterChanged()
 {
@@ -243,19 +315,39 @@ bool KFileFilterCombo::eventFilter(QObject *o, QEvent *e)
     return KComboBox::eventFilter(o, e);
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterCombo::setDefaultFilter(const QString &filter)
+{
+    const auto filters = KFileFilter::fromFilterString(filter);
+
+    Q_ASSERT_X(filters.size() == 1, "setDefaultFilter", "Default filter must contain exactly one filter");
+
+    d->m_defaultFilter = filters.first();
+}
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+QString KFileFilterCombo::defaultFilter() const
+{
+    return d->m_defaultFilter.toFilterString();
+}
+#endif
+
+void KFileFilterCombo::setDefaultFileFilter(const KFileFilter &filter)
 {
     d->m_defaultFilter = filter;
 }
 
-QString KFileFilterCombo::defaultFilter() const
+KFileFilter KFileFilterCombo::defaultFileFilter() const
 {
     return d->m_defaultFilter;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 bool KFileFilterCombo::isMimeFilter() const
 {
     return d->m_isMimeFilter;
 }
+#endif
 
 #include "moc_kfilefiltercombo.cpp"

@@ -513,42 +513,39 @@ void KFileWidget::setLocationLabel(const QString &text)
     d->m_locationLabel->setText(text);
 }
 
-void KFileWidget::setFilter(const QString &filter)
+void KFileWidget::setFileFilters(const QVector<KFileFilter> &filters, const KFileFilter &activeFilter)
 {
-    int pos = filter.indexOf(QLatin1Char('/'));
-
-    // Check for an un-escaped '/', if found
-    // interpret as a MIME filter.
-
-    if (pos > 0 && filter[pos - 1] != QLatin1Char('\\')) {
-        QStringList filters = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-        setMimeFilter(filters);
-        return;
-    }
-
-    // Strip the escape characters from
-    // escaped '/' characters.
-
-    QString copy(filter);
-    for (pos = 0; (pos = copy.indexOf(QLatin1String("\\/"), pos)) != -1; ++pos) {
-        copy.remove(pos, 1);
-    }
-
     d->m_ops->clearFilter();
-    d->m_filterWidget->setFilter(copy);
-    d->m_ops->setNameFilter(d->m_filterWidget->currentFilter());
+    d->m_filterWidget->setFileFilters(filters, activeFilter);
     d->m_ops->updateDir();
     d->m_hasDefaultFilter = false;
-    d->m_filterWidget->setEditable(true);
+    d->m_filterWidget->setEditable(true); // TODO
+
+    // d->updateFilterText(); ???
 
     d->updateAutoSelectExtension();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+void KFileWidget::setFilter(const QString &filter)
+{
+    setFileFilters(KFileFilter::fromFilterString(filter));
+}
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 QString KFileWidget::currentFilter() const
 {
     return d->m_filterWidget->currentFilter();
 }
+#endif
 
+KFileFilter KFileWidget::currentFileFilter() const
+{
+    return d->m_filterWidget->currentFileFilter();
+}
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileWidget::setMimeFilter(const QStringList &mimeTypes, const QString &defaultType)
 {
     d->m_filterWidget->setMimeFilter(mimeTypes, defaultType);
@@ -565,10 +562,11 @@ void KFileWidget::setMimeFilter(const QStringList &mimeTypes, const QString &def
     d->updateAutoSelectExtension();
     d->updateFilterText();
 }
+#endif
 
 void KFileWidget::clearFilter()
 {
-    d->m_filterWidget->setFilter(QString());
+    d->m_filterWidget->setFileFilters({}, KFileFilter());
     d->m_ops->clearFilter();
     d->m_hasDefaultFilter = false;
     d->m_filterWidget->setEditable(true);
@@ -576,6 +574,7 @@ void KFileWidget::clearFilter()
     d->updateAutoSelectExtension();
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 QString KFileWidget::currentMimeFilter() const
 {
     int i = d->m_filterWidget->currentIndex();
@@ -585,12 +584,15 @@ QString KFileWidget::currentMimeFilter() const
 
     return d->m_filterWidget->filters().at(i);
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 QMimeType KFileWidget::currentFilterMimeType()
 {
     QMimeDatabase db;
     return db.mimeTypeForName(currentMimeFilter());
 }
+#endif
 
 void KFileWidget::setPreviewWidget(KPreviewWidgetBase *w)
 {
@@ -1629,28 +1631,29 @@ void KFileWidgetPrivate::initGUI()
 
 void KFileWidgetPrivate::slotFilterChanged()
 {
-    //     qDebug();
-
     m_filterDelayTimer.stop();
 
-    QString filter = m_filterWidget->currentFilter();
+    KFileFilter filter = m_filterWidget->currentFileFilter();
+
     m_ops->clearFilter();
 
-    if (filter.contains(QLatin1Char('/'))) {
-        QStringList types = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    // TODO support mixed filters
+    if (!filter.mimePatterns().isEmpty()) {
+        QStringList types = filter.mimePatterns();
         types.prepend(QStringLiteral("inode/directory"));
         m_ops->setMimeFilter(types);
-    } else if (filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['))) {
-        m_ops->setNameFilter(filter);
     } else {
-        m_ops->setNameFilter(QLatin1Char('*') + filter.replace(QLatin1Char(' '), QLatin1Char('*')) + QLatin1Char('*'));
+        m_ops->setNameFilter(filter.filePatterns().join(QLatin1Char(' ')));
     }
 
     updateAutoSelectExtension();
 
     m_ops->updateDir();
 
-    Q_EMIT q->filterChanged(filter);
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+    Q_EMIT q->filterChanged(filter.toFilterString());
+#endif
+    Q_EMIT q->fileFilterChanged(filter);
 }
 
 void KFileWidget::setUrl(const QUrl &url, bool clearforward)
@@ -2057,9 +2060,9 @@ void KFileWidget::setMode(KFile::Modes m)
 
     d->m_ops->setMode(m);
     if (d->m_ops->dirOnlyMode()) {
-        d->m_filterWidget->setDefaultFilter(i18n("*|All Folders"));
+        d->m_filterWidget->setDefaultFileFilter(KFileFilter(i18n("All Folders"), {QStringLiteral("*")}, {}));
     } else {
-        d->m_filterWidget->setDefaultFilter(i18n("*|All Files"));
+        d->m_filterWidget->setDefaultFileFilter(KFileFilter(i18n("All Files"), {QStringLiteral("*")}, {}));
     }
 
     d->updateAutoSelectExtension();
@@ -2410,8 +2413,8 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
         // Get an extension from the filter
         //
 
-        QString filter = m_filterWidget->currentFilter();
-        if (!filter.isEmpty()) {
+        KFileFilter fileFilter = m_filterWidget->currentFileFilter();
+        if (!fileFilter.isEmpty()) {
             // if the currently selected filename already has an extension which
             // is also included in the currently allowed extensions, keep it
             // otherwise use the default extension
@@ -2425,13 +2428,13 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
             QStringList extensionList;
 
             // e.g. "*.cpp"
-            if (filter.indexOf(QLatin1Char('/')) < 0) {
-                extensionList = filter.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+            if (!fileFilter.filePatterns().isEmpty()) {
+                extensionList = fileFilter.filePatterns();
                 defaultExtension = getExtensionFromPatternList(extensionList);
             }
             // e.g. "text/html"
-            else {
-                QMimeType mime = db.mimeTypeForName(filter);
+            else if (!fileFilter.mimePatterns().isEmpty()) {
+                QMimeType mime = db.mimeTypeForName(fileFilter.mimePatterns().first());
                 if (mime.isValid()) {
                     extensionList = mime.globPatterns();
                     defaultExtension = mime.preferredSuffix();
@@ -2442,7 +2445,7 @@ void KFileWidgetPrivate::updateAutoSelectExtension()
             }
 
             if ((!currentExtension.isEmpty() && extensionList.contains(QLatin1String("*.") + currentExtension))
-                || filter == QLatin1String("application/octet-stream")) {
+                || (!fileFilter.mimePatterns().isEmpty() && fileFilter.mimePatterns().first() == QLatin1String("application/octet-stream"))) {
                 m_extension = QLatin1Char('.') + currentExtension;
             } else {
                 m_extension = defaultExtension;
@@ -2595,38 +2598,63 @@ QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QStr
 // (this prevents you from accidentally saving "file.kwd" as RTF, for example)
 void KFileWidgetPrivate::updateFilter()
 {
-    //     qDebug();
-
     if ((m_operationMode == KFileWidget::Saving) && (m_ops->mode() & KFile::File)) {
         QString urlStr = locationEditCurrentText();
         if (urlStr.isEmpty()) {
             return;
         }
 
-        if (m_filterWidget->isMimeFilter()) {
-            QMimeDatabase db;
-            QMimeType mime = db.mimeTypeForFile(urlStr, QMimeDatabase::MatchExtension);
-            if (mime.isValid() && !mime.isDefault()) {
-                if (m_filterWidget->currentFilter() != mime.name() && m_filterWidget->filters().indexOf(mime.name()) != -1) {
-                    m_filterWidget->setCurrentFilter(mime.name());
-                }
+        QMimeDatabase db;
+        QMimeType urlMimeType = db.mimeTypeForFile(urlStr, QMimeDatabase::MatchExtension);
+
+        bool matchesCurrentFilter = [this, urlMimeType, urlStr] {
+            const KFileFilter filter = m_filterWidget->currentFileFilter();
+            if (filter.mimePatterns().contains(urlMimeType.name())) {
+                return true;
             }
-        } else {
+
+            QString filename = urlStr.mid(urlStr.lastIndexOf(QLatin1Char('/')) + 1); // only filename
+
+            const auto filePatterns = filter.filePatterns();
+            const bool hasMatch = std::any_of(filePatterns.cbegin(), filePatterns.cend(), [filename](const QString &pattern) {
+                QRegularExpression rx(QRegularExpression::wildcardToRegularExpression(pattern));
+
+                return rx.match(filename).hasMatch();
+            });
+            return hasMatch;
+        }();
+
+        if (matchesCurrentFilter) {
+            return;
+        }
+
+        const auto filters = m_filterWidget->fileFilters();
+
+        auto filterIt = std::find_if(filters.cbegin(), filters.cend(), [urlStr, urlMimeType](const KFileFilter &filter) {
+            if (filter.mimePatterns().contains(urlMimeType.name())) {
+                return true;
+            }
+
             QString filename = urlStr.mid(urlStr.lastIndexOf(QLatin1Char('/')) + 1); // only filename
             // accept any match to honor the user's selection; see later code handling the "*" match
-            if (!findMatchingFilter(m_filterWidget->currentFilter(), filename).isEmpty()) {
-                return;
-            }
-            const QStringList list = m_filterWidget->filters();
-            for (const QString &filter : list) {
-                QString match = findMatchingFilter(filter, filename);
-                if (!match.isEmpty()) {
-                    if (match != QLatin1String("*")) { // never match the catch-all filter
-                        m_filterWidget->setCurrentFilter(filter);
-                    }
-                    return; // do not repeat, could match a later filter
+
+            const auto filePatterns = filter.filePatterns();
+            const bool hasMatch = std::any_of(filePatterns.cbegin(), filePatterns.cend(), [filename](const QString &pattern) {
+                // never match the catch-all filter
+                if (pattern == QLatin1String("*")) {
+                    return false;
                 }
-            }
+
+                QRegularExpression rx(QRegularExpression::wildcardToRegularExpression(pattern));
+
+                return rx.match(filename).hasMatch();
+            });
+
+            return hasMatch;
+        });
+
+        if (filterIt != filters.cend()) {
+            m_filterWidget->setCurrentFileFilter(*filterIt);
         }
     }
 }
@@ -2931,7 +2959,7 @@ void KFileWidgetPrivate::updateFilterText()
     QString label;
     QString whatsThisText;
 
-    if (m_operationMode == KFileWidget::Saving && m_filterWidget->isMimeFilter()) {
+    if (m_operationMode == KFileWidget::Saving) {
         label = i18n("&File type:");
         whatsThisText = i18n("<qt>This is the file type selector. It is used to select the format that the file will be saved as.</qt>");
     } else {

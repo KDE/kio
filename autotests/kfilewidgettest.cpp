@@ -101,12 +101,22 @@ void KFileWidgetTest::testFilterCombo()
     fw.setOperationMode(KFileWidget::Saving);
     fw.setMode(KFile::File);
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     fw.setFilter(
         QStringLiteral("*.xml *.a|Word 2003 XML (.xml)\n"
                        "*.odt|ODF Text Document (.odt)\n"
                        "*.xml *.b|DocBook (.xml)\n"
                        "*|Raw (*)"));
+#else
+    const KFileFilter wordFilter = KFileFilter::fromFilterString("*.xml *.a|Word 2003 XML (.xml)").first();
+    const KFileFilter odtFilter = KFileFilter::fromFilterString("*.odt|ODF Text Document (.odt)").first();
+    const KFileFilter docBookFilter = KFileFilter::fromFilterString("*.xml *.b|DocBook (.xml)").first();
+    const KFileFilter rawFilter = KFileFilter::fromFilterString("*|Raw (*)").first();
 
+    fw.setFileFilters({wordFilter, odtFilter, docBookFilter, rawFilter});
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     // default filter is selected
     QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.a"));
 
@@ -155,6 +165,57 @@ void KFileWidgetTest::testFilterCombo()
     fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
     QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
     QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+#else
+    // default filter is selected
+    QCOMPARE(fw.currentFileFilter(), wordFilter);
+
+    // setUrl runs with blocked signals, so use setUrls.
+    // auto-select ODT filter via filename
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+    QCOMPARE(fw.currentFileFilter(), odtFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+    // select 2nd duplicate XML filter (see bug 407642)
+    fw.filterWidget()->setCurrentFileFilter(docBookFilter);
+    QCOMPARE(fw.currentFileFilter(), docBookFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+    // keep filter after file change with same extension
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test2.xml")));
+    QCOMPARE(fw.currentFileFilter(), docBookFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test2.xml"));
+
+    // back to the non-xml / ODT filter
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+    QCOMPARE(fw.currentFileFilter(), odtFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+    // auto-select 1st XML filter
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.xml")));
+    QCOMPARE(fw.currentFileFilter(), wordFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+    // select Raw '*' filter
+    fw.filterWidget()->setCurrentFileFilter(rawFilter);
+    QCOMPARE(fw.currentFileFilter(), rawFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+    // keep Raw '*' filter with matching file extension
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.odt")));
+    QCOMPARE(fw.currentFileFilter(), rawFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.odt"));
+
+    // keep Raw '*' filter with non-matching file extension
+    fw.locationEdit()->setUrls(QStringList(QStringLiteral("test.core")));
+    QCOMPARE(fw.currentFileFilter(), rawFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.core"));
+
+    // select 2nd XML filter
+    fw.filterWidget()->setCurrentFileFilter(docBookFilter);
+    QCOMPARE(fw.currentFileFilter(), docBookFilter);
+    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+#endif
 }
 
 void KFileWidgetTest::testFocusOnLocationEdit()
@@ -419,7 +480,11 @@ void KFileWidgetTest::testSetFilterForSave()
     fw.setOperationMode(KFileWidget::Saving);
     fw.setSelectedUrl(fileUrl);
     // Calling setFilter has side-effects and changes the file name.
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     fw.setFilter(filter);
+#else
+    fw.setFileFilters(KFileFilter::fromFilterString(filter));
+#endif
 
     // Verify the expected populated name.
     QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
@@ -477,7 +542,11 @@ void KFileWidgetTest::testExtensionForSave()
     // Calling setFilter has side-effects and changes the file name.
     // The difference to testSetFilterForSave is that the filter is already set before the fileUrl
     // is set, and will not be changed after.
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     fw.setFilter(filter);
+#else
+    fw.setFileFilters(KFileFilter::fromFilterString(filter));
+#endif
     fw.setSelectedUrl(fileUrl);
 
     // Verify the expected populated name.
@@ -504,22 +573,39 @@ void KFileWidgetTest::testFilterChange()
     KFileWidget fw(QUrl::fromLocalFile(tempDir.path()));
     fw.setOperationMode(KFileWidget::Saving);
     fw.setSelectedUrl(QUrl::fromLocalFile(tempDir.filePath("some.txt")));
+    const QVector<KFileFilter> filters = KFileFilter::fromFilterString("*.txt|Txt\n*.c|C");
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     fw.setFilter("*.txt|Txt\n*.c|C");
+#else
+    fw.setFileFilters(filters);
+#endif
 
     // Initial filename.
     QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.txt"));
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.txt"));
+#else
+    QCOMPARE(fw.filterWidget()->currentFileFilter(), filters[0]);
+#endif
 
     // Select type with an existing file.
-    fw.filterWidget()->setCurrentFilter("*.c|C");
+    fw.filterWidget()->setCurrentFileFilter(filters[1]);
     QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.c"));
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.c"));
+#else
+    QCOMPARE(fw.filterWidget()->currentFileFilter(), filters[1]);
+#endif
 
     // Do not update extension if the current selection is a directory.
     fw.setSelectedUrl(QUrl::fromLocalFile(tempDir.filePath("directory")));
-    fw.filterWidget()->setCurrentFilter("*.txt|Txt");
+    fw.filterWidget()->setCurrentFileFilter(filters[0]);
     QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("directory"));
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.txt"));
+#else
+    QCOMPARE(fw.filterWidget()->currentFileFilter(), filters[0]);
+#endif
 }
 
 void KFileWidgetTest::testDropFile_data()

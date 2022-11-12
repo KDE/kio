@@ -17,17 +17,22 @@ private Q_SLOTS:
     void testSetFilter();
     void testSetFilter_data();
     void testDefaultFilter();
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     void testSetMimeFilter();
     void testSetMimeFilter_data();
     void testIsMimeFilter();
+#endif
     void testSetMimeFilterDefault();
     void testSetMimeFilterDefault_data();
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     void testFilters();
     void testFilters_data();
     void testFiltersMime();
     void testFiltersMime_data();
+#endif
     void testShowsAllFiles();
     void testShowsAllFiles_data();
+    void testCurrentFilter();
 };
 
 void KFileFilterComboTest::initTestCase()
@@ -44,7 +49,7 @@ void KFileFilterComboTest::testSetFilter()
     QFETCH(QStringList, expectedComboboxText);
 
     KFileFilterCombo combo;
-    combo.setFilter(filterString);
+    combo.setFileFilters(KFileFilter::fromFilterString(filterString), KFileFilter{});
 
     QCOMPARE(combo.count(), expectedComboboxText.count());
 
@@ -69,18 +74,35 @@ void KFileFilterComboTest::testSetFilter_data()
 void KFileFilterComboTest::testDefaultFilter()
 {
     KFileFilterCombo combo;
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setDefaultFilter("*.cpp|Sources (*.cpp)");
+#else
+    combo.setDefaultFileFilter(KFileFilter::fromFilterString("*.cpp|Sources (*.cpp)").first());
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setFilter(QString());
+#else
+    combo.setFileFilters({}, KFileFilter());
+#endif
     QCOMPARE(combo.itemData(0, Qt::DisplayRole).toString(), "Sources (*.cpp)");
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setFilter("*.png|PNG Image (*.png)");
+#else
+    combo.setFileFilters(KFileFilter::fromFilterString("*.png|PNG Image (*.png)"), KFileFilter());
+#endif
     QCOMPARE(combo.itemData(0, Qt::DisplayRole).toString(), "PNG Image (*.png)");
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setFilter(QString());
+#else
+    combo.setFileFilters({}, KFileFilter());
+#endif
     QCOMPARE(combo.itemData(0, Qt::DisplayRole).toString(), "Sources (*.cpp)");
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testSetMimeFilter_data()
 {
     QTest::addColumn<QStringList>("mimeTypes");
@@ -95,7 +117,9 @@ void KFileFilterComboTest::testSetMimeFilter_data()
     QTest::addRow("four_mime") << QStringList{"image/png", "image/jpeg", "text/plain", "application/mbox"} << ""
                                << QStringList{"All Supported Files", "PNG image", "JPEG image", "plain text document", "mailbox file"};
     QTest::addRow("duplicate_mime_comment") << QStringList{"application/metalink+xml", "application/metalink4+xml"} << ""
-                                            << QStringList{"Metalink file, Metalink file", "Metalink file (metalink)", "Metalink file (meta4)"};
+                                            << QStringList{"Metalink file (metalink), Metalink file (meta4)",
+                                                           "Metalink file (metalink)",
+                                                           "Metalink file (meta4)"};
     QTest::addRow("all") << QStringList{"application/octet-stream"} << "" << QStringList{"All Files"};
     QTest::addRow("all2") << QStringList{"application/octet-stream", "image/png"} << "" << QStringList{"PNG image", "All Files"};
     QTest::addRow("all_with_all_supported")
@@ -104,7 +128,9 @@ void KFileFilterComboTest::testSetMimeFilter_data()
     QTest::addRow("four_mime_with_default") << QStringList{"image/png", "image/jpeg", "text/plain", "application/mbox"} << "text/plain"
                                             << QStringList{"PNG image", "JPEG image", "plain text document", "mailbox file"};
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testSetMimeFilter()
 {
     QFETCH(QStringList, mimeTypes);
@@ -121,8 +147,10 @@ void KFileFilterComboTest::testSetMimeFilter()
         const QString text = combo.itemData(i, Qt::DisplayRole).toString();
         actual << text;
     }
+
     QCOMPARE(actual, expectedComboboxText);
 }
+#endif
 
 void KFileFilterComboTest::testSetMimeFilterDefault_data()
 {
@@ -148,11 +176,22 @@ void KFileFilterComboTest::testSetMimeFilterDefault()
 
     KFileFilterCombo combo;
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setMimeFilter(mimeTypes, defaultType);
+#else
+    QVector<KFileFilter> filters;
+
+    for (const QString &mimeType : mimeTypes) {
+        filters << KFileFilter::fromMimeType(mimeType);
+    }
+
+    combo.setFileFilters(filters, KFileFilter::fromMimeType(defaultType));
+#endif
 
     QCOMPARE(combo.currentText(), expectedComboboxCurrentText);
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testIsMimeFilter()
 {
     KFileFilterCombo combo;
@@ -163,7 +202,9 @@ void KFileFilterComboTest::testIsMimeFilter()
     combo.setMimeFilter(QStringList{"image/jpeg"}, QString());
     QVERIFY(combo.isMimeFilter());
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testFilters_data()
 {
     QTest::addColumn<QString>("filterString");
@@ -175,7 +216,9 @@ void KFileFilterComboTest::testFilters_data()
         << "*.cpp *.cc *.C|C++ Source Files\n*.h *.H|Header files" << QStringList{"*.cpp *.cc *.C|C++ Source Files", "*.h *.H|Header files"};
     QTest::addRow("pattern_only") << "*.cpp" << QStringList{"*.cpp"};
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testFilters()
 {
     QFETCH(QString, filterString);
@@ -187,7 +230,9 @@ void KFileFilterComboTest::testFilters()
 
     QCOMPARE(combo.filters(), expectedFilters);
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testFiltersMime_data()
 {
     QTest::addColumn<QStringList>("mimeTypes");
@@ -198,7 +243,9 @@ void KFileFilterComboTest::testFiltersMime_data()
     QTest::addRow("four") << QStringList{"image/png", "image/jpeg", "text/calendar", "application/gzip"}
                           << QStringList{"image/png image/jpeg text/calendar application/gzip", "image/png", "image/jpeg", "text/calendar", "application/gzip"};
 }
+#endif
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
 void KFileFilterComboTest::testFiltersMime()
 {
     QFETCH(QStringList, mimeTypes);
@@ -210,6 +257,7 @@ void KFileFilterComboTest::testFiltersMime()
 
     QCOMPARE(combo.filters(), expectedFilters);
 }
+#endif
 
 void KFileFilterComboTest::testShowsAllFiles_data()
 {
@@ -233,9 +281,70 @@ void KFileFilterComboTest::testShowsAllFiles()
 
     KFileFilterCombo combo;
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
     combo.setMimeFilter(mimeTypes, defaultType);
+#else
+    QVector<KFileFilter> filters;
+
+    for (const QString &mimeType : mimeTypes) {
+        filters << KFileFilter::fromMimeType(mimeType);
+    }
+
+    combo.setFileFilters(filters, KFileFilter::fromMimeType(defaultType));
+#endif
 
     QCOMPARE(combo.showsAllTypes(), expectedShowsAllFiles);
+}
+
+void KFileFilterComboTest::testCurrentFilter()
+{
+    KFileFilterCombo combo;
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+    combo.setFilter(
+        QStringLiteral("*.xml *.a|Word 2003 XML (.xml)\n"
+                       "*.odt|ODF Text Document (.odt)\n"
+                       "*.xml *.b|DocBook (.xml)\n"
+                       "*|Raw (*)"));
+
+    // default filter is selected
+    QCOMPARE(combo.currentFilter(), QStringLiteral("*.xml *.a"));
+
+    // select 2nd duplicate XML filter (see bug 407642)
+    combo.setCurrentFilter("*.xml *.b|DocBook (.xml)");
+    QCOMPARE(combo.currentFilter(), QStringLiteral("*.xml *.b"));
+
+    // select Raw '*' filter
+    combo.setCurrentFilter("*|Raw (*)");
+    QCOMPARE(combo.currentFilter(), QStringLiteral("*"));
+
+    // select 2nd XML filter
+    combo.setCurrentFilter("*.xml *.b|DocBook (.xml)");
+    QCOMPARE(combo.currentFilter(), QStringLiteral("*.xml *.b"));
+#else
+
+    const KFileFilter wordFilter = KFileFilter::fromFilterString("*.xml *.a|Word 2003 XML (.xml)").first();
+    const KFileFilter odtFilter = KFileFilter::fromFilterString("*.odt|ODF Text Document (.odt)").first();
+    const KFileFilter docBookFilter = KFileFilter::fromFilterString("*.xml *.b|DocBook (.xml)").first();
+    const KFileFilter rawFilter = KFileFilter::fromFilterString("*|Raw (*)").first();
+
+    combo.setFileFilters({wordFilter, odtFilter, docBookFilter, rawFilter}, KFileFilter());
+
+    // default filter is selected
+    QCOMPARE(combo.currentFileFilter(), wordFilter);
+
+    // select 2nd duplicate XML filter (see bug 407642)
+    combo.setCurrentFileFilter(docBookFilter);
+    QCOMPARE(combo.currentFileFilter(), docBookFilter);
+
+    // select Raw '*' filter
+    combo.setCurrentFileFilter(rawFilter);
+    QCOMPARE(combo.currentFileFilter(), rawFilter);
+
+    // select 2nd XML filter
+    combo.setCurrentFileFilter(docBookFilter);
+    QCOMPARE(combo.currentFileFilter(), docBookFilter);
+#endif
 }
 
 QTEST_MAIN(KFileFilterComboTest)
