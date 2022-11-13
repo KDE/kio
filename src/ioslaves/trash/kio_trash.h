@@ -9,7 +9,7 @@
 #define KIO_TRASH_H
 
 #include "trashimpl.h"
-#include <kio/slavebase.h>
+#include <kio/workerbase.h>
 
 namespace KIO
 {
@@ -19,33 +19,31 @@ class Job;
 typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
 typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 
-class TrashProtocol : public QObject, public KIO::SlaveBase
+class TrashProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
 public:
     TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     ~TrashProtocol() override;
-    void stat(const QUrl &url) override;
-    void listDir(const QUrl &url) override;
-    void get(const QUrl &url) override;
-    void put(const QUrl &url, int, KIO::JobFlags flags) override;
-    void rename(const QUrl &src, const QUrl &dest, KIO::JobFlags) override;
-    void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
+    KIO::WorkerResult stat(const QUrl &url) override;
+    KIO::WorkerResult listDir(const QUrl &url) override;
+    KIO::WorkerResult get(const QUrl &url) override;
+    KIO::WorkerResult put(const QUrl &url, int, KIO::JobFlags flags) override;
+    KIO::WorkerResult rename(const QUrl &src, const QUrl &dest, KIO::JobFlags) override;
+    KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
     // TODO (maybe) chmod( const QUrl& url, int permissions );
-    void del(const QUrl &url, bool isfile) override;
+    KIO::WorkerResult del(const QUrl &url, bool isfile) override;
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
      * 3 : restore a file to its original location. Args: QUrl trashURL.
      */
-    void special(const QByteArray &data) override;
+    KIO::WorkerResult special(const QByteArray &data) override;
+    KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override;
 
 Q_SIGNALS:
-    void leaveModality();
-
-protected:
-    void virtual_hook(int id, void *data) override;
+    void leaveModality(int errid, const QString &text);
 
 private Q_SLOTS:
     void slotData(KIO::Job *, const QByteArray &);
@@ -53,20 +51,19 @@ private Q_SLOTS:
     void jobFinished(KJob *job);
 
 private:
-    bool initImpl();
+    KIO::WorkerResult initImpl();
     typedef enum { Copy, Move } CopyOrMove;
-    void copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
-    void copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);
+    KIO::WorkerResult copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
+    KIO::WorkerResult copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action);
     void createTopLevelDirEntry(KIO::UDSEntry &entry);
     bool createUDSEntry(const QString &physicalPath,
                         const QString &displayFileName,
                         const QString &internalFileName,
                         KIO::UDSEntry &entry,
                         const TrashedFileInfo &info);
-    void listRoot();
-    void restore(const QUrl &trashURL);
-    void enterLoop();
-    void fileSystemFreeSpace(const QUrl &url);
+    KIO::WorkerResult listRoot();
+    KIO::WorkerResult restore(const QUrl &trashURL);
+    KIO::WorkerResult enterLoop();
     KIO::StatDetails getStatDetails();
 
     TrashImpl impl;

@@ -32,19 +32,19 @@
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.trash" FILE "trash.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.trash" FILE "trash.json")
 };
 
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
-    // necessary to use other kio slaves
+    // necessary to use other KIO workers
     QCoreApplication app(argc, argv);
 
     KIO::setDefaultJobUiDelegateExtension(nullptr);
-    // start the slave
-    TrashProtocol slave(argv[1], argv[2], argv[3]);
-    slave.dispatchLoop();
+    // start the worker
+    TrashProtocol worker(argv[1], argv[2], argv[3]);
+    worker.dispatchLoop();
     return 0;
 }
 }
@@ -56,7 +56,7 @@ static bool isTopLevelEntry(const QUrl &url)
 }
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(protocol, pool, app)
+    : WorkerBase(protocol, pool, app)
 {
     struct passwd *user = getpwuid(getuid());
     if (user) {
@@ -72,38 +72,47 @@ TrashProtocol::~TrashProtocol()
 {
 }
 
-bool TrashProtocol::initImpl()
+KIO::WorkerResult TrashProtocol::initImpl()
 {
     if (!impl.init()) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-        return false;
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
 
-    return true;
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::enterLoop()
+KIO::WorkerResult TrashProtocol::enterLoop()
 {
+    int errorId = 0;
+    QString errorText;
+
     QEventLoop eventLoop;
-    connect(this, &TrashProtocol::leaveModality, &eventLoop, &QEventLoop::quit);
+    connect(this, &TrashProtocol::leaveModality, &eventLoop, [&](int _errorId, const QString &_errorText) {
+        errorId = _errorId;
+        errorText = _errorText;
+        eventLoop.quit();
+    });
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
+
+    if (errorId != 0) {
+        return KIO::WorkerResult::fail(errorId, errorText);
+    }
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::restore(const QUrl &trashURL)
+KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL)
 {
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(trashURL, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", trashURL.toString()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", trashURL.toString()));
     }
     TrashedFileInfo info;
     ok = impl.infoForFile(trashId, fileId, info);
     if (!ok) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-        return;
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
     QUrl dest = QUrl::fromLocalFile(info.origPath);
     if (!relativePath.isEmpty()) {
@@ -115,91 +124,84 @@ void TrashProtocol::restore(const QUrl &trashURL)
     QT_STATBUF buff;
 
     if (QT_LSTAT(QFile::encodeName(destDir).constData(), &buff) == -1) {
-        error(KIO::ERR_WORKER_DEFINED,
-              i18n("The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
-                   "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.",
-                   destDir));
-        return;
+        return KIO::WorkerResult::fail(
+            KIO::ERR_WORKER_DEFINED,
+            i18n("The directory %1 does not exist anymore, so it is not possible to restore this item to its original location. "
+                 "You can either recreate that directory and use the restore operation again, or drag the item anywhere else to restore it.",
+                 destDir));
     }
 
-    copyOrMoveFromTrash(trashURL, dest, false /*overwrite*/, Move);
+    return copyOrMoveFromTrash(trashURL, dest, false /*overwrite*/, Move);
 }
 
-void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
+KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
 
     qCDebug(KIO_TRASH) << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.scheme() == QLatin1String("trash")) {
         if (!isTopLevelEntry(oldURL) || !isTopLevelEntry(newURL)) {
-            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toString());
         }
         int oldTrashId;
         QString oldFileId;
         QString oldRelativePath;
         bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
         if (!oldOk) {
-            error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", oldURL.toString()));
         }
         if (!oldRelativePath.isEmpty()) {
-            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toString());
         }
         // Dolphin/KIO can't specify a trashid in the new URL so here path == filename
         // bool newOk = TrashImpl::parseURL(newURL, newTrashId, newFileId, newRelativePath);
         const QString newFileId = newURL.path().mid(1);
         if (newFileId.contains(QLatin1Char('/'))) {
-            error(KIO::ERR_CANNOT_RENAME, oldURL.toString());
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toString());
         }
         bool ok = impl.moveInTrash(oldTrashId, oldFileId, newFileId);
         if (!ok) {
-            error(impl.lastErrorCode(), impl.lastErrorMessage());
-            return;
+            return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
         const QUrl finalUrl = TrashImpl::makeURL(oldTrashId, newFileId, QString());
         org::kde::KDirNotify::emitFileRenamed(oldURL, finalUrl);
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     }
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.isLocalFile()) {
-        copyOrMoveFromTrash(oldURL, newURL, (flags & KIO::Overwrite), Move);
-    } else if (oldURL.isLocalFile() && newURL.scheme() == QLatin1String("trash")) {
-        copyOrMoveToTrash(oldURL, newURL, Move);
-    } else {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
+        return copyOrMoveFromTrash(oldURL, newURL, (flags & KIO::Overwrite), Move);
     }
+    if (oldURL.isLocalFile() && newURL.scheme() == QLatin1String("trash")) {
+        return copyOrMoveToTrash(oldURL, newURL, Move);
+    }
+    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
 }
 
-void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
+KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
 
     qCDebug(KIO_TRASH) << "TrashProtocol::copy(): " << src << " " << dest;
 
     if (src.scheme() == QLatin1String("trash") && dest.scheme() == QLatin1String("trash")) {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
     }
 
     if (src.scheme() == QLatin1String("trash") && dest.isLocalFile()) {
-        copyOrMoveFromTrash(src, dest, (flags & KIO::Overwrite), Copy);
-    } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
-        copyOrMoveToTrash(src, dest, Copy);
-    } else {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
+        return copyOrMoveFromTrash(src, dest, (flags & KIO::Overwrite), Copy);
     }
+    if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
+        return copyOrMoveToTrash(src, dest, Copy);
+    }
+    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Invalid combination of protocols."));
 }
 
-void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
+KIO::WorkerResult TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
 {
     // Extracting (e.g. via dnd). Ignore original location stored in info file.
     int trashId;
@@ -207,8 +209,7 @@ void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool 
     QString relativePath;
     bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", src.toString()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", src.toString()));
     }
     const QString destPath = dest.path();
     if (QFile::exists(destPath)) {
@@ -216,8 +217,7 @@ void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool 
             ok = QFile::remove(destPath);
             Q_ASSERT(ok); // ### TODO
         } else {
-            error(KIO::ERR_FILE_ALREADY_EXIST, destPath);
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, destPath);
         }
     }
 
@@ -229,16 +229,16 @@ void TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool 
         ok = impl.copyFromTrash(destPath, trashId, fileId, relativePath);
     }
     if (!ok) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-    } else {
-        if (action == Move && relativePath.isEmpty()) {
-            (void)impl.deleteInfo(trashId, fileId);
-        }
-        finished();
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
+
+    if (action == Move && relativePath.isEmpty()) {
+        (void)impl.deleteInfo(trashId, fileId);
+    }
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action)
+KIO::WorkerResult TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrMove action)
 {
     qCDebug(KIO_TRASH) << "trashing a file" << src << dest;
 
@@ -254,31 +254,29 @@ void TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &dest, CopyOrM
         int trashId;
         QString fileId;
         if (!impl.createInfo(srcPath, trashId, fileId)) {
-            error(impl.lastErrorCode(), impl.lastErrorMessage());
-        } else {
-            bool ok;
-            if (action == Move) {
-                qCDebug(KIO_TRASH) << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
-                ok = impl.moveToTrash(srcPath, trashId, fileId);
-            } else { // Copy
-                qCDebug(KIO_TRASH) << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
-                ok = impl.copyToTrash(srcPath, trashId, fileId);
-            }
-            if (!ok) {
-                (void)impl.deleteInfo(trashId, fileId);
-                error(impl.lastErrorCode(), impl.lastErrorMessage());
-            } else {
-                // Inform caller of the final URL. Used by konq_undo.
-                const QUrl url = impl.makeURL(trashId, fileId, QString());
-                setMetaData(QLatin1String("trashURL-") + srcPath, url.url());
-                finished();
-            }
+            return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
-    } else {
-        qCDebug(KIO_TRASH) << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
-        // It's not allowed to add a file to an existing trash directory.
-        error(KIO::ERR_ACCESS_DENIED, dest.toString());
+        bool ok;
+        if (action == Move) {
+            qCDebug(KIO_TRASH) << "calling moveToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+            ok = impl.moveToTrash(srcPath, trashId, fileId);
+        } else { // Copy
+            qCDebug(KIO_TRASH) << "calling copyToTrash(" << srcPath << " " << trashId << " " << fileId << ")";
+            ok = impl.copyToTrash(srcPath, trashId, fileId);
+        }
+        if (!ok) {
+            (void)impl.deleteInfo(trashId, fileId);
+            return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
+        }
+        // Inform caller of the final URL. Used by konq_undo.
+        const QUrl url = impl.makeURL(trashId, fileId, QString());
+        setMetaData(QLatin1String("trashURL-") + srcPath, url.url());
+        return KIO::WorkerResult::pass();
     }
+
+    qCDebug(KIO_TRASH) << "returning KIO::ERR_ACCESS_DENIED, it's not allowed to add a file to an existing trash directory";
+    // It's not allowed to add a file to an existing trash directory.
+    return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, dest.toString());
 }
 
 void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
@@ -313,18 +311,18 @@ KIO::StatDetails TrashProtocol::getStatDetails()
     return details;
 }
 
-void TrashProtocol::stat(const QUrl &url)
+KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
         // The root is "virtual" - it's not a single physical directory
         KIO::UDSEntry entry = impl.trashUDSEntry(getStatDetails());
         createTopLevelDirEntry(entry);
         statEntry(entry);
-        finished();
     } else {
         int trashId;
         QString fileId;
@@ -337,17 +335,15 @@ void TrashProtocol::stat(const QUrl &url)
             qCDebug(KIO_TRASH) << url << " looks fishy, returning does-not-exist";
             // A URL like trash:/file simply means that CopyJob is trying to see if
             // the destination exists already (it made up the URL by itself).
-            error(KIO::ERR_DOES_NOT_EXIST, url.toString());
             // error( KIO::ERR_WORKER_DEFINED, i18n( "Malformed URL %1" ).arg( url.toString() ) );
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
         }
 
         qCDebug(KIO_TRASH) << "parsed" << url << "got" << trashId << fileId << relativePath;
 
         const QString filePath = impl.physicalPath(trashId, fileId, relativePath);
         if (filePath.isEmpty()) {
-            error(impl.lastErrorCode(), impl.lastErrorMessage());
-            return;
+            return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
 
         // For a toplevel file, use the fileId as display name (to hide the trashId)
@@ -367,63 +363,59 @@ void TrashProtocol::stat(const QUrl &url)
         }
 
         if (!ok) {
-            error(KIO::ERR_CANNOT_STAT, url.toString());
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_STAT, url.toString());
         }
 
         statEntry(entry);
-        finished();
     }
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
+KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     int trashId;
     QString fileId;
     QString relativePath;
 
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
     }
 
     ok = relativePath.isEmpty();
     if (!ok) {
-        error(KIO::ERR_ACCESS_DENIED, url.toString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, url.toString());
     }
 
     ok = impl.del(trashId, fileId);
     if (!ok) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-        return;
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
 
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::listDir(const QUrl &url)
+KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     qCDebug(KIO_TRASH) << "listdir: " << url;
     const QString path = url.path();
     if (path.isEmpty() || path == QLatin1String("/")) {
-        listRoot();
-        return;
+        return listRoot();
     }
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
     }
     // was: const QString physicalPath = impl.physicalPath( trashId, fileId, relativePath );
 
@@ -432,8 +424,7 @@ void TrashProtocol::listDir(const QUrl &url)
     TrashedFileInfo info;
     ok = impl.infoForFile(trashId, fileId, info);
     if (!ok || info.physicalPath.isEmpty()) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-        return;
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
     if (!relativePath.isEmpty()) {
         info.physicalPath += QLatin1Char('/') + relativePath;
@@ -459,7 +450,7 @@ void TrashProtocol::listDir(const QUrl &url)
         }
     }
     entry.clear();
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
 bool TrashProtocol::createUDSEntry(const QString &physicalPath,
@@ -525,11 +516,12 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
     return true;
 }
 
-void TrashProtocol::listRoot()
+KIO::WorkerResult TrashProtocol::listRoot()
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     const TrashedFileInfoList lst = impl.list();
     totalSize(lst.count());
     KIO::UDSEntry entry;
@@ -545,81 +537,76 @@ void TrashProtocol::listRoot()
         }
     }
     entry.clear();
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::special(const QByteArray &data)
+KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     QDataStream stream(data);
     int cmd;
     stream >> cmd;
 
     switch (cmd) {
     case 1:
-        if (impl.emptyTrash()) {
-            finished();
-        } else {
-            error(impl.lastErrorCode(), impl.lastErrorMessage());
+        if (!impl.emptyTrash()) {
+            return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
         break;
     case 2:
         impl.migrateOldTrash();
-        finished();
         break;
     case 3: {
         QUrl url;
         stream >> url;
-        restore(url);
-        break;
+        return restore(url);
     }
     default:
         qCWarning(KIO_TRASH) << "Unknown command in special(): " << cmd;
-        error(KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd));
-        break;
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd));
     }
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
+KIO::WorkerResult TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     qCDebug(KIO_TRASH) << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
-    error(KIO::ERR_ACCESS_DENIED, url.toString());
+    return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, url.toString());
 }
 
-void TrashProtocol::get(const QUrl &url)
+KIO::WorkerResult TrashProtocol::get(const QUrl &url)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     qCDebug(KIO_TRASH) << "get() : " << url;
     if (!url.isValid()) {
         // qCDebug(KIO_TRASH) << kBacktrace();
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.url()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.url()));
     }
     if (url.path().length() <= 1) {
-        error(KIO::ERR_IS_DIRECTORY, url.toString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_IS_DIRECTORY, url.toString());
     }
     int trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
     if (!ok) {
-        error(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Malformed URL %1", url.toString()));
     }
     const QString physicalPath = impl.physicalPath(trashId, fileId, relativePath);
     if (physicalPath.isEmpty()) {
-        error(impl.lastErrorCode(), impl.lastErrorMessage());
-        return;
+        return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
     }
 
     // Usually we run jobs in TrashImpl (for e.g. future kdedmodule)
@@ -629,7 +616,7 @@ void TrashProtocol::get(const QUrl &url)
     connect(job, &KIO::TransferJob::data, this, &TrashProtocol::slotData);
     connect(job, &KIO::TransferJob::mimeTypeFound, this, &TrashProtocol::slotMimetype);
     connect(job, &KJob::result, this, &TrashProtocol::jobFinished);
-    enterLoop();
+    return enterLoop();
 }
 
 void TrashProtocol::slotData(KIO::Job *, const QByteArray &arr)
@@ -644,20 +631,16 @@ void TrashProtocol::slotMimetype(KIO::Job *, const QString &mt)
 
 void TrashProtocol::jobFinished(KJob *job)
 {
-    if (job->error()) {
-        error(job->error(), job->errorText());
-    } else {
-        finished();
-    }
-    Q_EMIT leaveModality();
+    Q_EMIT leaveModality(job->error(), job->errorText());
 }
 
 #if 0
 void TrashProtocol::mkdir(const QUrl &url, int /*permissions*/)
 {
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
+
     // create info about deleted dir
     // ############ Problem: we don't know the original path.
     // Let's try to avoid this case (we should get to copy() instead, for local files)
@@ -685,37 +668,23 @@ void TrashProtocol::mkdir(const QUrl &url, int /*permissions*/)
 }
 #endif
 
-void TrashProtocol::virtual_hook(int id, void *data)
-{
-    switch (id) {
-    case SlaveBase::GetFileSystemFreeSpace: {
-        QUrl *url = static_cast<QUrl *>(data);
-        fileSystemFreeSpace(*url);
-        break;
-    }
-    default:
-        SlaveBase::virtual_hook(id, data);
-    }
-}
-
-void TrashProtocol::fileSystemFreeSpace(const QUrl &url)
+KIO::WorkerResult TrashProtocol::fileSystemFreeSpace(const QUrl &url)
 {
     qCDebug(KIO_TRASH) << "fileSystemFreeSpace:" << url;
 
-    if (!initImpl()) {
-        return;
+    if (const auto initResult = initImpl(); !initResult.success()) {
+        return initResult;
     }
 
     TrashImpl::TrashSpaceInfo spaceInfo;
     if (!impl.trashSpaceInfo(url.path(), spaceInfo)) {
-        error(KIO::ERR_CANNOT_STAT, url.toDisplayString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_STAT, url.toDisplayString());
     }
 
     setMetaData(QStringLiteral("total"), QString::number(spaceInfo.totalSize));
     setMetaData(QStringLiteral("available"), QString::number(spaceInfo.availableSize));
 
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
 #include "kio_trash.moc"
