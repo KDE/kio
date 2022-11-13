@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:42+0000\n"
+"POT-Creation-Date: 2022-11-11 00:42+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3254,27 +3254,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:681
+#: filewidgets/kfilewidget.cpp:682
 #, kde-format
 msgid "You can only select one file"
 msgstr "Sáhtát válljet dušše ovtta fiilla"
 
-#: filewidgets/kfilewidget.cpp:681
+#: filewidgets/kfilewidget.cpp:682
 #, kde-format
 msgid "More than one file provided"
 msgstr "Eanetgo okta fiila lea addon"
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:853
 #, kde-format
 msgid "You can only select local files"
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:853
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:859
+#: filewidgets/kfilewidget.cpp:860
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3285,12 +3285,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:866
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:881
+#: filewidgets/kfilewidget.cpp:882
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3301,12 +3301,12 @@ msgstr ""
 "leat vejolaš mearridit guđe máhppii galgá mannat. Válljes dušše ovtta máhppa "
 "vai oaidnit dan merkošiid listtus"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:884
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Eanetgo okta máhpa addon"
 
-#: filewidgets/kfilewidget.cpp:893
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3315,22 +3315,22 @@ msgstr ""
 "Goit okta máhpa ja okta fiila leat válljejuvvon. Badjelgeahčá válljejuvvon "
 "fiillaid ja čájeha válljejuvvon máhpa sisdoalu"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:895
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Fiillat ja máhpat válljejuvvon"
 
-#: filewidgets/kfilewidget.cpp:912
+#: filewidgets/kfilewidget.cpp:913
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Fiila «%1» ii gávdnon"
 
-#: filewidgets/kfilewidget.cpp:912
+#: filewidgets/kfilewidget.cpp:913
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ii sáhte rahpat fiilla"
 
-#: filewidgets/kfilewidget.cpp:1314
+#: filewidgets/kfilewidget.cpp:1315
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3338,42 +3338,42 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1318
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat ovddit lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1320
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat boahtte lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1321
+#: filewidgets/kfilewidget.cpp:1322
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Coahkkal dán boalu vai viežžat dán báikki sisdoalu ođđasit."
 
-#: filewidgets/kfilewidget.cpp:1323
+#: filewidgets/kfilewidget.cpp:1324
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Coahkkal dán boalu vai ráhkadit ođđa máhpa."
 
-#: filewidgets/kfilewidget.cpp:1325
+#: filewidgets/kfilewidget.cpp:1326
 #, kde-format
 msgid "Show Places Panel"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1336
+#: filewidgets/kfilewidget.cpp:1337
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1347
+#: filewidgets/kfilewidget.cpp:1348
 #, kde-format
 msgid "Options"
 msgstr "Molssaeavttut"
 
-#: filewidgets/kfilewidget.cpp:1354
+#: filewidgets/kfilewidget.cpp:1355
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3383,12 +3383,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1373
+#: filewidgets/kfilewidget.cpp:1374
 #, kde-format
 msgid "Bookmarks"
 msgstr "Girjemearkkat"
 
-#: filewidgets/kfilewidget.cpp:1381
+#: filewidgets/kfilewidget.cpp:1382
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3402,12 +3402,12 @@ msgstr ""
 "muhto doibmet nugo girjemearkkat eará báikkiin KDE:s.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Namma:"
 
-#: filewidgets/kfilewidget.cpp:1495
+#: filewidgets/kfilewidget.cpp:1496
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3419,12 +3419,12 @@ msgstr ""
 "stivret doaimma jus coahkkalat olgeš sáhpánboalu ja válljet modusa maid "
 "háliidat geavahit <b>Teakstaollášuhttin</b>-fálus.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1502
+#: filewidgets/kfilewidget.cpp:1503
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dán nammii fiila vurkejuvvo."
 
-#: filewidgets/kfilewidget.cpp:1505
+#: filewidgets/kfilewidget.cpp:1506
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3433,79 +3433,79 @@ msgstr ""
 "Dát listu fiillain maid lea vejolaš rahpat. Sáhtát rahpat máŋga fiilla jus "
 "earohat fiilanamaid gaskkaiguin."
 
-#: filewidgets/kfilewidget.cpp:1510
+#: filewidgets/kfilewidget.cpp:1511
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dát lea nama dan fiillas mii rahppo."
 
-#: filewidgets/kfilewidget.cpp:1523
+#: filewidgets/kfilewidget.cpp:1524
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Báikkit"
 
-#: filewidgets/kfilewidget.cpp:1741
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fiila %1 gávdno juo. Háliidatgo duođas dan buhttet?"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1743
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Buhtte fiilla?"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "You can only select local files."
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:2059
+#: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Buot máhpat"
 
-#: filewidgets/kfilewidget.cpp:2061
+#: filewidgets/kfilewidget.cpp:2062
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Buot fiillat"
 
-#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Govašsturrodat: %1 govvačuoggá"
 
-#: filewidgets/kfilewidget.cpp:2460
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automáhtalaččat vállje fiila&dovddaldaga (%1)"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2462
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "dovddaldat <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automáhtalaččat vállje &fiiladovddaldaga"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "a suitable extension"
 msgstr "heivvolaš dovddaldat"
 
-#: filewidgets/kfilewidget.cpp:2476
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3532,24 +3532,24 @@ msgstr ""
 "li> </ol> Jus ii leat sihkkar maid háliidat bargat, divtte dán molssaeavttu "
 "leat, dannego šaddá álkibut gieđahallat iežat fiillaid. "
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid "&File type:"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2936
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2938
 #, kde-format
 msgid "&Filter:"
 msgstr "&Silli:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2940
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -7543,9 +7543,15 @@ msgstr "Čále vaikko makkár gohččuma deikke maid jáhkat lea ávkkalaš dás
 msgid "Comm&ent:"
 msgstr "Komm&eanta:"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr ""
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:92 widgets/kpropertiesdesktopbase.ui:117
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
 #, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
@@ -7563,13 +7569,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:95
+#: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:124
+#: widgets/kpropertiesdesktopbase.ui:137
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -7579,33 +7585,33 @@ msgstr ""
 "hálidat vuodjit."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:127
+#: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
 msgstr "&Bláđđe …"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:136 widgets/kpropertiesdesktopbase.ui:149
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Vállje guđe máhpas du prográmma bargá."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:139
+#: widgets/kpropertiesdesktopbase.ui:152
 #, kde-format
 msgid "&Work path:"
 msgstr "Ba&rgobálggis:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:156
+#: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "Arguments:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:173 widgets/kpropertiesdesktopbase.ui:194
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -7638,25 +7644,25 @@ msgstr ""
 "coahkkalat <b>Váldde eret</b>-boalu dás vuolábealde.</p> </qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:176
+#: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Dorjojuvvon fiilašlájat:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
 msgstr "Mime-šládja"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:212
+#: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
 msgstr "Válddahus"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:222
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -7666,13 +7672,13 @@ msgstr ""
 "prográmma sáhttá gieđahallat."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:238
 #, kde-format
 msgid "Add..."
 msgstr "Lasit …"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:232
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -7683,13 +7689,13 @@ msgstr ""
 "boalu."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Remove"
 msgstr "Váldde eret"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:258
+#: widgets/kpropertiesdesktopbase.ui:271
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -7699,7 +7705,7 @@ msgstr ""
 "feedback, D-Bus-molssaeavttuid dahje geavaheaddjin man namas vuodjejuvvo."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:261
+#: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Erenoamáš &molssaeavttut"
@@ -8244,7 +8250,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3503
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
 #, fuzzy, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8255,22 +8261,22 @@ msgstr "Dušše vuojehahtti fiillat báikkálaš fiilavuogádagas dorjojuvvo."
 msgid "&Application"
 msgstr "&Prográmma"
 
-#: widgets/kpropertiesdialog.cpp:3441
+#: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Lasit fiilašlája %1 várás"
 
-#: widgets/kpropertiesdialog.cpp:3442
+#: widgets/kpropertiesdialog.cpp:3458
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Vállje ovtta dahje eanet fiilašlája maid lasihit:"
 
-#: widgets/kpropertiesdialog.cpp:3588
+#: widgets/kpropertiesdialog.cpp:3604
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Dušše vuojehahtti fiillat báikkálaš fiilavuogádagas dorjojuvvo."
 
-#: widgets/kpropertiesdialog.cpp:3603
+#: widgets/kpropertiesdialog.cpp:3619
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Erenoamáš molssaeavttut %1 várás"
