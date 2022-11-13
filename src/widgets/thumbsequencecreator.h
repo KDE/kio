@@ -10,6 +10,8 @@
 
 #include "thumbcreator.h"
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
+
 #include <qglobal.h>
 
 #include <memory>
@@ -31,6 +33,8 @@ class ThumbSequenceCreatorPrivate;
  * HandleSequences=true;
  * \endcode
  *
+ * @deprecated since 5.101, use KIO::ThumbnailCreator instead
+ *
  * @since 4.3
  */
 // KF6 TODO: put this in the KIO namespace
@@ -38,6 +42,11 @@ class KIOWIDGETS_EXPORT ThumbSequenceCreator : public ThumbCreator
 {
 public:
     Q_DISABLE_COPY(ThumbSequenceCreator)
+
+    /**
+     * @deprecated since 5.101, use KIO::ThumbnailCreator instead
+     */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 101, "Use KIO::ThumbnailCreator instead")
     ThumbSequenceCreator();
     ~ThumbSequenceCreator() override;
 
@@ -108,5 +117,7 @@ private:
 };
 
 typedef ThumbCreator *(*newCreator)();
+
+#endif
 
 #endif

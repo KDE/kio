@@ -11,6 +11,8 @@
 
 #include <qglobal.h>
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
 /**
@@ -29,11 +31,18 @@ namespace KIO
  * \endcode
  *
  * @since 5.80
+ *
+ * @deprecated since 5.101, use KIO::ThumbnailCreator instead
  */
 class KIOWIDGETS_EXPORT ThumbDevicePixelRatioDependentCreator : public ThumbCreator
 {
 public:
     Q_DISABLE_COPY(ThumbDevicePixelRatioDependentCreator)
+
+    /**
+     * @deprecated since 5.101, use KIO::ThumbnailCreator instead
+     */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 101, "Use KIO::ThumbnailCreator instead")
     ThumbDevicePixelRatioDependentCreator();
     ~ThumbDevicePixelRatioDependentCreator() override;
 
@@ -55,5 +64,7 @@ private:
 }
 
 typedef ThumbCreator *(*newCreator)();
+
+#endif
 
 #endif // THUMBDEVICEPIXELRATIODEPENDENTCREATOR_H

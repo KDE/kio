@@ -7,6 +7,8 @@
 
 #include "thumbdevicepixelratiodependentcreator.h"
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+
 class Q_DECL_HIDDEN KIO::ThumbDevicePixelRatioDependentCreator::Private
 {
 public:
@@ -34,3 +36,5 @@ KIO::ThumbDevicePixelRatioDependentCreator::ThumbDevicePixelRatioDependentCreato
 }
 
 KIO::ThumbDevicePixelRatioDependentCreator::~ThumbDevicePixelRatioDependentCreator() = default;
+
+#endif

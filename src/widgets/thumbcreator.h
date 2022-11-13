@@ -14,6 +14,7 @@ class QString;
 class QImage;
 class QWidget;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 101)
 /**
  * @class ThumbCreator thumbcreator.h <KIO/ThumbCreator>
  *
@@ -80,8 +81,9 @@ class QWidget;
  * When this is incremented (or defined when it previously was not), all the
  * previously-cached thumbnails for this creator will be discarded.  You should
  * increase the version if and only if old thumbnails need to be regenerated.
+ *
+ * @deprecated since 5.101, use KIO::ThumbnailCreator instead
  */
-// KF6 TODO: put this in the KIO namespace
 class KIOWIDGETS_EXPORT ThumbCreator
 {
 public:
@@ -120,7 +122,9 @@ public:
      *
      * @return @c true if a preview was successfully generated and store in @p
      *         img, @c false otherwise.
+     * @deprecated since 5.101, use KIO::ThumbnailCreator instead.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 101, "Use KIO::ThumbnailCreator instead")
     virtual bool create(const QString &path, int width, int height, QImage &img) = 0; // KF6 TODO: turn first arg into QUrl (see thumbnail/htmlcreator.cpp)
 
     /**
@@ -182,5 +186,7 @@ public:
 
 // KF6 TODO: rename this to something less generic
 typedef ThumbCreator *(*newCreator)();
+
+#endif
 
 #endif

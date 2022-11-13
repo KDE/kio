@@ -7,6 +7,8 @@
 
 #include "thumbsequencecreator.h"
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+
 class ThumbSequenceCreatorPrivate
 {
 public:
@@ -40,3 +42,5 @@ ThumbSequenceCreator::ThumbSequenceCreator()
 }
 
 ThumbSequenceCreator::~ThumbSequenceCreator() = default;
+
+#endif

@@ -7,6 +7,8 @@
 
 #include "thumbcreator.h"
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 101)
+
 #include <qglobal.h>
 
 ThumbCreator::~ThumbCreator()
@@ -34,4 +36,6 @@ void ThumbCreator::writeConfiguration(const QWidget *configurationWidget)
 {
     Q_UNUSED(configurationWidget);
 }
+#endif
+
 #endif
