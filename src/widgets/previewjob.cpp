@@ -271,29 +271,37 @@ PreviewJob::~PreviewJob()
 #endif
 }
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
 void PreviewJob::setOverlayIconSize(int size)
 {
     Q_D(PreviewJob);
     d->iconSize = size;
 }
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
 int PreviewJob::overlayIconSize() const
 {
     Q_D(const PreviewJob);
     return d->iconSize;
 }
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
 void PreviewJob::setOverlayIconAlpha(int alpha)
 {
     Q_D(PreviewJob);
     d->iconAlpha = qBound(0, alpha, 255);
 }
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
 int PreviewJob::overlayIconAlpha() const
 {
     Q_D(const PreviewJob);
     return d->iconAlpha;
 }
+#endif
 
 void PreviewJob::setScaleType(ScaleType type)
 {
