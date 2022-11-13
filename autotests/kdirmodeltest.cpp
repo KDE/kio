@@ -965,7 +965,9 @@ void KDirModelTest::testFilter()
     QVERIFY(m_dirIndex.isValid());
     const int oldTopLevelRowCount = m_dirModel->rowCount();
     const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
+#endif
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
     m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel*"));
@@ -1002,9 +1004,13 @@ void KDirModelTest::testFilter()
     QCOMPARE(spyItemsDeleted[0][0].value<KFileItemList>().count(), 1); // one from toplevel ('special chars')
     QCOMPARE(spyItemsDeleted[1][0].value<KFileItemList>().count(), 2); // two from subdir
     QCOMPARE(spyItemsDeleted[2][0].value<KFileItemList>().count(), 1); // one from subsubdir
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     QCOMPARE(spyItemsFilteredByMime.count(), 0);
+#endif
     spyItemsDeleted.clear();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     spyItemsFilteredByMime.clear();
+#endif
 
     // Reset the filter
     qDebug() << "reset to no filter";
@@ -1014,7 +1020,9 @@ void KDirModelTest::testFilter()
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount);
     QCOMPARE(spyItemsDeleted.count(), 0);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     QCOMPARE(spyItemsFilteredByMime.count(), 0);
+#endif
 
     // The order of things changed because of filtering.
     // Fill again, so that m_fileIndex etc. are correct again.
@@ -1100,7 +1108,9 @@ void KDirModelTest::testMimeFilter()
 
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
     QCOMPARE(spyItemsDeleted.count(), 0);
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
     QCOMPARE(spyItemsFilteredByMime.count(), 0);
+#endif
 
     // The order of things changed because of filtering.
     // Fill again, so that m_fileIndex etc. are correct again.

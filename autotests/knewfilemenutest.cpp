@@ -187,14 +187,22 @@ private Q_SLOTS:
         QFETCH(QString, expectedFilename);
 
         QWidget parentWidget;
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
         KActionCollection coll(this, QStringLiteral("foo"));
         KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
+#else
+        KNewFileMenu menu(this);
+#endif
         menu.setModal(false);
         menu.setParentWidget(&parentWidget);
         menu.setSelectDirWhenAlreadyExist(true);
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
         QAction *action = coll.action(QStringLiteral("the_action"));
+#else
+        QAction *action = &menu;
+#endif
         QVERIFY(action);
         QAction *textAct = nullptr;
         const QList<QAction *> actionsList = action->menu()->actions();
@@ -287,11 +295,19 @@ private Q_SLOTS:
 
     void testParsingUserDirs()
     {
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
         KActionCollection coll(this, QStringLiteral("foo"));
         KNewFileMenu menu(&coll, QStringLiteral("the_action"), this);
+#else
+        KNewFileMenu menu(this);
+#endif
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
         QAction *action = coll.action(QStringLiteral("the_action"));
+#else
+        QAction *action = &menu;
+#endif
         const auto list = action->menu()->actions();
         auto it = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
             return act->text().contains("Custom");

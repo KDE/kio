@@ -2381,7 +2381,11 @@ void KDirOperator::setupActions()
 
     d->m_itemActions = new KFileItemActions(this);
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
     d->m_newFileMenu = new KNewFileMenu(d->m_actionCollection, QStringLiteral("new"), this);
+#else
+    d->m_newFileMenu = new KNewFileMenu(this);
+#endif
     d->m_actions[KDirOperator::New] = d->m_newFileMenu;
     connect(d->m_newFileMenu, &KNewFileMenu::directoryCreated, this, [this](const QUrl &url) {
         d->slotDirectoryCreated(url);

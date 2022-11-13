@@ -1327,7 +1327,7 @@ void KFileWidgetPrivate::initToolbar()
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
     coll->addAction(QStringLiteral("togglePlacesPanel"), m_togglePlacesPanelAction);
 #else
-    q->addAction(coll);
+    q->addAction(m_togglePlacesPanelAction);
 #endif
     m_togglePlacesPanelAction->setShortcut(QKeySequence(Qt::Key_F9));
     q->connect(m_togglePlacesPanelAction, &QAction::toggled, q, [this](bool show) {
