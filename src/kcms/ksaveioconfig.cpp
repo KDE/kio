@@ -45,6 +45,7 @@ static KConfig *config()
 {
     if (!d->config) {
         d->config = new KConfig(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
+        // KF6 TODO: rename to kioworkerrc here and elsewhere. See also T15956.
     }
 
     return d->config;

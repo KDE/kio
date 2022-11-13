@@ -294,6 +294,7 @@ public:
 #endif
 
     static void emitReparseSlaveConfiguration();
+    // KF6 TODO: rename to emitReparseWorkerConfiguration. See also T15956.
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
     /**
@@ -336,6 +337,7 @@ Q_SIGNALS:
 
     // DBUS
     Q_SCRIPTABLE void reparseSlaveConfiguration(const QString &);
+    // KF6 TODO: rename to reparseWorkerConfiguration. See also T15956.
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     /**
