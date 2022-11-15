@@ -110,6 +110,7 @@ Query[cy]=https://api.kde.org/search.html?query=\\{@}
 Query[de]=https://api.kde.org/search.html?query=\\{@}
 Query[en_GB]=https://api.kde.org/search.html?query=\\{@}
 Query[es]=https://api.kde.org/search.html?query=\\{@}
+Query[et]=https://api.kde.org/search.html?query=\\{@}
 Query[eu]=https://api.kde.org/search.html?query=\\{@}
 Query[fi]=https://api.kde.org/search.html?query=\\{@}
 Query[fr]=https://api.kde.org/search.html?query=\\{@}

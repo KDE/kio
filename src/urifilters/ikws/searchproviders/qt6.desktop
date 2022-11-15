@@ -16,6 +16,7 @@ Name[cy]=Dogfennaeth Arlein Qt6
 Name[de]=Qt6-Online-Dokumentation
 Name[en_GB]=Qt6 Online Documentation
 Name[es]=Documentación Qt6 en línea
+Name[et]=Qt6 dokumentatsioon võrgus
 Name[eu]=Qt6-ren lerroko dokumentazioa
 Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
@@ -57,6 +58,7 @@ Query[cy]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[de]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[en_GB]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[et]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[eu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
