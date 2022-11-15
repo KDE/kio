@@ -6,20 +6,20 @@
 # Marek Laane <bald@starman.ee>, 2003-2008.
 # Hasso Tepper <hasso@kde.org>, 2004, 2005.
 # Marek Laane <bald@smail.ee>, 2009, 2010, 2011, 2012, 2016, 2019, 2020.
-# Mihkel Tõnnov <mihhkel@gmail.com>, 2020, 2021.
+# Mihkel Tõnnov <mihhkel@gmail.com>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:42+0000\n"
-"PO-Revision-Date: 2021-10-13 01:45+0200\n"
+"PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.2\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -222,8 +222,7 @@ msgid "Destination"
 msgstr "Sihtkoht"
 
 #: core/job.cpp:113
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Nime muutmine"
@@ -738,19 +737,13 @@ msgstr ""
 "Palun kontrolli õigusi."
 
 #: core/job_error.cpp:210
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "The first arg is the path to the symlink that couldn't be created, the "
-#| "secondarg is the filesystem type (e.g. vfat, exfat)"
-#| msgid ""
-#| "Could not create symlink \"%1\".\n"
-#| "The destination filesystem (%2) doesn't support symlinks."
+#, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Nimeviita \"%1\" pole võimalik luua.\n"
-"Sihtfailisüsteem (%2) ei toeta nimeviitasid."
+"Asukohas \"%1\" pole võimalik nimeviitasid luua.\n"
+"Sihtfailisüsteem ei toeta nimeviitasid."
 
 #: core/job_error.cpp:216
 #, kde-format
@@ -2401,7 +2394,7 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr ""
+msgstr "Faili \"%1\" tüüpi pole võimalik määrata"
 
 #: core/slave.cpp:421
 #, kde-format
@@ -2749,10 +2742,9 @@ msgid "Folders First"
 msgstr "Kataloogid esimesena"
 
 #: filewidgets/kdiroperator.cpp:2177
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Peidetud failide näitamine"
+msgstr "Peidetud failid viimasena"
 
 #: filewidgets/kdiroperator.cpp:2187
 #, kde-format
@@ -2835,10 +2827,9 @@ msgid "Properties"
 msgstr "Omadused"
 
 #: filewidgets/kdiroperator.cpp:2368
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "&Vaade"
+msgstr "&Vaaterežiim"
 
 #: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
 #, kde-format
@@ -3082,8 +3073,6 @@ msgid "Tags"
 msgstr "Sildid"
 
 #: filewidgets/kfileplacesmodel.cpp:165
-#, fuzzy
-#| msgid "All tags"
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Kõik sildid"
@@ -3166,67 +3155,57 @@ msgid "Audio"
 msgstr "Heli"
 
 #: filewidgets/kfileplacesmodel.cpp:1161
-#, fuzzy, kde-format
-#| msgid "Could not find the program '%1'"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Programmi \"%1\" ei leitud"
+msgstr "Asukohtade paneelile lisamine ebaõnnestus: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1168
-#, fuzzy, kde-format
-#| msgid "A folder cannot be moved into itself"
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Kataloogi ei saa iseendasse lohistada"
+msgstr "Asukohtade paneelile saab lisada ainult katalooge."
 
 #: filewidgets/kfileplacesmodel.cpp:1432
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Va&basta '%1'"
+msgstr "Vabastamine …"
 
 #: filewidgets/kfileplacesmodel.cpp:1434
-#, fuzzy, kde-format
-#| msgid "&Release '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "Va&basta '%1'"
+msgstr "&Vabasta"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
-#, fuzzy, kde-format
-#| msgid "&Safely Remove '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Eemalda turvaliselt '%1'"
+msgstr "Turvaliselt eemaldamine …"
 
 #: filewidgets/kfileplacesmodel.cpp:1440
-#, fuzzy, kde-format
-#| msgid "&Safely Remove '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
-msgstr "&Eemalda turvaliselt '%1'"
+msgstr "&Eemalda turvaliselt"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Lahutamine"
+msgstr "Lahutamine …"
 
 #: filewidgets/kfileplacesmodel.cpp:1447
-#, fuzzy, kde-format
-#| msgid "Unmount"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
-msgstr "Lahuta"
+msgstr "&Lahuta"
 
 #: filewidgets/kfileplacesmodel.cpp:1471
-#, fuzzy, kde-format
-#| msgid "Eject"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
-msgstr "Väljasta"
+msgstr "&Väljasta"
 
 #: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-format
@@ -3283,35 +3262,31 @@ msgid "Mount"
 msgstr "Ühenda"
 
 #: filewidgets/kfileplacesview.cpp:1141
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
-msgstr "Ava %1 kaardil"
+msgstr "Ava uuel kaardil"
 
 #: filewidgets/kfileplacesview.cpp:1144
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
-msgstr ""
+msgstr "Ava uues aknas"
 
 #: filewidgets/kfileplacesview.cpp:1153
-#, fuzzy, kde-format
-#| msgid "Add Entry..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Lisa kirje..."
+msgstr "Lisa kirje …"
 
 #: filewidgets/kfileplacesview.cpp:1159
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "Muuda"
+msgstr "&Muuda …"
 
 #: filewidgets/kfileplacesview.cpp:1164
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Eemalda"
@@ -3320,18 +3295,16 @@ msgstr "Eemalda"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
-msgstr ""
+msgstr "&Peida"
 
 #: filewidgets/kfileplacesview.cpp:1176
-#, fuzzy, kde-format
-#| msgid "Hide Section"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "Peida sektsioon"
+msgstr "Peida sektsioon \"%1\""
 
 #: filewidgets/kfileplacesview.cpp:1176
-#, fuzzy, kde-format
-#| msgid "Hide Section"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Peida sektsioon"
@@ -3852,18 +3825,16 @@ msgid "Paste"
 msgstr "Aseta"
 
 #: filewidgets/kurlnavigator.cpp:548
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Ava %1 kaardil"
+msgstr "Ava \"%1\" uuel kaardil"
 
 #: filewidgets/kurlnavigator.cpp:556
-#, fuzzy, kde-format
-#| msgid "Open %1 in tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Ava %1 kaardil"
+msgstr "Ava \"%1\" uues aknas"
 
 #: filewidgets/kurlnavigator.cpp:565
 #, kde-format
@@ -4055,6 +4026,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"See fail on poolik ja seda ei tohiks avada.\n"
+"Vaata, kas faili allalaadimine on ehk alles pooleli või kas mõni avatud "
+"rakendus salvestab parajasti seda faili."
 
 #: gui/openurljob.cpp:639
 #, kde-format
@@ -4168,7 +4142,7 @@ msgstr "Ajatempli muutmine"
 #: ioslaves/file/file_unix.cpp:138
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "Lähtekoht: %1, sihtkoht: %2"
 
 #: ioslaves/file/file_unix.cpp:141
 #, kde-format
@@ -5698,6 +5672,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"Kõik rakendused siinseid puhverserveri seadeid ei kasuta. Nii käituvad "
+"näiteks <application>Firefox</application>, <application>Chromium</"
+"application> ja nende tuletised ning kõik, mis <application>QtWebEngine</"
+"application>'it kasutab&nbsp;- sealhulgas <application>WebEnginePart</"
+"application>i kasutav <application>Konqueror</application>, samuti "
+"<application>Akregator</application> ja <application>Falkon</application>. "
+"Mõne rakenduse puhul saab puhverserveri kasutamise määrata rakenduse enda "
+"seadetes."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -7128,8 +7110,7 @@ msgid "Moving"
 msgstr "Liigutamine"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
 msgstr "Nime muutmine"
 
@@ -7289,22 +7270,19 @@ msgid "SSL"
 msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Lisa..."
+msgstr "Lisa ..."
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Muuda"
+msgstr "Muuda ..."
 
 #: widgets/kacleditwidget.cpp:79
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Kustuta"
@@ -7535,10 +7513,9 @@ msgid "&Actions"
 msgstr "&Toimingud"
 
 #: widgets/kfileitemactions.cpp:858
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgid "&Open folder with %1"
-msgstr "&Ava rakendusega %1"
+msgstr "&Ava kataloog rakendusega %1"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -7546,26 +7523,22 @@ msgid "&Open with %1"
 msgstr "&Ava rakendusega %1"
 
 #: widgets/kfileitemactions.cpp:880
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With..."
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "A&va rakendusega..."
+msgstr "A&va kataloog rakendusega ..."
 
 #: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "A&va rakendusega..."
+msgstr "A&va rakendusega ..."
 
 #: widgets/kfileitemactions.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "Ava &rakendusega"
+msgstr "Ava kataloog &rakendusega"
 
 #: widgets/kfileitemactions.cpp:894
 #, kde-format
@@ -7601,10 +7574,9 @@ msgstr "Peata"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Explore in FileLight"
+#, kde-format
 msgid "Explore in Filelight"
-msgstr "Uuri FileLightis"
+msgstr "Uuri Filelightis"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:134
@@ -7632,10 +7604,9 @@ msgstr "Asukoht:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:336
-#, fuzzy, kde-format
-#| msgid "C&hange..."
+#, kde-format
 msgid "Change..."
-msgstr "&Muuda..."
+msgstr "Muuda ..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:349
@@ -7687,10 +7658,9 @@ msgstr "Loetud:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:485
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open With:"
-msgstr "Avamine rakendusega"
+msgstr "Avatakse rakendusega:"
 
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
@@ -7805,16 +7775,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Rakenduse seos jäetakse kõigi seda tüüpi failide jaoks meelde\n"
-"\"%1\" (%2)"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7834,7 +7801,7 @@ msgstr "Käsu lõ&petamisel ei suleta"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Hangi Discover'ist veel rakendusi"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -8109,7 +8076,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Programm:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8140,11 +8107,9 @@ msgstr "&Töökataloog:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Dokumendid"
+msgstr "Argumendid:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8283,11 +8248,10 @@ msgid "&General"
 msgstr "Ül&dine"
 
 #: widgets/kpropertiesdialog.cpp:1119
-#, fuzzy, kde-format
-#| msgid "Explore in FileLight"
+#, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
-msgstr "Uuri FileLightis"
+msgstr "Uuri %1is"
 
 #: widgets/kpropertiesdialog.cpp:1130 widgets/kpropertiesdialog.cpp:1395
 #, kde-format
@@ -8340,10 +8304,9 @@ msgid "Calculating...\n"
 msgstr "Arvutamine...\n"
 
 #: widgets/kpropertiesdialog.cpp:1427
-#, fuzzy, kde-format
-#| msgid "At least %1"
+#, kde-format
 msgid "At least %1\n"
-msgstr "Vähemalt %1 "
+msgstr "Vähemalt %1\n"
 
 #: widgets/kpropertiesdialog.cpp:1473
 #, kde-format
@@ -8351,30 +8314,26 @@ msgid "The new file name is empty."
 msgstr "Uus failinimi on tühi."
 
 #: widgets/kpropertiesdialog.cpp:1671
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "Toetatud &failitüübid:"
+msgstr "Registreerimata failitüüp"
 
 #: widgets/kpropertiesdialog.cpp:1673
-#, fuzzy, kde-format
-#| msgid "Choose Application"
+#, kde-format
 msgid "No associated application"
-msgstr "Rakenduse valimine"
+msgstr "Seostatud rakendust pole"
 
 #: widgets/kpropertiesdialog.cpp:1679
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Loodud:"
+msgstr "Loo …"
 
 #: widgets/kpropertiesdialog.cpp:1682
-#, fuzzy, kde-format
-#| msgid "C&hange..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "&Muuda..."
+msgstr "Muuda …"
 
 #: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
 #: widgets/kpropertiesdialog.cpp:1761
