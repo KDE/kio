@@ -18,11 +18,11 @@
 <emphasis>H</emphasis>yper<emphasis>T</emphasis>ext
 <emphasis>T</emphasis>ransfer <emphasis>P</emphasis>rotocol.</para>
 
-<para>The http kioslave is used by all &kde; applications to handle
+<para>The http KIO worker is used by all &kde; applications to handle
 connections to &HTTP; servers, that is, web servers.  The most common
 usage is to view web pages in the &konqueror; web browser.</para>
 
-<para>You can use the https kioslave in &konqueror; by giving it a &URL;.
+<para>You can use the https KIO worker in &konqueror; by giving it a &URL;.
 <userinput>https://<replaceable>www.kde.org</replaceable></userinput>.</para>
 
 <para>https is http encapsulated in a SSL/TLS stream.</para>

@@ -49,8 +49,8 @@ clients in your network need and have the same information.</para>
 <!-- Don't know if the following info should go in the base
 documentation --> 
 
-<!-- this smb-ioslave doesn't support showing a list
-of hosts (like e.g. smb:/), for this you need the lan or rlan-ioslave,
+<!-- this smb KIO worker doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan KIO worker,
 very cool thing (TM) btw. If you want to write some documentation for
 this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
 contact me if you have questions. -->
