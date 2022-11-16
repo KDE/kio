@@ -242,7 +242,7 @@ extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
 
 void DesktopExecParserTest::testKtelnetservice()
 {
-    const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/ioslaves/telnet/ktelnetservice5.desktop"));
+    const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/schemehandlers/telnet/ktelnetservice5.desktop"));
     QVERIFY(!ktelnetDesk.isEmpty());
 
     // KApplicationTrader in KIO::DesktopExecParser::hasSchemeHandler() needs the .desktop file to be installed

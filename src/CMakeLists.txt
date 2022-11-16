@@ -8,6 +8,7 @@ if (NOT ANDROID)
     add_subdirectory(kioworkers)
     add_subdirectory(kiod)
     add_subdirectory(kssld)
+    add_subdirectory(schemehandlers)
 endif()
 add_subdirectory(kioslave)
 
