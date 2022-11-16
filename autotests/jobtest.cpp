@@ -70,9 +70,6 @@ void JobTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
     QCoreApplication::instance()->setApplicationName("kio/jobtest"); // testing for #357499
 
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     // to make sure io is not too fast
     qputenv("KIOSLAVE_FILE_ENABLE_TESTMODE", "1");
 

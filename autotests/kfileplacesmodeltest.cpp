@@ -99,7 +99,6 @@ void KFilePlacesModelTest::initTestCase()
 {
     QVERIFY(m_tmpHome.isValid());
     qputenv("HOME", m_tmpHome.path().toUtf8()); // use a empty home dir
-    qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
 
     QStandardPaths::setTestModeEnabled(true);
 

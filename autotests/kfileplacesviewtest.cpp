@@ -43,7 +43,6 @@ void KFilePlacesViewTest::initTestCase()
 {
     QVERIFY(m_tmpHome.isValid());
     qputenv("HOME", m_tmpHome.path().toUtf8());
-    qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
     qputenv("KDE_FULL_SESSION", "1"); // attempt to enable recentlyused:/ if present, so we only need to test for isKnownProtocol below
     QStandardPaths::setTestModeEnabled(true);
 

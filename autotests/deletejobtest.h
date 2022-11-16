@@ -13,7 +13,6 @@ class DeleteJobTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
-    void initTestCase();
     void deleteFileTestCase_data() const;
     void deleteFileTestCase();
     void deleteDirectoryTestCase_data() const;

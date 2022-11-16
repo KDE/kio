@@ -51,9 +51,6 @@ private Q_SLOTS:
     {
         QStandardPaths::setTestModeEnabled(true);
 
-        // To avoid a runtime dependency on klauncher
-        qputenv("KDE_FORK_SLAVES", "yes");
-
         cleanupTestCase();
 
         // Create temporary home directory

@@ -15,12 +15,6 @@
 
 QTEST_MAIN(ListDirTest)
 
-void ListDirTest::initTestCase()
-{
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-}
-
 void ListDirTest::numFilesTestCase_data()
 {
     QTest::addColumn<int>("numOfFiles");

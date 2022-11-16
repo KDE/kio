@@ -27,7 +27,6 @@ private Q_SLOTS:
     {
         QStandardPaths::setTestModeEnabled(true);
         qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
-        qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
 
         QVERIFY(m_tempDir.isValid());
         QVERIFY(m_tempDestDir.isValid());

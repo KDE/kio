@@ -30,8 +30,6 @@ void KIOThreadTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
     // Start with a clean base dir
     cleanupTestCase();
     homeTmpDir(); // create it

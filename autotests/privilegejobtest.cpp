@@ -21,9 +21,6 @@ QTEST_MAIN(PrivilegeJobTest)
 
 void PrivilegeJobTest::initTestCase()
 {
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     cleanupTestCase();
     homeTmpDir();
     m_testFilePath = homeTmpDir() + "testfile";

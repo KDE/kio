@@ -25,9 +25,6 @@ void KIOPasteTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     QVERIFY(m_tempDir.isValid());
     m_dir = m_tempDir.path();
 }

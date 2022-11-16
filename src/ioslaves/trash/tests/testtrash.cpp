@@ -122,9 +122,6 @@ static void removeDirRecursive(const QString &dir)
 
 void TestTrash::initTestCase()
 {
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     QStandardPaths::setTestModeEnabled(true);
 
     QVERIFY(m_tempDir.isValid());

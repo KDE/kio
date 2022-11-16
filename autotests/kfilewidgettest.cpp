@@ -90,9 +90,6 @@ private Q_SLOTS:
 
 void KFileWidgetTest::initTestCase()
 {
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     QStandardPaths::setTestModeEnabled(true);
 
     QVERIFY(QDir::homePath() != QDir::tempPath());

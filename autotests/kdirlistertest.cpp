@@ -40,9 +40,6 @@ QString KDirListerTest::tempPath() const
 
 void KDirListerTest::initTestCase()
 {
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-
     // To avoid failing on broken locally defined MIME types
     QStandardPaths::setTestModeEnabled(true);
 

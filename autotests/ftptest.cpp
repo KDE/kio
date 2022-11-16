@@ -74,7 +74,6 @@ private Q_SLOTS:
         });
 
         QStandardPaths::setTestModeEnabled(true);
-        qputenv("KDE_FORK_SLAVES", "yes");
     }
 
     void cleanupTestCase()

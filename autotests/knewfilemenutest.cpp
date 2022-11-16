@@ -36,7 +36,6 @@ private Q_SLOTS:
     void initTestCase()
     {
         QStandardPaths::setTestModeEnabled(true);
-        qputenv("KDE_FORK_SLAVES", "yes"); // to avoid a runtime dependency on klauncher
 #ifdef Q_OS_UNIX
         m_umask = ::umask(0);
         ::umask(m_umask);

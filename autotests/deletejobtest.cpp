@@ -19,12 +19,6 @@ QTEST_MAIN(DeleteJobTest)
 
 static constexpr int KJOB_NO_ERROR = static_cast<int>(KJob::NoError);
 
-void DeleteJobTest::initTestCase()
-{
-    // To avoid a runtime dependency on klauncher
-    qputenv("KDE_FORK_SLAVES", "yes");
-}
-
 void DeleteJobTest::deleteFileTestCase_data() const
 {
     QTest::addColumn<QString>("fileName");

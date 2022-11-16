@@ -83,9 +83,6 @@ private Q_SLOTS:
         QStandardPaths::setTestModeEnabled(true);
         qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
 
-        // To avoid a runtime dependency on klauncher
-        qputenv("KDE_FORK_SLAVES", "yes");
-
         KIO::setDefaultJobUiDelegateFactoryV2(nullptr);
         KIO::setDefaultJobUiDelegateExtension(nullptr);
 

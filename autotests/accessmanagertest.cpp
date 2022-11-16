@@ -22,7 +22,6 @@ class AccessManagerTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
-        qputenv("KDE_FORK_SLAVES", "yes"); // To avoid a runtime dependency on klauncher
         qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
         QStandardPaths::setTestModeEnabled(true);
     }
