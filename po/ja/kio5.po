@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2812,37 +2812,37 @@ msgstr "プロパティ"
 msgid "&View Mode"
 msgstr "表示モード(&V)"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "新しいものを最初に"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "古いものを最初に"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "大きいものを最初に"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4156,546 +4156,6 @@ msgstr "ユーザ名 %1 のユーザ ID を取得できませんでした"
 msgid "Could not get group id for given group name %1"
 msgstr "グループ名 %1 のグループ ID を取得できませんでした"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "ホストが指定されていません。"
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "そうでなければ要求は成功していたでしょう。"
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "プロパティの値を取得"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "プロパティの値をセット"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "要求されたフォルダを作成"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "指定されたファイルまたはフォルダをコピー"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "指定されたファイルまたはフォルダを移動"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "指定されたフォルダで検索"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "指定されたファイルまたはフォルダをロック"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "指定されたファイルまたはフォルダのロックを解除"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "指定されたファイルまたはフォルダを削除"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "サーバの機能を問い合わせ"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "指定されたファイルまたはフォルダの内容を取得"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "指定されたフォルダでレポートを実行"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "サーバは WebDAV プロトコルをサポートしていません。"
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr ""
-"%1しようとしていたときにエラーが発生しました (%2)。原因の要約は以下のとおりで"
-"す。"
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "%1しようとしていたときにアクセスが拒否されました。"
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"一つ以上の中間コレクション (フォルダ) が作成されるまで、リソースはその場所に"
-"作成できません。"
-
-#: ioslaves/http/http.cpp:1699
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element or you attempted to overwrite a file "
-#| "while requesting that files are not overwritten. %1"
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"サーバが <icode>propertybehavior</icode> XML 要素にリストされているプロパティ"
-"の liveness を保持できなかったか、ファイルを上書きしないよう要求しながら、あ"
-"なたがファイルを上書きしようとしました。%1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "要求されたロックは承諾されませんでした。%1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "サーバはこのタイプの body の要求をサポートしていません。"
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "%1できません。リソースがロックされています。"
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "このアクションは他のエラーによって妨害されました。"
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr ""
-"%1できません。相手のサーバがファイルまたはフォルダの受け取りを拒否していま"
-"す。"
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"ターゲットのリソースには、このメソッドを実行した後にリソースの状態を保存する"
-"のに十分なスペースがありません。"
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "このリソースは削除できません。"
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "%1 をアップロード"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 にコンタクトしました。応答を待っています..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr ""
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "サーバは要求を処理しています、しばらくお待ちください..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1 にデータを送信中"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2 から %1 を受信中..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
-"が必要です。"
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "プロキシ:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%2</b> の <b>%1</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "プロキシ認証に失敗しました。"
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "このサイトにアクセスするためにはユーザ名とパスワードが必要です。"
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "サイト:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "認証に失敗しました。"
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "権限付与に失敗しました。"
-
-# skip-rule: authorization
-# パスワードによる認証を行うダイアログ
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "未知の認証方法です。"
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "クッキーを保存できません"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "%1 を削除できませんでした。パーミッションを確認してください。"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "ディレクトリ %1 を作成できませんでした。"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "クッキーの警告"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to accept or reject?"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] "受け入れますか？拒否しますか？"
-msgstr[1] "受け入れますか？拒否しますか？"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [クロスドメインです]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "詳細"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "クッキー情報を表示、編集"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "受け入れ(&A)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "拒否(&R)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "適用対象"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "このクッキーのみ(&O)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "これらのクッキーのみ(&O)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the System Settings)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"<qt>このクッキーのみを受け入れ/拒否するには、このオプションを選択してくださ"
-"い。他のクッキーが来るとまたこのダイアログが表示されます。詳しくは KDE システ"
-"ム設定の<interface>ウェブ閲覧|クッキー</interface>を参照してください。</qt>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "このドメインからのすべてのクッキー(&M)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "System Settings <em>(see WebBrowsing/Cookies in the System Settings)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"<qt>このサイトからのすべてのクッキーを受け入れ/拒否するには、このオプションを"
-"選択してください。このオプションを選択すると、このサイトからのクッキーについ"
-"て新しいポリシーが追加されます。KDE システム設定で手動で変更しない限り、以後"
-"このポリシーが適用されます。詳しくは KDE システム設定の<interface>ウェブ閲覧|"
-"クッキー</interface>を参照してください。</qt>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "すべてのクッキー(&C)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the System "
-#| "Settings for all cookies <em>(see WebBrowsing/Cookies in the System "
-#| "Settings)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"<qt>すべてのクッキーを受け入れ/拒否するには、このオプションを選択してくださ"
-"い。このオプションを選択すると、KDE システム設定の標準ポリシーが変更されま"
-"す。詳しくは KDE システム設定の<interface>ウェブ閲覧|クッキー</interface>を参"
-"照してください。</qt>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "クッキーの詳細"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "名前:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "値:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "有効期限:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "パス:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "ドメイン:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "露出:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "次(&N) >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "次のクッキーの詳細を表示"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "指定なし"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "セッションの最後"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "セキュアサーバのみ"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "セキュアサーバ、ページスクリプト"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "サーバ"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "サーバ、ページスクリプト"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "詳細"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
@@ -5063,6 +4523,48 @@ msgstr "ポリシーを変更(&G)..."
 #, kde-format
 msgid "&Reload List"
 msgstr "リストを再読み込み(&Y)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "詳細"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "名前:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "値:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "ドメイン:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "パス:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "有効期限:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6440,6 +5942,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "このサイトにアクセスするためにはユーザ名とパスワードが必要です。"
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "サイト:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6462,6 +5974,28 @@ msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "%1 を起動中"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
+"が必要です。"
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "プロキシ:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "プロキシ認証に失敗しました。"
 
 #: kioworkers/help/kio_help.cpp:112
 #, fuzzy, kde-format
@@ -6505,6 +6039,472 @@ msgstr ""
 #| msgid "Could not read file %1."
 msgid "Could not find filename %1 in %2."
 msgstr "ファイル <filename>%1</filename> を読めませんでした。"
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "ホストが指定されていません。"
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "そうでなければ要求は成功していたでしょう。"
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "プロパティの値を取得"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "プロパティの値をセット"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "要求されたフォルダを作成"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "指定されたファイルまたはフォルダをコピー"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "指定されたファイルまたはフォルダを移動"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "指定されたフォルダで検索"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "指定されたファイルまたはフォルダをロック"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "指定されたファイルまたはフォルダのロックを解除"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "指定されたファイルまたはフォルダを削除"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "サーバの機能を問い合わせ"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "指定されたファイルまたはフォルダの内容を取得"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "指定されたフォルダでレポートを実行"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "サーバは WebDAV プロトコルをサポートしていません。"
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"%1しようとしていたときにエラーが発生しました (%2)。原因の要約は以下のとおりで"
+"す。"
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "%1しようとしていたときにアクセスが拒否されました。"
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"一つ以上の中間コレクション (フォルダ) が作成されるまで、リソースはその場所に"
+"作成できません。"
+
+#: kioworkers/http/http.cpp:1699
+#, fuzzy, kde-format
+#| msgid ""
+#| "The server was unable to maintain the liveness of the properties listed "
+#| "in the propertybehavior XML element or you attempted to overwrite a file "
+#| "while requesting that files are not overwritten. %1"
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"サーバが <icode>propertybehavior</icode> XML 要素にリストされているプロパティ"
+"の liveness を保持できなかったか、ファイルを上書きしないよう要求しながら、あ"
+"なたがファイルを上書きしようとしました。%1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "要求されたロックは承諾されませんでした。%1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "サーバはこのタイプの body の要求をサポートしていません。"
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "%1できません。リソースがロックされています。"
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "このアクションは他のエラーによって妨害されました。"
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"%1できません。相手のサーバがファイルまたはフォルダの受け取りを拒否していま"
+"す。"
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"ターゲットのリソースには、このメソッドを実行した後にリソースの状態を保存する"
+"のに十分なスペースがありません。"
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "このリソースは削除できません。"
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "%1 をアップロード"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 にコンタクトしました。応答を待っています..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr ""
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "サーバは要求を処理しています、しばらくお待ちください..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "%1 にデータを送信中"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "%2 から %1 を受信中..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%2</b> の <b>%1</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "認証に失敗しました。"
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "権限付与に失敗しました。"
+
+# skip-rule: authorization
+# パスワードによる認証を行うダイアログ
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "未知の認証方法です。"
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Cannot Save Cookies"
+msgstr "クッキーを保存できません"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, kde-format
+msgid "Could not remove %1, check permissions"
+msgstr "%1 を削除できませんでした。パーミッションを確認してください。"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Could not create directory %1"
+msgstr "ディレクトリ %1 を作成できませんでした。"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "クッキーの警告"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "受け入れますか？拒否しますか？"
+msgstr[1] "受け入れますか？拒否しますか？"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, kde-format
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [クロスドメインです]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "クッキー情報を表示、編集"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "受け入れ(&A)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "拒否(&R)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "適用対象"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "このクッキーのみ(&O)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "これらのクッキーのみ(&O)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the System Settings)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"<qt>このクッキーのみを受け入れ/拒否するには、このオプションを選択してくださ"
+"い。他のクッキーが来るとまたこのダイアログが表示されます。詳しくは KDE システ"
+"ム設定の<interface>ウェブ閲覧|クッキー</interface>を参照してください。</qt>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "このドメインからのすべてのクッキー(&M)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "System Settings <em>(see WebBrowsing/Cookies in the System Settings)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"<qt>このサイトからのすべてのクッキーを受け入れ/拒否するには、このオプションを"
+"選択してください。このオプションを選択すると、このサイトからのクッキーについ"
+"て新しいポリシーが追加されます。KDE システム設定で手動で変更しない限り、以後"
+"このポリシーが適用されます。詳しくは KDE システム設定の<interface>ウェブ閲覧|"
+"クッキー</interface>を参照してください。</qt>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "すべてのクッキー(&C)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the System "
+#| "Settings for all cookies <em>(see WebBrowsing/Cookies in the System "
+#| "Settings)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"<qt>すべてのクッキーを受け入れ/拒否するには、このオプションを選択してくださ"
+"い。このオプションを選択すると、KDE システム設定の標準ポリシーが変更されま"
+"す。詳しくは KDE システム設定の<interface>ウェブ閲覧|クッキー</interface>を参"
+"照してください。</qt>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "クッキーの詳細"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, kde-format
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "露出:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "次(&N) >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "次のクッキーの詳細を表示"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, kde-format
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "指定なし"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, kde-format
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "セッションの最後"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "セキュアサーバのみ"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "セキュアサーバ、ページスクリプト"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "サーバ"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "サーバ、ページスクリプト"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, kde-format
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "詳細"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

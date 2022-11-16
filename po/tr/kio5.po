@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2022-11-10 06:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2814,37 +2814,37 @@ msgstr "Özellikler"
 msgid "&View Mode"
 msgstr "&Görünüm Kipi"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Önce En Yeni"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Önce En Eski"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Önce En Büyük"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4170,529 +4170,6 @@ msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "Hiç makine adı belirtilmemiş."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "Belirtilseydi istek başarılı olacaktı."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "özellik değerlerini al"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "özellik değerlerini ayarla"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "istenilen klasörü oluştur"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı kopyala"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı taşı"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "belirtilen klasör içerisinde ara"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı kilitle"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "belirtilen klasör ya da dosyanın kilidini aç"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı sil"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "sunucunun özelliklerini sorgula"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "belirtilen klasör ya da dosyanın içeriğini al"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "belirtilen klasör içerisinde bir rapor çalıştır"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Sunucu WebDAV protokolünü desteklemiyor."
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr ""
-"%1, %2 işlemi sırasında bir hata oluştu. Bu hata ile ilgili özet bilgi "
-"aşağıdadır."
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "%1 işlem yapılırken erişim engellendi."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"Bir veya daha fazla ara koleksiyon (klasör) oluşturulmadan, hedefte bu "
-"kaynak oluşturulamaz."
-
-#: ioslaves/http/http.cpp:1699
-#, kde-format
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"Sunucu, XML propertybehavior ögesindeki canlılığı\n"
-"koruyamadı veya dosyaların üzerine yazılmasın derken\n"
-"bir dosyanın üzerine yazmaya çalıştınız.\n"
-" %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "İstenen kilit tamamlanamadı: %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "Bu istek talebini sunucu anlamadı."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "%1 yapılamadı çünkü kaynak kilitli."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "Bu eylem, başka bir hata nedeniyle engellendi."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr ""
-"%1 yapılamadı çünkü hedef sunucu dosya ya da klasör kabul etmeyi reddediyor."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"Hedef özkaynak, özkaynağın bu yönteminin yürütülmesinden sonraki durumunu "
-"kaydedecek alana sahip değil."
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "Kaynak silinemedi."
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "%1 karşıya yükle"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 ile bağlantı kuruldu. Yanıt bekleniyor..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>\"%2\" kullanıcı adı ile \"%1\" sayfasında oturum açmak üzeresiniz fakat "
-"web sayfası yetkilendirme gerektirmiyor. Bu bir kandırma girişimi olabilir. "
-"</p><p>\"%1\" sayfası gitmek istediğiniz bir sayfa mı?</p>"
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Websitesi Erişimini Onayla"
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Sunucu isteği işliyor, lütfen bekleyiniz..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1 adresine veri gönderiliyor"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2 adresinden %1 alınıyor..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"Herhangi bir siteye girmeden önce aşağıda listelenen vekil sunucular için "
-"bir kullanıcı adı ve parola girmelisiniz."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "Vekil:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b>, <b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "Vekil Sunucu Yetki Denetimi Başarısız."
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "Bu adrese girmek için bir kullanıcı adı ve parolası vermelisiniz."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "Adres:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Kimlik Doğrulama İşlemi Başarısız Oldu."
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "Kimlik doğrulama işlemi başarısız oldu."
-
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Bilinmeyen kimlik doğrulama yöntemi."
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Bozuk veri alınıyor."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Çerezler Kaydedilemiyor"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "%1 kaldırılamadı, izinleri denetleyin"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "%1 dizini oluşturulamadı"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Çerez Uyarısı"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p><br/><b>%2%3</b> içinden bir çerez aldınız<br/>Bu çerezi kabul mü red mi "
-"etmek istersiniz?</p>"
-msgstr[1] ""
-"<p><br/><b>%2%3</b> içinden %1 çerez aldınız<br/>Bu çerezleri kabul mü red "
-"mi etmek istersiniz?</p>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Çapraz Alan Adı]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "Ayrıntılar"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Ayrıntılı çerez bilgisini gör/değiştir"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr "&Bu oturum için kabul et"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Çerez(ler)i güncen oturumun sonuna kadar kabul et"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "&Kabul Et"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "&Reddet"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Seçimi Buna Uygula"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Yalnızca bu çerez"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "Y&alnızca bu çerezler"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Yalnızca bu çerezi kabul etmek veya reddetmek için bu seçeneğe tıklayın. "
-"Başka bir çerez alındığında ne yapılacağı size sorulacak."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Bu a&lan adından gelen tüm çerezler"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Bu adresten gelen tüm çerezleri kabul etmek veya reddetmek için bu seçeneği "
-"işaretleyin. Bu seçeneği işaretlemek, çerezin geldiği site için yeni bir "
-"politika belirlenmesini sağlar. Bu politika, siz Sistem Ayarları'ndan "
-"değiştirene kadar kalıcı niteliktedir."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "Tüm ç&erezler"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Herhangi bir yerden tüm çerezleri kabul etmek veya reddetmek için bu  "
-"seçeneği işaretleyin. Bu seçeneği işaretlemek Ayarlardaki genel çerez "
-"politikasını değiştirir."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "Çerez Ayrıntıları"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "Ad:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "Değer:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "Sonlanma tarihi:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "Yol:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "Alan:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Sergileme:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&İleri >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Sonraki çerez bilgilerini göster"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Belirtilmemiş"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Oturum Sonu"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Yalnızca güvenli sunucular"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Güvenli sunucular, sayfa betikleri"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Sunucular"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Sunucular, sayfa betikleri"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Ayrıntılar"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
@@ -5048,6 +4525,48 @@ msgstr "&Politikayı Yapılandır..."
 #, kde-format
 msgid "&Reload List"
 msgstr "&Listeyi Yeniden Yükle"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "Ayrıntılar"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "Ad:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "Değer:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "Alan:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "Yol:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "Sonlanma tarihi:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6355,6 +5874,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "Bu adrese girmek için bir kullanıcı adı ve parolası vermelisiniz."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "Adres:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6378,6 +5907,28 @@ msgid ""
 msgstr ""
 "\n"
 "Sunucu dedi ki: \"%1\""
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Herhangi bir siteye girmeden önce aşağıda listelenen vekil sunucular için "
+"bir kullanıcı adı ve parola girmelisiniz."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "Vekil:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "Vekil Sunucu Yetki Denetimi Başarısız."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -6418,6 +5969,455 @@ msgstr "Bölüme bakılıyor"
 #, kde-format
 msgid "Could not find filename %1 in %2."
 msgstr "%1 dosya adı %2 içinde bulunamadı."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "Hiç makine adı belirtilmemiş."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "Belirtilseydi istek başarılı olacaktı."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "özellik değerlerini al"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "özellik değerlerini ayarla"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "istenilen klasörü oluştur"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "belirtilen klasör ya da dosyayı kopyala"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "belirtilen klasör ya da dosyayı taşı"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "belirtilen klasör içerisinde ara"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "belirtilen klasör ya da dosyayı kilitle"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "belirtilen klasör ya da dosyanın kilidini aç"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "belirtilen klasör ya da dosyayı sil"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "sunucunun özelliklerini sorgula"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "belirtilen klasör ya da dosyanın içeriğini al"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "belirtilen klasör içerisinde bir rapor çalıştır"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "Sunucu WebDAV protokolünü desteklemiyor."
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"%1, %2 işlemi sırasında bir hata oluştu. Bu hata ile ilgili özet bilgi "
+"aşağıdadır."
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "%1 işlem yapılırken erişim engellendi."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Bir veya daha fazla ara koleksiyon (klasör) oluşturulmadan, hedefte bu "
+"kaynak oluşturulamaz."
+
+#: kioworkers/http/http.cpp:1699
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"Sunucu, XML propertybehavior ögesindeki canlılığı\n"
+"koruyamadı veya dosyaların üzerine yazılmasın derken\n"
+"bir dosyanın üzerine yazmaya çalıştınız.\n"
+" %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "İstenen kilit tamamlanamadı: %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "Bu istek talebini sunucu anlamadı."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "%1 yapılamadı çünkü kaynak kilitli."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "Bu eylem, başka bir hata nedeniyle engellendi."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"%1 yapılamadı çünkü hedef sunucu dosya ya da klasör kabul etmeyi reddediyor."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Hedef özkaynak, özkaynağın bu yönteminin yürütülmesinden sonraki durumunu "
+"kaydedecek alana sahip değil."
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "Kaynak silinemedi."
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "%1 karşıya yükle"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 ile bağlantı kuruldu. Yanıt bekleniyor..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>\"%2\" kullanıcı adı ile \"%1\" sayfasında oturum açmak üzeresiniz fakat "
+"web sayfası yetkilendirme gerektirmiyor. Bu bir kandırma girişimi olabilir. "
+"</p><p>\"%1\" sayfası gitmek istediğiniz bir sayfa mı?</p>"
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Websitesi Erişimini Onayla"
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "Sunucu isteği işliyor, lütfen bekleyiniz..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "%1 adresine veri gönderiliyor"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "%2 adresinden %1 alınıyor..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b>, <b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "Kimlik Doğrulama İşlemi Başarısız Oldu."
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "Kimlik doğrulama işlemi başarısız oldu."
+
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "Bilinmeyen kimlik doğrulama yöntemi."
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr "Bozuk veri alınıyor."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Cannot Save Cookies"
+msgstr "Çerezler Kaydedilemiyor"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, kde-format
+msgid "Could not remove %1, check permissions"
+msgstr "%1 kaldırılamadı, izinleri denetleyin"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Could not create directory %1"
+msgstr "%1 dizini oluşturulamadı"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "Çerez Uyarısı"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p><br/><b>%2%3</b> içinden bir çerez aldınız<br/>Bu çerezi kabul mü red mi "
+"etmek istersiniz?</p>"
+msgstr[1] ""
+"<p><br/><b>%2%3</b> içinden %1 çerez aldınız<br/>Bu çerezleri kabul mü red "
+"mi etmek istersiniz?</p>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, kde-format
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [Çapraz Alan Adı]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "Ayrıntılı çerez bilgisini gör/değiştir"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr "&Bu oturum için kabul et"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Çerez(ler)i güncen oturumun sonuna kadar kabul et"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "&Kabul Et"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "&Reddet"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "Seçimi Buna Uygula"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "&Yalnızca bu çerez"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "Y&alnızca bu çerezler"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, kde-format
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Yalnızca bu çerezi kabul etmek veya reddetmek için bu seçeneğe tıklayın. "
+"Başka bir çerez alındığında ne yapılacağı size sorulacak."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "Bu a&lan adından gelen tüm çerezler"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, kde-format
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Bu adresten gelen tüm çerezleri kabul etmek veya reddetmek için bu seçeneği "
+"işaretleyin. Bu seçeneği işaretlemek, çerezin geldiği site için yeni bir "
+"politika belirlenmesini sağlar. Bu politika, siz Sistem Ayarları'ndan "
+"değiştirene kadar kalıcı niteliktedir."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "Tüm ç&erezler"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, kde-format
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Herhangi bir yerden tüm çerezleri kabul etmek veya reddetmek için bu  "
+"seçeneği işaretleyin. Bu seçeneği işaretlemek Ayarlardaki genel çerez "
+"politikasını değiştirir."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "Çerez Ayrıntıları"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, kde-format
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "Sergileme:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&İleri >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "Sonraki çerez bilgilerini göster"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, kde-format
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "Belirtilmemiş"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, kde-format
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "Oturum Sonu"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "Yalnızca güvenli sunucular"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "Güvenli sunucular, sayfa betikleri"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "Sunucular"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "Sunucular, sayfa betikleri"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, kde-format
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "Ayrıntılar"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

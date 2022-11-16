@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -2895,40 +2895,40 @@ msgstr "Svojstva"
 msgid "&View Mode"
 msgstr "&Prikaz"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Prvo mape"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -4330,559 +4330,6 @@ msgstr "Nije moguće dobiti ID korisnika za korisničko ime %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nije moguće dobiti ID grupe za dan naziv grupe %1"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "Niste definirali domaćina (host)."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "Osim toga, zahtjev bi bio uspješan."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "dohvaćanje svojstvenih vrijednosti"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "postavljanje svojstvenih vrijednosti"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "stvori traženu mapu"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "kopiranje navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "premještanje navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "pretraga u navedenoj mapi"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "zaključavanje navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "otključavanje navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "brisanje navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "upit za mogućnosti poslužitelja"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "dohvaćanje sadržaja navedene datoteke ili mape"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "pokrenite izvještaj u navedenoj mapi"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "Dogodila se neočekivana greška (%1) prilikom pokušaja %2."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Poslužitelj ne podržava WebDAV protokol."
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr ""
-"Dogodila se greška prilikom pokušavanja %1, %2. Sažetak razloga nalazi se "
-"ispod."
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "Pristup je odbijen prilikom %1."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"Resurs nije moguće stvoriti na odredištu sve dok jedna ili više privremenih "
-"kolekcija (direktorija) nije stvorena."
-
-#: ioslaves/http/http.cpp:1699
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element or you attempted to overwrite a file "
-#| "while requesting that files are not overwritten. %1"
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"Poslužitelj nije u mogućnosti održati navedena svojstva u  propertybehavior  "
-"XML elementu ili ste pokušali prepisati detoteku dok zahtjevate da se te "
-"datoteke na prepisuju. %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "Zahtjevano zaključavanje nije moguće odobriti. %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "Poslužutelj ne podržava ovakvu vrstu zahtjeva tijela (dokumenta)."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "Nije moguće %1, jer je resurs zaključan."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "Postupak je spreiječen od strane druge greške."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr ""
-"Nije moguće %1, jer odredišni poslužitelj odbija prihvatiti datoteku ili "
-"mapu."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"Odredišni resurs nema dovoljno prostora za zapis stanja resursa nakon "
-"izvršenja ove metode."
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "Resurs ne može biti izbrisan."
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "slanje %1"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "Dogodila se neočekivana greška (%1) prilikom pokušavanja %2."
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 je kontaktiran. Očekujem odgovor…"
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Potvrda pristupanja web-stranici"
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Poslužitelj obrađuje zahtjev, molim pričekajte…"
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Šaljem podatke na %1"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Preuzimam podatke %1 od %2…"
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"Trebate upisati korisničko ime i zaporku za proxy poslužitelj izlistan niže "
-"dolje prije nego što vam on dozvoli pristup bilo kojim stranicama."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "Proxy:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> na <b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "Neuspjela autentikacija posrednika (proxy)"
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "Trebate upisati korisničko ime i zaporku za pristup ovim stranicama."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "Stranica:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Neuspjela autentikacija"
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "Autorizacija nije uspjela."
-
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Nepoznata autorizacijska metoda."
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Cannot open file"
-msgid "Cannot Save Cookies"
-msgstr "Nije moguće otvoriti datoteku"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"Ne mogu stvoriti simboličku vezu %1.\n"
-"Molim provjerite ovlasti."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr "Nije moguće pisati u %1."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Upozorenje: Kolačić"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain]</b>"
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " <b>[Križna domena]</b>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "Detalji"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Prikaži ili izmijeni podatke o kolačiću"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "&Prihvati"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "&Odbij"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Primijeni izbor na"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Samo ovaj kolačić"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&Samo ovi kolačići"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the System Settings)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Odaberite ovu opciju za prihvaćanje/odbijanje samo ovog kolačića. Sustav će "
-"tražiti potvrdu ako dobijete nove kolačiće. <em>(pogledajte pod "
-"Pretraživanje/Kolačići u Postavkama sustava)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Sve kolačiće iz ove do&mene"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Odaberite mogućnost primanja/odbijanja svih kolačića s ovog poslužitelja. "
-"Odabiranje će postaviti novo pravilo za poslužitelj koji je poslao kolačić. "
-"Ovo pravilo će biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom "
-"centru <em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "Sve &kolačiće"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Odaberite mogućnost primanja/odbijanja svih kolačića sa svih poslužitelja. "
-"Odabiranje će postaviti novo pravilo za sve poslužitelje. Ovo pravilo će "
-"biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom centru "
-"<em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "Detalji o kolačiću"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "Ime:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "Vrijednost:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "Istječe:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "Putanja:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "Domena:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Vidljivost:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "Slje&deće >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Prikaži detalje za sljedeći kolačić"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Nije navedeno"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Kraj korištenja"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Samo sigurni poslužitelji"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Sigurni poslužitelj, stranice skripti"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Poslužitelji"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Poslužitelj, stranice skripti"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Detalji"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, fuzzy, kde-format
 #| msgid "Access Denied"
@@ -5252,6 +4699,48 @@ msgstr "Podešavanje…"
 #, kde-format
 msgid "&Reload List"
 msgstr "P&onovo učitaj – popis"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "Detalji"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "Ime:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "Vrijednost:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "Domena:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "Putanja:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "Istječe:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6587,6 +6076,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "Trebate upisati korisničko ime i zaporku za pristup ovim stranicama."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "Stranica:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6609,6 +6108,28 @@ msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "Pokretanje %1"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Trebate upisati korisničko ime i zaporku za proxy poslužitelj izlistan niže "
+"dolje prije nego što vam on dozvoli pristup bilo kojim stranicama."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "Proxy:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "Neuspjela autentikacija posrednika (proxy)"
 
 #: kioworkers/help/kio_help.cpp:112
 #, fuzzy, kde-format
@@ -6652,6 +6173,485 @@ msgstr ""
 #| msgid "Could not read file %1."
 msgid "Could not find filename %1 in %2."
 msgstr "Nije moguće čitati datoteku %1."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "Niste definirali domaćina (host)."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "Osim toga, zahtjev bi bio uspješan."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "dohvaćanje svojstvenih vrijednosti"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "postavljanje svojstvenih vrijednosti"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "stvori traženu mapu"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "kopiranje navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "premještanje navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "pretraga u navedenoj mapi"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "zaključavanje navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "otključavanje navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "brisanje navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "upit za mogućnosti poslužitelja"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "dohvaćanje sadržaja navedene datoteke ili mape"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "pokrenite izvještaj u navedenoj mapi"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Dogodila se neočekivana greška (%1) prilikom pokušaja %2."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "Poslužitelj ne podržava WebDAV protokol."
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"Dogodila se greška prilikom pokušavanja %1, %2. Sažetak razloga nalazi se "
+"ispod."
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Pristup je odbijen prilikom %1."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Resurs nije moguće stvoriti na odredištu sve dok jedna ili više privremenih "
+"kolekcija (direktorija) nije stvorena."
+
+#: kioworkers/http/http.cpp:1699
+#, fuzzy, kde-format
+#| msgid ""
+#| "The server was unable to maintain the liveness of the properties listed "
+#| "in the propertybehavior XML element or you attempted to overwrite a file "
+#| "while requesting that files are not overwritten. %1"
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"Poslužitelj nije u mogućnosti održati navedena svojstva u  propertybehavior  "
+"XML elementu ili ste pokušali prepisati detoteku dok zahtjevate da se te "
+"datoteke na prepisuju. %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Zahtjevano zaključavanje nije moguće odobriti. %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "Poslužutelj ne podržava ovakvu vrstu zahtjeva tijela (dokumenta)."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Nije moguće %1, jer je resurs zaključan."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "Postupak je spreiječen od strane druge greške."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Nije moguće %1, jer odredišni poslužitelj odbija prihvatiti datoteku ili "
+"mapu."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Odredišni resurs nema dovoljno prostora za zapis stanja resursa nakon "
+"izvršenja ove metode."
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "Resurs ne može biti izbrisan."
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "slanje %1"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Dogodila se neočekivana greška (%1) prilikom pokušavanja %2."
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 je kontaktiran. Očekujem odgovor…"
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Potvrda pristupanja web-stranici"
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "Poslužitelj obrađuje zahtjev, molim pričekajte…"
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Šaljem podatke na %1"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Preuzimam podatke %1 od %2…"
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> na <b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "Neuspjela autentikacija"
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "Autorizacija nije uspjela."
+
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "Nepoznata autorizacijska metoda."
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+#| msgid "Cannot open file"
+msgid "Cannot Save Cookies"
+msgstr "Nije moguće otvoriti datoteku"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, fuzzy, kde-format
+#| msgid ""
+#| "Could not create symlink %1.\n"
+#| "Please check permissions."
+msgid "Could not remove %1, check permissions"
+msgstr ""
+"Ne mogu stvoriti simboličku vezu %1.\n"
+"Molim provjerite ovlasti."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+#| msgid "Could not write to %1."
+msgid "Could not create directory %1"
+msgstr "Nije moguće pisati u %1."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "Upozorenje: Kolačić"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, fuzzy, kde-format
+#| msgid " <b>[Cross Domain]</b>"
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " <b>[Križna domena]</b>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "Prikaži ili izmijeni podatke o kolačiću"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "&Prihvati"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "&Odbij"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "Primijeni izbor na"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "&Samo ovaj kolačić"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "&Samo ovi kolačići"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the System Settings)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Odaberite ovu opciju za prihvaćanje/odbijanje samo ovog kolačića. Sustav će "
+"tražiti potvrdu ako dobijete nove kolačiće. <em>(pogledajte pod "
+"Pretraživanje/Kolačići u Postavkama sustava)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "Sve kolačiće iz ove do&mene"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Odaberite mogućnost primanja/odbijanja svih kolačića s ovog poslužitelja. "
+"Odabiranje će postaviti novo pravilo za poslužitelj koji je poslao kolačić. "
+"Ovo pravilo će biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom "
+"centru <em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "Sve &kolačiće"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the Control "
+#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
+#| "Center)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Odaberite mogućnost primanja/odbijanja svih kolačića sa svih poslužitelja. "
+"Odabiranje će postaviti novo pravilo za sve poslužitelje. Ovo pravilo će "
+"biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom centru "
+"<em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "Detalji o kolačiću"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, fuzzy, kde-format
+#| msgid "Exposure:"
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "Vidljivost:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "Slje&deće >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "Prikaži detalje za sljedeći kolačić"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, fuzzy, kde-format
+#| msgid "Not specified"
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "Nije navedeno"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "Kraj korištenja"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, fuzzy, kde-format
+#| msgid "Secure servers only"
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "Samo sigurni poslužitelji"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, fuzzy, kde-format
+#| msgid "Secure servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "Sigurni poslužitelj, stranice skripti"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, fuzzy, kde-format
+#| msgid "Servers"
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "Poslužitelji"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, fuzzy, kde-format
+#| msgid "Servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "Poslužitelj, stranice skripti"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "Detalji"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

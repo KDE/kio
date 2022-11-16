@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -2756,37 +2756,37 @@ msgstr "गुण"
 msgid "&View Mode"
 msgstr "दृश्य (&V)"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4145,546 +4145,6 @@ msgstr "देल गेल प्रयोक्ता नाम %1 क' ले
 msgid "Could not get group id for given group name %1"
 msgstr "देल गेल समूह नाम %1 क' लेल समूह आईडी प्राप्त नहि कए सकल"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "कोनो होस्ट उल्लेखित नहि अछि."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "आन रूपेँ, निवेदन पूरा भ' गेल हाएत."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "गुण मान निकालू"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "गुण मान नियत करू. "
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "निवेदित फोल्डर बनाबू"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डरक नकल करू"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डर घसकाबू"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "उल्लेखित फोल्डर मे ढूँढू"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डर केँ तालाबंद करू"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डर क' ताला खोलू"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डर केँ मेटाबू"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "सर्वर केपेबिलिटी क्वेरी करू"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "उल्लेखित फाइल अथवा फोल्डर केर विषयवस्तुओं केँ निकालू"
-
-#: ioslaves/http/http.cpp:1593
-#, fuzzy, kde-format
-#| msgctxt "request type"
-#| msgid "search in the specified folder"
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "उल्लेखित फोल्डर मे ढूँढू"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr " एकटा त्रुटि %1   भेल, %2  कए कोसिस मे"
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "सर्वर वेब-डीएवी  प्रोटोकाल  समर्थित नहि करैत अछि."
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr ""
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "%1 कए कोसिस मे पहुँच नकार देल गेल."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-
-#: ioslaves/http/http.cpp:1699
-#, kde-format
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "निवेदित तालाबंद देल नहि जाए सकत. %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "सर्वर निवेदित प्रकार केर बाडी समर्थित नहि करैत अछि."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr " %1 पर अक्षम किएक संसाधन ताला बन्न अछि."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "आन त्रुटि केर द्वारा ई क्रिया रोकल गेल."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr " %1 केँ असमर्थ किएक गंतव्य सर्वर फाइल अथवा फोल्डर केँ स्वीकार करब सँ मना करैत अछि."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr ""
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "अपलोड %1"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr " एकटा त्रुटि %1   भेल, %2  कए कोसिस मे"
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 सम्पर्क मे. जवाबक प्रतीक्षा मे..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr ""
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "सर्वर प्रक्रिया क' लेल निवेदन, कृप्या इंतजार करू..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr " %1 केँ डाटा भेज रहल अछि"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr " %1 कए फिनु सँ प्राप्ति %2 सँ कएल जाए रहल अछि..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"एकरासँ पहिने जे अहाँक केओ साइट पर पहुँचक अनुमति देल जाए, नीच्चाँ सूची-बद्ध कएल प्राक्सी "
-"सर्वर क' लेल अहाँक प्रयोक्ता नाम आओर कूटशब्द देनाइ हाएत."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "प्राक्सीः"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> पर <b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "प्राक्सी प्रमाणीकरण असफल."
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "ई साइट पर पहुँचबा क' लेल अहाँक प्रयोक्ता नाम आओर कूटशब्द दिअ' पड़त."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "साइट:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "प्रमाणीकरण असफल."
-
-#: ioslaves/http/http.cpp:5449
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Authorization failed."
-msgstr "अनुमोदन समाद "
-
-#: ioslaves/http/http.cpp:5466
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Unknown Authorization method."
-msgstr "अनुमोदन समाद "
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Cannot open file"
-msgid "Cannot Save Cookies"
-msgstr "फाइल नहि खोलि सकल"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"सिमलिंक %1 बनाए नहि सकत.\n"
-"कृप्या अनुमतिसभ जाँचू."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr " %1 पर लिखि नहि सकल."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "कुकी चेतावनी"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to accept or reject?"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] "की अहाँ स्वीकृत अथवा अस्वीकृत कएनाइ चाहैत छी?"
-msgstr[1] "की अहाँ स्वीकृत अथवा अस्वीकृत कएनाइ चाहैत छी?"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain]</b>"
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " <b>[क्रास डोमेन]</b>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "विवरण"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "कुकी जानकारी देखू अथवा बदलू "
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "स्वीकारू (&A)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "अस्वीकारू (&R)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "चयन लागू करू एतए..."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "सिर्फ इएह कुकी (&O)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "सिर्फ इएह कुकीज़ (&O)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the Control Center)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"ई विकल्प केँ सिर्फ एहि कुकी केर स्वीकार / अस्वीकार करब क' लेल चुनू. जखन अहाँक आन कुकी "
-"मिलेगा तँ सूचित कएल जएताह. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र मे)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "ई डोमेन सँ सबहि कुकीज़ (&m)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"ई विकल्प केँ सबहि कुकीज़ केर स्वीकार / अस्वीकार करब क' लेल चुनू. एहि आप्शन केँ चुनबा पर "
-"साइट सँ आबैबला कुकी क' लेल नवीन नीति जोड़ि देल जएताह. ई नीति स्थायी हाएत जखन तकि जे "
-"अहाँ नियंत्रण केंद्रमे हाथसँ बदएल नहि दए छी. <em>(देखू वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र मे)</"
-"em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "सभटा कुकीज़ (&c)"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"ई विकल्प केँ कतओ सँ सबहि कुकी केर स्वीकार / अस्वीकार करब क' लेल चुनू. एहि आप्शन केँ चुनै पर "
-"ग्लोबल कुकी नीति, नियंत्रण केंद्र मे सबहि कुकी क' लेल नियत कए देल जएताह. <em>(देखू वेब-"
-"ब्राउजिंग/कुकीज नियंत्रण केंद्र मे)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "कुकी विवरण"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "नाम:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "मान:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "अवधि पूर्ण अछि:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "पथः"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "डोमेन:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "उद्भासन:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "अगिला (&N) >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "अगिला कुकी क' विवरण देखाबू"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "निर्दिष्ट नहि"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "सत्र क' अंत"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "सिर्फ सुरक्षित सर्वर"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "सुरक्षित सर्वर्स, पेज स्क्रिप्ट"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "सर्वर"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "सर्वर्स, पेज स्क्रिप्ट"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "विवरण"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, fuzzy, kde-format
 #| msgid "Access Denied"
@@ -5015,6 +4475,48 @@ msgstr "पालिसी बदलू.... (&P)"
 #, kde-format
 msgid "&Reload List"
 msgstr "सूची रीलोड करू (&R)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "विवरण"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "नाम:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "मान:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "डोमेन:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "पथः"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "अवधि पूर्ण अछि:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6155,6 +5657,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "ई साइट पर पहुँचबा क' लेल अहाँक प्रयोक्ता नाम आओर कूटशब्द दिअ' पड़त."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "साइट:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6177,6 +5689,28 @@ msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "चालू कएल जाए रहल अछि %1"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"एकरासँ पहिने जे अहाँक केओ साइट पर पहुँचक अनुमति देल जाए, नीच्चाँ सूची-बद्ध कएल प्राक्सी "
+"सर्वर क' लेल अहाँक प्रयोक्ता नाम आओर कूटशब्द देनाइ हाएत."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "प्राक्सीः"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "प्राक्सी प्रमाणीकरण असफल."
 
 #: kioworkers/help/kio_help.cpp:112
 #, fuzzy, kde-format
@@ -6220,6 +5754,472 @@ msgstr ""
 #| msgid "Could not read file %1."
 msgid "Could not find filename %1 in %2."
 msgstr "फाइल %1 केँ पढ़ि नहि सकल."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "कोनो होस्ट उल्लेखित नहि अछि."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "आन रूपेँ, निवेदन पूरा भ' गेल हाएत."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "गुण मान निकालू"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "गुण मान नियत करू. "
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "निवेदित फोल्डर बनाबू"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डरक नकल करू"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डर घसकाबू"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "उल्लेखित फोल्डर मे ढूँढू"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डर केँ तालाबंद करू"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डर क' ताला खोलू"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डर केँ मेटाबू"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "सर्वर केपेबिलिटी क्वेरी करू"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "उल्लेखित फाइल अथवा फोल्डर केर विषयवस्तुओं केँ निकालू"
+
+#: kioworkers/http/http.cpp:1593
+#, fuzzy, kde-format
+#| msgctxt "request type"
+#| msgid "search in the specified folder"
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "उल्लेखित फोल्डर मे ढूँढू"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr " एकटा त्रुटि %1   भेल, %2  कए कोसिस मे"
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "सर्वर वेब-डीएवी  प्रोटोकाल  समर्थित नहि करैत अछि."
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "%1 कए कोसिस मे पहुँच नकार देल गेल."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+
+#: kioworkers/http/http.cpp:1699
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "निवेदित तालाबंद देल नहि जाए सकत. %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "सर्वर निवेदित प्रकार केर बाडी समर्थित नहि करैत अछि."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr " %1 पर अक्षम किएक संसाधन ताला बन्न अछि."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "आन त्रुटि केर द्वारा ई क्रिया रोकल गेल."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr " %1 केँ असमर्थ किएक गंतव्य सर्वर फाइल अथवा फोल्डर केँ स्वीकार करब सँ मना करैत अछि."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr ""
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "अपलोड %1"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr " एकटा त्रुटि %1   भेल, %2  कए कोसिस मे"
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 सम्पर्क मे. जवाबक प्रतीक्षा मे..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr ""
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "सर्वर प्रक्रिया क' लेल निवेदन, कृप्या इंतजार करू..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr " %1 केँ डाटा भेज रहल अछि"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr " %1 कए फिनु सँ प्राप्ति %2 सँ कएल जाए रहल अछि..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> पर <b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "प्रमाणीकरण असफल."
+
+#: kioworkers/http/http.cpp:5449
+#, fuzzy, kde-format
+#| msgid "Authorization Dialog"
+msgid "Authorization failed."
+msgstr "अनुमोदन समाद "
+
+#: kioworkers/http/http.cpp:5466
+#, fuzzy, kde-format
+#| msgid "Authorization Dialog"
+msgid "Unknown Authorization method."
+msgstr "अनुमोदन समाद "
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+#| msgid "Cannot open file"
+msgid "Cannot Save Cookies"
+msgstr "फाइल नहि खोलि सकल"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, fuzzy, kde-format
+#| msgid ""
+#| "Could not create symlink %1.\n"
+#| "Please check permissions."
+msgid "Could not remove %1, check permissions"
+msgstr ""
+"सिमलिंक %1 बनाए नहि सकत.\n"
+"कृप्या अनुमतिसभ जाँचू."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+#| msgid "Could not write to %1."
+msgid "Could not create directory %1"
+msgstr " %1 पर लिखि नहि सकल."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "कुकी चेतावनी"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "की अहाँ स्वीकृत अथवा अस्वीकृत कएनाइ चाहैत छी?"
+msgstr[1] "की अहाँ स्वीकृत अथवा अस्वीकृत कएनाइ चाहैत छी?"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, fuzzy, kde-format
+#| msgid " <b>[Cross Domain]</b>"
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " <b>[क्रास डोमेन]</b>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "कुकी जानकारी देखू अथवा बदलू "
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "स्वीकारू (&A)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "अस्वीकारू (&R)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "चयन लागू करू एतए..."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "सिर्फ इएह कुकी (&O)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "सिर्फ इएह कुकीज़ (&O)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the Control Center)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"ई विकल्प केँ सिर्फ एहि कुकी केर स्वीकार / अस्वीकार करब क' लेल चुनू. जखन अहाँक आन कुकी "
+"मिलेगा तँ सूचित कएल जएताह. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र मे)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "ई डोमेन सँ सबहि कुकीज़ (&m)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"ई विकल्प केँ सबहि कुकीज़ केर स्वीकार / अस्वीकार करब क' लेल चुनू. एहि आप्शन केँ चुनबा पर "
+"साइट सँ आबैबला कुकी क' लेल नवीन नीति जोड़ि देल जएताह. ई नीति स्थायी हाएत जखन तकि जे "
+"अहाँ नियंत्रण केंद्रमे हाथसँ बदएल नहि दए छी. <em>(देखू वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र मे)</"
+"em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "सभटा कुकीज़ (&c)"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the Control "
+#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
+#| "Center)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"ई विकल्प केँ कतओ सँ सबहि कुकी केर स्वीकार / अस्वीकार करब क' लेल चुनू. एहि आप्शन केँ चुनै पर "
+"ग्लोबल कुकी नीति, नियंत्रण केंद्र मे सबहि कुकी क' लेल नियत कए देल जएताह. <em>(देखू वेब-"
+"ब्राउजिंग/कुकीज नियंत्रण केंद्र मे)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "कुकी विवरण"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, fuzzy, kde-format
+#| msgid "Exposure:"
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "उद्भासन:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "अगिला (&N) >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "अगिला कुकी क' विवरण देखाबू"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, fuzzy, kde-format
+#| msgid "Not specified"
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "निर्दिष्ट नहि"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "सत्र क' अंत"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, fuzzy, kde-format
+#| msgid "Secure servers only"
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "सिर्फ सुरक्षित सर्वर"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, fuzzy, kde-format
+#| msgid "Secure servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "सुरक्षित सर्वर्स, पेज स्क्रिप्ट"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, fuzzy, kde-format
+#| msgid "Servers"
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "सर्वर"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, fuzzy, kde-format
+#| msgid "Servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "सर्वर्स, पेज स्क्रिप्ट"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "विवरण"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

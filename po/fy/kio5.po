@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2967,37 +2967,37 @@ msgstr "Eigenskippen"
 msgid "&View Mode"
 msgstr "Byl&d"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4475,586 +4475,6 @@ msgstr "Koe net yn map %1 komme."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "Gjin host oantsjutte."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "Oarsom wie it fersyk wol slagge."
-
-#: ioslaves/http/http.cpp:1560
-#, fuzzy, kde-format
-#| msgid "retrieve property values"
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "Feroarje de wearde fn in profyleigenskip"
-
-#: ioslaves/http/http.cpp:1563
-#, fuzzy, kde-format
-#| msgid "set property values"
-msgctxt "request type"
-msgid "set property values"
-msgstr "XIM-tsjinner ynstelle"
-
-#: ioslaves/http/http.cpp:1566
-#, fuzzy, kde-format
-#| msgid "create the requested folder"
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "Nij&e map oanmeitsje"
-
-#: ioslaves/http/http.cpp:1569
-#, fuzzy, kde-format
-#| msgid "copy the specified file or folder"
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "De triem of map %1 bestiet net."
-
-#: ioslaves/http/http.cpp:1572
-#, fuzzy, kde-format
-#| msgid "move the specified file or folder"
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "De triem of map %1 bestiet net."
-
-#: ioslaves/http/http.cpp:1575
-#, fuzzy, kde-format
-#| msgid "search in the specified folder"
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "De oantsjutte map bestiet al."
-
-#: ioslaves/http/http.cpp:1578
-#, fuzzy, kde-format
-#| msgid "lock the specified file or folder"
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "De triem of map %1 bestiet net."
-
-#: ioslaves/http/http.cpp:1581
-#, fuzzy, kde-format
-#| msgid "unlock the specified file or folder"
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "De triem of map %1 bestiet net."
-
-#: ioslaves/http/http.cpp:1584
-#, fuzzy, kde-format
-#| msgid "delete the specified file or folder"
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "De triem of map %1 bestiet net."
-
-#: ioslaves/http/http.cpp:1587
-#, fuzzy, kde-format
-#| msgid "query the server's capabilities"
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "SSL-tsjinner"
-
-#: ioslaves/http/http.cpp:1590
-#, fuzzy, kde-format
-#| msgid "retrieve the contents of the specified file or folder"
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "De opjûne triem of map <strong>%1</strong> bestiet net."
-
-#: ioslaves/http/http.cpp:1593
-#, fuzzy, kde-format
-#| msgid "search in the specified folder"
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "De oantsjutte map bestiet al."
-
-#: ioslaves/http/http.cpp:1605
-#, fuzzy, kde-format
-#| msgid "An unexpected error (%1) occurred while attempting to %2."
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "In ûnferwachte flater (%1) hat him foardien by it besykjen om te %2."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "De tsjinner stipet it WebDAV-protokol net."
-
-#: ioslaves/http/http.cpp:1658
-#, fuzzy, kde-format
-#| msgid ""
-#| "An error occurred while attempting to %1, %2. A summary of the reasons is "
-#| "below.<ul>"
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr ""
-"In flater hat him foardien by it besykjen om te %1, %2. In gearfetting fan "
-"de oarsaken fine jo hjirûnder.<ul>"
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, fuzzy, kde-format
-#| msgid "Access was denied while attempting to %1."
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "De tagong ta de opjûne boarne <b>%1</b>, is wegere."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"In helpboarne kin net oanmakke wurde op de bestimming oant ien of mear "
-"tuskentiidse kolleksjes (mappen) oanmakke binnen."
-
-#: ioslaves/http/http.cpp:1699
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element or you attempted to overwrite a file "
-#| "while requesting that files are not overwritten. %1"
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"It slagge de tsjinner net om de oanfierde eigenskippen fan it XML-elemint "
-"\"propertybehaviour\" te behâlden of jo prebeare in triem te oerskriuwen "
-"wylst jo fersocht hawwe om gjin triemen te oerskriuwen. %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "De fersochte beskoatteling koe net tastien wurde. %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "De tsjinner stipet net it fersochte type fan it lichem."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, fuzzy, kde-format
-#| msgid "Unable to %1 because the resource is locked."
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "It %1 mislearre om't de helpboarne beskoattele is."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "Dizze aksje waard wjerhâlden troch in oare flater."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to %1 because the destination server refuses to accept the file or "
-#| "folder."
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr ""
-"Koe net %1 omdat de bestimmingstsjinner wegeret de triem of de map oan te "
-"nimmen."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"De bestimmingshelpboarne hat net genôch romte om de steat fan de helpboarne "
-"nei it útfieren fan dizze metoade op te nimmen."
-
-#: ioslaves/http/http.cpp:1790
-#, fuzzy, kde-format
-#| msgid "The specified resource may not exist."
-msgid "The resource cannot be deleted."
-msgstr "Der koe net fan de boarne lêzen wurde"
-
-#: ioslaves/http/http.cpp:1803
-#, fuzzy, kde-format
-#| msgid "upload %1"
-msgctxt "request type"
-msgid "upload %1"
-msgstr "Oplade"
-
-#: ioslaves/http/http.cpp:1854
-#, fuzzy, kde-format
-#| msgid "An unexpected error (%1) occurred while attempting to %2."
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "In ûnferwachte flater (%1) hat him foardien by it besykjen om te %2."
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "Kontakt makke mei %1. Wachtsje op antwurd..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr ""
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Tsjinner ferwurket de oanfraach, in amerijke..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Dwaande data te ferstjoeren nei %1"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Dwaande %1 te ûntfangen fan %2..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"Jo moatte in brûkersnamme en in wachtwurd opjaan foar de neikommende "
-"proksytsjinners, foardat jo tagong krije kinne ta hokker webside ek mar."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "Proksy:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> by <b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "Proksy-authentikaasje mislearre."
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr ""
-"Jo moatte in brûkersnamme en in wachtwurd opjaan om dizze webside te besjen."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "Webside:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Authentikaasje mislearre."
-
-#: ioslaves/http/http.cpp:5449
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Authorization failed."
-msgstr "Autorisaasje"
-
-#: ioslaves/http/http.cpp:5466
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Unknown Authorization method."
-msgstr "Autorisaasje"
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Kin de triem %1 net iepenje."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"De symb. keppeling %1 koe net makke wurde.\n"
-"Kontrolearje de tagongsrjochten."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr "Koe net nei %1 skriuwe."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Cookie-melding"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Do you want to accept or reject?"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] "Wolle jo it goedkarre of ôfkarre?"
-msgstr[1] "Wolle jo it goedkarre of ôfkarre?"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain!]</b>"
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr "Domein [Groep]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "Details"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Lit de koekje ynformaasje sjen of pas dizze oan"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "Goedk&arre"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "Ofka&rre"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Kar tapasse op"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "Allinne dit k&oekje"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "Allinne dizze k&oekjes"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the Control Center)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Selektearje dizze opsje at jo allinne dit koekje goedkarre/ôfkarre wolle. Jo "
-"wurde op'e nij freege sa gau't in nij koekje binnenkomt. <em>(Sjoch yn it "
-"Ynstellingssintrum by Websneupe/Koekjes)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Alle koekjes fan dit do&mein"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Selektearje dizze opsje at jo alle koekjes fan dizze webside goedkarre/"
-"ôfkarre wolle. Dizze opsje makket in nij koekjebelied oan foar de webside "
-"wêr't dit koekje wei komt. Dit belied is bliuwend oant jo it mei de hân "
-"oanpasse yn it Konfiguraasjesintrum. <em>(Sjoch yn it Konfiguraasjesintrum "
-"by Websneupe/Koekjes)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "Alle &koekjes"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Selektearje dizze opsje at jo alle koekjes fan alle websiden goedkarre/"
-"ôfkarre wolle. Dizze opsje feroaret it folsleine koekjebelied yn it "
-"Ynstellingssintrum foar alle koekjes. <em>(Sjoch yn it Ynstellingssintrum by "
-"Websneupe/Koekjes)</em>."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "Koekje details"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "Namme:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "Wearde:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "Ferrint op:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "Paad:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "Domein:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Bleatstelling:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Fierder >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Lit de details foar de neikommende koekje sjen"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Net oantsjutte"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Ein fan 'e sesje"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Allinne befeilige tsjinners"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Feilige tsjinners, sideskripts"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Tsjinners"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Tsjinners, sideskripts"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Details"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, fuzzy, kde-format
 #| msgid "Access Denied"
@@ -5421,6 +4841,48 @@ msgstr "Belie&d feroarje..."
 #, kde-format
 msgid "&Reload List"
 msgstr "List op 'e nij &lade"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "Details"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "Namme:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "Wearde:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "Domein:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "Paad:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "Ferrint op:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6835,6 +6297,17 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr ""
+"Jo moatte in brûkersnamme en in wachtwurd opjaan om dizze webside te besjen."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "Webside:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6857,6 +6330,28 @@ msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "Opstarte fan %1"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Jo moatte in brûkersnamme en in wachtwurd opjaan foar de neikommende "
+"proksytsjinners, foardat jo tagong krije kinne ta hokker webside ek mar."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "Proksy:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "Proksy-authentikaasje mislearre."
 
 #: kioworkers/help/kio_help.cpp:112
 #, fuzzy, kde-format
@@ -6900,6 +6395,511 @@ msgstr ""
 #| msgid "Could not read file %1."
 msgid "Could not find filename %1 in %2."
 msgstr "Koe triem %1 net lêze."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "Gjin host oantsjutte."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "Oarsom wie it fersyk wol slagge."
+
+#: kioworkers/http/http.cpp:1560
+#, fuzzy, kde-format
+#| msgid "retrieve property values"
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "Feroarje de wearde fn in profyleigenskip"
+
+#: kioworkers/http/http.cpp:1563
+#, fuzzy, kde-format
+#| msgid "set property values"
+msgctxt "request type"
+msgid "set property values"
+msgstr "XIM-tsjinner ynstelle"
+
+#: kioworkers/http/http.cpp:1566
+#, fuzzy, kde-format
+#| msgid "create the requested folder"
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "Nij&e map oanmeitsje"
+
+#: kioworkers/http/http.cpp:1569
+#, fuzzy, kde-format
+#| msgid "copy the specified file or folder"
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "De triem of map %1 bestiet net."
+
+#: kioworkers/http/http.cpp:1572
+#, fuzzy, kde-format
+#| msgid "move the specified file or folder"
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "De triem of map %1 bestiet net."
+
+#: kioworkers/http/http.cpp:1575
+#, fuzzy, kde-format
+#| msgid "search in the specified folder"
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "De oantsjutte map bestiet al."
+
+#: kioworkers/http/http.cpp:1578
+#, fuzzy, kde-format
+#| msgid "lock the specified file or folder"
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "De triem of map %1 bestiet net."
+
+#: kioworkers/http/http.cpp:1581
+#, fuzzy, kde-format
+#| msgid "unlock the specified file or folder"
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "De triem of map %1 bestiet net."
+
+#: kioworkers/http/http.cpp:1584
+#, fuzzy, kde-format
+#| msgid "delete the specified file or folder"
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "De triem of map %1 bestiet net."
+
+#: kioworkers/http/http.cpp:1587
+#, fuzzy, kde-format
+#| msgid "query the server's capabilities"
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "SSL-tsjinner"
+
+#: kioworkers/http/http.cpp:1590
+#, fuzzy, kde-format
+#| msgid "retrieve the contents of the specified file or folder"
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "De opjûne triem of map <strong>%1</strong> bestiet net."
+
+#: kioworkers/http/http.cpp:1593
+#, fuzzy, kde-format
+#| msgid "search in the specified folder"
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "De oantsjutte map bestiet al."
+
+#: kioworkers/http/http.cpp:1605
+#, fuzzy, kde-format
+#| msgid "An unexpected error (%1) occurred while attempting to %2."
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "In ûnferwachte flater (%1) hat him foardien by it besykjen om te %2."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "De tsjinner stipet it WebDAV-protokol net."
+
+#: kioworkers/http/http.cpp:1658
+#, fuzzy, kde-format
+#| msgid ""
+#| "An error occurred while attempting to %1, %2. A summary of the reasons is "
+#| "below.<ul>"
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr ""
+"In flater hat him foardien by it besykjen om te %1, %2. In gearfetting fan "
+"de oarsaken fine jo hjirûnder.<ul>"
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, fuzzy, kde-format
+#| msgid "Access was denied while attempting to %1."
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "De tagong ta de opjûne boarne <b>%1</b>, is wegere."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"In helpboarne kin net oanmakke wurde op de bestimming oant ien of mear "
+"tuskentiidse kolleksjes (mappen) oanmakke binnen."
+
+#: kioworkers/http/http.cpp:1699
+#, fuzzy, kde-format
+#| msgid ""
+#| "The server was unable to maintain the liveness of the properties listed "
+#| "in the propertybehavior XML element or you attempted to overwrite a file "
+#| "while requesting that files are not overwritten. %1"
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"It slagge de tsjinner net om de oanfierde eigenskippen fan it XML-elemint "
+"\"propertybehaviour\" te behâlden of jo prebeare in triem te oerskriuwen "
+"wylst jo fersocht hawwe om gjin triemen te oerskriuwen. %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "De fersochte beskoatteling koe net tastien wurde. %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "De tsjinner stipet net it fersochte type fan it lichem."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, fuzzy, kde-format
+#| msgid "Unable to %1 because the resource is locked."
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "It %1 mislearre om't de helpboarne beskoattele is."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "Dizze aksje waard wjerhâlden troch in oare flater."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to %1 because the destination server refuses to accept the file or "
+#| "folder."
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"Koe net %1 omdat de bestimmingstsjinner wegeret de triem of de map oan te "
+"nimmen."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"De bestimmingshelpboarne hat net genôch romte om de steat fan de helpboarne "
+"nei it útfieren fan dizze metoade op te nimmen."
+
+#: kioworkers/http/http.cpp:1790
+#, fuzzy, kde-format
+#| msgid "The specified resource may not exist."
+msgid "The resource cannot be deleted."
+msgstr "Der koe net fan de boarne lêzen wurde"
+
+#: kioworkers/http/http.cpp:1803
+#, fuzzy, kde-format
+#| msgid "upload %1"
+msgctxt "request type"
+msgid "upload %1"
+msgstr "Oplade"
+
+#: kioworkers/http/http.cpp:1854
+#, fuzzy, kde-format
+#| msgid "An unexpected error (%1) occurred while attempting to %2."
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "In ûnferwachte flater (%1) hat him foardien by it besykjen om te %2."
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "Kontakt makke mei %1. Wachtsje op antwurd..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr ""
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "Tsjinner ferwurket de oanfraach, in amerijke..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Dwaande data te ferstjoeren nei %1"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Dwaande %1 te ûntfangen fan %2..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> by <b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "Authentikaasje mislearre."
+
+#: kioworkers/http/http.cpp:5449
+#, fuzzy, kde-format
+#| msgid "Authorization Dialog"
+msgid "Authorization failed."
+msgstr "Autorisaasje"
+
+#: kioworkers/http/http.cpp:5466
+#, fuzzy, kde-format
+#| msgid "Authorization Dialog"
+msgid "Unknown Authorization method."
+msgstr "Autorisaasje"
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+msgid "Cannot Save Cookies"
+msgstr "Kin de triem %1 net iepenje."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, fuzzy, kde-format
+#| msgid ""
+#| "Could not create symlink %1.\n"
+#| "Please check permissions."
+msgid "Could not remove %1, check permissions"
+msgstr ""
+"De symb. keppeling %1 koe net makke wurde.\n"
+"Kontrolearje de tagongsrjochten."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, fuzzy, kde-format
+#| msgid "Could not write to %1."
+msgid "Could not create directory %1"
+msgstr "Koe net nei %1 skriuwe."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "Cookie-melding"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, fuzzy, kde-format
+#| msgid "Do you want to accept or reject?"
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] "Wolle jo it goedkarre of ôfkarre?"
+msgstr[1] "Wolle jo it goedkarre of ôfkarre?"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, fuzzy, kde-format
+#| msgid " <b>[Cross Domain!]</b>"
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr "Domein [Groep]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "Lit de koekje ynformaasje sjen of pas dizze oan"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "Goedk&arre"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "Ofka&rre"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "Kar tapasse op"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "Allinne dit k&oekje"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "Allinne dizze k&oekjes"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject only this cookie. You will be "
+#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#| "the Control Center)</em>."
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Selektearje dizze opsje at jo allinne dit koekje goedkarre/ôfkarre wolle. Jo "
+"wurde op'e nij freege sa gau't in nij koekje binnenkomt. <em>(Sjoch yn it "
+"Ynstellingssintrum by Websneupe/Koekjes)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "Alle koekjes fan dit do&mein"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from this site. Choosing "
+#| "this option will add a new policy for the site this cookie originated "
+#| "from. This policy will be permanent until you manually change it from the "
+#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Selektearje dizze opsje at jo alle koekjes fan dizze webside goedkarre/"
+"ôfkarre wolle. Dizze opsje makket in nij koekjebelied oan foar de webside "
+"wêr't dit koekje wei komt. Dit belied is bliuwend oant jo it mei de hân "
+"oanpasse yn it Konfiguraasjesintrum. <em>(Sjoch yn it Konfiguraasjesintrum "
+"by Websneupe/Koekjes)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "Alle &koekjes"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, fuzzy, kde-format
+#| msgid ""
+#| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#| "this option will change the global cookie policy set in the Control "
+#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
+#| "Center)</em>."
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Selektearje dizze opsje at jo alle koekjes fan alle websiden goedkarre/"
+"ôfkarre wolle. Dizze opsje feroaret it folsleine koekjebelied yn it "
+"Ynstellingssintrum foar alle koekjes. <em>(Sjoch yn it Ynstellingssintrum by "
+"Websneupe/Koekjes)</em>."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "Koekje details"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, fuzzy, kde-format
+#| msgid "Exposure:"
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "Bleatstelling:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Fierder >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "Lit de details foar de neikommende koekje sjen"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, fuzzy, kde-format
+#| msgid "Not specified"
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "Net oantsjutte"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "Ein fan 'e sesje"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, fuzzy, kde-format
+#| msgid "Secure servers only"
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "Allinne befeilige tsjinners"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, fuzzy, kde-format
+#| msgid "Secure servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "Feilige tsjinners, sideskripts"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, fuzzy, kde-format
+#| msgid "Servers"
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "Tsjinners"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, fuzzy, kde-format
+#| msgid "Servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "Tsjinners, sideskripts"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "Details"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

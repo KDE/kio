@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2022-08-22 21:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2844,37 +2844,37 @@ msgstr "Ominaisuudet"
 msgid "&View Mode"
 msgstr "&Näkymätila"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Ö–A"
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A–Ö"
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Uusimmat ensin"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Vanhimmat ensin"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Suurimmat ensin"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4207,530 +4207,6 @@ msgstr "Käyttäjä-ID annetulle nimelle %1 ei saatavilla."
 msgid "Could not get group id for given group name %1"
 msgstr "Ryhmän %1 ryhmätunuksen selvittäminen epäonnistui."
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "Ei kohdetta."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "Muuten pyyntö olisi onnistunut."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "hae ominaisuusarvot"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "aseta ominaisuusarvot"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "luo pyydetty kansio"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "kopioi tietty tiedosto tai kansio"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "siirrä tietty tiedosto tai kansio"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "hae tietyssä kansiossa"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "lukitse tietty tiedosto tai kansio"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "poista lukitus tietystä tiedostosta tai kansiosta"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "poista tietty tiedosto tai kansio"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "kysele palvelimen kykyjä"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "hae tietyn tiedoston tai kansion sisältö"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "aja raportti määritetyssä kansiossa"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "Odottamaton virhe (%1) tapahtui yritettäessä pyyntöä %2."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Palvelin ei tue WebDAV-yhteyskäytäntöä."
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla. "
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "Käsittely kielletty yritettäessä %1."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"Resurssia ei voitu luoda kohteeseen ennen kuin yksi tai useampi välikokoelma "
-"(kansio) on luotu."
-
-# Koska kehittäjä muutti ”propertybehavior” → ”property behavior”, niin oletin ettei ole kääntämättömissä oleva XML-elementin nimi (niissä ei voi olla välilyöntiä). ”Ominaisuuksien käyttäytyminen” heitetty, mutta sen voi ongelmatilanteessa kääntää helposti englanniksi.
-#: ioslaves/http/http.cpp:1699
-#, kde-format
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"Palvelin ei joko kyennyt ylläpitämään elossa XML-alkion\n"
-"propertybehaviorissa lueteltuja ominaisuuksia tai yritit\n"
-"korvata tiedoston samalla kun vaadit, ettei tiedostoja\n"
-"korvata.\n"
-" %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "Pyydettyä lukkoa %1 ei voitu myöntää."
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "Palvelin ei tue rungon pyyntötyyppiä."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "Toimintoa %1 ei voida suorittaa, koska resurssi on lukittu."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "Toiminto estyi jonkin muun virheen vuoksi."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr ""
-"%1 ei onnistu, koska kohdepalvelin kieltäytyy hyväksymästä tiedostoa tai "
-"kansiota."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"Kohderesurssissa ei ole riittävästi tilaa tallentaa resurssin tilaa metodin "
-"suorituksen jälkeen."
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "Resurssia ei voida poistaa."
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "lähetetään tiedostoa %1"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "Odottamaton virhe (%1) tapahtui yritettäessä %2"
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 yhdistetty.  Odotetaan vastausta… "
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Olet kirjautumassa sivulle ”%1” käyttäjätunnuksella ”%2”, mutta se ei "
-"tarvitse tunnistautumista. Sinua saatetaan petkuttaa.</p><p>Onko ”%1” "
-"varmasti se sivu, jolle haluat siirtyä?</p>"
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Vahvista verkkosivulle siirtyminen"
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Palvelin käsittelee pyyntöä, odota hetki…"
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Lähetetään dataa kohteeseen %1"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Haetaan %1 kohteesta %2"
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"Alla olevalle välityspalvelimelle pitää antaa käyttäjätunnus ja salasana, "
-"ennen kuin mitään sivuja voidaan selata."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "Välityspalvelin:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> kohteessa <b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "Välityspalvelimeen tunnistautuminen epäonnistui."
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr ""
-"Sinun tulee antaa käyttäjätunnus ja salasana päästäksesi tälle palvelimelle."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "Palvelin:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Tunnistaminen epäonnistui."
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "Tunnistautuminen epäonnistui."
-
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Tuntematon tunnistautumismenetelmä."
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Vastaanotetaan vioittunutta tietoa."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Evästeitä ei voi tallentaa"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "%1 ei voitu poistaa; tarkista käyttöoikeudet"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Ei voitu luoda kansiota %1"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Evästevaroitus"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Vastaanotit evästeen palvelimelta<br/><b>%2%3</b><br/>Haluatko hyväksyä "
-"vai hylätä tämän evästeen?</p>"
-msgstr[1] ""
-"<p>Vastaanotit %1 evästettä palvelimelta<br/><b>%2%3</b><br/>Haluatko "
-"hyväksyä vai hylätä nämä evästeet?</p>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Verkkoalueen ylittävä]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "Yksityiskohdat"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Katso tai muuta evästeen tietoja"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Hyväksy &tämän istunnon ajaksi"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Hyväksy evästeet nykyisen istunnon loppuun"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "&Hyväksy"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "H&ylkää"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Valinta koskee"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "vain &tätä evästettä"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "vain &näitä evästeitä"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Valitse tämä hyväksyäksesi tai hylätäksesi vain tämän evästeen. Uusista "
-"evästeistä kysytään erikseen."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Kaikki tämän &verkkoalueen evästeet"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Hyväksy tai hylkää kaikki evästeet tältä palvelimelta valitsemalla tämä. "
-"Evästeen tarjoavalle palvelimelle lisätään uusi käytänne, joka on pysyvä, "
-"ellei sitä järjestelmäasetuksissa muuta."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "&Kaikki evästeet"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Hyväksy tai hylkää kaikki evästeet kaikkialta valitsemalla tämä. Tämä "
-"muuttaa yleisiä evästekäytänteitä, ellei niitä järjestelmäasetuksista "
-"muuteta."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "Evästeen tiedot"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "Nimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "Arvo:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "Vanhenee:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "Polku:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "Verkkoalue:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Valotus:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Seuraava >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Näytä seuraavan evästeen tiedot"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Ei määritetty"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Istunnon loppu"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Vain salatut palvelimet"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Salatut palvelimet, sivuskriptit"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Palvelimet"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Palvelimet, sivuskriptit"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Tiedot"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
@@ -5083,6 +4559,48 @@ msgstr "Muokkaa &käytännettä…"
 #, kde-format
 msgid "&Reload List"
 msgstr "&Lataa luettelo uudelleen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "Arvo:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "Verkkoalue:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "Polku:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "Vanhenee:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6386,6 +5904,17 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr ""
+"Sinun tulee antaa käyttäjätunnus ja salasana päästäksesi tälle palvelimelle."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "Palvelin:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6409,6 +5938,28 @@ msgid ""
 msgstr ""
 "\n"
 "Palvelin vastasi: ”%1”"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"Alla olevalle välityspalvelimelle pitää antaa käyttäjätunnus ja salasana, "
+"ennen kuin mitään sivuja voidaan selata."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "Välityspalvelin:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "Välityspalvelimeen tunnistautuminen epäonnistui."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -6449,6 +6000,455 @@ msgstr "Etsitään valintaa"
 #, kde-format
 msgid "Could not find filename %1 in %2."
 msgstr "Tiedostonimeä %1 ei löytynyt hakemistosta %2."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "Ei kohdetta."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "Muuten pyyntö olisi onnistunut."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "hae ominaisuusarvot"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "aseta ominaisuusarvot"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "luo pyydetty kansio"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "kopioi tietty tiedosto tai kansio"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "siirrä tietty tiedosto tai kansio"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "hae tietyssä kansiossa"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "lukitse tietty tiedosto tai kansio"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "poista lukitus tietystä tiedostosta tai kansiosta"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "poista tietty tiedosto tai kansio"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "kysele palvelimen kykyjä"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "hae tietyn tiedoston tai kansion sisältö"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "aja raportti määritetyssä kansiossa"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Odottamaton virhe (%1) tapahtui yritettäessä pyyntöä %2."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "Palvelin ei tue WebDAV-yhteyskäytäntöä."
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla. "
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "Käsittely kielletty yritettäessä %1."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"Resurssia ei voitu luoda kohteeseen ennen kuin yksi tai useampi välikokoelma "
+"(kansio) on luotu."
+
+# Koska kehittäjä muutti ”propertybehavior” → ”property behavior”, niin oletin ettei ole kääntämättömissä oleva XML-elementin nimi (niissä ei voi olla välilyöntiä). ”Ominaisuuksien käyttäytyminen” heitetty, mutta sen voi ongelmatilanteessa kääntää helposti englanniksi.
+#: kioworkers/http/http.cpp:1699
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"Palvelin ei joko kyennyt ylläpitämään elossa XML-alkion\n"
+"propertybehaviorissa lueteltuja ominaisuuksia tai yritit\n"
+"korvata tiedoston samalla kun vaadit, ettei tiedostoja\n"
+"korvata.\n"
+" %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "Pyydettyä lukkoa %1 ei voitu myöntää."
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "Palvelin ei tue rungon pyyntötyyppiä."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "Toimintoa %1 ei voida suorittaa, koska resurssi on lukittu."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "Toiminto estyi jonkin muun virheen vuoksi."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr ""
+"%1 ei onnistu, koska kohdepalvelin kieltäytyy hyväksymästä tiedostoa tai "
+"kansiota."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"Kohderesurssissa ei ole riittävästi tilaa tallentaa resurssin tilaa metodin "
+"suorituksen jälkeen."
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "Resurssia ei voida poistaa."
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "lähetetään tiedostoa %1"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "Odottamaton virhe (%1) tapahtui yritettäessä %2"
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1 yhdistetty.  Odotetaan vastausta… "
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>Olet kirjautumassa sivulle ”%1” käyttäjätunnuksella ”%2”, mutta se ei "
+"tarvitse tunnistautumista. Sinua saatetaan petkuttaa.</p><p>Onko ”%1” "
+"varmasti se sivu, jolle haluat siirtyä?</p>"
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "Vahvista verkkosivulle siirtyminen"
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "Palvelin käsittelee pyyntöä, odota hetki…"
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "Lähetetään dataa kohteeseen %1"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "Haetaan %1 kohteesta %2"
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> kohteessa <b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "Tunnistaminen epäonnistui."
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "Tunnistautuminen epäonnistui."
+
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "Tuntematon tunnistautumismenetelmä."
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr "Vastaanotetaan vioittunutta tietoa."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Cannot Save Cookies"
+msgstr "Evästeitä ei voi tallentaa"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, kde-format
+msgid "Could not remove %1, check permissions"
+msgstr "%1 ei voitu poistaa; tarkista käyttöoikeudet"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Could not create directory %1"
+msgstr "Ei voitu luoda kansiota %1"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "Evästevaroitus"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>Vastaanotit evästeen palvelimelta<br/><b>%2%3</b><br/>Haluatko hyväksyä "
+"vai hylätä tämän evästeen?</p>"
+msgstr[1] ""
+"<p>Vastaanotit %1 evästettä palvelimelta<br/><b>%2%3</b><br/>Haluatko "
+"hyväksyä vai hylätä nämä evästeet?</p>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, kde-format
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [Verkkoalueen ylittävä]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "Katso tai muuta evästeen tietoja"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr "Hyväksy &tämän istunnon ajaksi"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "Hyväksy evästeet nykyisen istunnon loppuun"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "&Hyväksy"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "H&ylkää"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "Valinta koskee"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "vain &tätä evästettä"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "vain &näitä evästeitä"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, kde-format
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"Valitse tämä hyväksyäksesi tai hylätäksesi vain tämän evästeen. Uusista "
+"evästeistä kysytään erikseen."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "Kaikki tämän &verkkoalueen evästeet"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, kde-format
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"Hyväksy tai hylkää kaikki evästeet tältä palvelimelta valitsemalla tämä. "
+"Evästeen tarjoavalle palvelimelle lisätään uusi käytänne, joka on pysyvä, "
+"ellei sitä järjestelmäasetuksissa muuta."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "&Kaikki evästeet"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, kde-format
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"Hyväksy tai hylkää kaikki evästeet kaikkialta valitsemalla tämä. Tämä "
+"muuttaa yleisiä evästekäytänteitä, ellei niitä järjestelmäasetuksista "
+"muuteta."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "Evästeen tiedot"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, kde-format
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "Valotus:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&Seuraava >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "Näytä seuraavan evästeen tiedot"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, kde-format
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "Ei määritetty"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, kde-format
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "Istunnon loppu"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "Vain salatut palvelimet"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "Salatut palvelimet, sivuskriptit"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "Palvelimet"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "Palvelimet, sivuskriptit"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, kde-format
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "Tiedot"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

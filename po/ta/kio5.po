@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2022-11-10 20:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2797,37 +2797,37 @@ msgstr "பண்புகள்"
 msgid "&View Mode"
 msgstr "&காட்சி முறை"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "ஃ–அ"
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "அ–ஃ"
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "புதியது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "பழையது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "பெரியது முதலில்"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4142,526 +4142,6 @@ msgstr "%1 என்ற பயனர் பெயருக்கான பயன
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "புரவன் எதுவும் குறிப்பிடப்படவில்லை."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "இல்லையெனில், கோரிக்கை நிறைவேறியிருக்கும்."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "பண்பு மதிப்புகளை மீட்க"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "பண்பு மதிப்புகளை அமைக்க"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "கோரப்பட்ட அடைவினை உருவாக்க"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகலெடுக்க"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகர்த்த"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "குறிப்பிட்ட அடைவினுள் தேட"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை பூட்ட"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் பூட்டகற்ற"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை அகற்ற"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "சேவையகத்தின் இயலுமைகளைக் கோர"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் உள்ளடக்கத்தை மீட்க"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "குறிப்பிட்ட அடைவினுள் report-ஐ இயக்க"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "சேவையகம் WebDAV நெறிமுறையை ஆதரிக்கவில்லை"
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr "%2 -இல் %1 முயற்சிக்கையில் பிழை ஏற்பட்டது. காரணங்களின் தொகுப்பு கீழுள்ளது."
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "%1 முயற்சிக்கையில் அணுகல் மறுக்கப்பட்டது."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"ஒரு அல்லது ஒன்றுக்கு மேற்பட்ட இடைநிலை திரட்டுகள் (அடைவுகள்) உருவாக்கப்படும் வரை "
-"குறிப்பிட்ட இடத்தில் எதையும் உருவாக்க முடியாது."
-
-#: ioslaves/http/http.cpp:1699
-#, kde-format
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"propertybehavior XML பதிவில் குறிப்பிட்டுள்ள பண்புகள் தற்போதையதாக உள்ளனவா என்று "
-"சேவையகத்தால் தீர்மானிக்க முடியவில்லை\n"
-"(அல்லது) கோப்புகளை மேலெழுத வேண்டாம் என்று கோரிவிட்டு ஒரு கோப்பை மேலெழுத "
-"முயற்சித்தீர்கள்.\n"
-" %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "கோரிய பூட்டை வழங்க முடியவில்லை: %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "உடல் பகுதியில் உள்ள கோரிக்கை வகையை சேவையகம் ஆதரிக்கவில்லை."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "இது பூட்டியிருப்பதால் %1 இயலவில்லை."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "இச்செயல் வேறொரு சிக்கலால் தடுக்கப்பட்டது."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr "இலக்கு சேவையகம் கோப்பு அல்லது அடைவினை பெற மறுப்பதால் %1 இயலவில்லை."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr ""
-"இந்த முறைமையை இயக்கிய பிறகு இதன் நிலையைக் குறிக்க தேவையான இடம், சேருமிடத்தில் இல்லை"
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "இதை நீக்க முடியாது."
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "%1-ஐ பதிவேற்ற"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1-உடன் தொடர்பு ஏற்பட்டது. பதிலுக்கு காத்திருக்கிறது..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>நீங்கள் \"%1\" என்கிற இணையதளத்தில் \"%2\" என்கிற பெயரைக் கொண்டு நுழையப் போகிறீர்கள், "
-"ஆனால் அந்த இணையதளத்துக்கு உறுதிப்பாடு தேவை இல்லை. இது உங்களை ஏமாற்ற ஒரு முயற்சியாக "
-"இருக்கலாம்.</p> <p>நீங்கள் அணுக விரும்பும் இணையதளம் \"%1\" தானா?</p>"
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "இணையதள அணுகலை உறுதி செய்தல்"
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "சேவையகம் கோரிக்கையைப் பரிசீலிக்கிறது. தயவு செய்து காத்திருக்கவும்..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1-க்குத் தரவு அனுப்பப்படுகிறது"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2 -இலிருந்து %1 மீட்கப்படுகிறது..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
-"கடவுச்சொல்லையும் தர வேண்டும்."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "பதிலி:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%2</b> -இல் <b>%1</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு பயனர் பெயரையும், கடவுச்சொல்லையும் வழங்க வேண்டும்."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "தளம்:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "உறுதிப்பாடு தோல்வியடைந்தது."
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "உரிமை வழங்குதல் தோல்வியடைந்தது."
-
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "தெரியாத உரிமை வழங்கும் முறை"
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "முறையற்ற தரவு பெறப்படுகிறது."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "நினைவிகளை சேமிக்க முடியவில்லை"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "%1-ஐ நீக்க முடியவில்லை, அனுமதிகளை சரிபார்க்கவும்."
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "%1 என்ற அடைவை உருவாக்க முடியவில்லை"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "நினைவி எச்சரிக்கை"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>நீங்கள்<b>%2%3</b>-இலிருந்து ஒரு நினைவியை பெற்றுள்ளீர்கள்<br/>இதனை ஏற்க "
-"விரும்புகிறீர்களா, அல்லது மறுக்க விரும்புகிறீர்களா?</p>"
-msgstr[1] ""
-"<p>நீங்கள்<b>%2%3</b>-இலிருந்து %1 நினைவிகளை பெற்றுள்ளீர்கள்<br/>இவற்றை ஏற்க "
-"விரும்புகிறீர்களா, அல்லது மறுக்க விரும்புகிறீர்களா?</p>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr "[குறுக்கு ஆள்களம்]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "விவரங்கள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "நினைவி விவரங்களை பார்/மாற்று"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr "இந்த &அமர்வுக்கு ஏற்றுக்கொள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "தற்போதைய அமர்வு முடியும் வரை நினைவிகளை ஏற்றுக்கொள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "&ஏற்றுக்கொள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "&மறு"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "தேர்வை இதற்கு செயல்படுத்து"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&இந்நினைவி மட்டும்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&இந்நினைவிகள் மட்டும்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"இந்நினைவியை மட்டும் ஏற்க/மறுக்க, இவ்விருப்பத்தை தேர்வு செய்யவும். வேறொரு நினைவி "
-"பெறப்பட்டால், மறுபடியும் உங்கள் விருப்பம் கேட்கப்படும்."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "இந்த ஆள்&களத்திலிருந்து வரும் எல்லா நினைவிகள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"இத்தளத்திலிருந்து வரும் எல்லா நினைவிகளையும் ஏற்க/மறுக்க இவ்விருப்பத்தைப் தேர்ந்தெடுக்கவும். "
-"இவ்விருப்பத்தைத் தேர்வு செய்தல் மூலம், இந்நினைவியின் மூலத் தளத்திற்கு பொருந்தும் ஒரு புதிய "
-"கொள்கை சேர்க்கப்படும். நீங்கள் இதனை கணினி அமைப்புகள் மூலம் மாற்றினாலொழிய இக்கொள்கை "
-"நிரந்தரமாகப் இருக்கும்."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "எல்லா &நினைவிகள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"எங்கிருந்தும் வரும் எல்லா நினைவிகளையும் ஏற்க/மறுக்க இவ்விருப்பத்தைப் தேர்ந்தெடுக்கவும். "
-"இவ்விருப்பத்தைத் தேர்வு செய்தல், பொதுவான நினைவி கொள்கையை நீங்கள் கணினி அமைப்புகளில் சென்று "
-"மாற்றும் வரை நிரந்தரமாக மாற்றும்."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "நினைவி விவரங்கள்"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "பெயர்: "
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "உட்பொருள்:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "காலாவதி ஆவது:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "பாதை:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "ஆள்களம்:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "எதனால் பயன்படுத்தப்படலாம்:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&அடுத்தது >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "அடுத்த நினைவியின் விவரங்களைக் காட்டு"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "குறிப்பிடாதது"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "அமர்வின் முடிவு"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "பாதுகாப்பான சேவையகங்கள் மட்டும்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "பாதுகாப்பான சேவையகங்கள், பக்க சிறுநிரல்கள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "சேவையகங்கள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "சேவையகங்கள், பக்க சிறுநிரல்கள்"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "விவரங்கள்"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
@@ -5008,6 +4488,48 @@ msgstr "&கொள்கையை அமை"
 #, kde-format
 msgid "&Reload List"
 msgstr "பட்டியலை &மீளேற்று"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "பெயர்: "
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "உட்பொருள்:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "ஆள்களம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "பாதை:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "காலாவதி ஆவது:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6301,6 +5823,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு பயனர் பெயரையும், கடவுச்சொல்லையும் வழங்க வேண்டும்."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "தளம்:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6324,6 +5856,28 @@ msgid ""
 msgstr ""
 "\n"
 "சேவையகம் கூறியது: \"%1\""
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
+"கடவுச்சொல்லையும் தர வேண்டும்."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "பதிலி:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -6364,6 +5918,452 @@ msgstr "சரியான பிரிவு கண்டறியப்பட�
 #, kde-format
 msgid "Could not find filename %1 in %2."
 msgstr "%2 -இல் %1 என்ற கோப்பை கண்டுபிடிக்க முடியவில்லை."
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "புரவன் எதுவும் குறிப்பிடப்படவில்லை."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "இல்லையெனில், கோரிக்கை நிறைவேறியிருக்கும்."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "பண்பு மதிப்புகளை மீட்க"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "பண்பு மதிப்புகளை அமைக்க"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "கோரப்பட்ட அடைவினை உருவாக்க"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகலெடுக்க"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகர்த்த"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "குறிப்பிட்ட அடைவினுள் தேட"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை பூட்ட"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் பூட்டகற்ற"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை அகற்ற"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "சேவையகத்தின் இயலுமைகளைக் கோர"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் உள்ளடக்கத்தை மீட்க"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "குறிப்பிட்ட அடைவினுள் report-ஐ இயக்க"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "சேவையகம் WebDAV நெறிமுறையை ஆதரிக்கவில்லை"
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "%2 -இல் %1 முயற்சிக்கையில் பிழை ஏற்பட்டது. காரணங்களின் தொகுப்பு கீழுள்ளது."
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "%1 முயற்சிக்கையில் அணுகல் மறுக்கப்பட்டது."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"ஒரு அல்லது ஒன்றுக்கு மேற்பட்ட இடைநிலை திரட்டுகள் (அடைவுகள்) உருவாக்கப்படும் வரை "
+"குறிப்பிட்ட இடத்தில் எதையும் உருவாக்க முடியாது."
+
+#: kioworkers/http/http.cpp:1699
+#, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"propertybehavior XML பதிவில் குறிப்பிட்டுள்ள பண்புகள் தற்போதையதாக உள்ளனவா என்று "
+"சேவையகத்தால் தீர்மானிக்க முடியவில்லை\n"
+"(அல்லது) கோப்புகளை மேலெழுத வேண்டாம் என்று கோரிவிட்டு ஒரு கோப்பை மேலெழுத "
+"முயற்சித்தீர்கள்.\n"
+" %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "கோரிய பூட்டை வழங்க முடியவில்லை: %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "உடல் பகுதியில் உள்ள கோரிக்கை வகையை சேவையகம் ஆதரிக்கவில்லை."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "இது பூட்டியிருப்பதால் %1 இயலவில்லை."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "இச்செயல் வேறொரு சிக்கலால் தடுக்கப்பட்டது."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr "இலக்கு சேவையகம் கோப்பு அல்லது அடைவினை பெற மறுப்பதால் %1 இயலவில்லை."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr ""
+"இந்த முறைமையை இயக்கிய பிறகு இதன் நிலையைக் குறிக்க தேவையான இடம், சேருமிடத்தில் இல்லை"
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "இதை நீக்க முடியாது."
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "%1-ஐ பதிவேற்ற"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "%1-உடன் தொடர்பு ஏற்பட்டது. பதிலுக்கு காத்திருக்கிறது..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"<p>நீங்கள் \"%1\" என்கிற இணையதளத்தில் \"%2\" என்கிற பெயரைக் கொண்டு நுழையப் போகிறீர்கள், "
+"ஆனால் அந்த இணையதளத்துக்கு உறுதிப்பாடு தேவை இல்லை. இது உங்களை ஏமாற்ற ஒரு முயற்சியாக "
+"இருக்கலாம்.</p> <p>நீங்கள் அணுக விரும்பும் இணையதளம் \"%1\" தானா?</p>"
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "இணையதள அணுகலை உறுதி செய்தல்"
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "சேவையகம் கோரிக்கையைப் பரிசீலிக்கிறது. தயவு செய்து காத்திருக்கவும்..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "%1-க்குத் தரவு அனுப்பப்படுகிறது"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "%2 -இலிருந்து %1 மீட்கப்படுகிறது..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%2</b> -இல் <b>%1</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "உறுதிப்பாடு தோல்வியடைந்தது."
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "உரிமை வழங்குதல் தோல்வியடைந்தது."
+
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "தெரியாத உரிமை வழங்கும் முறை"
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr "முறையற்ற தரவு பெறப்படுகிறது."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Cannot Save Cookies"
+msgstr "நினைவிகளை சேமிக்க முடியவில்லை"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, kde-format
+msgid "Could not remove %1, check permissions"
+msgstr "%1-ஐ நீக்க முடியவில்லை, அனுமதிகளை சரிபார்க்கவும்."
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Could not create directory %1"
+msgstr "%1 என்ற அடைவை உருவாக்க முடியவில்லை"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "நினைவி எச்சரிக்கை"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>நீங்கள்<b>%2%3</b>-இலிருந்து ஒரு நினைவியை பெற்றுள்ளீர்கள்<br/>இதனை ஏற்க "
+"விரும்புகிறீர்களா, அல்லது மறுக்க விரும்புகிறீர்களா?</p>"
+msgstr[1] ""
+"<p>நீங்கள்<b>%2%3</b>-இலிருந்து %1 நினைவிகளை பெற்றுள்ளீர்கள்<br/>இவற்றை ஏற்க "
+"விரும்புகிறீர்களா, அல்லது மறுக்க விரும்புகிறீர்களா?</p>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, kde-format
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr "[குறுக்கு ஆள்களம்]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "நினைவி விவரங்களை பார்/மாற்று"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr "இந்த &அமர்வுக்கு ஏற்றுக்கொள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "தற்போதைய அமர்வு முடியும் வரை நினைவிகளை ஏற்றுக்கொள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "&ஏற்றுக்கொள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "&மறு"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "தேர்வை இதற்கு செயல்படுத்து"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "&இந்நினைவி மட்டும்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "&இந்நினைவிகள் மட்டும்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, kde-format
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"இந்நினைவியை மட்டும் ஏற்க/மறுக்க, இவ்விருப்பத்தை தேர்வு செய்யவும். வேறொரு நினைவி "
+"பெறப்பட்டால், மறுபடியும் உங்கள் விருப்பம் கேட்கப்படும்."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "இந்த ஆள்&களத்திலிருந்து வரும் எல்லா நினைவிகள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, kde-format
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"இத்தளத்திலிருந்து வரும் எல்லா நினைவிகளையும் ஏற்க/மறுக்க இவ்விருப்பத்தைப் தேர்ந்தெடுக்கவும். "
+"இவ்விருப்பத்தைத் தேர்வு செய்தல் மூலம், இந்நினைவியின் மூலத் தளத்திற்கு பொருந்தும் ஒரு புதிய "
+"கொள்கை சேர்க்கப்படும். நீங்கள் இதனை கணினி அமைப்புகள் மூலம் மாற்றினாலொழிய இக்கொள்கை "
+"நிரந்தரமாகப் இருக்கும்."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "எல்லா &நினைவிகள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, kde-format
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"எங்கிருந்தும் வரும் எல்லா நினைவிகளையும் ஏற்க/மறுக்க இவ்விருப்பத்தைப் தேர்ந்தெடுக்கவும். "
+"இவ்விருப்பத்தைத் தேர்வு செய்தல், பொதுவான நினைவி கொள்கையை நீங்கள் கணினி அமைப்புகளில் சென்று "
+"மாற்றும் வரை நிரந்தரமாக மாற்றும்."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "நினைவி விவரங்கள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, kde-format
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "எதனால் பயன்படுத்தப்படலாம்:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&அடுத்தது >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "அடுத்த நினைவியின் விவரங்களைக் காட்டு"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, kde-format
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "குறிப்பிடாதது"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, kde-format
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "அமர்வின் முடிவு"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "பாதுகாப்பான சேவையகங்கள் மட்டும்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "பாதுகாப்பான சேவையகங்கள், பக்க சிறுநிரல்கள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, kde-format
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "சேவையகங்கள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, kde-format
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "சேவையகங்கள், பக்க சிறுநிரல்கள்"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, kde-format
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "விவரங்கள்"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

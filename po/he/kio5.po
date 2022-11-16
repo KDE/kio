@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:42+0000\n"
+"POT-Creation-Date: 2022-11-16 00:43+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -2805,40 +2805,40 @@ msgstr "מאפיינים"
 msgid "&View Mode"
 msgstr "&תצוגה"
 
-#: filewidgets/kdiroperator.cpp:2482 filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2483 filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486
+#: filewidgets/kdiroperator.cpp:2490
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "תיקיות ראשונות"
 
-#: filewidgets/kdiroperator.cpp:2487
+#: filewidgets/kdiroperator.cpp:2491
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "תיקיות ראשונות"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2494
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "תיקיות ראשונות"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2495
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -4208,527 +4208,6 @@ msgstr "אין אפשרות לברר את זיהוי המשתמש עבור שם 
 msgid "Could not get group id for given group name %1"
 msgstr "אין אפשרות לברר את זיהוי הקבוצה עבור שם הקבוצה הנתון %1"
 
-#: ioslaves/http/http.cpp:587
-#, kde-format
-msgid "No host specified."
-msgstr "לא צוין שרת מארח."
-
-#: ioslaves/http/http.cpp:1556
-#, kde-format
-msgid "Otherwise, the request would have succeeded."
-msgstr "אחרת, הבקשה הייתה מצליחה."
-
-#: ioslaves/http/http.cpp:1560
-#, kde-format
-msgctxt "request type"
-msgid "retrieve property values"
-msgstr "לקבל את ערכי המאפיינים"
-
-#: ioslaves/http/http.cpp:1563
-#, kde-format
-msgctxt "request type"
-msgid "set property values"
-msgstr "להגדיר את ערכי המאפיינים"
-
-#: ioslaves/http/http.cpp:1566
-#, kde-format
-msgctxt "request type"
-msgid "create the requested folder"
-msgstr "ליצור את התיקייה המבוקשת"
-
-#: ioslaves/http/http.cpp:1569
-#, kde-format
-msgctxt "request type"
-msgid "copy the specified file or folder"
-msgstr "להעתיק את הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1572
-#, kde-format
-msgctxt "request type"
-msgid "move the specified file or folder"
-msgstr "להעביר את הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1575
-#, kde-format
-msgctxt "request type"
-msgid "search in the specified folder"
-msgstr "לבצע חיפוש בתיקייה המצוינת"
-
-#: ioslaves/http/http.cpp:1578
-#, kde-format
-msgctxt "request type"
-msgid "lock the specified file or folder"
-msgstr "לנעול את הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1581
-#, kde-format
-msgctxt "request type"
-msgid "unlock the specified file or folder"
-msgstr "לבטל את נעילת הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1584
-#, kde-format
-msgctxt "request type"
-msgid "delete the specified file or folder"
-msgstr "למחוק את הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1587
-#, kde-format
-msgctxt "request type"
-msgid "query the server's capabilities"
-msgstr "לבצע שאילתה לגבי היכולות של השרת"
-
-#: ioslaves/http/http.cpp:1590
-#, kde-format
-msgctxt "request type"
-msgid "retrieve the contents of the specified file or folder"
-msgstr "לקבל את תוכן הקובץ או התיקייה המצוינים"
-
-#: ioslaves/http/http.cpp:1593
-#, kde-format
-msgctxt "request type"
-msgid "run a report in the specified folder"
-msgstr "לבצע דו\"ח על התיקייה המצוינת"
-
-#: ioslaves/http/http.cpp:1605
-#, kde-format
-msgctxt "%1: code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון %2."
-
-#: ioslaves/http/http.cpp:1614
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "השרת לא תומך בפרוטוקול WebDAV."
-
-#: ioslaves/http/http.cpp:1658
-#, kde-format
-msgctxt "%1: request type, %2: url"
-msgid ""
-"An error occurred while attempting to %1, %2. A summary of the reasons is "
-"below."
-msgstr "אירעה שגיאה במהלך הניסיון %1, %2. להלן סיכום של הסיבות."
-
-#: ioslaves/http/http.cpp:1676 ioslaves/http/http.cpp:1812
-#, kde-format
-msgctxt "%1: request type"
-msgid "Access was denied while attempting to %1."
-msgstr "הגישה נדחתה במהלך הניסיון %1."
-
-#: ioslaves/http/http.cpp:1690 ioslaves/http/http.cpp:1819
-#, kde-format
-msgid ""
-"A resource cannot be created at the destination until one or more "
-"intermediate collections (folders) have been created."
-msgstr ""
-"אין אפשרות ליצור את המשאב ביעד עד שלא ייווצר אוסף ביניים (תיקיות) אחד או "
-"יותר."
-
-#: ioslaves/http/http.cpp:1699
-#, fuzzy, kde-format
-msgid ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
-msgstr ""
-"השרת לא יכול היה לשמור על קיום המאפיינים הרשומים במרכיב ה־XML הנוגע לתפקוד "
-"המאפיינים, או שניסית לכתוב על קובץ באותו זמן שביקשת גם לא לכתוב על קבצים. %1"
-
-#: ioslaves/http/http.cpp:1707
-#, kde-format
-msgid "The requested lock could not be granted. %1"
-msgstr "אין אפשרות להעניק את הנעילה המבוקשת. %1"
-
-#: ioslaves/http/http.cpp:1713
-#, kde-format
-msgid "The server does not support the request type of the body."
-msgstr "השרת לא תומך בסוג הבקשה של הגוף."
-
-#: ioslaves/http/http.cpp:1718 ioslaves/http/http.cpp:1827
-#, kde-format
-msgctxt "%1: request type"
-msgid "Unable to %1 because the resource is locked."
-msgstr "אין אפשרות %1 מכיוון שהמשאב נעול."
-
-#: ioslaves/http/http.cpp:1722
-#, kde-format
-msgid "This action was prevented by another error."
-msgstr "פעולה זו נמנעה עקב שגיאה אחרת."
-
-#: ioslaves/http/http.cpp:1729 ioslaves/http/http.cpp:1834
-#, kde-format
-msgctxt "%1: request type"
-msgid ""
-"Unable to %1 because the destination server refuses to accept the file or "
-"folder."
-msgstr "אין אפשרות %1 מכיוון ששרת היעד מסרב לקבל את הקובץ או התיקייה."
-
-#: ioslaves/http/http.cpp:1738 ioslaves/http/http.cpp:1843
-#, kde-format
-msgid ""
-"The destination resource does not have sufficient space to record the state "
-"of the resource after the execution of this method."
-msgstr "אין במשאב היעד די מקום כדי לרשום את מצב המשאב לאחר הפעלת שירות זה."
-
-#: ioslaves/http/http.cpp:1790
-#, kde-format
-msgid "The resource cannot be deleted."
-msgstr "אין אפשרות למחוק את המשאב."
-
-#: ioslaves/http/http.cpp:1803
-#, kde-format
-msgctxt "request type"
-msgid "upload %1"
-msgstr "מעלה את %1"
-
-#: ioslaves/http/http.cpp:1854
-#, kde-format
-msgctxt "%1: response code, %2: request type"
-msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון %2."
-
-#: ioslaves/http/http.cpp:2659
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "נוצר קשר עם %1. ממתין לתשובה..."
-
-#: ioslaves/http/http.cpp:2985
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"את הולך להיכנס את האתר \"%1\" עם שם המשתמש \"%2\", אבל השרת לא מצריך אימות. "
-"ייתכן ואת חבולה שמטרתה לגנוב זהות. <p> האם האתר \"%1\" הוא האתר שבו אתה רוצה "
-"לבקר? </p> "
-
-#: ioslaves/http/http.cpp:2992
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "אישור כניסה לאתר"
-
-#: ioslaves/http/http.cpp:3083
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "השרת מעבד את הבקשה. אנא המתן..."
-
-#: ioslaves/http/http.cpp:3778 ioslaves/http/http.cpp:3833
-#, kde-format
-msgid "Sending data to %1"
-msgstr "שולח נתונים אל %1"
-
-#: ioslaves/http/http.cpp:4278
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "מוריד %1 מ־%2..."
-
-#: ioslaves/http/http.cpp:5169 ioslaves/http/http.cpp:5304
-#: kioworkers/ftp/ftp.cpp:2509
-#, kde-format
-msgid ""
-"You need to supply a username and a password for the proxy server listed "
-"below before you are allowed to access any sites."
-msgstr ""
-"יש לספק שם משתמש וססמה עבור השרת המתווך המופיע להלן לפני שתורשה לגשת לאתר "
-"כלשהו."
-
-#: ioslaves/http/http.cpp:5173 ioslaves/http/http.cpp:5307
-#: kioworkers/ftp/ftp.cpp:2513
-#, kde-format
-msgid "Proxy:"
-msgstr "מתווך:"
-
-#: ioslaves/http/http.cpp:5174 ioslaves/http/http.cpp:5411
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> ב־<b>%2</b>"
-
-#: ioslaves/http/http.cpp:5176 ioslaves/http/http.cpp:5322
-#: kioworkers/ftp/ftp.cpp:2516
-#, kde-format
-msgid "Proxy Authentication Failed."
-msgstr "אימות המתווך נכשל."
-
-#: ioslaves/http/http.cpp:5289 kioworkers/ftp/ftp.cpp:561
-#, kde-format
-msgid "You need to supply a username and a password to access this site."
-msgstr "יש לספק שם משתמש וססמה על מנת לגשת אל אתר זה."
-
-#: ioslaves/http/http.cpp:5291 kioworkers/ftp/ftp.cpp:563
-#, kde-format
-msgid "Site:"
-msgstr "אתר:"
-
-#: ioslaves/http/http.cpp:5322
-#, kde-format
-msgid "Authentication Failed."
-msgstr "האימות נכשל."
-
-#: ioslaves/http/http.cpp:5449
-#, kde-format
-msgid "Authorization failed."
-msgstr "באימות נכשל."
-
-#: ioslaves/http/http.cpp:5466
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "שיטת אימות לא מוכרת."
-
-#: ioslaves/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "לא יכול לשמור עוגיות"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "לא יכול להסיר את %1, בדוק את ההרשאות"
-
-#: ioslaves/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "לא יכול ליצור את התיקיה %1"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:45
-#, kde-format
-msgid "Cookie Alert"
-msgstr "אזעקת עוגיות"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:70
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>קיבלת עוגיה מ־<br/><b>%2%3</b><br/>אתה רוצה לאשר או לדחות אותה</p>"
-msgstr[1] ""
-"<p>קיבלת עוגיות מ־%1<br/><b>%2%3</b><br/>אתה רוצה לאשר או לדחות אותם</p>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:78
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [בין־מתחמי]"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:90
-#: kcms/cookies/kcookiesmanagement.ui:97
-#, kde-format
-msgid "Details"
-msgstr "פרטים"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:93
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "הצג או שנה את מידע העוגייה"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:98
-#, kde-format
-msgid "Accept for this &session"
-msgstr "קבל עבור &הפעלה זו"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:101
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "קבל עוגיות עד הסוף של ההפעלה הזו"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:111
-#, kde-format
-msgid "&Accept"
-msgstr "&קבל"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:114
-#, kde-format
-msgid "&Reject"
-msgstr "&דחה"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:150
-#, kde-format
-msgid "Apply Choice To"
-msgstr "החל על"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&עוגייה זו בלבד"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:153
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&עוגיות אלה בלבד"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:158
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"בחר באפשרות זו כדי לקבל או לדחות עוגייה זו בלבד. אתה תישאל שוב אם תתקבל "
-"עוגייה נוספת."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:161
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "כל העוגיות מ&תחום זה"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:165
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"בחר באפשרות זו כדי לקבל או לדחות את כל העוגיות מאתר זה. דבר זה יוסיף מדיניות "
-"חדשה עבור האתר שממנו באה עוגייה זו.  מדיניות זו תהיה קבועה עד שתשנה אותה "
-"באופן ידני במרכז הבקרה."
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:170
-#, kde-format
-msgid "All &cookies"
-msgstr "&כל העוגיות"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:174
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"בחר באפשרות זו כדי לקבל או לדחות את כל העוגיות מכל מקום שהוא. דבר זה ישנה את "
-"מדיניות העוגיות הגלובלית המוגדרת במרכז הבקרה עבור כל העוגיות עד שתשנה זאת "
-"ידנית מהגדרות מהערכת"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:240
-#, kde-format
-msgid "Cookie Details"
-msgstr "פרטי העוגייה"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:245
-#: kcms/cookies/kcookiesmanagement.ui:106
-#, kde-format
-msgid "Name:"
-msgstr "שם:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:253
-#: kcms/cookies/kcookiesmanagement.ui:129
-#, kde-format
-msgid "Value:"
-msgstr "ערך:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:260
-#: kcms/cookies/kcookiesmanagement.ui:198
-#, kde-format
-msgid "Expires:"
-msgstr "פגה בתאריך:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:267
-#: kcms/cookies/kcookiesmanagement.ui:175
-#, kde-format
-msgid "Path:"
-msgstr "נתיב:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:274
-#: kcms/cookies/kcookiesmanagement.ui:152
-#, kde-format
-msgid "Domain:"
-msgstr "מתחם:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:281
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "חשיפה:"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:289
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&הבא >>"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:294
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "הצגת פרטי העוגייה הבאה"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:322
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "לא צוין"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:331
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "סוף ההפעלה"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:336
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "שרתים מאובטחים בלבד"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:338
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "שרתים מאובטחים, תסריטי עמודים"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "שרתים"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "שרתים, תסריטי עמודים"
-
-#: ioslaves/http/kcookiejar/kcookiewin.cpp:359
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "פרטים"
-
 #: ioslaves/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "Access denied"
@@ -5058,6 +4537,48 @@ msgstr "הגדר מדינויות"
 #, kde-format
 msgid "&Reload List"
 msgstr "&טען רשימה מחדש"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:90
+#, kde-format
+msgid "Details"
+msgstr "פרטים"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:245
+#, kde-format
+msgid "Name:"
+msgstr "שם:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:253
+#, kde-format
+msgid "Value:"
+msgstr "ערך:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:274
+#, kde-format
+msgid "Domain:"
+msgstr "מתחם:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:267
+#, kde-format
+msgid "Path:"
+msgstr "נתיב:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:260
+#, kde-format
+msgid "Expires:"
+msgstr "פגה בתאריך:"
 
 #. i18n: ectx: property (text), widget (QLabel, secureLabel)
 #: kcms/cookies/kcookiesmanagement.ui:221
@@ -6292,6 +5813,16 @@ msgstr ""
 "%2\n"
 "\n"
 
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
+#, kde-format
+msgid "You need to supply a username and a password to access this site."
+msgstr "יש לספק שם משתמש וססמה על מנת לגשת אל אתר זה."
+
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
+#, kde-format
+msgid "Site:"
+msgstr "אתר:"
+
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
 msgid "<b>%1</b>"
@@ -6313,6 +5844,28 @@ msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "מפעיל את %1"
+
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5169
+#: kioworkers/http/http.cpp:5304
+#, kde-format
+msgid ""
+"You need to supply a username and a password for the proxy server listed "
+"below before you are allowed to access any sites."
+msgstr ""
+"יש לספק שם משתמש וססמה עבור השרת המתווך המופיע להלן לפני שתורשה לגשת לאתר "
+"כלשהו."
+
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
+#: kioworkers/http/http.cpp:5307
+#, kde-format
+msgid "Proxy:"
+msgstr "מתווך:"
+
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Proxy Authentication Failed."
+msgstr "אימות המתווך נכשל."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -6353,6 +5906,453 @@ msgstr ""
 #, kde-format
 msgid "Could not find filename %1 in %2."
 msgstr "לא יכול למצוא את שם הקובץ %1 ב־%2"
+
+#: kioworkers/http/http.cpp:587
+#, kde-format
+msgid "No host specified."
+msgstr "לא צוין שרת מארח."
+
+#: kioworkers/http/http.cpp:1556
+#, kde-format
+msgid "Otherwise, the request would have succeeded."
+msgstr "אחרת, הבקשה הייתה מצליחה."
+
+#: kioworkers/http/http.cpp:1560
+#, kde-format
+msgctxt "request type"
+msgid "retrieve property values"
+msgstr "לקבל את ערכי המאפיינים"
+
+#: kioworkers/http/http.cpp:1563
+#, kde-format
+msgctxt "request type"
+msgid "set property values"
+msgstr "להגדיר את ערכי המאפיינים"
+
+#: kioworkers/http/http.cpp:1566
+#, kde-format
+msgctxt "request type"
+msgid "create the requested folder"
+msgstr "ליצור את התיקייה המבוקשת"
+
+#: kioworkers/http/http.cpp:1569
+#, kde-format
+msgctxt "request type"
+msgid "copy the specified file or folder"
+msgstr "להעתיק את הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1572
+#, kde-format
+msgctxt "request type"
+msgid "move the specified file or folder"
+msgstr "להעביר את הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1575
+#, kde-format
+msgctxt "request type"
+msgid "search in the specified folder"
+msgstr "לבצע חיפוש בתיקייה המצוינת"
+
+#: kioworkers/http/http.cpp:1578
+#, kde-format
+msgctxt "request type"
+msgid "lock the specified file or folder"
+msgstr "לנעול את הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1581
+#, kde-format
+msgctxt "request type"
+msgid "unlock the specified file or folder"
+msgstr "לבטל את נעילת הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1584
+#, kde-format
+msgctxt "request type"
+msgid "delete the specified file or folder"
+msgstr "למחוק את הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1587
+#, kde-format
+msgctxt "request type"
+msgid "query the server's capabilities"
+msgstr "לבצע שאילתה לגבי היכולות של השרת"
+
+#: kioworkers/http/http.cpp:1590
+#, kde-format
+msgctxt "request type"
+msgid "retrieve the contents of the specified file or folder"
+msgstr "לקבל את תוכן הקובץ או התיקייה המצוינים"
+
+#: kioworkers/http/http.cpp:1593
+#, kde-format
+msgctxt "request type"
+msgid "run a report in the specified folder"
+msgstr "לבצע דו\"ח על התיקייה המצוינת"
+
+#: kioworkers/http/http.cpp:1605
+#, kde-format
+msgctxt "%1: code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון %2."
+
+#: kioworkers/http/http.cpp:1614
+#, kde-format
+msgid "The server does not support the WebDAV protocol."
+msgstr "השרת לא תומך בפרוטוקול WebDAV."
+
+#: kioworkers/http/http.cpp:1658
+#, kde-format
+msgctxt "%1: request type, %2: url"
+msgid ""
+"An error occurred while attempting to %1, %2. A summary of the reasons is "
+"below."
+msgstr "אירעה שגיאה במהלך הניסיון %1, %2. להלן סיכום של הסיבות."
+
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
+#, kde-format
+msgctxt "%1: request type"
+msgid "Access was denied while attempting to %1."
+msgstr "הגישה נדחתה במהלך הניסיון %1."
+
+#: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
+#, kde-format
+msgid ""
+"A resource cannot be created at the destination until one or more "
+"intermediate collections (folders) have been created."
+msgstr ""
+"אין אפשרות ליצור את המשאב ביעד עד שלא ייווצר אוסף ביניים (תיקיות) אחד או "
+"יותר."
+
+#: kioworkers/http/http.cpp:1699
+#, fuzzy, kde-format
+msgid ""
+"The server was unable to maintain the liveness of the\n"
+"properties listed in the propertybehavior XML element\n"
+"or you attempted to overwrite a file while requesting\n"
+"that files are not overwritten.\n"
+" %1"
+msgstr ""
+"השרת לא יכול היה לשמור על קיום המאפיינים הרשומים במרכיב ה־XML הנוגע לתפקוד "
+"המאפיינים, או שניסית לכתוב על קובץ באותו זמן שביקשת גם לא לכתוב על קבצים. %1"
+
+#: kioworkers/http/http.cpp:1707
+#, kde-format
+msgid "The requested lock could not be granted. %1"
+msgstr "אין אפשרות להעניק את הנעילה המבוקשת. %1"
+
+#: kioworkers/http/http.cpp:1713
+#, kde-format
+msgid "The server does not support the request type of the body."
+msgstr "השרת לא תומך בסוג הבקשה של הגוף."
+
+#: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
+#, kde-format
+msgctxt "%1: request type"
+msgid "Unable to %1 because the resource is locked."
+msgstr "אין אפשרות %1 מכיוון שהמשאב נעול."
+
+#: kioworkers/http/http.cpp:1722
+#, kde-format
+msgid "This action was prevented by another error."
+msgstr "פעולה זו נמנעה עקב שגיאה אחרת."
+
+#: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
+#, kde-format
+msgctxt "%1: request type"
+msgid ""
+"Unable to %1 because the destination server refuses to accept the file or "
+"folder."
+msgstr "אין אפשרות %1 מכיוון ששרת היעד מסרב לקבל את הקובץ או התיקייה."
+
+#: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
+#, kde-format
+msgid ""
+"The destination resource does not have sufficient space to record the state "
+"of the resource after the execution of this method."
+msgstr "אין במשאב היעד די מקום כדי לרשום את מצב המשאב לאחר הפעלת שירות זה."
+
+#: kioworkers/http/http.cpp:1790
+#, kde-format
+msgid "The resource cannot be deleted."
+msgstr "אין אפשרות למחוק את המשאב."
+
+#: kioworkers/http/http.cpp:1803
+#, kde-format
+msgctxt "request type"
+msgid "upload %1"
+msgstr "מעלה את %1"
+
+#: kioworkers/http/http.cpp:1854
+#, kde-format
+msgctxt "%1: response code, %2: request type"
+msgid "An unexpected error (%1) occurred while attempting to %2."
+msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון %2."
+
+#: kioworkers/http/http.cpp:2659
+#, kde-format
+msgid "%1 contacted. Waiting for reply..."
+msgstr "נוצר קשר עם %1. ממתין לתשובה..."
+
+#: kioworkers/http/http.cpp:2985
+#, kde-format
+msgctxt "@info Security check on url being accessed"
+msgid ""
+"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
+"the website does not require authentication. This may be an attempt to trick "
+"you.</p><p>Is \"%1\" the site you want to visit?</p>"
+msgstr ""
+"את הולך להיכנס את האתר \"%1\" עם שם המשתמש \"%2\", אבל השרת לא מצריך אימות. "
+"ייתכן ואת חבולה שמטרתה לגנוב זהות. <p> האם האתר \"%1\" הוא האתר שבו אתה רוצה "
+"לבקר? </p> "
+
+#: kioworkers/http/http.cpp:2992
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Website Access"
+msgstr "אישור כניסה לאתר"
+
+#: kioworkers/http/http.cpp:3083
+#, kde-format
+msgid "Server processing request, please wait..."
+msgstr "השרת מעבד את הבקשה. אנא המתן..."
+
+#: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
+#, kde-format
+msgid "Sending data to %1"
+msgstr "שולח נתונים אל %1"
+
+#: kioworkers/http/http.cpp:4278
+#, kde-format
+msgid "Retrieving %1 from %2..."
+msgstr "מוריד %1 מ־%2..."
+
+#: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> ב־<b>%2</b>"
+
+#: kioworkers/http/http.cpp:5322
+#, kde-format
+msgid "Authentication Failed."
+msgstr "האימות נכשל."
+
+#: kioworkers/http/http.cpp:5449
+#, kde-format
+msgid "Authorization failed."
+msgstr "באימות נכשל."
+
+#: kioworkers/http/http.cpp:5466
+#, kde-format
+msgid "Unknown Authorization method."
+msgstr "שיטת אימות לא מוכרת."
+
+#: kioworkers/http/httpfilter.cpp:175
+#, kde-format
+msgid "Receiving corrupt data."
+msgstr ""
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Cannot Save Cookies"
+msgstr "לא יכול לשמור עוגיות"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
+#, kde-format
+msgid "Could not remove %1, check permissions"
+msgstr "לא יכול להסיר את %1, בדוק את ההרשאות"
+
+#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
+#, kde-format
+msgid "Could not create directory %1"
+msgstr "לא יכול ליצור את התיקיה %1"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:45
+#, kde-format
+msgid "Cookie Alert"
+msgstr "אזעקת עוגיות"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:70
+#, kde-format
+msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+msgid ""
+"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject this cookie?</p>"
+msgid_plural ""
+"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
+"reject these cookies?</p>"
+msgstr[0] ""
+"<p>קיבלת עוגיה מ־<br/><b>%2%3</b><br/>אתה רוצה לאשר או לדחות אותה</p>"
+msgstr[1] ""
+"<p>קיבלת עוגיות מ־%1<br/><b>%2%3</b><br/>אתה רוצה לאשר או לדחות אותם</p>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:78
+#, kde-format
+msgctxt "@item:intext cross domain cookie"
+msgid " [Cross Domain]"
+msgstr " [בין־מתחמי]"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:93
+#, kde-format
+msgid "See or modify the cookie information"
+msgstr "הצג או שנה את מידע העוגייה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:98
+#, kde-format
+msgid "Accept for this &session"
+msgstr "קבל עבור &הפעלה זו"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:101
+#, kde-format
+msgid "Accept cookie(s) until the end of the current session"
+msgstr "קבל עוגיות עד הסוף של ההפעלה הזו"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:111
+#, kde-format
+msgid "&Accept"
+msgstr "&קבל"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:114
+#, kde-format
+msgid "&Reject"
+msgstr "&דחה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:150
+#, kde-format
+msgid "Apply Choice To"
+msgstr "החל על"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only this cookie"
+msgstr "&עוגייה זו בלבד"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:153
+#, kde-format
+msgid "&Only these cookies"
+msgstr "&עוגיות אלה בלבד"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:158
+#, kde-format
+msgid ""
+"Select this option to only accept or reject this cookie. You will be "
+"prompted again if you receive another cookie."
+msgstr ""
+"בחר באפשרות זו כדי לקבל או לדחות עוגייה זו בלבד. אתה תישאל שוב אם תתקבל "
+"עוגייה נוספת."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:161
+#, kde-format
+msgid "All cookies from this do&main"
+msgstr "כל העוגיות מ&תחום זה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:165
+#, kde-format
+msgid ""
+"Select this option to accept or reject all cookies from this site. Choosing "
+"this option will add a new policy for the site this cookie originated from. "
+"This policy will be permanent until you manually change it from the System "
+"Settings."
+msgstr ""
+"בחר באפשרות זו כדי לקבל או לדחות את כל העוגיות מאתר זה. דבר זה יוסיף מדיניות "
+"חדשה עבור האתר שממנו באה עוגייה זו.  מדיניות זו תהיה קבועה עד שתשנה אותה "
+"באופן ידני במרכז הבקרה."
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:170
+#, kde-format
+msgid "All &cookies"
+msgstr "&כל העוגיות"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:174
+#, kde-format
+msgid ""
+"Select this option to accept/reject all cookies from anywhere. Choosing this "
+"option will change the global cookie policy for all cookies until you "
+"manually change it from the System Settings."
+msgstr ""
+"בחר באפשרות זו כדי לקבל או לדחות את כל העוגיות מכל מקום שהוא. דבר זה ישנה את "
+"מדיניות העוגיות הגלובלית המוגדרת במרכז הבקרה עבור כל העוגיות עד שתשנה זאת "
+"ידנית מהגדרות מהערכת"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:240
+#, kde-format
+msgid "Cookie Details"
+msgstr "פרטי העוגייה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:281
+#, fuzzy, kde-format
+#| msgid "Exposure:"
+msgctxt ""
+"@label a description string of how 'accessible' the cookie is (e.g. see "
+"exposure string in this file)"
+msgid "Exposure:"
+msgstr "חשיפה:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:289
+#, kde-format
+msgctxt "Next cookie"
+msgid "&Next >>"
+msgstr "&הבא >>"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:294
+#, kde-format
+msgid "Show details of the next cookie"
+msgstr "הצגת פרטי העוגייה הבאה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:322
+#, fuzzy, kde-format
+#| msgid "Not specified"
+msgctxt "@label cookie has no explicit 'Domain' value specified"
+msgid "Not specified"
+msgstr "לא צוין"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:331
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgctxt "@label the cookie expires when the browser session ends"
+msgid "End of Session"
+msgstr "סוף ההפעלה"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:336
+#, fuzzy, kde-format
+#| msgid "Secure servers only"
+msgctxt "@label exposure string - the cookie may only be used by https servers"
+msgid "Secure servers only"
+msgstr "שרתים מאובטחים בלבד"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:338
+#, fuzzy, kde-format
+#| msgid "Secure servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by https servers AND client-"
+"side javascripts"
+msgid "Secure servers, page scripts"
+msgstr "שרתים מאובטחים, תסריטי עמודים"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
+#, fuzzy, kde-format
+#| msgid "Servers"
+msgctxt "@label exposure string - the cookie may only be used by http servers"
+msgid "Servers"
+msgstr "שרתים"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
+#, fuzzy, kde-format
+#| msgid "Servers, page scripts"
+msgctxt ""
+"@label exposure string - the cookie may be used by http servers AND client-"
+"side javascripts"
+msgid "Servers, page scripts"
+msgstr "שרתים, תסריטי עמודים"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:359
+#, fuzzy, kde-format
+#| msgid "Details"
+msgctxt ""
+"@action:button show details about a cookie that needs approval. This string "
+"gets >> and << appended, to visualize if the dialog expands or compacts!"
+msgid "Details"
+msgstr "פרטים"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format
