@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -4662,7 +4662,7 @@ msgstr "Politica:"
 msgid "Accept until end of session"
 msgstr "Acceptar ante li fin del session"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
@@ -4670,13 +4670,13 @@ msgid ""
 msgstr ""
 "Vu deve relansar li executent applicationes por efectuar ti modificationes."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "Actualisation ne successat"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Vu deve relansar KDE por efectuar ti modificationes."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -5109,7 +5109,7 @@ msgstr "&Politike:"
 msgid "Accept until end of session"
 msgstr "Difén del session"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
@@ -5118,14 +5118,14 @@ msgstr ""
 "Vos dvoz renonder les programes enondêyes po k' ces candjmints åyexhe di l' "
 "efet."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, fuzzy, kde-format
 #| msgid "Update Failed"
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "Li metaedje a djoû a fwait berwete"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Vos dvoz renonder KDE po k' ces candjmints åyexhe di l' efet."

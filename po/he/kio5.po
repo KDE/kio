@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -4979,20 +4979,20 @@ msgstr "מדיניות:"
 msgid "Accept until end of session"
 msgstr "אשר עד סגירת הדפדפן"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
 "effect."
 msgstr "יש להפעיל מחדש את היישומים הפועלים על מנת ששינויים אלה ייכנסו לתוקף."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "העדכון נכשל"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "יש להפעיל מחדש את KDE על מנת ששינויים אלה ייכנסו לתוקף."

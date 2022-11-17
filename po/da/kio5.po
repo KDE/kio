@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -5040,7 +5040,7 @@ msgstr "Politik:"
 msgid "Accept until end of session"
 msgstr "Acceptér i resten af sessionen"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
@@ -5049,13 +5049,13 @@ msgstr ""
 "Du skal genstarte de kørende programmer for at disse ændringer skal få "
 "virkning."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "Opdatering mislykkedes"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Du må genstarte KDE før disse ændringer træder i kraft."

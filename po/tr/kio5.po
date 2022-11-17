@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2022-11-10 06:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -4970,7 +4970,7 @@ msgstr "Politika:"
 msgid "Accept until end of session"
 msgstr "Oturum sonuna kadar kabul et"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
@@ -4979,13 +4979,13 @@ msgstr ""
 "Bu değişikliklerin etki göstermesi için çalışan bütün uygulamaları yeniden "
 "başlatmanız gerekir."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "Güncelleme Başarısız Oldu"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Bu değişikliğin etkin olması için KDE'yi yeniden başlatmalısınız."

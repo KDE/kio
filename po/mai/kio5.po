@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:43+0000\n"
+"POT-Creation-Date: 2022-11-17 00:42+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -4864,7 +4864,7 @@ msgstr "नीति: (&P)"
 msgid "Accept until end of session"
 msgstr "सत्र क' अंत"
 
-#: kcms/ksaveioconfig.cpp:211
+#: kcms/ksaveioconfig.cpp:212
 #, kde-format
 msgid ""
 "You have to restart the running applications for these changes to take "
@@ -4872,14 +4872,14 @@ msgid ""
 msgstr ""
 "परिवर्तन केँ प्रभाव मे लाबै क' लेल अहाँक चलैत अनुप्रयोगसभ केँ फिनु सँ  प्रारंभ कएनाइ पड़त."
 
-#: kcms/ksaveioconfig.cpp:213 kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, fuzzy, kde-format
 #| msgid "Update Failed"
 msgctxt "@title:window"
 msgid "Update Failed"
 msgstr "अद्यतन असफल"
 
-#: kcms/ksaveioconfig.cpp:224
+#: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "परिवर्तनसभ केँ प्रभाव मे लाबै क' लेल अहाँक केडीई केँ फिनु सँ प्रारंभ कएनाइ पड़त."
