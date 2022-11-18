@@ -1949,8 +1949,8 @@ KIO::WorkerResult HTTPProtocol::multiGet(const QByteArray &data)
             return result;
         }
 
-        //### should maybe call resetSessionSettings() if the server/domain is
-        //    different from the last request!
+        // ### should maybe call resetSessionSettings() if the server/domain is
+        //     different from the last request!
 
         qCDebug(KIO_HTTP) << url;
 
@@ -1985,7 +1985,7 @@ KIO::WorkerResult HTTPProtocol::multiGet(const QByteArray &data)
             }
         }
         // collect the responses
-        //### for the moment we use a hack: instead of saving and restoring request-id
+        // ### for the moment we use a hack: instead of saving and restoring request-id
         //    we just count up like ParallelGetJobs does.
         int requestId = 0;
         for (const HTTPRequest &r : std::as_const(m_requestQueue)) {
@@ -2081,10 +2081,10 @@ size_t HTTPProtocol::readBuffered(char *buf, size_t size, bool unlimited)
     return bytesRead;
 }
 
-//### this method will detect an n*(\r\n) sequence if it crosses invocations.
-//    it will look (n*2 - 1) bytes before start at most and never before buf, naturally.
-//    supported number of newlines are one and two, in line with HTTP syntax.
-// return true if numNewlines newlines were found.
+// ### this method will detect an n*(\r\n) sequence if it crosses invocations.
+//     it will look (n*2 - 1) bytes before start at most and never before buf, naturally.
+//     supported number of newlines are one and two, in line with HTTP syntax.
+//  return true if numNewlines newlines were found.
 bool HTTPProtocol::readDelimitedText(char *buf, int *idx, int end, int numNewlines)
 {
     Q_ASSERT(numNewlines >= 1 && numNewlines <= 2);
@@ -2907,7 +2907,7 @@ try_again:
         return error(ERR_CONNECTION_BROKEN, m_request.url.host());
     }
     if (!foundDelimiter) {
-        //### buffer too small for first line of header(!)
+        // ### buffer too small for first line of header(!)
         Q_ASSERT(0);
     }
 
@@ -2959,7 +2959,7 @@ try_again:
     }
 
     // response code //### maybe wrong if we need several iterations for this response...
-    //### also, do multiple iterations (cf. try_again) to parse one header work w/ pipelining?
+    // ### also, do multiple iterations (cf. try_again) to parse one header work w/ pipelining?
     if (m_request.responseCode) {
         m_request.prevResponseCode = m_request.responseCode;
     }
@@ -3263,7 +3263,7 @@ endParsing:
                 if (rel.startsWith(relToken)) {
                     rel = rel.mid(relToken.size(), rel.length() - 6);
                     if (rel.toLower() == QLatin1String("pageservices")) {
-                        //### the remove() part looks fishy!
+                        // ### the remove() part looks fishy!
                         QString url = link[0].remove(QRegularExpression(QStringLiteral("[<>]"))).trimmed();
                         setMetaData(QStringLiteral("PageServices"), url);
                     }
@@ -3593,7 +3593,7 @@ void HTTPProtocol::cacheParseResponseHeader(const HeaderTokenizer &tokenizer)
     if (tIt.hasNext()) {
         m_request.cacheTag.lastModifiedDate = QDateTime::fromString(toQString(tIt.next()), Qt::RFC2822Date);
 
-        //### might be good to canonicalize the date by using QDateTime::toString()
+        // ### might be good to canonicalize the date by using QDateTime::toString()
         if (m_request.cacheTag.lastModifiedDate.isValid()) {
             setMetaData(QStringLiteral("modified"), toQString(tIt.current()));
         }
@@ -4206,7 +4206,7 @@ void HTTPProtocol::slotData(const QByteArray &_d)
                 qCDebug(KIO_HTTP) << "Using default MIME type:" << m_mimeType;
             }
 
-            //### we could also open the cache file here
+            // ### we could also open the cache file here
 
             if (m_cpMimeBuffer) {
                 d.resize(0);
@@ -4845,7 +4845,7 @@ static QByteArray makeCacheCleanerCommand(const HTTPProtocol::CacheTag &cacheTag
     return ret;
 }
 
-//### not yet 100% sure when and when not to call this
+// ### not yet 100% sure when and when not to call this
 void HTTPProtocol::cacheFileClose()
 {
     qCDebug(KIO_HTTP);
@@ -5164,7 +5164,7 @@ KIO::WorkerResult HTTPProtocol::proxyAuthenticationForSocket(const QNetworkProxy
         // Save authentication info if the connection succeeds. We need to disconnect
         // this after saving the auth data (or an error) so we won't save garbage afterwards!
         connect(tcpSocket(), &QAbstractSocket::connected, this, &HTTPProtocol::saveProxyAuthenticationForSocket);
-        //### fillPromptInfo(&info);
+        // ### fillPromptInfo(&info);
         info.prompt = i18n(
             "You need to supply a username and a password for "
             "the proxy server listed below before you are allowed "
@@ -5450,12 +5450,12 @@ bool HTTPProtocol::handleAuthenticationHeader(const HeaderTokenizer *tokenizer)
                         }
                         authRequiresAnotherRoundtrip = false;
                     }
-                    //### return false; ?
+                    // ### return false; ?
                 } else if ((*auth)->forceKeepAlive()) {
-                    //### think this through for proxied / not proxied
+                    // ### think this through for proxied / not proxied
                     m_request.isKeepAlive = true;
                 } else if ((*auth)->forceDisconnect()) {
-                    //### think this through for proxied / not proxied
+                    // ### think this through for proxied / not proxied
                     m_request.isKeepAlive = false;
                     httpCloseConnection();
                 }
@@ -5522,7 +5522,7 @@ bool HTTPProtocol::davDestinationExists()
     m_request.cacheTag.policy = CC_Reload;
     m_request.davData.depth = 0;
 
-    (void)/* handling result via response codes */proceedUntilResponseContent(true);
+    (void)/* handling result via response codes */ proceedUntilResponseContent(true);
 
     if (!m_request.isKeepAlive) {
         httpCloseConnection(); // close connection if server requested it.

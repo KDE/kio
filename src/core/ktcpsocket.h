@@ -144,7 +144,7 @@ private:
 };
 
 // consider killing more convenience functions with huge signatures
-//### do we need setSession() / session() ?
+// ### do we need setSession() / session() ?
 
 // BIG FAT TODO: do we keep openMode() up to date everywhere it can change?
 
@@ -235,7 +235,7 @@ public:
     enum EncryptionMode {
         UnencryptedMode = 0,
         SslClientMode,
-        SslServerMode, //### not implemented
+        SslServerMode, // ### not implemented
     };
     enum ProxyPolicy {
         /// Use the proxy that KProtocolManager suggests for the connection parameters given.
@@ -257,7 +257,7 @@ public:
     bool isSequential() const override;
     bool open(QIODevice::OpenMode open) override;
     bool waitForBytesWritten(int msecs) override;
-    //### Document that this actually tries to read *more* data
+    // ### Document that this actually tries to read *more* data
     bool waitForReadyRead(int msecs = 30000) override;
 
 protected:
@@ -282,9 +282,9 @@ public:
      */
     void connectToHost(const QUrl &url, ProxyPolicy policy = AutoProxy);
     void disconnectFromHost();
-    Error error() const; //### QAbstractSocket's model is strange. error() should be related to the
+    Error error() const; // ### QAbstractSocket's model is strange. error() should be related to the
     // current state and *NOT* just report the last error if there was one.
-    QList<KSslError> sslErrors() const; //### the errors returned can only have a subset of all
+    QList<KSslError> sslErrors() const; // ### the errors returned can only have a subset of all
     // possible QSslError::SslError enum values depending on backend
     bool flush();
     bool isValid() const;
@@ -328,7 +328,7 @@ public:
     KSslCipher sessionCipher() const;
     void setCaCertificates(const QList<QSslCertificate> &certificates);
     void setCiphers(const QList<KSslCipher> &ciphers);
-    //### void setCiphers(const QString &ciphers); //what about i18n?
+    // ### void setCiphers(const QString &ciphers); //what about i18n?
     void setLocalCertificate(const QSslCertificate &certificate);
     void setLocalCertificate(const QString &fileName, QSsl::EncodingFormat format = QSsl::Pem);
     void setPrivateKey(const KSslKey &key);

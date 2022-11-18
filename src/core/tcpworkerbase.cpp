@@ -269,9 +269,9 @@ int TCPWorkerBase::connectToHost(const QString &host, quint16 port, QString *err
     d->socket.setPeerVerifyName(host); // Used for ssl certificate verification (SNI)
 
     //  - leaving SSL - warn before we even connect
-    //### see if it makes sense to move this into the HTTP KIO worker which is the only
+    // ### see if it makes sense to move this into the HTTP KIO worker which is the only
     //    user.
-    if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE") //### this looks *really* unreliable
+    if (metaData(QStringLiteral("main_frame_request")) == QLatin1String("TRUE") // ### this looks *really* unreliable
         && metaData(QStringLiteral("ssl_activate_warnings")) == QLatin1String("TRUE") && metaData(QStringLiteral("ssl_was_in_use")) == QLatin1String("TRUE")
         && !d->autoSSL) {
         if (d->sslSettings.warnOnLeave()) {
@@ -325,7 +325,7 @@ int TCPWorkerBase::connectToHost(const QString &host, quint16 port, QString *err
         }
     }
 
-    //### check for proxyAuthenticationRequiredError
+    // ### check for proxyAuthenticationRequiredError
 
     d->ip = d->socket.peerAddress().toString();
     d->port = d->socket.peerPort();
@@ -357,9 +357,9 @@ void TCPWorkerBase::disconnectFromHost()
         return;
     }
 
-    //### maybe save a session for reuse on SSL shutdown if and when QSslSocket
-    //    does that. QCA::TLS can do it apparently but that is not enough if
-    //    we want to present that as KDE API. Not a big loss in any case.
+    // ### maybe save a session for reuse on SSL shutdown if and when QSslSocket
+    //     does that. QCA::TLS can do it apparently but that is not enough if
+    //     we want to present that as KDE API. Not a big loss in any case.
     d->socket.disconnectFromHost();
     if (d->socket.state() != QAbstractSocket::UnconnectedState) {
         d->socket.waitForDisconnected(-1); // wait for unsent data to be sent
@@ -398,7 +398,7 @@ bool TCPWorkerBase::startSsl()
 TCPWorkerBase::SslResult TCPWorkerBase::TCPWorkerBasePrivate::startTLSInternal(QSsl::SslProtocol sslVersion, int waitForEncryptedTimeout)
 {
     // setMetaData("ssl_session_id", d->kssl->session()->toString());
-    //### we don't support session reuse for now...
+    // ### we don't support session reuse for now...
     usingSSL = true;
 
     // Set the SSL protocol version to use...
@@ -516,7 +516,7 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
         return ResultOk | ResultOverridden;
     }
 
-    //### We don't ask to permanently reject the certificate
+    // ### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", d->host);
     for (const QSslError &err : std::as_const(d->sslErrors)) {

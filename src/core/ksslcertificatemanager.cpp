@@ -114,7 +114,7 @@ bool KSslCertificateRule::isErrorIgnored(QSslError::SslError error) const
 void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)
 {
     d->ignoredErrors.clear();
-    //### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
+    // ### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
     for (KSslError::Error e : errors) {
         QSslError::SslError error = KSslErrorPrivate::errorFromKSslError(e);
         if (!isErrorIgnored(error)) {

@@ -1223,8 +1223,8 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         }
     }
 
-    //### Apply the selection effect to the icon when the item is selected and
-    //     showDecorationSelected is false.
+    // ### Apply the selection effect to the icon when the item is selected and
+    //      showDecorationSelected is false.
 
     QTextLayout labelLayout;
     QTextLayout infoLayout;

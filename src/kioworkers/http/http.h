@@ -120,7 +120,7 @@ public:
         QByteArray methodString() const;
 
         QUrl url;
-        QString encoded_hostname; //### can be calculated on-the-fly
+        QString encoded_hostname; // ### can be calculated on-the-fly
         // Persistent connections
         bool isKeepAlive;
         int keepAliveTimeout; // Timeout in seconds.

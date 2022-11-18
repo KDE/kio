@@ -22,7 +22,7 @@ class QDBusArgument;
 class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
 
-//### document this... :/
+// ### document this... :/
 /** Certificate rule. */
 class KIOCORE_EXPORT KSslCertificateRule
 {
@@ -91,7 +91,7 @@ private:
     std::unique_ptr<KSslCertificateRulePrivate> const d;
 };
 
-//### document this too... :/
+// ### document this too... :/
 /** Certificate manager. */
 class KIOCORE_EXPORT KSslCertificateManager
 {

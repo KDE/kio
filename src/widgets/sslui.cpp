@@ -53,7 +53,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         }
     }
 
-    //### We don't ask to permanently reject the certificate
+    // ### We don't ask to permanently reject the certificate
 
     QString message = i18n("The server failed the authenticity check (%1).\n\n", ud->host);
     for (const QSslError &err : std::as_const(ud->sslErrors)) {

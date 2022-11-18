@@ -34,7 +34,7 @@ Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_DIRLISTER)
 Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.core.dirlister", QtWarningMsg)
 
 // Enable this to get printDebug() called often, to see the contents of the cache
-//#define DEBUG_CACHE
+// #define DEBUG_CACHE
 
 // Make really sure it doesn't get activated in the final build
 #ifdef NDEBUG

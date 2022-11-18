@@ -504,8 +504,8 @@ void KHttpDigestAuthentication::generateResponse(const QString &user, const QStr
 
     DigestAuthInfo info;
 
-    info.username = m_username.toLatin1(); //### charset breakage
-    info.password = m_password.toLatin1(); //###
+    info.username = m_username.toLatin1(); // ### charset breakage
+    info.password = m_password.toLatin1(); // ###
 
     // info.entityBody = p;  // FIXME: send digest of data for POST action ??
     info.realm = "";
@@ -820,7 +820,7 @@ void KHttpNegotiateAuthentication::setChallenge(const QByteArray &c, const QUrl 
 void KHttpNegotiateAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
 {
     authInfoBoilerplate(ai);
-    //### does GSSAPI supply anything realm-like? dummy value for now.
+    // ### does GSSAPI supply anything realm-like? dummy value for now.
     ai->realmValue = QStringLiteral("Negotiate");
 }
 

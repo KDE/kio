@@ -8,7 +8,7 @@
 #include "emptytrashjob.h"
 #include "job.h"
 #include "job_p.h"
-//#include <KNotification>
+// #include <KNotification>
 
 using namespace KIO;
 

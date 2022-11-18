@@ -26,7 +26,7 @@
 #include <kio/statjob.h>
 #include <kio/storedtransferjob.h>
 #include <kprotocolinfo.h>
-//#include "kiotesthelper.h" // createTestFile etc.
+// #include "kiotesthelper.h" // createTestFile etc.
 
 QTEST_MAIN(JobRemoteTest)
 

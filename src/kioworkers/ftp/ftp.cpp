@@ -2502,7 +2502,7 @@ ConnectionResult FtpInternal::synchronousConnectToHost(const QString &host, quin
     if (socketError == QAbstractSocket::ProxyAuthenticationRequiredError) {
         AuthInfo info;
         info.url = proxyUrl;
-        info.verifyPath = true; //### whatever
+        info.verifyPath = true; // ### whatever
 
         if (!q->checkCachedAuthentication(info)) {
             info.prompt = i18n(

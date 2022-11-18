@@ -44,7 +44,7 @@ static KTcpSocket::SslVersion kSslVersionFromQ(QSsl::SslProtocol protocol)
 
 static QSsl::SslProtocol qSslProtocolFromK(KTcpSocket::SslVersion sslVersion)
 {
-    //### this lowlevel bit-banging is a little dangerous and a likely source of bugs
+    // ### this lowlevel bit-banging is a little dangerous and a likely source of bugs
     if (sslVersion == KTcpSocket::AnySslVersion) {
         return QSsl::AnyProtocol;
     }
@@ -271,7 +271,7 @@ public:
             return KTcpSocket::ClosingState;
         case QAbstractSocket::BoundState:
         case QAbstractSocket::ListeningState:
-        //### these two are not relevant as long as this can't be a server socket
+        // ### these two are not relevant as long as this can't be a server socket
         default:
             return KTcpSocket::UnconnectedState; // the closest to "error"
         }
@@ -314,9 +314,9 @@ public:
         // we don't do UDP
         case QAbstractSocket::AddressInUseError:
         case QAbstractSocket::SocketAddressNotAvailableError:
-        //### own values if/when we ever get server socket support
+        // ### own values if/when we ever get server socket support
         case QAbstractSocket::ProxyAuthenticationRequiredError:
-        //### maybe we need an enum value for this
+        // ### maybe we need an enum value for this
         case QAbstractSocket::UnknownSocketError:
         default:
             return KTcpSocket::UnknownError;
@@ -354,7 +354,7 @@ public:
 
     // This method is needed because we might emit readyRead() due to this QIODevice
     // having some data buffered, so we need to care about blocking, too.
-    //### useless ATM as readyRead() now just calls d->sock.readyRead().
+    // ### useless ATM as readyRead() now just calls d->sock.readyRead().
     void reemitReadyRead()
     {
         if (!emittedReadyRead) {
@@ -492,7 +492,7 @@ void KTcpSocket::abort()
 void KTcpSocket::connectToHost(const QString &hostName, quint16 port, ProxyPolicy policy)
 {
     if (policy == AutoProxy) {
-        //###
+        // ###
     }
     d->sock.connectToHost(hostName, port);
     // there are enough layers of buffers between us and the network, and there is a quirk
@@ -507,7 +507,7 @@ void KTcpSocket::connectToHost(const QString &hostName, quint16 port, ProxyPolic
 void KTcpSocket::connectToHost(const QHostAddress &hostAddress, quint16 port, ProxyPolicy policy)
 {
     if (policy == AutoProxy) {
-        //###
+        // ###
     }
     d->sock.connectToHost(hostAddress, port);
     setOpenMode(d->sock.openMode() | QIODevice::Unbuffered);
@@ -516,7 +516,7 @@ void KTcpSocket::connectToHost(const QHostAddress &hostAddress, quint16 port, Pr
 void KTcpSocket::connectToHost(const QUrl &url, ProxyPolicy policy)
 {
     if (policy == AutoProxy) {
-        //###
+        // ###
     }
     d->sock.connectToHost(url.host(), url.port());
     setOpenMode(d->sock.openMode() | QIODevice::Unbuffered);
@@ -536,9 +536,9 @@ KTcpSocket::Error KTcpSocket::error() const
 
 QList<KSslError> KTcpSocket::sslErrors() const
 {
-    //### pretty slow; also consider throwing out duplicate error codes. We may get
-    //    duplicates even though there were none in the original list because KSslError
-    //    has a smallest common denominator range of SSL error codes.
+    // ### pretty slow; also consider throwing out duplicate error codes. We may get
+    //     duplicates even though there were none in the original list because KSslError
+    //     has a smallest common denominator range of SSL error codes.
     const auto qsslErrors = d->sock.sslHandshakeErrors();
     QList<KSslError> ret;
     ret.reserve(qsslErrors.size());
@@ -980,8 +980,8 @@ QString KSslCipher::keyExchangeMethod() const
 
 QString KSslCipher::digestMethod() const
 {
-    //### This is not really backend neutral. It works for OpenSSL and
-    //    for RFC compliant names, though.
+    // ### This is not really backend neutral. It works for OpenSSL and
+    //     for RFC compliant names, though.
     if (d->name.endsWith(QLatin1String("SHA"))) {
         return QStringLiteral("SHA-1");
     } else if (d->name.endsWith(QLatin1String("MD5"))) {

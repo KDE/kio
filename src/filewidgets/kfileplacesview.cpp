@@ -10,7 +10,6 @@
 #include "kfileplacesview.h"
 #include "kfileplacesview_p.h"
 
-#include <kio/deleteortrashjob.h>
 #include <QAbstractItemDelegate>
 #include <QActionGroup>
 #include <QApplication>
@@ -27,6 +26,7 @@
 #include <QTimer>
 #include <QToolTip>
 #include <QVariantAnimation>
+#include <kio/deleteortrashjob.h>
 
 #include <KColorScheme>
 #include <KColorUtils>

@@ -2341,7 +2341,7 @@ bool KFilePermissionsPropsPlugin::supports(const KFileItemList &items)
 void KFilePermissionsPropsPlugin::setComboContent(QComboBox *combo, PermissionsTarget target, mode_t permissions, mode_t partial)
 {
     combo->clear();
-    if (d->isIrregular) { //#176876
+    if (d->isIrregular) { // #176876
         return;
     }
 
