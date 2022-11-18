@@ -22,14 +22,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:42+0000\n"
-"PO-Revision-Date: 2022-10-02 14:55+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2022-11-17 12:47+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 22.04.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -42,14 +42,14 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "Григорий Мохин,Леонид Кантер,Николай Шафоростов,Артём Середа,Андрей "
-"Черепанов,Александр Яворский"
+"Черепанов,Александр Яворский,Олеся Герасименко"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "mok@kde.ru,leon@asplinux.ru,shafff@ukr.net,overmind88@gmail.com,skull@kde.ru,"
-"kekcuha@gmail.com"
+"kekcuha@gmail.com,translation-team@basealt.ru"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -852,10 +852,9 @@ msgstr ""
 "Повторите попытку после изменения прав доступа к файлу."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Файл слишком большой для того, чтобы поместиться в корзине."
+msgstr "Файл слишком велик для перемещения в корзину."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1028,7 +1027,7 @@ msgid ""
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
 "Возможно, имела место проблема с настройкой сети. Если у вас последнее время "
-"не было проблем с доступом к Интернет - это маловероятно."
+"не было проблем с доступом к Интернету — это маловероятно."
 
 #: core/job_error.cpp:415
 #, kde-format
@@ -1473,7 +1472,7 @@ msgid ""
 msgstr ""
 "В системах UNIX возможно сделать файл или папку ссылкой на файл или папку с "
 "другим именем. Была обнаружена ссылка (или серия ссылок), в результате "
-"которой образовалась бесконечная петля - то есть файл оказался ссылкой на "
+"которой образовалась бесконечная петля — то есть файл оказался ссылкой на "
 "самого себя."
 
 #: core/job_error.cpp:667 core/job_error.cpp:693
@@ -1515,7 +1514,7 @@ msgid ""
 msgstr ""
 "В системах UNIX возможно сделать файл или папку ссылкой на файл или папку с "
 "другим именем. При выполнении операции копирования была обнаружена ссылка "
-"(или серия ссылок), в результате которой образовалась бесконечная петля - то "
+"(или серия ссылок), в результате которой образовалась бесконечная петля — то "
 "есть файл оказался ссылкой на самого себя."
 
 #: core/job_error.cpp:699
@@ -2086,7 +2085,7 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"Наиболее вероятная причина - ошибка в программе сервера. Заполните "
+"Наиболее вероятная причина — ошибка в программе сервера. Заполните "
 "пожалуйста отчёт об ошибке, как описано ниже."
 
 #: core/job_error.cpp:1086
@@ -3265,7 +3264,7 @@ msgstr "Ошибка при обращении к %1"
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Один или несколько файлов на этом носителе открыты в приложениях."
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3276,15 +3275,23 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Один или несколько файлов на этом устройстве открыты в следующих "
+"приложениях: <application>%2</application>."
 msgstr[1] ""
+"Один или несколько файлов на этом устройстве открыты в следующих "
+"приложениях: <application>%2</application>."
 msgstr[2] ""
+"Один или несколько файлов на этом устройстве открыты в следующих "
+"приложениях: <application>%2</application>."
 msgstr[3] ""
+"Один или несколько файлов на этом устройстве открыты в следующем приложении: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -5008,13 +5015,13 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Укажите правило: <ul>\n"
-"<li><b>Разрешить</b> - принимать все файлы «cookie» с данного узла или "
+"<li><b>Разрешить</b> — принимать все файлы «cookie» с данного узла или "
 "домена.</li>\n"
-"<li><b>Разрешить до конца сессии</b> - принимать все файлы «cookie», но они "
+"<li><b>Разрешить до конца сессии</b> — принимать все файлы «cookie», но они "
 "перестанут действовать после окончания сессии.</li>\n"
-"<li><b>Запретить</b> - не принимать файлы «cookie» с данного узла или домена."
+"<li><b>Запретить</b> — не принимать файлы «cookie» с данного узла или домена."
 "</li>\n"
-"<li><b>Спрашивать</b> - показывать предупреждение о получении файла «cookie»."
+"<li><b>Спрашивать</b> — показывать предупреждение о получении файла «cookie»."
 "</li>\n"
 "</ul>\n"
 "</qt>"
@@ -5103,16 +5110,16 @@ msgid_plural ""
 "connection is very slow. The maximum allowed value is %1 seconds."
 msgstr[0] ""
 "Задайте значения задержек. С ними стоит поэкспериментировать, если ваш канал "
-"очень медленный. Максимально допустимое значение - %1 секунда."
+"очень медленный. Максимально допустимое значение — %1 секунда."
 msgstr[1] ""
 "Задайте значения задержек. С ними стоит поэкспериментировать, если ваш канал "
-"очень медленный. Максимально допустимое значение - %1 секунды."
+"очень медленный. Максимально допустимое значение — %1 секунды."
 msgstr[2] ""
 "Задайте значения задержек. С ними стоит поэкспериментировать, если ваш канал "
-"очень медленный. Максимально допустимое значение - %1 секунд."
+"очень медленный. Максимально допустимое значение — %1 секунд."
 msgstr[3] ""
 "Задайте значения задержек. С ними стоит поэкспериментировать, если ваш канал "
-"очень медленный. Максимально допустимое значение - %1 секунда."
+"очень медленный. Максимально допустимое значение — %1 секунда."
 
 #: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
 #: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
@@ -5292,7 +5299,7 @@ msgstr ""
 "<qt>\n"
 "Настройка прокси.\n"
 "<p>\n"
-"Прокси-сервер - это промежуточная машина, которая находится между вашей "
+"Прокси-сервер — это промежуточная машина, которая находится между вашей "
 "внутренней сетью и Интернетом и кэширует посещаемые вами страницы. Это "
 "делает доступ в Интернет более быстрым, так как уже просмотренные страницы "
 "сохраняются в кэше.\n"
@@ -7260,8 +7267,7 @@ msgstr "Удалить безвозвратно"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Удалить безвозвратно"
@@ -7822,16 +7828,16 @@ msgid ""
 msgstr ""
 "Следом за командой возможно указать список параметров, которые будут "
 "заменены реальными значениями при запуске программы:\n"
-"%f - имя одного файла\n"
-"%F - список файлов, используется в случае, если приложение может открывать "
+"%f — имя одного файла\n"
+"%F — список файлов, используется в случае, если приложение может открывать "
 "несколько файлов одновременно\n"
-"%u - один URL\n"
-"%U - список из нескольких URL\n"
-"%d - папка открываемого файла\n"
-"%D - список папок\n"
-"%i - значок\n"
-"%m - мини-значок\n"
-"%c - строка заголовка"
+"%u — один URL\n"
+"%U — список из нескольких URL\n"
+"%d — папка открываемого файла\n"
+"%D — список папок\n"
+"%i — значок\n"
+"%m — мини-значок\n"
+"%c — строка заголовка"
 
 #: widgets/kopenwithdialog.cpp:741
 #, kde-format
@@ -7843,16 +7849,13 @@ msgstr ""
 "«%1» (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "&Запомнить связь с приложением для всех файлов типа\n"
-"«%1» (%2)"
+"«%1»"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8111,10 +8114,9 @@ msgstr "Комм&ентарий:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Использовать пред&варительно установленные переменные окружения"
+msgstr "Переменные окружения:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8140,14 +8142,14 @@ msgstr ""
 "реальными значениями при запуске программы:\n"
 "\n"
 "\n"
-"%f - имя одного файла\n"
-"%F - список файлов, используется в случае, если приложение может открывать "
+"%f — имя одного файла\n"
+"%F — список файлов, используется в случае, если приложение может открывать "
 "несколько файлов одновременно\n"
-"%u - один URL\n"
-"%U - список из нескольких URL\n"
-"%i - значок\n"
-"%c - строка заголовка\n"
-"%k - расположение файла .desktop"
+"%u — один URL\n"
+"%U — список из нескольких URL\n"
+"%i — значок\n"
+"%c — строка заголовка\n"
+"%k — расположение файла .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:108
@@ -8211,7 +8213,7 @@ msgstr ""
 "<qt><p>Этот список показывает, какой из типов MIME может обрабатывать ваше "
 "приложение. Он организован по <u>типам MIME</u>.</p> \n"
 "<p>MIME, Multipurpose Internet (e)Mail Extension (многоцелевое расширение "
-"электронной почты) - стандартный протокол для определения типа данных на "
+"электронной почты) — стандартный протокол для определения типа данных на "
 "основе расширений файлов и соответствующих <u>типов MIME</u>. Пример: «bmp» "
 "после точки в имени файла flower.bmp означает, что это особый вид "
 "изображения, <u>image/x-bmp</u>. Чтобы правильно открывать файлы любого "
@@ -9435,19 +9437,14 @@ msgstr ""
 "Операция прервана, так как невозможно проверить достоверность узла."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Безвозвратно удалить этот объект?<nl/><filename>%1</filename><nl/><nl/"
+"Безвозвратно удалить этот объект?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
@@ -9473,30 +9470,19 @@ msgstr[3] ""
 "действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Безвозвратно удалить этот объект?<nl/><filename>%1</filename><nl/><nl/"
+"Этот объект не удалось переместить в корзину из-за слишком большого размера. "
+"Безвозвратно удалить его?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Это действие невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9507,17 +9493,21 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Безвозвратно удалить этот %1 объект?<nl/><nl/><emphasis strong='true'>Это "
-"действие невозможно отменить.</emphasis>"
+"Эти объекты (%1) не удалось переместить в корзину из-за слишком большого "
+"размера. Безвозвратно удалить их?<nl/><emphasis strong='true'>Это действие "
+"невозможно отменить.</emphasis>"
 msgstr[1] ""
-"Безвозвратно удалить эти %1 объекта?<nl/><nl/><emphasis strong='true'>Это "
-"действие невозможно отменить.</emphasis>"
+"Эти объекты (%1) не удалось переместить в корзину из-за слишком большого "
+"размера. Безвозвратно удалить их?<nl/><emphasis strong='true'>Это действие "
+"невозможно отменить.</emphasis>"
 msgstr[2] ""
-"Безвозвратно удалить эти %1 объектов?<nl/><nl/><emphasis strong='true'>Это "
-"действие невозможно отменить.</emphasis>"
+"Эти объекты (%1) не удалось переместить в корзину из-за слишком большого "
+"размера. Безвозвратно удалить их?<nl/><emphasis strong='true'>Это действие "
+"невозможно отменить.</emphasis>"
 msgstr[3] ""
-"Безвозвратно удалить этот объект?<nl/><nl/><emphasis strong='true'>Это "
-"действие невозможно отменить.</emphasis>"
+"Этот объект (%1) не удалось переместить в корзину из-за слишком большого "
+"размера. Безвозвратно удалить его?<nl/><emphasis strong='true'>Это действие "
+"невозможно отменить.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
