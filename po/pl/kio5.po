@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-09-23 09:16+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "Plik już istnieje"
 msgid "Already Exists as Folder"
 msgstr "Istnieje już jako katalog"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Kosz"
@@ -4356,15 +4356,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "Przy pełnym koszu:"
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Zniekształcony adres URL %1"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4377,12 +4377,12 @@ msgstr ""
 "i użyć opcji przywrócenia ponownie, lub przeciągnąć ten element gdziekolwiek "
 "indziej, aby go przywrócić."
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Nieprawidłowe połączenie protokołów."
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Ten plik znajduje się już w koszu."

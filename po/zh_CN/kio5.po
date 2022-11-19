@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-11-06 01:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -104,7 +104,7 @@ msgstr "文件已存在"
 msgid "Already Exists as Folder"
 msgstr "已经存在一个同名文件夹"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "回收站"
@@ -4143,15 +4143,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "回收站已满时："
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 格式错误"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4162,12 +4162,12 @@ msgstr ""
 "目录 %1 已经不存在，所以无法将此项目恢复到原始位置。您可以重新创建该目录，然"
 "后重新进行恢复；也可以将项目拖放到其他位置进行恢复。"
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "无效协议组合。"
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "此文件已经位于回收站。"

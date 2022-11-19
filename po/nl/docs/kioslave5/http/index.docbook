@@ -29,11 +29,11 @@
 >rotocol.</para>
 
 <para
->De io-slave http wordt door alle &kde;-toepassingen gebruikt voor het afhandelen van verbindingen met &HTTP;-servers, oftewel webservers. Deze io-slave wordt het meest gebruikt voor het tonen van webpagina's in het bladerprogramma &konqueror; Webbrowser.</para>
+>De http-KIO-worker wordt door alle &kde;-toepassingen gebruikt voor het afhandelen van verbindingen met &HTTP;-servers, oftewel webservers. Deze io-slave wordt het meest gebruikt voor het tonen van webpagina's in het bladerprogramma &konqueror; Webbrowser.</para>
 
 <para
->U kunt de https kioslave in &konqueror; gebruiken door een &URL; op te geven, zoals  <userinput
->http://<replaceable
+>U kunt de https-KIO-worker in &konqueror; gebruiken door een &URL; op te geven, zoals  <userinput
+>https://<replaceable
 >www.kde.nl</replaceable
 ></userinput
 >.</para>

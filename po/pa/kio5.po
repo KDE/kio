@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-08-21 08:16-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -105,7 +105,7 @@ msgstr "ਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 msgid "Already Exists as Folder"
 msgstr "ਪਹਿਲਾਂ ਹੀ ਫੋਲਡਰ ਵਾਂਗ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "ਰੱਦੀ"
@@ -4148,15 +4148,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "ਪੂਰੀ ਰੱਦੀ:"
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "ਖ਼ਰਾਬ ਹੋਇਆ URL %1"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4168,12 +4168,12 @@ msgstr ""
 "ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਜਾਂ ਤਾਂ ਇਸ ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਮੁੜ ਬਣਾ ਸਕਦੇ ਹੋ ਅਤੇ ਇਸ ਦੀ ਅਸਲੀ ਥਾਂ ਤੇ ਸੰਭਾਲ ਸਕਦੇ ਹੋ ਜਾਂ "
 "ਕਿਸੇ ਥਾਂ ਵੀ ਚੁੱਕ ਕੇ ਸੰਭਾਲ ਸਕਦੇ ਹੋ।"
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "ਇਹ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਰੱਦੀ ਵਿੱਚ ਹੈ।"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-11-13 00:01+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "Il file esiste già"
 msgid "Already Exists as Folder"
 msgstr "Esiste già come cartella"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Cestino"
@@ -4429,15 +4429,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "Cestino pieno:"
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL maldefinito %1"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4450,12 +4450,12 @@ msgstr ""
 "utilizzare di nuovo il pulsante ripristina o trascinarlo in un altro posto "
 "per ripristinarlo."
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Combinazione di protocolli non valida."
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Questo file è già nel cestino."

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-08-20 20:40+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -110,7 +110,7 @@ msgstr "Datei existiert bereits"
 msgid "Already Exists as Folder"
 msgstr "Existiert bereits als Ordner"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Papierkorb"
@@ -4464,15 +4464,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "Papierkorb voll:"
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Ungültige Adresse %1"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4485,12 +4485,12 @@ msgstr ""
 "Ordner neu anlegen und die Wiederherstellung erneut versuchen oder das "
 "Element an eine andere Stelle schieben."
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Ungültige Kombination von Protokollen."
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Diese Datei befindet sich bereits im Papierkorb."

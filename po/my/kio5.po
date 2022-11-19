@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:42+0000\n"
+"POT-Creation-Date: 2022-11-19 00:42+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -103,7 +103,7 @@ msgstr "ဖိုင်လ်ရှိနှင့်ပြီးဖြစ်ပ
 msgid "Already Exists as Folder"
 msgstr "ဖိုလ်ဒါအဖြစ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "အမှိုက်ပုံး"
@@ -4212,15 +4212,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "အမှိုက်ပုံး -"
 
-#: ioslaves/trash/kio_trash.cpp:99 ioslaves/trash/kio_trash.cpp:146
-#: ioslaves/trash/kio_trash.cpp:210 ioslaves/trash/kio_trash.cpp:390
-#: ioslaves/trash/kio_trash.cpp:425 ioslaves/trash/kio_trash.cpp:604
-#: ioslaves/trash/kio_trash.cpp:616
+#: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
+#: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
+#: ioslaves/trash/kio_trash.cpp:418 ioslaves/trash/kio_trash.cpp:595
+#: ioslaves/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "ပုံပျက်နေသော ယူအာအယ်လ် %1"
 
-#: ioslaves/trash/kio_trash.cpp:119
+#: ioslaves/trash/kio_trash.cpp:129
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4231,12 +4231,12 @@ msgstr ""
 "ဒါရိုက်ထရီ %1 မရှိတော့ပါ။ ဤအိုင်တမ်ကို နဂိုနေရာ ပြန်ပို့ရန် မဖြစ်နိုင်တော့ပါ။ ထိုဒါရိုက်ထရီကို ပြန်တည်ဆောက်၍ "
 "ပြန်ကြိုးစားကြည့်ပါ သို့မဟုတ် ၎င်းအိုင်တမ်ကို ကြိုက်သည့်နေရာသို့ ဆွဲသွားပြီး ထားပါ။"
 
-#: ioslaves/trash/kio_trash.cpp:176 ioslaves/trash/kio_trash.cpp:198
+#: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "လုပ်ရိုးလုပ်ထုံးများ၏ မမှန်ကန်သောပေါင်းစပ်မှု။"
 
-#: ioslaves/trash/kio_trash.cpp:189 ioslaves/trash/kio_trash_win.cpp:235
+#: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "ဤဖိုင်လ်သည် အမှိုက်ပုံထဲ ရောက်နှင့်ပြီးဖြစ်သည်။"

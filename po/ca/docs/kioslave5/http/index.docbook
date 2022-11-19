@@ -29,10 +29,10 @@
 >rotocol.</para>
 
 <para
->El kioslave http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions a servidors &HTTP;, és a dir, a servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
+>El procés de treball KIO http és utilitzat per totes les aplicacions &kde; per a gestionar les connexions a servidors &HTTP;, és a dir, a servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
 
 <para
->Podeu utilitzar el kioslave https en el &konqueror; introduint un &URL;. <userinput
+>Podeu utilitzar el procés de treball KIO https en el &konqueror; introduint un &URL;. <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput
