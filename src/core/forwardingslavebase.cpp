@@ -15,6 +15,8 @@
 
 #include <QMimeDatabase>
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
 class ForwardingSlaveBasePrivate
@@ -466,3 +468,5 @@ void ForwardingSlaveBasePrivate::_k_slotCanResume(KIO::Job * /*job*/, KIO::files
 }
 
 #include "moc_forwardingslavebase.cpp"
+
+#endif

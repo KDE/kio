@@ -17,6 +17,8 @@
 
 #include <memory>
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
+
 namespace KIO
 {
 class ForwardingSlaveBasePrivate;
@@ -76,11 +78,14 @@ class ForwardingSlaveBasePrivate;
  *
  * @see ForwardingSlaveBase::rewriteUrl()
  * @author Kevin Ottens <ervin@ipsquad.net>
+ *
+ * @deprecated Since 5.101, use ForwardingWorkerBase.
  */
 class KIOCORE_EXPORT ForwardingSlaveBase : public QObject, public SlaveBase
 {
     Q_OBJECT
 public:
+    KIOCORE_DEPRECATED_VERSION(5, 101, "Use ForwardingWorkerBase")
     ForwardingSlaveBase(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket);
     ~ForwardingSlaveBase() override;
 
@@ -173,5 +178,7 @@ private:
 };
 
 }
+
+#endif
 
 #endif
