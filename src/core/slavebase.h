@@ -26,6 +26,9 @@ namespace KIO
 class Connection;
 class SlaveBasePrivate;
 
+// TODO: Enable once file KIO worker is ported away and add endif, similar in the cpp file
+// #if KIOCORE_ENABLE_DEPRECATED_SINCE(version where file:/ KIO worker was ported)
+
 /**
  * @class KIO::SlaveBase slavebase.h <KIO/SlaveBase>
  *
@@ -45,10 +48,13 @@ class SlaveBasePrivate;
  *
  * If a kioslave needs a Qt event loop within the implementation of one method, e.g. to
  * wait for an asynchronous operation to finish, that is possible, using QEventLoop.
+ *
+ * @deprecated Since 5.96, use WorkerBase.
  */
 class KIOCORE_EXPORT SlaveBase
 {
 public:
+    KIOCORE_DEPRECATED_VERSION_BELATED(5, 101, 5, 96, "Use WorkerBase")
     SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
     virtual ~SlaveBase();
 
