@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:42+0000\n"
-"PO-Revision-Date: 2022-11-06 01:06\n"
+"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"PO-Revision-Date: 2022-11-19 14:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -799,7 +799,7 @@ msgstr ""
 #: core/job_error.cpp:257
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr ""
+msgstr "文件太大，无法移动到回收站。"
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -2383,31 +2383,31 @@ msgstr "是(&Y)"
 msgid "&No"
 msgstr "否(&N)"
 
-#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "细节(&D)"
 
-#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "永远(&F)"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "继续(&N)"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
 msgstr "仅当前会话(&C)"
 
-#: core/tcpslavebase.cpp:285 core/tcpworkerbase.cpp:278
+#: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
 msgid ""
 "You are about to leave secure mode. Transmissions will no longer be "
@@ -2417,24 +2417,24 @@ msgstr ""
 "您即将离开安全模式，数据传输将不再加密。\n"
 "这意味着第三方有可能查看到您传输的数据。"
 
-#: core/tcpslavebase.cpp:291 core/tcpslavebase.cpp:486
+#: core/tcpslavebase.cpp:293 core/tcpslavebase.cpp:488
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
 msgid "Security Information"
 msgstr "安全信息"
 
-#: core/tcpslavebase.cpp:292 core/tcpworkerbase.cpp:285
+#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
 msgstr "继续加载(&O)"
 
-#: core/tcpslavebase.cpp:345 core/tcpworkerbase.cpp:338
+#: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
 msgstr "%1：SSL 协商失败"
 
-#: core/tcpslavebase.cpp:480 core/tcpworkerbase.cpp:474
+#: core/tcpslavebase.cpp:482 core/tcpworkerbase.cpp:474
 #, kde-format
 msgid ""
 "You are about to enter secure mode. All transmissions will be encrypted "
@@ -2445,17 +2445,17 @@ msgstr ""
 "您即将进入安全模式。除非另外注明，所有的传输将会被加密。\n"
 "这表示第三方将不能轻易查看您传输的数据。"
 
-#: core/tcpslavebase.cpp:487 core/tcpworkerbase.cpp:481
+#: core/tcpslavebase.cpp:489 core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
 msgstr "显示 SSL 信息(&I)"
 
-#: core/tcpslavebase.cpp:488 core/tcpworkerbase.cpp:482
+#: core/tcpslavebase.cpp:490 core/tcpworkerbase.cpp:482
 #, kde-format
 msgid "C&onnect"
 msgstr "连接(&O)"
 
-#: core/tcpslavebase.cpp:526 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
+#: core/tcpslavebase.cpp:528 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -2464,14 +2464,14 @@ msgstr ""
 "服务器没有通过真实性检查 (%1)。\n"
 "\n"
 
-#: core/tcpslavebase.cpp:535 core/tcpslavebase.cpp:547
+#: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:68
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
 msgstr "服务器验证"
 
-#: core/tcpslavebase.cpp:544 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
+#: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
@@ -3026,7 +3026,7 @@ msgstr "只能将文件夹添加到常用位置面板。"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr ""
+msgstr "正在释放…"
 
 #: filewidgets/kfileplacesmodel.cpp:1434
 #, kde-format
@@ -3038,7 +3038,7 @@ msgstr "释放(&R)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr ""
+msgstr "正在安全移除…"
 
 #: filewidgets/kfileplacesmodel.cpp:1440
 #, kde-format
@@ -3050,7 +3050,7 @@ msgstr "安全移除(&S)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr ""
+msgstr "正在卸载…"
 
 #: filewidgets/kfileplacesmodel.cpp:1447
 #, kde-format
@@ -3082,7 +3082,7 @@ msgstr "访问“%1”时发生错误"
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "此设备中有文件正被其他应用程序打开。"
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3092,13 +3092,13 @@ msgid ""
 msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
-msgstr[0] ""
+msgstr[0] "此设备中有文件正被以下应用程序打开：<application>%2</application>。"
 
 #: filewidgets/kfileplacesmodel.cpp:1587
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr "，"
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -6905,7 +6905,7 @@ msgstr "永久删除"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr ""
+msgstr "永久删除"
 
 #: widgets/jobuidelegate.cpp:295
 #, kde-kuit-format
@@ -7461,7 +7461,7 @@ msgstr "记住所有“%1”(%2)文件类型的应用程序关联(&R)"
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
-msgstr ""
+msgstr "记住所有“%1”文件类型的应用程序关联(&R)"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7710,7 +7710,7 @@ msgstr "注释(&E)："
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "环境变量："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7747,7 +7747,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "程序："
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -7780,7 +7780,7 @@ msgstr "工作路径(&W)："
 #: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "Arguments:"
-msgstr ""
+msgstr "参数："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8952,6 +8952,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
+"您真的想永久删除此项吗？<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -8974,6 +8976,8 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"文件太大，无法移动到回收站。改为永久删除？<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
 #, kde-kuit-format
@@ -8987,6 +8991,8 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
+"这 %1 个文件太大，无法移动到回收站。改为永久删除？<nl/><nl/><emphasis "
+"strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format

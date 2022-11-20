@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:42+0000\n"
-"PO-Revision-Date: 2022-08-21 08:16-0700\n"
+"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"PO-Revision-Date: 2022-11-19 05:23-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
@@ -139,7 +139,7 @@ msgstr ""
 #: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr ""
+msgstr "%2 ਚਲਾਉਣ ਦੌਰਾਨ %1 ਟਰਮੀਨਲ ਨਹੀਂ ਲੱਭਿਆ"
 
 #: core/desktopexecparser.cpp:526
 #, kde-format
@@ -298,7 +298,7 @@ msgstr "ਗੁਣ ਬਦਲੋ"
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
-msgstr ""
+msgstr "ਫਾਈਲ ਦੇ ਗੁਣ ਬਦਲਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:278
 #, kde-format
@@ -311,6 +311,8 @@ msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
+"ਕਾਪੀ ਕਰਨ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ "
+"ਹੋ?"
 
 #: core/job.cpp:284
 #, kde-format
@@ -323,6 +325,8 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
+"ਹਟਾਉਣ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਇਸ ਨੁਾਲ ਤੁਹਾਡੇ ਸਿਸਟਮ ਦਾ ਨੁਕਸਾਨ ਹੋ "
+"ਸਕਦਾ ਹੈ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:290
 #, kde-format
@@ -333,7 +337,7 @@ msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
-msgstr ""
+msgstr "ਇਹ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:296
 #, kde-format
@@ -346,6 +350,7 @@ msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
+"ਭੇਜਣ ਦੀ ਕਾਰਵਾਈ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
 #, kde-format
@@ -356,7 +361,7 @@ msgstr "ਨਾਂ-ਬਦਲੋ"
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
-msgstr ""
+msgstr "ਨਾਂ ਬਦਲਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
@@ -368,7 +373,7 @@ msgstr "ਸਿਮਲਿੰਕ ਬਣਾਓ"
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
-msgstr ""
+msgstr "ਸਿਮ-ਲਿੰਕ ਬਣਾਉਣ ਲਈ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job.cpp:314
 #, kde-format
@@ -380,7 +385,7 @@ msgstr "ਡਾਟਾ ਟਰਾਂਸਫਰ ਕਰੋ"
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
-msgstr ""
+msgstr "ਡਾਟਾ ਭੇਜਣ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਸਤੇ ਰੂਟ ਅਧਿਕਾਰ ਚਾਹੀਦੇ ਹਨ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: core/job_error.cpp:33
 #, kde-format
@@ -803,8 +808,7 @@ msgstr ""
 "ਇਜਾਜ਼ਤਾਂ ਬਦਲ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "ਫ਼ਾਈਲ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣ ਲਈ ਬਹੁਤ ਹੀ ਵੱਡੀ ਹੈ।"
 
@@ -2282,10 +2286,9 @@ msgid "Can not find io-slave for protocol '%1'."
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create socket for launching io-slave for protocol '%1'."
-msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਚਲਾਉਣ ਵਾਸਤੇ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ ਹੈ।"
 
 #: core/slave.cpp:480
 #, fuzzy, kde-format
@@ -2398,31 +2401,31 @@ msgstr "ਹਾਂ(&Y)"
 msgid "&No"
 msgstr "ਨਹੀਂ(&N)"
 
-#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "ਵੇਰਵਾ(&D)"
 
-#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "ਹਮੇਸ਼ਾ(&F)"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "ਜਾਰੀ ਰੱਖੋ(&n)"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
 msgstr "ਕੇਵਲ ਮੌਜੂਦਾ ਸ਼ੈਸ਼ਨ ਲਈ(&C)"
 
-#: core/tcpslavebase.cpp:285 core/tcpworkerbase.cpp:278
+#: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
 msgid ""
 "You are about to leave secure mode. Transmissions will no longer be "
@@ -2432,24 +2435,24 @@ msgstr ""
 "ਤੁਸੀਂ ਸੁਰੱਖਿਅਤ ਮੋਡ ਛੱਡ ਰਹੇ ਹੋ, ਸਾਰਾ ਸੰਚਾਰ ਹੁਣ ਇੰਕ੍ਰਿਪਟਡ ਨਹੀਂ ਰਿਹਾ ਹੈ।\n"
 "ਇਸ ਦਾ ਮਤਲਬ ਇਹ ਹੈ ਕਿ ਕੋਈ ਵੀ ਟਰਾਂਸੇਟ ਦੌਰਾਨ ਡਾਟਾ ਨੂੰ ਵੇਖ ਸਕਦਾ ਹੈ।"
 
-#: core/tcpslavebase.cpp:291 core/tcpslavebase.cpp:486
+#: core/tcpslavebase.cpp:293 core/tcpslavebase.cpp:488
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
 msgid "Security Information"
 msgstr "ਸੁਰੱਖਿਆ ਜਾਣਕਾਰੀ"
 
-#: core/tcpslavebase.cpp:292 core/tcpworkerbase.cpp:285
+#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
 msgstr "ਲੋਡਿੰਗ ਜਾਰੀ ਰੱਖੋ(&o)"
 
-#: core/tcpslavebase.cpp:345 core/tcpworkerbase.cpp:338
+#: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
 msgstr "%1: SSL ਸਾਂਝ ਫੇਲ੍ਹ ਹੋਈ"
 
-#: core/tcpslavebase.cpp:480 core/tcpworkerbase.cpp:474
+#: core/tcpslavebase.cpp:482 core/tcpworkerbase.cpp:474
 #, kde-format
 msgid ""
 "You are about to enter secure mode. All transmissions will be encrypted "
@@ -2461,17 +2464,17 @@ msgstr ""
 "ਨਹੀਂ ਜਾਂਦਾ ਹੈ।\n"
 "ਇਸ ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਤੁਹਾਡੇ ਵੱਲੋਂ ਭੇਜੇ ਡਾਟੇ ਨੂੰ ਸੌਖੀ ਤਰ੍ਹਾਂ ਕੋਈ ਹੋਰ ਵੀ ਨਹੀਂ ਵੇਖ ਸਕਦਾ ਹੈ।"
 
-#: core/tcpslavebase.cpp:487 core/tcpworkerbase.cpp:481
+#: core/tcpslavebase.cpp:489 core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
 msgstr "SSL ਜਾਣਕਾਰੀ ਵੇਖੋ(&I)"
 
-#: core/tcpslavebase.cpp:488 core/tcpworkerbase.cpp:482
+#: core/tcpslavebase.cpp:490 core/tcpworkerbase.cpp:482
 #, kde-format
 msgid "C&onnect"
 msgstr "ਕੁਨੈਕਟ ਕਰੋ(&o)"
 
-#: core/tcpslavebase.cpp:526 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
+#: core/tcpslavebase.cpp:528 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -2480,14 +2483,14 @@ msgstr ""
 "ਸਰਵਰ ਪਰਮਾਣਿਕਤਾ ਚੈੱਕ (%1) ਫੇਲ੍ਹ ਹੋਈ।\n"
 "\n"
 
-#: core/tcpslavebase.cpp:535 core/tcpslavebase.cpp:547
+#: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:68
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
 msgstr "ਸਰਵਰ ਪਰਮਾਣਕਤਾ"
 
-#: core/tcpslavebase.cpp:544 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
+#: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
@@ -3041,12 +3044,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "ਸਿਰਫ਼ ਫੋਲਡਰ ਹੀ ਥਾਵਾਂ ਪੈਨਲ ਵਿੱਚ ਜੋੜੇ ਜਾ ਸਕਦੇ ਹਨ।"
 
 #: filewidgets/kfileplacesmodel.cpp:1432
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "ਰੀਲਿਜ਼(&R)"
+msgstr "...ਜਾਰੀ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: filewidgets/kfileplacesmodel.cpp:1434
 #, kde-format
@@ -3055,12 +3056,10 @@ msgid "&Release"
 msgstr "ਰੀਲਿਜ਼(&R)"
 
 #: filewidgets/kfileplacesmodel.cpp:1438
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "ਸਹੀ ਸਲਾਮਤੀ ਹਟਾਓ(&S)"
+msgstr "…ਸਹੀ ਸਲਾਮਤੀ ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: filewidgets/kfileplacesmodel.cpp:1440
 #, kde-format
@@ -3069,12 +3068,10 @@ msgid "&Safely Remove"
 msgstr "ਸਹੀ ਸਲਾਮਤੀ ਹਟਾਓ(&S)"
 
 #: filewidgets/kfileplacesmodel.cpp:1445
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "ਅਣ-ਮਾਊਂਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"
+msgstr "…ਅਣ-ਮਾਊਂਟ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"
 
 #: filewidgets/kfileplacesmodel.cpp:1447
 #, kde-format
@@ -3106,7 +3103,7 @@ msgstr "'%1' ਵਰਤਣ ਦੌਰਾਨ ਗਲਤੀ ਆਈ ਹੈ"
 #: filewidgets/kfileplacesmodel.cpp:1581
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਇੱਕ ਜਾਂ ਵੱਧ ਫਾਈਲਾਂ ਐਪਲੀਕੇਸ਼ਨ ਨਾਲ ਖੁੱਲ੍ਹੀਆਂ ਹਨ।"
 
 #: filewidgets/kfileplacesmodel.cpp:1584
 #, kde-kuit-format
@@ -3123,7 +3120,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -3539,7 +3536,7 @@ msgstr "<qt>ਟੈਪਲੇਟ ਫਾਈਲ <b>%1</b> ਮੌਜੂਦ ਨਹੀ�
 #: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Name for new link:"
-msgstr ""
+msgstr "ਨਵੇਂ ਲਿੰਕ ਲਈ ਨਾਂ:"
 
 #: filewidgets/knewfilemenu.cpp:698
 #, kde-format
@@ -3763,10 +3760,9 @@ msgid ""
 msgstr ""
 
 #: gui/faviconrequestjob.cpp:108
-#, fuzzy, kde-format
-#| msgid "No media in device for %1"
+#, kde-format
 msgid "No favicon found for %1"
-msgstr "%1 ਲਈ ਜੰਤਰ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
+msgstr "%1 ਲਈ ਕੋਈ ਫੇਵੀਕਾਨ ਨਹੀਂ ਲੱਭਿਆ"
 
 #: gui/faviconrequestjob.cpp:157
 #, kde-format
@@ -3821,22 +3817,19 @@ msgstr ""
 "ਇੱਕ ਲਿੰਕ ਕਿਸਮ ਦੀ ਹੈ, ਪਰ ਕੋਈ URL=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
 #: gui/openurljob.cpp:364
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
-#| "be started.</qt>"
+#, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"<qt>ਫਾਈਲ <b>%1</b> ਇੱਕ ਚੱਲਣਯੋਗ ਕਾਰਜ ਹੈ, ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਰਿਹਾ ਹੈ।"
-"</qt>"
+"ਚੱਲਣਯੋਗ ਫਾਈਲ \"%1\" ਰਿਮੋਟ ਫਾਈਲ-ਸਿਸਟਮ ਉੱਤੇ ਮੌਜੂਦ ਹੈ। ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ "
+"ਜਾ ਸਕੇਗਾ।"
 
 #: gui/openurljob.cpp:400
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
-msgstr ""
+msgstr "ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਚੱਲਣਯੋਗ ਨੂੰ ਇਸ ਰੂਪ ਵਿੱਚ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"
 
 #: gui/openurljob.cpp:430
 #, kde-format
@@ -3846,12 +3839,13 @@ msgid ""
 msgstr ""
 
 #: gui/openurljob.cpp:441
-#, fuzzy, kde-format
-#| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+#, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
-msgstr "<qt>ਟੈਪਲੇਟ ਫਾਈਲ <b>%1</b> ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</qt>"
+msgstr ""
+"\"%1\" ਫਾਈਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ।\n"
+"%2"
 
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
@@ -4184,14 +4178,9 @@ msgid "not supported"
 msgstr "ਸਹਾਇਕ ਨਹੀਂ ਹੈ"
 
 #: ioslaves/trash/kio_trash_win.cpp:260
-#, fuzzy, kde-format
-#| msgid ""
-#| "Internal error in server\n"
-#| "%1"
+#, kde-format
 msgid "Internal error in copyOrMove, should never happen"
-msgstr ""
-"ਸਰਵਰ ਵਿੱਚ ਅੰਦਰੂਨੀ ਗਲਤੀ\n"
-"%1"
+msgstr "copyOrMove ਵਿੱਚ ਅੰਦਰੂਨੀ ਗਲਤੀ, ਹੋਣੀ ਨਹੀਂ ਚਾਹੀਦੀ ਸੀ"
 
 #: ioslaves/trash/ktrash.cpp:28
 #, kde-format
@@ -5538,10 +5527,9 @@ msgid "Proxy Authentication Failed."
 msgstr "ਪਰਾਕਸੀ ਪਰਮਾਣਕਤਾ ਫੇਲ੍ਹ ਹੋਈ।"
 
 #: kioworkers/help/kio_help.cpp:112
-#, fuzzy, kde-format
-#| msgid "There are no special actions available for protocol %1."
+#, kde-format
 msgid "There is no documentation available for %1."
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਲਈ ਖਾਸ ਕਾਰਵਾਈ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।"
+msgstr "%1 ਲਈ ਕੋਈ ਵੀ ਦਸਤਾਵੇਜ਼ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
 
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
@@ -5575,10 +5563,9 @@ msgid "Looking up section"
 msgstr ""
 
 #: kioworkers/help/kio_help.cpp:321
-#, fuzzy, kde-format
-#| msgid "Could not read file %1."
+#, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "ਫਾਈਲ %1 ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
+msgstr "%2 ਵਿੱਚ %1 ਫਾਈਲ-ਨਾਂ ਨਹੀਂ ਲੱਭਿਆ ਜਾ ਸਕਿਆ"
 
 #: kioworkers/http/http.cpp:587
 #, kde-format
@@ -5825,14 +5812,9 @@ msgid "Cannot Save Cookies"
 msgstr "ਕੂਕੀਜ਼ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾ ਸਕਦੇ"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgid "Could not remove %1, check permissions"
-msgstr ""
-"symlink %1 ਬਣਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
-"ਆਪਣੇ ਅਧਿਕਾਰ ਚੈੱਕ ਕਰੋ ਜੀ।"
+msgstr "%1 ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ, ਇਜਾਜ਼ਤਾਂ ਦੀ ਜਾਂਚ ਕਰੋ"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
@@ -5842,7 +5824,7 @@ msgstr "%1 ਡਾਇਰੈਕਟਰੀ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕ�
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:45
 #, kde-format
 msgid "Cookie Alert"
-msgstr "ਕੂਕੀਜ਼ ਚੇਤਾਵਨੀ"
+msgstr "ਕੂਕੀ ਚੇਤਾਵਨੀ"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:70
 #, fuzzy, kde-format
@@ -6161,10 +6143,9 @@ msgstr "ਸਿਰਫ਼ ਤਰਜੀਹੀ ਸ਼ਾਰਟਕੱਟ ਹੀ ਵ�
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-#| msgid "Search for shortcut"
+#, kde-format
 msgid "Search for web search keywords"
-msgstr "ਸ਼ਾਰਟਕੱਟ ਲਈ ਖੋਜ"
+msgstr "ਵੈੱਬ ਖੋਜ ਸ਼ਬਦਾਂ ਲਈ ਖੋਜ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
@@ -6634,9 +6615,7 @@ msgid "Moving"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Renaming"
+#, kde-format
 msgid "Renaming"
 msgstr "ਨਾਂ ਬਦਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
@@ -6729,8 +6708,7 @@ msgstr "ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਓ"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਓ"
@@ -6752,17 +6730,14 @@ msgstr[1] ""
 "ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
 #: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"ਕੀ ਤੁਸੀਂ ਸਭ ਆਈਟਮਾਂ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਨਹੀਂ ਜਾ ਸਕਦੀ।"
+"ਕੀ ਤੁਸੀਂ ਸਭ ਆਈਟਮਾਂ ਨੂੰ ਰੱਦੀ ਚੋਂ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><nl/><emphasis "
+"strong='true'> ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਨਹੀਂ ਜਾ ਸਕਦੀ।</emphasis>"
 
 #: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
 #, kde-format
@@ -7300,16 +7275,13 @@ msgstr ""
 "ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਨਾਲ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰੜ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"\"%1\" (%2)\n"
-"ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਨਾਲ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰੜ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)"
+"ਇਸ ਕਿਸਮ ਦੀਆਂ ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਸੰਬੰਧ ਨੂੰ ਯਾਦ ਰੱਖੋ(&R)\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7342,7 +7314,7 @@ msgstr "\"%1\" ਤੋਂ ਚੱਲਣਯੋਗ ਨਾਂ ਕੱਢਿਆ ਨਹ�
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
+msgstr "<filename>%1</filename> ਚੱਲਣਯੋਗ ਪਰਗੋਰਾਮ ਨਹੀਂ ਜਾਪਦਾ ਹੈ।"
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7350,7 +7322,7 @@ msgctxt "@info"
 msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
-msgstr ""
+msgstr "<filename>%1</filename> ਨਹੀਂ ਲੱਭਿਆ, ਚੱਲਣਯੋਗ ਪਰੋਗਰਾਮ ਲਈ ਢੁੱਕਵਾਂ ਮਾਰਗ ਦਿਓ।"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -7450,7 +7422,7 @@ msgstr "ਡਿਸਕਰੀਟ GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr ""
+msgstr "ਖਾਸ ਗਰਾਫਿਕਸ ਕਾਰਡ ਵਰਤ ਕੇ ਚਲਾਓ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -7544,10 +7516,9 @@ msgstr "ਟਿੱਪਣੀ(&e):"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "ਪਰਾਕਸੀ ਵਾਤਾਵਰਣ ਵੇਰੀਬਲ ਵਰਤੋਂ(&v)"
+msgstr "ਇੰਵਾਇਰਨਮੈਂਟ ਵੇਰੀਬਲ:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7596,7 +7567,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "ਪਰੋਗਰਾਮ:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -7627,11 +7598,9 @@ msgstr "ਕੰਮ ਮਾਰਗ(&W):"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "ਦਸਤਾਵੇਜ਼"
+msgstr "ਆਰਗੂਮੈਂਟ:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -7823,10 +7792,9 @@ msgid "The new file name is empty."
 msgstr "ਨਵੀਂ ਫਾਈਲ ਦਾ ਨਾਂ ਖਾਲੀ ਹੈ! "
 
 #: widgets/kpropertiesdialog.cpp:1671
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "ਸਹਾਇਕ ਫਾਈਲ ਕਿਸਮ(&S):"
+msgstr "ਕੋਈ ਰਜਿਸਟਰ ਕੀਤੀ ਫਾਈਲ ਕਿਸਮ ਨਹੀਂ ਹੈ"
 
 #: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
@@ -7834,18 +7802,16 @@ msgid "No associated application"
 msgstr "ਕੋਈ ਸੰਬੰਧਿਤ ਐਪਲੀਕੇਸ਼ਨ ਨਹੀਂ"
 
 #: widgets/kpropertiesdialog.cpp:1679
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "ਬਣਾਇਆ:"
+msgstr "…ਬਣਾਓ"
 
 #: widgets/kpropertiesdialog.cpp:1682
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "ਬਦਲੋ..."
+msgstr "…ਬਦਲੋ"
 
 #: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
 #: widgets/kpropertiesdialog.cpp:1761
@@ -8247,7 +8213,7 @@ msgstr ""
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr ""
+msgstr "…ਚੈਕਸਮ ਦੀ ਤਸਦੀਕ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: widgets/kpropertiesdialog.cpp:3147
 #, kde-format

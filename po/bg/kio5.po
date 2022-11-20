@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:42+0000\n"
+"POT-Creation-Date: 2022-11-20 00:43+0000\n"
 "PO-Revision-Date: 2022-11-11 20:59+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2534,31 +2534,31 @@ msgstr "&Да"
 msgid "&No"
 msgstr "&Не"
 
-#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "По&дробности"
 
-#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr "&Завинаги"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Про&дължение"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
 msgstr "&Само за текущата сесия"
 
-#: core/tcpslavebase.cpp:285 core/tcpworkerbase.cpp:278
+#: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
 msgid ""
 "You are about to leave secure mode. Transmissions will no longer be "
@@ -2570,24 +2570,24 @@ msgstr ""
 "Данните, които прехвърляте ще могат да бъдат прочетени от някой друг без "
 "големи затруднения."
 
-#: core/tcpslavebase.cpp:291 core/tcpslavebase.cpp:486
+#: core/tcpslavebase.cpp:293 core/tcpslavebase.cpp:488
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
 msgid "Security Information"
 msgstr "Защитена информация"
 
-#: core/tcpslavebase.cpp:292 core/tcpworkerbase.cpp:285
+#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
 msgstr "&Продължение на зареждането"
 
-#: core/tcpslavebase.cpp:345 core/tcpworkerbase.cpp:338
+#: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
 msgstr "%1: SSL се провали"
 
-#: core/tcpslavebase.cpp:480 core/tcpworkerbase.cpp:474
+#: core/tcpslavebase.cpp:482 core/tcpworkerbase.cpp:474
 #, kde-format
 msgid ""
 "You are about to enter secure mode. All transmissions will be encrypted "
@@ -2599,17 +2599,17 @@ msgstr ""
 "шифрован.\n"
 "Данните които прехвърляте няма да могат да бъдат прочетени от някой друг."
 
-#: core/tcpslavebase.cpp:487 core/tcpworkerbase.cpp:481
+#: core/tcpslavebase.cpp:489 core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
 msgstr "Показване на &информация за протокола SSL"
 
-#: core/tcpslavebase.cpp:488 core/tcpworkerbase.cpp:482
+#: core/tcpslavebase.cpp:490 core/tcpworkerbase.cpp:482
 #, kde-format
 msgid "C&onnect"
 msgstr "Вр&ъзка"
 
-#: core/tcpslavebase.cpp:526 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
+#: core/tcpslavebase.cpp:528 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -2618,14 +2618,14 @@ msgstr ""
 "Удостоверението на сървъра не може да бъде идентифицирано (%1)\n"
 "\n"
 
-#: core/tcpslavebase.cpp:535 core/tcpslavebase.cpp:547
+#: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:68
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
 msgstr "Сървър за идентификация"
 
-#: core/tcpslavebase.cpp:544 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
+#: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
@@ -9504,12 +9504,3 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "Наистина ли искате да изтриете за постоянно този елемент?<nl/><filename>"
-#~ "%1</filename><emphasis strong='true'>Това действие не може да бъде "
-#~ "отменено.</emphasis>"

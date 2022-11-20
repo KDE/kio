@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:42+0000\n"
+"POT-Creation-Date: 2022-11-20 00:43+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -2266,31 +2266,31 @@ msgstr "&Erê"
 msgid "&No"
 msgstr "&Na"
 
-#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
 msgstr "&Kîtekît"
 
-#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:548
+#: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
 msgstr ""
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:535
+#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Berdewam"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:549
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
 msgstr ""
 
-#: core/tcpslavebase.cpp:285 core/tcpworkerbase.cpp:278
+#: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
 msgid ""
 "You are about to leave secure mode. Transmissions will no longer be "
@@ -2298,24 +2298,24 @@ msgid ""
 "This means that a third party could observe your data in transit."
 msgstr ""
 
-#: core/tcpslavebase.cpp:291 core/tcpslavebase.cpp:486
+#: core/tcpslavebase.cpp:293 core/tcpslavebase.cpp:488
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
 msgid "Security Information"
 msgstr ""
 
-#: core/tcpslavebase.cpp:292 core/tcpworkerbase.cpp:285
+#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
 msgstr ""
 
-#: core/tcpslavebase.cpp:345 core/tcpworkerbase.cpp:338
+#: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
 msgstr ""
 
-#: core/tcpslavebase.cpp:480 core/tcpworkerbase.cpp:474
+#: core/tcpslavebase.cpp:482 core/tcpworkerbase.cpp:474
 #, kde-format
 msgid ""
 "You are about to enter secure mode. All transmissions will be encrypted "
@@ -2324,31 +2324,31 @@ msgid ""
 "transit."
 msgstr ""
 
-#: core/tcpslavebase.cpp:487 core/tcpworkerbase.cpp:481
+#: core/tcpslavebase.cpp:489 core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
 msgstr ""
 
-#: core/tcpslavebase.cpp:488 core/tcpworkerbase.cpp:482
+#: core/tcpslavebase.cpp:490 core/tcpworkerbase.cpp:482
 #, kde-format
 msgid "C&onnect"
 msgstr "Gi&rêdan"
 
-#: core/tcpslavebase.cpp:526 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
+#: core/tcpslavebase.cpp:528 core/tcpworkerbase.cpp:521 widgets/sslui.cpp:58
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
 "\n"
 msgstr ""
 
-#: core/tcpslavebase.cpp:535 core/tcpslavebase.cpp:547
+#: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
 #: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:68
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
 msgstr ""
 
-#: core/tcpslavebase.cpp:544 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
+#: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
