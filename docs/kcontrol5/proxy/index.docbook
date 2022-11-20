@@ -91,11 +91,6 @@ script file to be automatically detected and downloaded.</para>
 the configuration script file. Instead, it will be automatically
 downloaded using <quote>Web Proxy Auto-Discovery</quote> 
 (<acronym>WPAD</acronym>) protocol.</para>
-
-<note><para>If you have a problem using this setup, please consult the
-<acronym>FAQ</acronym> section at <ulink
-url="https://www.konqueror.org">https://www.konqueror.org</ulink> for
-more information.</para></note>
 </listitem>
 </varlistentry>
 
