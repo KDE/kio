@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-21 00:43+0000\n"
 "PO-Revision-Date: 2022-09-29 10:56+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -2904,21 +2904,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "Yang Paling Kecil Dulu"
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "Penyandian:"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Buka"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "Simpan Sebagai"
@@ -6776,36 +6776,36 @@ msgstr "Tak ada penyedia pencarian yang ditemukan."
 msgid "No search providers were found."
 msgstr "Tak ada penyedia pencarian yang ditemukan."
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "Baku"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "Modifikasi Pintasan Web"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "Pintasan Web Baru"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr "Pintasan \"%1\" telah ditugaskan ke \"%2\". Silakan pilih yang lain."
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1: \"%2\""
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
@@ -6814,7 +6814,7 @@ msgstr ""
 "Pintasan berikut telah ditugaskan. Silakan pilih yang lain.\n"
 "%1"
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6825,7 +6825,7 @@ msgstr ""
 "Ini berarti bahwa halaman yang sama selalu akan dikunjungi, apa pun yang "
 "pengguna ketik di dalam pintasan."
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "Simpan Itu"

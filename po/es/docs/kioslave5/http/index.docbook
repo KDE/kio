@@ -43,10 +43,10 @@
 >rotocol.</para>
 
 <para
->El kioslave http se usa por todas las aplicaciones &kde; para manejar conexiones a servidores &HTTP;, es decir, a servidores web. El uso más común es visualizar páginas web en el navegador &konqueror;.</para>
+>El módulo de trabajo KIO http se usa por todas las aplicaciones &kde; para manejar conexiones a servidores &HTTP;, es decir, a servidores web. El uso más común es visualizar páginas web en el navegador &konqueror;.</para>
 
 <para
->Usted puede utilizar el kioslave https en &konqueror; introduciendo una &URL;. <userinput
+>Se puede usar el módulo de trabajo KIO https en &konqueror; introduciendo una &URL;. <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput

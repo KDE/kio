@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-21 00:43+0000\n"
 "PO-Revision-Date: 2022-11-11 20:59+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2883,21 +2883,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "Първо най-малките"
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "Кодова таблица:"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Отваряне"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "Запис като"
@@ -6770,36 +6770,36 @@ msgstr "Не са намерени предпочитани търсачки."
 msgid "No search providers were found."
 msgstr "Не бяха намерени търсачки."
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "По подразбиране"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "Променяне на уеб пряк път"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "Нов уеб пряк път"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr "Пряк път \"%1\" вече е присвоен на \"%2\". Моля, изберете друг."
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1: \"%2\""
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
@@ -6808,7 +6808,7 @@ msgstr ""
 "Следните преки пътища вече са назначени. Моля, изберете други. \n"
 "%1"
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6820,7 +6820,7 @@ msgstr ""
 "Това означава, че една и съща страница ще бъде винаги посещавана, независимо "
 "от текста, въведен с пряк път."
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "Запазване"

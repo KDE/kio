@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-21 00:43+0000\n"
 "PO-Revision-Date: 2022-11-19 14:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2727,21 +2727,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "最小在前"
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "编码："
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "打开"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "另存为"
@@ -6421,36 +6421,36 @@ msgstr "未找到首选的搜索提供者。"
 msgid "No search providers were found."
 msgstr "未找到搜索提供者。"
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "默认"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "编辑速搜"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "新建 Web 快捷方式"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr "速搜关键字“%1”已经指派给“%2”。请另选一个。"
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1：“%2”"
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
@@ -6459,7 +6459,7 @@ msgstr ""
 "下列速搜关键字已经被指派过，请另选。\n"
 "%1"
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6469,7 +6469,7 @@ msgstr ""
 "用户查询的网址中没有出现 \\{...} 占位符。\n"
 "这意味着不管您以后输入什么样的查找字串，最后看到的都是同一个网址。"
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "保留"

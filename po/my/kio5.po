@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-21 00:43+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2783,21 +2783,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "ငယ်စဥ်ကြီးလိုက်"
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "ကုတ်ဝှက်စနစ် -"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "ဖွင့်"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "အဖြစ်သိမ်းမည်"
@@ -6521,36 +6521,36 @@ msgstr "ပိုနှစ်သက်သော ရှာဖွေခြင်�
 msgid "No search providers were found."
 msgstr "ရှာဖွေခြင်းဝန်ဆောင်မှုပေးသူများ မတွေ့ပါ။"
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "မူလသတ်မှတ်ချက်"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းမွမ်းမံမည်"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းအသစ်"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr "ဖြတ်လမ်း \"%1\" အား \"%2\" သို့ သတ်မှတ်ထားပြီးဖြစ်သည်။ အခြားတစ်ခုရွေးပါ။"
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1: \"%2\""
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
@@ -6559,7 +6559,7 @@ msgstr ""
 "အောက်ပါ ဖြတ်လမ်းများကို အသုံးပြုပြီးဖြစ်သည်။ အခြားမတူညီသည်များရွေးပါ။\n"
 "%1"
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6569,7 +6569,7 @@ msgstr ""
 "ဖြတ်လမ်း ယူအာအယ်သည် အသုံးပြုသူစုံစမ်းချက်အတွက် နေရာဦးထားမှု \\{…} မပါဝင်ပါ။\n"
 "ဆိုလိုသည်မှာ ဖြတ်လမ်းတွင် မည်သည်စာရေးသွင်း၍ဖြစ်စေ တူညီသော စာမျက်နှာကိုသာ သွားရောက်မည်ဖြစ်သည်။"
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "၎င်းကိုသိမ်းထားပါ"

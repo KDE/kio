@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-21 00:43+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2700,21 +2700,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr "suli li lon pini"
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "nasin sitelen:"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "o open"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "kama awen kepeken nimi"
@@ -6319,43 +6319,43 @@ msgstr "ilo alasa wile li lon ala."
 msgid "No search providers were found."
 msgstr "alasa mi li kama jo e ilo alasa ala."
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "ijo tan jan pana pi ilo sina"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "o ante e nasin lili linluwi"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "o lon e nasin lili linluwi"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1: \"%2\""
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6363,7 +6363,7 @@ msgid ""
 "the text typed in with the shortcut."
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "o awen e ona"
