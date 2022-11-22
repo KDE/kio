@@ -458,23 +458,6 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
                                                   QStringLiteral("view-calendar-day"));
         }
 
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              kli18nc("KFile System Bookmarks", "Documents").untranslatedText(),
-                                              QUrl(QStringLiteral("search:/documents")),
-                                              QStringLiteral("folder-text"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              kli18nc("KFile System Bookmarks", "Images").untranslatedText(),
-                                              QUrl(QStringLiteral("search:/images")),
-                                              QStringLiteral("folder-images"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              kli18nc("KFile System Bookmarks", "Audio").untranslatedText(),
-                                              QUrl(QStringLiteral("search:/audio")),
-                                              QStringLiteral("folder-sound"));
-        KFilePlacesItem::createSystemBookmark(d->bookmarkManager,
-                                              kli18nc("KFile System Bookmarks", "Videos").untranslatedText(),
-                                              QUrl(QStringLiteral("search:/videos")),
-                                              QStringLiteral("folder-videos"));
-
         setDefaultMetadataItemForGroup(SearchForType);
         setDefaultMetadataItemForGroup(RecentlySavedType);
 

@@ -839,11 +839,6 @@ void KFilePlacesModelTest::testEnableBaloo()
         QVERIFY(urls.contains("recentlyused:/files"));
         QVERIFY(urls.contains("recentlyused:/locations"));
     }
-
-    QVERIFY(urls.contains("search:/documents"));
-    QVERIFY(urls.contains("search:/images"));
-    QVERIFY(urls.contains("search:/audio"));
-    QVERIFY(urls.contains("search:/videos"));
 }
 
 void KFilePlacesModelTest::testRemoteUrls_data()
