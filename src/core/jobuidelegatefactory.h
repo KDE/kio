@@ -66,6 +66,8 @@ KIOCORE_EXPORT KJobUiDelegate *createDefaultJobUiDelegate();
 
 /**
  * Convenience method: use default factory, if there's one, to create a delegate and return it.
+ *
+ * @since 5.98
  */
 KIOCORE_EXPORT KJobUiDelegate *createDefaultJobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
 
