@@ -19,6 +19,7 @@
 #include <KMountPoint>
 #include <kprotocolinfo.h>
 #include <solid/block.h>
+#include <solid/genericinterface.h>
 #include <solid/networkshare.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
@@ -42,6 +43,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_isTeardownOverlayRecommended(false)
     , m_isTeardownInProgress(false)
     , m_isSetupInProgress(false)
+    , m_isReadOnly(false)
 {
     updateDeviceInfo(udi);
 
@@ -371,7 +373,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
         }
 
         case KFilePlacesModel::CapacityBarRecommendedRole:
-            return m_isAccessible && !m_isCdrom && !m_networkShare;
+            return m_isAccessible && !m_isCdrom && !m_networkShare && !m_isReadOnly;
 
         case KFilePlacesModel::IconNameRole:
             return m_deviceIconName;
@@ -536,6 +538,11 @@ void KFilePlacesItem::onAccessibilityChanged(bool isAccessible)
     m_isCdrom =
         m_device.is<Solid::OpticalDrive>() || m_device.parent().is<Solid::OpticalDrive>() || (m_volume && m_volume->fsType() == QLatin1String("iso9660"));
     m_emblems = m_device.emblems();
+
+    if (auto generic = m_device.as<Solid::GenericInterface>()) {
+        // TODO add Solid API for this.
+        m_isReadOnly = generic->property(QStringLiteral("ReadOnly")).toBool();
+    }
 
     m_isTeardownAllowed = isAccessible;
     if (m_isTeardownAllowed) {

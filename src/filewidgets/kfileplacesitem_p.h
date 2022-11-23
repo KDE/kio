@@ -88,6 +88,7 @@ private:
     bool m_isTeardownOverlayRecommended;
     bool m_isTeardownInProgress;
     bool m_isSetupInProgress;
+    bool m_isReadOnly;
     QString m_text;
     Solid::Device m_device;
     QPointer<Solid::StorageAccess> m_access;
