@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -4254,16 +4254,6 @@ msgstr "Ne mogu da dobavim korisniÄki ID za dato ime korisnika %1."
 msgid "Could not get group id for given group name %1"
 msgstr "Ne mogu da dobavim grupni ID za dato ime grupe %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Pristup odbijen"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Nemate dozvolu za pristup protokolu %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6596,6 +6586,16 @@ msgstr "Pokušajte ponovo"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dijalog za autentifikaciju"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Pristup odbijen"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nemate dozvolu za pristup protokolu %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

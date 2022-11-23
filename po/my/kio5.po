@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -4069,16 +4069,6 @@ msgstr "ပေးထားသော အသုံးပြုသူအမည် %
 msgid "Could not get group id for given group name %1"
 msgstr "ပေးထားသော အုပ်စုအမည် %1 အတွက် အုပ်စုအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "အသုံးပြုခွင့် ပယ်ခံရ"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို သုံးစွဲနိုင်ရန် သင်၌ အခွင့်မရှိပါ။"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6318,6 +6308,16 @@ msgstr "ပြန်ကြိုးစား"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "ယုံကြည်မှုရယူခြင်း အပြော-ဝင်းဒိုး"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "အသုံးပြုခွင့် ပယ်ခံရ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို သုံးစွဲနိုင်ရန် သင်၌ အခွင့်မရှိပါ။"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

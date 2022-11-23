@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -4050,16 +4050,6 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-msgid "Access denied"
-msgstr "%1-ലേക്കുള്ള പ്രവേശനം നിഷേധിച്ചിരിക്കുന്നു."
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr ""
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6069,6 +6059,16 @@ msgstr "വീണ്ടും ശ്രമിക്കുക"
 #, fuzzy, kde-format
 msgid "Authentication Dialog"
 msgstr "സര്‍വര്‍ ഉറപ്പാക്കല്‍"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+msgid "Access denied"
+msgstr "%1-ലേക്കുള്ള പ്രവേശനം നിഷേധിച്ചിരിക്കുന്നു."
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr ""
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

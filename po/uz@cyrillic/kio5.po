@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -4080,17 +4080,6 @@ msgstr "%1 жилдига ўтиб бўлмади."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Рухсат йўқ"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr ""
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6209,6 +6198,17 @@ msgstr "Қайтадан уриниш"
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Тасдиқлаш диалоги"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Рухсат йўқ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr ""
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

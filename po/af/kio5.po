@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4447,17 +4447,6 @@ msgstr "Kon nie toegang tot gids %1 verkry nie"
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Toegang verkry Verbied"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Jy het nie toestemming om toegang tot protokol %1 te verkry nie."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 msgid " days"
@@ -6950,6 +6939,17 @@ msgstr "Probeer weer"
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Geldigheidstoets Dialoog"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Toegang verkry Verbied"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Jy het nie toestemming om toegang tot protokol %1 te verkry nie."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

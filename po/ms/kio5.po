@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -4193,16 +4193,6 @@ msgstr "Tidak dapat memasuki folder %1."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-msgid "Access denied"
-msgstr "Akses Dinafikan"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Anda tidak mempunyai keizinan untuk mengakses protokol %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 msgid " days"
@@ -6442,6 +6432,16 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Authentication Dialog"
 msgstr "Dialog Keizinan"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+msgid "Access denied"
+msgstr "Akses Dinafikan"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Anda tidak mempunyai keizinan untuk mengakses protokol %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

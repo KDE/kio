@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-11 12:27+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -4199,16 +4199,6 @@ msgstr "Verilən %1 istifadəçi adı üçün istifadəçi kimliyi (İD) alına 
 msgid "Could not get group id for given group name %1"
 msgstr "Verilən %1 qrup adı üçün qrup kimliyi (İD) alınmadı"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Giriş Qadağandır"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "%1 protokoluna giriş icazəniz yoxdur."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6527,6 +6517,16 @@ msgstr "Təkrar"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Kimlik Doğrulaması Dialoqu"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Giriş Qadağandır"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "%1 protokoluna giriş icazəniz yoxdur."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

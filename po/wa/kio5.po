@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -4398,17 +4398,6 @@ msgstr "Dji n' a savou awè l' id di l' uzeu pol no d' uzeu %1 di dné"
 msgid "Could not get group id for given group name %1"
 msgstr "Dji n' a savou awè l' id do groupe pol no do groupe %1 di dné"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Disfinse di moussî."
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Vos n' avoz nén les droets po-z aveur accès å protocole %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6623,6 +6612,17 @@ msgstr ""
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Purnea d' otorijhåcion"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Disfinse di moussî."
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Vos n' avoz nén les droets po-z aveur accès å protocole %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

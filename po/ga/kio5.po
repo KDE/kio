@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -4184,17 +4184,6 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Cead Rochtana Diúltaithe"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Níl cead agat prótacal %1 a rochtain."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6636,6 +6625,17 @@ msgstr "Atriail"
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Dialóg Údaraithe"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Cead Rochtana Diúltaithe"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Níl cead agat prótacal %1 a rochtain."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

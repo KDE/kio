@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4306,16 +4306,6 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr "Nie ŭdalosia atrymać identyfikatar hrupy dlia padadzienaj hrupy %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Dostup zabaronieny"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Vy nie majecie pravoŭ dlia dostupu da pratakola %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6788,6 +6778,16 @@ msgstr "Paŭtaryć"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dyjalohavaje akno aŭtentyfikacyi"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Dostup zabaronieny"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Vy nie majecie pravoŭ dlia dostupu da pratakola %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

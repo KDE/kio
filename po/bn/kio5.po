@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -3972,17 +3972,6 @@ msgstr "%1 ফোল্ডারে ঢোকা যায়নি।"
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access denied to %1."
-msgid "Access denied"
-msgstr "%1-এ অধিকার প্রত্যাখ্যান করা হয়েছে।"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr ""
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 msgid " days"
@@ -6128,6 +6117,17 @@ msgstr "আবার"
 #| msgid "Authentication"
 msgid "Authentication Dialog"
 msgstr "অথেন্টিকেশন"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access denied to %1."
+msgid "Access denied"
+msgstr "%1-এ অধিকার প্রত্যাখ্যান করা হয়েছে।"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr ""
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

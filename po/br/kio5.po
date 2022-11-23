@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -3996,17 +3996,6 @@ msgstr "N'hellan ket mont er renkell %1."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Digor nac'het"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "N'oc'h ket aotreet da skrivañ war ar restr-mañ.\n"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6091,6 +6080,17 @@ msgstr "Klask adarre"
 #, fuzzy, kde-format
 msgid "Authentication Dialog"
 msgstr "&Lec'hiadur"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Digor nac'het"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "N'oc'h ket aotreet da skrivañ war ar restr-mañ.\n"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2007-12-13 13:28-0600\n"
 "Last-Translator: Cindy McKee <cfmckee@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -4320,17 +4320,6 @@ msgstr "Ne eblis eniri la dosierujon %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Ne povis akiri grupan identigilon por la donita grupnomo %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Aliro malpermesita"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Vi ne havas permeson por aliri la protokolon %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6683,6 +6672,17 @@ msgstr ""
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Aŭtentigodialogo"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Aliro malpermesita"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Vi ne havas permeson por aliri la protokolon %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

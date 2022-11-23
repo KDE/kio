@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4475,17 +4475,6 @@ msgstr "Koe net yn map %1 komme."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Tagong wegere"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Jo hawwe net de nedige rjochten foar tagong ta protokol %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6978,6 +6967,17 @@ msgstr ""
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Autorisaasje"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Tagong wegere"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Jo hawwe net de nedige rjochten foar tagong ta protokol %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

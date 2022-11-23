@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4269,16 +4269,6 @@ msgstr "Nevar atrast lietotāja id lietotājvārdam %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nevar atrast grupas id grupas vārdam %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Pieeja liegta"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Jums nav atļajuju piekļūt %1 protokolam."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6674,6 +6664,16 @@ msgstr "Mēģināt vēlreiz"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Autorizācijas dialogs"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Pieeja liegta"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Jums nav atļajuju piekļūt %1 protokolam."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

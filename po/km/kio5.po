@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4231,17 +4231,6 @@ msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "ការ​ចូល​ដំណើរការ​ត្រូវ​បាន​បដិសេធ"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "អ្នក​មិន​មាន​សិទ្ធិ​ចូល​ដំណើរការពិធីការ %1 ឡើយ ។"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6651,6 +6640,17 @@ msgstr ""
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "ប្រអប់​អនុញ្ញាត​"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "ការ​ចូល​ដំណើរការ​ត្រូវ​បាន​បដិសេធ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "អ្នក​មិន​មាន​សិទ្ធិ​ចូល​ដំណើរការពិធីការ %1 ឡើយ ។"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

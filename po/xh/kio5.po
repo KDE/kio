@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4320,17 +4320,6 @@ msgstr "Ayinakungena kulawulo %1"
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "Unikezelo Alwamkelekanga"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Awunazimvumelwano zokwamkela uxulumano."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6573,6 +6562,17 @@ msgstr "Zama kwakhona"
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "Incoko yababini Yogunyaziso"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "Unikezelo Alwamkelekanga"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Awunazimvumelwano zokwamkela uxulumano."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

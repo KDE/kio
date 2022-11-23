@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-09-23 09:16+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -4203,16 +4203,6 @@ msgstr "Nie można pobrać identyfikatora użytkownika dla danej nazwy %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nie można pobrać identyfikatora grupy dla danej nazwy %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Brak dostępu"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Nie masz uprawnień do użycia protokołu %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6519,6 +6509,16 @@ msgstr "Ponów"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Okno dialogowe uwierzytelniania"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Brak dostępu"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nie masz uprawnień do użycia protokołu %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

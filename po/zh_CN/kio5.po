@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-19 14:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4003,16 +4003,6 @@ msgstr "无法获得给定用户名 %1 的用户 ID"
 msgid "Could not get group id for given group name %1"
 msgstr "无法获得给定组名 %1 的组 ID"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "拒绝访问"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "您可能没有访问 %1 协议的权限。"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6220,6 +6210,16 @@ msgstr "重试"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "身份验证对话框"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "拒绝访问"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "您可能没有访问 %1 协议的权限。"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

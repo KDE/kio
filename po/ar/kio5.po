@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-21 18:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -4145,17 +4145,6 @@ msgstr "تعذّر جلب معرّف المستخدم لاسم المستخدم 
 msgid "Could not get group id for given group name %1"
 msgstr "تعذّر جلب معرّف المجموعة لاسم المجموعة %1 المعطى"
 
-# تكرار
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "رُفض النّفاذ"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "لا تصريح لديك للنّفاذ إلى ميفاق %1."
-
 # plural!
 # يمكن إصلاحها بسهولة
 #: ioslaves/trash/kcmtrash.cpp:132
@@ -6476,6 +6465,17 @@ msgstr "أعِد المحاولة"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "حواريّ الاستيثاق"
+
+# تكرار
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "رُفض النّفاذ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "لا تصريح لديك للنّفاذ إلى ميفاق %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

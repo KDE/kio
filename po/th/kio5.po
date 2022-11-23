@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -4254,17 +4254,6 @@ msgstr "ไม่สามารถรับเอาหมายเลขผู
 msgid "Could not get group id for given group name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขกลุ่ม (group id) ของชื่อกลุ่ม %1 ได้"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, fuzzy, kde-format
-#| msgid "Access Denied"
-msgid "Access denied"
-msgstr "ถูกปฏิเสธไม่ให้เข้าใช้งาน"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "คุณไม่ได้รับอนุญาตให้เข้าใช้งานโพรโทคอล %1"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, fuzzy, kde-format
 #| msgid "1 day %2"
@@ -6657,6 +6646,17 @@ msgstr ""
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
 msgstr "กล่องตรวจสอบสิทธิ์"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, fuzzy, kde-format
+#| msgid "Access Denied"
+msgid "Access denied"
+msgstr "ถูกปฏิเสธไม่ให้เข้าใช้งาน"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "คุณไม่ได้รับอนุญาตให้เข้าใช้งานโพรโทคอล %1"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, fuzzy, kde-format

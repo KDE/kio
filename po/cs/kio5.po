@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-07-08 14:52+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -4148,16 +4148,6 @@ msgstr "Nelze získat ID uživatele pro uživatele %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nelze získat ID skupiny pro skupinu %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Odmítnut přístup"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Nemáte oprávnění přistupovat k protokolu %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6400,6 +6390,16 @@ msgstr "Zkusit znovu"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Ověřovací dialog"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Odmítnut přístup"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Nemáte oprávnění přistupovat k protokolu %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

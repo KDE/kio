@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-19 05:23-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -4010,16 +4010,6 @@ msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤ�
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "ਪਹੁੰਚ ਪਾਬੰਦੀ"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "ਪਰੋਟੋਕਾਲ %1 ਪਹੁੰਚ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6063,6 +6053,16 @@ msgstr "ਮੁੜ-ਕੋਸ਼ਿਸ਼"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "ਪਰਮਾਣਕਿਤਾ ਡਾਈਲਾਗ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "ਪਹੁੰਚ ਪਾਬੰਦੀ"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "ਪਰੋਟੋਕਾਲ %1 ਪਹੁੰਚ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

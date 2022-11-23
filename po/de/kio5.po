@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-08-20 20:40+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -4308,18 +4308,6 @@ msgid "Could not get group id for given group name %1"
 msgstr ""
 "Die Gruppenkennung für die angegebene Gruppe %1 kann nicht ermittelt werden."
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Zugriff verweigert"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr ""
-"Sie haben keine ausreichenden Berechtigungen für die Verwendung des "
-"Protokolls %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6664,6 +6652,18 @@ msgstr "Erneut versuchen"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Authentifizierungsdialog"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Zugriff verweigert"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr ""
+"Sie haben keine ausreichenden Berechtigungen für die Verwendung des "
+"Protokolls %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

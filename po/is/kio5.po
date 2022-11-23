@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-11 09:24+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -4171,16 +4171,6 @@ msgstr "Ekki tókst að sækja notandanúmer fyrir notandann %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Ekki tókst að sækja hópnúmer fyrir hópinn %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Aðgangi hafnað"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Þú hefur ekki réttindi til að nota %1 samskiptamátann."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6443,6 +6433,16 @@ msgstr "Reyna aftur"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Auðkenningargluggi"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Aðgangi hafnað"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Þú hefur ekki réttindi til að nota %1 samskiptamátann."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2022-11-10 08:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4252,16 +4252,6 @@ msgstr "No s'ha pogut obtenir l'ID de l'usuari per al nom d'usuari donat %1"
 msgid "Could not get group id for given group name %1"
 msgstr "No s'ha pogut obtenir l'ID del grup per al nom de grup donat %1"
 
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "S'ha denegat l'accés"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "No teniu permisos per a accedir al protocol %1."
-
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
@@ -6615,6 +6605,16 @@ msgstr "Torna a intentar-ho"
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Diàleg d'autenticació"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "S'ha denegat l'accés"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "No teniu permisos per a accedir al protocol %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format
