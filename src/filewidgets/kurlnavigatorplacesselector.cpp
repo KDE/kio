@@ -7,6 +7,7 @@
 
 #include "kurlnavigatorplacesselector_p.h"
 
+#include <KProtocolInfo>
 #include <KUrlMimeData>
 #include <kfileplacesmodel.h>
 
@@ -136,9 +137,18 @@ void KUrlNavigatorPlacesSelector::updateSelection(const QUrl &url)
         setIcon(m_placesModel->icon(index));
     } else {
         m_selectedItem = -1;
-        // No bookmark has been found which matches to the given Url. Show
-        // a generic folder icon as pixmap for indication:
-        setIcon(QIcon::fromTheme(QStringLiteral("folder")));
+        // No bookmark has been found which matches to the given Url.
+        // Show the protocol's icon as pixmap for indication, if available:
+        QIcon icon;
+        if (!url.scheme().isEmpty()) {
+            if (const QString iconName = KProtocolInfo::icon(url.scheme()); !iconName.isEmpty()) {
+                icon = QIcon::fromTheme(iconName);
+            }
+        }
+        if (icon.isNull()) {
+            icon = QIcon::fromTheme(QStringLiteral("folder"));
+        }
+        setIcon(icon);
     }
     updateTeardownAction();
 }
