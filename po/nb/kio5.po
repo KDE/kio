@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2810,21 +2810,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr ""
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "Koding:"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Åpne"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "Lagre som"
@@ -4082,16 +4082,6 @@ msgstr "Kunne ikke hente brukerid for gitt brukernavn %1"
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kunne ikke hente gruppeid for gitt gruppenavn %1"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr "Tilgang nektes"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Du har ikke tilgang til protokollen %1."
 
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
@@ -6319,6 +6309,16 @@ msgstr "Prøv igjen"
 msgid "Authentication Dialog"
 msgstr "Dialogvindu for autorisasjon"
 
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr "Tilgang nektes"
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Du har ikke tilgang til protokollen %1."
+
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format
 msgctxt "@title:column Name label from web search keyword column"
@@ -6505,36 +6505,36 @@ msgstr "Fant ingen foretrukne søketilbydere."
 msgid "No search providers were found."
 msgstr "Fant ingen søketilbydere."
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "Standard"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr "Endre nettsnarvei"
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "Ny nettsnarvei"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr "Snarveien «%1» er allerede tilordnet til «%2». Velg en annen snarvei."
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "- %1: «%2»"
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
@@ -6543,7 +6543,7 @@ msgstr ""
 "Følgende snarveier er allerede tilordnet. Velg noen andre.\n"
 "%1"
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6554,7 +6554,7 @@ msgstr ""
 "Det betyr at den samme siden alltid vil bli brukt, uansett hva brukeren "
 "skriver inn sammen med snarveien."
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr "Ta vare på den"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:43+0000\n"
+"POT-Creation-Date: 2022-11-23 00:44+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -2767,21 +2767,21 @@ msgctxt "Sort ascending"
 msgid "Smallest First"
 msgstr ""
 
-#: filewidgets/kencodingfiledialog.cpp:72
+#: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
 msgid "Encoding:"
 msgstr "Koden:"
 
-#: filewidgets/kencodingfiledialog.cpp:123
-#: filewidgets/kencodingfiledialog.cpp:137
-#: filewidgets/kencodingfiledialog.cpp:150
-#: filewidgets/kencodingfiledialog.cpp:164 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:121
+#: filewidgets/kencodingfiledialog.cpp:135
+#: filewidgets/kencodingfiledialog.cpp:148
+#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Raba"
 
-#: filewidgets/kencodingfiledialog.cpp:178
-#: filewidgets/kencodingfiledialog.cpp:196
+#: filewidgets/kencodingfiledialog.cpp:176
+#: filewidgets/kencodingfiledialog.cpp:194
 #, kde-format
 msgid "Save As"
 msgstr "Vurke nugo"
@@ -4039,16 +4039,6 @@ msgstr "Ii sáhttán viežžat geavaheaddjinama %1 geavaheaddji-id"
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ii ožžon joavko-id dihto joavkonama %1"
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "Access denied"
-msgstr ""
-
-#: ioslaves/telnet/ktelnetservice.cpp:52
-#, kde-format
-msgid "You do not have permission to access the %1 protocol."
-msgstr "Dus ii leat vuoigatvuohta beassat %1-protokollii."
 
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
@@ -6075,6 +6065,16 @@ msgstr "Geahččal ođđasit"
 msgid "Authentication Dialog"
 msgstr "Duođaštanláseš"
 
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "Access denied"
+msgstr ""
+
+#: schemehandlers/telnet/ktelnetservice.cpp:52
+#, kde-format
+msgid "You do not have permission to access the %1 protocol."
+msgstr "Dus ii leat vuoigatvuohta beassat %1-protokollii."
+
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format
 msgctxt "@title:column Name label from web search keyword column"
@@ -6254,43 +6254,43 @@ msgstr ""
 msgid "No search providers were found."
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:46
+#: urifilters/ikws/searchproviderdlg.cpp:49
 #, fuzzy, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr " (Standárda)"
 
-#: urifilters/ikws/searchproviderdlg.cpp:49
+#: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:57
+#: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
 msgstr "Ođđa fierpmádatlávkestat"
 
-#: urifilters/ikws/searchproviderdlg.cpp:118
+#: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:123
+#: urifilters/ikws/searchproviderdlg.cpp:126
 #, fuzzy, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
 msgstr "%1: %2"
 
-#: urifilters/ikws/searchproviderdlg.cpp:127
+#: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
 msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:140
+#: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
 msgid ""
 "The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
@@ -6298,7 +6298,7 @@ msgid ""
 "the text typed in with the shortcut."
 msgstr ""
 
-#: urifilters/ikws/searchproviderdlg.cpp:144
+#: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
 msgstr ""
