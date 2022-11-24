@@ -42,8 +42,8 @@ target_sources(kded_kcookiejar PRIVATE
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_COOKIEJAR
-    CATEGORY_NAME kf.kio.slaves.http.cookiejar
-    OLD_CATEGORY_NAMES kf5.kio.cookiejar
+    CATEGORY_NAME kf.kio.workers.http.cookiejar
+    OLD_CATEGORY_NAMES kf5.kio.cookiejar kf.kio.slaves.http.cookiejar
     DESCRIPTION "kcookiejar (KIO)"
     EXPORT KIO
 )

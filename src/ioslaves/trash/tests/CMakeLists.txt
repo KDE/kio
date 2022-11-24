@@ -5,7 +5,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 ecm_qt_declare_logging_category(kio_trash_PART_test_DEBUG_SRCS
     HEADER kiotrashdebug.h
     IDENTIFIER KIO_TRASH
-    CATEGORY_NAME kf.kio.slaves.trash
+    CATEGORY_NAME kf.kio.workers.trash
 )
 
 set(testtrash_SRCS

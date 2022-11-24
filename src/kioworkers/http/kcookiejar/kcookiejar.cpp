@@ -32,7 +32,7 @@
 #include <QTextStream>
 #include <QUrl>
 
-Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf.kio.slaves.http.cookiejar")
+Q_LOGGING_CATEGORY(KIO_COOKIEJAR, "kf.kio.workers.http.cookiejar")
 
 static constexpr int s_readBufferSize = 8192;
 static constexpr char s_ipAddressExpression[] = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";

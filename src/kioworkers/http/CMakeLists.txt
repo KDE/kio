@@ -55,8 +55,8 @@ target_sources(kio_http PRIVATE
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_HTTP
-    CATEGORY_NAME kf.kio.slaves.http
-    OLD_CATEGORY_NAMES kf5.kio.kio_http
+    CATEGORY_NAME kf.kio.workers.http
+    OLD_CATEGORY_NAMES kf5.kio.kio_http kf.kio.slaves.http
     DEFAULT_SEVERITY Warning
     DESCRIPTION "KIO HTTP slave (KIO)"
     EXPORT KIO
@@ -64,16 +64,16 @@ ecm_qt_export_logging_category(
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_HTTP_AUTH
-    CATEGORY_NAME kf.kio.slaves.http.auth
-    OLD_CATEGORY_NAMES kf5.kio.kio_http.auth
+    CATEGORY_NAME kf.kio.workers.http.auth
+    OLD_CATEGORY_NAMES kf5.kio.kio_http.auth kf.kio.slaves.http.auth
     DESCRIPTION "kio http auth (KIO)"
     EXPORT KIO
 )
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_HTTP_FILTER
-    CATEGORY_NAME kf.kio.slaves.http.filter
-    OLD_CATEGORY_NAMES kf5.kio.kio_http.filter
+    CATEGORY_NAME kf.kio.workers.http.filter
+    OLD_CATEGORY_NAMES kf5.kio.kio_http.filter kf.kio.slaves.http.filter
     DESCRIPTION "kio http filter (KIO)"
     EXPORT KIO
 )

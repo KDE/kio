@@ -10,8 +10,8 @@ target_sources(kio_ftp PRIVATE
 
 ecm_qt_export_logging_category(
     IDENTIFIER KIO_FTP
-    CATEGORY_NAME kf.kio.slaves.ftp
-    OLD_CATEGORY_NAMES kf5.kio.kio_ftp
+    CATEGORY_NAME kf.kio.workers.ftp
+    OLD_CATEGORY_NAMES kf5.kio.kio_ftp kf.kio.slaves.ftp
     DEFAULT_SEVERITY Warning
     DESCRIPTION "kio ftp (KIO)"
     EXPORT KIO

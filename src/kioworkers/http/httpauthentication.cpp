@@ -31,7 +31,7 @@
 #include <QCryptographicHash>
 #include <QTextCodec>
 
-Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf.kio.slaves.http.auth")
+Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf.kio.workers.http.auth")
 
 static bool isWhiteSpace(char ch)
 {

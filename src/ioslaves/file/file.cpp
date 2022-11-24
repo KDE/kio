@@ -53,7 +53,7 @@
 #include <kdirnotify.h>
 #include <workerfactory.h>
 
-Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.slaves.file")
+Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.workers.file")
 
 class KIOPluginFactory : public KIO::WorkerFactory
 {
