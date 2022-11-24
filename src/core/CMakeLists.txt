@@ -105,6 +105,7 @@ target_sources(KF5KIOCore PRIVATE
   kpasswdserverloop.cpp
   kpasswdserverclient.cpp
   kdirnotify.cpp
+  forwardingworkerbase.cpp
 
   ksslcertificatemanager.cpp
   ksslerroruidata.cpp
@@ -313,6 +314,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   BatchRenameJob
   WorkerBase
   WorkerFactory
+  ForwardingWorkerBase
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
