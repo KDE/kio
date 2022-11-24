@@ -8,7 +8,7 @@
 
 /*
     Recommended reading explaining FTP details and quirks:
-      http://cr.yp.to/ftp.html  (by D.J. Bernstein)
+      https://cr.yp.to/ftp.html  (by D.J. Bernstein)
 
     RFC:
       RFC  959 "File Transfer Protocol (FTP)"
@@ -739,7 +739,7 @@ bool FtpInternal::ftpSendCmd(const QByteArray &cmd, int maxretries)
     bool isPassCmd = (cmd.left(4).toLower() == "pass");
 
     // Send the message...
-    const QByteArray buf = cmd + "\r\n"; // Yes, must use CR/LF - see http://cr.yp.to/ftp/request.html
+    const QByteArray buf = cmd + "\r\n"; // Yes, must use CR/LF - see https://cr.yp.to/ftp/request.html
     int num = m_control->write(buf);
     while (m_control->bytesToWrite() && m_control->waitForBytesWritten()) { }
 

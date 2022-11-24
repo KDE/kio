@@ -35,7 +35,7 @@ class QUrl;
 namespace KIO
 {
 /** This kioslave provides support of data urls as specified by rfc 2397
- * @see http://www.ietf.org/rfc/rfc2397.txt
+ * @see https://www.ietf.org/rfc/rfc2397.txt
  * @author Leo Savernik
  */
 #if defined(TESTKIO)

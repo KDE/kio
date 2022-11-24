@@ -16,7 +16,7 @@ The majority of the work for this is done, see README.webdav. GUI integration
 into konqueror as a konqueror part would be nice, to add GUI support for
 features such as locking.
 
-- Rating(s) support.  http://www.w3.org/PICS:
+- Rating(s) support.  https://www.w3.org/PICS/:
 This might involve an external program to parse the labels, and something to
 configure access accordingly.  There is only some basic things that need to be
 added to kio_http to support this.  The majority of the work has to be done at the

@@ -36,7 +36,7 @@ class SchedulerPrivate;
  *
  * Example:
  * \code
- *    TransferJob *job = KIO::get(QUrl("http://www.kde.org"));
+ *    TransferJob *job = KIO::get(QUrl("https://www.kde.org"));
  * \endcode
  *
  *
@@ -49,7 +49,7 @@ class SchedulerPrivate;
  *
  * Example:
  * \code
- *    TransferJob *job = KIO::get(QUrl("http://www.kde.org"));
+ *    TransferJob *job = KIO::get(QUrl("https://www.kde.org"));
  *    KIO::Scheduler::setJobPriority(job, 1);
  * \endcode
  *

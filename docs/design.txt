@@ -199,5 +199,5 @@ Protocols
 Most KIO slaves (but not all) are implementing internet protocols.
 In this case, the slave name matches the URI name for the protocol.
 A list of such URIs can be found here, as per RFC 4395:
-http://www.iana.org/assignments/uri-schemes.html
+https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
 

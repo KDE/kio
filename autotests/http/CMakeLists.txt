@@ -3,7 +3,7 @@ find_package(Qt${QT_MAJOR_VERSION}Widgets REQUIRED)
 find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed files and data streams"
-                       URL "http://www.zlib.net"
+                       URL "https://www.zlib.net"
                        TYPE REQUIRED
                        PURPOSE "Required for httpfiltertest"
                       )

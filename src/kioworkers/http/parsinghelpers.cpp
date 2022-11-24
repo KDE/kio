@@ -133,7 +133,7 @@ HeaderTokenizer::HeaderTokenizer(char *buffer)
         {"last-modified", false},
         {"link", false}, // RFC 2068, multi-valued with ";" separator
         {"location", false},
-        {"p3p", true}, // http://www.w3.org/TR/P3P/
+        {"p3p", true}, // https://www.w3.org/TR/P3P/
         {"pragma", true},
         {"proxy-authenticate", false}, // complicated multi-valuedness: quoted commas don't separate
         // multiple values. we handle this at a higher level.

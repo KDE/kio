@@ -7,7 +7,7 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 # KSSL_HAVE_SSL only used in kssl/ksslsettings.cpp, but currently ifdefed out
 #find_package(OpenSSL)
 #set_package_properties(OpenSSL PROPERTIES DESCRIPTION "Support for secure network communications (SSL and TLS)"
-#                       URL "http://openssl.org"
+#                       URL "https://www.openssl.org/"
 #                       TYPE RECOMMENDED
 #                       PURPOSE "KDE uses OpenSSL for the bulk of secure communications, including secure web browsing via HTTPS"
 #                      )

@@ -788,7 +788,7 @@ public:
      *
      * \code
      * AuthInfo info;
-     * info.url = QUrl("http://www.foobar.org/foo/bar");
+     * info.url = QUrl("https://www.foobar.org/foo/bar");
      * info.username = "somename";
      * info.verifyPath = true;
      * if ( !checkCachedAuthentication( info ) )
@@ -813,7 +813,7 @@ public:
      *
      * \code
      * AuthInfo info;
-     * info.url = QUrl("http://www.foobar.org/foo/bar");
+     * info.url = QUrl("https://www.foobar.org/foo/bar");
      * info.username = "somename";
      * info.verifyPath = true;
      * if ( !checkCachedAuthentication( info ) ) {

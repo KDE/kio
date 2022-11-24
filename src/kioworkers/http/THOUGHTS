@@ -10,7 +10,7 @@ The header often specifies the timeout value used for connections.
 Close the connection ourselves when the timeout has expired. That way
 we don't loose time sending stuff to an already closed connection.
 
-Rating(s) support.  http://www.w3.org/PICS
+Rating(s) support.  https://www.w3.org/PICS/
 This might involve an external program to parse the labels, and something
 to configure access.
 

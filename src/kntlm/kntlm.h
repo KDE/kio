@@ -20,7 +20,7 @@
  * The KNTLM class is useful for creating the authentication structures which
  * can be used for various servers which implements NTLM type authentication.
  * A comprehensive description of the NTLM authentication protocol can be found
- * at http://davenport.sourceforge.net/ntlm.html
+ * at https://davenport.sourceforge.net/ntlm.html
  * The class also contains methods to create the LanManager and NT (MD4) hashes
  * of a password.
  * This class doesn't maintain any state information, so all methods are static.

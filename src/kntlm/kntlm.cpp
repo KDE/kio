@@ -3,9 +3,9 @@
     SPDX-FileCopyrightText: 2004 Szombathelyi György <gyurco@freemail.hu>
 
     The implementation is based on the documentation and sample code
-    at http://davenport.sourceforge.net/ntlm.html
+    at https://davenport.sourceforge.net/ntlm.html
     The DES encryption functions are from libntlm
-    at http://josefsson.org/libntlm/
+    at https://gitlab.com/gsasl/libntlm/
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
