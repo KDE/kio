@@ -16,7 +16,7 @@
       RFC 2428 "FTP Extensions for IPv6 and NATs" (defines EPRT and EPSV)
 */
 
-#include <config-kioslave-ftp.h>
+#include <config-kioworker-ftp.h>
 
 #include "ftp.h"
 

@@ -1,6 +1,6 @@
 include(ConfigureChecks.cmake)
 
-configure_file(config-kioslave-ftp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioslave-ftp.h )
+configure_file(config-kioworker-ftp.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kioworker-ftp.h )
 
 kcoreaddons_add_plugin(kio_ftp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
 
