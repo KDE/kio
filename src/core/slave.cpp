@@ -429,7 +429,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     QPluginLoader loader(_name);
     const QString lib_path = loader.fileName();
     if (lib_path.isEmpty()) {
-        error_text = i18n("Can not find io-slave for protocol '%1'.", protocol);
+        error_text = i18n("Can not find a KIO worker for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_WORKER;
         return nullptr;
     }
@@ -437,7 +437,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     Slave *slave = new Slave(protocol);
     QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
     if (slaveAddress.isEmpty()) {
-        error_text = i18n("Can not create socket for launching io-slave for protocol '%1'.", protocol);
+        error_text = i18n("Can not create a socket for launching a KIO worker for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_WORKER;
         delete slave;
         return nullptr;

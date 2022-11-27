@@ -87,7 +87,7 @@ QString KCookiesMain::quickHelp() const
         " are often used by Internet shops, so you can 'put things into a shopping basket'."
         " Some sites require you have a browser that supports cookies.</p><p>"
         " Because most people want a compromise between privacy and the benefits cookies offer,"
-        " the HTTP kioslave offers you the ability to customize the way it handles cookies. So you might want"
+        " the HTTP KIO worker offers you the ability to customize the way it handles cookies. So you might want"
         " to set the default policy to ask you whenever a server wants to set a cookie,"
         " allowing you to decide. For your favorite shopping web sites that you trust, you might"
         " want to set the policy to accept, then you can access the web sites without being prompted"

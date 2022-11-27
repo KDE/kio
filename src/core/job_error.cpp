@@ -242,7 +242,7 @@ KIOCORE_EXPORT QString KIO::buildErrorString(int errorCode, const QString &error
         result = i18n("Communication with the local password server failed");
         break;
     case KIO::ERR_CANNOT_CREATE_WORKER:
-        result = i18n("Unable to create io-slave. %1", errorText);
+        result = i18n("Unable to create KIO worker. %1", errorText);
         break;
     case KIO::ERR_FILE_TOO_LARGE_FOR_FAT32:
         result = xi18nc("@info",
@@ -499,11 +499,10 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                       "the server may be incompatible.",
                       protocol);
         solutions << i18n(
-            "You may perform a search on the Internet for a KDE "
-            "program (called a kioslave or ioslave) which supports this protocol. "
-            "Places to search include <a href=\"https://kde-apps.org/\">"
-            "https://kde-apps.org/</a> and <a href=\"http://freshmeat.net/\">"
-            "http://freshmeat.net/</a>.")
+            "You may perform a search on the Internet for a software "
+            "plugin (called a \"KIO worker\") which supports this protocol. "
+            "Places to search include <a href=\"https://store.kde.org/\">"
+            "https://store.kde.org</a>.")
                   << sUpdate << sSysadmin;
         break;
 
@@ -1246,9 +1245,9 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
 
     case KIO::ERR_CANNOT_CREATE_WORKER:
         errorName = i18n("Cannot Initiate the %1 Protocol", protocol);
-        techName = i18n("Unable to Create io-slave");
+        techName = i18n("Unable to Create KIO Worker");
         description = i18n(
-            "The io-slave which provides access "
+            "The KIO worker which provides access "
             "to the <strong>%1</strong> protocol could not be started. This is "
             "usually due to technical reasons.",
             protocol);

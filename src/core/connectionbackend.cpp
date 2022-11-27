@@ -105,7 +105,7 @@ bool ConnectionBackend::listenForRemote()
     appName.replace(QLatin1Char('/'), QLatin1Char('_')); // #357499
     QTemporaryFile socketfile(prefix + QLatin1Char('/') + appName + QStringLiteral("XXXXXX.%1.slave-socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
     if (!socketfile.open()) {
-        errorString = i18n("Unable to create io-slave: %1", QString::fromUtf8(strerror(errno)));
+        errorString = i18n("Unable to create KIO worker: %1", QString::fromUtf8(strerror(errno)));
         return false;
     }
 
