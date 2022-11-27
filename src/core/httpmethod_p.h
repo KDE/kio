@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KIOSLAVE_HTTPMETHOD_P_H_
-#define KIOSLAVE_HTTPMETHOD_P_H_
+#ifndef KIOWORKER_HTTPMETHOD_P_H_
+#define KIOWORKER_HTTPMETHOD_P_H_
 
 namespace KIO
 {
