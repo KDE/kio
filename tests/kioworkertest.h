@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef _KIOSLAVETEST_H
-#define _KIOSLAVETEST_H
+#ifndef _KIOWORKERTEST_H
+#define _KIOWORKERTEST_H
 
 #include <QButtonGroup>
 #include <QLabel>
@@ -23,19 +23,14 @@
 
 #include <KStatusBarJobTracker>
 
-namespace KIO
-{
-class Slave;
-}
-
-class KioslaveTest : public KMainWindow
+class KioWorkerTest : public KMainWindow
 {
     Q_OBJECT
 
 public:
-    KioslaveTest(QString src, QString dest, uint op, uint pr);
+    KioWorkerTest(QString src, QString dest, uint op, uint pr);
 
-    ~KioslaveTest() override
+    ~KioWorkerTest() override
     {
         if (job) {
             job->kill(KJob::Quietly); // kill the job quietly
@@ -107,4 +102,4 @@ private:
     int putBuffer;
 };
 
-#endif // _KIOSLAVETEST_H
+#endif // _KIOWORKERTEST_H

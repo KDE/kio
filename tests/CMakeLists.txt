@@ -37,7 +37,7 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     kfilewidgettest_gui
     kfilewidgettest_saving_gui
     kionetrctest
-    kioslavetest
+    kioworkertest
     kmountpoint_debug
     kopenwithtest
     kpropertiesdialogtest

@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "kioslavetest.h"
+#include "kioworkertest.h"
 
 #include "../src/utils_p.h"
 
@@ -41,7 +41,7 @@
 
 using namespace KIO;
 
-KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
+KioWorkerTest::KioWorkerTest(QString src, QString dest, uint op, uint pr)
     : KMainWindow(nullptr)
 {
     job = nullptr;
@@ -76,7 +76,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     opButtons = new QButtonGroup(main_widget);
     QGroupBox *box = new QGroupBox(QStringLiteral("Operation"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(opButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeOperation);
+    connect(opButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioWorkerTest::changeOperation);
 
     QBoxLayout *hbLayout = new QHBoxLayout(box);
 
@@ -128,7 +128,7 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     progressButtons = new QButtonGroup(main_widget);
     box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(progressButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioslaveTest::changeProgressMode);
+    connect(progressButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioWorkerTest::changeProgressMode);
 
     hbLayout = new QHBoxLayout(box);
 
@@ -158,19 +158,19 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
 
     pbStart = new QPushButton(QStringLiteral("&Start"), main_widget);
     pbStart->setFixedSize(pbStart->sizeHint());
-    connect(pbStart, &QAbstractButton::clicked, this, &KioslaveTest::startJob);
+    connect(pbStart, &QAbstractButton::clicked, this, &KioWorkerTest::startJob);
     hbLayout->addWidget(pbStart, 5);
 
     pbStop = new QPushButton(QStringLiteral("Sto&p"), main_widget);
     pbStop->setFixedSize(pbStop->sizeHint());
     pbStop->setEnabled(false);
-    connect(pbStop, &QAbstractButton::clicked, this, &KioslaveTest::stopJob);
+    connect(pbStop, &QAbstractButton::clicked, this, &KioWorkerTest::stopJob);
     hbLayout->addWidget(pbStop, 5);
 
     // close button
     close = new QPushButton(QStringLiteral("&Close"), main_widget);
     close->setFixedSize(close->sizeHint());
-    connect(close, &QAbstractButton::clicked, this, &KioslaveTest::slotQuit);
+    connect(close, &QAbstractButton::clicked, this, &KioWorkerTest::slotQuit);
 
     topLayout->addWidget(close, 5);
 
@@ -178,12 +178,12 @@ KioslaveTest::KioslaveTest(QString src, QString dest, uint op, uint pr)
     setCentralWidget(main_widget);
 }
 
-void KioslaveTest::slotQuit()
+void KioWorkerTest::slotQuit()
 {
     qApp->quit();
 }
 
-void KioslaveTest::changeOperation(QAbstractButton *b)
+void KioWorkerTest::changeOperation(QAbstractButton *b)
 {
     // only two urls for copy and move
     bool enab = rbCopy->isChecked() || rbMove->isChecked();
@@ -193,7 +193,7 @@ void KioslaveTest::changeOperation(QAbstractButton *b)
     selectedOperation = opButtons->buttons().indexOf(b);
 }
 
-void KioslaveTest::changeProgressMode(QAbstractButton *b)
+void KioWorkerTest::changeProgressMode(QAbstractButton *b)
 {
     progressMode = progressButtons->buttons().indexOf(b);
 
@@ -204,14 +204,14 @@ void KioslaveTest::changeProgressMode(QAbstractButton *b)
     }
 }
 
-void KioslaveTest::startJob()
+void KioWorkerTest::startJob()
 {
     QUrl sCurrent(QUrl::fromLocalFile(QDir::currentPath()));
     QString sSrc(le_source->text());
     QUrl src = QUrl(sCurrent).resolved(QUrl(sSrc));
 
     if (!src.isValid()) {
-        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"), QStringLiteral("Source URL is malformed"));
+        QMessageBox::critical(this, QStringLiteral("KioWorker Error Message"), QStringLiteral("Source URL is malformed"));
         return;
     }
 
@@ -219,7 +219,7 @@ void KioslaveTest::startJob()
     QUrl dest = QUrl(sCurrent).resolved(QUrl(sDest));
 
     if (!dest.isValid() && (selectedOperation == Copy || selectedOperation == Move)) {
-        QMessageBox::critical(this, QStringLiteral("Kioslave Error Message"), QStringLiteral("Destination URL is malformed"));
+        QMessageBox::critical(this, QStringLiteral("KioWorker Error Message"), QStringLiteral("Destination URL is malformed"));
         return;
     }
 
@@ -234,14 +234,14 @@ void KioslaveTest::startJob()
     case List: {
         KIO::ListJob *listJob = KIO::listDir(src);
         job = listJob;
-        connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
+        connect(listJob, &KIO::ListJob::entries, this, &KioWorkerTest::slotEntries);
         break;
     }
 
     case ListRecursive: {
         KIO::ListJob *listJob = KIO::listRecursive(src);
         job = listJob;
-        connect(listJob, &KIO::ListJob::entries, this, &KioslaveTest::slotEntries);
+        connect(listJob, &KIO::ListJob::entries, this, &KioWorkerTest::slotEntries);
         break;
     }
 
@@ -252,7 +252,7 @@ void KioslaveTest::startJob()
     case Get: {
         KIO::TransferJob *tjob = KIO::get(src, KIO::Reload);
         job = tjob;
-        connect(tjob, &KIO::TransferJob::data, this, &KioslaveTest::slotData);
+        connect(tjob, &KIO::TransferJob::data, this, &KioWorkerTest::slotData);
         break;
     }
 
@@ -261,7 +261,7 @@ void KioslaveTest::startJob()
         KIO::TransferJob *tjob = KIO::put(src, -1, KIO::Overwrite);
         tjob->setTotalSize(48 * 1024 * 1024);
         job = tjob;
-        connect(tjob, &TransferJob::dataReq, this, &KioslaveTest::slotDataReq);
+        connect(tjob, &TransferJob::dataReq, this, &KioWorkerTest::slotDataReq);
         break;
     }
 
@@ -288,7 +288,7 @@ void KioslaveTest::startJob()
 
     statusBar()->addWidget(statusTracker->widget(job), 0);
 
-    connect(job, &KJob::result, this, &KioslaveTest::slotResult);
+    connect(job, &KJob::result, this, &KioWorkerTest::slotResult);
 
     if (progressMode == ProgressStatus) {
         statusTracker->registerJob(job);
@@ -297,7 +297,7 @@ void KioslaveTest::startJob()
     pbStop->setEnabled(true);
 }
 
-void KioslaveTest::slotResult(KJob *_job)
+void KioWorkerTest::slotResult(KJob *_job)
 {
     if (_job->error()) {
         _job->uiDelegate()->showErrorMessage();
@@ -318,7 +318,7 @@ void KioslaveTest::slotResult(KJob *_job)
     // statusBar()->removeWidget( statusTracker->widget(job) );
 }
 
-void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
+void KioWorkerTest::printUDSEntry(const KIO::UDSEntry &entry)
 {
     // It's rather rare to iterate that way, usually you'd use numberValue/stringValue directly.
     // This is just to print out all that we got
@@ -380,7 +380,7 @@ void KioslaveTest::printUDSEntry(const KIO::UDSEntry &entry)
     }
 }
 
-void KioslaveTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
+void KioWorkerTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
 {
     QUrl url = static_cast<KIO::ListJob *>(job)->url();
     KProtocolInfo::ExtraFieldList extraFields = KProtocolInfo::extraFields(url);
@@ -408,7 +408,7 @@ void KioslaveTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
     }
 }
 
-void KioslaveTest::slotData(KIO::Job *, const QByteArray &data)
+void KioWorkerTest::slotData(KIO::Job *, const QByteArray &data)
 {
     if (data.size() == 0) {
         qDebug() << "Data: <End>";
@@ -417,7 +417,7 @@ void KioslaveTest::slotData(KIO::Job *, const QByteArray &data)
     }
 }
 
-void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
+void KioWorkerTest::slotDataReq(KIO::Job *, QByteArray &data)
 {
     /* clang-format off */
     const char *fileDataArray[] = {
@@ -449,9 +449,9 @@ void KioslaveTest::slotDataReq(KIO::Job *, QByteArray &data)
     QThread::sleep(1); // want to see progress info...
 }
 
-void KioslaveTest::stopJob()
+void KioWorkerTest::stopJob()
 {
-    qDebug() << "KioslaveTest::stopJob()";
+    qDebug() << "KioWorkerTest::stopJob()";
     job->kill();
     job = nullptr;
 
@@ -466,7 +466,7 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     app.setApplicationVersion(version);
 
-    uint op = KioslaveTest::Copy;
+    uint op = KioWorkerTest::Copy;
     uint pr = 0;
     QString src;
     QString dest;
@@ -474,7 +474,7 @@ int main(int argc, char **argv)
     {
         QCommandLineParser parser;
         parser.addVersionOption();
-        parser.setApplicationDescription(QStringLiteral("Test for kioslaves"));
+        parser.setApplicationDescription(QStringLiteral("Test for KIO workers"));
         parser.addHelpOption();
         parser.addOption(
             QCommandLineOption(QStringList() << QStringLiteral("s") << QStringLiteral("src"), QStringLiteral("Source URL"), QStringLiteral("url")));
@@ -494,23 +494,23 @@ int main(int argc, char **argv)
 
         operation = parser.value(QStringLiteral("operation"));
         if (operation == QLatin1String("list")) {
-            op = KioslaveTest::List;
+            op = KioWorkerTest::List;
         } else if (operation == QLatin1String("listrecursive")) {
-            op = KioslaveTest::ListRecursive;
+            op = KioWorkerTest::ListRecursive;
         } else if (operation == QLatin1String("stat")) {
-            op = KioslaveTest::Stat;
+            op = KioWorkerTest::Stat;
         } else if (operation == QLatin1String("get")) {
-            op = KioslaveTest::Get;
+            op = KioWorkerTest::Get;
         } else if (operation == QLatin1String("put")) {
-            op = KioslaveTest::Put;
+            op = KioWorkerTest::Put;
         } else if (operation == QLatin1String("copy")) {
-            op = KioslaveTest::Copy;
+            op = KioWorkerTest::Copy;
         } else if (operation == QLatin1String("move")) {
-            op = KioslaveTest::Move;
+            op = KioWorkerTest::Move;
         } else if (operation == QLatin1String("del")) {
-            op = KioslaveTest::Delete;
+            op = KioWorkerTest::Delete;
         } else if (operation == QLatin1String("mkdir")) {
-            op = KioslaveTest::Mkdir;
+            op = KioWorkerTest::Mkdir;
         } else if (!operation.isEmpty()) {
             qWarning("Unknown operation, see --help");
             return 1;
@@ -518,18 +518,18 @@ int main(int argc, char **argv)
 
         QString progress = parser.value(QStringLiteral("progress"));
         if (progress == QLatin1String("none")) {
-            pr = KioslaveTest::ProgressNone;
+            pr = KioWorkerTest::ProgressNone;
         } else if (progress == QLatin1String("default")) {
-            pr = KioslaveTest::ProgressDefault;
+            pr = KioWorkerTest::ProgressDefault;
         } else if (progress == QLatin1String("status")) {
-            pr = KioslaveTest::ProgressStatus;
+            pr = KioWorkerTest::ProgressStatus;
         } else {
             qWarning("Unknown progress mode, see --help");
             return 1;
         }
     }
 
-    KioslaveTest *test = new KioslaveTest(src, dest, op, pr);
+    KioWorkerTest *test = new KioWorkerTest(src, dest, op, pr);
     if (!operation.isEmpty()) {
         QTimer::singleShot(100, test, SLOT(startJob()));
     }
@@ -539,4 +539,4 @@ int main(int argc, char **argv)
     app.exec();
 }
 
-#include "moc_kioslavetest.cpp"
+#include "moc_kioworkertest.cpp"
