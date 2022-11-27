@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:44+0000\n"
+"POT-Creation-Date: 2022-11-27 00:43+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2959,26 +2959,26 @@ msgctxt "@title:menu"
 msgid "Move Here"
 msgstr "Pārvietot šeit"
 
-#: filewidgets/kfilefiltercombo.cpp:37
+#: filewidgets/kfilefiltercombo.cpp:42
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Visi Faili"
 
-#: filewidgets/kfilefiltercombo.cpp:175
+#: filewidgets/kfilefiltercombo.cpp:178
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:192
+#: filewidgets/kfilefiltercombo.cpp:212
 #, kde-format
 msgid "All Supported Files"
 msgstr "Visi atbalstītie faili"
 
-#: filewidgets/kfilefiltercombo.cpp:201
+#: filewidgets/kfilefiltercombo.cpp:222 filewidgets/kfilefiltercombo.cpp:223
 #, kde-format
 msgid "All Files"
 msgstr "Visi faili"

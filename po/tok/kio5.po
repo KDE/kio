@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:44+0000\n"
+"POT-Creation-Date: 2022-11-27 00:43+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2761,24 +2761,24 @@ msgctxt "@title:menu"
 msgid "Move Here"
 msgstr "o tawa ni"
 
-#: filewidgets/kfilefiltercombo.cpp:37
+#: filewidgets/kfilefiltercombo.cpp:42
 #, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|lipu ale"
 
-#: filewidgets/kfilefiltercombo.cpp:175
+#: filewidgets/kfilefiltercombo.cpp:178
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (nimi pini %2)"
 
-#: filewidgets/kfilefiltercombo.cpp:192
+#: filewidgets/kfilefiltercombo.cpp:212
 #, kde-format
 msgid "All Supported Files"
 msgstr "lipu ale pi nasin ken"
 
-#: filewidgets/kfilefiltercombo.cpp:201
+#: filewidgets/kfilefiltercombo.cpp:222 filewidgets/kfilefiltercombo.cpp:223
 #, kde-format
 msgid "All Files"
 msgstr "lipu ale"
