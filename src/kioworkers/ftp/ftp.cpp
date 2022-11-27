@@ -68,7 +68,7 @@ static constexpr bool s_enableCanResume = true;
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.ftp" FILE "ftp.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.ftp" FILE "ftp.json")
 };
 
 static QString ftpCleanPath(const QString &path)
