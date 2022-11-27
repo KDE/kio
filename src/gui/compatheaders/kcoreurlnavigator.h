@@ -1,0 +1,16 @@
+/*
+    SPDX-FileCopyrightText: 2022 Friedrich W. H. Kossebau <kossebau@kde.org>
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+*/
+
+#include <kiogui_export.h>
+
+#if KIOGUI_ENABLE_DEPRECATED_SINCE(5, 101)
+#include "../kcoreurlnavigator.h"
+#if KIOGUI_DEPRECATED_WARNINGS_SINCE >= 0x056500
+#pragma message("Deprecated header. Since 5.101, use #include <kcoreurlnavigator.h> instead")
+#endif
+#else
+#error "Include of deprecated header is disabled"
+#endif

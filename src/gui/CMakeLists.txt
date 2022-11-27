@@ -60,7 +60,14 @@ ecm_qt_declare_logging_category(KF5KIOGui
     EXPORT KIO
 )
 
-generate_export_header(KF5KIOGui BASE_NAME KIOGui)
+ecm_generate_export_header(KF5KIOGui
+    BASE_NAME KIOGui
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.101
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
 
 target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui>")
 
@@ -82,7 +89,6 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   CommandLauncherJob
   FavIconRequestJob
   OpenUrlJob
-  KCoreUrlNavigator
   OpenWithHandlerInterface
   ThumbnailCreator
 
@@ -93,11 +99,18 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
 # Headers not prefixed with KIO/
 ecm_generate_headers(KIOGui_HEADERS
   HEADER_NAMES
+  KCoreUrlNavigator
   KEMailClientLauncherJob
   KTerminalLauncherJob
 
   REQUIRED_HEADERS KIOGui_HEADERS
 )
+
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.101.0)
+    list(APPEND KIOGui_CamelCase_HEADERS compatheaders/KCoreUrlNavigator)
+    list(APPEND KIO_namespaced_gui_HEADERS compatheaders/kcoreurlnavigator.h)
+endif()
 
 install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
 
