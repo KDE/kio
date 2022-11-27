@@ -46,7 +46,7 @@ if(DEFINED ENV{JENKINS_SERVER_COOKIE} OR ECM_SOURCE_UNDER_VERSION_CONTROL)
     set(ASSERT_SLAVE_STATES_DEFAULT ON)
 endif()
 option(KIO_ASSERT_SLAVE_STATES
-    "Used to control whether slave state assertions are enabled. When not enabled only warnings are generated."
+    "Used to control whether worker state assertions are enabled. When not enabled only warnings are generated."
     ${ASSERT_SLAVE_STATES_DEFAULT})
 
 # TODO KF6: remove
@@ -97,7 +97,7 @@ endif()
 # tell what is missing without doctools
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
                        TYPE OPTIONAL
-                       PURPOSE "Required to build help ioslave and documentation"
+                       PURPOSE "Required to build help KIO worker and documentation"
                       )
 
 set(REQUIRED_QT_VERSION 5.15.2)
