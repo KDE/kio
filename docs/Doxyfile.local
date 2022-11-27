@@ -1,7 +1,9 @@
 ### KApiDox Project-specific Overrides File
 
-# slaves are plugins and not part of the API
-EXCLUDE_PATTERNS += */ioslaves/*
+# workers are plugins and not part of the API
+EXCLUDE_PATTERNS += \
+    */ioslaves/* \
+    */kioworkers/*
 # define so that deprecated API is not skipped
 PREDEFINED += \
     "KIOCORE_ENABLE_DEPRECATED_SINCE(x, y)=1" \
