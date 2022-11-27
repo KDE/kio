@@ -43,7 +43,7 @@ bool KPasswdServerClient::checkAuthInfo(KIO::AuthInfo *info, qlonglong windowId,
     // qDebug() << "window-id=" << windowId << "url=" << info.url;
 
     if (!QCoreApplication::instance()) {
-        qCWarning(KIO_CORE) << "kioslave is not a QCoreApplication! This is required for checkAuthInfo.";
+        qCWarning(KIO_CORE) << "KIO worker is not a QCoreApplication! This is required for checkAuthInfo.";
         return false;
     }
 
@@ -82,7 +82,7 @@ int KPasswdServerClient::queryAuthInfo(KIO::AuthInfo *info, const QString &error
     // qDebug() << "window-id=" << windowId;
 
     if (!QCoreApplication::instance()) {
-        qCWarning(KIO_CORE) << "kioslave is not a QCoreApplication! This is required for queryAuthInfo.";
+        qCWarning(KIO_CORE) << "KIO worker is not a QCoreApplication! This is required for queryAuthInfo.";
         return KIO::ERR_PASSWD_SERVER;
     }
 

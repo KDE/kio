@@ -747,7 +747,7 @@ void KRun::slotStatResult(KJob *job)
 void KRun::slotScanMimeType(KIO::Job *, const QString &mimetype)
 {
     if (mimetype.isEmpty()) {
-        qCWarning(KIO_WIDGETS) << "get() didn't emit a MIME type! Probably a kioslave bug, please check the implementation of" << url().scheme();
+        qCWarning(KIO_WIDGETS) << "get() didn't emit a MIME type! Probably a KIO worker bug, please check the implementation of" << url().scheme();
     }
     mimeTypeDetermined(mimetype);
     d->m_job = nullptr;

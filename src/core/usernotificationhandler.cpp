@@ -112,7 +112,7 @@ void UserNotificationHandler::processRequest()
             }
         }
     } else {
-        qCWarning(KIO_CORE) << "Cannot prompt user because the requesting ioslave died!" << r->slave;
+        qCWarning(KIO_CORE) << "Cannot prompt user because the requesting KIO worker died!" << r->slave;
     }
 
     slotProcessRequest(result);

@@ -1002,7 +1002,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
         // If we have internal meta-data, tell existing ioslaves to reload
         // their configuration.
         if (jobPriv->m_internalMetaData.count()) {
-            // qDebug() << "Updating ioslaves with new internal metadata information";
+            // qDebug() << "Updating KIO workers with new internal metadata information";
             ProtoQueue *queue = m_protocols.value(slave->protocol());
             if (queue) {
                 const QList<Slave *> slaves = queue->allSlaves();
@@ -1010,7 +1010,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
                     if (slave->host() == runningSlave->host()) {
                         slave->setConfig(metaDataFor(slave->protocol(), jobPriv->m_proxyList, job->url()));
                         /*qDebug() << "Updated configuration of" << slave->protocol()
-                                     << "ioslave, pid=" << slave->slave_pid();*/
+                                     << "KIO worker, pid=" << slave->slave_pid();*/
                     }
                 }
             }

@@ -331,7 +331,7 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
             nodePath += QLatin1Char('/');
         }
         if (!pathStr.startsWith(nodePath)) {
-            qCWarning(category) << "The kioslave for" << url.scheme() << "violates the hierarchy structure:"
+            qCWarning(category) << "The KIO worker for" << url.scheme() << "violates the hierarchy structure:"
                                 << "I arrived at node" << nodePath << ", but" << pathStr << "does not start with that path.";
             return nullptr;
         }

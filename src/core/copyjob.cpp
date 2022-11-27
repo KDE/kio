@@ -870,7 +870,7 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
                 for (int n = 0; n < numberOfSlashes + 1; ++n) {
                     pos = path.lastIndexOf(QLatin1Char('/'), pos - 1);
                     if (pos == -1) { // error
-                        qCWarning(KIO_CORE) << "kioslave bug: not enough slashes in UDS_URL" << path << "- looking for" << numberOfSlashes << "slashes";
+                        qCWarning(KIO_CORE) << "KIO worker bug: not enough slashes in UDS_URL" << path << "- looking for" << numberOfSlashes << "slashes";
                         break;
                     }
                 }
