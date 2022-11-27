@@ -10,7 +10,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KGuiItem>
-#include <KIO/SlaveBase>
+#include <KIO/WorkerBase>
 #include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
@@ -57,11 +57,11 @@ bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUse
         // otherwise no persistent reply is present
         const QString value = cg.readEntry(dontAskAgainName, QString());
         if ((value.compare(QLatin1String("yes"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("true"), Qt::CaseInsensitive) == 0)) {
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::PrimaryAction);
+            Q_EMIT q->messageBoxResult(KIO::WorkerBase::PrimaryAction);
             return true;
         }
         if ((value.compare(QLatin1String("no"), Qt::CaseInsensitive) == 0) || (value.compare(QLatin1String("false"), Qt::CaseInsensitive) == 0)) {
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::SecondaryAction);
+            Q_EMIT q->messageBoxResult(KIO::WorkerBase::SecondaryAction);
             return true;
         }
         break;
@@ -71,7 +71,7 @@ bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUse
         // otherwise no persistent reply is present
         const bool value = cg.readEntry(dontAskAgainName, true);
         if (value == false) {
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Continue);
+            Q_EMIT q->messageBoxResult(KIO::WorkerBase::Continue);
             return true;
         }
         break;
@@ -94,7 +94,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::savePersistentUserReply(KIO::AskUs
     case KIO::AskUserActionInterface::QuestionTwoActionsCancel:
     case KIO::AskUserActionInterface::WarningTwoActions:
     case KIO::AskUserActionInterface::WarningTwoActionsCancel:
-        cg.writeEntry(dontAskAgainName, result == KIO::SlaveBase::PrimaryAction);
+        cg.writeEntry(dontAskAgainName, result == KIO::WorkerBase::PrimaryAction);
         cg.sync();
         break;
     case KIO::AskUserActionInterface::WarningContinueCancel:
@@ -437,23 +437,23 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
 
     connect(dialog, &QDialog::finished, this, [=](const int result) {
-        KIO::SlaveBase::ButtonCode btnCode;
+        KIO::WorkerBase::ButtonCode btnCode;
         switch (result) {
         case KMessageDialog::PrimaryAction:
             if (dlgType == KMessageDialog::WarningContinueCancel) {
-                btnCode = KIO::SlaveBase::Continue;
+                btnCode = KIO::WorkerBase::Continue;
             } else {
-                btnCode = KIO::SlaveBase::PrimaryAction;
+                btnCode = KIO::WorkerBase::PrimaryAction;
             }
             break;
         case KMessageDialog::SecondaryAction:
-            btnCode = KIO::SlaveBase::SecondaryAction;
+            btnCode = KIO::WorkerBase::SecondaryAction;
             break;
         case KMessageDialog::Cancel:
-            btnCode = KIO::SlaveBase::Cancel;
+            btnCode = KIO::WorkerBase::Cancel;
             break;
         case KMessageDialog::Ok:
-            btnCode = KIO::SlaveBase::Ok;
+            btnCode = KIO::WorkerBase::Ok;
             break;
         default:
             qCWarning(KIO_WIDGETS) << "Unknown message dialog result" << result;
@@ -500,7 +500,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
 
         QObject::connect(ksslDlg, &QDialog::finished, q, [this]() {
             // KSslInfoDialog only has one button, QDialogButtonBox::Close
-            Q_EMIT q->messageBoxResult(KIO::SlaveBase::Cancel);
+            Q_EMIT q->messageBoxResult(KIO::WorkerBase::Cancel);
         });
 
         ksslDlg->show();
@@ -517,7 +517,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     dialog->setButtons(KStandardGuiItem::ok());
 
     QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
-        Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::SlaveBase::Ok : KIO::SlaveBase::Cancel);
+        Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::WorkerBase::Ok : KIO::WorkerBase::Cancel);
     });
 
     dialog->show();
