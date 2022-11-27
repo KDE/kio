@@ -14,13 +14,13 @@
 
 QTEST_MAIN(DataProtocolTest)
 
-class TestSlave
+class TestWorker
 {
 public:
-    TestSlave()
+    TestWorker()
     {
     }
-    virtual ~TestSlave()
+    virtual ~TestWorker()
     {
     }
 

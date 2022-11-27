@@ -20,7 +20,7 @@
  * registered like any other KIO worker.
  *
  * However, given that data-urls don't depend on any external data it seemed
- * overkill, therefore I added a special hack that the kio-dataslave is invoked
+ * overkill, therefore I added a special hack that the kio-dataworker is invoked
  * in-process on the client side.
  */
 
@@ -29,7 +29,7 @@ class QByteArray;
 class QUrl;
 
 #if !defined(TESTKIO)
-#include "dataslave_p.h"
+#include "dataworker_p.h"
 #endif
 
 namespace KIO
@@ -39,10 +39,10 @@ namespace KIO
  * @author Leo Savernik
  */
 #if defined(TESTKIO)
-class DataProtocol : public TestSlave
+class DataProtocol : public TestWorker
 {
 #else
-class DataProtocol : public DataSlave
+class DataProtocol : public DataWorker
 {
     Q_OBJECT
 #endif

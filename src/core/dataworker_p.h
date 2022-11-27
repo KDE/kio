@@ -7,18 +7,18 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KIO_DATASLAVE_P_H
-#define KIO_DATASLAVE_P_H
+#ifndef KIO_DATAWORKER_P_H
+#define KIO_DATAWORKER_P_H
 
 #include "global.h"
 #include "slave.h"
 
 class QTimer;
 
-// don't forget to sync DISPATCH_IMPL in dataslave_p.h
+// don't forget to sync DISPATCH_IMPL in dataworker.cpp
 #define DISPATCH_DECL(type) void dispatch_##type();
 
-// don't forget to sync DISPATCH_IMPL1 in dataslave_p.h
+// don't forget to sync DISPATCH_IMPL1 in dataworker.cpp
 #define DISPATCH_DECL1(type, paramtype, param) void dispatch_##type(paramtype param);
 
 namespace KIO
@@ -32,13 +32,13 @@ namespace KIO
  * detail of KIO and subject to change without notice.
  * @author Leo Savernik
  */
-class DataSlave : public KIO::Slave
+class DataWorker : public KIO::Slave
 {
     Q_OBJECT
 public:
-    DataSlave();
+    DataWorker();
 
-    ~DataSlave() override;
+    ~DataWorker() override;
 
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &passwd) override;
     void setConfig(const MetaData &config) override;

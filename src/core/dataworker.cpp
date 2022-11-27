@@ -8,7 +8,7 @@
 
 #include "commands_p.h"
 #include "dataprotocol_p.h"
-#include "dataslave_p.h"
+#include "dataworker_p.h"
 #include "slavebase.h"
 
 #include <KLocalizedString>
@@ -20,10 +20,10 @@ using namespace KIO;
 
 static constexpr int s_kioDataPollInterval = 0;
 
-// don't forget to sync DISPATCH_DECL in dataslave_p.h
+// don't forget to sync DISPATCH_DECL in dataworker_p.h
 /* clang-format off */
 #define DISPATCH_IMPL(type) \
-    void DataSlave::dispatch_##type() \
+    void DataWorker::dispatch_##type() \
     { \
         if (_suspended) { \
             QueueStruct q(Queue_##type); \
@@ -36,9 +36,9 @@ static constexpr int s_kioDataPollInterval = 0;
             Q_EMIT type(); \
     }
 
-// don't forget to sync DISPATCH_DECL1 in dataslave_p.h
+// don't forget to sync DISPATCH_DECL1 in dataworker_p.h
 #define DISPATCH_IMPL1(type, paramtype, paramname) \
-    void DataSlave::dispatch_##type(paramtype paramname) \
+    void DataWorker::dispatch_##type(paramtype paramname) \
     { \
         if (_suspended) { \
             QueueStruct q(Queue_##type); \
@@ -51,33 +51,33 @@ static constexpr int s_kioDataPollInterval = 0;
             Q_EMIT type(paramname); \
     }
 
-DataSlave::DataSlave()
+DataWorker::DataWorker()
     : Slave(QStringLiteral("data"))
 {
     // qDebug() << this;
     _suspended = false;
     timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &DataSlave::dispatchNext);
+    connect(timer, &QTimer::timeout, this, &DataWorker::dispatchNext);
 }
 
-DataSlave::~DataSlave()
+DataWorker::~DataWorker()
 {
     // qDebug() << this;
 }
 
-void DataSlave::hold(const QUrl & /*url*/)
+void DataWorker::hold(const QUrl & /*url*/)
 {
     // ignored
 }
 
-void DataSlave::suspend()
+void DataWorker::suspend()
 {
     _suspended = true;
     // qDebug() << this;
     timer->stop();
 }
 
-void DataSlave::resume()
+void DataWorker::resume()
 {
     _suspended = false;
     // qDebug() << this;
@@ -89,7 +89,7 @@ void DataSlave::resume()
 
 // finished is a special case. If we emit it right away, then
 // TransferJob::start can delete the job even before the end of the method
-void DataSlave::dispatch_finished()
+void DataWorker::dispatch_finished()
 {
     QueueStruct q(Queue_finished);
     q.size = -1;
@@ -99,7 +99,7 @@ void DataSlave::dispatch_finished()
     }
 }
 
-void DataSlave::dispatchNext()
+void DataWorker::dispatchNext()
 {
     if (dispatchQueue.empty()) {
         timer->stop();
@@ -129,7 +129,7 @@ void DataSlave::dispatchNext()
     dispatchQueue.pop_front();
 }
 
-void DataSlave::send(int cmd, const QByteArray &arr)
+void DataWorker::send(int cmd, const QByteArray &arr)
 {
     QDataStream stream(arr);
 
@@ -156,17 +156,17 @@ void DataSlave::send(int cmd, const QByteArray &arr)
     } /*end switch*/
 }
 
-bool DataSlave::suspended()
+bool DataWorker::suspended()
 {
     return _suspended;
 }
 
-void DataSlave::setHost(const QString & /*host*/, quint16 /*port*/, const QString & /*user*/, const QString & /*passwd*/)
+void DataWorker::setHost(const QString & /*host*/, quint16 /*port*/, const QString & /*user*/, const QString & /*passwd*/)
 {
     // irrelevant -> will be ignored
 }
 
-void DataSlave::setConfig(const MetaData & /*config*/)
+void DataWorker::setConfig(const MetaData & /*config*/)
 {
     // FIXME: decide to handle this directly or not at all
 #if 0
@@ -177,12 +177,12 @@ void DataSlave::setConfig(const MetaData & /*config*/)
 #endif
 }
 
-void DataSlave::setAllMetaData(const MetaData &md)
+void DataWorker::setAllMetaData(const MetaData &md)
 {
     meta_data = md;
 }
 
-void DataSlave::sendMetaData()
+void DataWorker::sendMetaData()
 {
     Q_EMIT metaData(meta_data);
 }

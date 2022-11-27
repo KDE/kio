@@ -50,7 +50,7 @@ target_sources(KF5KIOCore PRIVATE
   sessiondata.cpp
   slavebase.cpp
   workerbase.cpp
-  dataslave.cpp
+  dataworker.cpp
   dataprotocol.cpp
   desktopexecparser.cpp
   emptytrashjob.cpp
