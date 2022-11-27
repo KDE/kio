@@ -437,7 +437,7 @@ StoredTransferJob *KIO::storedHttpPost(QIODevice *ioDevice, const QUrl &url, qin
 
 // http post got redirected from http://host to http://host/ by TransferJob
 // We must do this redirection ourselves because redirections by the
-// slave change post jobs into get jobs.
+// worker change post jobs into get jobs.
 void TransferJobPrivate::slotPostRedirection()
 {
     Q_Q(TransferJob);

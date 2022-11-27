@@ -414,7 +414,7 @@ void ConnectedSlaveQueue::startRunnableJobs()
         jobs.runningJob = job;
 
         const QUrl url = job->url();
-        // no port is -1 in QUrl, but in kde3 we used 0 and the kioslaves assume that.
+        // no port is -1 in QUrl, but in kde3 we used 0 and the KIO workers assume that.
         const int port = url.port() == -1 ? 0 : url.port();
 
         if (slave->host() == QLatin1String("<reset>")) {
@@ -999,7 +999,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
     }
 
     if (slave) {
-        // If we have internal meta-data, tell existing ioslaves to reload
+        // If we have internal meta-data, tell existing KIO workers to reload
         // their configuration.
         if (jobPriv->m_internalMetaData.count()) {
             // qDebug() << "Updating KIO workers with new internal metadata information";
@@ -1068,7 +1068,7 @@ void SchedulerPrivate::setupSlave(KIO::Slave *slave,
                                   const KIO::MetaData *config)
 {
     int port = url.port();
-    if (port == -1) { // no port is -1 in QUrl, but in kde3 we used 0 and the kioslaves assume that.
+    if (port == -1) { // no port is -1 in QUrl, but in kde3 we used 0 and the KIO workers assume that.
         port = 0;
     }
     const QString host = url.host();
@@ -1275,7 +1275,7 @@ void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
 {
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     // Preserve all internal meta-data so they can be sent back to the
-    // ioslaves as needed...
+    // KIO workers as needed...
     const QUrl jobUrl = job->url();
 
     const QLatin1String currHostToken("{internal~currenthost}");

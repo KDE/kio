@@ -207,10 +207,10 @@ private:
     mutable KConfig m_config;
 
     // We don't cache any data related to the trashed files.
-    // Another kioslave could change that behind our feet.
+    // Another KIO worker could change that behind our feet.
     // If we want to start caching data - and avoiding some race conditions -,
     // we should turn this class into a kded module and use DCOP to talk to it
-    // from the kioslave.
+    // from the KIO worker.
 };
 
 #endif

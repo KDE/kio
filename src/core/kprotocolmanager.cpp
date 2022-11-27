@@ -689,7 +689,7 @@ QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList
         }
     }
 
-    // The idea behind slave protocols is not applicable to http
+    // The idea behind worker protocols is not applicable to http
     // and webdav protocols as well as protocols unknown to KDE.
     /* clang-format off */
     if (!proxyList.isEmpty()

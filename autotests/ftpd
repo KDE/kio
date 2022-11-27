@@ -10,7 +10,7 @@ require 'tmpdir'
 STDOUT.sync = true
 
 # Monkey patch the site handler, it's not implemented so fake it a bit for ftp
-# slave purposes.
+# worker purposes.
 
 # FIXME: and yet I seee kio_ftp(8319)/(kf5.kio.kio_ftp) Ftp::ftpChmod: ftpChmod: CHMOD not supported - disabling
 

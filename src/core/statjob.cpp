@@ -165,7 +165,7 @@ void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)
     m_statResult = entry;
 }
 
-// Slave got a redirection request
+// Worker got a redirection request
 void StatJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(StatJob);
@@ -201,7 +201,7 @@ void StatJob::slotFinished()
         }
     }
 
-    // Return slave to the scheduler
+    // Return worker to the scheduler
     SimpleJob::slotFinished();
 }
 
@@ -243,7 +243,7 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
     StatJob *job = statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
     if (!isUrlValid(url)) {
         QTimer::singleShot(0, job, &StatJob::slotFinished);
-        Scheduler::cancelJob(job); // deletes the slave if not 0
+        Scheduler::cancelJob(job); // deletes the worker if not 0
     }
     return job;
 }

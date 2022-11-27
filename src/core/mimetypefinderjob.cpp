@@ -169,7 +169,7 @@ void KIO::MimeTypeFinderJobPrivate::statFile()
         } else { // It's a file
             // Start the timer. Once we get the timer event this
             // protocol server is back in the pool and we can reuse it.
-            // This gives better performance than starting a new slave
+            // This gives better performance than starting a new worker
             QTimer::singleShot(0, q, [this] {
                 scanFileWithGet();
             });

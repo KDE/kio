@@ -719,7 +719,7 @@ void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileIte
     Q_EMIT q->dataChanged(topLeft, bottomRight);
 }
 
-// Called when a kioslave redirects (e.g. smb:/Workgroup -> smb://workgroup)
+// Called when a KIO worker redirects (e.g. smb:/Workgroup -> smb://workgroup)
 // and when renaming a directory.
 void KDirModelPrivate::_k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl)
 {

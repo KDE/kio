@@ -424,8 +424,8 @@ void DeleteJobPrivate::deleteDirUsingJob(const QUrl &url)
 {
     Q_Q(DeleteJob);
 
-    // Call rmdir - works for kioslaves with canDeleteRecursive too,
-    // CMD_DEL will trigger the recursive deletion in the slave.
+    // Call rmdir - works for KIO workers with canDeleteRecursive too,
+    // CMD_DEL will trigger the recursive deletion in the worker.
     SimpleJob *job = KIO::rmdir(url);
     job->setParentJob(q);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));

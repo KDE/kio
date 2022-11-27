@@ -62,7 +62,7 @@ void MkdirJobPrivate::start(Slave *slave)
     SimpleJobPrivate::start(slave);
 }
 
-// Slave got a redirection request
+// Worker got a redirection request
 void MkdirJobPrivate::slotRedirection(const QUrl &url)
 {
     Q_Q(MkdirJob);

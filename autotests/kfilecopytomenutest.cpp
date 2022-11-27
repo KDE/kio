@@ -26,7 +26,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         QStandardPaths::setTestModeEnabled(true);
-        qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
+        qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the KIO workers call QStandardPaths::setTestModeEnabled too
 
         QVERIFY(m_tempDir.isValid());
         QVERIFY(m_tempDestDir.isValid());

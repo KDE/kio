@@ -486,7 +486,7 @@ void CopyJobPrivate::slotStart()
     // Stat the dest
     state = STATE_STATING;
     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
-    // We need isDir() and UDS_LOCAL_PATH (for slaves who set it). Let's assume the latter is part of StatBasic too.
+    // We need isDir() and UDS_LOCAL_PATH (for workers who set it). Let's assume the latter is part of StatBasic too.
     KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << dest;
     q->addSubjob(job);
@@ -545,7 +545,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             const bool isDir = entry.isDir();
 
             // Check for writability, before spending time stat'ing everything (#141564).
-            // This assumes all kioslaves set permissions correctly...
+            // This assumes all KIO workers set permissions correctly...
             const int permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
             const bool isWritable = (permissions != -1) && (permissions & S_IWUSR);
             if (!m_privilegeExecutionEnabled && !isWritable) {

@@ -35,7 +35,7 @@ TransferJob::~TransferJob()
 {
 }
 
-// Slave sends data
+// Worker sends data
 void TransferJob::slotData(const QByteArray &_data)
 {
     Q_D(TransferJob);
@@ -55,7 +55,7 @@ void KIO::TransferJob::setTotalSize(KIO::filesize_t bytes)
     setTotalAmount(KJob::Bytes, bytes);
 }
 
-// Slave got a redirection request
+// Worker got a redirection request
 void TransferJob::slotRedirection(const QUrl &url)
 {
     Q_D(TransferJob);
@@ -213,7 +213,7 @@ QUrl TransferJob::redirectUrl() const
     return d_func()->m_redirectionURL;
 }
 
-// Slave requests data
+// Worker requests data
 void TransferJob::slotDataReq()
 {
     Q_D(TransferJob);
@@ -348,7 +348,7 @@ void TransferJobPrivate::start(Slave *slave)
 
     if (slave->suspended()) {
         m_mimetype = QStringLiteral("unknown");
-        // WABA: The slave was put on hold. Resume operation.
+        // WABA: The worker was put on hold. Resume operation.
         slave->resume();
     }
 

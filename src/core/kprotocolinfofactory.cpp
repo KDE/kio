@@ -93,7 +93,7 @@ bool KProtocolInfoFactory::fillCache()
     // we search in all library paths inside kf5/kio
     const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio"));
     for (const KPluginMetaData &md : plugins) {
-        // get slave name & protocols it supports, if any
+        // get worker name & protocols it supports, if any
         const QString slavePath = md.fileName();
         const QJsonObject protocols(md.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject());
         qCDebug(KIO_CORE) << slavePath << "supports protocols" << protocols.keys();

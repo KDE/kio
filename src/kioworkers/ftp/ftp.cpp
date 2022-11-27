@@ -107,11 +107,11 @@ namespace KIO
 enum buffersizes {
     /**
      * largest buffer size that should be used to transfer data between
-     * KIO slaves using the data() function
+     * KIO workers using the data() function
      */
     maximumIpcSize = 32 * 1024,
     /**
-     * this is a reasonable value for an initial read() that a KIO slave
+     * this is a reasonable value for an initial read() that a KIO worker
      * can do to obtain data via a slow network connection.
      */
     initialIpcSize = 2 * 1024,

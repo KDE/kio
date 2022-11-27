@@ -423,7 +423,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
         return nullptr;
     }
 
-    // find the kioslave using QPluginLoader; kioslave would do this
+    // find the KIO worker using QPluginLoader; kioslave would do this
     // anyway, but if it doesn't exist, we want to be able to return
     // a useful error message immediately
     QPluginLoader loader(_name);

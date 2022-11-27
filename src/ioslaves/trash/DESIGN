@@ -2,7 +2,7 @@ DESIGN
 ======
 kio_trash implements the XDG trash standard (https://specifications.freedesktop.org/trash-spec/trashspec-1.0.html)
 
-The concurrency that comes from having multiple kioslaves running at the same time
+The concurrency that comes from having multiple KIO workers running at the same time
 on top of the same set of files, is solved by the KInterProcessLock class, which
 synchronizes access to shared resources (like the file storing the size of the
 trash directory).

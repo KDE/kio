@@ -221,7 +221,7 @@ bool KIO::DesktopExecParser::isProtocolInSupportedList(const QUrl &url, const QS
         || supportedProtocols.contains(url.scheme(), Qt::CaseInsensitive);
 }
 
-// We have up to two sources of data, for protocols not handled by kioslaves (so called "helper") :
+// We have up to two sources of data, for protocols not handled by KIO workers (so called "helper") :
 // 1) the exec line of the .protocol file, if there's one
 // 2) the application associated with x-scheme-handler/<protocol> if there's one
 bool KIO::DesktopExecParser::hasSchemeHandler(const QUrl &url) // KF6 TODO move to OpenUrlJob

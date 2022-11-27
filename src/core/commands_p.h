@@ -40,7 +40,7 @@ enum Command {
     CMD_REPARSECONFIGURATION = 'O', // 79
     CMD_META_DATA = 'P', // 80
     CMD_SYMLINK = 'Q', // 81
-    CMD_SUBURL = 'R', // 82  Inform the slave about the url it is streaming on. TODO KF6 REMOVE
+    CMD_SUBURL = 'R', // 82  Inform the worker about the URL it is streaming on. TODO KF6 REMOVE
     CMD_MESSAGEBOXANSWER = 'S', // 83
     CMD_RESUMEANSWER = 'T', // 84
     CMD_CONFIG = 'U', // 85

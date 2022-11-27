@@ -78,7 +78,7 @@ void MimetypeJob::slotFinished()
         }
     }
 
-    // Return slave to the scheduler
+    // Return worker to the scheduler
     TransferJob::slotFinished();
 }
 

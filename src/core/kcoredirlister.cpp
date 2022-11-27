@@ -1761,7 +1761,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         KFileItem item(entry, jobUrl, delayedMimeTypes, true);
 
         const QString name = item.name();
-        Q_ASSERT(!name.isEmpty()); // A kioslave setting an empty UDS_NAME is utterly broken, fix the kioslave!
+        Q_ASSERT(!name.isEmpty()); // A KIO worker setting an empty UDS_NAME is utterly broken, fix the KIO worker!
 
         // we duplicate the check for dotdot here, to avoid iterating over
         // all items again and checking in matchesFilter() that way.

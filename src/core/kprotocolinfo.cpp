@@ -171,7 +171,7 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     // config has fallback to name if not set
     m_config = json.value(QStringLiteral("config")).toString(m_name);
 
-    // max slaves has fallback to 1 if not set
+    // max workers has fallback to 1 if not set
     m_maxWorkers = json.value(QStringLiteral("maxInstances")).toInt(1);
 
     m_maxWorkersPerHost = json.value(QStringLiteral("maxInstancesPerHost")).toInt();

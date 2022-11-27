@@ -2498,7 +2498,7 @@ void JobTest::safeOverwrite()
     connect(job, &KIO::FileCopyJob::processedSize, this, [&](KJob *job, qulonglong size) {
         Q_UNUSED(job);
         if (size > 0 && size < srcSize) {
-            // To avoid overwriting dest, we want the kioslave to use dest.part
+            // To avoid overwriting dest, we want the KIO worker to use dest.part
             QCOMPARE(QFileInfo::exists(destPartFile), destFileExists);
         }
     });
@@ -2982,6 +2982,6 @@ void JobTest::cancelCopyAndCleanDest()
     QCOMPARE(copyJob->error(), KIO::ERR_USER_CANCELED);
 
     // the destination file actual deletion happens after finished() is emitted
-    // we need to give some time to the ioslave to finish the file cleaning
+    // we need to give some time to the KIO worker to finish the file cleaning
     QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
 }

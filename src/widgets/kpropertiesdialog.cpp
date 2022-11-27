@@ -400,7 +400,7 @@ bool KPropertiesDialog::showDialog(const KFileItemList &_items, QWidget *parent,
 {
     if (_items.count() == 1) {
         const KFileItem &item = _items.first();
-        if (item.entry().count() == 0 && item.localPath().isEmpty()) // this remote item wasn't listed by a slave
+        if (item.entry().count() == 0 && item.localPath().isEmpty()) // this remote item wasn't listed by a worker
                                                                      // Let's stat to get more info on the file
         {
             return KPropertiesDialog::showDialog(item.url(), parent, modal);
@@ -1548,7 +1548,7 @@ void KFilePropsPlugin::slotCopyFinished(KJob *job)
 
     if (d->bKDesktopMode && d->bDesktopFile) {
         // Renamed? Update Name field
-        // Note: The desktop ioslave does this as well, but not when
+        // Note: The desktop KIO worker does this as well, but not when
         //       the file is copied from a template.
         if (d->m_bFromTemplate) {
             KIO::StatJob *job = KIO::stat(properties->url());

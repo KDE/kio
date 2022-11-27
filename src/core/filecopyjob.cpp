@@ -119,7 +119,7 @@ static bool isSrcDestSameSlaveProcess(const QUrl &src, const QUrl &dest)
  * The FileCopyJob works according to the famous Bavarian
  * 'Alternating Bitburger Protocol': we either drink a beer or we
  * we order a beer, but never both at the same time.
- * Translated to io-slaves: We alternate between receiving a block of data
+ * Translated to KIO workers: We alternate between receiving a block of data
  * and sending it away.
  */
 FileCopyJob::FileCopyJob(FileCopyJobPrivate &dd)
@@ -421,7 +421,7 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
         // qDebug() << "m_getJob=" << m_getJob << m_src;
         m_getJob->addMetaData(QStringLiteral("errorPage"), QStringLiteral("false"));
         m_getJob->addMetaData(QStringLiteral("AllowCompressedPage"), QStringLiteral("false"));
-        // Set size in subjob. This helps if the slave doesn't emit totalSize.
+        // Set size in subjob. This helps if the worker doesn't emit totalSize.
         if (m_sourceSize != (KIO::filesize_t)-1) {
             m_getJob->setTotalAmount(KJob::Bytes, m_sourceSize);
         }
@@ -462,7 +462,7 @@ void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
     m_putJob->d_func()->internalResume(); // Drink the beer
     m_buffer += data;
 
-    // On the first set of data incoming, we tell the "put" slave about our
+    // On the first set of data incoming, we tell the "put" worker about our
     // decision about resuming
     if (!m_resumeAnswerSent) {
         m_resumeAnswerSent = true;

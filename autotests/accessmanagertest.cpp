@@ -22,7 +22,7 @@ class AccessManagerTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
-        qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the ioslaves call QStandardPaths::setTestModeEnabled too
+        qputenv("KIOSLAVE_ENABLE_TESTMODE", "1"); // ensure the KIO workers call QStandardPaths::setTestModeEnabled too
         QStandardPaths::setTestModeEnabled(true);
     }
 

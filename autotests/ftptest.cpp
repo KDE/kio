@@ -60,8 +60,8 @@ private Q_SLOTS:
 
     void initTestCase()
     {
-        // Force the ftp slave from our bindir as first choice. This specifically
-        // works around the fact that kioslave would load the slave from the system
+        // Force the ftp worker from our bindir as first choice. This specifically
+        // works around the fact that the kioslave executable would load the worker from the system
         // as first choice instead of the one from the build dir.
         qputenv("QT_PLUGIN_PATH", QCoreApplication::applicationDirPath().toUtf8());
 

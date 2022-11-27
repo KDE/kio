@@ -97,7 +97,7 @@ public:
     enum {
         STATE_STATORIG, // if the thumbnail exists
         STATE_GETORIG, // if we create it
-        STATE_CREATETHUMB, // thumbnail:/ slave
+        STATE_CREATETHUMB, // thumbnail:/ worker
         STATE_DEVICE_INFO, // additional state check to get needed device ids
     } state;
 
@@ -148,7 +148,7 @@ public:
     size_t shmsize;
     // Root of thumbnail cache
     QString thumbRoot;
-    // Metadata returned from the KIO thumbnail slave
+    // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailSlaveMetaData;
     int devicePixelRatio = s_defaultDevicePixelRatio;
     static const int idUnknown = -1;
@@ -195,7 +195,7 @@ public:
                     jsonMetaDataPlugins << info.toMetaData();
                 }
             } else {
-                // Hack for directory thumbnailer: It has a hardcoded plugin id in the kio-slave and not any C++ plugin
+                // Hack for directory thumbnailer: It has a hardcoded plugin id in the KIO worker and not any C++ plugin
                 // Consequently we just use the base name as the plugin file for our KPluginMetaData object
                 const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + plugin->entryPath());
                 KPluginMetaData tmpData = KPluginMetaData::fromDesktopFile(path);
@@ -747,7 +747,7 @@ void PreviewJobPrivate::getOrCreateThumbnail()
             // There's a plugin supporting this protocol and MIME type
             supportsProtocol = true;
         } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
-            // Assume KIO understands any URL, ThumbCreator slaves who have
+            // Assume KIO understands any URL, ThumbCreator workers who have
             // X-KDE-Protocols=KIO will get fed the remote URL directly.
             supportsProtocol = true;
         }

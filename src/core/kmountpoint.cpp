@@ -469,7 +469,7 @@ bool KMountPoint::probablySlow() const
     return isOnNetwork()
         || d->m_mountType == QLatin1String("autofs")
         || d->m_mountType == QLatin1String("subfs")
-        // Technically KIOFUSe mounts local slaves as well,
+        // Technically KIOFUSe mounts local workers as well,
         // such as recents:/, but better safe than sorry...
         || d->m_mountType == QLatin1String("fuse.kio-fuse");
     /* clang-format on */

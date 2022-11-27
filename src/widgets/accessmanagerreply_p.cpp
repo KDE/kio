@@ -218,7 +218,7 @@ void AccessManagerReply::setHeaderFromMetaData(const KIO::MetaData &_metaData)
             }
 
             const auto headerName = QStringView(httpHeader).left(index);
-            // Ignore cookie header since it is handled by the http ioslave.
+            // Ignore cookie header since it is handled by the http KIO worker.
             if (headerName.startsWith(QLatin1String("set-cookie"), Qt::CaseInsensitive)) {
                 continue;
             }

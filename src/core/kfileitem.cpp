@@ -1257,7 +1257,7 @@ bool KFileItem::isHidden() const
         return false;
     }
 
-    // The kioslave can specify explicitly that a file is hidden or shown
+    // The KIO worker can specify explicitly that a file is hidden or shown
     if (d->m_hidden != KFileItemPrivate::Auto) {
         return d->m_hidden == KFileItemPrivate::Hidden;
     }

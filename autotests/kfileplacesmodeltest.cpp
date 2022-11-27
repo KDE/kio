@@ -130,7 +130,7 @@ void KFilePlacesModelTest::createPlacesModels()
     m_places2 = new KFilePlacesModel();
 
     // When the xbel file is empty, KFilePlacesModel fills it with 3 default items
-    // 5 when ioslave recentlyused:/ is installed
+    // 5 when KIO worker recentlyused:/ is installed
     QCOMPARE(m_places->rowCount(), m_hasRecentlyUsedKio ? 5 : 3);
 
     QVERIFY(spy.wait());

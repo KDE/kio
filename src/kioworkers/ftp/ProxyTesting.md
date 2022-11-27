@@ -1,6 +1,6 @@
 # Proxy Testing
 
-At the time of writing the slave only supports socks proxies.
+At the time of writing the worker only supports socks proxies.
 To set up a proxy put it in the socks and/or ftp category of the proxy KCM.
 
 Dante is a fairly nice socks proxy server https://www.inet.no/dante

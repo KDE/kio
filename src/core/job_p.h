@@ -133,7 +133,7 @@ public:
     //
     // There are two kinds of protocol:
     // (1) The protocol of the url
-    // (2) The actual protocol that the io-slave uses.
+    // (2) The actual protocol that the KIO worker uses.
     //
     // These two often match, but not necessarily. Most notably, they don't
     // match when doing ftp via a proxy.
@@ -142,7 +142,7 @@ public:
     // JobData::protocol stores (2) while Job::url().protocol() returns (1).
     // The ProtocolInfoDict is indexed with (2).
     //
-    // We schedule slaves based on (2) but tell the slave about (1) via
+    // We schedule workers based on (2) but tell the worker about (1) via
     // Slave::setProtocol().
     QString m_protocol;
     QStringList m_proxyList;
@@ -302,7 +302,7 @@ public:
     void start(KIO::Slave *slave) override;
     /**
      * @internal
-     * Called when the ioslave needs the data to send the server. This slot
+     * Called when the KIO worker needs the data to send the server. This slot
      * is invoked when the data is to be sent is read from a QIODevice rather
      * instead of a QByteArray buffer.
      */
