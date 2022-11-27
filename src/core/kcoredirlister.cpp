@@ -2212,13 +2212,13 @@ bool KCoreDirLister::requestMimeTypeWhileListing() const
     return d->requestMimeTypeWhileListing;
 }
 
-void KCoreDirLister::setRequestMimeTypeWhileListing(bool fromSlave)
+void KCoreDirLister::setRequestMimeTypeWhileListing(bool request)
 {
-    if (d->requestMimeTypeWhileListing == fromSlave) {
+    if (d->requestMimeTypeWhileListing == request) {
         return;
     }
 
-    d->requestMimeTypeWhileListing = fromSlave;
+    d->requestMimeTypeWhileListing = request;
     if (d->requestMimeTypeWhileListing) {
         // Changing from request off to on, clear any cached items associated
         // with this lister so we re-request them and get the mimetype as well.
