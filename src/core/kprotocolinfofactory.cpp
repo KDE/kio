@@ -94,9 +94,9 @@ bool KProtocolInfoFactory::fillCache()
     const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio"));
     for (const KPluginMetaData &md : plugins) {
         // get worker name & protocols it supports, if any
-        const QString slavePath = md.fileName();
+        const QString workerPath = md.fileName();
         const QJsonObject protocols(md.rawData().value(QStringLiteral("KDE-KIO-Protocols")).toObject());
-        qCDebug(KIO_CORE) << slavePath << "supports protocols" << protocols.keys();
+        qCDebug(KIO_CORE) << workerPath << "supports protocols" << protocols.keys();
 
         // add all protocols, does nothing if object invalid
         for (auto it = protocols.begin(); it != protocols.end(); ++it) {
@@ -108,7 +108,7 @@ bool KProtocolInfoFactory::fillCache()
 
             // add to cache, skip double entries
             if (!m_cache.contains(it.key())) {
-                m_cache.insert(it.key(), new KProtocolInfoPrivate(it.key(), slavePath, protocol));
+                m_cache.insert(it.key(), new KProtocolInfoPrivate(it.key(), workerPath, protocol));
             }
         }
     }

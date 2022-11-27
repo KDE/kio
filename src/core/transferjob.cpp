@@ -168,15 +168,15 @@ void TransferJob::setAsyncDataEnabled(bool enabled)
     }
 }
 
-void TransferJob::sendAsyncData(const QByteArray &dataForSlave)
+void TransferJob::sendAsyncData(const QByteArray &dataForWorker)
 {
     Q_D(TransferJob);
     if (d->m_extraFlags & JobPrivate::EF_TransferJobNeedData) {
         if (d->m_slave) {
-            d->m_slave->send(MSG_DATA, dataForSlave);
+            d->m_slave->send(MSG_DATA, dataForWorker);
         }
         if (d->m_extraFlags & JobPrivate::EF_TransferJobDataSent) { // put job -> emit progress
-            KIO::filesize_t size = processedAmount(KJob::Bytes) + dataForSlave.size();
+            KIO::filesize_t size = processedAmount(KJob::Bytes) + dataForWorker.size();
             setProcessedAmount(KJob::Bytes, size);
         }
     }
@@ -217,15 +217,15 @@ QUrl TransferJob::redirectUrl() const
 void TransferJob::slotDataReq()
 {
     Q_D(TransferJob);
-    QByteArray dataForSlave;
+    QByteArray dataForWorker;
 
     d->m_extraFlags |= JobPrivate::EF_TransferJobNeedData;
 
     if (!d->staticData.isEmpty()) {
-        dataForSlave = d->staticData;
+        dataForWorker = d->staticData;
         d->staticData.clear();
     } else {
-        Q_EMIT dataReq(this, dataForSlave);
+        Q_EMIT dataReq(this, dataForWorker);
 
         if (d->m_extraFlags & JobPrivate::EF_TransferJobAsync) {
             return;
@@ -233,14 +233,14 @@ void TransferJob::slotDataReq()
     }
 
     static const int max_size = 14 * 1024 * 1024;
-    if (dataForSlave.size() > max_size) {
-        // qDebug() << "send" << dataForSlave.size() / 1024 / 1024 << "MB of data in TransferJob::dataReq. This needs to be split, which requires a copy. Fix
+    if (dataForWorker.size() > max_size) {
+        // qDebug() << "send" << dataForWorker.size() / 1024 / 1024 << "MB of data in TransferJob::dataReq. This needs to be split, which requires a copy. Fix
         // the application.";
-        d->staticData = QByteArray(dataForSlave.data() + max_size, dataForSlave.size() - max_size);
-        dataForSlave.truncate(max_size);
+        d->staticData = QByteArray(dataForWorker.data() + max_size, dataForWorker.size() - max_size);
+        dataForWorker.truncate(max_size);
     }
 
-    sendAsyncData(dataForSlave);
+    sendAsyncData(dataForWorker);
 
     if (d->m_subJob) {
         // Bitburger protocol in action
@@ -390,31 +390,31 @@ void TransferJobPrivate::slotDataReqFromDevice()
     Q_Q(TransferJob);
 
     bool done = false;
-    QByteArray dataForSlave;
+    QByteArray dataForWorker;
 
     m_extraFlags |= JobPrivate::EF_TransferJobNeedData;
 
     if (m_outgoingDataSource) {
-        dataForSlave.resize(MAX_READ_BUF_SIZE);
+        dataForWorker.resize(MAX_READ_BUF_SIZE);
 
         // Code inspired in QNonContiguousByteDevice
-        qint64 bytesRead = m_outgoingDataSource->read(dataForSlave.data(), MAX_READ_BUF_SIZE);
+        qint64 bytesRead = m_outgoingDataSource->read(dataForWorker.data(), MAX_READ_BUF_SIZE);
         if (bytesRead >= 0) {
-            dataForSlave.resize(bytesRead);
+            dataForWorker.resize(bytesRead);
         } else {
-            dataForSlave.clear();
+            dataForWorker.clear();
         }
         done = ((bytesRead == -1) || (bytesRead == 0 && m_outgoingDataSource->atEnd() && !m_outgoingDataSource->isSequential()));
     }
 
-    if (dataForSlave.isEmpty()) {
-        Q_EMIT q->dataReq(q, dataForSlave);
+    if (dataForWorker.isEmpty()) {
+        Q_EMIT q->dataReq(q, dataForWorker);
         if (!done && (m_extraFlags & JobPrivate::EF_TransferJobAsync)) {
             return;
         }
     }
 
-    q->sendAsyncData(dataForSlave);
+    q->sendAsyncData(dataForWorker);
 
     if (m_subJob) {
         // Bitburger protocol in action

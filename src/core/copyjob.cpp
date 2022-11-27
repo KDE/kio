@@ -355,7 +355,7 @@ public:
     void slotResultSettingDirAttributes(KJob *job);
     void setNextDirAttribute();
 
-    void startRenameJob(const QUrl &slave_url);
+    void startRenameJob(const QUrl &workerUrl);
     bool shouldOverwriteDir(const QString &path) const;
     bool shouldOverwriteFile(const QString &path) const;
     bool shouldSkip(const QString &path) const;
@@ -1076,7 +1076,7 @@ void CopyJobPrivate::statCurrentSrc()
     }
 }
 
-void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
+void CopyJobPrivate::startRenameJob(const QUrl &workerUrl)
 {
     Q_Q(CopyJob);
 
@@ -1113,7 +1113,7 @@ void CopyJobPrivate::startRenameJob(const QUrl &slave_url)
 #endif
 
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
-    SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
+    SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(workerUrl, CMD_RENAME, packedArgs);
     newJob->setParentJob(q);
     q->addSubjob(newJob);
     if (m_currentSrcURL.adjusted(QUrl::RemoveFilename) != dest.adjusted(QUrl::RemoveFilename)) { // For the user, moving isn't renaming. Only renaming is.

@@ -328,7 +328,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
     QString domain;
     QString path;
     QString filename;
-    bool isSlaveNetwork = false;
+    bool isWorkerNetwork = false;
     if (reqUrl) {
         url = reqUrl->toDisplayString();
         host = reqUrl->host();
@@ -346,7 +346,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
 
         // detect if protocol is a network protocol...
         if (!protocol.isEmpty()) {
-            isSlaveNetwork = KProtocolInfo::protocolClass(protocol) == QLatin1String(":internet");
+            isWorkerNetwork = KProtocolInfo::protocolClass(protocol) == QLatin1String(":internet");
         }
     } else {
         // assume that the errorText has the location we are interested in
@@ -620,7 +620,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             "Retry the request and ensure your authentication details "
             "are entered correctly.")
                   << sSysadmin;
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             solutions << sServeradmin;
         }
         break;
@@ -814,12 +814,12 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             "reading the contents of the resource.",
             url);
         causes << i18n("You may not have permissions to read from the resource.");
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             causes << cNetwork;
         }
         causes << cHardware;
         solutions << sAccess;
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             solutions << sNetwork;
         }
         solutions << sSysadmin;
@@ -832,12 +832,12 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             ", was able to be opened, an error occurred while writing to the resource.",
             url);
         causes << i18n("You may not have permissions to write to the resource.");
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             causes << cNetwork;
         }
         causes << cHardware;
         solutions << sAccess;
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             solutions << sNetwork;
         }
         solutions << sSysadmin;
@@ -930,7 +930,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
                << i18n(
                       "The location where the folder was to be created "
                       "may not exist.");
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             causes << cProtocol;
         }
         solutions << i18n("Retry the request.") << sAccess;
@@ -943,7 +943,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             "<strong>%1</strong>, failed.",
             path);
         causes << i18n("The specified folder may not exist.") << i18n("The specified folder may not be empty.") << cAccess;
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             causes << cProtocol;
         }
         solutions << i18n(
@@ -974,7 +974,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             "<strong>%1</strong> failed.",
             KStringHandler::csqueeze(url, s_maxFilePathLength));
         causes << cAccess << cExists;
-        if (!isSlaveNetwork) {
+        if (!isWorkerNetwork) {
             causes << cProtocol;
         }
         solutions << sAccess << sExists;

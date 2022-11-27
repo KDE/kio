@@ -68,8 +68,8 @@ public:
 
     void startBestCopyMethod();
     void startCopyJob();
-    void startCopyJob(const QUrl &slave_url);
-    void startRenameJob(const QUrl &slave_url);
+    void startCopyJob(const QUrl &workerUrl);
+    void startRenameJob(const QUrl &workerUrl);
     void startDataPump();
     void connectSubjob(SimpleJob *job);
 
@@ -204,12 +204,12 @@ void FileCopyJobPrivate::startCopyJob()
     startCopyJob(m_src);
 }
 
-void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
+void FileCopyJobPrivate::startCopyJob(const QUrl &workerUrl)
 {
     Q_Q(FileCopyJob);
     // qDebug();
     KIO_ARGS << m_src << m_dest << m_permissions << (qint8)(m_flags & Overwrite);
-    auto job = new DirectCopyJob(slave_url, packedArgs);
+    auto job = new DirectCopyJob(workerUrl, packedArgs);
     m_copyJob = job;
     m_copyJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
@@ -222,12 +222,12 @@ void FileCopyJobPrivate::startCopyJob(const QUrl &slave_url)
     });
 }
 
-void FileCopyJobPrivate::startRenameJob(const QUrl &slave_url)
+void FileCopyJobPrivate::startRenameJob(const QUrl &workerUrl)
 {
     Q_Q(FileCopyJob);
     m_mustChmod = true; // CMD_RENAME by itself doesn't change permissions
     KIO_ARGS << m_src << m_dest << (qint8)(m_flags & Overwrite);
-    m_moveJob = SimpleJobPrivate::newJobNoUi(slave_url, CMD_RENAME, packedArgs);
+    m_moveJob = SimpleJobPrivate::newJobNoUi(workerUrl, CMD_RENAME, packedArgs);
     m_moveJob->setParentJob(q);
     if (m_modificationTime.isValid()) {
         m_moveJob->addMetaData(QStringLiteral("modified"), m_modificationTime.toString(Qt::ISODate)); // #55804

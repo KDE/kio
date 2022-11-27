@@ -108,8 +108,8 @@ class KProxyData : public QObject
 {
     Q_OBJECT
 public:
-    KProxyData(const QString &slaveProtocol, const QStringList &proxyAddresses)
-        : protocol(slaveProtocol)
+    KProxyData(const QString &workerProtocol, const QStringList &proxyAddresses)
+        : protocol(workerProtocol)
         , proxyList(proxyAddresses)
     {
     }
