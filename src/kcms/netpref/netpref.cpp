@@ -160,7 +160,7 @@ void KIOPreferences::save()
     config.group("").writeEntry("MarkPartial", cb_ftpMarkPartial->isChecked());
     config.sync();
 
-    KSaveIOConfig::updateRunningIOSlaves(this);
+    KSaveIOConfig::updateRunningWorkers(this);
 
     Q_EMIT changed(false);
 }

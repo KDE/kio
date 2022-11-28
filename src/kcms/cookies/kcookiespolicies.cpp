@@ -390,8 +390,8 @@ void KCookiesPolicies::save()
         }
     }
 
-    // Force running io-slave to reload configurations...
-    KSaveIOConfig::updateRunningIOSlaves(this);
+    // Force running KIO workers to reload configurations...
+    KSaveIOConfig::updateRunningWorkers(this);
     Q_EMIT changed(false);
 }
 

@@ -391,7 +391,7 @@ void KProxyDialog::save()
     KSaveIOConfig::setProxyConfigScript(mProxyMap.value(QStringLiteral("ProxyScript")));
     KSaveIOConfig::setNoProxyFor(mProxyMap.value(QStringLiteral("NoProxy")));
 
-    KSaveIOConfig::updateRunningIOSlaves(this);
+    KSaveIOConfig::updateRunningWorkers(this);
     if (isPACProxyType(lastProxyType) || isPACProxyType(proxyType)) {
         KSaveIOConfig::updateProxyScout(this);
     }

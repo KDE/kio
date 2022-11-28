@@ -200,9 +200,9 @@ void KSaveIOConfig::setProxyConfigScript(const QString &_url)
     cfg.sync();
 }
 
-void KSaveIOConfig::updateRunningIOSlaves(QWidget *parent)
+void KSaveIOConfig::updateRunningWorkers(QWidget *parent)
 {
-    // Inform all running io-slaves about the changes...
+    // Inform all running KIO workers about the changes...
     // if we cannot update, KIO workers inform the end user...
     QDBusMessage message =
         QDBusMessage::createSignal(QStringLiteral("/KIO/Scheduler"), QStringLiteral("org.kde.KIO.Scheduler"), QStringLiteral("reparseSlaveConfiguration"));
