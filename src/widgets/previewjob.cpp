@@ -149,7 +149,7 @@ public:
     // Root of thumbnail cache
     QString thumbRoot;
     // Metadata returned from the KIO thumbnail worker
-    QMap<QString, QString> thumbnailSlaveMetaData;
+    QMap<QString, QString> thumbnailWorkerMetaData;
     int devicePixelRatio = s_defaultDevicePixelRatio;
     static const int idUnknown = -1;
     // Id of a device storing currently processed file
@@ -506,12 +506,12 @@ int KIO::PreviewJob::sequenceIndex() const
 
 float KIO::PreviewJob::sequenceIndexWraparoundPoint() const
 {
-    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("sequenceIndexWraparoundPoint"), QStringLiteral("-1.0")).toFloat();
+    return d_func()->thumbnailWorkerMetaData.value(QStringLiteral("sequenceIndexWraparoundPoint"), QStringLiteral("-1.0")).toFloat();
 }
 
 bool KIO::PreviewJob::handlesSequences() const
 {
-    return d_func()->thumbnailSlaveMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
+    return d_func()->thumbnailWorkerMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
 }
 
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
@@ -918,7 +918,7 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
-    thumbnailSlaveMetaData = job->metaData();
+    thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
                       && !sequenceIndex
