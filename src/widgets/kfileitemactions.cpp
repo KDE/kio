@@ -949,7 +949,10 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
     // Use old KServiceTypeTrader code path
     std::set<QString> uniqueFileNames;
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 85)
+    QT_WARNING_PUSH
+    QT_WARNING_DISABLE_DEPRECATED
     const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
+    QT_WARNING_POP
     for (const KServicePtr &entry : entries) {
         filePaths << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
         uniqueFileNames.insert(entry->entryPath().split(QLatin1Char('/')).last());
