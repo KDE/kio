@@ -931,7 +931,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     QImage thumb;
 #if WITH_SHM
     if (shmaddr) {
-        // Keep this in sync with kdebase/kioslave/thumbnail.cpp
+        // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
         QDataStream str(data);
         int width;
         int height;
