@@ -18,8 +18,7 @@
 <para><acronym>WebDAV</acronym> is a <emphasis>D</emphasis>istributed
 <emphasis>A</emphasis>uthoring and <emphasis>V</emphasis>ersioning
 protocol for the World Wide Web. It allows for easy management of
-documents and scripts on a <ulink
-url="help:/kioslave/webdav.html">&HTTP;</ulink> server, and has
+documents and scripts on a &HTTP; server, and has
 additional features designed to simplify version management amongst
 multiple authors.</para>
 
