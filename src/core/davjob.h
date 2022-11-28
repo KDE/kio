@@ -26,7 +26,10 @@
 
 namespace KIO
 {
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
+// unused forward declaration
 class Slave;
+#endif
 
 class DavJobPrivate;
 /**
