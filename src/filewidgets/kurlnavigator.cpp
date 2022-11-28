@@ -17,7 +17,6 @@
 #include "kurlnavigatorplacesselector_p.h"
 #include "kurlnavigatorprotocolcombo_p.h"
 #include "kurlnavigatortogglebutton_p.h"
-#include "urlutil_p.h"
 
 #include <KIO/StatJob>
 #include <KLocalizedString>
