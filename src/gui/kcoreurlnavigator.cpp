@@ -9,6 +9,8 @@
 
 #include "kcoreurlnavigator.h"
 
+#include "urlutil_p.h"
+
 #include <KIO/StatJob>
 #include <KLocalizedString>
 #include <kfileitem.h>
@@ -18,7 +20,6 @@
 #include <QMimeData>
 #include <QMimeDatabase>
 
-#include "../filewidgets/urlutil_p.h"
 #include <algorithm>
 #include <numeric>
 

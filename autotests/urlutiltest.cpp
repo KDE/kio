@@ -6,7 +6,7 @@
 
 #include <QTest>
 
-#include "../src/filewidgets/urlutil_p.h"
+#include "../src/gui/urlutil_p.h"
 
 class UrlUtilTest : public QObject
 {
