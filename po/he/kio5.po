@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:43+0000\n"
+"POT-Creation-Date: 2022-11-29 00:43+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -2078,7 +2078,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "השרת היה עסוק מדיי במענה לבקשות אחרות מכדי להגיב."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1613
 #, kde-format
 msgid "Unknown Error"
 msgstr "שגיאה לא מוכרת"
@@ -2381,107 +2381,107 @@ msgstr "אין אפשרות למצוא את הפרוטוקול \"%1\"."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "אין אפשרות למצוא את הפרוטוקול \"%1\"."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "פתיחת חיבורים אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "סגירת חיבורים אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "גישה לקבצים אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "כתיבה אל %1 אינה נתמכת."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "אין פעולות מיוחדות שזמינות עבור הפרוטוקול %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "הצגת תיקיות אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:881
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "אין תמיכה באחזור נתונים מ־%1."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:883
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "אין תמיכה באחזור מידע אודות טיפוסי Mime מ־%1."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:885
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "אין תמיכה בשינוי שמות קבצים או העברתם ב־%1."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:887
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "יצירת קישורים סמליים אינה נתמכת עם הפרוטוקול %1."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:889
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "העתקת קבצים ב־%1 אינה נתמכת."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:891
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "מחיקת קבצים מ־%1 אינה נתמכת."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:893
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "יצירת תיקיות אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:895
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "שינוי מאפייני קבצים אינו נתמך בפרוטוקול %1."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:897
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "שינוי בעלות על קבצים אינו נתמך בפרוטוקול %1."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:899
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "אין תמיכה בשימוש בכתובות משנה עם %1."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:901
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "הורדה מרובה אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:903
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "פתיחת קבצים אינה נתמכת בפרוטוקול %1."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:905
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "הפרוטוקול %1 אינו תומך בפעולה %2."
 
-#: core/slavebase.cpp:1077
+#: core/slavebase.cpp:1080
 #, kde-format
 msgid "&Yes"
 msgstr "&כן"
 
-#: core/slavebase.cpp:1078
+#: core/slavebase.cpp:1081
 #, kde-format
 msgid "&No"
 msgstr "&לא"
@@ -7925,7 +7925,7 @@ msgstr "הזן כאן כל הערה שהיא שנראית לך שימושית."
 msgid "Comm&ent:"
 msgstr "ה&ערה:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"

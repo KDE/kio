@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:43+0000\n"
+"POT-Creation-Date: 2022-11-29 00:43+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2174,7 +2174,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Siervier byŭ zanadta zaniaty adkazami na inšyja zapyty, kab adkazać."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1613
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nieviadomaja pamylka"
@@ -2501,107 +2501,107 @@ msgstr ""
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "Nie ŭdalosia znajsci vykanaĺny fajl \"kioslave5\" u \"%1\""
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje zakryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje dostup da fajlaŭ."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapis u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Admyslovyja dziejanni niedastupnyja dlia pratakola %1."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Atrymannie spisa katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:881
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Atrymannie danych z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:883
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Atrymannie zviestak pra typy mime z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:885
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiena nazvy ci pieramiaščennie fajlaŭ u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:887
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Stvarennie simvaličnych spasylak nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:889
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kapijavannie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:891
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Vydaliennie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:893
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Stvarennie katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:895
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmiena atrybutaŭ fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:897
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiena ulasnika fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:899
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "Ukladzienyja URL-adrasy z %1 nie padtrymlivajucca."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:901
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "Masavaje atrymannie nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:903
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio fajlaŭ."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:905
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Pratakol %1 nie padtrymlivaje dziejannie %2."
 
-#: core/slavebase.cpp:1077
+#: core/slavebase.cpp:1080
 #, kde-format
 msgid "&Yes"
 msgstr "&Tak"
 
-#: core/slavebase.cpp:1078
+#: core/slavebase.cpp:1081
 #, kde-format
 msgid "&No"
 msgstr "&Nie"
@@ -8405,7 +8405,7 @@ msgstr "Uviadzicie tut karysny kamientar."
 msgid "Comm&ent:"
 msgstr "Kam&jentar:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"

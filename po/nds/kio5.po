@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:43+0000\n"
+"POT-Creation-Date: 2022-11-29 00:43+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2155,7 +2155,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "De Server hett to veel mit anner Anfragen to doon."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1613
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nich begäng Fehler"
@@ -2489,108 +2489,108 @@ msgstr "In-/Utgaavmoduul för Protokoll \"%1\" lett sik nich finnen."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "Dat Programm \"kioslave\" lett sik nich finnen"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Opstellen vun Verbinnen warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Tomaken vun Verbinnen warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:873
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Togriepen op Datei warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:875
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Dat Schrieven na %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:877
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Keen besünner Akschonen för Protokoll %1 verföögbor."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:879
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Oplisten vun Ornern warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:881
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Halen vun Daten vun %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:883
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Halen vun MIME-Typ-Informatschonen vun %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:885
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ümnömen oder Verschuven vun Dateien in %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:887
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Opstellen vun Symlinks warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:889
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Koperen vun Dateien in %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:891
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Wegdoon vun Dateien ut %1 warrt nich ünnerstütt."
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:893
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Opstellen vun Ornern warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:895
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ännern vun Dateiegenschappen warrt vun Protokoll %1 nich ünnerstütt."
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:897
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Dat Ännern vun den Eegner warrt vun't Protokoll \"%1\" nich ünnerstütt."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:899
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "\"%1\" ünnerstütt den Bruuk vun Ünner-URLs nich."
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:901
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "Dat Protokoll \"%1\" ünnerstütt nich mehr as een Haal-Anfraag."
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:903
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Dat Protokoll \"%1\" ünnerstütt dat Opstellen vun Ornern nich."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:905
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Dat Protokoll \"%1\" ünnerstütt de Akschoon \"%2\" nich."
 
-#: core/slavebase.cpp:1077
+#: core/slavebase.cpp:1080
 #, kde-format
 msgid "&Yes"
 msgstr "&Jo"
 
-#: core/slavebase.cpp:1078
+#: core/slavebase.cpp:1081
 #, kde-format
 msgid "&No"
 msgstr "&Nee"
@@ -8361,7 +8361,7 @@ msgstr "Giff hier jichtenseen Kommentar in."
 msgid "Comm&ent:"
 msgstr "Komm&entar:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, fuzzy, kde-format
 #| msgid "Use preset proxy environment &variables"
