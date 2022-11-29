@@ -94,7 +94,6 @@ private Q_SLOTS:
     void activatePlace(QAction *action, ActivationSignal activationSignal);
 
     void updateMenu();
-    void updateTeardownAction();
 
     void onStorageSetupDone(const QModelIndex &index, bool success);
 

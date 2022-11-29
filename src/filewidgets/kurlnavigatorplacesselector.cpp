@@ -31,12 +31,13 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, 
 {
     setFocusPolicy(Qt::NoFocus);
 
+    connect(m_placesModel, &KFilePlacesModel::reloaded, this, [this] {
+        updateSelection(m_selectedUrl);
+    });
+
     m_placesMenu = new QMenu(this);
     m_placesMenu->installEventFilter(this);
-
-    updateMenu();
-
-    connect(m_placesModel, &KFilePlacesModel::reloaded, this, &KUrlNavigatorPlacesSelector::updateMenu);
+    connect(m_placesMenu, &QMenu::aboutToShow, this, &KUrlNavigatorPlacesSelector::updateMenu);
     connect(m_placesMenu, &QMenu::triggered, this, [this](QAction *action) {
         activatePlace(action, &KUrlNavigatorPlacesSelector::placeActivated);
     });
@@ -58,8 +59,6 @@ void KUrlNavigatorPlacesSelector::updateMenu()
     for (QObject *obj : QObjectList(m_placesMenu->children())) {
         delete qobject_cast<QMenu *>(obj); // Noop for nullptr
     }
-
-    updateSelection(m_selectedUrl);
 
     QString previousGroup;
     QMenu *subMenu = nullptr;
@@ -102,28 +101,11 @@ void KUrlNavigatorPlacesSelector::updateMenu()
         }
     }
 
-    updateTeardownAction();
-}
-
-void KUrlNavigatorPlacesSelector::updateTeardownAction()
-{
-    const QString teardownActionId = QStringLiteral("teardownAction");
-
-    const auto actions = m_placesMenu->actions();
-    for (QAction *action : actions) {
-        if (action->data() == teardownActionId) {
-            delete action;
-        }
-    }
-
     const QModelIndex index = m_placesModel->index(m_selectedItem, 0);
-    QAction *teardown = m_placesModel->teardownActionForIndex(index);
-    if (teardown) {
-        QAction *separator = m_placesMenu->addSeparator();
-        separator->setData(teardownActionId);
+    if (QAction *teardown = m_placesModel->teardownActionForIndex(index)) {
+        m_placesMenu->addSeparator();
 
         teardown->setParent(m_placesMenu);
-        teardown->setData(teardownActionId);
         m_placesMenu->addAction(teardown);
     }
 }
@@ -150,7 +132,6 @@ void KUrlNavigatorPlacesSelector::updateSelection(const QUrl &url)
         }
         setIcon(icon);
     }
-    updateTeardownAction();
 }
 
 QUrl KUrlNavigatorPlacesSelector::selectedPlaceUrl() const
@@ -251,7 +232,6 @@ void KUrlNavigatorPlacesSelector::activatePlace(QAction *action, ActivationSigna
         if (activationSignal == &KUrlNavigatorPlacesSelector::placeActivated) {
             m_selectedItem = index.row();
             setIcon(m_placesModel->icon(index));
-            updateTeardownAction();
         }
 
         const QUrl url = KFilePlacesModel::convertedUrl(m_placesModel->url(index));
@@ -268,7 +248,6 @@ void KUrlNavigatorPlacesSelector::onStorageSetupDone(const QModelIndex &index, b
             if (m_lastActivationSignal == &KUrlNavigatorPlacesSelector::placeActivated) {
                 m_selectedItem = index.row();
                 setIcon(m_placesModel->icon(index));
-                updateTeardownAction();
             }
 
             const QUrl url = KFilePlacesModel::convertedUrl(m_placesModel->url(index));
