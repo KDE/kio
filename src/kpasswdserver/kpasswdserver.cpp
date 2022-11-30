@@ -28,6 +28,12 @@
 #include <QTimer>
 #include <ctime>
 
+#include "../gui/config-kiogui.h"
+
+#if HAVE_X11
+#include <KX11Extras>
+#endif
+
 Q_LOGGING_CATEGORY(category, "kf.kio.kpasswdserver", QtInfoMsg)
 
 static const char s_domain[] = "domain";
@@ -66,7 +72,9 @@ KPasswdServer::KPasswdServer(QObject *parent, const QList<QVariant> &)
 
     connect(this, &KDEDModule::windowUnregistered, this, &KPasswdServer::removeAuthForWindowId);
 
-    connect(KWindowSystem::self(), &KWindowSystem::windowRemoved, this, &KPasswdServer::windowRemoved);
+#if HAVE_X11
+    connect(KX11Extras::self(), &KX11Extras::windowRemoved, this, &KPasswdServer::windowRemoved);
+#endif
 }
 
 KPasswdServer::~KPasswdServer()
