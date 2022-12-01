@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:43+0000\n"
+"POT-Creation-Date: 2022-12-01 00:42+0000\n"
 "PO-Revision-Date: 2022-11-10 21:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -3943,7 +3943,7 @@ msgstr "Le bureau est hors ligne"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3951,34 +3951,34 @@ msgid "Copy"
 msgstr "Copier"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:527 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Coller"
 
-#: filewidgets/kurlnavigator.cpp:548
+#: filewidgets/kurlnavigator.cpp:547
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Ouvrir « %1 » dans un nouvel onglet"
 
-#: filewidgets/kurlnavigator.cpp:556
+#: filewidgets/kurlnavigator.cpp:555
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Ouvrir « %1 » dans une nouvelle fenêtre"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:564
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
 
-#: filewidgets/kurlnavigator.cpp:568
+#: filewidgets/kurlnavigator.cpp:567
 #, kde-format
 msgid "Navigate"
 msgstr "Naviguer"
 
-#: filewidgets/kurlnavigator.cpp:583
+#: filewidgets/kurlnavigator.cpp:582
 #, kde-format
 msgid "Show Full Path"
 msgstr "Afficher l'emplacement complet"

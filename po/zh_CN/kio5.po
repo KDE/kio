@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:43+0000\n"
+"POT-Creation-Date: 2022-12-01 00:42+0000\n"
 "PO-Revision-Date: 2022-11-19 14:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3641,7 +3641,7 @@ msgstr "桌面已离线"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3649,34 +3649,34 @@ msgid "Copy"
 msgstr "复制"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:527 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "粘贴"
 
-#: filewidgets/kurlnavigator.cpp:548
+#: filewidgets/kurlnavigator.cpp:547
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新标签中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:556
+#: filewidgets/kurlnavigator.cpp:555
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新窗口中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:564
 #, kde-format
 msgid "Edit"
 msgstr "编辑模式"
 
-#: filewidgets/kurlnavigator.cpp:568
+#: filewidgets/kurlnavigator.cpp:567
 #, kde-format
 msgid "Navigate"
 msgstr "导航模式"
 
-#: filewidgets/kurlnavigator.cpp:583
+#: filewidgets/kurlnavigator.cpp:582
 #, kde-format
 msgid "Show Full Path"
 msgstr "显示完整路径"

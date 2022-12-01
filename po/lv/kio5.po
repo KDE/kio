@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:43+0000\n"
+"POT-Creation-Date: 2022-12-01 00:42+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3877,7 +3877,7 @@ msgstr "Darbvirsma nav pieslēgta tīklam"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3885,36 +3885,36 @@ msgid "Copy"
 msgstr "Kopēt"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:527 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Ielīmēt"
 
-#: filewidgets/kurlnavigator.cpp:548
+#: filewidgets/kurlnavigator.cpp:547
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Atvērt ar"
 
-#: filewidgets/kurlnavigator.cpp:556
+#: filewidgets/kurlnavigator.cpp:555
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Atvērt ar"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:564
 #, kde-format
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: filewidgets/kurlnavigator.cpp:568
+#: filewidgets/kurlnavigator.cpp:567
 #, kde-format
 msgid "Navigate"
 msgstr "Pārvietoties"
 
-#: filewidgets/kurlnavigator.cpp:583
+#: filewidgets/kurlnavigator.cpp:582
 #, kde-format
 msgid "Show Full Path"
 msgstr "Rādīt pilnu ceļu"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:43+0000\n"
+"POT-Creation-Date: 2022-12-01 00:42+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3851,7 +3851,7 @@ msgstr "A munkaasztal nem érhető el"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3859,12 +3859,12 @@ msgid "Copy"
 msgstr "Másolás"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:527 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Beillesztés"
 
-#: filewidgets/kurlnavigator.cpp:548
+#: filewidgets/kurlnavigator.cpp:547
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Tab"
@@ -3872,7 +3872,7 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Megnyitás új lapon"
 
-#: filewidgets/kurlnavigator.cpp:556
+#: filewidgets/kurlnavigator.cpp:555
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Window"
@@ -3880,17 +3880,17 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Megnyitás új ablakban"
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:564
 #, kde-format
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: filewidgets/kurlnavigator.cpp:568
+#: filewidgets/kurlnavigator.cpp:567
 #, kde-format
 msgid "Navigate"
 msgstr "Navigálás"
 
-#: filewidgets/kurlnavigator.cpp:583
+#: filewidgets/kurlnavigator.cpp:582
 #, kde-format
 msgid "Show Full Path"
 msgstr "Teljes elérési út"
