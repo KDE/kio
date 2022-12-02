@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2123,7 +2123,7 @@ msgstr ""
 "Serveris bija pārāk aizņemts, atbildot uz citiem pieprasījumiem, lai "
 "atbildētu."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nezināma kļūda"
@@ -2445,107 +2445,107 @@ msgstr "Nevar atrast IO apstrādātāju protokolam '%1'."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "Nevar atrast IO apstrādātāju protokolam '%1'."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Protokols %1 neatbalsta savienojumu izveidošanu."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Protokols %1 neatbalsta savienojumu slēgšanu."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protokols %1 neatbalsta piekļuvi failiem."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Rakstīšana uz %1 nav atbalstīta."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Protokolam %1 nav pieejamas speciālas darbības."
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Protokols %1 neatbalsta mapju satura aplūkošanu."
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Datu saņemšana no %1 nav atbalstīta."
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "MIME tipa informācijas saņemšana no %1 nav atbalstīta."
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Failu pārdēvēšana vai pārvietošana iekš %1 nav atbalstīta."
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Protokols %1 neatbalsta simbolsaišu veidošanu."
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Failu kopēšana iekš %1 nav atbalstīta."
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Failu dzēšana no %1 nav atbalstīta."
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Protokols %1 neatbalsta mapju veidošanu."
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Protokols %1 neatbalsta faila atribūtu maiņu."
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Protokols %1 neatbalsta faila īpašnieka maiņu."
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "Apakš-URLu lietošana iekš %1 nav atbalstīta."
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "Vairāki 'get' netiek atbalstīti ar protokolu %1."
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Protokols %1 neatbalsta failu atvēršanu."
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokols %1 neatbalsta darbību %2."
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr "&Jā"
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr "&Nē"

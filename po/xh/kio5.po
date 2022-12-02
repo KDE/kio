@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2154,7 +2154,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Umncedisi ebexakekile ephendulela ezinye izicelo."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Imposiso Engaziwayo"
@@ -2483,108 +2483,108 @@ msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, fuzzy, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, fuzzy, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, fuzzy, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ukunikeza iifayile aluxhaswa ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, fuzzy, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ukubhalo kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, fuzzy, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Akukho ntshukumo ezikhethekileyo ezifumaneka kumthetho olandelwayo %1"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, fuzzy, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ukudweliso lwabalawuli aluxhaselwanga umthetho olandelwayo %1"
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, fuzzy, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, fuzzy, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, fuzzy, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Ukunika igama kwakhona okanye ukususa iifayile ngaphakathi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, fuzzy, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ukwenza i symlinks akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, fuzzy, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ukukhuphela iifayile ngapakhathi kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, fuzzy, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ukucima iifayile kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, fuzzy, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, fuzzy, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, fuzzy, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "Ukusebenzisa i URLs-ezisezantsi nge %1 akuxhaswanga"
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, fuzzy, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "Ufumano oluninzi aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, fuzzy, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, fuzzy, kde-format
 msgid "&Yes"
 msgstr "Cwangcisa kwakhona"
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, fuzzy, kde-format
 msgid "&No"
 msgstr "Akukho nanye"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2144,7 +2144,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "अन्य अनुरोधहरू जवाफ दिने क्रममा जवाफ दिन सर्भर ज्यादै व्यस्त थियो ।"
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "अज्ञात त्रुटि"
@@ -2466,108 +2466,108 @@ msgstr "'%1' प्रोटोकलका लागि io-slave फेला �
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "'%1' प्रोटोकलका लागि io-slave फेला पार्न सकिदैन ।"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 प्रोटोकलसँग सुरुआत जडानहरू समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 प्रोटोकलसँग अन्त्य जडानहरू समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 प्रोटोकलसँग पहुँच फाइलहरू समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 मा लेखाई समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 प्रोटोकलका लागि त्यँहा कुनै पनि विशेष कार्यहरू उपलब्ध छैन ।"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 प्रोटोकलका लागि सूचित फोल्डरहरू समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 बाट डेटा पुन: प्राप्त गरिरहेको समर्थित छैन ।"
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 बाट माइम प्रकार सूचना पुन: प्राप्त गरिरहेको समर्थित छैन ।"
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 भित्र फाइलको पुन: नामकरण र सराइ समर्थित छैन ।"
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "सिर्जना भइरहेको सिम्लिङ्क प्रोटोकल %1 सँग समर्थित छैन ।"
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 भित्र फाइल प्रतिलिपि समर्थित छैन ।"
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 बाट फाइल मेटाइ समर्थित छैन ।"
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 प्रोटोकलसँग फोल्डरको सिर्जना समर्थित छैन ।"
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "फाइलको विशेषता परिवर्तन प्रोटोकल %1 सँग समर्थित छैन ।"
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, fuzzy, kde-format
 #| msgid "Changing the attributes of files is not supported with protocol %1."
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "फाइलको विशेषता परिवर्तन प्रोटोकल %1 सँग समर्थित छैन ।"
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "%1 सँगको sub-URLs को प्रयोग समर्थित छैन ।"
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "%1 प्रोटोकलसँग बहुविध प्राप्ति समर्थित छैन ।"
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "खुलिरहेको फाइल %1 प्रोटोकलसँग समर्थित छैन ।"
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "प्रोटोकल %1 ले %2 कार्य समर्थन गर्दैन ।"
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr ""
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr ""

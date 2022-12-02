@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2134,7 +2134,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "کار‌ساز برای پاسخ به درخواستهای دیگری که باید پاسخ داده شوند، خیلی اشغال بود."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
@@ -2462,107 +2462,107 @@ msgstr "نمی‌توان io-slave را برای قرارداد »%1« یافت.
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "نمی‌توان io-slave را برای قرارداد »%1« یافت."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "باز کردن اتصالها توسط قرارداد %1 پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "بستن اتصالها به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "دستیابی به پرونده‌ها به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "نوشتن در %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "هیچ کنش ویژه‌ای برای قرارداد %1 موجود نیست."
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "پوشه‌های فهرست‌نویسی برای قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "بازیابی داده‌ها از %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "بازیابی اطلاعات نوع مایم از %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "تغییر نام یا حرکت پرونده‌های موجود در %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ایجاد پیوندهای نمادی به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "رونوشت پرونده‌های موجود در %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "حذف پرونده‌ها از %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ایجاد پوشه‌ها به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "تغییر خصیصه‌های پرونده‌ها به وسیله %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "تغییر مالکیت پرونده‌ها به وسیله %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "استفاده از نشانیهای وب فرعی به وسیله %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "به دست آوردن متعدد به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "باز کردن پرونده‌ها به وسیله قرارداد %1پشتیبانی نمی‌شود."
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "قرارداد %1 از کنش %2پشتیبانی نمی‌کند."
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr "&بله"
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr "&خیر"

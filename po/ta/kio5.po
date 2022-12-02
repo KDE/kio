@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2022-11-10 20:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2068,7 +2068,7 @@ msgstr ""
 "சேவையகம் வேறு கோரிக்கைகளுக்கு பதிலளித்துக் கோண்டிருந்ததால், உங்கள் கோரிக்கைக்கு "
 "பதிலளிக்கவில்லை."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "தெரியாத தவறு"
@@ -2382,107 +2382,107 @@ msgstr ""
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "'%1' -இல் 'kioslave5' என்ற நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை தொடங்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை முடக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை அணுகுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr " %1 -க்கு எழுதுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 நெறிமுறைக்கு சிறப்பு செயற்பாடுகள் ஏதுமில்லை."
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை பட்டியலிடுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 -இலிருந்து தரவை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 -இலிருந்து மைம் வகை விவரங்களை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளின் பெயர்களை மாற்றுதல் அல்லது அவற்றை நகர்த்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு குறியிணைப்புகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளை நகலெடுத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 -இலிருந்து கோப்புகளை நீக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் பண்புகளை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் உரிமையாளரை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr " %1 -இல் துணை முகவரிகளை பயன்படுத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு பலவற்றை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை திறத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆதரிக்காது."
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr "&ஆம்"
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr "&இல்லை"

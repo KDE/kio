@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2128,7 +2128,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Pelayan terlalu sibuk memberikan respons kepada permintaan lain."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Ralat Tidak Diketahui"
@@ -2440,107 +2440,107 @@ msgstr "Tidak dapat cari io-hamba untuk protokol '%1'."
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "Tidak dapat cari io-hamba untuk protokol '%1'."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Membuka sambungan tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Menutup sambungan tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Mengakses fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Menulis ke %1 tidak disokong."
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Tiada tindakan istimewa boleh didapatkan untuk protokol %1"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Menyenaraikan folder tidak disokong untuk protokol %1."
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Mendapatkan semula data dari %1 tidak disokong."
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Mendapatkan semula maklumat jenis mime dari %1 tidak disokong."
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Menamakan semula atau mengalihkan fail dalam %1 tidak disokong."
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Mencipta tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Menyalin fail dalam %1 tidak disokong."
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Menghapuskan fail dari %1 tidak disokong."
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Mencipta folder tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Mengubah atribut fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Mengubah atribut fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "Menggunakan subURL dengan %1 tidak disokong."
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "Get berbilang tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Mencipta folder tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 tidak menyokong tindakan %2."
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, fuzzy, kde-format
 msgid "&Yes"
 msgstr "&Set Semula"
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, fuzzy, kde-format
 msgid "&No"
 msgstr "Tiada"

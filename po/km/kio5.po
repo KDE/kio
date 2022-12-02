@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:42+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2070,7 +2070,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ម៉ាស៊ីន​បម្រើ​មមាញឹក​ក្នុង​ការ​ឆ្លើយតប​ទៅកាន់​សំណើ​ផ្សេងទៀត​ដែលត្រូវ​ឆ្លើយតប ។"
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1613
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "កំហុស​មិន​ស្គាល់"
@@ -2393,107 +2393,107 @@ msgstr "មិន​អាច​រកឃើញ io-slave សម្រាប់�
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "មិន​អាច​រកឃើញ io-slave សម្រាប់​ពិធីការ '%1' ទេ ។"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "ការ​បើក​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "ការ​បិទ​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:873
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ការ​ចូល​ដំណើរការ​ឯកសារ​គឺ​មិន​ត្រូវបាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ។"
 
-#: core/slavebase.cpp:875
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "ការ​សរសេរ​ទៅកាន់ %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ទេ ។"
 
-#: core/slavebase.cpp:877
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "មិន​មាន​អំពើ​ពិសេស​សម្រាប់​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:879
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "ការ​រាយ​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​សម្រាប់​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:881
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ទិន្នន័យ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:883
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ព័ត៌មាន​ប្រភេទ mime ពី %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:885
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ការ​ប្ដូរ​ឈ្មោះ ឬ​ផ្លាស់ទី​ឯកសារ​នៅ​ក្នុង %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:887
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ការ​បង្កើត symlinks មិន​បាន​គាំទ្រ​ដោយ​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:889
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "ការ​ចម្លង​ឯកសារ​ក្នុង %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:891
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "ការ​លុប​ឯកសារ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:893
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ការ​បង្កើត​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:895
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​គុណលក្ខណៈ​ឯកសារ​គឺ​មិន​ត្រូវ​បាន​គាំទ្រ​ជា​មួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:897
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​ភាព​ជាម្ចាស់​នៃ​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:899
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "ការ​ប្រើ URL រង​ជាមួយ​នឹង %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:901
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "ការ​យកច្រើន គឺ​មិនត្រូវបាន​អនុញ្ញាត​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:903
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ការ​បើក​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​​ជាមួយ​នឹ​ងពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:905
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "ពិធីការ %1 មិន​គាំទ្រ​អំពើ %2 ទេ ។"
 
-#: core/slavebase.cpp:1080
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr "បាទ/ចាស "
 
-#: core/slavebase.cpp:1081
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr "ទេ "
