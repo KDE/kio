@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:42+0000\n"
+"POT-Creation-Date: 2022-12-03 00:42+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3066,7 +3066,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
+#: filewidgets/kfileplacesmodel.cpp:303
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
@@ -3098,7 +3098,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
@@ -3129,60 +3129,48 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:466
-msgctxt "KFile System Bookmarks"
-msgid "Images"
-msgstr ""
-
-#: filewidgets/kfileplacesmodel.cpp:470
-#, fuzzy
-#| msgid "All Files"
-msgctxt "KFile System Bookmarks"
-msgid "Audio"
-msgstr "Gach Comhad"
-
-#: filewidgets/kfileplacesmodel.cpp:1161
+#: filewidgets/kfileplacesmodel.cpp:1144
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Níorbh fhéidir clár '%1' a aimsiú"
 
-#: filewidgets/kfileplacesmodel.cpp:1168
+#: filewidgets/kfileplacesmodel.cpp:1151
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid "Only folders can be added to the Places panel."
 msgstr "Níl comhad nó comhadlann %1 ann."
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, fuzzy, kde-format
 #| msgid "&Reload List"
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Athluchtaigh Liosta"
 
-#: filewidgets/kfileplacesmodel.cpp:1434
+#: filewidgets/kfileplacesmodel.cpp:1417
 #, fuzzy, kde-format
 #| msgid "&Reload List"
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Athluchtaigh Liosta"
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Bain '%1' go &sábháilte"
 
-#: filewidgets/kfileplacesmodel.cpp:1440
+#: filewidgets/kfileplacesmodel.cpp:1423
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Bain '%1' go &sábháilte"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3190,41 +3178,41 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Dífheistiú"
 
-#: filewidgets/kfileplacesmodel.cpp:1447
+#: filewidgets/kfileplacesmodel.cpp:1430
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Dífheistigh"
 
-#: filewidgets/kfileplacesmodel.cpp:1471
+#: filewidgets/kfileplacesmodel.cpp:1454
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Díchuir"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Ní diosca é an gléas '%1' agus ní féidir é a dhíchur."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Tharla earráid agus '%1' á rochtain; dúirt an córas: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Tharla earráid agus '%1' á rochtain"
 
-#: filewidgets/kfileplacesmodel.cpp:1581
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1584
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3238,7 +3226,7 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1587
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
@@ -5334,8 +5322,7 @@ msgid ""
 "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>.<p>\n"
 "<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions. If you encounter a problem when using this option, "
-"please check the FAQ section at https://konqueror.org.\n"
+"UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
 "<qt>\n"
@@ -9613,6 +9600,12 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
+
+#, fuzzy
+#~| msgid "All Files"
+#~ msgctxt "KFile System Bookmarks"
+#~ msgid "Audio"
+#~ msgstr "Gach Comhad"
 
 #~ msgid "Co&mmand:"
 #~ msgstr "O&rdú:"

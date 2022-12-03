@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:42+0000\n"
+"POT-Creation-Date: 2022-12-03 00:42+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3074,7 +3074,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
+#: filewidgets/kfileplacesmodel.cpp:303
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
@@ -3106,7 +3106,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
@@ -3137,60 +3137,48 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:466
-msgctxt "KFile System Bookmarks"
-msgid "Images"
-msgstr ""
-
-#: filewidgets/kfileplacesmodel.cpp:470
-#, fuzzy
-#| msgid "All Files"
-msgctxt "KFile System Bookmarks"
-msgid "Audio"
-msgstr "כל הקבצים"
-
-#: filewidgets/kfileplacesmodel.cpp:1161
+#: filewidgets/kfileplacesmodel.cpp:1144
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "אין אפשרות למצוא את התוכנית \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1168
+#: filewidgets/kfileplacesmodel.cpp:1151
 #, fuzzy, kde-format
 #| msgid "A folder cannot be moved into itself"
 msgid "Only folders can be added to the Places panel."
 msgstr "אי אפשר לשים תיקיה בתוך עצמה"
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&שחרר \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1434
+#: filewidgets/kfileplacesmodel.cpp:1417
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&שחרר \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&שלוף בבטחה את \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1440
+#: filewidgets/kfileplacesmodel.cpp:1423
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&שלוף בבטחה את \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3198,41 +3186,41 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "מנתק"
 
-#: filewidgets/kfileplacesmodel.cpp:1447
+#: filewidgets/kfileplacesmodel.cpp:1430
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "נתק"
 
-#: filewidgets/kfileplacesmodel.cpp:1471
+#: filewidgets/kfileplacesmodel.cpp:1454
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "הוצא"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "ההתקן \"%1\" הוא לא תקליטור ולכן אין אפשרות לשלוף אותו."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "אירעה שגיאה במהלך הניסיון לגשת אל \"%1\". תגובת המערכת: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "אירעה שגיאה במהלך הגישה אל \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1581
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1584
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3243,7 +3231,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1587
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
@@ -5239,8 +5227,7 @@ msgid ""
 "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>.<p>\n"
 "<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions. If you encounter a problem when using this option, "
-"please check the FAQ section at https://konqueror.org.\n"
+"UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
 "‏<qt>\n"
@@ -9356,6 +9343,12 @@ msgstr "זה יפעיל את התוכנה: "
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם אינך סומך על התוכנה הזאת, לחץ על בטל."
+
+#, fuzzy
+#~| msgid "All Files"
+#~ msgctxt "KFile System Bookmarks"
+#~ msgid "Audio"
+#~ msgstr "כל הקבצים"
 
 #, fuzzy
 #~| msgctxt "@info"

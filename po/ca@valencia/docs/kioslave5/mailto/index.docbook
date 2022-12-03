@@ -29,7 +29,7 @@
 >Frameworks 5.50</releaseinfo>
 </articleinfo>
 <para
->L'esclau kio «mailto» és el responsable d'iniciar l'editor de correu de la vostra elecció quan obriu un &URL; en el seu esquema (<ulink url="https://tools.ietf.org/html/rfc6068"
+>El procés de treball KIO «mailto» és el responsable d'iniciar l'editor de correu de la vostra elecció quan obriu un &URL; en el seu esquema (<ulink url="https://tools.ietf.org/html/rfc6068"
 >RFC6068</ulink
 >). </para>
 
@@ -39,7 +39,7 @@
 >Sintaxi</term>
 <listitem
 ><para
->La sintaxi d'un &URL; de mailto seguix el següent patró:</para>
+>La sintaxi d'un &URL; de «mailto» seguix el patró següent:</para>
 
 <para
 >mailto:destinataris?consulta</para>
@@ -115,7 +115,7 @@
 >Configuració</term>
 <listitem
 ><para
->Escolliu l'aplicació per a gestionar els localitzadors de mailto en el mòdul d'&systemsettings; <menuchoice
+>Escolliu l'aplicació per a gestionar els localitzadors de «mailto» en el mòdul d'&systemsettings; <menuchoice
 ><guimenu
 >Aplicacions</guimenu
 ><guimenuitem

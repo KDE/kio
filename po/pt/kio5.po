@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:42+0000\n"
+"POT-Creation-Date: 2022-12-03 00:42+0000\n"
 "PO-Revision-Date: 2022-11-15 18:29+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -3188,7 +3188,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Ambiente de Trabalho"
 
-#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
+#: filewidgets/kfileplacesmodel.cpp:303
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Documentos"
@@ -3218,7 +3218,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Imagens"
 
-#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Vídeos"
@@ -3243,91 +3243,81 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Modificados Ontem"
 
-#: filewidgets/kfileplacesmodel.cpp:466
-msgctxt "KFile System Bookmarks"
-msgid "Images"
-msgstr "Imagens"
-
-#: filewidgets/kfileplacesmodel.cpp:470
-msgctxt "KFile System Bookmarks"
-msgid "Audio"
-msgstr "Áudio"
-
-#: filewidgets/kfileplacesmodel.cpp:1161
+#: filewidgets/kfileplacesmodel.cpp:1144
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Não foi possível adicionar ao painel de Locais: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1168
+#: filewidgets/kfileplacesmodel.cpp:1151
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Só poderá adicionar pastas ao painel Locais."
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "A libertar…"
 
-#: filewidgets/kfileplacesmodel.cpp:1434
+#: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Libertar"
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "A Retirar com Segurança…"
 
-#: filewidgets/kfileplacesmodel.cpp:1440
+#: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Retirar com &Segurança"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "A desmontar…"
 
-#: filewidgets/kfileplacesmodel.cpp:1447
+#: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Desmontar"
 
-#: filewidgets/kfileplacesmodel.cpp:1471
+#: filewidgets/kfileplacesmodel.cpp:1454
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Ejectar"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "O dispositivo '%1' não é um disco e não pode ser ejectado, como tal."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Ocorreu um erro ao aceder ao '%1'; o sistema devolveu: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Ocorreu um erro ao aceder ao '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1581
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Um ou mais ficheiros deste dispositivo estão abertos dentro de uma aplicação."
 
-#: filewidgets/kfileplacesmodel.cpp:1584
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3342,7 +3332,7 @@ msgstr[1] ""
 "Estão abertos um ou mais ficheiros deste dispositivo nas seguintes "
 "aplicações: <application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1587
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
@@ -5380,15 +5370,23 @@ msgstr "Sem 'Proxy'"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at https://konqueror.org.\n"
+#| "</qt>"
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
 "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>.<p>\n"
 "<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions. If you encounter a problem when using this option, "
-"please check the FAQ section at https://konqueror.org.\n"
+"UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
 "<qt>\n"
@@ -9603,3 +9601,11 @@ msgstr "Isto irá iniciar o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se não confiar neste programa, carregue em Cancelar"
+
+#~ msgctxt "KFile System Bookmarks"
+#~ msgid "Images"
+#~ msgstr "Imagens"
+
+#~ msgctxt "KFile System Bookmarks"
+#~ msgid "Audio"
+#~ msgstr "Áudio"

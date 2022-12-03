@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:42+0000\n"
+"POT-Creation-Date: 2022-12-03 00:42+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3247,7 +3247,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
+#: filewidgets/kfileplacesmodel.cpp:303
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
@@ -3284,7 +3284,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
@@ -3315,83 +3315,71 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:466
-msgctxt "KFile System Bookmarks"
-msgid "Images"
-msgstr ""
-
-#: filewidgets/kfileplacesmodel.cpp:470
-#, fuzzy
-#| msgid "*|All Files"
-msgctxt "KFile System Bookmarks"
-msgid "Audio"
-msgstr "*|Alle Lêers"
-
-#: filewidgets/kfileplacesmodel.cpp:1161
+#: filewidgets/kfileplacesmodel.cpp:1144
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Kon nie die program '%1' vind nie."
 
-#: filewidgets/kfileplacesmodel.cpp:1168
+#: filewidgets/kfileplacesmodel.cpp:1151
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid "Only folders can be added to the Places panel."
 msgstr "Die lêer of gids %1 bestaan nie."
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesmodel.cpp:1434
+#: filewidgets/kfileplacesmodel.cpp:1417
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesmodel.cpp:1440
+#: filewidgets/kfileplacesmodel.cpp:1423
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, fuzzy, kde-format
 #| msgid "Unmounting"
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Besig om te ontkoppel"
 
-#: filewidgets/kfileplacesmodel.cpp:1447
+#: filewidgets/kfileplacesmodel.cpp:1430
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Ontkoppel"
 
-#: filewidgets/kfileplacesmodel.cpp:1471
+#: filewidgets/kfileplacesmodel.cpp:1454
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Uitskiet"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1501
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Die gespesifiseer hulpbron dalk mag nie bestaan."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -3401,18 +3389,18 @@ msgstr ""
 "'n fout voorgekom terwyl probeer na %1, %2. 'n opsomming van die redes is "
 "onder.<ul>"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgid "An error occurred while accessing '%1'"
 msgstr "'n onverwagte fout (%1) voorgekom terwyl probeer na %2."
 
-#: filewidgets/kfileplacesmodel.cpp:1581
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1584
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3423,7 +3411,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1587
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
@@ -5601,8 +5589,7 @@ msgid ""
 "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>.<p>\n"
 "<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions. If you encounter a problem when using this option, "
-"please check the FAQ section at https://konqueror.org.\n"
+"UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
 "<qt>\n"
@@ -9925,6 +9912,12 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "*|All Files"
+#~ msgctxt "KFile System Bookmarks"
+#~ msgid "Audio"
+#~ msgstr "*|Alle Lêers"
 
 #~ msgid "Co&mmand:"
 #~ msgstr "Opdrag:"

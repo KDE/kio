@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:43+0000\n"
+"POT-Creation-Date: 2022-12-02 00:42+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -2017,7 +2017,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Bálvás lei nu hoahppu ahte ii geargan vástidit."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1610
+#: core/job_error.cpp:1115 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Amas meattáhus"
@@ -2318,107 +2318,107 @@ msgstr ""
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr ""
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ii sáhte rahpat oktavuođa %1-protokollain."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ii sáhte botket oktavuođa %1-protokollain"
 
-#: core/slavebase.cpp:870
+#: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "It beasa fiillaide %1-protokollain"
 
-#: core/slavebase.cpp:872
+#: core/slavebase.cpp:884
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Čállin %1:ii ii dorjojuvu."
 
-#: core/slavebase.cpp:874
+#: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Eai gávdno erenoamáš doaimmat %1-protokolla várás."
 
-#: core/slavebase.cpp:876
+#: core/slavebase.cpp:888
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ii leat vejolaš oaidnit máhppalisttuid geavahettiin protokolla %1."
 
-#: core/slavebase.cpp:878
+#: core/slavebase.cpp:890
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Dáhtaviežžan %1:as ii dorjojuvu"
 
-#: core/slavebase.cpp:880
+#: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Mime-šládjaviežžan %1:as ii dorjojuvo."
 
-#: core/slavebase.cpp:882
+#: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 ii doarjjo nammamolsuma fiillain dahje fiilasirdima."
 
-#: core/slavebase.cpp:884
+#: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "It sáhte ráhkadit symbolalaš liŋkkaid %1-protokollain"
 
-#: core/slavebase.cpp:886
+#: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 ii doarjjo fiilamáŋgen"
 
-#: core/slavebase.cpp:888
+#: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 ii doarjjo fiilasihkkun"
 
-#: core/slavebase.cpp:890
+#: core/slavebase.cpp:902
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1-protokollain ii leat vejolaš ráhkadit máhpaid"
 
-#: core/slavebase.cpp:892
+#: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1-protokollain ii leat vejolaš rievdadit fiilaattribuhtaid"
 
-#: core/slavebase.cpp:894
+#: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1-protokollain ii leat vejolaš rievdadit fiilla oamasteaddji."
 
-#: core/slavebase.cpp:896
+#: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
 msgstr "Ii leat vejolaš geavahit vuolle-URL:id %1:ain"
 
-#: core/slavebase.cpp:898
+#: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "It sáhte geavahit máŋga get-gohččumiid %1-protokollain"
 
-#: core/slavebase.cpp:900
+#: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1-protokollain ii leat vejolaš rahpat fiillaid."
 
-#: core/slavebase.cpp:902
+#: core/slavebase.cpp:914
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1-protokolla ii doarjjo %2-doaimma"
 
-#: core/slavebase.cpp:1077
+#: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
 msgstr "&Jo"
 
-#: core/slavebase.cpp:1078
+#: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
 msgstr "&Ii"
@@ -3689,7 +3689,7 @@ msgstr "Čállinbeavdi ii leat laktašuvvon"
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:524 ioslaves/file/file_unix.cpp:137
+#: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
 #: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
 #: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
@@ -3697,34 +3697,34 @@ msgid "Copy"
 msgstr "Máŋge"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:528 widgets/checksumswidget.ui:39
+#: filewidgets/kurlnavigator.cpp:527 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Liibme"
 
-#: filewidgets/kurlnavigator.cpp:548
+#: filewidgets/kurlnavigator.cpp:547
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:556
+#: filewidgets/kurlnavigator.cpp:555
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:565
+#: filewidgets/kurlnavigator.cpp:564
 #, kde-format
 msgid "Edit"
 msgstr "Doaimmat"
 
-#: filewidgets/kurlnavigator.cpp:568
+#: filewidgets/kurlnavigator.cpp:567
 #, kde-format
 msgid "Navigate"
 msgstr "Navigere"
 
-#: filewidgets/kurlnavigator.cpp:583
+#: filewidgets/kurlnavigator.cpp:582
 #, kde-format
 msgid "Show Full Path"
 msgstr "Čájet olles bálgá"
@@ -7543,7 +7543,7 @@ msgstr "Čále vaikko makkár gohččuma deikke maid jáhkat lea ávkkalaš dás
 msgid "Comm&ent:"
 msgstr "Komm&eanta:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"

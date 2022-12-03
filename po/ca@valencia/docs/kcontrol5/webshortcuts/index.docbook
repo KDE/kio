@@ -68,7 +68,7 @@
 ></para>
 
 <para
->D'altra banda, les dreceres web vos permeten utilitzar nous esquemes de pseudo &URL; o dreceres, que bàsicament permeten indicar <emphasis
+>D'altra banda, les dreceres web permeten utilitzar esquemes nous de pseudo &URL; o dreceres, que bàsicament permeten indicar <emphasis
 >paràmetres</emphasis
 > en els &URI; d'ús freqüent. Per exemple, si vos agrada el motor de busca de Google, podeu configurar &kde; de manera que un pseudo &URL; com <emphasis
 >gg:</emphasis
