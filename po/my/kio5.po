@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:42+0000\n"
+"POT-Creation-Date: 2022-12-04 00:42+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -43,8 +43,9 @@ msgstr ""
 "မလုံလောက်ပါ။"
 
 #: core/connectionbackend.cpp:108
-#, kde-format
-msgid "Unable to create io-slave: %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave: %1"
+msgid "Unable to create KIO worker: %1"
 msgstr "အိုင်အို-ကျွန် - %1 ကို မဖန်တီးနိုင်ခဲ့ပါ"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
@@ -87,13 +88,13 @@ msgstr ""
 "%3\n"
 "'အစားထိုး'ကိုရွေးပါက မမှန်ကန်သော အက္ခရာများကို \"_\"ဖြင့်အစားထိုးသွားမည်။"
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:582
+#: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ဖိုလ်ဒါရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:571 widgets/paste.cpp:80
+#: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "ဖိုင်လ်ရှိနှင့်ပြီးဖြစ်ပါသည်"
@@ -773,8 +774,9 @@ msgid "Communication with the local password server failed"
 msgstr "စက်တွင်း-စကားဝှက်ဆာဗာနှင့် ဆက်သွယ်မှု မအောင်မြင်ပါ"
 
 #: core/job_error.cpp:245
-#, kde-format
-msgid "Unable to create io-slave. %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave. %1"
+msgid "Unable to create KIO worker. %1"
 msgstr "အိုင်အို-ကျွန်ကို မဖန်တီးနိုင်ခဲ့ပါ။ %1"
 
 #: core/job_error.cpp:249
@@ -1128,29 +1130,33 @@ msgid ""
 msgstr "ဤကွန်ပြူတာနှင့် ဆာဗာမှ ထောက်ပံ့သော လုပ်ရိုးလုပ်ထုံး %1၏ ဗာရှင်းများ မကိုက်ညီပါ။"
 
 #: core/job_error.cpp:502
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "You may perform a search on the Internet for a KDE program (called a "
+#| "kioslave or ioslave) which supports this protocol. Places to search "
+#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
+#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgid ""
-"You may perform a search on the Internet for a KDE program (called a "
-"kioslave or ioslave) which supports this protocol. Places to search include "
-"<a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and <a href="
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"You may perform a search on the Internet for a software plugin (called a "
+"\"KIO worker\") which supports this protocol. Places to search include <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "ဤလုပ်ရိုးလုပ်ထုံးကို လုပ်ဆောင်နိုင်ပေးသည့် ကေဒီအီး ပရိုဂရမ် (ကေအိုင်အိုကျွန် သို့မဟုတ် အိုင်အိုကျွန်) ကို အင်တာနက်တွင် "
 "ရှာဖွေနိုင်သည်။ ရှာရမည့်နေရာများမှာ <a href=\"https://kde-apps.org/\">https://kde-apps."
 "org/</a> နှင့် <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a> "
 "တို့ဖြစ်သည်။"
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "ယူအာအယ် ရင်းမြစ်ဆီ မညွှန်ပြပါ။"
 
-#: core/job_error.cpp:512
+#: core/job_error.cpp:511
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "လုပ်ရိုးလုပ်ထုံးသည် စစ်ထုတ်-လုပ်ရိုးလုပ်ထုံးတစ်ခု ဖြစ်သည်"
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:513
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1159,7 +1165,7 @@ msgstr ""
 "သင်ရေးသွင်းခဲ့သော <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (ယူအာအယ်လ်) သည် ရင်းမြစ်တစ်ခုခုကို ညွှန်ပြမနေပါ။"
 
-#: core/job_error.cpp:518
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1171,12 +1177,12 @@ msgstr ""
 "ထိုအခြေအနေများတွင် သုံးရန်ဖြစ်သည်။ သို့သော် ၎င်းသည် ထိုအခြေအနေများအနက်မှ မဟုတ်ပါ။ ပရိုဂရမ်မင်းဆိုင်ရာ "
 "အမှားဖြစ်နိုင်သည်။"
 
-#: core/job_error.cpp:526
+#: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "အသုံးပြု၍မရသော လုပ်ဆောင်ချက် %1"
 
-#: core/job_error.cpp:528
+#: core/job_error.cpp:527
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1185,7 +1191,7 @@ msgstr ""
 "တောင်းခံလာသော လုပ်ဆောင်ချက်ကို လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> အားပြုလုပ်သော ကေဒီအီးပရိုဂရမ်မှ "
 "မထောက်ပံ့ထားပါ။"
 
-#: core/job_error.cpp:532
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1195,100 +1201,100 @@ msgstr ""
 "ဤအမှားသည် ကေဒီအီး ပရိုဂရမ်အပေါ် အလွန်မှီခိုနေသည်။ \"နောက်ထပ်သတင်းအချက်အလက်များ\" တွင် ကေဒီအီး အသွင်း/"
 "အထုတ် စနစ်မှ ပေးနိုင်သော အချက်အလက်များထက် ပိုမိုသောအရာများကို ကြည့်ရှုနိုင်သည်။"
 
-#: core/job_error.cpp:536
+#: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "တူညီသောရလဒ်ရရှိစေသောနောက်တစ်နည်း ရှာဖွေရန် ကြိုးစားကြည့်မည်။"
 
-#: core/job_error.cpp:541
+#: core/job_error.cpp:540
 #, kde-format
 msgid "File Expected"
 msgstr "ဖိုင်လ်ကိုမျှော်လင့်ထားသည်"
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:542
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr "တောင်းဆိုချက်သည် ဖိုင်လ်ကို မျှော်လင့်ထားသော်လည်း ဖိုလ်ဒါ <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "ဆာဗာအမှား ဖြစ်နိုင်သည်။"
 
-#: core/job_error.cpp:551
+#: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
 msgstr "ဖိုလ်ဒါကို မျှော်လင့်ထားသည်"
 
-#: core/job_error.cpp:553
+#: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr "တောင်းဆိုချက်သည် ဖိုလ်ဒါကို မျှော်လင့်ထားသော်လည်း ဖိုင်လ် <strong>%1</strong> ကိုတွေ့ရှိခဲ့သည်။"
 
-#: core/job_error.cpp:561
+#: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "ဖိုင်လ်၊ ဖိုလ်ဒါ မရှိပါ"
 
-#: core/job_error.cpp:563
+#: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "ဖော်ပြထားသော ဖိုင်လ်၊ သို့မဟုတ် ဖိုလ်ဒါ <strong>%1</strong> မရှိပါ။"
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr "အမည်တူဖိုင်လ်ရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုင်လ်ကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "လက်ရှိဖိုင်လ်ကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "ယခုဖိုင်လ်ကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "ဖိုင်လ်အသစ်အတွက် အမည်သစ်ပေး။"
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:583
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "အမည်တူဖိုလ်ဒါရှိနှင့်ပြီးဖြစ်သောကြောင့် တောင်းဆိုထားသော ဖိုလ်ဒါကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "လက်ရှိဖိုလ်ဒါကို အနှောင့်အယှက်မဖြစ်မည့်နေရာ အရင်ရွေ့၍ နောက်တစ်ကြိမ် ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "ယခုဖိုလ်ဒါကို ဖျက်ပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "ဖိုလ်ဒါအသစ်အတွက် အမည်သစ်ပေး။"
 
-#: core/job_error.cpp:593
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
 msgstr "မသိသော ကွန်ရက်ဆိုင်ရာအိမ်ရှင်"
 
-#: core/job_error.cpp:595
+#: core/job_error.cpp:594
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1297,33 +1303,33 @@ msgstr ""
 "မသိသော အိမ်ရှင်ဆိုင်ရာအမှားသည် တောင်းဆိုထားသောအမည်ဖြင့်ဆာဗာ <strong>%1</strong> ကို "
 "အင်တာနက်ပေါ်တွင် တည်နေရာအတည်မပြုနိုင်ခြင်းကို ညွှန်ပြသည်။"
 
-#: core/job_error.cpp:600
+#: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr "သင်ရိုက်သွင်းခဲ့သော အမည် %1 မရှိတာလည်းဖြစ်နိုင်သလို ရေးတာ မမှန်တာလည်းဖြစ်နိုင်သည်။"
 
-#: core/job_error.cpp:608
+#: core/job_error.cpp:607
 #, kde-format
 msgid "Access Denied"
 msgstr "အသုံးပြုခွင့် ပယ်ခံရ"
 
-#: core/job_error.cpp:610
+#: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "သေချာဖော်ပြထားသော ရင်းမြစ် အသုံးပြုခွင့် <strong>%1</strong> ပယ်ချခံခဲ့ရသည်။"
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "မမှန်ကန်သော ယုံကြည့မှုရယူခြင်းဆိုင်ရာ အသေးစိတ်အချက်အလက်များ ပေးထားသည် သို့ တစ်ခုမှ မပေးထားပါ။"
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "သတ်မှတ်ထားသောရင်းမြစ်ကို အသုံးပြုရန် သင့်အကောင့်၌ ခွင့်ပြုချက်မရှိပါ။"
 
-#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
+#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1332,41 +1338,41 @@ msgstr ""
 "ရေးသွင်းထားသော သင်၏ ယုံကြည်မှုရယူခြင်းဆိုင်ရာ အသေးစိတ်အချက်အလက်များကို မှန်ကန်မှုရှိစေရန် သေချာစစ်ဆေးပြီး "
 "တောင်းဆိုချက် နောက်တစ်ခါပို့ကြည့်ပါ။"
 
-#: core/job_error.cpp:629
+#: core/job_error.cpp:628
 #, kde-format
 msgid "Write Access Denied"
 msgstr "ရေးခွင့် ပယ်ခံရ"
 
-#: core/job_error.cpp:631
+#: core/job_error.cpp:630
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr "ဖိုင်လ် <strong>%1</strong> သို့ရေးရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
 
-#: core/job_error.cpp:639
+#: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "ဖိုလ်ဒါကို မဝင်နိုင်ပါ။"
 
-#: core/job_error.cpp:641
+#: core/job_error.cpp:640
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr "ဖိုလ်ဒါ <strong>%1</strong> ကိုဖွင့်ရန် ကြိုးပမ်းမှု ပယ်ချခံခဲ့ရသည်။"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "ဖိုလ်ဒါစာရင်းပြမရသေးပါ"
 
-#: core/job_error.cpp:650
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးသည် ဖိုင်လ်စတစ်တစ်ခု မဟုတ်ပါ"
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:651
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1376,12 +1382,12 @@ msgstr ""
 "ဖိုလ်ဒါ၏ပါဝင်ဒေတာဆုံးဖြတ်ရန် လိုအပ်သော တောင်းခံမှုပြုလုပ်ခဲ့သည်။ သို့သော် ဤလုပ်ရိုးလုပ်ထုံးထောက်ပံ့နေသည့် ကေဒီအီး "
 "ပရိုဂရမ်သည် ထိုကဲ့သို့ မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/job_error.cpp:660
+#: core/job_error.cpp:659
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "စက်ဝိုင်းလည်လင့်ခ်တွေ့ရှိပါသည်"
 
-#: core/job_error.cpp:662
+#: core/job_error.cpp:661
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1393,34 +1399,34 @@ msgstr ""
 "ဖြင့် လင့်ခ်ချိတ်နိုင်သည်။ ကေဒီအီးသည် ထာဝရအကွင်းဖြစ်စေသော လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်လ်သည် ၎င်းကို "
 "၎င်း လင့်ခ်ချိတ်ထားသည်။"
 
-#: core/job_error.cpp:667 core/job_error.cpp:693
+#: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
 "loop, and try again."
 msgstr "အဆုံးမရှိအကွင်း မဖြစ်စေရန် အကွင်း၏ တစ်ပိုင်းကို ဖျက်၍ နောက်တစ်ကြိမ် ကြိုးစားပါ။"
 
-#: core/job_error.cpp:677
+#: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "အသုံးပြုသူသည် တောင်းဆိုမှု ဖျက်ချခဲ့သည်"
 
-#: core/job_error.cpp:679 core/job_error.cpp:1068
+#: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "တောင်းဆိုမှု ဖျက်ချခဲ့သောကြောင့် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
+#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
 msgstr "တောင်းဆိုမှုကိုပြန်ကြိုးစားမည်။"
 
-#: core/job_error.cpp:685
+#: core/job_error.cpp:684
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "ကူးယူနေစဥ် စက်ဝိုင်းလည်လင့်ခ်တွေ့ရှိပါသည်"
 
-#: core/job_error.cpp:687
+#: core/job_error.cpp:686
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1432,17 +1438,17 @@ msgstr ""
 "ဖြင့် လင့်ခ်ချိတ်နိုင်သည်။ တောင်းဆိုထားသော ကူးယူရန် လုပ်ဆောင်ချက်အတွင်း ကေဒီအီးသည် ထာဝရအကွင်းဖြစ်စေသော "
 "လင့်ခ်တန်းများတွေ့ရှိခဲ့သည်။ ဆိုလိုသည်က ဖိုင်လ်သည် ၎င်းကို ၎င်း လင့်ခ်ချိတ်ထားသည်။"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှု မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:700
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "ဆော့ခ်ကတ် မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:701
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1451,34 +1457,34 @@ msgstr ""
 "၎င်းသည် ဆ.သ.ရ-ကွန်ရက် ဆက်သွယ်မှုများ ပြုလုပ်ရန် လိုအပ်သော စက် (ဆော့ခ်ကတ်) မဖန်တီးနိုင်ခဲ့သော နည်းပညာဆိုင်ရာ "
 "အမှားအယွင်းဖြစ်သည်။"
 
-#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
-#: core/job_error.cpp:878
+#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:877
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr "ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှုကို မမှန်ကန်စွာ ပြင်ဆင်ထားသည် သို့မဟုတ် ဆ.သ.ရ-ကွန်ရက် ထိတွေ့လွှာ ကို မဖွင့်ထားပါ။"
 
-#: core/job_error.cpp:711
+#: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "ဆာဗာသို့ ချိတ်ဆက်မှု ငြင်းခံရသည်"
 
-#: core/job_error.cpp:713
+#: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "ဆာဗာ <strong>%1</strong> သည် ဤကွန်ပြူတာအား ချိတ်ဆက်မှု ပြုလုပ်ခွင့် ငြင်းပယ်ခဲ့သည်။"
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
 msgstr "အင်တာနက်နှင့် လက်ရှိချိတ်ဆက်ထားသော်လည်း ဆာဗာကို တောင်းခံမှုများ လက်ခံရန် မပြင်ဆင်ရသေးပါ။"
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1486,7 +1492,7 @@ msgid ""
 msgstr ""
 "အင်တာနက်နှင့် လက်ရှိချိတ်ဆက်ထားသော်လည်း ဆာဗာသည် တောင်းခံထားသော ဝန်ဆောင်မှု (%1) ကို မမောင်းနှင်နေပါ။"
 
-#: core/job_error.cpp:724
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1496,12 +1502,12 @@ msgstr ""
 "သင် သို့မဟုတ် ဆာဗာ ၏ဆ.သ.ရ-ကွန်ရက်ကို ကာကွယ်နေသော ဆ.သ.ရ-ကွန်ရက် မီးတံတိုင်း (အင်တာနက်တောင်းဆိုချက်များကို "
 "ကန့်သတ်သော ကိရိယာ)သည် ဤတောင်းဆိုချက်ကို ပိတ်ပင်တားဆီးခဲ့သည်။"
 
-#: core/job_error.cpp:731
+#: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "ဆာဗာသို့ ချိတ်ဆက်မှု မမျှော်လင့်ဘဲ ပြတ်တောက်သွားသည်"
 
-#: core/job_error.cpp:733
+#: core/job_error.cpp:732
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1510,24 +1516,24 @@ msgstr ""
 "<strong>%1</strong> နှင့်ချိတ်ဆက်မှု အောင်မြင်ခဲ့သော်လည်း ဆက်သွယ်မှုအတွင်း မမျှော်လင့်ထားသောအမှတ်တွင် "
 "ချိတ်ဆက်မှုပြတ်တောက်သွားခဲ့သည်။"
 
-#: core/job_error.cpp:739
+#: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
 msgstr "လုပ်ရိုးလုပ်ထုံးဆိုင်ရာအမှား ဖြစ်ပေါ်ခဲ့သောကြောင့် တုံ့ပြန်မှုအဖြစ် ဆာဗာမှ ချိတ်ဆက်မှုကို ပိတ်ခဲ့သည်။"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "ယူအာအယ် ရင်းမြစ်တန်ဖိုး မမှန်ကန်ပါ"
 
-#: core/job_error.cpp:746
+#: core/job_error.cpp:745
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးသည် စစ်ထုတ်-လုပ်ရိုးလုပ်ထုံးတစ်ခု မဟုတ်ပါ"
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:747
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1538,7 +1544,7 @@ msgstr ""
 "strong>ocator (ယူအာအယ်လ်) သည် ဖော်ပြထားသောရင်းမြစ် <strong>%1%2</strong> ကို သုံးရန် "
 "မှန်ကန်သော စနစ်ကို ညွှန်ပြမနေပါ။"
 
-#: core/job_error.cpp:755
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1550,17 +1556,17 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံးသည် ထိုကဲ့သို့ သုံးရန် ဖြစ်သော်လည်း ၎င်းသည် ထိုကဲ့သို့ မစွမ်းဆောင်နိုင်ပါ။ ပရိုဂရမ်မင်းဆိုင်ရာ "
 "အမှားဖြစ်နိုင်သည်။"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:762
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "အသွင်း/အထုတ် စက်ကို မစတင်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:764
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "စက်ကို မတပ်ဆင်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:765
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1569,7 +1575,7 @@ msgstr ""
 "တောင်းဆိုထားသော စက်ကို မစတင်နိုင်ခဲ့ပါ(\"mounted\")။ အစီရင်ခံလာသော အမှားမှာ - <strong>%1</"
 "strong> ဖြစ်သည်။"
 
-#: core/job_error.cpp:770
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1579,7 +1585,7 @@ msgstr ""
 "စက်သည် အဆင်သင့် မဖြစ်သေးပါ။ ဥပမာ။ ။ ဖြုတ်၍ရသော မီဒီယာစက်အတွင်းမီဒီယာမရှိခြင်း ( စီဒီစက်တွင်် "
 "စီဒီပြားမရှိခြင်း) သို့မဟုတ် စက်ကို သေချာမှန်ကန်စွာ မချိတ်ဆင်ထားခြင်း။"
 
-#: core/job_error.cpp:775
+#: core/job_error.cpp:774
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1589,7 +1595,7 @@ msgstr ""
 "စက်ကို ဖွင့်(တပ်ဆင်)ပစ်ရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။ ယူနစ်စ်စစ်စတမ်းများတွင် စက်ကိုဖွင့်ရန် "
 "စစ်စတမ်အုပ်ချုပ်ရေးမှူး၏အခွင့်အာဏာလိုအပ်သည်။"
 
-#: core/job_error.cpp:780
+#: core/job_error.cpp:779
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1598,17 +1604,17 @@ msgstr ""
 "စက် အဆင်သင့်ဖြစ်သည်ကို သေချာအောင်လုပ်ပါ။ ဖြုတ်၍ရသောစက်များတွင် မီဒီယာပါဝင်သည်။ ပြောင်းရွေ့လွယ်-"
 "စက်များကိုလည်း ချိတ်ဆက်၍ပါဝါဖွင့်ထားရမည်။ နောက်တစ်ကြိမ်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "အသွင်း/အထုတ် စက်ကို မပိတ်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:788
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "စက်ကို မဖြုတ်ပစ်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:789
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1617,7 +1623,7 @@ msgstr ""
 "တောင်းဆိုထားသော စက်ကို မစတင်ထားသောအခြေအနေသို့ မပို့နိုင်ခဲ့ပါ(\"unmounted\")။ အစီရင်ခံလာသော "
 "အမှားမှာ - <strong>%1</strong> ဖြစ်သည်။"
 
-#: core/job_error.cpp:794
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1627,7 +1633,7 @@ msgstr ""
 "စက်သည် မအားလပ်ပါ။ ၎င်းကို အခြား အပ္ပလီကေးရှင်း သို့ အသုံးပြုသူမှ သုံးနေဆဲ ဖြစ်သည်။ စက်ပေါ်ရှိ နေရာပေါ်တွင် "
 "ဘရောက်ဇာဝင်းဒိုးဖွင့်ထားရုံနှင့် ၎င်းစက်အား အသုံးပြုထားမည်ဖြစ်သည်။"
 
-#: core/job_error.cpp:799
+#: core/job_error.cpp:798
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1637,56 +1643,56 @@ msgstr ""
 "စက်ကို ပိတ်(ဖြုတ်)ပစ်ရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။ ယူနစ်စ်စစ်စတမ်းများတွင် စက်ကိုပိတ်ပစ်ရန် "
 "စစ်စတမ်အုပ်ချုပ်ရေးမှူး၏အခွင့်အာဏာလိုအပ်သည်။"
 
-#: core/job_error.cpp:804
+#: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "စက်ကို မည်သည့်အပ္ပလီကေးရှင်းမှ အသုံးမပြုသည်ကို သေချာအောင်လုပ်၍ နောက်တစ်ကြိမ်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:810
+#: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "ရင်းမြစ်မှ ဖတ်မရပါ"
 
-#: core/job_error.cpp:812
+#: core/job_error.cpp:811
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr "ရင်းမြစ် <strong>%1</strong> ကိုဖွင့်နိုင်ခဲ့သော်လည်း ၎င်းကို ဖတ်ရာ၌ အမှား ဖြစ်ပေါ်ခဲ့သည်။"
 
-#: core/job_error.cpp:816
+#: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "ရင်းမြစ်မှဖတ်ရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။"
 
-#: core/job_error.cpp:829
+#: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "ရင်းမြစ်သို့ ရေးမရပါ"
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:830
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr "ရင်းမြစ် <strong>%1</strong> ကိုဖွင့်နိုင်ခဲ့သော်လည်း ၎င်းသို့ ရေးရာ၌ အမှား ဖြစ်ပေါ်ခဲ့သည်။"
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "ရင်းမြစ်သို့ရေးရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။"
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှုများကို နားမထောင်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:848
+#: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
 msgstr "မချည််နှောင်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1696,17 +1702,17 @@ msgstr ""
 "၎င်းသည် အဝင် ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှုများကို နားထောင်ရန်အတွက် ဆ.သ.ရ-ကွန်ရက် ဆက်သွယ်မှုများ ပြုလုပ်ရန် "
 "လိုအပ်သောစက် (ဆော့ခ်ကတ်) မဖန်တီးနိုင်ခဲ့သော နည်းပညာဆိုင်ရာ အမှားအယွင်းဖြစ်သည်။"
 
-#: core/job_error.cpp:861
+#: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
 msgstr "နားမထောင်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:873
+#: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှုကို လက်မခံနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:875
+#: core/job_error.cpp:874
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1715,33 +1721,33 @@ msgstr ""
 "၎င်းသည် အဝင် ဆ.သ.ရ-ကွန်ရက်ချိတ်ဆက်မှုများကို လက်ခံရန် ကြိုးပမ်းစဥ် ဖြစ်ပေါ်ခဲ့သော နည်းပညာဆိုင်ရာ "
 "အမှားအယွင်းဖြစ်သည်။"
 
-#: core/job_error.cpp:880
+#: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "ချိတ်ဆက်မှုကို လက်ခံရန် သင်၌ ခွင့်ပြုချက်မရှိပါ။"
 
-#: core/job_error.cpp:885
+#: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "လော့ဂင် ဝင်မရခဲ့ပါ- %1"
 
-#: core/job_error.cpp:887
+#: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "တောင်းဆိုထားသော လုပ်ဆောင်ချက် ဆောင်ရွက်ရန် လော့ဂင်ဝင်ဖို့ ကြိုးပမ်းမှု မအောင်မြင်ပါ။"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "ရင်းမြစ်အခြေအနေအား မသုံးသပ်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:904
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "ရင်းမြစ်အခြေအနေ မပြနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:905
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1750,69 +1756,69 @@ msgstr ""
 "အမည်၊ အမျိုးအစား၊ အရွယ်အစား စသည့် ရင်းမြစ် <strong>%1</strong> "
 "ဆိုင်ရာအခြေအနေအချက်အလက်များကို ဆုံးဖြတ်ရန် ကြိုးပမ်းမှု မအောင်မြင်ပါ။"
 
-#: core/job_error.cpp:911
+#: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "ဖော်ပြထားသောရင်းမြစ် မရှိပါ သို့မဟုတ် အသုံးပြု၍မရပါ။"
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:922
+#: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "နားထောင်နေခြင်းအား မရပ်တန့်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:923
+#: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "ပြင်ပါ - ဤအရာကို မှတ်တမ််းပြုစုပါ"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "ဖိုလ်ဒါကို မတည်ဆောက်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "တောင်းဆိုထားသောဖိုလ်ဒါ တည်ဆောက်ရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "ဖိုလ်ဒါတည်ဆောက်ရမည့် တည်နေရာ မရှိတော့ပါ။"
 
-#: core/job_error.cpp:940
+#: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "ဖိုလ်ဒါကို မဖယ်ရှားနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
 "သေချာဖော်ပြထားသော ဖိုလ်ဒါ <strong>%1</strong> အားဖယ်ရှားရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "သေချာသတ်မှတ်ထားသော ဖိုလ်ဒါမရှိပါ။"
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "သေချာသတ်မှတ်ထားသော ဖိုလ်ဒါသည် ဗလာမဟုတ်ပါ။"
 
-#: core/job_error.cpp:950
+#: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "ဖိုလ်ဒါ ရှိနေလား၊ ဗလာဖြစ်နေသလား သေချာအောင်စစ်ဆေးပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:956
+#: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "ဖိုင်လ်ကူးပြောင်းမှု ကို ပြန်၍မစတင်နိုင်ပါ။"
 
-#: core/job_error.cpp:958
+#: core/job_error.cpp:957
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1821,34 +1827,34 @@ msgstr ""
 "ဖော်ပြခဲ့သောတောင်းဆိုချက်သည် ကူးပြောင်းမှု၏ တစ်ခုသောအမှတ်မှ ဖိုင်လ် <strong>%1</strong> "
 "ကူးပြောင်းခြင်း ပြန်၍စရန် လိုချင်သည်။ မဖြစ်နိုင်ပါ။(လုပ်၍မရပါ)"
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "လုပ်ရိုးလုပ်ထုံး၊ သို့မဟုတ် ဆာဗာ သည် ဖိုင်လ်ကူးပြောင်းခြင်း ပြန်၍စတင်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "ကူးပြောင်းခြင်းပြန်စတင်ရန် မကြိုးပမ်းဘဲ တောင်းဆိုးချက် ပြန်တောင်းမည်။"
 
-#: core/job_error.cpp:971
+#: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "ရင်းမြစ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:973
+#: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "သေချာဖော်ပြထားသော ရင်းမြစ် <strong>%1</strong> အားအမည်ပြောင်းလဲရန် ကြိုးပမ်းမှု "
 "မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:984
+#: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "ရင်းမြစ်၏ခွင့်ပြုချက်များကို မပြောင်းလဲနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:986
+#: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1857,12 +1863,12 @@ msgstr ""
 "သေချာဖော်ပြထားသော ရင်းမြစ် <strong>%1</strong> ၏ ခွင့်ပြုချက်များပြောင်းလဲရန် ကြိုးပမ်းမှု "
 "မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:994
+#: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "ရင်းမြစ်၏ပိုင်ဆိုင်မှုကို ပြောင်းလဲမရပါ"
 
-#: core/job_error.cpp:996
+#: core/job_error.cpp:995
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1871,47 +1877,47 @@ msgstr ""
 "သေချာဖော်ပြထားသော ရင်းမြစ် <strong>%1</strong> ၏ ပိုင်ဆိုင်မှု ပြောင်းလဲရန် ကြိုးပမ်းမှု "
 "မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1004
+#: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "ရင်းမြစ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1006
+#: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "သေချာဖော်ပြထားသော ရင်းမြစ် <strong>%1</strong> အားဖျက်ရန် ကြိုးပမ်းမှု မအောင်မြင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1014
+#: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "မမျှော်လင့်ထားသော ပရိုဂရမ် အဆုံးသတ်မှု"
 
-#: core/job_error.cpp:1016
+#: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has unexpectedly terminated."
 msgstr "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ်ကို မမျှော်လင့်ဘဲ အဆုံးသတ်ခံရသည်။"
 
-#: core/job_error.cpp:1024
+#: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
 msgstr "မှတ်ဉာဏ်ကုန်ပြီ"
 
-#: core/job_error.cpp:1026
+#: core/job_error.cpp:1025
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol could not obtain the memory required to continue."
 msgstr "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ် လိုအပ်သော မှတ်ဉာဏ် မရယူနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1035
+#: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "မသိသော ကွန်ရက်ဆိုင်ရာ ကြားခံအိမ်ရှင်"
 
-#: core/job_error.cpp:1037
+#: core/job_error.cpp:1036
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1921,7 +1927,7 @@ msgstr ""
 "သေချာသတ်မှတ်ထားသော ကြားခံ-အိမ်ရှင်ဆိုင်ရာအချက်အလက်များ ရယူနေစဥ်တွင် မသိသောအမှား \"<strong>%1</"
 "strong>\" ဖြစ်ပေါ်ခဲ့သည်။ မသိသော အိမ်ရှင်အမှားသည် တောင်းဆိုသောအမည် အင်တာနက်ပေါ်တွင်မရှိသည်ကို ပြသနေသည်။"
 
-#: core/job_error.cpp:1043
+#: core/job_error.cpp:1042
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1931,17 +1937,17 @@ msgstr ""
 "သင်၏ကွန်ရက်ဆိုင်ရက်ပြင်ဆင်မှုများတွင် ပြဿနာရှိနေသည်။ အထူးသဖြင့် ကြားခံ အိမ်ရှင်အမည်။ လတ်တလောတုန်းက "
 "အင်တာနက်သုံးရတာ ဘာပြဿနာမှ မရှိရင်တော့ ဒီပြဿနာ သိပ်မဖြစ်နိုင်ဘူး။"
 
-#: core/job_error.cpp:1047
+#: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "သင်၏ကြားခံ-သတ်မှတ်ချက်များကို နှစ်ခါပြန်စစ်ဆေးပြီး ပြန်ကြိုးစားကြည့်ပါ။"
 
-#: core/job_error.cpp:1051
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "ယုံကြည်မှုရယူခြင်း မအောင်မြင်ပါ - နည်းလမ် '%1' လုပ်ဆောင်မရပါ"
 
-#: core/job_error.cpp:1053
+#: core/job_error.cpp:1052
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1952,7 +1958,7 @@ msgstr ""
 "အဘယ့်ကြောင့်ဆိုသော် လုပ်ရိုးလုပ်ထုံး %1 ကို ထည့်သွင်းထားသော ကေဒီအီးပရိုဂရမ်မှ ဆာဗာအသုံးပြုသော နည်းလမ်းကို "
 "မလုပ်ဆောင်နိုင်သောကြောင့်ဖြစ်သည်။"
 
-#: core/job_error.cpp:1059
+#: core/job_error.cpp:1058
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1961,17 +1967,17 @@ msgstr ""
 "အသုံးပြု၍မရသော ယုံကြည်မှုရယူခြင်းနည်းလမ်းအကြောင်း ကေဒီအီးအသင်းသိစေရန် <a href=\"https://bugs."
 "kde.org/\">https://bugs.kde.org/</a>သို့ ပြစ်ချက်အစီရင်ခံစာပို့ပါ။"
 
-#: core/job_error.cpp:1066
+#: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
 msgstr "တောင်းဆိုမှု ဖျက်ချခဲ့သည်"
 
-#: core/job_error.cpp:1074
+#: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "ဆာဗာစနစ်အတွင်းပိုင်းအမှား"
 
-#: core/job_error.cpp:1076
+#: core/job_error.cpp:1075
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -1980,7 +1986,7 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ်(ဆာဗာပေါ်ရှိ)သည် စနစ်အတွင်းပိုင်းအမှား- "
 "%2ကို အစီရင်ခံခဲ့သည်။"
 
-#: core/job_error.cpp:1082
+#: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -1989,24 +1995,24 @@ msgstr ""
 "ဆာဗာပရိုဂရမ်တွင် ပါလာသော ဆော့ဖ်လ်ဝဲလ်ပြစ်ချက်ကြောင့် ဖြစ်နိုင်သည်။ အောက်တွင်ဖော်ပြထားသလို "
 "ပြစ်ချက်အစီရင်ခံစာ တင်ရန် စဥ်းစားပါ။"
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "ပြဿနာအကြောင်း အကြံပေးရန် ဆာဗာအုပ်ချုပ်ရေးမှူးအား ဆက်သွယ်ပါ။"
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
 msgstr "ဆာဗာဆော့ဖ်လ်ဝဲလ်ရေးသားသူများကို သင်သိပါက ပြစ်ချက်အစီရင်ခံစာကို သူတို့ထံ တိုက်ရိုက်တင်ပြပါ။"
 
-#: core/job_error.cpp:1094
+#: core/job_error.cpp:1093
 #, kde-format
 msgid "Timeout Error"
 msgstr "အချိန်ကုန်မှုဆိုင်ရာ အမှား"
 
-#: core/job_error.cpp:1096
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2023,17 +2029,17 @@ msgstr ""
 "ul>မှတ်ချက်။ ။ကေဒီအီးစစ်စတမ်သတ်မှတ်ချက်များ ရှိ ဆ.သ.ရ-ကွန်ရက်ဆိုင်ရာချက်များ အတွင်း ချိတ်ဆက်မှုဆိုင်ရာ "
 "နှစ်သက်-သတ်မှတ်ချက်များတွင် အချိန်ကုန်ချက်သတ်မှတ်ချက်များကို ပြောင်းလဲနိုင်သည်။"
 
-#: core/job_error.cpp:1109
+#: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ဆာဗာသည် အခြားတောင်းခံမှုကို တုံ့ပြန်ရာ၌ မအားမလပ်ဖြစ်နေသဖြင့် မတုံ့ပြန်နိုင်သေးပါ။"
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "မသိသောအမှား"
 
-#: core/job_error.cpp:1117
+#: core/job_error.cpp:1116
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2041,12 +2047,12 @@ msgid ""
 msgstr ""
 "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ် သည် မသိသောအမှား- %2 ကို အစီရင်ခံခဲ့သည်။"
 
-#: core/job_error.cpp:1127
+#: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "မသိသော ကြားဖြတ်ခံရမှု"
 
-#: core/job_error.cpp:1129
+#: core/job_error.cpp:1128
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2055,12 +2061,12 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံး <strong>%1</strong> ကို သုံးခွင့်ပေးသော ပရိုဂရမ် သည် အမျိုးအစားမသိသော ကြားဖြတ်မှု- "
 "%2 ကို အစီရင်ခံခဲ့သည်။"
 
-#: core/job_error.cpp:1139
+#: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "မူလဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1141
+#: core/job_error.cpp:1140
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2071,12 +2077,12 @@ msgstr ""
 "လိုအပ်သည်(ရွေ့ပြောင်းလုပ်ဆောင်ချက်အဆုံးတွင်ဖြစ်နိုင်သည်)။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
 "ဖျက်၍မရပါ။"
 
-#: core/job_error.cpp:1150
+#: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "ယာယီဖိုင်လ်ကိုမဖျက်နိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1152
+#: core/job_error.cpp:1151
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2086,12 +2092,12 @@ msgstr ""
 "တောင်းခံထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ်ဖန်တီးရန် လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်<strong>%1</strong>ကို "
 "ဖန်တီး၍မရပါ။"
 
-#: core/job_error.cpp:1162
+#: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "ဇစ်မြစ်ဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1164
+#: core/job_error.cpp:1163
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2100,12 +2106,12 @@ msgstr ""
 "တောင်းခံထားသော လုပ်ဆောင်ချက်သည် မူလဇစ်မြစ်ဖိုင်လ် <strong>%1</strong> အား အမည်ပြောင်းရန် "
 "လိုအပ်သည်။ သို့သော် ယင်းဖိုင်လ်ကို အမည်ပြောင်း၍မရပါ။"
 
-#: core/job_error.cpp:1173
+#: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "ယာယီဖိုင်လ်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1175
+#: core/job_error.cpp:1174
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2114,32 +2120,32 @@ msgstr ""
 "တောင်းဆိုထားသော လုပ်ဆောင်ချက်သည် ယာယီဖိုင်လ် <strong>%1</strong>ကို ဖန်တီးရန်လိုအပ်သော်လည်း ၎င်းဖိုင်လ်ကို "
 "မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "လင့်ခ်ကို မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "အထိမ်းအမှတ်လင့်ခ်ကို မဖန်တီးနိုင်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1186
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "တောင်းခံခဲ့သော အထိမ်းအမှတ်-လင့်ခ် %1 ကို ဖန်တီး၍မရပါ။"
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1191
 #, kde-format
 msgid "No Content"
 msgstr "ပါဝင်ဒေတာမရှိ"
 
-#: core/job_error.cpp:1197
+#: core/job_error.cpp:1196
 #, kde-format
 msgid "Disk Full"
 msgstr "မှတ်ဉာဏ်စက်ပြည့်သွားပြီ"
 
-#: core/job_error.cpp:1199
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2147,7 +2153,7 @@ msgid ""
 msgstr ""
 "တောင်းဆိုထားသော ဖိုင်လ် <strong>%1</strong>ကို မှတ်ဉာဏ်နေရာလွတ် မလုံလောက်သောကြောင့် ရေးမရခဲ့ပါ။"
 
-#: core/job_error.cpp:1203
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2157,63 +2163,63 @@ msgstr ""
 "လုံလောက်သောမှတ်ဉာဏ်နေရာလွတ်ရရှိရန် ၁) မလိုချင်သော ဖိုင်လ်နှင့် ယာယီဖိုင်လ်များဖျက်ပစ်ပါ၊ ၂)စီဒီ၊ ယူအက်စ်ဘီ ကဲ့သို့ "
 "ဖြုတ်လို့ရသော မီဒီယာမှတ်ဉာဏ်စက်များသို့ သိမ်းရန်၊ သို့မဟုတ် ၃) ပိုများသော မှတ်ဉာဏ်ပမာဏ တပ်ဆင်ပါ။"
 
-#: core/job_error.cpp:1210
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "မူလဇစ်မြစ်ဖိုင်လ်နှင့် ဦးတည်ဖိုင်လ် တစ်ထပ်တည်းကျသည်။"
 
-#: core/job_error.cpp:1212
+#: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1214
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "ဦးတည်ဖိုင်လ်အတွက် အမည်သစ်ပေး။"
 
-#: core/job_error.cpp:1218
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "ဖိုင်လ်၊ ဖိုလ်ဒို အနေဖြင့် ၎င်းထံသို့၎င်း လွှတ်ချခဲ့သည်"
 
-#: core/job_error.cpp:1220
+#: core/job_error.cpp:1219
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "မူလဇစ်မြစ်နှင့် ဦးတည် ဖိုင်လ် သို့မဟုတ် ဖိုလ်ဒါ တူညီနေသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1222
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုင်လ် သို့ ဖိုလ်ဒါ အတွင်း လွှတ်ချပါ။"
 
-#: core/job_error.cpp:1232
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "ဖိုလ်ဒါသည် ၎င်း၏အတွင်းသို့ ၎င်း ရွေ့ခဲ့သည်"
 
-#: core/job_error.cpp:1234
+#: core/job_error.cpp:1233
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "မူလဇစ်မြစ်အနေဖြင့် ၎င်းထံသို့၎င်း ရွေ့မရသောကြောင့် လုပ်ဆောင်ချက် မပြီးမြောက်ခဲ့ပါ။"
 
-#: core/job_error.cpp:1236
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "အိုင်တမ်ကို ကွဲပြားသော ဖိုလ်ဒါ အတွင်း ရွေ့ပြောင်းပါ။"
 
-#: core/job_error.cpp:1240
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "စကားဝှက်ဆာဗာနှင့် မဆက်သွယ်နိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1242
+#: core/job_error.cpp:1241
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2222,31 +2228,35 @@ msgstr ""
 "စကားဝှက်တောင်းဆိုသည့် ဝန်ဆောင်မှု (kpasswdserver) နှင့်ဆက်သွယ်၍မရသောကြောင့် လုပ်ဆောင်ချက် "
 "မပြီးမြောက်ပါ"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "သင်၏ ဆက်ရှင်ကို ပြန်စကြည့်ပါ သို့မဟုတ် ကေအိုင်အိုဒီမှတ်တမ်းများတွင် အမှားများ ရှာကြည့်ပါ။"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 လုပ်ရိုးလုပ်ထုံးကို မစတင်နိုင်ပါ"
 
-#: core/job_error.cpp:1249
-#, kde-format
-msgid "Unable to Create io-slave"
+#: core/job_error.cpp:1248
+#, fuzzy, kde-format
+#| msgid "Unable to Create io-slave"
+msgid "Unable to Create KIO Worker"
 msgstr "အိုင်အို-ကျွန်ကို မဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/job_error.cpp:1251
-#, kde-format
+#: core/job_error.cpp:1250
+#, fuzzy, kde-format
+#| msgid ""
+#| "The io-slave which provides access to the <strong>%1</strong> protocol "
+#| "could not be started. This is usually due to technical reasons."
 msgid ""
-"The io-slave which provides access to the <strong>%1</strong> protocol could "
-"not be started. This is usually due to technical reasons."
+"The KIO worker which provides access to the <strong>%1</strong> protocol "
+"could not be started. This is usually due to technical reasons."
 msgstr ""
 "<strong>%1</strong> လုပ်ရိုးလုပ်ထုံး အသုံးပြုခွင့် ပေးသော အိုင်အို-ကျွန် ကို "
 "နည်းပညာဆိုင်ရာအခက်အခဲများကြောင့် စတင်၍မရခဲ့ပါ။"
 
-#: core/job_error.cpp:1256
+#: core/job_error.cpp:1255
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
@@ -2255,13 +2265,13 @@ msgstr ""
 "လုပ်ရိုးလုပ်ထုံးကို ပေးသော ပလပ်ဂင်ကို ကေလောင်ချာ ရှာမတွေ့ပါ၊ သို့ မစတင်နိုင်ခဲ့ပါ။ သင်သည် ပလပ်ဂင်၏ "
 "ခေတ်နောက်ကျသော ဗားရှင်းသုံးနေပုံရသည်။"
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>ကို မကူးပြောင်းနိုင်ပါ"
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2271,7 +2281,7 @@ msgstr ""
 "'<filename>%1</filename>'ဖိုင်လ် ကိုကူးပြောင်း၍မရပါ။ အဘယ့်ကြောင့်ဆိုသော် ဦးတည်ဖိုင်လ်စနစ်သည် "
 "ထိုမျှကြီးသောဖိုင်လ်ကို မသိမ်းဆည်းနိုင်ပါ။"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2279,7 +2289,7 @@ msgid ""
 msgstr ""
 "ထိုမျှကြီးမားသော ဖိုင်လ်များ သိမ်းဆည်းနိုင်သည့် ဖိုင်လ်စနစ်အဖြစ် ဦးတည်မှတ်ဉာဏ်စက်ကို ပြန်လည်စီစဥ်ဖွဲ့စည်းနေရာချပါ။"
 
-#: core/job_error.cpp:1272
+#: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
 msgstr "မှတ်တမ်းမပြုစုထားသော အမှား"
@@ -2320,13 +2330,15 @@ msgid "Unknown protocol '%1'."
 msgstr "မသိသောလုပ်ရိုးလုပ်ထုံး '%1'။"
 
 #: core/slave.cpp:432
-#, kde-format
-msgid "Can not find io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' လုပ်ရိုးလုပ်ထုံးအတွက် အိုင်အို-ကျွန် ရှာမတွေ့ပါ။"
 
 #: core/slave.cpp:440
-#, kde-format
-msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "လုပ်ရိုးလုပ်ထုံး'%1'အတွက် အိုင်အို-ကျွန် စတင်ရန် ဆော့ကတ် မဖန်တီးနိုင်ပါ။"
 
 #: core/slave.cpp:480
@@ -4268,7 +4280,23 @@ msgid "&Management"
 msgstr "&Mစီမံမှု"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#| "using the HTTP protocol (like Konqueror) store on your computer, "
+#| "initiated by a remote Internet server. This means that a web server can "
+#| "store information about you and your browsing activities on your machine "
+#| "for later use. You might consider this an invasion of privacy.</p><p> "
+#| "However, cookies are useful in certain situations. For example, they are "
+#| "often used by Internet shops, so you can 'put things into a shopping "
+#| "basket'. Some sites require you have a browser that supports cookies.</"
+#| "p><p> Because most people want a compromise between privacy and the "
+#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
+#| "customize the way it handles cookies. So you might want to set the "
+#| "default policy to ask you whenever a server wants to set a cookie, "
+#| "allowing you to decide. For your favorite shopping web sites that you "
+#| "trust, you might want to set the policy to accept, then you can access "
+#| "the web sites without being prompted every time a cookie is received.</p>"
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4278,12 +4306,13 @@ msgid ""
 "useful in certain situations. For example, they are often used by Internet "
 "shops, so you can 'put things into a shopping basket'. Some sites require "
 "you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP kioslave "
-"offers you the ability to customize the way it handles cookies. So you might "
-"want to set the default policy to ask you whenever a server wants to set a "
-"cookie, allowing you to decide. For your favorite shopping web sites that "
-"you trust, you might want to set the policy to accept, then you can access "
-"the web sites without being prompted every time a cookie is received.</p>"
+"compromise between privacy and the benefits cookies offer, the HTTP KIO "
+"worker offers you the ability to customize the way it handles cookies. So "
+"you might want to set the default policy to ask you whenever a server wants "
+"to set a cookie, allowing you to decide. For your favorite shopping web "
+"sites that you trust, you might want to set the policy to accept, then you "
+"can access the web sites without being prompted every time a cookie is "
+"received.</p>"
 msgstr ""
 "<h1>ကွတ်ကီးများ</h1><p>အပ်ချ်တီတီပီလုပ်ရိုးလုပ်ထုံးကိုသုံး၍ အဝေးအင်တာနက်ဆာဗာမှ "
 "ကေဒီအီးအပ္ပလီကေးရှင်း(ကွန်ကွာရာ ကဲ့သို့) ယူသိမ်းထားသောသတင်းအချက်အလက်များသည် ကွတ်ကီးများတွင်ပါဝင်သည်။ "
@@ -5480,9 +5509,17 @@ msgid "Default password:"
 msgstr "မူလသတ်မှတ်သော စကားဝှက် -"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#| "properly configured.</p><p>You can specify here the credentials used to "
+#| "access the shared resources. Passwords will be stored locally, and "
+#| "scrambled so as to render them unreadable to the human eye. For security "
+#| "reasons, you may not want to do that, as entries with passwords are "
+#| "clearly indicated as such.</p>"
 msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
 "properly configured.</p><p>You can specify here the credentials used to "
 "access the shared resources. Passwords will be stored locally, and scrambled "

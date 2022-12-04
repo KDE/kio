@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:42+0000\n"
+"POT-Creation-Date: 2022-12-04 00:42+0000\n"
 "PO-Revision-Date: 2022-11-14 14:37+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -44,8 +44,9 @@ msgstr ""
 "có đủ quyền truy cập đến tệp để thực hiện thay đổi này."
 
 #: core/connectionbackend.cpp:108
-#, kde-format
-msgid "Unable to create io-slave: %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave: %1"
+msgid "Unable to create KIO worker: %1"
 msgstr "Không thể tạo io-slave: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
@@ -88,13 +89,13 @@ msgstr ""
 "Chọn \"Thay thế\" để thay thế mỗi kí tự không hợp lệ (trong tên tệp đích) "
 "bằng một dấu gạch dưới \"_\"."
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:582
+#: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Thư mục đã tồn tại"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:571 widgets/paste.cpp:80
+#: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tệp đã tồn tại"
@@ -784,8 +785,9 @@ msgid "Communication with the local password server failed"
 msgstr "Liên lạc với máy chủ mật khẩu cục bộ đã thất bại"
 
 #: core/job_error.cpp:245
-#, kde-format
-msgid "Unable to create io-slave. %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave. %1"
+msgid "Unable to create KIO worker. %1"
 msgstr "Không thể tạo io-slave. %1"
 
 #: core/job_error.cpp:249
@@ -1157,29 +1159,33 @@ msgstr ""
 "thể không tương thích với nhau."
 
 #: core/job_error.cpp:502
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "You may perform a search on the Internet for a KDE program (called a "
+#| "kioslave or ioslave) which supports this protocol. Places to search "
+#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
+#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgid ""
-"You may perform a search on the Internet for a KDE program (called a "
-"kioslave or ioslave) which supports this protocol. Places to search include "
-"<a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and <a href="
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"You may perform a search on the Internet for a software plugin (called a "
+"\"KIO worker\") which supports this protocol. Places to search include <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "Bạn có thể tìm trên Liên Mạng chương trình KDE (được gọi là 'kioslave' hay "
 "'ioslave') hỗ trợ giao thức này. Những nơi để tìm gồm có <a href=\"https://"
 "kde-apps.org/\">https://kde-apps.org/</a> và <a href=\"http://freshmeat.net/"
 "\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL không dẫn đến một tài nguyên."
 
-#: core/job_error.cpp:512
+#: core/job_error.cpp:511
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Giao thức là một giao thức lọc"
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:513
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1189,7 +1195,7 @@ msgstr ""
 "strong>esource <strong>L</strong>ocator - URL) mà bạn nhập không dẫn đến một "
 "tài nguyên cụ thể nào."
 
-#: core/job_error.cpp:518
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1202,12 +1208,12 @@ msgstr ""
 "không phải một trong những tình huống đó. Đây là một sự kiện hiếm gặp, và có "
 "thể cho thấy một lỗi lập trình."
 
-#: core/job_error.cpp:526
+#: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Hành động không được hỗ trợ: %1"
 
-#: core/job_error.cpp:528
+#: core/job_error.cpp:527
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1216,7 +1222,7 @@ msgstr ""
 "Hành động được yêu cầu không được hỗ trợ bởi chương trình KDE đang thực hiện "
 "giao thức <strong>%1</strong>."
 
-#: core/job_error.cpp:532
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1226,17 +1232,17 @@ msgstr ""
 "Lỗi này phụ thuộc rất nhiều vào chương trình KDE. Phần thông tin thêm sẽ cho "
 "bạn nhiều thông tin hơn là những gì hiện có ở kiến trúc nhập/xuất KDE."
 
-#: core/job_error.cpp:536
+#: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Thử tìm cách khác để đạt được cùng kết quả."
 
-#: core/job_error.cpp:541
+#: core/job_error.cpp:540
 #, kde-format
 msgid "File Expected"
 msgstr "Mong đợi tệp"
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:542
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1245,17 +1251,17 @@ msgstr ""
 "Yêu cầu đó mong đợi một tệp, tuy nhiên lại tìm ra thư mục <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Đây có thể là một lỗi ở phía máy chủ."
 
-#: core/job_error.cpp:551
+#: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
 msgstr "Mong đợi thư mục"
 
-#: core/job_error.cpp:553
+#: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1264,66 +1270,66 @@ msgstr ""
 "Yêu cầu đó mong đợi một thư mục, tuy nhiên lại tìm ra tệp <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:561
+#: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Tệp hoặc thư mục không tồn tại"
 
-#: core/job_error.cpp:563
+#: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Tệp hoặc thư mục được chỉ ra <strong>%1</strong> không tồn tại."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr "Không tạo được tệp yêu cầu vì đã tồn tại một tệp với cùng tên."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Thử chuyển tệp hiện tại ra chỗ khác trước đã, rồi thử lại."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Xoá tệp hiện tại và thử lại."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Chọn một tên khác cho tệp mới."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:583
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "Không tạo được thư mục yêu cầu vì đã tồn tại một thư mục với cùng tên."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Thử chuyển thư mục hiện tại ra chỗ khác trước đã, rồi thử lại."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Xoá thư mục hiện tại và thử lại."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Chọn một tên khác cho thư mục mới."
 
-#: core/job_error.cpp:593
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
 msgstr "Máy không rõ"
 
-#: core/job_error.cpp:595
+#: core/job_error.cpp:594
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1332,35 +1338,35 @@ msgstr ""
 "Một lỗi máy không rõ cho thấy rằng không định vị được máy chủ với tên được "
 "yêu cầu, <strong>%1</strong>, trên Liên Mạng."
 
-#: core/job_error.cpp:600
+#: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr "Tên mà bạn gõ, %1, có thể không tồn tại; có thể nó bị gõ sai."
 
-#: core/job_error.cpp:608
+#: core/job_error.cpp:607
 #, kde-format
 msgid "Access Denied"
 msgstr "Truy cập bị từ chối"
 
-#: core/job_error.cpp:610
+#: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Truy cập đến tài nguyên được chỉ ra, <strong>%1</strong>, bị từ chối."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Bạn có thể đã cung cấp chi tiết xác thực không đúng, hoặc chưa cung cấp gì."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Danh khoản của bạn có thể không có quyền truy cập tài nguyên được chỉ ra."
 
-#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
+#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1368,12 +1374,12 @@ msgid ""
 msgstr ""
 "Thử lại yêu cầu và đảm bảo rằng các chi tiết xác thực của bạn được nhập đúng."
 
-#: core/job_error.cpp:629
+#: core/job_error.cpp:628
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Truy cập ghi bị từ chối"
 
-#: core/job_error.cpp:631
+#: core/job_error.cpp:630
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1381,12 +1387,12 @@ msgid ""
 msgstr ""
 "Điều này nghĩa là một cố gắng ghi vào tệp <strong>%1</strong> đã bị từ chối."
 
-#: core/job_error.cpp:639
+#: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Không thể vào thư mục"
 
-#: core/job_error.cpp:641
+#: core/job_error.cpp:640
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1395,17 +1401,17 @@ msgstr ""
 "Điều này nghĩa là một cố gắng đi vào (nói cách khác, mở) thư mục được yêu "
 "cầu <strong>%1</strong> đã bị từ chối."
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Việc liệt kê thư mục không khả dụng"
 
-#: core/job_error.cpp:650
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Giao thức %1 không phải là một hệ thống tệp"
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:651
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1415,12 +1421,12 @@ msgstr ""
 "Điều này nghĩa là một yêu cầu đã được tạo ra, đòi hỏi xác định nội dung của "
 "thư mục, và chương trình KDE hỗ trợ giao thức này không thể làm việc đó."
 
-#: core/job_error.cpp:660
+#: core/job_error.cpp:659
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Phát hiện liên kết vòng tròn"
 
-#: core/job_error.cpp:662
+#: core/job_error.cpp:661
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1433,7 +1439,7 @@ msgstr ""
 "kết tạo ra vòng lặp vô hạn - tức là tệp này được liên kết (có thể theo đường "
 "vòng) đến chính nó."
 
-#: core/job_error.cpp:667 core/job_error.cpp:693
+#: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1441,27 +1447,27 @@ msgid ""
 msgstr ""
 "Xoá một phần của vòng lặp để nó không tạo ra một vòng lặp vô hạn, và thử lại."
 
-#: core/job_error.cpp:677
+#: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Yêu cầu bị huỷ bỏ bởi người dùng"
 
-#: core/job_error.cpp:679 core/job_error.cpp:1068
+#: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Yêu cầu không thể được hoàn tất vì nó đã bị huỷ bỏ."
 
-#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
+#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
 msgstr "Thử lại yêu cầu."
 
-#: core/job_error.cpp:685
+#: core/job_error.cpp:684
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Phát hiện liên kết vòng tròn trong khi sao chép"
 
-#: core/job_error.cpp:687
+#: core/job_error.cpp:686
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1474,17 +1480,17 @@ msgstr ""
 "phát hiện một liên kết hoặc chuỗi liên kết tạo ra vòng lặp vô hạn - tức là "
 "tệp này được liên kết (có thể theo đường vòng) đến chính nó."
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Không tạo được kết nối mạng"
 
-#: core/job_error.cpp:700
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Không tạo được ổ cắm"
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:701
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1493,8 +1499,8 @@ msgstr ""
 "Đây là một lỗi khá kĩ thuật, trong đó một thiết bị cần cho liên lạc qua mạng "
 "(ổ cắm) đã không tạo được."
 
-#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
-#: core/job_error.cpp:878
+#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:877
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1503,19 +1509,19 @@ msgstr ""
 "Kết nối mạng có thể được cấu hình không đúng, hoặc giao diện mạng có thể "
 "không được bật."
 
-#: core/job_error.cpp:711
+#: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Kết nối đến máy chủ bị từ chối"
 
-#: core/job_error.cpp:713
+#: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "Máy chủ <strong>%1</strong> từ chối cho phép máy tính này tạo kết nối."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1524,7 +1530,7 @@ msgstr ""
 "Máy chủ, trong khi còn được kết nối đến Liên Mạng, có thể không được cấu "
 "hình để cho phép các yêu cầu."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1533,7 +1539,7 @@ msgstr ""
 "Máy chủ, trong khi còn được kết nối đến Liên Mạng, có thể đang không chạy "
 "dịch vụ được yêu cầu (%1)."
 
-#: core/job_error.cpp:724
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1544,12 +1550,12 @@ msgstr ""
 "vệ mạng của bạn hoặc mạng của máy chủ, có thể đã can thiệp, ngăn cản yêu cầu "
 "này."
 
-#: core/job_error.cpp:731
+#: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Kết nối đến máy chủ bất ngờ bị đóng"
 
-#: core/job_error.cpp:733
+#: core/job_error.cpp:732
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1558,7 +1564,7 @@ msgstr ""
 "Dù một kết nối đã được thiết lập đến <strong>%1</strong>, kết nối đó đã bị "
 "đóng tại một thời điểm bất ngờ trong tiến trình liên lạc."
 
-#: core/job_error.cpp:739
+#: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1567,17 +1573,17 @@ msgstr ""
 "Một lỗi giao thức có thể đã xảy ra, khiến máy chủ đóng kết nối để phản ứng "
 "lại với lỗi đó."
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Tài nguyên URL không hợp lệ"
 
-#: core/job_error.cpp:746
+#: core/job_error.cpp:745
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Giao thức %1 không phải là một giao thức lọc."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:747
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1588,7 +1594,7 @@ msgstr ""
 "strong>esource <strong>L</strong>ocator - URL) mà bạn nhập không dựa vào một "
 "cơ chế hợp lệ nào để truy cập tài nguyên cụ thể đó, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:755
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1601,17 +1607,17 @@ msgstr ""
 "năng thực hiện một hành động như vậy. Đây là một sự kiện hiếm gặp, và có thể "
 "cho thấy một lỗi lập trình."
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:762
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Không thể khởi tạo thiết bị nhập/xuất"
 
-#: core/job_error.cpp:764
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Không gắn kết được thiết bị"
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:765
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1620,7 +1626,7 @@ msgstr ""
 "Không khởi tạo (\"gắn kết\") được thiết bị yêu cầu. Lỗi được báo là: <strong>"
 "%1</strong>"
 
-#: core/job_error.cpp:770
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1632,7 +1638,7 @@ msgstr ""
 "trong một ổ CD), hoặc trong trường hợp của một thiết bị ngoại vi/di động, "
 "thiết bị đó có thể không được kết nối đúng."
 
-#: core/job_error.cpp:775
+#: core/job_error.cpp:774
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1643,7 +1649,7 @@ msgstr ""
 "Trên các hệ thống UNIX, thường cần có đặc quyền quản trị viên hệ thống để "
 "khởi tạo một thiết bị."
 
-#: core/job_error.cpp:780
+#: core/job_error.cpp:779
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1652,17 +1658,17 @@ msgstr ""
 "Kiểm tra rằng thiết bị đã sẵn sàng; các ổ gắn ngoài phải chứa phương tiện, "
 "và các thiết bị di động phải được kết nối và đã bật; rồi thử lại."
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Không thể bỏ khởi tạo thiết bị nhập/xuất"
 
-#: core/job_error.cpp:788
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Không bỏ gắn kết được thiết bị"
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:789
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1671,7 +1677,7 @@ msgstr ""
 "Không bỏ khởi tạo (\"bỏ gắn kết\") được thiết bị yêu cầu. Lỗi được báo là: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:794
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1682,7 +1688,7 @@ msgstr ""
 "người dùng khác. Ngay cả những việc như có một cửa sổ trình duyệt đang mở ở "
 "một địa điểm trên thiết bị này cũng có thể khiến thiết bị vẫn được sử dụng."
 
-#: core/job_error.cpp:799
+#: core/job_error.cpp:798
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1693,17 +1699,17 @@ msgstr ""
 "này. Trên các hệ thống UNIX, thường cần có đặc quyền quản trị viên hệ thống "
 "để bỏ khởi tạo một thiết bị."
 
-#: core/job_error.cpp:804
+#: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "Kiểm tra rằng không ứng dụng nào đang truy cập thiết bị, và thử lại."
 
-#: core/job_error.cpp:810
+#: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Không thể đọc từ tài nguyên"
 
-#: core/job_error.cpp:812
+#: core/job_error.cpp:811
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1712,17 +1718,17 @@ msgstr ""
 "Điều này nghĩa là mặc dù tài nguyên đó, <strong>%1</strong>, đã mở được, một "
 "lỗi xảy ra khi đọc nội dung của tài nguyên."
 
-#: core/job_error.cpp:816
+#: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Bạn có thể không có quyền đọc từ tài nguyên đó."
 
-#: core/job_error.cpp:829
+#: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Không thể ghi vào tài nguyên"
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:830
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1731,22 +1737,22 @@ msgstr ""
 "Điều này nghĩa là mặc dù tài nguyên đó, <strong>%1</strong>, đã mở được, một "
 "lỗi xảy ra khi ghi vào tài nguyên."
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Bạn có thể không có quyền ghi vào tài nguyên đó."
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Không nghe chờ được các kết nối mạng"
 
-#: core/job_error.cpp:848
+#: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Không kết buộc được"
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1756,17 +1762,17 @@ msgstr ""
 "Đây là một lỗi khá kĩ thuật, trong đó một thiết bị cần cho liên lạc qua mạng "
 "(ổ cắm) đã không thiết lập được để nghe chờ các kết nối đến."
 
-#: core/job_error.cpp:861
+#: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Không nghe được"
 
-#: core/job_error.cpp:873
+#: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Không chấp nhận được kết nối mạng"
 
-#: core/job_error.cpp:875
+#: core/job_error.cpp:874
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1775,34 +1781,34 @@ msgstr ""
 "Đây là một lỗi khá kĩ thuật, trong đó một lỗi xảy ra khi đang cố gắng chấp "
 "nhận một kết nối đến."
 
-#: core/job_error.cpp:880
+#: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Bạn có thể không có quyền chấp nhận kết nối."
 
-#: core/job_error.cpp:885
+#: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Không đăng nhập được: %1"
 
-#: core/job_error.cpp:887
+#: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "Một cố gắng đăng nhập để thực hiện thao tác được yêu cầu đã không thành công."
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Không xác định được trạng thái tài nguyên"
 
-#: core/job_error.cpp:904
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Không lấy được trạng thái tài nguyên"
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:905
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1812,70 +1818,70 @@ msgstr ""
 "strong>, chẳng hạn tên, kiểu, kích thước, v.v. của tài nguyên đã không thành "
 "công."
 
-#: core/job_error.cpp:911
+#: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr ""
 "Tài nguyên được chỉ định có thể không tồn tại hoặc không truy cập được."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:922
+#: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Không huỷ được việc liệt kê"
 
-#: core/job_error.cpp:923
+#: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "Thông điệp này chưa được lập tài liệu"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Không tạo được thư mục"
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Một cố gắng tạo thư mục được yêu cầu đã thất bại."
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Địa điểm định tạo thư mục có thể không tồn tại."
 
-#: core/job_error.cpp:940
+#: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Không xoá được thư mục"
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
 "Một cố gắng xoá thư mục được chỉ định, <strong>%1</strong>, đã thất bại."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Thư mục được chỉ định có thể không tồn tại."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Thư mục được chỉ định có thể không trống."
 
-#: core/job_error.cpp:950
+#: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Đảm bảo rằng thư mục tồn tại và rỗng, rồi thử lại."
 
-#: core/job_error.cpp:956
+#: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Không tiếp tục trở lại được việc truyền tệp"
 
-#: core/job_error.cpp:958
+#: core/job_error.cpp:957
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1885,34 +1891,34 @@ msgstr ""
 "được tiếp tục trở lại ở một điểm nhất định của quá trình truyền. Việc này là "
 "không thể."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Giao thức, hoặc máy chủ, có thể không hỗ trợ việc tiếp tục tệp trở lại."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Thử lại yêu cầu mà không cố gắng tiếp tục trở lại việc truyền."
 
-#: core/job_error.cpp:971
+#: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Không đổi tên được tài nguyên"
 
-#: core/job_error.cpp:973
+#: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Một cố gắng đổi tên tài nguyên được chỉ định <strong>%1</strong> đã thất bại."
 
-#: core/job_error.cpp:984
+#: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Không thay đổi được quyền truy cập của tài nguyên"
 
-#: core/job_error.cpp:986
+#: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1921,12 +1927,12 @@ msgstr ""
 "Một cố gắng thay đổi quyền truy cập ở tài nguyên được chỉ định <strong>%1</"
 "strong> đã thất bại."
 
-#: core/job_error.cpp:994
+#: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Không thay đổi được quyền sở hữu của tài nguyên"
 
-#: core/job_error.cpp:996
+#: core/job_error.cpp:995
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1935,23 +1941,23 @@ msgstr ""
 "Một cố gắng thay đổi quyền sở hữu của tài nguyên được chỉ định <strong>%1</"
 "strong> đã thất bại."
 
-#: core/job_error.cpp:1004
+#: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Không xoá được tài nguyên"
 
-#: core/job_error.cpp:1006
+#: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Một cố gắng xoá tài nguyên được chỉ định <strong>%1</strong> đã thất bại."
 
-#: core/job_error.cpp:1014
+#: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Sự kết thúc chương trình bất ngờ"
 
-#: core/job_error.cpp:1016
+#: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1960,12 +1966,12 @@ msgstr ""
 "Chương trình trên máy tính của bạn mà cho phép truy cập vào giao thức "
 "<strong>%1</strong> đã bất ngờ kết thúc."
 
-#: core/job_error.cpp:1024
+#: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
 msgstr "Hết bộ nhớ"
 
-#: core/job_error.cpp:1026
+#: core/job_error.cpp:1025
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1974,12 +1980,12 @@ msgstr ""
 "Chương trình trên máy tính của bạn mà cho phép truy cập vào giao thức "
 "<strong>%1</strong> đã không lấy được bộ nhớ cần thiết để tiếp tục."
 
-#: core/job_error.cpp:1035
+#: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Máy uỷ nhiệm không rõ"
 
-#: core/job_error.cpp:1037
+#: core/job_error.cpp:1036
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1990,7 +1996,7 @@ msgstr ""
 "đã gặp một lỗi \"Máy không rõ\". Một lỗi máy không rõ cho thấy là không định "
 "vị được trên Liên Mạng cái tên được yêu cầu."
 
-#: core/job_error.cpp:1043
+#: core/job_error.cpp:1042
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2000,17 +2006,17 @@ msgstr ""
 "Có thể đã có vấn đề với cấu hình mạng của bạn, cụ thể là tên máy uỷ nhiệm. "
 "Nếu gần đây bạn vẫn truy cập Liên Mạng không vấn đề gì thì không chắc là vậy."
 
-#: core/job_error.cpp:1047
+#: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Kiểm tra kĩ các thiết lập uỷ nhiệm của bạn và thử lại."
 
-#: core/job_error.cpp:1051
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Xác thực thất bại: Phương thức %1 không được hỗ trợ"
 
-#: core/job_error.cpp:1053
+#: core/job_error.cpp:1052
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2021,7 +2027,7 @@ msgstr ""
 "phương thức mà máy chủ đang dùng không được hỗ trợ bởi chương trình KDE thực "
 "hiện giao thức %1."
 
-#: core/job_error.cpp:1059
+#: core/job_error.cpp:1058
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -2030,17 +2036,17 @@ msgstr ""
 "Vui lòng gửi một lỗi ở <a href=\"https://bugs.kde.org/\">https://bugs.kde."
 "org/</a> để báo cho đội ngũ KDE về phương thức xác thực không được hỗ trợ."
 
-#: core/job_error.cpp:1066
+#: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
 msgstr "Yêu cầu bị huỷ bỏ"
 
-#: core/job_error.cpp:1074
+#: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Lỗi nội bộ ở máy chủ"
 
-#: core/job_error.cpp:1076
+#: core/job_error.cpp:1075
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2049,7 +2055,7 @@ msgstr ""
 "Chương trình trên máy chủ mà cho phép truy cập vào giao thức <strong>%1</"
 "strong> đã báo một lỗi nội bộ: %2."
 
-#: core/job_error.cpp:1082
+#: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2059,12 +2065,12 @@ msgstr ""
 "máy chủ. Vui lòng cân nhắc việc gửi một bản báo lỗi đầy đủ như trình bày bên "
 "dưới."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Liên hệ với quản trị viên của máy chủ để báo cho họ biết về vấn đề."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2073,12 +2079,12 @@ msgstr ""
 "Nếu bạn biết các tác giả của phần mềm máy chủ là ai, gửi bản báo lỗi trực "
 "tiếp cho họ."
 
-#: core/job_error.cpp:1094
+#: core/job_error.cpp:1093
 #, kde-format
 msgid "Timeout Error"
 msgstr "Lỗi hết giờ"
 
-#: core/job_error.cpp:1096
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2096,17 +2102,17 @@ msgstr ""
 "thể thay đổi các thiết lập thời hạn trong Thiết lập hệ thống KDE, bằng cách "
 "chọn Thiết lập mạng -> Các thiết lập kết nối."
 
-#: core/job_error.cpp:1109
+#: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Máy chủ quá bận với việc hồi đáp các yêu cầu khác, không hồi đáp được."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Lỗi không rõ"
 
-#: core/job_error.cpp:1117
+#: core/job_error.cpp:1116
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2115,12 +2121,12 @@ msgstr ""
 "Chương trình trên máy tính của bạn mà cho phép truy cập vào giao thức "
 "<strong>%1</strong> đã báo một lỗi không rõ: %2."
 
-#: core/job_error.cpp:1127
+#: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Sự gián đoạn không rõ"
 
-#: core/job_error.cpp:1129
+#: core/job_error.cpp:1128
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2129,12 +2135,12 @@ msgstr ""
 "Chương trình trên máy tính của bạn mà cho phép truy cập vào giao thức "
 "<strong>%1</strong> đã báo một sự gián đoạn không rõ thuộc kiểu nào: %2."
 
-#: core/job_error.cpp:1139
+#: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Không xoá được tệp gốc"
 
-#: core/job_error.cpp:1141
+#: core/job_error.cpp:1140
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2144,12 +2150,12 @@ msgstr ""
 "Thao tác được yêu cầu đòi hỏi việc xoá tệp gốc, nhiều khả năng nhất là ở "
 "cuối của một thao tác chuyển tệp. Không xoá được tệp gốc <strong>%1</strong>."
 
-#: core/job_error.cpp:1150
+#: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Không xoá được tệp tạm"
 
-#: core/job_error.cpp:1152
+#: core/job_error.cpp:1151
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2159,12 +2165,12 @@ msgstr ""
 "Thao tác được yêu cầu đòi hỏi việc tạo một tệp tạm để lưu tệp mới vào khi "
 "đang được tải về. Không xoá được tệp tạm này <strong>%1</strong>."
 
-#: core/job_error.cpp:1162
+#: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Không đổi tên được tệp gốc"
 
-#: core/job_error.cpp:1164
+#: core/job_error.cpp:1163
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2173,12 +2179,12 @@ msgstr ""
 "Thao tác được yêu cầu đòi hỏi việc đổi tên tệp gốc <strong>%1</strong>, tuy "
 "nhiên không đổi tên được nó."
 
-#: core/job_error.cpp:1173
+#: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Không đổi tên được tệp tạm"
 
-#: core/job_error.cpp:1175
+#: core/job_error.cpp:1174
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2187,32 +2193,32 @@ msgstr ""
 "Thao tác được yêu cầu đòi hỏi việc tạo một tệp tạm <strong>%1</strong>, tuy "
 "nhiên không tạo được nó."
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Không tạo được liên kết"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Không tạo được liên kết tượng trưng"
 
-#: core/job_error.cpp:1186
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Không tạo được liên kết tượng trưng được yêu cầu %1."
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1191
 #, kde-format
 msgid "No Content"
 msgstr "Không có nội dung"
 
-#: core/job_error.cpp:1197
+#: core/job_error.cpp:1196
 #, kde-format
 msgid "Disk Full"
 msgstr "Đĩa đầy"
 
-#: core/job_error.cpp:1199
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2221,7 +2227,7 @@ msgstr ""
 "Không ghi được vào tệp yêu cầu <strong>%1</strong> vì không có đủ không gian "
 "đĩa."
 
-#: core/job_error.cpp:1203
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2232,29 +2238,29 @@ msgstr ""
 "trữ các tệp sang các thiết bị lưu trữ gắn ngoài như đĩa CD-R (CD ghi được); "
 "hoặc 3) kiếm thêm dung lượng lưu trữ."
 
-#: core/job_error.cpp:1210
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Tệp nguồn và đích giống nhau"
 
-#: core/job_error.cpp:1212
+#: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "Không hoàn tất được thao tác vì tệp nguồn và đích là cùng một tệp."
 
-#: core/job_error.cpp:1214
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Chọn một tên khác cho tệp đích."
 
-#: core/job_error.cpp:1218
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Tệp hoặc thư mục được thả lên chính nó"
 
-#: core/job_error.cpp:1220
+#: core/job_error.cpp:1219
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2262,17 +2268,17 @@ msgid ""
 msgstr ""
 "Không hoàn tất được thao tác vì tệp hay thư mục nguồn và đích là giống nhau."
 
-#: core/job_error.cpp:1222
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Thả thứ đó vào một tệp hoặc thư mục khác."
 
-#: core/job_error.cpp:1232
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Thư mục được chuyển vào trong chính nó"
 
-#: core/job_error.cpp:1234
+#: core/job_error.cpp:1233
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2280,17 +2286,17 @@ msgid ""
 msgstr ""
 "Không hoàn tất được thao tác vì không thể chuyển nguồn vào trong chính nó."
 
-#: core/job_error.cpp:1236
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Chuyển thứ đó vào trong một thư mục khác."
 
-#: core/job_error.cpp:1240
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Không liên lạc được với máy chủ mật khẩu"
 
-#: core/job_error.cpp:1242
+#: core/job_error.cpp:1241
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2299,32 +2305,36 @@ msgstr ""
 "Không hoàn tất được thao tác vì không liên hệ được với dịch vụ để yêu cầu "
 "mật khẩu (kpasswdserver)"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Thử khởi động lại phiên của bạn, hoặc tìm các lỗi đến từ kiod trong nhật kí."
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Không thể bắt đầu giao thức %1"
 
-#: core/job_error.cpp:1249
-#, kde-format
-msgid "Unable to Create io-slave"
+#: core/job_error.cpp:1248
+#, fuzzy, kde-format
+#| msgid "Unable to Create io-slave"
+msgid "Unable to Create KIO Worker"
 msgstr "Không thể tạo io-slave"
 
-#: core/job_error.cpp:1251
-#, kde-format
+#: core/job_error.cpp:1250
+#, fuzzy, kde-format
+#| msgid ""
+#| "The io-slave which provides access to the <strong>%1</strong> protocol "
+#| "could not be started. This is usually due to technical reasons."
 msgid ""
-"The io-slave which provides access to the <strong>%1</strong> protocol could "
-"not be started. This is usually due to technical reasons."
+"The KIO worker which provides access to the <strong>%1</strong> protocol "
+"could not be started. This is usually due to technical reasons."
 msgstr ""
 "Không khởi động được io-slave mà cho phép truy cập vào giao thức <strong>%1</"
 "strong>. Việc này thường là vì lí do kĩ thuật."
 
-#: core/job_error.cpp:1256
+#: core/job_error.cpp:1255
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
@@ -2334,13 +2344,13 @@ msgstr ""
 "đó. Điều này nghĩa là bạn có thể đang có một phiên bản lỗi thời của phần cài "
 "cắm này."
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Không thể truyền <filename>%1</filename>"
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2350,7 +2360,7 @@ msgstr ""
 "Không thể truyền tệp <filename>%1</filename>, vì hệ thống tệp đích không hỗ "
 "trợ tệp lớn như vậy"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2359,7 +2369,7 @@ msgstr ""
 "Hãy định dạng lại ổ đích để dùng một hệ thống tệp có hỗ trợ các tệp lớn như "
 "vậy."
 
-#: core/job_error.cpp:1272
+#: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Lỗi chưa được lập tài liệu"
@@ -2400,13 +2410,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Giao thức không rõ '%1'."
 
 #: core/slave.cpp:432
-#, kde-format
-msgid "Can not find io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Không thể tìm thấy io-slave cho giao thức '%1'."
 
 #: core/slave.cpp:440
-#, kde-format
-msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Không thể tạo ổ cắm để khởi chạy io-slave cho giao thức '%1'."
 
 #: core/slave.cpp:480
@@ -4388,7 +4400,23 @@ msgid "&Management"
 msgstr "&Quản lí"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#| "using the HTTP protocol (like Konqueror) store on your computer, "
+#| "initiated by a remote Internet server. This means that a web server can "
+#| "store information about you and your browsing activities on your machine "
+#| "for later use. You might consider this an invasion of privacy.</p><p> "
+#| "However, cookies are useful in certain situations. For example, they are "
+#| "often used by Internet shops, so you can 'put things into a shopping "
+#| "basket'. Some sites require you have a browser that supports cookies.</"
+#| "p><p> Because most people want a compromise between privacy and the "
+#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
+#| "customize the way it handles cookies. So you might want to set the "
+#| "default policy to ask you whenever a server wants to set a cookie, "
+#| "allowing you to decide. For your favorite shopping web sites that you "
+#| "trust, you might want to set the policy to accept, then you can access "
+#| "the web sites without being prompted every time a cookie is received.</p>"
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4398,12 +4426,13 @@ msgid ""
 "useful in certain situations. For example, they are often used by Internet "
 "shops, so you can 'put things into a shopping basket'. Some sites require "
 "you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP kioslave "
-"offers you the ability to customize the way it handles cookies. So you might "
-"want to set the default policy to ask you whenever a server wants to set a "
-"cookie, allowing you to decide. For your favorite shopping web sites that "
-"you trust, you might want to set the policy to accept, then you can access "
-"the web sites without being prompted every time a cookie is received.</p>"
+"compromise between privacy and the benefits cookies offer, the HTTP KIO "
+"worker offers you the ability to customize the way it handles cookies. So "
+"you might want to set the default policy to ask you whenever a server wants "
+"to set a cookie, allowing you to decide. For your favorite shopping web "
+"sites that you trust, you might want to set the policy to accept, then you "
+"can access the web sites without being prompted every time a cookie is "
+"received.</p>"
 msgstr ""
 "<h1>Bánh quy</h1><p>Bánh quy chứa thông tin mà các ứng dụng KDE dùng giao "
 "thức HTTP (như Konqueror) lưu trên máy tính của bạn, được bắt đầu bởi một "
@@ -5639,9 +5668,17 @@ msgid "Default password:"
 msgstr "Mật khẩu mặc định:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#| "properly configured.</p><p>You can specify here the credentials used to "
+#| "access the shared resources. Passwords will be stored locally, and "
+#| "scrambled so as to render them unreadable to the human eye. For security "
+#| "reasons, you may not want to do that, as entries with passwords are "
+#| "clearly indicated as such.</p>"
 msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
 "properly configured.</p><p>You can specify here the credentials used to "
 "access the shared resources. Passwords will be stored locally, and scrambled "

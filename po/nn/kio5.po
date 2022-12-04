@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:42+0000\n"
+"POT-Creation-Date: 2022-12-03 00:42+0000\n"
 "PO-Revision-Date: 2022-10-30 09:53+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3078,7 +3078,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Skrivebord"
 
-#: filewidgets/kfileplacesmodel.cpp:303 filewidgets/kfileplacesmodel.cpp:462
+#: filewidgets/kfileplacesmodel.cpp:303
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Dokument"
@@ -3108,7 +3108,7 @@ msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Bilete"
 
-#: filewidgets/kfileplacesmodel.cpp:397 filewidgets/kfileplacesmodel.cpp:474
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videofiler"
@@ -3133,91 +3133,81 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Endra i går"
 
-#: filewidgets/kfileplacesmodel.cpp:466
-msgctxt "KFile System Bookmarks"
-msgid "Images"
-msgstr "Bilete"
-
-#: filewidgets/kfileplacesmodel.cpp:470
-msgctxt "KFile System Bookmarks"
-msgid "Audio"
-msgstr "Lyd"
-
-#: filewidgets/kfileplacesmodel.cpp:1161
+#: filewidgets/kfileplacesmodel.cpp:1144
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Klarte ikkje leggja til i «Stadar»-panelet: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1168
+#: filewidgets/kfileplacesmodel.cpp:1151
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Du kan berre leggja mapper til «Stadar»-panelet."
 
-#: filewidgets/kfileplacesmodel.cpp:1432
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Slepper laus …"
 
 # Er snakk om CD-ROM-ar og sånt. Så vidt eg kan sjå, er det tilsvarande som for «Eject», så brukar same omsetjing.
-#: filewidgets/kfileplacesmodel.cpp:1434
+#: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Løys ut"
 
-#: filewidgets/kfileplacesmodel.cpp:1438
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Fjernar trygt …"
 
-#: filewidgets/kfileplacesmodel.cpp:1440
+#: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Fjern trygt"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Avmonterer …"
 
-#: filewidgets/kfileplacesmodel.cpp:1447
+#: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Avmonter"
 
-#: filewidgets/kfileplacesmodel.cpp:1471
+#: filewidgets/kfileplacesmodel.cpp:1454
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Løys ut"
 
-#: filewidgets/kfileplacesmodel.cpp:1518
+#: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Eininga «%1» er ikkje ei plate, og kan derfor ikkje løysast ut."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Det oppstod ein feil ved forsøk på tilgang til «%1». Systemet sa: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Det oppstod ein feil ved forsøk på tilgang til «%1»"
 
-#: filewidgets/kfileplacesmodel.cpp:1581
+#: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "Éi eller fleire filer på eininga er i bruk av eit program."
 
-#: filewidgets/kfileplacesmodel.cpp:1584
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application "
@@ -3232,7 +3222,7 @@ msgstr[1] ""
 "Éi eller fleire filer på eininga er i bruk av desse programma: "
 "<application>«%2»</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1587
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
@@ -5228,16 +5218,9 @@ msgid ""
 "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>.<p>\n"
 "<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions. If you encounter a problem when using this option, "
-"please check the FAQ section at https://konqueror.org.\n"
+"UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
-"<qt>\n"
-"Finn og set opp mellomtenarinnstillingar automatisk.<p>Automatisk søk vert "
-"utført med protokollen <b>Web Proxy Auto-Discovery Protocol (WPAD)</b>."
-"<p><b>MERK:</b> Dette fungerer kanskje ikkje rett, eller ikkje i det heile, "
-"på enkelte Unix/Linux-distribusjonar. Dersom du får problem med å bruka "
-"dette valet, bør du sjå etter i FAQ-delen på https://konqueror.org/.</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49

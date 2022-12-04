@@ -105,15 +105,6 @@
 > (Web Proxy Auto-Discovery ou <acronym
 >WPAD</acronym
 >).</para>
-
-<note
-><para
->En cas de problème d'utilisation de ce réglage, veuillez consulter la section <acronym
->FAQ</acronym
-> sur <ulink url="http://www.konqueror.org"
->http://www.konqueror.org</ulink
-> pour plus d'informations.</para
-></note>
 </listitem>
 </varlistentry>
 

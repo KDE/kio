@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:42+0000\n"
+"POT-Creation-Date: 2022-12-04 00:42+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -49,8 +49,9 @@ msgstr ""
 "des droets assez sol fitchî po fé on sfwait candjmint.</qt>"
 
 #: core/connectionbackend.cpp:108
-#, kde-format
-msgid "Unable to create io-slave: %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave: %1"
+msgid "Unable to create KIO worker: %1"
 msgstr "Dji n' sai fé li module vårlet d' intrêye/sôrteye: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
@@ -88,13 +89,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:582
+#: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Li ridant egzistêye dedja"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:571 widgets/paste.cpp:80
+#: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Ci fitchî la egzistêye dedja"
@@ -810,7 +811,7 @@ msgstr ""
 #: core/job_error.cpp:245
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
-msgid "Unable to create io-slave. %1"
+msgid "Unable to create KIO worker. %1"
 msgstr "Dji n' sai fé li module vårlet d' intrêye/sôrteye: %1"
 
 #: core/job_error.cpp:249
@@ -1212,27 +1213,26 @@ msgstr ""
 #| "include <a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a "
 #| "href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgid ""
-"You may perform a search on the Internet for a KDE program (called a "
-"kioslave or ioslave) which supports this protocol. Places to search include "
-"<a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and <a href="
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"You may perform a search on the Internet for a software plugin (called a "
+"\"KIO worker\") which supports this protocol. Places to search include <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "Vos poloz cachî so l' Internet après on programe KDE (lomé kioslave ou "
 "ioslave) ki sopoite ci protocole ci. Les plaeces k' il î fåt cweri sont<a "
 "href=\"http://apps.kde.com/\">http://apps.kde.com/</a> eyet <a href=\"http://"
 "freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Li hårdêye ni s' rapoite a nole rissoûce."
 
-#: core/job_error.cpp:512
+#: core/job_error.cpp:511
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Ci protocole ci est on protocole di passaedje."
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:513
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1241,7 +1241,7 @@ msgstr ""
 "L' URL (<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator) ki vs avoz dné ni s' rapoite a nole metowe rissoûce."
 
-#: core/job_error.cpp:518
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1254,12 +1254,12 @@ msgstr ""
 "vaici.  Ça n' duvreut ariver ki rålmint et, do côp, c' est motoit ene "
 "biestreye di programaedje."
 
-#: core/job_error.cpp:526
+#: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Accion nén sopoirtêye: %1"
 
-#: core/job_error.cpp:528
+#: core/job_error.cpp:527
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1268,7 +1268,7 @@ msgstr ""
 "L' accion k' vos avoz dmandé n' est nén sopoirtêye do programe KDE ki mete "
 "èn ouve li protocole <strong>%1</strong>."
 
-#: core/job_error.cpp:532
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1279,17 +1279,17 @@ msgstr ""
 "duvrént dner di pus d' racsegnes ki çou k' i gn a moyén d' aveur avou les "
 "intrêyes et les sôrteyes di  KDE."
 
-#: core/job_error.cpp:536
+#: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Sayîz do trover ene ôte façon do-z abouti å minme rizultat."
 
-#: core/job_error.cpp:541
+#: core/job_error.cpp:540
 #, kde-format
 msgid "File Expected"
 msgstr "I faleut on fitchî"
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:542
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1298,17 +1298,17 @@ msgstr ""
 "Avou vosse dimande, i faleut on fitchî. Mins c' est l' ridant <strong>%1</"
 "strong> k' a stî rçû el plaece."
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Ça pôreut esse ene sacwè ki n' va nén do costé do sierveu."
 
-#: core/job_error.cpp:551
+#: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
 msgstr "I faleut on ridant"
 
-#: core/job_error.cpp:553
+#: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1317,67 +1317,67 @@ msgstr ""
 "Avou vosse dimande, i faleut on ridant. Mins c' est l' fitchî <strong>%1</"
 "strong> k' a stî rçû el plaece."
 
-#: core/job_error.cpp:561
+#: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Li fitchî ou li ridant n' egzistêye nén."
 
-#: core/job_error.cpp:563
+#: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Li fitchî ou li ridant dné <strong>%1</strong> n' egzistêye nén."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr "Dji n' sai fé l' fitchî dmandé, ca gn a ddja èn ôte k' a l' minme no."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Sayîz do bodjî l' fitchî k' egzistêye dedja po cmincî.  Adon, rissayîz."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Disfacer li fitchî do moumint et sayî co on côp."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Tchoezixhoz èn ôte no pol novea fitchî."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:583
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "Dji n' sai fé l' ridant dmandé, ca gn a ddja èn ôte k' a l' minme no."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Sayîz do bodjî l' ridant k' egzistêye dedja po cmincî. Adon, rissayîz."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Disfacer li ridant do moumint et sayî co on côp."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Tchoezixhoz èn ôte no pol novea ridant."
 
-#: core/job_error.cpp:593
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
 msgstr "Lodjoe nén cnoxhou"
 
-#: core/job_error.cpp:595
+#: core/job_error.cpp:594
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1387,7 +1387,7 @@ msgstr ""
 "l' no k' vos avoz dmandé (<strong>%1</strong> n' a nén stî trové avå "
 "l' daegntoele."
 
-#: core/job_error.cpp:600
+#: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1395,43 +1395,43 @@ msgstr ""
 "Kéke feye ki li no k' vos avoz tapé (%1) n' egzistêye nén, ou bén k' vos "
 "l' avoz må tapé."
 
-#: core/job_error.cpp:608
+#: core/job_error.cpp:607
 #, kde-format
 msgid "Access Denied"
 msgstr "Disfinse di moussî."
 
-#: core/job_error.cpp:610
+#: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Vos n' avoz nén l' droet d' eployî li rsoûce <strong>%1</strong>."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Motoit avoz dné des infôrmåcions d' aveurixhmint ki n' sont nén djusses, ou "
 "nole."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Motoit k' vosse conte ni v' dene nén l' droet d' eployî li rsoûce ki vos "
 "djhoz."
 
-#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
+#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr "Sayîz do ridmander et waitîz k' vos avoz tapé totafwait comifåt."
 
-#: core/job_error.cpp:629
+#: core/job_error.cpp:628
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Vos n' avoz nén les droets po scrire."
 
-#: core/job_error.cpp:631
+#: core/job_error.cpp:630
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1440,12 +1440,12 @@ msgstr ""
 "Ça vout dire k' ene saye po scrire e fitchî<strong>%1</strong> n' a nén "
 "adiercî."
 
-#: core/job_error.cpp:639
+#: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Dji n' sai moussî e ridant"
 
-#: core/job_error.cpp:641
+#: core/job_error.cpp:640
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1454,17 +1454,17 @@ msgstr ""
 "Ça vout dire k' ene saye po moussî e ridant dmandé (ou l' drovi) <strong>%1</"
 "strong> a stî rfuzêye."
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Dji n' sai håyner l' djivêye di l' ådvins do ridant."
 
-#: core/job_error.cpp:650
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Li protocole %1 n' est nén on sistinme di fitchî."
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:651
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1475,12 +1475,12 @@ msgstr ""
 "dvins d' on ridant, mins ki l' programe KDE ki sopoite ci protocole la n' a "
 "nén parvinou al fé."
 
-#: core/job_error.cpp:660
+#: core/job_error.cpp:659
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Betchfessî loyén di trové"
 
-#: core/job_error.cpp:662
+#: core/job_error.cpp:661
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1493,7 +1493,7 @@ msgstr ""
 "di loyéns ki sont betchfessîs, ça vout dire ki l' fitchî est aloyî a lu "
 "minme (kécfeye nén tot droet)."
 
-#: core/job_error.cpp:667 core/job_error.cpp:693
+#: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1502,27 +1502,27 @@ msgstr ""
 "Disfacez on boket ou l' ôte po n' pus k' les fitchîs soeyexhe betchfessîs.  "
 "Adon, rissayîz."
 
-#: core/job_error.cpp:677
+#: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Dimande anulêye pa l' uzeu"
 
-#: core/job_error.cpp:679 core/job_error.cpp:1068
+#: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Li dmande n' a nén abouti, ca elle a stî anulêye."
 
-#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
+#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
 msgstr "Rissayîz li dmande."
 
-#: core/job_error.cpp:685
+#: core/job_error.cpp:684
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Dj' a trové on betchfessî loyén come dji fjheu l' copiaedje"
 
-#: core/job_error.cpp:687
+#: core/job_error.cpp:686
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1535,17 +1535,17 @@ msgstr ""
 "dmandé, KDE a trové on loyén ou ene séreye di loyéns ki sont betchfessîs, ça "
 "vout dire ki l' fitchî est aloyî a lu minme (kécfeye nén tot droet)."
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Dji n' sai fé l' raloyaedje rantoele"
 
-#: core/job_error.cpp:700
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Dji n' sai fé l' soket"
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:701
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1554,8 +1554,8 @@ msgstr ""
 "C' est ene aroke foirt tecnike: i n' a nén avou moyén d' emantchî ene usteye "
 "k' i fåt po les rantoeles (on soket)."
 
-#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
-#: core/job_error.cpp:878
+#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:877
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1564,19 +1564,19 @@ msgstr ""
 "Ça s' pôreut ki l' raloyaedje a l' rantoele ni soeye nén bén apontieye ou ki "
 "l' eterface del rantoele ni soeye nén èn alaedje."
 
-#: core/job_error.cpp:711
+#: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Raloyaedje å sierveu rifuzé"
 
-#: core/job_error.cpp:713
+#: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "Li sierveu <strong>%1</strong> a rfuzé ki ciste éndjole ci si raloye."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1585,7 +1585,7 @@ msgstr ""
 "Ça s' pôreut ki ç' sierveu la, minme s' il est raloyî al daegntoele ni soeye "
 "nén apontyî po s' leyî raloyî."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1594,7 +1594,7 @@ msgstr ""
 "Ca bén ki l' sierveu est raloyî al daegntoele pol moumint, ça s' pôreut ki "
 "l' siervice dimandé ni toûne nén dsu pol moumint (%1)."
 
-#: core/job_error.cpp:724
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1605,12 +1605,12 @@ msgstr ""
 "les dmandes Internet) k' a espaitchî cisse dimande di passer, soeye-t i so "
 "vosse rantoele ou sol rantoele do sierveu."
 
-#: core/job_error.cpp:731
+#: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Li raloyaedje å sierveu a stî côpé sins prévni"
 
-#: core/job_error.cpp:733
+#: core/job_error.cpp:732
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1619,7 +1619,7 @@ msgstr ""
 "Ca bén k' i gn a-st avou on raloyaedje di fwait a <strong>%1</strong>, li "
 "raloyaedje a stî côpé par après d' ene façon inatindowe."
 
-#: core/job_error.cpp:739
+#: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1628,17 +1628,17 @@ msgstr ""
 "Kéke feye gn a-st i avou ene aroke e protocole.  Do côp, li sierveu årè côpé "
 "l' raloyaedje come response a l' aroke."
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Rissoûce d' URL nén valide"
 
-#: core/job_error.cpp:746
+#: core/job_error.cpp:745
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Li protocole %1 n' est nén on protocole di passaedje."
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:747
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1649,7 +1649,7 @@ msgstr ""
 "strong>ocator) ki vs avoz dné ni corespond nén a on mecanisse valåbe po-z "
 "eployî cisse rissoûce la <strong>%1%2</strong>."
 
-#: core/job_error.cpp:755
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1662,17 +1662,17 @@ msgstr ""
 "djustumint nén l' cas vaici. I s' adjixh d' åk di råle, seur ene sacwè ki "
 "n' va nén e programaedje."
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:762
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Nén moyén d' enonder l' éndjin des intrêyes et des sôrteyes"
 
-#: core/job_error.cpp:764
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Dji n' sai monter l' éndjin"
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:765
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1681,7 +1681,7 @@ msgstr ""
 "N' a nén avou moyén d' enonder (monter) l' éndjin k' vos avoz dmandé. "
 "L' aroke rapoirtêye est: <strong>%1</strong>"
 
-#: core/job_error.cpp:770
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1693,7 +1693,7 @@ msgstr ""
 "léjhrece).  Ou bén, si c' est èn aidant éndjin ou èn axhlåve éndjin, kéke "
 "feye k' i n' est bén raloyî."
 
-#: core/job_error.cpp:775
+#: core/job_error.cpp:774
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1704,7 +1704,7 @@ msgstr ""
 "sistinmes UNIX, i v' fåt sovint les droets d' on manaedjeu do sistinme po-z "
 "enonder èn éndjin."
 
-#: core/job_error.cpp:780
+#: core/job_error.cpp:779
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1713,17 +1713,17 @@ msgstr ""
 "Verifyîz ki l' éndjin est presse. Les léjhrece, i fåt on sopoirt divins.  "
 "Les axhlåves éndjins dvèt esse raloyîs comifåt et aloumé.  Sayîz co 'ne feye."
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Nén moyén do dliberer l' éndjin des intrêyes eyet des sôrteyes"
 
-#: core/job_error.cpp:788
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Dji n' sai dismonter l' éndjin"
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:789
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1732,7 +1732,7 @@ msgstr ""
 "N' a nén avou moyén d' diliberer (dismonter) l' éndjin k' vos avoz dmandé. "
 "L' aroke rapoirtêye est: <strong>%1</strong>"
 
-#: core/job_error.cpp:794
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1743,7 +1743,7 @@ msgstr ""
 "uzeu s' e sieve co pol moumint.  Ça pout esse, metans, ene finiesse d' on "
 "betchteu å lådje so 'n eplaeçmint loyî a çt éndjin la"
 
-#: core/job_error.cpp:799
+#: core/job_error.cpp:798
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1754,19 +1754,19 @@ msgstr ""
 "sistinmes UNIX, i v' fåt sovint les droets d' on manaedjeu do sistinme po "
 "dliberer èn éndjin."
 
-#: core/job_error.cpp:804
+#: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Loukîz s' i gn a nén des programes k' eployèt çt éndjin la pol moumint. Adon "
 "rsayîz."
 
-#: core/job_error.cpp:810
+#: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Dji n' sai lére l' ådvins del rissoûce"
 
-#: core/job_error.cpp:812
+#: core/job_error.cpp:811
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1775,18 +1775,18 @@ msgstr ""
 "Ça vout dire ki mågré k' i gn a-st avou moyén do drovi li rsoûce (<strong>"
 "%1</strong>), åk n' a nén stî come dji sayive do lére çou k' i gn a å dvins."
 
-#: core/job_error.cpp:816
+#: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr ""
 "Motoit n' avoz nén l' droet po lére çou k' i gn a å dvins del rissoûce."
 
-#: core/job_error.cpp:829
+#: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Dji n' sai scrire dins li rsoûce"
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:830
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1795,22 +1795,22 @@ msgstr ""
 "Ça vout dire ki mågré k' i gn a-st avou moyén do drovi li rsoûce (<strong>"
 "%1</strong>), åk n' a nén stî come dji sayive do scrire å dvins."
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Motoit n' avoz nén l' droet po scrire divins l' rissoûce."
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Dji n' sai schoûter les raloyaedjes al rantoele"
 
-#: core/job_error.cpp:848
+#: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Nén moyén do loyî"
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1821,17 +1821,17 @@ msgstr ""
 "k' i fåt po les rantoeles (on soket) et po saveur schoûter les raloyaedjes "
 "po-z intrer dins l' rantoele."
 
-#: core/job_error.cpp:861
+#: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Dji n' sai schoûter"
 
-#: core/job_error.cpp:873
+#: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Nén moyén d' accepter l' raloyaedje al rantoele"
 
-#: core/job_error.cpp:875
+#: core/job_error.cpp:874
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1840,34 +1840,34 @@ msgstr ""
 "C' est ene aroke foirt tecnike: i n' a nén avou moyén d' accepter on "
 "raloyaedje po-z intrer dins l' rantoele."
 
-#: core/job_error.cpp:880
+#: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Motoit k' vos n' avoz nén les droets po-z accepter on raloyaedje."
 
-#: core/job_error.cpp:885
+#: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Dji n' parvén nén a moussî: %1"
 
-#: core/job_error.cpp:887
+#: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "Li saye po rintrer el session po fé l' operåcion dmandêye n' a nén adiercî."
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Dji n' sai dire l' estat del rissoûce"
 
-#: core/job_error.cpp:904
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Dji n' sai analijhî li rsoûce"
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:905
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1876,70 +1876,70 @@ msgstr ""
 "Ene saye po vey cwè åd fwait del rissoûce <strong>%1</strong> (metans: si "
 "no, si sôre, si grandeu, evnd.) a fwait berwete."
 
-#: core/job_error.cpp:911
+#: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr ""
 "Kéke feye ki cisse rissoûce la n' egzistêye nén, ou don bén dji nel sai lére."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:922
+#: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Dji n' sai anuler li listaedje"
 
-#: core/job_error.cpp:923
+#: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "A FÉ: documinter çouchal"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Dji n' sai fé l' ridant"
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Ene saye po fé l' ridant dmandé a fwait berwete."
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr ""
 "Kécfeye ki l' eplaeçmint eyu çk' i faleut fé l' ridant n' egzistêye nén."
 
-#: core/job_error.cpp:940
+#: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Dji n' sai oister l' ridant"
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Ene saye po oister l' ridant <strong>%1</strong> a fwait berwete."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Kécfeye ki ç' ridant la n' egzistêye nén."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Kécfeye ki ç' ridant la n' est nén vude."
 
-#: core/job_error.cpp:950
+#: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Loukîz si l' ridant egzistêye ey est bén vude. Adon, rissayîz."
 
-#: core/job_error.cpp:956
+#: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Dji n' a savou rataker a berweter l' fitchî"
 
-#: core/job_error.cpp:958
+#: core/job_error.cpp:957
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1948,35 +1948,35 @@ msgstr ""
 "Shuvant li dmande, li berwetaedje do fitchî<strong>%1</strong> diveut "
 "rataker a on metou pont, mins ci n' esteut nén possibe."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Téle feye ki l' protocole ou l' sierveu ni permetèt nén do rataker a "
 "berweter les fitchîs."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Rissayî vosse dimande, sins dmander ki l' berwetaedje ratake."
 
-#: core/job_error.cpp:971
+#: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Dji n' a savou rlomer l' rissoûce."
 
-#: core/job_error.cpp:973
+#: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Ene saye po rlomer li rsoûce sipecifieye <strong>%1</strong> a fwait berwete."
 
-#: core/job_error.cpp:984
+#: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Dji n' a savou candjî les droets so li rsoûce"
 
-#: core/job_error.cpp:986
+#: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1985,12 +1985,12 @@ msgstr ""
 "Ene saye po candjî les droets so l' rissoûce sipecifieye <strong>%1</strong> "
 "a fwait berwete."
 
-#: core/job_error.cpp:994
+#: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Dji n' a savou candjî l' propietaire del rissoûce"
 
-#: core/job_error.cpp:996
+#: core/job_error.cpp:995
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1999,24 +1999,24 @@ msgstr ""
 "Ene saye po candjî les droets sol rissoûce sipecifieye <strong>%1</strong> a "
 "fwait berwete."
 
-#: core/job_error.cpp:1004
+#: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Dji n' a savou disfacer li rsoûce"
 
-#: core/job_error.cpp:1006
+#: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Ene saye po disfacer li rsoûce sipecifieye <strong>%1</strong> a fwait "
 "berwete."
 
-#: core/job_error.cpp:1014
+#: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Difén inatindowe do programe"
 
-#: core/job_error.cpp:1016
+#: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2025,12 +2025,12 @@ msgstr ""
 "Li programe di voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> s' a djoké d' ene façon inatindowe."
 
-#: core/job_error.cpp:1024
+#: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
 msgstr "Pupont d' memwere"
 
-#: core/job_error.cpp:1026
+#: core/job_error.cpp:1025
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2039,12 +2039,12 @@ msgstr ""
 "Li programe di voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> n' a nén avou tote li memwere k' il a dandjî po continouwer."
 
-#: core/job_error.cpp:1035
+#: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Procsi nén cnoxhou "
 
-#: core/job_error.cpp:1037
+#: core/job_error.cpp:1036
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2055,7 +2055,7 @@ msgstr ""
 "dj' a rçû on messaedje 'Lodjoe nén cnoxhou'. Ene aroke insi, ça vout dire ki "
 "l' no k' vos avoz dmandé n' a nén stî trové sol daegntoele."
 
-#: core/job_error.cpp:1043
+#: core/job_error.cpp:1042
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2066,17 +2066,17 @@ msgstr ""
 "rantoele, dandjureu li no d' lodjoe do procsi. Mins nerén, si vs avoz stî "
 "sol daegntoele dins rujhes dierinnmint, ci n' est dandjureus nén çoula."
 
-#: core/job_error.cpp:1047
+#: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Riwaitîz comifåt l' apontiaedje di vosse procsi, et rsayîz."
 
-#: core/job_error.cpp:1051
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "L' aveurixhmint a fwait berwete: li metôde %1 n' est nén sopoirtêye."
 
-#: core/job_error.cpp:1053
+#: core/job_error.cpp:1052
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2088,7 +2088,7 @@ msgstr ""
 "ki l' sierveu eploye n' est nén sopoirtêye pal programe KDE ki mete èn ouve "
 "li protocole %1."
 
-#: core/job_error.cpp:1059
+#: core/job_error.cpp:1058
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -2101,17 +2101,17 @@ msgstr ""
 "bugs.kde.org/</a> po mete l' ekipe KDE å corant k' i gn a ene metôde "
 "d' aveurixhmint ki n' est nén sopoirtêye."
 
-#: core/job_error.cpp:1066
+#: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
 msgstr "Dimandêye côpêye"
 
-#: core/job_error.cpp:1074
+#: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Divintrinne aroke sol sierveu"
 
-#: core/job_error.cpp:1076
+#: core/job_error.cpp:1075
 #, fuzzy, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2120,7 +2120,7 @@ msgstr ""
 "Li programe sol sierveu ki vs permete d' eployî li protocole <strong>%1</"
 "strong> rapoite k' i gn a-st avou ene divintrinne aroke: %0."
 
-#: core/job_error.cpp:1082
+#: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2129,14 +2129,14 @@ msgstr ""
 "C' est dandjureu on bug les cåzes, dins l' programe sol sierveu. Ci sereut "
 "bén si vs evoyrîz on rapoirt di bug del façon esplikêye vaici pa dzo."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr ""
 "Atôchîz l' manaedjeu do sierveu po l' advierti k' i gn a 'ne sacwè ki n' va  "
 "nén."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2145,12 +2145,12 @@ msgstr ""
 "Si vs savoz kî çki c' est les oteurs do programe sol sierveu, c' est co mî "
 "d' elzî evoyî vosse rapoirt tot droet."
 
-#: core/job_error.cpp:1094
+#: core/job_error.cpp:1093
 #, kde-format
 msgid "Timeout Error"
 msgstr "Aroke di ratindaedje"
 
-#: core/job_error.cpp:1096
+#: core/job_error.cpp:1095
 #, fuzzy, kde-format
 #| msgid ""
 #| "Although contact was made with the server, a response was not received "
@@ -2175,18 +2175,18 @@ msgstr ""
 "li> </ul> Vos poloz candjî li tins di ratindaedje e l' aisse di minaedje di "
 "KDE, tot tchoezixhant Rantoele -> Preferinces."
 
-#: core/job_error.cpp:1109
+#: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Li sierveu esteut trop ocupé a responde a des ôtès dmandes po responde."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Aroke nén cnoxhowe"
 
-#: core/job_error.cpp:1117
+#: core/job_error.cpp:1116
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2195,12 +2195,12 @@ msgstr ""
 "Li programe so voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> rapoite ene aroke nén ricnoxhowe: %2."
 
-#: core/job_error.cpp:1127
+#: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Interompaedje nén cnoxhou"
 
-#: core/job_error.cpp:1129
+#: core/job_error.cpp:1128
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2209,12 +2209,12 @@ msgstr ""
 "Li programe so voste éndjole ki vs permete d' eployî li protocole <strong>"
 "%1</strong> rapoite èn interompaedje d' ene sôre nén ricnoxhowe: %2."
 
-#: core/job_error.cpp:1139
+#: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Dji n' sai disfacer li fitchî d' oridjene"
 
-#: core/job_error.cpp:1141
+#: core/job_error.cpp:1140
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2225,12 +2225,12 @@ msgstr ""
 "pus seur al difén d' on bodjaedje di fitchî. Seulmint, n' a nén avou moyén "
 "do disfacer li fitchî d' oridjene <strong>%1</strong>."
 
-#: core/job_error.cpp:1150
+#: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Dji n' sai disfacer li fitchî timporaire"
 
-#: core/job_error.cpp:1152
+#: core/job_error.cpp:1151
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2241,12 +2241,12 @@ msgstr ""
 "schaper li novea fitchî tins k' dji l' aberwetéve.  Seulmint, ci fitchî "
 "timporaire la, <strong>%1</strong>, i n' a nén avou moyén del disfacer."
 
-#: core/job_error.cpp:1162
+#: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Dji n' sai rlomer l' fitchî d' oridjene"
 
-#: core/job_error.cpp:1164
+#: core/job_error.cpp:1163
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2255,12 +2255,12 @@ msgstr ""
 "Po fé çou k' vos avoz dmandé, i faleut rlomer li fitchî d' oridjene <strong>"
 "%1</strong>, mins dji n' l' a savou rlomer."
 
-#: core/job_error.cpp:1173
+#: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Dji n' sai rlomer l' fitchî timporaire"
 
-#: core/job_error.cpp:1175
+#: core/job_error.cpp:1174
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2269,32 +2269,32 @@ msgstr ""
 "Po fé çou k' vos avoz dmandé, i faleut fé on fitchî timporaire: <strong>%1</"
 "strong>. Seulmint, ci fitchî timporaire la,  i n' a nén avou moyén del fé."
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Dji n' sai fé l' loyén"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Dji n' sai fé on loyén simbolike"
 
-#: core/job_error.cpp:1186
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Dji n' a savou fé l' loyén simbolike dimandé: %1."
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1191
 #, kde-format
 msgid "No Content"
 msgstr "Rén å dvins"
 
-#: core/job_error.cpp:1197
+#: core/job_error.cpp:1196
 #, kde-format
 msgid "Disk Full"
 msgstr "Deure plake forrimpleye"
 
-#: core/job_error.cpp:1199
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2303,7 +2303,7 @@ msgstr ""
 "Li fitchî k' vos avoz dmandé, <strong>%1</strong>, dji n' l' a savou scrire, "
 "ca gn a nén del plaece assez sol deure plake."
 
-#: core/job_error.cpp:1203
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2315,12 +2315,12 @@ msgstr ""
 "bodjåves sopoirts, metans des CD eredjîstråves; (3) tirer vosse plan po-z "
 "aveur di pus d' plaece."
 
-#: core/job_error.cpp:1210
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Li fitchî sourdant eyet l' fitchî såme son les minmes"
 
-#: core/job_error.cpp:1212
+#: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2329,18 +2329,18 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1214
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Tchoezixhoz èn ôte no d' fitchî come såme."
 
-#: core/job_error.cpp:1218
+#: core/job_error.cpp:1217
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Li fitchî ou li ridant n' egzistêye nén."
 
-#: core/job_error.cpp:1220
+#: core/job_error.cpp:1219
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2352,20 +2352,20 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1222
+#: core/job_error.cpp:1221
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "copyî l' fitchî ou ridant specifyî"
 
-#: core/job_error.cpp:1232
+#: core/job_error.cpp:1231
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Li fitchî ou li ridant n' egzistêye nén."
 
-#: core/job_error.cpp:1234
+#: core/job_error.cpp:1233
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2377,19 +2377,19 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1236
+#: core/job_error.cpp:1235
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "copyî l' fitchî ou ridant specifyî"
 
-#: core/job_error.cpp:1240
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1242
+#: core/job_error.cpp:1241
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2401,50 +2401,50 @@ msgstr ""
 "N' a nén avou moyén do fé çou k' vos avoz dmandé, ca l' fitchî sourdant eyet "
 "l' fitchî såme, c' est les minmes."
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Dji n' sai enonder li protocole %1."
 
-#: core/job_error.cpp:1249
+#: core/job_error.cpp:1248
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
-msgid "Unable to Create io-slave"
+msgid "Unable to Create KIO Worker"
 msgstr "Dji n' sai fé li module vårlet d' intrêye/sôrteye: %1"
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1250
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
 #| "strong> protocol could not be started. This is usually due to technical "
 #| "reasons."
 msgid ""
-"The io-slave which provides access to the <strong>%1</strong> protocol could "
-"not be started. This is usually due to technical reasons."
+"The KIO worker which provides access to the <strong>%1</strong> protocol "
+"could not be started. This is usually due to technical reasons."
 msgstr ""
 "Dji n' sai enonder li programe so voste éndjole ki v' permete d' eployî li "
 "protocole<strong>%1</strong>. Å pus sovint, c' est ene sacwè di tecnike ki "
 "n' va nén."
 
-#: core/job_error.cpp:1256
+#: core/job_error.cpp:1255
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2452,14 +2452,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1272
+#: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Aroke nén documintêye"
@@ -2501,14 +2501,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Protocole nén cnoxhou «%1»."
 
 #: core/slave.cpp:432
-#, kde-format
-msgid "Can not find io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 
 #: core/slave.cpp:440
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
-msgid "Can not create socket for launching io-slave for protocol '%1'."
+msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 
 #: core/slave.cpp:480
@@ -4603,12 +4604,13 @@ msgid ""
 "useful in certain situations. For example, they are often used by Internet "
 "shops, so you can 'put things into a shopping basket'. Some sites require "
 "you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP kioslave "
-"offers you the ability to customize the way it handles cookies. So you might "
-"want to set the default policy to ask you whenever a server wants to set a "
-"cookie, allowing you to decide. For your favorite shopping web sites that "
-"you trust, you might want to set the policy to accept, then you can access "
-"the web sites without being prompted every time a cookie is received.</p>"
+"compromise between privacy and the benefits cookies offer, the HTTP KIO "
+"worker offers you the ability to customize the way it handles cookies. So "
+"you might want to set the default policy to ask you whenever a server wants "
+"to set a cookie, allowing you to decide. For your favorite shopping web "
+"sites that you trust, you might want to set the policy to accept, then you "
+"can access the web sites without being prompted every time a cookie is "
+"received.</p>"
 msgstr ""
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
@@ -5766,7 +5768,7 @@ msgstr "Prémetou sicret:"
 #: kcms/smb/smbrodlg.cpp:122
 #, kde-format
 msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
 "properly configured.</p><p>You can specify here the credentials used to "
 "access the shared resources. Passwords will be stored locally, and scrambled "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:42+0000\n"
+"POT-Creation-Date: 2022-12-04 00:42+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -47,8 +47,9 @@ msgstr ""
 "onvoldoende toegang na die lêer om die verandering aan te bring.</qt>"
 
 #: core/connectionbackend.cpp:108
-#, kde-format
-msgid "Unable to create io-slave: %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave: %1"
+msgid "Unable to create KIO worker: %1"
 msgstr "Nie moontlik na skep io-slave: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
@@ -86,13 +87,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:582
+#: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Die Gids Bestaan Alreeds"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:571 widgets/paste.cpp:80
+#: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Die lêer Bestaan Alreeds"
@@ -804,7 +805,7 @@ msgstr ""
 #: core/job_error.cpp:245
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
-msgid "Unable to create io-slave. %1"
+msgid "Unable to create KIO worker. %1"
 msgstr "Nie moontlik na skep io-slave: %1"
 
 #: core/job_error.cpp:249
@@ -1202,34 +1203,33 @@ msgstr ""
 #| "include <a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> and <a "
 #| "href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgid ""
-"You may perform a search on the Internet for a KDE program (called a "
-"kioslave or ioslave) which supports this protocol. Places to search include "
-"<a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and <a href="
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"You may perform a search on the Internet for a software plugin (called a "
+"\"KIO worker\") which supports this protocol. Places to search include <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "Jy kan probeer om op die internet te soek vir 'n KDE program (wat 'n "
 "kioslave of ioslave genoem word) wat hierdie protokol ondersteun. Plekke om "
 "te soek sluit <a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> en "
 "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a> in."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Url Doen Nie Verwys na 'n Hulpbron."
 
-#: core/job_error.cpp:512
+#: core/job_error.cpp:511
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokol is 'n Filter Protokol"
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:513
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr "Die URL wat jy ingetik het verwys nie na 'n spesifieke hulpbron nie."
 
-#: core/job_error.cpp:518
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1242,12 +1242,12 @@ msgstr ""
 "is nie een van hierdie situasies. hierdie is 'n ongewone gebeurtenis, en is "
 "waarskynlik na aandui 'n programmering fout."
 
-#: core/job_error.cpp:526
+#: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Nie ondersteunde Aksie: %1"
 
-#: core/job_error.cpp:528
+#: core/job_error.cpp:527
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1256,7 +1256,7 @@ msgstr ""
 "Die versoekte aksie is nie ondersteunde deur Die Kde program wat is "
 "implementering Die <strong>%1</strong> protokol."
 
-#: core/job_error.cpp:532
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1267,17 +1267,17 @@ msgstr ""
 "informasie moet gee jy meer informasie as is beskikbaar na die Kde invoer/"
 "uitset argitektuur."
 
-#: core/job_error.cpp:536
+#: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Poog na soek nog 'n weg na bereik die selfde resultate."
 
-#: core/job_error.cpp:541
+#: core/job_error.cpp:540
 #, kde-format
 msgid "File Expected"
 msgstr "Lêer Verwag"
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:542
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1286,17 +1286,17 @@ msgstr ""
 "Die versoek het 'n lêer verwag, maar het egter die gids <strong>%1</strong> "
 "gevind."
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Hierdie dalk mag wees 'n fout op die bediener kant."
 
-#: core/job_error.cpp:551
+#: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
 msgstr "Gids Verwag"
 
-#: core/job_error.cpp:553
+#: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1305,17 +1305,17 @@ msgstr ""
 "Die versoek het 'n gids verwag, maar het egter die lêer <strong>%1</strong> "
 "gevind."
 
-#: core/job_error.cpp:561
+#: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Lêer of Gids Bestaan Nie"
 
-#: core/job_error.cpp:563
+#: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Die lêer of gids <strong>%1</strong> bestaan nie."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1324,24 +1324,24 @@ msgstr ""
 "Die versoekte lêer kon nie wees geskep omdat 'n lêer met Die selfde naam "
 "alreeds bestaan."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Probeer beweeg die huidige lêer uit van die weg eerste, en dan word Probeer "
 "weer."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Uitvee die huidige lêer en probeer weer."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Kies 'n alternatiwe lêernaam vir die nuwe lêer."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:583
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1350,28 +1350,28 @@ msgstr ""
 "Die gids kon nie geskep word nie, omdat 'n gids met dieselfde naam alreeds "
 "bestaan."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Probeer om eers die huidige gids uit die weg te ruim, en probeer dan weer."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Vee die huidige gids uit en probeer dan weer."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Kies 'n alternatiwe naam vir die nuwe gids."
 
-#: core/job_error.cpp:593
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
 msgstr "Onbekende Bediener"
 
-#: core/job_error.cpp:595
+#: core/job_error.cpp:594
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1380,7 +1380,7 @@ msgstr ""
 "'n onbekende bediener fout dui aan wat die bediener met die versoekte naam, "
 "<strong>%1</strong>, kon nie wees geleë op die Internet."
 
-#: core/job_error.cpp:600
+#: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1388,33 +1388,33 @@ msgstr ""
 "Die naam wat jy getikte, %1, dalk mag nie bestaan: dit dalk mag wees "
 "verkeerdelik getikte."
 
-#: core/job_error.cpp:608
+#: core/job_error.cpp:607
 #, kde-format
 msgid "Access Denied"
 msgstr "Toegang verkry Verbied"
 
-#: core/job_error.cpp:610
+#: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr ""
 "Toegang verkry was verbied na die gespesifiseer hulpbron, <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Jy dalk mag het verskaf verkeerd geldigheidsverklaring details of geen na "
 "alle."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Jou rekening dalk mag nie het reg na toegang verkry die gespesifiseer "
 "hulpbron."
 
-#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
+#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1423,12 +1423,12 @@ msgstr ""
 "Herprobeer die versoek en maak seker jou geldigheidsverklaring details word "
 "ingevoerde korrek."
 
-#: core/job_error.cpp:629
+#: core/job_error.cpp:628
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Skryf Toegang verkry Verbied"
 
-#: core/job_error.cpp:631
+#: core/job_error.cpp:630
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1437,12 +1437,12 @@ msgstr ""
 "Hierdie beteken wat 'n poog na skryf na die lêer <strong>%1</strong> was "
 "verwerp."
 
-#: core/job_error.cpp:639
+#: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Kon nie toegang tot die gids verkry nie"
 
-#: core/job_error.cpp:641
+#: core/job_error.cpp:640
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1450,17 +1450,17 @@ msgid ""
 msgstr ""
 "Hierdie beteken dat toegang tot die gids <strong>%1</strong> geweier was."
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Gids Lys Onbeskikbaar"
 
-#: core/job_error.cpp:650
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokol %1 is nie 'n Lêersisteem"
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:651
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1471,12 +1471,12 @@ msgstr ""
 "benodig. Die KDE program wat hierdie protokol ondersteun kon dit nie verskaf "
 "nie."
 
-#: core/job_error.cpp:660
+#: core/job_error.cpp:659
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Siklies Skakel Opgespoor"
 
-#: core/job_error.cpp:662
+#: core/job_error.cpp:661
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1489,7 +1489,7 @@ msgstr ""
 "oneindige lus geskakel is. Dit kan voorkom as die lêer terug na homself "
 "geskakel is."
 
-#: core/job_error.cpp:667 core/job_error.cpp:693
+#: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1498,27 +1498,27 @@ msgstr ""
 "Uitvee een deel van die lus in volgorde wat dit doen nie veroorsaak 'n "
 "oneindige lus, en probeer weer."
 
-#: core/job_error.cpp:677
+#: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Versoek Gekanselleer Deur Gebruiker"
 
-#: core/job_error.cpp:679 core/job_error.cpp:1068
+#: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Die versoek was nie klaar omdat dit was gekanselleer."
 
-#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
+#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
 msgstr "Herprobeer die versoek."
 
-#: core/job_error.cpp:685
+#: core/job_error.cpp:684
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Siklies Skakel Opgespoor Gedurende Kopie"
 
-#: core/job_error.cpp:687
+#: core/job_error.cpp:686
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1531,17 +1531,17 @@ msgstr ""
 "skakels betaan wat in 'n oneindige lus geskakel is. Dit kan voorkom as die "
 "lêer terug na homself geskakel is."
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Kon Nie Skep Netwerk Verbinding"
 
-#: core/job_error.cpp:700
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Kon Nie Skep Soket"
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:701
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1550,8 +1550,8 @@ msgstr ""
 "Hierdie is 'n redelike tegniese fout in wat 'n benodig toestel vir netwerk "
 "kommunikasie ('n soket) kon nie wees geskep."
 
-#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
-#: core/job_error.cpp:878
+#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:877
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1560,12 +1560,12 @@ msgstr ""
 "Die netwerk verbinding dalk mag wees verkeerdelik gekonfigureer, of Die "
 "netwerk koppelvlak dalk mag nie wees geaktiveer."
 
-#: core/job_error.cpp:711
+#: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Verbinding na Bediener Geweier"
 
-#: core/job_error.cpp:713
+#: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1574,7 +1574,7 @@ msgstr ""
 "Die bediener <strong>%1</strong> geweier na toelaat hierdie rekenaar na maak "
 "'n verbinding."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1583,7 +1583,7 @@ msgstr ""
 "Die bediener, terwyl huidiglik verbind na Die Internet, dalk mag nie wees "
 "gekonfigureer na toelaat versoeke."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1592,7 +1592,7 @@ msgstr ""
 "Die bediener, terwyl huidiglik verbind na Die Internet, dalk mag nie wees "
 "wat loop Die versoekte diens (%1)."
 
-#: core/job_error.cpp:724
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1603,12 +1603,12 @@ msgstr ""
 "jou netwerk van die netwerk van die bediener, dalk mag het tussenbyde "
 "getree, voorkoming hierdie versoek."
 
-#: core/job_error.cpp:731
+#: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Verbinding na Bediener Gesluit Onverwags"
 
-#: core/job_error.cpp:733
+#: core/job_error.cpp:732
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1617,7 +1617,7 @@ msgstr ""
 "Alhoewel 'n verbinding was vasgestel na <strong>%1</strong>, die verbinding "
 "was gesluit na 'n onverwagte punt in die kommunikasie."
 
-#: core/job_error.cpp:739
+#: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1626,17 +1626,17 @@ msgstr ""
 "'n protokol fout dalk mag het voorgekom, veroorsaak dat die bediener na maak "
 "toe die verbinding as 'n antwoord na die fout."
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "URL Hulpbron Ongeldig"
 
-#: core/job_error.cpp:746
+#: core/job_error.cpp:745
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Protokol %1 is nie 'n Filter Protokol"
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:747
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1646,7 +1646,7 @@ msgstr ""
 "Die URL wat jy ingetik het het nie op 'n geldige manier verwys na die "
 "hulpbron waartoe jy toegang wil verkry nie: <strong>%1%2</strong>."
 
-#: core/job_error.cpp:755
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1659,17 +1659,17 @@ msgstr ""
 "Hierdie protokol is nie moontlikhede van soos 'n aksie. Hierdie is 'n "
 "ongewone gebeurtenis, en is waarskynlik na aandui 'n programmering fout."
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:762
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Nie moontlik na Inisialiseer Invoer/Uitset Toestel"
 
-#: core/job_error.cpp:764
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Kon Nie Mount Toestel"
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:765
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1678,7 +1678,7 @@ msgstr ""
 "Die versoekte toestel kon nie wees geinitialiseer word (\"gekoppelde\"). Die "
 "raporteer fout was: <strong>%1</strong>"
 
-#: core/job_error.cpp:770
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1690,7 +1690,7 @@ msgstr ""
 "in Die kas van 'n aanhangsels/draagbaar toestel, Die toestel dalk mag nie "
 "wees korrek verbind."
 
-#: core/job_error.cpp:775
+#: core/job_error.cpp:774
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1701,7 +1701,7 @@ msgstr ""
 "sisteme, gereeld stelsel administrateur voorregte word benodig na "
 "inisialiseer 'n toestel."
 
-#: core/job_error.cpp:780
+#: core/job_error.cpp:779
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1711,17 +1711,17 @@ msgstr ""
 "media, en draagbaar toestelle moet wees verbind en geskakel op.; en probeer "
 "weer."
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Nie moontlik na Deïnitialiseer Invoer/Uitset Toestel"
 
-#: core/job_error.cpp:788
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Kon Nie Ontkoppel Toestel"
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:789
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1730,7 +1730,7 @@ msgstr ""
 "Die versoekte toestel kon nie wees degeïnitialiseer (\"ontkoppel\"). Die "
 "raporteer fout was: <strong>%1</strong>"
 
-#: core/job_error.cpp:794
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1741,7 +1741,7 @@ msgstr ""
 "aansoek of gebruiker. Al soos dinge as moet 'n open blaaier venster op 'n "
 "ligging op hierdie toestel dalk mag veroorsaak Die toestel na bly in gebruik."
 
-#: core/job_error.cpp:799
+#: core/job_error.cpp:798
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1752,19 +1752,19 @@ msgstr ""
 "Unix sisteme, stelsel administrateur voorregte word gereeld benodig na "
 "deïnitialiseer 'n toestel."
 
-#: core/job_error.cpp:804
+#: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Bevestig wat nee programme word toegang te kry tot die toestel, en probeer "
 "weer."
 
-#: core/job_error.cpp:810
+#: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Kan nie Lees Van Hulpbron"
 
-#: core/job_error.cpp:812
+#: core/job_error.cpp:811
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1773,17 +1773,17 @@ msgstr ""
 "Hierdie beteken wat alhoewel die hulpbron, <strong>%1</strong>, was in staat "
 "na wees geöpende, 'n fout voorgekom terwyl lees die inhoud van die hulpbron."
 
-#: core/job_error.cpp:816
+#: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Jy dalk mag nie het regte na lees van die hulpbron."
 
-#: core/job_error.cpp:829
+#: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Kan nie Skryf na Hulpbron"
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:830
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1792,22 +1792,22 @@ msgstr ""
 "Hierdie beteken wat alhoewel die hulpbron, <strong>%1</strong>, was in staat "
 "na wees geöpende, 'n fout voorgekom terwyl om te skryf na die hulpbron."
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Jy dalk mag nie het regte na skryf na die hulpbron."
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Kon Nie Luister vir Netwerk Koppelinge"
 
-#: core/job_error.cpp:848
+#: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Kon Nie Bind"
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1818,17 +1818,17 @@ msgstr ""
 "kommunikasie ('n soket) kon nie wees vasgestel na luister vir inkomende "
 "netwerk koppelinge."
 
-#: core/job_error.cpp:861
+#: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Kon Nie Luister"
 
-#: core/job_error.cpp:873
+#: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Kon Nie Aanvaar Netwerk Verbinding"
 
-#: core/job_error.cpp:875
+#: core/job_error.cpp:874
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1837,34 +1837,34 @@ msgstr ""
 "Hierdie is 'n redelike tegniese fout in wat 'n fout voorgekom terwyl probeer "
 "na aanvaar 'n inkomende netwerk verbinding."
 
-#: core/job_error.cpp:880
+#: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Jy dalk mag nie het regte na aanvaar die verbinding."
 
-#: core/job_error.cpp:885
+#: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Kon Nie Aanteken: %1"
 
-#: core/job_error.cpp:887
+#: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "'n poog na aanteken na aan te bring die versoekte operasie was onsuksesvol."
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Kon Nie Bepaal Hulpbron Status"
 
-#: core/job_error.cpp:904
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Kon Nie Statistiek Hulpbron"
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:905
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1873,7 +1873,7 @@ msgstr ""
 "'n poog na bepaal informasie aangaande die status van die hulpbron <strong>"
 "%1</strong>, soos as die hulpbron naam, tipe, grootte, etc., was onsuksesvol."
 
-#: core/job_error.cpp:911
+#: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr ""
@@ -1881,62 +1881,62 @@ msgstr ""
 "toeganklik."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:922
+#: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Kon nie Luister kanselleer nie"
 
-#: core/job_error.cpp:923
+#: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "Maakreg: Dokument hierdie"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Kon nie die gids skep nie"
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Die pooging om die gids te skep het gevaal."
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Die ligging waar die gids geskep moet word bestaan dalk nie."
 
-#: core/job_error.cpp:940
+#: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Kon nie die gids verwyder nie"
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Die pooging om die gids, <strong>%1</strong>, te verwyder het gevaal."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Die gids bestaan dalk nie."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Die gids is dalk nie leeg nie."
 
-#: core/job_error.cpp:950
+#: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Maak seker dat die gids bestaan en leeg is, en probeer dan weer."
 
-#: core/job_error.cpp:956
+#: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Kon Nie Voortgaan Lêer Oordra"
 
-#: core/job_error.cpp:958
+#: core/job_error.cpp:957
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1945,34 +1945,34 @@ msgstr ""
 "Die gespesifiseer versoek gevra wat Die oordra van lêer <strong>%1</strong> "
 "wees hervat na 'n sekere punt van Die oordra. Hierdie was nie moontlik."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Die protokol, of Die bediener, dalk mag nie ondersteun lêer hervatting."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Herprobeer die versoek sonder om te probeer na voortgaan oordra."
 
-#: core/job_error.cpp:971
+#: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Kon Nie Herbenaam Hulpbron"
 
-#: core/job_error.cpp:973
+#: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "'n poog na herbenaam die gespesifiseer hulpbron <strong>%1</strong> gevaal."
 
-#: core/job_error.cpp:984
+#: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Kon Nie Verander Regte van Hulpbron"
 
-#: core/job_error.cpp:986
+#: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1981,13 +1981,13 @@ msgstr ""
 "'n poog na verander die regte op die gespesifiseer hulpbron <strong>%1</"
 "strong> gevaal."
 
-#: core/job_error.cpp:994
+#: core/job_error.cpp:993
 #, fuzzy, kde-format
 #| msgid "Could Not Alter Permissions of Resource"
 msgid "Could Not Change Ownership of Resource"
 msgstr "Kon Nie Verander Regte van Hulpbron"
 
-#: core/job_error.cpp:996
+#: core/job_error.cpp:995
 #, fuzzy, kde-format
 #| msgid ""
 #| "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1999,23 +1999,23 @@ msgstr ""
 "'n poog na verander die regte op die gespesifiseer hulpbron <strong>%1</"
 "strong> gevaal."
 
-#: core/job_error.cpp:1004
+#: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Kon Nie Uitvee Hulpbron"
 
-#: core/job_error.cpp:1006
+#: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "'n poog na uitvee die gespesifiseer hulpbron <strong>%1</strong> gevaal."
 
-#: core/job_error.cpp:1014
+#: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Onverwagte Program Beëindiging"
 
-#: core/job_error.cpp:1016
+#: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2024,12 +2024,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het onverwags beëindig."
 
-#: core/job_error.cpp:1024
+#: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
 msgstr "Uit van Geheue"
 
-#: core/job_error.cpp:1026
+#: core/job_error.cpp:1025
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2038,12 +2038,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol kon nie verkry Die geheue benodig na gaan voort."
 
-#: core/job_error.cpp:1035
+#: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Onbekende Volmag Bediener"
 
-#: core/job_error.cpp:1037
+#: core/job_error.cpp:1036
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2055,7 +2055,7 @@ msgstr ""
 "bediener fout dui aan wat die versoekte naam kon nie wees geleë op die "
 "Internet."
 
-#: core/job_error.cpp:1043
+#: core/job_error.cpp:1042
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2066,17 +2066,17 @@ msgstr ""
 "proxy bediener naam. Dit is egter onwaarskynlik as jy tot onlangs toe "
 "Internet toegang gehad het."
 
-#: core/job_error.cpp:1047
+#: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Double-check jou volmag instellings en probeer weer."
 
-#: core/job_error.cpp:1051
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Geldigheidsverklaring Gevaal: Metode %1 Nie Ondersteunde"
 
-#: core/job_error.cpp:1053
+#: core/job_error.cpp:1052
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2088,7 +2088,7 @@ msgstr ""
 "gebruik is nie ondersteunde deur die Kde program implementering die protokol "
 "%1."
 
-#: core/job_error.cpp:1059
+#: core/job_error.cpp:1058
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -2101,17 +2101,17 @@ msgstr ""
 "org/</a> om die KDE span in te lig van die geldigheidstawing "
 "(authentication) metode wat nie ondersteun word nie."
 
-#: core/job_error.cpp:1066
+#: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
 msgstr "Versoek Gekanselleer"
 
-#: core/job_error.cpp:1074
+#: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Intern Fout in Bediener"
 
-#: core/job_error.cpp:1076
+#: core/job_error.cpp:1075
 #, fuzzy, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2120,7 +2120,7 @@ msgstr ""
 "Die program op Die bediener wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het raporteer 'n intern fout: %0."
 
-#: core/job_error.cpp:1082
+#: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2130,14 +2130,14 @@ msgstr ""
 "program. Asseblief beskou instuur 'n volgrote fout raporteer as "
 "gedetaileerde onder."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr ""
 "Kontak die administrateur van die bediener na stel voor hulle van die "
 "probleem."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2146,12 +2146,12 @@ msgstr ""
 "Stuur die fout raport direk aan die outeurs van die bediener sagteware as jy "
 "hulle ken."
 
-#: core/job_error.cpp:1094
+#: core/job_error.cpp:1093
 #, kde-format
 msgid "Timeout Error"
 msgstr "Tydverstreke Fout"
 
-#: core/job_error.cpp:1096
+#: core/job_error.cpp:1095
 #, fuzzy, kde-format
 #| msgid ""
 #| "Although contact was made with the server, a response was not received "
@@ -2177,17 +2177,17 @@ msgstr ""
 "li></ul>Asseblief nota wat jy kan verander hierdie Tydverstreke instellings "
 "in die Kde Kontrole Sentrum, deur deur te kies Netwerk -> Voorkeure."
 
-#: core/job_error.cpp:1109
+#: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Die bediener was te besig reageer na ander versoeke na antwoord."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Onbekende Fout"
 
-#: core/job_error.cpp:1117
+#: core/job_error.cpp:1116
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2196,12 +2196,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het raporteer 'n onbekende fout: %2."
 
-#: core/job_error.cpp:1127
+#: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Onbekende Onderbreking"
 
-#: core/job_error.cpp:1129
+#: core/job_error.cpp:1128
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2210,12 +2210,12 @@ msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol het raporteer 'n onderbreking van 'n onbekende tipe: %2."
 
-#: core/job_error.cpp:1139
+#: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Kon Nie Uitvee Oorspronklike Lêer"
 
-#: core/job_error.cpp:1141
+#: core/job_error.cpp:1140
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2226,12 +2226,12 @@ msgstr ""
 "mees waarskynlik na Die einde van 'n lêer beweeg operasie. Die oorspronklike "
 "lêer <strong>%1</strong> kon nie wees uitgevee."
 
-#: core/job_error.cpp:1150
+#: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Kon Nie Uitvee Tydelike Lêer"
 
-#: core/job_error.cpp:1152
+#: core/job_error.cpp:1151
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2242,12 +2242,12 @@ msgstr ""
 "Die nuwe lêer terwyl te wees afgelaai. Hierdie tydelike lêer <strong>%1</"
 "strong> kon nie wees uitgevee."
 
-#: core/job_error.cpp:1162
+#: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Kon Nie Herbenaam Oorspronklike Lêer"
 
-#: core/job_error.cpp:1164
+#: core/job_error.cpp:1163
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2256,12 +2256,12 @@ msgstr ""
 "Die versoekte operasie benodig Die herbenaming van Die oorspronklike lêer "
 "<strong>%1</strong>, egter dit kon nie wees herbenaam."
 
-#: core/job_error.cpp:1173
+#: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Kon Nie Herbenaam Tydelike Lêer"
 
-#: core/job_error.cpp:1175
+#: core/job_error.cpp:1174
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2270,32 +2270,32 @@ msgstr ""
 "Die versoekte operasie benodig Die skep van 'n tydelike lêer <strong>%1</"
 "strong>, egter dit kon nie wees geskep."
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Kon Nie Skep Skakel"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Kon Nie Skep Simboliese Skakel"
 
-#: core/job_error.cpp:1186
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Die versoekte simboliese skakel %1 kon nie wees geskep."
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1191
 #, kde-format
 msgid "No Content"
 msgstr "Nee Inhoud"
 
-#: core/job_error.cpp:1197
+#: core/job_error.cpp:1196
 #, kde-format
 msgid "Disk Full"
 msgstr "Disket Volgrote"
 
-#: core/job_error.cpp:1199
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2304,7 +2304,7 @@ msgstr ""
 "Die versoekte lêer <strong>%1</strong> kon nie wees geskryf na as daar is "
 "onvoldoende disket spasie."
 
-#: core/job_error.cpp:1203
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2315,12 +2315,12 @@ msgstr ""
 "2) argiveer lêers na verwyderbare media stoorplek soos as CD-Recordable "
 "skywe; of 3) verkry meer stoorplek kapasiteit."
 
-#: core/job_error.cpp:1210
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Bron en Bestemming Lêers Identies"
 
-#: core/job_error.cpp:1212
+#: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2329,18 +2329,18 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1214
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Kies 'n ander lêer naam vir die bestemming lêer."
 
-#: core/job_error.cpp:1218
+#: core/job_error.cpp:1217
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "File or Folder dropped onto itself"
 msgstr "Lêer of Gids Bestaan Nie"
 
-#: core/job_error.cpp:1220
+#: core/job_error.cpp:1219
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2352,19 +2352,19 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1222
+#: core/job_error.cpp:1221
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgid "Drop the item into a different file or folder."
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: core/job_error.cpp:1232
+#: core/job_error.cpp:1231
 #, fuzzy, kde-format
 #| msgid "File or Folder Does Not Exist"
 msgid "Folder moved into itself"
 msgstr "Lêer of Gids Bestaan Nie"
 
-#: core/job_error.cpp:1234
+#: core/job_error.cpp:1233
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2376,18 +2376,18 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1236
+#: core/job_error.cpp:1235
 #, fuzzy, kde-format
 #| msgid "copy the specified file or folder"
 msgid "Move the item into a different folder."
 msgstr "kopiëer die gespesifiseerde lêer of gids"
 
-#: core/job_error.cpp:1240
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr ""
 
-#: core/job_error.cpp:1242
+#: core/job_error.cpp:1241
 #, fuzzy, kde-format
 #| msgid ""
 #| "The operation could not be completed because the source and destination "
@@ -2399,50 +2399,50 @@ msgstr ""
 "Die operasie kon nie wees klaar omdat Die bron en bestemming lêers word Die "
 "selfde lêer."
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Kan nie Inisieer die %1 Protokol"
 
-#: core/job_error.cpp:1249
+#: core/job_error.cpp:1248
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
-msgid "Unable to Create io-slave"
+msgid "Unable to Create KIO Worker"
 msgstr "Nie moontlik na skep io-slave: %1"
 
-#: core/job_error.cpp:1251
+#: core/job_error.cpp:1250
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
 #| "strong> protocol could not be started. This is usually due to technical "
 #| "reasons."
 msgid ""
-"The io-slave which provides access to the <strong>%1</strong> protocol could "
-"not be started. This is usually due to technical reasons."
+"The KIO worker which provides access to the <strong>%1</strong> protocol "
+"could not be started. This is usually due to technical reasons."
 msgstr ""
 "Die program op jou rekenaar wat verskaf toegang verkry na Die <strong>%1</"
 "strong> protokol kon nie wees beginne. Hierdie is gewoonlik as gevolg na "
 "tegniese redes."
 
-#: core/job_error.cpp:1256
+#: core/job_error.cpp:1255
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2450,14 +2450,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1272
+#: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Ongedokumenteerde Fout"
@@ -2501,14 +2501,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Onbekende protokol '%1'."
 
 #: core/slave.cpp:432
-#, kde-format
-msgid "Can not find io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Kan nie soek io-slave vir protokol '%1'."
 
 #: core/slave.cpp:440
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
-msgid "Can not create socket for launching io-slave for protocol '%1'."
+msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Kan nie soek io-slave vir protokol '%1'."
 
 #: core/slave.cpp:480
@@ -4668,12 +4669,13 @@ msgid ""
 "useful in certain situations. For example, they are often used by Internet "
 "shops, so you can 'put things into a shopping basket'. Some sites require "
 "you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP kioslave "
-"offers you the ability to customize the way it handles cookies. So you might "
-"want to set the default policy to ask you whenever a server wants to set a "
-"cookie, allowing you to decide. For your favorite shopping web sites that "
-"you trust, you might want to set the policy to accept, then you can access "
-"the web sites without being prompted every time a cookie is received.</p>"
+"compromise between privacy and the benefits cookies offer, the HTTP KIO "
+"worker offers you the ability to customize the way it handles cookies. So "
+"you might want to set the default policy to ask you whenever a server wants "
+"to set a cookie, allowing you to decide. For your favorite shopping web "
+"sites that you trust, you might want to set the policy to accept, then you "
+"can access the web sites without being prompted every time a cookie is "
+"received.</p>"
 msgstr ""
 "<h1>Koekies</h1> Koekies bevat inligting wat Konqueror (of ander KDE "
 "programme wat die Http protokol gebruik) stoor op jou rekenaar, geinisieer "
@@ -6022,7 +6024,7 @@ msgstr "Verstek wagwoord:"
 #: kcms/smb/smbrodlg.cpp:122
 #, kde-format
 msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
 "properly configured.</p><p>You can specify here the credentials used to "
 "access the shared resources. Passwords will be stored locally, and scrambled "

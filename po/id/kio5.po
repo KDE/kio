@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:42+0000\n"
+"POT-Creation-Date: 2022-12-04 00:42+0000\n"
 "PO-Revision-Date: 2022-09-29 10:56+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -44,8 +44,9 @@ msgstr ""
 "memiliki kecupetan akses terhadap file untuk melakukan perubahan."
 
 #: core/connectionbackend.cpp:108
-#, kde-format
-msgid "Unable to create io-slave: %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave: %1"
+msgid "Unable to create KIO worker: %1"
 msgstr "Tak bisa menciptakan io-slave: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
@@ -80,13 +81,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:582
+#: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Folder Sudah Ada"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
-#: core/job_error.cpp:571 widgets/paste.cpp:80
+#: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "File Sudah Ada"
@@ -787,8 +788,9 @@ msgid "Communication with the local password server failed"
 msgstr "Komunikasi dengan server kata sandi lokal gagal"
 
 #: core/job_error.cpp:245
-#, kde-format
-msgid "Unable to create io-slave. %1"
+#, fuzzy, kde-format
+#| msgid "Unable to create io-slave. %1"
+msgid "Unable to create KIO worker. %1"
 msgstr "Tak bisa menciptakan io-slave. %1"
 
 #: core/job_error.cpp:249
@@ -1166,29 +1168,33 @@ msgstr ""
 "cocok."
 
 #: core/job_error.cpp:502
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "You may perform a search on the Internet for a KDE program (called a "
+#| "kioslave or ioslave) which supports this protocol. Places to search "
+#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
+#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 msgid ""
-"You may perform a search on the Internet for a KDE program (called a "
-"kioslave or ioslave) which supports this protocol. Places to search include "
-"<a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and <a href="
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"You may perform a search on the Internet for a software plugin (called a "
+"\"KIO worker\") which supports this protocol. Places to search include <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
 "Kamu dapat melakukan pencarian di Internet untuk program KDE (disebut "
 "kioslave atau ioslave) yang mendukung protokol ini. Tempat untuk mencari "
 "termasuk <a href=\"https://kde-apps.org/\">http://kde-apps.org/</a> dan <a "
 "href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL Tidak Merujuk ke Sumberdaya"
 
-#: core/job_error.cpp:512
+#: core/job_error.cpp:511
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokol adalah sebuah Protokol Filter"
 
-#: core/job_error.cpp:514
+#: core/job_error.cpp:513
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1197,7 +1203,7 @@ msgstr ""
 "<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
 "(URL) yang kamu masukkan tidak merujuk ke sebuah sumberdaya yang tentu."
 
-#: core/job_error.cpp:518
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1210,12 +1216,12 @@ msgstr ""
 "ini bukan salah satu situasi tersebut. Ini adalah kejadian yang jarang "
 "terjadi, dan cenderung menunjukkan sebuah error pemrograman."
 
-#: core/job_error.cpp:526
+#: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Tindakan Tak Didukung: %1"
 
-#: core/job_error.cpp:528
+#: core/job_error.cpp:527
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1224,7 +1230,7 @@ msgstr ""
 "Tindakan yang diminta tidak didukung oleh program KDE yang telah menerapkan "
 "protokol <strong>%1</strong>"
 
-#: core/job_error.cpp:532
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1235,17 +1241,17 @@ msgstr ""
 "memberikanmu informasi lebih daripada yang tersedia terhadap arsitektur "
 "input/output KDE."
 
-#: core/job_error.cpp:536
+#: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Upaya mencari cara lain untuk mencapai hasil yang sama."
 
-#: core/job_error.cpp:541
+#: core/job_error.cpp:540
 #, kde-format
 msgid "File Expected"
 msgstr "File Diharap"
 
-#: core/job_error.cpp:543
+#: core/job_error.cpp:542
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1254,17 +1260,17 @@ msgstr ""
 "Permintaan yang mengharap sebuah file, namun folder <strong>%1</strong> "
 "telah ditemukan sebagai gantinya."
 
-#: core/job_error.cpp:546
+#: core/job_error.cpp:545
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Mungkin ini sebuah error pada sisi server."
 
-#: core/job_error.cpp:551
+#: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
 msgstr "Folder Diharap"
 
-#: core/job_error.cpp:553
+#: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1273,17 +1279,17 @@ msgstr ""
 "Permintaan yang mengharap sebuah folder, namun file <strong>%1</strong> "
 "telah ditemukan sebagai gantinya."
 
-#: core/job_error.cpp:561
+#: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "File atau Folder Tidak Ada"
 
-#: core/job_error.cpp:563
+#: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "File atau folder <strong>%1</strong> yang ditentukan tidak ada."
 
-#: core/job_error.cpp:573
+#: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1292,23 +1298,23 @@ msgstr ""
 "File yang diminta tidak bisa diciptakan karena sebuah file dengan nama yang "
 "sama sudah ada."
 
-#: core/job_error.cpp:576
+#: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Cobalah pindah file saat ini keluar dari sini dulu, dan kemudian coba lagi."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Hapuslah file saat ini dan coba lagi."
 
-#: core/job_error.cpp:578
+#: core/job_error.cpp:577
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Pilihlah sebuah nama file alternatif untuk file baru."
 
-#: core/job_error.cpp:584
+#: core/job_error.cpp:583
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1317,28 +1323,28 @@ msgstr ""
 "Folder yang diminta tidak bisa diciptakan karena sebuah folder dengan nama "
 "yang sama sudah ada."
 
-#: core/job_error.cpp:587
+#: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Cobalah pindah folder saat ini keluar dari sini dulu, dan kemudian coba lagi."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Hapuslah folder saat ini dan coba lagi."
 
-#: core/job_error.cpp:589
+#: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Pilihlah sebuah nama alternatif untuk folder baru."
 
-#: core/job_error.cpp:593
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
 msgstr "Host Tak Diketahui"
 
-#: core/job_error.cpp:595
+#: core/job_error.cpp:594
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1347,7 +1353,7 @@ msgstr ""
 "Sebuah indikasi error host tidak diketahui bahwa server dengan nama yang "
 "diminta, <strong>%1</strong>, tidak bisa dilokasikan pada Internet."
 
-#: core/job_error.cpp:600
+#: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1355,31 +1361,31 @@ msgstr ""
 "Nama yang kamu ketik, %1, mungkin tidak ada: mungkin diketik secara tidak "
 "benar."
 
-#: core/job_error.cpp:608
+#: core/job_error.cpp:607
 #, kde-format
 msgid "Access Denied"
 msgstr "Akses Ditolak"
 
-#: core/job_error.cpp:610
+#: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Akses ditolak ke sumberdaya yang ditentukan, <strong>%1</strong>."
 
-#: core/job_error.cpp:614 core/job_error.cpp:890
+#: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Kamu mungkin telah memberikan perincian autentikasi yang salah atau tidak "
 "sama sekali."
 
-#: core/job_error.cpp:617 core/job_error.cpp:893
+#: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Akunmu mungkin tidak memiliki perizinan untuk mengakses sumberdaya yang "
 "ditentukan."
 
-#: core/job_error.cpp:620 core/job_error.cpp:897 core/job_error.cpp:915
+#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1388,12 +1394,12 @@ msgstr ""
 "Coba kembali meminta dan pastikan perincian autentikasimu yang dimasukkan "
 "benar."
 
-#: core/job_error.cpp:629
+#: core/job_error.cpp:628
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Akses Tulis Ditolak"
 
-#: core/job_error.cpp:631
+#: core/job_error.cpp:630
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1402,12 +1408,12 @@ msgstr ""
 "Ini berarti bahwa upaya untuk menulis ke file <strong>%1</strong> telah "
 "diapkir."
 
-#: core/job_error.cpp:639
+#: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Tak Mampu Memasuki Folder"
 
-#: core/job_error.cpp:641
+#: core/job_error.cpp:640
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1416,17 +1422,17 @@ msgstr ""
 "Ini berarti bahwa upaya untuk memasuki (dalam kata lain, untuk membuka) "
 "folder <strong>%1</strong> yang diminta telah diapkir."
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Cantuman Folder Tak Tersedia"
 
-#: core/job_error.cpp:650
+#: core/job_error.cpp:649
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokol %1 adalah bukan sebuah SistemFile"
 
-#: core/job_error.cpp:652
+#: core/job_error.cpp:651
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1436,12 +1442,12 @@ msgstr ""
 "Ini berarti bahwa permintaan yang dibuat meminta kepastian konten folder, "
 "dan program KDE yang mendukung protokol ini tak bisa melakukannya."
 
-#: core/job_error.cpp:660
+#: core/job_error.cpp:659
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Tautan Siklik Terdeteksi"
 
-#: core/job_error.cpp:662
+#: core/job_error.cpp:661
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1454,7 +1460,7 @@ msgstr ""
 "menghasilkan sebuah loop tak terbatas - yaitu file (mungkin dengan cara tak "
 "langsung) yang terkait dengan dia sendiri."
 
-#: core/job_error.cpp:667 core/job_error.cpp:693
+#: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1463,27 +1469,27 @@ msgstr ""
 "Hapuslah satu bagian dari loop agar hal itu tidak menyebabkan sebuah loop "
 "tidak terbatas, dan coba lagi."
 
-#: core/job_error.cpp:677
+#: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Permintaan Digugurkan Oleh Pengguna"
 
-#: core/job_error.cpp:679 core/job_error.cpp:1068
+#: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Permintaan tidak lengkap karena telah digugurkan."
 
-#: core/job_error.cpp:681 core/job_error.cpp:936 core/job_error.cpp:1070
+#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
 msgstr "Coba lagi permintaannya."
 
-#: core/job_error.cpp:685
+#: core/job_error.cpp:684
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Tautan Siklik Terdeteksi Selagi Menyalin"
 
-#: core/job_error.cpp:687
+#: core/job_error.cpp:686
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1497,17 +1503,17 @@ msgstr ""
 "yaitu file (mungkin dengan cara tak langsung) yang terkait dengan dia "
 "sendiri."
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Tidak Bisa Menciptakan Koneksi Jaringan"
 
-#: core/job_error.cpp:700
+#: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Tidak Bisa Menciptakan Soket"
 
-#: core/job_error.cpp:702
+#: core/job_error.cpp:701
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1516,8 +1522,8 @@ msgstr ""
 "Ini adalah sebuah error yang cukup teknis di mana peranti yang dibutuhkan "
 "untuk jaringan komunikasi (sebuah soket) tidak bisa diciptakan."
 
-#: core/job_error.cpp:705 core/job_error.cpp:854 core/job_error.cpp:867
-#: core/job_error.cpp:878
+#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
+#: core/job_error.cpp:877
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1526,12 +1532,12 @@ msgstr ""
 "Koneksi jaringan mungkin dikonfigurasi secara tidak benar, atau antarmuka "
 "jaringan mungkin tidak difungsikan."
 
-#: core/job_error.cpp:711
+#: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Koneksi ke Server Ditampik"
 
-#: core/job_error.cpp:713
+#: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1540,7 +1546,7 @@ msgstr ""
 "Server <strong>%1</strong> menampik pembolehan komputer ini untuk membuat "
 "koneksi."
 
-#: core/job_error.cpp:717
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1549,7 +1555,7 @@ msgstr ""
 "Server, saat ini sedang disambungkan ke Internet, mungkin tidak "
 "dikonfigurasi untuk membolehkan permintaan."
 
-#: core/job_error.cpp:720
+#: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1558,7 +1564,7 @@ msgstr ""
 "Server, saat ini sedang disambungkan ke Internet, mungkin tidak menjalankan "
 "layanan permintaan (%1)."
 
-#: core/job_error.cpp:724
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1569,12 +1575,12 @@ msgstr ""
 "memproteksi jaringanmu atau jaringan server, mungkin telah menghalangi, "
 "mencegah permintaan ini."
 
-#: core/job_error.cpp:731
+#: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Koneksi ke Server Tertutup Secara Tiba-tiba"
 
-#: core/job_error.cpp:733
+#: core/job_error.cpp:732
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1583,7 +1589,7 @@ msgstr ""
 "Meskipun koneksi dibuat untuk <strong>%1</strong>, dalam berkomunikasi, "
 "koneksinya tertutup pada titik yang tak terduga."
 
-#: core/job_error.cpp:739
+#: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1592,17 +1598,17 @@ msgstr ""
 "Sebuah error protokol mungkin telah terjadi, menyebabkan server menutup "
 "koneksi sebagai respon terhadap error."
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Sumberdaya URL Tidak Absah"
 
-#: core/job_error.cpp:746
+#: core/job_error.cpp:745
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Protokol %1 bukanlah sebuah Protokol Filter"
 
-#: core/job_error.cpp:748
+#: core/job_error.cpp:747
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1613,7 +1619,7 @@ msgstr ""
 "(URL) yang kamu masukkan tidak mengacu pada mekanisme yang absah untuk "
 "mengakses sumberdaya tertentu, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:755
+#: core/job_error.cpp:754
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1626,17 +1632,17 @@ msgstr ""
 "mampu seperti halnya tindakan. Ini adalah kejadian yang jarang terjadi, dan "
 "cenderung mengindikasikan keerroran pemrograman."
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:762
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Tak Bisa Menginisial Input/Output Peranti"
 
-#: core/job_error.cpp:764
+#: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Tidak Bisa Mengaitkan Peranti"
 
-#: core/job_error.cpp:766
+#: core/job_error.cpp:765
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1645,7 +1651,7 @@ msgstr ""
 "Perangkat yang diminta tidak dapat diinisialisasi (''dikaitkan''). Galat "
 "yang dilaporkan adalah: <strong>%1</strong>"
 
-#: core/job_error.cpp:770
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1657,7 +1663,7 @@ msgstr ""
 "penggerak CD), atau dalam kasus sebuah peranti portebel/periferal, peranti "
 "mungkin tidak terkoneksi dengan benar."
 
-#: core/job_error.cpp:775
+#: core/job_error.cpp:774
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1668,7 +1674,7 @@ msgstr ""
 "peranti. Pada sistem UNIX, kerap kali hak istimewa pengurus sistem "
 "diperlukan untuk menginisialisasi peranti."
 
-#: core/job_error.cpp:780
+#: core/job_error.cpp:779
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1678,17 +1684,17 @@ msgstr ""
 "media, dan peranti portebel harus terkoneksi dan terdaya nyala.; dan coba "
 "lagi."
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Tak bisa Mentakinisialisasi Input/Output Peranti"
 
-#: core/job_error.cpp:788
+#: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Tidak Bisa Melepaskait Peranti"
 
-#: core/job_error.cpp:790
+#: core/job_error.cpp:789
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1697,7 +1703,7 @@ msgstr ""
 "Perangkat yang diminta tidak bisa ditakinisialisasi (''dilepaskaitkan''). "
 "Galat yang dilaporkan adalah: <strong>%1</strong>"
 
-#: core/job_error.cpp:794
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1709,7 +1715,7 @@ msgstr ""
 "penelusur di sebuah lokasi pada peranti ini yang menyebabkan peranti tetap "
 "digunakan."
 
-#: core/job_error.cpp:799
+#: core/job_error.cpp:798
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1720,18 +1726,18 @@ msgstr ""
 "(''lepaskait'') si peranti. Pada sistem UNIX, hak istimewa pengurus sistem "
 "kerap diperlukan untuk mentakinisialisasi peranti."
 
-#: core/job_error.cpp:804
+#: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Periksa apakah tiada aplikasi yang mengakses si peranti, dan coba lagi."
 
-#: core/job_error.cpp:810
+#: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Tak Bisa Baca Dari Sumberdaya"
 
-#: core/job_error.cpp:812
+#: core/job_error.cpp:811
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1740,17 +1746,17 @@ msgstr ""
 "Ini berarti bahwa si sumberdaya, <strong>%1</strong>, bisa dibuka, sebuah "
 "error terjadi ketika membaca konten si sumberdaya."
 
-#: core/job_error.cpp:816
+#: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Kamu mungkin tidak memiliki perizinan untuk membaca dari sumberdaya."
 
-#: core/job_error.cpp:829
+#: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Tak Bisa Tulis ke Sumberdaya"
 
-#: core/job_error.cpp:831
+#: core/job_error.cpp:830
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1759,22 +1765,22 @@ msgstr ""
 "Ini berarti bahwa si sumberdaya, <strong>%1</strong>, bisa dibuka, sebuah "
 "error terjadi ketika menulis ke sumberdaya."
 
-#: core/job_error.cpp:834
+#: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Kamu mungkin tidak memiliki perizinan untuk menulis ke sumberdaya."
 
-#: core/job_error.cpp:847 core/job_error.cpp:860
+#: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Tidak Bisa Dengar untuk Koneksi Jaringan."
 
-#: core/job_error.cpp:848
+#: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Tidak Bisa Ikat"
 
-#: core/job_error.cpp:850 core/job_error.cpp:863
+#: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1785,17 +1791,17 @@ msgstr ""
 "komunikasi jaringan (soket) tidak dapat dipancang untuk mendengarkan koneksi "
 "jaringan yang baru masuk."
 
-#: core/job_error.cpp:861
+#: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Tidak Bisa Dengar"
 
-#: core/job_error.cpp:873
+#: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Tidak Bisa Setujui Koneksi Jaringan"
 
-#: core/job_error.cpp:875
+#: core/job_error.cpp:874
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1804,33 +1810,33 @@ msgstr ""
 "Ini adalah keerroran yang cukup teknis dimana error terjadi ketika berupaya "
 "untuk menyetujui koneksi jaringan yang baru masuk."
 
-#: core/job_error.cpp:880
+#: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Kamu mungkin tidak memiliki perizinan untuk menyetujui koneksi."
 
-#: core/job_error.cpp:885
+#: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Tidak Bisa Login: %1"
 
-#: core/job_error.cpp:887
+#: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "Sebuah upaya login untuk melakukan operasi yang tak berhasil."
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Tidak Bisa Mematok Status Sumberdaya"
 
-#: core/job_error.cpp:904
+#: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Tidak Bisa Menstatus Sumberdaya"
 
-#: core/job_error.cpp:906
+#: core/job_error.cpp:905
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1839,71 +1845,71 @@ msgstr ""
 "Sebuah upaya untuk mematok informasi tentang status si sumberdaya <strong>"
 "%1</strong>, sepertihalnya nama, tipe, dll, yang tak berhasil."
 
-#: core/job_error.cpp:911
+#: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr ""
 "Sumberdaya tertentu mungkin tidak berada atau mungkin tidak dapat diakses."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:922
+#: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Tidak Bisa Membatalkan Cantuman"
 
-#: core/job_error.cpp:923
+#: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: Ini dokumen"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Tidak Dapat Menciptakan Folder"
 
-#: core/job_error.cpp:928
+#: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Sebuah upaya untuk menciptakan folder yang diminta telah gagal."
 
-#: core/job_error.cpp:931
+#: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Lokasi dimana folder itu diciptakan mungkin tidak ada."
 
-#: core/job_error.cpp:940
+#: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Tidak Bisa Membuang Folder"
 
-#: core/job_error.cpp:942
+#: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
 "Sebuah upaya untuk membuang folder yang ditentukan, <strong>%1</strong>, "
 "gagal."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Folder yang ditentukan mungkin tidak ada."
 
-#: core/job_error.cpp:945
+#: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Folder yang ditentukan mungkin tidak kosong."
 
-#: core/job_error.cpp:950
+#: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Pastikan folder tersebut ada dan kosong, dan coba lagi."
 
-#: core/job_error.cpp:956
+#: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Tidak Bisa Melanjutkan Transfer File"
 
-#: core/job_error.cpp:958
+#: core/job_error.cpp:957
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1912,34 +1918,34 @@ msgstr ""
 "Permintaan yang ditentukan menanyakan apakah transfer file <strong>%1</"
 "strong> dilanjutkan pada titik transfer tertentu. Ini tidaklah mungkin."
 
-#: core/job_error.cpp:963
+#: core/job_error.cpp:962
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "Protokol, atau server, mungkin tidak mendukung pelanjutan file."
 
-#: core/job_error.cpp:966
+#: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Coba lagi permintaan tanpa berupaya untuk melanjutkan transfer."
 
-#: core/job_error.cpp:971
+#: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Tidak Bisa Mengubah Nama Sumberdaya"
 
-#: core/job_error.cpp:973
+#: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Sebuah upaya untuk mengubah nama sumberdaya <strong>%1</strong> yang "
 "ditentukan, gagal."
 
-#: core/job_error.cpp:984
+#: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Tidak Bisa Mengubah Perizinan Sumberdaya"
 
-#: core/job_error.cpp:986
+#: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1948,12 +1954,12 @@ msgstr ""
 "Sebuah upaya untuk mengubah perizinan pada sumberdaya <strong>%1</strong> "
 "yang ditentukan, gagal."
 
-#: core/job_error.cpp:994
+#: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Tidak Bisa Mengubah Kepemilikan Sumberdaya"
 
-#: core/job_error.cpp:996
+#: core/job_error.cpp:995
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1962,24 +1968,24 @@ msgstr ""
 "Sebuah upaya untuk mengubah kepemilikan sumberdaya <strong>%1</strong> yang "
 "ditentukan, gagal."
 
-#: core/job_error.cpp:1004
+#: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Tidak Bisa Menghapus Sumberdaya"
 
-#: core/job_error.cpp:1006
+#: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Sebuah upaya untuk menghapus sumberdaya <strong>%1</strong> yang ditentukan, "
 "gagal."
 
-#: core/job_error.cpp:1014
+#: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Penghentian Program Tak Terduga"
 
-#: core/job_error.cpp:1016
+#: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1988,12 +1994,12 @@ msgstr ""
 "Program pada komputermu yang menyediakan akses ke protokol <strong>%1</"
 "strong> telah berhenti secara tak terduga."
 
-#: core/job_error.cpp:1024
+#: core/job_error.cpp:1023
 #, kde-format
 msgid "Out of Memory"
 msgstr "Kehabisan Memori"
 
-#: core/job_error.cpp:1026
+#: core/job_error.cpp:1025
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2002,12 +2008,12 @@ msgstr ""
 "Program pada komputermu yang menyediakan akses ke protokol <strong>%1</"
 "strong> tidak bisa mendapatkan memori yang diperlukan untuk meneruskan."
 
-#: core/job_error.cpp:1035
+#: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Host Proxy Tak Diketahui"
 
-#: core/job_error.cpp:1037
+#: core/job_error.cpp:1036
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2019,7 +2025,7 @@ msgstr ""
 "error host tidak diketahui dengan nama yang diminta tidak ditemukan di "
 "Internet."
 
-#: core/job_error.cpp:1043
+#: core/job_error.cpp:1042
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2030,17 +2036,17 @@ msgstr ""
 "kamu. Jika kamu telah mengakses Internet tanpa masalah baru-baru ini, ini "
 "tidak mungkin."
 
-#: core/job_error.cpp:1047
+#: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Periksa kembali pengaturan proxy kamu dan coba lagi."
 
-#: core/job_error.cpp:1051
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Gagal Autentikasi: Metode %1 Tidak Didukung"
 
-#: core/job_error.cpp:1053
+#: core/job_error.cpp:1052
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2051,7 +2057,7 @@ msgstr ""
 "autentikasi gagal karena metode yang digunakan server tidak didukung oleh "
 "program KDE yang mengimplementasikan protokol %1."
 
-#: core/job_error.cpp:1059
+#: core/job_error.cpp:1058
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -2060,17 +2066,17 @@ msgstr ""
 "Mohon ajukan bug di <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/</"
 "a> untuk menginformasikan tim KDE dari metode autentikasi yang tak didukung."
 
-#: core/job_error.cpp:1066
+#: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
 msgstr "Permintaan Digugurkan"
 
-#: core/job_error.cpp:1074
+#: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Error Internal di Server"
 
-#: core/job_error.cpp:1076
+#: core/job_error.cpp:1075
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2079,7 +2085,7 @@ msgstr ""
 "Program pada server yang menyediakan akses ke protokol <strong>%1</strong> "
 "telah melaporkan sebuah error internal: %2."
 
-#: core/job_error.cpp:1082
+#: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2089,12 +2095,12 @@ msgstr ""
 "pertimbangkan untuk menyerahkan laporan bug lengkap seperti yang diperinci "
 "di bawah ini."
 
-#: core/job_error.cpp:1086
+#: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Hubungi pengurus server untuk memberitahu permasalahannya."
 
-#: core/job_error.cpp:1089
+#: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2103,12 +2109,12 @@ msgstr ""
 "Jika kamu tahu siapa si penulis perangkat lunak server, sampaikan laporan "
 "bug langsung kepadanya."
 
-#: core/job_error.cpp:1094
+#: core/job_error.cpp:1093
 #, kde-format
 msgid "Timeout Error"
 msgstr "Error Batas Waktu"
 
-#: core/job_error.cpp:1096
+#: core/job_error.cpp:1095
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2127,17 +2133,17 @@ msgstr ""
 "pengaturan batas waktu tersebut di System Settings KDE, dengan memilih "
 "Pengaturan Jaringan -> Preferensi Koneksi."
 
-#: core/job_error.cpp:1109
+#: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Server terlalu sibuk menanggapi ke permintaan lain untuk menanggapi."
 
-#: core/job_error.cpp:1115 core/slavebase.cpp:1622
+#: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
 msgstr "Error Tak Diketahui"
 
-#: core/job_error.cpp:1117
+#: core/job_error.cpp:1116
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2146,12 +2152,12 @@ msgstr ""
 "Program pada komputermu yang menyediakan akses ke protokol <strong>%1</"
 "strong> telah melaporkan sebuah error tak diketahui: %2"
 
-#: core/job_error.cpp:1127
+#: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Gangguan Tak Diketahui"
 
-#: core/job_error.cpp:1129
+#: core/job_error.cpp:1128
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2160,12 +2166,12 @@ msgstr ""
 "Program pada komputermu yang menyediakan akses ke protokol <strong>%1</"
 "strong> telah melaporkan sebuah gangguan bertipe tak diketahui: %2"
 
-#: core/job_error.cpp:1139
+#: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Tidak Bisa Menghapus File Asli"
 
-#: core/job_error.cpp:1141
+#: core/job_error.cpp:1140
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2176,12 +2182,12 @@ msgstr ""
 "pada akhir operasi pemindahan file. File asli <strong>%1</strong> tidak bisa "
 "dihapus."
 
-#: core/job_error.cpp:1150
+#: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Tidak Bisa Menghapus File Temporer"
 
-#: core/job_error.cpp:1152
+#: core/job_error.cpp:1151
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2192,12 +2198,12 @@ msgstr ""
 "menyimpan file baru ketika sewaktu diunduh, kemungkinan besar pada akhir "
 "operasi pemindahan file. File asli <strong>%1</strong> tidak bisa dihapus."
 
-#: core/job_error.cpp:1162
+#: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Tidak Bisa Mengubah-nama File Asli"
 
-#: core/job_error.cpp:1164
+#: core/job_error.cpp:1163
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2206,12 +2212,12 @@ msgstr ""
 "Operasi yang diminta memerlukan pengubahan nama pada file asli <strong>%1</"
 "strong>, meski tidak bisa diubah nama."
 
-#: core/job_error.cpp:1173
+#: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Tidak Bisa Mengubah-nama File Temporer"
 
-#: core/job_error.cpp:1175
+#: core/job_error.cpp:1174
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2220,32 +2226,32 @@ msgstr ""
 "Operasi yang diminta memerlukan penciptaan sebuah file temporer <strong>%1</"
 "strong>, meski tidak bisa diciptakan."
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Tidak Bisa Menciptakan Tautan"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1184
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Tidak Bisa Menciptakan Tautan Simbolis"
 
-#: core/job_error.cpp:1186
+#: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Tautan simbolis %1 yang diminta tidak bisa diciptakan."
 
-#: core/job_error.cpp:1192
+#: core/job_error.cpp:1191
 #, kde-format
 msgid "No Content"
 msgstr "Tidak ada Isi"
 
-#: core/job_error.cpp:1197
+#: core/job_error.cpp:1196
 #, kde-format
 msgid "Disk Full"
 msgstr "Disk Penuh"
 
-#: core/job_error.cpp:1199
+#: core/job_error.cpp:1198
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2254,7 +2260,7 @@ msgstr ""
 "File <strong>%1</strong> yang diminta tidak bisa ditulis karena ruang disk "
 "yang ada tidak mencukupi."
 
-#: core/job_error.cpp:1203
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2266,12 +2272,12 @@ msgstr ""
 "seperti disk CD-Recordable; atau 3) mendapatkan kapasitas penyimpanan lebih "
 "banyak."
 
-#: core/job_error.cpp:1210
+#: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Sumber dan File-file Tujuan yang Identik"
 
-#: core/job_error.cpp:1212
+#: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2280,17 +2286,17 @@ msgstr ""
 "Operasi tidak dapat diselesaikan karena sumber dan file tujuan adalah file "
 "yang sama."
 
-#: core/job_error.cpp:1214
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Pilihlah sebuah nama file yang berbeda untuk file tujuan."
 
-#: core/job_error.cpp:1218
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "File atau Folder ditaruh ke dalam dirinya sendiri"
 
-#: core/job_error.cpp:1220
+#: core/job_error.cpp:1219
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2299,17 +2305,17 @@ msgstr ""
 "Operasi tidak dapat diselesaikan karena sumber dan folder atau file tujuan "
 "adalah sama."
 
-#: core/job_error.cpp:1222
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Taruh butir ke dalam folder atau file yang berbeda."
 
-#: core/job_error.cpp:1232
+#: core/job_error.cpp:1231
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Folder dipindah ke dalam dirinya sendiri"
 
-#: core/job_error.cpp:1234
+#: core/job_error.cpp:1233
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2318,17 +2324,17 @@ msgstr ""
 "Operasi tidak dapat diselesaikan karena sumber tidak bisa dipindah ke dalam "
 "dirinya sendiri."
 
-#: core/job_error.cpp:1236
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Pindah butir ke dalam folder yang berbeda."
 
-#: core/job_error.cpp:1240
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Tidak dapat berkomunikasi dengan server kata sandi"
 
-#: core/job_error.cpp:1242
+#: core/job_error.cpp:1241
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2337,32 +2343,36 @@ msgstr ""
 "Operasi tidak dapat diselesaikan karena layanan untuk permintaan kata sandi "
 "(kpasswdserver) belum bisa dikontak"
 
-#: core/job_error.cpp:1244
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Cobalah memulai ulang sesimu, atau lihat di dalam log atas error dari kiod."
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Tak Bisa Memprakarsai Protokol %1"
 
-#: core/job_error.cpp:1249
-#, kde-format
-msgid "Unable to Create io-slave"
+#: core/job_error.cpp:1248
+#, fuzzy, kde-format
+#| msgid "Unable to Create io-slave"
+msgid "Unable to Create KIO Worker"
 msgstr "Tak bisa Menciptakan io-slave"
 
-#: core/job_error.cpp:1251
-#, kde-format
+#: core/job_error.cpp:1250
+#, fuzzy, kde-format
+#| msgid ""
+#| "The io-slave which provides access to the <strong>%1</strong> protocol "
+#| "could not be started. This is usually due to technical reasons."
 msgid ""
-"The io-slave which provides access to the <strong>%1</strong> protocol could "
-"not be started. This is usually due to technical reasons."
+"The KIO worker which provides access to the <strong>%1</strong> protocol "
+"could not be started. This is usually due to technical reasons."
 msgstr ""
 "io-slave yang menyediakan akses ke protokol <strong>%1</strong> tidak bisa "
 "dimulai. Hal ini biasanya karena alasan teknis."
 
-#: core/job_error.cpp:1256
+#: core/job_error.cpp:1255
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol."
@@ -2372,13 +2382,13 @@ msgstr ""
 "protokol. Ini kemungkinan kamu memiliki sebuah plugin dengan versi yang "
 "lawas."
 
-#: core/job_error.cpp:1262
+#: core/job_error.cpp:1261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Tak dapat mentransfer <filename>%1</filename>"
 
-#: core/job_error.cpp:1264
+#: core/job_error.cpp:1263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2388,7 +2398,7 @@ msgstr ""
 "File <filename>%1</filename> tak dapat ditransfer, karena filesystem yang "
 "dituju belum mendukung file-file yang besar"
 
-#: core/job_error.cpp:1267
+#: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2397,7 +2407,7 @@ msgstr ""
 "Format ulang drive yang dituju menggunakan sebuah filesystem yang mendukung "
 "file-file yang besar."
 
-#: core/job_error.cpp:1272
+#: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Error Tak Terdokumen"
@@ -2438,13 +2448,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Protokol '%1' tak diketahui."
 
 #: core/slave.cpp:432
-#, kde-format
-msgid "Can not find io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not find io-slave for protocol '%1'."
+msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Tidak bisa menemukan io-slave untuk protokol '%1'."
 
 #: core/slave.cpp:440
-#, kde-format
-msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, fuzzy, kde-format
+#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Tidak bisa menciptakan soket untuk meluncurkan io-slave untuk protokol '%1'."
 
@@ -4438,7 +4450,23 @@ msgid "&Management"
 msgstr "&Pengelolaan"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#| "using the HTTP protocol (like Konqueror) store on your computer, "
+#| "initiated by a remote Internet server. This means that a web server can "
+#| "store information about you and your browsing activities on your machine "
+#| "for later use. You might consider this an invasion of privacy.</p><p> "
+#| "However, cookies are useful in certain situations. For example, they are "
+#| "often used by Internet shops, so you can 'put things into a shopping "
+#| "basket'. Some sites require you have a browser that supports cookies.</"
+#| "p><p> Because most people want a compromise between privacy and the "
+#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
+#| "customize the way it handles cookies. So you might want to set the "
+#| "default policy to ask you whenever a server wants to set a cookie, "
+#| "allowing you to decide. For your favorite shopping web sites that you "
+#| "trust, you might want to set the policy to accept, then you can access "
+#| "the web sites without being prompted every time a cookie is received.</p>"
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4448,12 +4476,13 @@ msgid ""
 "useful in certain situations. For example, they are often used by Internet "
 "shops, so you can 'put things into a shopping basket'. Some sites require "
 "you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP kioslave "
-"offers you the ability to customize the way it handles cookies. So you might "
-"want to set the default policy to ask you whenever a server wants to set a "
-"cookie, allowing you to decide. For your favorite shopping web sites that "
-"you trust, you might want to set the policy to accept, then you can access "
-"the web sites without being prompted every time a cookie is received.</p>"
+"compromise between privacy and the benefits cookies offer, the HTTP KIO "
+"worker offers you the ability to customize the way it handles cookies. So "
+"you might want to set the default policy to ask you whenever a server wants "
+"to set a cookie, allowing you to decide. For your favorite shopping web "
+"sites that you trust, you might want to set the policy to accept, then you "
+"can access the web sites without being prompted every time a cookie is "
+"received.</p>"
 msgstr ""
 "<h1>Cookie</h1><p>Cookie berisi informasi bahwa aplikasi KDE menggunakan "
 "protokol HTTP (seperti Konqueror) yang disimpan di komputermu, yang "
@@ -5704,9 +5733,17 @@ msgid "Default password:"
 msgstr "Kata-sandi baku:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#| "properly configured.</p><p>You can specify here the credentials used to "
+#| "access the shared resources. Passwords will be stored locally, and "
+#| "scrambled so as to render them unreadable to the human eye. For security "
+#| "reasons, you may not want to do that, as entries with passwords are "
+#| "clearly indicated as such.</p>"
 msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
 "properly configured.</p><p>You can specify here the credentials used to "
 "access the shared resources. Passwords will be stored locally, and scrambled "
