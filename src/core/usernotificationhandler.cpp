@@ -72,10 +72,7 @@ void UserNotificationHandler::processRequest()
             AskUserActionInterface *askUserIface = job ? KIO::delegateExtension<KIO::AskUserActionInterface *>(job) : nullptr;
 
             if (askUserIface) {
-                connect(askUserIface, &AskUserActionInterface::messageBoxResult, this, [this, key](int result) {
-                    m_cachedResults.insert(key, new int(result));
-                    slotProcessRequest(result);
-                });
+                connect(askUserIface, &AskUserActionInterface::messageBoxResult, this, &UserNotificationHandler::slotProcessRequest, Qt::UniqueConnection);
 
                 const auto type = [r]() -> AskUserActionInterface::MessageDialogType {
                     switch (r->type) {
@@ -121,6 +118,8 @@ void UserNotificationHandler::processRequest()
 void UserNotificationHandler::slotProcessRequest(int result)
 {
     Request *request = m_pendingRequests.takeFirst();
+    m_cachedResults.insert(request->key(), new int(result));
+
     request->slave->sendMessageBoxAnswer(result);
     delete request;
 
