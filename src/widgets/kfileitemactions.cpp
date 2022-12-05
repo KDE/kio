@@ -20,6 +20,7 @@
 #include <KMimeTypeTrader>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <KSandbox>
 #include <KServiceTypeTrader>
 #include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
@@ -845,6 +846,36 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         return;
     }
 
+    const auto makeOpenWithAction = [this, isDir] {
+        auto action = new QAction(this);
+        action->setText(isDir ? i18nc("@title:menu", "&Open Folder With...") : i18nc("@title:menu", "&Open With..."));
+        action->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+        action->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
+        return action;
+    };
+
+#ifndef KIO_ANDROID_STUB
+    if (KSandbox::isInside() && !m_fileOpenList.isEmpty()) {
+        auto openWithAction = makeOpenWithAction();
+        QObject::connect(openWithAction, &QAction::triggered, this, [this] {
+            const auto &items = m_fileOpenList;
+            for (const auto &fileItem : items) {
+                QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
+                                                                      QLatin1String("/org/freedesktop/portal/desktop"),
+                                                                      QLatin1String("org.freedesktop.portal.OpenURI"),
+                                                                      QLatin1String("OpenURI"));
+                message << QString() << fileItem.url() << QVariantMap{};
+                QDBusConnection::sessionBus().asyncCall(message);
+            }
+        });
+        topMenu->insertAction(before, openWithAction);
+        return;
+    }
+    if (KSandbox::isInside()) {
+        return;
+    }
+#endif
+
     QStringList serviceIdList = listPreferredServiceIds(m_mimeTypeList, excludedDesktopEntryNames, traderConstraint);
 
     // When selecting files with multiple MIME types, offer either "open with <app for all>"
@@ -876,10 +907,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
         m_fileOpenList = m_props.items();
     }
 
-    QAction *openWithAct = new QAction(this);
-    openWithAct->setText(isDir ? i18nc("@title:menu", "&Open Folder With...") : i18nc("@title:menu", "&Open With..."));
-    openWithAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
-    openWithAct->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
+    auto openWithAct = makeOpenWithAction();
     QObject::connect(openWithAct, &QAction::triggered, this, &KFileItemActionsPrivate::slotOpenWithDialog);
 
     if (!offers.isEmpty()) {
