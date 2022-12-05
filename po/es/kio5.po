@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-04 00:42+0000\n"
-"PO-Revision-Date: 2022-12-03 12:05+0100\n"
+"PO-Revision-Date: 2022-12-04 12:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -55,10 +55,9 @@ msgstr ""
 "No tiene permisos suficientes para realizar el cambio."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Imposible crear esclavo de E/S: %1"
+msgstr "No se ha podido crear el módulo de trabajo KIO: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -807,10 +806,9 @@ msgid "Communication with the local password server failed"
 msgstr "La comunicación con el servidor de contraseñas local ha fallado"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Imposible crear esclavo de E/S. %1"
+msgstr "No se ha podido crear el módulo de trabajo KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1185,21 +1183,16 @@ msgstr ""
 "pueden ser incompatibles."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Puede realizar una búsqueda en Internet de un programa KDE (denominado un "
-"kioslave o ioslave) que permita usar este protocolo. Los lugares a buscar "
-"incluyen <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> y <a "
-"href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+"Puede buscar en Internet un complemento de software (denominado «módulo de "
+"trabajo KIO» o «KIO worker») que permita usar este protocolo. Los lugares a "
+"buscar incluyen <a href=\"https://store.kde.org/\">https://store.kde.org/</"
+"a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2382,22 +2375,18 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "No se puede iniciar el protocolo %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Imposible crear esclavo de E/S"
+msgstr "No se ha podido crear el módulo de trabajo KIO"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"No fue posible iniciar el esclavo de E/S que proporciona acceso al protocolo "
-"<strong>%1</strong>. Esto se debe normalmente a razones técnicas."
+"No se ha podido iniciar el módulo de trabajo KIO que proporciona acceso al "
+"protocolo <strong>%1</strong>. Esto se debe normalmente a razones técnicas."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2475,18 +2464,17 @@ msgid "Unknown protocol '%1'."
 msgstr "Protocolo desconocido «%1»."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "No se ha podido encontrar esclavo de e/s para el protocolo «%1»."
+msgstr ""
+"No se ha podido encontrar el módulo de trabajo KIO para el protocolo «%1»."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"No se ha podido crear un socket para lanzar el esclavo de e/s para el "
-"protocolo «%1»."
+"No se ha podido crear un conector para lanzar el módulo de trabajo KIO para "
+"el protocolo «%1»."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4495,23 +4483,7 @@ msgid "&Management"
 msgstr "&Gestión"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4539,11 +4511,11 @@ msgstr ""
 "modo que uno puede «poner artículos en la cesta de la compra». Algunos "
 "sitios requieren un navegador que permita usar cookies.</p><p> Dado que la "
 "mayoría de las personas quieren armonizar la privacidad y los beneficios "
-"ofrecidos por las cookies, el esclavo «kio» HTTP le permite configurar el "
-"modo de manejar las cookies. Por ello puede que desee configurar la política "
-"predeterminada  para que le solicite su consentimiento cada vez que un "
-"servidor quiera enviar una cookie, para que usted decida. Para sus sitios de "
-"compra favoritos y en los que usted tiene confianza, puede configurar la "
+"ofrecidos por las cookies, el módulo de trabajo HTTP le permite configurar "
+"el modo de manejar las cookies. Por ello puede que desee configurar la "
+"política predeterminada  para que le solicite su consentimiento cada vez que "
+"un servidor quiera enviar una cookie, para que usted decida. Para sus sitios "
+"de compra favoritos y en los que usted tiene confianza, puede configurar la "
 "política de aceptación, de forma que sea posible navegar por los sitios sin "
 "que le solicite su consentimiento cada vez que se reciba una cookie.</p>"
 
@@ -5779,15 +5751,7 @@ msgid "Default password:"
 msgstr "Contraseña predeterminada:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5798,10 +5762,10 @@ msgid ""
 "such.</p>"
 msgstr ""
 "<h1>Recursos compartidos de Windows</h1><p>Las aplicaciones que usan el "
-"esclavo «kio» SMB (como Konqueror) son capaces de acceder a sistemas de "
-"archivos compartidos de Microsoft Windows, si están bien configurados.</"
-"p><p>Aquí puede indicar las credenciales a usar para acceder a dichos "
-"recursos compartidos. Las contraseñas se guardarán de forma local, "
+"módulo de trabajo KIO para SMB (como Konqueror) son capaces de acceder a "
+"sistemas de archivos compartidos de Microsoft Windows, si están bien "
+"configurados.</p><p>Aquí puede indicar las credenciales a usar para acceder "
+"a dichos recursos compartidos. Las contraseñas se guardarán de forma local, "
 "codificadas para que resulten ilegibles al ojo humano. Por motivos de "
 "seguridad, tal vez no desee hacer esto, ya que las entradas que contienen "
 "contraseñas están claramente marcadas como tales.</p>"

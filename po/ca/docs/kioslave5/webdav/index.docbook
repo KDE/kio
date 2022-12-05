@@ -28,9 +28,7 @@
 >A</emphasis
 >uthoring i <emphasis
 >V</emphasis
->ersioning) per a la World Wide Web. Us permetrà la gestió senzilla de documents i scripts en un servidor <ulink url="help:/kioslave/webdav.html"
->&HTTP;</ulink
->, i disposa de característiques addicionals dissenyades per a simplificar la gestió de versions entre múltiples autors.</para>
+>ersioning) per a la World Wide Web. Us permetrà la gestió senzilla de documents i scripts en un servidor &HTTP;, i disposa de característiques addicionals dissenyades per a simplificar la gestió de versions entre diversos autors.</para>
 
 <para
 >L'ús d'aquest protocol és simple. Introduïu la localització que voleu veure, semblant a un &URL; &HTTP; excepte pel prefix del nom del protocol webdav://. Per exemple, <userinput

@@ -157,13 +157,6 @@
 > precisa que suministre la ubicación del script de configuración. En su lugar, se descargará automáticamente utilizando el protocolo «Descubrimiento automático de proxy web»  (<acronym
 >WAPD</acronym
 >).</para>
-
-<note
-><para
->Si tiene algún problema con esta configuración, consulte la sección de preguntas frecuentes en <ulink url="https://www.konqueror.org"
->https://www.konqueror.org</ulink
-> para obtener más información.</para
-></note>
 </listitem>
 </varlistentry>
 

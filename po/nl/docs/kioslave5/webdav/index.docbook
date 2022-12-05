@@ -28,9 +28,7 @@
 >A</emphasis
 >uthoring and <emphasis
 >V</emphasis
->ersioning-protocol voor het Wereld-Wijde-Web. Het geeft de mogelijkheid om op eenvoudige wijze documenten en scripts op een <ulink url="help:/kioslave/webdav.html"
->&HTTP;</ulink
->-server te beheren en heeft enkele mogelijkheden die ontwikkeld zijn om versiebeheer bij meerdere auteurs van hetzelfde document te vereenvoudigen.</para>
+>ersioning-protocol voor het Wereld-Wijde-Web. Het geeft de mogelijkheid om op eenvoudige wijze documenten en scripts op een &HTTP;-server te beheren en heeft enkele mogelijkheden die ontwikkeld zijn om versiebeheer bij meerdere auteurs van hetzelfde document te vereenvoudigen.</para>
 
 <para
 >Het gebruik van dit protocol is erg gemakkelijk. Typ de locatie in die u wilt bekijken. Dit doet u op dezelfde manier als bij &HTTP;, alleen begint de &URL; nu met het protocol webdav://. Een voorbeeld hiervan is <userinput

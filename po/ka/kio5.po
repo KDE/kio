@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-04 00:42+0000\n"
-"PO-Revision-Date: 2022-11-23 06:25+0100\n"
+"PO-Revision-Date: 2022-12-04 07:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -43,10 +43,9 @@ msgstr ""
 "ამ ცვლილებისთვის საკმარისი წვდომა."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Io-slave-ის შექმნის შეცდომა: %1"
+msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -778,10 +777,9 @@ msgid "Communication with the local password server failed"
 msgstr "პაროლების ლოკალურ სერვერთან კავშირის შეცდომა"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Io-slave-ის შექმნის შეცდომა. %1"
+msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -2140,16 +2138,12 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "პროტოკოლის %1 დაწყების შეცდომა"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Io-slave-ის შექმნის შეცდომა"
+msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The program on your computer which provides access to the <strong>%1</"
-#| "strong> protocol could not obtain the memory required to continue."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
@@ -2234,10 +2228,11 @@ msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Could not create socket for accessing %1."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "%1-თან წვდომისთვის საჭირო სოკეტის შექმნის შეცდომა."
+msgstr ""
+"სოკეტის შექმნის შეცდომა KIO-ის დამხმარე პროცესის გასაშვებად პროტოკოლისთვის "
+"'%1'."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -6425,7 +6420,7 @@ msgstr "აქ ჩაკოპირება"
 #: widgets/dropjob.cpp:319
 #, kde-format
 msgid "&Link Here"
-msgstr ""
+msgstr "&აქ ბმული"
 
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format

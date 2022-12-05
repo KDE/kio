@@ -113,15 +113,6 @@
 > потрібно буде вказувати адресу файла скрипту налаштувань. Замість цього, цей файл буде автоматично отримано за допомогою протоколу «Web Proxy Auto-Discovery» (<acronym
 >WPAD</acronym
 >).</para>
-
-<note
-><para
->Якщо за таких налаштувань у вас виникають проблеми, будь ласка, зверніться до розділу <acronym
->FAQ</acronym
-> сайта <ulink url="https://www.konqueror.org"
->https://www.konqueror.org</ulink
->, щоб отримати додаткові настанови.</para
-></note>
 </listitem>
 </varlistentry>
 

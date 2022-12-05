@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-04 00:42+0000\n"
-"PO-Revision-Date: 2022-11-11 20:59+0100\n"
+"PO-Revision-Date: 2022-12-05 00:23+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -44,8 +44,7 @@ msgstr ""
 "имате недостатъчни права на достъп до файла за извършване на промяната."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Невъзможно създаване на входно/изходна връзка: %1"
 
@@ -797,10 +796,9 @@ msgid "Communication with the local password server failed"
 msgstr "Комуникацията с локалния сървър за пароли е неуспешна"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Не може да се създаде io-slave. %1"
+msgstr "Не може да се създаде KIO worker. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1168,21 +1166,15 @@ msgstr ""
 "съвместими."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Можете да извършите търсене в интернет за програма KDE (наречена kioslave "
-"или ioslave), който поддържа този протокол. Местата за търсене включват<a "
-"href=\"https://kde-apps.org/\"> https://kde-apps.org/ </a> и a href=\"http://"
-"freshmeat.net/\">http://freshmeat.net/</a>."
+"Можете да извършите търсене в интернет за програма KDE (наречена \"KIO worker"
+"\"), който поддържа този протокол. Местата за търсене включват<a href="
+"\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2332,22 +2324,18 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Протоколът %1 не може да бъде инициализиран"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Не може да се създаде io-slave"
+msgstr "Не може да се създаде KIO Worker"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Io-slave, който осигурява достъп до протокола <strong> %1 </strong>, не можа "
-"да се стартира. Това обикновено се дължи на технически причини."
+"KIO Worker, който осигурява достъп до протокола <strong> %1 </strong>, не "
+"можа да се стартира. Това обикновено се дължи на технически причини."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2424,17 +2412,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Неизвестен протокол \"%1\"."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Липсва входно/изходна връзка за протокола \"%1\"."
+msgstr "Липсва KIO worker за протокола \"%1\"."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Не може да се създаде сокет за стартиране на io-slave за протокол '%1'."
+"Не може да се създаде сокет за стартиране на KIO Worker за протокол '%1'."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4439,23 +4425,7 @@ msgid "&Management"
 msgstr "&Управление"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4483,7 +4453,7 @@ msgstr ""
 "така че можете да \"приберете нещата в кошница за пазаруване\". Някои "
 "сайтове изискват да имате браузър, който поддържа бисквитки.</p><p>Тъй като "
 "повечето хора искат компромис между поверителността и предимствата, които "
-"предлагат бисквитките, HTTP kioslave ви предлага възможността да "
+"предлагат бисквитките, HTTP KIO Worker ви предлага възможността да "
 "персонализирате начина, по който се обработват бисквитките. По този начин "
 "може да зададете политика по подразбиране да бъдете запитвани всеки път за "
 "разрешение, когато сървър иска да постави бисквитка. За вашите любими уеб "
@@ -5321,16 +5291,7 @@ msgstr "Без прокси"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5345,9 +5306,7 @@ msgstr ""
 "Автоматичното откриване се извършва с помощта на <b>Web Proxy Auto-Discovery "
 "Protocol (WPAD)</b>. <p>\n"
 "<b>ЗАБЕЛЕЖКА:</b> Тази опция може да не работи правилно или изобщо да не "
-"работи в някои UNIX/Linux дистрибуции. Ако срещнете проблем при използване "
-"на тази опция,моля, проверете раздела с често задавани въпроси на https: //"
-"konqueror.org. \n"
+"работи в някои UNIX/Linux дистрибуции.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5725,15 +5684,7 @@ msgid "Default password:"
 msgstr "Парола по подразбиране:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5743,7 +5694,7 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Споделения с Windows </h1><p>Приложения, използващи SMB kioslave (като "
+"<h1>Споделения с Windows </h1><p>Приложения, използващи SMB KIO worker (като "
 "Konqueror) имат достъп до споделени файлови системи на Microsoft Windows, "
 "ако е правилно конфигуриран.</p><p>Тук можете да посочите идентификационните "
 "данни, използвани за достъп до споделените ресурси. Паролите ще се "

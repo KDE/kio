@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-04 00:42+0000\n"
-"PO-Revision-Date: 2022-11-10 18:46-0400\n"
+"PO-Revision-Date: 2022-12-04 12:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -42,10 +42,9 @@ msgstr ""
 "hebt niet de benodigde toegangsrechten voor deze wijziging."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Niet in staat io-slave aan te maken: %1"
+msgstr "Niet in staat KIO-worker aan te maken: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -800,10 +799,9 @@ msgid "Communication with the local password server failed"
 msgstr "Communicatie met de lokale wachtwoordserver is mislukt"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Niet in staat io-slave aan te maken. %1"
+msgstr "Niet in staat KIO-worker aan te maken. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1183,21 +1181,15 @@ msgstr ""
 "de server kunnen incompatibel zijn."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"U kunt een zoekactie uitvoeren op het internet voor een KDE-programma (kio-"
-"slave of ioslave genaamd) dat dit protocol ondersteunt. De plaatsen waar u "
-"kunt zoeken zijn o.a. <a href=\"https://kde-apps.org/\">https://kde-apps."
-"org</a> en <a href=\"http://freshmeat.net/\">http://freshmeat.net</a>."
+"U kunt een zoekactie uitvoeren op het internet voor een KDE-programma (KIO-"
+"worker genaamd) dat dit protocol ondersteunt. De plaatsen waar u kunt zoeken "
+"omvatten <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2388,21 +2380,17 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Het protocol %1 kon niet worden geïnitialiseerd"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Niet in staat io-slave aan te maken"
+msgstr "Niet in staat KIO-worker aan te maken"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"De io-slave die toegang verschaft tot het protocol <strong>%1</strong> kon "
+"De KIO-worker die toegang verschaft tot het protocol <strong>%1</strong> kon "
 "niet worden gestart. Dit heeft meestal een technische oorzaak."
 
 #: core/job_error.cpp:1255
@@ -2480,17 +2468,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Onbekend protocol: '%1'."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Er is geen io-slave gevonden voor protocol '%1'."
+msgstr "Er is geen KIO-worker gevonden voor protocol '%1'."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Kan geen socket aanmaken voor het starten van io-slave voor protocol '%1'."
+"Kan geen socket aanmaken voor het starten van KIO-worker voor protocol '%1'."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4506,23 +4492,7 @@ msgid "&Management"
 msgstr "Be&heer"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4550,13 +4520,13 @@ msgstr ""
 "boodschappenwagentje kunt plaatsen'. Bepaalde sites vereisen dan ook dat uw "
 "browser cookies accepteert.</p><p>Omdat de meeste gebruikers een compromis "
 "willen sluiten tussen hun privacybehoeften en de voordelen van cookies, "
-"biedt de HTTP-kioslave u de mogelijkheid om zelf te bepalen hoe KDE omgaat "
+"biedt de HTTP-KIO-worker u de mogelijkheid om zelf te bepalen hoe KDE omgaat "
 "met cookies. Zo kunt u aangeven dat het standaard beleid is dat om een "
 "bevestiging gevraagd wordt, telkens als een server een cookie wil plaatsen. "
 "Maar voor uw favoriete internetwinkels en websites die u vertrouwd wilt u "
 "waarschijnlijk de cookies stilzwijgend accepteren, zodat u ongestoord kunt "
 "surfen op deze sites zonder dat u telkens om een bevestiging wordt gevraagd "
-"bij ontvangst van een cookie. </p>"
+"bij ontvangst van een cookie.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5393,16 +5363,7 @@ msgstr "Geen proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5417,8 +5378,7 @@ msgstr ""
 "Automatische detectie wordt uitgevoerd met behulp van het <b>Web Proxy Auto-"
 "Discovery Protocol (WPAD)</b>.<p>\n"
 "<b>Opmerking:</b> deze optie werkt mogelijk niet goed of helemaal niet op "
-"sommige UNIX/Linux-distributies. Als u problemen tegenkomt bij het gebruiken "
-"van deze optie, lees dan de FAQ op https://konqueror.org.\n"
+"sommige UNIX/Linux-distributies.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5805,15 +5765,7 @@ msgid "Default password:"
 msgstr "Standaard wachtwoord:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5823,8 +5775,8 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows Shares</h1><p>Toepassingen die de SMB kioslave gebruiken (zoals "
-"Konqueror) kunnen toegang hebben tot gedeelde Microsoft Windows "
+"<h1>Windows Shares</h1><p>Toepassingen die de SMB KIO-worker gebruiken "
+"(zoals Konqueror) kunnen toegang hebben tot gedeelde Microsoft Windows "
 "bestandssystemen, indien juist geconfigureerd.</p><p>U kunt hier de "
 "credentials specificeren die gebruikt worden voor toegang tot de gedeelde "
 "hulpbronnen. Wachtwoorden zullen lokaal worden opgeslagen en verhaspeld "
