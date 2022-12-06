@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2009-08-18 12:07+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -3580,7 +3580,7 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Ju nuk jeni i autorizuar ta ekzekutoni këtë skedar."
@@ -3631,7 +3631,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr ""
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3639,7 +3639,7 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Duke nisur %1"
@@ -5861,25 +5861,25 @@ msgstr ""
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, fuzzy, kde-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
 msgid "Do you want to retry?"
 msgstr "Me të vërtetë dëshiron ta fshish këtë temë?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr ""

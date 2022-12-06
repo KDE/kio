@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-02-14 19:53+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -3902,7 +3902,7 @@ msgstr "Kliknite pre navigáciu k umiestneniu"
 msgid "Click to Edit Location"
 msgstr "Kliknite pre úpravu umiestnenia"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nemáte práva na spustenie tohto súboru."
@@ -3956,7 +3956,7 @@ msgstr "Súbor ikony príliš veľký, stiahnutie prerušené"
 msgid "No mail client found"
 msgstr "Nenašiel sa žiadny poštový klient"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3967,7 +3967,7 @@ msgstr ""
 "%1\n"
 "je neznámy."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Spúšťa sa %1"
@@ -6525,23 +6525,23 @@ msgstr "Nemôžem nájsť 'FindProxyForURL' alebo 'FindProxyForURLEx'"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "Získaná neplatná odpoveď pri volaní %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Chcete to skúsiť znovu?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Znova autorizovať"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Znovu"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dialóg overenia"

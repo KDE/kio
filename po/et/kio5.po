@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -3892,7 +3892,7 @@ msgstr "Klõpsa asukohta liikumiseks"
 msgid "Click to Edit Location"
 msgstr "Klõpsa asukoha muutmiseks"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Sul puuduvad õigused selle faili käivitamiseks."
@@ -3946,7 +3946,7 @@ msgstr "Ikoonifail on liiga suur, allalaadimine katkestatakse"
 msgid "No mail client found"
 msgstr "Ühtegi e-posti klienti ei leitud"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3957,7 +3957,7 @@ msgstr ""
 "%1\n"
 "ei ole korrektne."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 käimapanek"
@@ -6516,23 +6516,23 @@ msgstr "'FindProxyForURL' ega 'FindProxyForURLEx' ei leitud"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1 väljakutsumisel saadi vigane vastus -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Kas proovida uuesti?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Autentimise taasproovimine"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Proovi uuesti"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Autentimisdialoog"

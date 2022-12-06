@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-09-29 10:56+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3942,7 +3942,7 @@ msgstr "Klik untuk Navigasi Lokasi"
 msgid "Click to Edit Location"
 msgstr "Klik untuk Edit Lokasi"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Kamu tidak diizinkan untuk mengeksekusi file ini."
@@ -3995,7 +3995,7 @@ msgstr "File ikon terlalu besar, unduhan digugurkan"
 msgid "No mail client found"
 msgstr "Tidak ada klien mail yang ditemukan"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4006,7 +4006,7 @@ msgstr ""
 "%1\n"
 "tidak absah."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Menluncurkan %1"
@@ -6569,23 +6569,23 @@ msgstr "Tidak dapat menemukan 'FindProxyForURL' atau 'FindProxyForURLEx'"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "Mendapatkan sebuah balasan tidak absah ketika menghubungi %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Apakah kamu ingin mencoba lagi?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Coba Lagi Autentikasi"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Coba lagi"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dialog Autentikasi"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-05-05 10:31+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -3958,7 +3958,7 @@ msgstr "Apăsați pentru navigare printre locuri"
 msgid "Click to Edit Location"
 msgstr "Apăsați pentru a redacta amplasarea"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nu aveți autorizare să executați acest fișier."
@@ -4013,7 +4013,7 @@ msgstr "Pictogramă prea mare, descărcare abandonată"
 msgid "No mail client found"
 msgstr "Niciun client de poștă găsit"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4024,7 +4024,7 @@ msgstr ""
 "%1\n"
 "nu e valid."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Se lansează %1"
@@ -6607,23 +6607,23 @@ msgstr "Nu a putut fi găsit 'FindProxyForURL' sau 'FindProxyForURLEx'"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "S-a primit un răspuns nevalid la apelarea %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Doriți să reîncercați?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Reîncearcă autentificarea"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Reîncercare"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dialog de autentificare"

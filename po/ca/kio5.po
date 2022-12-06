@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-12-04 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3949,7 +3949,7 @@ msgstr "Cliqueu per a navegar a una ubicació"
 msgid "Click to Edit Location"
 msgstr "Cliqueu per a editar una ubicació"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "No esteu autoritzat a executar aquest fitxer."
@@ -4003,7 +4003,7 @@ msgstr "El fitxer d'icona és massa gran, s'interromp la baixada"
 msgid "No mail client found"
 msgstr "No s'ha trobat cap client de correu"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4014,7 +4014,7 @@ msgstr ""
 "%1\n"
 "no és vàlid."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "S'està llançant %1"
@@ -6574,23 +6574,23 @@ msgstr "No s'ha trobat «FindProxyForURL» o «FindProxyForURLEx»"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "S'ha obtingut una resposta no vàlida en cridar %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Ho voleu tornar a intentar?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Torna a intentar l'autenticació"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Torna a intentar-ho"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Diàleg d'autenticació"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-10-03 15:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -3827,7 +3827,7 @@ msgstr "위치를 탐색하려면 클릭하십시오"
 msgid "Click to Edit Location"
 msgstr "주소를 편집하려면 클릭하십시오"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "이 파일을 실행할 권한이 없습니다."
@@ -3879,7 +3879,7 @@ msgstr "아이콘 파일이 너무 커서 다운로드 중단함"
 msgid "No mail client found"
 msgstr "메일 클라이언트를 찾을 수 없음"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3890,7 +3890,7 @@ msgstr ""
 "데스크톱 항목 파일이\n"
 "잘못되었습니다."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 실행 중"
@@ -6383,23 +6383,23 @@ msgstr "'FindProxyForURL'이나 'FindProxyForURLEx'를 찾을 수 없음"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1 -> %2을(를) 호출할 때 잘못된 응답을 받음"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "다시 시도하시겠습니까?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "인증 다시 시도"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "다시 시도"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "인증 대화 상자"

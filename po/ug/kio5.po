@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3981,7 +3981,7 @@ msgstr "چېكىلسە ئورۇننى يېتەكلەيدۇ"
 msgid "Click to Edit Location"
 msgstr "چېكىلسە ئورۇننى تەھرىرلەيدۇ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "سىزگە بۇ ھۆججەتنى ئىجرا قىلىش ھوقۇقى بېرىلمىگەن."
@@ -4036,7 +4036,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4051,7 +4051,7 @@ msgstr ""
 "%1\n"
 "يوچۇن."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 ئىجرا قىلىۋاتىدۇ"
@@ -6391,26 +6391,26 @@ msgstr "'FindProxyForURL' ياكى 'FindProxyForURLEx' نى تاپالمىدى"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1 نى چاقىرىۋاتقاندا ئىناۋەتسىز ئىنكاسقا ئېرىشتى"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, fuzzy, kde-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
 msgid "Do you want to retry?"
 msgstr "بۇ %1 تۈرنى ئۆچۈرەمسىز؟"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, fuzzy, kde-format
 #| msgid "Server Authentication"
 msgid "Retry Authentication"
 msgstr "مۇلازىمېتىر ئىسپاتنامىسى"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"

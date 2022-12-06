@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-11-19 05:23-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3726,7 +3726,7 @@ msgstr "ਟਿਕਾਣਾ ਨੇਵੀਗੇਸ਼ਨ ਲਈ ਕਲਿੱਕ �
 msgid "Click to Edit Location"
 msgstr "ਟਿਕਾਣਾ ਸੋਧਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ਇਸ ਫਾਈਲ ਨੂੰ ਚਲਾਉਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
@@ -3776,7 +3776,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "ਕੋਈ ਮੇਲ ਕਲਾਈਂਟ ਨਹੀਂ ਲੱਭਾ"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3787,7 +3787,7 @@ msgstr ""
 "%1\n"
 "ਗਲਤ ਹੈ।"
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
@@ -6030,23 +6030,23 @@ msgstr ""
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "ਕੀ ਤੁਸੀਂ ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰਨੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "ਮੁੜ-ਕੋਸ਼ਿਸ਼"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "ਪਰਮਾਣਕਿਤਾ ਡਾਈਲਾਗ"

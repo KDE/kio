@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4014,7 +4014,7 @@ msgstr "Nacisnicie, kab pierajsci da razmiaščennia"
 msgid "Click to Edit Location"
 msgstr "Nacisnicie, kab redahavać razmiaščennie"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vy nie aŭtaryzavanyja dlia vykanannia hetaha fajla."
@@ -4070,7 +4070,7 @@ msgstr "Fajl značka zanadta vialiki, spampoŭvannie skasavana"
 msgid "No mail client found"
 msgstr "Paštovy klijent nie znojdzieny"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4081,7 +4081,7 @@ msgstr ""
 "%1\n"
 "nieprydatny."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Zapusk %1"
@@ -6775,23 +6775,23 @@ msgstr "Nie ŭdalosia znajsci \"FindProxyForURL\" abo \"FindProxyForURLEx\""
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "Paslia vykliku atrymany chibny adkaz %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Chočacie paŭtaryć?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Paŭtaryć aŭtentyfikacyju"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Paŭtaryć"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dyjalohavaje akno aŭtentyfikacyi"

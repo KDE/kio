@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-11-21 18:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3862,7 +3862,7 @@ msgstr "انقر لتصفح الموقع "
 msgid "Click to Edit Location"
 msgstr "انقر لتحرير المكان"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ليس مصّرحًا لك تنفيذ هذا الملفّ."
@@ -3914,7 +3914,7 @@ msgstr "ملفّ الأيقونة كبير جدًّا، أُجهض التّنز�
 msgid "No mail client found"
 msgstr "لم يعثر على عميل بريد"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3925,7 +3925,7 @@ msgstr ""
 "%1\n"
 "غير صالحة."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "يُطلق %1"
@@ -6480,23 +6480,23 @@ msgstr "تعذّر العثور على ’FindProxyForURL‘ أو ’FindProxyFo
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "حصلت على جواب غير صالح عن منادة %1 -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "أتريد إعادة المحاولة؟"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "إعادة محاولة الاستيثاق"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "أعِد المحاولة"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "حواريّ الاستيثاق"

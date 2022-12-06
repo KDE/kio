@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-11-10 20:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3857,7 +3857,7 @@ msgstr "இட உலாவலுக்கு க்ளிக் செய்ய
 msgid "Click to Edit Location"
 msgstr "இடத்தைத் திருத்த க்ளிக் செய்யவும்"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "இந்த கோப்பை இயக்க உங்களுக்கு அதிகாரம் இல்லை."
@@ -3909,7 +3909,7 @@ msgstr "சின்னம் கோப்பு பெரிதாக உள்
 msgid "No mail client found"
 msgstr "எந்த அஞ்சல் செயலியும் கண்டுபிடிக்கப்படவில்லை"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3920,7 +3920,7 @@ msgstr ""
 "%1\n"
 "முறையற்றது."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 தொடக்கப்படுகிறது"
@@ -6442,23 +6442,23 @@ msgstr "'FindProxyForURL' அல்லது 'FindProxyForURLEx'-ஐ கண்�
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1-ஐ இயக்கும்போது ஒரு முறையற்ற பதில் கிடைத்தது -> %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "மறுபடியும் முயற்சிக்க வேண்டுமா?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "உறுதிப்பாட்டை மீண்டும் முயற்சி"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "மீண்டும் முயற்சி"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "உறுதிப்பாடு சாளரம்"

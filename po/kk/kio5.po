@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -3965,7 +3965,7 @@ msgstr "Орынын ауыстыру үшін түртіңіз"
 msgid "Click to Edit Location"
 msgstr "Орынын өзгерту үшін түртіңіз"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Бұл файлды орындауға рұқсатыңыз жоқ."
@@ -4019,7 +4019,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 құрылғысында тасушы жоқ"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4034,7 +4034,7 @@ msgstr ""
 "%1'\n"
 "деген түрі беймәлім."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 дегенді жегу"
@@ -6587,25 +6587,25 @@ msgstr "'FindProxyForURL' не 'FindProxyForURLEx' табылмады"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1 дегенді шақырғанда дұрыс емес жауап келген"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, fuzzy, kde-format
 #| msgid "  Do you want to retry?"
 msgid "Do you want to retry?"
 msgstr "  Қайталап көргіңіз келе ме?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, fuzzy, kde-format
 #| msgid "Server Authentication"
 msgid "Retry Authentication"
 msgstr "Сервер аутентификациясы"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"

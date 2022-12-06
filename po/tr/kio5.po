@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-12-04 14:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3869,7 +3869,7 @@ msgstr "Konum Gezintisi için Tıkla"
 msgid "Click to Edit Location"
 msgstr "Konumu Düzenlemek için Tıkla"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Bu dosyayı yürütmek için gerekli yetkilere sahip değilsiniz."
@@ -3923,7 +3923,7 @@ msgstr "Simge dosyası çok büyük, indirme iptal edildi"
 msgid "No mail client found"
 msgstr "Posta istemcisi bulunamadı"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3934,7 +3934,7 @@ msgstr ""
 "masaüstü giriş dosyası\n"
 "geçersiz."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 Başlatılıyor"
@@ -6449,23 +6449,23 @@ msgstr "'FindProxyForURL' veya 'FindProxyForURLEx' bulunamadı"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "%1 -> %2 çağrılırken geçersiz yanıt alındı"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Yeniden denemek ister misiniz?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Kimlik Doğrulamayı Yeniden Dene"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Yeniden Dene"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Kimlik Doğrulama Penceresi"
