@@ -98,9 +98,10 @@ if (TARGET Qt6::Core5Compat)
 endif()
 
 ########### install files ###############
-
-install( FILES
-    http_cache_cleaner.desktop
-  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
+    install( FILES
+        http_cache_cleaner.desktop
+    DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
+endif()
 
 
