@@ -63,7 +63,7 @@ public:
      *       will be linked to the creation of the first file template (either from XDG_TEMPLATES_DIR
      *       or from :/kio5/newfile-templates)
      * @deprecated since 5.100, use KNewFileMenu(QObject *) instead. To associate the action shortcuts use
-     * setNewFileShortcutAction() and setNewFileShortcutAction()
+     * setNewFileShortcutAction() and setNewFolderShortcutAction()
      */
     KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "Use KNewFileMenu(QObject *)")
     KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
