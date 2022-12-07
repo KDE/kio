@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-06 00:41+0000\n"
-"PO-Revision-Date: 2022-11-10 20:06+0530\n"
+"PO-Revision-Date: 2022-12-06 21:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -50,10 +50,9 @@ msgstr ""
 "மாற்றுவதற்கு உங்களுக்கு போதுமான உரிமை இல்லை."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "%1 io-slave-ஐ உருவாக்க முடியவில்லை"
+msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -788,10 +787,9 @@ msgid "Communication with the local password server failed"
 msgstr "உள்ளமை கடவுச்சொல் சேவையகத்துடன் தொடர்பு தோல்வியடைந்தது"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "io-slave-ஐ உருவாக்க முடியவில்லை. %1"
+msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1154,21 +1152,15 @@ msgstr ""
 "இந்த கணினியும், சேவையகமும் ஆதரிக்கும் %1 நெறிமுறையின் பதிப்புகள் ஒவ்வாதிருக்கலாம்."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"இந்த நெறிமுறையை ஆதரிக்கும் கே.டீ.யீ. நிரலை (பொதுவாக ioslave அல்லது kioslave என்று "
-"வழங்கப்படும்) நீங்கள் இணையத்தில் தேடலாம். தேடக்கூடிய சில இடங்கள்: <a href=\"https://kde-"
-"apps.org/\">https://kde-apps.org/</a> மற்றும் <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/</a>."
+"இந்த நெறிமுறையை ஆதரிக்கும் செருகுநிரலை (பொதுவாக \"KIO worker\" என்று அறியப்படும்) "
+"நீங்கள் இணையத்தில் தேடலாம். தேடக்கூடிய ஓர் இடம்: <a href=\"https://store.kde.org/"
+"\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2285,22 +2277,18 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 நெறிமுறையை இயக்க முடியவில்லை"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "io-slave-ஐ உருவாக்க முடியவில்லை"
+msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"<strong>%1</strong> நெறிமுறையை வழங்கும் io-slave-ஐ இயக்க முடியவில்லை. பெரும்பாலும் "
-"இது தொழில்நுட்பம் சார்ந்த காரணங்களால் ஏற்படும்."
+"<strong>%1</strong> நெறிமுறையை வழங்கும் KIO ஆதரவுநிரலை இயக்க முடியவில்லை. "
+"பெரும்பாலும் இது தொழில்நுட்பம் சார்ந்த காரணங்களால் ஏற்படும்."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2377,17 +2365,16 @@ msgid "Unknown protocol '%1'."
 msgstr "தெரியாத நெறிமுறை '%1'."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "'%1' நெறிமுறைக்கான io-slave-ஐ கண்டுபிடிக்க முடியவில்லை."
+msgstr "'%1' நெறிமுறைக்கான KIO ஆதரவுநிரலை கண்டுபிடிக்க முடியவில்லை."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"'%1' என்ற நெறிமுறைக்கான io-slave-ஐ இயக்க தேவைப்படும் சாக்கெடை உருவாக்க முடியவில்லை."
+"'%1' என்ற நெறிமுறைக்கான KIO ஆதரவுநிரலை இயக்க தேவைப்படும் சாக்கெடை உருவாக்க "
+"முடியவில்லை."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4358,23 +4345,7 @@ msgid "&Management"
 msgstr "&மேலாண்மை"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4400,8 +4371,8 @@ msgstr ""
 "இணைய கடைகளில் நீங்கள் வாங்க முடிவெடுத்த பொருட்களின் விவரங்களை சேமிக்க நினைவிகள் "
 "பயன்படும். சில இணைய தளங்களை உலாவ, நினைவிகளை ஆதரிக்கும் ஒரு உலாவி தேவை.</p><p> "
 "பேரும்பாலானோர் தனியுரிமைக்கும் நினைவிகளின் நன்மைகளுக்குயும் இடையே ஒரு சமநிலையை "
-"விரும்புவதால், HTTP kioslave நினைவிகளை கையாளும் விதத்தை பயனரின் விருப்பங்களைப் "
-"பொருத்து மாற்ற முடியும்.உதாரணத்துக்கு, இயல்பான கொள்கையை, ஒரு சேவையகம் நினைவிகளை "
+"விரும்புவதால், HTTP KIO ஆதரவுநிரல் நினைவிகளை கையாளும் விதத்தை பயனரின் விருப்பங்களைப் "
+"பொறுத்து மாற்ற முடியும்.உதாரணத்துக்கு, இயல்பான கொள்கையை, ஒரு சேவையகம் நினைவிகளை "
 "பயன்படுத்த விரும்பும்போது உங்களிடம் அனுமதி கேட்குமாறு அமைக்கலாம். நீங்கள் நம்பும் "
 "இணையதளங்களில் நினைவிகளை கேட்காமல் ஏற்குமாறு அமைக்கலாம்.</p>"
 
@@ -5212,16 +5183,7 @@ msgstr "பதிலி இல்லை"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5236,9 +5198,7 @@ msgstr ""
 "<b>Web Proxy Auto-Discovery Protocol (WPAD)</b> கொண்டு பதிலி தானாக "
 "கண்டுபிடிக்கப்படும்.<p>\n"
 "<b>குறிப்பு:</b> சில யூனிக்ஸ்/லினக்ஸ் இயக்குதளங்களில் இது சரியாக வேலை செய்யாமல் "
-"இருக்கலாம். இந்த விருப்பத்தை பயன்படுத்தும்போது ஏதேனும் பிரச்சனை ஏற்பட்டால், https://"
-"konqueror.org என்ற இணையதளத்தில் உள்ள அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ) பகுதியைப் "
-"பாருங்கள்.\n"
+"இருக்கலாம்.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5614,15 +5574,7 @@ msgid "Default password:"
 msgstr "இயல்பிருப்பு கடவுச்சொல்:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5632,7 +5584,7 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>விண்டோஸ் பகிர்வுகள்</h1><p> சரியாக அமைக்கப்பட்டிருந்தால், SMB kioslave-ஐ "
+"<h1>விண்டோஸ் பகிர்வுகள்</h1><p> சரியாக அமைக்கப்பட்டிருந்தால், SMB KIO உதவிநிரலை "
 "பயன்படுத்தும் செயலிகளால் (எ.கா. கான்கொரர்) விண்டோஸ் கோப்பு முறைமைகளை அணுக முடியும்.</"
 "p><p> பகிர்வுகளை அணுக பயன்படும் சான்றுகளை நீங்கள் இங்கு குறிப்பிடலாம். கண்ணோட்டமாக படிக்க "
 "முடியாதவாறு கடவுச்சொற்கள் உள்ளமைவாக சேமிக்கப்படும். ஒரு பதிவில் கடவுச்சொல் உள்ளதா என்பது "

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-06 00:41+0000\n"
-"PO-Revision-Date: 2022-11-10 21:52+0100\n"
+"PO-Revision-Date: 2022-12-05 19:43+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.11.90\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -61,10 +61,9 @@ msgstr ""
 "d'accès sont insuffisants pour effectuer cette modification."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Impossible de créer le module d'entrée / sortie : %1"
+msgstr "Impossible de créer un module d'entrée / sortie : %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -832,10 +831,9 @@ msgid "Communication with the local password server failed"
 msgstr "Échec lors de la communication avec le gestionnaire de mots de passe"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Impossible de créer le module d'entrée / sortie. %1"
+msgstr "Impossible de créer un module d'entrée / sortie. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1215,22 +1213,16 @@ msgstr ""
 "par le serveur sont peut-être incompatibles."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Vous pouvez rechercher sur Internet un programme KDE (appelé module "
-"d'entrée / sortie, « kioslave » ou « ioslave » en anglais) qui gère ce "
-"protocole. Parmi les emplacements où chercher, citons <a href=\"https://kde-"
-"apps.org/\">https://kde-apps.org/</a> et <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/</a>."
+"Vous pouvez rechercher sur Internet un module externe (appelé « module "
+"d'entrée / sortie »), prenant en charge ce protocole. Parmi les emplacements "
+"où chercher, on peut utiliser <a href=\"https://store.kde.org/\">https://"
+"store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2411,21 +2403,17 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Impossible d'initialiser le protocole %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Impossible de créer le module d'entrée / sortie"
+msgstr "Impossible de créer un module d'entrée / sortie"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Le programme d'entrée / sortie permettant l'accès au protocole <strong>%1</"
+"Un module d'entrée / sortie fournissant l'accès au protocole <strong>%1</"
 "strong> n'a pas pu démarrer. Cela est habituellement dû à des problèmes "
 "techniques."
 
@@ -2505,19 +2493,17 @@ msgid "Unknown protocol '%1'."
 msgstr "Protocole « %1 » inconnu."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 "Impossible de trouver un module d'entrée / sortie pour le protocole « %1 »."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Impossible de créer un socket avec un module d'entrée / sortie pour le "
-"protocole « %1 »."
+"Impossible de créer un socket pour lancer un module d'entrée / sortie pour "
+"le protocole « %1 »."
 
 #: core/slave.cpp:480
 #, kde-format
