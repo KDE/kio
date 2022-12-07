@@ -3275,8 +3275,6 @@ public:
     QString m_origCommandStr;
     QString m_terminalOptionStr;
     QString m_suidUserStr;
-    QString m_dbusStartupType;
-    QString m_dbusServiceName;
     QString m_origDesktopFile;
     bool m_terminalBool;
     bool m_suidBool;
@@ -3380,10 +3378,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     } else {
         d->m_startupBool = config.readEntry("X-KDE-StartupNotify", true);
     }
-    d->m_dbusStartupType = config.readEntry("X-DBUS-StartupType").toLower();
-    // ### should there be a GUI for this setting?
-    // At least we're copying it over to the local file, to avoid side effects (#157853)
-    d->m_dbusServiceName = config.readEntry("X-DBUS-ServiceName");
 
     const QStringList mimeTypes = config.readXdgListEntry("MimeType");
 
@@ -3502,8 +3496,6 @@ void KDesktopPropsPlugin::checkCommandChanged()
 {
     if (KIO::DesktopExecParser::executableName(d->command()) != KIO::DesktopExecParser::executableName(d->m_origCommandStr)) {
         d->m_origCommandStr = d->command();
-        d->m_dbusStartupType.clear(); // Reset
-        d->m_dbusServiceName.clear();
     }
 }
 
@@ -3580,8 +3572,6 @@ void KDesktopPropsPlugin::applyChanges()
         }
     }
     config.writeEntry("StartupNotify", d->m_startupBool);
-    config.writeEntry("X-DBUS-StartupType", d->m_dbusStartupType);
-    config.writeEntry("X-DBUS-ServiceName", d->m_dbusServiceName);
     config.sync();
 
     // KSycoca update needed?
@@ -3669,16 +3659,6 @@ void KDesktopPropsPlugin::slotAdvanced()
 
     d->m_uiAdvanced->startupInfoCheck->setChecked(d->m_startupBool);
 
-    if (d->m_dbusStartupType == QLatin1String("unique")) {
-        d->m_uiAdvanced->dbusCombo->setCurrentIndex(2);
-    } else if (d->m_dbusStartupType == QLatin1String("multi")) {
-        d->m_uiAdvanced->dbusCombo->setCurrentIndex(1);
-    } else if (d->m_dbusStartupType == QLatin1String("wait")) {
-        d->m_uiAdvanced->dbusCombo->setCurrentIndex(3);
-    } else {
-        d->m_uiAdvanced->dbusCombo->setCurrentIndex(0);
-    }
-
     // Provide username completion up to 1000 users.
     const int maxEntries = 1000;
     QStringList userNames = KUser::allUserNames(maxEntries);
@@ -3698,7 +3678,6 @@ void KDesktopPropsPlugin::slotAdvanced()
     connect(d->m_uiAdvanced->suidEdit, &QLineEdit::textChanged, this, &KPropertiesDialogPlugin::changed);
     connect(d->m_uiAdvanced->discreteGpuCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
     connect(d->m_uiAdvanced->startupInfoCheck, &QAbstractButton::toggled, this, &KPropertiesDialogPlugin::changed);
-    connect(d->m_uiAdvanced->dbusCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
 
     QObject::connect(dlg, &QDialog::accepted, this, [this]() {
         d->m_terminalOptionStr = d->m_uiAdvanced->terminalEdit->text().trimmed();
@@ -3712,21 +3691,6 @@ void KDesktopPropsPlugin::slotAdvanced()
 
         if (d->m_uiAdvanced->terminalCloseCheck->isChecked()) {
             d->m_terminalOptionStr.append(QLatin1String(" --noclose"));
-        }
-
-        switch (d->m_uiAdvanced->dbusCombo->currentIndex()) {
-        case 1:
-            d->m_dbusStartupType = QStringLiteral("multi");
-            break;
-        case 2:
-            d->m_dbusStartupType = QStringLiteral("unique");
-            break;
-        case 3:
-            d->m_dbusStartupType = QStringLiteral("wait");
-            break;
-        default:
-            d->m_dbusStartupType = QStringLiteral("none");
-            break;
         }
     });
 
