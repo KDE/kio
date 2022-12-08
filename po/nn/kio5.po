@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-04 00:42+0000\n"
+"POT-Creation-Date: 2022-12-06 00:41+0000\n"
 "PO-Revision-Date: 2022-10-30 09:53+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -3864,7 +3864,7 @@ msgstr "Trykk for plasseringsnavigasjon"
 msgid "Click to Edit Location"
 msgstr "Trykk for å endra plassering"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du har ikkje løyve til å køyra denne fila."
@@ -3917,7 +3917,7 @@ msgstr "Ikonfila er for stor – avbryt nedlasting"
 msgid "No mail client found"
 msgstr "Fann inkje e-postprogram"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:98
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3928,7 +3928,7 @@ msgstr ""
 "%1\n"
 "er ikkje gyldig."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:265
 #, kde-format
 msgid "Launching %1"
 msgstr "Startar %1"
@@ -6391,23 +6391,23 @@ msgstr "Fann ikkje «FindProxyForURL» eller «FindProxyForURLEx»"
 msgid "Got an invalid reply when calling %1 -> %2"
 msgstr "Fekk ugyldig svar ved kall på %1 → %2"
 
-#: kpasswdserver/kpasswdserver.cpp:513
+#: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Vil du prøva på nytt?"
 
-#: kpasswdserver/kpasswdserver.cpp:517
+#: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Prøv autentisering på nytt"
 
-#: kpasswdserver/kpasswdserver.cpp:520
+#: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Prøv på nytt"
 
-#: kpasswdserver/kpasswdserver.cpp:780
+#: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Autentiseringsvindauge"
