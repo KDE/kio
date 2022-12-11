@@ -7,7 +7,7 @@ include(ECMAddTests)
 
 # linking to Qt${QT_MAJOR_VERSION}::Gui is only needed for the include paths
 ecm_add_test(kcookiejartest.cpp
-    NAME_PREFIX "kioslave-"
+    NAME_PREFIX "kioworker-"
     LINK_LIBRARIES  Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Gui KF5::KIOCore KF5::ConfigCore
 )
 
