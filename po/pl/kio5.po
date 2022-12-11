@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-06 00:41+0000\n"
-"PO-Revision-Date: 2022-09-23 09:16+0200\n"
+"PO-Revision-Date: 2022-12-10 11:03+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 ">\n"
 ">\n"
 ">\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -49,10 +49,9 @@ msgstr ""
 "Niewystarczające uprawnienia do pliku."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nie można utworzyć io-slave: %1"
+msgstr "Nie można utworzyć pracownika KIO: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -807,10 +806,9 @@ msgid "Communication with the local password server failed"
 msgstr "Nie udało się nawiązać łączności z lokalnym serwerem haseł"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nie można utworzyć io-slave. %1"
+msgstr "Nie można utworzyć pracownika KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -834,8 +832,7 @@ msgstr ""
 "Spróbuj ponownie po zmianie ustawień."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "Ten plik jest zbyt duży, żeby go przenieść do kosza."
 
@@ -1178,21 +1175,15 @@ msgid ""
 msgstr "Wersje protokołu %1 na tym komputerze i na serwerze mogą być różne."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Możesz poszukać w Internecie programu KDE (zwanego kioslave lub ioslave), "
-"obsługującego ten protokół. Najbardziej użyteczne adresy to <a href="
-"\"https://kde-apps.org/\">http://kde-apps.org/</a> i <a href=\"http://"
-"freshmeat.net/\">http://freshmeat.net/</a>."
+"Możesz poszukać w Internecie wtyczki (zwanej \"KIO worker\" z ang. "
+"\"Pracownik KIO\"), obsługującej ten protokół. Poszukać warto na <a href="
+"\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2326,23 +2317,19 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nie można zainicjalizować protokołu %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nie można utworzyć io-slave"
+msgstr "Nie można utworzyć pracownika KIO"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"io-slave na twoim komputerze, obsługujący protokół <strong>%1</strong> nie "
-"został znaleziony lub nie można go było uruchomić. Dzieje się tak zazwyczaj "
-"z przyczyn technicznych."
+"Pracownik KIO na twoim komputerze, obsługujący protokół <strong>%1</strong> "
+"nie został znaleziony lub nie można go było uruchomić. Dzieje się tak "
+"zazwyczaj z przyczyn technicznych."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2417,17 +2404,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Nieznany protokół '%1'."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Nie można odnaleźć io-slave dla protokołu '%1'."
+msgstr "Nie można znaleźć pracownika KIO dla protokołu '%1'."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Nie można utworzyć gniazda do uruchomienia io-slave dla protokołu '%1'."
+"Nie można utworzyć gniazda do uruchomienia pracownika KIO dla protokołu '%1'."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -3180,12 +3165,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Do panelu miejsc można dodawać tylko katalogi."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Zwolnij"
+msgstr "Zwalniam…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3194,12 +3177,10 @@ msgid "&Release"
 msgstr "&Zwolnij"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Wy&suń bezpiecznie"
+msgstr "Wysuwam bezpiecznie…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3208,12 +3189,10 @@ msgid "&Safely Remove"
 msgstr "Wy&suń bezpiecznie"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Odpinanie"
+msgstr "Odpinam…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3246,6 +3225,7 @@ msgstr "Próba uzyskania dostępu do '%1' zakończyła się błędem"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Jeden lub więcej plików na tym urządzeniu jest otwartych w jakiejś aplikacji."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3256,14 +3236,20 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Jeden lub więcej plików na tym urządzeniu jest otwartych w aplikacji "
+"<application>\"%2\"</application>."
 msgstr[1] ""
+"Jeden lub więcej plików na tym urządzeniu jest otwartych w następujących "
+"aplikacjach <application>\"%2\"</application>."
 msgstr[2] ""
+"Jeden lub więcej plików na tym urządzeniu jest otwartych w następujących "
+"aplikacjach <application>\"%2\"</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4426,23 +4412,7 @@ msgid "&Management"
 msgstr "&Zarządzanie"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4469,11 +4439,11 @@ msgstr ""
 "przykład używane przez sklepy internetowe, aby można było umieszczać różne "
 "rzeczy w \"koszyku z zakupami\". Niektóre witryny internetowe wymagają, by "
 "przeglądarka obsługiwała ciasteczka.</p><p>Ponieważ większość ludzi pragnie "
-"kompromisu między prywatnością a korzyściami ze stosowania ciasteczek, HTTP "
-"kioslave pozwala na ustawienie ich obsługi. Można zatem ustawić domyślną "
-"politykę tak, by użytkownik był pytany o każde ciasteczko. Dla zaufanych "
-"sklepów internetowych można włączyć domyślne akceptowanie ciasteczek, by "
-"uniknąć częstych pytań.</p>"
+"kompromisu między prywatnością a korzyściami ze stosowania ciasteczek, "
+"pracownika HTTP KIO pozwala na ustawienie ich obsługi. Można zatem ustawić "
+"domyślną politykę tak, by użytkownik był pytany o każde ciasteczko. Dla "
+"zaufanych sklepów internetowych można włączyć domyślne akceptowanie "
+"ciasteczek, by uniknąć częstych pytań.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5287,16 +5257,7 @@ msgstr "Brak pośrednika"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5307,13 +5268,12 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Samoczynnie wykryj i ustaw pośrednika.\n"
-"<p>Samoczynne wykrywanie jest wykonywane przy pomocy protokołu <b>Web Proxy "
-"Auto-Discovery (WPAD)</b>.</p>\n"
-"<p><b>Uwaga:</b> Ta opcja może nie działać poprawnie w niektórych "
-"dystrybucjach Linuksa/Uniksa. W razie problemów proszę sprawdzić rozdział "
-"FAQ na stronie https://konqueror.kde.org.\n"
-"</p></qt>"
+"Samoczynnie wykryj i ustaw pośrednika.<p>\n"
+"Samoczynne wykrywanie jest wykonywane przy pomocy protokołu <b>Web Proxy "
+"Auto-Discovery (WPAD)</b>.<p>\n"
+"<b>Uwaga:</b> Ta możliwość może być zupełnie niedostępna na niektórych "
+"dystrybucjach Uniksa/Linuksa.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -5687,15 +5647,7 @@ msgid "Default password:"
 msgstr "Domyślne hasło:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5705,13 +5657,13 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Udziały Windowsa</h1><p>Aplikacje korzystające z SMB kioslave (takie jak "
-"Konqueror) mogą przeglądać sieciowe systemy plików Microsoft Windows, jeśli "
-"zostały one poprawnie ustawione.</p><p>Tutaj możesz podać dane dostępowe "
-"wykorzystywane do dostępu do tych zasobów. Hasła będą przechowywane "
-"lokalnie, a ich odczyt będzie utrudniony dla ludzkiego oka. Ze względu na "
-"bezpieczeństwo, zalecane jest abyś tego nie robił, jako że wpisy dotyczące "
-"haseł są łatwe do namierzenia.</p>"
+"<h1>Udziały Windowsa</h1><p>Aplikacje korzystające z pracownika SMB KIO "
+"(takie jak Konqueror) mogą przeglądać sieciowe systemy plików Microsoft "
+"Windows, jeśli zostały one poprawnie ustawione.</p><p>Tutaj możesz podać "
+"dane dostępowe wykorzystywane do dostępu do tych zasobów. Hasła będą "
+"przechowywane lokalnie, a ich odczyt będzie utrudniony dla ludzkiego oka. Ze "
+"względu na bezpieczeństwo, zalecane jest abyś tego nie robił, jako że wpisy "
+"dotyczące haseł są łatwe do namierzenia.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -7254,11 +7206,10 @@ msgstr "Trwałe usuwanie"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "Trwałe usuwanie"
+msgstr "Usuń trwale"
 
 #: widgets/jobuidelegate.cpp:295
 #, kde-kuit-format
@@ -7830,16 +7781,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "Zapamiętaj wybrany p&rogram dla przyszłych plików\n"
-"\"%1\" (%2)"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8095,10 +8043,9 @@ msgstr "Kom&entarz:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Użyj &zmiennych środowiskowych"
+msgstr "Zmienne środowiskowe:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9406,20 +9353,16 @@ msgstr ""
 "Następuje przerwanie akcji, bo nie można potwierdzić tożsamości usługodawcy."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Czy na pewno trwale usunąć tę rzecz?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
+"Czy na pewno trwale usunąć tę rzecz?<nl/><nl/><filename>%1</filename><nl/"
+"><nl/><emphasis strong='true'>Nie można będzie cofnąć tego działania.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9441,30 +9384,19 @@ msgstr[2] ""
 "strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Czy na pewno trwale usunąć tę rzecz?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
+"Nie udało się wyrzucić tego pliku do kosza, bo jest za duży. Czy zamiast "
+"tego usunąć go trwale?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Nie można będzie cofnąć tego działania.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9475,14 +9407,17 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Czy na pewno trwale usunąć tę rzecz?<nl/><nl/><emphasis "
-"strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
+"Nie udało się wyrzucić tej rzeczy do kosza, bo jest za duża. Czy zamiast "
+"tego usunąć ją trwale?<nl/><emphasis strong='true'>Nie można będzie cofnąć "
+"tego działania.</emphasis>"
 msgstr[1] ""
-"Czy na pewno trwale usunąć te %1 rzeczy?<nl/><nl/><emphasis "
-"strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
+"Nie udało się wyrzucić tych %1 rzeczy do kosza, bo są za duże. Czy zamiast "
+"tego usunąć je trwale?<nl/><emphasis strong='true'>Nie można będzie cofnąć "
+"tego działania.</emphasis>"
 msgstr[2] ""
-"Czy na pewno trwale usunąć te %1 rzeczy?<nl/><nl/><emphasis "
-"strong='true'>Cofnięcie tego działania będzie niemożliwe.</emphasis>"
+"Nie udało się wyrzucić tych %1 rzeczy do kosza, bo są za duże. Czy zamiast "
+"tego usunąć je trwale?<nl/><emphasis strong='true'>Nie można będzie cofnąć "
+"tego działania.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
