@@ -58,7 +58,7 @@ ecm_qt_export_logging_category(
     CATEGORY_NAME kf.kio.workers.http
     OLD_CATEGORY_NAMES kf5.kio.kio_http kf.kio.slaves.http
     DEFAULT_SEVERITY Warning
-    DESCRIPTION "KIO HTTP slave (KIO)"
+    DESCRIPTION "KIO HTTP worker (KIO)"
     EXPORT KIO
 )
 
