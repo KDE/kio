@@ -103,7 +103,7 @@ bool ConnectionBackend::listenForRemote()
     static QBasicAtomicInt s_socketCounter = Q_BASIC_ATOMIC_INITIALIZER(1);
     QString appName = QCoreApplication::instance()->applicationName();
     appName.replace(QLatin1Char('/'), QLatin1Char('_')); // #357499
-    QTemporaryFile socketfile(prefix + QLatin1Char('/') + appName + QStringLiteral("XXXXXX.%1.slave-socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
+    QTemporaryFile socketfile(prefix + QLatin1Char('/') + appName + QStringLiteral("XXXXXX.%1.kioworker.socket").arg(s_socketCounter.fetchAndAddAcquire(1)));
     if (!socketfile.open()) {
         errorString = i18n("Unable to create KIO worker: %1", QString::fromUtf8(strerror(errno)));
         return false;
