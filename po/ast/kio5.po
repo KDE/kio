@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-06 00:41+0000\n"
-"PO-Revision-Date: 2022-10-21 00:33+0200\n"
-"Last-Translator: enolp <enolp@softastur.org>\n"
+"PO-Revision-Date: 2022-12-05 23:18+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,10 +42,9 @@ msgstr ""
 "Nun tienes abondos permisos pa facer el cambéu."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nun ye posible crear l'esclavu d'E/S «%1»"
+msgstr "Nun ye posible crear el trabayador de KIO: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -69,6 +68,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"Nun se pudo crear «%1».\n"
+"El sistema de ficheros de destín (%2) nun permite los caráuteres siguientes "
+"nos nomes de les carpetes: %3\n"
+"Al seleicionar «Trocar», l'aición sustitúi cualesquier caráuter que nun seya "
+"válidu (nel nome de la carpeta de destín) por un guión baxu «_»."
 
 #: core/copyjob.cpp:185
 #, kde-format
@@ -79,22 +83,27 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"Nun se pudo crear «%1».\n"
+"El sistema de ficheros de destín (%2) nun permite los caráuteres siguientes "
+"nos nomes de los ficheros: %3\n"
+"Al seleicionar «Trocar», l'aición sustitúi cualesquier caráuter que nun seya "
+"válidu (nel nome del ficheru de destín) por un guión baxu «_»."
 
 #: core/copyjob.cpp:1397 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "La carpeta yá esiste"
+msgstr "La carpeta xá esiste"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
-msgstr "El ficheru yá esiste"
+msgstr "El ficheru xá esiste"
 
 #: core/copyjob.cpp:1727 core/copyjob.cpp:2417
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "Yá esiste como carpeta"
+msgstr "Xá esiste como carpeta"
 
 #: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
@@ -272,7 +281,7 @@ msgstr "Preséu"
 #: core/job.cpp:157 core/job.cpp:162
 #, kde-format
 msgid "Mountpoint"
-msgstr ""
+msgstr "Puntu de montaxe"
 
 #: core/job.cpp:162
 #, kde-format
@@ -387,7 +396,7 @@ msgstr ""
 #: core/job_error.cpp:39
 #, kde-format
 msgid "Could not start process %1."
-msgstr ""
+msgstr "Nun se pudo aniciar el procesu «%1»."
 
 #: core/job_error.cpp:42
 #, kde-format
@@ -430,12 +439,12 @@ msgstr ""
 #: core/job_error.cpp:67
 #, kde-format
 msgid "A file named %1 already exists."
-msgstr "Yá esiste un ficheru col nome «%1»."
+msgstr "Xá esiste un ficheru col nome «%1»."
 
 #: core/job_error.cpp:70
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "Yá esiste una carpeta col nome «%1»."
+msgstr "Xá esiste una carpeta col nome «%1»."
 
 #: core/job_error.cpp:73
 #, kde-format
@@ -467,17 +476,17 @@ msgstr ""
 #: core/job_error.cpp:85
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr ""
+msgstr "El protocolu «%1» nun implementa nengún serviciu de carpetes."
 
 #: core/job_error.cpp:88
 #, kde-format
 msgid "Found a cyclic link in %1."
-msgstr ""
+msgstr "Atopóse un enllaz cíclicu en «%1»."
 
 #: core/job_error.cpp:91
 #, kde-format
 msgid "Found a cyclic link while copying %1."
-msgstr ""
+msgstr "Atopóse un enllaz cíclicu mentanto se copiaba «%1»."
 
 #: core/job_error.cpp:94
 #, kde-format
@@ -523,7 +532,7 @@ msgstr ""
 #: core/job_error.cpp:115
 #, kde-format
 msgid "Could not write to file %1."
-msgstr ""
+msgstr "Nun se pudo escribir nel ficheru «%1»."
 
 #: core/job_error.cpp:118
 #, kde-format
@@ -538,12 +547,12 @@ msgstr ""
 #: core/job_error.cpp:124
 #, kde-format
 msgid "Could not accept %1."
-msgstr ""
+msgstr "Nun se pudo aceptar «%1»."
 
 #: core/job_error.cpp:130
 #, kde-format
 msgid "Could not access %1."
-msgstr ""
+msgstr "Nun se pudo acceder a «%1»."
 
 #: core/job_error.cpp:133
 #, kde-format
@@ -553,12 +562,12 @@ msgstr ""
 #: core/job_error.cpp:136
 #, kde-format
 msgid "Could not make folder %1."
-msgstr ""
+msgstr "Nun se pudo crear la carpeta «%1»."
 
 #: core/job_error.cpp:139
 #, kde-format
 msgid "Could not remove folder %1."
-msgstr ""
+msgstr "Nun se pudo quitar la carpeta «%1»."
 
 #: core/job_error.cpp:142
 #, kde-format
@@ -583,7 +592,7 @@ msgstr ""
 #: core/job_error.cpp:154
 #, kde-format
 msgid "Could not delete file %1."
-msgstr ""
+msgstr "Nun se pudo desaniciar el ficheru «%1»."
 
 #: core/job_error.cpp:157
 #, kde-format
@@ -730,10 +739,9 @@ msgid "Communication with the local password server failed"
 msgstr ""
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nun ye posible crear l'esclavu d'E/S «%1»"
+msgstr "Nun ye posible crear el trabayador de KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -799,7 +807,7 @@ msgstr "<li>Protocolu: %1</li>"
 #: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Date and time: %1</li>"
-msgstr ""
+msgstr "<li>Data ya hora: %1</li>"
 
 #: core/job_error.cpp:307
 #, kde-format
@@ -809,12 +817,12 @@ msgstr "<li>Información adicional: %1</li>"
 #: core/job_error.cpp:309
 #, kde-format
 msgid "<b>Possible causes</b>:"
-msgstr ""
+msgstr "<b>Causes posibles</b>:"
 
 #: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible solutions</b>:"
-msgstr ""
+msgstr "<b>Soluciones posibles</b>:"
 
 #: core/job_error.cpp:357
 #, kde-format
@@ -899,7 +907,7 @@ msgstr ""
 #: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
-msgstr ""
+msgstr "Ye posible qu'heba un problema cola conexón a internet."
 
 #: core/job_error.cpp:411
 #, kde-format
@@ -918,7 +926,7 @@ msgstr ""
 #: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr ""
+msgstr "Volvi tentalo, agora o dempués."
 
 #: core/job_error.cpp:418
 #, kde-format
@@ -1045,7 +1053,7 @@ msgstr ""
 #: core/job_error.cpp:496
 #, kde-format
 msgid "The requested protocol may not be supported."
-msgstr ""
+msgstr "Ye posible que'l protocolu solicitáu nun seya compatible."
 
 #: core/job_error.cpp:498
 #, kde-format
@@ -1649,7 +1657,7 @@ msgstr ""
 #: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr ""
+msgstr "Ye posible que nun esista'l llugar onde diba crease la carpeta."
 
 #: core/job_error.cpp:939
 #, kde-format
@@ -1664,7 +1672,7 @@ msgstr ""
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
-msgstr ""
+msgstr "Ye posible que la carpeta especificada nun esista."
 
 #: core/job_error.cpp:944
 #, kde-format
@@ -1957,7 +1965,7 @@ msgstr ""
 #: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr ""
+msgstr "Nun se pudo crear l'enllaz simbólicu solicitáu «%1»."
 
 #: core/job_error.cpp:1191
 #, kde-format
@@ -2058,10 +2066,9 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr ""
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nun ye posible crear l'esclavu d'E/S «%1»"
+msgstr "Nun ye posible crear el trabayador de KIO"
 
 #: core/job_error.cpp:1250
 #, kde-format
@@ -2249,18 +2256,18 @@ msgstr ""
 #: core/slavebase.cpp:1089
 #, kde-format
 msgid "&Yes"
-msgstr ""
+msgstr "&Sí"
 
 #: core/slavebase.cpp:1090
 #, kde-format
 msgid "&No"
-msgstr ""
+msgstr "&Non"
 
 #: core/slaveinterface.cpp:422 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
-msgstr ""
+msgstr "&Detalles"
 
 #: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
@@ -2278,7 +2285,7 @@ msgstr ""
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
-msgstr ""
+msgstr "Namás la sesión a &ctual"
 
 #: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
@@ -2347,7 +2354,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "A file or folder named %1 already exists."
-msgstr ""
+msgstr "Xá esiste un ficheru o una carpeta col nome «%1»."
 
 #: filewidgets/kdiroperator.cpp:751
 #, kde-format
@@ -2414,7 +2421,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:2066
 #, kde-format
 msgid "New Folder..."
-msgstr ""
+msgstr "Carpeta nueva…"
 
 #: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
@@ -2562,37 +2569,37 @@ msgstr ""
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr ""
+msgstr "Z-A"
 
 #: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
-msgstr ""
+msgstr "A-Z"
 
 #: filewidgets/kdiroperator.cpp:2490
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
-msgstr ""
+msgstr "Primero lo nuevo"
 
 #: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
-msgstr ""
+msgstr "Primero lo antiguo"
 
 #: filewidgets/kdiroperator.cpp:2494
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
-msgstr ""
+msgstr "Primero lo grande"
 
 #: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
-msgstr ""
+msgstr "Primero lo pequeño"
 
 #: filewidgets/kencodingfiledialog.cpp:71
 #, kde-format
@@ -2847,7 +2854,7 @@ msgstr "Ficheros de recién"
 #: filewidgets/kfileplacesmodel.cpp:429
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
-msgstr ""
+msgstr "Llugares de recién"
 
 #: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
@@ -2898,7 +2905,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr ""
+msgstr "Desmontando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -2915,17 +2922,17 @@ msgstr ""
 #: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr ""
+msgstr "El preséu «%1» nun ye un discu ya nun se pue espulsar."
 
 #: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
-msgstr ""
+msgstr "Prodúxose un error mentanto s'accedía a «%1», el sistema respondió: %2"
 
 #: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr ""
+msgstr "Prodúxose un error mentanto s'accedía a «%1»"
 
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
@@ -3060,22 +3067,22 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:682
 #, kde-format
 msgid "You can only select one file"
-msgstr ""
+msgstr "Namás pues seleicionar un ficheru"
 
 #: filewidgets/kfilewidget.cpp:682
 #, kde-format
 msgid "More than one file provided"
-msgstr ""
+msgstr "Fornióse más d'un ficheru"
 
 #: filewidgets/kfilewidget.cpp:853
 #, kde-format
 msgid "You can only select local files"
-msgstr ""
+msgstr "Namás pues seleicionar ficheros llocales"
 
 #: filewidgets/kfilewidget.cpp:853
 #, kde-format
 msgid "Remote files not accepted"
-msgstr ""
+msgstr "Nun s'acepten los ficheros remotos"
 
 #: filewidgets/kfilewidget.cpp:860
 #, kde-format
@@ -3149,12 +3156,12 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1322
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
-msgstr ""
+msgstr "Calca esti botón pa volver cargar el conteníu del llugar actual."
 
 #: filewidgets/kfilewidget.cpp:1324
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr ""
+msgstr "Calca esti botón pa crear una carpeta."
 
 #: filewidgets/kfilewidget.cpp:1326
 #, kde-format
@@ -3169,7 +3176,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1348
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "Opciones"
 
 #: filewidgets/kfilewidget.cpp:1355
 #, kde-format
@@ -3199,7 +3206,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
-msgstr ""
+msgstr "&Nome:"
 
 #: filewidgets/kfilewidget.cpp:1496
 #, kde-format
@@ -3231,7 +3238,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
-msgstr ""
+msgstr "Llugares"
 
 #: filewidgets/kfilewidget.cpp:1742
 #, kde-format
@@ -3246,22 +3253,22 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "You can only select local files."
-msgstr ""
+msgstr "Namás pues seleicionar ficheros llocales."
 
 #: filewidgets/kfilewidget.cpp:1966
 #, kde-format
 msgid "Remote Files Not Accepted"
-msgstr ""
+msgstr "Nun s'acepten los ficheros remotos"
 
 #: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "*|All Folders"
-msgstr ""
+msgstr "*|Toles carpetes"
 
 #: filewidgets/kfilewidget.cpp:2062
 #, kde-format
 msgid "*|All Files"
-msgstr ""
+msgstr "*|Tolos ficheros"
 
 #: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:869
@@ -3440,13 +3447,13 @@ msgstr ""
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
-msgstr ""
+msgstr "Carpeta nueva"
 
 #: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
-msgstr ""
+msgstr "Carpeta nueva"
 
 #: filewidgets/knewfilemenu.cpp:1478
 #, kde-format
@@ -3479,13 +3486,13 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr ""
+msgstr "Abrir «%1» nuna llingüeta nueva"
 
 #: filewidgets/kurlnavigator.cpp:555
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr ""
+msgstr "Abrir «%1» nuna ventana nueva"
 
 #: filewidgets/kurlnavigator.cpp:564
 #, kde-format
@@ -3506,7 +3513,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 #: filewidgets/kurlnavigatorprotocolcombo.cpp:155
 #, kde-format
@@ -3692,7 +3699,7 @@ msgstr ""
 #: ioslaves/file/file.cpp:829
 #, kde-format
 msgid "Could not find program \"mount\""
-msgstr ""
+msgstr "Nun se pudo atopar el programa «mount»"
 
 #: ioslaves/file/file.cpp:896
 #, kde-format
@@ -3702,7 +3709,7 @@ msgstr ""
 #: ioslaves/file/file.cpp:911
 #, kde-format
 msgid "Could not find program \"umount\""
-msgstr ""
+msgstr "Nun se pudo atopar el programa «umount»"
 
 #: ioslaves/file/file_unix.cpp:102
 #, kde-format
@@ -3712,7 +3719,7 @@ msgstr ""
 #: ioslaves/file/file_unix.cpp:103
 #, kde-format
 msgid "New Permissions: %1"
-msgstr ""
+msgstr "Permisos nuevos: %1"
 
 #: ioslaves/file/file_unix.cpp:106
 #, kde-format
@@ -3786,6 +3793,9 @@ msgid ""
 "Source: %2\n"
 "%3"
 msgstr ""
+"Aición: %1\n"
+"Orixe: %2\n"
+"%3"
 
 #: ioslaves/file/file_unix.cpp:842
 #, kde-format
@@ -3810,7 +3820,7 @@ msgstr ""
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
-msgstr ""
+msgstr " díes"
 
 #: ioslaves/trash/kcmtrash.cpp:197
 #, kde-format
@@ -3848,8 +3858,8 @@ msgstr ""
 #, kde-format
 msgid " day"
 msgid_plural " days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " día"
+msgstr[1] " díes"
 
 #: ioslaves/trash/kcmtrash.cpp:246
 #, kde-kuit-format
@@ -3862,7 +3872,7 @@ msgstr ""
 #: ioslaves/trash/kcmtrash.cpp:250
 #, kde-format
 msgid "Cleanup:"
-msgstr ""
+msgstr "Llimpieza"
 
 #: ioslaves/trash/kcmtrash.cpp:253
 #, kde-format
@@ -3881,7 +3891,7 @@ msgstr ""
 #: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:288
 #, kde-format
 msgid "Size:"
-msgstr ""
+msgstr "Tamañu:"
 
 #: ioslaves/trash/kcmtrash.cpp:265
 #, kde-kuit-format
@@ -3953,7 +3963,7 @@ msgstr ""
 #: ioslaves/trash/kio_trash.cpp:192 ioslaves/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
-msgstr ""
+msgstr "Esti ficheru xá ta na papelera."
 
 #: ioslaves/trash/kio_trash_win.cpp:248
 #, kde-format
@@ -4058,7 +4068,7 @@ msgstr ""
 #: kcms/cookies/kcookiesmanagement.cpp:328
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
 #: kcms/cookies/kcookiesmanagement.ui:20
@@ -4076,7 +4086,7 @@ msgstr ""
 #: kcms/cookies/kcookiesmanagement.ui:43
 #, kde-format
 msgid "Site"
-msgstr ""
+msgstr "Sitiu"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:48
@@ -4301,13 +4311,13 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:71
 #, kde-format
 msgid "Default Policy"
-msgstr ""
+msgstr "Política predeterminada"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr ""
+msgstr "Acep&tar toles cookies"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
@@ -4325,7 +4335,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr ""
+msgstr "Re&fugar toles cookies"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4420,7 +4430,7 @@ msgstr ""
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
-msgstr ""
+msgstr "Nun sé"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:22
@@ -4480,6 +4490,8 @@ msgid ""
 "You have to restart the running applications for these changes to take "
 "effect."
 msgstr ""
+"Tienes de reaniciar les aplicaciones n'execución pa que los cambeos faigan "
+"efeutu."
 
 #: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
 #, kde-format
@@ -5216,7 +5228,7 @@ msgstr ""
 #: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
 #, kde-format
 msgid "Site:"
-msgstr ""
+msgstr "Sitiu:"
 
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
@@ -5393,7 +5405,7 @@ msgstr ""
 #: kioworkers/http/http.cpp:1614
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
-msgstr ""
+msgstr "El sirvidor nun ye compatible col protocolu WebDAV."
 
 #: kioworkers/http/http.cpp:1658
 #, kde-format
@@ -5773,7 +5785,7 @@ msgstr ""
 #: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "¿Quies retentalo?"
 
 #: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
@@ -5784,7 +5796,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
-msgstr ""
+msgstr "Retentar"
 
 #: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
@@ -5805,7 +5817,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column Name label from web search keyword column"
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: urifilters/ikws/ikwsopts.cpp:41
 #, kde-format
@@ -6105,7 +6117,7 @@ msgstr ""
 #: urifilters/ikws/searchproviderdlg_ui.ui:119
 #, kde-format
 msgid "&Shortcuts:"
-msgstr ""
+msgstr "&Atayos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:132
@@ -6117,7 +6129,7 @@ msgstr ""
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
 #, kde-format
 msgid "&Charset:"
-msgstr ""
+msgstr "&Conxuntu de caráuteres:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
 #: urifilters/ikws/searchproviderdlg_ui.ui:158
@@ -6161,7 +6173,7 @@ msgstr ""
 #: widgets/certificateparty.ui:48
 #, kde-format
 msgid "Organization:"
-msgstr ""
+msgstr "Organización:"
 
 #. i18n: ectx: property (text), widget (QLabel, organization)
 #: widgets/certificateparty.ui:58
@@ -6185,37 +6197,37 @@ msgstr ""
 #: widgets/certificateparty.ui:88
 #, kde-format
 msgid "Country:"
-msgstr ""
+msgstr "País:"
 
 #. i18n: ectx: property (text), widget (QLabel, country)
 #: widgets/certificateparty.ui:98
 #, kde-format
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 #. i18n: ectx: property (text), widget (QLabel, stateTag)
 #: widgets/certificateparty.ui:108
 #, kde-format
 msgid "State:"
-msgstr ""
+msgstr "Estáu:"
 
 #. i18n: ectx: property (text), widget (QLabel, state)
 #: widgets/certificateparty.ui:118
 #, kde-format
 msgid "Quebec"
-msgstr ""
+msgstr "Quebec"
 
 #. i18n: ectx: property (text), widget (QLabel, cityTag)
 #: widgets/certificateparty.ui:128
 #, kde-format
 msgid "City:"
-msgstr ""
+msgstr "Ciudá:"
 
 #. i18n: ectx: property (text), widget (QLabel, city)
 #: widgets/certificateparty.ui:138
 #, kde-format
 msgid "Lakeridge Meadows"
-msgstr ""
+msgstr "Lakeridge Meadows"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/checksumswidget.ui:17
@@ -6243,28 +6255,28 @@ msgstr ""
 #: widgets/checksumswidget.ui:65
 #, kde-format
 msgid "MD5:"
-msgstr ""
+msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
 #: widgets/checksumswidget.ui:72
 #, kde-format
 msgid "SHA1:"
-msgstr ""
+msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
 #: widgets/checksumswidget.ui:79
 #, kde-format
 msgid "SHA256:"
-msgstr ""
+msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
 #: widgets/checksumswidget.ui:86
 #, kde-format
 msgid "SHA512:"
-msgstr ""
+msgstr "SHA512:"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha1Button)
@@ -6311,7 +6323,7 @@ msgstr ""
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
 msgid "What do you wish to do with this file?"
-msgstr ""
+msgstr "¿Que quies facer con esti ficheru?"
 
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
@@ -6490,7 +6502,7 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
@@ -6598,7 +6610,7 @@ msgstr ""
 #: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
-msgstr ""
+msgstr "Grupu: "
 
 #: widgets/kacleditwidget.cpp:595
 #, kde-format
@@ -6692,25 +6704,25 @@ msgstr "Data"
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
-msgstr ""
+msgstr "Permisos"
 
 #: widgets/kdirmodel.cpp:1215
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
-msgstr ""
+msgstr "Propietariu"
 
 #: widgets/kdirmodel.cpp:1217
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
-msgstr ""
+msgstr "Grupu"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
-msgstr ""
+msgstr "Tipu"
 
 #: widgets/kfileitemactions.cpp:427
 #, kde-format
@@ -6727,7 +6739,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
-msgstr ""
+msgstr "&Aiciones"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -6829,7 +6841,7 @@ msgstr ""
 #: widgets/kfilepropspluginwidget.ui:349
 #, kde-format
 msgid "Content:"
-msgstr ""
+msgstr "Conteníu:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
 #: widgets/kfilepropspluginwidget.ui:372
@@ -6853,7 +6865,7 @@ msgstr ""
 #: widgets/kfilepropspluginwidget.ui:402
 #, kde-format
 msgid "File System:"
-msgstr ""
+msgstr "Sistema de ficheros:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:432
@@ -7024,7 +7036,7 @@ msgctxt ""
 "@title:group Title of a group that lets the user choose options about the "
 "terminal when launching a program"
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:51
@@ -7045,7 +7057,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:61
 #, kde-format
 msgid "Terminal options:"
-msgstr ""
+msgstr "Opciones de la terminal:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:71
@@ -7150,13 +7162,13 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:196
 #, kde-format
 msgid "Multiple Instances"
-msgstr ""
+msgstr "Intancies múltiples"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
 #: widgets/kpropertiesdesktopadvbase.ui:201
 #, kde-format
 msgid "Single Instance"
-msgstr ""
+msgstr "Instancia única"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
 #: widgets/kpropertiesdesktopadvbase.ui:206
@@ -7192,7 +7204,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:45
 #, kde-format
 msgid "&Description:"
-msgstr ""
+msgstr "&Descripción:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -7205,13 +7217,13 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:65
 #, kde-format
 msgid "Comm&ent:"
-msgstr ""
+msgstr "Com&entariu:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Variables d'entornu:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -7236,7 +7248,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Programa:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -7250,7 +7262,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
-msgstr ""
+msgstr "&Restolar…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7269,7 +7281,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:169
 #, kde-format
 msgid "Arguments:"
-msgstr ""
+msgstr "Argumentos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -7302,13 +7314,13 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:220
 #, kde-format
 msgid "Mimetype"
-msgstr ""
+msgstr "Tipu MIME"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:225
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:235
@@ -7350,7 +7362,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr ""
+msgstr "Opciones a&vanzaes"
 
 #: widgets/kpropertiesdialog.cpp:176
 #, kde-kuit-format
@@ -7400,7 +7412,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1245
 #, kde-format
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: widgets/kpropertiesdialog.cpp:1355
 #, kde-format
@@ -7425,8 +7437,8 @@ msgstr ""
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ficheros"
+msgstr[1] "%1 ficheru"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
 #, kde-format
@@ -7438,7 +7450,7 @@ msgstr[1] ""
 #: widgets/kpropertiesdialog.cpp:1404
 #, kde-format
 msgid "Calculating...\n"
-msgstr ""
+msgstr "Calculando…\n"
 
 #: widgets/kpropertiesdialog.cpp:1427
 #, kde-format
@@ -7504,7 +7516,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1860
 #, kde-format
 msgid "&Permissions"
-msgstr ""
+msgstr "&Permisos"
 
 #: widgets/kpropertiesdialog.cpp:1872 widgets/kpropertiesdialog.cpp:2068
 #, kde-format
@@ -7536,7 +7548,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1895
 #, kde-format
 msgid "Gro&up:"
-msgstr ""
+msgstr "Gru&pu:"
 
 #: widgets/kpropertiesdialog.cpp:1901
 #, kde-format
@@ -7608,7 +7620,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2059
 #, kde-format
 msgid "Advanced Permissions"
-msgstr ""
+msgstr "Permisos avanzaos"
 
 #: widgets/kpropertiesdialog.cpp:2076
 #, kde-format
@@ -7871,7 +7883,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:3298
 #, kde-format
 msgid "&Application"
-msgstr ""
+msgstr "&Aplicación"
 
 #: widgets/kpropertiesdialog.cpp:3457
 #, kde-format
@@ -8238,7 +8250,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr ""
+msgstr "Xá esiste un elementu antiguu col nome «%1»."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
@@ -8379,7 +8391,7 @@ msgstr ""
 #: widgets/sslinfo.ui:183
 #, kde-format
 msgid "Validity period:"
-msgstr ""
+msgstr "Periodu de validez:"
 
 #. i18n: ectx: property (text), widget (QLabel, serialTag)
 #: widgets/sslinfo.ui:203

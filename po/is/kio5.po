@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-06 00:41+0000\n"
-"PO-Revision-Date: 2022-10-31 21:53+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2022-12-11 09:59+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -57,10 +57,9 @@ msgstr ""
 "ekki heimild til að gera þessa breytingu."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Ekki tókst að búa til io-slave: %1"
+msgstr "Ekki tókst að búa til KIO-vinnslu: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -806,10 +805,9 @@ msgid "Communication with the local password server failed"
 msgstr "Samskipti við staðbundna lykilorðaþjóninn mistókust"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Ekki tókst að búa til io-slave: %1"
+msgstr "Ekki tókst að búa til KIO-vinnslu: %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -833,10 +831,9 @@ msgstr ""
 "Prófaðu aftur eftir að hafa breytt heimildum."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Þessi skrá er of stór til að fara í ruslið."
+msgstr "Skráin er of stór til að fara í ruslið."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1178,21 +1175,15 @@ msgstr ""
 "kannski ósamhæfðar."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Þú getur leitað á internetinu að KDE forriti (kallað kioslave eða ioslave) "
-"sem styður þessa samkiptareglu. Gott er að leita á: <a href=\"https://kde-"
-"apps.org/\">https://kde-apps.org/ </a>  og <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/</a>."
+"Þú getur leitað á internetinu að KDE forriti (kallað KIO-vinnsla) sem styður "
+"þessa samkiptareglu. Gott er t.d. að leita á <a href=\"https://store.kde.org/"
+"\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2331,22 +2322,18 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Ekki tókst að ræsa samkiptaregluna %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Ekki tókst að búa til io-slave"
+msgstr "Ekki tókst að búa til KIO-vinnslu"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Ekki tókst að ræsa io-slave sem veitir aðgang að samskiptareglunni <strong>"
-"%1</strong>.  Þetta er venjulega af tæknilegum ástæðum."
+"Ekki tókst að ræsa KIO-vinnsluna sem veitir aðgang að samskiptareglunni "
+"<strong>%1</strong>.  Þetta er venjulega af tæknilegum ástæðum."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2424,17 +2411,16 @@ msgid "Unknown protocol '%1'."
 msgstr "Óþekkt samskiptaregla '%1'."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "io-slave fyrir samskiptaregluna '%1' fannst ekki."
+msgstr "KIO-vinnsla fyrir samskiptaregluna '%1' fannst ekki."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Ekki tókst að búa til sökkul til að ræsa io-slave fyrir samskiptareglu '%1'."
+"Ekki tókst að búa til sökkul til að ræsa KIO-vinnslu fyrir samskiptaregluna "
+"'%1'."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -2550,7 +2536,7 @@ msgstr "&Nei"
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
-msgstr "&Smáatriði"
+msgstr "&Nánar"
 
 #: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
@@ -3184,12 +3170,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Aðeins er hægt að bæta möppum við svæðið Staðir."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Sle&ppa"
+msgstr "Sleppi…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3198,12 +3182,10 @@ msgid "&Release"
 msgstr "Sle&ppa"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Fjarlægja örugglega"
+msgstr "Fjarlægi örugglega…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3212,12 +3194,10 @@ msgid "&Safely Remove"
 msgstr "&Fjarlægja örugglega"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Aftengi"
+msgstr "Aftengi…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3249,7 +3229,7 @@ msgstr "Villa kom upp þegar reynt var að lesa '%1'"
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Ein eða fleiri skrár á þessu tæki eru opnar í forritum."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3260,13 +3240,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Ein eða fleiri skrár á þessu tæki eru opnar í forritinu <application>\"%2\"</"
+"application>."
 msgstr[1] ""
+"Ein eða fleiri skrár á þessu tæki eru opnar í eftirfarandi forritum: "
+"<application>\"%2\"</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4427,23 +4411,7 @@ msgid "&Management"
 msgstr "&Umsýsla"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4461,20 +4429,20 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
-"<h1>Kökur</h1><p>Kökur innihalda upplýsingar sem KDE-forrit sem nota HTTP-"
-"samskipti (eins og Konqueror) geyma á tölvunni þinni samkvæmt beiðni frá "
-"vefþjónum á internetinu. Þannig geta vefþjónar geymt upplýsingar um þig og "
-"það sem þú gerir á vefnum til síðari tíma notkunar. Þér gæti fundist þetta "
-"innrás í einkalíf þitt.</p><p>Hins vegar geta kökur verið gagnlegar. Þær eru "
-"t.d. oft notaðar af netverslunum svo þú getir 'sett vörur í körfu'. Sumir "
-"vefir virka ekki nema þú takir við kökum.</p><p>Þar sem flestir velja "
-"málamiðlun á milli friðhelgi og þeirrar gagnsemi sem kökur geta veitt, þá "
-"býður HTTP kioslave í KDE upp á leiðir til að sérsníða hvernig farið er með "
-"kökur. Þú getur t.d. stillt KDE á að spyrja þig í hvert skipti sem vefþjónn "
-"vill setja upp köku, hvort þú viljir þiggja kökuna eða hafna henni. Þú gætir "
-"einnig viljað setja upp reglu um að þiggja kökur frá uppáhalds "
-"netversluninni þinni og vefþjónum sem þú treystir án þess að þurfa að taka "
-"það fram í hvert skipti.</p>"
+"<h1>Vefkökur</h1><p>Vefkökur innihalda upplýsingar sem KDE-forrit sem nota "
+"HTTP-samskipti (eins og Konqueror) geyma á tölvunni þinni samkvæmt beiðni "
+"frá vefþjónum á internetinu. Þannig geta vefþjónar geymt upplýsingar um þig "
+"og það sem þú gerir á vefnum til síðari tíma notkunar. Þér gæti fundist "
+"þetta innrás í einkalíf þitt.</p><p>Hins vegar geta vefkökur verið "
+"gagnlegar. Þær eru t.d. oft notaðar af netverslunum svo þú getir 'sett vörur "
+"í körfu'. Sumir vefir virka ekki nema þú takir við vefkökum.</p><p>Þar sem "
+"flestir velja málamiðlun á milli friðhelgi og þeirrar gagnsemi sem vefkökur "
+"geta veitt, þá býður HTTP KIO-vinnslan í KDE upp á leiðir til að sérsníða "
+"hvernig farið er með vefkökur. Þú getur t.d. stillt KDE á að spyrja þig í "
+"hvert skipti sem vefþjónn vill setja upp vefköku, hvort þú viljir þiggja "
+"vefkökuna eða hafna henni. Þú gætir einnig viljað setja upp reglu um að "
+"þiggja vefkökur frá uppáhalds netversluninni þinni og vefþjónum sem þú "
+"treystir án þess að þurfa að taka það fram í hvert skipti.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4485,17 +4453,17 @@ msgstr "D-Bus samskiptavilla"
 #: kcms/cookies/kcookiesmanagement.cpp:127
 #, kde-format
 msgid "Unable to delete all the cookies as requested."
-msgstr "Tókst ekki að eyða öllum umbeðnum kökum."
+msgstr "Tókst ekki að eyða öllum umbeðnum vefkökum."
 
 #: kcms/cookies/kcookiesmanagement.cpp:144
 #, kde-format
 msgid "Unable to delete cookies as requested."
-msgstr "Tókst ekki að eyða umbeðnum kökum."
+msgstr "Tókst ekki að eyða umbeðnum vefkökum."
 
 #: kcms/cookies/kcookiesmanagement.cpp:216
 #, kde-format
 msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>Skyndihjálp fyrir meðhöndlun á kökum</h1>"
+msgstr "<h1>Skyndihjálp fyrir meðhöndlun á vefkökum</h1>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:228
 #, kde-format
@@ -4507,7 +4475,7 @@ msgstr "Villa í upplýsingaleit"
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
 msgstr ""
-"Ekki tókst að ná í upplýsingar um kökur sem eru geymdar á tölvunni þinni."
+"Ekki tókst að ná í upplýsingar um vefkökur sem eru geymdar á tölvunni þinni."
 
 #: kcms/cookies/kcookiesmanagement.cpp:321
 #, kde-format
@@ -4541,7 +4509,7 @@ msgstr "Vefsvæði"
 #: kcms/cookies/kcookiesmanagement.ui:48
 #, kde-format
 msgid "Cookie Name"
-msgstr "Heiti köku"
+msgstr "Heiti vefköku"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #. i18n: ectx: property (text), widget (QPushButton, deleteButton)
@@ -4621,13 +4589,13 @@ msgstr "Er örugg:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Cookie Policy"
-msgstr "Breyta reglu fyrir kökur"
+msgstr "Breyta reglu fyrir vefkökur"
 
 #: kcms/cookies/kcookiespolicies.cpp:173
 #, kde-format
 msgctxt "@title:window"
 msgid "New Cookie Policy"
-msgstr "Ný regla varðandi kökur"
+msgstr "Ný regla varðandi vefkökur"
 
 #: kcms/cookies/kcookiespolicies.cpp:206
 #, kde-format
@@ -4655,7 +4623,7 @@ msgid ""
 "Unable to communicate with the cookie handler service.\n"
 "Any changes you made will not take effect until the service is restarted."
 msgstr ""
-"Náði ekki sambandi við þjónustuna fyrir kökumeðhöndlun.\n"
+"Náði ekki sambandi við þjónustuna fyrir vefkökumeðhöndlun.\n"
 "Breytingar sem hafa verið gerðar verða virkar þegar þjónustan er endurræst."
 
 #: kcms/cookies/kcookiespolicies.cpp:430
@@ -4681,23 +4649,24 @@ msgid ""
 "receive cookies from trusted web sites without being asked every time KDE "
 "receives a cookie.</p>"
 msgstr ""
-"<h1>Kökur</h1><p>Kökur innihalda upplýsingar sem KDE-forrit sem nota HTTP-"
-"samskipti (eins og Konqueror) geyma á tölvunni þinni skv. beiðni frá "
+"<h1>Vefkökur</h1><p>Vefkökur innihalda upplýsingar sem KDE-forrit sem nota "
+"HTTP-samskipti (eins og Konqueror) geyma á tölvunni þinni skv. beiðni frá "
 "vefþjónum á internetinu. Þannig geta vefþjónar geymt upplýsingar um þig og "
 "það sem þú gerir á vefnum til síðari tíma notkunar. Þér gæti fundist þetta "
-"innrás í einkalíf þitt.</p><p>Hins vegar geta kökur verið gagnlegar. Þær eru "
-"t.d. oft notaðar af netverslunum svo þú getir 'sett vörur í körfu'. Sumir "
-"vefir virka ekki nema þú takir við kökum.</p><p>Þar sem flestir velja "
-"málamiðlun á milli friðhelgi og þeirrar gagnsemi sem kökur geta veitt, þá "
-"býður KDE upp á leiðir til að sérsníða hvernig farið er með kökur. Þú getur "
-"t.d. stillt KDE á að spyrja þig í hvert skipti sem vefþjónn vill setja upp "
-"köku, hvort þú viljir þiggja kökuna eða hafna henni. Þú gætir t.d. valið að "
-"þiggja kökur frá uppáhalds netversluninni þinni. Það eina sem þú þarft að "
-"gera er að fara á vefsvæðið og þegar sprettigluggi fyrir kökur birtist "
-"skaltu smella á <i>Þetta lén</i> undir flipanum 'nota á' og samþykkja eða "
-"slá inn heitið á vefsvæðinu í flipanum <i>Regla fyrir þetta lén </i> og "
-"stilla á samþykki. Þannig geturðu tekið við kökum frá traustum vefsvæðum án "
-"þess að það þurfi að spyrja í hvert sinn sem kaka berst.</p>"
+"innrás í einkalíf þitt.</p><p>Hins vegar geta vefkökur verið gagnlegar. Þær "
+"eru t.d. oft notaðar af netverslunum svo þú getir 'sett vörur í körfu'. "
+"Sumir vefir virka ekki nema þú takir við vefkökum.</p><p>Þar sem flestir "
+"velja málamiðlun á milli friðhelgi og þeirrar gagnsemi sem vefkökur geta "
+"veitt, þá býður KDE upp á leiðir til að sérsníða hvernig farið er með "
+"vefkökur. Þú getur t.d. stillt KDE á að spyrja þig í hvert skipti sem "
+"vefþjónn vill setja upp vefköku, hvort þú viljir þiggja vefkökuna eða hafna "
+"henni. Þú gætir t.d. valið að þiggja vefkökur frá uppáhalds netversluninni "
+"þinni. Það eina sem þú þarft að gera er að fara á vefsvæðið og þegar "
+"sprettgluggi fyrir vefkökur birtist skaltu smella á <i>Þetta lén</i> undir "
+"flipanum 'nota á' og samþykkja eða slá inn heitið á vefsvæðinu í flipanum "
+"<i>Regla fyrir þetta lén </i> og stilla á samþykki. Þannig geturðu tekið við "
+"vefkökum frá treystum vefsvæðum án þess að það þurfi að spyrja í hvert sinn "
+"sem vefkaka berst.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4711,17 +4680,17 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"<p>Virkja stuðning við kökur. Yfirleitt er best að þú takir við kökum en "
-"stillir þetta síðan nánar og sníðir að þínum þörfum.</p><p>\n"
-"Hafðu í huga að ef slökkt er á stuðningi við kökur geta sumar vefsíður orðið "
-"ónothæfar.</p>\n"
+"<p>Virkja stuðning við vefkökur. Yfirleitt er best að þú takir við vefkökum "
+"en stillir þetta síðan nánar og sníðir að þínum þörfum.</p><p>\n"
+"Hafðu í huga að ef slökkt er á stuðningi við vefkökur geta sumar vefsíður "
+"orðið ónothæfar.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "&Virkja kökur"
+msgstr "&Virkja vefkökur"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4737,19 +4706,19 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Hafna kökum frá þriðja aðila. Þetta eru kökur sem koma frá öðrum síðum en "
-"þeim sem þú ert að skoða.  Ef þú ert að skoða síðu hjá <b>www.della.is</b> "
-"og þessi stilling er virk, þá munu eingöngu kökur sem koma frá <b>www.della."
-"is</b> verða samþykktar.  Öllum öðrum kökum verður sjálfkrafa hafnað.  Þetta "
-"minnkar möguleika á því að hægt sé að fylgjast með þér og kortleggja venjur "
-"þínar á netinu.\n"
+"Hafna vefkökum frá þriðja aðila. Þetta eru vefkökur sem koma frá öðrum síðum "
+"en þeim sem þú ert að skoða.  Ef þú ert að skoða síðu hjá <b>www.della.is</"
+"b> og þessi stilling er virk, þá munu eingöngu vefkökur sem koma frá <b>www."
+"della.is</b> verða samþykktar.  Öllum öðrum vefkökum verður sjálfkrafa "
+"hafnað.  Þetta minnkar möguleika á því að hægt sé að fylgjast með þér og "
+"kortleggja venjur þínar á netinu.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "Taka eingöngu við kökum frá &sama vefþjóni"
+msgstr "Taka eingöngu við vefkökum frá &sama vefþjóni"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4764,12 +4733,12 @@ msgid ""
 "for session cookies.</p>"
 msgstr ""
 "<p>\n"
-"Samþykkja sjálfkrafa tímabundnar kökur sem renna út í lok núverandi setu. "
-"Slíkar kökur verða ekki geymdar á harða diski tölvunnar eða geymslutæki. Í "
-"staðinn er þeim eytt þegar þú lokar öllum þeim forritum (t.d. vafranum "
+"Samþykkja sjálfkrafa tímabundnar vefkökur sem renna út í lok núverandi setu. "
+"Slíkar vefkökur verða ekki geymdar á harða diski tölvunnar eða geymslutæki. "
+"Í staðinn er þeim eytt þegar þú lokar öllum þeim forritum (t.d. vafranum "
 "þínum) sem nota þær.</p><p><u>ATH.:</u> Ef þú velur þennan valkost þá er "
-"hann tekinn fram yfir sjálfgefnar stillingar og einnig kökureglu einstakra "
-"vefsvæða fyrir setukökur.</p>"
+"hann tekinn fram yfir sjálfgefnar stillingar og einnig vefkökureglu "
+"einstakra vefsvæða fyrir setukökur.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:49
@@ -4798,14 +4767,14 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Ákvarðar hvernig farið er með kökur sem sendar eru frá vefþjónum: \n"
+"Ákvarðar hvernig farið er með vefkökur sem sendar eru frá vefþjónum: \n"
 "<ul>\n"
-"<li><b>Spyrja</b> beðið um staðfestingu þegar ný kaka berst frá vefþjóni.</"
-"li>\n"
-"<li><b>Þiggja</b> allar kökur samþykktar án staðfestingarbeiðni.</li>\n"
-"<li><b>Þiggja til loka setu</b> allar kökur samþykktar, en þær munu renna út "
-"við lok setunnar.</li>\n"
-"<li><b>Hafna</b> öllum kökum er hafnað.</li>\n"
+"<li><b>Spyrja</b> beðið um staðfestingu þegar ný vefkaka berst frá vefþjóni."
+"</li>\n"
+"<li><b>Þiggja</b> allar vefkökur samþykktar án staðfestingarbeiðni.</li>\n"
+"<li><b>Þiggja til loka setu</b> allar vefkökur samþykktar, en þær munu renna "
+"út við lok setunnar.</li>\n"
+"<li><b>Hafna</b> öllum vefkökum er hafnað.</li>\n"
 "</ul><p>\n"
 "<u>ATH.:</u> Reglur sem gilda um einstök lén og vefsvæði hafa alltaf forgang "
 "yfir sjálfgefna reglu.</p>\n"
@@ -4821,7 +4790,7 @@ msgstr "Sjálfgefin regla"
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "Þi&ggja allar kökur"
+msgstr "Þi&ggja allar vefkökur"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
@@ -4839,7 +4808,7 @@ msgstr "Biðja um stað&festingu"
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "Ha&fna öllum kökum"
+msgstr "Ha&fna öllum vefkökum"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4891,8 +4860,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Listi yfir vefsvæði sem þú hefur stillta sérstaka kökureglu fyrir. Sérstakar "
-"reglur hafa forgang fram yfir sjálfgefnar stillingar fyrir þessi vefsvæði.\n"
+"Listi yfir vefsvæði sem þú hefur stillta sérstaka vefkökureglu fyrir. "
+"Sérstakar reglur hafa forgang fram yfir sjálfgefnar stillingar fyrir þessi "
+"vefsvæði.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
@@ -4958,7 +4928,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Sláðu inn heiti á vél eða léni sem þessi regla á við. T.d. <b>www.kde.org</"
+"Settu inn heiti á vél eða léni sem þessi regla á við. T.d. <b>www.kde.org</"
 "b> or <b>.kde.org</b>.\n"
 "</qt>"
 
@@ -4973,7 +4943,7 @@ msgstr "Heiti vefsvæðis:"
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
 msgstr ""
-"Sláðu inn heiti vélar eða léns, t.d. .kde.org, sem þessi regla á við um."
+"Settu inn heiti vélar eða léns, t.d. .kde.org, sem þessi regla á við um."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
@@ -4994,12 +4964,12 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Veldu reglu:<ul>\n"
-"<li><b>Þiggja</b> - Leyfa þessu vefsvæði að setja inn kökur</li>\n"
-"<li><b>Þiggja til loka setu</b> - Leyfa þessu vefsvæði að setja inn kökur, "
-"en þær renna út þegar þessari setu lýkur.</li>\n"
-"<li><b>Hafna</b> - Hafna öllum kökum frá þessu vefsvæði</li>\n"
-"<li><b>Spyrja</b> - Fá staðfestingu þegar kökur berast frá þessu vefsvæði</"
-"li>\n"
+"<li><b>Þiggja</b> - Leyfa þessu vefsvæði að setja inn vefkökur</li>\n"
+"<li><b>Þiggja til loka setu</b> - Leyfa þessu vefsvæði að setja inn "
+"vefkökur, en þær renna út þegar þessari setu lýkur.</li>\n"
+"<li><b>Hafna</b> - Hafna öllum vefkökum frá þessu vefsvæði</li>\n"
+"<li><b>Spyrja</b> - Fá staðfestingu þegar vefkökur berast frá þessu "
+"vefsvæði</li>\n"
 "</ul>\n"
 "</qt>"
 
@@ -5289,16 +5259,7 @@ msgstr "Enginn milliþjónn"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5313,8 +5274,7 @@ msgstr ""
 "Sjálfvirk leit fer fram með <b>Web Proxy Auto-Discovery Protocol (WPAD)</b> "
 "samskiptareglunni.<p>\n"
 "<b>Athugaðu:</b> Þessi möguleiki mun ef til vill ekki vinna rétt eða yfir "
-"höfuð á sumum útgáfum af Unix/Linux. Ef þú lendir í basli með þennan "
-"eiginleika getur þú gluggað í FAQ-hlutann á https://konqueror.org.\n"
+"höfuð á sumum útgáfum af Unix/Linux.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5692,15 +5652,7 @@ msgid "Default password:"
 msgstr "Sjálfgefið lykilorð:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5710,12 +5662,13 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows-sameignir</h1><p>Forrit sem nota SMB-kioslave (eins ogKonqueror) "
-"geta opnað samnýtt skráakerfi Microsoft Windows, ef það er rétt grunnstillt."
-"</p><p>Þú getur fært hér inn aðgangsupplýsingar sem þarf til að fá aðgang að "
-"samnýtta svæðinu. Lykilorð eru vistuð staðbundið og þau brengluð svo þau "
-"verði ólæsileg. Þetta er af öryggisástæðum, þú vilt hugsanlega ekki gera það "
-"þar sem færslur með lykilorðum eru greinilega merktar sem slíkar.</p>"
+"<h1>Windows-sameignir</h1><p>Forrit sem nota SMB KIO-vinnslu (eins "
+"ogKonqueror) geta opnað samnýtt skráakerfi Microsoft Windows, ef það er rétt "
+"grunnstillt.</p><p>Þú getur fært hér inn aðgangsupplýsingar sem þarf til að "
+"fá aðgang að samnýtta svæðinu. Lykilorð eru vistuð staðbundið og þau "
+"brengluð svo þau verði ólæsileg. Þetta er af öryggisástæðum, þú vilt "
+"hugsanlega ekki gera það þar sem færslur með lykilorðum eru greinilega "
+"merktar sem slíkar.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -6278,7 +6231,7 @@ msgstr "Móttek skemmd gögn."
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
 msgid "Cannot Save Cookies"
-msgstr "Get ekki vistað kökur"
+msgstr "Get ekki vistað vefkökur"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #, kde-format
@@ -6293,7 +6246,7 @@ msgstr "Tókst ekki að búa til möppuna %1"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:45
 #, kde-format
 msgid "Cookie Alert"
-msgstr "Kökuviðvörun"
+msgstr "Vefkökuviðvörun"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:70
 #, kde-format
@@ -6305,10 +6258,10 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] ""
-"<p>Þú tókst við köku frá<br/><b>%2%3</b><br/>Viltu samþykkja hana eða hafna "
-"henni?</p>"
+"<p>Þú tókst við vefköku frá<br/><b>%2%3</b><br/>Viltu samþykkja hana eða "
+"hafna henni?</p>"
 msgstr[1] ""
-"<p>Þú tókst við %1 kökum frá<br/><b>%2%3</b><br/>Viltu samþykkja þær eða "
+"<p>Þú tókst við %1 vefkökum frá<br/><b>%2%3</b><br/>Viltu samþykkja þær eða "
 "hafna þeim?</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:78
@@ -6320,7 +6273,7 @@ msgstr " [Milli léna]"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:93
 #, kde-format
 msgid "See or modify the cookie information"
-msgstr "Sjá eða breyta upplýsingum um kökuna"
+msgstr "Sjá eða breyta upplýsingum um vefkökuna"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:98
 #, kde-format
@@ -6330,7 +6283,7 @@ msgstr "Samþykkja fyrir þessa &setu"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
 msgid "Accept cookie(s) until the end of the current session"
-msgstr "Samþykkja köku(r) þar til þessari setu lýkur"
+msgstr "Samþykkja vefköku(r) þar til þessari setu lýkur"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:111
 #, kde-format
@@ -6350,12 +6303,12 @@ msgstr "Gildir um"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:153
 #, kde-format
 msgid "&Only this cookie"
-msgstr "Þessa &einu köku"
+msgstr "Þessa &einu vefköku"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:153
 #, kde-format
 msgid "&Only these cookies"
-msgstr "Bara þ&essar kökur"
+msgstr "Bara þ&essar vefkökur"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:158
 #, kde-format
@@ -6363,13 +6316,13 @@ msgid ""
 "Select this option to only accept or reject this cookie. You will be "
 "prompted again if you receive another cookie."
 msgstr ""
-"Veldu þennan valkost til að samþykkja eða hafna þessari einu köku. Það "
-"verður spurt aftur ef þér berst önnur kaka."
+"Veldu þennan valkost til að samþykkja eða hafna þessari einu vefköku. Það "
+"verður spurt aftur ef þér berst önnur vefkaka."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:161
 #, kde-format
 msgid "All cookies from this do&main"
-msgstr "Allar kökur frá þessu &léni"
+msgstr "Allar vefkökur frá þessu &léni"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:165
 #, kde-format
@@ -6379,14 +6332,14 @@ msgid ""
 "This policy will be permanent until you manually change it from the System "
 "Settings."
 msgstr ""
-"Veldu þetta til að samþykkja eða hafna öllum kökum frá þessu vefsvæði. Þá "
-"verður sett ný regla fyrir vefsvæðið þaðan sem kakan er uprunnin. Þessi "
+"Veldu þetta til að samþykkja eða hafna öllum vefkökum frá þessu vefsvæði. Þá "
+"verður sett ný regla fyrir vefsvæðið þaðan sem vefkakan er uprunnin. Þessi "
 "regla gildir þá þar til henni er breytt í kerfisstillingunum."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:170
 #, kde-format
 msgid "All &cookies"
-msgstr "Allar &kökur"
+msgstr "Allar vef&kökur"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:174
 #, kde-format
@@ -6395,14 +6348,14 @@ msgid ""
 "option will change the global cookie policy for all cookies until you "
 "manually change it from the System Settings."
 msgstr ""
-"Veldu þetta til að samþykkja eða hafna öllum kökum alls staðar. Breyting á "
-"þessu mun breyta altæku kökureglunni fyrir allar kökur þar til þú breytir "
-"henni handvirkt í kerfisstillingunum."
+"Veldu þetta til að samþykkja eða hafna öllum vefkökum alls staðar. Breyting "
+"á þessu mun breyta altæku vefkökureglunni fyrir allar vefkökur þar til þú "
+"breytir henni handvirkt í kerfisstillingunum."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:240
 #, kde-format
 msgid "Cookie Details"
-msgstr "Upplýsingar um köku"
+msgstr "Upplýsingar um vefköku"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:281
 #, kde-format
@@ -6421,7 +6374,7 @@ msgstr "&Næsta >>"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:294
 #, kde-format
 msgid "Show details of the next cookie"
-msgstr "Sýna ítarlegri upplýsingar um næstu köku"
+msgstr "Sýna ítarlegri upplýsingar um næstu vefköku"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:322
 #, kde-format
@@ -7257,8 +7210,7 @@ msgstr "Eyða endanlega"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #: widgets/widgetsaskuseractionhandler.cpp:257
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Eyða endanlega"
@@ -7827,16 +7779,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Muna hvaða forrit getur unnið með skrár af gerðinni\n"
-"\"%1\" (%2)"
+"Muna hvaða fo&rrit getur unnið með skrár af gerðinni\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8090,10 +8039,9 @@ msgstr "Ath&ugasemd:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Forsettar umh&verfisbreytur"
+msgstr "Umhverfisbreytur:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8130,7 +8078,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Forrit:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8161,11 +8109,9 @@ msgstr "&Vinnumappa:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Skjöl"
+msgstr "Breytur:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -9383,19 +9329,14 @@ msgstr ""
 "Hætt við vegna þess að ekki var hægt að sannreyna auðkenni vélarinnar."
 
 #: widgets/widgetsaskuseractionhandler.cpp:223
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Viltu eyða endanlega þessu atriði?<nl/><filename>%1</filename><nl/><nl/"
+"Viltu eyða endanlega þessu atriði?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
@@ -9415,30 +9356,19 @@ msgstr[1] ""
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Viltu eyða endanlega þessu atriði?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ekki tókst að setja þetta atriði í ruslið því það er of stórt. Á frekar að "
+"eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:249
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9449,10 +9379,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Viltu eyða endanlega þessu  atriði? <nl/><nl/><emphasis strong='true'>Ekki "
-"er hægt að afturkalla þessa aðgerð.</emphasis>"
+"Ekki tókst að setja þetta %1 atriði í ruslið því það er of stórt. Á frekar "
+"að eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 msgstr[1] ""
-"Viltu eyða endanlega þessum %1 atriðum? <nl/><nl/><emphasis "
+"Ekki tókst að setja þessi %1 atriði í ruslið því þau eru of stór. Á frekar "
+"að eyða þeim endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:276
