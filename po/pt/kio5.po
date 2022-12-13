@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:41+0000\n"
+"POT-Creation-Date: 2022-12-13 00:50+0000\n"
 "PO-Revision-Date: 2022-12-04 13:24+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -3680,7 +3680,7 @@ msgid "*|All Files"
 msgstr "*|Todos os Ficheiros"
 
 #: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:869
+#: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
@@ -7639,58 +7639,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipo"
 
-#: widgets/kfileitemactions.cpp:427
+#: widgets/kfileitemactions.cpp:428
 #, kde-format
 msgid "Open &with %1"
 msgstr "Abrir &com o %1"
 
-#: widgets/kfileitemactions.cpp:429
+#: widgets/kfileitemactions.cpp:430
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:613
+#: widgets/kfileitemactions.cpp:614
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Acções"
 
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open folder with %1"
-msgstr "Abrir a &pasta com o %1"
-
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open with %1"
-msgstr "Abrir &com o %1"
-
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Abrir a Pasta C&om..."
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Abrir C&om..."
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open folder with %1"
+msgstr "Abrir a &pasta com o %1"
+
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open with %1"
+msgstr "Abrir &com o %1"
+
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "A&brir a Pasta Com"
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "A&brir Com"
 
-#: widgets/kfileitemactions.cpp:905
+#: widgets/kfileitemactions.cpp:933
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."

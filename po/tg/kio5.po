@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:41+0000\n"
+"POT-Creation-Date: 2022-12-13 00:50+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -3566,7 +3566,7 @@ msgid "*|All Files"
 msgstr "*|Ҳамаи файлҳо"
 
 #: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:869
+#: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Кушодан"
@@ -7228,35 +7228,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:427
+#: widgets/kfileitemactions.cpp:428
 #, kde-format
 msgid "Open &with %1"
 msgstr "Кушодан ба &воситаи %1"
 
-#: widgets/kfileitemactions.cpp:429
+#: widgets/kfileitemactions.cpp:430
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:613
+#: widgets/kfileitemactions.cpp:614
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Амалиётҳо"
 
-#: widgets/kfileitemactions.cpp:858
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
-msgid "&Open folder with %1"
-msgstr "&Кушодан ба воситаи %1"
-
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open with %1"
-msgstr "&Кушодан ба воситаи %1"
-
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With..."
@@ -7264,13 +7253,24 @@ msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Кушодан ба воситаи..."
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Кушодан ба воситаи..."
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:889
+#, fuzzy, kde-format
+#| msgid "&Open with %1"
+msgid "&Open folder with %1"
+msgstr "&Кушодан ба воситаи %1"
+
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open with %1"
+msgstr "&Кушодан ба воситаи %1"
+
+#: widgets/kfileitemactions.cpp:922
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -7278,13 +7278,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Кушодан ба воситаи"
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Кушодан ба воситаи"
 
-#: widgets/kfileitemactions.cpp:905
+#: widgets/kfileitemactions.cpp:933
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
