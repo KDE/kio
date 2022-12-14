@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -7782,36 +7782,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "တုံ့ပြန်ချက်လွှင်တင်မှုအသုံးပြုမည်"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "မသတ်မှတ်ထား"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "အင်းစတန့်အများအပြား"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "အင်းစတမ့်တစ်ခုတည်း"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "မပြီးမချင်း လုပ်ဆောင်မည်"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "ဒီ-ဘက်စ် စာရင်းသွင်းမှု -"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8549,34 +8519,34 @@ msgstr "&Rယူအာအယ်လ်"
 msgid "URL:"
 msgstr "ယူအာအယ်လ် -"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်လ်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Aအပ္ပလီကေးရှင်း"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 အတွက်ဖိုင်လ်အမျိုးအစားထည့်မည်"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်လ်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်လ်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 အတွက် အဆင့်မြင့်ရွေးချယ်စရာများ"
@@ -9216,6 +9186,21 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "None"
+#~ msgstr "မသတ်မှတ်ထား"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "အင်းစတန့်အများအပြား"
+
+#~ msgid "Single Instance"
+#~ msgstr "အင်းစတမ့်တစ်ခုတည်း"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "မပြီးမချင်း လုပ်ဆောင်မည်"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "ဒီ-ဘက်စ် စာရင်းသွင်းမှု -"
 
 #~ msgctxt "KFile System Bookmarks"
 #~ msgid "Images"

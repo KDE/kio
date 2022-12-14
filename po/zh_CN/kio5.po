@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
-"PO-Revision-Date: 2022-12-01 06:52\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"PO-Revision-Date: 2022-12-13 12:21\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -46,10 +46,9 @@ msgstr ""
 "无法修改文件 <filename>%1</filename> 的所有者。您没有足够的权限执行此操作。"
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "无法创建输入输出后端：%1"
+msgstr "无法创建 KIO 工作程序：%1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -773,10 +772,9 @@ msgid "Communication with the local password server failed"
 msgstr "与本地密码服务器通信失败"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "无法创建输入输出后端。%1"
+msgstr "无法创建 KIO 工作程序。%1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1116,20 +1114,12 @@ msgid ""
 msgstr "该计算机支持的 %1 协议的版本可能和服务器的版本不兼容。"
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"您可以在 Internet 上搜索支持此协议的 KDE 程序(称为 kioslave 或 ioslave)。推荐"
-"的搜索地点是 <a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> 和 <a "
-"href=\"http://freshmeat.net/\">http://freshmeat.net/</a>。"
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2186,22 +2176,16 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "无法初始化 %1 协议"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "无法创建输入输出后端"
+msgstr "无法创建 KIO 工作程序"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"您计算机上提供 <strong>%1</strong> 协议的 IO 服务无法启动。这通常是由技术原因"
-"所致。"
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2274,16 +2258,14 @@ msgid "Unknown protocol '%1'."
 msgstr "未知的协议“%1”。"
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "找不到协议“%1”使用的输入输出后端。"
+msgstr "无法找到协议“%1”的 KIO 工作程序。"
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "无法创建用来启动协议“%1”的输入输出后端的套接字。"
+msgstr ""
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4211,23 +4193,7 @@ msgid "&Management"
 msgstr "管理(&M)"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4245,15 +4211,6 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
-"<h1>Cookie</h1> <p>Cookie 含有使用 HTTP 协议的 KDE 应用程序 (例如 Konqueror) "
-"保存在计算机上的、始于远程 Internet 服务器的信息。这意味着，Web 服务器可以在"
-"您的计算机上保存关于您和您浏览活动的信息以供后用。您也许认为这是对隐私的侵"
-"害。</p><p> 然而，Cookie 在某些情况下是很有用的。例如，网上商店经常使用它们，"
-"这样您可以“将商品放入购物车”。有些站点还要求您必须使用支持 Cookie 的浏览器。"
-"</p><p> 因为多数的人需要对隐私和 Cookie 的好处进行折衷，KDE 允许您定制 "
-"Cookie 的处理方式。您也许希望设置 KDE 的默认策略，让它在服务器设置 Cookie 时"
-"给出提示，让您决定是否接受。对于您信任的常用购物网站，您也许愿意把策略设置为"
-"接受，这样访问该网站时，KDE 就不会每次接收到 Cookie 都询问您。</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5026,16 +4983,7 @@ msgstr "无代理"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5045,13 +4993,6 @@ msgid ""
 "UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
-"<qt>\n"
-"自动检测并配置代理服务器设置。<p>\n"
-"自动检测是使用 <b>Web 代理自动发现协议(WPAD)</b>执行的。<p>\n"
-"<b>注意：</b>此选项可能无法正常工作，或者在某些 Unix/Linux 发行版中根本无法工"
-"作。如果您使用此选项遇到了问题，请检查 http://konqueror.kde.org 上的常见问题"
-"解答。\n"
-"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -5413,15 +5354,7 @@ msgid "Default password:"
 msgstr "默认密码："
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5431,10 +5364,6 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows 共享</h1><p>使用 SMB kioslave 的应用程序 (例如Konqueror) 如果正确"
-"配置，可以访问共享的微软 Windows 文件系统。</p><p>您可以指定用于访问共享资源"
-"的身份。密码将保存在本地，并且打乱以从而人眼不可读。出于安全原因，您也许并不"
-"想这么做，因为有密码的项目将会明确表示。</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -7671,36 +7600,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "启用加载反馈"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "无"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "多实例"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "单实例"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "运行至完成"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "D-Bus 注册："
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8429,33 +8328,33 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "无法保存属性。只支持保存到本机文件系统上的项目。"
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "应用程序(&A)"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "为 %1 添加文件类型"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "选择要添加的一个或多个文件类型："
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支持本机文件系统上的可执行文件。"
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的高级选项"
@@ -9071,10 +8970,17 @@ msgstr "这将启动此程序："
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请单击取消"
 
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "图像"
+#~ msgid "None"
+#~ msgstr "无"
 
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "音频"
+#~ msgid "Multiple Instances"
+#~ msgstr "多实例"
+
+#~ msgid "Single Instance"
+#~ msgstr "单实例"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "运行至完成"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "D-Bus 注册："

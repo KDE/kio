@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2022-10-19 16:09-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -8110,36 +8110,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Ativar o aviso de execução"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Nenhum"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Múltiplas instâncias"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Única instância"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Executar até finalizar"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "Registro D-Bus:"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8922,7 +8892,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8930,27 +8900,27 @@ msgstr ""
 "Não foi possível salvar as propriedades. Há suporte para elementos apenas "
 "nos sistemas de arquivos locais."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicativo"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Adicionar tipo de arquivo para %1"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selecione um ou mais tipos de arquivo para adicionar:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Somente executáveis em sistemas de arquivos locais são suportados."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opções avançadas para %1"
@@ -9615,6 +9585,21 @@ msgstr "Isto iniciará o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se você não confia neste programa, clique em Cancelar"
+
+#~ msgid "None"
+#~ msgstr "Nenhum"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Múltiplas instâncias"
+
+#~ msgid "Single Instance"
+#~ msgstr "Única instância"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "Executar até finalizar"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "Registro D-Bus:"
 
 #~ msgctxt "KFile System Bookmarks"
 #~ msgid "Images"

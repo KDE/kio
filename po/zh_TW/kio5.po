@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2020-05-14 23:21+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7832,36 +7832,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "啟用執行回饋"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "無"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "多重實體"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "單一實體"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "執行單元結束"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "D-BUS 註冊："
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8623,33 +8593,33 @@ msgstr "URL(&R)"
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "無法儲存屬性。只支援本地檔案系統的項目。"
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "應用程式(&A)"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "加入 %1 的檔案類型"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "選擇一個或多個要加入的檔案類型："
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支援本地檔案系統的執行檔。"
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的進階選項"
@@ -9297,6 +9267,21 @@ msgstr "這會啟動此程式："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "若您不信任此程式，請點擊「取消」"
+
+#~ msgid "None"
+#~ msgstr "無"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "多重實體"
+
+#~ msgid "Single Instance"
+#~ msgstr "單一實體"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "執行單元結束"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "D-BUS 註冊："
 
 #~ msgctxt "KFile System Bookmarks"
 #~ msgid "Images"

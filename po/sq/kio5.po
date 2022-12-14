@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2009-08-18 12:07+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -7272,37 +7272,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Aktivizo &nisjen e mbështetjes"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Asnjë"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Shumë Instanca"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Një Instancë"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Nise Deri Sa të Përfundojë"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, fuzzy, kde-format
-#| msgid "&Description:"
-msgid "D-Bus registration:"
-msgstr "&Përshkrimi:"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8039,33 +8008,33 @@ msgstr ""
 msgid "URL:"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr ""
@@ -8687,6 +8656,23 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "None"
+#~ msgstr "Asnjë"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Shumë Instanca"
+
+#~ msgid "Single Instance"
+#~ msgstr "Një Instancë"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "Nise Deri Sa të Përfundojë"
+
+#, fuzzy
+#~| msgid "&Description:"
+#~ msgid "D-Bus registration:"
+#~ msgstr "&Përshkrimi:"
 
 #, fuzzy
 #~| msgid "Delete Files"

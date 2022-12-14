@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -8430,40 +8430,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Begjinnotifikaasje aktiv&earje"
 
-#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 200
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Gjin"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Meardere eksimplaren"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "In inkel eksimplaar"
-
-#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 215
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Draai oant it klear is"
-
-#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 191
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, fuzzy, kde-format
-#| msgid "&DCOP registration:"
-msgid "D-Bus registration:"
-msgstr "Dwaande r&innerke"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -9301,35 +9267,35 @@ msgstr "U&RL-adres"
 msgid "URL:"
 msgstr "URL-adres:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Allinne útfierbere triemen op lokale triemsystemen wurde stipe."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "A&pplikaasje"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Heakje triemtype ta foar %1"
 
 #  i18n: file ./kfile/kpropertiesmimetypebase.ui line 27
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selektearje ien as mear triemtypen om ta te heakjen:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Allinne útfierbere triemen op lokale triemsystemen wurde stipe."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avansearre opsjes foar %1"
@@ -9994,6 +9960,26 @@ msgstr "KDE test programma"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 200
+#~ msgid "None"
+#~ msgstr "Gjin"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Meardere eksimplaren"
+
+#~ msgid "Single Instance"
+#~ msgstr "In inkel eksimplaar"
+
+#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 215
+#~ msgid "Run Until Finished"
+#~ msgstr "Draai oant it klear is"
+
+#  i18n: file ./kfile/kpropertiesdesktopadvbase.ui line 191
+#, fuzzy
+#~| msgid "&DCOP registration:"
+#~ msgid "D-Bus registration:"
+#~ msgstr "Dwaande r&innerke"
 
 #, fuzzy
 #~| msgid "*|All Files"

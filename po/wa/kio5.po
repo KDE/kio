@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -8040,37 +8040,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Mete en alaedje l' imådjete d' &enondaedje"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Pont"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Sacwants lingaedjes"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Mierseule instance"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Enonder djuska cwand c' est fini"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, fuzzy, kde-format
-#| msgid "&D-Bus registration:"
-msgid "D-Bus registration:"
-msgstr "Edjîstraedje &D-Bus"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8798,7 +8767,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "Hårdeye"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -8806,28 +8775,28 @@ msgid ""
 msgstr ""
 "Gn a k' les programes so les sistinmes di fitchîs locås ki sont sopoirtés"
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "Progr&ame"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Radjouter sôre di fitchî po %1"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Tchoezixhoz onk ou di pus di sôres di fitchîs a radjouter:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Gn a k' les programes so les sistinmes di fitchîs locås ki sont sopoirtés"
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Sipepieusès tchuzes po %1"
@@ -9483,6 +9452,23 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "None"
+#~ msgstr "Pont"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Sacwants lingaedjes"
+
+#~ msgid "Single Instance"
+#~ msgstr "Mierseule instance"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "Enonder djuska cwand c' est fini"
+
+#, fuzzy
+#~| msgid "&D-Bus registration:"
+#~ msgid "D-Bus registration:"
+#~ msgstr "Edjîstraedje &D-Bus"
 
 #, fuzzy
 #~| msgid "*|All Files"

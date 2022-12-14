@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -7964,36 +7964,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr ""
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Akukho nanye"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, fuzzy, kde-format
-msgid "Multiple Instances"
-msgstr "Imizekelo"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, fuzzy, kde-format
-msgid "Single Instance"
-msgstr "Imizekelo"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, fuzzy, kde-format
-msgid "Run Until Finished"
-msgstr "&Gqiba"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, fuzzy, kde-format
-msgid "D-Bus registration:"
-msgstr "Iqela"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8712,34 +8682,34 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Kuxhaswe iifayile eziphumezekayo kuphela kwindlela yokusebenza."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Isicelo"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, fuzzy, kde-format
 msgid "Add File Type for %1"
 msgstr "Dibanisa Icebo lokucoca ulwelo"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, fuzzy, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Khetha icebo lokucoca elizakudityaniswa:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Kuxhaswe iifayile eziphumezekayo kuphela kwindlela yokusebenza."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, fuzzy, kde-format
 msgid "Advanced Options for %1"
 msgstr "Iinketho Ezibhekisa phambili"
@@ -9378,6 +9348,25 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "None"
+#~ msgstr "Akukho nanye"
+
+#, fuzzy
+#~ msgid "Multiple Instances"
+#~ msgstr "Imizekelo"
+
+#, fuzzy
+#~ msgid "Single Instance"
+#~ msgstr "Imizekelo"
+
+#, fuzzy
+#~ msgid "Run Until Finished"
+#~ msgstr "&Gqiba"
+
+#, fuzzy
+#~ msgid "D-Bus registration:"
+#~ msgstr "Iqela"
 
 #, fuzzy
 #~| msgid "*|All Files"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -8014,36 +8014,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "起動フィードバックを有効にする"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "なし"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "複数インスタンス"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "単一インスタンス"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "完了するまで実行"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "D-Bus 登録:"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8830,7 +8800,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8838,27 +8808,27 @@ msgstr ""
 "プロパティを保存できませんでした。ローカルファイルシステム上のエントリのみが"
 "サポートされています。"
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "アプリケーション(&A)"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 にファイルタイプを追加"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "追加するファイルタイプを選択 (複数可):"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "ローカルファイルシステム上の実行ファイルのみがサポートされています。"
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 の詳細オプション"
@@ -9511,24 +9481,17 @@ msgstr "これは以下のプログラムを開始します:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
 
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "画像"
+#~ msgid "None"
+#~ msgstr "なし"
 
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "音声"
+#~ msgid "Multiple Instances"
+#~ msgstr "複数インスタンス"
 
-#, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone."
-#~| "</emphasis>"
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "本当にこのアイテムを完全に削除しますか？<nl/><filename>%1</filename><nl/"
-#~ "><nl/><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
+#~ msgid "Single Instance"
+#~ msgstr "単一インスタンス"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "完了するまで実行"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "D-Bus 登録:"

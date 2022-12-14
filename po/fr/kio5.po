@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
-"PO-Revision-Date: 2022-12-05 19:43+0100\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"PO-Revision-Date: 2022-12-12 20:45+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.90\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -4534,23 +4534,7 @@ msgid "&Management"
 msgstr "Ges&tion"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4569,23 +4553,23 @@ msgid ""
 "received.</p>"
 msgstr ""
 "<h1>Cookies</h1><p>Les cookies contiennent des informations que les "
-"applications KDE utilisant le protocole HTTP (par exemple Konqueror) "
+"applications KDE utilisant le protocole « HTTP » (par exemple Konqueror) "
 "enregistrent sur votre ordinateur à la demande d'un serveur Internet "
-"distant. Cela signifie qu'un serveur Web peut enregistrer sur votre machine "
-"des informations sur vous et sur vos activités de navigation pour les "
-"utiliser plus tard. Vous êtes en droit de considérer cela comme une "
+"distant. Cela signifie qu'un serveur Internet peut enregistrer sur votre "
+"machine des informations sur vous et sur vos activités de navigation pour "
+"les utiliser plus tard. Vous êtes en droit de considérer cela comme une "
 "violation de votre vie privée.</p><p>Cependant, les cookies sont aussi "
 "utiles dans certaines situations. Par exemple, ils sont souvent utilisés par "
 "les boutiques en ligne afin de « mettre des articles dans votre panier ». "
 "Certains sites imposent même que votre navigateur accepte les cookies.</"
 "p><p>Comme la plupart des utilisateurs désirent un compromis entre la "
 "protection de leur vie privée et les avantages offerts par les cookies, le "
-"module d'entrées / sorties HTTP permet de personnaliser la façon dont ils "
-"sont gérés. Ainsi, vous pouvez choisir, par défaut, de demander confirmation "
-"lorsqu'un serveur veut créer un cookie et ainsi décider selon les cas. Pour "
-"vos boutiques en ligne favorites à qui vous faites confiance, vous pouvez "
-"choisir de toujours les accepter pour éviter de donner votre accord à chaque "
-"fois qu'un cookie est reçu.</p>"
+"module d'entrées / sorties « HTTP » permet de personnaliser la façon dont "
+"ils sont gérés. Ainsi, vous pouvez définir la stratégie par défaut, pour "
+"vous demander une confirmation lorsqu'un serveur veut créer un cookie et de "
+"vous laisser décider selon les cas. Pour vos boutiques en ligne favorites à "
+"qui vous faites confiance, vous pouvez choisir de toujours les accepter pour "
+"éviter de donner votre accord à chaque fois qu'un cookie est reçu.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5429,16 +5413,7 @@ msgstr "Pas de serveur mandataire"
 # unreviewed-context
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5451,11 +5426,10 @@ msgstr ""
 "<qt>\n"
 "Détecter et configurer automatiquement le serveur mandataire (proxy).<p>\n"
 "La configuration automatique est effectuée à l'aide du <b>protocole de "
-"détection automatique de serveurs mandataire (WPAD)</b>.<p>\n"
-"<b>REMARQUE : </b>il est possible que cette option ne fonctionne pas "
-"correctement sur certaines distributions Unix / Linux. Si vous rencontrez "
-"des problèmes lors de l'utilisation de cette option, veuillez consulter la "
-"FAQ sur https://konqueror.kde.org.\n"
+"détection automatique de serveurs mandataire (Web Proxy Auto-Discovery "
+"Protocol, WPAD)</b>.<p>\n"
+"<b>REMARQUE : </b>Il est possible que cette option ne fonctionne pas "
+"correctement ou pas du tout sur certaines distributions Unix / Linux.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5848,15 +5822,7 @@ msgid "Default password:"
 msgstr "Mot de passe par défaut :"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5867,13 +5833,13 @@ msgid ""
 "such.</p>"
 msgstr ""
 "<h1>Partages Windows</h1><p>Les applications utilisant le module d'entrées / "
-"sorties SMB (par exemple Konqueror) sont en mesure d'accéder aux systèmes de "
-"fichiers Microsoft Windows partagés, si ceux-ci sont correctement configurés."
-"</p><p>Vous pouvez définir ici les identifiants à utiliser pour accéder aux "
-"ressources partagées. Les mots de passe seront enregistrés en local et "
-"chiffrés de manière sommaire pour ne pas être lisibles à l'œil nu. "
-"Néanmoins, vos mots de passe seront clairement indiqués comme tels et vous "
-"pourriez souhaiter éviter ce comportement pour des raisons de sécurité.</p>"
+"sorties « SMB » (par exemple Konqueror) sont capables d'accéder aux systèmes "
+"de fichiers partagés de Microsoft Windows, si ceux-ci sont correctement "
+"configurés.</p><p>Vous pouvez définir ici les identifiants à utiliser pour "
+"accéder aux ressources partagées. Les mots de passe seront enregistrés "
+"localement et chiffrés de façon à ne pas être lisibles par des humains. Pour "
+"des raisons de sécurité, vous pourriez souhaiter éviter cela car les entrées "
+"avec des mots de passe sont indiquées clairement comme tel.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -8228,36 +8194,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Activer le retour d'information sur le lancement"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Aucun"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Instances multiples"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Instance unique"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Lancer jusqu'à la fin"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "Enregistrement D-Bus :"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -9034,7 +8970,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL :"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -9042,28 +8978,28 @@ msgstr ""
 "Impossible d'enregistrer les propriétés. Seuls les fichiers placés sur les "
 "systèmes de fichiers locaux sont pris en charge."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Application"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Ajouter le type de fichier pour %1"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Sélectionnez un type de fichier ou plus pour ajouter :"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Seuls les exécutables placés sur les systèmes de fichiers locaux sont gérés."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Options avancées de %1"
@@ -9711,6 +9647,21 @@ msgstr "Ceci va démarrer le programme :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Instances multiples"
+
+#~ msgid "Single Instance"
+#~ msgstr "Instance unique"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "Lancer jusqu'à la fin"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "Enregistrement D-Bus :"
 
 #~ msgctxt "KFile System Bookmarks"
 #~ msgid "Images"

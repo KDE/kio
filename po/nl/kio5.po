@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:50+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2022-12-04 12:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -8122,36 +8122,6 @@ msgstr ""
 msgid "Enable launch feedback"
 msgstr "Opstartnotificatie activeren"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Geen"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Meerdere exemplaren"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Een enkel Exemplaar"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Tot aan het einde uitvoeren"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
-msgstr "D-Bus-registratie:"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
 #: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
@@ -8930,7 +8900,7 @@ msgstr "U&RL-adres"
 msgid "URL:"
 msgstr "URL-adres:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8938,28 +8908,28 @@ msgstr ""
 "Kon eigenschappen niet opslaan. Alleen items op lokale bestandssystemem "
 "worden ondersteund."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "Toep&assing"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Bestandstype toevoegen voor %1"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selecteer een of meerdere bestandstypen om toe te voegen:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Alleen uitvoerbare bestanden op lokale bestandssystemen worden ondersteund."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Geavanceerde opties voor %1"
@@ -9610,6 +9580,21 @@ msgstr "Dit start het programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Als u dit programma niet vertrouwt, klik op Annuleren"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "Multiple Instances"
+#~ msgstr "Meerdere exemplaren"
+
+#~ msgid "Single Instance"
+#~ msgstr "Een enkel Exemplaar"
+
+#~ msgid "Run Until Finished"
+#~ msgstr "Tot aan het einde uitvoeren"
+
+#~ msgid "D-Bus registration:"
+#~ msgstr "D-Bus-registratie:"
 
 #~ msgctxt "KFile System Bookmarks"
 #~ msgid "Images"
