@@ -9,17 +9,14 @@
 #ifndef KRUN_P_H
 #define KRUN_P_H
 
-#include <KService>
 #include <QEventLoopLocker>
 #include <QObject>
 #include <QPointer>
-#include <QProcess>
 #include <QTimer>
 #include <memory>
 class KProcess;
 
 #include "executablefileopendialog_p.h"
-#include <KStartupInfo>
 
 namespace KIO
 {
