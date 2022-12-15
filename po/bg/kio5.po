@@ -9460,26 +9460,3 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
-
-#~ msgid "None"
-#~ msgstr "Без"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "Няколко екземпляра на програмата"
-
-#~ msgid "Single Instance"
-#~ msgstr "Един екземпляр на програмата"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "Стартиране до завършване"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "Регистрация на D-Bus:"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "Изображения"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "Аудио"
