@@ -364,6 +364,16 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
                                                              const KIO::MetaData &metaData,
                                                              QWidget *parent)
 {
+    QWidget *parentWidget = parent;
+
+    if (!parentWidget) {
+        parentWidget = d->m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
     KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
 
     if (d->gotPersistentUserReply(type, reqMsgConfig->group("Notification Messages"), dontAskAgainName)) {
@@ -399,7 +409,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         hasCancelButton = true;
         break;
     case SSLMessageBox:
-        d->sslMessageBox(text, metaData, parent);
+        d->sslMessageBox(text, metaData, parentWidget);
         return;
     case Information:
         dlgType = KMessageDialog::Information;
@@ -428,7 +438,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     }
     auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
 
-    auto *dialog = new KMessageDialog(dlgType, text, parent);
+    auto *dialog = new KMessageDialog(dlgType, text, parentWidget);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setCaption(title);
@@ -476,6 +486,16 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
 void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
 {
+    QWidget *parentWidget = parent;
+
+    if (!parentWidget) {
+        parentWidget = m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
     const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), Qt::SkipEmptyParts);
 
     QList<QSslCertificate> certChain;
@@ -489,7 +509,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     }
 
     if (decodedOk) { // Use KSslInfoDialog
-        KSslInfoDialog *ksslDlg = new KSslInfoDialog(parent);
+        KSslInfoDialog *ksslDlg = new KSslInfoDialog(parentWidget);
         ksslDlg->setSslInfo(certChain,
                             metaData.value(QStringLiteral("ssl_peer_ip")),
                             text, // The URL
@@ -511,7 +531,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     }
 
     // Fallback to a generic message box
-    auto *dialog = new KMessageDialog(KMessageDialog::Information, i18n("The peer SSL certificate chain appears to be corrupt."), parent);
+    auto *dialog = new KMessageDialog(KMessageDialog::Information, i18n("The peer SSL certificate chain appears to be corrupt."), parentWidget);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setCaption(i18n("SSL"));
