@@ -504,6 +504,7 @@ KIO::JobUiDelegate::JobUiDelegate(Version version, KJobUiDelegate::Flags /*flags
     // TODO KF6: change the API to accept QWindows rather than QWidgets (this also carries through to the Interfaces)
     if (window) {
         s_static()->registerWindow(window);
+        setWindow(window);
     }
 
     Q_UNUSED(version); // only serves to disambiguate constructors
