@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:41+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -3505,7 +3505,7 @@ msgid "*|All Files"
 msgstr "*|Alle filer"
 
 #: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:869
+#: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Åpne"
@@ -7261,58 +7261,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Type "
 
-#: widgets/kfileitemactions.cpp:427
+#: widgets/kfileitemactions.cpp:428
 #, kde-format
 msgid "Open &with %1"
 msgstr "Åpne &med %1"
 
-#: widgets/kfileitemactions.cpp:429
+#: widgets/kfileitemactions.cpp:430
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:613
+#: widgets/kfileitemactions.cpp:614
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "H&andlinger"
 
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open folder with %1"
-msgstr ""
-
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open with %1"
-msgstr "&Åpne med %1"
-
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Å&pne med …"
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open folder with %1"
+msgstr ""
+
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open with %1"
+msgstr "&Åpne med %1"
+
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Å&pne med"
 
-#: widgets/kfileitemactions.cpp:905
+#: widgets/kfileitemactions.cpp:933
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -7718,36 +7718,6 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Ingen"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Flere instanser"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Enkelt instans"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr "Kjør til slutten"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
@@ -8498,7 +8468,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8506,27 +8476,27 @@ msgstr ""
 "Klarte ikke å lagre egenskaper. Det er bare støtte for oppføringer på lokale "
 "filsystemer."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Legg til filtype for %1"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Velg en eller flere filtyper å legge til:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Det er støtte for kjørbare filer bare på det lokale filsystemet."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avanserte valg for %1"

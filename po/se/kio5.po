@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:41+0000\n"
+"POT-Creation-Date: 2022-12-14 00:43+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3464,7 +3464,7 @@ msgid "*|All Files"
 msgstr "*|Buot fiillat"
 
 #: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:869
+#: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
@@ -6988,58 +6988,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Šládja"
 
-#: widgets/kfileitemactions.cpp:427
+#: widgets/kfileitemactions.cpp:428
 #, kde-format
 msgid "Open &with %1"
 msgstr "Raba %1 &prográmmain"
 
-#: widgets/kfileitemactions.cpp:429
+#: widgets/kfileitemactions.cpp:430
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:613
+#: widgets/kfileitemactions.cpp:614
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Doaimmat"
 
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open folder with %1"
-msgstr ""
-
-#: widgets/kfileitemactions.cpp:858
-#, kde-format
-msgid "&Open with %1"
-msgstr "Raba %1 &prográmmain"
-
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:851
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Raba geavahettiin …"
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open folder with %1"
+msgstr ""
+
+#: widgets/kfileitemactions.cpp:889
+#, kde-format
+msgid "&Open with %1"
+msgstr "Raba %1 &prográmmain"
+
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:894
+#: widgets/kfileitemactions.cpp:922
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:905
+#: widgets/kfileitemactions.cpp:933
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -7446,49 +7446,6 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:191
-#, kde-format
-msgid "None"
-msgstr "Ii oktage"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:196
-#, kde-format
-msgid "Multiple Instances"
-msgstr "Máŋga instánssa"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:201
-#, kde-format
-msgid "Single Instance"
-msgstr "Ovtta instánsa"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, dbusCombo)
-#: widgets/kpropertiesdesktopadvbase.ui:206
-#, kde-format
-msgid "Run Until Finished"
-msgstr ""
-"Vuoje gitta lohppii<qt> <p>Dát listu gálggašii čájehit makkárlágan fiillaid "
-"du prográmma sáhttá gieđahallat. Dát listu organiserejuvvo <u>mime-šlájaid</"
-"u> bokte.</p> \n"
-"<p>MIME, Multipurpose Internet (e)Mail Extension, lea standárdprotokolla "
-"mainna identifisere datašlája fiilanama gehččosa ja \"correspondent\" "
-"<u>mime-šlájat</u>. Ovdamearka: «bmp»-oassi flower.bmp namas muitala ahte "
-"lea dihto govvašládja, <u>image/x-bmp</u>. Vai diehtit makkár prográmma "
-"galggašii juohke fiilašlája, the vuogádat ferte oažžut dieđuid prográmmas "
-"makkár gehččosid ja mime-šlájaid dat sáhttá gieđahallat.</p> \n"
-"<p>Jus háliidat čatnat dán prográmma eanet mime-šlájaiguin mat eai gávdno "
-"listtus, coahkkal <b>Lasit</b>-boalu dás vuolábealde. Jus leat mime-šlájat "
-"maid prográmma ii sáhte gieđahallat, de coahkkal <b>Váldde eret</b>-boalu "
-"dás vuolábealde.</p> </qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel12)
-#: widgets/kpropertiesdesktopadvbase.ui:214
-#, kde-format
-msgid "D-Bus registration:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
@@ -8239,33 +8196,33 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3519
+#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
 #, fuzzy, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Dušše vuojehahtti fiillat báikkálaš fiilavuogádagas dorjojuvvo."
 
-#: widgets/kpropertiesdialog.cpp:3298
+#: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
 msgid "&Application"
 msgstr "&Prográmma"
 
-#: widgets/kpropertiesdialog.cpp:3457
+#: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Lasit fiilašlája %1 várás"
 
-#: widgets/kpropertiesdialog.cpp:3458
+#: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Vállje ovtta dahje eanet fiilašlája maid lasihit:"
 
-#: widgets/kpropertiesdialog.cpp:3604
+#: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Dušše vuojehahtti fiillat báikkálaš fiilavuogádagas dorjojuvvo."
 
-#: widgets/kpropertiesdialog.cpp:3619
+#: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Erenoamáš molssaeavttut %1 várás"
