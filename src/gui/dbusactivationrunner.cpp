@@ -24,7 +24,7 @@ bool DBusActivationRunner::activationPossible(const KService::Ptr service, KIO::
     if (!service->isApplication()) {
         return false;
     }
-    if (service->property(QStringLiteral("DBusActivatable"), QVariant::Bool).toBool()) {
+    if (service->property(QStringLiteral("DBusActivatable"), QMetaType::Bool).toBool()) {
         if (!suggestedFileName.isEmpty()) {
             qCDebug(KIO_GUI) << "Cannot activate" << service->desktopEntryName() << "because suggestedFileName is set";
             return false;
