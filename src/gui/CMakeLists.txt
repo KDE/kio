@@ -76,11 +76,17 @@ target_link_libraries(KF5KIOGui
     KF5::KIOCore
     KF5::ConfigCore
     KF5::Service
-    KF5::WindowSystem
     Qt${QT_MAJOR_VERSION}::Gui
   PRIVATE
     KF5::I18n
 )
+
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
+  target_link_libraries(KF5KIOGui PUBLIC KF5::WindowSystem)
+else()
+  target_link_libraries(KF5KIOGui PRIVATE KF5::WindowSystem)
+endif()
 
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOGui_CamelCase_HEADERS

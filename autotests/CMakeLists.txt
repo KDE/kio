@@ -107,7 +107,7 @@ if (TARGET KF5::KIOGui)
     openurljobtest.cpp
     kemailclientlauncherjobtest.cpp
     NAME_PREFIX "kiogui-"
-    LINK_LIBRARIES KF5::KIOCore KF5::KIOGui Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF5::KIOCore KF5::KIOGui KF5::WindowSystem Qt${QT_MAJOR_VERSION}::Test
   )
 
   foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
@@ -124,7 +124,7 @@ if (TARGET KF5::KIOGui)
         set(KPR_TEST_TARGET ${_kprocessrunnerTest}_forkingtest)
       endif()
       add_executable(${KPR_TEST_TARGET} ${_kprocessrunnerTest}test.cpp)
-      target_link_libraries(${KPR_TEST_TARGET} KF5::KIOCore KF5::KIOGui Qt${QT_MAJOR_VERSION}::Test)
+      target_link_libraries(${KPR_TEST_TARGET} KF5::WindowSystem KF5::KIOCore KF5::KIOGui Qt${QT_MAJOR_VERSION}::Test)
       ecm_mark_as_test(${KPR_TEST_TARGET})
       add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
       set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT
