@@ -678,7 +678,7 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
         combo->setLineEdit(lineEdit);
         combo->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
         combo->setDuplicatesEnabled(false);
-        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openStateConfig(), QStringLiteral("Open-with settings"));
         int max = cg.readEntry("Maximum history", 15);
         combo->setMaxCount(max);
         int mode = cg.readEntry("CompletionMode", int(KCompletion::CompletionNone));
@@ -1214,7 +1214,7 @@ void KOpenWithDialogPrivate::saveComboboxHistory()
     if (combo) {
         combo->addToHistory(edit->text());
 
-        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("Open-with settings"));
+        KConfigGroup cg(KSharedConfig::openStateConfig(), QStringLiteral("Open-with settings"));
         cg.writeEntry("History", combo->historyItems());
         writeEntry(cg, "CompletionMode", combo->completionMode());
         // don't store the completion-list, as it contains all of KUrlCompletion's
