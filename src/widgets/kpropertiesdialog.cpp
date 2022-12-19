@@ -85,7 +85,6 @@
 #include <KShell>
 #include <KSqueezedTextLabel>
 #include <KSycoca>
-#include <KWindowConfig>
 
 #include <qplatformdefs.h>
 
@@ -418,9 +417,6 @@ void KPropertiesDialogPrivate::init()
     q->setFaceType(KPageDialog::Tabbed);
 
     insertPages();
-
-    KConfigGroup group(KSharedConfig::openConfig(), "KPropertiesDialog");
-    KWindowConfig::restoreWindowSize(q->windowHandle(), group);
 }
 
 void KPropertiesDialog::showFileSharingPage()
@@ -448,8 +444,6 @@ void KPropertiesDialog::setFileNameReadOnly(bool ro)
 
 KPropertiesDialog::~KPropertiesDialog()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), "KPropertiesDialog");
-    KWindowConfig::saveWindowSize(windowHandle(), group, KConfigBase::Persistent);
 }
 
 void KPropertiesDialog::insertPlugin(KPropertiesDialogPlugin *plugin)
