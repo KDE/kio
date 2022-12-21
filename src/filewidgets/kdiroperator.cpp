@@ -971,8 +971,9 @@ void KDirOperator::setUrl(const QUrl &_newurl, bool clearforward)
 
     if (!d->isReadable(newurl)) {
         // maybe newurl is a file? check its parent directory
-        newurl = newurl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        newurl = newurl.adjusted(QUrl::StripTrailingSlash).adjusted(QUrl::RemoveFilename);
         if (newurl.matches(d->m_currUrl, QUrl::StripTrailingSlash)) {
+            Q_EMIT urlEntered(newurl); // To remove the filename in pathCombo
             return; // parent is current dir, nothing to do (fixes #173454, too)
         }
         KIO::StatJob *job = KIO::stat(newurl);
@@ -3110,7 +3111,12 @@ bool KDirOperatorPrivate::isReadable(const QUrl &url)
     if (!url.isLocalFile()) {
         return true; // what else can we say?
     }
-    return QDir(url.toLocalFile()).isReadable();
+    const QFileInfo fileInfo(url.toLocalFile());
+#ifdef Q_OS_WIN
+    return fileInfo.isReadable() && fileInfo.isDir();
+#else
+    return fileInfo.isReadable();
+#endif
 }
 
 void KDirOperatorPrivate::slotDirectoryCreated(const QUrl &url)

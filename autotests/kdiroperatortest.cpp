@@ -258,6 +258,28 @@ private Q_SLOTS:
         QVERIFY(finishedSpy.wait(1000));
         QVERIFY(dirOp.selectedItems().isEmpty());
     }
+
+    /**
+     * If one copies the location of a file and then paste that into the location bar,
+     * the directory browser should show the directory of the file instead of showing an error.
+     * @see https://bugs.kde.org/459900
+     */
+    void test_bug459900()
+    {
+        KDirOperator dirOp;
+        QSignalSpy urlEnteredSpy(&dirOp, &KDirOperator::urlEntered);
+        // Try to open a file
+        const QString filePath = QFINDTESTDATA("servicemenu_protocol_mime_test_data/kio/servicemenus/mimetype_dir.desktop");
+        dirOp.setUrl(QUrl::fromLocalFile(filePath), true);
+        // Should accept the file and use its parent directory
+        QCOMPARE(urlEnteredSpy.size(), 1);
+        const QUrl fileUrl = QUrl::fromLocalFile(QFileInfo(filePath).absolutePath());
+        QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl().adjusted(QUrl::StripTrailingSlash), fileUrl);
+        // Even in the same directory, KDirOperator should update the text in pathCombo
+        dirOp.setUrl(QUrl::fromLocalFile(filePath), true);
+        QCOMPARE(urlEnteredSpy.size(), 1);
+        QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl().adjusted(QUrl::StripTrailingSlash), fileUrl.adjusted(QUrl::StripTrailingSlash));
+    }
 };
 
 QTEST_MAIN(KDirOperatorTest)
