@@ -26,6 +26,7 @@
 #include <QTimer>
 #include <QToolTip>
 #include <QVariantAnimation>
+#include <QWindow>
 #include <kio/deleteortrashjob.h>
 
 #include <KColorScheme>
@@ -1235,6 +1236,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     }
     delete highPriorityActionsPlaceholder;
 
+    if (window()) {
+        menu.winId();
+        menu.windowHandle()->setTransientParent(window()->windowHandle());
+    }
     QAction *result = menu.exec(event->globalPos());
 
     if (result) {
