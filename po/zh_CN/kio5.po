@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-14 00:43+0000\n"
-"PO-Revision-Date: 2022-12-13 12:21\n"
+"PO-Revision-Date: 2022-12-24 11:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -8969,18 +8969,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请单击取消"
-
-#~ msgid "None"
-#~ msgstr "无"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "多实例"
-
-#~ msgid "Single Instance"
-#~ msgstr "单实例"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "运行至完成"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "D-Bus 注册："
