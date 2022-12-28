@@ -64,6 +64,15 @@ void KFileFilterComboTest::testSetFilter_data()
     QTest::addRow("mutiple_extension_multiple_filter")
         << "*.cpp *.cc *.C|C++ Source Files\n*.h *.H|Header files" << QStringList{"C++ Source Files", "Header files"};
     QTest::addRow("pattern_only") << "*.cpp" << QStringList{"*.cpp"};
+
+    // must handle an unescaped slash https://bugs.kde.org/show_bug.cgi?id=463309
+    QTest::addRow("slash") << "*.c *.cpp|C/C++ Files" << QStringList{"C/C++ Files"};
+
+    QString k3bFilter =
+        "*|All Files\naudio/x-mp3 audio/x-wav application/x-ogg |Sound Files\naudio/x-wav |Wave Sound Files\naudio/x-mp3 |MP3 Sound Files\napplication/x-ogg "
+        "|Ogg Vorbis Sound Files\nvideo/mpeg |MPEG Video Files";
+    QTest::addRow("k3b") << k3bFilter
+                         << QStringList{"All Files", "Sound Files", "Wave Sound Files", "MP3 Sound Files", "Ogg Vorbis Sound Files", "MPEG Video Files"};
 }
 
 void KFileFilterComboTest::testDefaultFilter()
@@ -176,6 +185,17 @@ void KFileFilterComboTest::testFilters_data()
     QTest::addRow("mutiple_extension_multiple_filter")
         << "*.cpp *.cc *.C|C++ Source Files\n*.h *.H|Header files" << QStringList{"*.cpp *.cc *.C|C++ Source Files", "*.h *.H|Header files"};
     QTest::addRow("pattern_only") << "*.cpp" << QStringList{"*.cpp"};
+
+    QString k3bFilter =
+        "*|All Files\naudio/x-mp3 audio/x-wav application/x-ogg |Sound Files\naudio/x-wav |Wave Sound Files\naudio/x-mp3 |MP3 Sound Files\napplication/x-ogg "
+        "|Ogg Vorbis Sound Files\nvideo/mpeg |MPEG Video Files";
+    QTest::addRow("k3b") << k3bFilter
+                         << QStringList{"*|All Files",
+                                        "audio/x-mp3 audio/x-wav application/x-ogg |Sound Files",
+                                        "audio/x-wav |Wave Sound Files",
+                                        "audio/x-mp3 |MP3 Sound Files",
+                                        "application/x-ogg |Ogg Vorbis Sound Files",
+                                        "video/mpeg |MPEG Video Files"};
 }
 
 void KFileFilterComboTest::testFilters()
