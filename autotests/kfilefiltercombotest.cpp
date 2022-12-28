@@ -28,6 +28,7 @@ private Q_SLOTS:
     void testFiltersMime_data();
     void testShowsAllFiles();
     void testShowsAllFiles_data();
+    void testCurrentFilter();
 };
 
 void KFileFilterComboTest::initTestCase()
@@ -238,6 +239,43 @@ void KFileFilterComboTest::testShowsAllFiles()
     combo.setMimeFilter(mimeTypes, defaultType);
 
     QCOMPARE(combo.showsAllTypes(), expectedShowsAllFiles);
+}
+
+void KFileFilterComboTest::testCurrentFilter()
+{
+    KFileFilterCombo combo;
+
+    combo.setFilter("*.cpp|C++ Sources\n*.png|PNG Images\n*.pdf|PDF Documents");
+
+    QCOMPARE(combo.currentFilter(), "*.cpp");
+    QCOMPARE(combo.currentIndex(), 0);
+
+    combo.setCurrentFilter("*.png|PNG Images");
+    QCOMPARE(combo.currentFilter(), "*.png");
+    QCOMPARE(combo.currentIndex(), 1);
+
+    // User enters something custom
+    combo.setCurrentText("*.md");
+    QCOMPARE(combo.currentFilter(), "*.md");
+
+    combo.setCurrentText("*.c|C Sources");
+    QCOMPARE(combo.currentFilter(), "*.c");
+
+    combo.setMimeFilter({"image/png", "application/pdf"}, "");
+    QCOMPARE(combo.currentFilter(), "image/png application/pdf");
+    QCOMPARE(combo.currentIndex(), 0);
+
+    combo.setCurrentFilter("image/png");
+    QCOMPARE(combo.currentFilter(), "image/png");
+    QCOMPARE(combo.currentIndex(), 1);
+
+    combo.setCurrentFilter("application/pdf");
+    QCOMPARE(combo.currentFilter(), "application/pdf");
+    QCOMPARE(combo.currentIndex(), 2);
+
+    // User enters something custom
+    combo.setCurrentText("text/plain");
+    QCOMPARE(combo.currentFilter(), "text/plain");
 }
 
 QTEST_MAIN(KFileFilterComboTest)
