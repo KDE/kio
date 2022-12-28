@@ -155,6 +155,10 @@ void KFileWidgetTest::testFilterCombo()
     fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
     QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
     QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+
+    // filter with escaped slash
+    fw.setFilter("*.c *.cpp|C\\/C++ Files");
+    QCOMPARE(fw.currentFilter(), "*.c *.cpp");
 }
 
 void KFileWidgetTest::testFocusOnLocationEdit()

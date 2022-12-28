@@ -526,16 +526,8 @@ void KFileWidget::setFilter(const QString &filter)
         return;
     }
 
-    // Strip the escape characters from
-    // escaped '/' characters.
-
-    QString copy(filter);
-    for (pos = 0; (pos = copy.indexOf(QLatin1String("\\/"), pos)) != -1; ++pos) {
-        copy.remove(pos, 1);
-    }
-
     d->m_ops->clearFilter();
-    d->m_filterWidget->setFilter(copy);
+    d->m_filterWidget->setFilter(filter);
     d->m_ops->setNameFilter(d->m_filterWidget->currentFilter());
     d->m_ops->updateDir();
     d->m_hasDefaultFilter = false;
