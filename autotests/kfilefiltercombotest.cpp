@@ -95,7 +95,9 @@ void KFileFilterComboTest::testSetMimeFilter_data()
     QTest::addRow("four_mime") << QStringList{"image/png", "image/jpeg", "text/plain", "application/mbox"} << ""
                                << QStringList{"All Supported Files", "PNG image", "JPEG image", "plain text document", "mailbox file"};
     QTest::addRow("duplicate_mime_comment") << QStringList{"application/metalink+xml", "application/metalink4+xml"} << ""
-                                            << QStringList{"Metalink file, Metalink file", "Metalink file (metalink)", "Metalink file (meta4)"};
+                                            << QStringList{"Metalink file (metalink), Metalink file (meta4)",
+                                                           "Metalink file (metalink)",
+                                                           "Metalink file (meta4)"};
     QTest::addRow("all") << QStringList{"application/octet-stream"} << "" << QStringList{"All Files"};
     QTest::addRow("all2") << QStringList{"application/octet-stream", "image/png"} << "" << QStringList{"PNG image", "All Files"};
     QTest::addRow("all_with_all_supported")
