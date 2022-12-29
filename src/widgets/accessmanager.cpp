@@ -233,7 +233,7 @@ QNetworkReply *AccessManager::createRequest(Operation op, const QNetworkRequest 
 
             QVariant len = req.header(QNetworkRequest::ContentLengthHeader);
             if (len.isValid()) {
-                storedJob->setTotalSize(len.toInt());
+                storedJob->setTotalSize(len.toULongLong());
             }
 
             kioJob = storedJob;
