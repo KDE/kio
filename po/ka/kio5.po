@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-14 00:43+0000\n"
-"PO-Revision-Date: 2022-12-04 07:06+0100\n"
+"PO-Revision-Date: 2022-12-29 10:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6599,7 +6599,7 @@ msgstr[1] ""
 #: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr ""
+msgstr "თქვენი პარტნიორის SSL სერტიფიკატის ჯაჭვი, როგორც ჩანს, დაზიანებულია."
 
 #: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
@@ -8078,7 +8078,7 @@ msgstr "%1 %2-მდე"
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
 msgid "Search for '%1' with"
-msgstr ""
+msgstr "'%1'-ის მოძებნა მოხდება"
 
 #: widgets/kurifiltersearchprovideractions.cpp:85
 #, kde-format

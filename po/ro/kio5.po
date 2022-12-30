@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-14 00:43+0000\n"
-"PO-Revision-Date: 2022-05-05 10:31+0100\n"
+"PO-Revision-Date: 2022-12-28 20:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -229,8 +229,7 @@ msgid "Destination"
 msgstr "Destinație"
 
 #: core/job.cpp:113
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Redenumire"
@@ -2804,10 +2803,9 @@ msgid "Folders First"
 msgstr "Întâi dosarele"
 
 #: filewidgets/kdiroperator.cpp:2177
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Afișează fișiere ascunse"
+msgstr "Fișierele ascunse la urmă"
 
 #: filewidgets/kdiroperator.cpp:2187
 #, kde-format
@@ -2890,10 +2888,9 @@ msgid "Properties"
 msgstr "Proprietăți"
 
 #: filewidgets/kdiroperator.cpp:2368
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "&Vizualizare"
+msgstr "Regim &vizualizare"
 
 #: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
 #, kde-format
@@ -7202,8 +7199,7 @@ msgid "Moving"
 msgstr "Mut"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
 msgstr "Redenumire"
 
@@ -7721,7 +7717,7 @@ msgstr "Conținut:"
 #: widgets/kfilepropspluginwidget.ui:372
 #, kde-format
 msgid "Points to:"
-msgstr "Indică către:"
+msgstr "Indică spre:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:382
@@ -7913,7 +7909,7 @@ msgstr "&Nu închide când comanda se termină"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Obține aplicații din Discover"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -8429,10 +8425,9 @@ msgid "The new file name is empty."
 msgstr "Numele de fișier nou este gol."
 
 #: widgets/kpropertiesdialog.cpp:1671
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "Tipuri de fișier &susținute:"
+msgstr "Niciun tip de fișier înregistrat"
 
 #: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
@@ -8440,15 +8435,13 @@ msgid "No associated application"
 msgstr "Nicio aplicație asociată"
 
 #: widgets/kpropertiesdialog.cpp:1679
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Creat:"
+msgstr "Creează…"
 
 #: widgets/kpropertiesdialog.cpp:1682
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Modifică…"
