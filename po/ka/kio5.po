@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-14 00:43+0000\n"
-"PO-Revision-Date: 2022-12-29 10:07+0100\n"
+"PO-Revision-Date: 2022-12-30 06:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2794,7 +2794,7 @@ msgstr "&ჭდე:"
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "Enter descriptive label here"
-msgstr ""
+msgstr "შეიყვანეთ აღმწერი ჭდე"
 
 #: filewidgets/kfileplaceeditdialog.cpp:91
 #, kde-format
@@ -3005,17 +3005,17 @@ msgstr "&გამოღება"
 #: filewidgets/kfileplacesmodel.cpp:1501
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
-msgstr ""
+msgstr "მოწყობილობა '%1' დისკი არაა და მისი გამოღება შეუძლებელია."
 
 #: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
-msgstr ""
+msgstr "შეცდომა \"%1\"-სთან წვდომისას. სისტემის პასუხია: %2"
 
 #: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1'"
-msgstr ""
+msgstr "შეცდომა \"%1\"-სთან წვდომისას"
 
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
@@ -3240,11 +3240,12 @@ msgstr ""
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
+"დააწკაპუნეთ ამ ღილაკზე მიმდინარე მდებარეობის შემცველობის თავიდან ჩასატვირთად."
 
 #: filewidgets/kfilewidget.cpp:1324
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr ""
+msgstr "ახალი საქაღალდის შესაქმნელად ამ ღილაკზე დააწკაპუნეთ."
 
 #: filewidgets/kfilewidget.cpp:1326
 #, kde-format
@@ -3638,7 +3639,7 @@ msgstr "დააწკაპუნეთ მდებარეობის ჩ�
 #: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr ""
+msgstr "ამ ფაილის შესრულების წვდომები არ გაგაჩნიათ."
 
 #: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
 #, kde-format
@@ -4129,12 +4130,12 @@ msgstr "D-Bus-თან კავშირის შეცდომა"
 #: kcms/cookies/kcookiesmanagement.cpp:127
 #, kde-format
 msgid "Unable to delete all the cookies as requested."
-msgstr ""
+msgstr "მოთხოვნის მიხედვით ყველა ქუქის წაშლის შეცდომა."
 
 #: kcms/cookies/kcookiesmanagement.cpp:144
 #, kde-format
 msgid "Unable to delete cookies as requested."
-msgstr ""
+msgstr "მოთხოვნის მიხედვით ქუქიების წაშლის შეცდომა."
 
 #: kcms/cookies/kcookiesmanagement.cpp:216
 #, kde-format
@@ -4592,7 +4593,7 @@ msgstr "განახლების შეცდომა"
 #: kcms/ksaveioconfig.cpp:225
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
-msgstr ""
+msgstr "ცვლილებების ძალაში შესასვლელად საჭიროა KDE-ის სესიის გადატვირთვა."
 
 #. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
 #: kcms/netpref/kio_ftprc.kcfg:10
@@ -5553,7 +5554,7 @@ msgstr "%1-ის შეცდომა. რესურსი დაბლო�
 #: kioworkers/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
-msgstr ""
+msgstr "ქმედება გაუქმებულია სხვა შეცდომის მიერ."
 
 #: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
 #, kde-format
@@ -6293,7 +6294,7 @@ msgstr "ორგანიზაციული ერთეული:"
 #: widgets/certificateparty.ui:78
 #, kde-format
 msgid "Fraud Department"
-msgstr ""
+msgstr "ფროდის განყოფილება"
 
 #. i18n: ectx: property (text), widget (QLabel, countryTag)
 #: widgets/certificateparty.ui:88
