@@ -190,6 +190,7 @@ struct ProcessAskDeleteResult {
     KMessageDialog::Type dialogType = KMessageDialog::QuestionTwoActions;
     KGuiItem acceptButton;
     QString text;
+    QIcon icon;
     QString title = i18n("Delete Permanently");
     bool isSingleUrl = false;
 };
@@ -217,7 +218,8 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
 
     switch (deletionType) {
     case AskIface::Delete: {
-        res.dialogType = KMessageDialog::WarningTwoActions;
+        res.dialogType = KMessageDialog::QuestionTwoActions; // Using Question* so the Delete button is pre-selected. Bug 462845
+        res.icon = QIcon::fromTheme(QStringLiteral("dialog-warning"));
         if (res.isSingleUrl) {
             res.text = xi18nc("@info",
                               "Do you really want to permanently delete this item?<nl/><nl/>"
@@ -258,7 +260,8 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
         break;
     }
     case AskIface::EmptyTrash: {
-        res.dialogType = KMessageDialog::WarningTwoActions;
+        res.dialogType = KMessageDialog::QuestionTwoActions; // Using Question* so the Delete button is pre-selected.
+        res.icon = QIcon::fromTheme(QStringLiteral("dialog-warning"));
         res.text = xi18nc("@info",
                           "Do you want to permanently delete all items from the Trash?<nl/><nl/>"
                           "<emphasis strong='true'>This action cannot be undone.</emphasis>");
@@ -319,12 +322,12 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         return;
     }
 
-    const auto &[prettyList, dialogType, acceptButton, text, title, singleUrl] = processAskDelete(urls, deletionType);
+    const auto &[prettyList, dialogType, acceptButton, text, icon, title, singleUrl] = processAskDelete(urls, deletionType);
 
     KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setCaption(title);
-    dlg->setIcon(QIcon{});
+    dlg->setIcon(icon);
     dlg->setButtons(acceptButton, KStandardGuiItem::cancel());
     if (!singleUrl) {
         dlg->setListWidgetItems(prettyList);
