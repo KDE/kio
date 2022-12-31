@@ -449,7 +449,7 @@ RenameDialog::RenameDialog(QWidget *parent,
                     i18n("The files are likely to be identical: they have the same size and their contents are the same at the beginning, middle and end."));
                 pixmapLabel->setCursor(Qt::WhatsThisCursor);
 
-                QHBoxLayout *hbox = new QHBoxLayout(this);
+                QHBoxLayout *hbox = new QHBoxLayout();
                 hbox->addWidget(filesIdenticalLabel);
                 hbox->addWidget(pixmapLabel);
                 gridLayout->addLayout(hbox, gridRow + 1, 1);
