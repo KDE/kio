@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"POT-Creation-Date: 2022-12-31 00:48+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2667,7 +2667,7 @@ msgstr "ថត​ថ្មី..."
 
 #: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
@@ -7292,15 +7292,15 @@ msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "លុប​ធាតុ"
 
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
-#: widgets/widgetsaskuseractionhandler.cpp:235
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:259
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -7323,7 +7323,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7336,13 +7336,13 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "សម្អាត​ធុងសំរាម"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7360,12 +7360,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ខ្សែ​វិញ្ញាបនបត្រ SSL ស្មើ​គ្នា​ទំនង​ជា​ខូច​ហើយ ។"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9438,7 +9438,7 @@ msgstr ""
 "ម៉ាស៊ីន​ពី​ចម្ងាយ​មិន​ផ្ញើ​វិញ្ញាបនបត្រ SSL ។\n"
 "បោះបង់​ពីព្រោះ​អត្តសញ្ញាណ​របស់ម៉ាស៊ីន​មិន​អាច​ត្រូវ​បានបង្កើត​ទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:223
+#: widgets/widgetsaskuseractionhandler.cpp:225
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9452,7 +9452,7 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:231
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9468,7 +9468,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:242
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9482,7 +9482,7 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:251
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9500,7 +9500,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/widgetsaskuseractionhandler.cpp:279
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9509,21 +9509,21 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:332
+#: widgets/widgetsaskuseractionhandler.cpp:335
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "កុំ​សួរ​ម្ដង​ទៀត"
 
-#: widgets/widgetsaskuseractionhandler.cpp:374
+#: widgets/widgetsaskuseractionhandler.cpp:377
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "កុំ​សួរ​ម្ដង​ទៀត"
 
-#: widgets/widgetsaskuseractionhandler.cpp:403
+#: widgets/widgetsaskuseractionhandler.cpp:406
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

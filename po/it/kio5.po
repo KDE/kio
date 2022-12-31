@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"POT-Creation-Date: 2022-12-31 00:48+0000\n"
 "PO-Revision-Date: 2022-12-08 00:18+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2760,7 +2760,7 @@ msgstr "Nuova cartella..."
 
 #: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Cestina"
@@ -7309,14 +7309,14 @@ msgstr ""
 "annullata.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Elimina definitivamente"
 
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
-#: widgets/widgetsaskuseractionhandler.cpp:235
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7338,7 +7338,7 @@ msgstr[1] ""
 "Vuoi eliminare definitivamente questi %1 elementi?<nl/><nl/><emphasis "
 "strong='true'>Questa azione non può essere annullata.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7348,13 +7348,13 @@ msgstr ""
 "Vuoi eliminare definitivamente tutti gli elementi dal cestino?<nl/><nl/"
 "><emphasis strong='true'>Questa azione non può essere annullata.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Svuota cestino"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7369,12 +7369,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Vuoi davvero cestinare questo oggetto?"
 msgstr[1] "Vuoi davvero cestinare questi %1 oggetti?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La catena del certificato SSL del peer sembra essere danneggiata."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9436,7 +9436,7 @@ msgstr ""
 "Il sistema remoto non ha inviato alcun certificato SSL.\n"
 "Interruzione in corso perché l'identità del sistema non può essere stabilita."
 
-#: widgets/widgetsaskuseractionhandler.cpp:223
+#: widgets/widgetsaskuseractionhandler.cpp:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9448,7 +9448,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Questa azione non può essere "
 "annullata.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9464,7 +9464,7 @@ msgstr[1] ""
 "Vuoi eliminare definitivamente questi %1 elementi?<nl/><nl/><emphasis "
 "strong='true'>Questa azione non può essere annullata.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:242
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9477,7 +9477,7 @@ msgstr ""
 "><nl/><emphasis strong='true'>Questa azione non può essere annullata.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:251
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9498,7 +9498,7 @@ msgstr[1] ""
 "troppo grandi. Vuoi eliminarli definitivamente?<nl/><nl/><emphasis "
 "strong='true'>Questa azione non può essere annullata.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9506,19 +9506,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Vuoi davvero cestinare questo elemento?"
 msgstr[1] "Vuoi davvero cestinare questi %1 elementi?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:332
+#: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Non chiedere più"
 
-#: widgets/widgetsaskuseractionhandler.cpp:374
+#: widgets/widgetsaskuseractionhandler.cpp:377
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Non chiedere più"
 
-#: widgets/widgetsaskuseractionhandler.cpp:403
+#: widgets/widgetsaskuseractionhandler.cpp:406
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

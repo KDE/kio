@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"POT-Creation-Date: 2022-12-31 00:48+0000\n"
 "PO-Revision-Date: 2022-12-04 14:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2673,7 +2673,7 @@ msgstr "Yeni Klasör..."
 
 #: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Çöp Kutusuna Taşı"
@@ -7171,14 +7171,14 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Kalıcı Olarak Sil"
 
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
-#: widgets/widgetsaskuseractionhandler.cpp:235
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7200,7 +7200,7 @@ msgstr[1] ""
 "Bu %1 ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7210,13 +7210,13 @@ msgstr ""
 "Çöp Kutusundaki tüm ögeleri kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Çöp Kutusunu Boşalt"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7233,12 +7233,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Bu ögeyi gerçekten çöp kutusuna taşımak istiyor musunuz?"
 msgstr[1] "Bu %1 ögeyi gerçekten çöp kutusuna taşımak istiyor musunuz?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Eş SSL sertifika zinciri bozulmuş görünüyor."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9287,7 +9287,7 @@ msgstr ""
 "Uzak makine herhangi bir SSL sertifikası göndermedi.\n"
 "Makinenin kimliğine erişilemediği için iptal ediliyor."
 
-#: widgets/widgetsaskuseractionhandler.cpp:223
+#: widgets/widgetsaskuseractionhandler.cpp:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9299,7 +9299,7 @@ msgstr ""
 "%1</filename><nl/><nl/><emphasis strong='true'>Bu eylem geri alınamaz.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9315,7 +9315,7 @@ msgstr[1] ""
 "Bu %1 ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:242
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9327,7 +9327,7 @@ msgstr ""
 "kalıcı olarak silinsin mi?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:251
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9347,7 +9347,7 @@ msgstr[1] ""
 "kalıcı olarak silinsinler mi?<nl/><emphasis strong='true'>Bu eylem geri "
 "alınamaz.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9355,19 +9355,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Bu %1 ögeyi gerçekten Çöp Kutusuna taşımak istiyor musunuz?"
 msgstr[1] "Bu %1 ögeyi gerçekten Çöp Kutusuna taşımak istiyor musunuz?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:332
+#: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Bir daha sorma"
 
-#: widgets/widgetsaskuseractionhandler.cpp:374
+#: widgets/widgetsaskuseractionhandler.cpp:377
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Bir daha sorma"
 
-#: widgets/widgetsaskuseractionhandler.cpp:403
+#: widgets/widgetsaskuseractionhandler.cpp:406
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
