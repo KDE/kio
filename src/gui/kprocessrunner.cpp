@@ -22,10 +22,6 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
-#if HAVE_X11
-#include <KX11Extras>
-#endif
-
 #ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -274,7 +270,6 @@ void KProcessRunner::init(const KService::Ptr &service,
             if (silent) {
                 data.setSilent(KStartupInfoData::Yes);
             }
-            data.setDesktop(KX11Extras::currentDesktop());
             if (service && !serviceEntryPath.isEmpty()) {
                 data.setApplicationId(serviceEntryPath);
             }
