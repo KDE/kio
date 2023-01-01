@@ -20,7 +20,6 @@ Name[et]=Qt6 dokumentatsioon võrgus
 Name[eu]=Qt6-ren lerroko dokumentazioa
 Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
-Name[gl]=Documentación de Qt6 en liña
 Name[ia]=Documentation in linea de Qt6
 Name[id]=Dokumentasi Qt6 Online
 Name[ie]=Documentation online de Qt6
@@ -62,7 +61,6 @@ Query[et]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[eu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
-Query[gl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ia]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[id]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ie]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

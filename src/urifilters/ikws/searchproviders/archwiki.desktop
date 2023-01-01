@@ -21,7 +21,6 @@ Name[et]=ArchWiki
 Name[eu]=ArchWiki
 Name[fi]=ArchWiki
 Name[fr]=ArchWiki
-Name[gl]=ArchWiki
 Name[hu]=ArchWiki
 Name[ia]=ArchWiki
 Name[id]=ArchWiki
@@ -71,7 +70,6 @@ Query[et]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[fi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[fr]=https://wiki.archlinux.org/index.php?search=\\{@}
-Query[gl]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[hu]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ia]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[id]=https://wiki.archlinux.org/index.php?search=\\{@}
