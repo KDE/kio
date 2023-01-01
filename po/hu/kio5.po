@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-31 00:48+0000\n"
+"POT-Creation-Date: 2023-01-01 00:49+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2688,223 +2688,223 @@ msgstr "Nem jelölt ki Kukába helyezendő fájlt."
 msgid "Nothing to Trash"
 msgstr "Nincs mit a Kukába helyezni"
 
-#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
+#: filewidgets/kdiroperator.cpp:988 filewidgets/kdiroperator.cpp:1120
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "A megadott mappa nem létezik vagy nem olvasható."
 
-#: filewidgets/kdiroperator.cpp:2021
+#: filewidgets/kdiroperator.cpp:2022
 #, kde-format
 msgid "Menu"
 msgstr "Menü"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Parent Folder"
 msgstr "Szülőmappa"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Vissza"
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2050
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Előre"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Home Folder"
 msgstr "Saját mappa"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Reload"
 msgstr "Újratöltés"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
 msgstr "Új mappa…"
 
-#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Áthelyezés a Kukába"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Delete"
 msgstr "Törlés"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Sorting"
 msgstr "Rendezés"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Name"
 msgstr "Név szerint"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2119
 #, kde-format
 msgid "Sort by Size"
 msgstr "Méret szerint"
 
-#: filewidgets/kdiroperator.cpp:2127
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Sort by Date"
 msgstr "Dátum szerint"
 
-#: filewidgets/kdiroperator.cpp:2136
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Sort by Type"
 msgstr "Típus szerint"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Ascending"
 msgstr "Növekvő"
 
-#: filewidgets/kdiroperator.cpp:2158
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Descending"
 msgstr "Csökkenő sorrendben"
 
-#: filewidgets/kdiroperator.cpp:2168
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Folders First"
 msgstr "Mappák előre"
 
-#: filewidgets/kdiroperator.cpp:2177
+#: filewidgets/kdiroperator.cpp:2178
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Rejtett fájlok megjelenítése"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Icons View"
 msgstr "Ikonnézet"
 
-#: filewidgets/kdiroperator.cpp:2197
+#: filewidgets/kdiroperator.cpp:2198
 #, kde-format
 msgid "Compact View"
 msgstr "Kompakt nézet"
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Details View"
 msgstr "Részletes nézet"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Icon Position"
 msgstr "Ikonpozíció"
 
-#: filewidgets/kdiroperator.cpp:2235
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Next to File Name"
 msgstr "A fájlnév mellett"
 
-#: filewidgets/kdiroperator.cpp:2244
+#: filewidgets/kdiroperator.cpp:2245
 #, kde-format
 msgid "Above File Name"
 msgstr "A fájlnév fölött"
 
-#: filewidgets/kdiroperator.cpp:2261
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Short View"
 msgstr "Rövid nézet"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2272
 #, kde-format
 msgid "Detailed View"
 msgstr "Részletes nézet"
 
-#: filewidgets/kdiroperator.cpp:2281
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgid "Tree View"
 msgstr "Fastruktúra"
 
-#: filewidgets/kdiroperator.cpp:2291
+#: filewidgets/kdiroperator.cpp:2292
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Részletes fastruktúra"
 
-#: filewidgets/kdiroperator.cpp:2307
+#: filewidgets/kdiroperator.cpp:2308
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Kiterjesztés megjelenítése részletes nézetben"
 
-#: filewidgets/kdiroperator.cpp:2316
+#: filewidgets/kdiroperator.cpp:2317
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Rejtett fájlok megjelenítése"
 
-#: filewidgets/kdiroperator.cpp:2326
+#: filewidgets/kdiroperator.cpp:2327
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Gyorsnézet panel"
 
-#: filewidgets/kdiroperator.cpp:2336
+#: filewidgets/kdiroperator.cpp:2337
 #, kde-format
 msgid "Show Preview"
 msgstr "Gyorsnézet"
 
-#: filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Tartalmazó mappa megnyitása"
 
-#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: filewidgets/kdiroperator.cpp:2368
+#: filewidgets/kdiroperator.cpp:2369
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "Né&zet"
 
-#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
+#: filewidgets/kdiroperator.cpp:2488 filewidgets/kdiroperator.cpp:2500
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Legújabb előre"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2492
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Legrégebbi előre"
 
-#: filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Legnagyobb előre"
 
-#: filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2496
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"

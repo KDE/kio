@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-31 00:48+0000\n"
-"PO-Revision-Date: 2022-12-04 14:10+0300\n"
+"POT-Creation-Date: 2023-01-01 00:49+0000\n"
+"PO-Revision-Date: 2022-12-31 17:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -314,7 +314,7 @@ msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
-"Dosya özniteliklerini değiştirmek için kök dizin ayrıcalıkları gerekir. "
+"Dosya özniteliklerini değiştirmek için yönetici ayrıcalıkları gerekir. "
 "Sürdürmek istiyor musunuz?"
 
 #: core/job.cpp:278
@@ -328,8 +328,8 @@ msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
-"Kopyalami işlemini tamamlamak için kök dizin ayrıcalıkları gerekir. "
-"Sürdürmek istiyor musunuz?"
+"Kopyalama işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Sürdürmek "
+"istiyor musunuz?"
 
 #: core/job.cpp:284
 #, kde-format
@@ -342,7 +342,7 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
-"Silme işlemini tamamlamak için kök dizin ayrıcalıkları gerekir. Ancak, bu "
+"Silme işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Ancak, bu "
 "eylem sisteminize zarar verebilir. Sürdürmek istiyor musunuz?"
 
 #: core/job.cpp:290
@@ -355,8 +355,8 @@ msgstr "Klasör Oluştur"
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
-"Bu klasörü oluşturmak için kök dizin ayrıcalıkları gerekiyor. Sürdürmek "
-"istiyor musunuz?"
+"Bu klasörü oluşturmak için yönetici ayrıcalıkları gerekir. Sürdürmek istiyor "
+"musunuz?"
 
 #: core/job.cpp:296
 #, kde-format
@@ -369,7 +369,7 @@ msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
-"Taşıma işlemini tamamlamak için kök dizin ayrıcalıkları gerekiyor. Sürdürmek "
+"Taşıma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Sürdürmek "
 "istiyor musunuz?"
 
 #: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
@@ -382,7 +382,7 @@ msgstr "Yeniden Adlandır"
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
-"Yeniden adlandırmayı tamamlamak için kök dizin ayrıcalıkları gerekiyor. "
+"Yeniden adlandırmayı tamamlamak için yönetici ayrıcalıkları gerekir. "
 "Sürdürmek istiyor musunuz?"
 
 #: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
@@ -396,7 +396,7 @@ msgstr "Sembolik Bağlantı Oluştur"
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
-"Bir sembolik bağlantı oluşturmak için kök dizin ayrıcalıkları gerekiyor. "
+"Bir sembolik bağlantı oluşturmak için yönetici ayrıcalıkları gerekir. "
 "Sürdürmek istiyor musunuz?"
 
 #: core/job.cpp:314
@@ -410,7 +410,7 @@ msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
 msgstr ""
-"Veri aktarımını tamamlamak için kök dizin ayrıcalıkları gerekiyor. Sürdürmek "
+"Veri aktarımını tamamlamak için yönetici ayrıcalıkları gerekir. Sürdürmek "
 "istiyor musunuz?"
 
 #: core/job_error.cpp:33
@@ -829,8 +829,8 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Yetki yükseltmesine gerek yok; çünkü \n"
-"'%1' sahibi geçerli kullanıcı.\n"
+"Ayrıcalık yükseltmesine gerek yok; çünkü \n"
+"'%1' sahibi geçerli kullanıcıdır.\n"
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
 #: core/job_error.cpp:257
@@ -1629,9 +1629,9 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Bu aygıtın bağlanması (mount) için geçerli haklarınız olmayabilir. UNIX "
-"türevi sistemlerde genellikle yalnızca sistem yöneticileri bir aygıtın "
-"sisteme bağlanmasına izin verebilir."
+"Bu aygıtın bağlanması için geçerli haklarınız olmayabilir. UNIX türevi "
+"sistemlerde genellikle yalnızca sistem yöneticileri bir aygıtın sisteme "
+"bağlanmasına izin verebilir."
 
 #: core/job_error.cpp:779
 #, kde-format
@@ -1679,9 +1679,9 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Bu aygıtın bağlantısının kesilmesi (unmount) için geçerli haklarınız "
-"olmayabilir. UNIX türevi sistemlerde genellikle yalnızca sistem yöneticileri "
-"bir aygıtın sistemden bağlantısının kesilmesine izin verebilir."
+"Bu aygıtın bağlantısının kesilmesi için geçerli haklarınız olmayabilir. UNIX "
+"türevi sistemlerde genellikle yalnızca sistem yöneticileri bir aygıtın "
+"sistemden bağlantısının kesilmesine izin verebilir."
 
 #: core/job_error.cpp:803
 #, kde-format
@@ -2629,221 +2629,221 @@ msgstr "Çöpe göndermek için bir dosya seçmediniz."
 msgid "Nothing to Trash"
 msgstr "Çöpe Gönderilecek Öge Yok"
 
-#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
+#: filewidgets/kdiroperator.cpp:988 filewidgets/kdiroperator.cpp:1120
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Belirtilen klasör yok veya okunamıyor."
 
-#: filewidgets/kdiroperator.cpp:2021
+#: filewidgets/kdiroperator.cpp:2022
 #, kde-format
 msgid "Menu"
 msgstr "Menü"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Parent Folder"
 msgstr "Üst Klasör"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Geri git"
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2050
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "İleri git"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Home Folder"
 msgstr "Ana Klasör"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Reload"
 msgstr "Yeniden Yükle"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
 msgstr "Yeni Klasör..."
 
-#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
 #: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Çöp Kutusuna Taşı"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Delete"
 msgstr "Sil"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Sorting"
 msgstr "Sıralama"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ada Göre Sırala"
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2119
 #, kde-format
 msgid "Sort by Size"
 msgstr "Boyuta Göre Sırala"
 
-#: filewidgets/kdiroperator.cpp:2127
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Sort by Date"
 msgstr "Tarihe Göre Sırala"
 
-#: filewidgets/kdiroperator.cpp:2136
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Sort by Type"
 msgstr "Türe Göre Sırala"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Ascending"
 msgstr "Artan"
 
-#: filewidgets/kdiroperator.cpp:2158
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Descending"
 msgstr "Azalan"
 
-#: filewidgets/kdiroperator.cpp:2168
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Folders First"
 msgstr "Önce Klasörler"
 
-#: filewidgets/kdiroperator.cpp:2177
+#: filewidgets/kdiroperator.cpp:2178
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Gizli Dosyalar En Sonda"
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Icons View"
 msgstr "Simge Görünümü"
 
-#: filewidgets/kdiroperator.cpp:2197
+#: filewidgets/kdiroperator.cpp:2198
 #, kde-format
 msgid "Compact View"
 msgstr "Sıkışık Görünüm"
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Details View"
 msgstr "Ayrıntılı Görünüm"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Icon Position"
 msgstr "Simge Konumu"
 
-#: filewidgets/kdiroperator.cpp:2235
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Next to File Name"
 msgstr "Dosya Adından Sonra"
 
-#: filewidgets/kdiroperator.cpp:2244
+#: filewidgets/kdiroperator.cpp:2245
 #, kde-format
 msgid "Above File Name"
 msgstr "Dosya Adının Üzerinde"
 
-#: filewidgets/kdiroperator.cpp:2261
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Short View"
 msgstr "Kısa Görünüm"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2272
 #, kde-format
 msgid "Detailed View"
 msgstr "Ayrıntılı Görünüm"
 
-#: filewidgets/kdiroperator.cpp:2281
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgid "Tree View"
 msgstr "Ağaç Görünümü"
 
-#: filewidgets/kdiroperator.cpp:2291
+#: filewidgets/kdiroperator.cpp:2292
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Ayrıntılı Ağaç Görünümü"
 
-#: filewidgets/kdiroperator.cpp:2307
+#: filewidgets/kdiroperator.cpp:2308
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Ayrıntılar Görünümünde Genişlemeye İzin Ver"
 
-#: filewidgets/kdiroperator.cpp:2316
+#: filewidgets/kdiroperator.cpp:2317
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Gizli Dosyaları Göster"
 
-#: filewidgets/kdiroperator.cpp:2326
+#: filewidgets/kdiroperator.cpp:2327
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Önizlemeyi Panelini Göster"
 
-#: filewidgets/kdiroperator.cpp:2336
+#: filewidgets/kdiroperator.cpp:2337
 #, kde-format
 msgid "Show Preview"
 msgstr "Önizlemeyi Göster"
 
-#: filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "İçeren Klasörü Aç"
 
-#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Özellikler"
 
-#: filewidgets/kdiroperator.cpp:2368
+#: filewidgets/kdiroperator.cpp:2369
 #, kde-format
 msgid "&View Mode"
 msgstr "&Görünüm Kipi"
 
-#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
+#: filewidgets/kdiroperator.cpp:2488 filewidgets/kdiroperator.cpp:2500
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Önce En Yeni"
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2492
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Önce En Eski"
 
-#: filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Önce En Büyük"
 
-#: filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2496
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -7069,7 +7069,7 @@ msgstr "Değişiklikleri Geri Al"
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
-"Bu işlemi geri almak için kök dizin ayrıcalıkları gerekir. Sürdürmek istiyor "
+"Bu işlemi geri almak için yönetici ayrıcalıkları gerekir. Sürdürmek istiyor "
 "musunuz?"
 
 #: widgets/fileundomanager.cpp:132
