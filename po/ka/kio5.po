@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-01 00:49+0000\n"
-"PO-Revision-Date: 2022-12-30 06:50+0100\n"
+"PO-Revision-Date: 2023-01-01 06:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1689,7 +1689,7 @@ msgstr ""
 #: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
-msgstr ""
+msgstr "სიის გაუქმება შეუძლებელია"
 
 #: core/job_error.cpp:922
 #, kde-format
@@ -1704,7 +1704,7 @@ msgstr "საქაღალდის შექმნის შეცდომ�
 #: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
-msgstr ""
+msgstr "მოთხოვნილი საქაღალდის შექმნის მცდელობა ავარიულად დასრულდა."
 
 #: core/job_error.cpp:930
 #, kde-format
