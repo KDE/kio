@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:49+0000\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7342,12 +7342,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Vill du verkligen flytta detta objekt till papperskorgen?"
 msgstr[1] "Vill du verkligen flytta alla %1 objekt till papperskorgen?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Motpartens SSL-certifikatkedja verkar vara förvanskad."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9477,13 +9477,13 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:377
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:406
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

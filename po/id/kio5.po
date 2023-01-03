@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:49+0000\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
 "PO-Revision-Date: 2022-09-29 10:56+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -7365,12 +7365,12 @@ msgstr[0] "Apakah kamu sungguh ingin memindah butir ini ke Tong Sampah?"
 msgstr[1] ""
 "Apakah kamu sungguh ingin memindah %1 butir tersebut ke Tong Sampah?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Rantai sertifikat peer SSL tampaknya korup."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9533,14 +9533,14 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Jangan tanya lagi"
 
-#: widgets/widgetsaskuseractionhandler.cpp:377
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Jangan tanya lagi"
 
-#: widgets/widgetsaskuseractionhandler.cpp:406
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

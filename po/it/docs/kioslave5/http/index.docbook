@@ -43,10 +43,10 @@
 >rotocol, ovvero il protocollo di trasporto di ipertesto.</para>
 
 <para
->Il kioslave http è usato da tutte le applicazioni di &kde; per gestire le connessioni ai server &HTTP;, cioè ai server web. Il suo uso più comune è la visualizzazione di pagine web nel browser web &konqueror;</para>
+>Il KIO worker http è usato da tutte le applicazioni di &kde; per gestire le connessioni ai server &HTTP;, cioè ai server web. Il suo uso più comune è la visualizzazione di pagine web nel browser web &konqueror;</para>
 
 <para
->Puoi usare il kioslave https da &konqueror; inserendo un &URL;. <userinput
+>Puoi usare il KIO worker https da &konqueror; inserendo un &URL;. <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:49+0000\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
 "PO-Revision-Date: 2022-11-17 12:47+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7362,12 +7362,12 @@ msgstr[1] "Удалить %1 объекта в корзину?"
 msgstr[2] "Удалить %1 объектов в корзину?"
 msgstr[3] "Удалить %1 объект в корзину?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Похоже, что SSL-сертификат сервера повреждён."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9530,13 +9530,13 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Не задавать больше этот вопрос"
 
-#: widgets/widgetsaskuseractionhandler.cpp:377
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Не задавать больше этот вопрос"
 
-#: widgets/widgetsaskuseractionhandler.cpp:406
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

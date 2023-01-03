@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:49+0000\n"
-"PO-Revision-Date: 2022-08-20 20:40+0200\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"PO-Revision-Date: 2022-12-19 09:36+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3268,12 +3268,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Zur Seitenleiste Orte können nur Ordner hinzugefügt werden."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Freigeben"
+msgstr "Wird freigegeben ..."
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3282,12 +3280,10 @@ msgid "&Release"
 msgstr "&Freigeben"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Sicher entfernen"
+msgstr "Wird sicher entfernt …"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3296,12 +3292,10 @@ msgid "&Safely Remove"
 msgstr "&Sicher entfernen"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Aushängen"
+msgstr "Wird ausgehängt ..."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3347,13 +3341,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Mindestens eine Datei auf dem Gerät ist noch in der Anwendung "
+"<application>„%2“</application> geöffnet."
 msgstr[1] ""
+"Mindestens eine Datei auf dem Gerät ist noch in den folgenden Anwendungen "
+"geöffnet: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4534,23 +4532,7 @@ msgid "&Management"
 msgstr "Ver&waltung"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -5417,16 +5399,7 @@ msgstr "Kein Proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5441,9 +5414,7 @@ msgstr ""
 "Die Automatik geschieht mit Hilfe des <b>Web Proxy Auto-Discovery Protocol "
 "(WPAD)</b>.<p>\n"
 "<b>Beachten Sie:</b> Diese Einstellung funktioniert bei manchen Unix/Linux-"
-"Distributionen möglicherweise nicht korrekt oder auch gar nicht. Falls "
-"Probleme auftreten, finden Sie eventuell Informationen auf den FAQ-Seiten "
-"von https://konqueror.kde.org.\n"
+"Distributionen möglicherweise nicht korrekt oder auch gar nicht.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5823,15 +5794,7 @@ msgid "Default password:"
 msgstr "Standard-Passwort:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5841,9 +5804,9 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows-Freigaben</h1><p>Anwendungen, die das Ein-/Ausgabemodul SMB wie "
-"zum Beispiel Konqueror verwenden, können bei richtiger Einrichtung auf "
-"freigegebene Microsoft Windows-Laufwerke zugreifen.</p><p>Sie können "
+"<h1>Windows-Freigaben</h1><p>Anwendungen wie zum Beispiel Konqueror, die das "
+"Ein-/Ausgabemodul SMB verwenden, können bei richtiger Einrichtung auf "
+"freigegebene Microsoft-Windows-Laufwerke zugreifen.</p><p>Sie können "
 "Anmeldedaten für den Zugriff auf die freigegebenen Laufwerke eingeben. "
 "Passwörter werden lokal gespeichert und in für menschliche Leser nicht zu "
 "entziffernde Form gebracht. Aus Sicherheitsgründen sollten Sie vielleicht "
@@ -7418,8 +7381,7 @@ msgstr "Unwiderruflich löschen"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Unwiderruflich löschen"
@@ -7475,12 +7437,12 @@ msgstr[0] "Möchten Sie dieses Element wirklich in den Papierkorb verschieben?"
 msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich in den Papierkorb verschieben?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Die „Peer-SSL“-Zertifikatkette scheint schadhaft zu sein."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7999,16 +7961,13 @@ msgstr ""
 "„%1“ (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "Programm allen Dateien dieses Typs fest &zuordnen\n"
-"„%1“ (%2)"
+"„%1“"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8239,10 +8198,9 @@ msgstr "&Kommentar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "&Voreingestellte Umgebungsvariablen für Proxy verwenden"
+msgstr "Umgebungsvariablen:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8278,7 +8236,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Programm:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8311,11 +8269,9 @@ msgstr "&Arbeitsordner:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Dokumente"
+msgstr "Argumente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -9557,20 +9513,15 @@ msgstr ""
 "überprüft werden kann."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Möchten Sie dieses Element wirklich endgültig löschen?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
+"Möchten Sie dieses Element wirklich endgültig löschen?<nl/><nl/><filename>"
+"%1</filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
 "rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
@@ -9647,13 +9598,13 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:377
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:406
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

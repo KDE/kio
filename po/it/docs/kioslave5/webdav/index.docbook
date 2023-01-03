@@ -42,9 +42,7 @@
 >A</emphasis
 >uthoring and <emphasis
 >V</emphasis
->ersioning) è un protocollo per la pubblicazione e la gestione distribuita di file per il World Wide Web. Permette una semplice gestione di documenti e script su un server <ulink url="help:/kioslave/webdav.html"
->http</ulink
->, ed ha ulteriori funzioni progettate per semplificare la gestione delle versioni quando ci sono più autori.</para>
+>ersioning) è un protocollo per la pubblicazione e la gestione distribuita di file per il World Wide Web. Permette una semplice gestione di documenti e script su un server &HTTP;, ed ha ulteriori funzioni progettate per semplificare la gestione delle versioni quando ci sono più autori.</para>
 
 <para
 >L'uso di questo protocollo è semplice: inserisci la posizione che vuoi vedere, come faresti con un &URL; &HTTP;, ma usa il nome di protocollo webdav:// all'inizio. Un esempio potrebbe essere <userinput
@@ -85,7 +83,7 @@
 </variablelist>
 
 <para
->Per avvantaggiarsi di queste capacità aggiuntive, è necessaria un'applicazione che le gestisca. Non ci sono attualmente applicazioni che le supportino attraverso questo kioslave.</para>
+>Per avvantaggiarsi di queste capacità aggiuntive, è necessaria un'applicazione che le gestisca. Non ci sono attualmente applicazioni che le supportino attraverso questo KIO worker.</para>
 
 <para
 ><acronym

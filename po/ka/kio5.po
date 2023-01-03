@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:49+0000\n"
-"PO-Revision-Date: 2023-01-01 06:59+0100\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"PO-Revision-Date: 2023-01-02 05:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3037,7 +3037,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4140,7 +4140,7 @@ msgstr "მოთხოვნის მიხედვით ქუქიებ�
 #: kcms/cookies/kcookiesmanagement.cpp:216
 #, kde-format
 msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr ""
+msgstr "<h1>ქუქიების მართვის სწრაფი დახმარება</h1>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:228
 #, kde-format
@@ -6597,12 +6597,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "თქვენი პარტნიორის SSL სერტიფიკატის ჯაჭვი, როგორც ჩანს, დაზიანებულია."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8557,13 +8557,13 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "აღარ მკითხო"
 
-#: widgets/widgetsaskuseractionhandler.cpp:377
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "აღარ მკითხო"
 
-#: widgets/widgetsaskuseractionhandler.cpp:406
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
