@@ -300,7 +300,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                                     m_waitingForXdgToken = false;
                                 }
                             });
-                    KWindowSystem::requestXdgActivationToken(window, launchedSerial, QFileInfo(m_serviceEntryPath).completeBaseName());
+                    KWindowSystem::requestXdgActivationToken(window, launchedSerial, maybeAliasedName(QFileInfo(m_serviceEntryPath).completeBaseName()));
                 }
             }
         }
