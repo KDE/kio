@@ -3,7 +3,7 @@
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011, 2012, 2013.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# Vit Pelcak <vpelcak@suse.cz>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
 #
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-03 00:43+0000\n"
 "PO-Revision-Date: 2022-07-08 14:52+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,9 @@ msgstr ""
 "přístupová práva k vykonání této změny vlastností souboru."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nelze vytvořit io-slave: %1"
+msgstr ""
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -786,10 +785,9 @@ msgid "Communication with the local password server failed"
 msgstr "Autentizace s lokálním serverem hesel selhala"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nelze vytvořit io-slave: %1"
+msgstr ""
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -810,10 +808,9 @@ msgid ""
 msgstr ""
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Soubor je příliš velký pro vyhození do koše."
+msgstr ""
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1159,21 +1156,12 @@ msgstr ""
 "nekompatibilní."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Na internetu můžete provést vyhledání KDE programu (nazývaného kioslave nebo "
-"ioslave), který podporuje tento protokol. Místa, kde byste měli hledat "
-"zahrnují <a href=\"http://kde-apps.org/\">https://kde-apps.org/</a> a <a "
-"href=\"https://freshmeat.net/\">http://freshmeat.net/</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2314,22 +2302,16 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nelze iniciovat protokol %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nelze vytvořit io-slave"
+msgstr ""
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"io-slave, který poskytuje přístup k protokolu <strong>%1</strong>, nebylo "
-"možné spustit. To je obvykle způsobeno technickými problémy."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2402,16 +2384,14 @@ msgid "Unknown protocol '%1'."
 msgstr "Neznámý protokol '%1'."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Nelze nalézt IO klienta pro protokol '%1'."
+msgstr ""
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Nelze vytvořit socket pro spuštění io-slave pro protokol '%1'."
+msgstr ""
 
 #: core/slave.cpp:480
 #, kde-format
@@ -3218,6 +3198,7 @@ msgstr "Nastala chyba při přístupu k '%1'"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Jeden nebo více souborů z toho zařízení je používáno některou aplikací."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3228,14 +3209,20 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Jeden nebo více souborů z toho zařízení je používáno aplikací <application>"
+"\"%2\"</application>."
 msgstr[1] ""
+"Jeden nebo více souborů z toho zařízení je používáno těmito aplikacemi: "
+"<application>%2</application>."
 msgstr[2] ""
+"Jeden nebo více souborů z toho zařízení je používáno těmito aplikacemi: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4364,23 +4351,7 @@ msgid "&Management"
 msgstr "S&práva"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4398,21 +4369,6 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
-"<h1>Cookies</h1><p>Cookies obsahují informace, které aplikace KDE "
-"používající http protokol (jako např. Konqueror) ukládají ve vašem počítači "
-"na vyžádání vzdáleného serveru na internetu. To znamená, že webový server "
-"může na vašem počítači uložit pro pozdější použití informaci o vaší činnosti "
-"při procházení internetu. Můžete si myslet, že je to útok na vaše soukromí. "
-"</p><p> Cookies jsou však v určitých situacích užitečné. Například jsou "
-"často používána v internetových obchodech, takže si můžete 'ukládat zboží do "
-"nákupního košíku'. Některé servery vyžadují, aby váš prohlížeč podporoval "
-"cookies. </p><p> Protože většina lidí si chce kompromis mezi soukromím a "
-"výhodami, které cookie poskytuje, HTTP kioslave nabízí způsob úpravy chování "
-"cookies. Takže můžete nastavit výchozí chování tak, aby se dotazovalo vždy, "
-"když chce server nastavit cookie. Vy sami tedy máte možnost si vybrat. Je "
-"též možné nastavit chování tak, aby cookie z vašich oblíbených nákupních "
-"stránek, kterým důvěřujete byla automaticky přijata namísto opakovaného "
-"dotazování.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5197,16 +5153,7 @@ msgstr "Žádná proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5216,14 +5163,6 @@ msgid ""
 "UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
-"<qt>\n"
-"Automaticky detekovat a konfigurovat proxy.<p>\n"
-"Automatická detekce je prováděna pomocí protokolu <b>WPAD (Web Proxy Auto-"
-"Discovery Protocol)</b>.<p>\n"
-"<b>Poznámka: </b> Tato volba nemusí správně fungovat na některých typech "
-"Linuxu/Unixu. Pokud narazíte na problémy s touto funkcí, podívejte se prosím "
-"na https://konqueror.org do sekce často kladených otázek.\n"
-"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -7126,11 +7065,10 @@ msgstr "Navždy smazat"
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "Navždy smazat"
+msgstr ""
 
 #: widgets/jobuidelegate.cpp:295
 #, kde-kuit-format
@@ -9204,21 +9142,13 @@ msgstr ""
 "Přerušuji, protože nelze zjistit identitu hostitele."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
-"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format
@@ -9240,31 +9170,16 @@ msgstr[2] ""
 "strong='true'>Tento krok nelze vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
-"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9275,14 +9190,8 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
 msgstr[1] ""
-"Opravdu si přejete natrvalo odstranit tyto %1 položky?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
 msgstr[2] ""
-"Opravdu si přejete natrvalo odstranit těchto %1 položek?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
@@ -9327,41 +9236,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "None"
-#~ msgstr "Nic"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "Více instancí"
-
-#~ msgid "Single Instance"
-#~ msgstr "Jedna instance"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "Spustit až do dokončení"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "Registrace D-Bus:"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "Obrázky"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "Zvuk"
-
-#, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone."
-#~| "</emphasis>"
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "Opravdu si přejete natrvalo odstranit tuto položku?<nl/><filename>%1</"
-#~ "filename><nl/><nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
-#~ "emphasis>"

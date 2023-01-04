@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-03 00:43+0000\n"
-"PO-Revision-Date: 2023-01-02 05:17+0100\n"
+"PO-Revision-Date: 2023-01-03 09:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3486,21 +3486,22 @@ msgstr ""
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
+"საქაღალდის სახელში დახრილი ხაზის გამოყენება ქვესაქაღალდეებს შექმნის. მაგ:"
 
 #: filewidgets/knewfilemenu.cpp:1199
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
-msgstr ""
+msgstr "საქაღალდის სახელში დახრილი ხაზის გამოყენება ქვესაქაღალდეებს შექმნის."
 
 #: filewidgets/knewfilemenu.cpp:1211
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
-msgstr ""
+msgstr "ფაილისა და საქაღალდის სახელებში დახრილ ხაზს ვერ გამოიყენებთ."
 
 #: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
-msgstr ""
+msgstr "ფაილისა და საქაღალდის სახელებში უკუღმა დახრილ ხაზს ვერ გამოიყენებთ."
 
 #: filewidgets/knewfilemenu.cpp:1226
 #, kde-format

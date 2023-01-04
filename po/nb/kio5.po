@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:43+0000\n"
+"POT-Creation-Date: 2023-01-03 00:43+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2589,221 +2589,221 @@ msgstr "Du har ikke valgt en fil for sletting."
 msgid "Nothing to Trash"
 msgstr "Ingenting å slette"
 
-#: filewidgets/kdiroperator.cpp:987 filewidgets/kdiroperator.cpp:1119
+#: filewidgets/kdiroperator.cpp:988 filewidgets/kdiroperator.cpp:1120
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Den valgte mappa finnes ikke eller er ikke lesbar."
 
-#: filewidgets/kdiroperator.cpp:2021
+#: filewidgets/kdiroperator.cpp:2022
 #, kde-format
 msgid "Menu"
 msgstr "Meny"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2033
 #, kde-format
 msgid "Parent Folder"
 msgstr "Foreldre-mappe"
 
-#: filewidgets/kdiroperator.cpp:2042
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2050
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2057
 #, kde-format
 msgid "Home Folder"
 msgstr "Hjemmemappe"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Reload"
 msgstr "Last på nytt"
 
-#: filewidgets/kdiroperator.cpp:2066
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "New Folder..."
 msgstr "Ny mappe …"
 
-#: filewidgets/kdiroperator.cpp:2082 widgets/jobuidelegate.cpp:323
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
 #: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Flytt til papirkurven"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2092
 #, kde-format
 msgid "Delete"
 msgstr "Slett"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Sorting"
 msgstr "Sortering"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Name"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2118
+#: filewidgets/kdiroperator.cpp:2119
 #, kde-format
 msgid "Sort by Size"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2127
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Sort by Date"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2136
+#: filewidgets/kdiroperator.cpp:2137
 #, kde-format
 msgid "Sort by Type"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Ascending"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2158
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Descending"
 msgstr "Synkende"
 
-#: filewidgets/kdiroperator.cpp:2168
+#: filewidgets/kdiroperator.cpp:2169
 #, kde-format
 msgid "Folders First"
 msgstr "Mapper først"
 
-#: filewidgets/kdiroperator.cpp:2177
+#: filewidgets/kdiroperator.cpp:2178
 #, kde-format
 msgid "Hidden Files Last"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2187
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Icons View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2197
+#: filewidgets/kdiroperator.cpp:2198
 #, kde-format
 msgid "Compact View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2207
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Icon Position"
 msgstr "Ikonposisjon"
 
-#: filewidgets/kdiroperator.cpp:2235
+#: filewidgets/kdiroperator.cpp:2236
 #, kde-format
 msgid "Next to File Name"
 msgstr "Ved siden av filnavnet"
 
-#: filewidgets/kdiroperator.cpp:2244
+#: filewidgets/kdiroperator.cpp:2245
 #, kde-format
 msgid "Above File Name"
 msgstr "Over filnavnet"
 
-#: filewidgets/kdiroperator.cpp:2261
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Short View"
 msgstr "Kort visning"
 
-#: filewidgets/kdiroperator.cpp:2271
+#: filewidgets/kdiroperator.cpp:2272
 #, kde-format
 msgid "Detailed View"
 msgstr "Detaljert visning"
 
-#: filewidgets/kdiroperator.cpp:2281
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgid "Tree View"
 msgstr "Trevisning"
 
-#: filewidgets/kdiroperator.cpp:2291
+#: filewidgets/kdiroperator.cpp:2292
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Detaljert trevisning"
 
-#: filewidgets/kdiroperator.cpp:2307
+#: filewidgets/kdiroperator.cpp:2308
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2316
+#: filewidgets/kdiroperator.cpp:2317
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Vis skjulte filer"
 
-#: filewidgets/kdiroperator.cpp:2326
+#: filewidgets/kdiroperator.cpp:2327
 #, kde-format
 msgid "Show Preview Panel"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2336
+#: filewidgets/kdiroperator.cpp:2337
 #, kde-format
 msgid "Show Preview"
 msgstr "Forhåndsvis"
 
-#: filewidgets/kdiroperator.cpp:2346
+#: filewidgets/kdiroperator.cpp:2347
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2356 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgid "Properties"
 msgstr "Egenskaper"
 
-#: filewidgets/kdiroperator.cpp:2368
+#: filewidgets/kdiroperator.cpp:2369
 #, kde-format
 msgid "&View Mode"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2486 filewidgets/kdiroperator.cpp:2498
+#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
+#: filewidgets/kdiroperator.cpp:2488 filewidgets/kdiroperator.cpp:2500
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2490
+#: filewidgets/kdiroperator.cpp:2491
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2491
+#: filewidgets/kdiroperator.cpp:2492
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2494
+#: filewidgets/kdiroperator.cpp:2495
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2495
+#: filewidgets/kdiroperator.cpp:2496
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -6971,14 +6971,14 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:193
+#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
-#: widgets/widgetsaskuseractionhandler.cpp:235
-#: widgets/widgetsaskuseractionhandler.cpp:257
+#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -6996,7 +6996,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7004,13 +7004,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:265
+#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tøm papirkurven"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7025,12 +7025,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:511
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Motpartens SSL-sertifikat ser ut til å være ødelagt."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:514
+#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9037,7 +9037,7 @@ msgstr ""
 "Nettverksverten sendte ingen SSL-sertifikater.\n"
 "Avbryter fordi identiteten til verten ikke kan fastslås."
 
-#: widgets/widgetsaskuseractionhandler.cpp:223
+#: widgets/widgetsaskuseractionhandler.cpp:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9046,7 +9046,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9058,7 +9058,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:242
+#: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9067,7 +9067,7 @@ msgid ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:251
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9081,7 +9081,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:276
+#: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9089,19 +9089,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:332
+#: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:374
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:403
+#: widgets/widgetsaskuseractionhandler.cpp:416
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
