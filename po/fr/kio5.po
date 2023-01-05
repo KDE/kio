@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2022-12-12 20:45+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -4010,7 +4010,7 @@ msgstr "Cliquez pour une navigation par emplacement"
 msgid "Click to Edit Location"
 msgstr "Cliquez pour modifier l'emplacement"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vous n'avez pas l'autorisation d'exécuter ce fichier."
@@ -4066,7 +4066,7 @@ msgstr "Fichier d'icône trop volumineux, téléchargement annulé."
 msgid "No mail client found"
 msgstr "Aucun client de messagerie n'a été trouvé"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4077,7 +4077,7 @@ msgstr ""
 "%1\n"
 "n'est pas valable."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "Lancement de %1"

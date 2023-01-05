@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -3703,7 +3703,7 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "N'helles ket seveniñ lemel ar restr-mañ."
@@ -3756,7 +3756,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "N'eus media ebet en trobarzhell evit %1"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3764,7 +3764,7 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "Emaon o lañsañ %1"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -3847,7 +3847,7 @@ msgstr "Барои паймудани ҷойгиршавӣ зер кунед"
 msgid "Click to Edit Location"
 msgstr "Барои таҳрир кардани ҷойгиршавӣ зер кунед"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Шумо иҷозати иҷроии ин файлро надоред."
@@ -3898,7 +3898,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr ""
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3906,7 +3906,7 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "Оғози %1"

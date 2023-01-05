@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -4025,7 +4025,7 @@ msgstr "Klick hier, wenn Du de Steed utsöken wullt"
 msgid "Click to Edit Location"
 msgstr "Klick hier, wenn Du de Steed bewerken wullt"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du muttst disse Datei nich utföhren."
@@ -4080,7 +4080,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Keen Medium in Reedschap för %1"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4091,7 +4091,7 @@ msgstr ""
 "%1\n"
 "gellt nich."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 warrt start"

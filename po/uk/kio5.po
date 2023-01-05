@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2022-12-04 08:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -3939,7 +3939,7 @@ msgstr "Клацніть для переходу у режим послідов�
 msgid "Click to Edit Location"
 msgstr "Клацніть для переходу у режим зміни адреси"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Вам не дозволено запускати цей файл."
@@ -3993,7 +3993,7 @@ msgstr "Файл піктограми є надто великим, отрима
 msgid "No mail client found"
 msgstr "Не знайдено клієнта електронної пошти"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4004,7 +4004,7 @@ msgstr ""
 "%1\n"
 "є некоректним."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "Триває запуск %1"

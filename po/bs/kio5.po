@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3964,7 +3964,7 @@ msgstr "Kliknite za kretanje kroz lokacije"
 msgid "Click to Edit Location"
 msgstr "Kliknite za ureÄ‘ivanje lokacije"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Niste ovlaÅ¡Ä‡eni da izvrÅ¡ite ovu datoteku."
@@ -4016,7 +4016,7 @@ msgstr "Datoteka ikone je prevelika, preuzimanje je prekinuto"
 msgid "No mail client found"
 msgstr "Nije pronađen nijedan klijent za poštu"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4027,7 +4027,7 @@ msgstr ""
 " %1\n"
 " nije važeća."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "PokreÄ‡em %1"

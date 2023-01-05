@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2022-12-04 22:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3920,7 +3920,7 @@ msgstr "Egin klik kokalekuetan nabigatzeko"
 msgid "Click to Edit Location"
 msgstr "Egin klik kokaleku editatzeko"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Ez duzu fitxategi hau exekutatzeko baimenik."
@@ -3974,7 +3974,7 @@ msgstr "Ikono fitxategi handiegia, jaistea galarazi da"
 msgid "No mail client found"
 msgstr "Ez da posta bezerorik aurkitu"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3985,7 +3985,7 @@ msgstr ""
 "%1\n"
 "baliogabea."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 abiarazten"

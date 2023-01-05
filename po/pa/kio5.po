@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
 "PO-Revision-Date: 2022-11-19 05:23-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3726,7 +3726,7 @@ msgstr "ਟਿਕਾਣਾ ਨੇਵੀਗੇਸ਼ਨ ਲਈ ਕਲਿੱਕ �
 msgid "Click to Edit Location"
 msgstr "ਟਿਕਾਣਾ ਸੋਧਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ਇਸ ਫਾਈਲ ਨੂੰ ਚਲਾਉਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
@@ -3776,7 +3776,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "ਕੋਈ ਮੇਲ ਕਲਾਈਂਟ ਨਹੀਂ ਲੱਭਾ"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3787,7 +3787,7 @@ msgstr ""
 "%1\n"
 "ਗਲਤ ਹੈ।"
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
