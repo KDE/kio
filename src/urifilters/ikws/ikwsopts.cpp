@@ -299,7 +299,7 @@ void FilterOptions::load()
     KConfig config(QString::fromUtf8(KURISearchFilterEngine::self()->name()) + QLatin1String("rc"), KConfig::NoGlobals);
     KConfigGroup group = config.group("General");
 
-    const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut");
+    const QString defaultSearchEngine = group.readEntry("DefaultWebShortcut", "duckduckgo");
     const QStringList favoriteEngines = group.readEntry("PreferredWebShortcuts", KURISearchFilterEngine::defaultSearchProviders());
 
     const QList<SearchProvider *> allProviders = m_registry.findAll();
@@ -417,7 +417,16 @@ void FilterOptions::defaults()
     m_dlg.cbUseSelectedShortcutsOnly->setChecked(false);
     m_providersModel->setFavoriteProviders(KURISearchFilterEngine::defaultSearchProviders());
     setDelimiter(':');
-    setDefaultEngine(-1);
+
+    const QList<SearchProvider *> providers = m_providersModel->providers();
+    int defaultProviderIndex = providers.size(); // default is "None", it is last in the list
+    for (SearchProvider *provider : std::as_const(providers)) {
+        if (QLatin1String("duckduckgo") == provider->desktopEntryName()) {
+            defaultProviderIndex = providers.indexOf(provider);
+            break;
+        }
+    }
+    setDefaultEngine(defaultProviderIndex);
 }
 
 void FilterOptions::addSearchProvider()
