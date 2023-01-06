@@ -2,109 +2,65 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % German "INCLUDE"
-> <!-- change language only here -->
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
 	
 <article lang="&language;" id="mailto">
-<title
->mailto</title>
+<title>mailto</title>
 <articleinfo>
 <authorgroup>
-<author
-><firstname
->Christopher</firstname
-> <surname
->Yeleighton</surname
-> <email
->giecrilj@stegny.2a.pl</email
-></author>
+<author> 
+<firstname>Christopher</firstname>
+<surname>Yeleighton</surname>
+<email>giecrilj@stegny.2a.pl</email></author>
 
-<othercredit role="translator"
-><firstname
->Marco</firstname
-><surname
->Wegner</surname
-><affiliation
-><address
-><email
->mail@marcowegner.de</email
-></address
-></affiliation
-><contrib
->Übersetzer</contrib
-></othercredit
-> 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date
->2018-08-20</date>
-<releaseinfo
->Frameworks 5.50</releaseinfo>
+<date>2018-08-20</date>
+<releaseinfo>Frameworks 5.50</releaseinfo>
 </articleinfo>
-<para
->Das Ein-/Ausgabemodul „mailto“ startet das von Ihnen eingestellte E-Mail-Editor, wenn Sie eine &URL; mit dem „mailto“-Schema (<ulink url="https://tools.ietf.org/html/rfc6068"
->RFC6068</ulink
->) öffnen. </para>
+<para>
+The kioslave mailto is responsible for launching the mail composer of your
+choice when you open a &URL; in the mailto scheme (<ulink url="https://tools.ietf.org/html/rfc6068">RFC6068</ulink>).
+</para>
 
 <variablelist>
 <varlistentry>
-<term
->Syntax</term>
-<listitem
-><para
->Die Syntax einer „mailto“-&URL; hat folgendes Schema:</para>
+<term>Syntax</term>
+<listitem><para>The syntax of a mailto &URL; follows the following pattern:</para>
 
-<para
->mailto:recipients?query</para>
+<para>mailto:recipients?query</para>
 
-<para
->dabei besteht „recipients“ (Empfänger) aus einer Liste von &SMTP;-Adressen und der „query“-Teil aus einem oder mehreren der folgenden Parameter:</para>
+<para>where recipients form a list of restricted &SMTP; address specifications, and the
+query part may contain one or more of the following parameters:</para>
 
 <variablelist>
 <varlistentry>
-<term
->&amp;to=Empfänger</term>
-<listitem
-><para
->Gibt zusätzliche Empfänger an.</para
-></listitem>
+<term>&amp;to=recipients</term>
+<listitem><para>Specifies additional recipients.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->&amp;cc=Empfänger</term>
-<listitem
-><para
->Weitere Empfänger, die eine Kopie der E-Mail erhalten.</para
-></listitem>
+<term>&amp;cc=recipients</term>
+<listitem><para>Specifies additional recipients of carbon copies.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->&amp;bcc=Empfänger</term>
-<listitem
-><para
->Weitere Empfänger, die eine Blindkopie der E-Mail erhalten. Diese Empfänger erhalten ebenfalls die E-Mail, das ist für die anderen Empfänger aber nicht erkennbar.</para
-></listitem>
+<term>&amp;bcc=recipients</term>
+<listitem><para>Specifies additional recipients of blind carbon copies. These recipients
+will receive the message, but all other recipients will not know about that.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->&amp;body=Text</term>
-<listitem
-><para
->Der Text der E-Mail. Dieser Text sollte nicht zu lang sein, da es Begrenzungen für die Länge der &URL; geben kann.</para
-></listitem>
+<term>&amp;body=text</term>
+<listitem><para>Specifies the text of the message.  This text should not be long, as there
+may be hard limits on how long an &URL; may be.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->&amp;subject=Text</term>
-<listitem
-><para
->Gibt den Betreff der E-Mail an.</para
-></listitem>
+<term>&amp;subject=text</term>
+<listitem><para>Specifies the subject of the message.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -113,32 +69,17 @@
 </varlistentry>
 
 <varlistentry>
-<term
->Beispiel</term>
-<listitem
-><para
->   
-<literal
->mailto:info@kde.org?cc=kde@kde.org&amp;subject=Vielen%20Dank!&amp;body=KDE%20ist%20klasse!%20Wie%20kann%20ich%20mitmachen%3F</literal>
-</para
-></listitem>
+<term>Example</term>
+<listitem><para>   
+<literal>mailto:info@kde.org?cc=kde@kde.org&amp;subject=Thank%20you!&amp;body=KDE%20rocks!%20How%20can%20I%20help%3F</literal>
+</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->Einrichtung</term>
-<listitem
-><para
->Wählen Sie das Programm zur Verarbeitung von „mailto“-&URL;s im&systemsettings;-Modul <menuchoice
-><guimenu
->Anwendungen</guimenu
-><guimenuitem
->Standard-Anwendungen</guimenuitem
-></menuchoice
-> in der Kategorie <guilabel
->Persönliche Informationen</guilabel
->. </para
-></listitem>
+<term>Configuration</term>
+<listitem><para>   
+Choose the application to handle mailto locators in &systemsettings; module <menuchoice><guimenu>Applications</guimenu><guimenuitem>Default Applications</guimenuitem></menuchoice> in the category <guilabel>Personalization</guilabel>.
+</para></listitem>
 </varlistentry>
 
 </variablelist>

@@ -2,95 +2,62 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE">
+  <!ENTITY % English "INCLUDE">
 ]>
 <article id="trash" lang="&language;">
-<title
->Papierkorb</title>
+<title>Trash</title>
 <articleinfo>
 <authorgroup>
-<author
->&Burkhard.Lueck;</author>
-<othercredit role="translator"
-><firstname
->Burkhard</firstname
-><surname
->Lück</surname
-><affiliation
-><address
-><email
->lueck@hube-lueck.de</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<author>&Burkhard.Lueck;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date
->2018-05-31</date>
-<releaseinfo
->Frameworks 5.48</releaseinfo>
+<date>2018-05-31</date>
+<releaseinfo>Frameworks 5.48</releaseinfo>
 
 <keywordset>
-<keyword
->KDE</keyword>
-<keyword
->Systemeinstellungen</keyword>
-<keyword
->Papierkorb</keyword>
+<keyword>KDE</keyword>
+<keyword>Systemsettings</keyword>
+<keyword>trash</keyword>
 </keywordset>
 </articleinfo>
 
-<para
->In diesem Modul können die Einstellungen für den Papierkorb festgelegt werden. </para>
+<para>
+This module allows you to configure the settings for the trash.
+</para>
 
 <variablelist>
-<varlistentry
-><term
-><guilabel
->Aufräumen</guilabel
-></term>
-<listitem
-><para
->Aktivieren Sie diese Einstellung, um das automatische Löschen von Dateien zu erlauben, die älter als der angegebene Wert sind. Wenn die Einstellung deaktiviert ist, werden <emphasis
->keine</emphasis
-> Dateien automatisch nach einer bestimmten Zeit aus dem Papierkorb gelöscht. Legen Sie die Anzahl der Tage fest, die Dateien im Papierkorb verbleiben können, bevor sie automatisch gelöscht werden. </para
-></listitem>
+<varlistentry><term><guilabel>Cleanup:</guilabel></term>
+<listitem><para>
+Check this box to allow automatic deletion of files that are 
+older than the value specified. Leave this disabled to <emphasis>not</emphasis> 
+automatically delete any items after a certain timespan.
+Set the number of days that files can remain in the trash. Any files 
+older than this will be automatically deleted.
+</para></listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Größe</guilabel
-></term>
-<listitem
-><para
->Aktivieren Sie diese Einstellung, um die Größe des Papierkorbs auf den eingestellten Maximalwert einzustellen. Wenn Sie diese Einstellung nicht vornehmen, wird der Platz im Papierkorb nicht begrenzt. </para
-></listitem>
+<varlistentry><term><guilabel>Size:</guilabel></term>
+<listitem><para>
+Check this box to limit the trash to the maximum amount of disk space 
+that you specify. Otherwise, it will be unlimited.
+</para></listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Begrenzen auf</guilabel
-></term>
-<listitem
-><para
->Dies ist die maximale Größe in Prozent von der Festplattenkapazität, die der Papierkorb annehmen kann. Der daraus errechnete maximale Speicherplatz, der für den Papierkorb zur Verfügung steht, wird rechts neben dem Drehfeld angezeigt. </para
-></listitem>
+<varlistentry><term><guilabel>Limit to</guilabel></term>
+<listitem><para>
+This is the maximum percent of disk space that will be used for the 
+trash. The calculated amount of disk space that will be allowed for 
+the trash is displayed right of the spinbox.
+</para></listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Papierkorb voll</guilabel
-></term>
-<listitem
-><para
->Wenn die Größenbeschränkung erreicht wird, wird die hier ausgewählte Aktion ausgeführt, entweder die ältesten oder die größten Dateien werden gelöscht oder es wird eine Warnung ausgegeben. </para
-></listitem>
+<varlistentry><term><guilabel>Full trash:</guilabel></term>
+<listitem><para>
+When the size limit is reached, the selected action will be performed, 
+either the oldest or biggest files will be deleted automatically
+or you will be warned.
+</para></listitem>
 </varlistentry>
 
 </variablelist>

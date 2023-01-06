@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-05 00:44+0000\n"
-"PO-Revision-Date: 2023-01-04 07:25+0100\n"
+"PO-Revision-Date: 2023-01-05 05:43+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4378,7 +4378,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr ""
+msgstr "&სესიის ქუქიების ავტომატური მიღება"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -5106,7 +5106,7 @@ msgstr ""
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
 msgid "These settings apply to network browsing only."
-msgstr ""
+msgstr "ეს პარამეტრები მხოლოდ ქსელში ძებნას ეხება."
 
 #: kcms/smb/smbrodlg.cpp:31
 #, kde-format
@@ -5138,7 +5138,7 @@ msgstr "ვებში ძებნის საკვანძო სიტყ
 #: kcms/webshortcuts/main.cpp:30
 #, kde-format
 msgid "Configure enhanced browsing features"
-msgstr ""
+msgstr "ბრაუზერის დამატებითი პარამეტრების მორგება"
 
 #: kcms/webshortcuts/main.cpp:39
 #, kde-format
@@ -5539,12 +5539,12 @@ msgstr ""
 #: kioworkers/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr ""
+msgstr "მოთხოვნილი ბლოკის მიღების შეცდომა. %1"
 
 #: kioworkers/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr ""
+msgstr "სერვერს სხეულის ტიპის მოთხოვნის მხარდაჭერა არ გააჩნია."
 
 #: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
 #, kde-format
@@ -5986,7 +5986,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr ""
+msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30

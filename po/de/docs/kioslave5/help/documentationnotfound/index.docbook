@@ -2,93 +2,76 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE">
+  <!ENTITY % English "INCLUDE">
 ]>
 <article id="documentationnotfound" lang="&language;">
-<title
->Dokumentation nicht gefunden</title>
+<title>Documentation not Found</title>
 <articleinfo>
 <authorgroup>
-<author
-><firstname
->Jack</firstname
-> <surname
->Ostroff</surname
-> <affiliation
-> <address
-><email
->ostroffjh@users.sourceforge.net</email
-></address>
+<author><firstname>Jack</firstname>
+<surname>Ostroff</surname>
+<affiliation>
+<address><email>ostroffjh@users.sourceforge.net</email></address>
 </affiliation>
 </author>
-<othercredit role="translator"
-><firstname
->Burkhard</firstname
-><surname
->Lück</surname
-><affiliation
-><address
-><email
->lueck@hube-lueck.de</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date
->2020-09-08</date>
-<releaseinfo
->Frameworks 5.73</releaseinfo>
+<date>2020-09-08</date>
+<releaseinfo>Frameworks 5.73</releaseinfo>
 
 </articleinfo>
 
-<para
->Die angeforderte Dokumentation wurde auf Ihrem System nicht gefunden.</para>
+<para>The requested documentation was not found on your computer.</para>
 
-<para
->Möglicherweise wurde diese Dokumentation noch nicht geschrieben oder eine vorhandene Dokumentation wurde nicht zusammen mit dem Programm installiert.</para>
+<para>The documentation may not exist, or it may not have been installed
+with the application.</para>
 
-<tip
-><para
->Schreiben Sie bitte keine E-Mail an den Autor dieser Seite, um das fehlende Dokument zu finden. Der Autor wird Sie wieder an die Anweisungen auf dieser Seite verweisen. </para
-></tip>
+<tip><para>
+Please do not email the author of this page to find the missing document.
+He will just tell you to follow the instructions on this page.
+</para></tip>
 
 <simplesect>
-<title
->Schritte zur Lösung dieses Problems:</title>
+<title>How to solve this issue</title>
 
-<para
->Handelt es sich um ein &kde;-Programm, dann suchen Sie zuerst im &khelpcenter;. Manchmal hat die Dokumentation einen anderen Namen als die Anwendung. Wenn das nicht funktioniert, suchen Sie auf der <ulink url="https://docs.kde.org/"
->&kde;-Dokumentationsseite</ulink
-> nach der gewünschten Dokumentation. Ist die Dokumentation dort vorhanden, hat Ihre Distribution möglicherweise ein eigenes Paket für diese Dokumentation, &eg; plasma-doc für Dokumentation zu &plasma;. Benutzen Sie bitte die Paketverwaltung Ihrer Distribution, um die fehlende Dokumentation zu finden und zu installieren.</para>
+<para>If the application is &kde; software, first use the search function in
+&khelpcenter;.  In some cases, the documentation has a different name than the
+software was using to try to find it.  If that doesn't work, try searching the
+<ulink url="https://docs.kde.org/">&kde; Documentation site</ulink> for the
+requested documentation. If you find the documentation on that site, your
+distribution might ship a separate package for documentation (&eg; called
+plasma-doc for documentation related to &plasma;). Please use the package
+manager of your distribution to find and install the missing
+documentation.</para>
 
-<para
->Wenn Sie eine Quelltext-basierte Distribution wie zum Beispiel Gentoo benutzen, überprüfen Sie, ob die Einstellung (USE flags in Gentoo) auch die Installation der Dokumentation mit einschließt. </para>
+<para>If you use a source based distribution, such as Gentoo, be sure that
+there are not any configuration settings (USE flags in Gentoo) that
+might have disabled the installation of the documentation.
+</para>
 
-<para
->Wird immer noch diese Seite statt der angeforderten Dokumentation angezeigt, obwohl die fehlende Dokumentation installiert wurde, haben Sie wahrscheinlich einen Fehler im Hilfesystem gefunden. Bitte berichten Sie diesen Fehler auf der Seite  <ulink url="https://bugs.kde.org/"
->bugs.kde.org</ulink
-> unter dem Produkt KIO. </para>
+<para>If you have done that, but still get this page displayed instead of the
+application handbook, you probably found a bug in the help
+system.  In this case, please report this on the <ulink
+url="https://bugs.kde.org/">&kde;'s bugtracker</ulink> under the KIO product.
+</para>
 
-<para
->Haben Sie auf der <ulink url="https://docs.kde.org/"
->&kde;-Dokumentationsseite</ulink
-> nichts gefunden, gibt es keine installierbare Dokumentation. Bitte berichten Sie diesen Fehler auf der Seite <ulink url="https://bugs.kde.org/"
->bugs.kde.org</ulink
-> unter dem Produkt für die Anwendung. </para>
+<para>If you do not find any documentation on the <ulink
+url="https://docs.kde.org/">&kde; Documentation site</ulink>, the
+application may not have offline documentation.  Please report this on
+the <ulink url="https://bugs.kde.org/">&kde;'s bugtracker</ulink> under the
+product for the application.
+</para>
 
-<para
->Gibt es die gesuchte Dokumentation nicht als Bestandteil des auf dem Rechner zu installierenden KDE-Hilfesystems, dann suchen Sie die Informationen als Online-Hilfe auf <ulink url="https://userbase.kde.org/"
->UserBase</ulink
-> und im <ulink url="https://forum.kde.org/"
->Forum der &kde;-Gemeinschaft</ulink
->. </para>
+<para>In case the application does not have offline documentation, you should
+use the online resources <ulink
+url="https://userbase.kde.org/">UserBase Documentation</ulink> and
+<ulink url="https://forum.kde.org/">&kde; Community Forums</ulink> to get
+help.
+</para>
 
-<para
->Bei Programmen, die nicht von &kde; herausgegeben werden, nehmen Sie bitte Kontakt mit dem Autor auf und fragen, ob eine Dokumentation online oder zur lokalen Installation vorhanden ist.</para>
+<para>For non-&kde; applications, please contact the application author to
+determine whether there should be offline documentation available.</para>
 </simplesect>
 
 </article>
