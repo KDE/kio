@@ -57,6 +57,7 @@ Name[uk]=Ключові слова пошуку в інтернеті
 Name[vi]=Từ khoá tìm kiếm web
 Name[x-test]=xxWeb Search Keywordsxx
 Name[zh_CN]=网页搜索关键字
+Name[zh_TW]=網路搜尋關鍵字
 
 Comment=Configure web search keywords
 Comment[ar]=اضبط بحث الوبّ
@@ -107,6 +108,7 @@ Comment[uk]=Налаштування ключових слів пошуку в �
 Comment[vi]=Cấu hình từ khoá tìm kiếm web
 Comment[x-test]=xxConfigure web search keywordsxx
 Comment[zh_CN]=配置网页搜索关键字
+Comment[zh_TW]=設定網路搜尋關鍵字
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
 X-KDE-Keywords[ar]=الكلمات الأساسية لبحث الويب,بحث الويب,البحث,الكلمات الرئيسية,اختصارات الويب,التصفح,WWW ,الإنترنت,مصفيات الإنترنت,الشبكة,محركات البحث,الاختصارات
@@ -156,5 +158,6 @@ X-KDE-Keywords[uk]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,B
 X-KDE-Keywords[vi]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,Từ khoá tìm kiếm web,Tìm kiếm web,Tìm kiếm,Từ khoá,Lối tắt web,Duyệt,WWW,Liên Mạng,Bộ lọc Liên Mạng,Mạng,Dụng cụ tìm kiếm,Lối tắt
 X-KDE-Keywords[x-test]=xxWeb Search Keywordsxx,xxWeb Searchxx,xxSearchxx,xxKeywordxx,xxWeb Shortcutsxx,xxBrowsingxx,xxWWWxx,xxInternetxx,xxInternet Filtersxx,xxNetworkxx,xxSearch Enginesxx,xxShortcutsxx
 X-KDE-Keywords[zh_CN]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,网页搜索关键字,网页搜索,搜索,关键字,网页快捷方式,浏览,万维网,互联网,互联网过滤器,网络,搜索引擎,快捷方式
+X-KDE-Keywords[zh_TW]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,網路搜尋關鍵字,捷徑,網路
 
 Categories=Qt;KDE;X-KDE-settings-webbrowsing;

@@ -137,6 +137,7 @@ Comment[uk]=Адреса місця посилання:
 Comment[vi]=Địa điểm URL để liên kết đến:
 Comment[x-test]=xxURL location to link to:xx
 Comment[zh_CN]=要链接的 URL 位置：
+Comment[zh_TW]=要連結到的 URL 位置：
 URL=.source/URL.desktop
 Type=Link
 Icon=text-html

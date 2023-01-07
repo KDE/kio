@@ -70,4 +70,5 @@ Comment[uk]=Шаблон обробника KIO
 Comment[vi]=Bản mẫu thợ KIO
 Comment[x-test]=xxKIO Worker Templatexx
 Comment[zh_CN]=KIO 工作程序模板
+Comment[zh_TW]=KIO Worker 範本
 Category=KIO/Worker
