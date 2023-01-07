@@ -2,33 +2,63 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
 ]>
 	
 <article lang="&language;" id="http">
-<title>http / https</title>
+<title
+>http / https</title>
 <articleinfo>
 <authorgroup>
-<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
 </authorgroup>
 </articleinfo>
 
-<para>&HTTP; is the
-<emphasis>H</emphasis>yper<emphasis>T</emphasis>ext
-<emphasis>T</emphasis>ransfer <emphasis>P</emphasis>rotocol.</para>
+<para
+>&HTTP; ist das <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol.</para>
 
-<para>The http KIO worker is used by all &kde; applications to handle
-connections to &HTTP; servers, that is, web servers.  The most common
-usage is to view web pages in the &konqueror; web browser.</para>
+<para
+>Das http-Modul wird von allen &kde;-Anwendungen genutzt, um Verbindungen zu &HTTP;-Servern, also Webservern, zu verwalten. Die am weitesten verbreitete Anwendung ist das Betrachten von Webseiten im Webbrowser &konqueror;.</para>
 
-<para>You can use the https KIO worker in &konqueror; by giving it a &URL;.
-<userinput>https://<replaceable>www.kde.org</replaceable></userinput>.</para>
+<para
+>Sie können das https-Modul im &konqueror; nutzen, indem Sie ihm eine &URL; übergeben: <userinput
+>http://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
 
-<para>https is http encapsulated in a SSL/TLS stream.</para>
-<para>
-SSL is the  Secure Sockets Layer  protocol, a security protocol that provides communications privacy over the Internet. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. 
-</para>
-<para>TLS stands for Transport Layer Security.</para>
+<para
+>HTTPS ist HTTP, eingebunden in einen SSL/TLS-Datenstrom.</para>
+<para
+>SSL ist das <quote
+>Secure Socket Layer</quote
+>-Protokoll; ein Sicherheitsprotokoll, das sichere Verbindungen für die Internet-Kommunikation bietet. Das Protokoll ermöglicht Client/Server-Anwendungen in einer Weise zu kommunizieren, die das Abhören, Manipulieren oder Fälschen von Nachrichten verhindert. </para>
+<para
+>TLS steht für Transport Layer Security.</para>
 
 </article>

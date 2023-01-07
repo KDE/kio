@@ -2,49 +2,62 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
 ]>
 	
 <article lang="&language;" id="ftp">
-<title>&FTP;</title>
+<title
+>&FTP;</title>
 <articleinfo>
 <authorgroup>
-<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Marco</firstname
+><surname
+>Wegner</surname
+><affiliation
+><address
+><email
+>mail@marcowegner.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
 </authorgroup>
 </articleinfo>
 
-<para>
-&FTP; is the Internet service used to transfer a data file from the disk of 
-one computer to the disk of another, regardless of the operating system type. 
-</para>
+<para
+>&FTP; ist der Internet-Dienst zum Übertragen von Dateien von der Festplatte eines Rechners auf die Festplatte eines anderen, unabhängig vom Betriebssystem. </para>
 
-<para> Similar to other Internet applications, &FTP; uses the
-client-server approach &mdash; a user invokes an &FTP; program on the
-computer, instructs it to contact a remote computer, and then requests
-the transfer of one or more files. The local &FTP; program becomes a
-client that uses <acronym>TCP</acronym> to contact an &FTP; server
-program on the remote computer. Each time the user requests a file
-transfer, the client and the server programs cooperate to send a copy
-of the data across the Internet.</para>
+<para
+>Ähnlich wie andere Internet-Anwendungen nutzt auch &FTP; den Client-/Server-Ansatz - ein Benutzer startet ein &FTP;-Programm auf seinem Rechner, gibt ihm den Befehl, einen Rechner im Netzwerk anzuwählen und dann die Übertragung einer oder mehrerer Dateien zu starten. Das lokale &FTP;-Programm ist dann ein so genannter Client, der <acronym
+>TCP</acronym
+> verwendet, um sich mit einem &FTP;-Server-Programm auf einem entfernten Rechner zu verbinden. Fordert der Benutzer die Übertragung einer Datei an, arbeiten der Client und der Server zusammen, um eine Kopie der Daten über das Internet zu senden.</para>
 
-<para> &FTP; servers which allow <quote>anonymous &FTP;</quote> permit
-any user, not only users with accounts on the host, to browse the
-<quote>ftp</quote> archives and download files. Some &FTP; servers are
-configured to allow users to upload files.</para>
+<para
+>&FTP;-Server, die <quote
+>anonymes &FTP;</quote
+> erlauben, ermöglichen es jedem Benutzer - und nicht nur solchen mit einem Account auf diesem Rechner - die <quote
+>ftp</quote
+>-Archive zu durchsuchen und Dateien herunterzuladen. Einige &FTP;-Server sind so eingerichtet, dass Benutzer auch Dateien hochladen können.</para>
 
-<para>
-&FTP; is commonly used to retrieve information and obtain software stored in 
-files at &FTP; archive sites throughout the world.
-</para>
+<para
+>&FTP; wird gewöhnlich dazu benutzt, um Informationen oder Software zu erhalten, die in Dateien in &FTP;-Archiven auf der ganzen Welt gespeichert wurde. </para>
 
 
-<para>
-Source: Paraphrased from <ulink 
-url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"> 
-http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink>
-</para>
+<para
+>Quelle: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> </para>
 
-<para> See the manual: <ulink url="man:/ftp">ftp</ulink>.</para>
+<para
+>Schauen Sie auch in das Handbuch: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
 
 </article>

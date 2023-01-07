@@ -2,204 +2,238 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
 ]>
 
 <article id="cookies" lang="&language;">
 <articleinfo>
-<title>Cookies</title>
+<title
+>Cookies</title>
 <authorgroup>
-<author>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
-<author>&Jost.Schenck; &Jost.Schenck.mail;</author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Jürgen</firstname
+><surname
+>Nagel</surname
+><affiliation
+><address
+><email
+>JuergenNagel@web.de</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit
+> 
 </authorgroup>
 
-<date>2016-11-10</date>
-<releaseinfo>Frameworks 5.29</releaseinfo>
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>Systemsettings</keyword>
-<keyword>cookie</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>Systemeinstellungen</keyword>
+<keyword
+>Cookie</keyword>
 </keywordset>
 
 </articleinfo>
 
 <sect1 id="cookie">
-<title>Cookies</title>
+<title
+>Cookies</title>
 
-<para>Cookies are a mechanism used by web sites to store and retrieve
-information using your browser.  For example, a web site may allow you
-to customize the content and layout of the pages you see, so that your
-choices are persistent across different visits to that web site.</para>
+<para
+>Mit Hilfe von Cookies speichern und lesen Internetseiten Informationen auf Ihrem Computer. Zum Beispiel erlaubt eine Internetseite, den Inhalt und die Darstellung anzupassen. Mit Cookies werden die Einstellungen zwischen Besuchen dieser Seite gespeichert.</para>
 
-<para>The web site is able to remember your preferences by storing a
-cookie on your computer. Then, on future visits, the web site retrieves
-the information stored in the cookie to format the content of the site
-according to your previously specified preferences.</para>
+<para
+>Die Internetseite merkt sich die Einstellungen, indem sie einen Cookie auf Ihrem Computer speichern. Bei einem zukünftigen Besuch wird diese Information wieder ausgelesen und verwendet, um die vorher festgelegten Einstellungen wieder herzustellen.</para>
 
-<para>Thus, cookies play a very useful role in web browsing.
-Unfortunately, web sites often store and retrieve information in cookies
-without your explicit knowledge or consent. Some of this information may
-be quite useful to the web site owners, for example, by allowing them to
-collect summary statistics on the number of visits different areas of
-the web sites get, or to customize banner advertising.</para>
+<para
+>Cookies spielen daher eine bedeutende Rolle beim Browsen im Internet. Leider speichern Internetseiten auch Informationen ohne Ihr explizites Wissen und Ihre Zustimmung. Einige dieser Informationen können für die Betreiber der Internetseite sehr nützlich sein. Es ist beispielsweise möglich, die Anzahl der Zugriffe auf einzelne Bereiche statistisch auszuwerten oder Werbung auf Ihr Zugriffsprofil abzustimmen.</para>
 
-<para>The cookies page allows you to set policies
-for the use of cookies when you are browsing the web with the
-&konqueror; web browser.</para>
+<para
+>Das Seite Cookies erlaubt Regelungen für die Verwendung von Cookies beim Browsen mit dem Internetbrowser &konqueror;.</para>
 
-<warning><para>Note that the policies that you set using this control
-module will <emphasis>not</emphasis> apply to other web browsers such
-as &firefox;.</para></warning>
+<warning
+><para
+>Beachten Sie, dass die hier eingestellten Regelungen <emphasis
+>keine</emphasis
+> Auswirkungen auf andere Browser wie zum Beispiel &firefox; haben.</para
+></warning>
 
 <sect2 id="cookie-policy">
 
-<title>Policy</title>
+<title
+>Regelungen</title>
 
-<para>Using the <guilabel>Policy</guilabel> tab, you can configure the
-&kde; applications that will handle cookies. You can do this by specifying a
-general cookie policy as well as special cookie policies for certain
-domains or hosts.</para>
+<para
+>Auf der Karteikarte <guilabel
+>Regelungen</guilabel
+> können Sie einstellen, wie &kde;-Anwendungen mit Cookies umgehen. Sie können sowohl eine Standardregelung als auch spezifische Regelungen für bestimmte Domains oder Rechner festlegen.</para>
 
-<para>The top of the policy tab has a check box labeled <guilabel>Enable
-cookies</guilabel>. If you leave this unchecked, cookies will be
-completely disabled. However, this may make browsing rather
-inconvenient, especially as some web sites require the use of browsers
-with cookies enabled.</para>
+<para
+>Oben auf der Karteikarte befindet sich das Ankreuzfeld <guilabel
+>Cookies zulassen</guilabel
+>. Wenn man dieses Feld nicht markiert, werden Cookies vollständig abgeschaltet. Das kann aber das Browsen im Internet sehr unkomfortabel machen, da es einige Internetseiten gibt, die die Benutzung eines Browsers mit eingeschalteten Cookies erfordern.</para>
 
-<para>You will probably want to enable cookies and then set
-specific policies on how you want them to be handled.</para>
+<para
+>Daher werden Sie in der Regel Cookies einschalten und dann spezifische Regelungen für den Umgang mit ihnen treffen.</para>
 
-<para>The first group of options create settings that apply to all cookies.</para>
+<para
+>Die erste Gruppe von Einstellungen betrifft Optionen, die auf alle Cookies anzuwenden sind.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Only accept cookies from originating server</guilabel></term>
+<term
+><guilabel
+>Nur Cookies vom erstellenden Server annehmen</guilabel
+></term>
 <listitem>
-<para>Some pages try to set cookies from servers other than the one
-you are seeing the &HTML; page from.  For example,
-they show you advertisements, and the advertisements are from another
-computer, often one that belongs to a large advertising group.  These
-advertisements may try to set a cookie which would allow them to
-track the pages you view across multiple web sites.</para>
-<para>Enabling this option will mean only cookies that come from the
-same web server as you are explicitly connecting to will be
-accepted.</para>
+<para
+>Einige Seiten versuchen Cookies von Servern zu setzen, die nicht mit dem übereinstimmen, von dem die &HTML;-Seite kommt. Sie zeigen Ihnen zum Beispiel Werbung, und diese Werbung stammt von anderen Servern, die häufig zu einer großen Werbefirma gehören. Diese Werbung versucht möglicherweise, ein Cookie zu setzen, mit dem verfolgt werden kann, welche Seiten Sie auf verschiedenen Webseiten besucht haben.</para>
+<para
+>Wenn Sie diese Einstellung aktivieren, werden nur Cookies akzeptiert, die von dem Server stammen, mit dem Sie gerade verbunden sind.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Automatically accept session cookies</guilabel></term>
+<term
+><guilabel
+>Sitzung-Cookies automatisch annehmen</guilabel
+></term>
 <listitem>
 
-<para>An increasingly common use for cookies is not to track your
-movements across many visits to a web site, but to just follow what you
-do during one single visit.  Session cookies are saved as long as you
-are looking at the site, and deleted when you leave it.</para>
+<para
+>Immer öfter werden Cookies dazu verwendet, nicht Ihre Bewegungen über viele verschiedene Besuche auf einer Webseite zu registrieren, sondern was Sie während eines einzigen Besuchs auf dieser Seite tun. Sitzungs-Cookies werden solange gespeichert, wie Sie sich auf der Seite befinden und gelöscht, sobald Sie die Seite verlassen.</para>
 
-<para>Web sites can use this information for various things, most
-commonly it is a convenience so that you do not have to keep logging in
-to view pages.  For example, on a webmail site, without some kind of
-session <acronym>ID</acronym>, you would have to give your password
-again for each email you want to read.  There are other ways to
-achieve this, but cookies are simple and very common.</para>
+<para
+>Internetseiten können diese Informationen für verschiedene Dinge verwenden. Gewöhnlich dient es der Bequemlichkeit, sodass Sie sich zum Beispiel nicht immer neu anmelden müssen, wenn Sie eine andere Seite eines Webmail-Service anschauen möchten. Ohne eine solche Sitzungs-<acronym
+>ID</acronym
+> müssten Sie Ihr Passwort jedesmal neu eingeben, wenn Sie eine andere E-Mail lesen möchten. Es gibt andere Wege, dies zu erreichen, aber Cookies sind eine einfache und weit verbreitete Möglichkeit.</para>
 
-<para>Enabling this option means that session cookies are always
-accepted, even if you don't accept any other kind, and even if you
-choose to reject cookies from a particular site, session cookies from
-that site will be accepted.</para>
+<para
+>Schalten Sie diese Option ein, dann werden Sitzungs-Cookies immer akzeptiert, selbst dann, wenn Sie keine anderen Cookies zulassen. Sogar wenn Sie Cookies von einer bestimmten Domain nicht annehmen, dann werden die Sitzungs-Cookies von dieser Seite trotzdem akzeptiert.</para>
 </listitem>
 </varlistentry>
 </variablelist>
 
-<para>The section for <guilabel>Default Policy</guilabel> sets some
-further options that are mutually exclusive &mdash; you can choose only one
-of these options as the default, but you are free to set a different
-option for any specific web server.</para>
-<note><para>Site specific policies always take precedence over the default 
-policy.</para></note>
+<para
+>Der Abschnitt <guilabel
+>Standardregelung</guilabel
+> setzt einige weitere Einstellungen, die sich gegeneinander ausschließen &mdash; Sie können nur eine dieser Einstellungen als Standard festlegen. Allerdings ist es möglich, andere Einstellungen für bestimmte Internetserver festzulegen.</para>
+<note
+><para
+>Seitenspezifische Regelungen überschreiben immer die Standardregelung.</para
+></note>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Accept all cookies</guilabel></term>
+<term
+><guilabel
+>Alle Cookies annehmen</guilabel
+></term>
 <listitem>
-<para>If this option is selected, all cookies will be accepted without
-asking for confirmation.</para>
+<para
+>Wenn diese Option ausgewählt ist, werden alle Cookies ohne Nachfrage angenommen.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Accept until end of session</guilabel></term>
+<term
+><guilabel
+>Bis zum Sitzungsende annehmen</guilabel
+></term>
 <listitem>
-<para>Cookies will be accepted, but they will expire at the end
-of the session.</para>
+<para
+>Cookies werden solange akzeptiert, bis die Sitzung beendet ist.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Ask for confirmation</guilabel></term>
+<term
+><guilabel
+>Um Bestätigung bitten</guilabel
+></term>
 <listitem>
-<para>If this option is selected, you will be asked for confirmation
-every time a cookie is stored or retrieved. You can selectively accept
-or reject each cookie. The confirmation dialog will also allow you to
-set a domain specific policy, if you do not want to confirm each
-cookie for that domain.</para>
+<para
+>Wenn diese Option ausgewählt ist, wird für jeden einzelnen Cookie um Bestätigung gebeten. Sie können jeden einzelnen Cookie entweder annehmen oder ablehnen. Der Bestätigungsdialog enthält außerdem die Möglichkeit, eine Domain-spezifische Regelung zu treffen, falls Sie für eine Domain nicht jeden Cookie einzeln bestätigen wollen.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Reject all cookies</guilabel></term>
+<term
+><guilabel
+>Alle Cookies zurückweisen</guilabel
+></term>
 <listitem>
-<para>If this option is selected, all cookies will be rejected without
-asking for confirmation.</para>
+<para
+>Wenn diese Option ausgewählt ist, werden alle Cookies ohne Nachfrage abgelehnt.</para>
 </listitem>
 </varlistentry>
 </variablelist>
 
-<para>In addition to the default policy for handling of cookies, which you can
-set by selecting one of the three options described above, you can also set
-policies for specific host domains using the controls in the <guilabel>Site
-Policy</guilabel> group.</para>
+<para
+>Zusätzlich zu dieser Standardregelung kann man Domain-spezifische Regelungen im Bereich <guilabel
+>Seitenregelung</guilabel
+> festlegen. Diese Regelungen gelten für einzelne Rechner oder einzelne Domains.</para>
 
-<para>The Ask, Accept, Accept until end of session, or Reject policy can be applied to a specific
-domain by clicking on the <guibutton>New...</guibutton> button, which
-brings up a dialog. In this dialog, you can type the name of the
-domain (with a leading dot), then select the policy you want to apply
-to this domain. Note that entries may also get added while you are
-browsing, if the default policy is to ask for confirmation, and you
-choose a general policy for a specific host (for example, by selecting
-<guilabel>Reject</guilabel> when asked to
-confirm a cookie).</para>
+<para
+>Sie können eine der Regelungen Nachfragen, Annehmen, Annehmen bis zum Sitzungsende oder Ablehnen auf eine bestimmte Domain anwenden, indem Sie auf den Knopf <guibutton
+>Neu ...</guibutton
+> klicken. Im angezeigten Dialogfenster tragen Sie den Namen der Domain (mit einem führenden Punkt) ein und wählen die gewünschte Regelung für diese Domain aus. Beachten Sie, dass auch während des Browsens Einträge hinzufügen werden können. Wenn die Standardregelung eine Bestätigung verlangt, kann man im Bestätigungsdialog eine generelle Regelung für einen bestimmten Rechner festlegen (zum Beispiel, indem man dort <guilabel
+>Ablehnen</guilabel
+> auswählt).</para>
 
-<para>You can also select a specific host domain from the list and click the
-<guibutton>Change...</guibutton> button to choose a different policy for that
-domain than the one shown in the list.</para>
+<para
+>Um für eine aufgelistete Domain die Regelung zu ändern, wählen Sie diese in der Liste aus und klicken auf <guibutton
+>Ändern</guibutton
+>.</para>
 
-<para>To delete a domain specific policy, choose a domain from the list, and
-then click the <guibutton>Delete</guibutton> button. The default policy will
-apply to domains which have been deleted from the list.</para>
+<para
+>Um eine Domain-spezifische Regelung zu löschen, wählt man den gewünschten Listeneintrag aus und klickt auf <guibutton
+>Löschen</guibutton
+>. Für eine gelöschte Domain gilt wieder die Standardregelung.</para>
 
 </sect2>
 
 <sect2 id="cookie-management">
-<title>Management</title>
+<title
+>Verwaltung</title>
 
-<para>In the <guilabel>Management</guilabel> tab you can browse and selectively
-delete cookies that have been set in the past.</para>
+<para
+>Auf der Karteikarte <guilabel
+>Verwaltung</guilabel
+> können Sie die Liste der gespeicherten Cookies durchsehen und einzelne Cookies löschen.</para>
 
-<para>In the upper part of this dialog, you can see a list of domains displayed
-  as a tree. Click on the little <guiicon>&gt;</guiicon> next to a domain to see all
-cookies that have been set for this particular target domain. If you select one
-of these cookies, you will notice that its contents will show up in the frame
-<guilabel>Details</guilabel> below.</para>
+<para
+>Im oberen Abschnitt dieses Dialoges wird eine Liste von Domains als Baumstruktur dargestellt. Klicken Sie neben einem Domain-Namen auf <guiicon
+>&gt;</guiicon
+>, werden alle Cookies dieser Domain unter dem Domain-Namen aufgelistet. Wählen Sie eines dieser Cookies aus, wird sein Inhalt unten im Bereich <guilabel
+>Details</guilabel
+> angezeigt.</para>
 
-<para>By clicking the <guibutton>Delete</guibutton> button you can now delete the selected
-cookie. Click <guibutton>Delete All</guibutton> to delete all cookies stored.</para>
+<para
+>Durch Klicken auf den Knopf <guibutton
+>Löschen</guibutton
+>, wird der ausgewählte Cookie gelöscht. Mit <guibutton
+>Alle löschen</guibutton
+> werden alle gespeicherten Cookies gelöscht.</para>
 
-<para>If a domain is selected, you can use <guibutton>Configure Policy...</guibutton> to set
-a site policy.</para>
+<para
+>Wenn Domäne ausgewählt ist, können Sie mit <guibutton
+>Regelung einrichten</guibutton
+> eine spezielle Regel für diese Domäne eingeben.</para>
 
-<para>Choose <guibutton>Reload List</guibutton> to reload the list
-from your hard disk. You might want to do this if you have had the
-module open and are testing web sites, or have made many changes in the
-module itself.</para>
+<para
+>Klickt man auf <guibutton
+>Liste neu einlesen</guibutton
+>, wird die Liste der Cookies von der Festplatte neu eingelesen. Das ist nützlich, wenn man das Modul geöffnet hat und Internetseiten testet oder im Modul selbst viele Änderungen vorgenommen hat.</para>
 
 </sect2>
 

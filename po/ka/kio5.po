@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-05 00:44+0000\n"
-"PO-Revision-Date: 2023-01-05 05:43+0100\n"
+"PO-Revision-Date: 2023-01-06 07:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -760,6 +760,8 @@ msgstr "POST-ში მითითებულ შეზღუდულ პო�
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
+"POST ოპერაციისთვის აუცილებელი შემცველობის ზომის ინფორმაცია მოწოდებული არ "
+"ყოფილა."
 
 #: core/job_error.cpp:236
 #, kde-format
@@ -2287,17 +2289,17 @@ msgstr ""
 #: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr ""
+msgstr "პროტოკოლით %1 სიმბმულების შექმნა მხარდაჭერილი არაა."
 
 #: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr ""
+msgstr "%1-ში ფაილების კოპირება მხარდაჭერილი არაა."
 
 #: core/slavebase.cpp:900
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr ""
+msgstr "%1-დან ფაილების წაშლა მხარდაჭერილი არაა."
 
 #: core/slavebase.cpp:902
 #, kde-format
@@ -2317,17 +2319,17 @@ msgstr ""
 #: core/slavebase.cpp:908
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
-msgstr ""
+msgstr "ქვებმულების გამოყენება %1-თან ერთად მხარდაჭერილი არაა."
 
 #: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
-msgstr ""
+msgstr "მრავალი მიღება მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:912
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr ""
+msgstr "ფაილების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:914
 #, kde-format

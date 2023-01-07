@@ -2,22 +2,22 @@
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2003, 2004, 2005, 2006.
 # Håvard Korsvoll <korsvoll@skulelinux.no>, 2003.
-# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2007, 2008, 2009, 2010, 2011, 2015, 2016, 2018, 2019, 2020, 2021, 2022.
+# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2007, 2008, 2009, 2010, 2011, 2015, 2016, 2018, 2019, 2020, 2021, 2022, 2023.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008, 2009, 2010.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018, 2019, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:43+0000\n"
-"PO-Revision-Date: 2022-10-30 09:53+0100\n"
+"POT-Creation-Date: 2023-01-05 00:44+0000\n"
+"PO-Revision-Date: 2023-01-06 19:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -50,7 +50,7 @@ msgstr ""
 #: core/connectionbackend.cpp:108
 #, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr ""
+msgstr "Klarte ikkje laga KIO-arbeidar: %1"
 
 #: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -785,7 +785,7 @@ msgstr "Klarte ikkje kommunisera med den lokale passordtenaren"
 #: core/job_error.cpp:245
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr ""
+msgstr "Klarte ikkje laga KIO-arbeidar. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1149,6 +1149,7 @@ msgstr ""
 "Denne datamaskina og tenarmaskina støttar kanskje ikkje same versjonen av %1-"
 "protokollen."
 
+# Lèt «KIO worker» òg stå på engelsk, då det er eit nyttigare søkeord.
 #: core/job_error.cpp:502
 #, kde-format
 msgid ""
@@ -1156,6 +1157,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"Du kan prøva å søkja på nettet etter eit program­tillegg (ein «KIO-arbeidar»/"
+"«KIO worker») som støttar denne protokollen. Ein mogleg stad å prøva er <a "
+"href=\"https://store.kde.org/\">https://store.kde.org/</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2298,7 +2302,7 @@ msgstr "Klarte ikkje starta %1-protokollen"
 #: core/job_error.cpp:1248
 #, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr ""
+msgstr "Klarte ikkje laga KIO-arbeidar"
 
 #: core/job_error.cpp:1250
 #, kde-format
@@ -2306,6 +2310,8 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
+"Klarte ikkje starta KIO-arbeidaren som som gjev tilgang til <strong>%1</"
+"strong>-protokollen. Dette skjer oftast grunna tekniske feil."
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2383,12 +2389,14 @@ msgstr "Ukjend protokoll «%1»."
 #: core/slave.cpp:432
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr ""
+msgstr "Finn ikkje KIO-arbeidar for protokollen «%1»."
 
 #: core/slave.cpp:440
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
+"Klarte ikkje oppretta «socket» for start av KIO-arbeidar for protokollen «"
+"%1»."
 
 #: core/slave.cpp:480
 #, kde-format
@@ -3864,7 +3872,7 @@ msgstr "Trykk for plasseringsnavigasjon"
 msgid "Click to Edit Location"
 msgstr "Trykk for å endra plassering"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:241
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du har ikkje løyve til å køyra denne fila."
@@ -3917,7 +3925,7 @@ msgstr "Ikonfila er for stor – avbryt nedlasting"
 msgid "No mail client found"
 msgstr "Fann inkje e-postprogram"
 
-#: gui/kprocessrunner.cpp:98
+#: gui/kprocessrunner.cpp:94
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3928,7 +3936,7 @@ msgstr ""
 "%1\n"
 "er ikkje gyldig."
 
-#: gui/kprocessrunner.cpp:265
+#: gui/kprocessrunner.cpp:261
 #, kde-format
 msgid "Launching %1"
 msgstr "Startar %1"
@@ -4390,6 +4398,21 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
+"<h1>Infokapslar</h1><p>Infokapslar inneheld informasjon som KDE-program som "
+"brukar HTTP-protokollen (for eksempel Konqueror), kan lagra på maskina di, "
+"og denne informasjonen vert henta frå nettsider. Det medfører at ei nettside "
+"kan lagra informasjon om deg og nettlesings­aktiviteten din på maskina di "
+"for seinare bruk. Det kan vera du synest dette går ut over personvernet ditt."
+"</p><p>Men infokapslar er nyttige i nokre samanhengar. For eksempel vert dei "
+"ofte brukte av nettbutikkar der du kan «leggja varer i ei handlevogn» for "
+"seinare kjøp. Og nokre nettstadar krev at du brukar ein nettlesar som "
+"støttar infokapslar.</p><p>Sidan dei fleste ønskjer eit kompromiss mellom "
+"personvern og fordelane som kjem med infokapslar, kan du tilpassa måten "
+"desse vert handterte på. Du kan for eksempel velja at du som standard vert "
+"spurd om du vil godta eller avvisa ein infokapsel kvar gong ei nettside "
+"ønskjer å lagra ein. Men for favoritt­nettbutikkane dine, som du stolar på, "
+"vil du kanskje velja å automatisk godta alle infokapslar, slik at du ikkje "
+"heile tida får spørsmål om dette.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5199,6 +5222,12 @@ msgid ""
 "UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Finn og set opp mellomtenar­innstillingar automatisk.<p>Automatisk søk vert "
+"utført med protokollen <b>Web Proxy Auto-Discovery Protocol (WPAD)</b>."
+"<p><b>MERK:</b> Dette fungerer kanskje ikkje rett, eller ikkje i det heile, "
+"på enkelte Unix/Linux-distribusjonar.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -5582,6 +5611,13 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
+"<h1>Delte Windows-ressursar</h1><p>Program som brukar KIO-arbeidaren SMB "
+"(for eksempel Konqueror) kan få tilgang til delte Microsoft Windows-"
+"filsystem dersom dei er rett sette opp.</p><p>Du kan her velja brukarnamn og "
+"passord brukt til å få tilgang til dei delte ressursane. Passorda vert lagra "
+"lokalt, på ein slik måte at dei ikkje er lesbare for menneske. Men av "
+"tryggleiks­grunnar vil du kanskje ikkje gjera dette, då oppføringar med "
+"passord vert tydeleg markerte som dette.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -7927,7 +7963,7 @@ msgstr "Komm&entar:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Miljøvariablar:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9227,6 +9263,9 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
+"Vil du sletta dette elementet for alltid?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne "
+"handlinga.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format

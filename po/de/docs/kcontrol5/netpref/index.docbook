@@ -2,103 +2,155 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
 ]>
 
 <article id="netpref" lang="&language;">
 <articleinfo>
-<title>Connection Preferences</title>
+<title
+>Verbindungseinstellungen</title>
 <authorgroup>
-<author>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
 
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
 
-<date>2016-11-10</date>
-<releaseinfo>Frameworks 5.29</releaseinfo>
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdebase</keyword>
-<keyword>kcontrol</keyword>
-<keyword>network</keyword>
-<keyword>timeouts</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kontrollzentrum</keyword>
+<keyword
+>Netzwerk</keyword>
+<keyword
+>Zeitlimits</keyword>
 </keywordset>
 
 </articleinfo>
 
 <sect1 id="timeouts">
 
-<title>Connection Preferences</title>
+<title
+>Verbindungseinstellungen</title>
 
-<para>Here you can set timeout values.  You might want to tweak them
-if your connection is very slow, but the default settings are
-appropriate for most users.</para>
+<para
+>Hier können Sie Werte für verschiedene Zeitlimits angeben. Bei langsamen Verbindungen können die Werte entsprechend angepasst werden. Die Standardwerte sollte allerdings für die allermeisten Fälle angemessen sein.</para>
 
-<para>Here <guilabel>Timeout Values</guilabel> are the length of time
-an application should wait for an answer from a network operation.</para>
+<para
+>Die <guilabel
+>Zeitlimit-Werte</guilabel
+> geben die Zeitspannen an, die eine Anwendung bei einem Netzwerkzugriff auf eine Antwort warten soll.</para>
 
-<para>You can configure the following timeouts:</para>
+<para
+>Sie können die folgenden Zeitlimits festlegen:</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Socket read:</guilabel></term>
+<term
+><guilabel
+>Socket-Daten:</guilabel
+></term>
 <listitem>
-<para> Some applications use <firstterm>sockets</firstterm> to
-communicate.  You can think of a socket as a water tap; while it is
-open, water (or in our case, data) comes out, without any interaction.
-If something stops this flow of data, the application will wait for
-more to come.  This could be a very long time, but you can configure a
-maximum time for an application to wait with this option.</para>
-<para>This setting will only apply to &kde; applications, of course.</para>
+<para
+>Einige Anwendungen verwenden <firstterm
+>Sockets</firstterm
+>, um miteinander zu kommunizieren. Sie können sich einen Socket wie einen Wasserhahn vorstellen. Solange er offen ist, fließt Wasser (oder Daten, wie in unserem Fall) ohne jede Wechselwirkung. Wird dieser Datenfluss gestoppt, wartet die Anwendung auf weitere Daten. Dies kann sehr lange dauern, aber Sie können die maximale Wartezeit angeben, die eine Anwendung auf neue Daten wartet.</para>
+<para
+>Diese Einstellung wirkt sich natürlich nur auf &kde;-Anwendungen aus.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Proxy connect:</guilabel></term>
+<term
+><guilabel
+>Proxy-Verbindung:</guilabel
+></term>
 <listitem>
-<para>
-Sets how long to wait for a connection to a proxy server, if one is configured.
-</para>
+<para
+>Legt fest, wie lange auf die Verbindung zum Proxy gewartet wird, falls ein Proxy eingerichtet ist. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Server connect:</guilabel></term>
+<term
+><guilabel
+>Server-Verbindung:</guilabel
+></term>
 <listitem>
-<para>
-Sets how long to wait for a connection to a remote server.  
-</para>
+<para
+>Legt die Wartezeit für den Verbindungsaufbau zu einem entfernten Server fest. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Server response:</guilabel></term>
+<term
+><guilabel
+>Server-Antwort:</guilabel
+></term>
 <listitem>
-<para>
-Sets how long to wait for a reply from a remote server.
-</para>
+<para
+>Legt die Wartezeit für die Antwort eines entfernten Servers fest. </para>
 </listitem>
 </varlistentry>
 
 </variablelist>
 
-<para>You can configure <guilabel>FTP Options</guilabel> here.  At
-present there is just two options:</para>
+<para
+>Hier können Sie <guilabel
+>FTP-Optionen</guilabel
+> einrichten. Derzeit gibt es zwei Einstellmöglichkeit, nämlich <guilabel
+>Passiven Modus (PASV) aktivieren</guilabel
+> und <guilabel
+>Teilweise übertragene Dateien markieren</guilabel
+>.</para>
 <variablelist>
 <varlistentry>
-<term><guilabel>Enable passive mode (PASV)</guilabel></term>
-<listitem><para>Passive &FTP; is often required when you are behind a firewall.
-Many firewalls only permit connections that were initiated from
-<quote>the inside</quote>.  Passive &FTP; is controlled by the client,
-which makes it usable through firewalls.</para></listitem>
+<term
+><guilabel
+>Passiven Modus (PASV) aktivieren</guilabel
+></term>
+<listitem
+><para
+>Passives &FTP; ist meist hinter einer Firewall notwendig. Viele Firewalls erlauben nur Verbindungen, die von <quote
+>innen nach außen</quote
+> gehen. Passives &FTP; wird vom Client kontrolliert, was die Verwendung hinter einer Firewall ermöglicht.</para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Mark partially uploaded files</guilabel></term>
-<listitem><para>When a mark is placed in this box, partially uploaded files will 
-have a <literal role="extension">.part</literal> extension added to the end 
-of the file. This extension is removed once the file download is complete.</para></listitem>
+<term
+><guilabel
+>Teilweise übertragene Dateien markieren</guilabel
+></term>
+<listitem
+><para
+>Wenn diese Einstellung aktiviert ist, werden Dateien, die noch nicht vollständig übertragen sind, mit der Dateiendung <literal role="extension"
+>.part</literal
+> versehen. Sobald die Übertragung abgeschlossen ist, wird diese zusätzliche Endung automatisch entfernt.</para
+></listitem>
 </varlistentry>
 
 </variablelist>
