@@ -10,6 +10,7 @@
 
 #include "previewjob.h"
 #include "kio_widgets_debug.h"
+#include "kioglobal_p.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -846,12 +847,24 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
         qCWarning(KIO_WIDGETS) << "Could not get device id for file preview, Invalid url" << path;
         return 0;
     }
+#ifdef Q_OS_WIN
+    const QString p = url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+    const QByteArray pathBA = QFile::encodeName(path);
+    QT_STATBUF buf;
+    QT_LSTAT(pathBA.constData(), &buf);
+    int id = buf.st_dev;
+    currentDeviceId = id;
+    deviceIdMap[path] = id;
+
+    return id;
+#else
     state = PreviewJobPrivate::STATE_DEVICE_INFO;
     KIO::Job *job = KIO::statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     q->addSubjob(job);
 
     return idUnknown;
+#endif
 }
 
 void PreviewJobPrivate::createThumbnail(const QString &pixPath)
