@@ -329,7 +329,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT privilegeOperationRequested();
         break;
     default:
-        qCWarning(KIO_CORE) << "Slave sends unknown command (" << _cmd << "), dropping slave";
+        qCWarning(KIO_CORE) << "Worker sends unknown command (" << _cmd << "), dropping worker.";
         return false;
     }
     return true;

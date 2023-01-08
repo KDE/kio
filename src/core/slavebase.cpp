@@ -198,7 +198,7 @@ public:
     {
         KIO_STATE_ASSERT(finalState(),
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO slave")
+                         qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO worker.")
                                             .arg(QLatin1String(cmdName))
                                             .arg(QCoreApplication::applicationName())));
         // Force the command into finished state. We'll not reach this for Debug builds
@@ -214,7 +214,7 @@ public:
     {
         KIO_STATE_ASSERT(!finalState(),
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO slave")
+                         qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO worker.")
                                             .arg(QLatin1String(cmdName))
                                             .arg(QCoreApplication::applicationName())));
     }
@@ -361,7 +361,7 @@ void SlaveBase::dispatchLoop()
 
         // I think we get here when we were killed in dispatch() and not in select()
         if (wasKilled()) {
-            // qDebug() << "slave was killed, returning";
+            // qDebug() << "worker was killed, returning";
             break;
         }
 
@@ -514,18 +514,18 @@ void SlaveBase::error(int _errid, const QString &_text)
     KIO_STATE_ASSERT(
         d->m_finalityCommand,
         Q_FUNC_INFO,
-        qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
+        qUtf8Printable(QStringLiteral("error() was called, but it's not supposed to! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
 
     if (d->m_state == d->ErrorCalled) {
         KIO_STATE_ASSERT(false,
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
+                         qUtf8Printable(QStringLiteral("error() called twice! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->FinishedCalled) {
         KIO_STATE_ASSERT(
             false,
             Q_FUNC_INFO,
-            qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
+            qUtf8Printable(QStringLiteral("error() called after finished()! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
         return;
     }
 
@@ -556,7 +556,7 @@ void SlaveBase::finished()
 
     if (!d->pendingListEntries.isEmpty()) {
         if (!d->m_rootEntryListed) {
-            qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO slave";
+            qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO worker.";
             KIO::UDSEntry entry;
             entry.reserve(4);
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
@@ -574,18 +574,18 @@ void SlaveBase::finished()
         d->m_finalityCommand,
         Q_FUNC_INFO,
         qUtf8Printable(
-            QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO slave").arg(QCoreApplication::applicationName())));
+            QStringLiteral("finished() was called, but it's not supposed to! Please fix the %2 KIO worker.").arg(QCoreApplication::applicationName())));
 
     if (d->m_state == d->FinishedCalled) {
         KIO_STATE_ASSERT(false,
                          Q_FUNC_INFO,
-                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
+                         qUtf8Printable(QStringLiteral("finished() called twice! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
         return;
     } else if (d->m_state == d->ErrorCalled) {
         KIO_STATE_ASSERT(
             false,
             Q_FUNC_INFO,
-            qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO slave").arg(QCoreApplication::applicationName())));
+            qUtf8Printable(QStringLiteral("finished() called after error()! Please fix the %1 KIO worker.").arg(QCoreApplication::applicationName())));
         return;
     }
 

@@ -121,24 +121,24 @@ void Slave::timeout()
         return;
     }
 
-    /*qDebug() << "slave failed to connect to application pid=" << d->m_pid
+    /*qDebug() << "worker failed to connect to application pid=" << d->m_pid
                  << " protocol=" << d->m_protocol;*/
     if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
         int delta_t = d->contact_started.elapsed() / 1000;
-        // qDebug() << "slave is slow... pid=" << d->m_pid << " t=" << delta_t;
+        // qDebug() << "worker is slow... pid=" << d->m_pid << " t=" << delta_t;
         if (delta_t < s_slaveConnectionTimeoutMax) {
             QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, this, &Slave::timeout);
             return;
         }
     }
-    // qDebug() << "Houston, we lost our slave, pid=" << d->m_pid;
+    // qDebug() << "Houston, we lost our worker, pid=" << d->m_pid;
     d->connection->close();
     d->dead = true;
     QString arg = d->m_protocol;
     if (!d->m_host.isEmpty()) {
         arg += QLatin1String("://") + d->m_host;
     }
-    // qDebug() << "slave failed to connect pid =" << d->m_pid << arg;
+    // qDebug() << "worker failed to connect pid =" << d->m_pid << arg;
 
     ref();
     // Tell the job about the problem.
@@ -350,7 +350,7 @@ void Slave::gotInput()
         if (!d->m_host.isEmpty()) {
             arg += QLatin1String("://") + d->m_host;
         }
-        // qDebug() << "slave died pid =" << d->m_pid << arg;
+        // qDebug() << "worker died pid =" << d->m_pid << arg;
         // Tell the job about the problem.
         Q_EMIT error(ERR_WORKER_DIED, arg);
         // Tell the scheduler about the problem.
