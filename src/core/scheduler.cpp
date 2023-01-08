@@ -620,7 +620,7 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
             schedulerPrivate()->slotSlaveDied(slave);
         });
     } else {
-        qCWarning(KIO_CORE) << "couldn't create slave:" << errortext;
+        qCWarning(KIO_CORE) << "couldn't create worker:" << errortext;
         if (job) {
             job->slotError(error, errortext);
         }

@@ -63,7 +63,7 @@ void IdleSlave::gotInput()
                && cmd != MSG_SLAVE_STATUS
 #endif
     ) {
-        qCritical() << "Unexpected data from KIO slave.";
+        qCritical() << "Unexpected data from KIO worker.";
         deleteLater();
     } else {
         QDataStream stream(data);
