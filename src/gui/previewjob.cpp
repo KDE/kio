@@ -672,6 +672,14 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     // to the local machine, then create the thumbnail
     state = PreviewJobPrivate::STATE_GETORIG;
     QTemporaryFile localFile;
+
+    // Some thumbnailers, like libkdcraw, depend on the file extension being
+    // correct
+    const QString extension = item.suffix();
+    if (!extension.isEmpty()) {
+        localFile.setFileTemplate(QStringLiteral("%1.%2").arg(localFile.fileTemplate(), extension));
+    }
+
     localFile.setAutoRemove(false);
     localFile.open();
     tempName = localFile.fileName();
