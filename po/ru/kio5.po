@@ -15,21 +15,21 @@
 # Yuri Efremov <yur.arh@gmail.com>, 2010.
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2018, 2019, 2020, 2021, 2022.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2018, 2019, 2020, 2021, 2022, 2023.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-05 00:44+0000\n"
-"PO-Revision-Date: 2022-11-17 12:47+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2023-01-07 20:10+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -66,8 +66,7 @@ msgstr ""
 "недостаточно прав для осуществления этих изменений."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Ошибка создания вспомогательного процесса ввода/вывода: %1"
 
@@ -826,8 +825,7 @@ msgid "Communication with the local password server failed"
 msgstr "Не удалось связаться с локальным сервером паролей"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
 msgstr "Ошибка создания вспомогательного процесса ввода/вывода. %1"
 
@@ -1198,21 +1196,15 @@ msgstr ""
 "несовместимы."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"В Интернет можно найти программы для KDE (kioslave или ioslave), "
-"поддерживающие этот протокол. Адреса для поиска <a href=\"https://kde-apps."
-"org/\">https://kde-apps.org/</a> и <a href=\"http://freshmeat.net/\">http://"
-"freshmeat.net/</a>."
+"В интернете можно найти программы для KDE (KIO worker), поддерживающие этот "
+"протокол. Адрес для поиска: <a href=\"https://store.kde.org/\">https://store."
+"kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2353,21 +2345,17 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Невозможно инициализировать протокол %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Ошибка создания вспомогательного процесса ввода/вывода"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Программа на вашем компьютере (io-slave), которая предоставляет доступ к "
+"Программа на вашем компьютере (KIO worker), которая предоставляет доступ к "
 "протоколу <strong>%1</strong>, не может быть запущена. Обычно это происходит "
 "по техническим причинам."
 
@@ -2448,14 +2436,12 @@ msgid "Unknown protocol '%1'."
 msgstr "Неизвестный протокол «%1»."
 
 #: core/slave.cpp:432
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Не удалось найти модуль поддержки протокола «%1»."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не удалось создать сокет для запуска вспомогательного процесса ввода-вывода "
@@ -4457,23 +4443,7 @@ msgid "&Management"
 msgstr "&Принятые файлы «cookie»"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4501,8 +4471,8 @@ msgstr ""
 "магазинах для заполнения корзины при покупках. Некоторые сайты требуют, "
 "чтобы ваш браузер поддерживал файлы «cookie».</p> <p>Так как большинство "
 "людей предпочитает компромисс между безопасностью и удобством файлов "
-"«cookie», HTTP kioslave позволяет указать правила их обработки. Например, в "
-"качестве правила по умолчанию вы можете указать, чтобы система спрашивала "
+"«cookie», HTTP KIO worker позволяет указать правила их обработки. Например, "
+"в качестве правила по умолчанию вы можете указать, чтобы система спрашивала "
 "вас всякий раз, когда сервер присылает закладку, разрешить или запретить все "
 "файлы «cookie». Для ваших избранных интернет-магазинов вы можете разрешить "
 "все файлы «cookie». Тогда вы сможете избавиться от вопросов при приходе "
@@ -5331,16 +5301,7 @@ msgstr "Без прокси"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5355,9 +5316,7 @@ msgstr ""
 "Автоматическое определение производится при помощи протокола <b>Web Proxy "
 "Auto-Discovery Protocol (WPAD)</b>.<p>\n"
 "<b>Примечание:</b>Этот параметр может работать неправильно или вообще не "
-"работать в некоторых дистрибутивах Unix/Linux. Если вы обнаружили проблемы с "
-"использованием этого параметра, обратитесь к секции FAQ на https://konqueror."
-"org.\n"
+"работать в некоторых дистрибутивах Unix/Linux. \n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5730,15 +5689,7 @@ msgid "Default password:"
 msgstr "Пароль по умолчанию:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5749,13 +5700,13 @@ msgid ""
 "such.</p>"
 msgstr ""
 "<h1>Общие ресурсы Windows</h1> <p>Приложения KDE, использующие механизм SMB "
-"kioslave (например, Konqueror), при правильной настройке могут подключаться "
-"к общим ресурсам Microsoft Windows.</p> <p>Здесь можно указать реквизиты "
-"доступа для подключения к общим ресурсам. Пароли будут сохранены на этом "
-"компьютере в закодированном виде, чтобы человек не мог легко их прочитать, "
-"однако при наличии соответствующих навыков их несложно раскодировать. "
-"Поэтому в некоторых случаях в целях безопасности не стоит сохранять пароли "
-"таким образом.</p>"
+"KIO worker (например, Konqueror), при правильной настройке могут "
+"подключаться к общим ресурсам Microsoft Windows.</p> <p>Здесь можно указать "
+"реквизиты доступа для подключения к общим ресурсам. Пароли будут сохранены "
+"на этом компьютере в закодированном виде, чтобы человек не мог легко их "
+"прочитать, однако при наличии соответствующих навыков их несложно "
+"раскодировать. Поэтому в некоторых случаях в целях безопасности не стоит "
+"сохранять пароли таким образом.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
