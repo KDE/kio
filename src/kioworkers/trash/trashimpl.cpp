@@ -783,8 +783,10 @@ bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int
     if (trashId == 0) {
         Q_ASSERT(info.origPath[0] == QLatin1Char('/'));
     } else {
-        const QString topdir = topDirectoryPath(trashId); // includes trailing slash
-        info.origPath.prepend(topdir);
+        if (!info.origPath.startsWith(QLatin1Char('/'))) {
+            const QString topdir = topDirectoryPath(trashId); // includes trailing slash
+            info.origPath.prepend(topdir);
+        }
     }
     const QString line = group.readEntry("DeletionDate");
     if (!line.isEmpty()) {
