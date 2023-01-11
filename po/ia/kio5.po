@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2016, 2017, 2019, 2020, 2021, 2022.
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:44+0000\n"
-"PO-Revision-Date: 2022-12-18 22:43+0100\n"
+"POT-Creation-Date: 2023-01-11 00:53+0000\n"
+"PO-Revision-Date: 2023-01-10 16:24+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2889,7 +2889,7 @@ msgstr "Monstrar vista preliminari"
 msgid "Open Containing Folder"
 msgstr "Aperi dossier continente"
 
-#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgid "Properties"
 msgstr "Proprietates"
@@ -3310,83 +3310,83 @@ msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (Celate)"
 
-#: filewidgets/kfileplacesview.cpp:1115
+#: filewidgets/kfileplacesview.cpp:1116
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Vacua corbe"
 
-#: filewidgets/kfileplacesview.cpp:1135
+#: filewidgets/kfileplacesview.cpp:1136
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Monta"
 
-#: filewidgets/kfileplacesview.cpp:1141
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Aperi in scheda"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Aperi in nove fenestra"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1154
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adde Entrata…"
 
-#: filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Edita…"
 
-#: filewidgets/kfileplacesview.cpp:1164
+#: filewidgets/kfileplacesview.cpp:1165
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Remove"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1169
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Celar"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Cela Section '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Cela Section"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1185
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Monstra omne entratas"
 
-#: filewidgets/kfileplacesview.cpp:1189
+#: filewidgets/kfileplacesview.cpp:1190
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Dimension de Icone"
 
-#: filewidgets/kfileplacesview.cpp:1292
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3394,25 +3394,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Auto Redimensiona"
 
-#: filewidgets/kfileplacesview.cpp:1312
+#: filewidgets/kfileplacesview.cpp:1317
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Parve (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Medium (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1318
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Grande (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7923,16 +7923,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"Memo&ra association de application per iste typo de file\n"
-"\"%1\" (%2)"
+"Memo&ra association de application per omne files de typo\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8441,10 +8438,9 @@ msgid "The new file name is empty."
 msgstr "Le nove nomine de file es vacue."
 
 #: widgets/kpropertiesdialog.cpp:1671
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "Typos de file &supportate:"
+msgstr "Necun typos de file registrate"
 
 #: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
@@ -8452,18 +8448,16 @@ msgid "No associated application"
 msgstr "Nulle application associate "
 
 #: widgets/kpropertiesdialog.cpp:1679
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Crea"
+msgstr "Crea…"
 
 #: widgets/kpropertiesdialog.cpp:1682
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Cambia ..."
+msgstr "Cambia …"
 
 #: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
 #: widgets/kpropertiesdialog.cpp:1761
@@ -9463,12 +9457,7 @@ msgstr ""
 "Aborta proque le identitate del hospite non pote esser stabilite."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
@@ -9497,31 +9486,19 @@ msgstr[1] ""
 "strong='true'>Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Tu vole deler permanentemente iste elemento? <nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'> Iste action non pote esser annullate.</"
-"emphasis>"
+"Il falleva a mover iste elemento al Corbe proque es il es troppo grande. In "
+"loco tu vole deler lo permanentemente? <nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9532,10 +9509,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Tu vole deler permanentemente iste elemento?<nl/><nl/><emphasis "
-"strong='true'> Iste action non pote esser annullate.</emphasis>"
+"Il falleva a mover iste %1 elemento al Corbe proque es il es troppo grande. "
+"In loco tu vole deler lo permanentemente? <filename></filename><nl/"
+"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
 msgstr[1] ""
-"Tu vole deler permanentemente iste %1 elementos? <nl/><nl/><emphasis "
+"Il falleva a mover iste %1 elementos al Corbe proque illos es troppo grande. "
+"In loco tu vole deler illos permanentemente? <nl/><nl/><emphasis "
 "strong='true'>Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279

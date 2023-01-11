@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:44+0000\n"
+"POT-Creation-Date: 2023-01-11 00:53+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -2943,7 +2943,7 @@ msgstr "Vertoon Voorskou"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1149
 #, fuzzy, kde-format
 msgid "Properties"
 msgstr "Eienskappe vir %1"
@@ -3418,12 +3418,12 @@ msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1115
+#: filewidgets/kfileplacesview.cpp:1116
 #, fuzzy, kde-format
 #| msgctxt "to trash"
 #| msgid "&Trash"
@@ -3431,67 +3431,67 @@ msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gemors"
 
-#: filewidgets/kfileplacesview.cpp:1135
+#: filewidgets/kfileplacesview.cpp:1136
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Mount"
 
-#: filewidgets/kfileplacesview.cpp:1141
+#: filewidgets/kfileplacesview.cpp:1142
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Open Met"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1154
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kfileplacesview.cpp:1160
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Redigeer..."
 
-#: filewidgets/kfileplacesview.cpp:1164
+#: filewidgets/kfileplacesview.cpp:1165
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1169
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1185
 #, fuzzy, kde-format
 #| msgid ""
 #| "Show\n"
@@ -3501,14 +3501,14 @@ msgstr ""
 "Vertoon\n"
 "Inskrywings"
 
-#: filewidgets/kfileplacesview.cpp:1189
+#: filewidgets/kfileplacesview.cpp:1190
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Kort Aansig"
 
-#: filewidgets/kfileplacesview.cpp:1292
+#: filewidgets/kfileplacesview.cpp:1297
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3517,25 +3517,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Outo Verklik"
 
-#: filewidgets/kfileplacesview.cpp:1312
+#: filewidgets/kfileplacesview.cpp:1317
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1318
+#: filewidgets/kfileplacesview.cpp:1323
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "grootte %1"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:44+0000\n"
+"POT-Creation-Date: 2023-01-11 00:53+0000\n"
 "PO-Revision-Date: 2022-12-04 22:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2848,7 +2848,7 @@ msgstr "Erakutsi aurrebista"
 msgid "Open Containing Folder"
 msgstr "Ireki hau barnean duen karpeta"
 
-#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgid "Properties"
 msgstr "Propietateak"
@@ -3267,83 +3267,83 @@ msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ezkutuan)"
 
-#: filewidgets/kfileplacesview.cpp:1115
+#: filewidgets/kfileplacesview.cpp:1116
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Hustu zakarrontzia"
 
-#: filewidgets/kfileplacesview.cpp:1135
+#: filewidgets/kfileplacesview.cpp:1136
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Muntatu"
 
-#: filewidgets/kfileplacesview.cpp:1141
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Ireki Fitxa Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Ireki Leiho Berrian"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1154
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Gehitu Sarrera..."
 
-#: filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Editatu..."
 
-#: filewidgets/kfileplacesview.cpp:1164
+#: filewidgets/kfileplacesview.cpp:1165
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Kendu"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1169
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ezkutatu"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ezkutatu '%1' atala"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ezkutatu Atala"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1185
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Erakut&si sarrera guztiak"
 
-#: filewidgets/kfileplacesview.cpp:1189
+#: filewidgets/kfileplacesview.cpp:1190
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Ikono-tamaina"
 
-#: filewidgets/kfileplacesview.cpp:1292
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3351,25 +3351,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Handiera automatikoki aldatzea"
 
-#: filewidgets/kfileplacesview.cpp:1312
+#: filewidgets/kfileplacesview.cpp:1317
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Txikia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Ertaina (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1318
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Handia (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
