@@ -849,7 +849,7 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
     }
 #ifdef Q_OS_WIN
     const QString p = url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
-    const QByteArray pathBA = QFile::encodeName(path);
+    const QByteArray pathBA = QFile::encodeName(p);
     QT_STATBUF buf;
     QT_LSTAT(pathBA.constData(), &buf);
     int id = buf.st_dev;
