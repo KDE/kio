@@ -16,22 +16,15 @@
 #include <QFile>
 #include <QLibrary>
 #include <QPluginLoader>
-#ifdef Q_OS_WIN
-#include <QStandardPaths>
-#endif
 #include <QString>
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
-#define USE_KPROCESS_FOR_KIOSLAVES
-#endif
-
-#ifdef USE_KPROCESS_FOR_KIOSLAVES
-#include <QProcess>
-#include <QStringList>
 #ifdef Q_OS_WIN
+#include <QProcess>
+#include <QStandardPaths>
+#include <QStringList>
+
 #include <process.h>
 #include <qt_windows.h>
-#endif
 #endif
 
 #ifndef Q_OS_WIN
