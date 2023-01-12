@@ -73,7 +73,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    const QByteArray workerDebugWait = qgetenv("KDE_SLAVE_DEBUG_WAIT");
+    const QByteArray workerDebugWait = qgetenv("KIOWORKER_DEBUG_WAIT");
 
 #ifdef Q_OS_WIN
     // enter debugger in case debugging is activated
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
     }
 #if defined(Q_CC_MSVC)
     else {
-        QString workerDebugPopup(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_POPUP")));
+        QString workerDebugPopup(QString::fromLocal8Bit(qgetenv("KIOWORKER_DEBUG_POPUP")));
         if (workerDebugPopup == QLatin1String("all") || workerDebugPopup == QString::fromLocal8Bit(argv[2])) {
             // A workaround for OSes where DebugBreak() does not work in administrative mode (actually Vista with msvc 2k5)
             // - display a native message box so developer can attach the debugger to the KIO worker process and click OK.
