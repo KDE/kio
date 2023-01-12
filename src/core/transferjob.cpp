@@ -279,7 +279,7 @@ void TransferJobPrivate::start(Worker *slave)
     Q_Q(TransferJob);
     Q_ASSERT(slave);
     JobPrivate::emitTransferring(q, m_url);
-    q->connect(slave, &SlaveInterface::data, q, &TransferJob::slotData);
+    q->connect(slave, &WorkerInterface::data, q, &TransferJob::slotData);
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
@@ -300,27 +300,27 @@ void TransferJobPrivate::start(Worker *slave)
                 QMetaObject::invokeMethod(q, dataReqFunc, Qt::QueuedConnection);
             }
         } else {
-            q->connect(slave, &SlaveInterface::dataReq, q, [this]() {
+            q->connect(slave, &WorkerInterface::dataReq, q, [this]() {
                 slotDataReqFromDevice();
             });
         }
     } else {
-        q->connect(slave, &SlaveInterface::dataReq, q, &TransferJob::slotDataReq);
+        q->connect(slave, &WorkerInterface::dataReq, q, &TransferJob::slotDataReq);
     }
 
-    q->connect(slave, &SlaveInterface::redirection, q, &TransferJob::slotRedirection);
+    q->connect(slave, &WorkerInterface::redirection, q, &TransferJob::slotRedirection);
 
-    q->connect(slave, &SlaveInterface::mimeType, q, &TransferJob::slotMimetype);
+    q->connect(slave, &WorkerInterface::mimeType, q, &TransferJob::slotMimetype);
 
-    q->connect(slave, &SlaveInterface::errorPage, q, [this]() {
+    q->connect(slave, &WorkerInterface::errorPage, q, [this]() {
         m_errorPage = true;
     });
 
-    q->connect(slave, &SlaveInterface::needSubUrlData, q, [this]() {
+    q->connect(slave, &WorkerInterface::needSubUrlData, q, [this]() {
         slotNeedSubUrlData();
     });
 
-    q->connect(slave, &SlaveInterface::canResume, q, [q](KIO::filesize_t offset) {
+    q->connect(slave, &WorkerInterface::canResume, q, [q](KIO::filesize_t offset) {
         Q_EMIT q->canResume(q, offset);
     });
 

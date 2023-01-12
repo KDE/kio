@@ -98,7 +98,7 @@ void Worker::timeout()
 }
 
 Worker::Worker(const QString &protocol, QObject *parent)
-    : SlaveInterface(parent)
+    : WorkerInterface(parent)
     , m_protocol(protocol)
     , m_workerProtocol(protocol)
     , m_workerConnServer(new KIO::ConnectionServer)

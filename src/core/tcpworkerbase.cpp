@@ -50,11 +50,11 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(TCPWorkerBase::SslResult)
 /* List of dialogs/messageboxes we need to use (current code location in parentheses)
    - Can the "dontAskAgainName" thing be improved?
 
-   - "SSLCertDialog" [select client cert] (SlaveInterface)
+   - "SSLCertDialog" [select client cert] (WorkerInterface)
    - Enter password for client certificate (inline)
    - Password for client cert was wrong. Please reenter. (inline)
    - Setting client cert failed. [doesn't give reason] (inline)
-   - "SSLInfoDialog" [mostly server cert info] (SlaveInterface)
+   - "SSLInfoDialog" [mostly server cert info] (WorkerInterface)
    - You are about to enter secure mode. Security information/Display SSL information/Connect (inline)
    - You are about to leave secure mode. Security information/Continue loading/Abort (inline)
    - Hostname mismatch: Continue/Details/Cancel (inline)

@@ -114,10 +114,10 @@ void StatJobPrivate::start(Worker *slave)
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
     m_outgoingMetaData.insert(QStringLiteral("statDetails"), QString::number(m_details));
 
-    q->connect(slave, &KIO::SlaveInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
+    q->connect(slave, &KIO::WorkerInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
         slotStatEntry(entry);
     });
-    q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) {
+    q->connect(slave, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 

@@ -17,7 +17,7 @@
 namespace KIO
 {
 class Worker;
-class SlaveInterface;
+class WorkerInterface;
 
 class UserNotificationHandler : public QObject
 {
@@ -48,7 +48,7 @@ public:
     explicit UserNotificationHandler(QObject *parent = nullptr);
     ~UserNotificationHandler() override;
 
-    void requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
+    void requestMessageBox(WorkerInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
 
 private Q_SLOTS:
     void processRequest();

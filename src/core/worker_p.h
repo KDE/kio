@@ -10,7 +10,7 @@
 #ifndef KIO_WORKER_P_H
 #define KIO_WORKER_P_H
 
-#include "slaveinterface.h"
+#include "workerinterface_p.h"
 
 #include <QDateTime>
 #include <QElapsedTimer>
@@ -31,7 +31,7 @@ class UserNotificationHandler;
 
 // Do not use this class directly, outside of KIO. Only use the Worker pointer
 // that is returned by the scheduler for passing it around.
-class Worker : public KIO::SlaveInterface
+class Worker : public KIO::WorkerInterface
 {
     Q_OBJECT
 public:

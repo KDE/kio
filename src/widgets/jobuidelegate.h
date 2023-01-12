@@ -154,7 +154,7 @@ public:
      *
      * @internal
      */
-    // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, SlaveInterface, and JobUiDelegateExtension.
+    // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, WorkerInterface, and JobUiDelegateExtension.
     int requestMessageBox(MessageBoxType type,
                           const QString &text,
                           const QString &title,

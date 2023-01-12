@@ -359,7 +359,7 @@ DirectCopyJob::~DirectCopyJob()
 void DirectCopyJobPrivate::start(Worker *slave)
 {
     Q_Q(DirectCopyJob);
-    q->connect(slave, &SlaveInterface::canResume, q, &DirectCopyJob::slotCanResume);
+    q->connect(slave, &WorkerInterface::canResume, q, &DirectCopyJob::slotCanResume);
     SimpleJobPrivate::start(slave);
 }
 

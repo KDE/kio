@@ -5,13 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "slaveinterface.h"
-#include "usernotificationhandler_p.h"
+#include "workerinterface_p.h"
 
 #include "commands_p.h"
 #include "connection_p.h"
 #include "hostinfo.h"
 #include "kiocoredebug.h"
+#include "usernotificationhandler_p.h"
 #include "workerbase.h"
 
 #include <KLocalizedString>
@@ -25,13 +25,13 @@ using namespace KIO;
 
 Q_GLOBAL_STATIC(UserNotificationHandler, globalUserNotificationHandler)
 
-SlaveInterface::SlaveInterface(QObject *parent)
+WorkerInterface::WorkerInterface(QObject *parent)
     : QObject(parent)
 {
-    connect(&m_speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
+    connect(&m_speed_timer, &QTimer::timeout, this, &WorkerInterface::calcSpeed);
 }
 
-SlaveInterface::~SlaveInterface()
+WorkerInterface::~WorkerInterface()
 {
     // Note: no Debug() here (scheduler is deleted very late)
 
@@ -45,7 +45,7 @@ static KIO::filesize_t readFilesize_t(QDataStream &stream)
     return result;
 }
 
-bool SlaveInterface::dispatch()
+bool WorkerInterface::dispatch()
 {
     Q_ASSERT(m_connection);
 
@@ -60,9 +60,9 @@ bool SlaveInterface::dispatch()
     return dispatch(cmd, data);
 }
 
-void SlaveInterface::calcSpeed()
+void WorkerInterface::calcSpeed()
 {
-    if (m_slave_calcs_speed || !m_connection->isConnected()) { // killing a job results in disconnection but the timer never stops
+    if (m_worker_calcs_speed || !m_connection->isConnected()) { // killing a job results in disconnection but the timer never stops
         m_speed_timer.stop();
         return;
     }
@@ -101,7 +101,7 @@ void SlaveInterface::calcSpeed()
     }
 }
 
-bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
+bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
 {
     // qDebug() << "dispatch " << _cmd;
 
@@ -164,7 +164,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         qint64 pid;
         QByteArray protocol;
         stream >> pid >> protocol >> str1 >> b;
-        Q_EMIT slaveStatus(pid, protocol, str1, (b != 0));
+        Q_EMIT workerStatus(pid, protocol, str1, (b != 0));
         break;
     }
     case MSG_CONNECTED:
@@ -184,7 +184,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         m_times[0] = 0;
         m_nums = 1;
         m_speed_timer.start(1000);
-        m_slave_calcs_speed = false;
+        m_worker_calcs_speed = false;
         Q_EMIT totalSize(size);
         break;
     }
@@ -206,7 +206,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_SPEED:
         stream >> ul;
-        m_slave_calcs_speed = true;
+        m_worker_calcs_speed = true;
         m_speed_timer.stop();
         Q_EMIT speed(ul);
         break;
@@ -294,23 +294,23 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     return true;
 }
 
-void SlaveInterface::setOffset(KIO::filesize_t o)
+void WorkerInterface::setOffset(KIO::filesize_t o)
 {
     m_offset = o;
 }
 
-KIO::filesize_t SlaveInterface::offset() const
+KIO::filesize_t WorkerInterface::offset() const
 {
     return m_offset;
 }
 
-void SlaveInterface::sendResumeAnswer(bool resume)
+void WorkerInterface::sendResumeAnswer(bool resume)
 {
     // qDebug() << "ok for resuming:" << resume;
     m_connection->sendnow(resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray());
 }
 
-void SlaveInterface::sendMessageBoxAnswer(int result)
+void WorkerInterface::sendMessageBoxAnswer(int result)
 {
     if (!m_connection) {
         return;
@@ -326,17 +326,17 @@ void SlaveInterface::sendMessageBoxAnswer(int result)
     // qDebug() << "message box answer" << result;
 }
 
-void SlaveInterface::messageBox(int type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
+void WorkerInterface::messageBox(int type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
 {
     messageBox(type, text, title, primaryActionText, secondaryActionText, QString());
 }
 
-void SlaveInterface::messageBox(int type,
-                                const QString &text,
-                                const QString &title,
-                                const QString &primaryActionText,
-                                const QString &secondaryActionText,
-                                const QString &dontAskAgainName)
+void WorkerInterface::messageBox(int type,
+                                 const QString &text,
+                                 const QString &title,
+                                 const QString &primaryActionText,
+                                 const QString &secondaryActionText,
+                                 const QString &dontAskAgainName)
 {
     if (m_connection) {
         m_connection->suspend();
@@ -372,12 +372,10 @@ void SlaveInterface::messageBox(int type,
     globalUserNotificationHandler()->requestMessageBox(this, type, data);
 }
 
-void SlaveInterface::slotHostInfo(const QHostInfo &info)
+void WorkerInterface::slotHostInfo(const QHostInfo &info)
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream << info.hostName() << info.addresses() << info.error() << info.errorString();
     m_connection->send(CMD_HOST_INFO, data);
 }
-
-#include "moc_slaveinterface.cpp"

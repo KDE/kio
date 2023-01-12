@@ -40,7 +40,7 @@ UserNotificationHandler::~UserNotificationHandler()
     qDeleteAll(m_pendingRequests);
 }
 
-void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data)
+void UserNotificationHandler::requestMessageBox(WorkerInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data)
 {
     Request *r = new Request;
     r->type = type;

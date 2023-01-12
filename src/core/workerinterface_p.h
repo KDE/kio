@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef __kio_slaveinterface_h
-#define __kio_slaveinterface_h
+#ifndef KIO_WORKERINTERFACE_P_H
+#define KIO_WORKERINTERFACE_P_H
 
 #include <qplatformdefs.h>
 
@@ -14,11 +14,10 @@
 #include <QObject>
 #include <QTimer>
 
-#include <kio/authinfo.h>
-#include <kio/global.h>
-#include <kio/udsentry.h>
-
+#include "authinfo.h"
 #include "connection_p.h"
+#include "global.h"
+#include "udsentry.h"
 
 class QUrl;
 
@@ -72,23 +71,23 @@ enum Message {
 };
 
 /**
- * @class KIO::SlaveInterface slaveinterface.h <KIO/SlaveInterface>
+ * @class KIO::WorkerInterface workerinterface_p.h <KIO/WorkerInterface>
  *
  * There are two classes that specifies the protocol between application
- * ( KIO::Job) and kioslave. SlaveInterface is the class to use on the application
- * end, SlaveBase is the one to use on the slave end.
+ * ( KIO::Job) and kioworker. WorkerInterface is the class to use on the application
+ * end, WorkerBase is the one to use on the worker end.
  *
  * A call to foo() results in a call to slotFoo() on the other end.
  */
-class SlaveInterface : public QObject
+class WorkerInterface : public QObject
 {
     Q_OBJECT
 
 protected:
-    explicit SlaveInterface(QObject *parent = nullptr);
+    explicit WorkerInterface(QObject *parent = nullptr);
 
 public:
-    ~SlaveInterface() override;
+    ~WorkerInterface() override;
 
     // Send our answer to the MSG_RESUME (canResume) request
     // (to tell the "put" job whether to resume or not)
@@ -106,7 +105,7 @@ public:
 
 Q_SIGNALS:
     ///////////
-    // Messages sent by the slave
+    // Messages sent by the worker
     ///////////
 
     void data(const QByteArray &);
@@ -114,7 +113,7 @@ Q_SIGNALS:
     void error(int, const QString &);
     void connected();
     void finished();
-    void slaveStatus(qint64, const QByteArray &, const QString &, bool);
+    void workerStatus(qint64, const QByteArray &, const QString &, bool);
     void listEntries(const KIO::UDSEntryList &);
     void statEntry(const KIO::UDSEntry &);
     void needSubUrlData();
@@ -128,7 +127,7 @@ Q_SIGNALS:
     void privilegeOperationRequested();
 
     ///////////
-    // Info sent by the slave
+    // Info sent by the worker
     //////////
     void metaData(const KIO::MetaData &);
     void totalSize(KIO::filesize_t);
@@ -189,7 +188,7 @@ private:
     size_t m_last_time = 0;
     qint64 m_start_time = 0;
     uint m_nums = 0;
-    bool m_slave_calcs_speed = false;
+    bool m_worker_calcs_speed = false;
 };
 
 }

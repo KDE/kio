@@ -45,7 +45,7 @@
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 #include "kpasswdserverclient.h"
-#include "slaveinterface.h"
+#include "workerinterface_p.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #include <KAuth/Action>
@@ -1583,7 +1583,7 @@ PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation(const QString &ope
     if (metaData(QStringLiteral("UnitTesting")) != QLatin1String("true") && d->m_privilegeOperationStatus == OperationAllowed && !d->m_confirmationAsked) {
         // WORKER_MESSAGEBOX_DETAILS_HACK
         // SlaveBase::messageBox() overloads miss a parameter to pass an details argument.
-        // As workaround details are passed instead via metadata before and then cached by the SlaveInterface,
+        // As workaround details are passed instead via metadata before and then cached by the WorkerInterface,
         // to be used in the upcoming messageBox call (needs WarningContinueCancelDetailed type)
         // TODO: add a messageBox() overload taking details and use here,
         // then remove or adapt all code marked with WORKER_MESSAGEBOX_DETAILS
