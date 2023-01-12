@@ -11,14 +11,15 @@
 #define KIO_SLAVE_H
 
 #include "kio/slaveinterface.h"
+
 #include <QDateTime>
+#include <QElapsedTimer>
 #include <QObject>
 
 namespace KIO
 {
 
 class WorkerThread;
-class SlavePrivate;
 class SlaveKeeper;
 class SimpleJob;
 class Scheduler;
@@ -202,7 +203,20 @@ Q_SIGNALS:
     void slaveDied(KIO::Slave *slave);
 
 private:
-    Q_DECLARE_PRIVATE(Slave)
+    WorkerThread *m_workerThread = nullptr; // only set for in-process workers
+    QString m_protocol;
+    QString m_slaveProtocol;
+    QString m_host;
+    QString m_user;
+    QString m_passwd;
+    KIO::ConnectionServer *m_slaveconnserver;
+    KIO::SimpleJob *m_job = nullptr;
+    qint64 m_pid = 0; // only set for out-of-process workers
+    quint16 m_port = 0;
+    bool m_dead = false;
+    QElapsedTimer m_contact_started;
+    QElapsedTimer m_idleSince;
+    int m_refCount = 1;
 };
 
 }

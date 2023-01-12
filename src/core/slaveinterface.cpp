@@ -6,37 +6,36 @@
 */
 
 #include "slaveinterface.h"
-#include "slaveinterface_p.h"
 #include "usernotificationhandler_p.h"
 
 #include "commands_p.h"
 #include "connection_p.h"
 #include "hostinfo.h"
+#include "kiocoredebug.h"
 #include "workerbase.h"
+
 #include <KLocalizedString>
 #include <signal.h>
 #include <time.h>
 
 #include <QDataStream>
 #include <QDateTime>
-#include <QDebug>
 
 using namespace KIO;
 
 Q_GLOBAL_STATIC(UserNotificationHandler, globalUserNotificationHandler)
 
-SlaveInterface::SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent)
+SlaveInterface::SlaveInterface(QObject *parent)
     : QObject(parent)
-    , d_ptr(&dd)
 {
-    connect(&d_ptr->speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
+    connect(&m_speed_timer, &QTimer::timeout, this, &SlaveInterface::calcSpeed);
 }
 
 SlaveInterface::~SlaveInterface()
 {
     // Note: no Debug() here (scheduler is deleted very late)
 
-    delete d_ptr;
+    delete m_connection;
 }
 
 static KIO::filesize_t readFilesize_t(QDataStream &stream)
@@ -48,13 +47,12 @@ static KIO::filesize_t readFilesize_t(QDataStream &stream)
 
 bool SlaveInterface::dispatch()
 {
-    Q_D(SlaveInterface);
-    Q_ASSERT(d->connection);
+    Q_ASSERT(m_connection);
 
     int cmd;
     QByteArray data;
 
-    int ret = d->connection->read(&cmd, data);
+    int ret = m_connection->read(&cmd, data);
     if (ret == -1) {
         return false;
     }
@@ -64,41 +62,40 @@ bool SlaveInterface::dispatch()
 
 void SlaveInterface::calcSpeed()
 {
-    Q_D(SlaveInterface);
-    if (d->slave_calcs_speed || !d->connection->isConnected()) { // killing a job results in disconnection but the timer never stops
-        d->speed_timer.stop();
+    if (m_slave_calcs_speed || !m_connection->isConnected()) { // killing a job results in disconnection but the timer never stops
+        m_speed_timer.stop();
         return;
     }
 
     const qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
-    const qint64 diff = currentTime - d->start_time;
-    if (diff - d->last_time >= 900) {
-        d->last_time = diff;
-        if (d->nums == max_nums) {
+    const qint64 diff = currentTime - m_start_time;
+    if (diff - m_last_time >= 900) {
+        m_last_time = diff;
+        if (m_nums == max_nums) {
             // let's hope gcc can optimize that well enough
             // otherwise I'd try memcpy :)
             for (unsigned int i = 1; i < max_nums; ++i) {
-                d->times[i - 1] = d->times[i];
-                d->sizes[i - 1] = d->sizes[i];
+                m_times[i - 1] = m_times[i];
+                m_sizes[i - 1] = m_sizes[i];
             }
-            d->nums--;
+            m_nums--;
         }
-        d->times[d->nums] = diff;
-        d->sizes[d->nums++] = d->filesize - d->offset;
+        m_times[m_nums] = diff;
+        m_sizes[m_nums++] = m_filesize - m_offset;
 
-        KIO::filesize_t lspeed = 1000 * (d->sizes[d->nums - 1] - d->sizes[0]) / (d->times[d->nums - 1] - d->times[0]);
+        KIO::filesize_t lspeed = 1000 * (m_sizes[m_nums - 1] - m_sizes[0]) / (m_times[m_nums - 1] - m_times[0]);
 
-        // qDebug() << (long)d->filesize << diff
-        //          << long(d->sizes[d->nums-1] - d->sizes[0])
-        //          << d->times[d->nums-1] - d->times[0]
-        //          << long(lspeed) << double(d->filesize) / diff
+        // qDebug() << (long)m_filesize << diff
+        //          << long(m_sizes[m_nums-1] - m_sizes[0])
+        //          << m_times[m_nums-1] - m_times[0]
+        //          << long(lspeed) << double(m_filesize) / diff
         //          << convertSize(lspeed)
-        //          << convertSize(long(double(d->filesize) / diff) * 1000);
+        //          << convertSize(long(double(m_filesize) / diff) * 1000);
 
         if (!lspeed) {
-            d->nums = 1;
-            d->times[0] = diff;
-            d->sizes[0] = d->filesize - d->offset;
+            m_nums = 1;
+            m_times[0] = diff;
+            m_sizes[0] = m_filesize - m_offset;
         }
         Q_EMIT speed(lspeed);
     }
@@ -106,7 +103,6 @@ void SlaveInterface::calcSpeed()
 
 bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 {
-    Q_D(SlaveInterface);
     // qDebug() << "dispatch " << _cmd;
 
     QDataStream stream(rawdata);
@@ -128,8 +124,8 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     case MSG_FINISHED:
         // qDebug() << "Finished [this = " << this << "]";
-        d->offset = 0;
-        d->speed_timer.stop();
+        m_offset = 0;
+        m_speed_timer.stop();
         Q_EMIT finished();
         break;
     case MSG_STAT_ENTRY: {
@@ -151,12 +147,12 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case MSG_RESUME: { // From the put job
-        d->offset = readFilesize_t(stream);
-        Q_EMIT canResume(d->offset);
+        m_offset = readFilesize_t(stream);
+        Q_EMIT canResume(m_offset);
         break;
     }
     case MSG_CANRESUME: // From the get job
-        d->filesize = d->offset;
+        m_filesize = m_offset;
         Q_EMIT canResume(0); // the arg doesn't matter
         break;
     case MSG_ERROR:
@@ -181,21 +177,21 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_TOTAL_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
-        d->start_time = QDateTime::currentMSecsSinceEpoch();
-        d->last_time = 0;
-        d->filesize = d->offset;
-        d->sizes[0] = d->filesize - d->offset;
-        d->times[0] = 0;
-        d->nums = 1;
-        d->speed_timer.start(1000);
-        d->slave_calcs_speed = false;
+        m_start_time = QDateTime::currentMSecsSinceEpoch();
+        m_last_time = 0;
+        m_filesize = m_offset;
+        m_sizes[0] = m_filesize - m_offset;
+        m_times[0] = 0;
+        m_nums = 1;
+        m_speed_timer.start(1000);
+        m_slave_calcs_speed = false;
         Q_EMIT totalSize(size);
         break;
     }
     case INF_PROCESSED_SIZE: {
         KIO::filesize_t size = readFilesize_t(stream);
         Q_EMIT processedSize(size);
-        d->filesize = size;
+        m_filesize = size;
         break;
     }
     case INF_POSITION: {
@@ -210,8 +206,8 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     }
     case INF_SPEED:
         stream >> ul;
-        d->slave_calcs_speed = true;
-        d->speed_timer.stop();
+        m_slave_calcs_speed = true;
+        m_speed_timer.stop();
         Q_EMIT speed(ul);
         break;
     case INF_ERROR_PAGE:
@@ -226,8 +222,8 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case INF_MIME_TYPE:
         stream >> str1;
         Q_EMIT mimeType(str1);
-        if (!d->connection->suspended()) {
-            d->connection->sendnow(CMD_NONE, QByteArray());
+        if (!m_connection->suspended()) {
+            m_connection->sendnow(CMD_NONE, QByteArray());
         }
         break;
     case INF_WARNING:
@@ -265,7 +261,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
             const MetaData &constM = m;
             for (MetaData::ConstIterator it = constM.lowerBound(ssl_); it != constM.constEnd(); ++it) {
                 if (it.key().startsWith(ssl_)) {
-                    d->sslMetaData.insert(it.key(), it.value());
+                    m_sslMetaData.insert(it.key(), it.value());
                 } else {
                     // we're past the ssl_* entries; remember that QMap is ordered.
                     break;
@@ -273,7 +269,7 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
             }
         } else if (auto it = m.constFind(QStringLiteral("privilege_conf_details")); it != m.cend()) {
             // see WORKER_MESSAGEBOX_DETAILS_HACK
-            d->messageBoxDetails = it.value();
+            m_messageBoxDetails = it.value();
         }
         Q_EMIT metaData(m);
         break;
@@ -300,37 +296,33 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
 
 void SlaveInterface::setOffset(KIO::filesize_t o)
 {
-    Q_D(SlaveInterface);
-    d->offset = o;
+    m_offset = o;
 }
 
 KIO::filesize_t SlaveInterface::offset() const
 {
-    const Q_D(SlaveInterface);
-    return d->offset;
+    return m_offset;
 }
 
 void SlaveInterface::sendResumeAnswer(bool resume)
 {
-    Q_D(SlaveInterface);
     // qDebug() << "ok for resuming:" << resume;
-    d->connection->sendnow(resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray());
+    m_connection->sendnow(resume ? CMD_RESUMEANSWER : CMD_NONE, QByteArray());
 }
 
 void SlaveInterface::sendMessageBoxAnswer(int result)
 {
-    Q_D(SlaveInterface);
-    if (!d->connection) {
+    if (!m_connection) {
         return;
     }
 
-    if (d->connection->suspended()) {
-        d->connection->resume();
+    if (m_connection->suspended()) {
+        m_connection->resume();
     }
     QByteArray packedArgs;
     QDataStream stream(&packedArgs, QIODevice::WriteOnly);
     stream << result;
-    d->connection->sendnow(CMD_MESSAGEBOXANSWER, packedArgs);
+    m_connection->sendnow(CMD_MESSAGEBOXANSWER, packedArgs);
     // qDebug() << "message box answer" << result;
 }
 
@@ -346,9 +338,8 @@ void SlaveInterface::messageBox(int type,
                                 const QString &secondaryActionText,
                                 const QString &dontAskAgainName)
 {
-    Q_D(SlaveInterface);
-    if (d->connection) {
-        d->connection->suspend();
+    if (m_connection) {
+        m_connection->suspend();
     }
 
     QHash<UserNotificationHandler::MessageBoxDataType, QVariant> data;
@@ -373,20 +364,20 @@ void SlaveInterface::messageBox(int type,
     }
 
     if (type == KIO::WorkerBase::SSLMessageBox) {
-        data.insert(UserNotificationHandler::MSG_META_DATA, d->sslMetaData.toVariant());
+        data.insert(UserNotificationHandler::MSG_META_DATA, m_sslMetaData.toVariant());
     } else if (type == KIO::WorkerBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
-        data.insert(UserNotificationHandler::MSG_DETAILS, d->messageBoxDetails);
+        data.insert(UserNotificationHandler::MSG_DETAILS, m_messageBoxDetails);
     }
 
     globalUserNotificationHandler()->requestMessageBox(this, type, data);
 }
 
-void SlaveInterfacePrivate::slotHostInfo(const QHostInfo &info)
+void SlaveInterface::slotHostInfo(const QHostInfo &info)
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream << info.hostName() << info.addresses() << info.error() << info.errorString();
-    connection->send(CMD_HOST_INFO, data);
+    m_connection->send(CMD_HOST_INFO, data);
 }
 
 #include "moc_slaveinterface.cpp"

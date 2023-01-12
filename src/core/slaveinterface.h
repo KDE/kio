@@ -12,18 +12,18 @@
 
 #include <QHostInfo>
 #include <QObject>
+#include <QTimer>
 
 #include <kio/authinfo.h>
 #include <kio/global.h>
 #include <kio/udsentry.h>
 
+#include "connection_p.h"
+
 class QUrl;
 
 namespace KIO
 {
-class Connection;
-// better there is one ...
-class SlaveInterfacePrivate;
 
 // Definition of enum Command has been moved to global.h
 
@@ -85,7 +85,7 @@ class SlaveInterface : public QObject
     Q_OBJECT
 
 protected:
-    SlaveInterface(SlaveInterfacePrivate &dd, QObject *parent = nullptr);
+    explicit SlaveInterface(QObject *parent = nullptr);
 
 public:
     ~SlaveInterface() override;
@@ -164,11 +164,32 @@ protected:
 protected Q_SLOTS:
     void calcSpeed();
 
+private Q_SLOTS:
+    void slotHostInfo(const QHostInfo &info);
+
 protected:
-    SlaveInterfacePrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(SlaveInterface)
+    Connection *m_connection = nullptr;
+
+    // We need some metadata here for our SSL code in messageBox() and for sslMetaData().
+    MetaData m_sslMetaData;
+
 private:
-    Q_PRIVATE_SLOT(d_func(), void slotHostInfo(QHostInfo))
+    QTimer m_speed_timer;
+
+    // Used to cache privilege operation details passed from the worker by the metadata hack
+    // See WORKER_MESSAGEBOX_DETAILS_HACK
+    QString m_messageBoxDetails;
+
+    static const unsigned int max_nums = 8;
+    KIO::filesize_t m_sizes[max_nums];
+    qint64 m_times[max_nums];
+
+    KIO::filesize_t m_filesize = 0;
+    KIO::filesize_t m_offset = 0;
+    size_t m_last_time = 0;
+    qint64 m_start_time = 0;
+    uint m_nums = 0;
+    bool m_slave_calcs_speed = false;
 };
 
 }

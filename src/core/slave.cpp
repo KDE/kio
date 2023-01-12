@@ -14,7 +14,6 @@
 #include <QCoreApplication>
 #include <QDataStream>
 #include <QDir>
-#include <QElapsedTimer>
 #include <QFile>
 #include <QLibraryInfo>
 #include <QPluginLoader>
@@ -35,7 +34,6 @@
 
 #include "kiocoredebug.h"
 #include "slavebase.h"
-#include "slaveinterface_p.h"
 #include "workerfactory.h"
 #include "workerthread_p.h"
 
@@ -53,90 +51,42 @@ static constexpr int s_slaveConnectionTimeoutMax = 10;
 static constexpr int s_slaveConnectionTimeoutMax = 3600;
 #endif
 
-namespace KIO
-{
-/**
- * @internal
- */
-class SlavePrivate : public SlaveInterfacePrivate
-{
-public:
-    explicit SlavePrivate(const QString &protocol)
-        : m_protocol(protocol)
-        , m_slaveProtocol(protocol)
-        , slaveconnserver(new KIO::ConnectionServer)
-        , m_job(nullptr)
-        , m_pid(0)
-        , m_port(0)
-        , dead(false)
-        , m_refCount(1)
-    {
-        contact_started.start();
-        slaveconnserver->listenForRemote();
-        if (!slaveconnserver->isListening()) {
-            qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
-        }
-    }
-    ~SlavePrivate() override
-    {
-        delete slaveconnserver;
-    }
-
-    WorkerThread *m_workerThread = nullptr; // only set for in-process workers
-    QString m_protocol;
-    QString m_slaveProtocol;
-    QString m_host;
-    QString m_user;
-    QString m_passwd;
-    KIO::ConnectionServer *slaveconnserver;
-    KIO::SimpleJob *m_job;
-    qint64 m_pid; // only set for out-of-process workers
-    quint16 m_port;
-    bool dead;
-    QElapsedTimer contact_started;
-    QElapsedTimer m_idleSince;
-    int m_refCount;
-};
-}
-
 void Slave::accept()
 {
-    Q_D(Slave);
-    d->slaveconnserver->setNextPendingConnection(d->connection);
-    d->slaveconnserver->deleteLater();
-    d->slaveconnserver = nullptr;
+    m_slaveconnserver->setNextPendingConnection(m_connection);
+    m_slaveconnserver->deleteLater();
+    m_slaveconnserver = nullptr;
 
-    connect(d->connection, &Connection::readyRead, this, &Slave::gotInput);
+    connect(m_connection, &Connection::readyRead, this, &Slave::gotInput);
 }
 
 void Slave::timeout()
 {
-    Q_D(Slave);
-    if (d->dead) { // already dead? then slaveDied was emitted and we are done
+    if (m_dead) { // already dead? then slaveDied was emitted and we are done
         return;
     }
-    if (d->connection->isConnected()) {
+    if (m_connection->isConnected()) {
         return;
     }
 
-    /*qDebug() << "worker failed to connect to application pid=" << d->m_pid
-                 << " protocol=" << d->m_protocol;*/
-    if (d->m_pid && KIOPrivate::isProcessAlive(d->m_pid)) {
-        int delta_t = d->contact_started.elapsed() / 1000;
-        // qDebug() << "worker is slow... pid=" << d->m_pid << " t=" << delta_t;
+    /*qDebug() << "worker failed to connect to application pid=" << m_pid
+                 << " protocol=" << m_protocol;*/
+    if (m_pid && KIOPrivate::isProcessAlive(m_pid)) {
+        int delta_t = m_contact_started.elapsed() / 1000;
+        // qDebug() << "worker is slow... pid=" << m_pid << " t=" << delta_t;
         if (delta_t < s_slaveConnectionTimeoutMax) {
             QTimer::singleShot(1000 * s_slaveConnectionTimeoutMin, this, &Slave::timeout);
             return;
         }
     }
-    // qDebug() << "Houston, we lost our worker, pid=" << d->m_pid;
-    d->connection->close();
-    d->dead = true;
-    QString arg = d->m_protocol;
-    if (!d->m_host.isEmpty()) {
-        arg += QLatin1String("://") + d->m_host;
+    // qDebug() << "Houston, we lost our worker, pid=" << m_pid;
+    m_connection->close();
+    m_dead = true;
+    QString arg = m_protocol;
+    if (!m_host.isEmpty()) {
+        arg += QLatin1String("://") + m_host;
     }
-    // qDebug() << "worker failed to connect pid =" << d->m_pid << arg;
+    // qDebug() << "worker failed to connect pid =" << m_pid << arg;
 
     ref();
     // Tell the job about the problem.
@@ -148,79 +98,76 @@ void Slave::timeout()
 }
 
 Slave::Slave(const QString &protocol, QObject *parent)
-    : SlaveInterface(*new SlavePrivate(protocol), parent)
+    : SlaveInterface(parent)
+    , m_protocol(protocol)
+    , m_slaveProtocol(protocol)
+    , m_slaveconnserver(new KIO::ConnectionServer)
 {
-    Q_D(Slave);
-    d->slaveconnserver->setParent(this);
-    d->connection = new Connection(this);
-    connect(d->slaveconnserver, &ConnectionServer::newConnection, this, &Slave::accept);
+    m_contact_started.start();
+    m_slaveconnserver->setParent(this);
+    m_slaveconnserver->listenForRemote();
+    if (!m_slaveconnserver->isListening()) {
+        qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
+    }
+    m_connection = new Connection(this);
+    connect(m_slaveconnserver, &ConnectionServer::newConnection, this, &Slave::accept);
 }
 
 Slave::~Slave()
 {
-    // qDebug() << "destructing slave object pid =" << d->m_pid;
-    // delete d;
+    // qDebug() << "destructing slave object pid =" << m_pid;
+    delete m_slaveconnserver;
 }
 
 QString Slave::protocol()
 {
-    Q_D(Slave);
-    return d->m_protocol;
+    return m_protocol;
 }
 
 void Slave::setProtocol(const QString &protocol)
 {
-    Q_D(Slave);
-    d->m_protocol = protocol;
+    m_protocol = protocol;
 }
 
 QString Slave::slaveProtocol()
 {
-    Q_D(Slave);
-    return d->m_slaveProtocol;
+    return m_slaveProtocol;
 }
 
 QString Slave::host()
 {
-    Q_D(Slave);
-    return d->m_host;
+    return m_host;
 }
 
 quint16 Slave::port()
 {
-    Q_D(Slave);
-    return d->m_port;
+    return m_port;
 }
 
 QString Slave::user()
 {
-    Q_D(Slave);
-    return d->m_user;
+    return m_user;
 }
 
 QString Slave::passwd()
 {
-    Q_D(Slave);
-    return d->m_passwd;
+    return m_passwd;
 }
 
 void Slave::setIdle()
 {
-    Q_D(Slave);
-    d->m_idleSince.start();
+    m_idleSince.start();
 }
 
 void Slave::ref()
 {
-    Q_D(Slave);
-    d->m_refCount++;
+    m_refCount++;
 }
 
 void Slave::deref()
 {
-    Q_D(Slave);
-    d->m_refCount--;
-    if (!d->m_refCount) {
+    m_refCount--;
+    if (!m_refCount) {
         aboutToDelete();
         delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
     }
@@ -228,71 +175,62 @@ void Slave::deref()
 
 void Slave::aboutToDelete()
 {
-    Q_D(Slave);
-    d->connection->disconnect(this);
+    m_connection->disconnect(this);
     this->disconnect();
 }
 
 void Slave::setWorkerThread(WorkerThread *thread)
 {
-    Q_D(Slave);
-    d->m_workerThread = thread;
+    m_workerThread = thread;
 }
 
 int Slave::idleTime()
 {
-    Q_D(Slave);
-    if (!d->m_idleSince.isValid()) {
+    if (!m_idleSince.isValid()) {
         return 0;
     }
-    return d->m_idleSince.elapsed() / 1000;
+    return m_idleSince.elapsed() / 1000;
 }
 
 void Slave::setPID(qint64 pid)
 {
-    Q_D(Slave);
-    d->m_pid = pid;
+    m_pid = pid;
 }
 
 qint64 Slave::slave_pid()
 {
-    Q_D(Slave);
-    return d->m_pid;
+    return m_pid;
 }
 
 void Slave::setJob(KIO::SimpleJob *job)
 {
-    Q_D(Slave);
-    if (!d->sslMetaData.isEmpty()) {
-        Q_EMIT metaData(d->sslMetaData);
+    if (!m_sslMetaData.isEmpty()) {
+        Q_EMIT metaData(m_sslMetaData);
     }
-    d->m_job = job;
+    m_job = job;
 }
 
 KIO::SimpleJob *Slave::job() const
 {
-    Q_D(const Slave);
-    return d->m_job;
+    return m_job;
 }
 
 bool Slave::isAlive()
 {
-    Q_D(Slave);
-    return !d->dead;
+    return !m_dead;
 }
 
 // TODO KF6: remove, unused
 void Slave::hold(const QUrl &url)
 {
-    Q_D(Slave);
     ref();
     {
         QByteArray data;
         QDataStream stream(&data, QIODevice::WriteOnly);
         stream << url;
-        d->connection->send(CMD_SLAVE_HOLD, data);
-        d->connection->close();
-        d->dead = true;
+        m_connection->send(CMD_SLAVE_HOLD, data);
+        m_connection->close();
+        m_dead = true;
         Q_EMIT slaveDied(this);
     }
     deref();
@@ -300,43 +238,38 @@ void Slave::hold(const QUrl &url)
 
 void Slave::suspend()
 {
-    Q_D(Slave);
-    d->connection->suspend();
+    m_connection->suspend();
 }
 
 void Slave::resume()
 {
-    Q_D(Slave);
-    d->connection->resume();
+    m_connection->resume();
 }
 
 bool Slave::suspended()
 {
-    Q_D(Slave);
-    return d->connection->suspended();
+    return m_connection->suspended();
 }
 
 void Slave::send(int cmd, const QByteArray &arr)
 {
-    Q_D(Slave);
-    d->connection->send(cmd, arr);
+    m_connection->send(cmd, arr);
 }
 
 void Slave::gotInput()
 {
-    Q_D(Slave);
-    if (d->dead) { // already dead? then slaveDied was emitted and we are done
+    if (m_dead) { // already dead? then slaveDied was emitted and we are done
         return;
     }
     ref();
     if (!dispatch()) {
-        d->connection->close();
-        d->dead = true;
-        QString arg = d->m_protocol;
-        if (!d->m_host.isEmpty()) {
-            arg += QLatin1String("://") + d->m_host;
+        m_connection->close();
+        m_dead = true;
+        QString arg = m_protocol;
+        if (!m_host.isEmpty()) {
+            arg += QLatin1String("://") + m_host;
         }
-        // qDebug() << "worker died pid =" << d->m_pid << arg;
+        // qDebug() << "worker died pid =" << m_pid << arg;
         // Tell the job about the problem.
         Q_EMIT error(ERR_WORKER_DIED, arg);
         // Tell the scheduler about the problem.
@@ -348,48 +281,44 @@ void Slave::gotInput()
 
 void Slave::kill()
 {
-    Q_D(Slave);
-    d->dead = true; // OO can be such simple.
-    if (d->m_pid) {
-        qCDebug(KIO_CORE) << "killing worker process pid" << d->m_pid << "(" << d->m_protocol + QLatin1String("://") + d->m_host << ")";
-        KIOPrivate::sendTerminateSignal(d->m_pid);
-        d->m_pid = 0;
-    } else if (d->m_workerThread) {
-        qCDebug(KIO_CORE) << "aborting worker thread for " << d->m_protocol + QLatin1String("://") + d->m_host;
-        d->m_workerThread->abort();
+    m_dead = true; // OO can be such simple.
+    if (m_pid) {
+        qCDebug(KIO_CORE) << "killing worker process pid" << m_pid << "(" << m_protocol + QLatin1String("://") + m_host << ")";
+        KIOPrivate::sendTerminateSignal(m_pid);
+        m_pid = 0;
+    } else if (m_workerThread) {
+        qCDebug(KIO_CORE) << "aborting worker thread for " << m_protocol + QLatin1String("://") + m_host;
+        m_workerThread->abort();
     }
     deref();
 }
 
 void Slave::setHost(const QString &host, quint16 port, const QString &user, const QString &passwd)
 {
-    Q_D(Slave);
-    d->m_host = host;
-    d->m_port = port;
-    d->m_user = user;
-    d->m_passwd = passwd;
-    d->sslMetaData.clear();
+    m_host = host;
+    m_port = port;
+    m_user = user;
+    m_passwd = passwd;
+    m_sslMetaData.clear();
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
-    stream << d->m_host << d->m_port << d->m_user << d->m_passwd;
-    d->connection->send(CMD_HOST, data);
+    stream << m_host << m_port << m_user << m_passwd;
+    m_connection->send(CMD_HOST, data);
 }
 
 void Slave::resetHost()
 {
-    Q_D(Slave);
-    d->sslMetaData.clear();
-    d->m_host = QStringLiteral("<reset>");
+    m_sslMetaData.clear();
+    m_host = QStringLiteral("<reset>");
 }
 
 void Slave::setConfig(const MetaData &config)
 {
-    Q_D(Slave);
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream << config;
-    d->connection->send(CMD_CONFIG, data);
+    m_connection->send(CMD_CONFIG, data);
 }
 
 // TODO KF6: return std::unique_ptr
@@ -421,7 +350,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     }
 
     Slave *slave = new Slave(protocol);
-    QUrl slaveAddress = slave->d_func()->slaveconnserver->address();
+    QUrl slaveAddress = slave->m_slaveconnserver->address();
     if (slaveAddress.isEmpty()) {
         error_text = i18n("Can not create a socket for launching a KIO worker for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_WORKER;
