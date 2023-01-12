@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-11 00:53+0000\n"
+"POT-Creation-Date: 2023-01-12 00:51+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -2883,19 +2883,19 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|सभी फ़ाइलें"
 
-#: filewidgets/kfilefiltercombo.cpp:178
+#: filewidgets/kfilefiltercombo.cpp:204
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:212
+#: filewidgets/kfilefiltercombo.cpp:238
 #, kde-format
 msgid "All Supported Files"
 msgstr "सभी समर्थित फ़ाइलें"
 
-#: filewidgets/kfilefiltercombo.cpp:222 filewidgets/kfilefiltercombo.cpp:223
+#: filewidgets/kfilefiltercombo.cpp:248 filewidgets/kfilefiltercombo.cpp:249
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
