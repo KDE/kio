@@ -114,9 +114,9 @@ public:
     /**
      * Called when a job is done.
      * @param job the finished job
-     * @param slave the slave that executed the @p job
+     * @param worker the worker that executed the @p job
      */
-    static void jobFinished(KIO::SimpleJob *job, KIO::Worker *slave);
+    static void jobFinished(KIO::SimpleJob *job, KIO::Worker *worker);
 
     /**
      * Puts a worker on notice. A next job may reuse this worker if it
