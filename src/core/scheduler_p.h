@@ -76,7 +76,7 @@ public:
     KIO::SimpleJob *takeFirstInQueue();
     bool removeJob(KIO::SimpleJob *job);
 
-    QList<KIO::Worker *> allSlaves() const;
+    QList<KIO::Worker *> allWorkers() const;
 
 private:
     QMap<int, KIO::SimpleJob *> m_queuedJobs;

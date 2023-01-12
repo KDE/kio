@@ -272,14 +272,14 @@ bool HostQueue::removeJob(SimpleJob *job)
     return false;
 }
 
-QList<Worker *> HostQueue::allSlaves() const
+QList<Worker *> HostQueue::allWorkers() const
 {
     QList<Worker *> ret;
     ret.reserve(m_runningJobs.size());
     for (SimpleJob *job : m_runningJobs) {
-        Worker *slave = jobSlave(job);
-        Q_ASSERT(slave);
-        ret.append(slave);
+        Worker *worker = jobSlave(job);
+        Q_ASSERT(worker);
+        ret.append(worker);
     }
     return ret;
 }
@@ -485,7 +485,7 @@ QList<Worker *> ProtoQueue::allSlaves() const
     QList<Worker *> ret(m_workerManager.allWorkers());
     auto it = m_queuesByHostname.cbegin();
     for (; it != m_queuesByHostname.cend(); ++it) {
-        ret.append(it.value().allSlaves());
+        ret.append(it.value().allWorkers());
     }
 
     return ret;
