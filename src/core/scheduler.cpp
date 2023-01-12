@@ -338,13 +338,13 @@ ProtoQueue::ProtoQueue(int maxWorkers, int maxWorkersPerHost)
 
 ProtoQueue::~ProtoQueue()
 {
-    // Gather list of all slaves first
-    const QList<Worker *> slaves = allSlaves();
+    // Gather list of all workers first
+    const QList<Worker *> workers = allWorkers();
     // Clear the idle workers in the manager to avoid dangling pointers
     m_workerManager.clear();
-    for (Worker *slave : slaves) {
-        // kill the slave process and remove the interface in our process
-        slave->kill();
+    for (Worker *worker : workers) {
+        // kill the worker process and remove the interface in our process
+        worker->kill();
     }
 }
 
@@ -456,14 +456,14 @@ void ProtoQueue::removeJob(SimpleJob *job)
     ensureNoDuplicates(&m_queuesBySerial);
 }
 
-Worker *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QUrl &url)
+Worker *ProtoQueue::createWorker(const QString &protocol, SimpleJob *job, const QUrl &url)
 {
     int error;
     QString errortext;
-    Worker *slave = Worker::createWorker(protocol, url, error, errortext);
-    if (slave) {
-        connect(slave, &Worker::workerDied, scheduler(), [](KIO::Worker *slave) {
-            schedulerPrivate()->slotSlaveDied(slave);
+    Worker *worker = Worker::createWorker(protocol, url, error, errortext);
+    if (worker) {
+        connect(worker, &Worker::workerDied, scheduler(), [](KIO::Worker *worker) {
+            schedulerPrivate()->slotSlaveDied(worker);
         });
     } else {
         qCWarning(KIO_CORE) << "couldn't create worker:" << errortext;
@@ -471,16 +471,16 @@ Worker *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const Q
             job->slotError(error, errortext);
         }
     }
-    return slave;
+    return worker;
 }
 
-bool ProtoQueue::removeSlave(KIO::Worker *slave)
+bool ProtoQueue::removeWorker(KIO::Worker *worker)
 {
-    const bool removed = m_workerManager.removeWorker(slave);
+    const bool removed = m_workerManager.removeWorker(worker);
     return removed;
 }
 
-QList<Worker *> ProtoQueue::allSlaves() const
+QList<Worker *> ProtoQueue::allWorkers() const
 {
     QList<Worker *> ret(m_workerManager.allWorkers());
     auto it = m_queuesByHostname.cbegin();
@@ -535,25 +535,25 @@ void ProtoQueue::startAJob()
             m_queuesBySerial.insert(hq->lowestSerial(), hq);
         }
 
-        // always increase m_runningJobsCount because it's correct if there is a slave and if there
-        // is no slave, removeJob() will balance the number again. removeJob() would decrease the
+        // always increase m_runningJobsCount because it's correct if there is a worker and if there
+        // is no worker, removeJob() will balance the number again. removeJob() would decrease the
         // number too much otherwise.
-        // Note that createSlave() can call slotError() on a job which in turn calls removeJob(),
+        // Note that createWorker() can call slotError() on a job which in turn calls removeJob(),
         // so increase the count here already.
         m_runningJobsCount++;
 
-        bool isNewSlave = false;
-        Worker *slave = m_workerManager.takeWorkerForJob(startingJob);
+        bool isNewWorker = false;
+        Worker *worker = m_workerManager.takeWorkerForJob(startingJob);
         SimpleJobPrivate *jobPriv = SimpleJobPrivate::get(startingJob);
-        if (!slave) {
-            isNewSlave = true;
-            slave = createSlave(jobPriv->m_protocol, startingJob, jobPriv->m_url);
+        if (!worker) {
+            isNewWorker = true;
+            worker = createWorker(jobPriv->m_protocol, startingJob, jobPriv->m_url);
         }
 
-        if (slave) {
-            jobPriv->m_worker = slave;
-            schedulerPrivate()->setupSlave(slave, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewSlave);
-            startJob(startingJob, slave);
+        if (worker) {
+            jobPriv->m_worker = worker;
+            schedulerPrivate()->setupSlave(worker, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewWorker);
+            startJob(startingJob, worker);
         } else {
             // dispose of our records about the job and mark the job as unknown
             // (to prevent crashes later)
@@ -681,7 +681,7 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
     }
 
     for (; it != endIt; ++it) {
-        const QList<KIO::Worker *> list = it.value()->allSlaves();
+        const QList<KIO::Worker *> list = it.value()->allWorkers();
         for (Worker *slave : list) {
             slave->send(CMD_REPARSECONFIGURATION);
             slave->resetHost();
@@ -726,7 +726,7 @@ void SchedulerPrivate::cancelJob(SimpleJob *job)
     if (slave) {
         ProtoQueue *pq = m_protocols.value(jobPriv->m_protocol);
         if (pq) {
-            pq->removeSlave(slave);
+            pq->removeWorker(slave);
         }
         slave->kill(); // don't use slave after this!
     }
@@ -752,7 +752,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *slave)
             // qDebug() << "Updating KIO workers with new internal metadata information";
             ProtoQueue *queue = m_protocols.value(slave->protocol());
             if (queue) {
-                const QList<Worker *> slaves = queue->allSlaves();
+                const QList<Worker *> slaves = queue->allWorkers();
                 for (auto *runningSlave : slaves) {
                     if (slave->host() == runningSlave->host()) {
                         slave->setConfig(metaDataFor(slave->protocol(), jobPriv->m_proxyList, job->url()));
@@ -845,7 +845,7 @@ void SchedulerPrivate::slotSlaveDied(KIO::Worker *slave)
             pq->removeJob(slave->job());
         }
         // in case this was a connected slave...
-        pq->removeSlave(slave);
+        pq->removeWorker(slave);
     }
     if (slave == m_slaveOnHold) {
         m_slaveOnHold = nullptr;

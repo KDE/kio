@@ -118,9 +118,9 @@ public:
     void queueJob(KIO::SimpleJob *job);
     void changeJobPriority(KIO::SimpleJob *job, int newPriority);
     void removeJob(KIO::SimpleJob *job);
-    KIO::Worker *createSlave(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
-    bool removeSlave(KIO::Worker *slave);
-    QList<KIO::Worker *> allSlaves() const;
+    KIO::Worker *createWorker(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
+    bool removeWorker(KIO::Worker *worker);
+    QList<KIO::Worker *> allWorkers() const;
 
 private Q_SLOTS:
     // start max one (non-connected) job and return
