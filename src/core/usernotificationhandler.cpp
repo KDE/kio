@@ -10,7 +10,7 @@
 
 #include "job_p.h"
 #include "kiocoredebug.h"
-#include "slave.h"
+#include "worker_p.h"
 #include "workerbase.h"
 
 #include <QTimer>
@@ -44,7 +44,7 @@ void UserNotificationHandler::requestMessageBox(SlaveInterface *iface, int type,
 {
     Request *r = new Request;
     r->type = type;
-    r->slave = qobject_cast<KIO::Slave *>(iface);
+    r->slave = qobject_cast<KIO::Worker *>(iface);
     r->data = data;
 
     m_pendingRequests.append(r);

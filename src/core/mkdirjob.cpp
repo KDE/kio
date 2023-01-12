@@ -11,7 +11,7 @@
 #include "job_p.h"
 #include "kiocoredebug.h"
 #include <kurlauthorized.h>
-#include <slave.h>
+#include <worker_p.h>
 
 using namespace KIO;
 
@@ -31,7 +31,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     Q_DECLARE_PUBLIC(MkdirJob)
 
@@ -52,7 +52,7 @@ MkdirJob::~MkdirJob()
 {
 }
 
-void MkdirJobPrivate::start(Slave *slave)
+void MkdirJobPrivate::start(Worker *slave)
 {
     Q_Q(MkdirJob);
     q->connect(slave, &KIO::SlaveInterface::redirection, q, [this](const QUrl &url) {

@@ -2,7 +2,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2003 Leo Savernik <l.savernik@aon.at>
-    Derived from slave.h
+    Derived from worker_p.h
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -11,7 +11,7 @@
 #define KIO_DATAWORKER_P_H
 
 #include "global.h"
-#include "slave.h"
+#include "worker_p.h"
 
 class QTimer;
 
@@ -32,7 +32,7 @@ namespace KIO
  * detail of KIO and subject to change without notice.
  * @author Leo Savernik
  */
-class DataWorker : public KIO::Slave
+class DataWorker : public KIO::Worker
 {
     Q_OBJECT
 public:

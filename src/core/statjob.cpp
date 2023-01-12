@@ -10,7 +10,7 @@
 
 #include "job_p.h"
 #include "scheduler.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <KProtocolInfo>
 #include <QTimer>
 #include <kurlauthorized.h>
@@ -40,7 +40,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     Q_DECLARE_PUBLIC(StatJob)
 
@@ -108,7 +108,7 @@ QUrl StatJob::mostLocalUrl() const
     return QUrl::fromLocalFile(path);
 }
 
-void StatJobPrivate::start(Slave *slave)
+void StatJobPrivate::start(Worker *slave)
 {
     Q_Q(StatJob);
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));

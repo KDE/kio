@@ -7,9 +7,8 @@
 
 #include "filejob.h"
 
-#include "slave.h"
-
 #include "job_p.h"
+#include "worker_p.h"
 
 class KIO::FileJobPrivate : public KIO::SimpleJobPrivate
 {
@@ -41,7 +40,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     Q_DECLARE_PUBLIC(FileJob)
 
@@ -195,7 +194,7 @@ void FileJobPrivate::slotFinished()
     q->emitResult();
 }
 
-void FileJobPrivate::start(Slave *slave)
+void FileJobPrivate::start(Worker *slave)
 {
     Q_Q(FileJob);
     q->connect(slave, &KIO::SlaveInterface::data, q, [this](const QByteArray &ba) {

@@ -16,8 +16,8 @@
 #include "global.h"
 #include "kiocoredebug.h"
 #include "simplejob.h"
-#include "slave.h"
 #include "transferjob.h"
+#include "worker_p.h"
 #include <KJobTrackerInterface>
 #include <QDataStream>
 #include <QPointer>
@@ -123,7 +123,7 @@ public:
     {
     }
 
-    QPointer<Slave> m_slave;
+    QPointer<Worker> m_slave;
     QByteArray m_packedArgs;
     QUrl m_url;
     QUrl m_subUrl; // TODO KF6 remove
@@ -143,7 +143,7 @@ public:
     // The ProtocolInfoDict is indexed with (2).
     //
     // We schedule workers based on (2) but tell the worker about (1) via
-    // Slave::setProtocol().
+    // Worker::setProtocol().
     QString m_protocol;
     QStringList m_proxyList;
     int m_schedSerial;
@@ -192,7 +192,7 @@ public:
      * Called by the scheduler when a slave gets to
      * work on this job.
      **/
-    virtual void start(KIO::Slave *slave);
+    virtual void start(KIO::Worker *slave);
 
     /**
      * @internal
@@ -299,7 +299,7 @@ public:
      * work on this job.
      * @param slave the slave that works on the job
      */
-    void start(KIO::Slave *slave) override;
+    void start(KIO::Worker *slave) override;
     /**
      * @internal
      * Called when the KIO worker needs the data to send the server. This slot

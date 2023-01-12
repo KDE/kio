@@ -8,7 +8,7 @@
 
 #include "transferjob.h"
 #include "job_p.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <QDebug>
 #include <kurlauthorized.h>
 
@@ -274,7 +274,7 @@ bool TransferJob::isErrorPage() const
     return d_func()->m_errorPage;
 }
 
-void TransferJobPrivate::start(Slave *slave)
+void TransferJobPrivate::start(Worker *slave)
 {
     Q_Q(TransferJob);
     Q_ASSERT(slave);

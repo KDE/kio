@@ -11,7 +11,7 @@
 #include "job_p.h"
 #include "kprotocolmanager.h"
 #include "scheduler.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <kio/jobuidelegatefactory.h>
 
 #include <KLocalizedString>
@@ -21,7 +21,7 @@
 
 using namespace KIO;
 
-static inline Slave *jobSlave(SimpleJob *job)
+static inline Worker *jobSlave(SimpleJob *job)
 {
     return SimpleJobPrivate::get(job)->m_slave;
 }

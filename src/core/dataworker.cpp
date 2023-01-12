@@ -1,7 +1,7 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2003 Leo Savernik <l.savernik@aon.at>
-    Derived from slave.cpp
+    Derived from worker.cpp
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -52,7 +52,7 @@ static constexpr int s_kioDataPollInterval = 0;
     }
 
 DataWorker::DataWorker()
-    : Slave(QStringLiteral("data"))
+    : Worker(QStringLiteral("data"))
 {
     // qDebug() << this;
     _suspended = false;

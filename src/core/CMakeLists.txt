@@ -54,7 +54,6 @@ target_sources(KF6KIOCore PRIVATE
   emptytrashjob.cpp
   authinfo.cpp
   slaveinterface.cpp
-  slave.cpp
   job_error.cpp
   job.cpp
   filecopyjob.cpp
@@ -89,6 +88,7 @@ target_sources(KF6KIOCore PRIVATE
   untrustedprogramhandlerinterface.cpp
   kioglobal_p.cpp
   batchrenamejob.cpp
+  worker.cpp
   workerconfig.cpp
   workerfactory.cpp
   workerthread.cpp

@@ -15,7 +15,7 @@
 #include <KLocalizedString>
 #include <KStringHandler>
 
-#include "slave.h"
+#include "worker_p.h"
 #include <kio/jobuidelegateextension.h>
 
 using namespace KIO;
@@ -341,7 +341,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     Q_DECLARE_PUBLIC(DirectCopyJob)
 };
@@ -356,7 +356,7 @@ DirectCopyJob::~DirectCopyJob()
 {
 }
 
-void DirectCopyJobPrivate::start(Slave *slave)
+void DirectCopyJobPrivate::start(Worker *slave)
 {
     Q_Q(DirectCopyJob);
     q->connect(slave, &SlaveInterface::canResume, q, &DirectCopyJob::slotCanResume);

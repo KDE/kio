@@ -397,7 +397,7 @@ public:
     /**
      * Set the host
      *
-     * Called directly by createSlave, this is why there is no equivalent in
+     * Called directly by createWorker, this is why there is no equivalent in
      * SlaveInterface, unlike the other methods.
      *
      * This method is called whenever a change in host, port or user occurs.

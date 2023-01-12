@@ -7,10 +7,10 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef KIO_SLAVE_H
-#define KIO_SLAVE_H
+#ifndef KIO_WORKER_P_H
+#define KIO_WORKER_P_H
 
-#include "kio/slaveinterface.h"
+#include "slaveinterface.h"
 
 #include <QDateTime>
 #include <QElapsedTimer>
@@ -25,23 +25,22 @@ class SimpleJob;
 class Scheduler;
 class SchedulerPrivate;
 class DataProtocol;
-class ConnectedSlaveQueue;
 class ProtoQueue;
 class SimpleJobPrivate;
 class UserNotificationHandler;
 
-// Do not use this class directly, outside of KIO. Only use the Slave pointer
+// Do not use this class directly, outside of KIO. Only use the Worker pointer
 // that is returned by the scheduler for passing it around.
-class Slave : public KIO::SlaveInterface
+class Worker : public KIO::SlaveInterface
 {
     Q_OBJECT
 public:
-    explicit Slave(const QString &protocol, QObject *parent = nullptr);
+    explicit Worker(const QString &protocol, QObject *parent = nullptr);
 
-    ~Slave() override;
+    ~Worker() override;
 
     /**
-     * Sends the given command to the kioslave.
+     * Sends the given command to the KIO worker.
      * Called by the jobs.
      * @param cmd command id
      * @param arr byte array containing data
@@ -58,22 +57,22 @@ public:
      * when the actual request was to retrieve a resource
      * from an "ftp" server by going through a proxy server.
      *
-     * @return the actual protocol (io-slave) that handled the request
+     * @return the actual protocol (KIO worker) that handled the request
      */
-    QString slaveProtocol() const;
+    QString workerProtocol() const;
 
     /**
-     * @return Host this slave is (was?) connected to
+     * @return Host this worker is (was?) connected to
      */
     QString host() const;
 
     /**
-     * @return port this slave is (was?) connected to
+     * @return port this worker is (was?) connected to
      */
     quint16 port() const;
 
     /**
-     * @return User this slave is (was?) logged in as
+     * @return User this worker is (was?) logged in as
      */
     QString user() const;
 
@@ -83,49 +82,48 @@ public:
     QString passwd() const;
 
     /**
-     * Creates a new slave.
+     * Creates a new worker.
      *
      * @param protocol the protocol
      * @param url is the url
      * @param error is the error code on failure and undefined else.
      * @param error_text is the error text on failure and undefined else.
      *
-     * @return 0 on failure, or a pointer to a slave otherwise.
+     * @return 0 on failure, or a pointer to a worker otherwise.
      */
-    static Slave *createSlave(const QString &protocol, const QUrl &url, int &error, QString &error_text);
+    static Worker *createWorker(const QString &protocol, const QUrl &url, int &error, QString &error_text);
 
-    // == communication with connected kioslave ==
+    // == communication with connected kioworker ==
     // whenever possible prefer these methods over the respective
     // methods in connection()
     /**
-     * Suspends the operation of the attached kioslave.
+     * Suspends the operation of the attached kioworker.
      */
     virtual void suspend();
 
     /**
-     * Resumes the operation of the attached kioslave.
+     * Resumes the operation of the attached kioworker.
      */
     virtual void resume();
 
     /**
-     * Tells whether the kioslave is suspended.
-     * @return true if the kioslave is suspended.
+     * Tells whether the kioworker is suspended.
+     * @return true if the kioworker is suspended.
      */
     virtual bool suspended();
 
-    // == end communication with connected kioslave ==
+    // == end communication with connected kioworker ==
 private:
     friend class Scheduler;
     friend class SchedulerPrivate;
     friend class DataProtocol;
     friend class SlaveKeeper;
-    friend class ConnectedSlaveQueue;
     friend class ProtoQueue;
     friend class SimpleJobPrivate;
     friend class UserNotificationHandler;
 
     void setPID(qint64);
-    qint64 slave_pid() const;
+    qint64 worker_pid() const;
 
     void setJob(KIO::SimpleJob *job);
     KIO::SimpleJob *job() const;
@@ -136,7 +134,7 @@ private:
     void kill();
 
     /**
-     * @return true if the slave survived the last mission.
+     * @return true if the worker survived the last mission.
      */
     bool isAlive() const;
 
@@ -155,36 +153,36 @@ private:
     void resetHost();
 
     /**
-     * Configure slave
+     * Configure worker
      */
     virtual void setConfig(const MetaData &config);
 
     /**
-     * The protocol this slave handles.
+     * The protocol this worker handles.
      *
-     * @return name of protocol handled by this slave, as seen by the user
+     * @return name of protocol handled by this worker, as seen by the user
      */
     QString protocol() const;
 
     void setProtocol(const QString &protocol);
 
     /**
-     * Puts the kioslave associated with @p url at halt, and return it to klauncher, in order
+     * Puts the kioworker associated with @p url at halt, and return it to klauncher, in order
      * to let another application connect to it and finish the job.
      * This is for the krunner case: type a URL in krunner, it will start downloading
-     * to find the MIME type (KRun), and then hold the slave, publish the held slave using,
+     * to find the MIME type (KRun), and then hold the worker, publish the held worker using,
      * this method, and the final application can continue the same download by requesting
      * the same URL.
      */
     virtual void hold(const QUrl &url);
 
     /**
-     * @return The number of seconds this slave has been idle.
+     * @return The number of seconds this worker has been idle.
      */
     int idleTime() const;
 
     /**
-     * Marks this slave as idle.
+     * Marks this worker as idle.
      */
     void setIdle();
 
@@ -200,16 +198,16 @@ public Q_SLOTS: // TODO KF6: make all three slots private
     void timeout();
 
 Q_SIGNALS:
-    void slaveDied(KIO::Slave *slave);
+    void workerDied(KIO::Worker *worker);
 
 private:
     WorkerThread *m_workerThread = nullptr; // only set for in-process workers
     QString m_protocol;
-    QString m_slaveProtocol;
+    QString m_workerProtocol;
     QString m_host;
     QString m_user;
     QString m_passwd;
-    KIO::ConnectionServer *m_slaveconnserver;
+    KIO::ConnectionServer *m_workerConnServer;
     KIO::SimpleJob *m_job = nullptr;
     qint64 m_pid = 0; // only set for out-of-process workers
     quint16 m_port = 0;

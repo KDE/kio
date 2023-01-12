@@ -28,7 +28,7 @@
 #include <KLocalizedString>
 
 #include "kprotocolmanager.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <KDirWatch>
 
 #include "askuseractioninterface.h"

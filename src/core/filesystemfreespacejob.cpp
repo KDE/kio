@@ -10,7 +10,7 @@
 #include "filesystemfreespacejob.h"
 #include "job.h"
 #include "job_p.h"
-#include <slave.h>
+#include <worker_p.h>
 
 using namespace KIO;
 
@@ -28,7 +28,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     Q_DECLARE_PUBLIC(FileSystemFreeSpaceJob)
 
@@ -49,7 +49,7 @@ FileSystemFreeSpaceJob::~FileSystemFreeSpaceJob()
 {
 }
 
-void FileSystemFreeSpaceJobPrivate::start(Slave *slave)
+void FileSystemFreeSpaceJobPrivate::start(Worker *slave)
 {
     SimpleJobPrivate::start(slave);
 }

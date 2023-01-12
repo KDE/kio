@@ -16,7 +16,7 @@
 
 namespace KIO
 {
-class Slave;
+class Worker;
 
 class SchedulerPrivate;
 /**
@@ -116,7 +116,7 @@ public:
      * @param job the finished job
      * @param slave the slave that executed the @p job
      */
-    static void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
+    static void jobFinished(KIO::SimpleJob *job, KIO::Worker *slave);
 
     /**
      * Puts a worker on notice. A next job may reuse this worker if it

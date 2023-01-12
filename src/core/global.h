@@ -199,7 +199,7 @@ enum Error {
     ERR_CANNOT_MOVE_INTO_ITSELF = KJob::UserDefinedError + 71, ///< emitted by KIO::move, @since 5.18
     // TODO KF6 remove reference to slavebase
     ERR_PASSWD_SERVER = KJob::UserDefinedError + 72, ///< returned by WorkerBase::openPasswordDialog and SlaveBase::openPasswordDialogV2, @since 5.24
-    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Slave::createSlave, @since 5.96
+    ERR_CANNOT_CREATE_WORKER = KJob::UserDefinedError + 73, ///< used by Worker::createWorker, @since 5.96
     ERR_FILE_TOO_LARGE_FOR_FAT32 = KJob::UserDefinedError + 74, ///< @since 5.54
     ERR_OWNER_DIED ///< Value used between kuiserver and views when the job owner disappears unexpectedly. It should not be emitted by workers. @since 5.54
     = KJob::UserDefinedError + 75,

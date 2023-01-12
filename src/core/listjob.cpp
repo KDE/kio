@@ -9,7 +9,7 @@
 #include "listjob.h"
 #include "../utils_p.h"
 #include "job_p.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <QTimer>
 #include <kurlauthorized.h>
 
@@ -42,7 +42,7 @@ public:
      * work on this job.
      * @param slave the slave that starts working on this job
      */
-    void start(Slave *slave) override;
+    void start(Worker *slave) override;
 
     void slotListEntries(const KIO::UDSEntryList &list);
     void slotRedirection(const QUrl &url);
@@ -253,7 +253,7 @@ void ListJob::setUnrestricted(bool unrestricted)
     }
 }
 
-void ListJobPrivate::start(Slave *slave)
+void ListJobPrivate::start(Worker *slave)
 {
     Q_Q(ListJob);
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), m_url, m_url) && !(m_extraFlags & EF_ListJobUnrestricted)) {
@@ -262,15 +262,15 @@ void ListJobPrivate::start(Slave *slave)
         QTimer::singleShot(0, q, &ListJob::slotFinished);
         return;
     }
-    QObject::connect(slave, &Slave::listEntries, q, [this](const KIO::UDSEntryList &list) {
+    QObject::connect(slave, &Worker::listEntries, q, [this](const KIO::UDSEntryList &list) {
         slotListEntries(list);
     });
 
-    QObject::connect(slave, &Slave::totalSize, q, [this](KIO::filesize_t size) {
+    QObject::connect(slave, &Worker::totalSize, q, [this](KIO::filesize_t size) {
         slotTotalSize(size);
     });
 
-    QObject::connect(slave, &Slave::redirection, q, [this](const QUrl &url) {
+    QObject::connect(slave, &Worker::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 

@@ -10,7 +10,7 @@
 #include "job_p.h"
 #include "kprotocolinfo.h"
 #include "scheduler.h"
-#include "slave.h"
+#include "worker_p.h"
 #include <QDebug>
 #include <QTimer>
 #include <kdirnotify.h>
@@ -110,44 +110,44 @@ SimpleJob::~SimpleJob()
     }
 }
 
-void SimpleJobPrivate::start(Slave *slave)
+void SimpleJobPrivate::start(Worker *slave)
 {
     Q_Q(SimpleJob);
     m_slave = slave;
 
-    // Slave::setJob can send us SSL metadata if there is a persistent connection
-    QObject::connect(slave, &Slave::metaData, q, &SimpleJob::slotMetaData);
+    // Worker::setJob can send us SSL metadata if there is a persistent connection
+    QObject::connect(slave, &Worker::metaData, q, &SimpleJob::slotMetaData);
 
     slave->setJob(q);
 
-    QObject::connect(slave, &Slave::error, q, &SimpleJob::slotError);
+    QObject::connect(slave, &Worker::error, q, &SimpleJob::slotError);
 
-    QObject::connect(slave, &Slave::warning, q, &SimpleJob::slotWarning);
+    QObject::connect(slave, &Worker::warning, q, &SimpleJob::slotWarning);
 
-    QObject::connect(slave, &Slave::finished, q, &SimpleJob::slotFinished);
+    QObject::connect(slave, &Worker::finished, q, &SimpleJob::slotFinished);
 
-    QObject::connect(slave, &Slave::infoMessage, q, [this](const QString &message) {
+    QObject::connect(slave, &Worker::infoMessage, q, [this](const QString &message) {
         _k_slotSlaveInfoMessage(message);
     });
 
-    QObject::connect(slave, &Slave::connected, q, [this]() {
+    QObject::connect(slave, &Worker::connected, q, [this]() {
         slotConnected();
     });
 
-    QObject::connect(slave, &Slave::privilegeOperationRequested, q, [this]() {
+    QObject::connect(slave, &Worker::privilegeOperationRequested, q, [this]() {
         slotPrivilegeOperationRequested();
     });
 
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
-        QObject::connect(slave, &Slave::totalSize, q, [this](KIO::filesize_t size) {
+        QObject::connect(slave, &Worker::totalSize, q, [this](KIO::filesize_t size) {
             slotTotalSize(size);
         });
 
-        QObject::connect(slave, &Slave::processedSize, q, [this](KIO::filesize_t size) {
+        QObject::connect(slave, &Worker::processedSize, q, [this](KIO::filesize_t size) {
             slotProcessedSize(size);
         });
 
-        QObject::connect(slave, &Slave::speed, q, [this](ulong speed) {
+        QObject::connect(slave, &Worker::speed, q, [this](ulong speed) {
             slotSpeed(speed);
         });
     }

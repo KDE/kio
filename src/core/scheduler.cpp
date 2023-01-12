@@ -13,7 +13,7 @@
 #include "connection_p.h"
 #include "job_p.h"
 #include "sessiondata_p.h"
-#include "slave.h"
+#include "worker_p.h"
 #include "workerconfig.h"
 
 #include <kprotocolinfo.h>
@@ -32,7 +32,7 @@ static const int s_idleSlaveLifetime = 3 * 60;
 
 using namespace KIO;
 
-static inline Slave *jobSlave(SimpleJob *job)
+static inline Worker *jobSlave(SimpleJob *job)
 {
     return SimpleJobPrivate::get(job)->m_slave;
 }
@@ -42,7 +42,7 @@ static inline int jobCommand(SimpleJob *job)
     return SimpleJobPrivate::get(job)->m_command;
 }
 
-static inline void startJob(SimpleJob *job, Slave *slave)
+static inline void startJob(SimpleJob *job, Worker *slave)
 {
     SimpleJobPrivate::get(job)->start(slave);
 }
@@ -68,7 +68,7 @@ public:
 
     Scheduler *q;
 
-    Slave *m_slaveOnHold = nullptr;
+    Worker *m_slaveOnHold = nullptr;
     QUrl m_urlOnHold;
     bool m_ignoreConfigReparse = false;
 
@@ -77,18 +77,22 @@ public:
     void doJob(SimpleJob *job);
     void setJobPriority(SimpleJob *job, int priority);
     void cancelJob(SimpleJob *job);
-    void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
+    void jobFinished(KIO::SimpleJob *job, KIO::Worker *slave);
     void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
     void removeSlaveOnHold();
-    Slave *heldSlaveForJob(KIO::SimpleJob *job);
+    Worker *heldSlaveForJob(KIO::SimpleJob *job);
     bool isSlaveOnHoldFor(const QUrl &url);
     void updateInternalMetaData(SimpleJob *job);
 
     MetaData metaDataFor(const QString &protocol, const QStringList &proxyList, const QUrl &url);
-    void
-    setupSlave(KIO::Slave *slave, const QUrl &url, const QString &protocol, const QStringList &proxyList, bool newSlave, const KIO::MetaData *config = nullptr);
+    void setupSlave(KIO::Worker *slave,
+                    const QUrl &url,
+                    const QString &protocol,
+                    const QStringList &proxyList,
+                    bool newSlave,
+                    const KIO::MetaData *config = nullptr);
 
-    void slotSlaveDied(KIO::Slave *slave);
+    void slotSlaveDied(KIO::Worker *slave);
 
 #ifndef KIO_ANDROID_STUB
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
@@ -146,7 +150,7 @@ SlaveKeeper::~SlaveKeeper()
     grimReaper();
 }
 
-void SlaveKeeper::returnSlave(Slave *slave)
+void SlaveKeeper::returnSlave(Worker *slave)
 {
     Q_ASSERT(slave);
     slave->setIdle();
@@ -154,16 +158,16 @@ void SlaveKeeper::returnSlave(Slave *slave)
     scheduleGrimReaper();
 }
 
-Slave *SlaveKeeper::takeSlaveForJob(SimpleJob *job)
+Worker *SlaveKeeper::takeSlaveForJob(SimpleJob *job)
 {
-    Slave *slave = schedulerPrivate()->heldSlaveForJob(job);
+    Worker *slave = schedulerPrivate()->heldSlaveForJob(job);
     if (slave) {
         return slave;
     }
 
     QUrl url = SimpleJobPrivate::get(job)->m_url;
     // TODO take port, username and password into account
-    QMultiHash<QString, Slave *>::Iterator it = m_idleSlaves.find(url.host());
+    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.find(url.host());
     if (it == m_idleSlaves.end()) {
         it = m_idleSlaves.begin();
     }
@@ -175,10 +179,10 @@ Slave *SlaveKeeper::takeSlaveForJob(SimpleJob *job)
     return slave;
 }
 
-bool SlaveKeeper::removeSlave(Slave *slave)
+bool SlaveKeeper::removeSlave(Worker *slave)
 {
     // ### performance not so great
-    QMultiHash<QString, Slave *>::Iterator it = m_idleSlaves.begin();
+    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.begin();
     for (; it != m_idleSlaves.end(); ++it) {
         if (it.value() == slave) {
             m_idleSlaves.erase(it);
@@ -193,7 +197,7 @@ void SlaveKeeper::clear()
     m_idleSlaves.clear();
 }
 
-QList<Slave *> SlaveKeeper::allSlaves() const
+QList<Worker *> SlaveKeeper::allSlaves() const
 {
     return m_idleSlaves.values();
 }
@@ -208,9 +212,9 @@ void SlaveKeeper::scheduleGrimReaper()
 // private slot
 void SlaveKeeper::grimReaper()
 {
-    QMultiHash<QString, Slave *>::Iterator it = m_idleSlaves.begin();
+    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.begin();
     while (it != m_idleSlaves.end()) {
-        Slave *slave = it.value();
+        Worker *slave = it.value();
         if (slave->idleTime() >= s_idleSlaveLifetime) {
             it = m_idleSlaves.erase(it);
             if (slave->job()) {
@@ -268,12 +272,12 @@ bool HostQueue::removeJob(SimpleJob *job)
     return false;
 }
 
-QList<Slave *> HostQueue::allSlaves() const
+QList<Worker *> HostQueue::allSlaves() const
 {
-    QList<Slave *> ret;
+    QList<Worker *> ret;
     ret.reserve(m_runningJobs.size());
     for (SimpleJob *job : m_runningJobs) {
-        Slave *slave = jobSlave(job);
+        Worker *slave = jobSlave(job);
         Q_ASSERT(slave);
         ret.append(slave);
     }
@@ -335,10 +339,10 @@ ProtoQueue::ProtoQueue(int maxWorkers, int maxWorkersPerHost)
 ProtoQueue::~ProtoQueue()
 {
     // Gather list of all slaves first
-    const QList<Slave *> slaves = allSlaves();
+    const QList<Worker *> slaves = allSlaves();
     // Clear the idle slaves in the keeper to avoid dangling pointers
     m_slaveKeeper.clear();
-    for (Slave *slave : slaves) {
+    for (Worker *slave : slaves) {
         // kill the slave process and remove the interface in our process
         slave->kill();
     }
@@ -452,13 +456,13 @@ void ProtoQueue::removeJob(SimpleJob *job)
     ensureNoDuplicates(&m_queuesBySerial);
 }
 
-Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QUrl &url)
+Worker *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QUrl &url)
 {
     int error;
     QString errortext;
-    Slave *slave = Slave::createSlave(protocol, url, error, errortext);
+    Worker *slave = Worker::createWorker(protocol, url, error, errortext);
     if (slave) {
-        connect(slave, &Slave::slaveDied, scheduler(), [](KIO::Slave *slave) {
+        connect(slave, &Worker::workerDied, scheduler(), [](KIO::Worker *slave) {
             schedulerPrivate()->slotSlaveDied(slave);
         });
     } else {
@@ -470,15 +474,15 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
     return slave;
 }
 
-bool ProtoQueue::removeSlave(KIO::Slave *slave)
+bool ProtoQueue::removeSlave(KIO::Worker *slave)
 {
     const bool removed = m_slaveKeeper.removeSlave(slave);
     return removed;
 }
 
-QList<Slave *> ProtoQueue::allSlaves() const
+QList<Worker *> ProtoQueue::allSlaves() const
 {
-    QList<Slave *> ret(m_slaveKeeper.allSlaves());
+    QList<Worker *> ret(m_slaveKeeper.allSlaves());
     auto it = m_queuesByHostname.cbegin();
     for (; it != m_queuesByHostname.cend(); ++it) {
         ret.append(it.value().allSlaves());
@@ -539,7 +543,7 @@ void ProtoQueue::startAJob()
         m_runningJobsCount++;
 
         bool isNewSlave = false;
-        Slave *slave = m_slaveKeeper.takeSlaveForJob(startingJob);
+        Worker *slave = m_slaveKeeper.takeSlaveForJob(startingJob);
         SimpleJobPrivate *jobPriv = SimpleJobPrivate::get(startingJob);
         if (!slave) {
             isNewSlave = true;
@@ -611,7 +615,7 @@ void Scheduler::cancelJob(SimpleJob *job)
     schedulerPrivate()->cancelJob(job);
 }
 
-void Scheduler::jobFinished(KIO::SimpleJob *job, KIO::Slave *slave)
+void Scheduler::jobFinished(KIO::SimpleJob *job, KIO::Worker *slave)
 {
     schedulerPrivate()->jobFinished(job, slave);
 }
@@ -677,8 +681,8 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
     }
 
     for (; it != endIt; ++it) {
-        const QList<KIO::Slave *> list = it.value()->allSlaves();
-        for (Slave *slave : list) {
+        const QList<KIO::Worker *> list = it.value()->allSlaves();
+        for (Worker *slave : list) {
             slave->send(CMD_REPARSECONFIGURATION);
             slave->resetHost();
         }
@@ -716,7 +720,7 @@ void SchedulerPrivate::cancelJob(SimpleJob *job)
         // qDebug() << "Doing nothing because I don't know job" << job;
         return;
     }
-    Slave *slave = jobSlave(job);
+    Worker *slave = jobSlave(job);
     // qDebug() << job << slave;
     jobFinished(job, slave);
     if (slave) {
@@ -728,7 +732,7 @@ void SchedulerPrivate::cancelJob(SimpleJob *job)
     }
 }
 
-void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
+void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *slave)
 {
     // qDebug() << job << slave;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
@@ -748,7 +752,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Slave *slave)
             // qDebug() << "Updating KIO workers with new internal metadata information";
             ProtoQueue *queue = m_protocols.value(slave->protocol());
             if (queue) {
-                const QList<Slave *> slaves = queue->allSlaves();
+                const QList<Worker *> slaves = queue->allSlaves();
                 for (auto *runningSlave : slaves) {
                     if (slave->host() == runningSlave->host()) {
                         slave->setConfig(metaDataFor(slave->protocol(), jobPriv->m_proxyList, job->url()));
@@ -803,7 +807,7 @@ MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QStringLis
     return configData;
 }
 
-void SchedulerPrivate::setupSlave(KIO::Slave *slave,
+void SchedulerPrivate::setupSlave(KIO::Worker *slave,
                                   const QUrl &url,
                                   const QString &protocol,
                                   const QStringList &proxyList,
@@ -830,7 +834,7 @@ void SchedulerPrivate::setupSlave(KIO::Slave *slave,
     }
 }
 
-void SchedulerPrivate::slotSlaveDied(KIO::Slave *slave)
+void SchedulerPrivate::slotSlaveDied(KIO::Worker *slave)
 {
     // qDebug() << slave;
     Q_ASSERT(slave);
@@ -854,11 +858,11 @@ void SchedulerPrivate::slotSlaveDied(KIO::Slave *slave)
 
 void SchedulerPrivate::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)
 {
-    Slave *slave = jobSlave(job);
+    Worker *slave = jobSlave(job);
     // qDebug() << job << url << slave;
     slave->disconnect(job);
     // prevent the fake death of the slave from trying to kill the job again;
-    // cf. Slave::hold(const QUrl &url) called in SchedulerPrivate::publishSlaveOnHold().
+    // cf. Worker::hold(const QUrl &url) called in SchedulerPrivate::publishSlaveOnHold().
     slave->setJob(nullptr);
     SimpleJobPrivate::get(job)->m_slave = nullptr;
 
@@ -879,9 +883,9 @@ bool SchedulerPrivate::isSlaveOnHoldFor(const QUrl &url)
     return false;
 }
 
-Slave *SchedulerPrivate::heldSlaveForJob(SimpleJob *job)
+Worker *SchedulerPrivate::heldSlaveForJob(SimpleJob *job)
 {
-    Slave *slave = nullptr;
+    Worker *slave = nullptr;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
 
     if (m_slaveOnHold) {
