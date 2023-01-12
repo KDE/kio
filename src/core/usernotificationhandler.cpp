@@ -20,10 +20,10 @@ using namespace KIO;
 QString UserNotificationHandler::Request::key() const
 {
     QString key;
-    if (slave) {
-        key = slave->protocol();
-        key += slave->host();
-        key += slave->port();
+    if (worker) {
+        key = worker->protocol();
+        key += worker->host();
+        key += worker->port();
         key += QLatin1Char('-');
         key += QChar(type);
     }
@@ -44,7 +44,7 @@ void UserNotificationHandler::requestMessageBox(WorkerInterface *iface, int type
 {
     Request *r = new Request;
     r->type = type;
-    r->slave = qobject_cast<KIO::Worker *>(iface);
+    r->worker = qobject_cast<KIO::Worker *>(iface);
     r->data = data;
 
     m_pendingRequests.append(r);
@@ -62,13 +62,13 @@ void UserNotificationHandler::processRequest()
     int result = -1;
     Request *r = m_pendingRequests.first();
 
-    if (r->slave) {
+    if (r->worker) {
         const QString key = r->key();
 
         if (m_cachedResults.contains(key)) {
             result = *(m_cachedResults[key]);
         } else {
-            KIO::SimpleJob *job = r->slave->job();
+            KIO::SimpleJob *job = r->worker->job();
             AskUserActionInterface *askUserIface = job ? KIO::delegateExtension<KIO::AskUserActionInterface *>(job) : nullptr;
 
             if (askUserIface) {
@@ -109,7 +109,7 @@ void UserNotificationHandler::processRequest()
             }
         }
     } else {
-        qCWarning(KIO_CORE) << "Cannot prompt user because the requesting KIO worker died!" << r->slave;
+        qCWarning(KIO_CORE) << "Cannot prompt user because the requesting KIO worker died!" << r->worker;
     }
 
     slotProcessRequest(result);
@@ -120,7 +120,7 @@ void UserNotificationHandler::slotProcessRequest(int result)
     Request *request = m_pendingRequests.takeFirst();
     m_cachedResults.insert(request->key(), new int(result));
 
-    request->slave->sendMessageBoxAnswer(result);
+    request->worker->sendMessageBoxAnswer(result);
     delete request;
 
     if (m_pendingRequests.isEmpty()) {

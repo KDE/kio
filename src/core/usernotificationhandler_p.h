@@ -41,7 +41,7 @@ public:
         QString key() const;
 
         int type;
-        QPointer<Worker> slave;
+        QPointer<Worker> worker;
         QHash<MessageBoxDataType, QVariant> data;
     };
 
