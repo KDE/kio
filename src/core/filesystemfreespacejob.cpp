@@ -24,11 +24,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     Q_DECLARE_PUBLIC(FileSystemFreeSpaceJob)
 
@@ -49,9 +49,9 @@ FileSystemFreeSpaceJob::~FileSystemFreeSpaceJob()
 {
 }
 
-void FileSystemFreeSpaceJobPrivate::start(Worker *slave)
+void FileSystemFreeSpaceJobPrivate::start(Worker *worker)
 {
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
 }
 
 void FileSystemFreeSpaceJob::slotFinished()
@@ -66,7 +66,7 @@ void FileSystemFreeSpaceJob::slotFinished()
     const KIO::filesize_t available = availableStr.toULongLong();
     Q_EMIT result(this, total, available);
 
-    // Return slave to the scheduler
+    // Return worker to the scheduler
     SimpleJob::slotFinished();
 }
 

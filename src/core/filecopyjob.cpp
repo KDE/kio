@@ -21,9 +21,9 @@
 
 using namespace KIO;
 
-static inline Worker *jobSlave(SimpleJob *job)
+static inline Worker *jobWorker(SimpleJob *job)
 {
-    return SimpleJobPrivate::get(job)->m_slave;
+    return SimpleJobPrivate::get(job)->m_worker;
 }
 
 /** @internal */
@@ -104,7 +104,7 @@ public:
     }
 };
 
-static bool isSrcDestSameSlaveProcess(const QUrl &src, const QUrl &dest)
+static bool isSrcDestSameWorkerProcess(const QUrl &src, const QUrl &dest)
 {
     /* clang-format off */
     return src.scheme() == dest.scheme()
@@ -142,7 +142,7 @@ void FileCopyJobPrivate::slotStart()
 
     if (m_move) {
         // The if() below must be the same as the one in startBestCopyMethod
-        if (isSrcDestSameSlaveProcess(m_src, m_dest)) {
+        if (isSrcDestSameWorkerProcess(m_src, m_dest)) {
             startRenameJob(m_src);
             return;
         } else if (m_src.isLocalFile() && KProtocolManager::canRenameFromFile(m_dest)) {
@@ -159,7 +159,7 @@ void FileCopyJobPrivate::slotStart()
 
 void FileCopyJobPrivate::startBestCopyMethod()
 {
-    if (isSrcDestSameSlaveProcess(m_src, m_dest)) {
+    if (isSrcDestSameWorkerProcess(m_src, m_dest)) {
         startCopyJob();
     } else if (m_src.isLocalFile() && KProtocolManager::canCopyFromFile(m_dest)) {
         startCopyJob(m_dest);
@@ -345,7 +345,7 @@ void FileCopyJobPrivate::slotCanResume(KIO::Job *job, KIO::filesize_t offset)
         m_canResume = true;
         // qDebug() << "'can resume' from the GET job -> we can resume";
 
-        jobSlave(m_getJob)->setOffset(jobSlave(m_putJob)->offset());
+        jobWorker(m_getJob)->setOffset(jobWorker(m_putJob)->offset());
         return;
     }
 
@@ -411,7 +411,7 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
     }
 
     if (job == m_copyJob) {
-        jobSlave(m_copyJob)->sendResumeAnswer(offset != 0);
+        jobWorker(m_copyJob)->sendResumeAnswer(offset != 0);
         return;
     }
 
@@ -435,7 +435,7 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
                 slotCanResume(job, offset);
             });
         }
-        jobSlave(m_putJob)->setOffset(offset);
+        jobWorker(m_putJob)->setOffset(offset);
 
         m_putJob->d_func()->internalSuspend();
         q->addSubjob(m_getJob);
@@ -467,7 +467,7 @@ void FileCopyJobPrivate::slotData(KIO::Job *, const QByteArray &data)
     if (!m_resumeAnswerSent) {
         m_resumeAnswerSent = true;
         // qDebug() << "(first time) -> send resume answer " << m_canResume;
-        jobSlave(m_putJob)->sendResumeAnswer(m_canResume);
+        jobWorker(m_putJob)->sendResumeAnswer(m_canResume);
     }
 }
 

@@ -36,11 +36,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     Q_DECLARE_PUBLIC(FileJob)
 
@@ -71,7 +71,7 @@ void FileJob::read(KIO::filesize_t size)
     }
 
     KIO_ARGS << size;
-    d->m_slave->send(CMD_READ, packedArgs);
+    d->m_worker->send(CMD_READ, packedArgs);
 }
 
 void FileJob::write(const QByteArray &_data)
@@ -81,7 +81,7 @@ void FileJob::write(const QByteArray &_data)
         return;
     }
 
-    d->m_slave->send(CMD_WRITE, _data);
+    d->m_worker->send(CMD_WRITE, _data);
 }
 
 void FileJob::seek(KIO::filesize_t offset)
@@ -92,7 +92,7 @@ void FileJob::seek(KIO::filesize_t offset)
     }
 
     KIO_ARGS << KIO::filesize_t(offset);
-    d->m_slave->send(CMD_SEEK, packedArgs);
+    d->m_worker->send(CMD_SEEK, packedArgs);
 }
 
 void FileJob::truncate(KIO::filesize_t length)
@@ -103,7 +103,7 @@ void FileJob::truncate(KIO::filesize_t length)
     }
 
     KIO_ARGS << KIO::filesize_t(length);
-    d->m_slave->send(CMD_TRUNCATE, packedArgs);
+    d->m_worker->send(CMD_TRUNCATE, packedArgs);
 }
 
 void FileJob::close()
@@ -113,7 +113,7 @@ void FileJob::close()
         return;
     }
 
-    d->m_slave->send(CMD_CLOSE);
+    d->m_worker->send(CMD_CLOSE);
     // ###  close?
 }
 
@@ -127,7 +127,7 @@ KIO::filesize_t FileJob::size()
     return d->m_size;
 }
 
-// Slave sends data
+// Worker sends data
 void FileJobPrivate::slotData(const QByteArray &_data)
 {
     Q_Q(FileJob);
@@ -188,52 +188,52 @@ void FileJobPrivate::slotFinished()
 
     Q_EMIT q->fileClosed(q);
 
-    // Return slave to the scheduler
-    slaveDone();
+    // Return worker to the scheduler
+    workerDone();
     // Scheduler::doJob(this);
     q->emitResult();
 }
 
-void FileJobPrivate::start(Worker *slave)
+void FileJobPrivate::start(Worker *worker)
 {
     Q_Q(FileJob);
-    q->connect(slave, &KIO::WorkerInterface::data, q, [this](const QByteArray &ba) {
+    q->connect(worker, &KIO::WorkerInterface::data, q, [this](const QByteArray &ba) {
         slotData(ba);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
+    q->connect(worker, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::mimeType, q, [this](const QString &mimeType) {
+    q->connect(worker, &KIO::WorkerInterface::mimeType, q, [this](const QString &mimeType) {
         slotMimetype(mimeType);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::open, q, [this]() {
+    q->connect(worker, &KIO::WorkerInterface::open, q, [this]() {
         slotOpen();
     });
 
-    q->connect(slave, &KIO::WorkerInterface::finished, q, [this]() {
+    q->connect(worker, &KIO::WorkerInterface::finished, q, [this]() {
         slotFinished();
     });
 
-    q->connect(slave, &KIO::WorkerInterface::position, q, [this](KIO::filesize_t pos) {
+    q->connect(worker, &KIO::WorkerInterface::position, q, [this](KIO::filesize_t pos) {
         slotPosition(pos);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::truncated, q, [this](KIO::filesize_t length) {
+    q->connect(worker, &KIO::WorkerInterface::truncated, q, [this](KIO::filesize_t length) {
         slotTruncated(length);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::written, q, [this](KIO::filesize_t dataWritten) {
+    q->connect(worker, &KIO::WorkerInterface::written, q, [this](KIO::filesize_t dataWritten) {
         slotWritten(dataWritten);
     });
 
-    q->connect(slave, &KIO::WorkerInterface::totalSize, q, [this](KIO::filesize_t size) {
+    q->connect(worker, &KIO::WorkerInterface::totalSize, q, [this](KIO::filesize_t size) {
         slotTotalSize(size);
     });
 
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
 }
 
 FileJob *KIO::open(const QUrl &url, QIODevice::OpenMode mode)

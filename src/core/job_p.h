@@ -114,7 +114,7 @@ public:
      * @param packedArgs the arguments
      */
     SimpleJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
-        : m_slave(nullptr)
+        : m_worker(nullptr)
         , m_packedArgs(packedArgs)
         , m_url(url)
         , m_command(command)
@@ -123,7 +123,7 @@ public:
     {
     }
 
-    QPointer<Worker> m_slave;
+    QPointer<Worker> m_worker;
     QByteArray m_packedArgs;
     QUrl m_url;
     QUrl m_subUrl; // TODO KF6 remove
@@ -152,53 +152,53 @@ public:
     void simpleJobInit();
 
     /**
-     * Called on a slave's connected signal.
+     * Called on a worker's connected signal.
      * @see connected()
      */
     void slotConnected();
     /**
-     * Forward signal from the slave.
+     * Forward signal from the worker.
      * @param data_size the processed size in bytes
      * @see processedSize()
      */
     void slotProcessedSize(KIO::filesize_t data_size);
     /**
-     * Forward signal from the slave.
+     * Forward signal from the worker.
      * @param speed the speed in bytes/s
      * @see speed()
      */
     void slotSpeed(unsigned long speed);
     /**
-     * Forward signal from the slave
+     * Forward signal from the worker.
      * Can also be called by the parent job, when it knows the size.
      * @param data_size the total size
      */
     void slotTotalSize(KIO::filesize_t data_size);
 
     /**
-     * Called on a slave's info message.
+     * Called on a worker's info message.
      * @param s the info message
      * @see infoMessage()
      */
-    void _k_slotSlaveInfoMessage(const QString &s);
+    void _k_slotWorkerInfoMessage(const QString &s);
 
     /**
-     * Called when privilegeOperationRequested() is emitted by slave.
+     * Called when privilegeOperationRequested() is emitted by worker.
      */
     void slotPrivilegeOperationRequested();
 
     /**
      * @internal
-     * Called by the scheduler when a slave gets to
+     * Called by the scheduler when a worker gets to
      * work on this job.
      **/
-    virtual void start(KIO::Worker *slave);
+    virtual void start(KIO::Worker *worker);
 
     /**
      * @internal
-     * Called to detach a slave from a job.
+     * Called to detach a worker from a job.
      **/
-    void slaveDone();
+    void workerDone();
 
     /**
      * Called by subclasses to restart the job after a redirection was signalled.
@@ -286,20 +286,20 @@ public:
     QMetaObject::Connection m_readChannelFinishedConnection;
 
     /**
-     * Flow control. Suspend data processing from the slave.
+     * Flow control. Suspend data processing from the worker.
      */
     void internalSuspend();
     /**
-     * Flow control. Resume data processing from the slave.
+     * Flow control. Resume data processing from the worker.
      */
     void internalResume();
     /**
      * @internal
-     * Called by the scheduler when a slave gets to
+     * Called by the scheduler when a worker gets to
      * work on this job.
-     * @param slave the slave that works on the job
+     * @param worker the worker that works on the job
      */
-    void start(KIO::Worker *slave) override;
+    void start(KIO::Worker *worker) override;
     /**
      * @internal
      * Called when the KIO worker needs the data to send the server. This slot

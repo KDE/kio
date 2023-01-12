@@ -36,11 +36,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     Q_DECLARE_PUBLIC(StatJob)
 
@@ -108,20 +108,20 @@ QUrl StatJob::mostLocalUrl() const
     return QUrl::fromLocalFile(path);
 }
 
-void StatJobPrivate::start(Worker *slave)
+void StatJobPrivate::start(Worker *worker)
 {
     Q_Q(StatJob);
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
     m_outgoingMetaData.insert(QStringLiteral("statDetails"), QString::number(m_details));
 
-    q->connect(slave, &KIO::WorkerInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
+    q->connect(worker, &KIO::WorkerInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
         slotStatEntry(entry);
     });
-    q->connect(slave, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
+    q->connect(worker, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
 }
 
 void StatJobPrivate::slotStatEntry(const KIO::UDSEntry &entry)

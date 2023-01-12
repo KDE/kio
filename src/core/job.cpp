@@ -337,11 +337,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     Q_DECLARE_PUBLIC(DirectCopyJob)
 };
@@ -356,11 +356,11 @@ DirectCopyJob::~DirectCopyJob()
 {
 }
 
-void DirectCopyJobPrivate::start(Worker *slave)
+void DirectCopyJobPrivate::start(Worker *worker)
 {
     Q_Q(DirectCopyJob);
-    q->connect(slave, &WorkerInterface::canResume, q, &DirectCopyJob::slotCanResume);
-    SimpleJobPrivate::start(slave);
+    q->connect(worker, &WorkerInterface::canResume, q, &DirectCopyJob::slotCanResume);
+    SimpleJobPrivate::start(worker);
 }
 
 void DirectCopyJob::slotCanResume(KIO::filesize_t offset)

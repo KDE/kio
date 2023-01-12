@@ -38,11 +38,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     void slotListEntries(const KIO::UDSEntryList &list);
     void slotRedirection(const QUrl &url);
@@ -193,7 +193,7 @@ void ListJob::slotResult(KJob *job)
         Q_EMIT subError(this, static_cast<KIO::ListJob *>(job));
     }
     removeSubjob(job);
-    if (!hasSubjobs() && !d->m_slave) { // if the main directory listing is still running, it will emit result in SimpleJob::slotFinished()
+    if (!hasSubjobs() && !d->m_worker) { // if the main directory listing is still running, it will emit result in SimpleJob::slotFinished()
         emitResult();
     }
 }
@@ -229,7 +229,7 @@ void ListJob::slotFinished()
         }
     }
 
-    // Return slave to the scheduler
+    // Return worker to the scheduler
     SimpleJob::slotFinished();
 }
 
@@ -253,7 +253,7 @@ void ListJob::setUnrestricted(bool unrestricted)
     }
 }
 
-void ListJobPrivate::start(Worker *slave)
+void ListJobPrivate::start(Worker *worker)
 {
     Q_Q(ListJob);
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("list"), m_url, m_url) && !(m_extraFlags & EF_ListJobUnrestricted)) {
@@ -262,19 +262,19 @@ void ListJobPrivate::start(Worker *slave)
         QTimer::singleShot(0, q, &ListJob::slotFinished);
         return;
     }
-    QObject::connect(slave, &Worker::listEntries, q, [this](const KIO::UDSEntryList &list) {
+    QObject::connect(worker, &Worker::listEntries, q, [this](const KIO::UDSEntryList &list) {
         slotListEntries(list);
     });
 
-    QObject::connect(slave, &Worker::totalSize, q, [this](KIO::filesize_t size) {
+    QObject::connect(worker, &Worker::totalSize, q, [this](KIO::filesize_t size) {
         slotTotalSize(size);
     });
 
-    QObject::connect(slave, &Worker::redirection, q, [this](const QUrl &url) {
+    QObject::connect(worker, &Worker::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
 }
 
 const QUrl &ListJob::redirectionUrl() const

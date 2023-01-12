@@ -34,7 +34,7 @@ using namespace KIO;
 
 static inline Worker *jobSlave(SimpleJob *job)
 {
-    return SimpleJobPrivate::get(job)->m_slave;
+    return SimpleJobPrivate::get(job)->m_worker;
 }
 
 static inline int jobCommand(SimpleJob *job)
@@ -422,7 +422,7 @@ void ProtoQueue::removeJob(SimpleJob *job)
     if (hq.removeJob(job)) {
         if (hq.lowestSerial() != prevLowestSerial) {
             // we have dequeued the not yet running job with the lowest serial
-            Q_ASSERT(!jobPriv->m_slave);
+            Q_ASSERT(!jobPriv->m_worker);
             Q_ASSERT(prevRunningJobs == hq.runningJobsCount());
             if (m_queuesBySerial.remove(prevLowestSerial) == 0) {
                 // make sure that the queue was not scheduled for a good reason
@@ -446,8 +446,8 @@ void ProtoQueue::removeJob(SimpleJob *job)
             m_queuesByHostname.remove(jobPriv->m_url.host());
         }
 
-        if (jobPriv->m_slave && jobPriv->m_slave->isAlive()) {
-            m_slaveKeeper.returnSlave(jobPriv->m_slave);
+        if (jobPriv->m_worker && jobPriv->m_worker->isAlive()) {
+            m_slaveKeeper.returnSlave(jobPriv->m_worker);
         }
         // just in case; startAJob() will refuse to start a job if it shouldn't.
         m_startJobTimer.start();
@@ -551,7 +551,7 @@ void ProtoQueue::startAJob()
         }
 
         if (slave) {
-            jobPriv->m_slave = slave;
+            jobPriv->m_worker = slave;
             schedulerPrivate()->setupSlave(slave, jobPriv->m_url, jobPriv->m_protocol, jobPriv->m_proxyList, isNewSlave);
             startJob(startingJob, slave);
         } else {
@@ -766,7 +766,7 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *slave)
         slave->disconnect(job);
     }
     jobPriv->m_schedSerial = 0; // this marks the job as unscheduled again
-    jobPriv->m_slave = nullptr;
+    jobPriv->m_worker = nullptr;
     // Clear the values in the internal metadata container since they have
     // already been taken care of above...
     jobPriv->m_internalMetaData.clear();
@@ -864,7 +864,7 @@ void SchedulerPrivate::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)
     // prevent the fake death of the slave from trying to kill the job again;
     // cf. Worker::hold(const QUrl &url) called in SchedulerPrivate::publishSlaveOnHold().
     slave->setJob(nullptr);
-    SimpleJobPrivate::get(job)->m_slave = nullptr;
+    SimpleJobPrivate::get(job)->m_worker = nullptr;
 
     if (m_slaveOnHold) {
         m_slaveOnHold->kill();

@@ -27,11 +27,11 @@ public:
 
     /**
      * @internal
-     * Called by the scheduler when a @p slave gets to
+     * Called by the scheduler when a @p worker gets to
      * work on this job.
-     * @param slave the slave that starts working on this job
+     * @param worker the worker that starts working on this job
      */
-    void start(Worker *slave) override;
+    void start(Worker *worker) override;
 
     Q_DECLARE_PUBLIC(MkdirJob)
 
@@ -52,14 +52,14 @@ MkdirJob::~MkdirJob()
 {
 }
 
-void MkdirJobPrivate::start(Worker *slave)
+void MkdirJobPrivate::start(Worker *worker)
 {
     Q_Q(MkdirJob);
-    q->connect(slave, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
+    q->connect(worker, &KIO::WorkerInterface::redirection, q, [this](const QUrl &url) {
         slotRedirection(url);
     });
 
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
 }
 
 // Worker got a redirection request
@@ -103,7 +103,7 @@ void MkdirJob::slotFinished()
         }
     }
 
-    // Return slave to the scheduler
+    // Return worker to the scheduler
     SimpleJob::slotFinished();
 }
 

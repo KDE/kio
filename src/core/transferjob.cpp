@@ -172,8 +172,8 @@ void TransferJob::sendAsyncData(const QByteArray &dataForWorker)
 {
     Q_D(TransferJob);
     if (d->m_extraFlags & JobPrivate::EF_TransferJobNeedData) {
-        if (d->m_slave) {
-            d->m_slave->send(MSG_DATA, dataForWorker);
+        if (d->m_worker) {
+            d->m_worker->send(MSG_DATA, dataForWorker);
         }
         if (d->m_extraFlags & JobPrivate::EF_TransferJobDataSent) { // put job -> emit progress
             KIO::filesize_t size = processedAmount(KJob::Bytes) + dataForWorker.size();
@@ -244,16 +244,16 @@ void TransferJob::slotMimetype(const QString &type)
 void TransferJobPrivate::internalSuspend()
 {
     m_internalSuspended = true;
-    if (m_slave) {
-        m_slave->suspend();
+    if (m_worker) {
+        m_worker->suspend();
     }
 }
 
 void TransferJobPrivate::internalResume()
 {
     m_internalSuspended = false;
-    if (m_slave && !q_func()->isSuspended()) {
-        m_slave->resume();
+    if (m_worker && !q_func()->isSuspended()) {
+        m_worker->resume();
     }
 }
 
@@ -274,12 +274,12 @@ bool TransferJob::isErrorPage() const
     return d_func()->m_errorPage;
 }
 
-void TransferJobPrivate::start(Worker *slave)
+void TransferJobPrivate::start(Worker *worker)
 {
     Q_Q(TransferJob);
-    Q_ASSERT(slave);
+    Q_ASSERT(worker);
     JobPrivate::emitTransferring(q, m_url);
-    q->connect(slave, &WorkerInterface::data, q, &TransferJob::slotData);
+    q->connect(worker, &WorkerInterface::data, q, &TransferJob::slotData);
 
     if (m_outgoingDataSource) {
         if (m_extraFlags & JobPrivate::EF_TransferJobAsync) {
@@ -300,39 +300,39 @@ void TransferJobPrivate::start(Worker *slave)
                 QMetaObject::invokeMethod(q, dataReqFunc, Qt::QueuedConnection);
             }
         } else {
-            q->connect(slave, &WorkerInterface::dataReq, q, [this]() {
+            q->connect(worker, &WorkerInterface::dataReq, q, [this]() {
                 slotDataReqFromDevice();
             });
         }
     } else {
-        q->connect(slave, &WorkerInterface::dataReq, q, &TransferJob::slotDataReq);
+        q->connect(worker, &WorkerInterface::dataReq, q, &TransferJob::slotDataReq);
     }
 
-    q->connect(slave, &WorkerInterface::redirection, q, &TransferJob::slotRedirection);
+    q->connect(worker, &WorkerInterface::redirection, q, &TransferJob::slotRedirection);
 
-    q->connect(slave, &WorkerInterface::mimeType, q, &TransferJob::slotMimetype);
+    q->connect(worker, &WorkerInterface::mimeType, q, &TransferJob::slotMimetype);
 
-    q->connect(slave, &WorkerInterface::errorPage, q, [this]() {
+    q->connect(worker, &WorkerInterface::errorPage, q, [this]() {
         m_errorPage = true;
     });
 
-    q->connect(slave, &WorkerInterface::needSubUrlData, q, [this]() {
+    q->connect(worker, &WorkerInterface::needSubUrlData, q, [this]() {
         slotNeedSubUrlData();
     });
 
-    q->connect(slave, &WorkerInterface::canResume, q, [q](KIO::filesize_t offset) {
+    q->connect(worker, &WorkerInterface::canResume, q, [q](KIO::filesize_t offset) {
         Q_EMIT q->canResume(q, offset);
     });
 
-    if (slave->suspended()) {
+    if (worker->suspended()) {
         m_mimetype = QStringLiteral("unknown");
         // WABA: The worker was put on hold. Resume operation.
-        slave->resume();
+        worker->resume();
     }
 
-    SimpleJobPrivate::start(slave);
+    SimpleJobPrivate::start(worker);
     if (m_internalSuspended) {
-        slave->suspend();
+        worker->suspend();
     }
 }
 

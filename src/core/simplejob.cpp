@@ -42,7 +42,7 @@ bool SimpleJob::doKill()
     Q_D(SimpleJob);
     if ((d->m_extraFlags & JobPrivate::EF_KillCalled) == 0) {
         d->m_extraFlags |= JobPrivate::EF_KillCalled;
-        Scheduler::cancelJob(this); // deletes the slave if not 0
+        Scheduler::cancelJob(this); // deletes the worker if not 0
     } else {
         qCWarning(KIO_CORE) << this << "killed twice, this is overkill";
     }
@@ -52,8 +52,8 @@ bool SimpleJob::doKill()
 bool SimpleJob::doSuspend()
 {
     Q_D(SimpleJob);
-    if (d->m_slave) {
-        d->m_slave->suspend();
+    if (d->m_worker) {
+        d->m_worker->suspend();
     }
     return Job::doSuspend();
 }
@@ -61,8 +61,8 @@ bool SimpleJob::doSuspend()
 bool SimpleJob::doResume()
 {
     Q_D(SimpleJob);
-    if (d->m_slave) {
-        d->m_slave->resume();
+    if (d->m_worker) {
+        d->m_worker->resume();
     }
     return Job::doResume();
 }
@@ -75,12 +75,12 @@ const QUrl &SimpleJob::url() const
 void SimpleJob::putOnHold()
 {
     Q_D(SimpleJob);
-    Q_ASSERT(d->m_slave);
-    if (d->m_slave) {
+    Q_ASSERT(d->m_worker);
+    if (d->m_worker) {
         Scheduler::putWorkerOnHold(this, d->m_url);
     }
-    // we should now be disassociated from the slave
-    Q_ASSERT(!d->m_slave);
+    // we should now be disassociated from the worker
+    Q_ASSERT(!d->m_worker);
     kill(Quietly);
 }
 
@@ -110,44 +110,44 @@ SimpleJob::~SimpleJob()
     }
 }
 
-void SimpleJobPrivate::start(Worker *slave)
+void SimpleJobPrivate::start(Worker *worker)
 {
     Q_Q(SimpleJob);
-    m_slave = slave;
+    m_worker = worker;
 
     // Worker::setJob can send us SSL metadata if there is a persistent connection
-    QObject::connect(slave, &Worker::metaData, q, &SimpleJob::slotMetaData);
+    QObject::connect(worker, &Worker::metaData, q, &SimpleJob::slotMetaData);
 
-    slave->setJob(q);
+    worker->setJob(q);
 
-    QObject::connect(slave, &Worker::error, q, &SimpleJob::slotError);
+    QObject::connect(worker, &Worker::error, q, &SimpleJob::slotError);
 
-    QObject::connect(slave, &Worker::warning, q, &SimpleJob::slotWarning);
+    QObject::connect(worker, &Worker::warning, q, &SimpleJob::slotWarning);
 
-    QObject::connect(slave, &Worker::finished, q, &SimpleJob::slotFinished);
+    QObject::connect(worker, &Worker::finished, q, &SimpleJob::slotFinished);
 
-    QObject::connect(slave, &Worker::infoMessage, q, [this](const QString &message) {
-        _k_slotSlaveInfoMessage(message);
+    QObject::connect(worker, &Worker::infoMessage, q, [this](const QString &message) {
+        _k_slotWorkerInfoMessage(message);
     });
 
-    QObject::connect(slave, &Worker::connected, q, [this]() {
+    QObject::connect(worker, &Worker::connected, q, [this]() {
         slotConnected();
     });
 
-    QObject::connect(slave, &Worker::privilegeOperationRequested, q, [this]() {
+    QObject::connect(worker, &Worker::privilegeOperationRequested, q, [this]() {
         slotPrivilegeOperationRequested();
     });
 
     if ((m_extraFlags & EF_TransferJobDataSent) == 0) { // this is a "get" job
-        QObject::connect(slave, &Worker::totalSize, q, [this](KIO::filesize_t size) {
+        QObject::connect(worker, &Worker::totalSize, q, [this](KIO::filesize_t size) {
             slotTotalSize(size);
         });
 
-        QObject::connect(slave, &Worker::processedSize, q, [this](KIO::filesize_t size) {
+        QObject::connect(worker, &Worker::processedSize, q, [this](KIO::filesize_t size) {
             slotProcessedSize(size);
         });
 
-        QObject::connect(slave, &Worker::speed, q, [this](ulong speed) {
+        QObject::connect(worker, &Worker::speed, q, [this](ulong speed) {
             slotSpeed(speed);
         });
     }
@@ -168,40 +168,40 @@ void SimpleJobPrivate::start(Worker *slave)
 
     if (!m_outgoingMetaData.isEmpty()) {
         KIO_ARGS << m_outgoingMetaData;
-        slave->send(CMD_META_DATA, packedArgs);
+        worker->send(CMD_META_DATA, packedArgs);
     }
 
     if (!m_subUrl.isEmpty()) { // TODO KF6 remove
         KIO_ARGS << m_subUrl;
-        slave->send(CMD_SUBURL, packedArgs);
+        worker->send(CMD_SUBURL, packedArgs);
     }
 
-    slave->send(m_command, m_packedArgs);
+    worker->send(m_command, m_packedArgs);
     if (q->isSuspended()) {
-        slave->suspend();
+        worker->suspend();
     }
 }
 
-void SimpleJobPrivate::slaveDone()
+void SimpleJobPrivate::workerDone()
 {
     Q_Q(SimpleJob);
-    if (m_slave) {
+    if (m_worker) {
         if (m_command == CMD_OPEN) {
-            m_slave->send(CMD_CLOSE);
+            m_worker->send(CMD_CLOSE);
         }
-        q->disconnect(m_slave); // Remove all signals between slave and job
+        q->disconnect(m_worker); // Remove all signals between worker and job
     }
     // only finish a job once; Scheduler::jobFinished() resets schedSerial to zero.
     if (m_schedSerial) {
-        Scheduler::jobFinished(q, m_slave);
+        Scheduler::jobFinished(q, m_worker);
     }
 }
 
 void SimpleJob::slotFinished()
 {
     Q_D(SimpleJob);
-    // Return slave to the scheduler
-    d->slaveDone();
+    // Return worker to the scheduler
+    d->workerDone();
 
     if (!hasSubjobs()) {
         if (!error() && (d->m_command == CMD_MKDIR || d->m_command == CMD_RENAME)) {
@@ -252,7 +252,7 @@ void SimpleJob::slotWarning(const QString &errorText)
     Q_EMIT warning(this, errorText);
 }
 
-void SimpleJobPrivate::_k_slotSlaveInfoMessage(const QString &msg)
+void SimpleJobPrivate::_k_slotWorkerInfoMessage(const QString &msg)
 {
     Q_EMIT q_func()->infoMessage(q_func(), msg);
 }
@@ -286,9 +286,9 @@ void SimpleJobPrivate::slotSpeed(unsigned long speed)
 void SimpleJobPrivate::restartAfterRedirection(QUrl *redirectionUrl)
 {
     Q_Q(SimpleJob);
-    // Return slave to the scheduler while we still have the old URL in place; the scheduler
+    // Return worker to the scheduler while we still have the old URL in place; the scheduler
     // requires a job URL to stay invariant while the job is running.
-    slaveDone();
+    workerDone();
 
     m_url = *redirectionUrl;
     redirectionUrl->clear();
@@ -320,7 +320,7 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
 
 void SimpleJobPrivate::slotPrivilegeOperationRequested()
 {
-    m_slave->send(MSG_PRIVILEGE_EXEC, privilegeOperationData());
+    m_worker->send(MSG_PRIVILEGE_EXEC, privilegeOperationData());
 }
 
 //////////
