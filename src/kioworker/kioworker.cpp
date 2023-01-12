@@ -32,7 +32,7 @@
 
 /* These are to link libkio even if 'smart' linker is used */
 #include <kio/authinfo.h>
-extern "C" KIO::AuthInfo *_kioslave_init_kio()
+extern "C" KIO::AuthInfo *_kioworker_init_kio()
 {
     return new KIO::AuthInfo();
 }
@@ -41,7 +41,7 @@ extern "C" KIO::AuthInfo *_kioslave_init_kio()
 int main(int argc, char **argv)
 {
     if (argc < 5) {
-        fprintf(stderr, "Usage: kioslave5 <slave-lib> <protocol> <klauncher-socket> <app-socket>\n\nThis program is part of KDE.\n");
+        fprintf(stderr, "Usage: kioworker <worker-lib> <protocol> <klauncher-socket> <app-socket>\n\nThis program is part of KDE.\n");
         return 1;
     }
 
@@ -73,11 +73,11 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    const QByteArray slaveDebugWait = qgetenv("KDE_SLAVE_DEBUG_WAIT");
+    const QByteArray workerDebugWait = qgetenv("KDE_SLAVE_DEBUG_WAIT");
 
 #ifdef Q_OS_WIN
     // enter debugger in case debugging is activated
-    if (slaveDebugWait == "all" || slaveDebugWait == argv[2]) {
+    if (workerDebugWait == "all" || workerDebugWait == argv[2]) {
 #ifdef Q_CC_MSVC
         // msvc debugger or windbg supports jit debugging, the latter requires setting up windbg jit with windbg -i
         DebugBreak();
@@ -99,14 +99,14 @@ int main(int argc, char **argv)
     }
 #if defined(Q_CC_MSVC)
     else {
-        QString slaveDebugPopup(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_POPUP")));
-        if (slaveDebugPopup == QLatin1String("all") || slaveDebugPopup == QString::fromLocal8Bit(argv[2])) {
+        QString workerDebugPopup(QString::fromLocal8Bit(qgetenv("KDE_SLAVE_DEBUG_POPUP")));
+        if (workerDebugPopup == QLatin1String("all") || workerDebugPopup == QString::fromLocal8Bit(argv[2])) {
             // A workaround for OSes where DebugBreak() does not work in administrative mode (actually Vista with msvc 2k5)
-            // - display a native message box so developer can attach the debugger to the KIO slave process and click OK.
+            // - display a native message box so developer can attach the debugger to the KIO worker process and click OK.
             MessageBoxA(
                 NULL,
                 QStringLiteral("Please attach the debugger to process #%1 (%2)").arg(getpid()).arg(QString::fromLocal8Bit(argv[0])).toLatin1().constData(),
-                QStringLiteral("\"%1\" KIO Slave Debugging").arg(QString::fromLocal8Bit(argv[2])).toLatin1().constData(),
+                QStringLiteral("\"%1\" KIO Worker Debugging").arg(QString::fromLocal8Bit(argv[2])).toLatin1().constData(),
                 MB_OK | MB_ICONINFORMATION | MB_TASKMODAL);
         }
     }
@@ -115,13 +115,13 @@ int main(int argc, char **argv)
 
 #if defined(Q_OS_UNIX)
     // Enter debugger in case debugging is activated
-    if (slaveDebugWait == "all" || slaveDebugWait == argv[2]) {
+    if (workerDebugWait == "all" || workerDebugWait == argv[2]) {
         const pid_t pid = getpid();
         fprintf(stderr,
-                "kioslave5: Suspending process to debug io slave(s): %s\n"
-                "kioslave5: 'gdb kioslave5 %d' to debug\n"
-                "kioslave5: 'kill -SIGCONT %d' to continue\n",
-                slaveDebugWait.constData(),
+                "kioworker: Suspending process to debug io worker(s): %s\n"
+                "kioworker: 'gdb kioworker %d' to debug\n"
+                "kioworker: 'kill -SIGCONT %d' to continue\n",
+                workerDebugWait.constData(),
                 pid,
                 pid);
 
@@ -131,9 +131,9 @@ int main(int argc, char **argv)
 
     int (*func)(int, char *[]) = (int (*)(int, char *[]))sym;
 
-    // We need argv[0] to remain /path/to/kioslave5
+    // We need argv[0] to remain /path/to/kioworker
     // so that applicationDirPath() is correct on non-Linux (no /proc)
-    // and we want to skip argv[1] so the kioslave5 exe is transparent to kdemain.
+    // and we want to skip argv[1] so the kioworker exe is transparent to kdemain.
     const int newArgc = argc - 1;
     QVarLengthArray<char *, 5> newArgv(newArgc);
     newArgv[0] = argv[0];

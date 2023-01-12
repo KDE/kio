@@ -9,7 +9,7 @@ if (NOT ANDROID)
     add_subdirectory(kssld)
     add_subdirectory(schemehandlers)
 endif()
-add_subdirectory(kioslave)
+add_subdirectory(kioworker)
 
 if (NOT KIOCORE_ONLY)
 add_subdirectory(gui)

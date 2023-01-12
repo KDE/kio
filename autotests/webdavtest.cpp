@@ -67,7 +67,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         // Force the http/webdav worker from our bindir as first choice. This specifically
-        // works around the fact that the kioslave executable would load the worker from the system
+        // works around the fact that the kioworker executable would load the worker from the system
         // as first choice instead of the one from the build dir.
         qputenv("QT_PLUGIN_PATH", QCoreApplication::applicationDirPath().toUtf8());
 

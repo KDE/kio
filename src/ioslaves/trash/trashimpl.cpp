@@ -269,7 +269,7 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
 #endif
     url.setPath(infoPath(trashId, origFileName)); // we first try with origFileName
     QUrl baseDirectory = QUrl::fromLocalFile(url.path());
-    // Here we need to use O_EXCL to avoid race conditions with other kioslave processes
+    // Here we need to use O_EXCL to avoid race conditions with other kioworker processes
     int fd = 0;
     QString fileName;
     do {

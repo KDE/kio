@@ -384,22 +384,22 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     // search paths
     QStringList searchPaths = KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf6"));
     searchPaths.append(QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF)); // look at our installation location
-    QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
-    if (kioslaveExecutable.isEmpty()) {
+    QString kioworkerExecutable = QStandardPaths::findExecutable(QStringLiteral("kioworker"), searchPaths);
+    if (kioworkerExecutable.isEmpty()) {
         // Fallback to PATH. On win32 we install to bin/ which tests outside
         // KIO cannot not find at the time ctest is run because it
         // isn't the same as applicationDirPath().
-        kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"));
+        kioworkerExecutable = QStandardPaths::findExecutable(QStringLiteral("kioworker"));
     }
-    if (kioslaveExecutable.isEmpty()) {
-        error_text = i18n("Can not find 'kioslave5' executable at '%1'", searchPaths.join(QLatin1String(", ")));
+    if (kioworkerExecutable.isEmpty()) {
+        error_text = i18n("Can not find 'kioworker' executable at '%1'", searchPaths.join(QLatin1String(", ")));
         error = KIO::ERR_CANNOT_CREATE_WORKER;
         delete worker;
         return nullptr;
     }
 
     qint64 pid = 0;
-    QProcess::startDetached(kioslaveExecutable, args, QString(), &pid);
+    QProcess::startDetached(kioworkerExecutable, args, QString(), &pid);
     worker->setPID(pid);
 
     return worker;
