@@ -27,8 +27,8 @@
 #include <QThread>
 #include <QThreadStorage>
 
-// Slaves may be idle for a certain time (3 minutes) before they are killed.
-static const int s_idleSlaveLifetime = 3 * 60;
+// Workers may be idle for a certain time (3 minutes) before they are killed.
+static const int s_idleWorkerLifetime = 3 * 60;
 
 using namespace KIO;
 
@@ -139,94 +139,94 @@ int SerialPicker::changedPrioritySerial(int oldSerial, int newPriority) const
     return unbiasedSerial + newPriority * m_jobsPerPriority;
 }
 
-SlaveKeeper::SlaveKeeper()
+WorkerManager::WorkerManager()
 {
     m_grimTimer.setSingleShot(true);
-    connect(&m_grimTimer, &QTimer::timeout, this, &SlaveKeeper::grimReaper);
+    connect(&m_grimTimer, &QTimer::timeout, this, &WorkerManager::grimReaper);
 }
 
-SlaveKeeper::~SlaveKeeper()
+WorkerManager::~WorkerManager()
 {
     grimReaper();
 }
 
-void SlaveKeeper::returnSlave(Worker *slave)
+void WorkerManager::returnWorker(Worker *worker)
 {
-    Q_ASSERT(slave);
-    slave->setIdle();
-    m_idleSlaves.insert(slave->host(), slave);
+    Q_ASSERT(worker);
+    worker->setIdle();
+    m_idleWorkers.insert(worker->host(), worker);
     scheduleGrimReaper();
 }
 
-Worker *SlaveKeeper::takeSlaveForJob(SimpleJob *job)
+Worker *WorkerManager::takeWorkerForJob(SimpleJob *job)
 {
-    Worker *slave = schedulerPrivate()->heldSlaveForJob(job);
-    if (slave) {
-        return slave;
+    Worker *worker = schedulerPrivate()->heldSlaveForJob(job);
+    if (worker) {
+        return worker;
     }
 
     QUrl url = SimpleJobPrivate::get(job)->m_url;
     // TODO take port, username and password into account
-    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.find(url.host());
-    if (it == m_idleSlaves.end()) {
-        it = m_idleSlaves.begin();
+    QMultiHash<QString, Worker *>::Iterator it = m_idleWorkers.find(url.host());
+    if (it == m_idleWorkers.end()) {
+        it = m_idleWorkers.begin();
     }
-    if (it == m_idleSlaves.end()) {
+    if (it == m_idleWorkers.end()) {
         return nullptr;
     }
-    slave = it.value();
-    m_idleSlaves.erase(it);
-    return slave;
+    worker = it.value();
+    m_idleWorkers.erase(it);
+    return worker;
 }
 
-bool SlaveKeeper::removeSlave(Worker *slave)
+bool WorkerManager::removeWorker(Worker *worker)
 {
     // ### performance not so great
-    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.begin();
-    for (; it != m_idleSlaves.end(); ++it) {
-        if (it.value() == slave) {
-            m_idleSlaves.erase(it);
+    QMultiHash<QString, Worker *>::Iterator it = m_idleWorkers.begin();
+    for (; it != m_idleWorkers.end(); ++it) {
+        if (it.value() == worker) {
+            m_idleWorkers.erase(it);
             return true;
         }
     }
     return false;
 }
 
-void SlaveKeeper::clear()
+void WorkerManager::clear()
 {
-    m_idleSlaves.clear();
+    m_idleWorkers.clear();
 }
 
-QList<Worker *> SlaveKeeper::allSlaves() const
+QList<Worker *> WorkerManager::allWorkers() const
 {
-    return m_idleSlaves.values();
+    return m_idleWorkers.values();
 }
 
-void SlaveKeeper::scheduleGrimReaper()
+void WorkerManager::scheduleGrimReaper()
 {
     if (!m_grimTimer.isActive()) {
-        m_grimTimer.start((s_idleSlaveLifetime / 2) * 1000);
+        m_grimTimer.start((s_idleWorkerLifetime / 2) * 1000);
     }
 }
 
 // private slot
-void SlaveKeeper::grimReaper()
+void WorkerManager::grimReaper()
 {
-    QMultiHash<QString, Worker *>::Iterator it = m_idleSlaves.begin();
-    while (it != m_idleSlaves.end()) {
-        Worker *slave = it.value();
-        if (slave->idleTime() >= s_idleSlaveLifetime) {
-            it = m_idleSlaves.erase(it);
-            if (slave->job()) {
-                // qDebug() << "Idle slave" << slave << "still has job" << slave->job();
+    QMultiHash<QString, Worker *>::Iterator it = m_idleWorkers.begin();
+    while (it != m_idleWorkers.end()) {
+        Worker *worker = it.value();
+        if (worker->idleTime() >= s_idleWorkerLifetime) {
+            it = m_idleWorkers.erase(it);
+            if (worker->job()) {
+                // qDebug() << "Idle worker" << worker << "still has job" << worker->job();
             }
-            // avoid invoking slotSlaveDied() because its cleanup services are not needed
-            slave->kill();
+            // avoid invoking slotWorkerDied() because its cleanup services are not needed
+            worker->kill();
         } else {
             ++it;
         }
     }
-    if (!m_idleSlaves.isEmpty()) {
+    if (!m_idleWorkers.isEmpty()) {
         scheduleGrimReaper();
     }
 }
@@ -340,8 +340,8 @@ ProtoQueue::~ProtoQueue()
 {
     // Gather list of all slaves first
     const QList<Worker *> slaves = allSlaves();
-    // Clear the idle slaves in the keeper to avoid dangling pointers
-    m_slaveKeeper.clear();
+    // Clear the idle workers in the manager to avoid dangling pointers
+    m_workerManager.clear();
     for (Worker *slave : slaves) {
         // kill the slave process and remove the interface in our process
         slave->kill();
@@ -447,7 +447,7 @@ void ProtoQueue::removeJob(SimpleJob *job)
         }
 
         if (jobPriv->m_worker && jobPriv->m_worker->isAlive()) {
-            m_slaveKeeper.returnSlave(jobPriv->m_worker);
+            m_workerManager.returnWorker(jobPriv->m_worker);
         }
         // just in case; startAJob() will refuse to start a job if it shouldn't.
         m_startJobTimer.start();
@@ -476,13 +476,13 @@ Worker *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const Q
 
 bool ProtoQueue::removeSlave(KIO::Worker *slave)
 {
-    const bool removed = m_slaveKeeper.removeSlave(slave);
+    const bool removed = m_workerManager.removeWorker(slave);
     return removed;
 }
 
 QList<Worker *> ProtoQueue::allSlaves() const
 {
-    QList<Worker *> ret(m_slaveKeeper.allSlaves());
+    QList<Worker *> ret(m_workerManager.allWorkers());
     auto it = m_queuesByHostname.cbegin();
     for (; it != m_queuesByHostname.cend(); ++it) {
         ret.append(it.value().allSlaves());
@@ -543,7 +543,7 @@ void ProtoQueue::startAJob()
         m_runningJobsCount++;
 
         bool isNewSlave = false;
-        Worker *slave = m_slaveKeeper.takeSlaveForJob(startingJob);
+        Worker *slave = m_workerManager.takeWorkerForJob(startingJob);
         SimpleJobPrivate *jobPriv = SimpleJobPrivate::get(startingJob);
         if (!slave) {
             isNewSlave = true;

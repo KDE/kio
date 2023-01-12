@@ -20,7 +20,7 @@ namespace KIO
 {
 
 class WorkerThread;
-class SlaveKeeper;
+class WorkerManager;
 class SimpleJob;
 class Scheduler;
 class SchedulerPrivate;
@@ -117,7 +117,7 @@ private:
     friend class Scheduler;
     friend class SchedulerPrivate;
     friend class DataProtocol;
-    friend class SlaveKeeper;
+    friend class WorkerManager;
     friend class ProtoQueue;
     friend class SimpleJobPrivate;
     friend class UserNotificationHandler;

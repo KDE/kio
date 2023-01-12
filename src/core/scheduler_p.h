@@ -16,22 +16,22 @@
 
 namespace KIO
 {
-// The slave keeper manages the list of idle slaves that can be reused
-class SlaveKeeper : public QObject
+// The worker manager manages the list of idle workers that can be reused
+class WorkerManager : public QObject
 {
     Q_OBJECT
 public:
-    SlaveKeeper();
-    ~SlaveKeeper() override;
-    void returnSlave(KIO::Worker *slave);
-    // pick suitable slave for job and return it, return null if no slave found.
-    // the slave is removed from the keeper.
-    KIO::Worker *takeSlaveForJob(KIO::SimpleJob *job);
-    // remove slave from keeper
-    bool removeSlave(KIO::Worker *slave);
-    // remove all slaves from keeper
+    WorkerManager();
+    ~WorkerManager() override;
+    void returnWorker(KIO::Worker *worker);
+    // pick suitable worker for job and return it, return null if no worker found.
+    // the worker is removed from the manager.
+    KIO::Worker *takeWorkerForJob(KIO::SimpleJob *job);
+    // remove worker from manager
+    bool removeWorker(KIO::Worker *worker);
+    // remove all workers from manager
     void clear();
-    QList<KIO::Worker *> allSlaves() const;
+    QList<KIO::Worker *> allWorkers() const;
 
 private:
     void scheduleGrimReaper();
@@ -40,7 +40,7 @@ private Q_SLOTS:
     void grimReaper();
 
 private:
-    QMultiHash<QString, KIO::Worker *> m_idleSlaves;
+    QMultiHash<QString, KIO::Worker *> m_idleWorkers;
     QTimer m_grimTimer;
 };
 
@@ -131,7 +131,7 @@ private:
     QTimer m_startJobTimer;
     QMap<int, HostQueue *> m_queuesBySerial;
     QHash<QString, HostQueue> m_queuesByHostname;
-    SlaveKeeper m_slaveKeeper;
+    WorkerManager m_workerManager;
     int m_maxConnectionsPerHost;
     int m_maxConnectionsTotal;
     int m_runningJobsCount;
