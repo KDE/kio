@@ -60,27 +60,27 @@ public:
      *
      * @return the actual protocol (io-slave) that handled the request
      */
-    QString slaveProtocol();
+    QString slaveProtocol() const;
 
     /**
      * @return Host this slave is (was?) connected to
      */
-    QString host();
+    QString host() const;
 
     /**
      * @return port this slave is (was?) connected to
      */
-    quint16 port();
+    quint16 port() const;
 
     /**
      * @return User this slave is (was?) logged in as
      */
-    QString user();
+    QString user() const;
 
     /**
      * @return Passwd used to log in
      */
-    QString passwd();
+    QString passwd() const;
 
     /**
      * Creates a new slave.
@@ -125,7 +125,7 @@ private:
     friend class UserNotificationHandler;
 
     void setPID(qint64);
-    qint64 slave_pid();
+    qint64 slave_pid() const;
 
     void setJob(KIO::SimpleJob *job);
     KIO::SimpleJob *job() const;
@@ -138,7 +138,7 @@ private:
     /**
      * @return true if the slave survived the last mission.
      */
-    bool isAlive();
+    bool isAlive() const;
 
     /**
      * Set host for url
@@ -164,7 +164,7 @@ private:
      *
      * @return name of protocol handled by this slave, as seen by the user
      */
-    QString protocol();
+    QString protocol() const;
 
     void setProtocol(const QString &protocol);
 
@@ -181,7 +181,7 @@ private:
     /**
      * @return The number of seconds this slave has been idle.
      */
-    int idleTime();
+    int idleTime() const;
 
     /**
      * Marks this slave as idle.

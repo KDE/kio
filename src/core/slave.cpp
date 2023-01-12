@@ -119,7 +119,7 @@ Slave::~Slave()
     delete m_slaveconnserver;
 }
 
-QString Slave::protocol()
+QString Slave::protocol() const
 {
     return m_protocol;
 }
@@ -129,27 +129,27 @@ void Slave::setProtocol(const QString &protocol)
     m_protocol = protocol;
 }
 
-QString Slave::slaveProtocol()
+QString Slave::slaveProtocol() const
 {
     return m_slaveProtocol;
 }
 
-QString Slave::host()
+QString Slave::host() const
 {
     return m_host;
 }
 
-quint16 Slave::port()
+quint16 Slave::port() const
 {
     return m_port;
 }
 
-QString Slave::user()
+QString Slave::user() const
 {
     return m_user;
 }
 
-QString Slave::passwd()
+QString Slave::passwd() const
 {
     return m_passwd;
 }
@@ -184,7 +184,7 @@ void Slave::setWorkerThread(WorkerThread *thread)
     m_workerThread = thread;
 }
 
-int Slave::idleTime()
+int Slave::idleTime() const
 {
     if (!m_idleSince.isValid()) {
         return 0;
@@ -197,7 +197,7 @@ void Slave::setPID(qint64 pid)
     m_pid = pid;
 }
 
-qint64 Slave::slave_pid()
+qint64 Slave::slave_pid() const
 {
     return m_pid;
 }
@@ -215,7 +215,7 @@ KIO::SimpleJob *Slave::job() const
     return m_job;
 }
 
-bool Slave::isAlive()
+bool Slave::isAlive() const
 {
     return !m_dead;
 }
