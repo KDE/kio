@@ -228,7 +228,7 @@ void Worker::hold(const QUrl &url)
         QByteArray data;
         QDataStream stream(&data, QIODevice::WriteOnly);
         stream << url;
-        m_connection->send(CMD_SLAVE_HOLD, data);
+        m_connection->send(CMD_WORKER_HOLD, data);
         m_connection->close();
         m_dead = true;
         Q_EMIT workerDied(this);

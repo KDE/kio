@@ -20,9 +20,9 @@ enum Command {
     CMD_HOST = '0', // 48
     CMD_CONNECT = '1', // 49
     CMD_DISCONNECT = '2', // 50
-    CMD_SLAVE_STATUS = '3', // 51
-    CMD_SLAVE_CONNECT = '4', // 52
-    CMD_SLAVE_HOLD = '5', // 53
+    CMD_WORKER_STATUS = '3', // 51
+    CMD_WORKER_CONNECT = '4', // 52
+    CMD_WORKER_HOLD = '5', // 53
     CMD_NONE = 'A', // 65
     CMD_TESTDIR = 'B', // 66   TODO KF6 REMOVE
     CMD_GET = 'C', // 67
