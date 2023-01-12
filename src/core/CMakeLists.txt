@@ -272,8 +272,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   JobUiDelegateExtension
   JobUiDelegateFactory
   AskUserActionInterface
-  SlaveInterface
-  Slave
   FileCopyJob
   ListJob
   MimetypeJob
