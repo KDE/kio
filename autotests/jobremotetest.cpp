@@ -22,7 +22,6 @@
 #include <kio/directorysizejob.h>
 #include <kio/filejob.h>
 #include <kio/mkdirjob.h>
-#include <kio/scheduler.h>
 #include <kio/statjob.h>
 #include <kio/storedtransferjob.h>
 #include <kprotocolinfo.h>

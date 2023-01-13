@@ -37,8 +37,6 @@
 #include <QUrl>
 #include <QWidget>
 
-#include "kio/scheduler.h"
-
 class KIO::JobUiDelegatePrivate
 {
 public:

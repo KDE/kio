@@ -14,7 +14,6 @@
 #include "kcoredirlister.h"
 #include "kprotocolmanager.h"
 #include "listjob.h"
-#include "scheduler.h"
 #include "statjob.h"
 #include <KDirWatch>
 #include <kdirnotify.h>

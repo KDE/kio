@@ -15,7 +15,6 @@
 #include <KLocalizedString>
 #include <KStringHandler>
 
-#include "scheduler.h"
 #include "slave.h"
 #include <kio/jobuidelegateextension.h>
 

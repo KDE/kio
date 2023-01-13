@@ -14,7 +14,6 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
-#include <kio/scheduler.h>
 #include <kio/statjob.h>
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>
@@ -34,6 +33,7 @@
 #include <QSignalSpy>
 #include <QTemporaryFile>
 #include <QTest>
+#include <QTimer>
 #include <QUrl>
 #include <QVariant>
 

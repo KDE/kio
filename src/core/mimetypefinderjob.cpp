@@ -10,7 +10,6 @@
 #include "global.h"
 #include "job.h" // for buildErrorString
 #include "kiocoredebug.h"
-#include "scheduler.h"
 #include "statjob.h"
 
 #include <KLocalizedString>

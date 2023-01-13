@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 
 #include "kprotocolmanager.h"
-#include "scheduler.h"
 #include "slave.h"
 #include <KDirWatch>
 
