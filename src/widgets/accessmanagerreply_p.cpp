@@ -11,7 +11,6 @@
 #include "accessmanager.h"
 #include "job.h"
 #include "kio_widgets_debug.h"
-#include "scheduler.h"
 
 #include <kprotocolinfo.h>
 #include <kurlauthorized.h>

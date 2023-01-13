@@ -18,7 +18,7 @@
 #include <KMainWindow>
 
 #include "kio/global.h"
-#include <kio/scheduler.h>
+#include <kio/simplejob.h>
 #include <kio/udsentry.h>
 
 #include <KStatusBarJobTracker>

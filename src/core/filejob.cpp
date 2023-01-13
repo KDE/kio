@@ -7,7 +7,6 @@
 
 #include "filejob.h"
 
-#include "scheduler.h"
 #include "slave.h"
 #include "slavebase.h"
 

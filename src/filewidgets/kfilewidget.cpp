@@ -31,7 +31,6 @@
 #include <kfileitemdelegate.h>
 #include <kio/job.h>
 #include <kio/jobuidelegate.h>
-#include <kio/scheduler.h>
 #include <kio/statjob.h>
 #include <kprotocolmanager.h>
 #include <krecentdirs.h>

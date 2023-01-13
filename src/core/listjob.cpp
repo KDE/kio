@@ -9,7 +9,6 @@
 #include "listjob.h"
 #include "../utils_p.h"
 #include "job_p.h"
-#include "scheduler.h"
 #include "slave.h"
 #include <QTimer>
 #include <kurlauthorized.h>

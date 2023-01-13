@@ -37,7 +37,6 @@
 #include "jobuidelegate.h"
 #include "kdesktopfileactions.h"
 #include "kio/global.h"
-#include "kio/scheduler.h"
 #include "kopenwithdialog.h"
 #include "kprocessrunner_p.h" // for KIOGuiPrivate::checkStartupNotify
 #include "krecentdocument.h"
