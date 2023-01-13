@@ -211,12 +211,17 @@ private:
      */
     void setIdle();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * @returns Whether the slave is connected
      * (Connection oriented slaves only)
+     * @deprecated Since 5.103. The connected slave feature will be removed.
      */
+    KIOCORE_DEPRECATED_VERSION(5, 103, "The connected slave feature will be removed.")
     bool isConnected();
+    KIOCORE_DEPRECATED_VERSION(5, 103, "The connected slave feature will be removed.")
     void setConnected(bool c);
+#endif
 
     void ref();
     void deref();
