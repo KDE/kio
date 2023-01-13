@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-12 00:51+0000\n"
-"PO-Revision-Date: 2023-01-02 07:11\n"
+"PO-Revision-Date: 2023-01-12 10:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1120,6 +1120,8 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"您可以在互联网上搜索支持此协议的软件插件 (它们被称作“KIO 工作程序”)。推荐的搜"
+"索网站是 <a href=\"https://store.kde.org/\">https://store.kde.org</a>。"
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2186,6 +2188,8 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
+"您计算机上用于提供 <strong>%1</strong> 协议访问的 KIO 工作程序无法被启动。此"
+"类故障通常是因为技术原因导致的。"
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2265,7 +2269,7 @@ msgstr "无法找到协议“%1”的 KIO 工作程序。"
 #: core/slave.cpp:440
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr ""
+msgstr "无法创建用于为协议“%1”创建套接字的 KIO 工作程序。"
 
 #: core/slave.cpp:480
 #, kde-format
@@ -4211,6 +4215,15 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
+"<h1>Cookie</h1> <p>Cookie 含有使用 HTTP 协议的 KDE 应用程序 (例如 Konqueror) "
+"保存在计算机上的、始于远程 Internet 服务器的信息。这意味着，Web 服务器可以在"
+"您的计算机上保存关于您和您浏览活动的信息以供后用。您也许认为这是对隐私的侵"
+"害。</p><p>然而，Cookie 在某些情况下是很有用的。例如，网上商店经常使用它们，"
+"这样您可以“将商品放入购物车”。有些站点还要求您必须使用支持 Cookie 的浏览器。"
+"</p><p>因为多数的人需要对隐私和 Cookie 的好处进行折衷，HTTP KIO 工作程序允许"
+"您定制 Cookie 的处理方式。您也许希望设置 KDE 的默认策略，让它在服务器设置 "
+"Cookie 时给出提示，让您决定是否接受。对于您信任的常用购物网站，您也许愿意把策"
+"略设置为接受，这样访问该网站时，KDE 就不会每次接收到 Cookie 都询问您。</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4993,6 +5006,12 @@ msgid ""
 "UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"自动检测并配置代理服务器设置。<p>\n"
+"自动检测使用 <b>Web 代理自动发现协议(WPAD)</b>进行处理。<p>\n"
+"<b>注意：</b>此选项可能无法正常工作，而且在某些 Unix/Linux 发行版中可能完全无"
+"法工作。\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -5364,6 +5383,10 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
+"<h1>Windows 共享</h1><p>使用 SMB KIO 称作程序的应用程序 (例如Konqueror) 如果"
+"正确配置，可以访问共享的微软 Windows 文件系统。</p><p>您可以指定用于访问共享"
+"资源的身份。密码将保存在本地，并且打乱以从而人眼不可读。出于安全原因，您也许"
+"并不想这么做，因为有密码的项目将会明确表示。</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
