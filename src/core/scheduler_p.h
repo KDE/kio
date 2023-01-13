@@ -7,6 +7,9 @@
 
 #ifndef SCHEDULER_P_H
 #define SCHEDULER_P_H
+
+#include "kiocore_export.h"
+
 #include <QSet>
 #include <QTimer>
 // #define SCHEDULER_DEBUG
@@ -80,6 +83,7 @@ private:
     QSet<KIO::SimpleJob *> m_runningJobs;
 };
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
 struct PerSlaveQueue {
     PerSlaveQueue()
         : runningJob(nullptr)
@@ -121,6 +125,7 @@ private:
     QSet<KIO::Slave *> m_runnableSlaves;
     QTimer m_startJobsTimer;
 };
+#endif
 
 class SchedulerPrivate;
 
@@ -160,7 +165,9 @@ public:
     KIO::Slave *createSlave(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
     bool removeSlave(KIO::Slave *slave);
     QList<KIO::Slave *> allSlaves() const;
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     ConnectedSlaveQueue m_connectedSlaveQueue; // KF6 TODO: remove
+#endif
 
 private Q_SLOTS:
     // start max one (non-connected) job and return

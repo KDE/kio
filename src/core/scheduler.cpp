@@ -83,9 +83,11 @@ public:
     void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
     void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
     void removeSlaveOnHold();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &metaData);
     bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
     bool disconnectSlave(KIO::Slave *slave);
+#endif
     Slave *heldSlaveForJob(KIO::SimpleJob *job);
     bool isSlaveOnHoldFor(const QUrl &url);
     void updateInternalMetaData(SimpleJob *job);
@@ -292,6 +294,7 @@ QList<Slave *> HostQueue::allSlaves() const
     return ret;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
 ConnectedSlaveQueue::ConnectedSlaveQueue()
 {
     m_startJobsTimer.setSingleShot(true);
@@ -430,6 +433,7 @@ void ConnectedSlaveQueue::startRunnableJobs()
         startJob(job, slave);
     }
 }
+#endif
 
 static void ensureNoDuplicates(QMap<int, HostQueue *> *queuesBySerial)
 {
@@ -598,6 +602,7 @@ void ProtoQueue::removeJob(SimpleJob *job)
         }
         // just in case; startAJob() will refuse to start a job if it shouldn't.
         m_startJobTimer.start();
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     } else {
         // should be a connected slave
         // if the assertion fails the job has probably changed the host part of its URL while
@@ -605,6 +610,7 @@ void ProtoQueue::removeJob(SimpleJob *job)
         const bool removed = m_connectedSlaveQueue.removeJob(job);
         Q_UNUSED(removed);
         Q_ASSERT(removed);
+#endif
     }
 
     ensureNoDuplicates(&m_queuesBySerial);
@@ -630,10 +636,15 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
 
 bool ProtoQueue::removeSlave(KIO::Slave *slave)
 {
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     const bool removedConnected = m_connectedSlaveQueue.removeSlave(slave);
     const bool removedUnconnected = m_slaveKeeper.removeSlave(slave);
     Q_ASSERT(!(removedConnected && removedUnconnected));
     return removedConnected || removedUnconnected;
+#else
+    const bool removed = m_slaveKeeper.removeSlave(slave);
+    return removed;
+#endif
 }
 
 QList<Slave *> ProtoQueue::allSlaves() const
@@ -643,7 +654,9 @@ QList<Slave *> ProtoQueue::allSlaves() const
     for (; it != m_queuesByHostname.cend(); ++it) {
         ret.append(it.value().allSlaves());
     }
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     ret.append(m_connectedSlaveQueue.allSlaves());
+#endif
     return ret;
 }
 
