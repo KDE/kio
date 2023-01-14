@@ -364,7 +364,6 @@ private:
 #ifndef KIO_ANDROID_STUB
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))
 #endif
-    Q_PRIVATE_SLOT(d_func(), void slotSlaveOnHoldListChanged())
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
     Q_PRIVATE_SLOT(d_func(), void slotSlaveConnected())

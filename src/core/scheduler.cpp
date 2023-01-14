@@ -101,7 +101,6 @@ public:
 #ifndef KIO_ANDROID_STUB
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
 #endif
-    void slotSlaveOnHoldListChanged();
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
     void slotSlaveConnected();
@@ -761,7 +760,6 @@ Scheduler::Scheduler()
                  QStringLiteral("reparseSlaveConfiguration"),
                  this,
                  SLOT(slotReparseSlaveConfiguration(QString, QDBusMessage)));
-    dbus.connect(QString(), dbusPath, dbusInterface, QStringLiteral("slaveOnHoldListChanged"), this, SLOT(slotSlaveOnHoldListChanged()));
 #endif
 }
 
@@ -943,10 +941,6 @@ void SchedulerPrivate::slotReparseSlaveConfiguration(const QString &proto, const
     }
 }
 #endif
-
-void SchedulerPrivate::slotSlaveOnHoldListChanged()
-{
-}
 
 void SchedulerPrivate::doJob(SimpleJob *job)
 {
