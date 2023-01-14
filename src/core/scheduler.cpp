@@ -866,25 +866,33 @@ bool Scheduler::disconnectSlave(KIO::Slave *slave)
 }
 #endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 bool Scheduler::connect(const char *signal, const QObject *receiver, const char *member)
 {
     return QObject::connect(self(), signal, receiver, member);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 bool Scheduler::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member)
 {
     return QObject::connect(sender, signal, receiver, member);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 bool Scheduler::disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *member)
 {
     return QObject::disconnect(sender, signal, receiver, member);
 }
+#endif
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 bool Scheduler::connect(const QObject *sender, const char *signal, const char *member)
 {
     return QObject::connect(sender, signal, member);
 }
+#endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
 void Scheduler::checkSlaveOnHold(bool)

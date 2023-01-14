@@ -269,20 +269,26 @@ public:
     static bool disconnectSlave(KIO::Slave *slave);
 #endif
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * Function to connect signals emitted by the scheduler.
      *
      * @see slaveConnected()
      * @see slaveError()
+     * @deprecated Since 5.103, due to no known users.
      */
-    // KDE5: those methods should probably be removed, ugly and only marginally useful
+    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
     static bool connect(const char *signal, const QObject *receiver, const char *member);
 
+    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
     static bool connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
 
+    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
     static bool disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
 
+    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
     bool connect(const QObject *sender, const char *signal, const char *member);
+#endif
 
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
