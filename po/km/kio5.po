@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:51+0000\n"
+"POT-Creation-Date: 2023-01-14 11:27+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "មិន​អាច​បង្កើត io-slave ៖ %1"
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -65,7 +65,7 @@ msgstr ""
 "មិន​អាច​បង្កើត​តំណ​និមិត្ត​សញ្ញា %1 បានឡើយ ។\n"
 "សូម​ពិនិត្យ​មើល​សិទ្ធិ ។"
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -75,7 +75,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,23 +85,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "មាន​ថត​រួច​ហើយ"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "មាន​ឯកសារ​រួច​ហើយ"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "មាន​ជា​ថត​រួច​ហើយ"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
@@ -193,191 +193,191 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "ផ្លាស់ទី"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "ប្រភព"
 
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "ទិសដៅ"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "ប្តូរឈ្មោះ "
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "ចម្លង"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "បង្កើត​ថត"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "ថត"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "លុប"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "ឯកសារ"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "ការ​ត្រួតពិនិត្យ"
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "ការ​ផ្ទេរ"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "ការ​ម៉ោន"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "ឧបករណ៍"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "ចំណុច​ម៉ោន"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "ការ​អាន់ម៉ោន"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr ""
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgid "Copy Files"
 msgstr "ឯកសារ​ទាំងអស់"
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "លុប​ឯកសារ"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "Create Folder"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Move Items"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
 msgstr "ប្តូរឈ្មោះ "
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
 msgstr "​បង្កើត​តំណ​និមិត្ត​សញ្ញា"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Transferring"
 msgid "Transfer data"
 msgstr "ការ​ផ្ទេរ"
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2356,7 +2356,7 @@ msgstr "(%1 តភ្ជាប់​ទៅ %2)"
 msgid " (Points to %1)"
 msgstr " (ចង្អុល​ទៅ %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2366,7 +2366,7 @@ msgstr ""
 "URL មិន​ត្រឹមត្រូវ\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr ""
@@ -2665,9 +2665,9 @@ msgstr "ផ្ទុក​ឡើងវិញ"
 msgid "New Folder..."
 msgstr "ថត​ថ្មី..."
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
@@ -3374,27 +3374,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "អ្នក​អាច​​ជ្រើស​តែ​ឯកសារ​មួយ​ប៉ុណ្ណោះ"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "បាន​ផ្ដល់​ឯកសារ​ច្រើនជាង​មួយ"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "អ្នក​អាច​ជ្រើស​តែ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "មិនបាន​ទទួល​ឯកសារ​ពី​ចម្ងាយ​ទេ"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3404,12 +3404,12 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3419,12 +3419,12 @@ msgstr ""
 "មានថត​ច្រើនជាង​មួយ​ត្រូវ​បាន​ជ្រើស ហើយ​ប្រអប់​នេះ​មិន​ទទួល​យក​ថត​ទេ ដូច្នេះ​វា​មិនអាច​សម្រេចចិត្ត​ថាតើ​ត្រូវ​"
 "បញ្ចូល​​ថត​មួយណាទេ ។ សូម​ជ្រើស​តែ​ថត​មួយ​ប៉ុណ្ណោះ​ដើម្បី​រាយ​វា ។"
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "បានផ្ដល់​ថត​ច្រើន​ជាង​មួយ"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3433,22 +3433,22 @@ msgstr ""
 "យ៉ាង​ហោចណាស់​មាន​ថត និង​ឯកសារ​ត្រូវ​បាន​ជ្រើស ។ ឯកសារ​ដែល​បាន​ជ្រើស​នឹង​ត្រូវ​បាន​មិនអើពើ​ និង​ថត​ដែល​បាន​"
 "ជ្រើស​នឹង​ត្រូវ​បាន​រាយ"
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "បាន​ជ្រើស​​ឯកសារ​ និង​ថត"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "មិនអាច​រកឃើញ​ឯកសារ \"%1\" ទេ"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3462,44 +3462,44 @@ msgstr ""
 "<qt>ចុច​ប៊ូតុង​នេះ​ដើម្បីបញ្ចូល​ថត​មេ ។<br /><br />ឧទាហរណ៍ ប្រសិន​បើ​ថត​បច្ចុប្បន្ន​គឺ file:/home/%1 "
 "ដោយ​ចុច​ប៊ូតុង​នេះ​នឹង​នាំ​អ្នក​ទៅ​កាន់ file:/home ។</qt>"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្លាស់ទី​ថយក្រោយ​មួយ​ជំហាន​ក្នុង​ប្រវត្តិ​ការ​រុករក ។"
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្លាស់ទី​ទៅ​មុខ​មួយ​ជំហាន ក្នុង​ប្រវត្តិ​ការរុករក ។"
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​ផ្ទុក​មាតិកា​របស់​ទីតាំង​បច្ចុប្បន្ន​ឡើង​វិញ ។"
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ចុច​ប៊ូតុង​នេះ ដើម្បី​បង្កើត​ថត​ថ្មី​មួយ ។"
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "បង្ហាញ​បន្ទះ​រុករក​ទីតាំង"
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "បង្ហាញ​ចំណាំ"
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "ជម្រើស"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3519,12 +3519,12 @@ msgstr ""
 "រូបតំណាង និង​បញ្ជី</li><li>ការ​បង្ហាញ​ឯកសារ​ដែលលាក់</li><li>បន្ទះ​រុករក​ទីតាំង</li><li>មើល​"
 "ឯកសារ​ជាមុន</li><li>បំបែក​ថត​ចេញ​ពី​​ឯកសារ</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "ចំណាំ"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3537,12 +3537,12 @@ msgstr ""
 "មិនដូចនោះ​ទេ វា​​ប្រតិបត្តិ​ដូច​ចំណាំ​នៅ​កន្លែង​ផ្សេងទៀត​នៅ​ក្នុង KDE អញ្ចឹង ។</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "ឈ្មោះ ៖ "
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3554,12 +3554,12 @@ msgstr ""
 "ត្រូវបាន​ត្រួតពិនិត្យ​ដោយ​ការ​ចុច​កណ្ដុរ​ខាងស្ដាំ ហើយ​ជ្រើស​របៀប​ដែល​ចូលចិត្ត​ពី​ម៉ឺនុយ <b>ការ​បំពេញ​អត្ថបទ</b> ។"
 "</qt>"
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "នេះ​ជា​ឈ្មោះ​សម្រាប់​ឯកសារ​ដែលត្រូវ​រក្សាទុក ។"
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3568,79 +3568,79 @@ msgstr ""
 "នេះ​គឺ​ជា​បញ្ជី​ឯកសារ​ដែល​ត្រូវ​បើក ។ ឯកសារ​ច្រើន​ជាង​មួយ អាច​បញ្ជាក់​ដោយ​ការ​រាយ​ឯកសារ​ជា​ច្រើនក្នុង​បញ្ជី "
 "ដែល​ខណ្ឌចែក​ដោយ​ដកឃ្លា ។"
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "នេះ​គឺ​ជា​ឈ្មោះ​របស់​ឯកសារ​ដែល​ត្រូវ​បើក ។"
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Places"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "មាន​ឯកសារ \"%1\" រួច​ហើយ ។ តើអ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬទេ ?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "សរសេរ​ជាន់​លើ​ឯកសារ ?"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "អ្នក​អាច​ជ្រើស​តែ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "មិន​ទទួល​យក​ឯកសារ​ពី​ចម្ងាយ​ទេ"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|ថត​ទាំងអស់"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|ឯកសារ​ទាំងអស់"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "បើក"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ទំហំ​រូបតំណាង ៖ %1 ភីកសែល"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ជ្រើស​កន្ទុយ​ឈ្មោះ​ឯកសារ (%1) ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "កន្ទុយឯកសារ <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ជ្រើស​កន្ទុយ​​ឈ្មោះ​ឯកសារ​ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "កន្ទុយឯកសារ​សមរម្យ"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3665,25 +3665,25 @@ msgstr ""
 "ទៅ​ខាងចុង​ឈ្មោះ​ឯកសារ (ចំណុច​នឹង​ត្រូវបាន​យកចេញ​ដោយ​ស្វ័យប្រវត្តិ) ។</li></ol>ប្រសិន​បើ​មិនប្រាកដ គឺ​ទុក​"
 "ជម្រើស​នេះ​ឲ្យ​នៅ​បើក​ដដែល ព្រោះ​វា​ធ្វើ​ឲ្យ​ឯកសារ​របស់​អ្នក​កាន់តែ​អាច​គ្រប់គ្រងបាន ។"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "តម្រង ៖ "
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "តម្រង ៖ "
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3935,7 +3935,7 @@ msgid ""
 msgstr "មិនអាច​ធ្វើ​ឲ្យ​សេវា %1 ប្រតិបត្តិបាន​បានទេ បោះបង់បង់​កា​រប្រតិបត្តិ"
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "អ្នក​មិនត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​បើក​កម្មវិធី​ដើម្បី​បើក​ឯកសារ​នេះ​ឡើយ ។"
@@ -7277,7 +7277,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "មិនធ្វើ​ការ​អះអាង​ចម្លង​ឯកសារ​ទេ"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7291,14 +7291,14 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "លុប​ធាតុ"
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, fuzzy, kde-format
@@ -7307,7 +7307,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "លុប​ធាតុ"
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7323,7 +7323,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7336,13 +7336,13 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "សម្អាត​ធុងសំរាម"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7352,7 +7352,7 @@ msgid ""
 "filename>"
 msgstr "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, fuzzy, kde-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7360,12 +7360,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ខ្សែ​វិញ្ញាបនបត្រ SSL ស្មើ​គ្នា​ទំនង​ជា​ខូច​ហើយ ។"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8891,7 +8891,7 @@ msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ
 msgid "Advanced Options for %1"
 msgstr "ជម្រើស​កម្រិត​ខ្ពស់សម្រាប់ %1"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8899,7 +8899,7 @@ msgid ""
 msgstr ""
 "<qt>មិន​អាច​រត់​ពាក្យ​បញ្ជា​ដែលបាន​បញ្ជាក់​បានឡើយ ។ មិនមាន​ឯកសារ ឬ​ថត <b>%1</b> ឡើយ ។</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgid "Could not find any application or handler for %1"

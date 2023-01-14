@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:51+0000\n"
+"POT-Creation-Date: 2023-01-14 11:27+0000\n"
 "PO-Revision-Date: 2022-12-04 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "No s'ha pogut crear el procés de treball KIO: %1"
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -65,7 +65,7 @@ msgstr ""
 "No s'ha pogut crear l'enllaç simbòlic «%1».\n"
 "El sistema de fitxers de destinació (%2) no els admet."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -80,7 +80,7 @@ msgstr ""
 "Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
 "de la carpeta de destinació) amb un subratllat «_»."
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -95,23 +95,23 @@ msgstr ""
 "Seleccionar substitució, substituirà qualsevol caràcter no vàlid (en el nom "
 "del fitxer de destinació) amb un subratllat «_»."
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "La carpeta ja existix"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "El fitxer ja existix"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Ja existix com a carpeta"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Paperera"
@@ -205,102 +205,102 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "S'està movent"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Origen"
 
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinació"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Canvi de nom"
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "S'està copiant"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "S'està creant el directori"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "Directori"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "S'està suprimint"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "Fitxer"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "S'està examinant"
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "S'està transferint"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "S'està muntant"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "Dispositiu"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "Punt de muntatge"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "S'està desmuntant"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr "Canvia l'atribut"
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
@@ -309,12 +309,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a canviar els atributs del "
 "fitxer. Voleu continuar?"
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, kde-format
 msgid "Copy Files"
 msgstr "Copia els fitxers"
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
@@ -323,12 +323,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a completar l'operació de "
 "còpia. Voleu continuar?"
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "Suprimix els fitxers"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -337,12 +337,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a completar l'operació de "
 "supressió. Tanmateix, fer-ho podria malmetre el sistema. Voleu continuar?"
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, kde-format
 msgid "Create Folder"
 msgstr "Crea una carpeta"
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
@@ -350,12 +350,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a crear esta carpeta. Voleu "
 "continuar?"
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, kde-format
 msgid "Move Items"
 msgstr "Mou elements"
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
@@ -364,12 +364,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a completar l'operació de "
 "moure. Voleu continuar?"
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
 msgid "Rename"
 msgstr "Canvia el nom"
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
@@ -377,13 +377,13 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a completar l'operació de "
 "canviat el nom. Voleu continuar?"
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
 msgstr "Creació d'un enllaç simbòlic"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
@@ -391,12 +391,12 @@ msgstr ""
 "Es requerixen privilegis d'administrador per a crear un enllaç simbòlic. "
 "Voleu continuar?"
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, kde-format
 msgid "Transfer data"
 msgstr "Transferència de dades"
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2435,7 +2435,7 @@ msgstr "(%1, enllaç a %2)"
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2445,7 +2445,7 @@ msgstr ""
 "URL amb format incorrecte\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "No s'ha pogut determinar el tipus de fitxer per a %1"
@@ -2748,9 +2748,9 @@ msgstr "Torna a carregar"
 msgid "New Folder..."
 msgstr "Carpeta nova..."
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Llença a la paperera"
@@ -3406,27 +3406,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Enorme (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "Només podeu seleccionar un fitxer"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "S'ha indicat més d'un fitxer"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "Només podeu seleccionar fitxers locals"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "No s'accepten fitxers remots"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3441,13 +3441,13 @@ msgstr[1] ""
 "L'URL seleccionat utilitza un esquema no admés. Utilitzeu un dels esquemes "
 "següents: %2"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Esquema d'URL no admés"
 
 # skip-rule: ff-enter
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3458,12 +3458,12 @@ msgstr ""
 "tant no es pot decidir en quina entrar. Seleccioneu-ne només una per a "
 "llistar-la."
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "S'ha indicat més d'una carpeta"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3472,22 +3472,22 @@ msgstr ""
 "S'han de seleccionar una carpeta i un fitxer com a mínim. Els fitxers "
 "seleccionats s'ignoraran i es llistarà la carpeta seleccionada"
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "S'han seleccionat fitxers i carpetes"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "No s'ha pogut trobar el fitxer «%1»"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "No s'ha pogut obrir el fitxer"
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3498,44 +3498,44 @@ msgstr ""
 "exemple, si la ubicació actual és file:/home/konqui, clicar este botó vos "
 "portarà a file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Cliqueu este botó per a anar un pas arrere en l'historial de navegació."
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Cliqueu este botó per a anar un pas avant en l'historial de navegació."
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Cliqueu este botó per a tornar a carregar el contingut de la ubicació actual."
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Cliqueu este botó per a crear una carpeta nova."
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Mostra el quadro dels llocs"
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Mostra el botó de les adreces d'interés"
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Opcions"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3551,12 +3551,12 @@ msgstr ""
 "prèvies dels fitxers </li><li>separació de les carpetes dels fitxers</li></"
 "ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Adreces d'interés"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3571,12 +3571,12 @@ msgstr ""
 "operen com les adreces d'interés arreu de KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nom:"
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3589,12 +3589,12 @@ msgstr ""
 "ratolí i seleccionant un mode preferit del menú <b>Compleció del text</b>.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Este és el nom amb el qual guardar el fitxer."
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3603,79 +3603,79 @@ msgstr ""
 "Esta és la llista dels fitxers que s'obriran. Es pot especificar més d'un "
 "fitxer llistant diversos fitxers, separats per espais."
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Este és el nom del fitxer que s'obrirà."
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Llocs"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "El fitxer «%1» ja existix. Voleu sobreescriure'l?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Voleu sobreescriure el fitxer?"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Només podeu seleccionar fitxers locals."
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "No s'accepten fitxers remots"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Totes les carpetes"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Tots els fitxers"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "O&bri"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Mida de la icona: %1 píxels"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer (%1)"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "l'extensió <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Selecciona automàticament l'e&xtensió del nom de fitxer"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "una extensió adequada"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3702,12 +3702,12 @@ msgstr ""
 "automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
 "farà més manejables els vostres fitxers."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr "Tipus de fi&txer:"
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3716,12 +3716,12 @@ msgstr ""
 "<qt>Este és el selector de tipus de fitxer. S'utilitza per a seleccionar el "
 "format amb què es guardarà el fitxer.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtre:"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3972,7 +3972,7 @@ msgstr ""
 "%2."
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -7309,7 +7309,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Confirmació de desfer la còpia del fitxer"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7321,13 +7321,13 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Esta acció no es podrà desfer.</"
 "emphasis>"
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Suprimix definitivament"
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
@@ -7335,7 +7335,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Suprimix definitivament"
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7351,7 +7351,7 @@ msgstr[1] ""
 "Segur que voleu suprimir permanentment estos %1 elements?<nl/><nl/><emphasis "
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7361,13 +7361,13 @@ msgstr ""
 "Voleu suprimir permanentment tots els elements de la Paperera?<nl/><nl/"
 "><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Buida la paperera"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7376,19 +7376,19 @@ msgid ""
 msgstr ""
 "Segur que voleu moure este element a la paperera?<nl/><filename>%1</filename>"
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Segur que voleu moure este element a la paperera?"
 msgstr[1] "Segur que voleu moure estos %1 elements a la paperera?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La cadena de certificats SSL del parell pareix estar malmesa."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8905,7 +8905,7 @@ msgstr "Només s'accepten executables al sistema de fitxers local."
 msgid "Advanced Options for %1"
 msgstr "Opcions avançades per a %1"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8914,7 +8914,7 @@ msgstr ""
 "<qt>No es pot executar l'ordre especificada. El fitxer o carpeta <b>%1</b> "
 "no existix.</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
 msgstr "No s'ha trobat cap aplicació o gestor per a %1"

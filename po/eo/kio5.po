@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:51+0000\n"
+"POT-Creation-Date: 2023-01-14 11:27+0000\n"
 "PO-Revision-Date: 2007-12-13 13:28-0600\n"
 "Last-Translator: Cindy McKee <cfmckee@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ne eblas krei eneligo-sklavon: %1"
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -75,7 +75,7 @@ msgstr ""
 "Ne eblis krei simbolan ligilon %1.\n"
 "Bonvolu kontroli permesojn."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,7 +85,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -95,23 +95,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dosierujo jam ekzistas"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dosiero jam ekzistas"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jam ekzistas kiel dosierujo"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
@@ -213,192 +213,192 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Ŝovante"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Fonto"
 
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Celo"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "&Renomu"
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Kopiante"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Kreante dosierujon"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "Dosierujo"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Foriganta"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "Dosiero"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr ""
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Transdonanta"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Kroĉanta"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "Aparato"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "Kroĉejo"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Malkroĉanta"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr ""
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "Copy Files"
 msgstr "*|Ĉiuj dosieroj"
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "Forigu dosierojn"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgid "Create Folder"
 msgstr "Ne Eblis Krei Dosierujon"
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Move Items"
 msgstr "Rubujen"
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename"
 msgstr "&Renomu"
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
 msgstr "Ne eblis krei simbolan ligon"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Transferring"
 msgid "Transfer data"
 msgstr "Transdonanta"
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2417,7 +2417,7 @@ msgstr "(%1, Ligo al %2)"
 msgid " (Points to %1)"
 msgstr "Montras al:"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2427,7 +2427,7 @@ msgstr ""
 "Misformita URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr ""
@@ -2731,9 +2731,9 @@ msgstr "Relegi"
 msgid "New Folder..."
 msgstr "Nova Dosierujo..."
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Rubujen"
@@ -3447,30 +3447,30 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select one file"
 msgstr "Vi povas elekti nur lokajn dosierojn."
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, fuzzy, kde-format
 #| msgid "You can only select local files."
 msgid "You can only select local files"
 msgstr "Vi povas elekti nur lokajn dosierojn."
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, fuzzy, kde-format
 #| msgid "Remote Files Not Accepted"
 msgid "Remote files not accepted"
 msgstr "Foraj dosieroj ne akceptataj"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3481,12 +3481,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3494,36 +3494,36 @@ msgid ""
 "only one folder to list it."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, fuzzy, kde-format
 #| msgid "%1 is a file, but a folder was expected."
 msgid "Files and folders selected"
 msgstr "%1 estas dosiero, sed dosierujo estis supozata."
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The file \"%1\" could not be found"
 msgstr "Ne eblis garantii la petitan ŝloson. %1"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Click this button to enter the parent folder.<br /><br />For "
@@ -3538,44 +3538,44 @@ msgstr ""
 "nuna loko estas file:/home/%1 per alklako sur la butono vi atingas file:/"
 "home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Alklaku la butonon por retropaŝi unufoje en la foliuma historio."
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Alklaku la butonon por antaŭenpaŝi unufoje en la foliuma historio."
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Alklaku la butonon por reŝargi la enhavon de la nuna loko."
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Alklaku tiun butonon por krei novan dosierujon."
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, fuzzy, kde-format
 #| msgid "Show Places Navigation Panel"
 msgid "Show Places Panel"
 msgstr "Montri navigadan panelon por Ejoj"
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, fuzzy, kde-format
 #| msgid "Show Bookmarks"
 msgid "Show Bookmarks Button"
 msgstr "Montri Legosignojn"
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Opcioj"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the preferences menu for the file dialog. Various options can "
@@ -3597,12 +3597,12 @@ msgstr ""
 "Ejoj</li><li>dosierajn antaŭrigardojn</li><li>la apartigadon de dosierujoj "
 "de dosieroj</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Legosignoj"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3616,12 +3616,12 @@ msgstr ""
 "dosiera dialogo, sed vere funkcias ĝuste kiel aliaj legosignoj en KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nomo:"
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3633,12 +3633,12 @@ msgstr ""
 "kongruaĵojn al vi. Vi povas administri tiun eblon per desktra klako kaj "
 "elekto de preferata reĝimo el la <b>Tekstkompletigo</b> menuo."
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ĉi tio estas la dezirata dosiernomo por konservado."
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3647,80 +3647,80 @@ msgstr ""
 "Jen, la listo de malfermotaj dosieroj. Vi povas specifi pli ol unu dosiero, "
 "nur apartigu plurajn dosierojn per spacetoj."
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "La nomo de la malfermota dosiero."
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Ejoj"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "Anstataŭ&igu ĉiujn"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vi povas elekti nur lokajn dosierojn."
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Foraj dosieroj ne akceptataj"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Ĉiuj Dosierujoj"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Ĉiuj dosieroj"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Malfermi"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Aŭtomate elekti &finaĵon de dosiernomo (%1)"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "la finaĵo <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Aŭtomate elekti dosier-&finaĵon"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "taŭga dosier-finaĵo"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3747,25 +3747,25 @@ msgstr ""
 "forigita). </li></ol>Se vi ne certas, daŭru ebligi la opcion, ĉar kun ĝi, "
 "viaj dosieroj estas pli trakteblaj."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filtrilo:"
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtrilo:"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4025,7 +4025,7 @@ msgid ""
 msgstr ""
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Vi ne havas la permesojn elekti aplikaĵon por malfermi la dosierujon."
@@ -7314,7 +7314,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Aktualigante sistemagordon"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7323,14 +7323,14 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Forigi eron"
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, fuzzy, kde-format
@@ -7339,7 +7339,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Forigi eron"
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7351,7 +7351,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7359,14 +7359,14 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Rubujo"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -7376,7 +7376,7 @@ msgid ""
 "filename>"
 msgstr "Ĉu vi vere volas forigi ĉi tiun eron?"
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, fuzzy, kde-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -7385,13 +7385,13 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ĉu vi vere volas forigi ĉi tiun eron?"
 msgstr[1] "Ĉu vi vere volas forigi ĉi tiun eron?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, fuzzy, kde-format
 #| msgid "The peer SSL certificate chainappears to be corrupt."
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La samtavola SSL-atestilo de la ĉeno ŝajne estas koruptita."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8955,7 +8955,7 @@ msgstr "Estas subtenataj nur programoj en lokaj dosiersistemoj."
 msgid "Advanced Options for %1"
 msgstr "Pliaj opcioj por %1"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8964,7 +8964,7 @@ msgstr ""
 "<qt>Ne eblas lanĉi la donitan komandon. La dosiero aŭ dosierujo <b>%1</b> ne "
 "ekzistas.</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgid "Could not find any application or handler for %1"

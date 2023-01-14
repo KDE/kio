@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:51+0000\n"
+"POT-Creation-Date: 2023-01-14 11:27+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "IO-mooduli loomine nurjus: %1"
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -64,7 +64,7 @@ msgstr ""
 "Nimeviita \"%1\" pole võimalik luua.\n"
 "Sihtfailisüsteem (%2) ei toeta nimeviitasid."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -78,7 +78,7 @@ msgstr ""
 "Sihtkausta nimes sobimatute märkide alakriipsuga \"_\" asendamiseks vali "
 "\"Asenda\"."
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -92,23 +92,23 @@ msgstr ""
 "Sihtfaili nimes sobimatute märkide alakriipsuga \"_\" asendamiseks vali "
 "\"Asenda\"."
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kataloog on juba olemas"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fail on juba olemas"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Eksisteerib juba kataloogina"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Prügikast"
@@ -202,102 +202,102 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Liigutamine"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Lähtekoht"
 
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Sihtkoht"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Nime muutmine"
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Kopeerimine"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Kataloogi loomine"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "Kataloog"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Kustutamine"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "Fail"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Uurimine"
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Ülekanne"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Ühendamine"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "Seade"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "Ühenduspunkt"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Lahutamine"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr "Atribuudi muutmine"
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
@@ -306,12 +306,12 @@ msgstr ""
 "Faili atribuutide muutmiseks on tarvilikud administraatori õigused. Kas "
 "jätkata?"
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, kde-format
 msgid "Copy Files"
 msgstr "Failide kopeerimine"
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
@@ -319,12 +319,12 @@ msgid ""
 msgstr ""
 "Kopeerimise sooritamiseks on tarvilikud administraatori õigused. Kas jätkata?"
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "Failide kustutamine"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -333,24 +333,24 @@ msgstr ""
 "Kustutamise sooritamiseks on tarvilikud administraatori õigused. Kuid see "
 "võib tekitada süsteemile kahju. Kas jätkata?"
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, kde-format
 msgid "Create Folder"
 msgstr "Kataloogi loomine"
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
 "Selle kataloogi loomiseks on tarvilikud administraatori õigused. Kas jätkata?"
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, kde-format
 msgid "Move Items"
 msgstr "Elementide liigutamine"
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
@@ -358,12 +358,12 @@ msgid ""
 msgstr ""
 "Liigutamise sooritamieks on tarvilikud administraatori õigused. Kas jätkata?"
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
 msgid "Rename"
 msgstr "Nime muutmine"
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
@@ -371,25 +371,25 @@ msgstr ""
 "Nime muutmise sooritamiseks on tarvilikud administraatori õigused. Kas "
 "jätkata?"
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
 msgstr "Nimeviida loomine"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 "Nimeviida loomiseks on tarvilikud administraatori õigused. Kas jätkata?"
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, kde-format
 msgid "Transfer data"
 msgstr "Andmete ülekanne"
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2391,7 +2391,7 @@ msgstr "(%1, viit asukohale %2)"
 msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2401,7 +2401,7 @@ msgstr ""
 "Vigane URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Faili \"%1\" tüüpi pole võimalik määrata"
@@ -2701,9 +2701,9 @@ msgstr "Laadi uuesti"
 msgid "New Folder..."
 msgstr "Uus kataloog..."
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Liigutamine prügikasti"
@@ -3354,27 +3354,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Hiiglaslik (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "Valida saab ainult ühe faili"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "Valiti rohkem kui üks fail"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "Valida saab ainult kohalike failide seast"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3388,12 +3388,12 @@ msgstr[1] ""
 "Valitud URL kasutab toetamata skeemi. Palun kasuta üht järgmistest "
 "skeemidest: %2"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Toetamata URL-i skeem"
 
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3404,12 +3404,12 @@ msgstr ""
 "mistõttu ei saa otsustada, millisesse kataloogi siseneda. Palun vali ainult "
 "üks kataloog."
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Valiti rohkem kui üks kataloog"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3418,22 +3418,22 @@ msgstr ""
 "Valitud on vähemalt üks kataloog ja üks fail. Valitud faile eiratakse ning "
 "sisenetakse valitud kataloogi"
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Valitud on failid ja kataloogid"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Faili \"%1\" ei leitud"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "Faili avamine nurjus"
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3444,44 +3444,44 @@ msgstr ""
 "aktiivseks asukohaks on nt. file:/home/konqi, siis sellel nupul klõpsamine "
 "viib sind kataloogi file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra tagasi."
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra edasi."
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Sellel nupul klõpsamine laadib aktiivse asukoha sisu uuesti."
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Uue kataloogi loomiseks klõpsa sellel nupul."
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Asukohtade paneeli näitamine"
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Järjehoidjate nupu näitamine"
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Valikud"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3496,12 +3496,12 @@ msgstr ""
 "paneeli,</li> <li>failide eelvaatlusi,</li> <li>eraldi katalooge</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3515,12 +3515,12 @@ msgstr ""
 "kuid kõiges muus on nad samasugused kui muud KDE järjehoidjad.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3533,12 +3533,12 @@ msgstr ""
 "nupuga ning valides menüüst <b>Teksti lõpetamine</b> sulle sobiva variandi.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "See on salvestatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3547,79 +3547,79 @@ msgstr ""
 "See on avatavate failide nimekiri. Tühikut eraldajana kasutades saab "
 "sisestada ka rohkem kui ühe faili."
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "See on avatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Asukohad"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fail \"%1\" on juba olemas. Kas kirjutada see üle?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Kas kirjutada fail üle?"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Valida saab ainult kohalike failide seast."
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Kõik kataloogid"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Kõik failid"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Ava"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikooni suurus: %1 pikslit"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&Failinime laiend valitakse automaatselt (%1)"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "laiend <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&Failinime laiend valitakse automaatselt"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "sobiv laiend"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3646,12 +3646,12 @@ msgstr ""
 "ei ole kindel, mida teha, jäta see võimalus sisselülitatuks, sest igatahes "
 "võimaldab see mugavamalt faile hallata."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr "&Failitüüp:"
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3660,12 +3660,12 @@ msgstr ""
 "<qt>See on failitüübi valija. Selle abil saab valida vormingu, millesse fail "
 "salvestatakse.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3913,7 +3913,7 @@ msgstr ""
 "%2."
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Sul puuduvad õigused valida rakendust selle faili avamiseks."
@@ -7221,7 +7221,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Faili kopeerimise tagasivõtmise kinnitus"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7232,13 +7232,13 @@ msgstr ""
 "Kas tõesti kustutada see element jäädavalt?<nl/><filename>%1</filename><nl/"
 "><nl/><emphasis strong='true'>Seda toimingut ei saa tagasi võtta.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Lõplik kustutamine"
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, fuzzy, kde-format
@@ -7247,7 +7247,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Lõplik kustutamine"
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7263,7 +7263,7 @@ msgstr[1] ""
 "Kas tõesti kustutada need %1 elementi jäädavalt?<nl/><nl/><emphasis "
 "strong='true'>Seda toimingut ei saa tagasi võtta.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7273,13 +7273,13 @@ msgstr ""
 "Kas soovite jäädavalt kustutada kõik failid prügikastist?<nl/><nl/><emphasis "
 "strong='true'>Seda toimingut ei saa tagasi võtta.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tühjenda prügikast"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7287,19 +7287,19 @@ msgid ""
 "filename>"
 msgstr "Kas tõesti visata see element prügikasti?<nl/><filename>%1</filename>"
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Kas tõesti visata see element prügikasti?"
 msgstr[1] "Kas tõesti visata need %1 elementi prügikasti?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Partneri SSL-sertifikaadi ahel paistab olevat vigane."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8791,7 +8791,7 @@ msgstr "Ainult kohalikus failisüsteemis asuvad täitmisfailid on toetatud."
 msgid "Advanced Options for %1"
 msgstr "%1 täpsemad valikud"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8800,7 +8800,7 @@ msgstr ""
 "<qt>Määratud käsku pole võimalik käivitada. Faili või kataloogi <b>%1</b> ei "
 "ole olemas.</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
 msgstr "%1 jaoks ei leitud ühtegi rakendust ega käitlejat"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:51+0000\n"
+"POT-Creation-Date: 2023-01-14 11:27+0000\n"
 "PO-Revision-Date: 2022-12-06 21:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -66,7 +66,7 @@ msgstr ""
 "\"%1\" என்ற குறியிணைப்பு உருவாக்க முடியவில்லை.\n"
 "சேருமிட கோப்பு முறைமை (%2) குறியிணைப்புகளை ஆதரிக்காது."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -81,7 +81,7 @@ msgstr ""
 "'மாற்று' என்பதை தேர்ந்தெடுத்தல் சேருமிட அடைவுப்பெயரிலுள்ள செல்லுபடியாகாத எழுத்துகளை "
 "அடிக்கீறு (அதாவது \"_\") கொண்டு மாற்றும்."
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -96,23 +96,23 @@ msgstr ""
 "'மாற்று' என்பதை தேர்ந்தெடுத்தல், சேருமிட கோப்புப்பெயரிலுள்ள செல்லுபடியாகாத எழுத்துகளை "
 "அடிக்கீறு (அதாவது \"_\") கொண்டு மாற்றும்."
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "அடைவு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "கோப்பு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ஏற்கனவே அடைவாக உள்ளது"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "அகற்றிடம்"
@@ -206,126 +206,126 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "நகர்த்தல்"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "மூலம்"
 
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "மறுபெயரிடல்"
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "நகலெடுத்தல்"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "அடைவை உருவாக்குதல்"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "அடைவு"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "அகற்றுதல்"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "கோப்பு"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "ஆராய்தல்"
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "பரிமாற்றம்"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "ஏற்றுதல்"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "கருவி"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "ஏற்ற மையம்"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "இறக்குதல்"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr "பண்பை மாற்றுதல்"
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr "கோப்பு பண்புகளை மாற்ற ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, kde-format
 msgid "Copy Files"
 msgstr "கோப்புகளை நகலெடுத்தல்"
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr "நகலெடுப்பதை தொடர ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "கோப்புக்களை நீக்குதல்"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
@@ -334,58 +334,58 @@ msgstr ""
 "நீக்குவதை தொடர ரூட் உரிமை தேவை. ஆனால், அவ்வாறு செய்தல் உங்கள் கணினிக்கு சேதம் "
 "விளைவிக்கலாம். தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, kde-format
 msgid "Create Folder"
 msgstr "அடைவை உருவாக்குதல்"
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr "இந்த அடைவை உருவாக்க ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, kde-format
 msgid "Move Items"
 msgstr "உருப்படிகளை நகர்த்து"
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr "நகர்த்தலை தொடர ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
 msgid "Rename"
 msgstr "மறுபெயரிடு"
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr "பெயரை மாற்ற ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
 msgstr "குறியிணைப்பை உருவாக்கு"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr "குறியிணைப்பை உருவாக்க ரூட் உரிமை தேவை. தொடர விரும்புகிறீர்களா?"
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, kde-format
 msgid "Transfer data"
 msgstr "தரவு இடமாற்றம்"
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2344,7 +2344,7 @@ msgstr "(%1, %2 -க்கு இணைப்பு)"
 msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2354,7 +2354,7 @@ msgstr ""
 "பிறழ் URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 எந்த வகையான கோப்பு என்பதை தீர்மானிக்க முடியவில்லை"
@@ -2654,9 +2654,9 @@ msgstr "மீளேற்று"
 msgid "New Folder..."
 msgstr "புதிய அடைவு..."
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "அகற்றிடத்துக்கு நகர்த்து"
@@ -3311,27 +3311,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "மிகப்பெரியது (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "நீங்கள் ஒரு கோப்பை மட்டும் தேர்ந்தெடுக்க முடியும்"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "ஒன்றுக்கு மேற்பட்ட கோப்புகள் வழங்கப்பட்டன"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "நீங்கள் உள்ளமைக் கோப்புகளை மட்டும் தேர்ந்தெடுக்க முடியும்"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "தொலைக் கோப்புகள் ஏற்றுக்கொள்ளப்படாது"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3345,12 +3345,12 @@ msgstr[1] ""
 "தேர்ந்தெடுத்த முகவரி ஆதரிக்கப்படாத முறையில் உள்ளது. இந்த முறைகளில் ஏதாவது ஒன்றை "
 "பயன்படுத்தவும்: %2"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "ஆதரிக்கப்படாத முகவரி முறை"
 
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3360,12 +3360,12 @@ msgstr ""
 "இந்த சாளரம் ஒரு அடைவை மட்டும் ஏற்கும். பல அடைவுகள் தேர்ந்தெடுக்க பட்டதால் எதில் நுழைய "
 "வேண்டும் என்று தெரியவில்லை. உள்ளடக்கத்தை பட்டியலிட ஒரு அடைவை மட்டும் தேர்வு செய்யவும்."
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "ஒன்றுக்கு மேற்பட்ட அடைவுகள் வழங்கப்பட்டன"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3374,22 +3374,22 @@ msgstr ""
 "ஒன்றுக்கு மேற்பட்ட அடைவுகள் மற்றும் கோப்புகள் தேர்ந்தெடுக்கப் பட்டுள்ளன. தேர்வு செய்த கோப்புகள் "
 "பொறுட்படுத்தப்படாது. தேர்வு செய்த அடைவின் உள்ளடக்கம் பட்டியலிடப் படும்."
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "கோப்புகள் மற்றும் அடைவுகள் தேர்ந்தெடுக்கப்பட்டன"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" என்கிற கோப்பை கண்டுபிடிக்க முடியவில்லை"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "கோப்பை திறக்க முடியவில்லை"
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3400,42 +3400,42 @@ msgstr ""
 "இருப்பிடம் file:/home/konqi என்றால், இந்த பட்டனை அழுத்துதல் உங்களை file:/home -க்கு "
 "கொண்டு செல்லும்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "உலாவல் வரலாற்றில் ஒரு படி பின்னே செல்ல இந்தப் பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "உலாவல் வரலாற்றில் ஒரு படி முன்னே செல்ல இந்தப் பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "இந்த இடத்தின் உள்ளடக்கத்தை மீளேற்ற இந்த பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ஒரு புதிய அடைவை உருவாக்க இந்த பட்டனை அழுத்தவும்."
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
 msgstr "இடங்கள் பலகையைக் காட்டு"
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "நினைவுக்குறிகள் பட்டனைக் காட்டு"
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3450,12 +3450,12 @@ msgstr ""
 "காட்டுதல்</li><li> இடங்கள் பலகை</li><li> கோப்பு முன்தோற்றங்கள்</li><li> அடைவுகளையும் "
 "கோப்புகளையும் பிரித்து காட்டுதல்</li></ul> </qt>"
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "நினைவுக்குறிகள்"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3469,12 +3469,12 @@ msgstr ""
 "இல் மற்ற இடங்களில் உள்ள நினைவுக்குறிகளைப் போலவே இவை செயல்படும்.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&பெயர்:"
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3486,12 +3486,12 @@ msgstr ""
 "அம்சத்தை அமைக்க, வலது சுட்டி பட்டனை அழுத்தி <b>உரை நிறைவு</b> பட்டியிலிருந்து "
 "விருப்பமான பயன்முறையை தேர்வு செய்யுங்கள்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "இது கோப்பினை சேமிக்க வேண்டிய பெயர்."
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3500,79 +3500,79 @@ msgstr ""
 "இது திறக்க வேண்டிய கோப்புகளின் பட்டியல். ஒன்றுக்கு மேற்பட்ட கோப்புகளைக் குறிப்பிட, "
 "கோப்பு பெயர்களை, காலியிடத்தால் பிரித்து உள்ளிடவும்."
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "இது திறக்க வேண்டிய கோப்பின் பெயர்."
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "இடங்கள்"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" என்று ஏற்கனவே ஒரு கோப்பு உள்ளது. அதை மேலெழுத விரும்புகிறீர்களா?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "கோப்பினை மேலெழுதவா?"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "உள்ளமை கோப்புகளை மட்டுமே நீங்கள் தேர்வு செய்ய முடியும்."
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "தொலைக் கோப்புகள் ஏற்றுக் கொள்ளப்படாது"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|எல்லா அடைவுகள்"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|எல்லாக் கோப்புகள்"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "சின்னத்தின் அளவு: %1 பிக்செல்கள்"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "கோப்பு &வகைப்பெயரை தானாக தேர்வு செய் (%1)"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> என்ற வகைப்பெயர்"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "கோப்பு &வகைப்பெயரை தானாக தேர்வு செய்"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "பொருத்தமான ஒரு வகைப்பெயர்"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3598,12 +3598,12 @@ msgstr ""
 "இறுதியில் இடவும்  (புள்ளி தானாகவே அகற்றப்படும்). </li></ol>சந்தேகமாக இருந்தால், "
 "இத்தேர்வினை இயக்குங்கள், ஏனெனில் இது உங்கள் கோப்புகளை எளிதில் கையாள உதவும்."
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr "&கோப்பின் வகை:"
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3611,12 +3611,12 @@ msgid ""
 msgstr ""
 "<qt>இது கோப்பு வகை தேர்வி. கோப்பு சேமிக்கப்படும் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&வடிகட்டி:"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3865,7 +3865,7 @@ msgstr ""
 "%2."
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "இக்கோப்பினைத் திறப்பதற்கான செயலியை தேர்வு செய்ய உங்களுக்கு அனுமதி இல்லை."
@@ -7105,7 +7105,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "கோப்பு நகலெடுத்தலை உறுதிப்படுத்தியதை செயல்நீக்கு"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7116,13 +7116,13 @@ msgstr ""
 "நீங்கள் இந்த உருப்படியை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><filename>%1</filename><nl/"
 "><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr "நிரந்தரமாக அழிப்பது"
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
@@ -7130,7 +7130,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "நிரந்தரமாக அழி"
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7146,7 +7146,7 @@ msgstr[1] ""
 "நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7156,13 +7156,13 @@ msgstr ""
 "அகற்றிடத்திலிருந்து எல்லா உருப்படிகளையும் நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/"
 "><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "அகற்றிடத்தை காலியாக்கு"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7172,21 +7172,21 @@ msgstr ""
 "உறுதியாக இவ்வுருப்படியை அகற்றிடத்துக்கு நகர்த்த வேண்டுமா?<nl/> <filename>%1</"
 "filename>"
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "உறுதியாக இவ்வுருப்படியை அகற்றிடத்துக்கு நகர்த்த வேண்டுமா?"
 msgstr[1] "உறுதியாக இந்த %1 உருப்படிகளை அகற்றிடத்துக்கு நகர்த்த வேண்டுமா?"
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "சக கணினியின் SSL சான்றிதழ் தொடரில் (certificate chain-இல்) பிழை உள்ளதுபோல் "
 "தெரிகிறது."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8676,7 +8676,7 @@ msgstr "உள்ளமை கோப்பு முறைமையிலு�
 msgid "Advanced Options for %1"
 msgstr "%1 -க்கான மேம்பட்ட விருப்பங்கள்"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8685,7 +8685,7 @@ msgstr ""
 "<qt>குறிப்பிட்ட கட்டளையை இயக்க முடியவில்லை. <b>%1</b> என்ற கோப்பு அல்லது அடைவு இல்லை."
 "</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
 msgstr "%1 -ஐ கையாளும் எந்த செயலியையும் கண்டுபிடிக்க முடியவில்லை"
