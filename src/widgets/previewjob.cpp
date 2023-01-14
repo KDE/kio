@@ -85,8 +85,10 @@ public:
         , succeeded(false)
         , maximumLocalSize(0)
         , maximumRemoteSize(0)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
         , iconSize(0)
         , iconAlpha(70)
+#endif
         , shmid(-1)
         , shmaddr(nullptr)
     {
@@ -135,10 +137,12 @@ public:
     QString tempName;
     KIO::filesize_t maximumLocalSize;
     KIO::filesize_t maximumRemoteSize;
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
     // the size for the icon overlay
     int iconSize;
     // the transparency of the blended MIME type icon
     int iconAlpha;
+#endif
     // Shared memory segment Id. The segment is allocated to a size
     // of extent x extent x 4 (32 bit image) on first need.
     int shmid;
@@ -876,17 +880,23 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
     int thumb_width = width;
     int thumb_height = height;
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
     int thumb_iconSize = iconSize;
+#endif
     if (save) {
         thumb_width = thumb_height = cacheSize;
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
         thumb_iconSize = 64;
+#endif
     }
 
     job->addMetaData(QStringLiteral("mimeType"), currentItem.item.mimetype());
     job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
     job->addMetaData(QStringLiteral("iconSize"), QString::number(thumb_iconSize));
     job->addMetaData(QStringLiteral("iconAlpha"), QString::number(iconAlpha));
+#endif
     job->addMetaData(QStringLiteral("plugin"), currentItem.plugin.fileName());
     job->addMetaData(QStringLiteral("enabledPlugins"), enabledPlugins.join(QLatin1Char(',')));
     job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(devicePixelRatio));
