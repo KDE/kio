@@ -16,7 +16,6 @@ class QWidget;
 
 namespace KIO
 {
-class SkipDialogPrivate;
 /**
  * @internal
  */
@@ -43,9 +42,6 @@ Q_SIGNALS:
     KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use QDialog::finished(int result)")
     void result(SkipDialog *_this, int _button); // clazy:exclude=fully-qualified-moc-types,overloaded-signal
 #endif
-
-private:
-    SkipDialogPrivate *const d;
 };
 
 }

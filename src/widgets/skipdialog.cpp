@@ -24,7 +24,6 @@ using namespace KIO;
 
 SkipDialog::SkipDialog(QWidget *parent, KIO::SkipDialog_Options options, const QString &_error_text)
     : QDialog(parent)
-    , d(nullptr)
 {
     setWindowTitle(i18n("Information"));
 
