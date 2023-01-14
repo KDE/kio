@@ -271,7 +271,7 @@ PreviewJob::~PreviewJob()
 #endif
 }
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
 void PreviewJob::setOverlayIconSize(int size)
 {
     Q_D(PreviewJob);
@@ -279,7 +279,7 @@ void PreviewJob::setOverlayIconSize(int size)
 }
 #endif
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
 int PreviewJob::overlayIconSize() const
 {
     Q_D(const PreviewJob);
@@ -287,7 +287,7 @@ int PreviewJob::overlayIconSize() const
 }
 #endif
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
 void PreviewJob::setOverlayIconAlpha(int alpha)
 {
     Q_D(PreviewJob);
@@ -295,7 +295,7 @@ void PreviewJob::setOverlayIconAlpha(int alpha)
 }
 #endif
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
 int PreviewJob::overlayIconAlpha() const
 {
     Q_D(const PreviewJob);
