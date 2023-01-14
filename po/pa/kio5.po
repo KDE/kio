@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:27+0000\n"
+"POT-Creation-Date: 2023-01-14 16:30+0000\n"
 "PO-Revision-Date: 2022-11-19 05:23-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -2280,24 +2280,24 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slave.cpp:421
+#: core/slave.cpp:429
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "ਅਣਜਾਣ ਪਰੋਟੋਕਾਲ '%1' ਹੈ।"
 
-#: core/slave.cpp:432
+#: core/slave.cpp:440
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
-#: core/slave.cpp:440
+#: core/slave.cpp:448
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਚਲਾਉਣ ਵਾਸਤੇ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ ਹੈ।"
 
-#: core/slave.cpp:480
+#: core/slave.cpp:488
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioslave5' executable at '%1'"

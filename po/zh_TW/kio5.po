@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:27+0000\n"
+"POT-Creation-Date: 2023-01-14 16:30+0000\n"
 "PO-Revision-Date: 2023-01-06 22:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -2281,22 +2281,22 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "無法決定 %1 的檔案類型"
 
-#: core/slave.cpp:421
+#: core/slave.cpp:429
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "不明的協定「%1」。"
 
-#: core/slave.cpp:432
+#: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "找不到「%1」協定的 KIO worker。"
 
-#: core/slave.cpp:440
+#: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "無法建立 socket 來開啟「%1」協定的 KIO worker。"
 
-#: core/slave.cpp:480
+#: core/slave.cpp:488
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "在 %1 找不到 kioslave5 執行檔"

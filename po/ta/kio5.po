@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:27+0000\n"
+"POT-Creation-Date: 2023-01-14 16:30+0000\n"
 "PO-Revision-Date: 2022-12-06 21:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2359,24 +2359,24 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 எந்த வகையான கோப்பு என்பதை தீர்மானிக்க முடியவில்லை"
 
-#: core/slave.cpp:421
+#: core/slave.cpp:429
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "தெரியாத நெறிமுறை '%1'."
 
-#: core/slave.cpp:432
+#: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' நெறிமுறைக்கான KIO ஆதரவுநிரலை கண்டுபிடிக்க முடியவில்லை."
 
-#: core/slave.cpp:440
+#: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "'%1' என்ற நெறிமுறைக்கான KIO ஆதரவுநிரலை இயக்க தேவைப்படும் சாக்கெடை உருவாக்க "
 "முடியவில்லை."
 
-#: core/slave.cpp:480
+#: core/slave.cpp:488
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "'%1' -இல் 'kioslave5' என்ற நிரலை கண்டுபிடிக்க முடியவில்லை"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 11:27+0000\n"
+"POT-Creation-Date: 2023-01-14 16:30+0000\n"
 "PO-Revision-Date: 2022-12-04 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2450,24 +2450,24 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "No s'ha pogut determinar el tipus de fitxer per a %1"
 
-#: core/slave.cpp:421
+#: core/slave.cpp:429
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol desconegut «%1»."
 
-#: core/slave.cpp:432
+#: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "No s'ha pogut trobar un procés de treball KIO per al protocol «%1»."
 
-#: core/slave.cpp:440
+#: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "No s'ha pogut crear el sòcol per a iniciar un procés de treball KIO per al "
 "protocol «%1»."
 
-#: core/slave.cpp:480
+#: core/slave.cpp:488
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr "No s'ha pogut trobar l'executable «kioslave5» a «%1»"
