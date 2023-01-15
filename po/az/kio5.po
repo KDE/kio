@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kio package.
 #
-# Xəyyam <xxmn77@gmail.com>, 2020, 2021, 2022.
+# Xəyyam <xxmn77@gmail.com>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:30+0000\n"
-"PO-Revision-Date: 2022-11-11 12:27+0400\n"
+"PO-Revision-Date: 2023-01-02 23:31+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3296,7 +3296,7 @@ msgstr "Yeni pəncərədə açın"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Giriş əlaə edin..."
+msgstr "Giriş əlavə edin..."
 
 #: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
