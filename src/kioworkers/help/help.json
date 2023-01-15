@@ -3,7 +3,7 @@
         "help": {
             "Class": ":local", 
             "Icon": "help-browser", 
-            "X-DocPath": "kioslave5/help/index.html", 
+            "X-DocPath": "kioworker6/help/index.html",
             "defaultMimetype": "text/html", 
             "input": "none", 
             "output": "filesystem", 

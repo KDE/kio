@@ -4,7 +4,7 @@
             "Class": ":local", 
             "ExtraNames": [], 
             "Icon": "folder", 
-            "X-DocPath": "kioslave5/file/index.html", 
+            "X-DocPath": "kioworker6/file/index.html",
             "deleteRecursive": true, 
             "deleting": true, 
             "input": "none", 

@@ -4,7 +4,7 @@
             "Class": ":internet", 
             "Icon": "folder-remote", 
             "ProxiedBy": "http", 
-            "X-DocPath": "kioslave5/ftp/index.html", 
+            "X-DocPath": "kioworker6/ftp/index.html",
             "copyFromFile": true, 
             "copyToFile": true, 
             "deleting": true, 

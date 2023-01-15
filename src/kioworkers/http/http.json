@@ -3,7 +3,7 @@
         "http": {
             "Class": ":internet", 
             "Icon": "text-html", 
-            "X-DocPath": "kioslave5/http/index.html", 
+            "X-DocPath": "kioworker6/http/index.html",
             "defaultMimetype": "application/octet-stream", 
             "deleting": true, 
             "determineMimetypeFromExtension": false, 
@@ -18,7 +18,7 @@
         "https": {
             "Class": ":internet", 
             "Icon": "text-html", 
-            "X-DocPath": "kioslave5/http/index.html", 
+            "X-DocPath": "kioworker6/http/index.html",
             "config": "http", 
             "defaultMimetype": "application/octet-stream", 
             "deleting": true, 
@@ -34,7 +34,7 @@
         "webdav": {
             "Class": ":internet", 
             "Icon": "folder-remote", 
-            "X-DocPath": "kioslave5/webdav/index.html", 
+            "X-DocPath": "kioworker6/webdav/index.html",
             "copyFromFile": true, 
             "defaultMimetype": "application/octet-stream", 
             "deleteRecursive": true, 
@@ -61,7 +61,7 @@
         "webdavs": {
             "Class": ":internet", 
             "Icon": "folder-remote", 
-            "X-DocPath": "kioslave5/webdav/index.html", 
+            "X-DocPath": "kioworker6/webdav/index.html",
             "config": "webdav", 
             "copyFromFile": true, 
             "defaultMimetype": "application/octet-stream", 

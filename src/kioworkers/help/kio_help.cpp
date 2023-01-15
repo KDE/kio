@@ -100,7 +100,7 @@ QString HelpProtocol::lookupFile(const QString &fname, const QString &query, boo
             // qDebug() << "redirect to " << red;
             redirect = true;
         } else {
-            const QString documentationNotFound = QStringLiteral("kioslave5/help/documentationnotfound/index.html");
+            const QString documentationNotFound = QStringLiteral("kioworker6/help/documentationnotfound/index.html");
             if (!langLookup(documentationNotFound).isEmpty()) {
                 QUrl red;
                 red.setScheme(QStringLiteral("help"));
