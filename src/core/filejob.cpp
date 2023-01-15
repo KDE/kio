@@ -8,7 +8,6 @@
 #include "filejob.h"
 
 #include "slave.h"
-#include "slavebase.h"
 
 #include "job_p.h"
 
