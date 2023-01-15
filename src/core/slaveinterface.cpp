@@ -12,7 +12,7 @@
 #include "commands_p.h"
 #include "connection_p.h"
 #include "hostinfo.h"
-#include "slavebase.h"
+#include "workerbase.h"
 #include <KLocalizedString>
 #include <signal.h>
 #include <time.h>
@@ -418,7 +418,7 @@ void SlaveInterface::messageBox(int type,
     data.insert(UserNotificationHandler::MSG_DONT_ASK_AGAIN, dontAskAgainName);
 
     // SMELL: the braindead way to support button icons
-    // TODO: Fix this in KIO::SlaveBase.
+    // TODO: Fix this in KIO::WorkerBase.
     if (primaryActionText == i18n("&Details")) {
         data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("help-about"));
     } else if (primaryActionText == i18n("&Forever")) {
@@ -431,9 +431,9 @@ void SlaveInterface::messageBox(int type,
         data.insert(UserNotificationHandler::MSG_SECONDARYACTION_ICON, QLatin1String("chronometer"));
     }
 
-    if (type == KIO::SlaveBase::SSLMessageBox) {
+    if (type == KIO::WorkerBase::SSLMessageBox) {
         data.insert(UserNotificationHandler::MSG_META_DATA, d->sslMetaData.toVariant());
-    } else if (type == KIO::SlaveBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
+    } else if (type == KIO::WorkerBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
         data.insert(UserNotificationHandler::MSG_DETAILS, d->messageBoxDetails);
     }
 
