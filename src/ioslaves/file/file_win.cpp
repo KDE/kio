@@ -90,6 +90,16 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
     entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
 
+    QT_STATBUF buf;
+    QUrl url(fileInfo.absoluteFilePath());
+    const QString path = url.toString(QUrl::StripTrailingSlash | QUrl::PreferLocalFile);
+    const QByteArray pathBA = QFile::encodeName(path);
+
+    if (QT_LSTAT(pathBA.constData(), &buf) == 0) {
+        entry.fastInsert(KIO::UDSEntry::UDS_DEVICE_ID, buf.st_dev);
+        entry.fastInsert(KIO::UDSEntry::UDS_INODE, buf.st_ino);
+    }
+
     return entry;
 }
 
