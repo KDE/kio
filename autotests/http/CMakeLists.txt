@@ -27,7 +27,11 @@ ecm_add_test(httpheaderdispositiontest.cpp
    LINK_LIBRARIES KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Widgets ${_qt5_compat_libs}
 )
 
-ecm_add_test(httpauthenticationtest.cpp
+ecm_add_test(
+   httpauthenticationtest.cpp
+   ${kioworker-http_SOURCE_DIR}/kntlm.cpp
+   ${kioworker-http_SOURCE_DIR}/des.cpp
+   TEST_NAME "httpauthenticationtest"
    NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
    Qt${QT_MAJOR_VERSION}::Test
@@ -37,7 +41,6 @@ ecm_add_test(httpauthenticationtest.cpp
    KF6::I18n
    KF6::ConfigCore
    KF6::KIOCore
-   KF6::KIONTLM
 )
 
 if(GSSAPI_FOUND)
@@ -49,6 +52,8 @@ ecm_add_test(
    ${kioworker-http_SOURCE_DIR}/http.cpp
    ${kioworker-http_SOURCE_DIR}/httpauthentication.cpp
    ${kioworker-http_SOURCE_DIR}/httpfilter.cpp
+   ${kioworker-http_SOURCE_DIR}/kntlm.cpp
+   ${kioworker-http_SOURCE_DIR}/des.cpp
    TEST_NAME "httpobjecttest" NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
    Qt${QT_MAJOR_VERSION}::Test
@@ -60,7 +65,6 @@ ecm_add_test(
    KF6::I18n
    KF6::ConfigCore
    KF6::KIOCore
-   KF6::KIONTLM
    KF6::Archive
 )
 if(GSSAPI_FOUND)

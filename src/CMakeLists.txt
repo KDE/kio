@@ -2,7 +2,6 @@ add_subdirectory(core)
 
 # KIOCore-only executables
 add_subdirectory(protocoltojson)
-add_subdirectory(kntlm)
 if (NOT ANDROID)
     add_subdirectory(ioslaves)
     add_subdirectory(kioworkers)
@@ -66,7 +65,6 @@ if (BUILD_QCH)
         set(${var_name} ${_result})
     endmacro()
 
-    _make_absolute(KIONTLM_QCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/(kntlm")
     _make_absolute(KIOCore_QCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/core")
     _make_absolute(KIOGui_QCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/gui")
     _make_absolute(KIOWidgets_QCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/widgets")
@@ -79,7 +77,6 @@ if (BUILD_QCH)
         VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
-            ${KIONTLM_QCH_SOURCES}
             ${KIOCore_QCH_SOURCES}
             ${KIOGui_QCH_SOURCES}
             ${KIOWidgets_QCH_SOURCES}
@@ -98,8 +95,6 @@ if (BUILD_QCH)
             "KIOCORE_DEPRECATED_VERSION_BELATED(x, y, xt, yt, t)"
             "KIOCORE_ENUMERATOR_DEPRECATED_VERSION(x, y, t)"
             "KIOCORE_ENUMERATOR_DEPRECATED_VERSION_BELATED(x, y, xt, yt, t)"
-            KNTLM_EXPORT
-            "KNTLM_DEPRECATED_VERSION(x, y, t)"
             KIOGUI_EXPORT
             KIOGUI_DEPRECATED_EXPORT
             KIOGUI_DEPRECATED
@@ -124,8 +119,6 @@ if (BUILD_QCH)
         PREDEFINED_MACROS
             "KIOCORE_ENABLE_DEPRECATED_SINCE(x, y)=1"
             "KIOCORE_BUILD_DEPRECATED_SINCE(x, y)=1"
-            "KNTLM_ENABLE_DEPRECATED_SINCE(x, y)=1"
-            "KNTLM_BUILD_DEPRECATED_SINCE(x, y)=1"
             "KIOGUI_ENABLE_DEPRECATED_SINCE(x, y)=1"
             "KIOGUI_BUILD_DEPRECATED_SINCE(x, y)=1"
             "KIOWIDGETS_ENABLE_DEPRECATED_SINCE(x, y)=1"

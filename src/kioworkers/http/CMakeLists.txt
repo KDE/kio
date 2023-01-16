@@ -51,6 +51,8 @@ target_sources(kio_http PRIVATE
    http.cpp
    httpauthentication.cpp
    httpfilter.cpp
+   kntlm.cpp
+   des.cpp
    )
 
 ecm_qt_export_logging_category(
@@ -85,8 +87,8 @@ target_link_libraries(kio_http
    Qt${QT_MAJOR_VERSION}::Xml     # QDom
    KF6::ConfigCore
    KF6::KIOCore
-   KF6::KIONTLM
    KF6::Archive
+   KF6::CoreAddons
    KF6::I18n
 )
 if(GSSAPI_FOUND)

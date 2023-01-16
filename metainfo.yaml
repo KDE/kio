@@ -21,8 +21,6 @@ libraries:
    cmake: "KF6::KIOFileWidgets"
  - qmake: KIOWidgets
    cmake: "KF6::KIOWidgets"
- - qmake: KNTLM
-   cmake: "KF6::KIONTLM"
 cmakename: KF6KIO
 
 public_lib: true

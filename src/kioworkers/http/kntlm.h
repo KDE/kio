@@ -11,9 +11,6 @@
 #include <QByteArray>
 #include <QString>
 
-#include "kntlm_export.h"
-
-#if KNTLM_ENABLE_DEPRECATED_SINCE(5, 91)
 /**
  * @short KNTLM class implements the NTLM authentication protocol.
  *
@@ -24,10 +21,8 @@
  * The class also contains methods to create the LanManager and NT (MD4) hashes
  * of a password.
  * This class doesn't maintain any state information, so all methods are static.
- *
- * @deprecated Since 5.91, no known users.
  */
-class KNTLM_EXPORT KNTLM
+class KNTLM
 {
 public:
     enum Flags {
@@ -134,10 +129,7 @@ public:
      * @param flags - various flags, in most cases the defaults will good.
      *
      * @return true if creating the structure succeeds, false otherwise.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static bool getNegotiate(QByteArray &negotiate,
                              const QString &domain = QString(),
                              const QString &workstation = QString(),
@@ -161,10 +153,7 @@ public:
      * @return true if auth filled with the Type 3 message, false if an error occurred
      * (challenge data invalid, NTLMv2 authentication forced, but the challenge data says
      * no NTLMv2 supported, or no NTLM supported at all, and Add_LM not specified).
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static bool getAuth(QByteArray &auth,
                         const QByteArray &challenge,
                         const QString &user,
@@ -175,80 +164,51 @@ public:
 
     /**
      * Returns the LanManager response from the password and the server challenge.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray getLMResponse(const QString &password, const unsigned char *challenge);
 
     /**
      * Calculates the LanManager hash of the specified password.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray lmHash(const QString &password);
 
     /**
      * Calculates the LanManager response from the LanManager hash and the server challenge.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray lmResponse(const QByteArray &hash, const unsigned char *challenge);
 
     /**
      * Returns the NTLM response from the password and the server challenge.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray getNTLMResponse(const QString &password, const unsigned char *challenge);
 
     /**
      * Returns the NTLM hash (MD4) from the password.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray ntlmHash(const QString &password);
 
     /**
      * Calculates the NTLMv2 response.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray
     getNTLMv2Response(const QString &target, const QString &user, const QString &password, const QByteArray &targetInformation, const unsigned char *challenge);
 
     /**
      * Calculates the LMv2 response.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray getLMv2Response(const QString &target, const QString &user, const QString &password, const unsigned char *challenge);
 
     /**
      * Returns the NTLMv2 hash.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray ntlmv2Hash(const QString &target, const QString &user, const QString &password);
 
     /**
      * Calculates the LMv2 response.
-     *
-     * @deprecated Since 5.91, no known users.
      */
-    KNTLM_DEPRECATED_VERSION(5, 91, "No known users.")
     static QByteArray lmv2Response(const QByteArray &hash, const QByteArray &clientData, const unsigned char *challenge);
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KNTLM::AuthFlags)
-
-#endif // KNTLM_ENABLE_DEPRECATED_SINCE(5, 91)
 
 #endif /* KNTLM_H */
