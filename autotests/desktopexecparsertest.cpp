@@ -26,7 +26,7 @@ void DesktopExecParserTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
-    qputenv("PATH", qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath()));
+    qputenv("PATH", QByteArray(qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath())));
 
     // testProcessDesktopExec works only if your terminal application is set to "xterm"
     KConfigGroup cg(KSharedConfig::openConfig(), "General");
