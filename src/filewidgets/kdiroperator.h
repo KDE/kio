@@ -398,7 +398,9 @@ public:
     /**
      * Sets one of the predefined fileviews.
      * @see KFile::FileView
+     * @deprecated Since 5.100, use setViewMode(KFile::FileView).
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION_BELATED(5, 103, 5, 100, "Use setViewMode(KFile::FileView)")
     virtual void setView(KFile::FileView viewKind);
 #endif
 
