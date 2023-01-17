@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:30+0000\n"
-"PO-Revision-Date: 2023-01-07 08:08+0100\n"
+"PO-Revision-Date: 2023-01-16 09:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2244,17 +2244,17 @@ msgstr "'%1'-ზე 'kioslave5' გამშვები ფაილი ვე�
 #: core/slavebase.cpp:878
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
-msgstr ""
+msgstr "შეერთებების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:880
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
-msgstr ""
+msgstr "შეერთებების დახურვა მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr ""
+msgstr "ფაილებთან წვდომა მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:884
 #, kde-format
@@ -2264,7 +2264,7 @@ msgstr "%1-ში ჩაწერა მხარდაუჭერელია.
 #: core/slavebase.cpp:886
 #, kde-format
 msgid "There are no special actions available for protocol %1."
-msgstr ""
+msgstr "პროტოკოლისთვის %1 სპეციალური ქმედებები ხელმიუწვდომელია."
 
 #: core/slavebase.cpp:888
 #, kde-format
@@ -2309,12 +2309,12 @@ msgstr "პროტოკოლით %1 საქაღალდეები�
 #: core/slavebase.cpp:904
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
-msgstr ""
+msgstr "ფაილების ატრიბუტების შეცვლა მხარდაუჭერელია პროტოკოლისთვის %1."
 
 #: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr ""
+msgstr "ფაილების მფლობელის შეცვლა მხარდაუჭერელია პროტოკოლით %1."
 
 #: core/slavebase.cpp:908
 #, kde-format
@@ -3749,6 +3749,8 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
+"\"%1\"-ის გამშვებ ფაილად გადაკეთების შეცდომა.\n"
+"%2."
 
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
