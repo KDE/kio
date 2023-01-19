@@ -16,6 +16,7 @@
 
 #include "../../utils_p.h"
 #include "kioglobal_p.h"
+#include "statjob.h"
 
 #ifdef Q_OS_UNIX
 #include "legacycodec.h"
@@ -365,6 +366,12 @@ WorkerResult FileProtocol::get(const QUrl &url)
 
     processedSize(buff.st_size);
     return WorkerResult::pass();
+}
+
+KIO::StatDetails FileProtocol::getStatDetails()
+{
+    const QString statDetails = metaData(QStringLiteral("details"));
+    return statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
 }
 
 WorkerResult FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)

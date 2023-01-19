@@ -42,7 +42,6 @@
 #include <KRandom>
 
 #include "fdreceiver.h"
-#include "statjob.h"
 
 #ifdef Q_OS_LINUX
 
@@ -1390,15 +1389,6 @@ WorkerResult FileProtocol::chown(const QUrl &url, const QString &owner, const QS
     }
 
     return WorkerResult::pass();
-}
-
-KIO::StatDetails FileProtocol::getStatDetails()
-{
-    // takes care of converting old metadata details to new StatDetails
-    KIO::StatDetails details;
-    const QString statDetails = metaData(QStringLiteral("details"));
-    details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
-    return details;
 }
 
 WorkerResult FileProtocol::stat(const QUrl &url)
