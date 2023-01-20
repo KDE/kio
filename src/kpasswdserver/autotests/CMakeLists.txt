@@ -11,11 +11,11 @@ ecm_add_test(
     ../kpasswdserver.cpp
     TEST_NAME kpasswdservertest
     LINK_LIBRARIES
-        KF5::DBusAddons
-        KF5::KIOCore
-        KF5::WidgetsAddons
-        KF5::WindowSystem
-        KF5::I18n
+        KF6::DBusAddons
+        KF6::KIOCore
+        KF6::WidgetsAddons
+        KF6::WindowSystem
+        KF6::I18n
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Test
         ${WALLET_LIB}

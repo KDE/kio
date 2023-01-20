@@ -32,8 +32,8 @@ ecm_setup_version(
   PROJECT
   VARIABLE_PREFIX KIO
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h"
-  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
-  SOVERSION 5)
+  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6KIOConfigVersion.cmake"
+  SOVERSION 6)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
@@ -60,28 +60,28 @@ add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Des
 
 option(USE_FTPD_WSGIDAV_UNITTEST "Use ftpd Ruby Gem (for ftptest) and wsgidav Python module (for webdavtest) in unittests. Note that this is a temporary option that will be removed when distros add those packages in their repos." OFF)
 
-find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF_DEP_VERSION})
-find_package(KF5Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
+find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6DocTools ${KF_DEP_VERSION})
+find_package(KF6Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
 if (NOT ANDROID)
-    find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
-    find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
+    find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
+    find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 if (NOT KIOCORE_ONLY)
-find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Completion ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5GuiAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5ItemViews ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5JobWidgets ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Completion ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6ItemViews ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6JobWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
 find_package(KDED)
 set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session services"
@@ -91,11 +91,11 @@ set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session ser
 endif()
 
 if (UNIX AND NOT ANDROID)
-    find_package(KF5Auth ${KF_DEP_VERSION} REQUIRED)
+    find_package(KF6Auth ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 # tell what is missing without doctools
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to generate documentation in various format from DocBook files"
                        TYPE OPTIONAL
                        PURPOSE "Required to build help KIO worker and documentation"
                       )
@@ -164,11 +164,11 @@ ecm_set_disabled_deprecation_versions(
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
 ki18n_install(po)
 
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
      add_subdirectory(docs)
 endif()
 
@@ -186,35 +186,35 @@ add_subdirectory(kconf_update)
 add_subdirectory(templates)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5KIO")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6KIO")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5KIO_QCH
-        FILE KF5KIOQchTargets.cmake
+        TARGETS KF6KIO_QCH
+        FILE KF6KIOQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5KIOQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6KIOQchTargets.cmake\")")
 endif()
 
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5KIOConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6KIOConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6KIOConfig.cmake"
   PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5KIOConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6KIOConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6KIOConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5KIOTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5KIOTargets.cmake NAMESPACE KF5:: )
+install(EXPORT KF6KIOTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF6KIOTargets.cmake NAMESPACE KF6:: )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/src/kio_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIO COMPONENT Devel)

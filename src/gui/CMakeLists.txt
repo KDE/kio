@@ -1,15 +1,15 @@
 configure_file(config-kiogui.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiogui.h)
 
-add_library(KF5KIOGui)
-add_library(KF5::KIOGui ALIAS KF5KIOGui)
+add_library(KF6KIOGui)
+add_library(KF6::KIOGui ALIAS KF6KIOGui)
 
-set_target_properties(KF5KIOGui PROPERTIES
+set_target_properties(KF6KIOGui PROPERTIES
     VERSION     ${KIO_VERSION}
     SOVERSION   ${KIO_SOVERSION}
     EXPORT_NAME KIOGui
 )
 
-target_sources(KF5KIOGui PRIVATE
+target_sources(KF6KIOGui PRIVATE
    applicationlauncherjob.cpp
    commandlauncherjob.cpp
    faviconrequestjob.cpp
@@ -35,14 +35,14 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(kiogui_dbus_SRCS)
     qt_add_dbus_interfaces(kiogui_dbus_SRCS ${SYSTEMD_DBUS_XMLS})
 
-    target_sources(KF5KIOGui PRIVATE
+    target_sources(KF6KIOGui PRIVATE
         ${kiogui_dbus_SRCS}
         systemd/systemdprocessrunner.cpp
         systemd/scopedprocessrunner.cpp
     )
 endif ()
 
-ecm_qt_declare_logging_category(KF5KIOGui
+ecm_qt_declare_logging_category(KF6KIOGui
     HEADER kiogui_debug.h
     IDENTIFIER KIO_GUI
     CATEGORY_NAME kf.kio.gui
@@ -51,7 +51,7 @@ ecm_qt_declare_logging_category(KF5KIOGui
     EXPORT KIO
 )
 
-ecm_qt_declare_logging_category(KF5KIOGui
+ecm_qt_declare_logging_category(KF6KIOGui
     HEADER favicons_debug.h
     IDENTIFIER FAVICONS_LOG
     CATEGORY_NAME kf.kio.gui.favicons
@@ -60,7 +60,7 @@ ecm_qt_declare_logging_category(KF5KIOGui
     EXPORT KIO
 )
 
-ecm_generate_export_header(KF5KIOGui
+ecm_generate_export_header(KF6KIOGui
     BASE_NAME KIOGui
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -69,23 +69,23 @@ ecm_generate_export_header(KF5KIOGui
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
-target_include_directories(KF5KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui>")
+target_include_directories(KF6KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui>")
 
-target_link_libraries(KF5KIOGui
+target_link_libraries(KF6KIOGui
   PUBLIC
-    KF5::KIOCore
-    KF5::ConfigCore
-    KF5::Service
+    KF6::KIOCore
+    KF6::ConfigCore
+    KF6::Service
     Qt${QT_MAJOR_VERSION}::Gui
   PRIVATE
-    KF5::I18n
+    KF6::I18n
 )
 
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
-  target_link_libraries(KF5KIOGui PUBLIC KF5::WindowSystem)
+  target_link_libraries(KF6KIOGui PUBLIC KF6::WindowSystem)
 else()
-  target_link_libraries(KF5KIOGui PRIVATE KF5::WindowSystem)
+  target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
 endif()
 
 # Headers prefixed with KIO/
@@ -120,7 +120,7 @@ endif()
 
 install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
 
-install(TARGETS KF5KIOGui EXPORT KF5KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6KIOGui EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   ${KIO_namespaced_gui_HEADERS}
@@ -135,5 +135,5 @@ install(FILES
 set(KIOGui_QCH_SOURCES ${KIOGui_HEADERS} ${KIO_namespaced_gui_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOGui LIB_NAME KF5KIOGui DEPS "KIOCore" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui)
+ecm_generate_pri_file(BASE_NAME KIOGui LIB_NAME KF6KIOGui DEPS "KIOCore" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

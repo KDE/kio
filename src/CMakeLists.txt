@@ -31,14 +31,14 @@ endif()
 set(NON_KIOCORE_LINK_QCHS
     Qt5Widgets_QCH
     Qt5Network_QCH
-    KF5Completion_QCH
-    KF5WidgetsAddons_QCH
-    KF5JobWidgets_QCH
-    KF5Bookmarks_QCH
-    KF5ItemViews_QCH
-    KF5XmlGui_QCH
-    KF5Solid_QCH
-    KF5WindowSystem_QCH
+    KF6Completion_QCH
+    KF6WidgetsAddons_QCH
+    KF6JobWidgets_QCH
+    KF6Bookmarks_QCH
+    KF6ItemViews_QCH
+    KF6XmlGui_QCH
+    KF6Solid_QCH
+    KF6WindowSystem_QCH
 )
 
 if(BUILD_DESIGNERPLUGIN AND NOT ANDROID)
@@ -73,9 +73,9 @@ if (BUILD_QCH)
     _make_absolute(KIOFileWidgets_QCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/filewidgets")
 
     ecm_add_qch(
-        KF5KIO_QCH
+        KF6KIO_QCH
         NAME KIO
-        BASE_NAME KF5KIO
+        BASE_NAME KF6KIO
         VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
@@ -87,8 +87,8 @@ if (BUILD_QCH)
         MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
         IMAGE_DIRS "${CMAKE_SOURCE_DIR}/docs/pics"
         LINK_QCHS
-            KF5CoreAddons_QCH
-            KF5Service_QCH
+            KF6CoreAddons_QCH
+            KF6Service_QCH
             ${NON_KIOCORE_LINK_QCHS}
         BLANK_MACROS
             KIOCORE_EXPORT

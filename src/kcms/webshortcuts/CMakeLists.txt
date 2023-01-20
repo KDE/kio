@@ -3,11 +3,11 @@ kcoreaddons_desktop_to_json(kcm_webshortcuts webshortcuts.desktop)
 
 target_link_libraries(kcm_webshortcuts
   PUBLIC
-    KF5::ConfigWidgets # KCModule
-    KF5::KIOWidgets    # KUriFilter
+    KF6::ConfigWidgets # KCModule
+    KF6::KIOWidgets    # KUriFilter
   PRIVATE
-    KF5::I18n
-    KF5::CoreAddons
+    KF6::I18n
+    KF6::CoreAddons
 )
 
 install(TARGETS kcm_webshortcuts DESTINATION ${KDE_INSTALL_PLUGINDIR})

@@ -9,7 +9,7 @@ target_sources(kiomessagebox PRIVATE
 )
 
 target_link_libraries(kiomessagebox
-    KF5::KIOCore
+    KF6::KIOCore
 )
 
 # Uncomment to deploy

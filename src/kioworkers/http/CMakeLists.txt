@@ -37,8 +37,8 @@ target_sources(kio_http_cache_cleaner PRIVATE
 target_link_libraries(kio_http_cache_cleaner
    Qt${QT_MAJOR_VERSION}::DBus
    Qt${QT_MAJOR_VERSION}::Network # QLocalSocket
-   KF5::KIOCore # KProtocolManager
-   KF5::I18n)
+   KF6::KIOCore # KProtocolManager
+   KF6::I18n)
 
 install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
 
@@ -83,11 +83,11 @@ target_link_libraries(kio_http
    Qt${QT_MAJOR_VERSION}::DBus
    Qt${QT_MAJOR_VERSION}::Network # QLocalSocket etc.
    Qt${QT_MAJOR_VERSION}::Xml     # QDom
-   KF5::ConfigCore
-   KF5::KIOCore
-   KF5::KIONTLM
-   KF5::Archive
-   KF5::I18n
+   KF6::ConfigCore
+   KF6::KIOCore
+   KF6::KIONTLM
+   KF6::Archive
+   KF6::I18n
 )
 if(GSSAPI_FOUND)
   target_link_libraries(kio_http PRIVATE ${GSSAPI_LIBS})

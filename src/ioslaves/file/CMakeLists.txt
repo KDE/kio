@@ -28,10 +28,10 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_file KF5::KIOCore KF5::I18n KF5::ConfigCore Qt${QT_MAJOR_VERSION}::DBus Qt${QT_MAJOR_VERSION}::Network)
+target_link_libraries(kio_file KF6::KIOCore KF6::I18n KF6::ConfigCore Qt${QT_MAJOR_VERSION}::DBus Qt${QT_MAJOR_VERSION}::Network)
 
 if(UNIX)
-  target_link_libraries(kio_file Qt${QT_MAJOR_VERSION}::Network KF5::AuthCore)
+  target_link_libraries(kio_file Qt${QT_MAJOR_VERSION}::Network KF6::AuthCore)
 endif()
 
 if(ACL_FOUND)

@@ -15,8 +15,8 @@ target_sources(kcookiejar5 PRIVATE
 
 target_link_libraries( kcookiejar5
    Qt${QT_MAJOR_VERSION}::DBus
-   KF5::I18n
-   KF5::WidgetsAddons
+   KF6::I18n
+   KF6::WidgetsAddons
 )
 
 install(TARGETS kcookiejar5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS} )
@@ -49,12 +49,12 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kded_kcookiejar
-   KF5::WindowSystem
-   KF5::ConfigCore
-   KF5::CoreAddons
-   KF5::DBusAddons
-   KF5::I18n
-   KF5::WidgetsAddons
+   KF6::WindowSystem
+   KF6::ConfigCore
+   KF6::CoreAddons
+   KF6::DBusAddons
+   KF6::I18n
+   KF6::WidgetsAddons
 )
 
 ########### install files ###############

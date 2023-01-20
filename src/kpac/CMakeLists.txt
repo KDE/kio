@@ -4,13 +4,13 @@ kde_enable_exceptions()
 include(ConfigureChecks.cmake)
 
 # needed for kpac notifications about problems
-find_package(KF5Notifications ${KF_DEP_VERSION})
-set_package_properties(KF5Notifications PROPERTIES
+find_package(KF6Notifications ${KF_DEP_VERSION})
+set_package_properties(KF6Notifications PROPERTIES
    DESCRIPTION "Notifications library"
    TYPE OPTIONAL
    PURPOSE "Required to have error notification support in kpac")
-if (KF5Notifications_FOUND)
-  add_definitions(-DHAVE_KF5NOTIFICATIONS)
+if (KF6Notifications_FOUND)
+  add_definitions(-DHAVE_KF6NOTIFICATIONS)
 endif()
 
 configure_file(config-kpac.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kpac.h)
@@ -39,12 +39,12 @@ if (TARGET Qt${QT_MAJOR_VERSION}::Qml)
        Qt${QT_MAJOR_VERSION}::Network
        Qt${QT_MAJOR_VERSION}::Qml
        ${KPAC_EXTRA_LIBS}
-       KF5::KIOCore      # KIO::get
-       KF5::DBusAddons  # KDEDModule
-       KF5::I18n
+       KF6::KIOCore      # KIO::get
+       KF6::DBusAddons  # KDEDModule
+       KF6::I18n
     )
-    if (KF5Notifications_FOUND)
-        target_link_libraries(kded_proxyscout PRIVATE KF5::Notifications)
+    if (KF6Notifications_FOUND)
+        target_link_libraries(kded_proxyscout PRIVATE KF6::Notifications)
     endif()
 
     # this needs -lresolv e.g on Slackware, but not on FreeBSD

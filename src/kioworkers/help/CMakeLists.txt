@@ -1,7 +1,7 @@
 # kio_help only buildable if doc tools around
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
 
-find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(LibXslt)
 set_package_properties(LibXslt PROPERTIES
                        URL "http://xmlsoft.org/XSLT"
@@ -41,10 +41,10 @@ target_sources(kio_help PRIVATE
 target_link_libraries(kio_help
    Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
    Qt${QT_MAJOR_VERSION}::Network
-   KF5::I18n
-   KF5::Archive
-   KF5::KIOCore
-   KF5::DocTools
+   KF6::I18n
+   KF6::Archive
+   KF6::KIOCore
+   KF6::DocTools
    ${LIBXML2_LIBRARIES}
    ${LIBXSLT_LIBRARIES}
    ${LIBXSLT_EXSLT_LIBRARIES}
@@ -64,10 +64,10 @@ target_sources(kio_ghelp PRIVATE
 
 target_link_libraries(kio_ghelp
    Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
-   KF5::I18n
-   KF5::Archive
-   KF5::KIOCore
-   KF5::DocTools
+   KF6::I18n
+   KF6::Archive
+   KF6::KIOCore
+   KF6::DocTools
    Qt${QT_MAJOR_VERSION}::Network
    ${LIBXML2_LIBRARIES}
    ${LIBXSLT_LIBRARIES}

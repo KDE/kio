@@ -4,8 +4,8 @@ ecm_mark_nongui_executable(ktelnetservice5)
 
 target_link_libraries(ktelnetservice5
    Qt${QT_MAJOR_VERSION}::Widgets
-   KF5::I18n
-   KF5::KIOGui
+   KF6::I18n
+   KF6::KIOGui
 )
 
 install(TARGETS ktelnetservice5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})

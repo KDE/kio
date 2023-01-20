@@ -1,20 +1,20 @@
 # KF6 TODO: move all classes to kio-http, only left known user, and dissolve lib
 
-add_library(KF5KIONTLM)
-add_library(KF5::KIONTLM ALIAS KF5KIONTLM)
+add_library(KF6KIONTLM)
+add_library(KF6::KIONTLM ALIAS KF6KIONTLM)
 
-set_target_properties(KF5KIONTLM PROPERTIES
+set_target_properties(KF6KIONTLM PROPERTIES
     VERSION     ${KIO_VERSION}
     SOVERSION   ${KIO_SOVERSION}
     EXPORT_NAME KIONTLM
 )
 
-target_sources(KF5KIONTLM PRIVATE
+target_sources(KF6KIONTLM PRIVATE
     kntlm.cpp
     des.cpp
 )
 
-ecm_generate_export_header(KF5KIONTLM
+ecm_generate_export_header(KF6KIONTLM
     BASE_NAME KNTLM
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -24,9 +24,9 @@ ecm_generate_export_header(KF5KIONTLM
     # so always needed to be build
 )
 
-target_link_libraries(KF5KIONTLM KF5::CoreAddons)
+target_link_libraries(KF6KIONTLM KF6::CoreAddons)
 
-install(TARGETS KF5KIONTLM EXPORT KF5KIOTargets  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6KIONTLM EXPORT KF6KIOTargets  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kntlm_export.h kntlm.h  DESTINATION  ${KDE_INSTALL_INCLUDEDIR_KF}/kio COMPONENT Devel)
 
@@ -34,5 +34,5 @@ install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kntlm_export.h kntlm.h  DESTINATION  
 set(KIONTLM_QCH_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/kntlm.h PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KNTLM LIB_NAME KF5KIONTLM DEPS "KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KNTLM)
+ecm_generate_pri_file(BASE_NAME KNTLM LIB_NAME KF6KIONTLM DEPS "KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KNTLM)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

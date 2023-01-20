@@ -17,4 +17,4 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_ftp Qt${QT_MAJOR_VERSION}::Network KF5::KIOCore KF5::I18n KF5::ConfigCore)
+target_link_libraries(kio_ftp Qt${QT_MAJOR_VERSION}::Network KF6::KIOCore KF6::I18n KF6::ConfigCore)

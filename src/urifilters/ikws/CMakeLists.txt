@@ -29,9 +29,9 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kuriikwsfilter
     PRIVATE
-        KF5::ConfigWidgets  # KCModule
-        KF5::KIOWidgets     # KUriFilter
-        KF5::I18n
+        KF6::ConfigWidgets  # KCModule
+        KF6::KIOWidgets     # KUriFilter
+        KF6::I18n
         Qt${QT_MAJOR_VERSION}::DBus
 )
 
@@ -57,9 +57,9 @@ target_sources(kurisearchfilter PRIVATE
 ki18n_wrap_ui(kurisearchfilter ikwsopts_ui.ui searchproviderdlg_ui.ui)
 
 target_link_libraries(kurisearchfilter
-   KF5::ConfigWidgets  # KCModule
-   KF5::KIOWidgets     # KUriFilter
-   KF5::I18n
+   KF6::ConfigWidgets  # KCModule
+   KF6::KIOWidgets     # KUriFilter
+   KF6::I18n
    Qt${QT_MAJOR_VERSION}::DBus
 )
 

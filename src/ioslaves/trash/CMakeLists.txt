@@ -51,13 +51,13 @@ else()
 endif()
 
 target_link_libraries(kio_trash
-  KF5::ConfigCore
-  KF5::Solid
-  KF5::KIOCore
+  KF6::ConfigCore
+  KF6::Solid
+  KF6::KIOCore
   Qt${QT_MAJOR_VERSION}::DBus
   Qt${QT_MAJOR_VERSION}::Network
-  KF5::I18n
-  KF5::ConfigCore
+  KF6::I18n
+  KF6::ConfigCore
 )
 if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
@@ -74,9 +74,9 @@ target_sources(ktrash5 PRIVATE
 target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries(ktrash5
-  KF5::KIOCore
-  KF5::I18n
-  KF5::ConfigCore
+  KF6::KIOCore
+  KF6::I18n
+  KF6::ConfigCore
 )
 
 install(TARGETS ktrash5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
@@ -93,10 +93,10 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
     target_link_libraries(kcm_trash
        trash_common_unix
        Qt${QT_MAJOR_VERSION}::DBus
-       KF5::I18n
-       KF5::ConfigWidgets
-       KF5::KIOCore
-       KF5::Solid)
+       KF6::I18n
+       KF6::ConfigWidgets
+       KF6::KIOCore
+       KF6::Solid)
     if(APPLE)
         target_link_libraries(kcm_trash "-framework DiskArbitration -framework CoreFoundation")
     endif(APPLE)

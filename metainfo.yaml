@@ -16,14 +16,14 @@ framework-dependencies:
     - KDED
 libraries:
  - qmake: KIOCore
-   cmake: "KF5::KIOCore"
+   cmake: "KF6::KIOCore"
  - qmake: KIOFileWidgets
-   cmake: "KF5::KIOFileWidgets"
+   cmake: "KF6::KIOFileWidgets"
  - qmake: KIOWidgets
-   cmake: "KF5::KIOWidgets"
+   cmake: "KF6::KIOWidgets"
  - qmake: KNTLM
-   cmake: "KF5::KIONTLM"
-cmakename: KF5KIO
+   cmake: "KF6::KIONTLM"
+cmakename: KF6KIO
 
 public_lib: true
 group: Frameworks

@@ -1,14 +1,14 @@
-find_package(KF5Wallet ${KF_DEP_VERSION})
+find_package(KF6Wallet ${KF_DEP_VERSION})
 
 # tell what is missing without wallet
-set_package_properties(KF5Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords"
+set_package_properties(KF6Wallet PROPERTIES DESCRIPTION "Safe desktop-wide storage for passwords"
                        TYPE OPTIONAL
                        PURPOSE "Required to have permanent storage of passwords for kpasswdserver"
                       )
 
-if (KF5Wallet_FOUND)
-    add_definitions(-DHAVE_KF5WALLET)
-    set(WALLET_LIB KF5::Wallet)
+if (KF6Wallet_FOUND)
+    add_definitions(-DHAVE_KF6WALLET)
+    set(WALLET_LIB KF6::Wallet)
 endif()
 
 if(BUILD_TESTING)
@@ -40,12 +40,12 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kiod_kpasswdserver
-   KF5::DBusAddons    # KDED Module
+   KF6::DBusAddons    # KDED Module
    Qt${QT_MAJOR_VERSION}::DBus
-   KF5::KIOCore
-   KF5::WidgetsAddons # KPasswordDialog
-   KF5::I18n
-   KF5::WindowSystem
+   KF6::KIOCore
+   KF6::WidgetsAddons # KPasswordDialog
+   KF6::I18n
+   KF6::WindowSystem
    ${WALLET_LIB}
 )
 

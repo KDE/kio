@@ -1,18 +1,18 @@
-find_package(KF5Bookmarks ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
 
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
-add_library(KF5KIOFileWidgets)
-add_library(KF5::KIOFileWidgets ALIAS KF5KIOFileWidgets)
+add_library(KF6KIOFileWidgets)
+add_library(KF6::KIOFileWidgets ALIAS KF6KIOFileWidgets)
 
-set_target_properties(KF5KIOFileWidgets PROPERTIES
+set_target_properties(KF6KIOFileWidgets PROPERTIES
     VERSION     ${KIO_VERSION}
     SOVERSION   ${KIO_SOVERSION}
     EXPORT_NAME KIOFileWidgets
 )
 
-target_sources(KF5KIOFileWidgets PRIVATE
+target_sources(KF6KIOFileWidgets PRIVATE
   kstatusbarofflineindicator.cpp
   kfilemetapreview.cpp
   kimagefilepreview.cpp
@@ -69,7 +69,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-ecm_qt_declare_logging_category(KF5KIOFileWidgets
+ecm_qt_declare_logging_category(KF6KIOFileWidgets
     HEADER kfilefiltercombo_debug.h
     IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
     CATEGORY_NAME kf.kio.filewidgets.kfilefiltercombo
@@ -79,7 +79,7 @@ ecm_qt_declare_logging_category(KF5KIOFileWidgets
     EXPORT KIO
 )
 
-ecm_generate_export_header(KF5KIOFileWidgets
+ecm_generate_export_header(KF6KIOFileWidgets
     BASE_NAME KIOFileWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -90,19 +90,19 @@ ecm_generate_export_header(KF5KIOFileWidgets
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
 
-target_include_directories(KF5KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets>")
+target_include_directories(KF6KIOFileWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets>")
 
-target_link_libraries(KF5KIOFileWidgets
+target_link_libraries(KF6KIOFileWidgets
   PUBLIC
-    KF5::KIOWidgets
-    KF5::Bookmarks    # in KFilePlacesModel's API
-    KF5::ItemViews     # kdirsortfilterproxymodel
-    KF5::XmlGui        # for KActionCollection, used by KFileWidget/KDirOperator
-    KF5::Solid         # KFilePlacesModel/KFilePlacesView
+    KF6::KIOWidgets
+    KF6::Bookmarks    # in KFilePlacesModel's API
+    KF6::ItemViews     # kdirsortfilterproxymodel
+    KF6::XmlGui        # for KActionCollection, used by KFileWidget/KDirOperator
+    KF6::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
-    KF5::GuiAddons    # KIconUtils
-    KF5::IconThemes   # KIconLoader
-    KF5::I18n
+    KF6::GuiAddons    # KIconUtils
+    KF6::IconThemes   # KIconLoader
+    KF6::I18n
 )
 
 ecm_generate_headers(KIOFileWidgets_HEADERS
@@ -130,7 +130,7 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   REQUIRED_HEADERS KIOFileWidgets_HEADERS
 )
 
-install(TARGETS KF5KIOFileWidgets EXPORT KF5KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6KIOFileWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
@@ -141,5 +141,5 @@ install(FILES
 set(KIOFileWidgets_QCH_SOURCES ${KIOFileWidgets_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF5KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets)
+ecm_generate_pri_file(BASE_NAME KIOFileWidgets LIB_NAME KF6KIOFileWidgets DEPS "KIOWidgets KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

@@ -1,6 +1,6 @@
 include(ECMMarkAsTest)
 
-find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
@@ -9,13 +9,13 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
   foreach(_testname ${ARGN})
     add_executable(${_testname} ${_testname}.cpp)
     target_link_libraries(${_testname}
-       KF5::KIOCore
-       KF5::KIOGui
-       KF5::KIOWidgets
-       KF5::KIOFileWidgets
+       KF6::KIOCore
+       KF6::KIOGui
+       KF6::KIOWidgets
+       KF6::KIOFileWidgets
        Qt${QT_MAJOR_VERSION}::Test
-       KF5::WidgetsAddons
-       KF5::IconThemes)
+       KF6::WidgetsAddons
+       KF6::IconThemes)
     ecm_mark_as_test(${_testname})
   endforeach()
 endmacro(KIOWIDGETS_EXECUTABLE_TESTS)

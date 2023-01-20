@@ -12,11 +12,11 @@ ki18n_wrap_ui(kcm_proxy
 
 target_link_libraries(kcm_proxy PRIVATE
     Qt${QT_MAJOR_VERSION}::Widgets
-    KF5::CoreAddons
-    KF5::ConfigCore
-    KF5::I18n
-    KF5::ConfigWidgets
-    KF5::KIOWidgets
+    KF6::CoreAddons
+    KF6::ConfigCore
+    KF6::I18n
+    KF6::ConfigWidgets
+    KF6::KIOWidgets
 )
 
 install(TARGETS kcm_proxy DESTINATION ${KDE_INSTALL_PLUGINDIR})

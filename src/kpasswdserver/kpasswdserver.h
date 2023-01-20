@@ -106,7 +106,7 @@ private:
     void copyAuthInfo(const AuthInfoContainer *, KIO::AuthInfo &);
     void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
     bool openWallet(qlonglong windowId);
 #endif
 

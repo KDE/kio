@@ -22,11 +22,11 @@ include(ECMAddTests)
 ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
     LINK_LIBRARIES
-        KF5::ConfigCore
-        KF5::I18n
+        KF6::ConfigCore
+        KF6::I18n
         Qt${QT_MAJOR_VERSION}::DBus
-        KF5::KIOCore
-        KF5::Solid
+        KF6::KIOCore
+        KF6::Solid
         Qt${QT_MAJOR_VERSION}::Test
         Qt${QT_MAJOR_VERSION}::Network
 )

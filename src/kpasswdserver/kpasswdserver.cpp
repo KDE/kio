@@ -20,7 +20,7 @@
 #include <KUserTimestamp>
 #include <kwindowsystem.h>
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
 #include <KWallet>
 #endif
 
@@ -87,12 +87,12 @@ KPasswdServer::~KPasswdServer()
     qDeleteAll(m_authInProgress);
     qDeleteAll(m_authRetryInProgress);
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
     delete m_wallet;
 #endif
 }
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
 
 // Helper - returns the wallet key to use for read/store/checking for existence.
 static QString makeWalletKey(const QString &key, const QString &realm)
@@ -244,7 +244,7 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
     // qCDebug(category) << "key =" << key << "user =" << info.username << "windowId =" << windowId;
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
         if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
             && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
@@ -301,7 +301,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
 
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
         if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
             && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
@@ -413,7 +413,7 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 
     m_seqNr++;
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
     if (!m_walletDisabled && openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
         // Since storing the password in the wallet succeeded, make sure the
         // password information is stored in memory only for the duration the
@@ -460,7 +460,7 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
     }
 }
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
 bool KPasswdServer::openWallet(qlonglong windowId)
 {
     if (m_wallet && !m_wallet->isOpen()) { // forced closed
@@ -733,7 +733,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
     bool hasWalletData = false;
     QMap<QString, QString> knownLogins;
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
     const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
     if (!bypassCacheAndKWallet && (username.isEmpty() || password.isEmpty()) && !m_walletDisabled
         && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
@@ -764,7 +764,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
         dialogFlags |= KPasswordDialog::ShowUsernameLine;
     }
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
     // If wallet is not enabled and the caller explicitly requested for it,
     // do not show the keep password checkbox.
     if (info.keepPassword && KWallet::Wallet::isEnabled()) {
@@ -940,7 +940,7 @@ void KPasswdServer::passwordDialogDone(int result, KPasswordDialog *sender)
                     updateCachedRequestKey(m_authWait, oldKey, request->key);
                 }
 
-#ifdef HAVE_KF5WALLET
+#ifdef HAVE_KF6WALLET
                 const bool skipAutoCaching = info.getExtraField(QString::fromLatin1(s_skipCachingOnQuery)).toBool();
                 if (!skipAutoCaching && info.keepPassword && openWallet(request->windowId)) {
                     if (storeInWallet(m_wallet, request->key, info)) {

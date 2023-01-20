@@ -19,7 +19,7 @@ ecm_qt_declare_logging_category(kioexecd
     EXPORT KIO
 )
 
-target_link_libraries(kioexecd KF5::I18n KF5::DBusAddons KF5::WidgetsAddons KF5::KIOCore)
+target_link_libraries(kioexecd KF6::I18n KF6::DBusAddons KF6::WidgetsAddons KF6::KIOCore)
 
 kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kioexecd ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
 
@@ -40,11 +40,11 @@ configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec
 
 target_link_libraries(kioexec
     Qt${QT_MAJOR_VERSION}::Widgets
-    KF5::I18n
-    KF5::KIOWidgets    # KRun
-    KF5::WidgetsAddons # KMessageBox
-    KF5::WindowSystem  # KStartupInfo
-    KF5::DBusAddons    # KDBusService
+    KF6::I18n
+    KF6::KIOWidgets    # KRun
+    KF6::WidgetsAddons # KMessageBox
+    KF6::WindowSystem  # KStartupInfo
+    KF6::DBusAddons    # KDBusService
  )
 
 if (HAVE_X11)

@@ -11,11 +11,11 @@ target_sources(kssld PRIVATE
 
 target_link_libraries(kssld
 PUBLIC
-   KF5::KIOCore     # ksslcertificatemanager
-   KF5::DBusAddons # kdedmodule
+   KF6::KIOCore     # ksslcertificatemanager
+   KF6::DBusAddons # kdedmodule
 PRIVATE
-   KF5::CoreAddons  # kpluginfactory
-   KF5::ConfigCore
+   KF6::CoreAddons  # kpluginfactory
+   KF6::ConfigCore
    Qt${QT_MAJOR_VERSION}::Network
    Qt${QT_MAJOR_VERSION}::DBus
 )

@@ -4,10 +4,10 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL" URL "ftp://oss.sgi.co
                        TYPE RECOMMENDED PURPOSE "Support for manipulating access control lists")
 configure_file(config-kiowidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiowidgets.h)
 
-add_library(KF5KIOWidgets)
-add_library(KF5::KIOWidgets ALIAS KF5KIOWidgets)
+add_library(KF6KIOWidgets)
+add_library(KF6::KIOWidgets ALIAS KF6KIOWidgets)
 
-set_target_properties(KF5KIOWidgets PROPERTIES
+set_target_properties(KF6KIOWidgets PROPERTIES
     VERSION     ${KIO_VERSION}
     SOVERSION   ${KIO_SOVERSION}
     EXPORT_NAME KIOWidgets
@@ -20,7 +20,7 @@ if(TARGET Qt${QT_MAJOR_VERSION}::DBus)
 endif()
 
 
-target_sources(KF5KIOWidgets PRIVATE
+target_sources(KF6KIOWidgets PRIVATE
   kacleditwidget.cpp
   kurlrequesterdialog.cpp
   kurlcombobox.cpp
@@ -60,7 +60,7 @@ target_sources(KF5KIOWidgets PRIVATE
 )
 
 if(NOT ANDROID)
-target_sources(KF5KIOWidgets PRIVATE
+target_sources(KF6KIOWidgets PRIVATE
   ${kiowidgets_dbus_SRCS}
   accessmanager.cpp
   accessmanagerreply_p.cpp
@@ -81,17 +81,17 @@ target_sources(KF5KIOWidgets PRIVATE
 )
 endif()
 if (NOT ANDROID)
-    target_sources(KF5KIOWidgets PRIVATE
+    target_sources(KF6KIOWidgets PRIVATE
         kdynamicjobtracker.cpp
     )
 endif()
 if (NOT WIN32 AND NOT ANDROID)
-    target_sources(KF5KIOWidgets PRIVATE
+    target_sources(KF6KIOWidgets PRIVATE
         kautomount.cpp
     )
 endif()
 
-ecm_qt_declare_logging_category(KF5KIOWidgets
+ecm_qt_declare_logging_category(KF6KIOWidgets
     HEADER kio_widgets_debug.h
     IDENTIFIER KIO_WIDGETS
     CATEGORY_NAME kf.kio.widgets
@@ -108,7 +108,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-ki18n_wrap_ui(KF5KIOWidgets
+ki18n_wrap_ui(KF6KIOWidgets
   checksumswidget.ui
   certificateparty.ui
   sslinfo.ui
@@ -117,7 +117,7 @@ ki18n_wrap_ui(KF5KIOWidgets
   kfilepropspluginwidget.ui
 )
 
-ecm_generate_export_header(KF5KIOWidgets
+ecm_generate_export_header(KF6KIOWidgets
     BASE_NAME KIOWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -128,35 +128,35 @@ ecm_generate_export_header(KF5KIOWidgets
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
 
-target_include_directories(KF5KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets>")
+target_include_directories(KF6KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets>")
 
-target_link_libraries(KF5KIOWidgets
+target_link_libraries(KF6KIOWidgets
   PUBLIC
-    KF5::KIOGui
-    KF5::KIOCore
-    KF5::JobWidgets
-    KF5::Service
-    KF5::Solid
+    KF6::KIOGui
+    KF6::KIOCore
+    KF6::JobWidgets
+    KF6::Service
+    KF6::Solid
     Qt${QT_MAJOR_VERSION}::Network  # SSL
-    KF5::Completion    # KUrlCompletion uses KCompletion
-    KF5::WidgetsAddons # keditlistwidget
+    KF6::Completion    # KUrlCompletion uses KCompletion
+    KF6::WidgetsAddons # keditlistwidget
   PRIVATE
     Qt${QT_MAJOR_VERSION}::Concurrent
-    KF5::I18n
-    KF5::GuiAddons # KIconUtils
-    KF5::IconThemes   # KIconLoader
-    KF5::WindowSystem # KStartupInfo
-    KF5::ConfigWidgets # KColorScheme
+    KF6::I18n
+    KF6::GuiAddons # KIconUtils
+    KF6::IconThemes   # KIconLoader
+    KF6::WindowSystem # KStartupInfo
+    KF6::ConfigWidgets # KColorScheme
 )
 if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
-    target_link_libraries(KF5KIOWidgets
+    target_link_libraries(KF6KIOWidgets
         PRIVATE
             Qt${QT_MAJOR_VERSION}::DBus
     )
 endif()
 
 if(ACL_FOUND)
-   target_link_libraries(KF5KIOWidgets PRIVATE ${ACL_LIBS})
+   target_link_libraries(KF6KIOWidgets PRIVATE ${ACL_LIBS})
 endif()
 
 # Headers not prefixed with KIO/
@@ -217,7 +217,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
 )
 install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/KIO COMPONENT Devel)
 
-install(TARGETS KF5KIOWidgets EXPORT KF5KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6KIOWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
    org.kde.kio.FileUndoManager.xml
@@ -250,5 +250,5 @@ endif()
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF5KIOWidgets DEPS "KIOGui KIOCore KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets)
+ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF6KIOWidgets DEPS "KIOGui KIOCore KBookmarks KXmlGui Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

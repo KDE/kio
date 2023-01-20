@@ -18,8 +18,8 @@ ecm_qt_declare_logging_category(%{APPNAMELC}
 )
 
 target_link_libraries(%{APPNAMELC}
-    KF5::KIOCore
-    KF5::I18n
+    KF6::KIOCore
+    KF6::I18n
 )
 
 install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)

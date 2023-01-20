@@ -2,18 +2,18 @@ include(ECMAddQtDesignerPlugin)
 
 ecm_qtdesignerplugin_widget(KImageFilePreview
     TOOLTIP "A widget that provides a image preview of a URL"
-    GROUP "Display (KF5)"
+    GROUP "Display (KF6)"
 )
 ecm_qtdesignerplugin_widget(KUrlComboRequester
     INCLUDE_FILE "kurlrequester.h"
-    TOOLTIP "URL Requester (KF5)"
+    TOOLTIP "URL Requester (KF6)"
     WHATSTHIS "A widget holding a combobox and a pushbutton. A \"file open\" dialog opened when clicking on the pushbutton."
-    GROUP "Input (KF5)"
+    GROUP "Input (KF6)"
 )
 ecm_qtdesignerplugin_widget(KUrlRequester
-    TOOLTIP "URL Requester (KF5)"
+    TOOLTIP "URL Requester (KF6)"
     WHATSTHIS "A widget holding a lineedit and a pushbutton. A \"file open\" dialog opened when clicking on the pushbutton."
-    GROUP "Input (KF5)"
+    GROUP "Input (KF6)"
 )
 
 ecm_add_qtdesignerplugin(kiowidgets
@@ -24,8 +24,8 @@ ecm_add_qtdesignerplugin(kiowidgets
         KUrlComboRequester
         KUrlRequester
     LINK_LIBRARIES
-        KF5::KIOWidgets
-        KF5::KIOFileWidgets
+        KF6::KIOWidgets
+        KF6::KIOFileWidgets
     INSTALL_DESTINATION "${KDE_INSTALL_QTPLUGINDIR}/designer"
     COMPONENT Devel
 )

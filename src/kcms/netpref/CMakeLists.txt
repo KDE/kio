@@ -1,4 +1,4 @@
-find_package(KF5TextWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6TextWidgets ${KF_DEP_VERSION} REQUIRED)
 
 add_library(kcm_netpref MODULE)
 
@@ -11,13 +11,13 @@ target_sources(kcm_netpref PRIVATE
 target_link_libraries(kcm_netpref
   PUBLIC
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::ConfigCore
-    KF5::ConfigWidgets
-    KF5::KIOCore
-    KF5::TextWidgets # KPluralHandlingSpinBox
+    KF6::ConfigCore
+    KF6::ConfigWidgets
+    KF6::KIOCore
+    KF6::TextWidgets # KPluralHandlingSpinBox
   PRIVATE
-    KF5::I18n
-    KF5::CoreAddons
+    KF6::I18n
+    KF6::CoreAddons
 )
 
 install(TARGETS kcm_netpref  DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)

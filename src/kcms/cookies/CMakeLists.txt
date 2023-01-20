@@ -19,12 +19,12 @@ ki18n_wrap_ui(kcm_cookies
 target_link_libraries(kcm_cookies PRIVATE
     Qt${QT_MAJOR_VERSION}::Widgets
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::CoreAddons
-    KF5::ConfigCore
-    KF5::I18n
-    KF5::ItemViews
-    KF5::ConfigWidgets
-    KF5::KIOCore
+    KF6::CoreAddons
+    KF6::ConfigCore
+    KF6::I18n
+    KF6::ItemViews
+    KF6::ConfigWidgets
+    KF6::KIOCore
 )
 
 install(TARGETS kcm_cookies DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)

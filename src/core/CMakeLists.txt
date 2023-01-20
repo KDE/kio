@@ -16,16 +16,16 @@ configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmo
 #   include_directories(${OPENSSL_INCLUDE_DIR})
 #endif()
 
-add_library(KF5KIOCore)
-add_library(KF5::KIOCore ALIAS KF5KIOCore)
+add_library(KF6KIOCore)
+add_library(KF6::KIOCore ALIAS KF6KIOCore)
 
-set_target_properties(KF5KIOCore PROPERTIES
+set_target_properties(KF6KIOCore PROPERTIES
     VERSION     ${KIO_VERSION}
     SOVERSION   ${KIO_SOVERSION}
     EXPORT_NAME KIOCore
 )
 
-target_sources(KF5KIOCore PRIVATE
+target_sources(KF6KIOCore PRIVATE
   idleslave.cpp
   connectionbackend.cpp
   connection.cpp
@@ -100,7 +100,7 @@ target_sources(KF5KIOCore PRIVATE
 )
 
 if (NOT ANDROID)
-target_sources(KF5KIOCore PRIVATE
+target_sources(KF6KIOCore PRIVATE
   tcpslavebase.cpp
   tcpworkerbase.cpp
   forwardingslavebase.cpp
@@ -116,7 +116,7 @@ target_sources(KF5KIOCore PRIVATE
 )
 endif()
 
-ecm_qt_declare_logging_category(KF5KIOCore
+ecm_qt_declare_logging_category(KF6KIOCore
     HEADER kiocoredebug.h
     IDENTIFIER KIO_CORE
     CATEGORY_NAME kf.kio.core
@@ -153,12 +153,12 @@ ecm_qt_export_logging_category(
 )
 
 if (UNIX)
-   target_sources(KF5KIOCore PRIVATE
+   target_sources(KF6KIOCore PRIVATE
       kioglobal_p_unix.cpp
    )
 endif()
 if (WIN32)
-   target_sources(KF5KIOCore PRIVATE
+   target_sources(KF6KIOCore PRIVATE
       kioglobal_p_win.cpp
    )
 endif()
@@ -173,7 +173,7 @@ if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KPasswdServer.xml kpasswdserver_interface)
 endif()
 
-target_sources(KF5KIOCore PRIVATE
+target_sources(KF6KIOCore PRIVATE
     ${kiocore_dbus_SRCS}
 )
 
@@ -190,7 +190,7 @@ install(FILES
    DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KSlaveLauncher.xml)
 
-ecm_generate_export_header(KF5KIOCore
+ecm_generate_export_header(KF6KIOCore
     BASE_NAME KIOCore
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -201,60 +201,60 @@ ecm_generate_export_header(KF5KIOCore
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
 # needs fixing of undeprecated API being still implemented using own deprecated API
 
-target_include_directories(KF5KIOCore PUBLIC
+target_include_directories(KF6KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>" # kio_version.h
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
 )
 
-target_include_directories(KF5KIOCore INTERFACE
+target_include_directories(KF6KIOCore INTERFACE
     "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore>"
     "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIO>"
 )
 
-target_link_libraries(KF5KIOCore
+target_link_libraries(KF6KIOCore
 PUBLIC
- KF5::CoreAddons   # KJob
- KF5::Service # TODO KF6 move to PRIVATE
+ KF6::CoreAddons   # KJob
+ KF6::Service # TODO KF6 move to PRIVATE
  Qt${QT_MAJOR_VERSION}::Network
 PRIVATE
  Qt${QT_MAJOR_VERSION}::Xml # davjob.cpp uses QDom
- KF5::ConfigCore
- KF5::I18n
+ KF6::ConfigCore
+ KF6::I18n
 )
 
 if (NOT ANDROID)
-    target_link_libraries(KF5KIOCore PRIVATE KF5::Crash)
+    target_link_libraries(KF6KIOCore PRIVATE KF6::Crash)
 endif()
 
 if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
-    target_link_libraries(KF5KIOCore
+    target_link_libraries(KF6KIOCore
     PUBLIC
         Qt${QT_MAJOR_VERSION}::DBus
     PRIVATE
-        KF5::DBusAddons            # KDEInitInterface
+        KF6::DBusAddons            # KDEInitInterface
     )
 endif()
 
 if(KIO_NO_PUBLIC_QTCONCURRENT)
-  target_link_libraries(KF5KIOCore PRIVATE Qt${QT_MAJOR_VERSION}::Concurrent) # QtConcurrentRun in hostinfo.cpp
+  target_link_libraries(KF6KIOCore PRIVATE Qt${QT_MAJOR_VERSION}::Concurrent) # QtConcurrentRun in hostinfo.cpp
 else()
-  target_link_libraries(KF5KIOCore PUBLIC Qt${QT_MAJOR_VERSION}::Concurrent) # TODO KF6: remove
+  target_link_libraries(KF6KIOCore PUBLIC Qt${QT_MAJOR_VERSION}::Concurrent) # TODO KF6: remove
 endif()
 
-if (TARGET KF5::AuthCore)
-  target_link_libraries(KF5KIOCore PRIVATE KF5::AuthCore)   #SlaveBase uses KAuth::Action
+if (TARGET KF6::AuthCore)
+  target_link_libraries(KF6KIOCore PRIVATE KF6::AuthCore)   #SlaveBase uses KAuth::Action
 endif()
 
 if(ACL_FOUND)
-  target_link_libraries(KF5KIOCore PRIVATE ${ACL_LIBS})
+  target_link_libraries(KF6KIOCore PRIVATE ${ACL_LIBS})
 endif()
 
 if(HAVE_LIB_MOUNT)
-  target_link_libraries(KF5KIOCore PRIVATE LibMount::LibMount)
+  target_link_libraries(KF6KIOCore PRIVATE LibMount::LibMount)
 endif()
 
 if (TARGET Qt6::Core5Compat)
-    target_link_libraries(KF5KIOCore PRIVATE Qt6::Core5Compat) # QTextCodec
+    target_link_libraries(KF6KIOCore PRIVATE Qt6::Core5Compat) # QTextCodec
 endif()
 
 # this should be done by cmake, see bug 371721
@@ -263,8 +263,8 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
         COMMAND "${CMAKE_CXX_COMPILER}" "${CMAKE_CXX_COMPILER_ARG1}" "-dM" "-E" "-c" "${CMAKE_ROOT}/Modules/CMakeCXXCompilerABI.cpp" > ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
     )
-    set_property(TARGET KF5KIOCore APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
-    set_property(TARGET KF5KIOCore APPEND PROPERTY AUTOGEN_TARGET_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
+    set_property(TARGET KF6KIOCore APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
+    set_property(TARGET KF6KIOCore APPEND PROPERTY AUTOGEN_TARGET_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h)
 endif()
 
 # Headers prefixed with KIO/
@@ -329,7 +329,7 @@ if (NOT EXISTS ${REGULAR_HEADER_NAME})
 endif()
 
 
-install(TARGETS KF5KIOCore EXPORT KF5KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6KIOCore EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 list(APPEND KIO_namespaced_HEADERS
   http_worker_defaults.h
@@ -400,7 +400,7 @@ set(KIOCore_QCH_SOURCES ${KIOCore_HEADERS} ${KIO_namespaced_HEADERS} PARENT_SCOP
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(
   BASE_NAME KIOCore
-  LIB_NAME KF5KIOCore
+  LIB_NAME KF6KIOCore
   DEPS "KCoreAddons KService"
   FILENAME_VAR PRI_FILENAME
   INCLUDE_INSTALL_DIRS
