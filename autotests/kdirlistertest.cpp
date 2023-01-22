@@ -113,9 +113,6 @@ void KDirListerTest::testOpenUrl()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
@@ -131,9 +128,6 @@ void KDirListerTest::testOpenUrl()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
@@ -186,9 +180,6 @@ void KDirListerTest::testOpenUrlFromCache()
         QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
         QCOMPARE(secondDirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
-#endif
         QCOMPARE(secondDirLister.spyClearDir.count(), 0);
 
         QCOMPARE(m_items.count(), 0);
@@ -203,9 +194,6 @@ void KDirListerTest::testOpenUrlFromCache()
         QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
         QCOMPARE(secondDirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
-#endif
         QCOMPARE(secondDirLister.spyClearDir.count(), 0);
 
         QCOMPARE(m_items.count(), 4);
@@ -236,9 +224,6 @@ void KDirListerTest::testNewItem()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
@@ -279,9 +264,6 @@ void KDirListerTest::testNewItems()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
@@ -329,9 +311,6 @@ void KDirListerTest::testNewItemByCopy()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     // Give some time to KDirWatch
@@ -438,9 +417,6 @@ void KDirListerTest::testRefreshItems()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_refreshedItems.count(), 1);
@@ -491,9 +467,6 @@ void KDirListerTest::testRefreshRootItem()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_refreshedItems.count(), 1);
@@ -700,9 +673,6 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_items.count(), 0);
@@ -714,9 +684,6 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), 0);
@@ -733,9 +700,6 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_items.count(), 3);
@@ -747,9 +711,6 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), origItemCount);
@@ -800,9 +761,6 @@ void KDirListerTest::testConcurrentHoldingListing()
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), origItemCount);
@@ -814,9 +772,6 @@ void KDirListerTest::testConcurrentHoldingListing()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QVERIFY(dirLister2.isFinished());
@@ -854,9 +809,6 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_items.count(), 0);
@@ -868,9 +820,6 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 0);
     QCOMPARE(dirLister2.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), 0);
@@ -886,9 +835,6 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(dirLister2.spyCanceledQUrl.count(), 1);
     QCOMPARE(dirLister2.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(dirLister2.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), 0);
@@ -906,9 +852,6 @@ void KDirListerTest::testConcurrentListingAndStop()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -959,9 +902,6 @@ void KDirListerTest::testOpenUrlTwice()
     QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(secondDirLister.spyClear.count(), 2);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(secondDirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(secondDirLister.spyClearDir.count(), 0);
 
     if (origItemCount) { // 0 if running this test separately
@@ -1001,9 +941,6 @@ void KDirListerTest::testOpenUrlTwiceWithKeep()
     QCOMPARE(secondDirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(secondDirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(secondDirLister.spyClearQUrl.count(), 1);
-#endif
     QCOMPARE(secondDirLister.spyClearDir.count(), 1);
 
     QCOMPARE(m_items.count(), 0);
@@ -1030,9 +967,6 @@ void KDirListerTest::testOpenAndStop()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 1);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_items.count(), 0); // we had time to stop before the job even started
@@ -1157,13 +1091,9 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
 
     // Connect the redirection to openURL, so that on a rename the new location is opened.
     // This matches usage in gwenview, and crashes
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
-    connect(&m_dirLister, qOverload<const QUrl &>(&KCoreDirLister::redirection), this, &KDirListerTest::slotOpenUrlOnRename);
-#else
     connect(&m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
         slotOpenUrlOnRename(newUrl);
     });
-#endif
 
     QTRY_VERIFY(m_dirLister.isFinished());
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -1190,9 +1120,6 @@ void KDirListerTest::testRedirection()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QCOMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_dirLister.spyRedirection.count(), 0);
@@ -1208,9 +1135,6 @@ void KDirListerTest::testRedirection()
     QCOMPARE(m_dirLister.spyCanceledQUrl.count(), 0);
     QTRY_COMPARE(m_dirLister.spyClear.count(), 2); // redirection cleared a second time (just in case...)
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QTRY_COMPARE(m_dirLister.spyRedirection.count(), 1);
@@ -1472,13 +1396,9 @@ void KDirListerTest::testRenameDirectory() // #401552
     QString currDir = dirW;
     KIO::SimpleJob *job = nullptr;
     // Connect the redirection to openURL, so that on a rename the new location is opened.
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
-    connect(&m_dirLister, qOverload<const QUrl &>(&KCoreDirLister::redirection), this, &KDirListerTest::slotOpenUrlOnRename);
-#else
     connect(&m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
         slotOpenUrlOnRename(newUrl);
     });
-#endif
 
     for (int i = 0; i < dirs.size(); i++) {
         // Wait for the listener to get all files
@@ -1594,9 +1514,6 @@ void KDirListerTest::testDeleteCurrentDir()
     QVERIFY(ok);
     QTRY_COMPARE(m_dirLister.spyClear.count(), 1);
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QCOMPARE(m_dirLister.spyClearQUrl.count(), 0);
-#endif
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QList<QUrl> deletedUrls;

@@ -8,7 +8,6 @@
 
 #include "ksslinfodialog.h"
 #include "ksslcertificatebox.h"
-#include "ksslerror_p.h"
 #include "ui_sslinfo.h"
 
 #include <QDialogButtonBox>
@@ -100,32 +99,6 @@ void KSslInfoDialog::updateWhichPartsEncrypted()
     }
 }
 
-#ifndef KIO_ANDROID_STUB
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
-                                const QString &ip,
-                                const QString &host,
-                                const QString &sslProtocol,
-                                const QString &cipher,
-                                int usedBits,
-                                int bits,
-                                const QList<QList<KSslError::Error>> &validationErrors)
-{
-    QList<QList<QSslError::SslError>> qValidationErrors;
-    qValidationErrors.reserve(validationErrors.size());
-    for (const auto &l : validationErrors) {
-        QList<QSslError::SslError> qErrors;
-        qErrors.reserve(l.size());
-        for (const KSslError::Error e : l) {
-            qErrors.push_back(KSslErrorPrivate::errorFromKSslError(e));
-        }
-        qValidationErrors.push_back(qErrors);
-    }
-    setSslInfo(certificateChain, ip, host, sslProtocol, cipher, usedBits, bits, qValidationErrors);
-}
-#endif
-#endif
-
 void KSslInfoDialog::setSslInfo(const QList<QSslCertificate> &certificateChain,
                                 const QString &ip,
                                 const QString &host,
@@ -202,31 +175,6 @@ void KSslInfoDialog::displayFromChain(int i)
     d->subject->setCertificate(cert, KSslCertificateBox::Subject);
     d->issuer->setCertificate(cert, KSslCertificateBox::Issuer);
 }
-
-#ifndef KIO_ANDROID_STUB
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
-// static
-QList<QList<KSslError::Error>> KSslInfoDialog::errorsFromString(const QString &es)
-{
-    const QStringList sl = es.split(QLatin1Char('\n'), Qt::KeepEmptyParts);
-    QList<QList<KSslError::Error>> ret;
-    ret.reserve(sl.size());
-    for (const QString &s : sl) {
-        QList<KSslError::Error> certErrors;
-        const QStringList sl2 = s.split(QLatin1Char('\t'), Qt::SkipEmptyParts);
-        for (const QString &s2 : sl2) {
-            bool didConvert;
-            KSslError::Error error = KSslErrorPrivate::errorFromQSslError(static_cast<QSslError::SslError>(s2.toInt(&didConvert)));
-            if (didConvert) {
-                certErrors.append(error);
-            }
-        }
-        ret.append(certErrors);
-    }
-    return ret;
-}
-#endif
-#endif
 
 // static
 QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(const QString &errorsString)

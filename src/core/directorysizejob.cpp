@@ -127,10 +127,6 @@ void DirectorySizeJobPrivate::startNextJob(const QUrl &url)
     Q_Q(DirectorySizeJob);
     // qDebug() << url;
     KIO::ListJob *listJob = KIO::listRecursive(url, KIO::HideProgressInfo);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-    // TODO KF6: remove legacy details code path
-    listJob->addMetaData(QStringLiteral("details"), QStringLiteral("3"));
-#endif
     listJob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatInode));
     q->connect(listJob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
         slotEntries(job, list);

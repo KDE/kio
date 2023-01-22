@@ -7,7 +7,6 @@
 
 #include "ksslerroruidata.h"
 #include "ksslerroruidata_p.h"
-#include "ktcpsocket.h"
 
 #include <QHostAddress>
 #include <QNetworkReply>
@@ -19,25 +18,6 @@ KSslErrorUiData::KSslErrorUiData()
     d->usedBits = 0;
     d->bits = 0;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 65)
-KSslErrorUiData::KSslErrorUiData(const KTcpSocket *socket)
-    : d(new Private())
-{
-    d->certificateChain = socket->peerCertificateChain();
-    const auto ksslErrors = socket->sslErrors();
-    d->sslErrors.reserve(ksslErrors.size());
-    for (const auto &error : ksslErrors) {
-        d->sslErrors.push_back(error.sslError());
-    }
-    d->ip = socket->peerAddress().toString();
-    d->host = socket->peerName();
-    d->sslProtocol = socket->negotiatedSslVersionName();
-    d->cipher = socket->sessionCipher().name();
-    d->usedBits = socket->sessionCipher().usedBits();
-    d->bits = socket->sessionCipher().supportedBits();
-}
-#endif
 
 KSslErrorUiData::KSslErrorUiData(const QSslSocket *socket)
     : d(new Private())

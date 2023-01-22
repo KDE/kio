@@ -94,15 +94,6 @@ public:
      */
     KFileItem itemForIndex(const QModelIndex &index) const;
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 0)
-    /**
-     * Return the index for a given kfileitem. This can be slow.
-     * @deprecated Since 4.0, use the method that takes a KFileItem by value
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 0, "Use KDirModel::indexForItem(const KFileItem &)")
-    QModelIndex indexForItem(const KFileItem *) const;
-#endif
-
     /**
      * Return the index for a given kfileitem. This can be slow.
      */

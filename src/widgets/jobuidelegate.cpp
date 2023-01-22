@@ -75,13 +75,6 @@ public:
     AskUserActionInterface *m_askUserActionHandler = nullptr;
 };
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
-KIO::JobUiDelegate::JobUiDelegate()
-    : JobUiDelegate(Version::V2)
-{
-}
-#endif
-
 KIO::JobUiDelegate::~JobUiDelegate() = default;
 
 /*
@@ -156,14 +149,6 @@ private:
 };
 
 Q_GLOBAL_STATIC(JobUiDelegateStatic, s_static)
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
-KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
-    : JobUiDelegate(Version::V2, flags, window)
-{
-    setWindow(window);
-}
-#endif
 
 void KIO::JobUiDelegate::setWindow(QWidget *window)
 {

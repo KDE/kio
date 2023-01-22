@@ -501,10 +501,6 @@ void DeleteJobPrivate::currentSourceStated(bool isDir, bool isLink)
         if (!KProtocolManager::canDeleteRecursive(url)) {
             // qDebug() << url << "is a directory, let's list it";
             ListJob *newjob = KIO::listRecursive(url, KIO::HideProgressInfo);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-            // TODO KF6: remove legacy details code path
-            newjob->addMetaData(QStringLiteral("details"), QStringLiteral("0"));
-#endif
             newjob->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatBasic));
             newjob->setUnrestricted(true); // No KIOSK restrictions
             QObject::connect(newjob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {

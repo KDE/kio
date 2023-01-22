@@ -111,26 +111,6 @@ public:
      */
     KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl, bool delayedMimeTypes = false, bool urlIsDirectory = false);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * Creates an item representing a file, from all the necessary info for it.
-     * @param mode the file mode (according to stat() (e.g. S_IFDIR...)
-     * Set to KFileItem::Unknown if unknown. For local files, KFileItem will use stat().
-     * @param permissions the access permissions
-     * If you set both the mode and the permissions, you save a ::stat() for
-     * local files.
-     * Set to KFileItem::Unknown if you don't know the mode or the permission.
-     * @param url the file url
-     *
-     * @param delayedMimeTypes specify if the MIME type of the given URL
-     *       should be determined immediately or on demand
-     * @deprecated since 5.0. Most callers gave Unknown for mode and permissions,
-     * so just port to KFileItem(url) and setDelayedMimeTypes(true) if necessary.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
-    KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes = false);
-#endif
-
     /**
      * Creates an item representing a file, for which the MIME type is already known.
      * @param url the file url
@@ -388,11 +368,6 @@ public:
      */
     Q_INVOKABLE QString timeString(FileTimes which = ModificationTime) const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
-    KIOCORE_DEPRECATED_VERSION(4, 0, "Use KFileItem::timeString(FileTimes)")
-    QString timeString(unsigned int which) const;
-#endif
-
     /**
      * Returns true if the file is a local file.
      * @return true if the file is local, false otherwise
@@ -489,21 +464,6 @@ public:
      */
     QString getStatusBarInfo() const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
-    /**
-     * Returns true if files can be dropped over this item.
-     * Contrary to popular belief, not only dirs will return true :)
-     * Executables, .desktop files, will do so as well.
-     * @return true if you can drop files over the item
-     *
-     * @deprecated Since 4.0. This logic is application-dependent, the behavior described above
-     * mostly makes sense for file managers only.
-     * KDirModel has setDropsAllowed for similar (but configurable) logic.
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 0, "See API docs")
-    bool acceptsDrops() const;
-#endif
-
     /**
      * Returns the UDS entry. Used by the tree view to access all details
      * by position.
@@ -556,14 +516,6 @@ public:
      */
     operator QVariant() const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
-    /**
-     * @deprecated Since 4.0, simply use '='
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 0, "Use KFileItem::operator=(const KFileItem&)")
-    void assign(const KFileItem &item);
-#endif
-
     /**
      * Tries to return a local URL for this file item if possible.
      * If @p local is not null, it will be set to @c true if the returned url is local,
@@ -607,17 +559,6 @@ public:
      * @since 5.84
      */
     MostLocalUrlResult isMostLocalUrl() const;
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * @deprecated since 5.0 add '&' in front of your boolean argument
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Use KFileItem::mostLocalUrl(bool *)")
-    QUrl mostLocalUrl(bool &local) const
-    {
-        return mostLocalUrl(&local);
-    }
-#endif
 
     /**
      * Return true if default-constructed

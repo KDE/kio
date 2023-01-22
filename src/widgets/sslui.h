@@ -10,9 +10,6 @@
 
 #include "kiowidgets_export.h"
 #include <ksslerroruidata.h>
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 64)
-#include <ktcpsocket.h>
-#endif
 
 namespace KIO
 {
@@ -25,15 +22,6 @@ enum RulesStorage {
     StoreRules = 2, ///< make new ignore rules from the user's choice and store them
     RecallAndStoreRules = 3, ///< apply stored rules and store new rules
 };
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 64)
-/**
- * @deprecated since 5.64 use the KSslErrorUiData variant instead.
- */
-KIOWIDGETS_EXPORT
-KIOWIDGETS_DEPRECATED_VERSION(5, 64, "Use KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &, RulesStorage)")
-bool askIgnoreSslErrors(const KTcpSocket *socket, RulesStorage storedRules = RecallAndStoreRules);
-#endif
 
 /**
  * If there are errors while establishing an SSL encrypted connection to a peer, usually due to

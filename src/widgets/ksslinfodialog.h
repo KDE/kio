@@ -13,7 +13,6 @@
 #include <QSslError>
 
 #include "kiowidgets_export.h"
-#include "ktcpsocket.h" // TODO KF6 remove this include
 
 #include <memory>
 
@@ -46,32 +45,6 @@ public:
      */
     ~KSslInfoDialog() override;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 64)
-    /**
-     *  Set information to display about the SSL connection.
-     *
-     *  @param certificateChain the certificate chain leading from the certificate
-     *         authority to the peer.
-     *  @param ip the ip of the remote host
-     *  @param host the remote hostname
-     *  @param sslProtocol the version of SSL in use (SSLv2, SSLv3, TLSv1)
-     *  @param cipher the cipher in use
-     *  @param usedBits the used bits of the key
-     *  @param bits the key size of the cipher in use
-     *  @param validationErrors errors validating the certificates, if any
-     *  @deprecated since 5.64, use the QSslError variant
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 64, "use the QSslError variant")
-    void setSslInfo(const QList<QSslCertificate> &certificateChain,
-                    const QString &ip,
-                    const QString &host,
-                    const QString &sslProtocol,
-                    const QString &cipher,
-                    int usedBits,
-                    int bits,
-                    const QList<QList<KSslError::Error>> &validationErrors); // TODO KF6 remove
-#endif
-
     /**
      *  Set information to display about the SSL connection.
      *
@@ -98,11 +71,6 @@ public:
     void setMainPartEncrypted(bool);
     void setAuxiliaryPartsEncrypted(bool);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 65)
-    /** @deprecated since 5.65, use certificateErrorsFromString */
-    KIOCORE_DEPRECATED_VERSION(5, 65, "use the QSslError variant")
-    static QList<QList<KSslError::Error>> errorsFromString(const QString &s); // TODO KF6 remove
-#endif
     /**
      * Converts certificate errors as provided in the "ssl_cert_errors" meta data
      * to a list of QSslError::SslError values per certificate in the certificate chain.

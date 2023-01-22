@@ -44,45 +44,11 @@ public:
      */
     void setSide(StatSide side);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
-    /**
-     * A stat() can have two meanings. Either we want to read from this URL,
-     * or to check if we can write to it. First case is "source", second is "dest".
-     * It is necessary to know what the StatJob is for, to tune the KIO worker's behavior
-     * (e.g. with FTP).
-     * @param source true for "source" mode, false for "dest" mode
-     * @deprecated Since 4.0, use setSide(StatSide side).
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 0, "Use StatJob::setSide(StatSide)")
-    void setSide(bool source);
-#endif
-
     /**
      * Selects the level of @p details we want.
      * @since 5.69
      */
     void setDetails(KIO::StatDetails details);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
-    /**
-     * @brief @see setDetails(KIO::StatDetails details)
-     * Needed until setDetails(short int details) is removed
-     */
-    void setDetails(KIO::StatDetail detail);
-
-    /**
-     * Selects the level of @p details we want.
-     * By default this is 2 (all details wanted, including modification time, size, etc.),
-     * setDetails(1) is used when deleting: we don't need all the information if it takes
-     * too much time, no need to follow symlinks etc.
-     * setDetails(0) is used for very simple probing: we'll only get the answer
-     * "it's a file or a directory, or it doesn't exist". This is used by KRun.
-     * @param details 2 for all details, 1 for simple, 0 for very simple
-     * @deprecated since 5.69, use setDetails(KIO::StatDetails)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 69, "Use setDetails(KIO::statDetails)")
-    void setDetails(short int details);
-#endif
 
     /**
      * @brief Result of the stat operation.

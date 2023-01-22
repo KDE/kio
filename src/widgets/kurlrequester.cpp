@@ -122,21 +122,15 @@ public:
             connect(combo, &QComboBox::currentTextChanged, receiver, &KUrlRequester::textChanged);
             connect(combo, &QComboBox::editTextChanged, receiver, &KUrlRequester::textEdited);
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-            connect(combo, qOverload<const QString &>(&KComboBox::returnPressed), receiver, qOverload<>(&KUrlRequester::returnPressed));
-#endif
             connect(combo, qOverload<const QString &>(&KComboBox::returnPressed), receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
         } else if (edit) {
             connect(edit, &QLineEdit::textChanged, receiver, &KUrlRequester::textChanged);
             connect(edit, &QLineEdit::textEdited, receiver, &KUrlRequester::textEdited);
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 80)
-            connect(edit, qOverload<>(&QLineEdit::returnPressed), receiver, qOverload<>(&KUrlRequester::returnPressed));
-#else
             connect(edit, qOverload<>(&QLineEdit::returnPressed), receiver, [this]() {
                 m_parent->Q_EMIT returnPressed(QString{});
             });
-#endif
+
             if (auto kline = qobject_cast<KLineEdit *>(edit)) {
                 connect(kline, &KLineEdit::returnKeyPressed, receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
             }
@@ -383,13 +377,6 @@ void KUrlRequester::setUrl(const QUrl &url)
 {
     d->setText(url.toDisplayString(QUrl::PreferLocalFile));
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 3)
-void KUrlRequester::setPath(const QString &path)
-{
-    d->setText(path);
-}
-#endif
 
 void KUrlRequester::setText(const QString &text)
 {
@@ -645,26 +632,12 @@ KUrlCompletion *KUrlRequester::completionObject() const
     return d->myCompletion;
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
-void KUrlRequester::setClickMessage(const QString &msg)
-{
-    setPlaceholderText(msg);
-}
-#endif
-
 void KUrlRequester::setPlaceholderText(const QString &msg)
 {
     if (d->edit) {
         d->edit->setPlaceholderText(msg);
     }
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
-QString KUrlRequester::clickMessage() const
-{
-    return placeholderText();
-}
-#endif
 
 QString KUrlRequester::placeholderText() const
 {

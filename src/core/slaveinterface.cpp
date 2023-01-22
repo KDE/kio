@@ -39,22 +39,6 @@ SlaveInterface::~SlaveInterface()
     delete d_ptr;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-void SlaveInterface::setConnection(Connection *connection)
-{
-    Q_D(SlaveInterface);
-    d->connection = connection;
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-Connection *SlaveInterface::connection() const
-{
-    const Q_D(SlaveInterface);
-    return d->connection;
-}
-#endif
-
 static KIO::filesize_t readFilesize_t(QDataStream &stream)
 {
     KIO::filesize_t result;
@@ -180,9 +164,6 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         // qDebug() << "error " << i << " " << str1;
         Q_EMIT error(i, str1);
         break;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 45)
-    case MSG_SLAVE_STATUS:
-#endif
     case MSG_SLAVE_STATUS_V2: {
         qint64 pid;
         QByteArray protocol;
@@ -233,10 +214,6 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         d->speed_timer.stop();
         Q_EMIT speed(ul);
         break;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(3, 0)
-    case INF_GETTING_FILE:
-        break;
-#endif
     case INF_ERROR_PAGE:
         Q_EMIT errorPage();
         break;

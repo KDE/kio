@@ -22,9 +22,6 @@ public:
     ~KSambaSharePrivate();
 
     static bool isSambaInstalled();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
-    bool findSmbConf();
-#endif
     void setUserSharePath();
 
     static int runProcess(const QString &progName, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);

@@ -34,9 +34,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kabstractfileitemactionplugin.cpp
   koverlayiconplugin.cpp
   kurlrequester.cpp
-  krun.cpp
-  kurlpixmapprovider.cpp
-  pixmaploader.cpp
   thumbsequencecreator.cpp
   thumbdevicepixelratiodependentcreator.cpp
   thumbcreator.cpp
@@ -85,11 +82,6 @@ if (NOT ANDROID)
         kdynamicjobtracker.cpp
     )
 endif()
-if (NOT WIN32 AND NOT ANDROID)
-    target_sources(KF6KIOWidgets PRIVATE
-        kautomount.cpp
-    )
-endif()
 
 ecm_qt_declare_logging_category(KF6KIOWidgets
     HEADER kio_widgets_debug.h
@@ -122,7 +114,7 @@ ecm_generate_export_header(KF6KIOWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 4.0 4.1 4.3 4.4 4.5 4.6 4.7 5.0 5.4 5.6 5.25 5.31 5.32 5.64 5.66 5.71 5.75 5.76 5.79 5.80 5.82 5.83 5.84 5.86 5.87 5.88 5.98 5.101 5.102
+    DEPRECATION_VERSIONS 5.0 5.101 5.102
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
@@ -167,7 +159,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KUrlComboBox
   KFileItemActions
   KFileItemDelegate
-  KAutoMount
   KDesktopFileActions
   KOpenWithDialog
   KAbstractFileItemActionPlugin
@@ -175,8 +166,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KBuildSycocaProgressDialog
   KFile
   KUrlRequester
-  KRun
-  KUrlPixmapProvider
   KSslCertificateBox
   KSslInfoDialog
   KDirLister
@@ -207,7 +196,6 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   JobUiDelegate
   FileUndoManager
   Paste
-  PixmapLoader
   KUriFilterSearchProviderActions # KF6: fix and move to non-KIO prefixed install folder
   RenameFileDialog
   WidgetsAskUserActionHandler
@@ -236,15 +224,6 @@ install(FILES
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
   install(FILES konqpopupmenuplugin.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR})
 endif()
-
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.82.0)
-  install(FILES kfileitemactionplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
-endif()
-
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.83.0)
-  install(FILES kpropertiesdialogplugin.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
-endif()
-
 
 # make available to ecm_add_qch in parent folder
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)

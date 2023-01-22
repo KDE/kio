@@ -572,13 +572,6 @@ KFileItem::KFileItem(const KIO::UDSEntry &entry, const QUrl &itemOrDirUrl, bool 
 {
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-KFileItem::KFileItem(mode_t mode, mode_t permissions, const QUrl &url, bool delayedMimeTypes)
-    : d(new KFileItemPrivate(KIO::UDSEntry(), mode, permissions, url, false, delayedMimeTypes, KFileItem::NormalMimeTypeDetermination))
-{
-}
-#endif
-
 KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
     : d(new KFileItemPrivate(KIO::UDSEntry(), mode, KFileItem::Unknown, url, false, false, KFileItem::NormalMimeTypeDetermination))
 {
@@ -1139,21 +1132,6 @@ QStringList KFileItem::overlays() const
         if (group.hasKey("Exec") && !KDesktopFile::isAuthorizedDesktopFile(localPath())) {
             names.append(QStringLiteral("emblem-important"));
         }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
-        if (cfg.hasDeviceType()) {
-            QT_WARNING_PUSH
-            QT_WARNING_DISABLE_DEPRECATED
-            const QString dev = cfg.readDevice();
-            QT_WARNING_POP
-            if (!dev.isEmpty()) {
-                KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice(dev);
-                if (mountPoint) { // mounted?
-                    names.append(QStringLiteral("emblem-mounted"));
-                }
-            }
-        }
-#endif
     }
 
     if (isHidden()) {
@@ -1310,32 +1288,6 @@ bool KFileItem::isFile() const
     return !isDir();
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
-bool KFileItem::acceptsDrops() const
-{
-    // A directory ?
-    if (isDir()) {
-        return isWritable();
-    }
-
-    // But only local .desktop files and executables
-    if (!d->m_bIsLocalUrl) {
-        return false;
-    }
-
-    if (mimetype() == QLatin1String("application/x-desktop")) {
-        return true;
-    }
-
-    // Executable, shell script ... ?
-    if (QFileInfo(d->m_url.toLocalFile()).isExecutable()) {
-        return true;
-    }
-
-    return false;
-}
-#endif
-
 QString KFileItem::getStatusBarInfo() const
 {
     if (!d) {
@@ -1452,32 +1404,6 @@ QString KFileItem::timeString(FileTimes which) const
 
     return QLocale::system().toString(d->time(which), QLocale::LongFormat);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
-QString KFileItem::timeString(unsigned int which) const
-{
-    if (!d) {
-        return QString();
-    }
-
-    switch (which) {
-    case KIO::UDSEntry::UDS_ACCESS_TIME:
-        return timeString(AccessTime);
-    case KIO::UDSEntry::UDS_CREATION_TIME:
-        return timeString(CreationTime);
-    case KIO::UDSEntry::UDS_MODIFICATION_TIME:
-    default:
-        return timeString(ModificationTime);
-    }
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
-void KFileItem::assign(const KFileItem &item)
-{
-    *this = item;
-}
-#endif
 
 QUrl KFileItem::mostLocalUrl(bool *local) const
 {

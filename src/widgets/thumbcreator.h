@@ -93,10 +93,6 @@ public:
      */
     enum Flags {
         None = 0, /**< No hints. */
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 32)
-        DrawFrame KIOWIDGETS_ENUMERATOR_DEPRECATED_VERSION_BELATED(5, 82, 5, 32, "See API dox") =
-            1, /**< \deprecated since 5.32. Used to paint a frame around the preview, but applications take care of that nowadays. */
-#endif
         BlendIcon = 2, /**< The MIME type icon should be blended over the preview. */
     };
 
@@ -134,55 +130,7 @@ public:
      * @see Flags
      */
     virtual Flags flags() const;
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 87)
-    /**
-     * Create a widget for configuring the thumb creator.
-     *
-     * The caller will take ownership of the returned instance and must ensure
-     * its deletion.
-     *
-     * The default implementation returns @c nullptr.
-     *
-     * The following key in the thumbcreator .desktop file must be set to
-     * mark the plugin as configurable:
-     * \code
-     * Configurable=true
-     * \endcode
-     *
-     * @return A QWidget instance, which the caller takes ownership of, or @c nullptr.
-     * @deprecated Since 5.87, deprecated for lack of usage and only being used for niche usecases.
-     * Instead use sane defaults and keep reading the config if it exists.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 87, "See API docs")
-    virtual QWidget *createConfigurationWidget();
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 87)
-    /**
-     * Write the updated configuration.
-     *
-     * @param configurationWidget  An object returned by
-     *                             createConfigurationWidget().
-     * @deprecated Since 5.87, see API docs of @p createConfigurationWidget
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 87, "See API docs of createConfigurationWidget")
-    virtual void writeConfiguration(const QWidget *configurationWidget);
-#endif
 };
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-/**
- * @class ThumbCreatorV2 thumbcreator.h <KIO/ThumbCreator>
- * @since 4.7
- * @deprecated since 5.0, use ThumbCreator
- */
-class KIOWIDGETS_EXPORT KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use ThumbCreator") ThumbCreatorV2 : public ThumbCreator
-{
-public:
-    ~ThumbCreatorV2() override;
-};
-#endif
 
 // KF6 TODO: rename this to something less generic
 typedef ThumbCreator *(*newCreator)();

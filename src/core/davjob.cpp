@@ -29,11 +29,6 @@ public:
     }
     QByteArray savedStaticData;
     QByteArray str_response;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
-    QDomDocument m_response;
-#endif
-    // TransferJob *m_subJob;
-    // bool m_suspended;
 
     Q_DECLARE_PUBLIC(DavJob)
 
@@ -72,13 +67,6 @@ QByteArray DavJob::responseData() const
     return d_func()->str_response;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
-QDomDocument &DavJob::response()
-{
-    return d_func()->m_response;
-}
-#endif
-
 void DavJob::slotData(const QByteArray &data)
 {
     Q_D(DavJob);
@@ -110,19 +98,6 @@ void DavJob::slotFinished()
             stream << (int)7 << d->m_redirectionURL << (int)KIO::DAV_PROPFIND << s_size;
         }
     }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 86)
-    else if (!d->m_response.setContent(d->str_response, true)) {
-        // An error occurred parsing the XML response
-        QDomElement root = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("error-report"));
-        d->m_response.appendChild(root);
-
-        QDomElement el = d->m_response.createElementNS(QStringLiteral("DAV:"), QStringLiteral("offending-response"));
-        QDomText textnode = d->m_response.createTextNode(QString::fromUtf8(d->str_response));
-        el.appendChild(textnode);
-        root.appendChild(el);
-    }
-    // qDebug() << d->m_response.toString();
-#endif
     TransferJob::slotFinished();
     d->staticData = d->savedStaticData; // Need to send DAV request to this host too
 }
@@ -139,20 +114,6 @@ DavJob *KIO::davPropPatch(const QUrl &url, const QString &properties, JobFlags f
 {
     return DavJobPrivate::newJob(url, (int)KIO::DAV_PROPPATCH, properties, flags);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-DavJob *KIO::davPropFind(const QUrl &url, const QDomDocument &properties, const QString &depth, JobFlags flags)
-{
-    return davPropFind(url, properties.toString(), depth, flags);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-DavJob *KIO::davPropPatch(const QUrl &url, const QDomDocument &properties, JobFlags flags)
-{
-    return davPropPatch(url, properties.toString(), flags);
-}
-#endif
 
 DavJob *KIO::davSearch(const QUrl &url, const QString &nsURI, const QString &qName, const QString &query, JobFlags flags)
 {

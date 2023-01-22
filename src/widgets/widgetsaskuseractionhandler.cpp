@@ -415,19 +415,6 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         dlgType = KMessageDialog::Information;
         dontAskAgainText = i18nc("@option:check", "Do not show this message again");
         break;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 97)
-    case Sorry:
-#if KWIDGETSADDONS_BUILD_DEPRECATED_SINCE(5, 97)
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_DEPRECATED
-        dlgType = KMessageDialog::Sorry;
-        QT_WARNING_POP
-        dontAskAgainText = QString{}; // No dontAskAgain checkbox
-        break;
-#else
-#error "Cannot build KIOCore with KIO::AskUserActionInterface::Sorry with KMessageDialog::Sorry disabled"
-#endif
-#endif
     case Error:
         dlgType = KMessageDialog::Error;
         dontAskAgainText = QString{}; // No dontAskAgain checkbox

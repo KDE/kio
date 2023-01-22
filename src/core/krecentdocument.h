@@ -107,26 +107,6 @@ public:
     /// @since 5.93
     static void add(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     *
-     * Add a new item to the Recent Document menu. Calls add( url ).
-     *
-     * @param documentStr The full path to the document or URL to add.
-     * @param isURL Set to @p true if @p documentStr is an URL and not a local file path.
-     * @deprecated Since 5.0, call add(QUrl(str)) if isURL=true, and add(QUrl::fromLocalFile(str)) if isURL=false.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Use KRecentDocument::add(const QUrl &)")
-    static void add(const QString &documentStr, bool isUrl = false)
-    {
-        if (isUrl) {
-            add(QUrl(documentStr));
-        } else {
-            add(QUrl::fromLocalFile(documentStr));
-        }
-    }
-#endif
-
     /**
      * Clear the recent document menu of all entries.
      */

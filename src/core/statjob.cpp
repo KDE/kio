@@ -67,13 +67,6 @@ StatJob::~StatJob()
 {
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
-void StatJob::setSide(bool source)
-{
-    d_func()->m_bSource = source;
-}
-#endif
-
 void StatJob::setSide(StatSide side)
 {
     d_func()->m_bSource = side == SourceSide;
@@ -83,34 +76,6 @@ void StatJob::setDetails(KIO::StatDetails details)
 {
     d_func()->m_details = details;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-void StatJob::setDetails(short int details)
-{
-    // for backward compatibility
-    d_func()->m_details = detailsToStatDetails(details);
-}
-
-void StatJob::setDetails(KIO::StatDetail detail)
-{
-    d_func()->m_details = detail;
-}
-
-KIO::StatDetails KIO::detailsToStatDetails(int details)
-{
-    KIO::StatDetails detailsFlag = KIO::StatBasic;
-    if (details > 0) {
-        detailsFlag |= KIO::StatUser | KIO::StatTime;
-    }
-    if (details > 1) {
-        detailsFlag |= KIO::StatResolveSymlink | KIO::StatAcl;
-    }
-    if (details > 2) {
-        detailsFlag |= KIO::StatInode;
-    }
-    return detailsFlag;
-}
-#endif
 
 const UDSEntry &StatJob::statResult() const
 {
@@ -248,18 +213,6 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
     return job;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 0)
-StatJob *KIO::stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags)
-{
-    // qCDebug(KIO_CORE) << "stat" << url;
-    KIO_ARGS << url;
-    StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
-    job->setSide(sideIsSource ? StatJob::SourceSide : StatJob::DestinationSide);
-    job->setDetails(details);
-    return job;
-}
-#endif
-
 StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
 {
     // TODO KF6: rename to stat
@@ -270,17 +223,5 @@ StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::Sta
     job->setDetails(details);
     return job;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags)
-{
-    // qCDebug(KIO_CORE) << "stat" << url;
-    KIO_ARGS << url;
-    StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
-    job->setSide(side);
-    job->setDetails(details);
-    return job;
-}
-#endif
 
 #include "moc_statjob.cpp"

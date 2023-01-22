@@ -76,7 +76,6 @@
 #include <KMessageWidget>
 #include <KMimeTypeChooser>
 #include <KMimeTypeEditor>
-#include <KMimeTypeTrader>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KSeparator>
@@ -510,11 +509,6 @@ bool KPropertiesDialog::canDisplay(const KFileItemList &_items)
     /* clang-format on */
 }
 
-void KPropertiesDialog::slotOk()
-{
-    accept();
-}
-
 void KPropertiesDialog::accept()
 {
     d->m_aborted = false;
@@ -601,11 +595,6 @@ void KPropertiesDialog::accept()
     }
 }
 
-void KPropertiesDialog::slotCancel()
-{
-    reject();
-}
-
 void KPropertiesDialog::reject()
 {
     Q_EMIT canceled();
@@ -690,28 +679,6 @@ void KPropertiesDialogPrivate::insertPages()
             addedPlugins.append(jsonMetadata.pluginId());
         }
     }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-    QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-    const KService::List offers = KMimeTypeTrader::self()->query(mimetype, QStringLiteral("KPropertiesDialog/Plugin"), query);
-    for (const KService::Ptr &ptr : offers) {
-        if (addedPlugins.contains(ptr->desktopEntryName())) {
-            continue;
-        }
-        qCWarning(KIO_WIDGETS) << "Plugin" << ptr->desktopEntryName() << "is using the deprecated loading style. Please port it to JSON loading.";
-        KPropertiesDialogPlugin *plugin = ptr->createInstance<KPropertiesDialogPlugin>(q);
-        if (!plugin) {
-            continue;
-        }
-        plugin->setObjectName(ptr->name());
-
-        q->insertPlugin(plugin);
-        addedPlugins.append(ptr->desktopEntryName());
-    }
-    QT_WARNING_POP
-#endif
 }
 
 void KPropertiesDialog::updateUrl(const QUrl &_newUrl)
@@ -782,13 +749,6 @@ KPropertiesDialogPlugin::KPropertiesDialogPlugin(KPropertiesDialog *_props)
 }
 
 KPropertiesDialogPlugin::~KPropertiesDialogPlugin() = default;
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 1)
-bool KPropertiesDialogPlugin::isDesktopFile(const KFileItem &_item)
-{
-    return _item.isDesktopFile();
-}
-#endif
 
 void KPropertiesDialogPlugin::setDirty(bool b)
 {

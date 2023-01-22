@@ -34,7 +34,6 @@ target_sources(KF6KIOCore PRIVATE
   kfileitemlistproperties.cpp
   directorysizejob.cpp
   chmodjob.cpp
-  kdiskfreespaceinfo.cpp
   usernotificationhandler.cpp
   ksambasharedata.cpp
   ksambashare.cpp
@@ -63,7 +62,6 @@ target_sources(KF6KIOCore PRIVATE
   listjob.cpp
   mimetypejob.cpp
   mimetypefinderjob.cpp
-  multigetjob.cpp
   restorejob.cpp
   simplejob.cpp
   specialjob.cpp
@@ -111,7 +109,6 @@ target_sources(KF6KIOCore PRIVATE
 
   ksslcertificatemanager.cpp
   ksslerroruidata.cpp
-  ktcpsocket.cpp
   kssl/ksslsettings.cpp
 )
 endif()
@@ -195,7 +192,7 @@ ecm_generate_export_header(KF6KIOCore
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 3.0 3.1 3.4 4.0 4.3 4.5 4.6 5.0 5.2 5.8 5.24 5.45 5.48 5.63 5.61 5.64 5.65 5.66 5.69 5.72 5.78 5.79 5.80 5.81 5.82 5.83 5.84 5.86 5.88 5.90 5.91 5.94 5.96 5.97 5.98 5.100 5.101 5.102 5.103
+    DEPRECATION_VERSIONS 5.100 5.101 5.102 5.103
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
@@ -300,7 +297,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   ListJob
   MimetypeJob
   MimeTypeFinderJob
-  MultiGetJob
   RestoreJob
   SimpleJob
   SpecialJob
@@ -358,7 +354,6 @@ ecm_generate_headers(KIOCore_HEADERS
   KCoreDirLister
   KRemoteEncoding
   KDirNotify
-  KDiskFreeSpaceInfo
   KFileItem
   KFileItemListProperties
   KMountPoint
@@ -371,7 +366,6 @@ ecm_generate_headers(KIOCore_HEADERS
   KRecentDocument
   KSslCertificateManager
   KSslErrorUiData
-  KTcpSocket
   KFileFilter
 
   REQUIRED_HEADERS KIOCore_HEADERS

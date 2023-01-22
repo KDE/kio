@@ -21,9 +21,6 @@
 class KProtocolInfoPrivate
 {
 public:
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-    explicit KProtocolInfoPrivate(const QString &path);
-#endif
     KProtocolInfoPrivate(const QString &name, const QString &exec, const QJsonObject &json);
 
     QString m_name;

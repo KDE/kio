@@ -75,19 +75,11 @@ public:
     SessionData sessionData;
 
     void doJob(SimpleJob *job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
-    void scheduleJob(SimpleJob *job);
-#endif
     void setJobPriority(SimpleJob *job, int priority);
     void cancelJob(SimpleJob *job);
     void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
     void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
     void removeSlaveOnHold();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-    Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &metaData);
-    bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
-    bool disconnectSlave(KIO::Slave *slave);
-#endif
     Slave *heldSlaveForJob(KIO::SimpleJob *job);
     bool isSlaveOnHoldFor(const QUrl &url);
     void updateInternalMetaData(SimpleJob *job);
@@ -100,11 +92,6 @@ public:
 
 #ifndef KIO_ANDROID_STUB
     void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &);
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-    void slotSlaveConnected();
-    void slotSlaveError(int error, const QString &errorMsg);
 #endif
 
     ProtoQueue *protoQ(const QString &protocol, const QString &host);
@@ -293,147 +280,6 @@ QList<Slave *> HostQueue::allSlaves() const
     return ret;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-ConnectedSlaveQueue::ConnectedSlaveQueue()
-{
-    m_startJobsTimer.setSingleShot(true);
-    connect(&m_startJobsTimer, &QTimer::timeout, this, &ConnectedSlaveQueue::startRunnableJobs);
-}
-
-bool ConnectedSlaveQueue::queueJob(SimpleJob *job, Slave *slave)
-{
-    QHash<Slave *, PerSlaveQueue>::Iterator it = m_connectedSlaves.find(slave);
-    if (it == m_connectedSlaves.end()) {
-        return false;
-    }
-    SimpleJobPrivate::get(job)->m_slave = slave;
-
-    PerSlaveQueue &jobs = it.value();
-    jobs.waitingList.append(job);
-    if (!jobs.runningJob) {
-        // idle slave now has a job to run
-        m_runnableSlaves.insert(slave);
-        m_startJobsTimer.start();
-    }
-    return true;
-}
-
-bool ConnectedSlaveQueue::removeJob(SimpleJob *job)
-{
-    Slave *slave = jobSlave(job);
-    Q_ASSERT(slave);
-    QHash<Slave *, PerSlaveQueue>::Iterator it = m_connectedSlaves.find(slave);
-    if (it == m_connectedSlaves.end()) {
-        return false;
-    }
-    PerSlaveQueue &jobs = it.value();
-    if (jobs.runningJob || jobs.waitingList.isEmpty()) {
-        // a slave that was busy running a job was not runnable.
-        // a slave that has no waiting job(s) was not runnable either.
-        Q_ASSERT(!m_runnableSlaves.contains(slave));
-    }
-
-    const bool removedRunning = jobs.runningJob == job;
-    const bool removedWaiting = jobs.waitingList.removeAll(job) != 0;
-    if (removedRunning) {
-        jobs.runningJob = nullptr;
-        Q_ASSERT(!removedWaiting);
-    }
-    const bool removedTheJob = removedRunning || removedWaiting;
-
-    if (!slave->isAlive()) {
-        removeSlave(slave);
-        return removedTheJob;
-    }
-
-    if (removedRunning && jobs.waitingList.count()) {
-        m_runnableSlaves.insert(slave);
-        m_startJobsTimer.start();
-    }
-    if (removedWaiting && jobs.waitingList.isEmpty()) {
-        m_runnableSlaves.remove(slave);
-    }
-    return removedTheJob;
-}
-
-void ConnectedSlaveQueue::addSlave(Slave *slave)
-{
-    Q_ASSERT(slave);
-    if (!m_connectedSlaves.contains(slave)) {
-        m_connectedSlaves.insert(slave, PerSlaveQueue());
-    }
-}
-
-bool ConnectedSlaveQueue::removeSlave(Slave *slave)
-{
-    QHash<Slave *, PerSlaveQueue>::Iterator it = m_connectedSlaves.find(slave);
-    if (it == m_connectedSlaves.end()) {
-        return false;
-    }
-    PerSlaveQueue &jobs = it.value();
-    // we need a copy as kill() ends up removing the job from waitingList
-    const QList<SimpleJob *> waitingJobs = jobs.waitingList;
-    for (SimpleJob *job : waitingJobs) {
-        // ### for compatibility with the old scheduler we don't touch the running job, if any.
-        // make sure that the job doesn't call back into Scheduler::cancelJob(); this would
-        // a) crash and b) be unnecessary because we clean up just fine.
-        SimpleJobPrivate::get(job)->m_schedSerial = 0;
-        job->kill();
-    }
-    m_connectedSlaves.erase(it);
-    m_runnableSlaves.remove(slave);
-
-    slave->kill();
-    return true;
-}
-
-// KDE5: only one caller, for doubtful reasons. remove this if possible.
-bool ConnectedSlaveQueue::isIdle(Slave *slave)
-{
-    QHash<Slave *, PerSlaveQueue>::Iterator it = m_connectedSlaves.find(slave);
-    if (it == m_connectedSlaves.end()) {
-        return false;
-    }
-    return it.value().runningJob == nullptr;
-}
-
-// private slot
-void ConnectedSlaveQueue::startRunnableJobs()
-{
-    QSet<Slave *>::Iterator it = m_runnableSlaves.begin();
-    while (it != m_runnableSlaves.end()) {
-        Slave *slave = *it;
-        if (!slave->isConnected()) {
-            // this polling is somewhat inefficient...
-            m_startJobsTimer.start();
-            ++it;
-            continue;
-        }
-        it = m_runnableSlaves.erase(it);
-        PerSlaveQueue &jobs = m_connectedSlaves[slave];
-        SimpleJob *job = jobs.waitingList.takeFirst();
-        Q_ASSERT(!jobs.runningJob);
-        jobs.runningJob = job;
-
-        const QUrl url = job->url();
-        // no port is -1 in QUrl, but in kde3 we used 0 and the KIO workers assume that.
-        const int port = url.port() == -1 ? 0 : url.port();
-
-        if (slave->host() == QLatin1String("<reset>")) {
-            MetaData configData = WorkerConfig::self()->configData(url.scheme(), url.host());
-            slave->setConfig(configData);
-            slave->setProtocol(url.scheme());
-            slave->setHost(url.host(), port, url.userName(), url.password());
-        }
-
-        Q_ASSERT(slave->protocol() == url.scheme());
-        Q_ASSERT(slave->host() == url.host());
-        Q_ASSERT(slave->port() == port);
-        startJob(job, slave);
-    }
-}
-#endif
-
 static void ensureNoDuplicates(QMap<int, HostQueue *> *queuesBySerial)
 {
     Q_UNUSED(queuesBySerial);
@@ -601,15 +447,6 @@ void ProtoQueue::removeJob(SimpleJob *job)
         }
         // just in case; startAJob() will refuse to start a job if it shouldn't.
         m_startJobTimer.start();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-    } else {
-        // should be a connected slave
-        // if the assertion fails the job has probably changed the host part of its URL while
-        // running, so we can't find it by hostname. don't do this.
-        const bool removed = m_connectedSlaveQueue.removeJob(job);
-        Q_UNUSED(removed);
-        Q_ASSERT(removed);
-#endif
     }
 
     ensureNoDuplicates(&m_queuesBySerial);
@@ -635,15 +472,8 @@ Slave *ProtoQueue::createSlave(const QString &protocol, SimpleJob *job, const QU
 
 bool ProtoQueue::removeSlave(KIO::Slave *slave)
 {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-    const bool removedConnected = m_connectedSlaveQueue.removeSlave(slave);
-    const bool removedUnconnected = m_slaveKeeper.removeSlave(slave);
-    Q_ASSERT(!(removedConnected && removedUnconnected));
-    return removedConnected || removedUnconnected;
-#else
     const bool removed = m_slaveKeeper.removeSlave(slave);
     return removed;
-#endif
 }
 
 QList<Slave *> ProtoQueue::allSlaves() const
@@ -653,9 +483,7 @@ QList<Slave *> ProtoQueue::allSlaves() const
     for (; it != m_queuesByHostname.cend(); ++it) {
         ret.append(it.value().allSlaves());
     }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-    ret.append(m_connectedSlaveQueue.allSlaves());
-#endif
+
     return ret;
 }
 
@@ -772,20 +600,6 @@ void Scheduler::doJob(SimpleJob *job)
     schedulerPrivate()->doJob(job);
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
-void Scheduler::scheduleJob(SimpleJob *job)
-{
-    schedulerPrivate()->scheduleJob(job);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
-void Scheduler::setJobPriority(SimpleJob *job, int priority)
-{
-    schedulerPrivate()->setJobPriority(job, priority);
-}
-#endif
-
 // static
 void Scheduler::setSimpleJobPriority(SimpleJob *job, int priority)
 {
@@ -826,12 +640,6 @@ void Scheduler::removeWorkerOnHold()
     schedulerPrivate()->removeSlaveOnHold();
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
-void Scheduler::publishSlaveOnHold()
-{
-}
-#endif
-
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
 bool Scheduler::isSlaveOnHoldFor(const QUrl &url)
 {
@@ -848,23 +656,6 @@ void Scheduler::updateInternalMetaData(SimpleJob *job)
 {
     schedulerPrivate()->updateInternalMetaData(job);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-KIO::Slave *Scheduler::getConnectedSlave(const QUrl &url, const KIO::MetaData &config)
-{
-    return schedulerPrivate()->getConnectedSlave(url, config);
-}
-
-bool Scheduler::assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job)
-{
-    return schedulerPrivate()->assignJobToSlave(slave, job);
-}
-
-bool Scheduler::disconnectSlave(KIO::Slave *slave)
-{
-    return schedulerPrivate()->disconnectSlave(slave);
-}
-#endif
 
 #if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 bool Scheduler::connect(const char *signal, const QObject *receiver, const char *member)
@@ -891,12 +682,6 @@ bool Scheduler::disconnect(const QObject *sender, const char *signal, const QObj
 bool Scheduler::connect(const QObject *sender, const char *signal, const char *member)
 {
     return QObject::connect(sender, signal, member);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
-void Scheduler::checkSlaveOnHold(bool)
-{
 }
 #endif
 
@@ -960,14 +745,6 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
     proto->queueJob(job);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 5)
-void SchedulerPrivate::scheduleJob(SimpleJob *job)
-{
-    // qDebug() << job;
-    setJobPriority(job, 1);
-}
-#endif
 
 void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
 {
@@ -1198,48 +975,6 @@ void SchedulerPrivate::removeSlaveOnHold()
     m_urlOnHold.clear();
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-Slave *SchedulerPrivate::getConnectedSlave(const QUrl &url, const KIO::MetaData &config)
-{
-    QStringList proxyList;
-    const QString protocol = KProtocolManager::workerProtocol(url, proxyList);
-    ProtoQueue *pq = protoQ(protocol, url.host());
-
-    Slave *slave = pq->createSlave(protocol, /* job */ nullptr, url);
-    if (slave) {
-        setupSlave(slave, url, protocol, proxyList, true, &config);
-        pq->m_connectedSlaveQueue.addSlave(slave);
-
-        slave->send(CMD_CONNECT);
-        q->connect(slave, SIGNAL(connected()), SLOT(slotSlaveConnected()));
-        q->connect(slave, SIGNAL(error(int, QString)), SLOT(slotSlaveError(int, QString)));
-    }
-    // qDebug() << url << slave;
-    return slave;
-}
-
-void SchedulerPrivate::slotSlaveConnected()
-{
-    // qDebug();
-    Slave *slave = static_cast<Slave *>(q->sender());
-    slave->setConnected(true);
-    q->disconnect(slave, SIGNAL(connected()), q, SLOT(slotSlaveConnected()));
-    Q_EMIT q->slaveConnected(slave);
-}
-
-void SchedulerPrivate::slotSlaveError(int errorNr, const QString &errorMsg)
-{
-    Slave *slave = static_cast<Slave *>(q->sender());
-    // qDebug() << slave << errorNr << errorMsg;
-    ProtoQueue *pq = protoQ(slave->protocol(), slave->host());
-    if (!slave->isConnected() || pq->m_connectedSlaveQueue.isIdle(slave)) {
-        // Only forward to application if slave is idle or still connecting.
-        // ### KDE5: can we remove this apparently arbitrary behavior and just always emit SlaveError?
-        Q_EMIT q->slaveError(slave, errorNr, errorMsg);
-    }
-}
-#endif
-
 ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &host)
 {
     ProtoQueue *pq = m_protocols.value(protocol, nullptr);
@@ -1264,27 +999,6 @@ ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &hos
     }
     return pq;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 91)
-bool SchedulerPrivate::assignJobToSlave(KIO::Slave *slave, SimpleJob *job)
-{
-    // qDebug() << slave << job;
-    // KDE5: queueing of jobs can probably be removed, it provides very little benefit
-    ProtoQueue *pq = m_protocols.value(slave->protocol());
-    if (pq) {
-        pq->removeJob(job);
-        return pq->m_connectedSlaveQueue.queueJob(job, slave);
-    }
-    return false;
-}
-
-bool SchedulerPrivate::disconnectSlave(KIO::Slave *slave)
-{
-    // qDebug() << slave;
-    ProtoQueue *pq = m_protocols.value(slave->protocol());
-    return (pq ? pq->m_connectedSlaveQueue.removeSlave(slave) : false);
-}
-#endif
 
 void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
 {

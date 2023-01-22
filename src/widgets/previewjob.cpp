@@ -38,10 +38,8 @@
 
 #include <KConfigGroup>
 #include <KMountPoint>
-#include <KPluginInfo>
 #include <KPluginMetaData>
 #include <KService>
-#include <KServiceTypeTrader>
 #include <KSharedConfig>
 #include <QMimeDatabase>
 #include <QStandardPaths>
@@ -188,61 +186,15 @@ public:
         for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
             pluginIds.insert(data.pluginId());
         }
-#if KSERVICE_ENABLE_DEPRECATED_SINCE(5, 88)
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-        const KService::List plugins = KServiceTypeTrader::self()->query(QStringLiteral("ThumbCreator"));
-        for (const auto &plugin : plugins) {
-            if (KPluginInfo info(plugin); info.isValid()) {
-                if (auto [it, inserted] = pluginIds.insert(plugin->desktopEntryName()); inserted) {
-                    jsonMetaDataPlugins << info.toMetaData();
-                }
-            } else {
-                // Hack for directory thumbnailer: It has a hardcoded plugin id in the KIO worker and not any C++ plugin
-                // Consequently we just use the base name as the plugin file for our KPluginMetaData object
-                const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + plugin->entryPath());
-                KPluginMetaData tmpData = KPluginMetaData::fromDesktopFile(path);
-                jsonMetaDataPlugins << KPluginMetaData(tmpData.rawData(), QFileInfo(path).baseName(), path);
-            }
-        }
-        QT_WARNING_POP
-#else
 #pragma message("TODO: directory thumbnailer needs a non-desktop file solution ")
-#endif
         return jsonMetaDataPlugins;
     }
 };
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
-void PreviewJob::setDefaultDevicePixelRatio(int defaultDevicePixelRatio)
-{
-    s_defaultDevicePixelRatio = defaultDevicePixelRatio;
-}
-#endif
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
 {
     s_defaultDevicePixelRatio = std::ceil(defaultDevicePixelRatio);
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
-PreviewJob::PreviewJob(const KFileItemList &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins)
-    : KIO::Job(*new PreviewJobPrivate(items, QSize(width, height ? height : width)))
-{
-    Q_D(PreviewJob);
-    d->enabledPlugins = enabledPlugins ? *enabledPlugins : availablePlugins();
-    d->iconSize = iconSize;
-    d->iconAlpha = iconAlpha;
-    d->bScale = scale;
-    d->bSave = save && scale;
-
-    // Return to event loop first, determineNextFile() might delete this;
-    QTimer::singleShot(0, this, [d]() {
-        d->startPreview();
-    });
-}
-#endif
 
 PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)
     : KIO::Job(*new PreviewJobPrivate(items, size))
@@ -525,13 +477,6 @@ bool KIO::PreviewJob::handlesSequences() const
 {
     return d_func()->thumbnailWorkerMetaData.value(QStringLiteral("handlesSequences")) == QStringLiteral("1");
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
-void KIO::PreviewJob::setDevicePixelRatio(int dpr)
-{
-    d_func()->devicePixelRatio = dpr;
-}
-#endif
 
 void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
 {
@@ -1050,39 +995,9 @@ QStringList PreviewJob::supportedMimeTypes()
     return result;
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
-PreviewJob *
-KIO::filePreview(const KFileItemList &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins)
-{
-    return new PreviewJob(items, width, height, iconSize, iconAlpha, scale, save, enabledPlugins);
-}
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 7)
-PreviewJob *
-KIO::filePreview(const QList<QUrl> &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins)
-{
-    KFileItemList fileItems;
-    fileItems.reserve(items.size());
-    for (const QUrl &url : items) {
-        Q_ASSERT(url.isValid()); // please call us with valid urls only
-        fileItems.append(KFileItem(url));
-    }
-    return new PreviewJob(fileItems, width, height, iconSize, iconAlpha, scale, save, enabledPlugins);
-}
-#endif
-
 PreviewJob *KIO::filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)
 {
     return new PreviewJob(items, size, enabledPlugins);
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-KIO::filesize_t PreviewJob::maximumFileSize()
-{
-    KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");
-    return cg.readEntry("MaximumSize", 5 * 1024 * 1024LL /* 5MB */);
-}
-#endif
 
 #include "moc_previewjob.cpp"

@@ -1754,26 +1754,6 @@ bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
     return true;
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 33)
-void KFileWidget::setSelection(const QString &url)
-{
-    //     qDebug() << "setSelection " << url;
-
-    if (url.isEmpty()) {
-        return;
-    }
-
-    QUrl u = d->getCompleteUrl(url);
-    if (!u.isValid()) {
-        // Relative path was treated as URL, but it was found to be invalid.
-        qWarning() << url << " is not a correct argument for setSelection!";
-        return;
-    }
-
-    setSelectedUrl(urlFromString(url));
-}
-#endif
-
 void KFileWidget::setSelectedUrl(const QUrl &url)
 {
     // Honor protocols that do not support directory listing
@@ -2845,11 +2825,7 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass, QSt
                 fileName = urlFile;
             }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 96)
-            const QLatin1String query(startDir.query() == QLatin1String("global") ? "::%1" : ":%1");
-#else
             const QLatin1String query(":%1");
-#endif
             recentDirClass = query.arg(keyword);
 
             ret = QUrl::fromLocalFile(KRecentDirs::dir(recentDirClass));
@@ -2952,13 +2928,6 @@ void KFileWidgetPrivate::updateFilterText()
         m_filterWidget->setWhatsThis(whatsThisText);
     }
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 66)
-KToolBar *KFileWidget::toolBar() const
-{
-    return d->m_toolbar;
-}
-#endif
 
 void KFileWidget::setCustomWidget(QWidget *widget)
 {

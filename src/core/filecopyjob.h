@@ -61,22 +61,6 @@ public:
     bool doKill() override;
 
 Q_SIGNALS:
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
-    /**
-     * MIME type determined during a file copy.
-     * This is never emitted during a move, and might not be emitted during
-     * a file copy, depending on the worker. But when a get and a put are
-     * being used (which is the common case), this signal forwards the
-     * MIME type information from the get job.
-     *
-     * @param job the job that emitted this signal
-     * @param mimeType the MIME type
-     * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::FileCopyJob::mimeTypeFound(KIO::Job *, const QString &)")
-    void mimetype(KIO::Job *job, const QString &mimeType);
-#endif
-
     /**
      * MIME type determined during a file copy.
      * This is never emitted during a move, and might not be emitted during

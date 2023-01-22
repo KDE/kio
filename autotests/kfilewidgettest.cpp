@@ -67,10 +67,6 @@ private Q_SLOTS:
     void testGetStartUrl();
     void testSetSelection_data();
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 33)
-    void testSetSelection();
-#endif
-
     void testSetSelectedUrl_data();
     void testSetSelectedUrl();
     void testPreserveFilenameWhileNavigating();
@@ -223,13 +219,8 @@ void KFileWidgetTest::testGetStartUrl()
     QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     QVERIFY(outFileName.isEmpty());
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 96)
-    localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt?global")), recentDirClass, outFileName);
-    QCOMPARE(recentDirClass, QStringLiteral("::attachments"));
-#else
     localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt")), recentDirClass, outFileName);
     QCOMPARE(recentDirClass, QStringLiteral(":attachments"));
-#endif
     QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     QCOMPARE(outFileName, QStringLiteral("foo.txt"));
 }
@@ -253,31 +244,6 @@ void KFileWidgetTest::testSetSelection_data()
     // What if someone calls setSelection(fileName)? That breaks, hence e70f8134a2b in plasma-integration.git
     QTest::newRow("filename") << baseDir << fileName << baseDir << fileName;
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 33)
-void KFileWidgetTest::testSetSelection()
-{
-    // GIVEN
-    QFETCH(QString, baseDir);
-    QFETCH(QString, selection);
-    QFETCH(QString, expectedBaseDir);
-    QFETCH(QString, expectedCurrentText);
-    const QUrl baseUrl = QUrl::fromLocalFile(baseDir).adjusted(QUrl::StripTrailingSlash);
-    const QUrl expectedBaseUrl = QUrl::fromLocalFile(expectedBaseDir);
-
-    KFileWidget fw(baseUrl);
-
-    // WHEN
-    fw.setSelection(selection); // now deprecated, this test shows why ;)
-
-    // THEN
-    QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
-    // if (QByteArray(QTest::currentDataTag()) == "filename") {
-    QEXPECT_FAIL("filename", "setSelection cannot work with filenames, bad API", Continue);
-    //}
-    QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
-}
-#endif
 
 void KFileWidgetTest::testSetSelectedUrl_data()
 {

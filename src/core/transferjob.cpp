@@ -184,25 +184,6 @@ void TransferJob::sendAsyncData(const QByteArray &dataForWorker)
     d->m_extraFlags &= ~JobPrivate::EF_TransferJobNeedData;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 3)
-void TransferJob::setReportDataSent(bool enabled)
-{
-    Q_D(TransferJob);
-    if (enabled) {
-        d->m_extraFlags |= JobPrivate::EF_TransferJobDataSent;
-    } else {
-        d->m_extraFlags &= ~JobPrivate::EF_TransferJobDataSent;
-    }
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 3)
-bool TransferJob::reportDataSent() const
-{
-    return (d_func()->m_extraFlags & JobPrivate::EF_TransferJobDataSent);
-}
-#endif
-
 QString TransferJob::mimetype() const
 {
     return d_func()->m_mimetype;
@@ -257,9 +238,6 @@ void TransferJob::slotMimetype(const QString &type)
         qCWarning(KIO_CORE) << "mimetype() emitted again, or after sending first data!; job URL =" << d->m_url;
     }
     d->m_isMimetypeEmitted = true;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    Q_EMIT mimetype(this, type);
-#endif
     Q_EMIT mimeTypeFound(this, type);
 }
 

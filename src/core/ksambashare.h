@@ -96,19 +96,6 @@ public:
 
     ~KSambaShare() override;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 6)
-    /**
-     * Returns the path to the used smb.conf file
-     * or empty string if no file was found
-     *
-     * @return @c the path to the smb.conf file
-     *
-     * @deprecated Since 4.6, the conf file is no longer used
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 6, "Conf file no longer used")
-    QString smbConfPath() const;
-#endif
-
     /**
      * Used to obtain UserShareSystemError error strings. This is usually the
      * verbatim stderr of internal helper commands and may contain newlines.

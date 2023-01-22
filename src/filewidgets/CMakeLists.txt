@@ -13,7 +13,6 @@ set_target_properties(KF6KIOFileWidgets PROPERTIES
 )
 
 target_sources(KF6KIOFileWidgets PRIVATE
-  kstatusbarofflineindicator.cpp
   kfilemetapreview.cpp
   kimagefilepreview.cpp
   kpreviewwidgetbase.cpp
@@ -84,7 +83,7 @@ ecm_generate_export_header(KF6KIOFileWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 4.3 4.5 5.0 5.33 5.66 5.70 5.76 5.78 5.86 5.97 5.100 5.103
+    DEPRECATION_VERSIONS 5.100 5.103
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
@@ -111,7 +110,6 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KImageFilePreview
   KPreviewWidgetBase
   KRecentDirs
-  KStatusBarOfflineIndicator
   KDirOperator
   KDirSortFilterProxyModel
   KFileCopyToMenu

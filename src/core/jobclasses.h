@@ -14,7 +14,6 @@
 #include "filejob.h"
 #include "listjob.h"
 #include "mimetypejob.h"
-#include "multigetjob.h"
 #include "simplejob.h"
 #include "specialjob.h"
 #include "statjob.h"

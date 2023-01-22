@@ -40,9 +40,6 @@ KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     , skipUserShare(false)
 {
     setUserSharePath();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
-    findSmbConf();
-#endif
     data = parse(getNetUserShareInfo());
 }
 
@@ -65,35 +62,6 @@ bool KSambaSharePrivate::isSambaInstalled()
 
     return daemonExists && clientExists;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
-// Default smb.conf locations
-// sorted by priority, most priority first
-static const char *const DefaultSambaConfigFilePathList[] = {"/etc/samba/smb.conf",
-                                                             "/etc/smb.conf",
-                                                             "/usr/local/etc/smb.conf",
-                                                             "/usr/local/samba/lib/smb.conf",
-                                                             "/usr/samba/lib/smb.conf",
-                                                             "/usr/lib/smb.conf",
-                                                             "/usr/local/lib/smb.conf"};
-
-// Try to find the samba config file path
-// in several well-known paths
-bool KSambaSharePrivate::findSmbConf()
-{
-    for (const char *str : DefaultSambaConfigFilePathList) {
-        const QString filePath = QString::fromLatin1(str);
-        if (QFile::exists(filePath)) {
-            smbConf = filePath;
-            return true;
-        }
-    }
-
-    qCDebug(KIO_CORE_SAMBASHARE) << "KSambaShare: Could not find smb.conf!";
-
-    return false;
-}
-#endif
 
 void KSambaSharePrivate::setUserSharePath()
 {
@@ -503,14 +471,6 @@ KSambaShare::~KSambaShare()
     }
     delete d_ptr;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(4, 6)
-QString KSambaShare::smbConfPath() const
-{
-    Q_D(const KSambaShare);
-    return d->smbConf;
-}
-#endif
 
 bool KSambaShare::isDirectoryShared(const QString &path) const
 {

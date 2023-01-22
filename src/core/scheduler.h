@@ -108,36 +108,6 @@ public:
      */
     static void doJob(SimpleJob *job);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 5)
-    /**
-     * Schedules @p job scheduled for later execution.
-     * This method is deprecated and just sets the job's priority to 1. It is
-     * recommended to replace calls to scheduleJob(job) with setJobPriority(job, 1).
-     * @param job the job to schedule
-     * @deprecated Since 4.5, use setJobPriority(SimpleJob *job, int priority)
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 5, "Use Scheduler::setJobPriority(SimpleJob *, int )")
-    static void scheduleJob(SimpleJob *job);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 90)
-    /**
-     * Changes the priority of @p job; jobs of the same priority run in the order in which
-     * they were created. Jobs of lower numeric priority always run before any
-     * waiting jobs of higher numeric priority. The range of priority is -10 to 10,
-     * the default priority of jobs is 0.
-     * @param job the job to change
-     * @param priority new priority of @p job, lower runs earlier
-     * @deprecated Since 5.90. Changing priorities was only used by KHTML. If you need this, please contact kde-frameworks-devel to request the feature back,
-     * but as better API like Job::setPriority.
-     */
-    KIOCORE_DEPRECATED_VERSION(5,
-                               90,
-                               "Changing priorities was only used by KHTML. If you need this, please contact kde-frameworks-devel to request the feature back, "
-                               "but as better API like Job::setPriority.")
-    static void setJobPriority(SimpleJob *job, int priority);
-#endif
-
     /**
      * Stop the execution of a job.
      * @param job the job to cancel
@@ -201,74 +171,6 @@ public:
      */
     static void removeWorkerOnHold();
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
-    /**
-     * Send the slave that was put on hold back to KLauncher. This
-     * allows another process to take over the slave and resume the job
-     * that was started.
-     * @deprecated since 5.88, the feature of holding slaves between processes is gone, just remove the call
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
-    static void publishSlaveOnHold();
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    /**
-     * Requests a slave for use in connection-oriented mode.
-     *
-     * @param url This defines the username,password,host & port to
-     *            connect with.
-     * @param config Configuration data for the slave.
-     *
-     * @return A pointer to a connected slave or @c nullptr if an error occurred.
-     * @see assignJobToSlave()
-     * @see disconnectSlave()
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
-    static KIO::Slave *getConnectedSlave(const QUrl &url, const KIO::MetaData &config = MetaData());
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    /**
-     * Uses @p slave to do @p job.
-     * This function should be called immediately after creating a Job.
-     *
-     * @param slave The slave to use. The slave must have been obtained
-     *              with a call to getConnectedSlave and must not
-     *              be currently assigned to any other job.
-     * @param job The job to do.
-     *
-     * @return true is successful, false otherwise.
-     *
-     * @see getConnectedSlave()
-     * @see disconnectSlave()
-     * @see slaveConnected()
-     * @see slaveError()
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
-    static bool assignJobToSlave(KIO::Slave *slave, KIO::SimpleJob *job);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    /**
-     * Disconnects @p slave.
-     *
-     * @param slave The slave to disconnect. The slave must have been
-     *              obtained with a call to getConnectedSlave
-     *              and must not be assigned to any job.
-     *
-     * @return true is successful, false otherwise.
-     *
-     * @see getConnectedSlave
-     * @see assignJobToSlave
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
-    static bool disconnectSlave(KIO::Slave *slave);
-#endif
-
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * Function to connect signals emitted by the scheduler.
@@ -288,17 +190,6 @@ public:
 
     KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
     bool connect(const QObject *sender, const char *signal, const char *member);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 88)
-    /**
-     * When true, the next job will check whether KLauncher has a slave
-     * on hold that is suitable for the job.
-     * @param b true when KLauncher has a job on hold
-     * @deprecated since 5.88, the feature of holding slaves between processes is gone, just remove the call
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 88, "Remove this call. The feature is gone")
-    static void checkSlaveOnHold(bool b);
 #endif
 
     static void emitReparseSlaveConfiguration();
@@ -329,31 +220,10 @@ public:
     static void updateInternalMetaData(SimpleJob *job);
 
 Q_SIGNALS:
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    /**
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
-    QT_MOC_COMPAT void slaveConnected(KIO::Slave *slave);
-
-    /**
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Port away from the connected slave feature, e.g. making a library out of the slave code.")
-    QT_MOC_COMPAT void slaveError(KIO::Slave *slave, int error, const QString &errorMsg);
-#endif
 
     // DBUS
     Q_SCRIPTABLE void reparseSlaveConfiguration(const QString &);
     // KF6 TODO: rename to reparseWorkerConfiguration. See also T15956.
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    /**
-     * @deprecated since 5.91 Port away from the connected slave feature, e.g. making a library out of the slave code.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 91, "Removed for lack of usage, and due to feature removal.")
-    Q_SCRIPTABLE void slaveOnHoldListChanged();
-#endif
 
 private:
     Q_DISABLE_COPY(Scheduler)
@@ -371,10 +241,6 @@ private:
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))
 #endif
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 91)
-    Q_PRIVATE_SLOT(d_func(), void slotSlaveConnected())
-    Q_PRIVATE_SLOT(d_func(), void slotSlaveError(int error, const QString &errorMsg))
-#endif
 private:
     friend class SchedulerPrivate;
     SchedulerPrivate *d_func();

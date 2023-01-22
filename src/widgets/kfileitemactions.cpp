@@ -17,11 +17,9 @@
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
-#include <KMimeTypeTrader>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KSandbox>
-#include <KServiceTypeTrader>
 #include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
 #include <kdesktopfileactions.h>
@@ -85,10 +83,6 @@ class PopupServices
 {
 public:
     ServiceList &selectList(const QString &priority, const QString &submenuName);
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-    ServiceList builtin;
-#endif
 
     ServiceList user;
     ServiceList userToplevel;
@@ -227,20 +221,6 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
     }
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
-int KFileItemActions::addServiceActionsTo(QMenu *mainMenu)
-{
-    return d->addServiceActionsTo(mainMenu, {}, {}).userItemCount;
-}
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
-int KFileItemActions::addPluginActionsTo(QMenu *mainMenu)
-{
-    return d->addPluginActionsTo(mainMenu, mainMenu, {});
-}
-#endif
-
 void KFileItemActions::addActionsTo(QMenu *menu, MenuActionSources sources, const QList<QAction *> &additionalActions, const QStringList &excludeList)
 {
     QMenu *actionsMenu = menu;
@@ -263,15 +243,6 @@ KService::List KFileItemActions::associatedApplications(const QStringList &mimeT
     return KFileItemActionsPrivate::associatedApplications(mimeTypeList, QString(), QStringList{});
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
-// static
-KService::List KFileItemActions::associatedApplications(const QStringList &mimeTypeList, const QString &traderConstraint)
-{
-    return KFileItemActionsPrivate::associatedApplications(mimeTypeList, traderConstraint, QStringList{});
-}
-
-#endif
-
 static KService::Ptr preferredService(const QString &mimeType, const QStringList &excludedDesktopEntryNames, const QString &constraint)
 {
     KService::List services;
@@ -280,33 +251,8 @@ static KService::Ptr preferredService(const QString &mimeType, const QStringList
             return !excludedDesktopEntryNames.contains(serv->desktopEntryName());
         });
     }
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-    else {
-        Q_ASSERT(excludedDesktopEntryNames.isEmpty());
-        // KMimeTypeTrader::preferredService doesn't take a constraint
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-        services = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"), constraint);
-        QT_WARNING_POP
-    }
-#endif
     return services.isEmpty() ? KService::Ptr() : services.first();
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-void KFileItemActions::addOpenWithActionsTo(QMenu *topMenu, const QString &traderConstraint)
-{
-    d->insertOpenWithActionsTo(nullptr, topMenu, QStringList(), traderConstraint);
-}
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QString &traderConstraint)
-{
-    d->insertOpenWithActionsTo(before, topMenu, QStringList(), traderConstraint);
-}
-#endif
 
 void KFileItemActions::insertOpenWithActionsTo(QAction *before, QMenu *topMenu, const QStringList &excludedDesktopEntryNames)
 {
@@ -341,15 +287,6 @@ void KFileItemActionsPrivate::slotRunPreferredApplications()
         job->start();
     }
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 83)
-void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList, const QString &traderConstraint)
-{
-    d->m_fileOpenList = fileOpenList;
-    d->m_traderConstraint = traderConstraint;
-    d->slotRunPreferredApplications();
-}
-#endif
 
 void KFileItemActions::runPreferredApplications(const KFileItemList &fileOpenList)
 {
@@ -445,34 +382,6 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
     if (!KIOSKAuthorizedAction(cfg)) {
         return false;
     }
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76) && !defined(KIO_ANDROID_STUB)
-    if (cfg.hasKey("X-KDE-ShowIfRunning")) {
-        qCWarning(KIO_WIDGETS) << "The property X-KDE-ShowIfRunning is deprecated and will be removed in future releases";
-        const QString app = cfg.readEntry("X-KDE-ShowIfRunning");
-        if (QDBusConnection::sessionBus().interface()->isServiceRegistered(app)) {
-            return false;
-        }
-    }
-    if (cfg.hasKey("X-KDE-ShowIfDBusCall")) {
-        qCWarning(KIO_WIDGETS) << "The property X-KDE-ShowIfDBusCall is deprecated and will be removed in future releases";
-        QString calldata = cfg.readEntry("X-KDE-ShowIfDBusCall");
-        const QStringList parts = calldata.split(QLatin1Char(' '));
-        const QString &app = parts.at(0);
-        const QString &obj = parts.at(1);
-        QString interface = parts.at(2);
-        QString method;
-        int pos = interface.lastIndexOf(QLatin1Char('.'));
-        if (pos != -1) {
-            method = interface.mid(pos + 1);
-            interface.truncate(pos);
-        }
-
-        QDBusMessage reply = QDBusInterface(app, obj, interface).call(method, QUrl::toStringList(urlList));
-        if (reply.arguments().count() < 1 || reply.arguments().at(0).type() != QVariant::Bool || !reply.arguments().at(0).toBool()) {
-            return false;
-        }
-    }
-#endif
     if (cfg.hasKey("X-KDE-Protocol")) {
         const QString theProtocol = cfg.readEntry("X-KDE-Protocol");
         if (theProtocol.startsWith(QLatin1Char('!'))) { // Is it excluded?
@@ -493,16 +402,6 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
         // One might want a servicemenu for trash.desktop itself though.
         return false;
     }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
-    if (cfg.hasKey("X-KDE-Require")) {
-        qCWarning(KIO_WIDGETS) << "The property X-KDE-Require is deprecated and will be removed in future releases";
-        const QStringList capabilities = cfg.readEntry("X-KDE-Require", QStringList());
-        if (capabilities.contains(QLatin1String("Write")) && !m_props.supportsWriting()) {
-            return false;
-        }
-    }
-#endif
 
     const auto requiredNumbers = cfg.readEntry("X-KDE-RequiredNumberOfUrls", QList<int>());
     if (!requiredNumbers.isEmpty() && !requiredNumbers.contains(urlList.count())) {
@@ -551,15 +450,6 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     const QList<QUrl> urlList = m_props.urlList();
 
     KIO::PopupServices s;
-
-    // TODO KF6 remove mention of "builtin" (deprecated)
-    // 1 - Look for builtin services
-    if (isSingleLocal && m_props.mimeType() == QLatin1String("application/x-desktop")) {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-        // Get builtin services, like mount/unmount
-        s.builtin = KDesktopFileActions::builtinServices(QUrl::fromLocalFile(firstItem.localPath()));
-#endif
-    }
 
     // 2 - Look for "servicemenus" bindings (user-defined services)
 
@@ -626,10 +516,6 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     userItemCount += insertServicesSubmenus(s.userSubmenus, actionMenu, false);
     userItemCount += insertServices(s.user, actionMenu, false);
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-    userItemCount += insertServices(s.builtin, mainMenu, true);
-#endif
-
     userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenu, false);
     userItemCount += insertServices(s.userToplevel, mainMenu, false);
 
@@ -685,44 +571,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         }
     }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-    QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-    const KService::List fileItemPlugins =
-        KMimeTypeTrader::self()->query(commonMimeType, QStringLiteral("KFileItemAction/Plugin"), QStringLiteral("exist Library"));
-    for (const auto &service : fileItemPlugins) {
-        if (!showGroup.readEntry(service->desktopEntryName(), true)) {
-            // The plugin has been disabled
-            continue;
-        }
-
-        // The plugin also has a JSON metadata and has already been added.
-        if (addedPlugins.contains(service->desktopEntryName())) {
-            continue;
-        }
-
-        KAbstractFileItemActionPlugin *abstractPlugin = m_loadedPlugins.value(service->desktopEntryName());
-        if (!abstractPlugin) {
-            abstractPlugin = service->createInstance<KAbstractFileItemActionPlugin>(this);
-            if (abstractPlugin) {
-                connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
-                m_loadedPlugins.insert(service->desktopEntryName(), abstractPlugin);
-                qCWarning(KIO_WIDGETS) << "The" << service->name()
-                                       << "plugin still installs the desktop file for plugin loading. Please use JSON metadata instead, see "
-                                       << "KAbstractFileItemActionPlugin class docs for instructions.";
-            }
-        }
-        if (abstractPlugin) {
-            auto actions = abstractPlugin->actions(m_props, m_parentWidget);
-            itemCount += actions.count();
-            mainMenu->addActions(actions);
-            addedPlugins.append(service->desktopEntryName());
-        }
-    }
-    QT_WARNING_POP
-#endif
-
     return itemCount;
 }
 
@@ -739,16 +587,6 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
             return !excludedDesktopEntryNames.contains(service->desktopEntryName());
         });
     }
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-    else {
-        Q_ASSERT(excludedDesktopEntryNames.isEmpty());
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-        firstOffers = KMimeTypeTrader::self()->query(mimeTypeList.first(), QStringLiteral("Application"), traderConstraint);
-        QT_WARNING_POP
-    }
-#endif
 
     QList<KFileItemActionsPrivate::ServiceRank> rankings;
     QStringList serviceList;
@@ -775,16 +613,7 @@ KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList,
                 return !excludedDesktopEntryNames.contains(service->desktopEntryName());
             });
         }
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-        else {
-            QT_WARNING_PUSH
-            QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-            QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-            Q_ASSERT(excludedDesktopEntryNames.isEmpty());
-            offers = KMimeTypeTrader::self()->query(mimeTypeList[j], QStringLiteral("Application"), traderConstraint);
-            QT_WARNING_POP
-        }
-#endif
+
         subservice.reserve(offers.count());
         for (int i = 0; i != offers.count(); ++i) {
             const QString serviceId = offers[i]->storageId();
@@ -974,18 +803,8 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
 {
     QStringList filePaths;
 
-    // Use old KServiceTypeTrader code path
     std::set<QString> uniqueFileNames;
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 85)
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_DEPRECATED
-    const KService::List entries = KServiceTypeTrader::self()->query(QStringLiteral("KonqPopupMenu/Plugin"));
-    QT_WARNING_POP
-    for (const KServicePtr &entry : entries) {
-        filePaths << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + entry->entryPath());
-        uniqueFileNames.insert(entry->entryPath().split(QLatin1Char('/')).last());
-    }
-#endif
+
     // Load servicemenus from new install location
     const QStringList paths =
         QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kio/servicemenus"), QStandardPaths::LocateDirectory);
@@ -997,17 +816,6 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
     }
     return filePaths;
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-QAction *KFileItemActions::preferredOpenWithAction(const QString &traderConstraint)
-{
-    const KService::List offers = associatedApplications(d->m_mimeTypeList, traderConstraint);
-    if (offers.isEmpty()) {
-        return nullptr;
-    }
-    return d->createAppAction(offers.first(), true);
-}
-#endif
 
 void KFileItemActions::setParentWidget(QWidget *widget)
 {

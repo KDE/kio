@@ -192,16 +192,6 @@ protected:
      */
     void setBlocking(bool b);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 83)
-    /**
-     * Return the socket object, if the class ever needs to do anything to it.
-     *
-     * @deprecated since 5.83, use @c tcpSocket() instead.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 83, "Use tcpSocket() instead.")
-    QIODevice *socket() const;
-#endif
-
     /**
      * Returns the socket object, useful if sub-classes need to do anything
      * with it (e.g. connect to any of the signals emitted by @c QAbstractSocket).

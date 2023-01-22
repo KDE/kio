@@ -290,9 +290,6 @@ bool KCoreDirListerPrivate::CachedItemsJob::doKill()
     qCDebug(KIO_CORE_DIRLISTER) << this;
     kDirListerCache()->forgetCachedItemsJob(this, m_lister, m_url);
     if (!property("_kdlc_silent").toBool()) {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        Q_EMIT m_lister->canceled(m_url);
-#endif
         Q_EMIT m_lister->listingDirCanceled(m_url);
 
         Q_EMIT m_lister->canceled();
@@ -336,9 +333,6 @@ void KCoreDirListerCache::emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJ
     if (_emitCompleted) {
         lister->d->complete = true;
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        Q_EMIT lister->completed(_url);
-#endif
         Q_EMIT lister->listingDirCompleted(_url);
         Q_EMIT lister->completed();
 
@@ -410,10 +404,6 @@ void KCoreDirListerCache::stopListingUrl(KCoreDirLister *lister, const QUrl &_u,
             dirData.listersCurrentlyListing.removeAll(lister);
             if (!silent) {
                 Q_EMIT lister->canceled();
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-                Q_EMIT lister->canceled(url);
-#endif
                 Q_EMIT lister->listingDirCanceled(url);
             }
         }
@@ -533,9 +523,6 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
 
         if (notify) {
             lister->d->lstDirs.removeAll(url);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-            Q_EMIT lister->clear(url);
-#endif
             Q_EMIT lister->clearDir(url);
         }
 
@@ -1295,15 +1282,9 @@ void KCoreDirListerCache::slotResult(KJob *j)
                         job->uiDelegate()->showErrorMessage();
                     }
                 }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
-                kdl->handleError(job);
-#endif
             }
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-                Q_EMIT kdl->canceled(jobUrl);
-#endif
                 Q_EMIT kdl->listingDirCanceled(jobUrl);
             }
 
@@ -1321,9 +1302,6 @@ void KCoreDirListerCache::slotResult(KJob *j)
 
         for (KCoreDirLister *kdl : listers) {
             kdl->d->jobDone(job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-            Q_EMIT kdl->completed(jobUrl);
-#endif
             Q_EMIT kdl->listingDirCompleted(jobUrl);
             if (kdl->d->numJobs() == 0) {
                 kdl->d->complete = true;
@@ -1630,9 +1608,6 @@ void KCoreDirListerCache::emitRedirections(const QUrl &_oldUrl, const QUrl &_new
         if (job) {
             kdl->d->jobDone(job);
         }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        Q_EMIT kdl->canceled(oldUrl);
-#endif
         Q_EMIT kdl->listingDirCanceled(oldUrl);
     }
     newDirData.listersCurrentlyListing += listers;
@@ -1704,9 +1679,6 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
 
             const bool silent = job->property("_kdlc_silent").toBool();
             if (!silent) {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-                Q_EMIT kdl->canceled(jobUrl);
-#endif
                 Q_EMIT kdl->listingDirCanceled(jobUrl);
             }
             if (kdl->d->numJobs() == 0) {
@@ -1846,9 +1818,6 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         kdl->d->emitItems();
 
         kdl->d->jobDone(job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        Q_EMIT kdl->completed(jobUrl);
-#endif
         Q_EMIT kdl->listingDirCompleted(jobUrl);
         if (kdl->d->numJobs() == 0) {
             kdl->d->complete = true;
@@ -2404,26 +2373,12 @@ QStringList KCoreDirLister::mimeFilters() const
     return d->settings.mimeFilter;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 94)
-bool KCoreDirLister::matchesFilter(const QString &name) const
-{
-    return d->matchesFilter(name);
-}
-#endif
-
 bool KCoreDirListerPrivate::matchesFilter(const QString &name) const
 {
     return std::any_of(settings.lstFilters.cbegin(), settings.lstFilters.cend(), [&name](const QRegularExpression &filter) {
         return filter.match(name).hasMatch();
     });
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 94)
-bool KCoreDirLister::matchesMimeFilter(const QString &mime) const
-{
-    return d->matchesMimeFilter(mime);
-}
-#endif
 
 bool KCoreDirListerPrivate::matchesMimeFilter(const QString &mime) const
 {
@@ -2461,15 +2416,6 @@ bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
     return d->matchesMimeFilter(item.mimetype());
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
-bool KCoreDirLister::doNameFilter(const QString &name, const QList<QRegExp> &filters) const
-{
-    return std::any_of(filters.cbegin(), filters.cend(), [&name](const QRegExp &filter) {
-        return filter.exactMatch(name);
-    });
-}
-#endif
-
 bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filters) const
 {
     if (filters.isEmpty()) {
@@ -2494,20 +2440,6 @@ bool KCoreDirListerPrivate::doMimeExcludeFilter(const QString &mime, const QStri
         return mime == filter;
     });
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
-void KCoreDirLister::handleError(KIO::Job *job)
-{
-    qCWarning(KIO_CORE) << job->errorString();
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
-void KCoreDirLister::handleErrorMessage(const QString &message)
-{
-    qCWarning(KIO_CORE) << message;
-}
-#endif
 
 // ================= private methods ================= //
 
@@ -2790,16 +2722,8 @@ void KCoreDirListerPrivate::redirect(const QUrl &oldUrl, const QUrl &newUrl, boo
         if (!keepItems) {
             Q_EMIT q->clear();
         }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
-        Q_EMIT q->redirection(newUrl);
-#endif
-
     } else {
         if (!keepItems) {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-            Q_EMIT q->clear(oldUrl);
-#endif
             Q_EMIT q->clearDir(oldUrl);
         }
     }

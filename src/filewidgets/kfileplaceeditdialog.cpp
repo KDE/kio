@@ -205,10 +205,3 @@ bool KFilePlaceEditDialog::applicationLocal() const
 
     return m_appLocal->isChecked();
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 86)
-bool KFilePlaceEditDialog::isIconEditable() const
-{
-    return url().scheme() != QLatin1String("trash");
-}
-#endif

@@ -214,17 +214,6 @@ public:
      */
     void insertPlugin(KPropertiesDialogPlugin *plugin);
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * @deprecated since 5.0, use url()
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KPropertiesDialog::url()")
-    QUrl kurl() const
-    {
-        return url();
-    }
-#endif
-
     /**
      * The URL of the file that has its properties being displayed.
      * This is only valid if the KPropertiesDialog was created/shown
@@ -315,19 +304,6 @@ public:
     using KPageDialog::buttonBox;
 
 public Q_SLOTS:
-    /**
-     * Called when the user presses 'Ok'.
-     * @deprecated since 5.25, use accept()
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 25, "Use KPropertiesDialog::accept()")
-    virtual void slotOk();
-    /**
-     * Called when the user presses 'Cancel'.
-     * @deprecated since 5.25, use reject()
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 25, "Use KPropertiesDialog::reject()")
-    virtual void slotCancel();
-
     /**
      * Called when the user presses 'Ok'.
      * @since 5.25
@@ -421,16 +397,6 @@ public:
      * is called first.
      */
     virtual void applyChanges();
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 1)
-    /**
-     * Convenience method for most ::supports methods
-     * @return true if the file is a local, regular, readable, desktop file
-     * @deprecated Since 4.1, use KFileItem::isDesktopFile
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 1, "Use KFileItem::isDesktopFile()")
-    static bool isDesktopFile(const KFileItem &_item);
-#endif
 
     void setDirty(bool b);
     bool isDirty() const;

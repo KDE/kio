@@ -164,10 +164,6 @@ public:
         WarningContinueCancel = 5,
         SSLMessageBox = 6,
         Information = 7,
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 97)
-        Sorry ///< @deprecated Since 5.97, use Error.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 97, "Use Error.") = 8,
-#endif
         Error = 9,
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
         QuestionYesNo ///< @deprecated Since 5.100, use QuestionTwoActions.

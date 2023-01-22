@@ -14,11 +14,6 @@ find_package(Qt${QT_MAJOR_VERSION}Widgets REQUIRED)
 
 find_package(Qt${QT_MAJOR_VERSION}Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.65.0)
-    set(ktcpsockettest_SRC ktcpsockettest.cpp)
-endif()
-
 if (ACL_FOUND)
     set (kacltest_SRC kacltest.cpp)
 endif()
@@ -137,16 +132,10 @@ endif()
 
 if (NOT ANDROID)
 if (TARGET KF6::KIOWidgets)
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.4.0)
-    set(jobguitest_SRC jobguitest.cpp)
-endif()
-
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
  kdynamicjobtrackernowidgetstest.cpp
- krununittest.cpp
  desktopexecparsertest.cpp
  kdirlistertest.cpp
  kdirmodeltest.cpp
@@ -160,7 +149,6 @@ ecm_add_tests(
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus
 )
-set_target_properties(krununittest PROPERTIES COMPILE_FLAGS "-DKDE_INSTALL_FULL_LIBEXECDIR_KF=\"\\\"${KDKE_INSTALL_FULL_LIBEXECDIR_KF}\\\"\"")
 
 set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
 target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")

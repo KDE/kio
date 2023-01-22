@@ -34,19 +34,9 @@ public:
         , spyClearDir(this, &KCoreDirLister::clearDir)
         , spyCompleted(this, qOverload<>(&KCoreDirLister::completed))
         , spyCanceled(this, qOverload<>(&KCoreDirLister::canceled))
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        , spyClearQUrl(this, qOverload<const QUrl &>(&KCoreDirLister::clear))
-        , spyCompletedQUrl(this, qOverload<const QUrl &>(&KCoreDirLister::completed))
-        , spyCanceledQUrl(this, qOverload<const QUrl &>(&KCoreDirLister::canceled))
-#else
         , spyCompletedQUrl(this, &KCoreDirLister::listingDirCompleted)
         , spyCanceledQUrl(this, &KCoreDirLister::listingDirCanceled)
-#endif
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 80)
-        , spyRedirection(this, qOverload<const QUrl &>(&KCoreDirLister::redirection))
-#else
         , spyRedirection(this, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection))
-#endif
         , spyJobError(this, &KCoreDirLister::jobError)
     {
     }
@@ -55,9 +45,6 @@ public:
     {
         spyStarted.clear();
         spyClear.clear();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-        spyClearQUrl.clear();
-#endif
         spyCompleted.clear();
         spyCompletedQUrl.clear();
         spyCanceled.clear();
@@ -73,9 +60,6 @@ public:
     QSignalSpy spyClearDir;
     QSignalSpy spyCompleted;
     QSignalSpy spyCanceled;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QSignalSpy spyClearQUrl;
-#endif
     QSignalSpy spyCompletedQUrl;
     QSignalSpy spyCanceledQUrl;
     QSignalSpy spyRedirection;

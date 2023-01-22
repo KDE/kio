@@ -1059,14 +1059,6 @@ void CopyJobPrivate::statCurrentSrc()
             return;
         }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
-        if (!dirs.isEmpty()) {
-            Q_EMIT q->aboutToCreate(q, dirs);
-        }
-        if (!files.isEmpty()) {
-            Q_EMIT q->aboutToCreate(q, files);
-        }
-#endif
         // Check if we are copying a single file
         m_bSingleFileCopy = (files.count() == 1 && dirs.isEmpty());
         // Then start copying things
@@ -1105,11 +1097,6 @@ void CopyJobPrivate::startRenameJob(const QUrl &workerUrl)
     info.size = KIO::invalidFilesize;
     info.uSource = m_currentSrcURL;
     info.uDest = dest;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
-    QList<CopyInfo> files;
-    files.append(info);
-    Q_EMIT q->aboutToCreate(q, files);
-#endif
 
     KIO_ARGS << m_currentSrcURL << dest << (qint8) false /*no overwrite*/;
     SimpleJob *newJob = SimpleJobPrivate::newJobNoUi(workerUrl, CMD_RENAME, packedArgs);
@@ -1215,14 +1202,6 @@ void CopyJobPrivate::renameDirectory(const QList<CopyInfo>::iterator &it, const 
             (*renamefileit).uDest.setPath(n, QUrl::DecodedMode);
         }
     }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
-    if (!dirs.isEmpty()) {
-        Q_EMIT q->aboutToCreate(q, dirs);
-    }
-    if (!files.isEmpty()) {
-        Q_EMIT q->aboutToCreate(q, files);
-    }
-#endif
 }
 
 void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
@@ -1560,12 +1539,6 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     newDest.setPath(Utils::concatPaths(newDest.path(), newName));
                     Q_EMIT q->renamed(q, (*it).uDest, newDest); // for e.g. kpropsdlg
                     (*it).uDest = newDest;
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
-                    QList<CopyInfo> files;
-                    files.append(*it);
-                    Q_EMIT q->aboutToCreate(q, files);
-#endif
                 } else {
                     if (!KIO::delegateExtension<AskUserActionInterface *>(q)) {
                         q->Job::slotResult(job); // will set the error and emit result(this)
@@ -1805,12 +1778,6 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
         Q_EMIT q->renamed(q, (*it).uDest, newUrl); // for e.g. kpropsdlg
         (*it).uDest = newUrl;
         m_bURLDirty = true;
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 2)
-        QList<CopyInfo> files;
-        files.append(*it);
-        Q_EMIT q->aboutToCreate(q, files);
-#endif
         break;
     }
     case Result_AutoSkip:

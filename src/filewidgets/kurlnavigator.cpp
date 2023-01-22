@@ -47,8 +47,6 @@
 using namespace KDEPrivate;
 
 struct KUrlNavigatorData {
-    QUrl rootUrl; // KF6: remove after the deprecated methods have been removed
-    QPoint pos; // KF6: remove after the deprecated methods have been removed
     QByteArray state;
 };
 Q_DECLARE_METATYPE(KUrlNavigatorData)
@@ -1083,32 +1081,6 @@ void KUrlNavigator::setFocus()
     }
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-void KUrlNavigator::setUrl(const QUrl &url)
-{
-    // deprecated
-    setLocationUrl(url);
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-void KUrlNavigator::saveRootUrl(const QUrl &url)
-{
-    auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
-    current.rootUrl = url;
-    d->m_coreUrlNavigator->saveLocationState(QVariant::fromValue(current));
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-void KUrlNavigator::savePosition(int x, int y)
-{
-    auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
-    current.pos = QPoint(x, y);
-    d->m_coreUrlNavigator->saveLocationState(QVariant::fromValue(current));
-}
-#endif
-
 void KUrlNavigator::keyPressEvent(QKeyEvent *event)
 {
     if (isUrlEditable() && (event->key() == Qt::Key_Escape)) {
@@ -1240,64 +1212,5 @@ bool KUrlNavigator::sortHiddenFoldersLast() const
 {
     return d->m_subfolderOptions.sortHiddenLast;
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-const QUrl &KUrlNavigator::url() const
-{
-    // deprecated
-
-    // Workaround required because of flawed interface ('const QUrl&' is returned
-    // instead of 'QUrl'): remember the URL to prevent a dangling pointer
-    static QUrl url;
-    url = locationUrl();
-    return url;
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-QUrl KUrlNavigator::url(int index) const
-{
-    // deprecated
-    return d->buttonUrl(index);
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-QUrl KUrlNavigator::historyUrl(int historyIndex) const
-{
-    // deprecated
-    return locationUrl(historyIndex);
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-const QUrl &KUrlNavigator::savedRootUrl() const
-{
-    // deprecated
-    // Workaround required because of flawed interface ('const QUrl&' is returned
-    // instead of 'QUrl'): remember the root URL to prevent a dangling pointer
-    static QUrl rootUrl;
-    const auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
-    rootUrl = current.rootUrl;
-    return rootUrl;
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-QPoint KUrlNavigator::savedPosition() const
-{
-    // deprecated
-    const auto current = d->m_coreUrlNavigator->locationState().value<KUrlNavigatorData>();
-    return current.pos;
-}
-#endif
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 5)
-void KUrlNavigator::setHomeUrl(const QString &homeUrl)
-{
-    // deprecated
-    setLocationUrl(QUrl::fromUserInput(homeUrl));
-}
-#endif
 
 #include "moc_kurlnavigator.cpp"

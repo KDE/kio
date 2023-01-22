@@ -93,15 +93,6 @@ public:
      */
     bool isModal() const;
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
-    /**
-     * Returns the files that the popup is shown for
-     * @deprecated since 5.97, use KNewFileMenu::workingDirectory().
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Use KNewFileMenu::workingDirectory()")
-    QList<QUrl> popupFiles() const;
-#endif
-
     /**
      * Sets the modality of dialogs created by KNewFile. Set to false if you do not want to block
      * your application window when entering a new directory name i.e.
@@ -113,16 +104,6 @@ public:
      * This is strongly recommended, for apps with a main window.
      */
     void setParentWidget(QWidget *parentWidget);
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
-    /**
-     * Set the files the popup is shown for
-     * Call this before showing up the menu
-     * @deprecated since 5.97, use KNewFileMenu::setWorkingDirectory(const QUrl &).
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Use KNewFileMenu::setWorkingDirectory(const QUrl &)")
-    void setPopupFiles(const QList<QUrl> &files);
-#endif
 
     /**
      * Set the working directory.
@@ -138,29 +119,12 @@ public:
      */
     QUrl workingDirectory() const;
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 0, "Use KNewFileMenu::setWorkingDirectory(const QUrl &)")
-    void setPopupFiles(const QUrl &file)
-    {
-        setWorkingDirectory(file);
-    }
-#endif
-
     /**
      * Only show the files in a given set of MIME types.
      * This is useful in specialized applications (while file managers, on
      * the other hand, want to show all MIME types).
      */
     void setSupportedMimeTypes(const QStringList &mime);
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 97)
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 97, "Calling this has no effect")
-    /**
-     * Set if the directory view currently shows dot files.
-     * @deprecated since 5.97. Calling this has no effect.
-     */
-    void setViewShowsHiddenFiles(bool b);
-#endif
 
     /**
      * Returns the MIME types set in supportedMimeTypes()

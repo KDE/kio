@@ -1178,13 +1178,6 @@ bool KFilePreviewGenerator::isPreviewShown() const
     return d->m_previewShown;
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(4, 3)
-void KFilePreviewGenerator::updatePreviews()
-{
-    updateIcons();
-}
-#endif
-
 void KFilePreviewGenerator::updateIcons()
 {
     d->killPreviewJobs();

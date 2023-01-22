@@ -709,55 +709,6 @@ void KDirOperator::mkdir()
     d->m_newFileMenu->createDirectory();
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 78)
-bool KDirOperator::mkdir(const QString &directory, bool enterDirectory)
-{
-    // Creates "directory", relative to the current directory (d->currUrl).
-    // The given path may contain any number directories, existent or not.
-    // They will all be created, if possible.
-
-    // TODO: very similar to KDirSelectDialog::Private::slotMkdir
-
-    bool writeOk = false;
-    bool exists = false;
-    QUrl folderurl(d->m_currUrl);
-
-    const QStringList dirs = directory.split(QLatin1Char('/'), Qt::SkipEmptyParts);
-    QStringList::ConstIterator it = dirs.begin();
-
-    for (; it != dirs.end(); ++it) {
-        folderurl.setPath(Utils::concatPaths(folderurl.path(), *it));
-        if (folderurl.isLocalFile()) {
-            exists = QFile::exists(folderurl.toLocalFile());
-        } else {
-            KIO::StatJob *job = KIO::stat(folderurl);
-            KJobWidgets::setWindow(job, this);
-            job->setDetails(KIO::StatNoDetails); // We only want to know if it exists
-            job->setSide(KIO::StatJob::DestinationSide);
-            exists = job->exec();
-        }
-
-        if (!exists) {
-            KIO::Job *job = KIO::mkdir(folderurl);
-            KJobWidgets::setWindow(job, this);
-            writeOk = job->exec();
-        }
-    }
-
-    if (exists) { // url was already existent
-        KMessageBox::error(d->m_itemView, i18n("A file or folder named %1 already exists.", folderurl.toDisplayString(QUrl::PreferLocalFile)));
-    } else if (!writeOk) {
-        KMessageBox::error(d->m_itemView,
-                           i18n("You do not have permission to "
-                                "create that folder."));
-    } else if (enterDirectory) {
-        setUrl(folderurl, true);
-    }
-
-    return writeOk;
-}
-#endif
-
 KIO::DeleteJob *KDirOperator::del(const KFileItemList &items, QWidget *parent, bool ask, bool showProgress)
 {
     if (items.isEmpty()) {
@@ -844,15 +795,6 @@ bool KDirOperator::isInlinePreviewShown() const
     return d->m_showPreviews;
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
-int KDirOperator::iconsZoom() const
-{
-    const int stepSize = (KIconLoader::SizeEnormous - KIconLoader::SizeSmall) / 100;
-    const int zoom = (d->m_iconSize / stepSize) - KIconLoader::SizeSmall;
-    return zoom;
-}
-#endif
-
 int KDirOperator::iconSize() const
 {
     return d->m_iconSize;
@@ -909,18 +851,6 @@ void KDirOperator::trashSelected()
     auto *trashJob = new KIO::DeleteOrTrashJob(urls, Iface::Trash, Iface::DefaultConfirmation, this);
     trashJob->start();
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
-void KDirOperator::setIconsZoom(int _value)
-{
-    int value = _value;
-    value = qMin(100, value);
-    value = qMax(0, value);
-    const int stepSize = (KIconLoader::SizeEnormous - KIconLoader::SizeSmall) / 100;
-    const int val = (value * stepSize) + KIconLoader::SizeSmall;
-    setIconSize(val);
-}
-#endif
 
 void KDirOperator::setIconSize(int value)
 {

@@ -56,31 +56,6 @@ public:
         ScaledAndCached,
     };
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
-    /**
-     * Creates a new PreviewJob.
-     * @param items a list of files to create previews for
-     * @param width the desired width
-     * @param height the desired height, 0 to use the @p width
-     * @param iconSize the size of the MIME type icon to overlay over the
-     * preview or zero to not overlay an icon. This has no effect if the
-     * preview plugin that will be used doesn't use icon overlays.
-     * @param iconAlpha transparency to use for the icon overlay
-     * @param scale if the image is to be scaled to the requested size or
-     * returned in its original size
-     * @param save if the image should be cached for later use
-     * @param enabledPlugins If non-zero, this points to a list containing
-     * the names of the plugins that may be used. If enabledPlugins is zero
-     * all available plugins are used.
-     *
-     * @deprecated Since 4.7, use PreviewJob(const KFileItemList&, const QSize&, const QStringList*) in combination
-     *             with the setter-methods instead. Note that the semantics of
-     *             \p enabledPlugins has been slightly changed.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use PreviewJob(const KFileItemList&, const QSize&, const QStringList*)")
-    PreviewJob(const KFileItemList &items, int width, int height, int iconSize, int iconAlpha, bool scale, bool save, const QStringList *enabledPlugins);
-#endif
-
     /**
      * @param items          List of files to create previews for.
      * @param size           Desired size of the preview.
@@ -211,19 +186,6 @@ public:
      */
     bool handlesSequences() const;
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
-    /**
-     * Request preview to use the device pixel ratio @p dpr.
-     * The returned thumbnail may not respect the device pixel ratio requested.
-     * Use QPixmap::devicePixelRatio to check, or paint as necessary.
-     *
-     * @since 5.80
-     * @deprecated Since 5.86, use setDevicePixelRatio(qreal dpr) instead
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 86, "Use setDevicePixelRatio(qreal dpr)")
-    void setDevicePixelRatio(int dpr);
-#endif
-
     /**
      * Request preview to use the device pixel ratio @p dpr.
      * The returned thumbnail may not respect the device pixel ratio requested.
@@ -263,18 +225,6 @@ public:
      */
     static QStringList supportedMimeTypes();
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 5)
-    /**
-     * Returns the default "maximum file size", in bytes, used by PreviewJob.
-     * This is useful for applications providing a GUI for letting the user change the size.
-     * @since 4.1
-     * @deprecated Since 4.5, PreviewJob uses different maximum file sizes dependent on the URL.
-     *             The returned file size is only valid for local URLs.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 5, "See API dox")
-    static KIO::filesize_t maximumFileSize();
-#endif
-
 Q_SIGNALS:
     /**
      * Emitted when a thumbnail picture for @p item has been successfully
@@ -298,20 +248,6 @@ private:
     Q_DECLARE_PRIVATE(PreviewJob)
 
 public:
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 86)
-    /**
-     * Sets a default device Pixel Ratio used for Previews
-     * @see setDevicePixelRatio
-     *
-     * Defaults to 1
-     *
-     * @since 5.80
-     * @deprecated Since 5.86, use setDefaultDevicePixelRatio(qreal dpr) instead
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 86, "Use setDefaultDevicePixelRatio(qreal dpr)")
-    static void setDefaultDevicePixelRatio(int devicePixelRatio);
-#endif
-
     /**
      * Sets a default device Pixel Ratio used for Previews
      * @see setDevicePixelRatio
@@ -322,78 +258,6 @@ public:
      */
     static void setDefaultDevicePixelRatio(qreal devicePixelRatio);
 };
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
-/**
- * Creates a PreviewJob to generate or retrieve a preview image
- * for the given URL.
- *
- * @param items files to get previews for
- * @param width the maximum width to use
- * @param height the maximum height to use, if this is 0, the same
- * value as width is used.
- * @param iconSize the size of the MIME type icon to overlay over the
- * preview or zero to not overlay an icon. This has no effect if the
- * preview plugin that will be used doesn't use icon overlays.
- * @param iconAlpha transparency to use for the icon overlay
- * @param scale if the image is to be scaled to the requested size or
- * returned in its original size
- * @param save if the image should be cached for later use
- * @param enabledPlugins if non-zero, this points to a list containing
- * the names of the plugins that may be used.
- * @return the new PreviewJob
- * @see PreviewJob::availablePlugins()
- * @deprecated Since 4.7, use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
- *             with the setter-methods instead. Note that the semantics of
- *             \p enabledPlugins has been slightly changed.
- */
-KIOWIDGETS_EXPORT
-KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
-PreviewJob *filePreview(const KFileItemList &items,
-                        int width,
-                        int height = 0,
-                        int iconSize = 0,
-                        int iconAlpha = 70,
-                        bool scale = true,
-                        bool save = true,
-                        const QStringList *enabledPlugins = nullptr); // KDE5: use enums instead of bool scale + bool save
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 7)
-/**
- * Creates a PreviewJob to generate or retrieve a preview image
- * for the given URL.
- *
- * @param items files to get previews for
- * @param width the maximum width to use
- * @param height the maximum height to use, if this is 0, the same
- * value as width is used.
- * @param iconSize the size of the MIME type icon to overlay over the
- * preview or zero to not overlay an icon. This has no effect if the
- * preview plugin that will be used doesn't use icon overlays.
- * @param iconAlpha transparency to use for the icon overlay
- * @param scale if the image is to be scaled to the requested size or
- * returned in its original size
- * @param save if the image should be cached for later use
- * @param enabledPlugins if non-zero, this points to a list containing
- * the names of the plugins that may be used.
- * @return the new PreviewJob
- * @see PreviewJob::availablePlugins()
- * @deprecated Since 4.7, use KIO::filePreview(const KFileItemList&, const QSize&, const QStringList*) in combination
- *             with the setter-methods instead. Note that the semantics of
- *             \p enabledPlugins has been slightly changed.
- */
-KIOWIDGETS_EXPORT
-KIOWIDGETS_DEPRECATED_VERSION(4, 7, "Use KIO::filePreview(const KFileItemList &, const QSize &, const QStringList *")
-PreviewJob *filePreview(const QList<QUrl> &items,
-                        int width,
-                        int height = 0,
-                        int iconSize = 0,
-                        int iconAlpha = 70,
-                        bool scale = true,
-                        bool save = true,
-                        const QStringList *enabledPlugins = nullptr);
-#endif
 
 /**
  * Creates a PreviewJob to generate a preview image for the given items.

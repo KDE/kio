@@ -52,12 +52,6 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     for (const KPluginMetaData &pluginMetaData : plugins) {
         if (auto factory = KPluginFactory::loadFactory(pluginMetaData).plugin) {
             KCModule *module = nullptr;
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 82)
-            KUriFilterPlugin *plugin = factory->create<KUriFilterPlugin>(nullptr);
-            if (plugin) {
-                module = plugin->configModule(this, nullptr);
-            }
-#endif
             if (!module) {
                 module = factory->create<KCModule>(this);
             }

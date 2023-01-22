@@ -22,7 +22,6 @@
 #include <kpropertiesdialog.h>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
-#include <krun.h>
 #include <kurifilter.h>
 
 #if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
@@ -1519,37 +1518,10 @@ bool KNewFileMenu::isModal() const
     return d->m_modal;
 }
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
-QList<QUrl> KNewFileMenu::popupFiles() const
-{
-    return d->m_popupFiles;
-}
-#endif
-
 void KNewFileMenu::setModal(bool modal)
 {
     d->m_modal = modal;
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
-void KNewFileMenu::setPopupFiles(const QList<QUrl> &files)
-{
-    d->m_popupFiles = files;
-    if (files.isEmpty()) {
-        d->m_newMenuGroup->setEnabled(false);
-    } else {
-        const QUrl &firstUrl = files.first();
-        if (KProtocolManager::supportsWriting(firstUrl)) {
-            d->m_newMenuGroup->setEnabled(true);
-            if (d->m_newDirAction) {
-                d->m_newDirAction->setEnabled(KProtocolManager::supportsMakeDir(firstUrl)); // e.g. trash:/
-            }
-        } else {
-            d->m_newMenuGroup->setEnabled(true);
-        }
-    }
-}
-#endif
 
 void KNewFileMenu::setParentWidget(QWidget *parentWidget)
 {
@@ -1560,13 +1532,6 @@ void KNewFileMenu::setSupportedMimeTypes(const QStringList &mime)
 {
     d->m_supportedMimeTypes = mime;
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 97)
-void KNewFileMenu::setViewShowsHiddenFiles(bool b)
-{
-    Q_UNUSED(b)
-}
-#endif
 
 void KNewFileMenu::slotResult(KJob *job)
 {

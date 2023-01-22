@@ -126,52 +126,6 @@ public:
     bool doResume() override;
 
 Q_SIGNALS:
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 72)
-    /**
-     * Emitted when the total number of files is known.
-     * @param job the job that emitted this signal
-     * @param files the total number of files
-     *
-     * @deprecated since 5.72, up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong)
-     * signal, starting from 5.80 use the KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.
-     */
-    KIOCORE_DEPRECATED_VERSION(5,
-                               72,
-                               "Up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use "
-                               "the KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.")
-    QT_MOC_COMPAT void totalFiles(KJob *job, unsigned long files);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 72)
-    /**
-     * Emitted when the total number of directories is known.
-     * @param job the job that emitted this signal
-     * @param dirs the total number of directories
-     *
-     * @deprecated since 5.72, up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use
-     * KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.
-     */
-    KIOCORE_DEPRECATED_VERSION(5,
-                               72,
-                               "Up to Frameworks versions <= 5.79, use the KJob::totalAmount(KJob *, KJob::Unit, qulonglong) signal, starting from 5.80 use "
-                               "KJob::totalAmountChanged(KJob *, KJob::Unit, qulonglong) signal instead.")
-    QT_MOC_COMPAT void totalDirs(KJob *job, unsigned long dirs);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 2)
-    /**
-     * Emitted when it is known which files / directories are going
-     * to be created. Note that this may still change e.g. when
-     * existing files with the same name are discovered.
-     * @param job the job that emitted this signal
-     * @param files a list of items that are about to be created.
-     * @deprecated since 5.2 -- this signal is unused since kde 3...
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 2, "To be removed due to no known users")
-    QT_MOC_COMPAT void aboutToCreate(KIO::Job *job, const QList<KIO::CopyInfo> &files);
-#endif
-
     /**
      * Sends the number of processed files.
      * @param job the job that emitted this signal

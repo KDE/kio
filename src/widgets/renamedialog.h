@@ -81,21 +81,6 @@ public:
      */
     QUrl autoDestUrl() const;
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * Given a directory path and a filename (which usually exists already),
-     * this function returns a suggested name for a file that doesn't exist
-     * in that directory. The existence is only checked for local urls though.
-     * The suggested file name is of the form "foo 1", "foo 2" etc.
-     * @deprecated Since 5.0. Use KIO::suggestName, since 5.61, use KFileUtils::suggestName from KCoreAddons
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(
-        5,
-        0,
-        "Use KFileUtils::suggestName(const QUrl &, const QString &) from KCoreAddons >= 5.61, or KIO::suggestName(const QUrl &, const QString &)")
-    static QString suggestName(const QUrl &baseURL, const QString &oldName);
-#endif
-
 public Q_SLOTS:
     void cancelPressed();
     void renamePressed();

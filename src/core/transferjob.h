@@ -59,31 +59,6 @@ public:
      */
     void sendAsyncData(const QByteArray &data);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 3)
-    /**
-     * When enabled, the job reports the amount of data that has been sent,
-     * instead of the amount of data that has been received.
-     * @see slotProcessedSize
-     * @see slotSpeed
-     * @deprecated since 4.2.1, this is unnecessary (it is always false for
-     *             KIO::get and true for KIO::put)
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 3, "No longer needed")
-    void setReportDataSent(bool enabled);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 3)
-    /**
-     *  Returns whether the job reports the amount of data that has been
-     *  sent (true), or whether the job reports the amount of data that
-     * has been received (false)
-     * @deprecated since 4.2.1, this is unnecessary (it is always false for
-     *             KIO::get and true for KIO::put)
-     */
-    KIOCORE_DEPRECATED_VERSION(4, 3, "No longer needed")
-    bool reportDataSent() const;
-#endif
-
     /**
      * Call this in the slot connected to result,
      * and only after making sure no error happened.
@@ -160,17 +135,6 @@ Q_SIGNALS:
      * @param toUrl the new URL
      */
     void permanentRedirection(KIO::Job *job, const QUrl &fromUrl, const QUrl &toUrl);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
-    /**
-     * MIME type determined.
-     * @param job the job that emitted this signal
-     * @param mimeType the MIME type
-     * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::TransferJob::mimeTypeFound(KIO::Job *, const QString &)")
-    void mimetype(KIO::Job *job, const QString &mimeType); // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * MIME type determined.

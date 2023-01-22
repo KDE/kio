@@ -7,7 +7,6 @@
 
 #include "ksslcertificatemanager.h"
 #include "ksslcertificatemanager_p.h"
-#include "ksslerror_p.h"
 
 #include "kssld_interface.h"
 #include "ksslerroruidata_p.h"
@@ -98,43 +97,10 @@ bool KSslCertificateRule::isRejected() const
     return d->isRejected;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-bool KSslCertificateRule::isErrorIgnored(KSslError::Error error) const
-{
-    return d->ignoredErrors.contains(KSslErrorPrivate::errorFromKSslError(error));
-}
-#endif
-
 bool KSslCertificateRule::isErrorIgnored(QSslError::SslError error) const
 {
     return d->ignoredErrors.contains(error);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-void KSslCertificateRule::setIgnoredErrors(const QList<KSslError::Error> &errors)
-{
-    d->ignoredErrors.clear();
-    // ### Quadratic runtime, woohoo! Use a QSet if that should ever be an issue.
-    for (KSslError::Error e : errors) {
-        QSslError::SslError error = KSslErrorPrivate::errorFromKSslError(e);
-        if (!isErrorIgnored(error)) {
-            d->ignoredErrors.append(error);
-        }
-    }
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-void KSslCertificateRule::setIgnoredErrors(const QList<KSslError> &errors)
-{
-    QList<KSslError::Error> el;
-    el.reserve(errors.size());
-    for (const KSslError &e : errors) {
-        el.append(e.error());
-    }
-    setIgnoredErrors(el);
-}
-#endif
 
 void KSslCertificateRule::setIgnoredErrors(const QList<QSslError> &errors)
 {
@@ -156,47 +122,10 @@ void KSslCertificateRule::setIgnoredErrors(const QList<QSslError::SslError> &err
     }
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-QList<KSslError::Error> KSslCertificateRule::ignoredErrors() const
-{
-    // KF6: replace by QList<QSslError::SslError> below
-    QList<KSslError::Error> errors;
-    errors.reserve(d->ignoredErrors.size());
-    std::transform(d->ignoredErrors.cbegin(), d->ignoredErrors.cend(), std::back_inserter(errors), KSslErrorPrivate::errorFromQSslError);
-    return errors;
-}
-#else
 QList<QSslError::SslError> KSslCertificateRule::ignoredErrors() const
 {
     return d->ignoredErrors;
 }
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-QList<KSslError::Error> KSslCertificateRule::filterErrors(const QList<KSslError::Error> &errors) const
-{
-    QList<KSslError::Error> ret;
-    for (KSslError::Error error : errors) {
-        if (!isErrorIgnored(error)) {
-            ret.append(error);
-        }
-    }
-    return ret;
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-QList<KSslError> KSslCertificateRule::filterErrors(const QList<KSslError> &errors) const
-{
-    QList<KSslError> ret;
-    for (const KSslError &error : errors) {
-        if (!isErrorIgnored(error.error())) {
-            ret.append(error);
-        }
-    }
-    return ret;
-}
-#endif
 
 QList<QSslError> KSslCertificateRule::filterErrors(const QList<QSslError> &errors) const
 {
@@ -493,32 +422,6 @@ QList<QSslCertificate> KSslCertificateManager::caCertificates() const
     }
     return d->defaultCaCertificates;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-// static
-QList<KSslError> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError> &errors)
-{
-    QList<KSslError> ret;
-    // errors not handled in KSSLD
-    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const KSslError &e) {
-        return e.error() == KSslError::NoPeerCertificate || e.error() == KSslError::PathLengthExceeded;
-    });
-    return ret;
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-// static
-QList<KSslError::Error> KSslCertificateManager::nonIgnorableErrors(const QList<KSslError::Error> &errors)
-{
-    QList<KSslError::Error> ret;
-    // errors not handled in KSSLD
-    std::copy_if(errors.begin(), errors.end(), std::back_inserter(ret), [](const KSslError::Error &e) {
-        return e == KSslError::NoPeerCertificate || e == KSslError::PathLengthExceeded;
-    });
-    return ret;
-}
-#endif
 
 QList<QSslError> KSslCertificateManager::nonIgnorableErrors(const QList<QSslError> &errors)
 {

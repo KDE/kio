@@ -1402,19 +1402,9 @@ void FileProtocol::chown(const QUrl &url, const QString &owner, const QString &g
 KIO::StatDetails FileProtocol::getStatDetails()
 {
     // takes care of converting old metadata details to new StatDetails
-    // TODO KF6 : remove legacy "details" code path
     KIO::StatDetails details;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-    if (hasMetaData(QStringLiteral("statDetails"))) {
-#endif
-        const QString statDetails = metaData(QStringLiteral("statDetails"));
-        details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 69)
-    } else {
-        const QString sDetails = metaData(QStringLiteral("details"));
-        details = sDetails.isEmpty() ? KIO::StatDefaultDetails : KIO::detailsToStatDetails(sDetails.toInt());
-    }
-#endif
+    const QString statDetails = metaData(QStringLiteral("statDetails"));
+    details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
     return details;
 }
 

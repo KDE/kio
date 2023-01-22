@@ -633,18 +633,6 @@ class KIOWIDGETS_EXPORT KUriFilterPlugin : public QObject // TODO KF6: move to s
     Q_OBJECT
 
 public:
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 6)
-    /**
-     * List for holding the following search provider information:
-     * ([search provider name], [search query, search query icon name])
-     *
-     * @since 4.5
-     * @deprecated Since 4.6, use @ref KUriFilterSearchProvider instead. See @ref setSearchProviders;
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 6, "Use KUriFilterSearchProvider")
-    typedef QHash<QString, QPair<QString, QString>> ProviderInfoList;
-#endif
-
     /**
      * Constructs a filter plugin with a given name
      *
@@ -942,17 +930,6 @@ public:
      * @return the filtered URI or null if it cannot be filtered
      */
     QString filteredUri(const QString &uri, const QStringList &filters = QStringList());
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 6)
-    /**
-     * See @ref filterSearchUri(KUriFilterData&, SearchFilterTypes)
-     *
-     * @since 4.5
-     * @deprecated Since 4.6, use filterSearchUri(KUriFilterData&, SearchFilterTypes) instead.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 6, "Use KUriFilter::filterSearchUri(KUriFilterData &, SearchFilterTypes)")
-    bool filterSearchUri(KUriFilterData &data);
-#endif
 
     /**
      * Filter @p data using the criteria specified by @p types.

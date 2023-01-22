@@ -437,36 +437,6 @@ public:
      */
     QStringList mimeFilters() const;
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 94)
-    /**
-     * Checks whether @p name matches a filter in the list of name filters.
-     *
-     * @return @c true if @p name matches a filter in the list, otherwise @c false.
-     *
-     * @deprecated since 5.94, no known users.
-     *
-     * @see setNameFilter()
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 94, "No known users.")
-    bool matchesFilter(const QString &name) const;
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 94)
-    /**
-     * Checks whether @p mimeType matches a filter in the list of MIME types.
-     *
-     * @param mimeType the MIME type to find in the filter list
-     *
-     * @return @c true if @p mimeType matches a filter in the list, otherwise @c false
-     *
-     * @deprecated since 5.94, no known users.
-     *
-     * @see setMimeFilter.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 94, "No known users.")
-    bool matchesMimeFilter(const QString &mimeType) const;
-#endif
-
     /**
      * Used by items() and itemsForDir() to specify whether you want
      * all items for a directory or just the filtered ones.
@@ -565,19 +535,6 @@ Q_SIGNALS:
      */
     void completed(); // clazy:exclude=overloaded-signal
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
-    /**
-     * Tell the view that the listing of the directory @p dirUrl is finished.
-     * There might be other running jobs left.
-     *
-     * @param dirUrl the directory URL
-     *
-     * @deprecated since 5.79, use KCoreDirLister::listingDirCompleted(const QUrl &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KCoreDirLister::listingDirCompleted(const QUrl &)")
-    void completed(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
-#endif
-
     /**
      * Tell the view that the listing of the directory @p dirUrl is finished.
      * There might be other running jobs left.
@@ -593,19 +550,6 @@ Q_SIGNALS:
      */
     void canceled(); // clazy:exclude=overloaded-signal
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
-    /**
-     * Tell the view that the listing of the directory @p dirUrl was canceled.
-     * There might be other running jobs left.
-     *
-     * @param dirUrl the directory URL
-     *
-     * @deprecated since 5.79, use KCoreDirLister::listingDirCanceled(const QUrl &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 79, "use KCoreDirLister::listingDirCanceled(const QUrl &)")
-    void canceled(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
-#endif
-
     /**
      * Tell the view that the listing of the directory @p dirUrl was canceled.
      * There might be other running jobs left.
@@ -615,20 +559,6 @@ Q_SIGNALS:
      * @since 5.79
      */
     void listingDirCanceled(const QUrl &dirUrl);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 80)
-    /**
-     * Signal a redirection.
-     * Only emitted if there's just one directory to list, i.e. most
-     * probably openUrl() has been called without OpenUrlFlag::Keep.
-     *
-     * @param dirUrl the new URL
-     *
-     * @deprecated since 5.80, use redirection(const QUrl &, const QUrl &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 80, "Use redirection(const QUrl &, const QUrl &)")
-    void redirection(const QUrl &_url); // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * Signals a redirection.
@@ -643,20 +573,6 @@ Q_SIGNALS:
      * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
     void clear(); // clazy:exclude=overloaded-signal
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
-    /**
-     * Signals to the view to clear all items from directory @p dirUrl.
-     *
-     * This is only emitted if the lister is holding more than one directory.
-     *
-     * @param dirUrl the directory that the view should clear all items from
-     *
-     * @deprecated since 5.79, use clearDir(const QUrl &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 79, "Use clearDir(const QUrl &)")
-    void clear(const QUrl &dirUrl); // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * Signals to the view to clear all items from directory @p dirUrl.
@@ -760,11 +676,6 @@ Q_SIGNALS:
     void jobError(KIO::Job *job);
 
 protected:
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 3)
-    /// @deprecated Since 4.3, and unused, ignore this
-    enum Changes { NONE = 0, NAME_FILTER = 1, MIME_FILTER = 2, DOT_FILES = 4, DIR_ONLY_MODE = 8 };
-#endif
-
     /**
      * Called for every new item before emitting newItems().
      * You may reimplement this method in a subclass to implement your own
@@ -793,21 +704,6 @@ protected:
      */
     virtual bool matchesMimeFilter(const KFileItem &) const;
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 90)
-    /**
-     * Called by the public matchesFilter() to do the
-     * actual filtering. Those methods may be reimplemented to customize
-     * filtering.
-     * @param name the name to filter
-     * @param filters a list of regular expressions for filtering
-     *
-     * @deprecated Since 5.90, removed from the public API as it has no users.
-     */
-    // TODO KF6 remove
-    KIOCORE_DEPRECATED_VERSION(5, 90, "Removed from the public API as it has no users.")
-    virtual bool doNameFilter(const QString &name, const QList<QRegExp> &filters) const;
-#endif
-
     /**
      * Called by the public matchesMimeFilter() to do the
      * actual filtering. Those methods may be reimplemented to customize
@@ -817,27 +713,6 @@ protected:
      */
     // TODO KF6 remove
     virtual bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
-
-    // Not _ENABLED_ because this is a virtual method
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 82)
-    /**
-     * Reimplement to customize error handling
-     * @deprecated since 5.82, connect to the jobError() signal instead
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 82, "Connect to the jobError() signal instead")
-    virtual void handleError(KIO::Job *);
-#endif
-
-    // Not _ENABLED_ because this is a virtual method
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 81)
-    /**
-     * Reimplement to customize error handling
-     * @deprecated since 5.81, use handleError. Since 5.82, jobError() is emitted instead for the two
-     * cases where handleErrorMessage was emitted (invalid URL, protocol not supporting listing).
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 81, "For 5.81 and older releases use handleError(); since 5.82 connect to the jobError() signal instead")
-    virtual void handleErrorMessage(const QString &message);
-#endif
 
     /**
      * Reimplemented by KDirLister to associate windows with jobs

@@ -679,22 +679,6 @@ public:
      */
     bool followSelectedDirectories() const;
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 78)
-    /**
-     * Creates the given directory/url. If it is a relative path,
-     * it will be completed with the current directory.
-     * If enterDirectory is true, the directory will be entered after a
-     * successful operation. If unsuccessful, a messagebox will be presented
-     * to the user.
-     * @returns true if the directory could be created.
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5,
-                                      78,
-                                      "Deprecated for lack of usage; use the other"
-                                      " KDirOperator::mkdir() method instead.")
-    virtual bool mkdir(const QString &directory, bool enterDirectory = true);
-#endif
-
     /**
      * Starts and returns a KIO::DeleteJob to delete the given @p items.
      *
@@ -803,15 +787,6 @@ public:
      * @since 4.2
      */
     bool isInlinePreviewShown() const;
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 76)
-    /**
-     * Returns the icon zoom.
-     * @since 4.2
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 76, "Use KDirOperator::iconSize()")
-    int iconsZoom() const;
-#endif
 
     /**
      * Returns the icon size in pixels, ranged from KIconLoader::SizeSmall (16) to
@@ -1003,16 +978,6 @@ public Q_SLOTS:
      * FIXME KAction Port: link deleteSelected() up correctly
      */
     virtual void trashSelected();
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 76)
-    /**
-     * Notifies that the icons size should change. @p value is an int ranged from 0 to 100.
-     * 100 means KIconLoader::SizeEnormous.
-     * @since 4.2
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 76, "Use KDirOperator::setIconSize(int)")
-    void setIconsZoom(int value);
-#endif
 
     /**
      * Notifies that the icons size should change. @p value is the icon size in pixels, ranged

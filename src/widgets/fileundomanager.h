@@ -84,13 +84,6 @@ public:
         virtual void jobError(KIO::Job *job);
 
         /**
-         * Called when we are about to remove those files.
-         * Return true if we should proceed with deleting them.
-         * Deprecated since 5.79, no longer called.
-         */
-        virtual bool confirmDeletion(const QList<QUrl> &files);
-
-        /**
          * Called when dest was modified since it was copied from src.
          * Note that this is called after confirmDeletion.
          * Return true if we should proceed with deleting dest.
@@ -152,16 +145,6 @@ public:
      * The signal jobRecordingStarted() is emitted.
      */
     void recordCopyJob(KIO::CopyJob *copyJob);
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 79)
-    /**
-     * @return true if undo is possible. Usually used for enabling/disabling the undo action.
-     *
-     * @deprecated since 5.79, use KIO::FileUndoManager::isUndoAvailable()
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 79, "Use KIO::FileUndoManager::isUndoAvailable()")
-    bool undoAvailable() const; // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * @return true if undo is possible. Usually used for enabling/disabling the undo action.

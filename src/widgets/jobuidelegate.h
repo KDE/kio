@@ -44,28 +44,6 @@ class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobU
     // KIO internals don't need to derive either
     friend class KIO::FileUndoManager;
 
-public:
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
-    /**
-     * Constructs a new KIO Job UI delegate.
-     * @deprecated Since 5.98, use KIO::createDefaultJobUiDelegate or versioned constructor instead
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 98, "use KIO::createDefaultJobUiDelegate or versioned constructor instead")
-    JobUiDelegate();
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 98)
-    /**
-     * Constructs a new KIO Job UI Delegate.
-     * @param flags allows to enable automatic error/warning handling
-     * @param window the window associated with this delegate, see setWindow.
-     * @since 5.70,
-     * @deprecated Since 5.98, use KIO::createDefaultJobUiDelegate or versioned constructor instead
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 98, "use KIO::createDefaultJobUiDelegate or versioned constructor instead")
-    explicit JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window);
-#endif
-
 protected:
     friend class ::KDirOperator;
 

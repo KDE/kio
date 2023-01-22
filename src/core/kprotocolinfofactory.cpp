@@ -113,27 +113,6 @@ bool KProtocolInfoFactory::fillCache()
         }
     }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-    // second: fallback to .protocol files
-    const QStringList serviceDirs =
-        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5"), QStandardPaths::LocateDirectory)
-        << QCoreApplication::applicationDirPath() + QLatin1String("/kservices5");
-    for (const QString &serviceDir : serviceDirs) {
-        QDirIterator it(serviceDir);
-        while (it.hasNext()) {
-            const QString file = it.next();
-            if (file.endsWith(QLatin1String(".protocol"))) {
-                const QString prot = it.fileInfo().baseName();
-                // add to cache, skip double entries
-                if (!m_cache.contains(prot)) {
-                    qCDebug(KIO_CORE) << "Loading deprecated protocol file, please port it to JSON metadata" << file;
-                    m_cache.insert(prot, new KProtocolInfoPrivate(file));
-                }
-            }
-        }
-    }
-#endif
-
     // all done, don't do it again
     m_cacheDirty = false;
     return true;

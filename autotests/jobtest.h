@@ -133,9 +133,6 @@ private Q_SLOTS:
     // void copyFileToSystem();
 
     void getInvalidUrl();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-    void multiGet();
-#endif
 
 Q_SIGNALS:
     void exitLoop();

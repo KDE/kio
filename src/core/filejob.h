@@ -125,17 +125,6 @@ Q_SIGNALS:
      */
     void redirection(KIO::Job *job, const QUrl &url);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 78)
-    /**
-     * MIME type determined.
-     * @param job the job that emitted this signal
-     * @param mimeType the MIME type
-     * @deprecated Since 5.78, use mimeTypeFound(KIO::Job *, const QString &)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 78, "Use KIO::TransferJob::mimeTypeFound(KIO::Job *, const QString &)")
-    void mimetype(KIO::Job *job, const QString &mimeType); // clazy:exclude=overloaded-signal
-#endif
-
     /**
      * MIME type determined.
      * @param job the job that emitted this signal
@@ -157,18 +146,6 @@ Q_SIGNALS:
      * @param written bytes written.
      */
     void written(KIO::Job *job, KIO::filesize_t written);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 79)
-    /**
-     * Signals that the file is closed and will accept no more commands.
-     *
-     * @param job the job that emitted this signal
-     *
-     * @deprecated since 5.79, use KIO::FileJob::fileClosed(KIO::Job *)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 79, "Use KIO::FileJob::fileClosed(KIO::Job *)")
-    void close(KIO::Job *job); // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * Signals that the file is closed and will accept no more commands.

@@ -58,10 +58,6 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
-    /// @deprecated Since 5.0, use placeholderText
-    Q_PROPERTY(QString clickMessage READ clickMessage WRITE setClickMessage)
-#endif
     Q_PROPERTY(QString placeholderText READ placeholderText WRITE setPlaceholderText)
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(Qt::WindowModality fileDialogModality READ fileDialogModality WRITE setFileDialogModality)
@@ -227,26 +223,6 @@ public:
      */
     const KEditListWidget::CustomEditor &customEditor();
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * @returns the message set with setClickMessage
-     * @since 4.2
-     * @deprecated Since 5.0, use KUrlRequester::placeholderText instead.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KUrlRequester::placeholderText()")
-    QString clickMessage() const;
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * Set a click message @p msg
-     * @since 4.2
-     * @deprecated Since 5.0, use KUrlRequester::setPlaceholderText instead.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 0, "Use KUrlRequester::setPlaceholderText(const QString&)")
-    void setClickMessage(const QString &msg);
-#endif
-
     /**
      * @return the message set with setPlaceholderText
      * @since 5.0
@@ -290,19 +266,6 @@ public Q_SLOTS:
      */
     void setStartDir(const QUrl &startDir);
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(4, 3)
-    /**
-     * Sets the url in the lineedit to @p QUrl::fromLocalFile(path).
-     * This is only for local paths; do not pass a url here.
-     * This method is mostly for "local paths only" url requesters,
-     * for instance those set up with setMode(KFile::File|KFile::ExistingOnly|KFile::LocalOnly)
-     *
-     * @deprecated Since 4.3. Use setUrl(QUrl::fromLocalFile(path)) instead.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(4, 3, "Use KUrlRequester::setUrl(QUrl::fromLocalFile(path))")
-    void setPath(const QString &path);
-#endif
-
     /**
      * Sets the current text in the lineedit or combobox.
      * This is used for cases where KUrlRequester is used to
@@ -333,16 +296,6 @@ Q_SIGNALS:
      * @since 5.21
      */
     void textEdited(const QString &);
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 80)
-    /**
-     * Emitted when return or enter was pressed in the lineedit.
-     *
-     * @deprecated since 5.80, use KUrlRequester::returnPressed(const QString &) signal
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 80, "Use KUrlRequester::returnPressed(const QString &) signal")
-    void returnPressed(); // clazy:exclude=overloaded-signal
-#endif
 
     /**
      * Emitted when return or enter was pressed in the lineedit.

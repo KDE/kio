@@ -287,13 +287,6 @@ void FileUndoManagerPrivate::addCommand(const UndoCommand &cmd)
     Q_EMIT q->jobRecordingFinished(cmd.m_type);
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 79)
-bool FileUndoManager::undoAvailable() const
-{
-    return isUndoAvailable();
-}
-#endif
-
 bool FileUndoManager::isUndoAvailable() const
 {
     return !d->m_commands.isEmpty() && !d->m_lock;
@@ -739,14 +732,6 @@ bool FileUndoManager::UiInterface::copiedFileWasModified(const QUrl &src, const 
                                                            QString(),
                                                            KMessageBox::Options(KMessageBox::Notify) | KMessageBox::Dangerous);
     return result == KMessageBox::Continue;
-}
-
-bool FileUndoManager::UiInterface::confirmDeletion(const QList<QUrl> &files)
-{
-    KIO::JobUiDelegate uiDelegate(JobUiDelegate::Version::V2);
-    uiDelegate.setWindow(d->m_parentWidget);
-    // Because undo can happen with an accidental Ctrl-Z, we want to always confirm.
-    return uiDelegate.askDeleteConfirmation(files, KIO::JobUiDelegate::Delete, KIO::JobUiDelegate::ForceConfirmation);
 }
 
 QWidget *FileUndoManager::UiInterface::parentWidget() const

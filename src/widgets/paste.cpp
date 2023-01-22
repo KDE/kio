@@ -34,37 +34,6 @@
 #include <QMimeDatabase>
 #include <QTemporaryFile>
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
-// This could be made a public method, if there's a need for pasting only urls
-// and not random data.
-/**
- * Pastes URLs from the clipboard. This results in a copy or move job,
- * depending on whether the user has copied or cut the items.
- *
- * @param mimeData the mimeData to paste, usually QApplication::clipboard()->mimeData()
- * @param destDir Destination directory where the items will be copied/moved.
- * @param flags the flags are passed to KIO::copy or KIO::move.
- * @return the copy or move job handling the operation, or @c nullptr if there is nothing to do
- * @since ...
- */
-// KIOWIDGETS_EXPORT Job *pasteClipboardUrls(const QUrl& destDir, JobFlags flags = DefaultFlags);
-static KIO::Job *pasteClipboardUrls(const QMimeData *mimeData, const QUrl &destDir, KIO::JobFlags flags = KIO::DefaultFlags)
-{
-    const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData, KUrlMimeData::PreferLocalUrls);
-    if (!urls.isEmpty()) {
-        const bool move = KIO::isClipboardDataCut(mimeData);
-        KIO::Job *job = nullptr;
-        if (move) {
-            job = KIO::move(urls, destDir, flags);
-        } else {
-            job = KIO::copy(urls, destDir, flags);
-        }
-        return job;
-    }
-    return nullptr;
-}
-#endif
-
 static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
 {
     KIO::StatJob *job = KIO::stat(destUrl, destUrl.isLocalFile() ? KIO::HideProgressInfo : KIO::DefaultFlags);
@@ -252,54 +221,6 @@ KIO::Job *pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, cons
     return putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite);
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
-// The main method for pasting
-KIOWIDGETS_EXPORT KIO::Job *KIO::pasteClipboard(const QUrl &destUrl, QWidget *widget, bool move)
-{
-    Q_UNUSED(move);
-
-    if (!destUrl.isValid()) {
-        KMessageBox::error(widget, i18n("Malformed URL\n%1", destUrl.errorString()));
-        qCWarning(KIO_WIDGETS) << destUrl.errorString();
-        return nullptr;
-    }
-
-    // TODO: if we passed mimeData as argument, we could write unittests that don't
-    // mess up the clipboard and that don't need QtGui.
-    const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-
-    if (mimeData->hasUrls()) {
-        // We can ignore the bool move, KIO::paste decodes it
-        KIO::Job *job = pasteClipboardUrls(mimeData, destUrl);
-        if (job) {
-            KJobWidgets::setWindow(job, widget);
-            return job;
-        }
-    }
-
-    return pasteMimeDataImpl(mimeData, destUrl, QString(), widget, true /*clipboard*/);
-}
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
-QString KIO::pasteActionText()
-{
-    const QMimeData *mimeData = QApplication::clipboard()->mimeData();
-    const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(mimeData);
-    if (!urls.isEmpty()) {
-        if (urls.first().isLocalFile()) {
-            return i18np("&Paste File", "&Paste %1 Files", urls.count());
-        } else {
-            return i18np("&Paste URL", "&Paste %1 URLs", urls.count());
-        }
-    } else if (!mimeData->formats().isEmpty()) {
-        return i18n("&Paste Clipboard Contents");
-    } else {
-        return QString();
-    }
-}
-#endif
-
 KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *enable, const KFileItem &destItem)
 {
     bool canPasteData = false;
@@ -340,14 +261,6 @@ KIOWIDGETS_EXPORT QString KIO::pasteActionText(const QMimeData *mimeData, bool *
     }
     return text;
 }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 4)
-// The [new] main method for dropping
-KIOWIDGETS_EXPORT KIO::Job *KIO::pasteMimeData(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget)
-{
-    return pasteMimeDataImpl(mimeData, destUrl, dialogText, widget, false /*not clipboard*/);
-}
-#endif
 
 KIOWIDGETS_EXPORT void KIO::setClipboardDataCut(QMimeData *mimeData, bool cut)
 {

@@ -36,11 +36,6 @@ private Q_SLOTS:
         // setIconsZoom/setIconSize try to write config.
         // Make sure it won't crash if setViewConfig() isn't called.
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 76)
-        dirOp.setIconsZoom(40);
-        QCOMPARE(dirOp.iconsZoom(), 40);
-#endif
-
         // Now the same for setIconSize
         dirOp.setIconSize(50);
         QCOMPARE(dirOp.iconSize(), 50);

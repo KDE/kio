@@ -135,23 +135,6 @@ public:
      */
     void setUrl(const QUrl &url, bool clearforward = true);
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 33)
-    /**
-     * Sets the file to preselect to @p pathOrUrl
-     *
-     * This method handles absolute paths (on Unix, but probably not correctly on Windows)
-     * and absolute URLs as strings (but for those you should use setSelectedUrl instead).
-     *
-     * This method does not work with relative paths (filenames)
-     * (it would misinterpret a ':' or a '#' in the filename).
-     *
-     * @deprecated since 5.33, use setSelectedUrl instead, after ensuring that
-     * construct the QUrl correctly (e.g. use fromLocalFile for local paths).
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 33, "Use KFileWidget::setSelectedUrl(const QUrl &)")
-    void setSelection(const QString &pathOrUrl);
-#endif
-
     /**
      * Sets the URL to preselect to @p url
      *
@@ -351,16 +334,6 @@ public:
      * the location is used for.
      */
     void setLocationLabel(const QString &text);
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 66)
-    /**
-     * Returns a pointer to the toolbar.
-     * @deprecated since 5.66 due to no known users and leaking KXMLGui into the API.
-     *
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 66, "No known user")
-    KToolBar *toolBar() const;
-#endif
 
     /**
      * @returns a pointer to the OK-Button in the filedialog.

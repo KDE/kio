@@ -497,19 +497,3 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
 
     return slave;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
-Slave *Slave::holdSlave(const QString &protocol, const QUrl &url)
-{
-    Q_UNUSED(protocol)
-    Q_UNUSED(url)
-    return nullptr;
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 88)
-bool Slave::checkForHeldSlave(const QUrl &)
-{
-    return false;
-}
-#endif

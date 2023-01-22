@@ -178,11 +178,6 @@ public:
         Q_UNUSED(destTime);
         return true;
     }
-    bool confirmDeletion(const QList<QUrl> &) override
-    {
-        Q_ASSERT(false); // no longer called
-        return false;
-    }
     void setNextReplyToConfirmDeletion(bool b)
     {
         m_nextReplyToConfirmDeletion = b;

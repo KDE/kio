@@ -41,13 +41,6 @@ Job::~Job()
     delete d_ptr;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-KJobUiDelegate *Job::ui() const
-{
-    return uiDelegate();
-}
-#endif
-
 JobUiDelegateExtension *Job::uiDelegateExtension() const
 {
     Q_D(const Job);

@@ -2071,16 +2071,9 @@ void JobTest::mimeType()
     createTestFile(filePath);
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
-#endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(spyMimeType.count(), 1);
-    QCOMPARE(spyMimeType[0][0], QVariant::fromValue(static_cast<KIO::Job *>(job)));
-    QCOMPARE(spyMimeType[0][1].toString(), QStringLiteral("application/octet-stream"));
-#endif
+
     QCOMPARE(spyMimeTypeFound.count(), 1);
     QCOMPARE(spyMimeTypeFound[0][0], QVariant::fromValue(static_cast<KIO::Job *>(job)));
     QCOMPARE(spyMimeTypeFound[0][1].toString(), QStringLiteral("application/octet-stream"));
@@ -2088,16 +2081,8 @@ void JobTest::mimeType()
     // Testing mimetype over HTTP
     KIO::MimetypeJob *job = KIO::mimetype(QUrl("http://www.kde.org"), KIO::HideProgressInfo);
     QVERIFY(job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
-#endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(spyMimeType.count(), 1);
-    QCOMPARE(spyMimeType[0][0], QVariant::fromValue(static_cast<KIO::Job *>(job)));
-    QCOMPARE(spyMimeType[0][1].toString(), QString("text/html"));
-#endif
     QCOMPARE(spyMimeTypeFound.count(), 1);
     QCOMPARE(spyMimeTypeFound[0][0], QVariant::fromValue(static_cast<KIO::Job *>(job)));
     QCOMPARE(spyMimeTypeFound[0][1].toString(), QString("text/html"));
@@ -2110,15 +2095,9 @@ void JobTest::mimeTypeError()
     const QString filePath = homeTmpDir() + "doesNotExist";
     KIO::MimetypeJob *job = KIO::mimetype(QUrl::fromLocalFile(filePath), KIO::HideProgressInfo);
     QVERIFY(job);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, qOverload<KIO::Job *, const QString &>(&KIO::MimetypeJob::mimetype));
-#endif
     QSignalSpy spyMimeTypeFound(job, &KIO::TransferJob::mimeTypeFound);
     QSignalSpy spyResult(job, &KJob::result);
     QVERIFY(!job->exec());
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(spyMimeType.count(), 0);
-#endif
     QCOMPARE(spyMimeTypeFound.count(), 0);
     QCOMPARE(spyResult.count(), 1);
 }
@@ -2857,69 +2836,6 @@ void JobTest::createBrokenSymlink()
     QCOMPARE(job->error(), (int)KIO::ERR_FILE_ALREADY_EXIST);
     QVERIFY(QFile::remove(dest));
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 84)
-void JobTest::multiGet()
-{
-    const int numFiles = 10;
-    const QString baseDir = homeTmpDir();
-    const QList<QUrl> urls = createManyFiles(baseDir, numFiles);
-    QCOMPARE(urls.count(), numFiles);
-
-    // qDebug() << file;
-    KIO::MultiGetJob *job = KIO::multi_get(0, urls.at(0), KIO::MetaData()); // TODO: missing KIO::HideProgressInfo
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QSignalSpy spyData(job, &KIO::MultiGetJob::data);
-#else
-    QSignalSpy spyData(job, &KIO::MultiGetJob::dataReceived);
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy spyMimeType(job, &KIO::MultiGetJob::mimetype);
-#endif
-    QSignalSpy spyMimeTypeFound(job, &KIO::MultiGetJob::mimeTypeFound);
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 79)
-    QSignalSpy spyResultId(job, qOverload<long>(&KIO::MultiGetJob::result));
-#else
-    QSignalSpy spyResultId(job, &KIO::MultiGetJob::fileTransferred);
-#endif
-
-    QSignalSpy spyResult(job, &KJob::result);
-    job->setUiDelegate(nullptr);
-
-    for (int i = 1; i < numFiles; ++i) {
-        const QUrl url = urls.at(i);
-        job->get(i, url, KIO::MetaData());
-    }
-    // connect(job, &KIO::MultiGetJob::result, [=] (long id) { qDebug() << "ID I got" << id;});
-    // connect(job, &KJob::result, [this](KJob* ) {qDebug() << "END";});
-
-    QVERIFY2(job->exec(), qPrintable(job->errorString()));
-
-    QCOMPARE(spyResult.count(), 1);
-    QCOMPARE(spyResultId.count(), numFiles);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(spyMimeType.count(), numFiles);
-#endif
-    QCOMPARE(spyMimeTypeFound.count(), numFiles);
-    QCOMPARE(spyData.count(), numFiles * 2);
-    for (int i = 0; i < numFiles; ++i) {
-        QCOMPARE(spyResultId.at(i).at(0).toInt(), i);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-        QCOMPARE(spyMimeType.at(i).at(0).toInt(), i);
-        QCOMPARE(spyMimeType.at(i).at(1).toString(), QStringLiteral("text/plain"));
-#endif
-        QCOMPARE(spyMimeTypeFound.at(i).at(0).toInt(), i);
-        QCOMPARE(spyMimeTypeFound.at(i).at(1).toString(), QStringLiteral("text/plain"));
-        QCOMPARE(spyData.at(i * 2).at(0).toInt(), i);
-        QCOMPARE(QString(spyData.at(i * 2).at(1).toByteArray()), QStringLiteral("Hello"));
-        QCOMPARE(spyData.at(i * 2 + 1).at(0).toInt(), i);
-        QCOMPARE(QString(spyData.at(i * 2 + 1).at(1).toByteArray()), QLatin1String(""));
-    }
-}
-#endif // Deprecated since 5.84
 
 void JobTest::cancelCopyAndCleanDest_data()
 {

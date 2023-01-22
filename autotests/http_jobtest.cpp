@@ -69,16 +69,9 @@ void HTTPJobTest::testErrorPage()
     server.setContentType("");
     job = KIO::storedGet(QUrl(server.endPoint()));
     job->setUiDelegate(nullptr);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy mimeTypeSpy(job, qOverload<KIO::Job *, const QString &>(&KIO::TransferJob::mimetype));
-#endif
     QSignalSpy mimeTypeFoundSpy(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(mimeTypeSpy.count(), 1);
-    QCOMPARE(mimeTypeSpy.at(0).at(1).toString(), QStringLiteral("text/html"));
-#endif
     QCOMPARE(mimeTypeFoundSpy.count(), 1);
     QCOMPARE(mimeTypeFoundSpy.at(0).at(1).toString(), QStringLiteral("text/html"));
 }
@@ -90,16 +83,9 @@ void HTTPJobTest::testMimeTypeDetermination()
     // Add a trailing slash to ensure kio_http doesn't confuse QMimeDatabase with it.
     KIO::StoredTransferJob *job = KIO::storedGet(QUrl(server.endPoint() + '/'));
     job->setUiDelegate(nullptr);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QSignalSpy mimeTypeSpy(job, qOverload<KIO::Job *, const QString &>(&KIO::TransferJob::mimetype));
-#endif
     QSignalSpy mimeTypeFoundSpy(job, &KIO::TransferJob::mimeTypeFound);
     QVERIFY(job->exec());
     QCOMPARE(job->error(), 0);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 78)
-    QCOMPARE(mimeTypeSpy.count(), 1);
-    QCOMPARE(mimeTypeSpy.at(0).at(1).toString(), QStringLiteral("text/html"));
-#endif
     QCOMPARE(mimeTypeFoundSpy.count(), 1);
     QCOMPARE(mimeTypeFoundSpy.at(0).at(1).toString(), QStringLiteral("text/html"));
 }
