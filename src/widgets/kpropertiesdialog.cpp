@@ -332,28 +332,17 @@ bool showWin32FilePropertyDialog(const QString &fileName)
 {
     QString path_ = QDir::toNativeSeparators(QFileInfo(fileName).absoluteFilePath());
 
-#ifndef _WIN32_WCE
     SHELLEXECUTEINFOW execInfo;
-#else
-    SHELLEXECUTEINFO execInfo;
-#endif
+
     memset(&execInfo, 0, sizeof(execInfo));
     execInfo.cbSize = sizeof(execInfo);
-#ifndef _WIN32_WCE
     execInfo.fMask = SEE_MASK_INVOKEIDLIST | SEE_MASK_NOCLOSEPROCESS | SEE_MASK_FLAG_NO_UI;
-#else
-    execInfo.fMask = SEE_MASK_NOCLOSEPROCESS | SEE_MASK_FLAG_NO_UI;
-#endif
+
     const QString verb(QLatin1String("properties"));
     execInfo.lpVerb = (LPCWSTR)verb.utf16();
     execInfo.lpFile = (LPCWSTR)path_.utf16();
-#ifndef _WIN32_WCE
+
     return ShellExecuteExW(&execInfo);
-#else
-    return ShellExecuteEx(&execInfo);
-    // There is no native file property dialog in wince
-    // return false;
-#endif
 }
 #endif
 

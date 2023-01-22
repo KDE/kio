@@ -819,7 +819,7 @@ QString KProtocolManager::userAgentForApplication(const QString &appName, const 
 
 bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
 {
-#if defined(Q_OS_WIN) && !defined(_WIN32_WCE)
+#if defined(Q_OS_WIN)
     // we do not use unameBuf.sysname information constructed in kdewin32
     // because we want to get separate name and version
     systemName = QStringLiteral("Windows");

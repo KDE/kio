@@ -18,12 +18,9 @@ static int runDll(WId windowId, const QString &libraryName, const QByteArray &fu
         return 0;
     }
     typedef int(WINAPI * FunctionType)(HWND, HMODULE, LPCWSTR, int);
-#ifdef _WIN32_WCE
-    QString functionNamestr = QString(functionName);
-    FunctionType function = (FunctionType)GetProcAddressW(libHandle, functionNamestr.utf16());
-#else
+
     FunctionType function = (FunctionType)GetProcAddress(libHandle, functionName.constData());
-#endif
+
     if (!function) {
         return 0;
     }
@@ -39,12 +36,9 @@ static int runDll(WId windowId, const QString &libraryName, const QByteArray &fu
         return 0;
     }
     typedef int(WINAPI * FunctionType)(HWND, HMODULE, LPCSTR, int);
-#ifdef _WIN32_WCE
-    QString functionNamestr = QString(functionName);
-    FunctionType function = (FunctionType)GetProcAddressW(libHandle, functionNamestr.utf16());
-#else
+
     FunctionType function = (FunctionType)GetProcAddress(libHandle, functionName.constData());
-#endif
+
     if (!function) {
         return 0;
     }

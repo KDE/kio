@@ -9,11 +9,6 @@
 #include "kfileplacesmodel.h"
 #include "kfileplacesitem_p.h"
 
-#ifdef _WIN32_WCE
-#include "WinBase.h"
-#include "Windows.h"
-#endif
-
 #include <KCoreDirLister>
 #include <KLazyLocalizedString>
 #include <KListOpenFilesJob>

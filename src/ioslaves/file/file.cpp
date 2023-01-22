@@ -795,11 +795,6 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
 {
     // qDebug() << "fstype=" << _fstype;
 
-#ifdef _WIN32_WCE
-    error(KIO::ERR_CANNOT_MOUNT, i18n("mounting is not supported by Windows CE."));
-    return;
-#endif
-
     const QLatin1String label("LABEL=");
     const QLatin1String uuid("UUID=");
     QTemporaryFile tmpFile;
@@ -892,11 +887,6 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
 
 void FileProtocol::unmount(const QString &_point)
 {
-#ifdef _WIN32_WCE
-    error(KIO::ERR_CANNOT_MOUNT, i18n("unmounting is not supported by Windows CE."));
-    return;
-#endif
-
     QByteArray buffer;
 
     QTemporaryFile tmpFile;
