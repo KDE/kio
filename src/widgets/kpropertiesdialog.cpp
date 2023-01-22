@@ -134,7 +134,6 @@ extern "C" {
 #include "ui_kpropertiesdesktopbase.h"
 
 #include <algorithm>
-#include <cerrno>
 #include <functional>
 #include <vector>
 
