@@ -18,7 +18,7 @@ ecm_qtdesignerplugin_widget(KUrlRequester
 
 ecm_add_qtdesignerplugin(kiowidgets
     NAME KIOWidgets
-    OUTPUT_NAME kio5widgets
+    OUTPUT_NAME kio6widgets
     WIDGETS
         KImageFilePreview
         KUrlComboRequester
