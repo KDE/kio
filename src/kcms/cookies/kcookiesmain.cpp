@@ -21,7 +21,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-K_PLUGIN_CLASS_WITH_JSON(KCookiesMain, "cookies.json")
+K_PLUGIN_CLASS_WITH_JSON(KCookiesMain, "kcm_cookies.json")
 
 KCookiesMain::KCookiesMain(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)

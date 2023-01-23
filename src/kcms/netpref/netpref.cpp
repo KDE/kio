@@ -20,7 +20,7 @@
 
 static constexpr int s_maxTimeoutValue = 3600;
 
-K_PLUGIN_CLASS_WITH_JSON(KIOPreferences, "netpref.json")
+K_PLUGIN_CLASS_WITH_JSON(KIOPreferences, "kcm_netpref.json")
 
 KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     : KCModule(parent)

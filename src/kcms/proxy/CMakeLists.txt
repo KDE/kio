@@ -1,6 +1,7 @@
-add_library(kcm_proxy MODULE)
+kcoreaddons_add_plugin(kcm_proxy INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
 
-kcoreaddons_desktop_to_json(kcm_proxy proxy.desktop)
+kcmutils_generate_desktop_file(kcm_smb)
+
 target_sources(kcm_proxy PRIVATE
     kproxydlg.cpp
     ../ksaveioconfig.cpp
@@ -18,10 +19,3 @@ target_link_libraries(kcm_proxy PRIVATE
     KF6::ConfigWidgets
     KF6::KIOWidgets
 )
-
-install(TARGETS kcm_proxy DESTINATION ${KDE_INSTALL_PLUGINDIR})
-if (NOT WIN32)
-    add_custom_target(kcm_proxy_link ALL
-                    COMMAND ${CMAKE_COMMAND} -E create_symlink ../../../kcm_proxy.so ${CMAKE_CURRENT_BINARY_DIR}/kcm_proxy.so)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_proxy.so DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
-endif()

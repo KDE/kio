@@ -1,8 +1,8 @@
 find_package(KF6TextWidgets ${KF_DEP_VERSION} REQUIRED)
 
-add_library(kcm_netpref MODULE)
+kcoreaddons_add_plugin(kcm_netpref INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
 
-kcoreaddons_desktop_to_json(kcm_netpref netpref.desktop)
+kcmutils_generate_desktop_file(kcm_netpref)
 target_sources(kcm_netpref PRIVATE
     netpref.cpp
     ../ksaveioconfig.cpp
@@ -19,5 +19,3 @@ target_link_libraries(kcm_netpref
     KF6::I18n
     KF6::CoreAddons
 )
-
-install(TARGETS kcm_netpref  DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)

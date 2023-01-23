@@ -1,6 +1,6 @@
-add_library(kcm_cookies MODULE)
+kcoreaddons_add_plugin(kcm_cookies INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
 
-kcoreaddons_desktop_to_json(kcm_cookies cookies.desktop)
+kcmutils_generate_desktop_file(kcm_cookies)
 
 target_sources(kcm_cookies PRIVATE
     kcookiesmain.cpp
@@ -26,5 +26,3 @@ target_link_libraries(kcm_cookies PRIVATE
     KF6::ConfigWidgets
     KF6::KIOCore
 )
-
-install(TARGETS kcm_cookies DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)

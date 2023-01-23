@@ -21,7 +21,7 @@
 #include <QSpinBox>
 #include <QUrl>
 
-K_PLUGIN_CLASS_WITH_JSON(KProxyDialog, "proxy.json")
+K_PLUGIN_CLASS_WITH_JSON(KProxyDialog, "kcm_proxy.json")
 
 class InputValidator : public QValidator
 {
