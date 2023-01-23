@@ -13,6 +13,7 @@ Name[cs]=Linguee
 Name[cy]=Linguee
 Name[de]=Linguee
 Name[en_GB]=Linguee
+Name[eo]=Linguee
 Name[es]=Linguee
 Name[et]=Linguee
 Name[eu]=Linguee
@@ -57,6 +58,7 @@ Query[cs]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[cy]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[de]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[en_GB]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[eo]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[es]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[et]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[eu]=https://www.linguee.com/search?source=auto&query=\\{@}

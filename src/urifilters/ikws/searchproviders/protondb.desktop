@@ -13,6 +13,7 @@ Name[cs]=ProtonDB
 Name[cy]=ProtonDB
 Name[de]=ProtonDB
 Name[en_GB]=ProtonDB
+Name[eo]=ProtonDB
 Name[es]=ProtonDB
 Name[et]=ProtonDB
 Name[eu]=ProtonDB
@@ -57,6 +58,7 @@ Query[cs]=https://www.protondb.com/search?q=\\{@}
 Query[cy]=https://www.protondb.com/search?q=\\{@}
 Query[de]=https://www.protondb.com/search?q=\\{@}
 Query[en_GB]=https://www.protondb.com/search?q=\\{@}
+Query[eo]=https://www.protondb.com/search?q=\\{@}
 Query[es]=https://www.protondb.com/search?q=\\{@}
 Query[et]=https://www.protondb.com/search?q=\\{@}
 Query[eu]=https://www.protondb.com/search?q=\\{@}

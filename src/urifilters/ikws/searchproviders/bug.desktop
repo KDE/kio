@@ -16,6 +16,7 @@ Name[da]=KDE Bugs
 Name[de]=KDE-Fehler
 Name[el]=KDE Bugs
 Name[en_GB]=KDE Bugs
+Name[eo]=KDE-Cimoj
 Name[es]=Fallos de KDE
 Name[et]=KDE veateated
 Name[eu]=KDEren akatsak
@@ -64,6 +65,7 @@ Query[da]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[de]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[el]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[en_GB]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[eo]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[es]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[et]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[eu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

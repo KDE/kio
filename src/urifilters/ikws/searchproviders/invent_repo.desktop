@@ -14,6 +14,7 @@ Name[cs]=Repozitáře KDE Invent
 Name[cy]=Cadwrfeydd Llifento KDE
 Name[de]=Repositories auf KDE Invent
 Name[en_GB]=KDE Invent Repositories
+Name[eo]=KDE Invent Deponejoj
 Name[es]=Repositorios de KDE Invent
 Name[et]=KDE Inventi hoidlad
 Name[eu]=KDE Invent gordetegiak
@@ -58,6 +59,7 @@ Query[cs]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[cy]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[de]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[en_GB]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[eo]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[es]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[et]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[eu]=https://invent.kde.org/explore/projects/starred?name=\\{@}

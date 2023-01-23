@@ -22,7 +22,7 @@ Name[da]=WordReference.com oversættelse: Spansk til engelsk
 Name[de]=WordReference.com – Übersetzung: Spanisch/Englisch
 Name[el]=WordReference.com Μετάφραση: Ισπανικά σε Αγγλικά
 Name[en_GB]=WordReference.com Translation: Spanish to English
-Name[eo]=Tradukado WordReference.com: hispane anglen
+Name[eo]=WordReference.com Traduko: hispana al angla
 Name[es]=WordReference.com Traducción: español a inglés
 Name[et]=WordReference.com tõlkimine: hispaania->inglise
 Name[eu]=WordReference.com gaztelaniatik ingeleserako itzulpenak
@@ -108,6 +108,7 @@ Query[da]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[de]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[el]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[en_GB]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[eo]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[es]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[et]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[eu]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

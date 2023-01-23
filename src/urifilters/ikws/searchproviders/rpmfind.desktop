@@ -21,7 +21,7 @@ Name[da]=RPM-Find
 Name[de]=RPM-Suche
 Name[el]=RPM-Αναζήτηση
 Name[en_GB]=RPM-Find
-Name[eo]=RPM-trovilo
+Name[eo]=RPM-Trovilo
 Name[es]=RPM-Find
 Name[et]=RPM-Find
 Name[eu]=RPM bilatzailea
@@ -110,6 +110,7 @@ Query[da]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[de]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[el]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[en_GB]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[eo]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[es]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[et]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[eu]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

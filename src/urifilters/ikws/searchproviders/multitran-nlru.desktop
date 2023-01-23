@@ -21,7 +21,7 @@ Name[da]=Multitran - oversæt mellem hollandsk og russisk
 Name[de]=Multitran – Übersetzung: Niederländisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Ολλανδικών και Ρωσικών
 Name[en_GB]=Multitran - Translate Between Dutch and Russian
-Name[eo]=Multitran - Traduko inter la nederlanda kaj la rusa
+Name[eo]=Multitran - Traduku Inter nederlanda kaj rusa
 Name[es]=Multitran - Traducción entre danés y ruso
 Name[et]=Multitran - tõlkimine: hollandi-vene
 Name[eu]=Multitran nederlanderatik errusierarako itzulpenak
@@ -106,6 +106,7 @@ Query[da]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[en_GB]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[eo]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[es]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[et]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[eu]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

@@ -18,7 +18,7 @@ Name[da]=KDE UserBase
 Name[de]=KDE UserBase
 Name[el]=Βάση χρηστών KDE
 Name[en_GB]=KDE UserBase
-Name[eo]=Manlibro por uzantoj de KDE
+Name[eo]=KDE UzantoBazo (manlibro por uzantoj)
 Name[es]=KDE UserBase
 Name[et]=KDE UserBase
 Name[eu]=KDE UserBase
@@ -93,6 +93,7 @@ Query[da]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[de]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[el]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[en_GB]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[eo]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[es]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[et]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[eu]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

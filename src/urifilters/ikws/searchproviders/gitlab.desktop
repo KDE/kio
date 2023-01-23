@@ -18,6 +18,7 @@ Name[da]=GitLab
 Name[de]=GitLab
 Name[el]=GitLab
 Name[en_GB]=GitLab
+Name[eo]=GitLab
 Name[es]=GitLab
 Name[et]=GitLab
 Name[eu]=GitLab
@@ -70,6 +71,7 @@ Query[da]=https://gitlab.com/search?search=\\{@}
 Query[de]=https://gitlab.com/search?search=\\{@}
 Query[el]=https://gitlab.com/search?search=\\{@}
 Query[en_GB]=https://gitlab.com/search?search=\\{@}
+Query[eo]=https://gitlab.com/search?search=\\{@}
 Query[es]=https://gitlab.com/search?search=\\{@}
 Query[et]=https://gitlab.com/search?search=\\{@}
 Query[eu]=https://gitlab.com/search?search=\\{@}

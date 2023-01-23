@@ -16,6 +16,7 @@ Name[da]=Qwant Social
 Name[de]=Qwant-Sozial
 Name[el]=Qwant Κοινωνική δικτύωση
 Name[en_GB]=Qwant Social
+Name[eo]=Qwant Socia
 Name[es]=Qwant Social
 Name[et]=Qwant Social
 Name[eu]=Qwant Soziala
@@ -75,6 +76,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=social

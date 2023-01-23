@@ -12,6 +12,7 @@ Name[cs]=Dokument Microsoft C++
 Name[cy]=Dogfennaeth C++ Microsoft
 Name[de]=Microsoft-C++-Dokumentation
 Name[en_GB]=Microsoft C++ Documentation
+Name[eo]=Microsoft C++ Dokumentado
 Name[es]=Documentación de C++ de Microsoft
 Name[et]=Microsofti C++ dokumentatsioon
 Name[eu]=Microsoft C++ dokumentazioa
@@ -55,6 +56,7 @@ Query[cs]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[cy]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[de]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[en_GB]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[eo]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[es]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[et]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[eu]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

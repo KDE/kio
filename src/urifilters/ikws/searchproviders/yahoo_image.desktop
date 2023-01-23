@@ -19,7 +19,7 @@ Name[da]=Yahoo Images
 Name[de]=Yahoo Images
 Name[el]=Yahoo Εικόνες
 Name[en_GB]=Yahoo Images
-Name[eo]=Bildoj de Jahuo
+Name[eo]=Yahoo Bildoj
 Name[es]=Yahoo Imágenes
 Name[et]=Yahoo pildid
 Name[eu]=Yahoo Images
@@ -95,6 +95,7 @@ Query[da]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1
 Query[de]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[el]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[en_GB]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
+Query[eo]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[es]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[et]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[eu]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701

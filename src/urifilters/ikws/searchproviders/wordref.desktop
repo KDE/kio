@@ -23,7 +23,7 @@ Name[da]=WordReference.com engelsk ordbog
 Name[de]=WordReference.com – Englischwörterbuch
 Name[el]=WordReference.com αγγλικό λεξικό
 Name[en_GB]=WordReference.com English Dictionary
-Name[eo]=Angla vortaro de WordReference.com
+Name[eo]=Angla Vortaro de WordReference.com
 Name[es]=WordReference.com diccionario de inglés
 Name[et]=WordReference.com inglise keele sõnaraamat
 Name[eu]=WordReference.com ingeles-hiztegia
@@ -110,6 +110,7 @@ Query[da]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[de]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[el]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[en_GB]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[eo]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[es]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[et]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[eu]=https://www.wordreference.com/english/definition.asp?en=\\{@}

@@ -16,6 +16,7 @@ Name[da]=Google Shopping
 Name[de]=Google-Shopping
 Name[el]=Google Αγορές
 Name[en_GB]=Google Shopping
+Name[eo]=Google Butikumado
 Name[es]=Compras de Google
 Name[et]=Google Shopping
 Name[eu]=Google erosketak
@@ -79,7 +80,7 @@ Query[da]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[de]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[el]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[en_GB]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
-Query[eo]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[eo]=https://www.google.com/search?hl=eo&tbm=shop&q=\\{@}
 Query[es]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[et]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[eu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

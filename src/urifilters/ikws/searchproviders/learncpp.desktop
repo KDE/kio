@@ -13,6 +13,7 @@ Name[cs]=Naučte se CPP
 Name[cy]=Dysgu CPP
 Name[de]=Learn CPP
 Name[en_GB]=Learn CPP
+Name[eo]=Lernu CPP
 Name[es]=Aprenda CPP
 Name[et]=Learn CPP
 Name[eu]=Ikasi CPP
@@ -57,6 +58,7 @@ Query[cs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[cy]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[de]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[en_GB]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[eo]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[et]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[eu]=https://www.learncpp.com/gsearch/?q=\\{@}

@@ -21,7 +21,7 @@ Name[da]=Ruby programarkiv
 Name[de]=Ruby-Anwendungsarchiv
 Name[el]=Αρχειοθήκη εφαρμογών Ruby
 Name[en_GB]=Ruby Application Archive
-Name[eo]=Arkivo  de aplikaĵo Ruby
+Name[eo]=Ruby-Aplikaĵa Arkivo
 Name[es]=Archivo de aplicaciones en Ruby
 Name[et]=Ruby Application Archive
 Name[eu]=Ruby Application Archive
@@ -110,6 +110,7 @@ Query[da]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[de]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[el]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[en_GB]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[eo]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[es]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[et]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[eu]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

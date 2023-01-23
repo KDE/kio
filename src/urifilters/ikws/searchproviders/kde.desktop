@@ -24,7 +24,7 @@ Name[da]=KDE API Dokumentation
 Name[de]=KDE-API-Dokumentation
 Name[el]=Τεκμηρίωση KDE API
 Name[en_GB]=KDE API Documentation
-Name[eo]=Dokumentado de API de KDE
+Name[eo]=KDE-API Dokumentado
 Name[es]=Documentación de la API de KDE
 Name[et]=KDE API dokumentatsioon
 Name[eu]=KDEren API dokumentazioa
@@ -109,6 +109,7 @@ Query[cs]=https://api.kde.org/search.html?query=\\{@}
 Query[cy]=https://api.kde.org/search.html?query=\\{@}
 Query[de]=https://api.kde.org/search.html?query=\\{@}
 Query[en_GB]=https://api.kde.org/search.html?query=\\{@}
+Query[eo]=https://api.kde.org/search.html?query=\\{@}
 Query[es]=https://api.kde.org/search.html?query=\\{@}
 Query[et]=https://api.kde.org/search.html?query=\\{@}
 Query[eu]=https://api.kde.org/search.html?query=\\{@}

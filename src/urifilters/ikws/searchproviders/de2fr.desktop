@@ -20,7 +20,7 @@ Name[da]=LEO - Oversæt mellem tysk og fransk
 Name[de]=LEO – Übersetzung: Deutsch/Französisch
 Name[el]=LEO - Μετάφραση μεταξύ Γερμανικών και Γαλλικών
 Name[en_GB]=LEO - Translate Between German and French
-Name[eo]=LEO - Traduko inter la germana kaj la franca
+Name[eo]=LEO - Traduku Inter la germana kaj la franca
 Name[es]=LEO - Traducción entre alemán y francés
 Name[et]=LEO - tõlkimine: saksa-prantsuse
 Name[eu]=LEO alemanetik ingeleserako itzulpenak
@@ -107,6 +107,7 @@ Query[da]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[de]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[el]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[en_GB]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[eo]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[es]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[et]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[eu]=https://dict.leo.org/?lp=frde&search=\\{@}
