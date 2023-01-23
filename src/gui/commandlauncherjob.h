@@ -101,7 +101,7 @@ public:
     void setIcon(const QString &iconName);
 
     /**
-     * Set the name of the desktop file (e.g.\ "org.kde.dolphin", the extension is optional).
+     * Set the name of the desktop file (e.g.\ "org.kde.dolphin", without the ".desktop" filename extension).
      *
      * This is an alternative solution for setIcon() and setExecutable(), i.e. the icon
      * will be taken from the desktop file, and the executable inferred from the "Exec" line.
