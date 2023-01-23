@@ -28,8 +28,8 @@ if(NOT WIN32 AND NOT ANDROID)
 endif()
 
 set(NON_KIOCORE_LINK_QCHS
-    Qt5Widgets_QCH
-    Qt5Network_QCH
+    Qt6Widgets_QCH
+    Qt6Network_QCH
     KF6Completion_QCH
     KF6WidgetsAddons_QCH
     KF6JobWidgets_QCH
