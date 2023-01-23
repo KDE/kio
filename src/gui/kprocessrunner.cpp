@@ -147,14 +147,13 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
         }
     }
 
-    instance->init(service, serviceEntryPath, service->name(), service->icon(), asn);
+    instance->init(service, serviceEntryPath, service->name(), asn);
     return instance;
 }
 
 KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
                                             const QString &desktopName,
                                             const QString &execName,
-                                            const QString &iconName,
                                             const QByteArray &asn,
                                             const QString &workingDirectory,
                                             const QProcessEnvironment &environment)
@@ -175,14 +174,13 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
 #endif
         instance->m_process->setShellCommand(cmd);
 
-    instance->initFromDesktopName(desktopName, execName, iconName, asn, workingDirectory, environment);
+    instance->initFromDesktopName(desktopName, execName, asn, workingDirectory, environment);
     return instance;
 }
 
 KProcessRunner *KProcessRunner::fromExecutable(const QString &executable,
                                                const QStringList &args,
                                                const QString &desktopName,
-                                               const QString &iconName,
                                                const QByteArray &asn,
                                                const QString &workingDirectory,
                                                const QProcessEnvironment &environment)
@@ -197,13 +195,12 @@ KProcessRunner *KProcessRunner::fromExecutable(const QString &executable,
 
     instance->m_executable = KIO::DesktopExecParser::executablePath(executable);
     instance->m_process->setProgram(executable, args);
-    instance->initFromDesktopName(desktopName, executable, iconName, asn, workingDirectory, environment);
+    instance->initFromDesktopName(desktopName, executable, asn, workingDirectory, environment);
     return instance;
 }
 
 void KProcessRunner::initFromDesktopName(const QString &desktopName,
                                          const QString &execName,
-                                         const QString &iconName,
                                          const QByteArray &asn,
                                          const QString &workingDirectory,
                                          const QProcessEnvironment &environment)
@@ -218,18 +215,14 @@ void KProcessRunner::initFromDesktopName(const QString &desktopName,
             if (m_executable.isEmpty()) {
                 m_executable = KIO::DesktopExecParser::executablePath(service->exec());
             }
-            init(service, service->entryPath(), service->name(), service->icon(), asn);
+            init(service, service->entryPath(), service->name(), asn);
             return;
         }
     }
-    init(KService::Ptr(), QString{}, execName /*user-visible name*/, iconName, asn);
+    init(KService::Ptr(), QString{}, execName /*user-visible name*/, asn);
 }
 
-void KProcessRunner::init(const KService::Ptr &service,
-                          const QString &serviceEntryPath,
-                          const QString &userVisibleName,
-                          const QString &iconName,
-                          const QByteArray &asn)
+void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QByteArray &asn)
 {
     m_serviceEntryPath = serviceEntryPath;
     if (service && !serviceEntryPath.isEmpty() && !KDesktopFile::isAuthorizedDesktopFile(serviceEntryPath)) {
@@ -259,9 +252,7 @@ void KProcessRunner::init(const KService::Ptr &service,
                 data.setName(service->name());
             }
             data.setDescription(i18n("Launching %1", data.name()));
-            if (!iconName.isEmpty()) {
-                data.setIcon(iconName);
-            } else if (service && !service->icon().isEmpty()) {
+            if (service && !service->icon().isEmpty()) {
                 data.setIcon(service->icon());
             }
             if (!wmclass.isEmpty()) {
@@ -278,7 +269,6 @@ void KProcessRunner::init(const KService::Ptr &service,
     }
 #else
     Q_UNUSED(userVisibleName);
-    Q_UNUSED(iconName);
 #endif
 
     if (KWindowSystem::isPlatformWayland()) {

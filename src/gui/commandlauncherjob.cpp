@@ -19,7 +19,6 @@ public:
     QString m_command;
     QString m_desktopName;
     QString m_executable;
-    QString m_iconName;
     QString m_workingDirectory;
     QStringList m_arguments;
     QByteArray m_startupId;
@@ -67,11 +66,6 @@ void KIO::CommandLauncherJob::setExecutable(const QString &executable)
     d->m_executable = executable;
 }
 
-void KIO::CommandLauncherJob::setIcon(const QString &iconName)
-{
-    d->m_iconName = iconName;
-}
-
 void KIO::CommandLauncherJob::setDesktopName(const QString &desktopName)
 {
     d->m_desktopName = desktopName;
@@ -114,25 +108,12 @@ void KIO::CommandLauncherJob::start()
     }
     Q_EMIT description(this, i18nc("Launching application", "Launching %1", displayName), {}, {});
 
-    if (d->m_iconName.isEmpty()) {
-        d->m_iconName = d->m_executable;
-    }
     if (d->m_command.isEmpty() && !d->m_executable.isEmpty()) {
-        d->m_processRunner = KProcessRunner::fromExecutable(d->m_executable,
-                                                            d->m_arguments,
-                                                            d->m_desktopName,
-                                                            d->m_iconName,
-                                                            d->m_startupId,
-                                                            d->m_workingDirectory,
-                                                            d->m_environment);
+        d->m_processRunner =
+            KProcessRunner::fromExecutable(d->m_executable, d->m_arguments, d->m_desktopName, d->m_startupId, d->m_workingDirectory, d->m_environment);
     } else {
-        d->m_processRunner = KProcessRunner::fromCommand(d->m_command,
-                                                         d->m_desktopName,
-                                                         d->m_executable,
-                                                         d->m_iconName,
-                                                         d->m_startupId,
-                                                         d->m_workingDirectory,
-                                                         d->m_environment);
+        d->m_processRunner =
+            KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_startupId, d->m_workingDirectory, d->m_environment);
     }
     connect(d->m_processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);

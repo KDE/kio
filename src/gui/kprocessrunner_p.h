@@ -61,7 +61,6 @@ public:
      * @param cmd must be a shell command. No need to append "&" to it.
      * @param desktopName name of the desktop file, if known.
      * @param execName the name of the executable, if known.
-     * @param iconName icon for the startup notification
      * @param asn Application startup notification id, if any (otherwise "").
      * @param workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
@@ -70,7 +69,6 @@ public:
     static KProcessRunner *fromCommand(const QString &cmd,
                                        const QString &desktopName,
                                        const QString &execName,
-                                       const QString &iconName,
                                        const QByteArray &asn,
                                        const QString &workingDirectory,
                                        const QProcessEnvironment &environment);
@@ -84,7 +82,6 @@ public:
      * @param executable the name of (or full path to) the executable, mandatory
      * @param args the arguments to pass to the executable
      * @param desktopName name of the desktop file, if known.
-     * @param iconName icon for the startup notification
      * @param asn Application startup notification id, if any (otherwise "").
      * @param workingDirectory the working directory for the started process. The default
      *                         (if passing an empty string) is the user's document path.
@@ -93,7 +90,6 @@ public:
     static KProcessRunner *fromExecutable(const QString &executable,
                                           const QStringList &args,
                                           const QString &desktopName,
-                                          const QString &iconName,
                                           const QByteArray &asn,
                                           const QString &workingDirectory,
                                           const QProcessEnvironment &environment);
@@ -154,11 +150,10 @@ private:
     void emitDelayedError(const QString &errorMsg);
     void initFromDesktopName(const QString &desktopName,
                              const QString &execName,
-                             const QString &iconName,
                              const QByteArray &asn,
                              const QString &workingDirectory,
                              const QProcessEnvironment &environment);
-    void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QString &iconName, const QByteArray &asn);
+    void init(const KService::Ptr &service, const QString &serviceEntryPath, const QString &userVisibleName, const QByteArray &asn);
 
     Q_DISABLE_COPY(KProcessRunner)
 };

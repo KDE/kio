@@ -48,8 +48,7 @@ public:
      * If @p command is instead a filename, consider using the other constructor, even if no args are present.
      * @param parent the parent QObject
      *
-     * Please consider also calling setDesktopName(), or setExecutable() and setIcon()
-     * for better startup notification.
+     * Please consider also calling setDesktopName() for better startup notification.
      */
     explicit CommandLauncherJob(const QString &command, QObject *parent = nullptr);
 
@@ -59,8 +58,7 @@ public:
      * @param args the commandline arguments to pass to the executable
      * @param parent the parent QObject
      *
-     * Please consider also calling setDesktopName(), or setExecutable() and setIcon()
-     * for better startup notification.
+     * Please consider also calling setDesktopName() for better startup notification.
      */
     explicit CommandLauncherJob(const QString &executable, const QStringList &args, QObject *parent = nullptr);
 
@@ -93,18 +91,9 @@ public:
     void setExecutable(const QString &executable);
 
     /**
-     * Sets the icon for the startup notification.
-     * @param iconName name of the icon, to be loaded from the current icon theme
-     *
-     * Alternatively, use setDesktopName().
-     */
-    void setIcon(const QString &iconName);
-
-    /**
      * Set the name of the desktop file (e.g.\ "org.kde.dolphin", without the ".desktop" filename extension).
      *
-     * This is an alternative solution for setIcon() and setExecutable(), i.e. the icon
-     * will be taken from the desktop file, and the executable inferred from the "Exec" line.
+     * This is necessary for startup notification to work.
      */
     void setDesktopName(const QString &desktopName);
 
