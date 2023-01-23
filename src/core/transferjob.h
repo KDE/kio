@@ -159,9 +159,6 @@ protected Q_SLOTS:
     virtual void slotData(const QByteArray &data);
     virtual void slotDataReq();
     virtual void slotMimetype(const QString &mimetype);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101) // override no longer needed
-    void slotMetaData(const KIO::MetaData &_metaData) override;
-#endif
 
 protected:
     TransferJob(TransferJobPrivate &dd);

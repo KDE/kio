@@ -165,16 +165,6 @@ public:
         SSLMessageBox = 6,
         Information = 7,
         Error = 9,
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-        QuestionYesNo ///< @deprecated Since 5.100, use QuestionTwoActions.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActions.") = QuestionTwoActions,
-        QuestionYesNoCancel ///< @deprecated Since 5.100, use QuestionTwoActionsCancel.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActionsCancel.") = QuestionTwoActionsCancel,
-        WarningYesNo ///< @deprecated Since 5.100, use WarningTwoActions.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActions.") = WarningTwoActions,
-        WarningYesNoCancel ///< @deprecated Since 5.100, use WarningTwoActionsCancel.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActionsCancel.") = WarningTwoActionsCancel,
-#endif
     };
 
     /**

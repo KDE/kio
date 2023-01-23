@@ -2136,13 +2136,6 @@ bool KCoreDirLister::showHiddenFiles() const
     return d->settings.isShowingDotFiles;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-bool KCoreDirLister::showingDotFiles() const
-{
-    return showHiddenFiles();
-}
-#endif
-
 void KCoreDirLister::setShowHiddenFiles(bool setShowHiddenFiles)
 {
     if (d->settings.isShowingDotFiles == setShowHiddenFiles) {
@@ -2152,13 +2145,6 @@ void KCoreDirLister::setShowHiddenFiles(bool setShowHiddenFiles)
     d->prepareForSettingsChange();
     d->settings.isShowingDotFiles = setShowHiddenFiles;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-void KCoreDirLister::setShowingDotFiles(bool showDotFiles)
-{
-    setShowHiddenFiles(showDotFiles);
-}
-#endif
 
 bool KCoreDirLister::dirOnlyMode() const
 {
@@ -2349,18 +2335,6 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-void KCoreDirLister::setMimeExcludeFilter(const QStringList &mimeExcludeFilter)
-{
-    if (d->settings.mimeExcludeFilter == mimeExcludeFilter) {
-        return;
-    }
-
-    d->prepareForSettingsChange();
-    d->settings.mimeExcludeFilter = mimeExcludeFilter;
-}
-#endif
-
 void KCoreDirLister::clearMimeFilter()
 {
     d->prepareForSettingsChange();
@@ -2508,9 +2482,6 @@ void KCoreDirListerPrivate::emitItems()
     }
 
     if (!lstMimeFilteredItems.empty()) {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-        Q_EMIT q->itemsFilteredByMime(lstMimeFilteredItems);
-#endif
         lstMimeFilteredItems.clear();
     }
 

@@ -23,10 +23,6 @@
 
 namespace KIO
 {
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-// unused forward declaration
-class Slave;
-#endif
 
 class DavJobPrivate;
 /**
@@ -112,6 +108,6 @@ KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QS
  */
 KIOCORE_EXPORT DavJob *davReport(const QUrl &url, const QString &report, const QString &depth, JobFlags flags = DefaultFlags);
 
-}
+} // namespace KIO
 
 #endif

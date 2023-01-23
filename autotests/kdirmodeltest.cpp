@@ -963,9 +963,6 @@ void KDirModelTest::testFilter()
     QVERIFY(m_dirIndex.isValid());
     const int oldTopLevelRowCount = m_dirModel->rowCount();
     const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
-#endif
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
     m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel*"));
@@ -1001,14 +998,9 @@ void KDirModelTest::testFilter()
     QCOMPARE(spyItemsDeleted.count(), 3); // once for every dir
     QCOMPARE(spyItemsDeleted[0][0].value<KFileItemList>().count(), 1); // one from toplevel ('special chars')
     QCOMPARE(spyItemsDeleted[1][0].value<KFileItemList>().count(), 2); // two from subdir
-    QCOMPARE(spyItemsDeleted[2][0].value<KFileItemList>().count(), 1); // one from subsubdir
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    QCOMPARE(spyItemsFilteredByMime.count(), 0);
-#endif
+    QCOMPARE(spyItemsDeleted[2][0].value<KFileItemList>().count(),
+             1); // one from subsubdir
     spyItemsDeleted.clear();
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    spyItemsFilteredByMime.clear();
-#endif
 
     // Reset the filter
     qDebug() << "reset to no filter";
@@ -1018,9 +1010,6 @@ void KDirModelTest::testFilter()
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount);
     QCOMPARE(spyItemsDeleted.count(), 0);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    QCOMPARE(spyItemsFilteredByMime.count(), 0);
-#endif
 
     // The order of things changed because of filtering.
     // Fill again, so that m_fileIndex etc. are correct again.
@@ -1074,9 +1063,6 @@ void KDirModelTest::testMimeFilter()
     QVERIFY(m_dirIndex.isValid());
     const int oldTopLevelRowCount = m_dirModel->rowCount();
     const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
-#endif
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
     m_dirModel->dirLister()->setMimeFilter(QStringList{QStringLiteral("application/pdf")});
@@ -1088,15 +1074,6 @@ void KDirModelTest::testMimeFilter()
 
     QVERIFY(spyRowsRemoved.count() >= 1); // depends on contiguity...
     QVERIFY(spyItemsDeleted.count() >= 1); // once for every dir
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    // Maybe it would make sense to have those items in itemsFilteredByMime,
-    // but well, for the only existing use of that signal (MIME type filter plugin),
-    // it's not really necessary, the plugin has seen those files before anyway.
-    // The signal is mostly useful for the case of listing a dir with a MIME type filter set.
-    // QCOMPARE(spyItemsFilteredByMime.count(), 1);
-    // QCOMPARE(spyItemsFilteredByMime[0][0].value<KFileItemList>().count(), 4);
-    spyItemsFilteredByMime.clear();
-#endif
     spyItemsDeleted.clear();
 
     // Reset the filter
@@ -1106,9 +1083,6 @@ void KDirModelTest::testMimeFilter()
 
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
     QCOMPARE(spyItemsDeleted.count(), 0);
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    QCOMPARE(spyItemsFilteredByMime.count(), 0);
-#endif
 
     // The order of things changed because of filtering.
     // Fill again, so that m_fileIndex etc. are correct again.

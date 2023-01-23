@@ -81,12 +81,7 @@ target_link_libraries(KF6KIOGui
     KF6::I18n
 )
 
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
-  target_link_libraries(KF6KIOGui PUBLIC KF6::WindowSystem)
-else()
-  target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
-endif()
+target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
 
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOGui_CamelCase_HEADERS
@@ -111,12 +106,6 @@ ecm_generate_headers(KIOGui_HEADERS
 
   REQUIRED_HEADERS KIOGui_HEADERS
 )
-
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.101.0)
-    list(APPEND KIOGui_CamelCase_HEADERS compatheaders/KCoreUrlNavigator)
-    list(APPEND KIO_namespaced_gui_HEADERS compatheaders/kcoreurlnavigator.h)
-endif()
 
 install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
 

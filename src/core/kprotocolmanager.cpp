@@ -613,12 +613,6 @@ void KProtocolManager::badProxy(const QString &proxy)
         d->cachedProxyData[key]->removeAddress(proxy);
     }
 }
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-QString KProtocolManager::slaveProtocol(const QUrl &url, QString &proxy)
-{
-    return workerProtocol(url, proxy);
-}
-#endif
 
 QString KProtocolManager::workerProtocol(const QUrl &url, QString &proxy)
 {
@@ -641,13 +635,6 @@ static QString extractProxyCacheKeyFromUrl(const QUrl &u)
     }
     return key;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-QString KProtocolManager::slaveProtocol(const QUrl &url, QStringList &proxyList)
-{
-    return workerProtocol(url, proxyList);
-}
-#endif
 
 QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList)
 {

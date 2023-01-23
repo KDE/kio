@@ -185,40 +185,6 @@ public:
      */
     static QString config(const QString &protocol);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Returns the soft limit on the number of slaves for this protocol.
-     * This limits the number of slaves used for a single operation, note
-     * that multiple operations may result in a number of instances that
-     * exceeds this soft limit.
-     *
-     * This corresponds to the "maxInstances=" field in the protocol description file.
-     * The default is 1.
-     *
-     * @param protocol the protocol to check
-     * @return the maximum number of slaves, or 1 if unknown
-     *
-     * @deprecated Since 5.101, use maxWorkers(const QString &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use maxWorkers(const QString&)") int maxSlaves(const QString &protocol);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Returns the limit on the number of slaves for this protocol per host.
-     *
-     * This corresponds to the "maxInstancesPerHost=" field in the protocol description file.
-     * The default is 0 which means there is no per host limit.
-     *
-     * @param protocol the protocol to check
-     * @return the maximum number of slaves, or 1 if unknown
-     *
-     * @since 4.4
-     * @deprecated Since 5.101, use maxWorkersPerHost(const QString &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use maxWorkersPerHost(const QString&)") int maxSlavesPerHost(const QString &protocol);
-#endif
-
     /**
      * Returns the soft limit on the number of KIO workers for this protocol.
      * This limits the number of workers used for a single operation, note
@@ -340,22 +306,6 @@ public:
      * @since 5.23
      */
     static QStringList archiveMimetypes(const QString &protocol);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Returns the list of notification types the kioslave implementing this
-     * protocol will produce on its own, making it unnecessary for job
-     * implementations to do so. An example would be returning "Rename"
-     * if the kioslave's rename() method takes care of calling
-     * KDirNotify::emitFileRenameWithLocalPath on its own.
-     *
-     * This corresponds to "slaveHandlesNotify=" in the protocol description file.
-     *
-     * @since 5.20
-     * @deprecated Since 5.101, no known users
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "No known users") QStringList slaveHandlesNotify(const QString &protocol);
-#endif
 
     /**
      * Returns the name of the protocol through which the request

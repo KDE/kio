@@ -17,9 +17,6 @@
 namespace KIO
 {
 class Slave;
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 102)
-class SlaveConfig;
-#endif
 
 class SchedulerPrivate;
 /**
@@ -121,33 +118,6 @@ public:
      */
     static void jobFinished(KIO::SimpleJob *job, KIO::Slave *slave);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Puts a slave on notice. A next job may reuse this slave if it
-     * requests the same URL.
-     *
-     * A job can be put on hold after it has emit'ed its mimetype() signal.
-     * Based on the MIME type, the program can give control to another
-     * component in the same process which can then resume the job
-     * by simply asking for the same URL again.
-     * @param job the job that should be stopped
-     * @param url the URL that is handled by the @p url
-     *
-     * @deprecated Since 5.101, use putWorkerOnHold(KIO::SimpleJob *, const QUrl &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use putWorkerOnHold(KIO::SimpleJob *, const QUrl &)") void putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Removes any slave that might have been put on hold. If a slave
-     * was put on hold it will be killed.
-     *
-     * @deprecated Since 5.101, use removeWorkerOnHold()
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use removeWorkerOnHold()") void removeSlaveOnHold();
-#endif
-
     /**
      * Puts a worker on notice. A next job may reuse this worker if it
      * requests the same URL.
@@ -171,39 +141,8 @@ public:
      */
     static void removeWorkerOnHold();
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 103)
-    /**
-     * Function to connect signals emitted by the scheduler.
-     *
-     * @see slaveConnected()
-     * @see slaveError()
-     * @deprecated Since 5.103, due to no known users.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
-    static bool connect(const char *signal, const QObject *receiver, const char *member);
-
-    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
-    static bool connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
-
-    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
-    static bool disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *member);
-
-    KIOCORE_DEPRECATED_VERSION(5, 103, "No known users")
-    bool connect(const QObject *sender, const char *signal, const char *member);
-#endif
-
     static void emitReparseSlaveConfiguration();
     // KF6 TODO: rename to emitReparseWorkerConfiguration. See also T15956.
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Returns true if there is a slave on hold for @p url.
-     *
-     * @since 4.7
-     * @deprecated Since 5.101, use isWorkerOnHoldFor(const QUrl &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use isWorkerOnHoldFor(const QUrl &)") bool isSlaveOnHoldFor(const QUrl &url);
-#endif
 
     /**
      * Returns true if there is a worker on hold for @p url.

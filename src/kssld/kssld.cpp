@@ -93,12 +93,8 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
     if (rule.isRejected()) {
         sl.append(QStringLiteral("Reject"));
     } else {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 64)
-        for (QSslError::SslError e : std::as_const(rule.d->ignoredErrors)) {
-#else
         const auto ignoredErrors = rule.ignoredErrors();
         for (QSslError::SslError e : ignoredErrors) {
-#endif
             sl.append(d->sslErrorToString.value(e));
         }
     }

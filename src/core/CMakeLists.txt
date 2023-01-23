@@ -26,7 +26,6 @@ set_target_properties(KF6KIOCore PROPERTIES
 )
 
 target_sources(KF6KIOCore PRIVATE
-  idleslave.cpp
   connectionbackend.cpp
   connection.cpp
   connectionserver.cpp
@@ -71,7 +70,6 @@ target_sources(KF6KIOCore PRIVATE
   transferjob.cpp
   filesystemfreespacejob.cpp
   scheduler.cpp
-  slaveconfig.cpp
   kprotocolmanager.cpp
   hostinfo.cpp
   kurlauthorized.cpp
@@ -99,9 +97,7 @@ target_sources(KF6KIOCore PRIVATE
 
 if (NOT ANDROID)
 target_sources(KF6KIOCore PRIVATE
-  tcpslavebase.cpp
   tcpworkerbase.cpp
-  forwardingslavebase.cpp
   kpasswdserverloop.cpp
   kpasswdserverclient.cpp
   kdirnotify.cpp
@@ -267,12 +263,9 @@ endif()
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOCore_CamelCase_HEADERS
   HEADER_NAMES
-  IdleSlave
   ConnectionServer
-  TCPSlaveBase
   TCPWorkerBase
   DirectorySizeJob
-  ForwardingSlaveBase
   Job #     ### should forward to job_base.h, not job.h...
   JobTracker
   Global
@@ -284,7 +277,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   MkdirJob
   MkpathJob
   SlaveBase
-  SlaveConfig
   HostInfo
   MetaData
   UDSEntry
@@ -333,13 +325,6 @@ list(APPEND KIO_namespaced_HEADERS
   job_base.h
   jobclasses.h
 )
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.101.0)
-    list(APPEND KIO_namespaced_HEADERS
-      ioslave_defaults.h
-      http_slave_defaults.h
-    )
-endif()
 
 install(FILES
   ${KIO_namespaced_HEADERS}

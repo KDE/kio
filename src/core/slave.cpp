@@ -68,9 +68,6 @@ public:
         , m_job(nullptr)
         , m_pid(0)
         , m_port(0)
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-        , contacted(false)
-#endif
         , dead(false)
         , m_refCount(1)
     {
@@ -95,9 +92,6 @@ public:
     KIO::SimpleJob *m_job;
     qint64 m_pid; // only set for out-of-process workers
     quint16 m_port;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-    bool contacted;
-#endif
     bool dead;
     QElapsedTimer contact_started;
     QElapsedTimer m_idleSince;
@@ -215,22 +209,6 @@ void Slave::setIdle()
     Q_D(Slave);
     d->m_idleSince.start();
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-bool Slave::isConnected()
-{
-    Q_D(Slave);
-    return d->contacted;
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-void Slave::setConnected(bool c)
-{
-    Q_D(Slave);
-    d->contacted = c;
-}
-#endif
 
 void Slave::ref()
 {

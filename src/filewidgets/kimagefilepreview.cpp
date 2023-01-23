@@ -170,9 +170,6 @@ KIO::PreviewJob *KImageFilePreview::createJob(const QUrl &url, int w, int h)
     QStringList plugins = KIO::PreviewJob::availablePlugins();
 
     KIO::PreviewJob *previewJob = KIO::filePreview(items, QSize(w, h), &plugins);
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 102)
-    previewJob->setOverlayIconAlpha(0);
-#endif
     previewJob->setScaleType(KIO::PreviewJob::Scaled);
     return previewJob;
 }

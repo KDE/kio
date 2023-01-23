@@ -83,7 +83,7 @@ ecm_generate_export_header(KF6KIOFileWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 5.100 5.103
+    DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
@@ -96,12 +96,15 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::KIOWidgets
     KF6::Bookmarks    # in KFilePlacesModel's API
     KF6::ItemViews     # kdirsortfilterproxymodel
-    KF6::XmlGui        # for KActionCollection, used by KFileWidget/KDirOperator
     KF6::Solid         # KFilePlacesModel/KFilePlacesView
   PRIVATE
+    Qt6::Core5Compat
     KF6::GuiAddons    # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::I18n
+    KF6::ConfigGui
+    KF6::ConfigWidgets
+    KF6::XmlGui
 )
 
 ecm_generate_headers(KIOFileWidgets_HEADERS

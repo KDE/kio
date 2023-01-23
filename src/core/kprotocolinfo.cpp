@@ -129,10 +129,6 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
 
     m_capabilities = json.value(QStringLiteral("Capabilities")).toVariant().toStringList();
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-    m_slaveHandlesNotify = json.value(QStringLiteral("slaveHandlesNotify")).toVariant().toStringList();
-#endif
-
     m_proxyProtocol = json.value(QStringLiteral("ProxiedBy")).toString();
 }
 
@@ -181,20 +177,6 @@ QString KProtocolInfo::config(const QString &_protocol)
 
     return QStringLiteral("kio_%1rc").arg(prot->m_config);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-int KProtocolInfo::maxSlaves(const QString &_protocol)
-{
-    return maxWorkers(_protocol);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-int KProtocolInfo::maxSlavesPerHost(const QString &_protocol)
-{
-    return maxWorkersPerHost(_protocol);
-}
-#endif
 
 int KProtocolInfo::maxWorkers(const QString &_protocol)
 {
@@ -303,18 +285,6 @@ QStringList KProtocolInfo::archiveMimetypes(const QString &protocol)
 
     return prot->m_archiveMimeTypes;
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-QStringList KProtocolInfo::slaveHandlesNotify(const QString &_protocol)
-{
-    KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
-    if (!prot) {
-        return QStringList();
-    }
-
-    return prot->m_slaveHandlesNotify;
-}
-#endif
 
 QString KProtocolInfo::proxiedBy(const QString &_protocol)
 {

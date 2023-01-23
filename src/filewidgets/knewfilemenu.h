@@ -48,27 +48,6 @@ class KIOFILEWIDGETS_EXPORT KNewFileMenu : public KActionMenu
 {
     Q_OBJECT
 public:
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
-    /**
-     * Constructor.
-     * @param collection the KActionCollection the QAction with name @p name should be added to.
-     * @param name action name, when adding the action to @p collection
-     * @param parent the parent object, for ownership.
-     * If the parent object is a widget, it will also used as parent widget
-     * for any dialogs that this class might show. Otherwise, call setParentWidget.
-     * @note If you want the "Create directory..." action shortcut to show up next to its text,
-     *       make sure to have an action with name "create_dir" (and shortcut set) in @p collection.
-     *       This will only work with KIO >= 5.27.
-     *       From KIO >= 5.53, an action named "create_file" (and shortcut set) in @p collection
-     *       will be linked to the creation of the first file template (either from XDG_TEMPLATES_DIR
-     *       or from :/kio5/newfile-templates)
-     * @deprecated since 5.100, use KNewFileMenu(QObject *) instead. To associate the action shortcuts use
-     * setNewFileShortcutAction() and setNewFolderShortcutAction()
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "Use KNewFileMenu(QObject *)")
-    KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent);
-#endif
-
     /**
      * Constructor.
      *

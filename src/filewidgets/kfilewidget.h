@@ -359,16 +359,6 @@ public:
      */
     KFileFilterCombo *filterWidget() const;
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
-    /**
-     * @returns a pointer to the action collection, holding all the used
-     * KActions.
-     * @deprecated since 5.100, no known users.
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "No known users")
-    KActionCollection *actionCollection() const;
-#endif
-
     /**
      * This method implements the logic to determine the user's default directory
      * to be listed. E.g. the documents directory, home directory or a recently

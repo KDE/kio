@@ -17,7 +17,3 @@ if (NOT WIN32)
                     COMMAND ${CMAKE_COMMAND} -E create_symlink ../../../kcm_webshortcuts.so ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_webshortcuts.so DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
 endif()
-
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
-  install(FILES webshortcuts.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
-endif()

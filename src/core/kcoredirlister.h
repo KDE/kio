@@ -58,9 +58,6 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
 
     Q_OBJECT
     Q_PROPERTY(bool autoUpdate READ autoUpdate WRITE setAutoUpdate)
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-    Q_PROPERTY(bool showingDotFiles READ showingDotFiles WRITE setShowingDotFiles)
-#endif
     Q_PROPERTY(bool showHiddenFiles READ showHiddenFiles WRITE setShowHiddenFiles)
     Q_PROPERTY(bool dirOnlyMode READ dirOnlyMode WRITE setDirOnlyMode)
     Q_PROPERTY(bool delayedMimeTypes READ delayedMimeTypes WRITE setDelayedMimeTypes)
@@ -189,21 +186,6 @@ public:
      */
     virtual void setAutoUpdate(bool enable); // TODO KF6: remove virtual
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-    /**
-     * Checks whether hidden files (files whose name start with '.') will be shown.
-     * By default this option is disabled (hidden files are not shown).
-     *
-     * @return @c true if dot files are shown, @c false otherwise
-     *
-     * @deprecated since 5.100, use showHiddenFiles instead.
-     *
-     * @see setShowingDotFiles()
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 100, "Use showHiddenFiles instead.")
-    bool showingDotFiles() const;
-#endif
-
     /**
      * Checks whether hidden files (e.g. files whose name start with '.' on Unix) will be shown.
      * By default this option is disabled (hidden files are not shown).
@@ -214,24 +196,6 @@ public:
      * @since 5.100
      */
     bool showHiddenFiles() const;
-
-    // Not _ENABLED_ because this is a virtual method
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    /**
-     * Toggles whether hidden files (files whose name start with '.') are shown, by default
-     * hidden files are not shown.
-     *
-     * You need to call emitChanges() afterwards.
-     *
-     * @param showDotFiles set to @c true/false to show/hide hidden files respectively
-     *
-     * @deprecated since 5.100, use setShowHiddenFiles() instead.
-     *
-     * @see showingDotFiles()
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 100, "Use setShowHiddenFiles instead.")
-    virtual void setShowingDotFiles(bool showDotFiles);
-#endif
 
     /**
      * Toggles whether hidden files (e.g. files whose name start with '.' on Unix) are shown/
@@ -401,26 +365,6 @@ public:
      * @see matchesMimeFilter
      */
     virtual void setMimeFilter(const QStringList &mimeList); // TODO KF6: remove virtual
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    /**
-     * Filtering should be done with KFileFilter. This will be implemented in a later
-     * revision of KCoreDirLister. This method may be removed then.
-     *
-     * Set MIME type based exclude filter to only list items not matching the given MIME types
-     *
-     * NOTE: setting the filter does not automatically reload directory.
-     * Also calling this function will not affect any named filter already set.
-     *
-     * @param mimeList a list of MIME types
-     * @see clearMimeFilter
-     * @see matchesMimeFilter
-     * @internal
-     * @deprecated since 5.100, no known users.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 100, "No known users.")
-    void setMimeExcludeFilter(const QStringList &mimeList);
-#endif
 
     /**
      * Clears the MIME type based filter.
@@ -601,17 +545,6 @@ Q_SIGNALS:
      * @since 4.2
      */
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-    /**
-     * Send a list of items filtered-out by MIME type.
-     * @param items the list of filtered items
-     *
-     * @deprecated since 5.100, no known users.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 100, "No known users.")
-    void itemsFilteredByMime(const KFileItemList &items);
-#endif
 
     /**
      * Signal that items have been deleted

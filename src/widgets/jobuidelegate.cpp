@@ -354,30 +354,8 @@ int KIO::JobUiDelegate::requestMessageBox(KIO::JobUiDelegate::MessageBoxType typ
     KConfig config(QStringLiteral("kioslaverc"));
     KMessageBox::setDontShowAgainConfig(&config);
 
-#if KWIDGETSADDONS_BUILD_DEPRECATED_SINCE(5, 100)
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_DEPRECATED
-    KGuiItem primaryActionTextGui = KStandardGuiItem::yes();
-    KGuiItem secondaryActionTextGui = KStandardGuiItem::no();
-    QT_WARNING_POP
-
-    if (!primaryActionText.isEmpty()) {
-        primaryActionTextGui.setText(primaryActionText);
-    }
-    if (!primaryActionIconName.isNull()) {
-        primaryActionTextGui.setIconName(primaryActionIconName);
-    }
-
-    if (!secondaryActionText.isEmpty()) {
-        secondaryActionTextGui.setText(secondaryActionText);
-    }
-    if (!secondaryActionIconName.isNull()) {
-        secondaryActionTextGui.setIconName(secondaryActionIconName);
-    }
-#else
     KGuiItem primaryActionTextGui(primaryActionText, primaryActionIconName);
     KGuiItem secondaryActionTextGui(secondaryActionText, secondaryActionIconName);
-#endif
 
     KMessageBox::Options options(KMessageBox::Notify | KMessageBox::WindowModal);
 

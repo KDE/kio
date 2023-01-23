@@ -356,13 +356,6 @@ void TransferJobPrivate::slotSubUrlData(KIO::Job *, const QByteArray &data)
     internalResume(); // Activate ourselves again.
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void TransferJob::slotMetaData(const KIO::MetaData &_metaData)
-{
-    SimpleJob::slotMetaData(_metaData);
-}
-#endif
-
 void TransferJobPrivate::slotDataReqFromDevice()
 {
     Q_Q(TransferJob);

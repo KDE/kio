@@ -637,33 +637,6 @@ public:
      */
     static void reparseConfiguration();
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Return the protocol to use in order to handle the given @p url
-     * It's usually the same, except that FTP, when handled by a proxy,
-     * needs an HTTP ioslave.
-     *
-     * When a proxy is to be used, proxy contains the URL for the proxy.
-     * @param url the url to check
-     * @param proxy the URL of the proxy to use
-     * @return the slave protocol (e.g. 'http'), can be null if unknown
-     *
-     * @deprecated Since 5.101, use workerProtocol(const QUrl &, QString &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use workerProtocol(const QUrl &, QString &)") QString slaveProtocol(const QUrl &url, QString &proxy);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Overloaded function that returns a list of all available proxy servers.
-     *
-     * @since 4.7
-     *
-     * @deprecated Since 5.101, use workerProtocol(const QUrl &, QStringList &)
-     */
-    static KIOCORE_DEPRECATED_VERSION(5, 101, "Use workerProtocol(const QUrl &, QStringList &)") QString slaveProtocol(const QUrl &url, QStringList &proxy);
-#endif
-
     /**
      * Return the protocol to use in order to handle the given @p url
      * It's usually the same, except that FTP, when handled by a proxy,

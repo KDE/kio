@@ -113,20 +113,6 @@ protected Q_SLOTS:
     virtual void slotMetaData(const KIO::MetaData &_metaData);
 
 protected:
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 101)
-    /**
-     * Allow jobs that inherit SimpleJob and are aware
-     * of redirections to store the SSL session used.
-     * Retrieval is handled by SimpleJob::start
-     * @param m_redirectionURL Reference to redirection URL,
-     * used instead of m_url if not empty
-     *
-     * @deprecated Since 4.3, this is a no-op.
-     */
-    KIOCORE_DEPRECATED_VERSION_BELATED(5, 101, 4, 3, "A no-op method now.")
-    void storeSSLSessionFromJob(const QUrl &m_redirectionURL);
-#endif
-
     /**
      * Creates a new simple job. You don't need to use this constructor,
      * unless you create a new job that inherits from SimpleJob.

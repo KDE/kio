@@ -170,13 +170,6 @@ void StatJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void StatJob::slotMetaData(const KIO::MetaData &_metaData)
-{
-    SimpleJob::slotMetaData(_metaData);
-}
-#endif
-
 StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 {
     // Assume sideIsSource. Gets are more common than puts.

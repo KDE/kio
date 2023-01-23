@@ -372,37 +372,11 @@ public:
      */
     void setCurrentItems(const KFileItemList &items);
 
-    // Not _ENABLED_ because this is a virtual method
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    /**
-     * Sets a new view to be used for showing and browsing files.
-     * Note: this will read the current url() to fill the view.
-     *
-     * @see KFileTreeView
-     * @see view
-     *
-     * @deprecated since 5.100, no known users.
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "No known users.")
-    virtual void setView(QAbstractItemView *view);
-#endif
-
     /**
      * @returns the currently used view.
      * @see setView
      */
     QAbstractItemView *view() const;
-
-    // Not _ENABLED_ because this is a virtual method
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    /**
-     * Sets one of the predefined fileviews.
-     * @see KFile::FileView
-     * @deprecated Since 5.100, use setViewMode(KFile::FileView).
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION_BELATED(5, 103, 5, 100, "Use setViewMode(KFile::FileView)")
-    virtual void setView(KFile::FileView viewKind);
-#endif
 
     /**
      * Set the view mode to one of the predefined modes.
@@ -512,54 +486,6 @@ public:
      * called from makeCompletion() or makeDirCompletion()
      */
     KCompletion *dirCompletionObject() const;
-
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 100)
-    /**
-     * an accessor to a collection of all available Actions. The actions
-     * are static, they will be there all the time (no need to connect to
-     * the signals KActionCollection::inserted() or removed().
-     *
-     * There are the following actions:
-     *
-     * @li popupMenu : an ActionMenu presenting a popupmenu with all actions
-     * @li up : changes to the parent directory
-     * @li back : goes back to the previous directory
-     * @li forward : goes forward in the history
-     * @li home : changes to the user's home directory
-     * @li reload : reloads the current directory
-     * @li mkdir : opens a dialog box to create a directory
-     * @li delete : deletes the selected files/directories
-     * @li sorting menu : an ActionMenu containing all sort-options
-     * @li by name : sorts by name
-     * @li by size : sorts by size
-     * @li by date : sorts by date
-     * @li by type : sorts by type
-     * @li descending : reverses the sort order
-     * @li view menu : an ActionMenu containing all actions concerning the view
-     * @li short view : shows a simple fileview
-     * @li detailed view : shows a detailed fileview (dates, permissions ,...)
-     * @li show hidden : shows hidden files
-     * @li preview  : shows a preview next to the fileview
-     * @li properties : shows a KPropertiesDialog for the selected files
-     *
-     * The short and detailed view are in an exclusive group. The sort-by
-     * actions are in an exclusive group as well. Also the "separate dirs",
-     * "preview" and "single" actions are in an exclusive group.
-     *
-     * You can e.g. use
-     * \code
-     * actionCollection()->action( "up" )->plug( someToolBar );
-     * \endcode
-     * to add a button into a toolbar, which makes the dirOperator change to
-     * its parent directory.
-     *
-     * @returns all available Actions
-     *
-     * @deprecated since 5.100, use action() or allActions() instead.
-     */
-    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 100, "Use action() or allActions() instead")
-    KActionCollection *actionCollection() const;
-#endif
 
     /**
      * Obtain a given action from the KDirOperator's set of actions.

@@ -34,9 +34,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kabstractfileitemactionplugin.cpp
   koverlayiconplugin.cpp
   kurlrequester.cpp
-  thumbsequencecreator.cpp
-  thumbdevicepixelratiodependentcreator.cpp
-  thumbcreator.cpp
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
@@ -114,7 +111,7 @@ ecm_generate_export_header(KF6KIOWidgets
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 5.0 5.101 5.102
+    DEPRECATION_VERSIONS 5.0
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 # TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
@@ -183,9 +180,6 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   AccessManager
   DeleteOrTrashJob
   SslUi
-  ThumbSequenceCreator
-  ThumbDevicePixelRatioDependentCreator
-  ThumbCreator
   DropJob
   DndPopupMenuPlugin
   OpenFileManagerWindowJob
@@ -220,10 +214,6 @@ install(FILES
   ${KIOWidgets_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
-
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
-  install(FILES konqpopupmenuplugin.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR})
-endif()
 
 # make available to ecm_add_qch in parent folder
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)

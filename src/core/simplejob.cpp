@@ -215,10 +215,8 @@ void SimpleJob::slotFinished()
                 QUrl dst;
                 QDataStream str(d->m_packedArgs);
                 str >> src >> dst;
-                if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't renaming. Only renaming is.
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-                    && !KProtocolInfo::slaveHandlesNotify(dst.scheme()).contains(QLatin1String("Rename"))
-#endif
+                if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't
+                                                                                             // renaming. Only renaming is.
                 ) {
 #ifndef KIO_ANDROID_STUB
                     org::kde::KDirNotify::emitFileRenamed(src, dst);
@@ -319,13 +317,6 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
         Scheduler::updateInternalMetaData(this);
     }
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void SimpleJob::storeSSLSessionFromJob(const QUrl &redirectionURL)
-{
-    Q_UNUSED(redirectionURL);
-}
-#endif
 
 void SimpleJobPrivate::slotPrivilegeOperationRequested()
 {

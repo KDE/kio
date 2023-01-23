@@ -233,13 +233,6 @@ void ListJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void ListJob::slotMetaData(const KIO::MetaData &_metaData)
-{
-    SimpleJob::slotMetaData(_metaData);
-}
-#endif
-
 ListJob *KIO::listDir(const QUrl &url, JobFlags flags, bool includeHidden)
 {
     return ListJobPrivate::newJob(url, false, QString(), QString(), includeHidden, flags);

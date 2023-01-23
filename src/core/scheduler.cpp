@@ -616,36 +616,15 @@ void Scheduler::jobFinished(KIO::SimpleJob *job, KIO::Slave *slave)
     schedulerPrivate()->jobFinished(job, slave);
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void Scheduler::putSlaveOnHold(KIO::SimpleJob *job, const QUrl &url)
-{
-    schedulerPrivate()->putSlaveOnHold(job, url);
-}
-#endif
-
 void Scheduler::putWorkerOnHold(KIO::SimpleJob *job, const QUrl &url)
 {
     schedulerPrivate()->putSlaveOnHold(job, url);
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-void Scheduler::removeSlaveOnHold()
-{
-    schedulerPrivate()->removeSlaveOnHold();
-}
-#endif
-
 void Scheduler::removeWorkerOnHold()
 {
     schedulerPrivate()->removeSlaveOnHold();
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101)
-bool Scheduler::isSlaveOnHoldFor(const QUrl &url)
-{
-    return schedulerPrivate()->isSlaveOnHoldFor(url);
-}
-#endif
 
 bool Scheduler::isWorkerOnHoldFor(const QUrl &url)
 {
@@ -656,34 +635,6 @@ void Scheduler::updateInternalMetaData(SimpleJob *job)
 {
     schedulerPrivate()->updateInternalMetaData(job);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-bool Scheduler::connect(const char *signal, const QObject *receiver, const char *member)
-{
-    return QObject::connect(self(), signal, receiver, member);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-bool Scheduler::connect(const QObject *sender, const char *signal, const QObject *receiver, const char *member)
-{
-    return QObject::connect(sender, signal, receiver, member);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-bool Scheduler::disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *member)
-{
-    return QObject::disconnect(sender, signal, receiver, member);
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
-bool Scheduler::connect(const QObject *sender, const char *signal, const char *member)
-{
-    return QObject::connect(sender, signal, member);
-}
-#endif
 
 void Scheduler::emitReparseSlaveConfiguration()
 {

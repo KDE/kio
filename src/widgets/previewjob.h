@@ -69,59 +69,6 @@ public:
 
     ~PreviewJob() override;
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
-    /**
-     * Sets the size of the MIME-type icon which overlays the preview. If zero
-     * is passed no overlay will be shown at all. The setting has no effect if
-     * the preview plugin that will be used does not use icon overlays. Per
-     * default the size is set to 0.
-     * @since 4.7
-     *
-     * @deprecated since 5.102, not implemented.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 102, "Not implemented")
-    void setOverlayIconSize(int size);
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
-    /**
-     * @return The size of the MIME-type icon which overlays the preview.
-     * @see PreviewJob::setOverlayIconSize()
-     * @since 4.7
-     *
-     * @deprecated since 5.102, not implemented.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 102, "Not implemented")
-    int overlayIconSize() const;
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
-    /**
-     * Sets the alpha-value for the MIME-type icon which overlays the preview.
-     * The alpha-value may range from 0 (= fully transparent) to 255 (= opaque).
-     * Per default the value is set to 70.
-     * @see PreviewJob::setOverlayIconSize()
-     * @since 4.7
-     *
-     * @deprecated since 5.102, not implemented.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 102, "Not implemented")
-    void setOverlayIconAlpha(int alpha);
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 102)
-    /**
-     * @return The alpha-value for the MIME-type icon which overlays the preview.
-     *         Per default 70 is returned.
-     * @see PreviewJob::setOverlayIconAlpha()
-     * @since 4.7
-     *
-     * @deprecated since 5.102, not implemented.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 102, "Not implemented")
-    int overlayIconAlpha() const;
-#endif
-
     /**
      * Sets the scale type for the generated preview. Per default
      * PreviewJob::ScaledAndCached is set.

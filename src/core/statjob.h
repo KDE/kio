@@ -113,9 +113,6 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     void slotFinished() override;
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 101) // override no longer needed
-    void slotMetaData(const KIO::MetaData &_metaData) override;
-#endif
 
 protected:
     StatJob(StatJobPrivate &dd);
@@ -159,86 +156,6 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  */
 KIOCORE_EXPORT StatJob *
 statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
-/**
- * Find all details for one file or directory.
- * This version of the call includes two additional booleans, @p sideIsSource and @p details.
- *
- * @param url the URL of the file
- * @param side is SourceSide when stating a source file (we will do a get on it if
- * the stat works) and DestinationSide when stating a destination file (target of a copy).
- * The reason for this parameter is that in some cases the KIO worker might not
- * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
- * has issues with case-sensitivity on some systems).
- * When the worker can't reliably determine the existence of a file, it will:
- * @li be optimistic if SourceSide, i.e. it will assume the file exists,
- * and if it doesn't this will appear when actually trying to download it
- * @li be pessimistic if DestinationSide, i.e. it will assume the file
- * doesn't exist, to prevent showing "about to overwrite" errors to the user.
- * If you simply want to check for existence without downloading/uploading afterwards,
- * then you should use DestinationSide.
- *
- * @param details selects the level of details we want.
- * By default this is 2 (all details wanted, including modification time, size, etc.),
- * setDetails(1) is used when deleting: we don't need all the information if it takes
- * too much time, no need to follow symlinks etc.
- * setDetails(0) is used for very simple probing: we'll only get the answer
- * "it's a file or a directory or a symlink, or it doesn't exist". This is used by KRun and DeleteJob.
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
- * @deprecated since 5.69, use statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)
- */
-KIOCORE_EXPORT
-KIOCORE_DEPRECATED_VERSION(5, 69, "Use KIO::statDetails(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)")
-StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, short int details, JobFlags flags = DefaultFlags);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 69)
-/**
- * Converts the legacy stat details int to a StatDetail Flag
- * @param details @see setDetails()
- * @since 5.69
- * @deprecated since 5.69, use directly KIO::StatDetails
- */
-KIOCORE_EXPORT
-KIOCORE_DEPRECATED_VERSION(5, 69, "Use directly KIO::StatDetails")
-KIO::StatDetails detailsToStatDetails(int details);
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(4, 0)
-/**
- * Find all details for one file or directory.
- * This version of the call includes two additional booleans, @p sideIsSource and @p details.
- *
- * @param url the URL of the file
- * @param sideIsSource is true when stating a source file (we will do a get on it if
- * the stat works) and false when stating a destination file (target of a copy).
- * The reason for this parameter is that in some cases the KIO worker might not
- * be able to determine a file's existence (e.g. HTTP doesn't allow it, FTP
- * has issues with case-sensitivity on some systems).
- * When the worker can't reliably determine the existence of a file, it will:
- * @li be optimistic if sideIsSource=true, i.e. it will assume the file exists,
- * and if it doesn't this will appear when actually trying to download it
- * @li be pessimistic if sideIsSource=false, i.e. it will assume the file
- * doesn't exist, to prevent showing "about to overwrite" errors to the user.
- * If you simply want to check for existence without downloading/uploading afterwards,
- * then you should use sideIsSource=false.
- *
- * @param details selects the level of details we want.
- * By default this is 2 (all details wanted, including modification time, size, etc.),
- * setDetails(1) is used when deleting: we don't need all the information if it takes
- * too much time, no need to follow symlinks etc.
- * setDetails(0) is used for very simple probing: we'll only get the answer
- * "it's a file or a directory, or it doesn't exist". This is used by KRun.
- * @param flags Can be HideProgressInfo here
- * @return the job handling the operation.
- * @deprecated Since 4.0, use stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)
- */
-KIOCORE_EXPORT
-KIOCORE_DEPRECATED_VERSION(4, 0, "Use KIO::stat(const QUrl &, KIO::StatJob::StatSide, short int, JobFlags)")
-StatJob *stat(const QUrl &url, bool sideIsSource, short int details, JobFlags flags = DefaultFlags);
-#endif
 
 /**
  * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for

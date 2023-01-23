@@ -38,10 +38,6 @@
 #include <kurlauthorized.h>
 #include <kurlcompletion.h>
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-#include <KActionCollection>
-#endif
-
 #include <KActionMenu>
 #include <KConfigGroup>
 #include <KDirLister>
@@ -378,15 +374,10 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     d->m_url = getStartUrl(startDir, d->m_fileClass, filename);
     startDir = d->m_url;
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    KActionCollection *coll = d->m_ops->actionCollection();
-    coll->addAssociatedWidget(this);
-#else
     const auto operatorActions = d->m_ops->allActions();
     for (QAction *action : operatorActions) {
         addAction(action);
     }
-#endif
 
     QAction *goToNavigatorAction = new QAction(this);
 
@@ -396,11 +387,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
 
     goToNavigatorAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_L));
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("gotonavigator"), goToNavigatorAction);
-#else
     addAction(goToNavigatorAction);
-#endif
 
     KUrlComboBox *pathCombo = d->m_urlNavigator->editor();
     KUrlCompletion *pathCompletionObj = new KUrlCompletion(KUrlCompletion::DirCompletion);
@@ -1259,10 +1246,6 @@ void KFileWidgetPrivate::initZoomWidget()
         slotDirOpIconSizeChanged(iconSize);
     });
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    KActionCollection *coll = m_ops->actionCollection();
-#endif
-
     m_zoomOutAction = KStandardAction::create(
         KStandardAction::ZoomOut,
         q,
@@ -1271,11 +1254,7 @@ void KFileWidgetPrivate::initZoomWidget()
         },
         q);
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("zoom_out"), m_zoomOutAction);
-#else
     q->addAction(m_zoomOutAction);
-#endif
 
     m_zoomInAction = KStandardAction::create(
         KStandardAction::ZoomIn,
@@ -1285,11 +1264,7 @@ void KFileWidgetPrivate::initZoomWidget()
         },
         q);
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("zoom_in"), m_zoomInAction);
-#else
     q->addAction(m_zoomInAction);
-#endif
 }
 
 void KFileWidgetPrivate::initToolbar()
@@ -1306,10 +1281,6 @@ void KFileWidgetPrivate::initToolbar()
     //
     // http://lists.kde.org/?l=kde-core-devel&m=116888382514090&w=2
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    KActionCollection *coll = m_ops->actionCollection();
-#endif
-
     m_ops->action(KDirOperator::Up)
         ->setWhatsThis(i18n("<qt>Click this button to enter the parent folder.<br /><br />"
                             "For instance, if the current location is file:/home/konqi clicking this "
@@ -1323,33 +1294,21 @@ void KFileWidgetPrivate::initToolbar()
     m_ops->action(KDirOperator::NewFolder)->setWhatsThis(i18n("Click this button to create a new folder."));
 
     m_togglePlacesPanelAction = new KToggleAction(i18n("Show Places Panel"), q);
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("togglePlacesPanel"), m_togglePlacesPanelAction);
-#else
     q->addAction(m_togglePlacesPanelAction);
-#endif
     m_togglePlacesPanelAction->setShortcut(QKeySequence(Qt::Key_F9));
     q->connect(m_togglePlacesPanelAction, &QAction::toggled, q, [this](bool show) {
         togglePlacesPanel(show);
     });
 
     m_toggleBookmarksAction = new KToggleAction(i18n("Show Bookmarks Button"), q);
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("toggleBookmarks"), m_toggleBookmarksAction);
-#else
     q->addAction(m_toggleBookmarksAction);
-#endif
     q->connect(m_toggleBookmarksAction, &QAction::toggled, q, [this](bool show) {
         toggleBookmarks(show);
     });
 
     // Build the settings menu
     KActionMenu *menu = new KActionMenu(QIcon::fromTheme(QStringLiteral("configure")), i18n("Options"), q);
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("extra menu"), menu);
-#else
     q->addAction(menu);
-#endif
     menu->setWhatsThis(
         i18n("<qt>This is the preferences menu for the file dialog. "
              "Various options can be accessed from this menu including: <ul>"
@@ -1372,11 +1331,7 @@ void KFileWidgetPrivate::initToolbar()
 
     m_bookmarkButton = new KActionMenu(QIcon::fromTheme(QStringLiteral("bookmarks")), i18n("Bookmarks"), q);
     m_bookmarkButton->setPopupMode(QToolButton::InstantPopup);
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    coll->addAction(QStringLiteral("bookmark"), m_bookmarkButton);
-#else
     q->addAction(m_bookmarkButton);
-#endif
     m_bookmarkButton->setWhatsThis(
         i18n("<qt>This button allows you to bookmark specific locations. "
              "Click on this button to open the bookmark menu where you may add, "
@@ -2709,13 +2664,6 @@ KFileFilterCombo *KFileWidget::filterWidget() const
 {
     return d->m_filterWidget;
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-KActionCollection *KFileWidget::actionCollection() const
-{
-    return d->m_ops->actionCollection();
-}
-#endif
 
 void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
 {

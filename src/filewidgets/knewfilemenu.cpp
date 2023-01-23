@@ -24,9 +24,6 @@
 #include <kprotocolmanager.h>
 #include <kurifilter.h>
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-#include <KActionCollection>
-#endif
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KDirOperator>
@@ -352,9 +349,6 @@ public:
      */
     void initDialog();
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-    KActionCollection *m_actionCollection = nullptr;
-#endif
     QAction *m_newFolderShortcutAction = nullptr;
     QAction *m_newFileShortcutAction = nullptr;
 
@@ -739,12 +733,6 @@ void KNewFileMenuPrivate::fillMenu()
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
 
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-                    if (m_actionCollection) {
-                        m_newFolderShortcutAction = m_actionCollection->action(QStringLiteral("create_dir"));
-                    }
-#endif
-
                     // If there is a shortcut action copy its shortcut
                     if (m_newFolderShortcutAction) {
                         act->setShortcuts(m_newFolderShortcutAction->shortcuts());
@@ -818,12 +806,6 @@ void KNewFileMenuPrivate::fillMenu()
                     } else {
                         if (!m_firstFileEntry) {
                             m_firstFileEntry = &entry;
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-                            if (m_actionCollection) {
-                                m_newFileShortcutAction = m_actionCollection->action(QStringLiteral("create_file"));
-                            }
-#endif
 
                             // If there is a shortcut action copy its shortcut
                             if (m_newFileShortcutAction) {
@@ -1376,29 +1358,6 @@ void KNewFileMenuPrivate::slotUrlDesktopFile()
 
     executeStrategy();
 }
-
-#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 100)
-KNewFileMenu::KNewFileMenu(KActionCollection *collection, const QString &name, QObject *parent)
-    : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
-    , d(std::make_unique<KNewFileMenuPrivate>(this))
-{
-    // Don't fill the menu yet
-    // We'll do that in checkUpToDate (should be connected to aboutToShow)
-    d->m_newMenuGroup = new QActionGroup(this);
-    connect(d->m_newMenuGroup, &QActionGroup::triggered, this, [this](QAction *action) {
-        d->slotActionTriggered(action);
-    });
-    d->m_parentWidget = qobject_cast<QWidget *>(parent);
-    d->m_newDirAction = nullptr;
-
-    if (collection) {
-        collection->addAction(name, this);
-        d->m_actionCollection = collection;
-    }
-
-    d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
-}
-#endif
 
 KNewFileMenu::KNewFileMenu(QObject *parent)
     : KActionMenu(QIcon::fromTheme(QStringLiteral("document-new")), i18n("Create New"), parent)
