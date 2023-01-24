@@ -207,6 +207,7 @@ PUBLIC
  Qt6::Network
 PRIVATE
  Qt6::Xml # davjob.cpp uses QDom
+ Qt6::Concurrent
  KF6::ConfigCore
  KF6::I18n
 )
@@ -220,12 +221,6 @@ if (TARGET Qt6::DBus)
     PUBLIC
         Qt6::DBus
     )
-endif()
-
-if(KIO_NO_PUBLIC_QTCONCURRENT)
-  target_link_libraries(KF6KIOCore PRIVATE Qt6::Concurrent) # QtConcurrentRun in hostinfo.cpp
-else()
-  target_link_libraries(KF6KIOCore PUBLIC Qt6::Concurrent) # TODO KF6: remove
 endif()
 
 if (TARGET KF6::AuthCore)
