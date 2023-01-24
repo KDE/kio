@@ -26,7 +26,7 @@ ecm_qt_declare_logging_category(kio_trash_PART_DEBUG_SRCS
     DESCRIPTION "kio trash (KIO)"
     EXPORT KIO
 )
-kcoreaddons_add_plugin(kio_trash INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_trash INSTALL_NAMESPACE "kf6/kio")
 
 if(WIN32)
     target_sources(kio_trash PRIVATE
@@ -54,8 +54,8 @@ target_link_libraries(kio_trash
   KF6::ConfigCore
   KF6::Solid
   KF6::KIOCore
-  Qt${QT_MAJOR_VERSION}::DBus
-  Qt${QT_MAJOR_VERSION}::Network
+  Qt6::DBus
+  Qt6::Network
   KF6::I18n
   KF6::ConfigCore
 )
@@ -92,7 +92,7 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
     )
     target_link_libraries(kcm_trash
        trash_common_unix
-       Qt${QT_MAJOR_VERSION}::DBus
+       Qt6::DBus
        KF6::I18n
        KF6::ConfigWidgets
        KF6::KIOCore

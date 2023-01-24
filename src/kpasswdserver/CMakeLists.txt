@@ -16,7 +16,7 @@ if(BUILD_TESTING)
 endif()
 
 kcoreaddons_add_plugin(kiod_kpasswdserver
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kiod"
+    INSTALL_NAMESPACE "kf6/kiod"
 )
 set_target_properties(kiod_kpasswdserver PROPERTIES
     OUTPUT_NAME kpasswdserver
@@ -41,7 +41,7 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kiod_kpasswdserver
    KF6::DBusAddons    # KDED Module
-   Qt${QT_MAJOR_VERSION}::DBus
+   Qt6::DBus
    KF6::KIOCore
    KF6::WidgetsAddons # KPasswordDialog
    KF6::I18n

@@ -14,7 +14,7 @@ set_target_properties(KF6KIOWidgets PROPERTIES
 )
 
 set(kiowidgets_dbus_SRCS)
-if(TARGET Qt${QT_MAJOR_VERSION}::DBus)
+if(TARGET Qt6::DBus)
     qt_add_dbus_adaptor(kiowidgets_dbus_SRCS org.kde.kio.FileUndoManager.xml fileundomanager_p.h KIO::FileUndoManagerPrivate fileundomanager_adaptor KIOFileUndoManagerAdaptor)
     qt_add_dbus_interface(kiowidgets_dbus_SRCS org.kde.kuiserver.xml kuiserver_interface)
 endif()
@@ -126,21 +126,21 @@ target_link_libraries(KF6KIOWidgets
     KF6::JobWidgets
     KF6::Service
     KF6::Solid
-    Qt${QT_MAJOR_VERSION}::Network  # SSL
+    Qt6::Network  # SSL
     KF6::Completion    # KUrlCompletion uses KCompletion
     KF6::WidgetsAddons # keditlistwidget
   PRIVATE
-    Qt${QT_MAJOR_VERSION}::Concurrent
+    Qt6::Concurrent
     KF6::I18n
     KF6::GuiAddons # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::WindowSystem # KStartupInfo
     KF6::ConfigWidgets # KColorScheme
 )
-if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
+if (TARGET Qt6::DBus)
     target_link_libraries(KF6KIOWidgets
         PRIVATE
-            Qt${QT_MAJOR_VERSION}::DBus
+            Qt6::DBus
     )
 endif()
 

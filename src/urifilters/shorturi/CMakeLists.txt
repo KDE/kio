@@ -1,5 +1,5 @@
 kcoreaddons_add_plugin(kshorturifilter
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
+    INSTALL_NAMESPACE "kf6/urifilters"
 )
 
 target_sources(kshorturifilter PRIVATE
@@ -15,7 +15,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kshorturifilter KF6::I18n KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::DBus)
+target_link_libraries(kshorturifilter KF6::I18n KF6::KIOWidgets Qt6::DBus)
 
 install( FILES kshorturifilterrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 

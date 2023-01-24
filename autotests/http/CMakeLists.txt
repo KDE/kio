@@ -1,5 +1,5 @@
-find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
-find_package(Qt${QT_MAJOR_VERSION}Widgets REQUIRED)
+find_package(Qt6Test REQUIRED)
+find_package(Qt6Widgets REQUIRED)
 find_package(KF6Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(ZLIB)
 set_package_properties(ZLIB PROPERTIES DESCRIPTION "Support for gzip compressed files and data streams"
@@ -13,18 +13,22 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}/../../src/kioworkers/http" "${k
 
 include(ECMAddTests)
 
-if (TARGET Qt6::Core5Compat)
-    set(_qt5_compat_libs Qt6::Core5Compat) # QTextCodec
-endif()
-
 ecm_add_test(httpheadertokenizetest.cpp
    NAME_PREFIX "kioworker-"
-   LINK_LIBRARIES KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Widgets ${_qt5_compat_libs}
+   LINK_LIBRARIES
+   KF6::I18n
+   Qt6::Test
+   Qt6::Widgets
+   Qt6::Core5Compat # QTextCodec
 )
 
 ecm_add_test(httpheaderdispositiontest.cpp
    NAME_PREFIX "kioworker-"
-   LINK_LIBRARIES KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Widgets ${_qt5_compat_libs}
+   LINK_LIBRARIES
+   KF6::I18n
+   Qt6::Test
+   Qt6::Widgets
+   Qt6::Core5Compat # QTextCodec
 )
 
 ecm_add_test(
@@ -34,10 +38,10 @@ ecm_add_test(
    TEST_NAME "httpauthenticationtest"
    NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
-   Qt${QT_MAJOR_VERSION}::Test
-   Qt${QT_MAJOR_VERSION}::Network
-   Qt${QT_MAJOR_VERSION}::Widgets
-   ${_qt5_compat_libs}
+   Qt6::Test
+   Qt6::Network
+   Qt6::Widgets
+   Qt6::Core5Compat
    KF6::I18n
    KF6::ConfigCore
    KF6::KIOCore
@@ -56,12 +60,12 @@ ecm_add_test(
    ${kioworker-http_SOURCE_DIR}/des.cpp
    TEST_NAME "httpobjecttest" NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
-   Qt${QT_MAJOR_VERSION}::Test
-   Qt${QT_MAJOR_VERSION}::DBus
-   Qt${QT_MAJOR_VERSION}::Widgets
-   Qt${QT_MAJOR_VERSION}::Network # QLocalSocket
-   Qt${QT_MAJOR_VERSION}::Xml # QDomElement
-   ${_qt5_compat_libs}
+   Qt6::Test
+   Qt6::DBus
+   Qt6::Widgets
+   Qt6::Network # QLocalSocket
+   Qt6::Xml # QDomElement
+   Qt6::Core5Compat # QTextCodec
    KF6::I18n
    KF6::ConfigCore
    KF6::KIOCore
@@ -73,4 +77,4 @@ endif()
 
 ecm_add_test(httpfiltertest.cpp ${kioworker-http_SOURCE_DIR}/httpfilter.cpp
              TEST_NAME httpfiltertest
-             LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Test KF6::I18n KF6::Archive ZLIB::ZLIB)
+             LINK_LIBRARIES Qt6::Test KF6::I18n KF6::Archive ZLIB::ZLIB)

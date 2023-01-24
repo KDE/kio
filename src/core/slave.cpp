@@ -453,7 +453,7 @@ Slave *Slave::createSlave(const QString &protocol, const QUrl &url, int &error, 
     // qDebug() << "kioslave" << ", " << lib_path << ", " << protocol << ", " << QString() << ", " << slaveAddress;
 
     // search paths
-    QStringList searchPaths = KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf" QT_STRINGIFY(QT_VERSION_MAJOR)));
+    QStringList searchPaths = KLibexec::kdeFrameworksPaths(QStringLiteral("libexec/kf6"));
     searchPaths.append(QFile::decodeName(KDE_INSTALL_FULL_LIBEXECDIR_KF)); // look at our installation location
     QString kioslaveExecutable = QStandardPaths::findExecutable(QStringLiteral("kioslave5"), searchPaths);
     if (kioslaveExecutable.isEmpty()) {

@@ -16,7 +16,7 @@ ecm_add_test(
         KF6::WidgetsAddons
         KF6::WindowSystem
         KF6::I18n
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Test
+        Qt6::Core
+        Qt6::Test
         ${WALLET_LIB}
 )

@@ -535,15 +535,13 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     const KConfigGroup showGroup = m_config.group("Show");
 
     const QMimeDatabase db;
-    const auto jsonPlugins =
-        KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kfileitemaction"),
-                                     [&db, commonMimeType](const KPluginMetaData &metaData) {
-                                         auto mimeType = db.mimeTypeForName(commonMimeType);
-                                         const QStringList list = metaData.mimeTypes();
-                                         return std::any_of(list.constBegin(), list.constEnd(), [mimeType](const QString &supportedMimeType) {
-                                             return mimeType.inherits(supportedMimeType);
-                                         });
-                                     });
+    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData &metaData) {
+        auto mimeType = db.mimeTypeForName(commonMimeType);
+        const QStringList list = metaData.mimeTypes();
+        return std::any_of(list.constBegin(), list.constEnd(), [mimeType](const QString &supportedMimeType) {
+            return mimeType.inherits(supportedMimeType);
+        });
+    });
 
     for (const auto &jsonMetadata : jsonPlugins) {
         // The plugin has been disabled

@@ -76,7 +76,7 @@ target_link_libraries(KF6KIOGui
     KF6::KIOCore
     KF6::ConfigCore
     KF6::Service
-    Qt${QT_MAJOR_VERSION}::Gui
+    Qt6::Gui
   PRIVATE
     KF6::I18n
 )

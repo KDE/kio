@@ -24,9 +24,9 @@ target_link_libraries(kiod5
    KF6::KIOCore     # ksslcertificatemanager
    KF6::DBusAddons  # kdedmodule
    KF6::CoreAddons  # kpluginfactory
-   Qt${QT_MAJOR_VERSION}::Network
-   Qt${QT_MAJOR_VERSION}::DBus
-   Qt${QT_MAJOR_VERSION}::Widgets     # QApplication
+   Qt6::Network
+   Qt6::DBus
+   Qt6::Widgets     # QApplication
 )
 
 if (APPLE)

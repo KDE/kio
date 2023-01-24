@@ -3,7 +3,7 @@ add_executable(ktelnetservice5 ktelnetservice.cpp)
 ecm_mark_nongui_executable(ktelnetservice5)
 
 target_link_libraries(ktelnetservice5
-   Qt${QT_MAJOR_VERSION}::Widgets
+   Qt6::Widgets
    KF6::I18n
    KF6::KIOGui
 )

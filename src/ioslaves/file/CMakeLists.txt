@@ -1,6 +1,6 @@
 include(ConfigureChecks.cmake)
 
-kcoreaddons_add_plugin(kio_file INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_file INSTALL_NAMESPACE "kf6/kio")
 
 if(WIN32)
     target_sources(kio_file PRIVATE
@@ -28,10 +28,10 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_file KF6::KIOCore KF6::I18n KF6::ConfigCore Qt${QT_MAJOR_VERSION}::DBus Qt${QT_MAJOR_VERSION}::Network)
+target_link_libraries(kio_file KF6::KIOCore KF6::I18n KF6::ConfigCore Qt6::DBus Qt6::Network)
 
 if(UNIX)
-  target_link_libraries(kio_file Qt${QT_MAJOR_VERSION}::Network KF6::AuthCore)
+  target_link_libraries(kio_file Qt6::Network KF6::AuthCore)
 endif()
 
 if(ACL_FOUND)

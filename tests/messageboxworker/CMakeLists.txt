@@ -13,4 +13,4 @@ target_link_libraries(kiomessagebox
 )
 
 # Uncomment to deploy
-# install(TARGETS kiomessagebox DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)
+# install(TARGETS kiomessagebox DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)

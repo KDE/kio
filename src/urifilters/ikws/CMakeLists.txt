@@ -3,7 +3,7 @@ add_subdirectory(searchproviders)
 ####
 
 kcoreaddons_add_plugin(kuriikwsfilter
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
+    INSTALL_NAMESPACE "kf6/urifilters"
 )
 
 target_sources(kuriikwsfilter PRIVATE
@@ -32,7 +32,7 @@ target_link_libraries(kuriikwsfilter
         KF6::ConfigWidgets  # KCModule
         KF6::KIOWidgets     # KUriFilter
         KF6::I18n
-        Qt${QT_MAJOR_VERSION}::DBus
+        Qt6::DBus
 )
 
 if (TARGET Qt6::Core5Compat)
@@ -42,7 +42,7 @@ endif()
 #####
 
 kcoreaddons_add_plugin(kurisearchfilter
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
+    INSTALL_NAMESPACE "kf6/urifilters"
 )
 
 target_sources(kurisearchfilter PRIVATE
@@ -60,7 +60,7 @@ target_link_libraries(kurisearchfilter
    KF6::ConfigWidgets  # KCModule
    KF6::KIOWidgets     # KUriFilter
    KF6::I18n
-   Qt${QT_MAJOR_VERSION}::DBus
+   Qt6::DBus
 )
 
 ########### install files ###############

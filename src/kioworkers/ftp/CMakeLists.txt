@@ -2,7 +2,7 @@ include(ConfigureChecks.cmake)
 
 configure_file(config-kioworker-ftp.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kioworker-ftp.h )
 
-kcoreaddons_add_plugin(kio_ftp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_ftp INSTALL_NAMESPACE "kf6/kio")
 
 target_sources(kio_ftp PRIVATE
     ftp.cpp
@@ -17,4 +17,4 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kio_ftp Qt${QT_MAJOR_VERSION}::Network KF6::KIOCore KF6::I18n KF6::ConfigCore)
+target_link_libraries(kio_ftp Qt6::Network KF6::KIOCore KF6::I18n KF6::ConfigCore)

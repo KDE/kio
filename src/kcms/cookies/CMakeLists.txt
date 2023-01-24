@@ -17,8 +17,8 @@ ki18n_wrap_ui(kcm_cookies
 )
 
 target_link_libraries(kcm_cookies PRIVATE
-    Qt${QT_MAJOR_VERSION}::Widgets
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt6::Widgets
+    Qt6::DBus
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::I18n

@@ -11,7 +11,7 @@ ki18n_wrap_ui(kcm_proxy
 )
 
 target_link_libraries(kcm_proxy PRIVATE
-    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt6::Widgets
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::I18n

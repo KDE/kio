@@ -24,11 +24,11 @@ ecm_add_test(${testtrash_SRCS}
     LINK_LIBRARIES
         KF6::ConfigCore
         KF6::I18n
-        Qt${QT_MAJOR_VERSION}::DBus
+        Qt6::DBus
         KF6::KIOCore
         KF6::Solid
-        Qt${QT_MAJOR_VERSION}::Test
-        Qt${QT_MAJOR_VERSION}::Network
+        Qt6::Test
+        Qt6::Network
 )
 
 if(APPLE)
@@ -43,4 +43,4 @@ set_tests_properties(testtrash PROPERTIES RUN_SERIAL TRUE)
 add_executable(lockingtest lockingtest.cpp ../kinterprocesslock.cpp)
 ecm_mark_nongui_executable(lockingtest)
 
-target_link_libraries(lockingtest Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::DBus)
+target_link_libraries(lockingtest Qt6::Core Qt6::DBus)

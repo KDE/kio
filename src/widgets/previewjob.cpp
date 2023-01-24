@@ -171,7 +171,7 @@ public:
         if (!jsonMetaDataPlugins.isEmpty()) {
             return jsonMetaDataPlugins;
         }
-        jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/thumbcreator"));
+        jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
         std::set<QString> pluginIds;
         for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
             pluginIds.insert(data.pluginId());

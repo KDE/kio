@@ -35,8 +35,8 @@ target_sources(kio_http_cache_cleaner PRIVATE
 )
 
 target_link_libraries(kio_http_cache_cleaner
-   Qt${QT_MAJOR_VERSION}::DBus
-   Qt${QT_MAJOR_VERSION}::Network # QLocalSocket
+   Qt6::DBus
+   Qt6::Network # QLocalSocket
    KF6::KIOCore # KProtocolManager
    KF6::I18n)
 
@@ -45,7 +45,7 @@ install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} 
 ########### next target ###############
 
 # kio/httpfilter/Makefile.am: httpfilter
-kcoreaddons_add_plugin(kio_http INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_http INSTALL_NAMESPACE "kf6/kio")
 
 target_sources(kio_http PRIVATE
    http.cpp
@@ -82,9 +82,9 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kio_http
    PRIVATE
-   Qt${QT_MAJOR_VERSION}::DBus
-   Qt${QT_MAJOR_VERSION}::Network # QLocalSocket etc.
-   Qt${QT_MAJOR_VERSION}::Xml     # QDom
+   Qt6::DBus
+   Qt6::Network # QLocalSocket etc.
+   Qt6::Xml     # QDom
    KF6::ConfigCore
    KF6::KIOCore
    KF6::Archive

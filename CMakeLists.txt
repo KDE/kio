@@ -101,16 +101,12 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION "Provides tools to gen
                       )
 
 set(REQUIRED_QT_VERSION 6.4.0)
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
 if (NOT ANDROID)
-    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
+    find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
 endif()
 
-set(_qt6_core_compat_found FALSE)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
-    set(_qt6_core_compat_found ${Qt6Core5Compat_FOUND})
-endif()
+find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
 
 find_package(GSSAPI)
 set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
@@ -121,13 +117,6 @@ set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of 
 
 if (NOT APPLE AND NOT WIN32 AND NOT ANDROID)
     option(WITH_X11 "Build with X11 integration" ON)
-    if(WITH_X11)
-        if (QT_MAJOR_VERSION STREQUAL "5")
-            find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
-        else()
-            # qtx11extras_p.h is in Qt6Gui, which is implied by the find_package(QtWidgets) above
-        endif()
-    endif()
     set(HAVE_X11 ${WITH_X11})
 endif()
 

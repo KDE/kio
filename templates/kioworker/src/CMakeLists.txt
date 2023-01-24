@@ -22,7 +22,7 @@ target_link_libraries(%{APPNAMELC}
     KF6::I18n
 )
 
-install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)
+install(TARGETS %{APPNAMELC} DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
 
 ecm_qt_install_logging_categories(
     EXPORT %{APPNAMEUC}

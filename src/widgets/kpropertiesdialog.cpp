@@ -660,7 +660,7 @@ void KPropertiesDialogPrivate::insertPages()
 
         return metaData.mimeTypes().isEmpty() || metaData.supportsMimeType(mimetype);
     };
-    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/propertiesdialog"), filter);
+    const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/propertiesdialog"), filter);
     for (const auto &jsonMetadata : jsonPlugins) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KPropertiesDialogPlugin>(jsonMetadata, q).plugin) {
             q->insertPlugin(plugin);

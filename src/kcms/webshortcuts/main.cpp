@@ -48,7 +48,7 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
 
-    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/urifilters"));
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
     for (const KPluginMetaData &pluginMetaData : plugins) {
         if (auto factory = KPluginFactory::loadFactory(pluginMetaData).plugin) {
             KCModule *module = nullptr;

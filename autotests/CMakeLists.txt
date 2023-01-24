@@ -8,11 +8,11 @@ if(NOT ANDROID)
 endif()
 add_subdirectory(kcookiejar)
 
-find_package(Qt${QT_MAJOR_VERSION}Widgets REQUIRED)
+find_package(Qt6Widgets REQUIRED)
 
 ########### unittests ###############
 
-find_package(Qt${QT_MAJOR_VERSION}Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt6Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 if (ACL_FOUND)
     set (kacltest_SRC kacltest.cpp)
@@ -42,10 +42,10 @@ ecm_add_tests(
  krecentdocumenttest.cpp
  filefiltertest.cpp
  NAME_PREFIX "kiocore-"
- LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Xml
+ LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore Qt6::Test Qt6::Network Qt6::Xml
 )
 
-target_link_libraries(threadtest Qt${QT_MAJOR_VERSION}::Concurrent)
+target_link_libraries(threadtest Qt6::Concurrent)
 
 target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
 
@@ -58,7 +58,7 @@ ecm_add_test(
     httpserver_p.cpp
     TEST_NAME http_jobtest
     NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
 )
 
 # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
@@ -73,7 +73,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     ecm_add_tests(
         ftptest.cpp
         NAME_PREFIX "kiocore-"
-        LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+        LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
     )
 
     find_package(WsgidavExe)
@@ -84,7 +84,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     ecm_add_tests(
         webdavtest.cpp
         NAME_PREFIX "kiocore-"
-        LINK_LIBRARIES KF6::KIOCore Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+        LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
     )
 endif()
 
@@ -92,7 +92,7 @@ if(UNIX)
   ecm_add_tests(
     privilegejobtest.cpp
     NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
   )
 endif()
 
@@ -102,7 +102,7 @@ if (TARGET KF6::KIOGui)
     openurljobtest.cpp
     kemailclientlauncherjobtest.cpp
     NAME_PREFIX "kiogui-"
-    LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt${QT_MAJOR_VERSION}::Test
+    LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt6::Test
   )
 
   foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
@@ -119,7 +119,7 @@ if (TARGET KF6::KIOGui)
         set(KPR_TEST_TARGET ${_kprocessrunnerTest}_forkingtest)
       endif()
       add_executable(${KPR_TEST_TARGET} ${_kprocessrunnerTest}test.cpp)
-      target_link_libraries(${KPR_TEST_TARGET} KF6::WindowSystem KF6::KIOCore KF6::KIOGui Qt${QT_MAJOR_VERSION}::Test)
+      target_link_libraries(${KPR_TEST_TARGET} KF6::WindowSystem KF6::KIOCore KF6::KIOGui Qt6::Test)
       ecm_mark_as_test(${KPR_TEST_TARGET})
       add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
       set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT
@@ -127,7 +127,7 @@ if (TARGET KF6::KIOGui)
     endforeach()
   endforeach()
 
-  target_link_libraries(favicontest Qt${QT_MAJOR_VERSION}::Concurrent)
+  target_link_libraries(favicontest Qt6::Concurrent)
 endif()
 
 if (NOT ANDROID)
@@ -147,13 +147,13 @@ ecm_add_tests(
  accessmanagertest.cpp
  kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus
+ LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus
 )
 
 set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
 target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
 
-set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus)
+set(kurifiltertest_libs KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus)
 
 set(URIFILTER_COLON_TEST kiowidgets-kurifiltertest-colon-separator)
 ecm_add_test(kurifiltertest.cpp
@@ -175,7 +175,7 @@ ecm_add_test(
  accessmanagertest.cpp
  TEST_NAME accessmanagertest-qnam
  NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test
+ LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
 )
 set_target_properties(accessmanagertest-qnam PROPERTIES COMPILE_FLAGS "-DUSE_QNAM")
 
@@ -184,7 +184,7 @@ ecm_add_test(
  kurlcompletiontest.cpp
  TEST_NAME kurlcompletiontest-nowait
  NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test
+ LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
  )
 set_target_properties(kurlcompletiontest-nowait PROPERTIES COMPILE_FLAGS "-DNO_WAIT")
 
@@ -207,7 +207,7 @@ ecm_add_tests(
  kurlrequestertest.cpp
  kfilefiltercombotest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::XmlGui KF6::Bookmarks Qt${QT_MAJOR_VERSION}::Test KF6::I18n
+ LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::XmlGui KF6::Bookmarks Qt6::Test KF6::I18n
 )
 
 # TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage
@@ -218,7 +218,7 @@ ecm_add_test(
     ../src/core/kiocoredebug.cpp
     TEST_NAME ksambashareprivatetest
     NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::Network
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
 )
 endif()
 
@@ -229,16 +229,16 @@ endif()
 endif()
 
 # this should be done by cmake, see bug 371721
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt${QT_MAJOR_VERSION}Core_VERSION VERSION_GREATER 5.8.0)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set_property(TARGET jobtest APPEND PROPERTY AUTOMOC_MOC_OPTIONS --include ${CMAKE_BINARY_DIR}/src/core/moc_predefs.h)
 endif()
 
 # Benchmark, compiled, but not run automatically with ctest
 add_executable(kcoredirlister_benchmark kcoredirlister_benchmark.cpp)
-target_link_libraries(kcoredirlister_benchmark KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test)
+target_link_libraries(kcoredirlister_benchmark KF6::KIOCore KF6::KIOWidgets Qt6::Test)
 
 add_executable(udsentry_api_comparison_benchmark udsentry_api_comparison_benchmark.cpp)
-target_link_libraries(udsentry_api_comparison_benchmark KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test)
+target_link_libraries(udsentry_api_comparison_benchmark KF6::KIOCore KF6::KIOWidgets Qt6::Test)
 
 add_executable(udsentry_benchmark udsentry_benchmark.cpp)
-target_link_libraries(udsentry_benchmark KF6::KIOCore KF6::KIOWidgets Qt${QT_MAJOR_VERSION}::Test)
+target_link_libraries(udsentry_benchmark KF6::KIOCore KF6::KIOWidgets Qt6::Test)

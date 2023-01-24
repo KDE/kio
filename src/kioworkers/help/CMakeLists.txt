@@ -27,10 +27,10 @@ configure_file(config-help.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-help.h )
 
 #macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/checkXML )
 
-find_package(Qt${QT_MAJOR_VERSION}Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(Qt6Core ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 ########### next target ###############
-kcoreaddons_add_plugin(kio_help INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_help INSTALL_NAMESPACE "kf6/kio")
 
 target_sources(kio_help PRIVATE
     kio_help.cpp
@@ -39,8 +39,8 @@ target_sources(kio_help PRIVATE
 )
 
 target_link_libraries(kio_help
-   Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
-   Qt${QT_MAJOR_VERSION}::Network
+   Qt6::Gui # QTextDocument
+   Qt6::Network
    KF6::I18n
    KF6::Archive
    KF6::KIOCore
@@ -50,11 +50,11 @@ target_link_libraries(kio_help
    ${LIBXSLT_EXSLT_LIBRARIES}
 )
 
-install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kio)
+install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
 
 
 ########### next target ###############
-kcoreaddons_add_plugin(kio_ghelp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_ghelp INSTALL_NAMESPACE "kf6/kio")
 
 target_sources(kio_ghelp PRIVATE
     kio_help.cpp
@@ -63,12 +63,12 @@ target_sources(kio_ghelp PRIVATE
 )
 
 target_link_libraries(kio_ghelp
-   Qt${QT_MAJOR_VERSION}::Gui # QTextDocument
+   Qt6::Gui # QTextDocument
    KF6::I18n
    KF6::Archive
    KF6::KIOCore
    KF6::DocTools
-   Qt${QT_MAJOR_VERSION}::Network
+   Qt6::Network
    ${LIBXML2_LIBRARIES}
    ${LIBXSLT_LIBRARIES}
    ${LIBXSLT_EXSLT_LIBRARIES}

@@ -1,6 +1,6 @@
 add_subdirectory( kdedmodule ) 
 kcoreaddons_add_plugin(kio_remote
-    INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/kio
+    INSTALL_NAMESPACE kf6/kio
 )
 
 target_sources(kio_remote PRIVATE
@@ -18,4 +18,4 @@ ecm_qt_declare_logging_category(kio_remote
     EXPORT KIO
 )
 
-target_link_libraries(kio_remote KF6::KIOCore KF6::I18n KF6::ConfigCore Qt${QT_MAJOR_VERSION}::Network)
+target_link_libraries(kio_remote KF6::KIOCore KF6::I18n KF6::ConfigCore Qt6::Network)

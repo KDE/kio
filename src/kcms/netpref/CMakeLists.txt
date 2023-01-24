@@ -10,7 +10,7 @@ target_sources(kcm_netpref PRIVATE
 
 target_link_libraries(kcm_netpref
   PUBLIC
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt6::DBus
     KF6::ConfigCore
     KF6::ConfigWidgets
     KF6::KIOCore

@@ -193,7 +193,7 @@ private:
  * Compile your ThumbCreator as a plugin; for example, the relevant CMake code
  * for a thumbnailer for the "foo" filetype might look like
  * \code
- * kcoreaddons_add_plugin(foothumbnail SOURCES foothumbnail.cpp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/thumbcreator")
+ * kcoreaddons_add_plugin(foothumbnail SOURCES foothumbnail.cpp INSTALL_NAMESPACE "kf6/thumbcreator")
  * target_link_libraries(foothumbnail PRIVATE KF5::KIOGui)
  * \endcode
  *

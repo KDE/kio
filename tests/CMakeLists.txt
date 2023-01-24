@@ -14,7 +14,7 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
        KF6::KIOWidgets
        KF6::KIOFileWidgets
        KF6::XmlGui
-       Qt${QT_MAJOR_VERSION}::Test
+       Qt6::Test
        KF6::WidgetsAddons
        KF6::IconThemes)
     ecm_mark_as_test(${_testname})

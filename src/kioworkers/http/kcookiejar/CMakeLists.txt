@@ -14,7 +14,7 @@ target_sources(kcookiejar5 PRIVATE
 )
 
 target_link_libraries( kcookiejar5
-   Qt${QT_MAJOR_VERSION}::DBus
+   Qt6::DBus
    KF6::I18n
    KF6::WidgetsAddons
 )
@@ -24,7 +24,7 @@ install(TARGETS kcookiejar5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### kded kcookiejar module ###############
 
 kcoreaddons_add_plugin(kded_kcookiejar
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
+    INSTALL_NAMESPACE "kf6/kded"
 )
 set_target_properties(kded_kcookiejar PROPERTIES
     OUTPUT_NAME kcookiejar

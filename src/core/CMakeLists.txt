@@ -157,7 +157,7 @@ if (WIN32)
 endif()
 
 set(kiocore_dbus_SRCS)
-if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
+if (TARGET Qt6::DBus)
     qt_add_dbus_interface(kiocore_dbus_SRCS org.kde.KIOFuse.VFS.xml kiofuse_interface)
 
     set_source_files_properties(org.kde.KPasswdServer.xml
@@ -208,9 +208,9 @@ target_link_libraries(KF6KIOCore
 PUBLIC
  KF6::CoreAddons   # KJob
  KF6::Service # TODO KF6 move to PRIVATE
- Qt${QT_MAJOR_VERSION}::Network
+ Qt6::Network
 PRIVATE
- Qt${QT_MAJOR_VERSION}::Xml # davjob.cpp uses QDom
+ Qt6::Xml # davjob.cpp uses QDom
  KF6::ConfigCore
  KF6::I18n
 )
@@ -219,19 +219,19 @@ if (NOT ANDROID)
     target_link_libraries(KF6KIOCore PRIVATE KF6::Crash)
 endif()
 
-if (TARGET Qt${QT_MAJOR_VERSION}::DBus)
+if (TARGET Qt6::DBus)
     target_link_libraries(KF6KIOCore
     PUBLIC
-        Qt${QT_MAJOR_VERSION}::DBus
+        Qt6::DBus
     PRIVATE
         KF6::DBusAddons            # KDEInitInterface
     )
 endif()
 
 if(KIO_NO_PUBLIC_QTCONCURRENT)
-  target_link_libraries(KF6KIOCore PRIVATE Qt${QT_MAJOR_VERSION}::Concurrent) # QtConcurrentRun in hostinfo.cpp
+  target_link_libraries(KF6KIOCore PRIVATE Qt6::Concurrent) # QtConcurrentRun in hostinfo.cpp
 else()
-  target_link_libraries(KF6KIOCore PUBLIC Qt${QT_MAJOR_VERSION}::Concurrent) # TODO KF6: remove
+  target_link_libraries(KF6KIOCore PUBLIC Qt6::Concurrent) # TODO KF6: remove
 endif()
 
 if (TARGET KF6::AuthCore)
@@ -251,7 +251,7 @@ if (TARGET Qt6::Core5Compat)
 endif()
 
 # this should be done by cmake, see bug 371721
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND Qt${QT_MAJOR_VERSION}Core_VERSION VERSION_GREATER 5.8.0)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     add_custom_command(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h
         COMMAND "${CMAKE_CXX_COMPILER}" "${CMAKE_CXX_COMPILER_ARG1}" "-dM" "-E" "-c" "${CMAKE_ROOT}/Modules/CMakeCXXCompilerABI.cpp" > ${CMAKE_CURRENT_BINARY_DIR}/moc_predefs.h

@@ -1,5 +1,5 @@
 kcoreaddons_add_plugin(kioexecd
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kiod")
+    INSTALL_NAMESPACE "kf6/kiod")
 
 set(kioexecd_dbus_SRCS)
 qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kioexecd.h org.kde.KIOExecd.xml)
@@ -39,7 +39,7 @@ target_sources(kioexec PRIVATE
 configure_file(config-kioexec.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kioexec.h)
 
 target_link_libraries(kioexec
-    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt6::Widgets
     KF6::I18n
     KF6::KIOWidgets    # KRun
     KF6::WidgetsAddons # KMessageBox
@@ -51,7 +51,7 @@ if (HAVE_X11)
     if (TARGET Qt5::X11Extras)
         target_link_libraries(kioexec Qt5::X11Extras)
     elseif (TARGET Qt6::Gui)
-        target_link_libraries(kioexec Qt${QT_MAJOR_VERSION}::GuiPrivate) # qtx11extras_p.h
+        target_link_libraries(kioexec Qt6::GuiPrivate) # qtx11extras_p.h
     endif()
 endif()
 

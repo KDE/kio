@@ -45,7 +45,7 @@ void KProtocolInfoTest::testBasic()
 {
     QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("http:/"))));
     QVERIFY(KProtocolInfo::isKnownProtocol(QUrl(QStringLiteral("file:/"))));
-    QVERIFY(KProtocolInfo::exec(QStringLiteral("file")).contains(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio/kio_file")));
+    QVERIFY(KProtocolInfo::exec(QStringLiteral("file")).contains(QStringLiteral("kf6/kio/kio_file")));
     QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("file")), QStringLiteral(":local"));
 
     QCOMPARE(KProtocolInfo::protocolClass(QStringLiteral("http")), QStringLiteral(":internet"));
@@ -135,7 +135,7 @@ void KProtocolInfoTest::testProtocolForArchiveMimetype()
         return (protocols.find(QLatin1String("zip")) != protocols.end());
     };
 
-    const QVector<KPluginMetaData> workers = KPluginMetaData::findPlugins(QStringLiteral("kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/kio"));
+    const QVector<KPluginMetaData> workers = KPluginMetaData::findPlugins(QStringLiteral("kf6/kio"));
     if (std::none_of(workers.cbegin(), workers.cend(), supportsZipProtocol)) {
         QSKIP("kio-extras not installed");
     } else {

@@ -6,7 +6,7 @@ target_sources(kcm_smb PRIVATE
 )
 
 target_link_libraries(kcm_smb PRIVATE
-    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt6::Widgets
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::I18n

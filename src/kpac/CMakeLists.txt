@@ -17,11 +17,11 @@ configure_file(config-kpac.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kpac.h)
 
 ########### next target ###############
 
-find_package(Qt${QT_MAJOR_VERSION}Qml ${REQUIRED_QT_VERSION})
+find_package(Qt6Qml ${REQUIRED_QT_VERSION})
 
-if (TARGET Qt${QT_MAJOR_VERSION}::Qml)
+if (TARGET Qt6::Qml)
     kcoreaddons_add_plugin(kded_proxyscout
-        INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
+        INSTALL_NAMESPACE "kf6/kded"
     )
     set_target_properties(kded_proxyscout PROPERTIES
         OUTPUT_NAME proxyscout
@@ -36,8 +36,8 @@ if (TARGET Qt${QT_MAJOR_VERSION}::Qml)
 
     target_link_libraries(kded_proxyscout
     PRIVATE
-       Qt${QT_MAJOR_VERSION}::Network
-       Qt${QT_MAJOR_VERSION}::Qml
+       Qt6::Network
+       Qt6::Qml
        ${KPAC_EXTRA_LIBS}
        KF6::KIOCore      # KIO::get
        KF6::DBusAddons  # KDEDModule
@@ -57,7 +57,7 @@ if (TARGET Qt${QT_MAJOR_VERSION}::Qml)
     endif()
 endif()
 
-set_package_properties(Qt${QT_MAJOR_VERSION}Qml PROPERTIES DESCRIPTION "QtQml, one of the Qt${QT_MAJOR_VERSION} modules"
+set_package_properties(Qt6Qml PROPERTIES DESCRIPTION "QtQml, one of the Qt6 modules"
    TYPE OPTIONAL
    PURPOSE "Required to build support for auto-configuration of network proxies"
    )

@@ -1,5 +1,5 @@
 kcoreaddons_add_plugin(localdomainurifilter
-    INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/urifilters"
+    INSTALL_NAMESPACE "kf6/urifilters"
 )
 
 target_sources(localdomainurifilter PRIVATE

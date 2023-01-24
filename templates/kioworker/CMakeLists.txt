@@ -15,7 +15,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core)
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     KIO
     I18n
