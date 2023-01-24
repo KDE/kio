@@ -770,53 +770,11 @@ void SlaveBase::infoMessage(const QString &_msg)
     send(INF_INFOMESSAGE, data);
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-bool SlaveBase::requestNetwork(const QString &host)
-{
-    KIO_DATA << host << d->slaveid;
-    send(MSG_NET_REQUEST, data);
-
-    if (waitForAnswer(INF_NETWORK_STATUS, 0, data) != -1) {
-        bool status;
-        QDataStream stream(data);
-        stream >> status;
-        return status;
-    } else {
-        return false;
-    }
-}
-#endif
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-void SlaveBase::dropNetwork(const QString &host)
-{
-    KIO_DATA << host << d->slaveid;
-    send(MSG_NET_DROP, data);
-}
-#endif
-
 void SlaveBase::statEntry(const UDSEntry &entry)
 {
     KIO_DATA << entry;
     send(MSG_STAT_ENTRY, data);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 0)
-void SlaveBase::listEntry(const UDSEntry &entry, bool _ready)
-{
-    if (_ready) {
-        // #366795: many slaves don't create an entry for ".", so we keep track if they do
-        // and we provide a fallback in finished() otherwise.
-        if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1Char('.')) {
-            d->m_rootEntryListed = true;
-        }
-        listEntries(d->pendingListEntries);
-        d->pendingListEntries.clear();
-    } else {
-        listEntry(entry);
-    }
-}
-#endif
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {
@@ -1022,14 +980,6 @@ void SlaveBase::reparseConfiguration()
     d->remotefile = nullptr;
 }
 
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 24)
-bool SlaveBase::openPasswordDialog(AuthInfo &info, const QString &errorMsg)
-{
-    const int errorCode = openPasswordDialogV2(info, errorMsg);
-    return errorCode == KJob::NoError;
-}
-#endif
-
 int SlaveBase::openPasswordDialogV2(AuthInfo &info, const QString &errorMsg)
 {
     const long windowId = metaData(QStringLiteral("window-id")).toLong();
@@ -1073,26 +1023,7 @@ int SlaveBase::messageBox(const QString &text,
                           const QString &secondaryActionText,
                           const QString &dontAskAgainName)
 {
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 100)
-    if ((type != Information) || (type != SSLMessageBox)) {
-        if (primaryActionText.isNull()) {
-            qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null primaryActionText arg."
-                                << "type:" << type << "text:" << text;
-        }
-        if ((type != WarningContinueCancel) || (type != WarningContinueCancelDetailed)) {
-            if (secondaryActionText.isNull()) {
-                qCWarning(KIO_CORE) << "Deprecated: messageBox() called with null secondaryActionText arg."
-                                    << "type:" << type << "text:" << text;
-            }
-        }
-    }
-    const QString _primaryActionText = primaryActionText.isNull() ? i18n("&Yes") : primaryActionText;
-    const QString _secondaryActionText = secondaryActionText.isNull() ? i18n("&No") : secondaryActionText;
-    // qDebug() << "messageBox " << type << " " << text << " - " << title << _primaryActionText << _secondaryActionText;
-    KIO_DATA << static_cast<qint32>(type) << text << title << _primaryActionText << _secondaryActionText << dontAskAgainName;
-#else
     KIO_DATA << static_cast<qint32>(type) << text << title << primaryActionText << secondaryActionText << dontAskAgainName;
-#endif
     send(INF_MESSAGEBOX, data);
     if (waitForAnswer(CMD_MESSAGEBOXANSWER, 0, data) != -1) {
         QDataStream stream(data);
@@ -1671,10 +1602,3 @@ void SlaveBase::addTemporaryAuthorization(const QString &action)
 {
     d->m_tempAuths.insert(action);
 }
-
-#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 66)
-PrivilegeOperationStatus SlaveBase::requestPrivilegeOperation()
-{
-    return KIO::OperationNotAllowed;
-}
-#endif

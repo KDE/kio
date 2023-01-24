@@ -278,20 +278,6 @@ bool SlaveInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT metaData(m);
         break;
     }
-    case MSG_NET_REQUEST: {
-        QString host;
-        QString slaveid;
-        stream >> host >> slaveid;
-        requestNetwork(host, slaveid);
-        break;
-    }
-    case MSG_NET_DROP: {
-        QString host;
-        QString slaveid;
-        stream >> host >> slaveid;
-        dropNetwork(host, slaveid);
-        break;
-    }
     case MSG_NEED_SUBURL_DATA: {
         Q_EMIT needSubUrlData();
         break;
@@ -322,28 +308,6 @@ KIO::filesize_t SlaveInterface::offset() const
 {
     const Q_D(SlaveInterface);
     return d->offset;
-}
-
-void SlaveInterface::requestNetwork(const QString &host, const QString &slaveid)
-{
-    Q_D(SlaveInterface);
-    Q_UNUSED(host);
-    Q_UNUSED(slaveid);
-    // qDebug() << "requestNetwork " << host << slaveid;
-
-    // This is old stuff. We just always return true...
-
-    QByteArray packedArgs;
-    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
-    stream << true;
-    d->connection->sendnow(INF_NETWORK_STATUS, packedArgs);
-}
-
-void SlaveInterface::dropNetwork(const QString &host, const QString &slaveid)
-{
-    Q_UNUSED(host);
-    Q_UNUSED(slaveid);
-    // qDebug() << "dropNetwork " << host << slaveid;
 }
 
 void SlaveInterface::sendResumeAnswer(bool resume)

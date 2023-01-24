@@ -267,14 +267,6 @@ public:
         SSLMessageBox = 6,
         // In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-        QuestionYesNo ///< @deprecated Since 5.100, use QuestionTwoActions.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use QuestionTwoActions.") = QuestionTwoActions,
-        WarningYesNo ///< @deprecated Since 5.100, use WarningTwoActions.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActions.") = WarningTwoActions,
-        WarningYesNoCancel ///< @deprecated Since 5.100, use WarningTwoActionsCancel.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use WarningTwoActionsCancel.") = WarningTwoActionsCancel,
-#endif
     };
 
     /**
@@ -286,12 +278,6 @@ public:
         PrimaryAction = 3, ///< @since 5.100
         SecondaryAction = 4, ///< @since 5.100
         Continue = 5,
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 100)
-        Yes ///< @deprecated Since 5.100, use PrimaryAction.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use PrimaryAction.") = PrimaryAction,
-        No ///< @deprecated Since 5.100, use SecondaryAction.
-            KIOCORE_ENUMERATOR_DEPRECATED_VERSION(5, 100, "Use SecondaryAction.") = SecondaryAction,
-#endif
     };
 
     /**
@@ -301,11 +287,9 @@ public:
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     *                          The (deprecated since 5.100) default is i18n("&Yes").
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     *                            The (deprecated since 5.100) default is i18n("&No").
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
@@ -321,11 +305,9 @@ public:
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     *                          The (deprecated since 5.100) default is i18n("&Yes").
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     *                            The (deprecated since 5.100) default is i18n("&No").
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
@@ -773,26 +755,6 @@ public:
      **/
     int readData(QByteArray &buffer);
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * It collects entries and emits them via listEntries
-     * when enough of them are there or a certain time
-     * frame exceeded (to make sure the app gets some
-     * items in time but not too many items one by one
-     * as this will cause a drastic performance penalty).
-     * @param _entry The UDSEntry containing all of the object attributes.
-     * @param ready set to true after emitting all items. @p _entry is not
-     *        used in this case
-     * @deprecated since 5.0. the listEntry(entry, true) indicated
-     * that the entry listing was completed. However, each slave should
-     * already call finished() to also tell us that we're done listing.
-     * You should make sure that finished() is called when the entry
-     * listing is completed and simply remove the call to listEntry(entry, true).
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "See API docs")
-    void listEntry(const UDSEntry &_entry, bool ready);
-#endif
-
     /**
      * It collects entries and emits them via listEntries
      * when enough of them are there or a certain time
@@ -861,19 +823,6 @@ public:
      */
     int openPasswordDialogV2(KIO::AuthInfo &info, const QString &errorMsg = QString());
 
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 24)
-    /**
-     * @deprecated since KF 5.24, use openPasswordDialogV2.
-     * The return value works differently:
-     *  instead of
-     *        if (!openPasswordDialog()) { error(USER_CANCELED); }
-     *  store and pass the return value to error(), when NOT zero,
-     *  as shown documentation for openPasswordDialogV2().
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 24, "Use SlaveBase::openPasswordDialogV2(...)")
-    bool openPasswordDialog(KIO::AuthInfo &info, const QString &errorMsg = QString());
-#endif
-
     /**
      * Checks for cached authentication based on parameters
      * given by @p info.
@@ -930,54 +879,6 @@ public:
      * @return @p true if @p info was successfully cached.
      */
     bool cacheAuthentication(const AuthInfo &info);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     * Used by the slave to check if it can connect
-     * to a given host. This should be called where the slave is ready
-     * to do a ::connect() on a socket. For each call to
-     * requestNetwork must exist a matching call to
-     * dropNetwork, or the system will stay online until
-     * KNetMgr gets closed (or the SlaveBase gets destructed)!
-     *
-     * If KNetMgr is not running, then this is a no-op and returns true
-     *
-     * @param host tells the netmgr the host the slave wants to connect
-     *             to. As this could also be a proxy, we can't just take
-     *             the host currently connected to (but that's the default
-     *             value)
-     *
-     * @return true in theory, the host is reachable
-     *         false the system is offline and the host is in a remote network.
-     *
-     * @deprecated Since 5.0, for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
-    bool requestNetwork(const QString &host = QString());
-#endif
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 0)
-    /**
-     *
-     * Used by the slave to withdraw a connection requested by
-     * requestNetwork. This function cancels the last call to
-     * requestNetwork. If a client uses more than one internet
-     * connection, it must use dropNetwork(host) to
-     * stop each request.
-     *
-     * If KNetMgr is not running, then this is a no-op.
-     *
-     * @param host the host passed to requestNetwork
-     *
-     * A slave should call this function every time it disconnect from a host.
-     *
-     * @deprecated Since 5.0, for a very very long time, not implemented anymore
-     * Probably dates back to model dialup times.
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 0, "Not implemented & used")
-    void dropNetwork(const QString &host = QString());
-#endif
 
     /**
      * Wait for an answer to our request, until we get @p expected1 or @p expected2
@@ -1045,14 +946,6 @@ public:
      * @since 5.45
      */
     void addTemporaryAuthorization(const QString &action);
-
-#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 66)
-    /**
-     * @deprecated since 5.66, use requestPrivilegeOperation(QString)
-     */
-    KIOCORE_DEPRECATED_VERSION(5, 66, "Pass QString action to requestPrivilegeOperation")
-    PrivilegeOperationStatus requestPrivilegeOperation();
-#endif
 
 protected:
     /**

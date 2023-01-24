@@ -41,7 +41,6 @@ enum Info {
     INF_UNUSED = 25, ///< now unused
     INF_INFOMESSAGE,
     INF_META_DATA,
-    INF_NETWORK_STATUS,
     INF_MESSAGEBOX,
     INF_POSITION,
     INF_TRUNCATED,
@@ -62,8 +61,6 @@ enum Message {
     MSG_RENAMED, ///< unused
     MSG_RESUME,
     MSG_SLAVE_ACK,
-    MSG_NET_REQUEST,
-    MSG_NET_DROP,
     MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
     MSG_OPENED,
@@ -165,10 +162,6 @@ protected:
                     const QString &primaryActionText,
                     const QString &secondaryActionText,
                     const QString &dontAskAgainName);
-
-    // I need to identify the slaves
-    void requestNetwork(const QString &, const QString &);
-    void dropNetwork(const QString &, const QString &);
 
 protected Q_SLOTS:
     void calcSpeed();
