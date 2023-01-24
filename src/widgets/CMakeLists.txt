@@ -37,7 +37,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
-  previewjob.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
   ksslinfodialog.cpp
@@ -182,7 +181,6 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   DropJob
   OpenFileManagerWindowJob
   PasteJob
-  PreviewJob
   RenameDialog
   SkipDialog
   JobUiDelegate

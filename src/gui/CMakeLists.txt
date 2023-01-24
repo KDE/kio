@@ -22,6 +22,7 @@ target_sources(KF6KIOGui PRIVATE
    kterminallauncherjob.cpp
    kemailclientlauncherjob.cpp
    dbusactivationrunner.cpp
+   previewjob.cpp
    thumbnailcreator.cpp
 )
 
@@ -79,6 +80,7 @@ target_link_libraries(KF6KIOGui
     KF6::Service
     Qt6::Gui
   PRIVATE
+    KF6::Solid
     KF6::I18n
 )
 
@@ -93,6 +95,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   FavIconRequestJob
   OpenUrlJob
   OpenWithHandlerInterface
+  PreviewJob
   ThumbnailCreator
 
   PREFIX KIO

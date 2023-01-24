@@ -9,7 +9,7 @@
 */
 
 #include "previewjob.h"
-#include "kio_widgets_debug.h"
+#include "kiogui_debug.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -542,7 +542,7 @@ void PreviewJob::slotResult(KJob *job)
         QString path = statJob->url().toLocalFile();
         if (job->error()) {
             // We set id to 0 to know we tried getting it
-            qCWarning(KIO_WIDGETS) << "Cannot read information about filesystem under path" << path;
+            qCWarning(KIO_GUI) << "Cannot read information about filesystem under path" << path;
             id = 0;
         } else {
             id = statJob->statResult().numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
@@ -582,7 +582,7 @@ bool PreviewJobPrivate::statResultThumbnail()
         const QString canonicalPath = localFile.canonicalFilePath();
         origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
         if (origName.isEmpty()) {
-            qCWarning(KIO_WIDGETS) << "Failed to convert" << url << "to canonical path";
+            qCWarning(KIO_GUI) << "Failed to convert" << url << "to canonical path";
             return false;
         }
     } else {
@@ -746,7 +746,7 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
     }
     QUrl url = QUrl::fromLocalFile(path);
     if (!url.isValid()) {
-        qCWarning(KIO_WIDGETS) << "Could not get device id for file preview, Invalid url" << path;
+        qCWarning(KIO_GUI) << "Could not get device id for file preview, Invalid url" << path;
         return 0;
     }
     state = PreviewJobPrivate::STATE_DEVICE_INFO;

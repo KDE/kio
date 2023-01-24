@@ -11,7 +11,7 @@
 #ifndef KIO_PREVIEWJOB_H
 #define KIO_PREVIEWJOB_H
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 #include <kfileitem.h>
 #include <kio/job.h>
 
@@ -27,7 +27,7 @@ class PreviewJobPrivate;
  * This class catches a preview (thumbnail) for files.
  * @short KIO Job to get a thumbnail picture
  */
-class KIOWIDGETS_EXPORT PreviewJob : public KIO::Job
+class KIOGUI_EXPORT PreviewJob : public KIO::Job
 {
     Q_OBJECT
 public:
@@ -216,7 +216,7 @@ public:
  *                       KConfigGroup "PreviewSettings" are used.
  * @since 4.7
  */
-KIOWIDGETS_EXPORT PreviewJob *filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
+KIOGUI_EXPORT PreviewJob *filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 }
 
 #endif
