@@ -1252,7 +1252,7 @@ KIOCORE_EXPORT QByteArray KIO::rawErrorDetail(int errorCode, const QString &erro
             "usually due to technical reasons.",
             protocol);
         causes << i18n(
-            "klauncher could not find or start the plugin which provides the protocol."
+            "klauncher could not find or start the plugin which provides the protocol. "
             "This means you may have an outdated version of the plugin.");
         solutions << sUpdate << sSysadmin;
         break;
