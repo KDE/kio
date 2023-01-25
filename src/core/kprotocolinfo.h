@@ -11,8 +11,8 @@
 #define KPROTOCOLINFO_H
 
 #include "kiocore_export.h"
+#include <QMetaType>
 #include <QStringList>
-#include <QVariant>
 
 /**
  * \class KProtocolInfo kprotocolinfo.h <KProtocolInfo>
@@ -90,11 +90,11 @@ public:
      *
      * The name is the name of the column, translated.
      *
-     * The type name comes from QVariant::typeName()
+     * The type name comes from QMetaType::name()
      * Currently supported types: "QString", "QDateTime" (ISO-8601 format)
      */
     struct ExtraField {
-        enum Type { String = QVariant::String, DateTime = QVariant::DateTime, Invalid = QVariant::Invalid };
+        enum Type { String = QMetaType::QString, DateTime = QMetaType::QDateTime, Invalid = QMetaType::UnknownType };
 
         ExtraField()
             : type(Invalid)

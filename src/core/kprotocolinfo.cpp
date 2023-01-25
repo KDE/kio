@@ -113,9 +113,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     const QStringList extraTypes = json.value(QStringLiteral("ExtraTypes")).toVariant().toStringList();
     if (extraNames.size() == extraTypes.size()) {
         auto func = [](const QString &name, const QString &type) {
-            QVariant::Type variantType = QVariant::nameToType(type.toLatin1().constData());
-            // currently QVariant::Type and ExtraField::Type use the same subset of values, so we can just cast.
-            return KProtocolInfo::ExtraField(name, static_cast<KProtocolInfo::ExtraField::Type>(variantType));
+            const int metaType = QMetaType::fromName(type.toLatin1().constData()).id();
+            // currently QMetaType::Type and ExtraField::Type use the same subset of values, so we can just cast.
+            return KProtocolInfo::ExtraField(name, static_cast<KProtocolInfo::ExtraField::Type>(metaType));
         };
 
         std::transform(extraNames.cbegin(), extraNames.cend(), extraTypes.cbegin(), std::back_inserter(m_extraFields), func);
