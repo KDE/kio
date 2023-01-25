@@ -178,10 +178,6 @@ install(FILES
    org.kde.KPasswdServer.xml
    DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
    RENAME kf5_org.kde.KPasswdServer.xml)
-install(FILES
-   org.kde.KSlaveLauncher.xml
-   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
-   RENAME kf5_org.kde.KSlaveLauncher.xml)
 
 ecm_generate_export_header(KF6KIOCore
     BASE_NAME KIOCore
