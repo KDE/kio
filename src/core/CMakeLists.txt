@@ -219,8 +219,6 @@ if (TARGET Qt6::DBus)
     target_link_libraries(KF6KIOCore
     PUBLIC
         Qt6::DBus
-    PRIVATE
-        KF6::DBusAddons            # KDEInitInterface
     )
 endif()
 
