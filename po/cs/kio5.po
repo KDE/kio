@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
-"PO-Revision-Date: 2023-01-04 10:27+0100\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
+"PO-Revision-Date: 2023-01-24 22:27+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -47,7 +47,7 @@ msgstr ""
 #: core/connectionbackend.cpp:108
 #, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr ""
+msgstr "Nelze vytvořit nástroj KIO: '%1'"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -787,7 +787,7 @@ msgstr "Autentizace s lokálním serverem hesel selhala"
 #: core/job_error.cpp:245
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr ""
+msgstr "Nelze vytvořit nástroj KIO. '%1'"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -810,7 +810,7 @@ msgstr ""
 #: core/job_error.cpp:257
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr ""
+msgstr "Soubor je příliš velký pro vyhození do koše."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1162,6 +1162,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"Na internetu můžete provést vyhledání softwarového modulu (nazývaného "
+"\"Nástroj KIO\"), který podporuje tento protokol. Místa, kde byste měli "
+"hledat zahrnují <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2304,7 +2307,7 @@ msgstr "Nelze iniciovat protokol %1"
 #: core/job_error.cpp:1248
 #, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr ""
+msgstr "Nelze vytvořit nástroj KIO'"
 
 #: core/job_error.cpp:1250
 #, kde-format
@@ -2312,11 +2315,13 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
+"Nástroj KIO, který poskytuje přístup k protokolu <strong>%1</strong>, nebylo "
+"možné spustit. To je obvykle způsobeno technickými problémy."
 
 #: core/job_error.cpp:1255
 #, kde-format
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
@@ -2386,12 +2391,12 @@ msgstr "Neznámý protokol '%1'."
 #: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr ""
+msgstr "Nelze nalézt nástroj KIO pro protokol '%1'."
 
 #: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr ""
+msgstr "Nelze vytvořit socket pro spuštění nástroje KIO pro protokol '%1'."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -3153,7 +3158,7 @@ msgstr "Vy&dání"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr ""
+msgstr "Bezpečně odstraňuji"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3165,7 +3170,7 @@ msgstr "Bezpečně od&stranit"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr ""
+msgstr "Odpojuji..."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3701,6 +3706,9 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
+"Název <filename>%1</filename> začíná mezerníkem, což mimo jiné prapodivnosti "
+"povede k tomu, že bude zobrazeno před ostatními položkami při řazení podle "
+"abecedy."
 
 #: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
@@ -4369,6 +4377,21 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
+"<h1>Cookies</h1><p>Cookies obsahují informace, které aplikace KDE "
+"používající http protokol (jako např. Konqueror) ukládají ve vašem počítači "
+"na vyžádání vzdáleného serveru na internetu. To znamená, že webový server "
+"může na vašem počítači uložit pro pozdější použití informaci o vaší činnosti "
+"při procházení internetu. Můžete si myslet, že je to útok na vaše soukromí. "
+"</p><p> Cookies jsou však v určitých situacích užitečné. Například jsou "
+"často používána v internetových obchodech, takže si můžete 'ukládat zboží do "
+"nákupního košíku'. Některé servery vyžadují, aby váš prohlížeč podporoval "
+"cookies. </p><p> Protože většina lidí si chce kompromis mezi soukromím a "
+"výhodami, které cookie poskytuje, nástroj HTTP KIO nabízí způsob úpravy "
+"chování cookies. Takže můžete nastavit výchozí chování tak, aby se "
+"dotazovalo vždy, když chce server nastavit cookie. Vy sami tedy máte možnost "
+"si vybrat. Je též možné nastavit chování tak, aby cookie z vašich oblíbených "
+"nákupních stránek, kterým důvěřujete byla automaticky přijata namísto "
+"opakovaného dotazování.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5164,6 +5187,13 @@ msgid ""
 "UNIX/Linux distributions.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Automaticky detekovat a nastavit proxy.<p>\n"
+"Automatická detekce je prováděna pomocí protokolu <b>WPAD (Web Proxy Auto-"
+"Discovery Protocol)</b>.<p>\n"
+"<b>Poznámka: </b> Tato volba nemusí správně fungovat na některých typech "
+"Linuxu/Unixu.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -7069,7 +7099,7 @@ msgstr "Navždy smazat"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr ""
+msgstr "Navždy smazat"
 
 #: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
@@ -7645,6 +7675,8 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
+"Zapamatovat si asociaci s aplikací p&ro všechny soubory typu\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7867,7 +7899,7 @@ msgstr "Kom&entář:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Proměnné prostředí:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8144,13 +8176,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr ""
+msgstr "Vytvořit…"
 
 #: widgets/kpropertiesdialog.cpp:1682
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr ""
+msgstr "Změnit…"
 
 #: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
 #: widgets/kpropertiesdialog.cpp:1761
@@ -9178,6 +9210,9 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"Přesunutí této položky do koše selhalo protože je příliš velká. Chcete ji "
+"namísto toho smazat?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Tento krok nelze vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
 #, kde-kuit-format
@@ -9191,8 +9226,17 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
+"Přesunutí této %1 položky do koše selhalo protože je příliš velká. Chcete ji "
+"namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
+"emphasis>"
 msgstr[1] ""
+"Přesunutí těchto %1 položek do koše selhalo protože jsou příliš velké. "
+"Chcete je namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze "
+"vrátit.</emphasis>"
 msgstr[2] ""
+"Přesunutí těchto %1 položek do koše selhalo protože jsou příliš velké. "
+"Chcete je namísto toho smazat?<nl/><emphasis strong='true'>Tento krok nelze "
+"vrátit.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format

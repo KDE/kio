@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
 "PO-Revision-Date: 2022-12-04 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2381,9 +2381,12 @@ msgstr ""
 "strong> no s'ha pogut iniciar. Això és deu normalment a motius tècnics."
 
 #: core/job_error.cpp:1255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "klauncher could not find or start the plugin which provides the protocol."
+#| "This means you may have an outdated version of the plugin."
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "El Klauncher no ha pogut trobar o iniciar el connector que proporciona el "

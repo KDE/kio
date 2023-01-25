@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2257,9 +2257,12 @@ msgstr ""
 "နည်းပညာဆိုင်ရာအခက်အခဲများကြောင့် စတင်၍မရခဲ့ပါ။"
 
 #: core/job_error.cpp:1255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "klauncher could not find or start the plugin which provides the protocol."
+#| "This means you may have an outdated version of the plugin."
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "လုပ်ရိုးလုပ်ထုံးကို ပေးသော ပလပ်ဂင်ကို ကေလောင်ချာ ရှာမတွေ့ပါ၊ သို့ မစတင်နိုင်ခဲ့ပါ။ သင်သည် ပလပ်ဂင်၏ "

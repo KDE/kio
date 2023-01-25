@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
 "PO-Revision-Date: 2023-01-06 22:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -2217,9 +2217,12 @@ msgstr ""
 "因所致。"
 
 #: core/job_error.cpp:1255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "klauncher could not find or start the plugin which provides the protocol."
+#| "This means you may have an outdated version of the plugin."
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "klauncher 找不到或無法啟動提供通訊協定的外掛。這代表了您的外掛程式太舊了。"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
 "PO-Revision-Date: 2023-01-12 10:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2192,9 +2192,12 @@ msgstr ""
 "类故障通常是因为技术原因导致的。"
 
 #: core/job_error.cpp:1255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "klauncher could not find or start the plugin which provides the protocol."
+#| "This means you may have an outdated version of the plugin."
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "klauncher 无法找到或无法启动提供此协议的插件。这说明您的插件可能过时了。"

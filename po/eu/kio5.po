@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:30+0000\n"
+"POT-Creation-Date: 2023-01-25 00:54+0000\n"
 "PO-Revision-Date: 2022-12-04 22:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2353,9 +2353,12 @@ msgstr ""
 "du abiatu. Hau arrazoi teknikoek eragin ohi dute."
 
 #: core/job_error.cpp:1255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "klauncher could not find or start the plugin which provides the protocol."
+#| "This means you may have an outdated version of the plugin."
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "klauncher-rek ezin izan du aurkitu edo abiatu protokoloak hornitzen duen "
