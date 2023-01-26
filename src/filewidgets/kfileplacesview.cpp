@@ -1400,7 +1400,7 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
 
     bool autoActivate = false;
     // update the drop indicator
-    const QPoint pos = event->pos();
+    const QPoint pos = event->position().toPoint();
     const QModelIndex index = indexAt(pos);
     setDirtyRegion(d->m_dropRect);
     if (index.isValid()) {
@@ -1422,7 +1422,7 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
     }
 
     if (d->m_dragActivationTimer) {
-        if (autoActivate && !d->m_delegate->pointIsHeaderArea(event->pos())) {
+        if (autoActivate && !d->m_delegate->pointIsHeaderArea(event->position().toPoint())) {
             QPersistentModelIndex persistentIndex(index);
             if (!d->m_pendingDragActivation.isValid() || d->m_pendingDragActivation != persistentIndex) {
                 d->m_pendingDragActivation = persistentIndex;
@@ -1439,7 +1439,7 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
 
 void KFilePlacesView::dropEvent(QDropEvent *event)
 {
-    const QPoint pos = event->pos();
+    const QPoint pos = event->position().toPoint();
     const QModelIndex index = indexAt(pos);
     if (index.isValid()) {
         const QRect rect = visualRect(index);
@@ -1456,11 +1456,11 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
                     d->m_dropUrlsMimeData->setData(format, event->mimeData()->data(format));
                 }
 
-                d->m_dropUrlsEvent = std::make_unique<QDropEvent>(event->posF(),
+                d->m_dropUrlsEvent = std::make_unique<QDropEvent>(event->position(),
                                                                   event->possibleActions(),
                                                                   d->m_dropUrlsMimeData.get(),
-                                                                  event->mouseButtons(),
-                                                                  event->keyboardModifiers());
+                                                                  event->buttons(),
+                                                                  event->modifiers());
 
                 placesModel->requestSetup(index);
             } else {

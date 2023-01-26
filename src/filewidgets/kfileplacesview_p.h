@@ -348,13 +348,14 @@ protected:
             m_scroller->stop();
 
             // simulate a mousePressEvent, to allow KFilePlacesView to select the items
-            const QPoint tapViewportPos(q->viewport()->mapFromGlobal(tap->position().toPoint()));
-            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tapViewportPos, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+            const QPointF tapGlobalPos = tap->position(); // QTapAndHoldGesture::position is global
+            const QPointF tapViewportPos(q->viewport()->mapFromGlobal(tapGlobalPos));
+            QMouseEvent fakeMousePress(QEvent::MouseButtonPress, tapViewportPos, tapGlobalPos, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
             onPressed(&fakeMousePress);
             q->mousePressEvent(&fakeMousePress);
 
             const QPoint tapIndicatorSize(80, 80);
-            const QPoint pos(q->mapFromGlobal(tap->position().toPoint()));
+            const QPoint pos(q->mapFromGlobal(tapGlobalPos.toPoint()));
             const QRect tapIndicatorRect(pos - (tapIndicatorSize / 2), pos + (tapIndicatorSize / 2));
             m_rubberBand->setGeometry(tapIndicatorRect.normalized());
             m_rubberBand->show();
@@ -389,8 +390,11 @@ protected:
                 m_rubberBand->hide();
             }
             // simulate a mousePressEvent, to allow KFilePlacesView to select the items
+            const QPointF tapPosition = tap->position(); // QTapGesture::position is local
+            const QPointF globalTapPosition = q->mapToGlobal(tapPosition);
             QMouseEvent fakeMousePress(QEvent::MouseButtonPress,
-                                       tap->position(),
+                                       tapPosition,
+                                       globalTapPosition,
                                        m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
                                        m_tapAndHoldActive ? Qt::RightButton : Qt::LeftButton,
                                        Qt::NoModifier);
@@ -399,7 +403,7 @@ protected:
 
             if (m_tapAndHoldActive) {
                 // simulate a contextMenuEvent
-                QContextMenuEvent fakeContextMenu(QContextMenuEvent::Mouse, tap->position().toPoint(), q->mapToGlobal(tap->position().toPoint()));
+                QContextMenuEvent fakeContextMenu(QContextMenuEvent::Mouse, tapPosition.toPoint(), globalTapPosition.toPoint());
                 q->contextMenuEvent(&fakeContextMenu);
             }
             m_tapAndHoldActive = false;

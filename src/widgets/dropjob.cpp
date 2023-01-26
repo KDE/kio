@@ -79,8 +79,8 @@ public:
         , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
         , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
         , m_dropAction(dropEvent->dropAction())
-        , m_relativePos(dropEvent->pos())
-        , m_keyboardModifiers(dropEvent->keyboardModifiers())
+        , m_relativePos(dropEvent->position().toPoint())
+        , m_keyboardModifiers(dropEvent->modifiers())
         , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
                          && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath))
         , m_destUrl(destUrl)

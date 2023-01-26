@@ -338,7 +338,7 @@ void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent *event)
 
 void KUrlNavigatorButton::mousePressEvent(QMouseEvent *event)
 {
-    if (isAboveArrow(event->x()) && (event->button() == Qt::LeftButton)) {
+    if (isAboveArrow(qRound(event->position().x())) && (event->button() == Qt::LeftButton)) {
         // the mouse is pressed above the [>] button
         startSubDirsJob();
     }
@@ -347,7 +347,7 @@ void KUrlNavigatorButton::mousePressEvent(QMouseEvent *event)
 
 void KUrlNavigatorButton::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (!isAboveArrow(event->x()) || (event->button() != Qt::LeftButton)) {
+    if (!isAboveArrow(qRound(event->position().x())) || (event->button() != Qt::LeftButton)) {
         // the mouse has been released above the text area and not
         // above the [>] button
         Q_EMIT navigatorButtonActivated(m_url, event->button(), event->modifiers());
@@ -360,7 +360,7 @@ void KUrlNavigatorButton::mouseMoveEvent(QMouseEvent *event)
 {
     KUrlNavigatorButtonBase::mouseMoveEvent(event);
 
-    const bool hoverArrow = isAboveArrow(event->x());
+    const bool hoverArrow = isAboveArrow(qRound(event->position().x()));
     if (hoverArrow != m_hoverArrow) {
         m_hoverArrow = hoverArrow;
         update();

@@ -34,13 +34,15 @@ void KUrlNavigatorMenu::dragEnterEvent(QDragEnterEvent *event)
 
 void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent *event)
 {
-    QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, event->pos(), Qt::LeftButton, event->mouseButtons(), event->keyboardModifiers()));
+    const QPointF eventPosition = event->position();
+    const QPointF globalEventPosition = mapToGlobal(eventPosition);
+    QMouseEvent mouseEvent(QMouseEvent(QEvent::MouseMove, eventPosition, globalEventPosition, Qt::LeftButton, event->buttons(), event->modifiers()));
     mouseMoveEvent(&mouseEvent);
 }
 
 void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 {
-    QAction *action = actionAt(event->pos());
+    QAction *action = actionAt(event->position().toPoint());
     if (action != nullptr) {
         Q_EMIT urlsDropped(action, event);
     }
