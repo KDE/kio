@@ -14,7 +14,6 @@
 int main(int argc, char **argv)
 {
     QApplication::setApplicationName(QStringLiteral("kurlnavigatortest"));
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     QApplication app(argc, argv);
 
     KUrlNavigator urlNavigator(new KFilePlacesModel, QUrl::fromLocalFile(QDir::homePath()), nullptr);
