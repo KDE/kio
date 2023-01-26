@@ -510,7 +510,7 @@ bool JobTest::setXattr(const QString &dest)
         }
         QList<QByteArray> resultdest = xattrWriter.readAllStandardOutput().split('\n');
         if (!resultdest[0].isEmpty()) {
-            QWARN("Error writing user xattr. Xattr copy tests will be disabled.");
+            qWarning() << "Error writing user xattr. Xattr copy tests will be disabled.";
             qDebug() << resultdest;
             return false;
         }
