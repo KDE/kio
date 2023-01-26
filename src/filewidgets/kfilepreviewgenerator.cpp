@@ -887,7 +887,7 @@ void KFilePreviewGeneratorPrivate::applyCutItemEffect(const KFileItemList &items
         if (cutUrls.contains(item.url())) {
             const QModelIndex index = dirModel->indexForItem(item);
             const QVariant value = dirModel->data(index, Qt::DecorationRole);
-            if (value.type() == QVariant::Icon) {
+            if (value.typeId() == QMetaType::QIcon) {
                 const QIcon icon(qvariant_cast<QIcon>(value));
                 const QSize actualSize = icon.actualSize(m_viewAdapter->iconSize());
                 QPixmap pixmap = icon.pixmap(actualSize);

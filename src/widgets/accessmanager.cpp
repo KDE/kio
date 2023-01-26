@@ -344,7 +344,7 @@ void AccessManager::AccessManagerPrivate::setMetaDataForRequest(QNetworkRequest 
 {
     // Add any meta data specified within request...
     QVariant userMetaData = request.attribute(static_cast<QNetworkRequest::Attribute>(MetaData));
-    if (userMetaData.isValid() && userMetaData.type() == QVariant::Map) {
+    if (userMetaData.isValid() && userMetaData.typeId() == QMetaType::QVariantMap) {
         metaData += userMetaData.toMap();
     }
 

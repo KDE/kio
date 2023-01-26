@@ -204,10 +204,10 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left, const QM
         // items that contains each other
         if (leftFileItem.isDir() && rightFileItem.isDir()) {
             QVariant leftValue = dirModel->data(left, KDirModel::ChildCountRole);
-            int leftCount = (leftValue.type() == QVariant::Int) ? leftValue.toInt() : KDirModel::ChildCountUnknown;
+            int leftCount = (leftValue.typeId() == QMetaType::Int) ? leftValue.toInt() : KDirModel::ChildCountUnknown;
 
             QVariant rightValue = dirModel->data(right, KDirModel::ChildCountRole);
-            int rightCount = (rightValue.type() == QVariant::Int) ? rightValue.toInt() : KDirModel::ChildCountUnknown;
+            int rightCount = (rightValue.typeId() == QMetaType::Int) ? rightValue.toInt() : KDirModel::ChildCountUnknown;
 
             // In the case they two have the same child items, we sort them by
             // their names. So we have always everything ordered. We also check

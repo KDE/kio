@@ -197,7 +197,7 @@ QString KFileItemDelegate::Private::itemSize(const QModelIndex &index, const KFi
 
     // Return the number of items in the directory
     const QVariant value = index.data(KDirModel::ChildCountRole);
-    const int count = value.type() == QVariant::Int ? value.toInt() : KDirModel::ChildCountUnknown;
+    const int count = value.typeId() == QMetaType::Int ? value.toInt() : KDirModel::ChildCountUnknown;
 
     if (count == KDirModel::ChildCountUnknown) {
         // was: i18nc("Items in a folder", "? items");
@@ -472,11 +472,11 @@ QBrush KFileItemDelegate::Private::brush(const QVariant &value, const QStyleOpti
     if (value.userType() == qMetaTypeId<KStatefulBrush>()) {
         return qvariant_cast<KStatefulBrush>(value).brush(option.palette);
     }
-    switch (value.type()) {
-    case QVariant::Color:
+    switch (value.typeId()) {
+    case QMetaType::QColor:
         return QBrush(qvariant_cast<QColor>(value));
 
-    case QVariant::Brush:
+    case QMetaType::QBrush:
         return qvariant_cast<QBrush>(value);
 
     default:
@@ -872,8 +872,8 @@ QString KFileItemDelegate::Private::display(const QModelIndex &index) const
 {
     const QVariant value = index.data(Qt::DisplayRole);
 
-    switch (value.type()) {
-    case QVariant::String: {
+    switch (value.typeId()) {
+    case QMetaType::QString: {
         if (index.column() == KDirModel::Size) {
             return itemSize(index, fileItem(index));
         } else {
@@ -882,11 +882,11 @@ QString KFileItemDelegate::Private::display(const QModelIndex &index) const
         }
     }
 
-    case QVariant::Double:
+    case QMetaType::Double:
         return QLocale().toString(value.toDouble(), 'f');
 
-    case QVariant::Int:
-    case QVariant::UInt:
+    case QMetaType::Int:
+    case QMetaType::UInt:
         return QLocale().toString(value.toInt());
 
     default:
@@ -999,16 +999,16 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
     const QVariant value = index.data(Qt::DecorationRole);
     QIcon icon;
 
-    switch (value.type()) {
-    case QVariant::Icon:
+    switch (value.typeId()) {
+    case QMetaType::QIcon:
         icon = qvariant_cast<QIcon>(value);
         break;
 
-    case QVariant::Pixmap:
+    case QMetaType::QPixmap:
         icon.addPixmap(qvariant_cast<QPixmap>(value));
         break;
 
-    case QVariant::Color: {
+    case QMetaType::QColor: {
         QPixmap pixmap(option.decorationSize);
         pixmap.fill(qvariant_cast<QColor>(value));
         icon.addPixmap(pixmap);

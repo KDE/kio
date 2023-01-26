@@ -961,7 +961,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
 {
     switch (role) {
     case Qt::EditRole:
-        if (index.column() == Name && value.type() == QVariant::String) {
+        if (index.column() == Name && value.typeId() == QMetaType::QString) {
             Q_ASSERT(index.isValid());
             KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
             const KFileItem &item = node->item();
@@ -985,10 +985,10 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             KDirModelNode *node = static_cast<KDirModelNode *>(index.internalPointer());
             // qDebug() << "setting icon for " << node->item()->url();
             Q_ASSERT(node);
-            if (value.type() == QVariant::Icon) {
+            if (value.typeId() == QMetaType::QIcon) {
                 const QIcon icon(qvariant_cast<QIcon>(value));
                 node->setPreview(icon);
-            } else if (value.type() == QVariant::Pixmap) {
+            } else if (value.typeId() == QMetaType::QPixmap) {
                 node->setPreview(qvariant_cast<QPixmap>(value));
             }
             Q_EMIT dataChanged(index, index);
