@@ -67,7 +67,7 @@ static QList<QByteArray> parseChallenge(QByteArray &ba, QByteArray *scheme, QByt
 {
     QList<QByteArray> values;
     const char *b = ba.constData();
-    int len = ba.count();
+    int len = ba.size();
     int start = 0;
     int end = 0;
     int pos = 0;
