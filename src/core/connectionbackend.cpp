@@ -172,6 +172,8 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     Q_ASSERT(socket);
 
     char buffer[HeaderSize + 2];
+    // KF6 TODO: check if this breaks 32bit support,
+    // see https://invent.kde.org/frameworks/kio/-/merge_requests/1141#note_606633
     sprintf(buffer, "%6llx_%2x_", data.size(), cmd);
     socket->write(buffer, HeaderSize);
     socket->write(data);
