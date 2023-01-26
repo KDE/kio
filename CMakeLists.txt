@@ -138,13 +138,8 @@ if (ANDROID)
 endif()
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.97
-    KCOMPLETION 5.65 # we use KPixmapProvider in public API
-    KSERVICE 5.81 # we use KMimeTypeTrader in KFileItemActions
-    KCOREADDONS 5.85 # KService::createInstance uses deprecated parts of KCoreAddons in the header
-    KCONFIGCORE 5.81 # we use KDesktopFile::readDevice
-    KWIDGETSADDONS 5.96 # we use KMessageDialog::Sorry
+    QT 6.4
+    KF 5.240
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
