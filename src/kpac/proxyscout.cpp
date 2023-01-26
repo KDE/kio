@@ -21,10 +21,6 @@
 #include <KNotification>
 #endif
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QNetworkConfigurationManager>
-#endif
-
 #include <QDBusConnection>
 #include <QFileSystemWatcher>
 
@@ -70,10 +66,6 @@ ProxyScout::QueuedRequest::QueuedRequest(const QDBusMessage &reply, const QUrl &
 {
 }
 
-// Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
-QT_WARNING_PUSH
-QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
 ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)
     , m_componentName(QStringLiteral("proxyscout"))
@@ -81,18 +73,10 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     , m_script(nullptr)
     , m_suspendTime(0)
     , m_watcher(nullptr)
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    , m_networkConfig(new QNetworkConfigurationManager(this))
-#endif
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QNetworkInformation::load(QNetworkInformation::Feature::Reachability);
     connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, &ProxyScout::disconnectNetwork);
-#else
-    connect(m_networkConfig, &QNetworkConfigurationManager::configurationChanged, this, &ProxyScout::disconnectNetwork);
-#endif
 }
-QT_WARNING_POP
 
 ProxyScout::~ProxyScout()
 {
@@ -219,7 +203,6 @@ bool ProxyScout::startDownload()
     return true;
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void ProxyScout::disconnectNetwork(QNetworkInformation::Reachability newReachability)
 {
     if (!QNetworkInformation::instance()->supports(QNetworkInformation::Feature::Reachability)) {
@@ -239,22 +222,6 @@ void ProxyScout::disconnectNetwork(QNetworkInformation::Reachability newReachabi
         break;
     }
 }
-#else
-void ProxyScout::disconnectNetwork(const QNetworkConfiguration &config)
-{
-    // NOTE: We only care of Defined state because we only want
-    // to redo WPAD when a network interface is brought out of
-    // hibernation or restarted for whatever reason.
-    // Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
-    QT_WARNING_PUSH
-    QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-    QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-    if (config.state() == QNetworkConfiguration::Defined) {
-        reset();
-    }
-    QT_WARNING_POP
-}
-#endif
 
 void ProxyScout::downloadResult(bool success)
 {

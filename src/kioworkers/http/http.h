@@ -25,9 +25,6 @@
 class QDomNodeList;
 class QFile;
 class QIODevice;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class QNetworkConfigurationManager;
-#endif
 
 namespace KIO
 {
@@ -575,11 +572,6 @@ protected:
     TriedCredentials m_triedProxyCredentials;
     // For proxy auth when it's handled by the Qt/KDE socket classes
     QAuthenticator *m_socketProxyAuth;
-
-    // To know if we are online or not
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QNetworkConfigurationManager *m_networkConfig = nullptr;
-#endif
 
     // The current KIO error on this request / response pair - zero / KJob::NoError if no error
     int m_kioError;

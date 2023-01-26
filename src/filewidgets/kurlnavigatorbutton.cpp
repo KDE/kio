@@ -240,11 +240,7 @@ void KUrlNavigatorButton::paintEvent(QPaintEvent *event)
     }
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void KUrlNavigatorButton::enterEvent(QEnterEvent *event)
-#else
-void KUrlNavigatorButton::enterEvent(QEvent *event)
-#endif
 {
     KUrlNavigatorButtonBase::enterEvent(event);
 

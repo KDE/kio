@@ -74,7 +74,6 @@ static QDateTime parseDate(const QString &_value)
 
     // Q6DateTime::fromString() will return an invalid datetime if the "GMT"
     // part is included
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (!dt.isValid()) {
         const QLatin1String tail(" GMT");
         if (value.endsWith(tail)) {
@@ -82,7 +81,6 @@ static QDateTime parseDate(const QString &_value)
         }
         dt = QDateTime::fromString(value, Qt::RFC2822Date);
     }
-#endif
 
     if (!dt.isValid()) {
         static const char *const date_formats[] = {// Other formats documented in RFC 2616 sec 3.3.1

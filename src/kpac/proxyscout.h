@@ -15,12 +15,7 @@
 
 class QFileSystemWatcher;
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QNetworkInformation>
-#else
-class QNetworkConfiguration;
-class QNetworkConfigurationManager;
-#endif
 
 namespace KPAC
 {
@@ -42,11 +37,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE Q_NOREPLY void reset();
 
 private Q_SLOTS:
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     void disconnectNetwork(QNetworkInformation::Reachability newReachability);
-#else
-    void disconnectNetwork(const QNetworkConfiguration &config);
-#endif
 
     void downloadResult(bool);
     void proxyScriptFileChanged(const QString &);
@@ -76,10 +67,6 @@ private:
     BlackList m_blackList;
     qint64 m_suspendTime;
     QFileSystemWatcher *m_watcher;
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QNetworkConfigurationManager *m_networkConfig;
-#endif
 };
 }
 

@@ -37,11 +37,7 @@
 #include <QUrl>
 #include <qdom.h>
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QNetworkInformation>
-#else
-#include <QNetworkConfigurationManager>
-#endif
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -158,11 +154,7 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
 {
     QString sanitizedHeaders;
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     const QVector<QStringView> headers = QStringView(_header).split(QRegularExpression(QStringLiteral("[\r\n]")));
-#else
-    const QVector<QStringRef> headers = _header.splitRef(QRegularExpression(QStringLiteral("[\r\n]")));
-#endif
     for (const auto &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.
@@ -898,13 +890,7 @@ int HTTPProtocol::codeFromResponse(const QString &response)
     const int firstSpace = response.indexOf(QLatin1Char(' '));
     const int secondSpace = response.indexOf(QLatin1Char(' '), firstSpace + 1);
 
-    // QStringView::toInt() implementation in Qt5 uses toString(), which
-    // defeats the point of "not-allocating"
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     return QStringView(response).mid(firstSpace + 1, secondSpace - firstSpace - 1).toInt();
-#else
-    return response.midRef(firstSpace + 1, secondSpace - firstSpace - 1).toInt();
-#endif
 }
 
 void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, UDSEntry &entry)
@@ -1904,24 +1890,12 @@ bool HTTPProtocol::sendErrorPageNotification()
 
 bool HTTPProtocol::isOffline()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 1, 0)
     if (QNetworkInformation::load(QNetworkInformation::Feature::Reachability)) {
         return QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Online;
     } else {
         qCWarning(KIO_HTTP) << "Couldn't find a working backend for QNetworkInformation";
         return false;
     }
-#else
-    if (!m_networkConfig) {
-        // Silence deprecation warnings as there is no Qt 5 substitute for QNetworkConfigurationManager
-        QT_WARNING_PUSH
-        QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
-        QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
-        m_networkConfig = new QNetworkConfigurationManager(this);
-        QT_WARNING_POP
-    }
-    return !m_networkConfig->isOnline();
-#endif
 }
 
 KIO::WorkerResult HTTPProtocol::multiGet(const QByteArray &data)

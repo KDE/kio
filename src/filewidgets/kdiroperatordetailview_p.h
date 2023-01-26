@@ -31,11 +31,7 @@ public:
     virtual bool setViewMode(KFile::FileView viewMode);
 
 protected:
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     void initViewItemOption(QStyleOptionViewItem *option) const override;
-#else
-    QStyleOptionViewItem viewOptions() const override;
-#endif
 
     bool event(QEvent *event) override;
     void dragEnterEvent(QDragEnterEvent *event) override;

@@ -1248,13 +1248,7 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
     }
     bool ok = false;
 
-    // QStringView::toInt() implementation in Qt5 uses toString(), which
-    // defeats the point of "not-allocating"
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     trashId = QStringView(path).mid(start, slashPos - start).toInt(&ok);
-#else
-    trashId = path.midRef(start, slashPos - start).toInt(&ok);
-#endif
 
     Q_ASSERT(ok);
     if (!ok) {

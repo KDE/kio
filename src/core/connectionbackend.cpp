@@ -172,11 +172,7 @@ bool ConnectionBackend::sendCommand(int cmd, const QByteArray &data) const
     Q_ASSERT(socket);
 
     char buffer[HeaderSize + 2];
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     sprintf(buffer, "%6llx_%2x_", data.size(), cmd);
-#else
-    sprintf(buffer, "%6x_%2x_", data.size(), cmd);
-#endif
     socket->write(buffer, HeaderSize);
     socket->write(data);
 
