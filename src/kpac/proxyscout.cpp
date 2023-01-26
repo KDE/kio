@@ -74,7 +74,7 @@ ProxyScout::ProxyScout(QObject *parent, const QList<QVariant> &)
     , m_suspendTime(0)
     , m_watcher(nullptr)
 {
-    QNetworkInformation::load(QNetworkInformation::Feature::Reachability);
+    QNetworkInformation::loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
     connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, &ProxyScout::disconnectNetwork);
 }
 
