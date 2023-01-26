@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 00:54+0000\n"
-"PO-Revision-Date: 2023-01-16 09:25+0100\n"
+"PO-Revision-Date: 2023-01-25 06:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8067,7 +8067,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "The certificate is not trusted"
 msgid "NO, there were errors:"
-msgstr ""
+msgstr "არა. აღმოჩენილია შეცდომები:"
 
 #: widgets/ksslinfodialog.cpp:190
 #, kde-format
@@ -8136,7 +8136,7 @@ msgstr[1] "%1 URL-ის ჩასმა"
 #: widgets/paste.cpp:296
 #, kde-format
 msgid "&Paste Clipboard Contents"
-msgstr ""
+msgstr "&მიმოცვლის ბაფერის შემცველობის ჩასმა"
 
 #: widgets/paste.cpp:331
 #, kde-format
@@ -8341,12 +8341,12 @@ msgstr ""
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr ""
+msgstr "მსგავსი ფაილი სახელით '%1' უკვე არსებობს."
 
 #: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr ""
+msgstr "უფრო ახალი ჩანაწერი სახელით '%1' უკვე არსებობს."
 
 #: widgets/renamedialog.cpp:484
 #, kde-format

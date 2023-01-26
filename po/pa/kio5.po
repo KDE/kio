@@ -3,7 +3,7 @@
 # Amanpreet Singh Brar <amanpreetalam@yahoo.com>, 2005.
 # Amanpreet Singh Brar <aalam@redhat.com>, 2005.
 # Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
-# A S Alam <aalam@users.sf.net>, 2007, 2008, 2009, 2010, 2011, 2019, 2022.
+# A S Alam <aalam@users.sf.net>, 2007, 2008, 2009, 2010, 2011, 2019, 2022, 2023.
 # ASB <aalam@users.sf.net>, 2007.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2009, 2012, 2017.
 msgid ""
@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 00:54+0000\n"
-"PO-Revision-Date: 2022-11-19 05:23-0800\n"
+"PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
@@ -47,10 +47,9 @@ msgstr ""
 "ਲੋੜੀਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "io-slave ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %1"
+msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -783,10 +782,9 @@ msgid "Communication with the local password server failed"
 msgstr ""
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "io-slave ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ। %1"
+msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ। %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -2197,21 +2195,17 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "io-slave ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ"
+msgstr "KIO ਵਰਕਰ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"io-slave, ਜੋ ਕਿ <strong>%1</strong> ਪਰੋਟੋਕਾਲ ਲਈ ਪਹੁੰਚ ਉਪਲੱਬਧ ਕਰਵਾਉਦਾ ਸੀ, ਸ਼ੁਰੂ ਨਹੀਂ "
+"KIO ਵਰਕਰ ਜੋ ਕਿ <strong>%1</strong> ਪਰੋਟੋਕਾਲ ਲਈ ਪਹੁੰਚ ਉਪਲੱਬਧ ਕਰਵਾਉਦਾ ਸੀ, ਸ਼ੁਰੂ ਨਹੀਂ "
 "ਕੀਤਾ ਜਾ ਸਕਿਆ। ਇਹ ਅਕਸਰ ਤਕਨੀਕੀ ਕਾਰਨਾਂ ਕਰਕੇ ਹੁੰਦਾ ਹੈ।"
 
 #: core/job_error.cpp:1255
@@ -2286,16 +2280,14 @@ msgid "Unknown protocol '%1'."
 msgstr "ਅਣਜਾਣ ਪਰੋਟੋਕਾਲ '%1' ਹੈ।"
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ KIO ਵਰਕਰ ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ io-slave ਚਲਾਉਣ ਵਾਸਤੇ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ ਹੈ।"
+msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ KIO ਵਰਕਰ ਚਲਾਉਣ ਵਾਸਤੇ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ ਹੈ।"
 
 #: core/slave.cpp:488
 #, fuzzy, kde-format
@@ -5529,10 +5521,9 @@ msgid "Preparing document"
 msgstr "ਡੌਕੂਮੈੰਟ ਤਿਆਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
-#, fuzzy, kde-format
-#| msgid "The requested lock could not be granted. %1"
+#, kde-format
 msgid "The requested help file could not be parsed:<br />%1"
-msgstr "ਲੋੜੀਦੇ ਲਾਕ ਲਈ ਅਧਿਕਾਰ ਨਹੀਂ ਮਿਲ ਨਹੀਂ ਸਕੇ। %1"
+msgstr "ਮੰਗੀ ਗਈ ਮਦਦ ਫ਼ਾਈਲ ਨੂੰ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ:<br />%1"
 
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
@@ -6146,10 +6137,9 @@ msgstr "ਵੈੱਬ ਖੋਜ ਸ਼ਬਦਾਂ ਲਈ ਖੋਜ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-#| msgid "Add a new Web shortcut"
+#, kde-format
 msgid "Add a new Web search keyword"
-msgstr "ਨਵਾਂ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਜੋੜੋ"
+msgstr "ਨਵਾਂ ਵੈੱਬ ਖੋਜ ਸ਼ਬਦ ਜੋੜੋ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
@@ -8822,14 +8812,12 @@ msgstr[1] ""
 "ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
-#, fuzzy, kde-kuit-format
-#| msgid "Do you really want to move this item to the trash?"
-#| msgid_plural "Do you really want to move these %1 items to the trash?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਹ ਆਈਟਮ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
-msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਆਈਟਮ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਸ %1 ਚੀਜ਼ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
+msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ %1 ਚੀਜ਼ਾਂ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
