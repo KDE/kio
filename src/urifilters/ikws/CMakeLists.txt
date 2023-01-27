@@ -32,12 +32,9 @@ target_link_libraries(kuriikwsfilter
         KF6::ConfigWidgets  # KCModule
         KF6::KIOWidgets     # KUriFilter
         KF6::I18n
+        Qt6::Core5Compat # QTextCodec
         Qt6::DBus
 )
-
-if (TARGET Qt6::Core5Compat)
-    target_link_libraries(kuriikwsfilter PRIVATE Qt6::Core5Compat) # QTextCodec
-endif()
 
 #####
 
@@ -60,6 +57,7 @@ target_link_libraries(kurisearchfilter
    KF6::ConfigWidgets  # KCModule
    KF6::KIOWidgets     # KUriFilter
    KF6::I18n
+   Qt6::Core5Compat # QTextCodec
    Qt6::DBus
 )
 
