@@ -1,5 +1,4 @@
 #include <KService>
-#include <KServiceType>
 #include <QMimeDatabase>
 
 #include <QApplication>
@@ -25,13 +24,6 @@ int main(int argc, char *argv[])
     qDebug() << "got " << mimeTypes.count() << " mimeTypes";
     for (const QMimeType &m : mimeTypes) {
         qDebug() << m.name();
-    }
-
-    qDebug() << "All service types";
-    const KServiceType::List list = KServiceType::allServiceTypes();
-    qDebug() << "got " << list.count() << " service types";
-    for (const KServiceType::Ptr &st : list) {
-        qDebug() << st->name();
     }
 
     qDebug() << "done";
