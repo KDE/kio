@@ -86,7 +86,7 @@ int main(int argc, char **argv)
         WCHAR buf[1024];
         GetModuleFileName(NULL, buf, 1024);
         QStringList params;
-        params << QString::fromUtf16((const unsigned short *)buf);
+        params << QString::fromUtf16(reinterpret_cast<const char16_t *>(buf));
         params << QString::number(GetCurrentProcessId());
         const QString gdbExec = QStandardPaths::findExecutable(QStringLiteral("gdb"));
         if (gdbExec.isEmpty()) {

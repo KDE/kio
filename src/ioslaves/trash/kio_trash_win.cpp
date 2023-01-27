@@ -276,7 +276,7 @@ void TrashProtocol::stat(const QUrl &url)
         isfDesktop->Release();
         ILFree(iilTrash);
 
-        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
@@ -318,10 +318,10 @@ void TrashProtocol::listRoot()
     WIN32_FIND_DATAW findData;
     while (l->Next(1, &i, NULL) == S_OK) {
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_NORMAL, &strret);
-        entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_FORPARSING | SHGDN_INFOLDER, &strret);
-        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
         m_pMalloc->Free(strret.pOleStr);
         m_isfTrashFolder->GetAttributesOf(1, (LPCITEMIDLIST *)&i, &attribs);
         SHGetDataFromIDList(m_isfTrashFolder, i, SHGDFIL_FINDDATA, &findData, sizeof(findData));
@@ -329,7 +329,7 @@ void TrashProtocol::listRoot()
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, filetimeToTime_t(&findData.ftLastWriteTime));
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, filetimeToTime_t(&findData.ftLastAccessTime));
         entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, filetimeToTime_t(&findData.ftCreationTime));
-        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16((const unsigned short *)strret.pOleStr));
+        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
         entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString(Qt::ISODate));
         mode_t type = QT_STAT_REG;
         if ((attribs & SFGAO_FOLDER) == SFGAO_FOLDER) {
