@@ -26,17 +26,12 @@ class SchedulerPrivate;
  * It also queues jobs and assigns the job to a worker when one
  * becomes available.
  *
- * There are 3 possible ways for a job to get a worker:
+ * There are two possible ways for a job to get a worker:
  *
  * <h3>1. Direct</h3>
  * This is the default. When you create a job the
  * KIO::Scheduler will be notified and will find either an existing
  * worker that is idle or it will create a new worker for the job.
- *
- * Example:
- * \code
- *    TransferJob *job = KIO::get(QUrl("https://www.kde.org"));
- * \endcode
  *
  *
  * <h3>2. Scheduled</h3>
@@ -46,52 +41,8 @@ class SchedulerPrivate;
  * queued. When a worker is finished with a job, it will be assigned
  * a job from the queue.
  *
- * Example:
- * \code
- *    TransferJob *job = KIO::get(QUrl("https://www.kde.org"));
- *    KIO::Scheduler::setJobPriority(job, 1);
- * \endcode
- *
- * <h3>3. Connection Oriented (TODO KF6 remove this section)</h3>
- * For some operations it is important that multiple jobs use
- * the same connection. This can only be ensured if all these jobs
- * use the same slave.
- *
- * You can ask the scheduler to open a slave for connection oriented
- * operations. You can then use the scheduler to assign jobs to this
- * slave. The jobs will be queued and the slave will handle these jobs
- * one after the other.
- *
- * Example:
- * \code
- *    Slave *slave = KIO::Scheduler::getConnectedSlave(
- *            QUrl("pop3://bastian:password@mail.kde.org"));
- *    TransferJob *job1 = KIO::get(
- *            QUrl("pop3://bastian:password@mail.kde.org/msg1"));
- *    KIO::Scheduler::assignJobToSlave(slave, job1);
- *    TransferJob *job2 = KIO::get(
- *            QUrl("pop3://bastian:password@mail.kde.org/msg2"));
- *    KIO::Scheduler::assignJobToSlave(slave, job2);
- *    TransferJob *job3 = KIO::get(
- *            QUrl("pop3://bastian:password@mail.kde.org/msg3"));
- *    KIO::Scheduler::assignJobToSlave(slave, job3);
- *
- *    // ... Wait for jobs to finish...
- *
- *    KIO::Scheduler::disconnectSlave(slave);
- * \endcode
- *
- * Note that you need to explicitly disconnect the slave when the
- * connection goes down, so your error handler should contain:
- * \code
- *    if (error == KIO::ERR_CONNECTION_BROKEN)
- *        KIO::Scheduler::disconnectSlave(slave);
- * \endcode
- *
- * @see KIO::Slave
  * @see KIO::Job
- **/
-
+ */
 class KIOCORE_EXPORT Scheduler : public QObject
 {
     Q_OBJECT
