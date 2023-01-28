@@ -22,7 +22,7 @@ enum Command {
     CMD_DISCONNECT = '2', // 50
     CMD_WORKER_STATUS = '3', // 51
     CMD_NONE = 'A', // 65
-    CMD_TESTDIR = 'B', // 66   TODO KF6 REMOVE
+    // Unused: 'B', // 66
     CMD_GET = 'C', // 67
     CMD_PUT = 'D', // 68
     CMD_STAT = 'E', // 69
