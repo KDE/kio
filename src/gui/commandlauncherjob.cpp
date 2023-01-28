@@ -67,10 +67,12 @@ void KIO::CommandLauncherJob::setExecutable(const QString &executable)
     d->m_executable = executable;
 }
 
+#if KIOGUI_BUILD_DEPRECATED_SINCE(5, 103)
 void KIO::CommandLauncherJob::setIcon(const QString &iconName)
 {
     d->m_iconName = iconName;
 }
+#endif
 
 void KIO::CommandLauncherJob::setDesktopName(const QString &desktopName)
 {
