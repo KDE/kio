@@ -220,22 +220,6 @@ bool Worker::isAlive() const
     return !m_dead;
 }
 
-// TODO KF6: remove, unused
-void Worker::hold(const QUrl &url)
-{
-    ref();
-    {
-        QByteArray data;
-        QDataStream stream(&data, QIODevice::WriteOnly);
-        stream << url;
-        m_connection->send(CMD_WORKER_HOLD, data);
-        m_connection->close();
-        m_dead = true;
-        Q_EMIT workerDied(this);
-    }
-    deref();
-}
-
 void Worker::suspend()
 {
     m_connection->suspend();

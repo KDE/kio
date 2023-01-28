@@ -48,8 +48,6 @@ public:
     bool suspended() override;
     void send(int cmd, const QByteArray &arr = QByteArray()) override;
 
-    void hold(const QUrl &url) override;
-
     // pure virtual methods that are defined by the actual protocol
     virtual void get(const QUrl &url) = 0;
     virtual void mimetype(const QUrl &url) = 0;

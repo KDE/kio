@@ -701,7 +701,6 @@ static bool isSubCommand(int cmd)
         || cmd == CMD_CONFIG
         || cmd == CMD_SUBURL
         || cmd == CMD_WORKER_STATUS
-        || cmd == CMD_WORKER_HOLD
         || cmd == CMD_MULTI_GET;
     /* clang-format on */
 }
@@ -1139,20 +1138,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         slave_status();
         // TODO verify that the slave has called slaveStatus()?
         d->m_state = d->Idle;
-        break;
-    }
-    case CMD_WORKER_HOLD: { // TODO KF6: remove, unused
-        QUrl url;
-        QDataStream stream(data);
-        stream >> url;
-        d->onHoldUrl = url;
-        d->onHold = true;
-        disconnectSlave();
-        d->isConnectedToApp = false;
-        if (!d->poolSocket.isEmpty()) {
-            // Do not close connection!
-            connectSlave(d->poolSocket);
-        }
         break;
     }
     case CMD_REPARSECONFIGURATION: {

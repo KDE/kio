@@ -65,11 +65,6 @@ DataWorker::~DataWorker()
     // qDebug() << this;
 }
 
-void DataWorker::hold(const QUrl & /*url*/)
-{
-    // ignored
-}
-
 void DataWorker::suspend()
 {
     _suspended = true;
