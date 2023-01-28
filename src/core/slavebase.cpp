@@ -701,7 +701,6 @@ static bool isSubCommand(int cmd)
         || cmd == CMD_CONFIG
         || cmd == CMD_SUBURL
         || cmd == CMD_WORKER_STATUS
-        || cmd == CMD_WORKER_CONNECT
         || cmd == CMD_WORKER_HOLD
         || cmd == CMD_MULTI_GET;
     /* clang-format on */
@@ -1140,18 +1139,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         slave_status();
         // TODO verify that the slave has called slaveStatus()?
         d->m_state = d->Idle;
-        break;
-    }
-    case CMD_WORKER_CONNECT: {
-        d->onHold = false;
-        QString app_socket;
-        QDataStream stream(data);
-        stream >> app_socket;
-        d->appConnection.send(MSG_SLAVE_ACK);
-        disconnectSlave();
-        d->isConnectedToApp = true;
-        connectSlave(app_socket);
-        virtual_hook(AppConnectionMade, nullptr);
         break;
     }
     case CMD_WORKER_HOLD: { // TODO KF6: remove, unused

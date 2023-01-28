@@ -59,7 +59,6 @@ enum Message {
     MSG_LIST_ENTRIES,
     MSG_RENAMED, ///< unused
     MSG_RESUME,
-    MSG_SLAVE_ACK,
     MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
     MSG_OPENED,
