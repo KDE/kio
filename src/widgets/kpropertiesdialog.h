@@ -366,8 +366,13 @@ Q_SIGNALS:
     void saveAs(const QUrl &oldUrl, QUrl &newUrl);
 
 Q_SIGNALS:
-    // TODO KF6: remove this, not used anymore
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 103)
+    /**
+     * @deprecated Since 5.82, not used anymore.
+     */
+    KIOWIDGETS_DEPRECATED_VERSION_BELATED(5, 103, 5, 82, "Not used anymore")
     void leaveModality();
+#endif
 
 private:
     std::unique_ptr<KPropertiesDialogPrivate> d;
