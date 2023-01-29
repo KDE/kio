@@ -1299,12 +1299,6 @@ void KUrlCompletion::postProcessMatches(KCompletionMatches * /*matches*/) const
     // when there are a lot of matches...
 }
 
-// no longer used, KF6 TODO: remove this method
-void KUrlCompletion::customEvent(QEvent *e)
-{
-    KCompletion::customEvent(e);
-}
-
 void KUrlCompletionPrivate::slotCompletionThreadDone(QThread *thread, const QStringList &matches)
 {
     if (thread != userListThread && thread != dirListThread) {

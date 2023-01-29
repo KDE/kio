@@ -183,8 +183,6 @@ protected:
     void postProcessMatches(QStringList *matches) const override;
     void postProcessMatches(KCompletionMatches *matches) const override;
 
-    void customEvent(QEvent *e) override; // KF6 TODO: remove
-
 private:
     std::unique_ptr<KUrlCompletionPrivate> const d;
 };
