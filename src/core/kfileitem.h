@@ -117,7 +117,7 @@ public:
      * @param mimeType the name of the file's MIME type
      * @param mode the mode (S_IFDIR...)
      */
-    KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown); // KF6 TODO: explicit!
+    explicit KFileItem(const QUrl &url, const QString &mimeType = QString(), mode_t mode = KFileItem::Unknown);
 
     /**
      * Creates an item representing a file, with the option of skipping MIME type determination.
