@@ -15,6 +15,7 @@
 #include <kio/simplejob.h>
 #include <kprotocolinfo.h>
 
+#include <KDirNotify>
 #include <KDirWatch>
 
 #include <QDebug>

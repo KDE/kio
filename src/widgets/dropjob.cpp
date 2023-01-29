@@ -31,6 +31,7 @@
 #include <KService>
 #include <KUrlMimeData>
 
+#include <QDBusConnection>
 #include <QDBusPendingCall>
 #include <QDropEvent>
 #include <QFileInfo>

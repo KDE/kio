@@ -10,6 +10,10 @@
 
 #include "kfileitem.h"
 
+#ifndef KIO_ANDROID_STUB
+#include "kdirnotify.h"
+#endif
+
 #include <QCache>
 #include <QCoreApplication>
 #include <QFileInfo>

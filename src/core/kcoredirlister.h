@@ -9,7 +9,6 @@
 #ifndef KCOREDIRLISTER_H
 #define KCOREDIRLISTER_H
 
-#include "kdirnotify.h" // TODO KF6: remove
 #include "kfileitem.h"
 
 #include <QString>

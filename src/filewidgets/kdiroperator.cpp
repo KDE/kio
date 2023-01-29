@@ -20,7 +20,9 @@
 #include "kfilemetapreview_p.h"
 #include "knewfilemenu.h"
 #include "kpreviewwidgetbase.h"
+#include <KCompletion>
 #include <KConfigGroup>
+#include <KDirLister>
 #include <KFileItemActions>
 #include <KFileItemListProperties>
 #include <KIO/OpenFileManagerWindowJob>
@@ -53,6 +55,7 @@
 #include <QRegularExpression>
 #include <QScrollBar>
 #include <QSplitter>
+#include <QStack>
 #include <QTimer>
 #include <QWheelEvent>
 

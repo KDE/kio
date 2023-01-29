@@ -12,6 +12,8 @@
 #include "kiofilewidgets_export.h"
 #include <kfile.h>
 
+#include <KFileItem>
+
 #include <QStyleOptionViewItem>
 #include <QUrl>
 #include <QWidget>
@@ -23,18 +25,12 @@ class QProgressBar;
 
 class KActionCollection;
 class KActionMenu;
+class KCompletion;
 class KConfigGroup;
+class KDirLister;
 class KFileItemList;
 class KFilePreviewGenerator;
 class KPreviewWidgetBase;
-
-#include <KToggleAction> // SIC TODO KF6: Not used, remove
-#include <QStack> // SIC TODO KF6: Not used, remove
-
-// SIC TODO KF6: forward-declaration is enough for these three
-#include <KCompletion>
-#include <KDirLister>
-#include <KFileItem>
 
 namespace KIO
 {
