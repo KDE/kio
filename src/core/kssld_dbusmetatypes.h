@@ -38,8 +38,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, QSslCertif
 inline QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule)
 {
     argument.beginStructure();
-    argument << rule.certificate() << rule.hostName() << rule.isRejected() << rule.expiryDateTime().toString(Qt::ISODate)
-             << rule.d->ignoredErrors; // TODO KF6: replace by a call to rule.ignoredErrors
+    argument << rule.certificate() << rule.hostName() << rule.isRejected() << rule.expiryDateTime().toString(Qt::ISODate) << rule.ignoredErrors();
     argument.endStructure();
     return argument;
 }

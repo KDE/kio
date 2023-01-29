@@ -61,7 +61,6 @@ public:
     QList<QSslError> filterErrors(const QList<QSslError> &errors) const;
 
 private:
-    friend QDBusArgument &operator<<(QDBusArgument &argument, const KSslCertificateRule &rule); // TODO KF6 remove
     std::unique_ptr<KSslCertificateRulePrivate> const d;
 };
 
