@@ -107,10 +107,12 @@ void WorkerBase::dataReq()
     d->bridge.dataReq();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 103)
 void WorkerBase::needSubUrlData()
 {
     d->bridge.needSubUrlData();
 }
+#endif
 
 void WorkerBase::workerStatus(const QString &host, bool connected)
 {

@@ -103,10 +103,14 @@ public:
      */
     void dataReq();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * Call to signal that data from the sub-URL is needed
+     * @deprecated Since 5.96, feature no longer exists.
      */
+    KIOCORE_DEPRECATED_VERSION_BELATED(5, 103, 5, 96, "Feature no longer exists.")
     void needSubUrlData();
+#endif
 
     /**
      * Used to report the status of the worker.
