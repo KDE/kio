@@ -183,7 +183,6 @@ private:
  *
  * @code
  *   job->putOnHold();
- *   KIO::Scheduler::publishSlaveOnHold();
  * @endcode
  *
  * and forget about the job. The next time someone does a KIO::get() on the
