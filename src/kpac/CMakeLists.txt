@@ -51,10 +51,6 @@ if (TARGET Qt6::Qml)
     if (HAVE_RESOLV_LIBRARY)
       target_link_libraries(kded_proxyscout PRIVATE resolv)
     endif ()
-
-    if (TARGET Qt6::Core5Compat)
-        target_link_libraries(kded_proxyscout PRIVATE Qt6::Core5Compat) # QTextCodec
-    endif()
 endif()
 
 set_package_properties(Qt6Qml PROPERTIES DESCRIPTION "QtQml, one of the Qt6 modules"

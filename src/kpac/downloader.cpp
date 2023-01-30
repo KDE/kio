@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <cstring>
 
-#include <QTextCodec>
+#include <QStringDecoder>
 
 #include <KLocalizedString>
 
@@ -65,12 +65,12 @@ void Downloader::result(KJob *job)
 {
     if (!job->error() && !hasErrorPage(job)) {
         const QString charset = static_cast<KIO::Job *>(job)->queryMetaData(QStringLiteral("charset"));
-        QTextCodec *codec = QTextCodec::codecForName(charset.toLatin1());
-        if (!codec) {
-            codec = QTextCodec::codecForUtfText(m_data);
-            Q_ASSERT(codec);
+        QStringDecoder codec(charset.toLatin1().constData());
+        if (!codec.isValid()) {
+            codec = QStringDecoder(QStringConverter::encodingForData(m_data).value_or(QStringConverter::System));
+            Q_ASSERT(codec.isValid());
         }
-        m_script = codec->toUnicode(m_data);
+        m_script = codec.decode(m_data);
         Q_EMIT result(true);
     } else {
         if (job->error()) {
