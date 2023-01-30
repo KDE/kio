@@ -54,7 +54,7 @@ int initLocale()
     setenv("LC_ALL", "en_US.ISO-8859-1", 1);
     unsetenv("KDE_UTF8_FILENAMES");
 #endif
-    setenv("KIOSLAVE_ENABLE_TESTMODE", "1", 1); // ensure the KIO workers call QStandardPaths::setTestModeEnabled(true) too
+    setenv("KIOWORKER_ENABLE_TESTMODE", "1", 1); // ensure the KIO workers call QStandardPaths::setTestModeEnabled(true) too
     setenv("KDE_SKIP_KDERC", "1", 1);
     unsetenv("KDE_COLOR_DEBUG");
     return 0;

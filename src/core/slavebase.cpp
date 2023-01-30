@@ -98,8 +98,12 @@ public:
         , m_confirmationAsked(false)
         , m_privilegeOperationStatus(OperationNotAllowed)
     {
-        if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
+        if (!qEnvironmentVariableIsEmpty("KIOWORKER_ENABLE_TESTMODE")) {
             QStandardPaths::setTestModeEnabled(true);
+        } else if (!qEnvironmentVariableIsEmpty("KIOSLAVE_ENABLE_TESTMODE")) {
+            QStandardPaths::setTestModeEnabled(true);
+            qCWarning(KIO_CORE)
+                << "KIOSLABE_ENABLE_TESTMODE is deprecated for KF6, and will be unsupported soon. Please use KIOWORKER_ENABLE_TESTMODE with KF6.";
         }
         pendingListEntries.reserve(KIO_MAX_ENTRIES_PER_BATCH);
         appConnection.setReadMode(Connection::ReadMode::Polled);

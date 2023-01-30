@@ -223,7 +223,7 @@ void FileUndoManagerTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Get kio_trash to share our environment so that it writes trashrc to the right kdehome
-    qputenv("KIOSLAVE_ENABLE_TESTMODE", "1");
+    qputenv("KIOWORKER_ENABLE_TESTMODE", "1");
 
     // Start with a clean base dir
     cleanupTestCase();
