@@ -291,7 +291,7 @@ public:
     QString metaData(const QString &key) const;
 
     /**
-     * @internal for ForwardingSlaveBase
+     * @internal for ForwardingWorkerBase
      * Contains all metadata (but no config) sent by the application to the worker.
      */
     MetaData allMetaData() const;
