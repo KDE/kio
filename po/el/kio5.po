@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:54+0000\n"
+"POT-Creation-Date: 2023-01-30 00:54+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -4049,7 +4049,7 @@ msgstr "Κάντε κλικ για επεξεργασία τοποθεσίας"
 msgid "You are not authorized to execute this file."
 msgstr "Δεν έχετε άδεια εκτέλεσης αυτού του αρχείου."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"

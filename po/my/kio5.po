@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:54+0000\n"
+"POT-Creation-Date: 2023-01-30 00:54+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3797,7 +3797,7 @@ msgstr "တည်နေရာတည်းဖြတ်ရန် နှိပ်�
 msgid "You are not authorized to execute this file."
 msgstr "ဤဖိုင်လ်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"

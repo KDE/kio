@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:54+0000\n"
+"POT-Creation-Date: 2023-01-30 00:54+0000\n"
 "PO-Revision-Date: 2023-01-27 09:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3644,7 +3644,7 @@ msgstr "დააწკაპუნეთ მდებარეობის ჩ�
 msgid "You are not authorized to execute this file."
 msgstr "ამ ფაილის შესრულების წვდომები არ გაგაჩნიათ."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"

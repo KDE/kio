@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:54+0000\n"
+"POT-Creation-Date: 2023-01-30 00:54+0000\n"
 "PO-Revision-Date: 2020-01-12 11:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -4061,7 +4061,7 @@ msgstr "Premer para editar o lugar"
 msgid "You are not authorized to execute this file."
 msgstr "Non está autorizado para executar este ficheiro."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgctxt "Launching application"
 #| msgid "Launching %1"

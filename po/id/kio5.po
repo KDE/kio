@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:54+0000\n"
-"PO-Revision-Date: 2023-01-27 06:35+0700\n"
+"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"PO-Revision-Date: 2023-01-30 01:45+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -70,6 +70,10 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"Tidak dapat membuat \"%1\".\n"
+"Sistem file tujuan (%2) melarang karakter berikut dalam nama folder: %3\n"
+"Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama folder "
+"tujuan) dengan garis bawah \"_\"."
 
 #: core/copyjob.cpp:184
 #, kde-format
@@ -80,6 +84,10 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"Tidak dapat membuat \"%1\".\n"
+"Sistem file tujuan (%2) melarang karakter berikut dalam nama file: %3\n"
+"Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama file "
+"tujuan) dengan garis bawah \"_\"."
 
 #: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
@@ -814,10 +822,9 @@ msgstr ""
 "Mohon coba kembali sesudah mengubah perizinan."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "File terlalu besar untuk dipindahkan ke tong sampah."
+msgstr "File terlalu besar untuk dibuang ke tong sampah."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -2363,17 +2370,14 @@ msgstr ""
 "dapat dimulai. Ini biasanya karena masalah teknis."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "klauncher tidak dapat menemukan atau memulai plugin yang menyediakan "
-"protokol. Ini kemungkinan kamu memiliki sebuah plugin dengan versi yang "
-"lawas."
+"protokol. Ini kemungkinan Anda memiliki sebuah plugin dengan versi yang "
+"kedaluarsa."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -3198,12 +3202,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Hanya folder yang bisa ditambahkan ke panel Tempat."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Rilis"
+msgstr "Melepas..."
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3212,12 +3214,10 @@ msgid "&Release"
 msgstr "&Rilis"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Singkirkan Dengan Aman"
+msgstr "Melepas Dengan Aman..."
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3226,12 +3226,10 @@ msgid "&Safely Remove"
 msgstr "&Singkirkan Dengan Aman"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Melepas kait"
+msgstr "Melepas Kait..."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3938,7 +3936,7 @@ msgstr "Klik untuk sunting Lokasi"
 msgid "You are not authorized to execute this file."
 msgstr "Anda tidak diizinkan untuk mengeksekusi berkas ini."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -7268,8 +7266,7 @@ msgstr "Hapus Secara Permanen"
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Hapus Secara Permanen"
@@ -7844,16 +7841,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Ingat asosiasi aplikasi untuk semua file tipe\n"
-"\"%1\" (%2)"
+"&Ingat asosiasi aplikasi untuk semua file dengan tipe\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8119,7 +8113,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Program:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8261,17 +8255,14 @@ msgid "Ad&vanced Options"
 msgstr "Opsi L&anjutan"
 
 #: widgets/kpropertiesdialog.cpp:176
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"<qt>Tidak bisa menyimpan properti. Kamu tidak memiliki akses yang cukup "
-"untuk menulis ke <b>%1</b>.</qt>"
+"Tidak bisa menyimpan properti karena akses tulis tidak memadai untuk:<nl/"
+"><filename>%1</filename>."
 
 #: widgets/kpropertiesdialog.cpp:233 widgets/kpropertiesdialog.cpp:248
 #: widgets/kpropertiesdialog.cpp:260 widgets/kpropertiesdialog.cpp:278
@@ -8300,11 +8291,10 @@ msgid "&General"
 msgstr "&Umum"
 
 #: widgets/kpropertiesdialog.cpp:1119
-#, fuzzy, kde-format
-#| msgid "Explore in Filelight"
+#, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
-msgstr "Jelajahi di Filelight"
+msgstr "Jelajahi di %1"
 
 #: widgets/kpropertiesdialog.cpp:1130 widgets/kpropertiesdialog.cpp:1395
 #, kde-format
@@ -8352,16 +8342,14 @@ msgstr[0] "1 sub-folder"
 msgstr[1] "%1 sub-folder"
 
 #: widgets/kpropertiesdialog.cpp:1404
-#, fuzzy, kde-format
-#| msgid "Calculating..."
+#, kde-format
 msgid "Calculating...\n"
-msgstr "Menghitung..."
+msgstr "Menghitung...\n"
 
 #: widgets/kpropertiesdialog.cpp:1427
-#, fuzzy, kde-format
-#| msgid "At least %1"
+#, kde-format
 msgid "At least %1\n"
-msgstr "Setidaknya %1"
+msgstr "Setidaknya %1\n"
 
 #: widgets/kpropertiesdialog.cpp:1473
 #, kde-format
@@ -8369,23 +8357,20 @@ msgid "The new file name is empty."
 msgstr "Nama berkas baru telah kosong."
 
 #: widgets/kpropertiesdialog.cpp:1671
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "Tipe file yang di&dukung:"
+msgstr "Tidak ada tipe file yang diregistrasi"
 
 #: widgets/kpropertiesdialog.cpp:1673
-#, fuzzy, kde-format
-#| msgid "Choose Application"
+#, kde-format
 msgid "No associated application"
-msgstr "Pilihlah Aplikasi"
+msgstr "Tidak ada aplikasi yang berhubungan"
 
 #: widgets/kpropertiesdialog.cpp:1679
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Diciptakan:"
+msgstr "Buat…"
 
 #: widgets/kpropertiesdialog.cpp:1682
 #, kde-format
@@ -9137,11 +9122,10 @@ msgstr ""
 "direktori."
 
 #: widgets/renamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid "Overwrite File?"
+#, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "Timpa File?"
+msgstr "&Timpa file yang lawas"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
@@ -9190,16 +9174,14 @@ msgid "Differences"
 msgstr ""
 
 #: widgets/renamedialog.cpp:418
-#, fuzzy, kde-format
-#| msgid "Warning, the destination is more recent."
+#, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr "Peringatan, tujuannya lebih anyar."
+msgstr "Destinasi <b>lebih kecil dengan %1</b>"
 
 #: widgets/renamedialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "the extension <b>%1</b>"
+#, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr "ekstensi <b>%1</b>"
+msgstr "Destinasi <b>lebih besar dengan %1</b>"
 
 #: widgets/renamedialog.cpp:435
 #, kde-format
@@ -9212,10 +9194,9 @@ msgid "The files seem identical."
 msgstr ""
 
 #: widgets/renamedialog.cpp:441
-#, fuzzy, kde-format
-#| msgid "The new file name is empty."
+#, kde-format
 msgid "The files are different."
-msgstr "Nama file baru telah kosong."
+msgstr "File berbeda."
 
 #: widgets/renamedialog.cpp:449
 #, kde-format
@@ -9398,31 +9379,19 @@ msgstr ""
 "Digugurkan karena identitas dari host tidak dapat didirikan."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Apakah kamu sungguh ingin menghapus secara permanen butir ini?<nl/><filename>"
-"%1</filename><nl/><nl/><emphasis strong='true'>Tindakan ini tak dapat "
-"diurungkan.</emphasis>"
+"Apakah Anda sungguh ingin menghapus secara permanen item ini?<nl/><nl/"
+"><filename>%1</filename><nl/><nl/><emphasis strong='true'>Tindakan ini tak "
+"dapat diurungkan.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this %1 item?<nl/><nl/><emphasis "
@@ -9431,38 +9400,26 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"Apakah kamu sungguh ingin menghapus secara permanen butir ini?<nl/><nl/"
-"><emphasis strong='true'>Aksi ini tak dapat diurungkan.</emphasis>"
+"Apakah Anda sungguh ingin menghapus secara permanen %1 item ini?<nl/><nl/"
+"><emphasis strong='true'>Tindakan ini tidak bisa diurungkan.</emphasis>"
 msgstr[1] ""
-"Apakah kamu sungguh ingin menghapus secara permanen %1 butir tersebut?<nl/"
-"><nl/><emphasis strong='true'>Aksi ini tak dapat diurungkan.</emphasis>"
+"Apakah Anda sungguh ingin menghapus secara permanen %1 item tersebut?<nl/"
+"><nl/><emphasis strong='true'>Tindakan ini tidak bisa diurungkan.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Apakah kamu sungguh ingin menghapus secara permanen butir ini?<nl/><filename>"
-"%1</filename><nl/><nl/><emphasis strong='true'>Tindakan ini tak dapat "
-"diurungkan.</emphasis>"
+"Memindah item ini ke Tong Sampah gagal karena terlalu besar. Apakah hapus "
+"secara permanen saja?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Tindakan ini tak bisa diurungkan.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9473,11 +9430,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Apakah kamu sungguh ingin menghapus secara permanen butir ini?<nl/><nl/"
-"><emphasis strong='true'>Aksi ini tak dapat diurungkan.</emphasis>"
+"Memindah %1 item ini ke Tong Sampah gagal karena terlalu besar. Apakah hapus "
+"secara permanen saja?<nl/><emphasis strong='true'>Tindakan ini tak bisa "
+"diurungkan.</emphasis>"
 msgstr[1] ""
-"Apakah kamu sungguh ingin menghapus secara permanen %1 butir tersebut?<nl/"
-"><nl/><emphasis strong='true'>Aksi ini tak dapat diurungkan.</emphasis>"
+"Memindah %1 item ini ke Tong Sampah gagal karena terlalu besar. Apakah hapus "
+"secara permanen saja?<nl/><nl/><emphasis strong='true'>Tindakan ini tak bisa "
+"diurungkan.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
@@ -9491,15 +9450,13 @@ msgstr[1] ""
 "Apakah Anda sungguh ingin memindah %1 butir tersebut ke Tong Sampah?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:335
-#, fuzzy, kde-format
-#| msgid "Do not ask again"
+#, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Jangan tanya lagi"
 
 #: widgets/widgetsaskuseractionhandler.cpp:387
-#, fuzzy, kde-format
-#| msgid "Do not ask again"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Jangan tanya lagi"
