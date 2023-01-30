@@ -603,11 +603,6 @@ void SlaveBase::finished()
     d->m_privilegeOperationStatus = OperationNotAllowed;
 }
 
-void SlaveBase::needSubUrlData()
-{
-    send(MSG_NEED_SUBURL_DATA);
-}
-
 void SlaveBase::slaveStatus(const QString &host, bool connected)
 {
     qint64 pid = getpid();
@@ -699,7 +694,6 @@ static bool isSubCommand(int cmd)
     return cmd == CMD_REPARSECONFIGURATION
         || cmd == CMD_META_DATA
         || cmd == CMD_CONFIG
-        || cmd == CMD_SUBURL
         || cmd == CMD_WORKER_STATUS
         || cmd == CMD_MULTI_GET;
     /* clang-format on */
@@ -860,8 +854,6 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
         return i18n("Changing the attributes of files is not supported with protocol %1.", protocol);
     case CMD_CHOWN:
         return i18n("Changing the ownership of files is not supported with protocol %1.", protocol);
-    case CMD_SUBURL:
-        return i18n("Using sub-URLs with %1 is not supported.", protocol);
     case CMD_MULTI_GET:
         return i18n("Multiple get is not supported with protocol %1.", protocol);
     case CMD_OPEN:
@@ -957,10 +949,6 @@ void SlaveBase::setModificationTime(QUrl const &, const QDateTime &)
 void SlaveBase::chown(QUrl const &, const QString &, const QString &)
 {
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CHOWN));
-}
-void SlaveBase::setSubUrl(QUrl const &)
-{
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_SUBURL));
 }
 void SlaveBase::multiGet(const QByteArray &)
 {
@@ -1316,14 +1304,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         // qDebug() << "(" << getpid() << ") Incoming meta-data...";
         stream >> mIncomingMetaData;
         d->rebuildConfig();
-        break;
-    }
-    case CMD_SUBURL: {
-        stream >> url;
-        d->m_state = d->InsideMethod;
-        setSubUrl(url);
-        d->verifyErrorFinishedNotCalled("setSubUrl()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_NONE: {

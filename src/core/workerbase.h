@@ -104,11 +104,6 @@ public:
     void dataReq();
 
     /**
-     * Call to signal that data from the sub-URL is needed
-     */
-    void needSubUrlData();
-
-    /**
      * Used to report the status of the worker.
      * @param host the worker is currently connected to. (Should be
      *        empty if not connected)

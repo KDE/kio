@@ -83,12 +83,6 @@ public:
 
 protected:
     /**
-     * Called when m_subJob finishes.
-     * @param job the job that finished
-     */
-    void slotResult(KJob *job) override;
-
-    /**
      * Reimplemented for internal reasons
      */
     bool doResume() override;

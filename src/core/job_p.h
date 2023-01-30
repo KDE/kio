@@ -126,7 +126,6 @@ public:
     QPointer<Worker> m_worker;
     QByteArray m_packedArgs;
     QUrl m_url;
-    QUrl m_subUrl; // TODO KF6 remove
     int m_command;
 
     // for use in KIO::Scheduler
@@ -258,7 +257,6 @@ public:
         , staticData(_staticData)
         , m_isMimetypeEmitted(false)
         , m_closedBeforeStart(false)
-        , m_subJob(nullptr)
     {
     }
 
@@ -268,7 +266,6 @@ public:
         , m_errorPage(false)
         , m_isMimetypeEmitted(false)
         , m_closedBeforeStart(false)
-        , m_subJob(nullptr)
         , m_outgoingDataSource(QPointer<QIODevice>(ioDevice))
     {
     }
@@ -281,7 +278,6 @@ public:
     QString m_mimetype;
     bool m_isMimetypeEmitted;
     bool m_closedBeforeStart;
-    TransferJob *m_subJob;
     QPointer<QIODevice> m_outgoingDataSource;
     QMetaObject::Connection m_readChannelFinishedConnection;
 
@@ -310,8 +306,6 @@ public:
     void slotIODeviceClosed();
     void slotIODeviceClosedBeforeStart();
     void slotPostRedirection();
-    void slotNeedSubUrlData();
-    void slotSubUrlData(KIO::Job *, const QByteArray &);
 
     Q_DECLARE_PUBLIC(TransferJob)
     static inline TransferJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData, JobFlags flags)

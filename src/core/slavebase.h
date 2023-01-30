@@ -138,11 +138,6 @@ public:
     void finished();
 
     /**
-     * Call to signal that data from the sub-URL is needed
-     */
-    void needSubUrlData();
-
-    /**
      * Used to report the status of the slave.
      * @param host the slave is currently connected to. (Should be
      *        empty if not connected)
@@ -403,11 +398,6 @@ public:
      * This method is called whenever a change in host, port or user occurs.
      */
     virtual void setHost(const QString &host, quint16 port, const QString &user, const QString &pass);
-
-    /**
-     * Prepare slave for streaming operation
-     */
-    virtual void setSubUrl(const QUrl &url); // TODO KF6 remove
 
     /**
      * Opens the connection (forced).

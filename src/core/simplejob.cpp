@@ -171,11 +171,6 @@ void SimpleJobPrivate::start(Worker *worker)
         worker->send(CMD_META_DATA, packedArgs);
     }
 
-    if (!m_subUrl.isEmpty()) { // TODO KF6 remove
-        KIO_ARGS << m_subUrl;
-        worker->send(CMD_SUBURL, packedArgs);
-    }
-
     worker->send(m_command, m_packedArgs);
     if (q->isSuspended()) {
         worker->suspend();

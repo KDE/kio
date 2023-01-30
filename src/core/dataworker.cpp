@@ -144,7 +144,6 @@ void DataWorker::send(int cmd, const QByteArray &arr)
     // ignore these (must not emit error, otherwise SIGSEGV occurs)
     case CMD_REPARSECONFIGURATION:
     case CMD_META_DATA:
-    case CMD_SUBURL:
         break;
     default:
         Q_EMIT error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(QStringLiteral("data"), cmd));

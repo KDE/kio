@@ -59,7 +59,6 @@ enum Message {
     MSG_LIST_ENTRIES,
     MSG_RENAMED, ///< unused
     MSG_RESUME,
-    MSG_NEED_SUBURL_DATA,
     MSG_CANRESUME,
     MSG_OPENED,
     MSG_WRITTEN,
@@ -115,7 +114,6 @@ Q_SIGNALS:
     void workerStatus(qint64, const QByteArray &, const QString &, bool);
     void listEntries(const KIO::UDSEntryList &);
     void statEntry(const KIO::UDSEntry &);
-    void needSubUrlData();
 
     void canResume(KIO::filesize_t);
 

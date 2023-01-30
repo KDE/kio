@@ -274,10 +274,6 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT metaData(m);
         break;
     }
-    case MSG_NEED_SUBURL_DATA: {
-        Q_EMIT needSubUrlData();
-        break;
-    }
     case MSG_HOST_INFO_REQ: {
         QString hostName;
         stream >> hostName;

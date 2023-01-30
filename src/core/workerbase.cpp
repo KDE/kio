@@ -107,11 +107,6 @@ void WorkerBase::dataReq()
     d->bridge.dataReq();
 }
 
-void WorkerBase::needSubUrlData()
-{
-    d->bridge.needSubUrlData();
-}
-
 void WorkerBase::workerStatus(const QString &host, bool connected)
 {
     d->bridge.slaveStatus(host, connected);

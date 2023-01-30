@@ -222,12 +222,6 @@ void TransferJob::slotDataReq()
     }
 
     sendAsyncData(dataForWorker);
-
-    if (d->m_subJob) {
-        // Bitburger protocol in action
-        d->internalSuspend(); // Wait for more data from subJob.
-        d->m_subJob->d_func()->internalResume(); // Ask for more!
-    }
 }
 
 void TransferJob::slotMimetype(const QString &type)
@@ -316,10 +310,6 @@ void TransferJobPrivate::start(Worker *worker)
         m_errorPage = true;
     });
 
-    q->connect(worker, &WorkerInterface::needSubUrlData, q, [this]() {
-        slotNeedSubUrlData();
-    });
-
     q->connect(worker, &WorkerInterface::canResume, q, [q](KIO::filesize_t offset) {
         Q_EMIT q->canResume(q, offset);
     });
@@ -334,26 +324,6 @@ void TransferJobPrivate::start(Worker *worker)
     if (m_internalSuspended) {
         worker->suspend();
     }
-}
-
-void TransferJobPrivate::slotNeedSubUrlData()
-{
-    Q_Q(TransferJob);
-    // Job needs data from subURL.
-    m_subJob = KIO::get(m_subUrl, NoReload, HideProgressInfo);
-    internalSuspend(); // Put job on hold until we have some data.
-    q->connect(m_subJob, &TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
-        slotSubUrlData(job, data);
-    });
-    q->addSubjob(m_subJob);
-}
-
-void TransferJobPrivate::slotSubUrlData(KIO::Job *, const QByteArray &data)
-{
-    // The Alternating Bitburg protocol in action again.
-    staticData = data;
-    m_subJob->d_func()->internalSuspend(); // Put job on hold until we have delivered the data.
-    internalResume(); // Activate ourselves again.
 }
 
 void TransferJobPrivate::slotDataReqFromDevice()
@@ -386,12 +356,6 @@ void TransferJobPrivate::slotDataReqFromDevice()
     }
 
     q->sendAsyncData(dataForWorker);
-
-    if (m_subJob) {
-        // Bitburger protocol in action
-        internalSuspend(); // Wait for more data from subJob.
-        m_subJob->d_func()->internalResume(); // Ask for more!
-    }
 }
 
 void TransferJobPrivate::slotIODeviceClosedBeforeStart()
@@ -412,26 +376,6 @@ void TransferJobPrivate::slotIODeviceClosed()
 
     // We send an empty data array to indicate the stream is over
     q->sendAsyncData(QByteArray());
-
-    if (m_subJob) {
-        // Bitburger protocol in action
-        internalSuspend(); // Wait for more data from subJob.
-        m_subJob->d_func()->internalResume(); // Ask for more!
-    }
-}
-
-void TransferJob::slotResult(KJob *job)
-{
-    Q_D(TransferJob);
-    // This can only be our suburl.
-    Q_ASSERT(job == d->m_subJob);
-
-    SimpleJob::slotResult(job);
-
-    if (!error() && job == d->m_subJob) {
-        d->m_subJob = nullptr; // No action required
-        d->internalResume(); // Make sure we get the remaining data.
-    }
 }
 
 void TransferJob::setModificationTime(const QDateTime &mtime)
