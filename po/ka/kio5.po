@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-30 00:54+0000\n"
-"PO-Revision-Date: 2023-01-27 09:36+0100\n"
+"PO-Revision-Date: 2023-01-30 10:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3632,7 +3632,7 @@ msgstr "რედაქტირების რეჟიმი"
 #: filewidgets/kurlnavigatortogglebutton.cpp:89
 #, kde-format
 msgid "Click for Location Navigation"
-msgstr ""
+msgstr "მდებარეობის ნავიგაციისთვის დააწკაპუნეთ"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:91
 #, kde-format
@@ -6536,7 +6536,7 @@ msgstr ""
 #: widgets/fileundomanager.cpp:736
 #, kde-format
 msgid "Undo File Copy Confirmation"
-msgstr ""
+msgstr "ფაილის კოპირების დაბრუნების დადასტურება"
 
 #: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
@@ -7180,7 +7180,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, kde-format
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "არ დახურო ბრძანების დასრულებისას"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
 #: widgets/kpropertiesdesktopadvbase.ui:87
@@ -7260,7 +7260,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr ""
+msgstr "გაშვების უკუკავშირის ჩართვა"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -7349,7 +7349,7 @@ msgstr "არჩევა..."
 #: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr ""
+msgstr "აყენებს სამუშაო საქაღალდეს თქვენი აპლიკაციისთვის."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:152
@@ -7388,7 +7388,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:189
 #, kde-format
 msgid "&Supported file types:"
-msgstr ""
+msgstr "&მხარდაჭერილი ფაილის ტიპები:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:220
@@ -7463,8 +7463,8 @@ msgstr "%1-ის თვისებები"
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ჩანაწერის თვისებები"
+msgstr[1] "%1 ჩანაწერის თვისებები"
 
 #: widgets/kpropertiesdialog.cpp:450
 #, kde-format
@@ -7552,7 +7552,7 @@ msgstr "ფაილის ტიპი რეგისტრირებულ�
 #: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
 msgid "No associated application"
-msgstr ""
+msgstr "ასოცირებული აპლიკაციის გარეშე"
 
 #: widgets/kpropertiesdialog.cpp:1679
 #, kde-format
@@ -7615,7 +7615,7 @@ msgstr[1] ""
 #: widgets/kpropertiesdialog.cpp:1883
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr ""
+msgstr "წვდომების შეცვლა მხოლოდ მფლობელს შეუძლია."
 
 #: widgets/kpropertiesdialog.cpp:1887
 #, kde-format
