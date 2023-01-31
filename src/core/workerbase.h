@@ -233,11 +233,9 @@ public:
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     *                          The (deprecated since 5.100) default is i18n("&Yes").
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     *                            The (deprecated since 5.100) default is i18n("&No").
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
@@ -253,11 +251,9 @@ public:
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
      *                          Ignored for @p type Information & SSLMessageBox.
-     *                          The (deprecated since 5.100) default is i18n("&Yes").
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
      *                            Information & SSLMessageBox.
-     *                            The (deprecated since 5.100) default is i18n("&No").
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
