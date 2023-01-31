@@ -2477,11 +2477,6 @@ void KDirOperator::resizeEvent(QResizeEvent *)
     }
 }
 
-void KDirOperator::keyPressEvent(QKeyEvent *e) // TODO KF6 remove
-{
-    QWidget::keyPressEvent(e);
-}
-
 void KDirOperator::setOnlyDoubleClickSelectsFiles(bool enable)
 {
     d->m_onlyDoubleClickSelectsFiles = enable;

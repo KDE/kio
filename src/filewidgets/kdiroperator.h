@@ -773,8 +773,6 @@ protected:
 
     void resizeEvent(QResizeEvent *event) override;
 
-    void keyPressEvent(QKeyEvent *event) override; // TODO KF6 REMOVE
-
     /**
      * Sets up all the actions. Called from the constructor, you usually
      * better not call this.
