@@ -41,6 +41,7 @@
 #include <utime.h>
 #endif
 
+#include <QDateTime>
 #include <QFile>
 #include <QFileInfo>
 #include <QPointer>
@@ -191,6 +192,17 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
 
     return msg;
 }
+
+/** @internal */
+struct CopyInfo {
+    QUrl uSource;
+    QUrl uDest;
+    QString linkDest; // for symlinks only
+    int permissions;
+    QDateTime ctime;
+    QDateTime mtime;
+    KIO::filesize_t size; // 0 for dirs
+};
 
 /** @internal */
 class KIO::CopyJobPrivate : public KIO::JobPrivate

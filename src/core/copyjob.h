@@ -10,30 +10,17 @@
 #ifndef KIO_COPYJOB_H
 #define KIO_COPYJOB_H
 
-#include <QDateTime>
 #include <QObject>
 #include <QStringList>
 #include <QUrl>
 
 #include "job_base.h"
 #include "kiocore_export.h"
-#include <kio/global.h> // filesize_t
 
-class QTimer;
+class QDateTime;
 
 namespace KIO
 {
-/// @internal
-/// KF6 TODO: move to .cpp and remove aboutToCreate signal
-struct CopyInfo {
-    QUrl uSource;
-    QUrl uDest;
-    QString linkDest; // for symlinks only
-    int permissions;
-    QDateTime ctime;
-    QDateTime mtime;
-    KIO::filesize_t size; // 0 for dirs
-};
 
 class CopyJobPrivate;
 /**
