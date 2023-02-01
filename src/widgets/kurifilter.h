@@ -641,8 +641,9 @@ public:
      */
     explicit KUriFilterPlugin(const QString &name, QObject *parent = nullptr);
 
-    // KF6 TODO ~KUriFilterPlugin();
+    ~KUriFilterPlugin() override;
 
+public:
     /**
      * Filters a URI.
      *

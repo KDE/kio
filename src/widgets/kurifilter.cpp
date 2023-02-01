@@ -467,10 +467,7 @@ KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
     setObjectName(name);
 }
 
-// KF6 TODO
-// KUriFilterPlugin::~KUriFilterPlugin()
-//{
-//}
+KUriFilterPlugin::~KUriFilterPlugin() = default;
 
 KCModule *KUriFilterPlugin::configModule(QWidget *, const char *) const
 {
