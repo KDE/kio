@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kurlnavigatorprotocolcombo_p.h"
+#include "kurlnavigatorschemecombo_p.h"
 
 #include <QAction>
 #include <QMenu>
@@ -25,30 +25,30 @@ const int ArrowSize = 10;
 
 namespace KDEPrivate
 {
-KUrlNavigatorProtocolCombo::KUrlNavigatorProtocolCombo(const QString &protocol, KUrlNavigator *parent)
+KUrlNavigatorSchemeCombo::KUrlNavigatorSchemeCombo(const QString &scheme, KUrlNavigator *parent)
     : KUrlNavigatorButtonBase(parent)
     , m_menu(nullptr)
-    , m_protocols()
+    , m_schemes()
     , m_categories()
 {
     m_menu = new QMenu(this);
-    connect(m_menu, &QMenu::triggered, this, &KUrlNavigatorProtocolCombo::setProtocolFromMenu);
-    setText(protocol);
+    connect(m_menu, &QMenu::triggered, this, &KUrlNavigatorSchemeCombo::setSchemeFromMenu);
+    setText(scheme);
     setMenu(m_menu);
 }
 
-void KUrlNavigatorProtocolCombo::setCustomProtocols(const QStringList &protocols)
+void KUrlNavigatorSchemeCombo::setSupportedSchemes(const QStringList &schemes)
 {
-    m_protocols = protocols;
+    m_schemes = schemes;
     m_menu->clear();
 
-    for (const QString &protocol : protocols) {
-        QAction *action = m_menu->addAction(protocol);
-        action->setData(protocol);
+    for (const QString &scheme : schemes) {
+        QAction *action = m_menu->addAction(scheme);
+        action->setData(scheme);
     }
 }
 
-QSize KUrlNavigatorProtocolCombo::sizeHint() const
+QSize KUrlNavigatorSchemeCombo::sizeHint() const
 {
     const QSize size = KUrlNavigatorButtonBase::sizeHint();
 
@@ -58,36 +58,36 @@ QSize KUrlNavigatorProtocolCombo::sizeHint() const
     return QSize(width, size.height());
 }
 
-void KUrlNavigatorProtocolCombo::setProtocol(const QString &protocol)
+void KUrlNavigatorSchemeCombo::setScheme(const QString &scheme)
 {
-    setText(protocol);
+    setText(scheme);
 }
 
-QString KUrlNavigatorProtocolCombo::currentProtocol() const
+QString KUrlNavigatorSchemeCombo::currentScheme() const
 {
     return text();
 }
 
-void KUrlNavigatorProtocolCombo::showEvent(QShowEvent *event)
+void KUrlNavigatorSchemeCombo::showEvent(QShowEvent *event)
 {
     KUrlNavigatorButtonBase::showEvent(event);
-    if (!event->spontaneous() && m_protocols.isEmpty()) {
-        m_protocols = KProtocolInfo::protocols();
+    if (!event->spontaneous() && m_schemes.isEmpty()) {
+        m_schemes = KProtocolInfo::protocols();
 
-        auto it = std::remove_if(m_protocols.begin(), m_protocols.end(), [](const QString &s) {
+        auto it = std::remove_if(m_schemes.begin(), m_schemes.end(), [](const QString &s) {
             QUrl url;
             url.setScheme(s);
             return !KProtocolManager::supportsListing(url);
         });
-        m_protocols.erase(it, m_protocols.end());
+        m_schemes.erase(it, m_schemes.end());
 
-        std::sort(m_protocols.begin(), m_protocols.end());
+        std::sort(m_schemes.begin(), m_schemes.end());
 
         updateMenu();
     }
 }
 
-void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
+void KUrlNavigatorSchemeCombo::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
 
@@ -121,26 +121,26 @@ void KUrlNavigatorProtocolCombo::paintEvent(QPaintEvent *event)
     style()->drawItemText(&painter, QRect(BorderWidth, 0, textWidth, buttonHeight), alignment, option.palette, isEnabled(), text());
 }
 
-void KUrlNavigatorProtocolCombo::setProtocolFromMenu(QAction *action)
+void KUrlNavigatorSchemeCombo::setSchemeFromMenu(QAction *action)
 {
-    const QString protocol = action->data().toString();
-    setText(protocol);
-    Q_EMIT activated(protocol);
+    const QString scheme = action->data().toString();
+    setText(scheme);
+    Q_EMIT activated(scheme);
 }
 
-void KUrlNavigatorProtocolCombo::updateMenu()
+void KUrlNavigatorSchemeCombo::updateMenu()
 {
     initializeCategories();
-    std::sort(m_protocols.begin(), m_protocols.end());
+    std::sort(m_schemes.begin(), m_schemes.end());
 
-    // move all protocols into the corresponding category of 'items'
+    // move all schemes into the corresponding category of 'items'
     QList<QString> items[CategoryCount];
-    for (const QString &protocol : std::as_const(m_protocols)) {
-        if (m_categories.contains(protocol)) {
-            const ProtocolCategory category = m_categories.value(protocol);
-            items[category].append(protocol);
+    for (const QString &scheme : std::as_const(m_schemes)) {
+        if (m_categories.contains(scheme)) {
+            const SchemeCategory category = m_categories.value(scheme);
+            items[category].append(scheme);
         } else {
-            items[OtherCategory].append(protocol);
+            items[OtherCategory].append(scheme);
         }
     }
 
@@ -169,9 +169,9 @@ void KUrlNavigatorProtocolCombo::updateMenu()
                 break;
             }
 
-            for (const QString &protocol : std::as_const(items[category])) {
-                QAction *action = menu->addAction(protocol);
-                action->setData(protocol);
+            for (const QString &scheme : std::as_const(items[category])) {
+                QAction *action = menu->addAction(scheme);
+                action->setData(scheme);
             }
 
             if (menu == m_menu) {
@@ -181,7 +181,7 @@ void KUrlNavigatorProtocolCombo::updateMenu()
     }
 }
 
-void KUrlNavigatorProtocolCombo::initializeCategories()
+void KUrlNavigatorSchemeCombo::initializeCategories()
 {
     if (m_categories.isEmpty()) {
         m_categories.insert(QStringLiteral("file"), CoreCategory);
@@ -212,4 +212,4 @@ void KUrlNavigatorProtocolCombo::initializeCategories()
 
 } // namespace KDEPrivate
 
-#include "moc_kurlnavigatorprotocolcombo_p.cpp"
+#include "moc_kurlnavigatorschemecombo_p.cpp"

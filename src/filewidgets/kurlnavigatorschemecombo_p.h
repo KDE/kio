@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KURLNAVIGATORPROTOCOLCOMBO_P_H
-#define KURLNAVIGATORPROTOCOLCOMBO_P_H
+#ifndef KURLNAVIGATORSCHEMECOMBO_P_H
+#define KURLNAVIGATORSCHEMECOMBO_P_H
 
 #include "kurlnavigatorbuttonbase_p.h"
 
@@ -17,44 +17,44 @@ class QMenu;
 namespace KDEPrivate
 {
 /**
- * @brief A combobox listing available protocols.
+ * @brief A combobox listing available schemes.
  *
  * The widget is used by the URL navigator for offering the available
- * protocols for non-local URLs.
+ * schemes for non-local URLs.
  *
  * @see KUrlNavigator
  */
-class KUrlNavigatorProtocolCombo : public KUrlNavigatorButtonBase
+class KUrlNavigatorSchemeCombo : public KUrlNavigatorButtonBase
 {
     Q_OBJECT
 
 public:
-    explicit KUrlNavigatorProtocolCombo(const QString &protocol, KUrlNavigator *parent = nullptr);
+    explicit KUrlNavigatorSchemeCombo(const QString &scheme, KUrlNavigator *parent = nullptr);
 
-    QString currentProtocol() const;
+    QString currentScheme() const;
 
-    void setCustomProtocols(const QStringList &protocols);
+    void setSupportedSchemes(const QStringList &schemes);
 
     QSize sizeHint() const override;
 
 public Q_SLOTS:
-    void setProtocol(const QString &protocol);
+    void setScheme(const QString &scheme);
 
 Q_SIGNALS:
-    void activated(const QString &protocol);
+    void activated(const QString &scheme);
 
 protected:
     void showEvent(QShowEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
 
 private Q_SLOTS:
-    void setProtocolFromMenu(QAction *action);
+    void setSchemeFromMenu(QAction *action);
 
 private:
     void updateMenu();
     void initializeCategories();
 
-    enum ProtocolCategory {
+    enum SchemeCategory {
         CoreCategory,
         PlacesCategory,
         DevicesCategory,
@@ -64,8 +64,8 @@ private:
     };
 
     QMenu *m_menu;
-    QStringList m_protocols;
-    QHash<QString, ProtocolCategory> m_categories;
+    QStringList m_schemes;
+    QHash<QString, SchemeCategory> m_categories;
 };
 
 } // namespace KDEPrivate

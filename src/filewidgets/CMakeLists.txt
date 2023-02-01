@@ -41,7 +41,7 @@ target_sources(KF6KIOFileWidgets PRIVATE
   kurlnavigatorbuttonbase.cpp
   kurlnavigatorbutton.cpp
   kurlnavigatorplacesselector.cpp
-  kurlnavigatorprotocolcombo.cpp
+  kurlnavigatorschemecombo.cpp
   kurlnavigatortogglebutton.cpp
   kurlnavigator.cpp
   kurlnavigatormenu.cpp

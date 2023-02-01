@@ -15,7 +15,7 @@
 #include "kurlnavigatordropdownbutton_p.h"
 #include "kurlnavigatorpathselectoreventfilter_p.h"
 #include "kurlnavigatorplacesselector_p.h"
-#include "kurlnavigatorprotocolcombo_p.h"
+#include "kurlnavigatorschemecombo_p.h"
 #include "kurlnavigatortogglebutton_p.h"
 
 #include <KIO/StatJob>
@@ -170,7 +170,7 @@ public:
     QUrl m_homeUrl;
     KUrlNavigatorPlacesSelector *m_placesSelector = nullptr;
     KUrlComboBox *m_pathBox = nullptr;
-    KUrlNavigatorProtocolCombo *m_protocols = nullptr;
+    KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
     QWidget *m_dropWidget = nullptr;
@@ -230,8 +230,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     }
 
     // create protocol combo
-    m_protocols = new KUrlNavigatorProtocolCombo(QString(), q);
-    q->connect(m_protocols, &KUrlNavigatorProtocolCombo::activated, q, [this](const QString &protocol) {
+    m_schemes = new KUrlNavigatorSchemeCombo(QString(), q);
+    q->connect(m_schemes, &KUrlNavigatorSchemeCombo::activated, q, [this](const QString &protocol) {
         slotProtocolChanged(protocol);
     });
 
@@ -273,7 +273,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     if (m_placesSelector != nullptr) {
         m_layout->addWidget(m_placesSelector);
     }
-    m_layout->addWidget(m_protocols);
+    m_layout->addWidget(m_schemes);
     m_layout->addWidget(m_dropDownButton);
     m_layout->addWidget(m_pathBox, 1);
     m_layout->addWidget(m_toggleEditableMode);
@@ -606,12 +606,12 @@ void KUrlNavigatorPrivate::slotPathBoxChanged(const QString &text)
 {
     if (text.isEmpty()) {
         const QString protocol = q->locationUrl().scheme();
-        m_protocols->setProtocol(protocol);
+        m_schemes->setScheme(protocol);
         if (m_customProtocols.count() != 1) {
-            m_protocols->show();
+            m_schemes->show();
         }
     } else {
-        m_protocols->hide();
+        m_schemes->hide();
     }
 }
 
@@ -623,7 +623,7 @@ void KUrlNavigatorPrivate::updateContent()
     }
 
     if (m_editable) {
-        m_protocols->hide();
+        m_schemes->hide();
         m_dropDownButton->hide();
 
         deleteButtons();
@@ -635,7 +635,7 @@ void KUrlNavigatorPrivate::updateContent()
     } else {
         m_pathBox->hide();
 
-        m_protocols->hide();
+        m_schemes->hide();
 
         m_toggleEditableMode->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         q->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -755,8 +755,8 @@ void KUrlNavigatorPrivate::updateButtonVisibility()
         availableWidth -= m_placesSelector->width();
     }
 
-    if ((m_protocols != nullptr) && m_protocols->isVisible()) {
-        availableWidth -= m_protocols->width();
+    if ((m_schemes != nullptr) && m_schemes->isVisible()) {
+        availableWidth -= m_schemes->width();
     }
 
     // Check whether buttons must be hidden at all...
@@ -1180,7 +1180,7 @@ KUrlComboBox *KUrlNavigator::editor() const
 void KUrlNavigator::setCustomProtocols(const QStringList &protocols)
 {
     d->m_customProtocols = protocols;
-    d->m_protocols->setCustomProtocols(d->m_customProtocols);
+    d->m_schemes->setSupportedSchemes(d->m_customProtocols);
 }
 
 QStringList KUrlNavigator::customProtocols() const
