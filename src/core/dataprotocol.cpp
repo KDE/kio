@@ -11,7 +11,7 @@
 #include "global.h"
 
 #include <QByteArray>
-#include <QTextCodec>
+#include <QStringDecoder>
 
 using namespace KIO;
 
@@ -223,9 +223,9 @@ void DataProtocol::get(const QUrl &url)
         // decode it and pass it to the receiver
         outData = QByteArray::fromBase64(url_data);
     } else {
-        QTextCodec *codec = QTextCodec::codecForName(hdr.attributes[QStringLiteral("charset")].toLatin1());
-        if (codec != nullptr) {
-            outData = codec->toUnicode(url_data).toUtf8();
+        QStringDecoder codec(hdr.attributes[QStringLiteral("charset")].toLatin1().constData());
+        if (codec.isValid()) {
+            outData = QString(codec.decode(url_data)).toUtf8();
         } else {
             outData = url_data;
         } /*end if*/
