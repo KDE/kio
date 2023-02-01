@@ -258,17 +258,45 @@ public:
      */
     KUrlComboBox *editor() const;
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * If an application supports only some special protocols, they can be set
      * with \a protocols .
+     * @deprecated Since 5.103, use setSupportedSchemes(const QStringList &) instead.
      */
-    // TODO KF6 rename to setSupportedSchemes to match KDirOperator and KFileWidget
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 103, "Use KUrlNavigator::setSupportedSchemes(const QStringList &)")
     void setCustomProtocols(const QStringList &protocols);
+#endif
 
+#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(5, 103)
     /**
      * @return The custom protocols if they are set, QStringList() otherwise.
+     * @deprecated Since 5.103, use supportedSchemes() const instead.
      */
+    KIOFILEWIDGETS_DEPRECATED_VERSION(5, 103, "Use KUrlNavigator::supportedSchemes() const")
     QStringList customProtocols() const;
+#endif
+
+    /**
+     * Set the URL schemes that the navigator should allow navigating to.
+     *
+     * If the passed list is empty, all schemes are supported. Examples for
+     * schemes are @c "file" or @c "ftp".
+     *
+     * @sa QFileDialog::setSupportedSchemes
+     * @since 5.103
+     */
+    void setSupportedSchemes(const QStringList &schemes);
+
+    /**
+     * Returns the URL schemes that the navigator should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::supportedSchemes
+     * @since 5.103
+     */
+    QStringList supportedSchemes() const;
 
     /**
      * The child widget that received the QDropEvent when dropping on the URL

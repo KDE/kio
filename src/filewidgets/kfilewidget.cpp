@@ -3069,7 +3069,7 @@ void KFileWidget::setSupportedSchemes(const QStringList &schemes)
 {
     d->m_model->setSupportedSchemes(schemes);
     d->m_ops->setSupportedSchemes(schemes);
-    d->m_urlNavigator->setCustomProtocols(schemes);
+    d->m_urlNavigator->setSupportedSchemes(schemes);
 }
 
 QStringList KFileWidget::supportedSchemes() const

@@ -1205,13 +1205,27 @@ KUrlComboBox *KUrlNavigator::editor() const
     return d->m_pathBox;
 }
 
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 103)
 void KUrlNavigator::setCustomProtocols(const QStringList &protocols)
 {
-    d->m_customProtocols = protocols;
+    setSupportedSchemes(protocols);
+}
+#endif
+
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(5, 103)
+QStringList KUrlNavigator::customProtocols() const
+{
+    return supportedSchemes();
+}
+#endif
+
+void KUrlNavigator::setSupportedSchemes(const QStringList &schemes)
+{
+    d->m_customProtocols = schemes;
     d->m_protocols->setCustomProtocols(d->m_customProtocols);
 }
 
-QStringList KUrlNavigator::customProtocols() const
+QStringList KUrlNavigator::supportedSchemes() const
 {
     return d->m_customProtocols;
 }
