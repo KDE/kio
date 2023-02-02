@@ -80,8 +80,8 @@ find_package(KF6JobWidgets ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
-find_package(KDED)
-set_package_properties(KDED PROPERTIES DESCRIPTION "Daemon providing session services"
+find_package(KF6KDED ${KF_DEP_VERSION})
+set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session services"
                        TYPE RUNTIME
                        PURPOSE "KDED is used at runtime for proxy management and cookie storage"
                       )
