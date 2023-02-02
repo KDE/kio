@@ -110,9 +110,6 @@ public:
      * @param dirUrl the directory URL.
      * @param flags whether to keep previous directories, and whether to reload, see OpenUrlFlags
      * @return @c true if successful, @c false otherwise (e.g. if @p dirUrl is invalid)
-     *
-     * @note clearDir(const QUrl &) is emitted since 5.79; before that it was clear(const QUrl &)
-     * which has been deprecated.
      */
     virtual bool openUrl(const QUrl &dirUrl, OpenUrlFlags flags = NoFlags); // TODO KF6: remove virtual, change bool to void
 
@@ -122,9 +119,6 @@ public:
      * Emits canceled() if there was at least one job running.
      * Emits listingDirCanceled(const QUrl &) for each stopped job if there is more than one
      * directory being watched by this KCoreDirLister.
-     *
-     * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
-     * canceled(const QUrl &) which has been deprecated.
      */
     virtual void stop(); // TODO KF6: remove virtual
 
@@ -138,9 +132,6 @@ public:
      * No signal is emitted if there was no job running for @p dirUrl.
      *
      * @param dirUrl the directory URL
-     *
-     * @note listingDirCanceled(const QUrl &) is emitted since 5.79; before that it was
-     * canceled(const QUrl &) which has been deprecated.
      */
     virtual void stop(const QUrl &dirUrl); // TODO KF6: remove virtual
 
