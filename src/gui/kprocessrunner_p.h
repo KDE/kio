@@ -9,11 +9,14 @@
 #define KPROCESSRUNNER_P_H
 
 #include "applicationlauncherjob.h"
+#include "config-kiogui.h"
 #include "kiogui_export.h"
 
 #include <KProcess>
 
+#if HAVE_X11
 #include <KStartupInfo>
+#endif
 #include <QObject>
 #include <memory>
 
@@ -144,7 +147,9 @@ protected:
     QString m_serviceEntryPath;
     bool m_waitingForXdgToken = false;
     QList<QUrl> m_urls;
+#if HAVE_X11
     KStartupInfoId m_startupId;
+#endif
 
 private:
     void emitDelayedError(const QString &errorMsg);

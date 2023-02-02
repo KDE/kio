@@ -31,10 +31,10 @@
 #include <QStandardPaths>
 #include <QThread>
 
-#include <KStartupInfo>
 #include <config-kioexec.h>
 
 #if HAVE_X11
+#include <KStartupInfo>
 #include <private/qtx11extras_p.h>
 #endif
 
@@ -201,21 +201,23 @@ void KIOExec::slotRunApp()
 
     qDebug() << "EXEC" << params.join(QLatin1Char(' '));
 
+#if HAVE_X11
     // propagate the startup identification to the started process
     KStartupInfoId id;
     QByteArray startupId;
-#if HAVE_X11
     if (QX11Info::isPlatformX11()) {
         startupId = QX11Info::nextStartupId();
     }
-#endif
     id.initId(startupId);
     id.setupStartupEnv();
+#endif
 
     QString exe(params.takeFirst());
     const int exit_code = QProcess::execute(exe, params);
 
+#if HAVE_X11
     KStartupInfo::resetStartupEnv();
+#endif
 
     qDebug() << "EXEC done";
 

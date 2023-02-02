@@ -64,7 +64,9 @@ void DBusActivationRunner::startProcess()
         message << QUrl::toStringList(m_urls);
     }
     if (KWindowSystem::isPlatformX11()) {
+#if HAVE_X11
         message << QVariantMap{{QStringLiteral("desktop-startup-id"), m_startupId.id()}};
+#endif
     } else if (KWindowSystem::isPlatformWayland()) {
         message << QVariantMap{{QStringLiteral("activation-token"), m_process->processEnvironment().value(QStringLiteral("XDG_ACTIVATION_TOKEN"))}};
     }
