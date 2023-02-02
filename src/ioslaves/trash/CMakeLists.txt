@@ -64,22 +64,22 @@ if(APPLE)
 endif(APPLE)
 
 
-add_executable(ktrash5)
-ecm_mark_nongui_executable(ktrash5)
+add_executable(ktrash6)
+ecm_mark_nongui_executable(ktrash6)
 
-target_sources(ktrash5 PRIVATE
+target_sources(ktrash6 PRIVATE
     ktrash.cpp
 )
 
-target_compile_definitions(ktrash5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_compile_definitions(ktrash6 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
-target_link_libraries(ktrash5
+target_link_libraries(ktrash6
   KF6::KIOCore
   KF6::I18n
   KF6::ConfigCore
 )
 
-install(TARGETS ktrash5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ktrash6 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 

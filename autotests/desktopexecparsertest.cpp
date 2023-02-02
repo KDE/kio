@@ -181,8 +181,8 @@ void DesktopExecParserTest::testProcessDesktopExecNoFile_data()
     l4 << QUrl(QStringLiteral("http://login:password@www.kde.org"));
 
     // A real-world use case would be kate.
-    // But I picked ktrash5 since it's installed by kio
-    QString ktrash = QStandardPaths::findExecutable(QStringLiteral("ktrash5"));
+    // But I picked ktrash6 since it's installed by kio
+    QString ktrash = QStandardPaths::findExecutable(QStringLiteral("ktrash6"));
     QVERIFY(!ktrash.isEmpty());
     QString ktrashQuoted = KShell::quoteArg(ktrash);
 
@@ -193,33 +193,33 @@ void DesktopExecParserTest::testProcessDesktopExecNoFile_data()
     QVERIFY(QFileInfo::exists(kioexec));
     QString kioexecQuoted = KShell::quoteArg(kioexec);
 
-    QTest::newRow("%U l0") << "ktrash5 %U" << l0 << false << ktrashQuoted;
-    QTest::newRow("%U l1") << "ktrash5 %U" << l1 << false << ktrashQuoted + " /tmp";
-    QTest::newRow("%U l2") << "ktrash5 %U" << l2 << false << ktrashQuoted + " http://localhost/foo";
-    QTest::newRow("%U l3") << "ktrash5 %U" << l3 << false << ktrashQuoted + " '/local/some file' http://remotehost.org/bar";
+    QTest::newRow("%U l0") << "ktrash6 %U" << l0 << false << ktrashQuoted;
+    QTest::newRow("%U l1") << "ktrash6 %U" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("%U l2") << "ktrash6 %U" << l2 << false << ktrashQuoted + " http://localhost/foo";
+    QTest::newRow("%U l3") << "ktrash6 %U" << l3 << false << ktrashQuoted + " '/local/some file' http://remotehost.org/bar";
 
-    // QTest::newRow("%u l0") << "ktrash5 %u" << l0 << false << ktrashQuoted; // gives runtime warning
-    QTest::newRow("%u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
-    QTest::newRow("%u l2") << "ktrash5 %u" << l2 << false << ktrashQuoted + " http://localhost/foo";
-    // QTest::newRow("%u l3") << "ktrash5 %u" << l3 << false << ktrashQuoted; // gives runtime warning
+    // QTest::newRow("%u l0") << "ktrash6 %u" << l0 << false << ktrashQuoted; // gives runtime warning
+    QTest::newRow("%u l1") << "ktrash6 %u" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("%u l2") << "ktrash6 %u" << l2 << false << ktrashQuoted + " http://localhost/foo";
+    // QTest::newRow("%u l3") << "ktrash6 %u" << l3 << false << ktrashQuoted; // gives runtime warning
 
-    QTest::newRow("%F l0") << "ktrash5 %F" << l0 << false << ktrashQuoted;
-    QTest::newRow("%F l1") << "ktrash5 %F" << l1 << false << ktrashQuoted + " /tmp";
-    QTest::newRow("%F l2") << "ktrash5 %F" << l2 << false << kioexecQuoted + " 'ktrash5 %F' http://localhost/foo";
-    QTest::newRow("%F l3") << "ktrash5 %F" << l3 << false << kioexecQuoted + " 'ktrash5 %F' 'file:///local/some file' http://remotehost.org/bar";
+    QTest::newRow("%F l0") << "ktrash6 %F" << l0 << false << ktrashQuoted;
+    QTest::newRow("%F l1") << "ktrash6 %F" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("%F l2") << "ktrash6 %F" << l2 << false << kioexecQuoted + " 'ktrash6 %F' http://localhost/foo";
+    QTest::newRow("%F l3") << "ktrash6 %F" << l3 << false << kioexecQuoted + " 'ktrash6 %F' 'file:///local/some file' http://remotehost.org/bar";
 
-    QTest::newRow("%F l1 tempfile") << "ktrash5 %F" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %F' file:///tmp";
-    QTest::newRow("%f l1 tempfile") << "ktrash5 %f" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash5 %f' file:///tmp";
+    QTest::newRow("%F l1 tempfile") << "ktrash6 %F" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash6 %F' file:///tmp";
+    QTest::newRow("%f l1 tempfile") << "ktrash6 %f" << l1 << true << kioexecQuoted + " --tempfiles 'ktrash6 %f' file:///tmp";
 
-    QTest::newRow("sh -c ktrash5 %F")
-        << R"(sh -c "ktrash5 "'\"'"%F"'\"')"
+    QTest::newRow("sh -c ktrash6 %F")
+        << R"(sh -c "ktrash6 "'\"'"%F"'\"')"
         << l1
         << false
-        << m_sh + R"( -c 'ktrash5 \"/tmp\"')";
+        << m_sh + R"( -c 'ktrash6 \"/tmp\"')";
 
     // This was originally with kmailservice5, but that relies on it being installed
-    QTest::newRow("ktrash5 %u l1") << "ktrash5 %u" << l1 << false << ktrashQuoted + " /tmp";
-    QTest::newRow("ktrash5 %u l4") << "ktrash5 %u" << l4 << false << ktrashQuoted + " http://login:password@www.kde.org";
+    QTest::newRow("ktrash6 %u l1") << "ktrash6 %u" << l1 << false << ktrashQuoted + " /tmp";
+    QTest::newRow("ktrash6 %u l4") << "ktrash6 %u" << l4 << false << ktrashQuoted + " http://login:password@www.kde.org";
 
     /* clang-format on */
 }
