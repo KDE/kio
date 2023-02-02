@@ -30,8 +30,12 @@
 #include <QUrl>
 
 #include <KLocalizedString>
-#include <KUserTimestamp>
 #include <kwindowsystem.h>
+
+#include "config-kcookiejar.h"
+#if HAVE_X11
+#include <KUserTimestamp>
+#endif
 
 enum {
     AcceptedForSession = QDialog::Accepted + 1,
@@ -51,7 +55,9 @@ KCookieWin::KCookieWin(QWidget *parent, KHttpCookieList cookieList, int defaultB
     } else {
         // No window associated... make sure the user notices our dialog.
         KWindowSystem::setState(winId(), NET::KeepAbove);
+#if HAVE_X11
         KUserTimestamp::updateUserTimestamp();
+#endif
     }
 
     const int count = cookieList.count();

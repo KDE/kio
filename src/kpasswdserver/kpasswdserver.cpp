@@ -17,7 +17,6 @@
 #include <KLocalizedString>
 #include <KMessageDialog>
 #include <KPasswordDialog>
-#include <KUserTimestamp>
 #include <kwindowsystem.h>
 
 #ifdef HAVE_KF6WALLET
@@ -31,6 +30,7 @@
 #include "../gui/config-kiogui.h"
 
 #if HAVE_X11
+#include <KUserTimestamp>
 #include <KX11Extras>
 #endif
 
@@ -221,9 +221,11 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
     KIO::AuthInfo info;
     QDataStream stream(data);
     stream >> info;
+#if HAVE_X11
     if (usertime != 0) {
         KUserTimestamp::updateUserTimestamp(usertime);
     }
+#endif
 
     // if the check depends on a pending query, delay it
     // until that query is finished.
@@ -274,9 +276,11 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
 
 qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong windowId, qlonglong usertime)
 {
+#if HAVE_X11
     if (usertime != 0) {
         KUserTimestamp::updateUserTimestamp(usertime);
     }
+#endif
 
     // send the request id back to the client
     qlonglong requestId = getRequestId();
@@ -339,9 +343,11 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
     if (!info.password.isEmpty()) { // should we really allow the caller to pre-fill the password?
         qCDebug(category) << "password was set by caller";
     }
+#if HAVE_X11
     if (usertime != 0) {
         KUserTimestamp::updateUserTimestamp(usertime);
     }
+#endif
 
     const QString key(createCacheKey(info));
     Request *request = new Request;
@@ -375,9 +381,11 @@ qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QSt
     if (!info.password.isEmpty()) {
         qCDebug(category) << "password was set by caller";
     }
+#if HAVE_X11
     if (usertime != 0) {
         KUserTimestamp::updateUserTimestamp(usertime);
     }
+#endif
 
     const QString key(createCacheKey(info));
     Request *request = new Request;

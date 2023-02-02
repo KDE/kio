@@ -8,6 +8,8 @@ set_source_files_properties(${kcookieserver_xml} PROPERTIES INCLUDE "kcookiejar_
 set(kcookiejar_dbus_SRCS)
 qt_add_dbus_interfaces(kcookiejar_dbus_SRCS ${kcookieserver_xml})
 
+configure_file(config-kcookiejar.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcookiejar.h )
+
 target_sources(kcookiejar5 PRIVATE
     ${kcookiejar_dbus_SRCS}
     main.cpp
