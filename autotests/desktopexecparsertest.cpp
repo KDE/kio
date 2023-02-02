@@ -242,22 +242,22 @@ extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
 
 void DesktopExecParserTest::testKtelnetservice()
 {
-    const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/schemehandlers/telnet/ktelnetservice5.desktop"));
+    const QString ktelnetDesk = QFINDTESTDATA(QStringLiteral("../src/schemehandlers/telnet/ktelnetservice6.desktop"));
     QVERIFY(!ktelnetDesk.isEmpty());
 
     // KApplicationTrader in KIO::DesktopExecParser::hasSchemeHandler() needs the .desktop file to be installed
     const QString destDir = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
     QVERIFY(QDir().mkpath(destDir));
-    QFile::remove(destDir + QLatin1String("/ktelnetservice5.desktop"));
-    QVERIFY(QFile::copy(ktelnetDesk, destDir + QLatin1String("/ktelnetservice5.desktop")));
+    QFile::remove(destDir + QLatin1String("/ktelnetservice6.desktop"));
+    QVERIFY(QFile::copy(ktelnetDesk, destDir + QLatin1String("/ktelnetservice6.desktop")));
 
     ksycoca_ms_between_checks = 0; // need it to check the ksycoca mtime
 
-    KService::Ptr service = KService::serviceByStorageId(QStringLiteral("ktelnetservice5.desktop"));
+    KService::Ptr service = KService::serviceByStorageId(QStringLiteral("ktelnetservice6.desktop"));
     QVERIFY(service);
 
-    QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice5"));
-    // if KIO is installed we'll find <bindir>/ktelnetservice5, otherwise KIO::DesktopExecParser will
+    QString ktelnetExec = QStandardPaths::findExecutable(QStringLiteral("ktelnetservice6"));
+    // if KIO is installed we'll find <bindir>/ktelnetservice6, otherwise KIO::DesktopExecParser will
     // use the executable from Exec= line
     if (ktelnetExec.isEmpty()) {
         ktelnetExec = service->exec().remove(QLatin1String(" %u"));
