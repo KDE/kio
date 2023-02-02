@@ -75,7 +75,7 @@ public:
     bool slotCheckFilters(const QString &text);
 
     void slotReturnPressed();
-    void slotProtocolChanged(const QString &);
+    void slotSchemeChanged(const QString &);
     void openPathSelectorMenu();
 
     /**
@@ -166,7 +166,7 @@ public:
     QHBoxLayout *m_layout = new QHBoxLayout(q);
     KCoreUrlNavigator *m_coreUrlNavigator = nullptr;
     QList<KUrlNavigatorButton *> m_navButtons;
-    QStringList m_customProtocols;
+    QStringList m_supportedSchemes;
     QUrl m_homeUrl;
     KUrlNavigatorPlacesSelector *m_placesSelector = nullptr;
     KUrlComboBox *m_pathBox = nullptr;
@@ -229,10 +229,10 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
         q->connect(placesModel, &KFilePlacesModel::dataChanged, q, updateContentFunc);
     }
 
-    // create protocol combo
+    // create scheme combo
     m_schemes = new KUrlNavigatorSchemeCombo(QString(), q);
-    q->connect(m_schemes, &KUrlNavigatorSchemeCombo::activated, q, [this](const QString &protocol) {
-        slotProtocolChanged(protocol);
+    q->connect(m_schemes, &KUrlNavigatorSchemeCombo::activated, q, [this](const QString &schene) {
+        slotSchemeChanged(schene);
     });
 
     // create drop down button for accessing all paths of the URL
@@ -297,7 +297,7 @@ void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
     // SPDX-FileCopyrightText: 2001 Joseph Wenninger <jowenn@kde.org>
     // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
-    // For example "desktop:/" _not_ "desktop:", see the comment in slotProtocolChanged()
+    // For example "desktop:/" _not_ "desktop:", see the comment in slotSchemeChanged()
     if (!url.isEmpty() && url.path().isEmpty() && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
         url.setPath(QStringLiteral("/"));
     }
@@ -389,13 +389,13 @@ void KUrlNavigatorPrivate::slotReturnPressed()
     }
 }
 
-void KUrlNavigatorPrivate::slotProtocolChanged(const QString &protocol)
+void KUrlNavigatorPrivate::slotSchemeChanged(const QString &scheme)
 {
     Q_ASSERT(m_editable);
 
     QUrl url;
-    url.setScheme(protocol);
-    if (KProtocolInfo::protocolClass(protocol) == QLatin1String(":local")) {
+    url.setScheme(scheme);
+    if (KProtocolInfo::protocolClass(scheme) == QLatin1String(":local")) {
         // E.g. "file:/" or "desktop:/", _not_ "file:" or "desktop:" respectively.
         // This is the more expected behaviour, "file:somedir" treats somedir as
         // a path relative to current dir; file:/somedir is an absolute path to /somedir.
@@ -605,9 +605,9 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 void KUrlNavigatorPrivate::slotPathBoxChanged(const QString &text)
 {
     if (text.isEmpty()) {
-        const QString protocol = q->locationUrl().scheme();
-        m_schemes->setScheme(protocol);
-        if (m_customProtocols.count() != 1) {
+        const QString scheme = q->locationUrl().scheme();
+        m_schemes->setScheme(scheme);
+        if (m_supportedSchemes.count() != 1) {
             m_schemes->show();
         }
     } else {
@@ -1177,15 +1177,15 @@ KUrlComboBox *KUrlNavigator::editor() const
     return d->m_pathBox;
 }
 
-void KUrlNavigator::setCustomProtocols(const QStringList &protocols)
+void KUrlNavigator::setSupportedSchemes(const QStringList &schemes)
 {
-    d->m_customProtocols = protocols;
-    d->m_schemes->setSupportedSchemes(d->m_customProtocols);
+    d->m_supportedSchemes = schemes;
+    d->m_schemes->setSupportedSchemes(d->m_supportedSchemes);
 }
 
-QStringList KUrlNavigator::customProtocols() const
+QStringList KUrlNavigator::supportedSchemes() const
 {
-    return d->m_customProtocols;
+    return d->m_supportedSchemes;
 }
 
 QWidget *KUrlNavigator::dropWidget() const

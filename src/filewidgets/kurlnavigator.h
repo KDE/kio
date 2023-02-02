@@ -259,16 +259,25 @@ public:
     KUrlComboBox *editor() const;
 
     /**
-     * If an application supports only some special protocols, they can be set
-     * with \a protocols .
+     * Set the URL schemes that the navigator should allow navigating to.
+     *
+     * If the passed list is empty, all schemes are supported. Examples for
+     * schemes are @c "file" or @c "ftp".
+     *
+     * @sa QFileDialog::setSupportedSchemes
+     * @since 5.103
      */
-    // TODO KF6 rename to setSupportedSchemes to match KDirOperator and KFileWidget
-    void setCustomProtocols(const QStringList &protocols);
+    void setSupportedSchemes(const QStringList &schemes);
 
     /**
-     * @return The custom protocols if they are set, QStringList() otherwise.
+     * Returns the URL schemes that the navigator should allow navigating to.
+     *
+     * If the returned list is empty, all schemes are supported.
+     *
+     * @sa QFileDialog::supportedSchemes
+     * @since 5.103
      */
-    QStringList customProtocols() const;
+    QStringList supportedSchemes() const;
 
     /**
      * The child widget that received the QDropEvent when dropping on the URL
