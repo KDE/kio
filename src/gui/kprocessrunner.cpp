@@ -23,6 +23,10 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
+#if HAVE_WAYLAND
+#include <KWaylandExtras>
+#endif
+
 #ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -264,6 +268,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
     Q_UNUSED(userVisibleName);
 #endif
 
+#if HAVE_WAYLAND
     if (KWindowSystem::isPlatformWayland()) {
         if (!asn.isEmpty()) {
             m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), QString::fromUtf8(asn));
@@ -277,11 +282,11 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                     window = qGuiApp->allWindows().constFirst();
                 }
                 if (window) {
-                    const int launchedSerial = KWindowSystem::lastInputSerial(window);
+                    const int launchedSerial = KWaylandExtras::lastInputSerial(window);
                     m_waitingForXdgToken = true;
                     connect(
-                        KWindowSystem::self(),
-                        &KWindowSystem::xdgActivationTokenArrived,
+                        KWaylandExtras::self(),
+                        &KWaylandExtras::xdgActivationTokenArrived,
                         m_process.get(),
                         [this, launchedSerial](int tokenSerial, const QString &token) {
                             if (tokenSerial == launchedSerial) {
@@ -291,11 +296,12 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                             }
                         },
                         Qt::SingleShotConnection);
-                    KWindowSystem::requestXdgActivationToken(window, launchedSerial, maybeAliasedName(QFileInfo(m_serviceEntryPath).completeBaseName()));
+                    KWaylandExtras::requestXdgActivationToken(window, launchedSerial, maybeAliasedName(QFileInfo(m_serviceEntryPath).completeBaseName()));
                 }
             }
         }
     }
+#endif
 
     if (service) {
         m_service = service;

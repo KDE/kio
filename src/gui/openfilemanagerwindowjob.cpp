@@ -25,6 +25,11 @@
 
 #include <KWindowSystem>
 
+#include "config-kiogui.h"
+#if HAVE_WAYLAND
+#include <KWaylandExtras>
+#endif
+
 #include <KIO/OpenUrlJob>
 
 namespace KIO
@@ -152,22 +157,30 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
     };
 
     if (asn.isEmpty()) {
-        auto window = qGuiApp->focusWindow();
-        if (!window && !qGuiApp->allWindows().isEmpty()) {
-            window = qGuiApp->allWindows().constFirst();
+#if HAVE_WAYLAND
+        if (KWindowSystem::isPlatformWayland()) {
+            auto window = qGuiApp->focusWindow();
+            if (!window && !qGuiApp->allWindows().isEmpty()) {
+                window = qGuiApp->allWindows().constFirst();
+            }
+            const int launchedSerial = KWaylandExtras::lastInputSerial(window);
+            QObject::connect(
+                KWaylandExtras::self(),
+                &KWaylandExtras::xdgActivationTokenArrived,
+                m_job,
+                [launchedSerial, runWithToken](int serial, const QString &token) {
+                    if (serial == launchedSerial) {
+                        runWithToken(token.toUtf8());
+                    }
+                },
+                Qt::SingleShotConnection);
+            KWaylandExtras::requestXdgActivationToken(window, launchedSerial, {});
+        } else {
+            runWithToken({});
         }
-        const int launchedSerial = KWindowSystem::lastInputSerial(window);
-        QObject::connect(
-            KWindowSystem::self(),
-            &KWindowSystem::xdgActivationTokenArrived,
-            m_job,
-            [launchedSerial, runWithToken](int serial, const QString &token) {
-                if (serial == launchedSerial) {
-                    runWithToken(token.toUtf8());
-                }
-            },
-            Qt::SingleShotConnection);
-        KWindowSystem::requestXdgActivationToken(window, launchedSerial, {});
+#else
+        runWithToken({});
+#endif
     } else {
         runWithToken(asn);
     }
