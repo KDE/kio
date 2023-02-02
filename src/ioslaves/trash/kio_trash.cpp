@@ -294,12 +294,8 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
 
 KIO::StatDetails TrashProtocol::getStatDetails()
 {
-    // takes care of converting old metadata details to new StatDetails
-    // TODO KF6 : remove legacy "details" code path
-    KIO::StatDetails details;
-    const QString statDetails = metaData(QStringLiteral("statDetails"));
-    details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
-    return details;
+    const QString statDetails = metaData(QStringLiteral("details"));
+    return statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
 }
 
 KIO::WorkerResult TrashProtocol::stat(const QUrl &url)

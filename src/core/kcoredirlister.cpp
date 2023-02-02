@@ -196,7 +196,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
 
             KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
             if (lister->requestMimeTypeWhileListing()) {
-                job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
+                job->addMetaData(QStringLiteral("details"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
             }
             runningListJobs.insert(job, KIO::UDSEntryList());
 
@@ -650,7 +650,7 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     });
 
     if (requestFromListers || requestFromholders) {
-        job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
+        job->addMetaData(QStringLiteral("details"), QString::number(KIO::StatDefaultDetails | KIO::StatMimeType));
     }
 
     connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotUpdateEntries);

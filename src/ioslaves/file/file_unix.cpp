@@ -1396,7 +1396,7 @@ KIO::StatDetails FileProtocol::getStatDetails()
 {
     // takes care of converting old metadata details to new StatDetails
     KIO::StatDetails details;
-    const QString statDetails = metaData(QStringLiteral("statDetails"));
+    const QString statDetails = metaData(QStringLiteral("details"));
     details = statDetails.isEmpty() ? KIO::StatDefaultDetails : static_cast<KIO::StatDetails>(statDetails.toInt());
     return details;
 }

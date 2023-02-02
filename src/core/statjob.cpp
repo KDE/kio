@@ -112,7 +112,7 @@ void StatJobPrivate::start(Worker *worker)
 {
     Q_Q(StatJob);
     m_outgoingMetaData.insert(QStringLiteral("statSide"), m_bSource ? QStringLiteral("source") : QStringLiteral("dest"));
-    m_outgoingMetaData.insert(QStringLiteral("statDetails"), QString::number(m_details));
+    m_outgoingMetaData.insert(QStringLiteral("details"), QString::number(m_details));
 
     q->connect(worker, &KIO::WorkerInterface::statEntry, q, [this](const KIO::UDSEntry &entry) {
         slotStatEntry(entry);

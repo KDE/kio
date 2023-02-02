@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 
         KIO::ListJob *job = KIO::listDir(url, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        job->addMetaData(QStringLiteral("statDetails"), QString::number(KIO::StatDefaultDetails));
+        job->addMetaData(QStringLiteral("details"), QString::number(KIO::StatDefaultDetails));
 
         QObject::connect(job, &KIO::ListJob::entries, [&entriesListed](KIO::Job *, const KIO::UDSEntryList &entries) {
             entriesListed += entries.size();
