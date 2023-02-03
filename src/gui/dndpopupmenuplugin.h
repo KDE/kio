@@ -27,7 +27,7 @@ namespace KIO
  * the properties of the dropped files, and if applicable, append your own
  * QAction that the user may trigger in the menu.
  *
- * The plugin should have Json metadata and be installed into kf5/kio_dnd/.
+ * The plugin should have Json metadata and be installed into kf6/kio_dnd/.
  *
  * @author Harald Hvaal <metellius@gmail.com>
  * @since 5.6
