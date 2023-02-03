@@ -12,6 +12,7 @@ set_target_properties(KF6KIOGui PROPERTIES
 target_sources(KF6KIOGui PRIVATE
    applicationlauncherjob.cpp
    commandlauncherjob.cpp
+   dndpopupmenuplugin.cpp
    faviconrequestjob.cpp
    kcoreurlnavigator.cpp
    openurljob.cpp
@@ -88,6 +89,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   HEADER_NAMES
   ApplicationLauncherJob
   CommandLauncherJob
+  DndPopupMenuPlugin
   FavIconRequestJob
   OpenUrlJob
   OpenWithHandlerInterface

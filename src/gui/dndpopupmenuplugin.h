@@ -7,7 +7,7 @@
 #ifndef _KIO_DNDPOPUPMENUPLUGIN_H_
 #define _KIO_DNDPOPUPMENUPLUGIN_H_
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 #include <QList>
 #include <QObject>
 
@@ -32,7 +32,7 @@ namespace KIO
  * @author Harald Hvaal <metellius@gmail.com>
  * @since 5.6
  */
-class KIOWIDGETS_EXPORT DndPopupMenuPlugin : public QObject
+class KIOGUI_EXPORT DndPopupMenuPlugin : public QObject
 {
     Q_OBJECT
 public:

@@ -45,7 +45,6 @@ target_sources(KF6KIOWidgets PRIVATE
   jobuidelegate.cpp
   kdirlister.cpp
   executablefileopendialog.cpp
-  dndpopupmenuplugin.cpp
   kurifiltersearchprovideractions.cpp
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
@@ -181,7 +180,6 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   DeleteOrTrashJob
   SslUi
   DropJob
-  DndPopupMenuPlugin
   OpenFileManagerWindowJob
   PasteJob
   PreviewJob
