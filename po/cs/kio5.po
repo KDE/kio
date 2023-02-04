@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-30 00:54+0000\n"
-"PO-Revision-Date: 2023-01-24 22:27+0100\n"
+"PO-Revision-Date: 2023-01-25 09:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -4952,7 +4952,7 @@ msgstr ""
 #: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
 #, kde-format
 msgid "Mark partially uploaded files"
-msgstr "Označit částečně nahrané soubory"
+msgstr "Označit částečně odeslané soubory"
 
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
@@ -5025,7 +5025,7 @@ msgstr "Globální volby"
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
 msgid "Mark &partially uploaded files"
-msgstr "Označit část&ečně nahrané soubory"
+msgstr "Označit část&ečně odeslané soubory"
 
 #: kcms/netpref/netpref.cpp:73
 #, kde-format
