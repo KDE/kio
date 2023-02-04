@@ -62,6 +62,10 @@ static QString removeArgs(const QString &_cmd)
 {
     QString cmd(_cmd);
 
+    if (cmd.isEmpty()) {
+        return cmd;
+    }
+
     if (cmd[0] != QLatin1Char('\'') && cmd[0] != QLatin1Char('"')) {
         // Remove command-line options (look for first non-escaped space)
         int spacePos = 0;
