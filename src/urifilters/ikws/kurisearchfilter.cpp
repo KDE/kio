@@ -71,16 +71,4 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
     return true;
 }
 
-// TODO KF6: unused, remove
-KCModule *KUriSearchFilter::configModule(QWidget *, const char *) const
-{
-    return nullptr;
-}
-
-// TODO KF6: unused, remove
-QString KUriSearchFilter::configName() const
-{
-    return i18n("Search F&ilters");
-}
-
 #include "kurisearchfilter.moc"

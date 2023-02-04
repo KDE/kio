@@ -469,16 +469,6 @@ KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
 
 KUriFilterPlugin::~KUriFilterPlugin() = default;
 
-KCModule *KUriFilterPlugin::configModule(QWidget *, const char *) const
-{
-    return nullptr;
-}
-
-QString KUriFilterPlugin::configName() const
-{
-    return objectName();
-}
-
 void KUriFilterPlugin::setFilteredUri(KUriFilterData &data, const QUrl &uri) const
 {
     data.d->url = uri.adjusted(QUrl::NormalizePathSegments);

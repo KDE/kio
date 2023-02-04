@@ -27,7 +27,6 @@
 
 class KUriFilterPrivate;
 class KUriFilterDataPrivate;
-class KCModule;
 class QHostInfo;
 
 /**
@@ -651,23 +650,6 @@ public:
      * @return A boolean indicating whether the URI has been changed.
      */
     virtual bool filterUri(KUriFilterData &data) const = 0;
-
-    /**
-     * Creates a configuration module for the filter.
-     *
-     * It is the responsibility of the caller to delete the module once it is
-     * not needed anymore.
-     *
-     * @return A configuration module, or @c nullptr if the filter isn't configurable.
-     */
-    virtual KCModule *configModule(QWidget *, const char *) const; // TODO KF6: unused, remove
-
-    /**
-     * Returns the name of the configuration module for the filter.
-     *
-     * @return the name of a configuration module or QString() if none.
-     */
-    virtual QString configName() const; // TODO KF6: unused, remove
 
 protected:
     /**

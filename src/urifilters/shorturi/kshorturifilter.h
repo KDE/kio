@@ -57,22 +57,6 @@ public:
      */
     bool filterUri(KUriFilterData &data) const override;
 
-    /**
-     * Returns the name of the config module for
-     * this plugin.
-     *
-     * @return the name of the config module.
-     */
-    QString configName() const override;
-
-    /**
-     * Returns an instance of the module used to configure
-     * this object.
-     *
-     * @return the config module
-     */
-    KCModule *configModule(QWidget *, const char *) const override;
-
 public Q_SLOTS:
     void configure();
 
