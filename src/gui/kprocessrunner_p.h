@@ -120,6 +120,11 @@ Q_SIGNALS:
     void processStarted(qint64 pid);
 
     /**
+     * @brief emitted when the process was finished
+     */
+    void processFinished();
+
+    /**
      * Notifies about having received the token were waiting for.
      *
      * It only gets emitted when on Wayland.
@@ -142,6 +147,7 @@ protected:
     QString m_desktopName;
     QString m_desktopFilePath;
     QString m_description;
+    QString m_cmd;
     qint64 m_pid = 0;
     KService::Ptr m_service;
     QString m_serviceEntryPath;

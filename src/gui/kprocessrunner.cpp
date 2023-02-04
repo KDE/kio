@@ -161,6 +161,7 @@ KProcessRunner *KProcessRunner::fromCommand(const QString &cmd,
     auto instance = makeInstance();
 
     instance->m_executable = KIO::DesktopExecParser::executablePath(execName);
+    instance->m_cmd = cmd;
 #ifdef Q_OS_WIN
     if (cmd.startsWith(QLatin1String("wt.exe")) || cmd.startsWith(QLatin1String("pwsh.exe")) || cmd.startsWith(QLatin1String("powershell.exe"))) {
         instance->m_process->setCreateProcessArgumentsModifier([](QProcess::CreateProcessArguments *args) {
@@ -455,6 +456,15 @@ void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus 
     qCDebug(KIO_GUI) << name() << "exitCode=" << exitCode << "exitStatus=" << exitStatus;
     terminateStartupNotification();
     deleteLater();
+#ifdef Q_OS_UNIX
+    if (exitCode == 127) {
+#else
+    if (exitCode == 9009) {
+#endif
+        const QStringList args = m_cmd.split(QLatin1Char(' '));
+        Q_EMIT error(xi18nc("@info", "The command <command>%1</command> could not be found.", args[0]));
+    }
+    Q_EMIT processFinished();
 }
 
 // This code is also used in klauncher (and KRun).

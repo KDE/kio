@@ -122,6 +122,8 @@ void KIO::CommandLauncherJob::start()
     });
     connect(d->m_processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
         d->m_pid = pid;
+    });
+    connect(d->m_processRunner, &KProcessRunner::processFinished, this, [this]() {
         emitResult();
     });
 }
