@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -3611,7 +3611,7 @@ msgstr "Ji bo gerîna nav cihan bitikîne"
 msgid "Click to Edit Location"
 msgstr "Ji bo sererastkirina cihê bitikîne"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr ""
@@ -3669,9 +3669,15 @@ msgid ""
 "is not valid."
 msgstr ""
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
+msgstr ""
+
+#: gui/kprocessrunner.cpp:475
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
 msgstr ""
 
 #: gui/kterminallauncherjob.cpp:124

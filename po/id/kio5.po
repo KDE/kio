@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2023-01-30 01:45+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3931,7 +3931,7 @@ msgstr "Klik untuk Navigasi Lokasi"
 msgid "Click to Edit Location"
 msgstr "Klik untuk sunting Lokasi"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Anda tidak diizinkan untuk mengeksekusi berkas ini."
@@ -3995,10 +3995,17 @@ msgstr ""
 "%1\n"
 "tidak absah."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Menluncurkan %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "berkas \"%1\" tidak dapat ditemukan"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

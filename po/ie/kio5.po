@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3673,7 +3673,7 @@ msgstr "Navigation per localisationes"
 msgid "Click to Edit Location"
 msgstr "Modificar li localisation"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vu ne have autorisation de executer ti file."
@@ -3737,10 +3737,17 @@ msgstr ""
 "%1\n"
 "es ínvalid."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Lansante %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "Ne successat trovar li file «%1»"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

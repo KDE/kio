@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2023-01-27 19:09+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -3911,7 +3911,7 @@ msgstr "Щракнете за навигация"
 msgid "Click to Edit Location"
 msgstr "Щракнете за да редактирате местоположението"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Нямате права за изпълнението на файла."
@@ -3975,10 +3975,17 @@ msgstr ""
 " %1 \n"
 "не е валиден."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Стартиране на %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "Файлът \"%1\" не можа да бъде намерен"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -4061,7 +4061,7 @@ msgstr "Кликнете за навигација до локацијата"
 msgid "Click to Edit Location"
 msgstr "Кликнете за уредување на локацијата"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Не сте авторизирани да ја извршите оваа датотека."
@@ -4131,10 +4131,17 @@ msgstr ""
 "%1\n"
 "е непознат."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Пуштање на %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "Датотеката „%1“ не можеше да биде пронајдена"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

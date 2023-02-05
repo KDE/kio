@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3981,7 +3981,7 @@ msgstr "چېكىلسە ئورۇننى يېتەكلەيدۇ"
 msgid "Click to Edit Location"
 msgstr "چېكىلسە ئورۇننى تەھرىرلەيدۇ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "سىزگە بۇ ھۆججەتنى ئىجرا قىلىش ھوقۇقى بېرىلمىگەن."
@@ -4051,10 +4051,17 @@ msgstr ""
 "%1\n"
 "يوچۇن."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 ئىجرا قىلىۋاتىدۇ"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "\"%1\" ھۆججەت  تېپىلمىدى"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

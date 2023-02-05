@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -4013,7 +4013,7 @@ msgstr "فشار برای ناوش محل"
 msgid "Click to Edit Location"
 msgstr "فشار برای ویرایش محل"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "مجاز به اجرای این پرونده نیستید."
@@ -4081,10 +4081,17 @@ msgstr ""
 "%1\n"
 "ناشناخته است."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "راه‌اندازی %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The requested lock could not be granted. %1"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "نتوانست قفل درخواست‌شده را تصدیق کند. %1"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

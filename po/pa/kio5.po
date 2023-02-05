@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3718,7 +3718,7 @@ msgstr "ਟਿਕਾਣਾ ਨੇਵੀਗੇਸ਼ਨ ਲਈ ਕਲਿੱਕ �
 msgid "Click to Edit Location"
 msgstr "ਟਿਕਾਣਾ ਸੋਧਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ਇਸ ਫਾਈਲ ਨੂੰ ਚਲਾਉਣ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
@@ -3779,10 +3779,17 @@ msgstr ""
 "%1\n"
 "ਗਲਤ ਹੈ।"
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "ਫਾਈਲ \"%1\" ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

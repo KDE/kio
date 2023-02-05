@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4025,7 +4025,7 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Awuvumelekanga ukuphumeza lefayile."
@@ -4090,10 +4090,17 @@ msgstr ""
 "%1\n"
 "alwaziwa."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, fuzzy, kde-format
 msgid "Launching %1"
 msgstr "Inyusa %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The requested lock could not be granted. %1"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "Ikhonco oluceliweyo elitsixiweyo alenzekanga.%1"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

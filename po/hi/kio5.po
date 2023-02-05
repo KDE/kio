@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -3854,7 +3854,7 @@ msgstr "स्थान नेविगेशन के लिए क्लि�
 msgid "Click to Edit Location"
 msgstr "स्थान संपादन के लिये क्लिक करें"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "इस फ़ाइल को चलाने के लिए आप अधिकृत नहीं है."
@@ -3922,10 +3922,17 @@ msgstr ""
 "%1\n"
 " अज्ञात है."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "चालू किया जा रहा है %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The requested lock could not be granted. %1"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "निवेदित तालाबंद दिया नहीं जा सकता. %1"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

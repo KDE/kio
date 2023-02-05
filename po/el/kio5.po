@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:54+0000\n"
+"POT-Creation-Date: 2023-02-05 00:54+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -4044,7 +4044,7 @@ msgstr "Κάντε κλικ για πλοήγηση τοποθεσίας"
 msgid "Click to Edit Location"
 msgstr "Κάντε κλικ για επεξεργασία τοποθεσίας"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Δεν έχετε άδεια εκτέλεσης αυτού του αρχείου."
@@ -4109,10 +4109,17 @@ msgstr ""
 "%1\n"
 "δεν είναι έγκυρο."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Εκκίνηση %1"
+
+#: gui/kprocessrunner.cpp:475
+#, fuzzy, kde-kuit-format
+#| msgid "The file \"%1\" could not be found"
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr "Το αρχείο %1 δεν βρέθηκε"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
