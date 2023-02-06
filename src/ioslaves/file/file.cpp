@@ -55,15 +55,10 @@
 
 Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.workers.file")
 
-class KIOPluginFactory : public KIO::WorkerFactory
+class KIOPluginForMetada : public QObject
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.kio.slave.file" FILE "file.json")
-public:
-    std::unique_ptr<KIO::SlaveBase> createWorker(const QByteArray &pool, const QByteArray &app) override
-    {
-        return std::make_unique<FileProtocol>(pool, app);
-    }
 };
 
 using namespace KIO;
@@ -135,7 +130,7 @@ static QFile::Permissions modeToQFilePermissions(int mode)
 }
 
 FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(QByteArrayLiteral("file"), pool, app)
+    : KIO::WorkerBase(QByteArrayLiteral("file"), pool, app)
     , mFile(nullptr)
 {
     testMode = !qEnvironmentVariableIsEmpty("KIOSLAVE_FILE_ENABLE_TESTMODE");
@@ -145,7 +140,7 @@ FileProtocol::~FileProtocol()
 {
 }
 
-void FileProtocol::chmod(const QUrl &url, int permissions)
+WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
 {
     const QString path(url.toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
@@ -159,33 +154,33 @@ void FileProtocol::chmod(const QUrl &url, int permissions)
         (setACL(_path.data(), permissions, false) == -1) ||
         /* if not a directory, cannot set default ACLs */
         (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
-        if (auto err = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errno)) {
-            if (!err.wasCanceled()) {
-                switch (err) {
+        auto result = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errno);
+        if (!result.success()) {
+            if (!resultWasCancelled(result)) {
+                switch (result.error()) {
                 case EPERM:
                 case EACCES:
-                    error(KIO::ERR_ACCESS_DENIED, path);
+                    return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
                     break;
 #if defined(ENOTSUP)
                 case ENOTSUP: // from setACL since chmod can't return ENOTSUP
-                    error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
+                    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
                     break;
 #endif
                 case ENOSPC:
-                    error(KIO::ERR_DISK_FULL, path);
+                    return WorkerResult::fail(KIO::ERR_DISK_FULL, path);
                     break;
                 default:
-                    error(KIO::ERR_CANNOT_CHMOD, path);
+                    return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
                 }
-                return;
             }
         }
     }
 
-    finished();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
+WorkerResult FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
 {
     const QString path(url.toLocalFile());
     QT_STATBUF statbuf;
@@ -194,21 +189,21 @@ void FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
         utbuf.actime = statbuf.st_atime; // access time, unchanged
         utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
         if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            if (auto err = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno)) {
-                if (!err.wasCanceled()) {
+            auto result = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno);
+            if (!result.success()) {
+                if (!resultWasCancelled(result)) {
                     // TODO: errno could be EACCES, EPERM, EROFS
-                    error(KIO::ERR_CANNOT_SETTIME, path);
+                    return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
                 }
             }
-        } else {
-            finished();
         }
+        return WorkerResult::pass();
     } else {
-        error(KIO::ERR_DOES_NOT_EXIST, path);
+        return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
 }
 
-void FileProtocol::mkdir(const QUrl &url, int permissions)
+WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
 {
     const QString path(url.toLocalFile());
 
@@ -225,36 +220,33 @@ void FileProtocol::mkdir(const QUrl &url, int permissions)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
         bool dirCreated = QDir().mkdir(path);
         if (!dirCreated) {
-            if (auto err = execWithElevatedPrivilege(MKDIR, {path}, errno)) {
-                if (!err.wasCanceled()) {
+            auto result = execWithElevatedPrivilege(MKDIR, {path}, errno);
+            if (!result.success()) {
+                if (!resultWasCancelled(result)) {
                     // TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
-                    error(KIO::ERR_CANNOT_MKDIR, path);
+                    return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
                 }
-                return;
+                return WorkerResult::pass();
             }
             dirCreated = true;
         }
 
         if (dirCreated) {
             if (permissions != -1) {
-                chmod(url, permissions);
-            } else {
-                finished();
+                return chmod(url, permissions);
             }
-            return;
+            return WorkerResult::pass();
         }
     }
 
     if (Utils::isDirMask(buff.st_mode)) {
         // qDebug() << "ERR_DIR_ALREADY_EXIST";
-        error(KIO::ERR_DIR_ALREADY_EXIST, path);
-        return;
+        return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
     }
-    error(KIO::ERR_FILE_ALREADY_EXIST, path);
-    return;
+    return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, path);
 }
 
-void FileProtocol::redirect(const QUrl &url)
+WorkerResult FileProtocol::redirect(const QUrl &url)
 {
     QUrl redir(url);
     redir.setScheme(configValue(QStringLiteral("DefaultRemoteProtocol"), QStringLiteral("smb")));
@@ -270,43 +262,40 @@ void FileProtocol::redirect(const QUrl &url)
     }
 
     redirection(redir);
-    finished();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::get(const QUrl &url)
+WorkerResult FileProtocol::get(const QUrl &url)
 {
     if (!url.isLocalFile()) {
-        redirect(url);
-        return;
+        return redirect(url);
     }
 
     const QString path(url.toLocalFile());
     QT_STATBUF buff;
     if (QT_STAT(QFile::encodeName(path).constData(), &buff) == -1) {
         if (errno == EACCES) {
-            error(KIO::ERR_ACCESS_DENIED, path);
+            return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
         } else {
-            error(KIO::ERR_DOES_NOT_EXIST, path);
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
         }
-        return;
     }
 
     if (Utils::isDirMask(buff.st_mode)) {
-        error(KIO::ERR_IS_DIRECTORY, path);
-        return;
+        return WorkerResult::fail(KIO::ERR_IS_DIRECTORY, path);
     }
     if (!Utils::isRegFileMask(buff.st_mode)) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
-        return;
+        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
     }
 
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        if (auto err = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errno)) {
-            if (!err.wasCanceled()) {
-                error(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
+        auto result = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errno);
+        if (!result.success()) {
+            if (!resultWasCancelled(result)) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
             }
-            return;
+            return WorkerResult::pass();
         }
     }
 
@@ -353,9 +342,8 @@ void FileProtocol::get(const QUrl &url)
             if (errno == EINTR) {
                 continue;
             }
-            error(KIO::ERR_CANNOT_READ, path);
             f.close();
-            return;
+            return WorkerResult::fail(ERR_CANNOT_READ, path);
         }
         if (n == 0) {
             break; // Finished
@@ -376,10 +364,10 @@ void FileProtocol::get(const QUrl &url)
     f.close();
 
     processedSize(buff.st_size);
-    finished();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
+WorkerResult FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
 {
     // qDebug() << url;
 
@@ -387,31 +375,26 @@ void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
     QT_STATBUF buff;
     if (QT_STAT(QFile::encodeName(openPath).constData(), &buff) == -1) {
         if (errno == EACCES) {
-            error(KIO::ERR_ACCESS_DENIED, openPath);
+            return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, openPath);
         } else {
-            error(KIO::ERR_DOES_NOT_EXIST, openPath);
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, openPath);
         }
-        return;
     }
 
     if (Utils::isDirMask(buff.st_mode)) {
-        error(KIO::ERR_IS_DIRECTORY, openPath);
-        return;
+        return WorkerResult::fail(KIO::ERR_IS_DIRECTORY, openPath);
     }
     if (!Utils::isRegFileMask(buff.st_mode)) {
-        error(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
-        return;
+        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
     }
 
     mFile = new QFile(openPath);
     if (!mFile->open(mode)) {
         if (mode & QIODevice::ReadOnly) {
-            error(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
+            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
         } else {
-            error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, openPath);
+            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, openPath);
         }
-
-        return;
     }
     // Determine the MIME type of the file to be retrieved, and emit it.
     // This is mandatory in all slaves (for KRun/BrowserRun to work).
@@ -426,10 +409,10 @@ void FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
     totalSize(buff.st_size);
     position(0);
 
-    opened();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::read(KIO::filesize_t bytes)
+WorkerResult FileProtocol::read(KIO::filesize_t bytes)
 {
     // qDebug() << "File::open -- read";
     Q_ASSERT(mFile && mFile->isOpen());
@@ -439,16 +422,18 @@ void FileProtocol::read(KIO::filesize_t bytes)
     qint64 bytesRead = mFile->read(buffer.data(), bytes);
 
     if (bytesRead == -1) {
+        const auto fileName = mFile->fileName();
         qCWarning(KIO_FILE) << "Couldn't read. Error:" << mFile->errorString();
-        error(KIO::ERR_CANNOT_READ, mFile->fileName());
         closeWithoutFinish();
+        return WorkerResult::fail(KIO::ERR_CANNOT_READ, fileName);
     } else {
         const QByteArray fileData = QByteArray::fromRawData(buffer.data(), bytesRead);
         data(fileData);
+        return WorkerResult::pass();
     }
 }
 
-void FileProtocol::write(const QByteArray &data)
+WorkerResult FileProtocol::write(const QByteArray &data)
 {
     // qDebug() << "File::open -- write";
     Q_ASSERT(mFile && mFile->isWritable());
@@ -457,41 +442,49 @@ void FileProtocol::write(const QByteArray &data)
 
     if (bytesWritten == -1) {
         if (mFile->error() == QFileDevice::ResourceError) { // disk full
-            error(KIO::ERR_DISK_FULL, mFile->fileName());
+            const auto fileName = mFile->fileName();
             closeWithoutFinish();
+            return WorkerResult::fail(KIO::ERR_DISK_FULL, fileName);
         } else {
+            const auto fileName = mFile->fileName();
             qCWarning(KIO_FILE) << "Couldn't write. Error:" << mFile->errorString();
-            error(KIO::ERR_CANNOT_WRITE, mFile->fileName());
             closeWithoutFinish();
+            return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, fileName);
         }
     } else {
         mFile->flush();
         written(bytesWritten);
+
+        return WorkerResult::pass();
     }
 }
 
-void FileProtocol::seek(KIO::filesize_t offset)
+KIO::WorkerResult FileProtocol::seek(KIO::filesize_t offset)
 {
     // qDebug() << "File::open -- seek";
     Q_ASSERT(mFile && mFile->isOpen());
 
     if (mFile->seek(offset)) {
         position(offset);
+        return WorkerResult::pass();
     } else {
-        error(KIO::ERR_CANNOT_SEEK, mFile->fileName());
+        const auto fileName = mFile->fileName();
         closeWithoutFinish();
+        return WorkerResult::fail(KIO::ERR_CANNOT_SEEK, fileName);
     }
 }
 
-void FileProtocol::truncate(KIO::filesize_t length)
+KIO::WorkerResult FileProtocol::truncate(KIO::filesize_t length)
 {
     Q_ASSERT(mFile && mFile->isOpen());
 
     if (mFile->resize(length)) {
         truncated(length);
+        return WorkerResult::pass();
     } else {
-        error(KIO::ERR_CANNOT_TRUNCATE, mFile->fileName());
+        const auto fileName = mFile->fileName();
         closeWithoutFinish();
+        return WorkerResult::fail(KIO::ERR_CANNOT_TRUNCATE, fileName);
     }
 }
 
@@ -503,18 +496,23 @@ void FileProtocol::closeWithoutFinish()
     mFile = nullptr;
 }
 
-void FileProtocol::close()
+bool FileProtocol::resultWasCancelled(KIO::WorkerResult result)
+{
+    int err = result.error();
+    return err == KIO::ERR_USER_CANCELED || err == KIO::ERR_PRIVILEGE_NOT_REQUIRED;
+}
+
+KIO::WorkerResult FileProtocol::close()
 {
     // qDebug() << "File::open -- close ";
     closeWithoutFinish();
-    finished();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
+KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 {
     if (privilegeOperationUnitTestMode()) {
-        finished();
-        return;
+        return WorkerResult::pass();
     }
 
     const QString dest_orig = url.toLocalFile();
@@ -551,14 +549,15 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
     if (bOrigExists && !(_flags & KIO::Overwrite) && !(_flags & KIO::Resume)) {
         if (Utils::isDirMask(buff_orig.st_mode)) {
-            error(KIO::ERR_DIR_ALREADY_EXIST, dest_orig);
+            return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, dest_orig);
         } else {
-            error(KIO::ERR_FILE_ALREADY_EXIST, dest_orig);
+            return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest_orig);
         }
-        return;
+        return WorkerResult::pass();
     }
 
     int result;
+    int error = 0;
     QString dest;
     QFile f;
 
@@ -614,18 +613,19 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                         }
                     }
 
-                    if (auto err = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errno)) {
-                        if (!err.wasCanceled()) {
+                    auto result = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errno);
+                    if (!result.success()) {
+                        if (!resultWasCancelled(result)) {
                             // qDebug() << "####################### COULD NOT WRITE" << dest << "_mode=" << _mode;
                             // qDebug() << "QFile error==" << f.error() << "(" << f.errorString() << ")";
 
                             if (f.error() == QFileDevice::PermissionsError) {
-                                error(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+                                return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
                             } else {
-                                error(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                                return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
                             }
                         }
-                        return;
+                        return WorkerResult::pass();
                     } else {
 #ifndef Q_OS_WIN
                         if ((_flags & KIO::Resume)) {
@@ -639,17 +639,16 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
 
             if (f.write(buffer) == -1) {
                 if (f.error() == QFile::ResourceError) { // disk full
-                    error(KIO::ERR_DISK_FULL, dest_orig);
+                    error = KIO::ERR_DISK_FULL;
                     result = -2; // means: remove dest file
                 } else {
                     qCWarning(KIO_FILE) << "Couldn't write. Error:" << f.errorString();
-                    error(KIO::ERR_CANNOT_WRITE, dest_orig);
-                    result = -1;
+                    error = KIO::ERR_CANNOT_WRITE;
                 }
             }
         } else {
             qCWarning(KIO_FILE) << "readData() returned" << result;
-            error(KIO::ERR_CANNOT_WRITE, dest_orig);
+            error = KIO::ERR_CANNOT_WRITE;
         }
     } while (result > 0);
 
@@ -668,20 +667,18 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 }
             }
         }
-        return;
+        return WorkerResult::fail(error, dest_orig);
     }
 
     if (!f.isOpen()) { // we got nothing to write out, so we never opened the file
-        finished();
-        return;
+        return WorkerResult::pass();
     }
 
     f.close();
 
     if (f.error() != QFile::NoError) {
         qCWarning(KIO_FILE) << "Error when closing file descriptor:" << f.errorString();
-        error(KIO::ERR_CANNOT_WRITE, dest_orig);
-        return;
+        return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest_orig);
     }
 
     // after full download rename the file back to original name
@@ -695,12 +692,13 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
         }
 
         if (!QFile::rename(dest, dest_orig)) {
-            if (auto err = execWithElevatedPrivilege(RENAME, {dest, dest_orig}, errno)) {
-                if (!err.wasCanceled()) {
+            auto result = execWithElevatedPrivilege(RENAME, {dest, dest_orig}, errno);
+            if (!result.success()) {
+                if (!resultWasCancelled(result)) {
                     qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
-                    error(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
+                    return WorkerResult::fail(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
                 }
-                return;
+                return WorkerResult::pass();
             }
         }
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
@@ -712,7 +710,7 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
             // couldn't chmod. Eat the error if the filesystem apparently doesn't support it.
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
             if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
-                if (tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno)) {
+                if (!tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno).success()) {
                     warning(i18n("Could not change permissions for\n%1", dest_orig));
                 }
             }
@@ -748,10 +746,10 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
     }
 
     // We have done our job => finish
-    finished();
+    return WorkerResult::pass();
 }
 
-void FileProtocol::special(const QByteArray &data)
+WorkerResult FileProtocol::special(const QByteArray &data)
 {
     int tmp;
     QDataStream stream(data);
@@ -769,18 +767,17 @@ void FileProtocol::special(const QByteArray &data)
         bool ro = (iRo != 0);
 
         // qDebug() << "MOUNTING fstype=" << fstype << " dev=" << dev << " point=" << point << " ro=" << ro;
-        mount(ro, fstype.toLatin1().constData(), dev, point);
-        break;
+        return mount(ro, fstype.toLatin1().constData(), dev, point);
     }
     case 2: {
         QString point;
         stream >> point;
-        unmount(point);
-        break;
+        return unmount(point);
     }
     default:
         break;
     }
+    return WorkerResult::pass();
 }
 
 static QStringList fallbackSystemPath()
@@ -791,7 +788,7 @@ static QStringList fallbackSystemPath()
     };
 }
 
-void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, const QString &_point)
+WorkerResult FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, const QString &_point)
 {
     // qDebug() << "fstype=" << _fstype;
 
@@ -821,8 +818,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
         mountProg = QStandardPaths::findExecutable(QStringLiteral("mount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (mountProg.isEmpty()) {
-        error(KIO::ERR_CANNOT_MOUNT, i18n("Could not find program \"mount\""));
-        return;
+        return WorkerResult::fail(KIO::ERR_CANNOT_MOUNT, i18n("Could not find program \"mount\""));
     }
 
     // Two steps, in case mount doesn't like it when we pass all options
@@ -850,8 +846,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
 
         QString err = readLogFile(tmpFileName);
         if (err.isEmpty() && mount_ret == 0) {
-            finished();
-            return;
+            return WorkerResult::pass();
         } else {
             // Didn't work - or maybe we just got a warning
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByDevice(_dev);
@@ -859,8 +854,7 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
             if (mp && mount_ret == 0) {
                 // qDebug() << "mount got a warning:" << err;
                 warning(err);
-                finished();
-                return;
+                return WorkerResult::pass();
             } else {
                 if ((step == 0) && !_point.isEmpty()) {
                     // qDebug() << err;
@@ -877,15 +871,15 @@ void FileProtocol::mount(bool _ro, const char *_fstype, const QString &_dev, con
                     // different devices, well they shouldn't specify the
                     // mountpoint but just the device.
                 } else {
-                    error(KIO::ERR_CANNOT_MOUNT, err);
-                    return;
+                    return WorkerResult::fail(KIO::ERR_CANNOT_MOUNT, err);
                 }
             }
         }
     }
+    return WorkerResult::pass();
 }
 
-void FileProtocol::unmount(const QString &_point)
+WorkerResult FileProtocol::unmount(const QString &_point)
 {
     QByteArray buffer;
 
@@ -898,8 +892,7 @@ void FileProtocol::unmount(const QString &_point)
         umountProg = QStandardPaths::findExecutable(QStringLiteral("umount"), fallbackSystemPath()).toLocal8Bit();
     }
     if (umountProg.isEmpty()) {
-        error(KIO::ERR_CANNOT_UNMOUNT, i18n("Could not find program \"umount\""));
-        return;
+        return WorkerResult::fail(KIO::ERR_CANNOT_UNMOUNT, i18n("Could not find program \"umount\""));
     }
 
     QByteArray tmpFileName = QFile::encodeName(tmpFile.fileName());
@@ -909,9 +902,9 @@ void FileProtocol::unmount(const QString &_point)
 
     QString err = readLogFile(tmpFileName);
     if (err.isEmpty()) {
-        finished();
+        return WorkerResult::pass();
     } else {
-        error(KIO::ERR_CANNOT_UNMOUNT, err);
+        return WorkerResult::fail(KIO::ERR_CANNOT_UNMOUNT, err);
     }
 }
 
@@ -934,7 +927,7 @@ static QString readLogFile(const QByteArray &_filename)
 
 // We could port this to KTempDir::removeDir but then we wouldn't be able to tell the user
 // where exactly the deletion failed, in case of errors.
-bool FileProtocol::deleteRecursive(const QString &path)
+WorkerResult FileProtocol::deleteRecursive(const QString &path)
 {
     // qDebug() << path;
     QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
@@ -948,11 +941,12 @@ bool FileProtocol::deleteRecursive(const QString &path)
         } else {
             // qDebug() << "QFile::remove" << itemPath;
             if (!QFile::remove(itemPath)) {
-                if (auto err = execWithElevatedPrivilege(DEL, {itemPath}, errno)) {
-                    if (!err.wasCanceled()) {
-                        error(KIO::ERR_CANNOT_DELETE, itemPath);
+                auto result = execWithElevatedPrivilege(DEL, {itemPath}, errno);
+                if (!result.success()) {
+                    if (!resultWasCancelled(result)) {
+                        return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
                     }
-                    return false;
+                    return result;
                 }
             }
         }
@@ -961,18 +955,19 @@ bool FileProtocol::deleteRecursive(const QString &path)
     for (const QString &itemPath : std::as_const(dirsToDelete)) {
         // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
-            if (auto err = execWithElevatedPrivilege(RMDIR, {itemPath}, errno)) {
-                if (!err.wasCanceled()) {
-                    error(KIO::ERR_CANNOT_DELETE, itemPath);
+            auto result = execWithElevatedPrivilege(RMDIR, {itemPath}, errno);
+            if (!result.success()) {
+                if (!resultWasCancelled(result)) {
+                    return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
                 }
-                return false;
+                return result;
             }
         }
     }
-    return true;
+    return WorkerResult::pass();
 }
 
-void FileProtocol::fileSystemFreeSpace(const QUrl &url)
+WorkerResult FileProtocol::fileSystemFreeSpace(const QUrl &url)
 {
     if (url.isLocalFile()) {
         QStorageInfo storageInfo(url.toLocalFile());
@@ -980,32 +975,12 @@ void FileProtocol::fileSystemFreeSpace(const QUrl &url)
             setMetaData(QStringLiteral("total"), QString::number(storageInfo.bytesTotal()));
             setMetaData(QStringLiteral("available"), QString::number(storageInfo.bytesAvailable()));
 
-            finished();
+            return WorkerResult::pass();
         } else {
-            error(KIO::ERR_CANNOT_STAT, url.url());
+            return WorkerResult::fail(KIO::ERR_CANNOT_STAT, url.url());
         }
     } else {
-        error(KIO::ERR_UNSUPPORTED_PROTOCOL, url.url());
-    }
-}
-
-void FileProtocol::virtual_hook(int id, void *data)
-{
-    switch (id) {
-    case SlaveBase::GetFileSystemFreeSpace: {
-        QUrl *url = static_cast<QUrl *>(data);
-        fileSystemFreeSpace(*url);
-        break;
-    }
-    case SlaveBase::Truncate: {
-        auto length = static_cast<KIO::filesize_t *>(data);
-        truncate(*length);
-        break;
-    }
-    default: {
-        SlaveBase::virtual_hook(id, data);
-        break;
-    }
+        return WorkerResult::fail(KIO::ERR_UNSUPPORTED_PROTOCOL, url.url());
     }
 }
 
