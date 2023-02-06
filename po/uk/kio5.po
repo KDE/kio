@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-05 00:54+0000\n"
-"PO-Revision-Date: 2023-01-25 09:11+0200\n"
+"PO-Revision-Date: 2023-02-05 09:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -4010,11 +4010,10 @@ msgid "Launching %1"
 msgstr "Триває запуск %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Не вдалося знайти файл «%1»"
+msgstr "Не вдалося знайти команду <command>%1</command>."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
