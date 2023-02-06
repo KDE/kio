@@ -260,7 +260,7 @@ public:
         WarningTwoActionsCancel = 4, ///< @since 5.100
         Information = 5,
         SSLMessageBox = 6,
-        // In KMessageBox::DialogType; Sorry = 7, Error = 8, QuestionTwoActionsCancel = 9
+        // In KMessageBox::DialogType; <unused> = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
     };
 
