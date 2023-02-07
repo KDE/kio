@@ -88,11 +88,6 @@ public:
     const char *encoding() const;
 
     /**
-     * Returns the MIB for the codec being used.
-     */
-    int encodingMib() const;
-
-    /**
      * Sets the encoding being used.
      * This function does not change the global configuration.
      *

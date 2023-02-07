@@ -9,7 +9,6 @@
 
 #include <QDir>
 #include <QStandardPaths>
-#include <QTextCodec>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -82,7 +81,7 @@ void SessionData::reset()
     d->useCookie = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy").readEntry("Cookies", true);
 
     d->language = KProtocolManager::acceptLanguagesHeader();
-    d->charsets = QString::fromLatin1(QTextCodec::codecForLocale()->name()).toLower();
+    d->charsets = QStringLiteral("utf-8");
     KProtocolManager::reparseConfiguration();
 }
 

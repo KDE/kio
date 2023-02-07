@@ -235,10 +235,6 @@ if(HAVE_LIB_MOUNT)
   target_link_libraries(KF6KIOCore PRIVATE LibMount::LibMount)
 endif()
 
-if (TARGET Qt6::Core5Compat)
-    target_link_libraries(KF6KIOCore PRIVATE Qt6::Core5Compat) # QTextCodec
-endif()
-
 # this should be done by cmake, see bug 371721
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     add_custom_command(
