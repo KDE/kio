@@ -635,11 +635,6 @@ void KPropertiesDialogPrivate::insertPages()
     }
 
     const auto scheme = item.url().scheme();
-    QString query =
-        QStringLiteral("(((not exist [X-KDE-Protocol]) and (not exist [X-KDE-Protocols])) or ([X-KDE-Protocol] == '%1') or ('%1' in [X-KDE-Protocols]))")
-            .arg(scheme);
-
-    // qDebug() << "trader query: " << query;
 
     QStringList addedPlugins;
     const auto filter = [mimetype, scheme](const KPluginMetaData &metaData) {
