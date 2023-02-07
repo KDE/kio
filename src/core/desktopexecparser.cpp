@@ -179,12 +179,13 @@ int KRunMX2::expandEscapedMacro(const QString &str, int pos, QStringList &ret)
 
 QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
 {
-    QStringList supportedProtocols = service.property(QStringLiteral("X-KDE-Protocols")).toStringList();
+    QStringList supportedProtocols = service.supportedProtocols();
+
     KRunMX1 mx1(service);
     QString exec = service.exec();
     if (mx1.expandMacrosShellQuote(exec) && !mx1.hasUrls) {
         if (!supportedProtocols.isEmpty()) {
-            qCWarning(KIO_CORE) << service.entryPath() << "contains a X-KDE-Protocols line but doesn't use %u or %U in its Exec line! This is inconsistent.";
+            qCWarning(KIO_CORE) << service.entryPath() << "contains supported protocols but doesn't use %u or %U in its Exec line! This is inconsistent.";
         }
         return QStringList();
     } else {
@@ -198,15 +199,6 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
                 supportedProtocols.append(QStringLiteral("https")); // #253294
                 supportedProtocols.append(QStringLiteral("ftp"));
             }
-        }
-    }
-
-    // add x-scheme-handler/<protocol>
-    const QLatin1String xScheme("x-scheme-handler/");
-    const auto servicesTypes = service.serviceTypes();
-    for (const auto &mimeType : servicesTypes) {
-        if (mimeType.startsWith(xScheme)) {
-            supportedProtocols << mimeType.mid(xScheme.size());
         }
     }
 
