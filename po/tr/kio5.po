@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-05 00:54+0000\n"
+"POT-Creation-Date: 2023-02-07 00:55+0000\n"
 "PO-Revision-Date: 2023-02-05 11:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -6865,12 +6865,12 @@ msgstr "&Karakter Kümesi:"
 msgid "Insert query placeholder"
 msgstr "Sorgu yer tutucu ekle"
 
-#: urifilters/shorturi/kshorturifilter.cpp:247
+#: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b>, bir ana klasöre sahip değil.</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:249
+#: urifilters/shorturi/kshorturifilter.cpp:253
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt><b>%1</b> adlı bir kullanıcı yok.</qt>"

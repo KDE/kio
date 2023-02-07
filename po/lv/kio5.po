@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-05 00:54+0000\n"
+"POT-Creation-Date: 2023-02-07 00:55+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -7004,12 +7004,12 @@ msgstr "&Rakstzīmju kopa:"
 msgid "Insert query placeholder"
 msgstr "Rindpārlēces izvērse"
 
-#: urifilters/shorturi/kshorturifilter.cpp:247
+#: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b> nav mājas mapes.</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:249
+#: urifilters/shorturi/kshorturifilter.cpp:253
 #, fuzzy, kde-format
 #| msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"

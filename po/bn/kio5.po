@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-05 00:54+0000\n"
+"POT-Creation-Date: 2023-02-07 00:55+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -6450,13 +6450,13 @@ msgstr ""
 msgid "Insert query placeholder"
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:247
+#: urifilters/shorturi/kshorturifilter.cpp:251
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "%1 নামক ফাইল বা ফোল্ডারের কোনো অস্তিত্ব নেই।"
 
-#: urifilters/shorturi/kshorturifilter.cpp:249
+#: urifilters/shorturi/kshorturifilter.cpp:253
 #, fuzzy, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>অনুগ্রহ করে '<b>%1</b>' ওয়ালেটটির জন্য একটি নতুন পাসওয়ার্ড পছন্দ করুন।"

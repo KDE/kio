@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-05 00:54+0000\n"
+"POT-Creation-Date: 2023-02-07 00:55+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -6981,13 +6981,13 @@ msgstr ""
 msgid "Insert query placeholder"
 msgstr "របៀបត្របាញ់"
 
-#: urifilters/shorturi/kshorturifilter.cpp:247
+#: urifilters/shorturi/kshorturifilter.cpp:251
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:249
+#: urifilters/shorturi/kshorturifilter.cpp:253
 #, fuzzy, kde-format
 #| msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
