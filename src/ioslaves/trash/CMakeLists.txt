@@ -86,7 +86,6 @@ install(TARGETS ktrash6 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 # currently not on win32, TODO!
 if(NOT WIN32 AND NOT KIOCORE_ONLY)
     add_library(kcm_trash MODULE)
-    kcoreaddons_desktop_to_json(kcm_trash kcmtrash.desktop)
     target_sources(kcm_trash PRIVATE
         kcmtrash.cpp
     )
@@ -104,7 +103,4 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
     install(TARGETS kcm_trash DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endif()
 
-########### install files ###############
-
-install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR} )
 install( FILES kcm_trash.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
