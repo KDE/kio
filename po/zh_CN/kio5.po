@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-01-12 10:30\n"
+"PO-Revision-Date: 2023-02-07 11:01\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2192,15 +2192,13 @@ msgstr ""
 "类故障通常是因为技术原因导致的。"
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"klauncher 无法找到或无法启动提供此协议的插件。这说明您的插件可能过时了。"
+"klauncher 无法找到或者启动提供此协议的插件。您可能正在使用该插件的已过时版"
+"本。"
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -3780,11 +3778,10 @@ msgid "Launching %1"
 msgstr "启动 %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "无法找到文件“%1”"
+msgstr "命令 <command>%1</command> 无法找到。"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

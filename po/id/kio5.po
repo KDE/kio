@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-01-30 01:45+0700\n"
+"PO-Revision-Date: 2023-02-07 20:29+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -125,26 +125,28 @@ msgstr "Tidak dapat menemukan program '%1'"
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
+"Program '%1' ditemukan di '%2' tetapi ia tidak punya perizinan "
+"pengeksekusian."
 
 #: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr ""
+msgstr "Program '%1' tidak punya perizinan pengeksekusian."
 
 #: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
-msgstr ""
+msgstr "Galat sintaks dalam perintah %1 yang datang dari %2"
 
 #: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr ""
+msgstr "Terminal %1 tidak ditemukan selagi mencoba menjalankan %2"
 
 #: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
-msgstr ""
+msgstr "Galat sintaks dalam perintah %1 selagi mencoba menjalankan %2"
 
 #: core/global.cpp:81
 #, kde-format
@@ -2437,7 +2439,7 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr ""
+msgstr "Tidak dapat mematok tipe file untuk %1"
 
 #: core/slave.cpp:429
 #, kde-format
@@ -3262,6 +3264,7 @@ msgstr "Sebuah error terjadi ketika sedang mengakses '%1'"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Satu atau lebih file pada peranti ini sedang dibuka oleh sebuah aplikasi."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3272,13 +3275,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Satu atau beberapa file di peranti ini dibuka di aplikasi <application>"
+"\"%2\"</application>."
 msgstr[1] ""
+"Satu atau beberapa file di peranti ini dibuka di aplikasi berikut: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3729,7 +3736,7 @@ msgstr "<qt>berkas templat <b>%1</b> tidak ada.</qt>"
 #: filewidgets/knewfilemenu.cpp:629 filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Name for new link:"
-msgstr ""
+msgstr "Nama untuk tautan baru:"
 
 #: filewidgets/knewfilemenu.cpp:698
 #, kde-format
@@ -3770,6 +3777,9 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
+"Nama <filename>%1</filename> diawali dengan spasi, yang hasilnya akan "
+"menjadi ditampilkan sebelum item lainnya ketika pengurutan secara abjad, di "
+"antara potensi keanehan lainnya."
 
 #: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
@@ -3963,6 +3973,7 @@ msgstr ""
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
+"Galat internal: tidak bisa meminta pengguna untuk menjalankan aplikasi mana"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -4010,7 +4021,7 @@ msgstr "berkas \"%1\" tidak dapat ditemukan"
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
 msgid "No terminal emulator found"
-msgstr ""
+msgstr "Tidak ada terminal emulator yang ditemukan"
 
 #: gui/openurljob.cpp:158
 #, kde-format
@@ -4042,6 +4053,8 @@ msgstr ""
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
+"Untuk alasan keamanan, peluncuran executable tidaklah diizinkan dalam "
+"konteks ini."
 
 #: gui/openurljob.cpp:430
 #, kde-format
@@ -4049,6 +4062,8 @@ msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
+"Program \"%1\" perlu memiliki perizinan executable sebelum ia bisa "
+"diluncurkan."
 
 #: gui/openurljob.cpp:441
 #, kde-format
@@ -4071,6 +4086,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"File ini tidak lengkap dan seharusnya tidak dibuka.\n"
+"Periksalah aplikasi yang dibuka dan area notifikasi Anda untuk unduhan atau "
+"tugas-tugas yang tertunda apapun."
 
 #: gui/openurljob.cpp:639
 #, kde-format
@@ -4184,7 +4202,7 @@ msgstr "Ubah Stempel Waktu"
 #: ioslaves/file/file_unix.cpp:138
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "Dari: %1, Ke: %2"
 
 #: ioslaves/file/file_unix.cpp:141
 #, kde-format
@@ -4434,6 +4452,7 @@ msgstr "Kembalikan berkas yang telah dibuang ke lokasi aslinya"
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
+"Tong sampah telah penuh. Mengosongkannya atau hapus item secara manual."
 
 #: kcms/cookies/kcookiesmain.cpp:37
 #, kde-format
@@ -5169,6 +5188,8 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
+"Jika dibatalkan, secara otomatis menghapus bagian-bagian file yang diunggah "
+"yang lebih kecil dari:"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
@@ -7874,7 +7895,7 @@ msgstr "&Jangan tutup saat perintah keluar"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Dapatkan Apps selebihnya dari Discover"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -7890,6 +7911,8 @@ msgstr ""
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr ""
+"<filename>%1</filename> tidak bisa muncul sebagai program yang dapat "
+"dieksekusi."
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7898,6 +7921,8 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+"<filename>%1</filename> tidak ditemukan; silakan masukkan alur yang valid ke "
+"program yang dapat dieksekusi."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -8083,7 +8108,7 @@ msgstr "&Komentar:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Variabel Environment:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9140,6 +9165,8 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
+"File tujuan yang memiliki waktu modifikasi lebih lama akan ditimpa oleh "
+"sumber, sebaliknya dilewati."
 
 #: widgets/renamedialog.cpp:282
 #, kde-format
@@ -9178,7 +9205,7 @@ msgstr "Tujuan"
 #: widgets/renamedialog.cpp:397
 #, kde-format
 msgid "Differences"
-msgstr ""
+msgstr "Berbeda"
 
 #: widgets/renamedialog.cpp:418
 #, kde-format
@@ -9198,7 +9225,7 @@ msgstr "Berkas identik."
 #: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files seem identical."
-msgstr ""
+msgstr "File nampak identik."
 
 #: widgets/renamedialog.cpp:441
 #, kde-format
@@ -9211,6 +9238,8 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
+"File sepertinya identik: ia memiliki ukuran yang sama dan konten yang sama "
+"pula pada awalan, tengah, dan akhiran."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
