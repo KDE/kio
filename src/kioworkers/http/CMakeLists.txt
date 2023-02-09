@@ -95,10 +95,6 @@ if(GSSAPI_FOUND)
   target_link_libraries(kio_http PRIVATE ${GSSAPI_LIBS})
 endif()
 
-if (TARGET Qt6::Core5Compat)
-    target_link_libraries(kio_http PRIVATE Qt6::Core5Compat) # QTextCodec
-endif()
-
 ########### install files ###############
 
 install( FILES

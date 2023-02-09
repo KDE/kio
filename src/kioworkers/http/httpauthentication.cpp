@@ -29,7 +29,7 @@
 #include <kntlm.h>
 
 #include <QCryptographicHash>
-#include <QTextCodec>
+#include <QStringDecoder>
 
 Q_LOGGING_CATEGORY(KIO_HTTP_AUTH, "kf.kio.workers.http.auth")
 
@@ -325,7 +325,7 @@ QString KAbstractHttpAuthentication::realm() const
     // TODO: Find out what this is supposed to address. The site mentioned below does not exist.
     if (QLocale().uiLanguages().contains(QLatin1String("ru"))) {
         // for sites like lib.homelinux.org
-        return QTextCodec::codecForName("CP1251")->toUnicode(realm);
+        return QStringDecoder("CP1251").decode(realm);
     }
     return QString::fromLatin1(realm.constData(), realm.length());
 }

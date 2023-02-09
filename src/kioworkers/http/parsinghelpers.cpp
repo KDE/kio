@@ -12,7 +12,7 @@
 
 #include <QDebug>
 #include <QDir>
-#include <QTextCodec>
+#include <QStringDecoder>
 
 // Advance *pos beyond spaces / tabs
 static void skipSpace(const char input[], int *pos, int end)
@@ -553,11 +553,11 @@ static QMap<QString, QString> contentDispositionParserInternal(const QString &di
             }
             val = QString::fromLatin1(rawval.constData());
         } else {
-            QTextCodec *codec = QTextCodec::codecForName(charset.toLatin1());
-            if (!codec) {
+            QStringDecoder codec(charset.toLatin1().constData());
+            if (!codec.isValid()) {
                 continue;
             }
-            val = codec->toUnicode(rawval);
+            val = codec.decode(rawval);
         }
 
         parameters.insert(i.key(), val);
