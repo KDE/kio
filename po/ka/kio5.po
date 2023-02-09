@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-02-07 07:46+0100\n"
+"PO-Revision-Date: 2023-02-08 06:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1175,7 +1175,7 @@ msgstr ""
 #: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
-msgstr ""
+msgstr "მცდელობა, მოვძებნოთ სხვა გზა, რათა იგივე შედეგს მივაღწიოთ."
 
 #: core/job_error.cpp:540
 #, kde-format
@@ -1214,7 +1214,7 @@ msgstr "ფაილი ან საქაღალდე არ არსე�
 #: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr ""
+msgstr "მითითებული ფაილი ან საქაღალდე <strong>%1</strong> არ არსებობს."
 
 #: core/job_error.cpp:572
 #, kde-format
@@ -2960,7 +2960,7 @@ msgstr "Places პანელის დამატების შეცდო
 #: filewidgets/kfileplacesmodel.cpp:1151
 #, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr ""
+msgstr "ადგილების პანელზე მხოლოდ საქაღალდეების დამატება შეგიძლიათ."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
@@ -3761,7 +3761,7 @@ msgstr ""
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr ""
+msgstr "სამუშაო მაგიდის ფაილს %1 Type= ჩანაწერი არ გააჩნია."
 
 #: gui/openurljob.cpp:613
 #, kde-format

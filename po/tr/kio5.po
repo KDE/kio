@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-02-05 11:34+0300\n"
+"PO-Revision-Date: 2023-02-08 19:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1775,13 +1775,14 @@ msgstr "Bağlantıyı kabul etmek için yeterli izniniz olmayabilir."
 #: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
-msgstr "Giriş yapılamadı: %1"
+msgstr "Oturum Açılamadı: %1"
 
 #: core/job_error.cpp:886
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
-msgstr "Yapılması istenen giriş başarılı olamadı."
+msgstr ""
+"İstenen işlemi gerçekleştirmek için oturum açma denemesi başarısız oldu."
 
 #: core/job_error.cpp:902
 #, kde-format
@@ -5839,7 +5840,7 @@ msgstr "%1 (Hata %2)"
 #: kioworkers/ftp/ftp.cpp:492
 #, kde-format
 msgid "Sending login information"
-msgstr "Giriş bilgileri gönderiliyor"
+msgstr "Oturum açma bilgisi gönderiliyor"
 
 #: kioworkers/ftp/ftp.cpp:550
 #, kde-format
@@ -5876,7 +5877,7 @@ msgstr "<b>%1</b>"
 #: kioworkers/ftp/ftp.cpp:648
 #, kde-format
 msgid "Login OK"
-msgstr "Giriş onaylandı"
+msgstr "Oturum açma onaylandı"
 
 #: kioworkers/ftp/ftp.cpp:677
 #, kde-format

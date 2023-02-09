@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-01-10 16:24+0100\n"
+"PO-Revision-Date: 2023-02-08 22:34+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,10 +42,9 @@ msgstr ""
 "non ha assatis permissiones de accesso al file pro exequer le modifica."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Il non pote crear io-slave: %1"
+msgstr "Incapace a crear KIO worker: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -797,10 +796,9 @@ msgid "Communication with the local password server failed"
 msgstr "Communication con le servitor de contrasigno local falleva"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Il non pote crear io-slave: %1"
+msgstr "Incapace a crear KIO worker: %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -824,10 +822,9 @@ msgstr ""
 "Pro favor essaya de novo post cambiar permissiones."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Le file es troppo grande pro poner lo in le corbe."
+msgstr "Le file es troppo grande pro esser ponite in le corbe."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1179,21 +1176,15 @@ msgstr ""
 "pote esser incompatibile. "
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Tu pote executar un cerca in le internet per un programma de KDE (appellate "
-"un kioslave o ioslave) que supporta iste protocollo. Placias de cerca "
-"include <a href=\"http://kde-apps.org/\">http://kde-apps.org/</a> e <a href= "
-"\"http://freshmeat.net/\">http://freshmeat.net/</a>"
+"Tu pote executar un cerca in le internet per un plugin software (appellate "
+"un \"KIO worker\") que supporta iste protocollo. Placias de cerca include <a "
+"href=\"https://store.kde.org/\">https://sore.kde.org/</a>"
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2375,28 +2366,21 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "On non pote initiar le Protocollo %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Il non pote crear io-slave"
+msgstr "Incapace a crear KIO worker: "
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Le io-slave que provide accesso al <strong>%1</strong> protocollo non poteva "
-"esser initiate. Isto es solitemente debite a motivos technic. "
+"Le KIO worker que provide accesso al <strong>%1</strong> protocollo non "
+"poteva esser initiate. Isto es solitemente debite a motivos technic. "
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2470,16 +2454,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Protocollo '%1' Incognite."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Il non pote trovar io-slave pro protocollo '%1'."
+msgstr "Il non pote trovar KIO worker pro protocollo '%1'."
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Non pote crear socket per lancear  io-slave pro protocollo '%1'."
+msgstr ""
+"Non pote crear un socket per lancear  un KIO worker pro protocollo '%1'."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -3228,12 +3211,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Solmente dossieres pote esser addite al Pannello de Placias."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Liberation"
+msgstr "Liberante..."
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3242,12 +3223,10 @@ msgid "&Release"
 msgstr "&Liberation"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Remove con &Securitate"
+msgstr "Removente con Securitate..."
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -4034,11 +4013,10 @@ msgid "Launching %1"
 msgstr "Il es lanceante %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Le file \"%1\" non pote esser trovate"
+msgstr "Le commando  <command>%1</command> non pote esser trovate"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -5362,16 +5340,7 @@ msgstr "necun proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5386,9 +5355,7 @@ msgstr ""
 "Le relevamento automatic es exequite per usar le <b>protocollo Auto-"
 "Discoperta de Proxy Web (WPAD)</b>.<p>\n"
 "<b>NOTA:</b>Iste option pote non functionar propriemente o il pote non "
-"functionar totalmente in alcun distributiones de UNIX/Linux. Si tu incontra "
-"un problema quando tu usa iste option pro favor tu verifica le section de "
-"FAQ a http://konqueror.org.\n"
+"functionar totalmente in alcun distributiones de UNIX/Linux.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5774,15 +5741,7 @@ msgid "Default password:"
 msgstr "Contrasigno predefinite:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5792,7 +5751,7 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows Shares</h1><p>Applicationes usante le SMB kioslave (como "
+"<h1>Windows Shares</h1><p>Applicationes usante le SMB KIO worker (como "
 "Konqueror) pote acceder a systemas de file compartite de Microsoft Windows, "
 "if propiemente configurate.</p><p>Tu pote ci specificar le credentiales "
 "usate per acceder al ressources compartite. Contrasignos essera immagazinate "
@@ -8166,10 +8125,9 @@ msgstr "Comm&ento:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Variabiles de ambiente"
+msgstr "Variabiles de ambiente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
