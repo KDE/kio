@@ -18,7 +18,7 @@
 #include <QStringList>
 #include <QUrl>
 
-class QTextCodec;
+class QStringEncoder;
 
 class SearchProvider;
 
@@ -53,7 +53,7 @@ private:
     KURISearchFilterEngine &operator=(const KURISearchFilterEngine &) = delete;
 
     QStringList modifySubstitutionMap(SubstMap &map, const QString &query) const;
-    QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QTextCodec *codec) const;
+    QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QStringEncoder &codec) const;
 
     SearchProviderRegistry m_registry;
     QString m_defaultWebShortcut;

@@ -19,7 +19,7 @@
 
 #include <QLoggingCategory>
 #include <QRegularExpression>
-#include <QTextCodec>
+#include <QStringEncoder>
 
 namespace
 {
@@ -220,14 +220,14 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
     return l;
 }
 
-static QString encodeString(const QString &s, QTextCodec *codec)
+static QString encodeString(const QString &s, QStringEncoder &codec)
 {
     // we encode all characters, including the space character BUG: 304276
-    QByteArray encoded = codec->fromUnicode(s).toPercentEncoding();
+    QByteArray encoded = QByteArray(codec.encode(s)).toPercentEncoding();
     return QString::fromUtf8(encoded);
 }
 
-QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QTextCodec *codec) const
+QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QStringEncoder &codec) const
 {
     QString newurl = url;
     QStringList ql = modifySubstitutionMap(map, userquery);
@@ -398,10 +398,10 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url,
         cseta = QStringLiteral("UTF-8");
     }
 
-    QTextCodec *csetacodec = QTextCodec::codecForName(cseta.toLatin1());
-    if (!csetacodec) {
+    QStringEncoder csetacodec(cseta.toLatin1().constData());
+    if (!csetacodec.isValid()) {
         cseta = QStringLiteral("UTF-8");
-        csetacodec = QTextCodec::codecForName(cseta.toLatin1());
+        csetacodec = QStringEncoder(QStringEncoder::Utf8);
     }
 
     kuriikws_debug(QStringLiteral("user query"), userquery);

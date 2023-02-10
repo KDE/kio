@@ -32,7 +32,6 @@ target_link_libraries(kuriikwsfilter
         KF6::ConfigWidgets  # KCModule
         KF6::KIOWidgets     # KUriFilter
         KF6::I18n
-        Qt6::Core5Compat # QTextCodec
         Qt6::DBus
 )
 
