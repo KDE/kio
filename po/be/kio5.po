@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2022-12-26 20:04\n"
+"PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -2360,10 +2360,7 @@ msgstr ""
 "пратакола <strong>%1</strong>. Звычайна гэта адбываецца з тэхнічных прычын."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -4013,11 +4010,10 @@ msgid "Launching %1"
 msgstr "Запуск %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Не ўдалося знайсці файл \"%1\""
+msgstr "Не ўдалося знайсці загад <command>%1</command>."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format

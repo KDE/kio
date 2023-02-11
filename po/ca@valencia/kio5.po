@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-01-25 09:26+0100\n"
+"PO-Revision-Date: 2023-02-05 10:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -4023,11 +4023,10 @@ msgid "Launching %1"
 msgstr "S'està llançant %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "No s'ha pogut trobar el fitxer «%1»"
+msgstr "No s'ha pogut trobar l'ordre <command>%1</command>."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
