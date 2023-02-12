@@ -94,11 +94,3 @@ target_link_libraries(kio_http
 if(GSSAPI_FOUND)
   target_link_libraries(kio_http PRIVATE ${GSSAPI_LIBS})
 endif()
-
-########### install files ###############
-
-install( FILES
-    http_cache_cleaner.desktop
-  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
-
-
