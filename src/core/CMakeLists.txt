@@ -203,13 +203,13 @@ target_include_directories(KF6KIOCore INTERFACE
 target_link_libraries(KF6KIOCore
 PUBLIC
  KF6::CoreAddons   # KJob
- KF6::Service # TODO KF6 move to PRIVATE
  Qt6::Network
 PRIVATE
  Qt6::Xml # davjob.cpp uses QDom
  Qt6::Concurrent
  KF6::ConfigCore
  KF6::I18n
+ KF6::Service
 )
 
 if (NOT ANDROID)
