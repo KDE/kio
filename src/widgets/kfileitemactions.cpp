@@ -424,10 +424,7 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
 
 bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
 {
-    // Like KService, we support ServiceTypes, X-KDE-ServiceTypes, and MimeType.
-    const QStringList types = cfg.readEntry("ServiceTypes", QStringList())
-        << cfg.readEntry("X-KDE-ServiceTypes", QStringList()) << cfg.readXdgListEntry("MimeType");
-
+    const QStringList types = cfg.readXdgListEntry("MimeType");
     if (types.isEmpty()) {
         return false;
     }
