@@ -148,10 +148,7 @@
         "Name[x-test]": "xxWindows Sharesxx",
         "Name[xh]": "Ulwahlulelwano lwe Windows",
         "Name[zh_CN]": "Windows 共享",
-        "Name[zh_TW]": "Windows 資源共享",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "Windows 資源共享"
     },
     "X-DocPath": "kcontrol5/smb/index.html",
     "X-KDE-Keywords": "SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords",

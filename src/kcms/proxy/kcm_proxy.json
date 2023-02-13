@@ -187,10 +187,7 @@
         "Name[x-test]": "xxProxyxx",
         "Name[xh]": "Umntu onegunya lokusebenzela omnye",
         "Name[zh_CN]": "代理",
-        "Name[zh_TW]": "代理",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "代理"
     },
     "X-DocPath": "kcontrol5/proxy/index.html",
     "X-KDE-Keywords": "Proxy,Proxy server,Firewall,Squid",

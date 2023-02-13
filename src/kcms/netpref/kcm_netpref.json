@@ -182,10 +182,7 @@
         "Name[wa]": "Preferinces di raloyaedje",
         "Name[x-test]": "xxConnection Preferencesxx",
         "Name[zh_CN]": "连接首选项",
-        "Name[zh_TW]": "連線偏好設定",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "連線偏好設定"
     },
     "X-DocPath": "kcontrol5/netpref/index.html",
     "X-KDE-Keywords": "timeout,iopref,netpref,network preferences,ftp",

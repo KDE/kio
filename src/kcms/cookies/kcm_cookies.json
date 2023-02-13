@@ -154,10 +154,7 @@
         "Name[vi]": "Bánh quy",
         "Name[x-test]": "xxCookiesxx",
         "Name[zh_CN]": "Cookie",
-        "Name[zh_TW]": "Cookies",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "Cookies"
     },
     "X-DocPath": "kcontrol5/cookies/index.html",
     "X-KDE-Keywords": "Cookies,Browsing,Internet,WWW,Network,Policy,Domains",

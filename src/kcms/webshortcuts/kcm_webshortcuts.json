@@ -103,10 +103,7 @@
         "Name[vi]": "Từ khoá tìm kiếm web",
         "Name[x-test]": "xxWeb Search Keywordsxx",
         "Name[zh_CN]": "网页搜索关键字",
-        "Name[zh_TW]": "網路搜尋關鍵字",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "網路搜尋關鍵字"
     },
     "X-DocPath": "kcontrol5/webshortcuts/index.html",
     "X-KDE-Keywords": "Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts",
