@@ -60,7 +60,3 @@ target_link_libraries(kurisearchfilter
    Qt6::Core5Compat # QTextCodec
    Qt6::DBus
 )
-
-########### install files ###############
-
-install( FILES searchprovider.desktop  DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
