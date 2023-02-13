@@ -112,8 +112,6 @@ ecm_generate_export_header(KF6KIOWidgets
     DEPRECATION_VERSIONS 5.0
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
-# TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
-# needs fixing of undeprecated API being still implemented using own deprecated API
 
 target_include_directories(KF6KIOWidgets INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets>")
 

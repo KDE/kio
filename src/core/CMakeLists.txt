@@ -187,8 +187,6 @@ ecm_generate_export_header(KF6KIOCore
     DEPRECATION_VERSIONS 5.100 5.101 5.102 5.103
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
-# TODO: add support for EXCLUDE_DEPRECATED_BEFORE_AND_AT to all KIO libs
-# needs fixing of undeprecated API being still implemented using own deprecated API
 
 target_include_directories(KF6KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>" # kio_version.h
