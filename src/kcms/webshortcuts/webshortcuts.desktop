@@ -7,6 +7,7 @@ Icon=preferences-web-browser-shortcuts
 X-KDE-Library=kcm_webshortcuts
 X-KDE-PluginInfo-Name=webshortcuts
 X-KDE-ParentApp=kcontrol
+X-KDE-BugReportUrl=https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_webshortcuts
 
 Name=Web Search Keywords
 Name[ar]=كلمات بحث الويب

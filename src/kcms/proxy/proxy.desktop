@@ -10,6 +10,7 @@ X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-Weight=40
+X-KDE-BugReportUrl=https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_proxy
 
 Name=Proxy
 Name[af]=Volmag

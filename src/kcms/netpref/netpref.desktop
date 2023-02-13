@@ -10,6 +10,7 @@ X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-Weight=50
+X-KDE-BugReportUrl=https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_netpref
 
 Name=Connection Preferences
 Name[af]=Koppeling Voorkeure
