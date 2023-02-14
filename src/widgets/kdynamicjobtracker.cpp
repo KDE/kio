@@ -100,8 +100,7 @@ void KDynamicJobTracker::registerJob(KJob *job)
     trackers.kuiserverV2Tracker = nullptr;
     trackers.widgetTracker = nullptr;
 
-    // do not try to query kuiserver if dbus is not available
-    if (!QDBusConnection::sessionBus().interface()) {
+    auto useWidgetsFallback = [this, canHaveWidgets, &trackers, job] {
         if (canHaveWidgets) {
             // fallback to widget tracker only!
             if (!d->widgetTracker) {
@@ -111,6 +110,17 @@ void KDynamicJobTracker::registerJob(KJob *job)
             trackers.widgetTracker = d->widgetTracker;
             trackers.widgetTracker->registerJob(job);
         }
+    };
+
+    // do not try to use kuiserver on Windows/macOS
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    useWidgetsFallback();
+    return;
+#endif
+
+    // do not try to query kuiserver if dbus is not available
+    if (!QDBusConnection::sessionBus().interface()) {
+        useWidgetsFallback();
         return;
     }
 
