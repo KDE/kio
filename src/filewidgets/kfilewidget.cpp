@@ -2696,25 +2696,21 @@ void KFileWidgetPrivate::appendExtension(QUrl &url)
 void KFileWidgetPrivate::addToRecentDocuments()
 {
     int m = m_ops->mode();
-    int atmost = KRecentDocument::maximumItems();
-    // don't add more than we need. KRecentDocument::add() is pretty slow
 
     if (m & KFile::LocalOnly) {
         const QStringList files = q->selectedFiles();
         QStringList::ConstIterator it = files.begin();
-        for (; it != files.end() && atmost > 0; ++it) {
+        for (; it != files.end(); ++it) {
             KRecentDocument::add(QUrl::fromLocalFile(*it));
-            atmost--;
         }
     }
 
     else { // urls
         const QList<QUrl> urls = q->selectedUrls();
         QList<QUrl>::ConstIterator it = urls.begin();
-        for (; it != urls.end() && atmost > 0; ++it) {
+        for (; it != urls.end(); ++it) {
             if ((*it).isValid()) {
                 KRecentDocument::add(*it);
-                atmost--;
             }
         }
     }
