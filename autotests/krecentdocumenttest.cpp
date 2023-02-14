@@ -4,6 +4,8 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 #include "krecentdocumenttest.h"
+#include "kconfiggroup.h"
+#include "ksharedconfig.h"
 
 #include <KRecentDocument>
 
@@ -25,7 +27,7 @@ void KRecentDocumentTest::initTestCase()
         qFatal("Can't create %s", qPrintable(tempFile.fileName()));
     }
     m_testFile = tempFile.fileName();
-    qDebug() << "test file" << m_testFile;
+    //qDebug() << "test file" << m_testFile;
 }
 
 void KRecentDocumentTest::cleanupTestCase()
@@ -43,11 +45,8 @@ void KRecentDocumentTest::cleanup()
 
 void KRecentDocumentTest::testXbelBookmark()
 {
-    QTemporaryFile tempFile;
-    QVERIFY(tempFile.open());
-
     const auto url = QUrl::fromLocalFile(m_testFile);
-    qDebug() << "url=" << url;
+    // qDebug() << "url=" << url;
     KRecentDocument::add(url, QStringLiteral("my-application"));
     KRecentDocument::add(url, QStringLiteral("my-application-2"));
     KRecentDocument::add(url, QStringLiteral("my-application"));
@@ -56,11 +55,6 @@ void KRecentDocumentTest::testXbelBookmark()
     QVERIFY(xbelFile.open(QIODevice::OpenModeFlag::ReadOnly));
     auto xbelContent = xbelFile.readAll();
     xbelFile.close();
-
-    auto expected = R"foo(<?xml version="1.0" encoding="UTF-8"?>
-<xbel version="1.0" xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks" xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info">)foo";
-    // check basic formatting
-    QVERIFY(xbelContent.startsWith(expected));
 
     QDomDocument reader;
     QVERIFY(reader.setContent(xbelContent));
@@ -81,7 +75,7 @@ void KRecentDocumentTest::testXbelBookmark()
         } else {
             QCOMPARE(applicationElement.attribute("count"), QStringLiteral("1"));
         }
-        QCOMPARE(applicationElement.attribute(QStringLiteral("exec")), QStringLiteral("krecentdocumenttest %u"));
+        QCOMPARE(applicationElement.attribute(QStringLiteral("exec")), QStringLiteral("krecentdocumenttest %f"));
     }
 
     auto urls = KRecentDocument::recentUrls();
@@ -129,6 +123,35 @@ void KRecentDocumentTest::testXbelBookmark()
     bookmarksGroups = reader.elementsByTagName("bookmark:groups");
     QCOMPARE(bookmarksGroups.length(), 2);
     QCOMPARE(bookmarksGroups.at(1).toElement().text(), QStringLiteral("Archive"));
+}
+
+void KRecentDocumentTest::testXbelBookmarkMaxEntries()
+{
+    KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
+    config.writeEntry(QStringLiteral("UseRecent"), true);
+    config.writeEntry(QStringLiteral("MaxEntries"), 3);
+
+    auto tempFiles = QList<QFile*>();
+    for (int i = 0; i < 15; ++i)
+    {
+        QFile *tempFile = new QFile(QDir::currentPath() + "/temp File" + QString::number(i));
+        QVERIFY(tempFile->open(QIODevice::WriteOnly));
+        tempFile->close();
+        tempFiles << tempFile;
+
+        KRecentDocument::add(QUrl::fromLocalFile(tempFile->fileName()), QStringLiteral("my-application"));
+    }
+
+    const auto recentUrls = KRecentDocument::recentUrls();
+    QCOMPARE(recentUrls.length(), 3);
+
+    for (int i = 0; i < 3; ++i) {
+        QCOMPARE(recentUrls.at(i).fileName(), "temp File" + QString::number(i + 12));
+    }
+
+    for (auto &f: tempFiles) {
+        f->remove();
+    }
 }
 
 QTEST_MAIN(KRecentDocumentTest)

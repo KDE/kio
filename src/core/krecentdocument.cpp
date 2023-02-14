@@ -20,6 +20,7 @@
 #include <KService>
 #include <QCoreApplication>
 #include <QDir>
+#include <QDomDocument>
 #include <QLockFile>
 #include <QMimeDatabase>
 #include <QRegularExpression>
@@ -89,9 +90,99 @@ static KRecentDocument::RecentDocumentGroups groupsForMimeType(const QString mim
     return KRecentDocument::RecentDocumentGroups{};
 }
 
-static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups)
+// Marginally more readable to avoid all the QStringLiteral() spam below
+static const QLatin1String xbelTag("xbel");
+static const QLatin1String versionAttribute("version");
+static const QLatin1String expectedVersion("1.0");
+
+static const QLatin1String applicationsBookmarkTag("bookmark:applications");
+static const QLatin1String applicationBookmarkTag("bookmark:application");
+static const QLatin1String bookmarkTag("bookmark");
+static const QLatin1String infoTag("info");
+static const QLatin1String metadataTag("metadata");
+static const QLatin1String mimeTypeTag("mime:mime-type");
+static const QLatin1String bookmarkGroups("bookmark:groups");
+static const QLatin1String bookmarkGroup("bookmark:group");
+
+static const QLatin1String nameAttribute("name");
+static const QLatin1String countAttribute("count");
+static const QLatin1String modifiedAttribute("modified");
+static const QLatin1String visitedAttribute("visited");
+static const QLatin1String hrefAttribute("href");
+static const QLatin1String addedAttribute("added");
+static const QLatin1String execAttribute("exec");
+static const QLatin1String ownerAttribute("owner");
+static const QLatin1String ownerValue("http://freedesktop.org");
+static const QLatin1String typeAttribute("type");
+
+static bool removeOldestEntries(int &maxEntries)
 {
-    QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation));
+    QFile input(xbelPath());
+    if (!input.exists()) {
+        return true;
+    }
+
+    // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
+    QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
+    lockFile.setStaleLockTime(0);
+    if (!lockFile.tryLock(100)) { // give it 100ms
+        qCWarning(KIO_CORE) << "Failed to lock recently used";
+        return false;
+    }
+
+    if (!input.open(QIODevice::ReadOnly)) {
+        qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
+        return false;
+    }
+
+    QDomDocument document;
+    document.setContent(&input);
+    input.close();
+
+    auto xbelTags = document.elementsByTagName(xbelTag);
+    if (xbelTags.length() != 1) {
+        qCWarning(KIO_CORE) << "Invalid Xbel file" << input.errorString();
+        return false;
+    }
+    auto xbelElement = document.elementsByTagName(xbelTag).item(0);
+    auto bookmarkList = xbelElement.childNodes();
+    if (bookmarkList.length() <= maxEntries) {
+        return true;
+    }
+
+    QMultiMap<QDateTime, QDomNode> bookmarksByModifiedDate;
+    for (int i = 0; i < bookmarkList.length(); ++i) {
+        const auto node = bookmarkList.item(i);
+        const auto modifiedString = node.attributes().namedItem(modifiedAttribute);
+        const auto modifiedTime = QDateTime::fromString(modifiedString.nodeValue(), Qt::ISODate);
+
+        bookmarksByModifiedDate.insert(modifiedTime, node);
+    }
+
+    int i = 0;
+    // entries are traversed in ascending key order
+    for (auto entry = bookmarksByModifiedDate.keyValueBegin(); entry != bookmarksByModifiedDate.keyValueEnd(); ++entry) {
+        // only keep the maxEntries last nodes
+        if (bookmarksByModifiedDate.size() - i > maxEntries) {
+            xbelElement.removeChild(entry->second);
+        }
+        ++i;
+    }
+
+    if (input.open(QIODevice::WriteOnly) && input.write(document.toByteArray(2)) != -1) {
+        input.close();
+        return true;
+    }
+    input.close();
+    return false;
+}
+
+static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups, int maxEntries, bool ignoreHidden)
+{
+    if (!QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation))) {
+        qCWarning(KIO_CORE) << "Could not create GenericDataLocation";
+        return false;
+    }
 
     // Won't help for GTK applications and whatnot, but we can be good citizens ourselves
     QLockFile lockFile(xbelPath() + QLatin1String(".lock"));
@@ -111,31 +202,6 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         qCWarning(KIO_CORE) << "Failed to open existing recently used" << input.errorString();
         return false;
     }
-
-    // Marginally more readable to avoid all the QStringLiteral() spam below
-    static const QLatin1String xbelTag("xbel");
-    static const QLatin1String versionAttribute("version");
-    static const QLatin1String expectedVersion("1.0");
-
-    static const QLatin1String applicationsBookmarkTag("bookmark:applications");
-    static const QLatin1String applicationBookmarkTag("bookmark:application");
-    static const QLatin1String bookmarkTag("bookmark");
-    static const QLatin1String infoTag("info");
-    static const QLatin1String metadataTag("metadata");
-    static const QLatin1String mimeTypeTag("mime:mime-type");
-    static const QLatin1String bookmarkGroups("bookmark:groups");
-    static const QLatin1String bookmarkGroup("bookmark:group");
-
-    static const QLatin1String nameAttribute("name");
-    static const QLatin1String countAttribute("count");
-    static const QLatin1String modifiedAttribute("modified");
-    static const QLatin1String visitedAttribute("visited");
-    static const QLatin1String hrefAttribute("href");
-    static const QLatin1String addedAttribute("added");
-    static const QLatin1String execAttribute("exec");
-    static const QLatin1String ownerAttribute("owner");
-    static const QLatin1String ownerValue("http://freedesktop.org");
-    static const QLatin1String typeAttribute("type");
 
     QXmlStreamReader xml(existingContent);
 
@@ -198,30 +264,38 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
     bool inRightBookmark = false;
     bool foundMatchingBookmark = false;
     bool firstBookmark = true;
+    int nbEntries = 0;
     while (!xml.atEnd() && !xml.hasError()) {
         if (xml.readNext() == QXmlStreamReader::EndElement && xml.name() == xbelTag) {
             break;
         }
         switch (xml.tokenType()) {
         case QXmlStreamReader::StartElement: {
-            QString tagName = xml.qualifiedName().toString();
+            const QStringView tagName = xml.qualifiedName();
             QXmlStreamAttributes attributes = xml.attributes();
 
-            if (xml.name() == bookmarkTag) {
+            if (tagName == bookmarkTag) {
                 foundExistingApp = false;
                 firstBookmark = false;
 
-                inRightBookmark = attributes.value(hrefAttribute) == newUrl;
+                const auto hrefValue = attributes.value(hrefAttribute);
+                inRightBookmark = hrefValue == newUrl;
+
+                // remove hidden files if some were added by GTK
+                if (ignoreHidden && QRegularExpression(QStringLiteral("/\\.")).match(hrefValue).hasMatch()) {
+                    xml.skipCurrentElement();
+                    break;
+                }
 
                 if (inRightBookmark) {
                     foundMatchingBookmark = true;
 
                     QXmlStreamAttributes newAttributes;
                     for (const QXmlStreamAttribute &old : attributes) {
-                        if (old.qualifiedName() == modifiedAttribute) {
+                        if (old.name() == modifiedAttribute) {
                             continue;
                         }
-                        if (old.qualifiedName() == visitedAttribute) {
+                        if (old.name() == visitedAttribute) {
                             continue;
                         }
                         newAttributes.append(old);
@@ -230,18 +304,20 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                     newAttributes.append(visitedAttribute, currentTimestamp);
                     attributes = newAttributes;
                 }
+
+                nbEntries += 1;
             }
 
-            if (inRightBookmark && tagName == applicationBookmarkTag && attributes.value(nameAttribute) == desktopEntryName) {
+            else if (inRightBookmark && tagName == applicationBookmarkTag && attributes.value(nameAttribute) == desktopEntryName) {
                 // case found right bookmark and same application
                 const int count = attributes.value(countAttribute).toInt();
 
                 QXmlStreamAttributes newAttributes;
                 for (const QXmlStreamAttribute &old : std::as_const(attributes)) {
-                    if (old.qualifiedName() == countAttribute) {
+                    if (old.name() == countAttribute) {
                         continue;
                     }
-                    if (old.qualifiedName() == modifiedAttribute) {
+                    if (old.name() == modifiedAttribute) {
                         continue;
                     }
                     newAttributes.append(old);
@@ -253,12 +329,12 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                 foundExistingApp = true;
             }
 
-            output.writeStartElement(tagName);
+            output.writeStartElement(tagName.toString());
             output.writeAttributes(attributes);
             break;
         }
         case QXmlStreamReader::EndElement: {
-            QString tagName = xml.qualifiedName().toString();
+            const QStringView tagName = xml.qualifiedName();
             if (tagName == applicationsBookmarkTag && inRightBookmark && !foundExistingApp) {
                 // add an application to the applications already known for the bookmark
                 addApplicationTag();
@@ -345,7 +421,12 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
     // end document
     output.writeEndDocument();
 
-    return outputFile.commit();
+    if (outputFile.commit()) {
+        lockFile.unlock();
+        // tolerate 10 more entries than threshold to limit overhead of cleaning old data
+        return nbEntries - maxEntries > 10 || removeOldestEntries(maxEntries);
+    }
+    return false;
 }
 
 static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
@@ -398,73 +479,16 @@ static QMap<QUrl, QDateTime> xbelRecentlyUsedList()
     return ret;
 }
 
-QString KRecentDocument::recentDocumentDirectory()
-{
-    // need to change this path, not sure where
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/RecentDocuments/");
-}
-
 QList<QUrl> KRecentDocument::recentUrls()
 {
     QMap<QUrl, QDateTime> documents = xbelRecentlyUsedList();
 
-    // TODO KF6: Revisit if we should still continue to fetch the old recentDocuments()
-    // We need to do it to be compatible with older versions of ourselves, and
-    // possibly others who for some reason did the same as us, but it could
-    // possibly also be done as a one-time migration.
-    const auto recentDocs = recentDocuments();
-    for (const QString &pathDesktop : recentDocs) {
-        const KDesktopFile tmpDesktopFile(pathDesktop);
-        const QUrl url(tmpDesktopFile.readUrl());
-        if (url.isEmpty()) {
-            continue;
-        }
-        const QDateTime lastModified = QFileInfo(pathDesktop).lastModified();
-        const QDateTime documentLastModified = documents.value(url);
-        if (documentLastModified.isValid() && documentLastModified > lastModified) {
-            continue;
-        }
-        documents[url] = lastModified;
-    }
     QList<QUrl> ret = documents.keys();
     std::sort(ret.begin(), ret.end(), [&](const QUrl &doc1, const QUrl &doc2) {
         return documents.value(doc1) < documents.value(doc2);
     });
 
     return ret;
-}
-
-QStringList KRecentDocument::recentDocuments()
-{
-    // TODO KF6: Consider deprecating this, also see the comment above in recentUrls()
-    static const auto flags = QDir::Files | QDir::Readable | QDir::Hidden;
-    QDir d(recentDocumentDirectory(), QStringLiteral("*.desktop"), QDir::Time, flags);
-
-    if (!d.exists()) {
-        d.mkdir(recentDocumentDirectory());
-    }
-
-    const QStringList list = d.entryList();
-    QStringList fullList;
-
-    for (const QString &fileName : list) {
-        QString pathDesktop;
-        if (fileName.startsWith(QLatin1Char(':'))) {
-            // See: https://bugreports.qt.io/browse/QTBUG-11223
-            pathDesktop = KRecentDocument::recentDocumentDirectory() + fileName;
-        } else {
-            pathDesktop = d.absoluteFilePath(fileName);
-        }
-        KDesktopFile tmpDesktopFile(pathDesktop);
-        QUrl urlDesktopFile(tmpDesktopFile.desktopGroup().readPathEntry("URL", QString()));
-        if (urlDesktopFile.isLocalFile() && !QFile(urlDesktopFile.toLocalFile()).exists()) {
-            d.remove(pathDesktop);
-        } else {
-            fullList.append(pathDesktop);
-        }
-    }
-
-    return fullList;
 }
 
 void KRecentDocument::add(const QUrl &url)
@@ -493,84 +517,27 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
         return; // inside tmp resource, do not save
     }
 
-    if (!addToXbel(url, desktopEntryName, groups)) {
-        qCWarning(KIO_CORE) << "Failed to add to recently used bookmark file";
-    }
-
-    QString openStr = url.toDisplayString();
-    openStr.replace(QRegularExpression(QStringLiteral("\\$")), QStringLiteral("$$")); // Desktop files with type "Link" are $-variable expanded
-
     // qDebug() << "KRecentDocument::add for " << openStr;
     KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
     bool useRecent = config.readEntry(QStringLiteral("UseRecent"), true);
-    int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 10);
+    int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 300);
     bool ignoreHidden = config.readEntry(QStringLiteral("IgnoreHidden"), true);
 
-    if (!useRecent || maxEntries <= 0) {
+    if (!useRecent || maxEntries == 0) {
+        clear();
         return;
     }
     if (ignoreHidden && QRegularExpression(QStringLiteral("/\\.")).match(url.toLocalFile()).hasMatch()) {
         return;
     }
 
-    const QString path = recentDocumentDirectory();
-    const QString fileName = url.fileName();
-    // don't create a file called ".desktop", it will lead to an empty name in kio_recentdocuments
-    const QString dStr = path + (fileName.isEmpty() ? QStringLiteral("unnamed") : fileName);
-
-    QString ddesktop = dStr + QLatin1String(".desktop");
-
-    int i = 1;
-    // check for duplicates
-    while (QFile::exists(ddesktop)) {
-        // see if it points to the same file and application
-        KDesktopFile tmp(ddesktop);
-        if (tmp.desktopGroup().readPathEntry("URL", QString()) == url.toDisplayString()
-            && tmp.desktopGroup().readEntry("X-KDE-LastOpenedWith") == desktopEntryName) {
-            // Set access and modification time to current time
-            ::utime(QFile::encodeName(ddesktop).constData(), nullptr);
-            return;
-        }
-        // if not append a (num) to it
-        ++i;
-        if (i > maxEntries) {
-            break;
-        }
-        ddesktop = dStr + QStringLiteral("[%1].desktop").arg(i);
+    if (!addToXbel(url, desktopEntryName, groups, maxEntries, ignoreHidden)) {
+        qCWarning(KIO_CORE) << "Failed to add to recently used bookmark file";
     }
-
-    QDir dir(path);
-    // check for max entries, delete oldest files if exceeded
-    const QStringList list = dir.entryList(QDir::Files | QDir::Hidden, QFlags<QDir::SortFlag>(QDir::Time | QDir::Reversed));
-    i = list.count();
-    if (i > maxEntries - 1) {
-        QStringList::ConstIterator it;
-        it = list.begin();
-        while (i > maxEntries - 1) {
-            QFile::remove(dir.absolutePath() + QLatin1Char('/') + (*it));
-            --i;
-            ++it;
-        }
-    }
-
-    // create the desktop file
-    KDesktopFile configFile(ddesktop);
-    KConfigGroup conf = configFile.desktopGroup();
-    conf.writeEntry("Type", QStringLiteral("Link"));
-    conf.writePathEntry("URL", openStr);
-    // If you change the line below, change the test in the above loop
-    conf.writeEntry("X-KDE-LastOpenedWith", desktopEntryName);
-    conf.writeEntry("Name", url.fileName());
-    conf.writeEntry("Icon", KIO::iconNameForUrl(url));
 }
 
 void KRecentDocument::clear()
 {
-    const QStringList list = recentDocuments();
-    QDir dir;
-    for (const QString &desktopFilePath : list) {
-        dir.remove(desktopFilePath);
-    }
     QFile(xbelPath()).remove();
 }
 

@@ -69,14 +69,6 @@ public:
 
     /**
      *
-     * Return a list of absolute paths to recent document .desktop files,
-     * sorted by date.
-     *
-     */
-    static QStringList recentDocuments();
-
-    /**
-     *
      * Return a list of recent URLs. This includes all the URLs from
      * recentDocuments() as well as URLs from other applications conforming to
      * the XDG desktop-bookmark-spec (e. g. the GTK file dialog).
@@ -107,6 +99,8 @@ public:
     /// @since 5.93
     static void add(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups);
 
+    static bool clearEntriesOldestEntries(int maxEntries);
+
     /**
      * Clear the recent document menu of all entries.
      */
@@ -116,12 +110,6 @@ public:
      * Returns the maximum amount of recent document entries allowed.
      */
     static int maximumItems();
-
-    /**
-     * Returns the path to the directory where recent document .desktop files
-     * are stored.
-     */
-    static QString recentDocumentDirectory();
 };
 
 #endif
