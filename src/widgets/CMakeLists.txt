@@ -32,7 +32,6 @@ target_sources(KF6KIOWidgets PRIVATE
   pastedialog.cpp
   clipboardupdater.cpp
   kabstractfileitemactionplugin.cpp
-  koverlayiconplugin.cpp
   kurlrequester.cpp
   kshellcompletion.cpp
   kurlcompletion.cpp
@@ -155,7 +154,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KDesktopFileActions
   KOpenWithDialog
   KAbstractFileItemActionPlugin
-  KOverlayIconPlugin
   KBuildSycocaProgressDialog
   KFile
   KUrlRequester

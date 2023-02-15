@@ -94,6 +94,7 @@ target_sources(KF6KIOCore PRIVATE
   workerfactory.cpp
   workerthread.cpp
   kfilefilter.cpp
+  koverlayiconplugin.cpp
 )
 
 if (NOT ANDROID)
@@ -287,6 +288,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   WorkerBase
   WorkerFactory
   ForwardingWorkerBase
+  KOverlayIconPlugin
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS

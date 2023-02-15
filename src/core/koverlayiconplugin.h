@@ -8,7 +8,7 @@
 #ifndef KOVERLAYICONPLUGIN_H
 #define KOVERLAYICONPLUGIN_H
 
-#include "kiowidgets_export.h"
+#include "kiocore_export.h"
 #include <QObject>
 
 class QUrl;
@@ -25,7 +25,7 @@ class QUrl;
  *
  * @since 5.16
  */
-class KIOWIDGETS_EXPORT KOverlayIconPlugin : public QObject
+class KIOCORE_EXPORT KOverlayIconPlugin : public QObject
 {
     Q_OBJECT
 public:
