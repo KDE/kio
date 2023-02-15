@@ -25,32 +25,22 @@
  * A file-class can either start with ':' or with '::'. If it starts with
  * a single ':' the file-class is specific to the current application.
  * If the file-class starts with '::' it is global to all applications.
- *
- * @note Since 5.96 the file-class '::' syntax is deprecated, for lack of usage.
- *
- * @since 4.6
  */
 namespace KRecentDirs
 {
 /**
  * Returns a list of directories associated with this file-class.
  * The most recently used directory is at the front of the list.
- *
- * @since 4.6
  */
 KIOCORE_EXPORT QStringList list(const QString &fileClass);
 
 /**
  * Returns the most recently used directory associated with this file-class.
- *
- * @since 4.6
  */
 KIOCORE_EXPORT QString dir(const QString &fileClass);
 
 /**
  * Associates @p directory with @p fileClass
- *
- * @since 4.6
  */
 KIOCORE_EXPORT void add(const QString &fileClass, const QString &directory);
 }
