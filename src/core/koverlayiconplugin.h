@@ -17,12 +17,33 @@ class QUrl;
  * @class KOverlayIconPlugin koverlayiconplugin.h <KOverlayIconPlugin>
  *
  * @brief Base class for overlay icon plugins.
+ * Enables file managers to show custom overlay icons on files.
  *
- * Enables the file manager to show custom overlay icons on files.
- *
- * To write a custom plugin you need to create a .desktop file for your plugin with
- * X-KDE-ServiceTypes=KOverlayIconPlugin
- *
+ * This plugin can be created and installed through kcoreaddons_add_plugin
+ * @code
+ * kcoreaddons_add_plugin(myoverlayplugin SOURCES myoverlayplugin.cpp INSTALL_NAMESPACE "kf6/overlayicon")
+ * target_link_libraries(myoverlayplugin KF6::KIOCore)
+ * @endcode
+ * The C++ file should look like this:
+ * @code
+#include <KOverlayIconPlugin>
+
+class MyOverlayPlugin : public KOverlayIconPlugin
+{
+    Q_PLUGIN_METADATA(IID "org.kde.overlayicon.myplugin")
+    Q_OBJECT
+
+public:
+    MyOverlayPlugin() {
+    }
+
+    QStringList getOverlays(const QUrl &url) override {
+        // Implement your logic
+    }
+};
+
+#include "myoverlayplugin.moc"
+ * @endcode
  * @since 5.16
  */
 class KIOCORE_EXPORT KOverlayIconPlugin : public QObject

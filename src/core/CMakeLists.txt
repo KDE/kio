@@ -288,7 +288,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   WorkerBase
   WorkerFactory
   ForwardingWorkerBase
-  KOverlayIconPlugin
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
@@ -337,6 +336,7 @@ ecm_generate_headers(KIOCore_HEADERS
   KSslCertificateManager
   KSslErrorUiData
   KFileFilter
+  KOverlayIconPlugin
 
   REQUIRED_HEADERS KIOCore_HEADERS
 )
