@@ -30,6 +30,7 @@ target_sources(KF6KIOCore PRIVATE
   connection.cpp
   connectionserver.cpp
   krecentdocument.cpp
+  krecentdirs.cpp
   kfileitemlistproperties.cpp
   directorysizejob.cpp
   chmodjob.cpp
@@ -330,6 +331,7 @@ ecm_generate_headers(KIOCore_HEADERS
   KProtocolInfo
   KProtocolManager
   KRecentDocument
+  KRecentDirs
   KSslCertificateManager
   KSslErrorUiData
   KFileFilter

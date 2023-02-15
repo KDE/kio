@@ -16,7 +16,6 @@ target_sources(KF6KIOFileWidgets PRIVATE
   kfilemetapreview.cpp
   kimagefilepreview.cpp
   kpreviewwidgetbase.cpp
-  krecentdirs.cpp
   defaultviewadapter.cpp
 
   kdiroperator.cpp
@@ -110,7 +109,6 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KAbstractViewAdapter
   KImageFilePreview
   KPreviewWidgetBase
-  KRecentDirs
   KDirOperator
   KDirSortFilterProxyModel
   KFileCopyToMenu
