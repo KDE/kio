@@ -37,6 +37,11 @@ static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
 void OpenUrlJobTest::initTestCase()
 {
+#if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
+    // Don't run on Windows or Mac, the test implementation is too XDG-centric
+    QSKIP("Test not useful on this platform");
+#endif
+
     QStandardPaths::setTestModeEnabled(true);
 
     // Ensure no leftovers from other tests
