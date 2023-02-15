@@ -37,6 +37,10 @@ public:
         , m_confirm(confirm)
         , m_parentWindow(qobject_cast<QWidget *>(parent))
     {
+        // trashing an already trashed file is deleting it, BUG 459545
+        if (m_delType == AskIface::Trash && m_urls.first().scheme() == QStringLiteral("trash")) {
+            m_delType = AskIface::Delete;
+        }
     }
 
     void slotAskUser(bool allowDelete, const QList<QUrl> &urls, AskIface::DeletionType delType, QWidget *parentWindow);

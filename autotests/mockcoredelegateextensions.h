@@ -87,6 +87,7 @@ public:
         Q_UNUSED(confirmationType)
 
         ++m_askUserDeleteCalled;
+        m_delType = deletionType;
         Q_EMIT askUserDeleteResult(m_deleteResult, urls, deletionType, parent);
     }
 
@@ -121,6 +122,7 @@ public:
         m_askUserSkipCalled = 0;
         m_askUserDeleteCalled = 0;
         m_messageBoxCalled = 0;
+        m_delType = DeletionType::Delete;
     }
 
     // yeah, public, for get and reset.
@@ -134,6 +136,7 @@ public:
     bool m_deleteResult = false;
     int m_messageBoxResult = 0;
     QUrl m_newDestUrl;
+    DeletionType m_delType;
 };
 
 #endif // MOCKDELEGATEEXTENSIONS_H
