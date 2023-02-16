@@ -114,6 +114,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
         }
         const int launchedSerial = KWindowSystem::lastInputSerial(window);
         QObject::connect(KWindowSystem::self(), &KWindowSystem::xdgActivationTokenArrived, job, [launchedSerial, job](int serial, const QString &token) {
+            QObject::disconnect(KWindowSystem::self(), &KWindowSystem::xdgActivationTokenArrived, job, nullptr);
             if (serial == launchedSerial) {
                 job->setStartupId(token.toLatin1());
                 job->start();
