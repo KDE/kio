@@ -45,7 +45,7 @@ Name[tr]=KDE Invent Depoları
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
-Name[zh_CN]=KDE Invent 源代码库
+Name[zh_CN]=KDE Invent 仓库
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ar]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}

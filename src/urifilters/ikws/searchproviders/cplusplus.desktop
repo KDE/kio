@@ -41,7 +41,7 @@ Name[tr]=CPlusPlus
 Name[uk]=CPlusPlus
 Name[vi]=CPlusPlus
 Name[x-test]=xxCPlusPlusxx
-Name[zh_CN]=CPlusPlus 网站
+Name[zh_CN]=CPlusPlus
 Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}

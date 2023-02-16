@@ -41,7 +41,7 @@ Name[tr]=Linguee
 Name[uk]=Linguee
 Name[vi]=Linguee
 Name[x-test]=xxLingueexx
-Name[zh_CN]=Linguee 网站
+Name[zh_CN]=Linguee
 Type=Service
 Keys=linguee
 Query=https://www.linguee.com/search?source=auto&query=\\{@}

@@ -41,7 +41,7 @@ Name[tr]=CPP Öğren
 Name[uk]=Learn CPP
 Name[vi]=Learn CPP
 Name[x-test]=xxLearn CPPxx
-Name[zh_CN]=Learn CPP 网站
+Name[zh_CN]=Learn CPP
 Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}

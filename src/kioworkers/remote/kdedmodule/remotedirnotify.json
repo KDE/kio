@@ -31,7 +31,7 @@
         "Description[uk]": "Сповіщення про зміну стану мережевих тек",
         "Description[vi]": "Cung cấp thông báo thay đổi cho các thư mục mạng",
         "Description[x-test]": "xxProvides change notification for network foldersxx",
-        "Description[zh_CN]": "为网络文件夹提供更改通知",
+        "Description[zh_CN]": "提供网络文件夹的更改通知",
         "Description[zh_TW]": "為網路資料夾提供變更通知",
         "Name": "Remote URL Change Notifier",
         "Name[ar]": "منبه تغيير العنوان البعيد",
@@ -64,7 +64,7 @@
         "Name[uk]": "Сповіщення про зміну віддаленої адреси (URL)",
         "Name[vi]": "Trình thông báo thay đổi URL ở xa",
         "Name[x-test]": "xxRemote URL Change Notifierxx",
-        "Name[zh_CN]": "远程 URL 更改通知器",
+        "Name[zh_CN]": "远程 URL 更改通知程序",
         "Name[zh_TW]": "遠端網址變更通知工具"
     },
     "X-KDE-Kded-autoload": true,

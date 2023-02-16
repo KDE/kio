@@ -62,7 +62,7 @@ Name[uk]=Google Shopping
 Name[vi]=Google Mua sắm
 Name[wa]=Botike Google
 Name[x-test]=xxGoogle Shoppingxx
-Name[zh_CN]= Yahoo 购物
+Name[zh_CN]=Google 购物
 Name[zh_TW]=Google Shopping
 Keys=ggs,ggshopping
 Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

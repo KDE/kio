@@ -103,7 +103,7 @@ Name[vi]=Uỷ nhiệm
 Name[wa]=Procsi
 Name[xh]=Umntu onegunya lokusebenzela omnye
 Name[x-test]=xxProxyxx
-Name[zh_CN]=代理
+Name[zh_CN]=代理服务器
 Name[zh_TW]=代理
 
 Comment=Configure the proxy servers used
@@ -196,7 +196,7 @@ Comment[vi]=Cấu hình máy chủ uỷ nhiệm được dùng
 Comment[wa]=Apontyî les sierveus procsi eployîs
 Comment[xh]=Qwalasela indlela abasebenziswa ngayo abancedisi be proxy
 Comment[x-test]=xxConfigure the proxy servers usedxx
-Comment[zh_CN]=配置所用的代理服务器
+Comment[zh_CN]=配置使用的代理服务器
 Comment[zh_TW]=設定使用的代理伺服器
 
 X-KDE-Keywords=Proxy,Proxy server,Firewall,Squid

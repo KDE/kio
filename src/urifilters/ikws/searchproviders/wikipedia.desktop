@@ -93,7 +93,7 @@ Name[uz@cyrillic]=Wikipedia - Эркин энциклопедия
 Name[vi]=Wikipedia - Bách khoa toàn thư mở
 Name[wa]=Wikipedia - Li libe eciclopedeye
 Name[x-test]=xxWikipedia - The Free Encyclopediaxx
-Name[zh_CN]=维基百科 - 免费的百科全书
+Name[zh_CN]=维基百科 - 自由的百科全书
 Name[zh_TW]=Wikipedia - 免費的 Encyclopedia
 Keys=wp
 Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

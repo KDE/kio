@@ -91,7 +91,7 @@ Name[uz@cyrillic]=Wiktionary - Эркин луғат
 Name[vi]=Wiktionary - Từ điển mở
 Name[wa]=L' esplicant motî do walon so Wikipedia
 Name[x-test]=xxWiktionary - The Free Dictionaryxx
-Name[zh_CN]=维基字典 - 免费的字典
+Name[zh_CN]=维基字典 - 自由的字典
 Name[zh_TW]=Wiktionary - 免費的字典
 Keys=wt,wikt
 Query=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

@@ -64,7 +64,7 @@ Name[tt]=HTTP кешын бушату
 Name[uk]=Очищувач кешу HTTP
 Name[vi]=Trình làm sạch bộ nhớ sẵn HTTP
 Name[x-test]=xxHTTP Cache Cleanerxx
-Name[zh_CN]=HTTP 缓存清除程序
+Name[zh_CN]=HTTP 缓存清理程序
 Name[zh_HK]=HTTP 快取清除程式
 Name[zh_TW]=HTTP 快取清除程式
 Exec=kio_http_cache_cleaner
@@ -132,7 +132,7 @@ Comment[tt]=HTTP кэшенда булган иске керемнәрне бе�
 Comment[uk]=Вичищає старі елементи з кешу HTTP
 Comment[vi]=Dọn dẹp các mục cũ khỏi bộ nhớ sẵn HTTP
 Comment[x-test]=xxCleans up old entries from the HTTP cachexx
-Comment[zh_CN]=从 HTTP 缓存中清除旧条目
+Comment[zh_CN]=清理 HTTP 缓存中的旧条目
 Comment[zh_HK]=從 HTTP 快取中清除舊的項目
 Comment[zh_TW]=從 HTTP 快取中清除舊的項目
 StartupNotify=false

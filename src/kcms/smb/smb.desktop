@@ -156,7 +156,7 @@ Comment[tr]=SMB paylaşımlarına erişmek için kullanılan kimlik bilgileri
 Comment[uk]=Реєстраційні дані для доступу до спільних ресурсів SMB
 Comment[vi]=Thông tin dùng để truy cập các chia sẻ bằng SMB
 Comment[x-test]=xxCredentials used to access SMB sharesxx
-Comment[zh_CN]=访问 SMB 共享的凭证
+Comment[zh_CN]=用于访问 SMB 共享的身份验证信息
 Comment[zh_TW]=用於存取 SMB 分享的憑證
 
 X-KDE-Keywords=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords

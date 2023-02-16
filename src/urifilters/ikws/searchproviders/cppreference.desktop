@@ -40,7 +40,7 @@ Name[tr]=CPP Başvuru
 Name[uk]=Довідник з C++
 Name[vi]=CPP Reference
 Name[x-test]=xxCPP Referencexx
-Name[zh_CN]=CPP Reference 网站
+Name[zh_CN]=CPP 参考
 Type=Service
 Keys=cppreference,cppref,cpp
 Query=https://cppreference.com/w/?search=\\{@}

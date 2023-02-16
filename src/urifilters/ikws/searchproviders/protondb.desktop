@@ -41,7 +41,7 @@ Name[tr]=ProtonDB
 Name[uk]=ProtonDB
 Name[vi]=ProtonDB
 Name[x-test]=xxProtonDBxx
-Name[zh_CN]=ProtonDB 网站
+Name[zh_CN]=ProtonDB
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}

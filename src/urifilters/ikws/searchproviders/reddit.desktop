@@ -40,7 +40,7 @@ Name[tr]=Reddit
 Name[uk]=Reddit
 Name[vi]=Reddit
 Name[x-test]=xxRedditxx
-Name[zh_CN]=Reddit 网站
+Name[zh_CN]=Reddit
 Type=Service
 Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}

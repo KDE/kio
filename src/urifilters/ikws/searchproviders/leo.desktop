@@ -92,7 +92,7 @@ Name[vi]=LEO-Dịch
 Name[wa]=LEO-Translate
 Name[xh]=LEO-Guqulela
 Name[x-test]=xxLEO-Translatexx
-Name[zh_CN]=LEO-Translate
+Name[zh_CN]=LEO 翻译
 Name[zh_TW]=LEO-Translate
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
