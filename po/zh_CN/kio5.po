@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-02-07 11:01\n"
+"PO-Revision-Date: 2023-02-15 11:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -21,21 +21,22 @@ msgstr ""
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"KDE China,Wang Jian,Jiang Xiong,Funda Wang,Lie Ex,Ni Hui,Feng Chao,Weng "
-"Xuetian,Guo Yunhe,Tyson Tan"
+"KDE China, Feng Chao, Funda Wang, Guo Yunhe, Jiang Xiong, Lie Ex, Ni Hui, "
+"Tyson Tan Wang Jian, Weng Xuetian"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"kde-china@kde.org,lark@linux.net.cn,jxiong@offtopic.org,fundawang@linux.net."
-"cn,lilith.ex@gmail.com,shuizhuyuanluo@126.com,rainofchaos@gmail.com,"
-"wengxt@gmail.com,guoyunhebrave@gmail.com,tysontan@tysontan.com"
+"kde-china@kde.org, rainofchaos@gmail.com, fundawang@linux.net.cn, "
+"guoyunhebrave@gmail.com, jxiong@offtopic.org, lilith.ex@gmail.com, "
+"shuizhuyuanluo@126.com, tysontan@tysontan.com lark@linux.net.cn, "
+"wengxt@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "无法修改文件 %1 的所有权"
+msgstr "无法修改文件 %1 的所有者"
 
 #: core/chmodjob.cpp:235
 #, kde-kuit-format
@@ -102,7 +103,7 @@ msgstr "文件已存在"
 #: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
-msgstr "已经存在一个同名文件夹"
+msgstr "已存在同名文件夹"
 
 #: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
@@ -117,18 +118,18 @@ msgstr "%1 没有 Exec 字段"
 #: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "找不到程序“%1”"
+msgstr "无法找到程序“%1”"
 
 #: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "程序 '%1' 在 '%2' 中找到, 但它缺少可执行权限。"
+msgstr "程序“%1”已在“%2”中找到，但它缺少可执行权限。"
 
 #: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "程序 %1 缺少可执行权限。"
+msgstr "程序“%1”缺少可执行权限。"
 
 #: core/desktopexecparser.cpp:380
 #, kde-format
@@ -138,12 +139,12 @@ msgstr "%2 的命令 %1 有语法错误"
 #: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr "运行 %2 时未找到终端 %1"
+msgstr "尝试运行 %2 时找不到终端 %1"
 
 #: core/desktopexecparser.cpp:526
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
-msgstr "运行 %2 时在命令 %1 中遇到语法错误"
+msgstr "尝试运行 %2 时在命令 %1 中遇到语法错误"
 
 #: core/global.cpp:81
 #, kde-format
@@ -155,7 +156,7 @@ msgstr[0] "%1 天 %2"
 #, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
-msgstr[0] "%1 项"
+msgstr[0] "%1 个项目"
 
 #: core/global.cpp:120
 #, kde-format
@@ -253,7 +254,7 @@ msgstr "文件"
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
-msgstr "正在审查"
+msgstr "正在测试"
 
 #: core/job.cpp:149
 #, kde-format
@@ -293,7 +294,7 @@ msgstr "更改属性"
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
-msgstr "更改文件属性需要 Root 权限。要继续吗？"
+msgstr "更改文件属性需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:277
 #, kde-format
@@ -305,7 +306,7 @@ msgstr "复制文件"
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
-msgstr "完成复制操作需要 Root 权限。要继续吗？"
+msgstr "完成复制操作需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:283
 #, kde-format
@@ -317,7 +318,9 @@ msgstr "删除文件"
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
-msgstr "完成删除操作需要 Root 权限。但是，这样做可能会损坏您的系统。要继续吗？"
+msgstr ""
+"完成删除操作需要 Root 权限。请注意，继续此操作可能会损坏您的系统。您想要继续"
+"吗？"
 
 #: core/job.cpp:289
 #, kde-format
@@ -328,7 +331,7 @@ msgstr "创建文件夹"
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
-msgstr "创建此文件夹需要 Root 权限。要继续吗？"
+msgstr "创建此文件夹需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:295
 #, kde-format
@@ -340,7 +343,7 @@ msgstr "移动项目"
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
-msgstr "完成移动操作需要 Root 权限。要继续吗？"
+msgstr "完成移动操作需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
@@ -351,7 +354,7 @@ msgstr "重命名"
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
-msgstr "完成重命名需要 Root 权限。要继续吗？"
+msgstr "完成重命名需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
@@ -363,7 +366,7 @@ msgstr "创建符号链接"
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
-msgstr "创建符号链接需要 Root 权限。要继续吗？"
+msgstr "创建符号链接需要 Root 权限。您想要继续吗？"
 
 #: core/job.cpp:313
 #, kde-format
@@ -375,7 +378,7 @@ msgstr "传输数据"
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
-msgstr "完成传输数据需要 Root 权限。要继续吗？"
+msgstr "完成传输数据需要 Root 权限。您想要继续吗？"
 
 #: core/job_error.cpp:33
 #, kde-format
@@ -400,7 +403,7 @@ msgid ""
 "%1"
 msgstr ""
 "内部错误\n"
-"请在 https://bugs.kde.org 上提交完整的错误报告\n"
+"请到 https://bugs.kde.org 网站提交一个完整的错误报告\n"
 "%1"
 
 #: core/job_error.cpp:45
@@ -421,17 +424,17 @@ msgstr "协议 %1 只是一个过滤协议。"
 #: core/job_error.cpp:58
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1 是个文件夹，但现在需要一个文件。"
+msgstr "%1 是一个文件夹，但程序需要的是一个文件。"
 
 #: core/job_error.cpp:61
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1 是个文件，但现在需要一个文件夹。"
+msgstr "%1 是一个文件，但程序需要的是一个文件夹。"
 
 #: core/job_error.cpp:64
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "文件或文件夹 %1 不存在。"
+msgstr "文件或者文件夹 %1 不存在。"
 
 #: core/job_error.cpp:67
 #, kde-format
@@ -465,7 +468,7 @@ msgid ""
 "Could not write to %1."
 msgstr ""
 "拒绝访问。\n"
-"无法写入到 %1。"
+"无法写入 %1。"
 
 #: core/job_error.cpp:82
 #, kde-format
@@ -475,7 +478,7 @@ msgstr "无法进入文件夹 %1。"
 #: core/job_error.cpp:85
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "协议 %1 没有实现文件夹服务。"
+msgstr "协议 %1 尚未实现文件夹服务。"
 
 #: core/job_error.cpp:88
 #, kde-format
@@ -500,7 +503,7 @@ msgstr "无法连接到主机 %1。"
 #: core/job_error.cpp:100
 #, kde-format
 msgid "Connection to host %1 is broken."
-msgstr "到主机 %1 的连接中断。"
+msgstr "与主机 %1 的连接中断。"
 
 #: core/job_error.cpp:103
 #, kde-format
@@ -562,7 +565,7 @@ msgstr "无法访问 %1。"
 #: core/job_error.cpp:133
 #, kde-format
 msgid "Could not terminate listing %1."
-msgstr "无法停止列举 %1。"
+msgstr "无法中止列出 %1 的内容。"
 
 #: core/job_error.cpp:136
 #, kde-format
@@ -572,7 +575,7 @@ msgstr "无法创建文件夹 %1。"
 #: core/job_error.cpp:139
 #, kde-format
 msgid "Could not remove folder %1."
-msgstr "无法删除文件夹 %1。"
+msgstr "无法移除文件夹 %1。"
 
 #: core/job_error.cpp:142
 #, kde-format
@@ -592,7 +595,7 @@ msgstr "无法更改 %1 的权限。"
 #: core/job_error.cpp:151
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "无法更改 %1 的所有权。"
+msgstr "无法更改 %1 的所有者。"
 
 #: core/job_error.cpp:154
 #, kde-format
@@ -602,7 +605,7 @@ msgstr "无法删除文件 %1。"
 #: core/job_error.cpp:157
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
-msgstr "为 %1 协议服务的进程意外退出。"
+msgstr "%1 协议的程序进程意外退出。"
 
 #: core/job_error.cpp:160
 #, kde-format
@@ -619,13 +622,13 @@ msgid ""
 "Unknown proxy host\n"
 "%1"
 msgstr ""
-"未知的代理主机\n"
+"未知的代理服务器主机\n"
 "%1"
 
 #: core/job_error.cpp:166
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "授权失败，不支持 %1 验证方式"
+msgstr "授权失败，不支持 %1 身份验证方式"
 
 #: core/job_error.cpp:172
 #, kde-format
@@ -660,7 +663,7 @@ msgid ""
 "Unknown error\n"
 "%1"
 msgstr ""
-"未知的错误\n"
+"未知错误\n"
 "%1"
 
 #: core/job_error.cpp:184
@@ -669,7 +672,7 @@ msgid ""
 "Unknown interrupt\n"
 "%1"
 msgstr ""
-"未知的中断\n"
+"未知中断\n"
 "%1"
 
 #: core/job_error.cpp:195
@@ -687,7 +690,7 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"无法删除部分文件 %1。\n"
+"无法删除部分传输的文件 %1。\n"
 "请检查权限。"
 
 #: core/job_error.cpp:201
@@ -705,7 +708,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"无法重命名部分文件 %1。\n"
+"无法重命名部分传输的文件 %1。\n"
 "请检查权限。"
 
 #: core/job_error.cpp:207
@@ -723,7 +726,7 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"无法创建符号链接到 %1。\n"
+"无法在 %1 创建符号链接。\n"
 "目标文件系统不支持符号链接。"
 
 #: core/job_error.cpp:216
@@ -737,18 +740,18 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
-"源文件和目标文件是同一文件。\n"
+"来源文件和目标文件是同一文件。\n"
 "%1"
 
 #: core/job_error.cpp:227
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "服务器需要 %1，但它不可用。"
+msgstr "服务器需要 %1，但是它不可用。"
 
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "拒绝对 POST 中被限制端口的访问。"
+msgstr "POST 操作中对受限端口的访问已被拒绝。"
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -759,7 +762,7 @@ msgstr "未提供 POST 操作所需的内容大小信息。"
 #: core/job_error.cpp:236
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
-msgstr "文件或文件夹不能被拖动到自身"
+msgstr "文件或者文件夹不能被拖放到自身"
 
 #: core/job_error.cpp:239
 #, kde-format
@@ -783,8 +786,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"无法传送文件 <filename>%1</filename> 因为它太大了。目标文件系统仅支持不超过 "
-"4GiB 的文件。"
+"无法传输文件 <filename>%1</filename>，因为它的体积太大。目标文件系统仅支持不"
+"超过 4GiB 大小的文件。"
 
 #: core/job_error.cpp:254
 #, kde-format
@@ -793,8 +796,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"特权升级不必要，因为 %1 为当前用户所有。\n"
-"请更改权限后重试。"
+"并不需要提升权限，\n"
+"因为“%1”的所有者是当前用户。\n"
+"请在更改权限后重试。"
 
 #: core/job_error.cpp:257
 #, kde-format
@@ -810,7 +814,7 @@ msgid ""
 msgstr ""
 "未知的错误代码 %1\n"
 "%2\n"
-"请在 https://bugs.kde.org 上提交一个完整的错误报告。"
+"请到 https://bugs.kde.org 网站提交一个完整的错误报告"
 
 #: core/job_error.cpp:291
 #, kde-format
@@ -832,7 +836,7 @@ msgstr "<b>技术原因</b>："
 #: core/job_error.cpp:303
 #, kde-format
 msgid "<b>Details of the request</b>:"
-msgstr "<b>请求的细节</b>："
+msgstr "<b>请求详情</b>："
 
 #: core/job_error.cpp:303
 #, kde-format
@@ -857,12 +861,12 @@ msgstr "<li>额外信息：%1</li>"
 #: core/job_error.cpp:309
 #, kde-format
 msgid "<b>Possible causes</b>:"
-msgstr "<b>可能原因</b>："
+msgstr "<b>可能的原因</b>："
 
 #: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible solutions</b>:"
-msgstr "<b>可能的解决方法</b>："
+msgstr "<b>可能的解决方案</b>："
 
 #: core/job_error.cpp:357
 #, kde-format
@@ -876,61 +880,63 @@ msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr ""
-"请联系合适的计算机支持系统来获得更多帮助，例如系统管理员或技术支持小组。"
+"请联系合适的计算机支持服务来获得更多帮助，例如您的系统管理员或者技术支持小"
+"组。"
 
 #: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
-msgstr "联系服务器的管理员以获得更多帮助。"
+msgstr "请联系服务器的管理员以获得更多帮助。"
 
 #: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "检查您对该资源的访问权限。"
+msgstr "请检查您对此资源的访问权限。"
 
 #: core/job_error.cpp:379
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
-msgstr "您可能没有足够权限来执行所请求的对该资源的操作。"
+msgstr "您可能没有足够权限来对此资源进行请求的操作。"
 
 #: core/job_error.cpp:382
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
-msgstr "文件可能正在被其他用户或程序使用 (因此已被锁定)。"
+msgstr "文件可能正在被其他用户或程序使用 (它因此已被锁定)。"
 
 #: core/job_error.cpp:385
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
-msgstr "请检查并确保没有其他用户或者程序正在使用或锁定该文件。"
+msgstr "请检查并确保没有其他用户或者程序正在使用或者锁定了该文件。"
 
 #: core/job_error.cpp:388
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
-msgstr "虽然不太可能，也许出现了硬件错误。"
+msgstr "可能发生了硬件故障，尽管这种可能性很低。"
 
 #: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
-msgstr "您可能遇到了程序中的错误。"
+msgstr "您可能触发了程序中的代码缺陷。"
 
 #: core/job_error.cpp:392
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
-msgstr "最大的可能是程序中的错误导致。请考虑提交一个详细的错误报告。"
+msgstr "这很可能是由程序中的代码缺陷导致。请考虑提交一个详细的程序缺陷报告。"
 
 #: core/job_error.cpp:395
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
 "tools to update your software."
-msgstr "请将您的软件更新至最新版本。您使用的发行版本应该提供了更新软件的工具。"
+msgstr ""
+"请将您的软件更新至最新版本。您使用的发行版应该包含了更新软件所需的工具程序。"
 
 #: core/job_error.cpp:398
 #, kde-format
@@ -953,36 +959,38 @@ msgstr ""
 #: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
-msgstr "您的网络连接可能有问题。"
+msgstr "您的网络连接可能存在问题。"
 
 #: core/job_error.cpp:411
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
-msgstr "您的网络配置可能有问题。如果您最近访问网络没有问题，这就不太可能。"
+msgstr ""
+"您的网络配置可能存在问题。但如果您在最近访问网络时没有遇到问题，则网络配置导"
+"致问题的可能性很低。"
 
 #: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
-msgstr "在网络中该计算机和服务器之间的路径可能有问题。"
+msgstr "本机与服务器之间的路径中的某个环节可能存在问题。"
 
 #: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr "请即刻或稍后再重试。"
+msgstr "您可以立即重试，也可以稍后重试。"
 
 #: core/job_error.cpp:418
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
-msgstr "可能出现了协议错误或不兼容。"
+msgstr "可能发生了协议错误，或者协议不兼容。"
 
 #: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
-msgstr "请确保资源存在后再重试。"
+msgstr "请确保该资源存在，然后重试。"
 
 #: core/job_error.cpp:420
 #, kde-format
@@ -992,7 +1000,7 @@ msgstr "指定的资源可能不存在。"
 #: core/job_error.cpp:422
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
-msgstr "请反复确认您输入了正确的位置后再重试。"
+msgstr "请仔细检查并确保您输入的是正确的位置，然后重试。"
 
 #: core/job_error.cpp:424
 #, kde-format
@@ -1002,7 +1010,7 @@ msgstr "检查您的网络连接状态。"
 #: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
-msgstr "无法打开资源来读取"
+msgstr "无法打开资源进行读取"
 
 #: core/job_error.cpp:430
 #, kde-format
@@ -1010,24 +1018,25 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"由于无法获取读权限，无法获取所请求的文件或文件夹 <strong>%1</strong> 的内容。"
+"因为无法获取读权限，所以无法获取请求的文件或者文件夹 <strong>%1</strong> 的内"
+"容。"
 
 #: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "您可能没有读取文件或打开文件夹的权限。"
+msgstr "您可能没有读取该文件或者打开该文件夹的权限。"
 
 #: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
-msgstr "无法打开资源以写入"
+msgstr "无法打开要写入的资源"
 
 #: core/job_error.cpp:444
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
-msgstr "由于无法获得写权限，无法按请求写入文件 <strong>%1</strong>。"
+msgstr "因为无法获得写入权限，所以无法按照请求写入文件 <strong>%1</strong>。"
 
 #: core/job_error.cpp:453
 #, kde-format
@@ -1046,8 +1055,8 @@ msgid ""
 "strong> protocol could not be found or started. This is usually due to "
 "technical reasons."
 msgstr ""
-"您计算机上提供 <strong>%1</strong> 协议的程序未找到或无法启动。这通常是由技术"
-"原因所致。"
+"本机系统中用于提供 <strong>%1</strong> 协议访问的程序无法找到或者无法启动。这"
+"通常是技术原因导致的。"
 
 #: core/job_error.cpp:461
 #, kde-format
@@ -1056,8 +1065,8 @@ msgid ""
 "been updated with your last update of KDE. This can cause the program to be "
 "incompatible with the current version and thus not start."
 msgstr ""
-"提供此协议兼容性的程序可能没有与您最新的 KDE 一起更新。这导致程序与当前版本不"
-"兼容，因此无法启动。"
+"用于为此协议提供兼容功能的程序可能在上次 KDE 系统更新时没有一起更新。这可能会"
+"导致该程序与当前版本的系统不兼容，因此无法启动。"
 
 #: core/job_error.cpp:470
 #, kde-format
@@ -1069,12 +1078,13 @@ msgstr "内部错误"
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
-msgstr "您计算机上提供 <strong>%1</strong> 协议的程序报告了一个内部错误。"
+msgstr ""
+"本机系统中用于提供 <strong>%1</strong> 协议访问的程序报告了一个内部错误。"
 
 #: core/job_error.cpp:480
 #, kde-format
 msgid "Improperly Formatted URL"
-msgstr "未正确格式化的 URL"
+msgstr "URL 格式错误"
 
 #: core/job_error.cpp:482
 #, kde-format
@@ -1085,9 +1095,9 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
-"您输入的统一资源定位符(<strong>URL</strong>)格式不对。URL 的格式应该是："
-"<blockquote><strong>协议://用户名@密码:www.example.org:端口/文件夹/文件名.扩"
-"展名?查询=值</strong></blockquote>"
+"您输入的统一资源定位符 (<strong>URL</strong>) 格式错误。URL 的正确格式应该"
+"是：<blockquote><strong>协议://用户名:密码@www.example.org:端口/文件夹/文件"
+"名.扩展名?查询=值</strong></blockquote>"
 
 #: core/job_error.cpp:491
 #, kde-format
@@ -1099,7 +1109,7 @@ msgstr "不支持的协议 %1"
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
 "currently installed on this computer."
-msgstr "目前安装在该计算机上的 KDE 程序不支持协议 <strong>%1</strong>。"
+msgstr "本机安装的 KDE 程序不支持协议 <strong>%1</strong>。"
 
 #: core/job_error.cpp:496
 #, kde-format
@@ -1111,7 +1121,7 @@ msgstr "请求的协议可能不被支持。"
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
-msgstr "该计算机支持的 %1 协议的版本可能和服务器的版本不兼容。"
+msgstr "本机和服务器所支持的 %1 协议的版本可能不兼容。"
 
 #: core/job_error.cpp:502
 #, kde-format
@@ -1120,13 +1130,14 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"您可以在互联网上搜索支持此协议的软件插件 (它们被称作“KIO 工作程序”)。推荐的搜"
-"索网站是 <a href=\"https://store.kde.org/\">https://store.kde.org</a>。"
+"您可以在互联网上搜索支持此协议的软件插件 (它们被称作“KIO 工作程序 (KIO "
+"Worker)”)。推荐的搜索网站是 <a href=\"https://store.kde.org/\">https://store."
+"kde.org</a>。"
 
 #: core/job_error.cpp:510
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
-msgstr "URL 不是一个资源。"
+msgstr "URL 没有指向资源。"
 
 #: core/job_error.cpp:511
 #, kde-format
@@ -1138,7 +1149,7 @@ msgstr "协议是一个过滤协议"
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
-msgstr "您输入的统一资源定位符(<strong>URL</strong>)不是特定资源。"
+msgstr "您输入的统一资源定位符 (<strong>URL</strong>) 没有指向特定的资源。"
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1148,8 +1159,8 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE 可以通过协议中的协议通讯；特定的协议仅用于特定的情况，但是目前并不是这些"
-"情况之一。这种情况非常罕见，可能表明出现了编程错误。"
+"KDE 可以通过协议中的协议进行通讯；此处指定的协议只适用于某些场合，但它不适用"
+"于当前场合。这种情况并不常见，意味着程序中可能存在代码缺陷。"
 
 #: core/job_error.cpp:525
 #, kde-format
@@ -1170,12 +1181,13 @@ msgid ""
 "information should give you more information than is available to the KDE "
 "input/output architecture."
 msgstr ""
-"该错误依赖于 KDE 程序。额外的信息应该给您提供比 KDE 输入输出体系更多的信息。"
+"此错误与 KDE 程序密切相关。这些额外信息能够为您提供比 KDE 输入输出程序架构更"
+"多的信息。"
 
 #: core/job_error.cpp:535
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
-msgstr "试图查找另一种获得同一结果的方式。"
+msgstr "试图查找获得相同结果的另一种方式。"
 
 #: core/job_error.cpp:540
 #, kde-format
@@ -1187,7 +1199,7 @@ msgstr "需要文件"
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
-msgstr "请求需要一个文件，然而 <strong>%1</strong> 是一个文件夹。"
+msgstr "此请求需要一个文件，然而找到的 <strong>%1</strong> 是一个文件夹。"
 
 #: core/job_error.cpp:545
 #, kde-format
@@ -1204,24 +1216,24 @@ msgstr "需要文件夹"
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
-msgstr "请求需要一个文件夹，然而 <strong>%1</strong> 是一个文件。"
+msgstr "此请求需要一个文件夹，然而找到的 <strong>%1</strong> 是一个文件。"
 
 #: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
-msgstr "文件或文件夹不存在"
+msgstr "文件或者文件夹不存在"
 
 #: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "指定的文件或文件夹 <strong>%1</strong> 不存在。"
+msgstr "指定的文件或者文件夹 <strong>%1</strong> 不存在。"
 
 #: core/job_error.cpp:572
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
-msgstr "无法创建请求的文件，原因是已经存在相同名称的文件。"
+msgstr "无法创建请求的文件，因为已存在同名文件。"
 
 #: core/job_error.cpp:575
 #, kde-format
@@ -1231,7 +1243,7 @@ msgstr "请尝试将当前文件移动到其他位置，然后重试。"
 #: core/job_error.cpp:577
 #, kde-format
 msgid "Delete the current file and try again."
-msgstr "删除当前文件然后再试一次。"
+msgstr "请删除当前文件，然后重试。"
 
 #: core/job_error.cpp:577
 #, kde-format
@@ -1243,7 +1255,7 @@ msgstr "请为新文件选择另一个文件名。"
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
-msgstr "无法创建请求的文件夹，原因是已经存在相同名称的文件夹。"
+msgstr "无法创建请求的文件夹，因为已存在同名文件夹。"
 
 #: core/job_error.cpp:586
 #, kde-format
@@ -1253,7 +1265,7 @@ msgstr "请尝试将当前文件夹移动到其他位置，然后重试。"
 #: core/job_error.cpp:588
 #, kde-format
 msgid "Delete the current folder and try again."
-msgstr "删除当前文件夹然后再试一次。"
+msgstr "请删除当前文件夹，然后重试。"
 
 #: core/job_error.cpp:588
 #, kde-format
@@ -1271,14 +1283,14 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"未知主机错误表明了在互联网上找不到所请求的名称为 <strong>%1</strong> 的服务"
+"发生未知主机错误。这意味着无法在互联网上找到名为 <strong>%1</strong> 的服务"
 "器。"
 
 #: core/job_error.cpp:599
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
-msgstr "您输入的名称 %1 可能不存在：可能输错了。"
+msgstr "您输入的名称 %1 可能不存在：您的输入可能有误。"
 
 #: core/job_error.cpp:607
 #, kde-format
@@ -1293,7 +1305,7 @@ msgstr "拒绝访问指定的资源，<strong>%1</strong>。"
 #: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
-msgstr "您可能提供了不正确的验证细节或根本没有提供。"
+msgstr "您提供的身份认证信息可能有误，或者没有提供身份验证信息。"
 
 #: core/job_error.cpp:616 core/job_error.cpp:892
 #, kde-format
@@ -1305,7 +1317,7 @@ msgstr "您的账户可能没有访问指定资源的权限。"
 msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
-msgstr "重试请求并确保您已正确输入了验证细节。"
+msgstr "请重试请求，并确保您输入的是正确的身份验证信息。"
 
 #: core/job_error.cpp:628
 #, kde-format
@@ -1317,7 +1329,7 @@ msgstr "拒绝写入"
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
-msgstr "这意味着试图写入文件 <strong>%1</strong> 被拒绝。"
+msgstr "这意味着写入文件 <strong>%1</strong> 的尝试已被拒绝。"
 
 #: core/job_error.cpp:638
 #, kde-format
@@ -1329,12 +1341,12 @@ msgstr "无法进入文件夹"
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
-msgstr "这意味着试图进入(或说打开)请求的文件夹 <strong>%1</strong> 被拒绝。"
+msgstr "这意味着进入 (打开) 请求的文件夹 <strong>%1</strong> 的尝试已被拒绝。"
 
 #: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
-msgstr "文件夹列出不可用"
+msgstr "文件夹列出操作不可用"
 
 #: core/job_error.cpp:649
 #, kde-format
@@ -1348,7 +1360,7 @@ msgid ""
 "of the folder, and the KDE program supporting this protocol is unable to do "
 "so."
 msgstr ""
-"这意味着产生了一个需要确定文件夹内容的请求，而支持此协议的 KDE 程序无法完成此"
+"这意味着产生了一个需要确定文件夹内容的请求，但支持此协议的 KDE 程序无法执行此"
 "功能。"
 
 #: core/job_error.cpp:659
@@ -1364,7 +1376,7 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"UNIX 环境通常允许将文件或文件夹链接到其他名称或位置。KDE 检测到一个链接或一系"
+"UNIX 环境通常允许将文件或文件夹链接到其他名称或位置。KDE 检测到有一个或者一系"
 "列链接的结果是无穷循环。例如某个文件 (可能通过间接方式) 链接到了它自己。"
 
 #: core/job_error.cpp:666 core/job_error.cpp:692
@@ -1372,17 +1384,17 @@ msgstr ""
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
 "loop, and try again."
-msgstr "删除循环中的一部分，以便不再构成无穷循环，然后再试一次。"
+msgstr "请删除该循环中的一个环节，使其不再构成无穷循环，然后重试。"
 
 #: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
-msgstr "请求被用户中止"
+msgstr "用户中止了请求"
 
 #: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
-msgstr "请求未完成，原因是被中止。"
+msgstr "请求未完成，因为它已被中止。"
 
 #: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
@@ -1403,7 +1415,7 @@ msgid ""
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
 "UNIX 环境通常允许将文件或文件夹链接到其他名称或位置。KDE 在请求的复制操作中检"
-"测到一个链接或一系列链接的结果是无穷循环。例如某个文件 (可能通过间接方式) 链"
+"测到了一个或者一系列链接的结果是无穷循环。例如某个文件 (可能通过间接方式) 链"
 "接到了它自己。"
 
 #: core/job_error.cpp:698
@@ -1421,7 +1433,7 @@ msgstr "无法创建套接字"
 msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
-msgstr "这是一个技术错误。无法创建网络通讯(套接字)请求的设备。"
+msgstr "这是一个技术错误。无法创建网络通讯所需的设备 (套接字)。"
 
 #: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
 #: core/job_error.cpp:877
@@ -1429,33 +1441,34 @@ msgstr "这是一个技术错误。无法创建网络通讯(套接字)请求的�
 msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
-msgstr "网络连接可能配置不正确，或者网络接口未启用。"
+msgstr "网络连接可能配置不正确，或者网络接口没有启用。"
 
 #: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "拒绝连接服务器"
+msgstr "服务器拒绝了连接"
 
 #: core/job_error.cpp:712
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
-msgstr "服务器 <strong>%1</strong> 拒绝此计算机连接。"
+msgstr "服务器 <strong>%1</strong> 拒绝了与此计算机建立连接。"
 
 #: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
-msgstr "目前虽然连接到 Internet，该服务器可能没有被配置成允许接受请求。"
+msgstr "虽然该服务器当前已连接到互联网，但它可能并未被配置为允许连接请求。"
 
 #: core/job_error.cpp:719
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
-msgstr "目前虽然连接到互联网中，该服务器可能没有在运行所请求的服务(%1)。"
+msgstr ""
+"虽然该服务器当前已连接到互联网，但它可能并没有在运行所请求的服务 (%1)。"
 
 #: core/job_error.cpp:723
 #, kde-format
@@ -1464,13 +1477,13 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
-"网络防火墙(限制 Internet 请求的设备)，保护您的网络或服务器网络的设备，可能干"
-"涉并阻止了这一请求。"
+"网络防火墙 (用于限制互联网请求的设备) 为了保护您所在的网络或者服务器所在的网"
+"络，可能介入并阻止了此次请求。"
 
 #: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "到服务器的连接异常关闭"
+msgstr "与服务器的连接意外关闭"
 
 #: core/job_error.cpp:732
 #, kde-format
@@ -1478,14 +1491,14 @@ msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
 "was closed at an unexpected point in the communication."
 msgstr ""
-"尽管已经建立了到 <strong>%1</strong> 的连接，该连接在通讯的未预期点处已关闭。"
+"虽然与 <strong>%1</strong> 建立了连接，但该连接在通讯的过程中意外关闭。"
 
 #: core/job_error.cpp:738
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
-msgstr "可能发生了协议错误，导致服务器关闭了连接作为对错误的响应。"
+msgstr "可能发生了协议错误，导致服务器为了应对错误而关闭了连接。"
 
 #: core/job_error.cpp:744
 #, kde-format
@@ -1504,8 +1517,8 @@ msgid ""
 "strong>ocator (URL) that you entered did not refer to a valid mechanism of "
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
-"您输入的统一资源定位符(<strong>URL</strong>)格式不是访问指定资源 <strong>"
-"%1%2</strong> 的有效机制。"
+"您输入的统一资源定位符 (<strong>URL</strong>) 并未指向用于访问指定资源的有效"
+"机制，<strong>%1%2</strong>。"
 
 #: core/job_error.cpp:754
 #, kde-format
@@ -1515,8 +1528,8 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE 可以通过协议中的协议通讯；特定的协议仅用于特定的情况，但是目前并不是这些"
-"情况之一。这种情况非常罕见，可能表明出现了编程错误。"
+"KDE 可以通过协议中的协议进行通讯。此请求指定了一个协议来进行这种通讯，但该协"
+"议无法执行这一操作。这种情况并不常见，意味着程序中可能存在代码缺陷。"
 
 #: core/job_error.cpp:762
 #, kde-format
@@ -1533,7 +1546,7 @@ msgstr "无法挂载设备"
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
-msgstr "请求的设备无法被初始化(“被挂载”)。报告的错误是：<strong>%1</strong>"
+msgstr "请求的设备无法被初始化 (挂载)。程序报告的错误是：<strong>%1</strong>"
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -1542,8 +1555,8 @@ msgid ""
 "removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
-"设备可能没有就绪，如可移介质驱动器中没有介质(即光驱中没有光盘)，或者便携设备"
-"没有被正确连接。"
+"设备可能没有准备就绪。这可能是因为可移动媒体驱动器中没有放入媒体 (例如光驱中"
+"没有光盘)，或者是便携设备没有正确连接。"
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1552,8 +1565,8 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"您可能没有初始化(“挂载”)该设备的权限。在 UNIX 系统中，要初始化设备通常需要系"
-"统管理员权限。"
+"您可能没有初始化 (挂载) 该设备的权限。在 UNIX 系统中，初始化设备通常需要系统"
+"管理员权限。"
 
 #: core/job_error.cpp:779
 #, kde-format
@@ -1561,13 +1574,13 @@ msgid ""
 "Check that the device is ready; removable drives must contain media, and "
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
-"请检查该设备已经就绪；可移驱动器中必须包含介质，而且便携设备必须被正确连接并"
-"打开电源；然后再试一次。"
+"请检查设备是否已经准备就绪：可移动驱动器中必须放入了媒体、便携设备必须正确连"
+"接并打开电源，然后重试。"
 
 #: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
-msgstr "无法取消初始化输入/输出设备"
+msgstr "无法撤销初始化输入/输出设备"
 
 #: core/job_error.cpp:787
 #, kde-format
@@ -1579,7 +1592,7 @@ msgstr "无法卸载设备"
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
-msgstr "请求的设备无法被卸载。报告的错误是：<strong>%1</strong>"
+msgstr "请求的设备无法撤销初始化 (卸载)。程序报告的错误是：<strong>%1</strong>"
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1598,12 +1611,13 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"您没有卸载设备的权限。在 UNIX 系统中，要卸载设备通常需要系统管理员权限。"
+"您没有撤销初始化 (卸载) 设备的权限。在 UNIX 系统中，撤销初始化设备通常需要系"
+"统管理员权限。"
 
 #: core/job_error.cpp:803
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
-msgstr "请确定没有应用程序正在使用该设备，然后再试一次。"
+msgstr "请检查并确保没有应用程序正在访问该设备，然后重试。"
 
 #: core/job_error.cpp:809
 #, kde-format
@@ -1616,13 +1630,13 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
-"这意味着，资源 <strong>%1</strong> 虽然可以打开，但是在读取资源内容的时候发生"
-"了错误。"
+"这意味着资源 <strong>%1</strong> 虽然可以打开，但是在读取它的内容时发生了错"
+"误。"
 
 #: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "您没有读取此资源的权限。"
+msgstr "您可能没有此资源的读取权限。"
 
 #: core/job_error.cpp:828
 #, kde-format
@@ -1635,13 +1649,12 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr ""
-"这意味着，资源 <strong>%1</strong> 虽然可以打开，但是在写入资源的时候发生了错"
-"误。"
+"这意味着资源 <strong>%1</strong> 虽然可以打开，但是在写入资源时发生了错误。"
 
 #: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr "您没有写入此资源的权限。"
+msgstr "您可能没有此资源的写入权限。"
 
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
@@ -1660,7 +1673,7 @@ msgid ""
 "communications (a socket) could not be established to listen for incoming "
 "network connections."
 msgstr ""
-"这是一个技术错误。无法建立网络通讯(套接字)请求的设备来监听进入的网络连接。"
+"这是一个技术错误。无法建立网络通讯请求的设备 (套接字) 来监听传入的网络连接。"
 
 #: core/job_error.cpp:860
 #, kde-format
@@ -1677,12 +1690,12 @@ msgstr "无法接受网络连接"
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
-msgstr "这是一个技术错误。接受进入的网络连接时发生了错误。"
+msgstr "这是一个技术错误。尝试接受一个传入的网络连接时发生了错误。"
 
 #: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
-msgstr "您可能没有接受连接的权限。"
+msgstr "您可能没有接受此连接的权限。"
 
 #: core/job_error.cpp:884
 #, kde-format
@@ -1693,7 +1706,7 @@ msgstr "无法登录：%1"
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
-msgstr "试图登录以执行请求的操作没有成功。"
+msgstr "尝试登录来执行请求的操作没有成功。"
 
 #: core/job_error.cpp:902
 #, kde-format
@@ -1711,24 +1724,24 @@ msgid ""
 "An attempt to determine information about the status of the resource <strong>"
 "%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
 msgstr ""
-"试图确定关于资源 <strong>%1</strong> 状态像资源名称、类型、大小等有关信息的操"
-"作没有成功。"
+"尝试确定资源 <strong>%1</strong> 的状态信息，例如资源名称、类型、大小等信息的"
+"操作没有成功。"
 
 #: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
-msgstr "指定的资源可能不存在或不可访问。"
+msgstr "指定的资源可能不存在或者不可访问。"
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
 #: core/job_error.cpp:921
 #, kde-format
 msgid "Could Not Cancel Listing"
-msgstr "无法取消列举内容"
+msgstr "无法取消列出内容"
 
 #: core/job_error.cpp:922
 #, kde-format
 msgid "FIXME: Document this"
-msgstr "FIXME：为这里写文档"
+msgstr "日后修复：这里要写文档"
 
 #: core/job_error.cpp:926
 #, kde-format
@@ -1738,7 +1751,7 @@ msgstr "无法创建文件夹"
 #: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
-msgstr "试图创建所请求的文件夹失败。"
+msgstr "尝试创建请求的文件夹失败。"
 
 #: core/job_error.cpp:930
 #, kde-format
@@ -1748,12 +1761,12 @@ msgstr "要创建文件夹的位置可能不存在。"
 #: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
-msgstr "无法删除文件夹"
+msgstr "无法移除文件夹"
 
 #: core/job_error.cpp:941
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
-msgstr "试图删除指定文件夹 <strong>%1</strong> 失败。"
+msgstr "尝试移除指定的文件夹 <strong>%1</strong> 失败。"
 
 #: core/job_error.cpp:944
 #, kde-format
@@ -1763,12 +1776,12 @@ msgstr "指定的文件夹可能不存在。"
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
-msgstr "指定的文件夹可能不为空。"
+msgstr "指定的文件夹可能包含内容。"
 
 #: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
-msgstr "请确定文件夹已存在且为空，然后再试一次。"
+msgstr "请检查并确保文件夹存在且为空，然后重试。"
 
 #: core/job_error.cpp:955
 #, kde-format
@@ -1781,7 +1794,8 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
-"指定的请求要求传送文件 <strong>%1</strong> 在传送的特定点继续。这不可能。"
+"指定的请求要求文件 <strong>%1</strong> 从某个特定的位置继续传输。此操作不能实"
+"现。"
 
 #: core/job_error.cpp:962
 #, kde-format
@@ -1791,7 +1805,7 @@ msgstr "此协议或者服务器不支持文件续传。"
 #: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr "不试图续传而重试请求。"
+msgstr "请放弃续传，然后重试请求。"
 
 #: core/job_error.cpp:970
 #, kde-format
@@ -1801,31 +1815,31 @@ msgstr "无法重命名资源"
 #: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
-msgstr "试图重命名指定资源 <strong>%1</strong> 失败。"
+msgstr "尝试重命名指定资源 <strong>%1</strong> 失败。"
 
 #: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "无法改变资源的权限"
+msgstr "无法更改资源的权限"
 
 #: core/job_error.cpp:985
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
-msgstr "试图改变指定资源 <strong>%1</strong> 的权限失败。"
+msgstr "尝试更改指定资源 <strong>%1</strong> 的权限失败。"
 
 #: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
-msgstr "无法改变资源的权限"
+msgstr "无法更改资源的所有者"
 
 #: core/job_error.cpp:995
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
-msgstr "试图改变指定资源 <strong>%1</strong> 的权限失败。"
+msgstr "尝试更改指定资源 <strong>%1</strong> 的所有者失败。"
 
 #: core/job_error.cpp:1003
 #, kde-format
@@ -1835,19 +1849,19 @@ msgstr "无法删除资源"
 #: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
-msgstr "试图删除指定资源 <strong>%1</strong> 失败。"
+msgstr "尝试删除指定资源 <strong>%1</strong> 失败。"
 
 #: core/job_error.cpp:1013
 #, kde-format
 msgid "Unexpected Program Termination"
-msgstr "未预料到的程序终止"
+msgstr "程序意外终止"
 
 #: core/job_error.cpp:1015
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has unexpectedly terminated."
-msgstr "您计算机上提供到 <strong>%1</strong> 协议访问的程序未预料地终止。"
+msgstr "本机系统中用于提供 <strong>%1</strong> 协议访问的程序已意外终止。"
 
 #: core/job_error.cpp:1023
 #, kde-format
@@ -1860,13 +1874,13 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol could not obtain the memory required to continue."
 msgstr ""
-"您计算机上提供到 <strong>%1</strong> 协议访问的程序无法获得继续运行所需的内"
+"本机系统中用于提供 <strong>%1</strong> 协议访问的程序无法获得继续运行所需的内"
 "存。"
 
 #: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
-msgstr "未知的代理主机"
+msgstr "未知代理服务器主机"
 
 #: core/job_error.cpp:1036
 #, kde-format
@@ -1875,8 +1889,8 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
-"在获取关于指定代理主机 <strong>%1</strong> 的信息时，出现了“未知主机”错"
-"误。“未知主机”错误表明在互联网上找不到所请求的名称。"
+"在获取关于指定代理服务器主机 <strong>%1</strong> 的信息时发生“未知主机”错误。"
+"未知主机错误意味着在互联网上找不到所请求的主机名称。"
 
 #: core/job_error.cpp:1042
 #, kde-format
@@ -1885,18 +1899,18 @@ msgid ""
 "your proxy's hostname. If you have been accessing the Internet with no "
 "problems recently, this is unlikely."
 msgstr ""
-"您的网络配置可能有问题，特别是您的代理主机名。如果您最近访问互联网时没有出现"
-"问题，这就不太可能。"
+"您的网络配置中的代理服务器主机名可能存在问题。如果您在最近访问互联网时没有遇"
+"到问题，则网络配置导致问题的可能性很低。"
 
 #: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr "请反复检查您的代理设置后再重试。"
+msgstr "请仔细检查您的代理服务器设置，然后重试。"
 
 #: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "授权失败：不支持 %1 验证方式"
+msgstr "身份验证失败：不支持 %1 方式"
 
 #: core/job_error.cpp:1052
 #, kde-format
@@ -1905,8 +1919,8 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"虽然您可能提供了正确的验证信息，验证仍旧失败了。原因是该服务器所使用的方法未"
-"被实现协议 %1 的 KDE 程序支持。"
+"虽然您可能提供了正确的身份验证信息，但是用于实现 %1 协议的 KDE 程序尚不支持该"
+"服务器使用的身份验证方法，因此身份验证失败。"
 
 #: core/job_error.cpp:1058
 #, kde-format
@@ -1914,13 +1928,13 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
-"请向 <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</a> 提交错误报告，"
-"通知 KDE 团队不支持的验证方法。"
+"请在 <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</a> 网站提交错误报"
+"告，让 KDE 团队知晓这一尚未支持的身份验证方法。"
 
 #: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
-msgstr "请求中止"
+msgstr "请求已中止"
 
 #: core/job_error.cpp:1073
 #, kde-format
@@ -1933,26 +1947,27 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"服务器上提供到 <strong>%1</strong> 协议访问的程序报告了一个内部错误：%2。"
+"服务器中用于提供 <strong>%1</strong> 协议访问的程序报告了一个内部错误：%2。"
 
 #: core/job_error.cpp:1081
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
-msgstr "最可能的原因是服务器程序错误。请考虑提交一份完整的错误报告，步骤如下。"
+msgstr ""
+"这很可能是由服务器程序中的代码缺陷导致。请考虑提交一个详细的程序缺陷报告。"
 
 #: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr "请联系您的管理员，告诉他们这一问题。"
+msgstr "请联系服务器的管理员，让他们知晓这一问题。"
 
 #: core/job_error.cpp:1088
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
-msgstr "如果您知道服务器软件的作者是谁，请直接向他们提交错误报告。"
+msgstr "如果您知道该服务器程序的作者是谁，请直接向他们提交程序缺陷报告。"
 
 #: core/job_error.cpp:1093
 #, kde-format
@@ -1970,10 +1985,10 @@ msgid ""
 "settings in the KDE System Settings, by selecting Network Settings -> "
 "Connection Preferences."
 msgstr ""
-"虽然已经联系了服务器，但在该请求所规定的时间内没有收到回应：<ul><li>建立连接"
-"超时：%1 秒</li><li>接收回应超时：%2 秒</li><li>访问代理服务器超时：%3 秒</"
-"li></ul>请注意，您可以在 KDE 系统设置中通过选择“网络”->“首选项”来改变这些超时"
-"设置。"
+"虽然与服务器建立了联系，但在该请求所规定的时间内没有收到响应：<ul><li>建立连"
+"接的超时时间：%1 秒</li><li>接收响应的超时时间：%2 秒</li><li>访问代理服务器"
+"的超时时间：%3 秒</li></ul>请注意，您可以在 KDE 系统设置中通过选择“网络”->“首"
+"选项”来更改上述超时设置。"
 
 #: core/job_error.cpp:1108
 #, kde-format
@@ -1983,7 +1998,7 @@ msgstr "服务器正忙于响应其他请求，无法对该请求做出响应。
 #: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
 msgid "Unknown Error"
-msgstr "未知的错误"
+msgstr "未知错误"
 
 #: core/job_error.cpp:1116
 #, kde-format
@@ -1991,12 +2006,12 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
-"您的计算机上提供到 <strong>%1</strong> 协议访问的程序报告了一个未知错误：%2。"
+"本机系统中用于提供 <strong>%1</strong> 协议访问的程序报告了一个未知错误：%2。"
 
 #: core/job_error.cpp:1126
 #, kde-format
 msgid "Unknown Interruption"
-msgstr "未知的中断"
+msgstr "未知中断"
 
 #: core/job_error.cpp:1128
 #, kde-format
@@ -2004,7 +2019,7 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
-"您的计算机上提供到 <strong>%1</strong> 协议访问的程序报告了一个未知中断：%2。"
+"本机系统中用于提供 <strong>%1</strong> 协议访问的程序报告了一个未知中断：%2。"
 
 #: core/job_error.cpp:1138
 #, kde-format
@@ -2018,7 +2033,7 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"所请求的操作需要删除原始文件，很可能是文件移动操作的最后步骤。原始文件 "
+"请求的操作需要删除原始文件，这很有可能是文件移动操作的最后步骤。原始文件 "
 "<strong>%1</strong> 无法被删除。"
 
 #: core/job_error.cpp:1149
@@ -2033,7 +2048,7 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"所请求的操作需要创建一个临时文件来保存正在下载的新文件。临时文件 <strong>%1</"
+"请求的操作需要创建一个临时文件来保存正在下载的新文件。临时文件 <strong>%1</"
 "strong> 无法被删除。"
 
 #: core/job_error.cpp:1161
@@ -2046,8 +2061,7 @@ msgstr "无法重命名原始文件"
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
-msgstr ""
-"所请求的操作需要重命名原始文件 <strong>%1</strong>，但是它无法被重命名。"
+msgstr "请求的操作需要重命名原始文件 <strong>%1</strong>，但是它无法被重命名。"
 
 #: core/job_error.cpp:1172
 #, kde-format
@@ -2059,7 +2073,7 @@ msgstr "无法重命名临时文件"
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
-msgstr "所请求的操作需要创建临时文件 <strong>%1</strong>，但是该文件无法创建。"
+msgstr "请求的操作需要创建临时文件 <strong>%1</strong>，但是该文件无法创建。"
 
 #: core/job_error.cpp:1183
 #, kde-format
@@ -2074,7 +2088,7 @@ msgstr "无法创建符号链接"
 #: core/job_error.cpp:1185
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr "所请求的符号链接 %1 无法被创建。"
+msgstr "请求的符号链接 %1 无法创建。"
 
 #: core/job_error.cpp:1191
 #, kde-format
@@ -2091,8 +2105,7 @@ msgstr "磁盘已满"
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
-msgstr ""
-"所请求的文件 <strong>%1</strong> 无法被写入，原因是没有足够的磁盘空间。"
+msgstr "请求的文件 <strong>%1</strong> 无法写入，因为磁盘空间不足。"
 
 #: core/job_error.cpp:1202
 #, kde-format
@@ -2101,59 +2114,59 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"释放足够磁盘空间，方法有：1) 删除不需要的和临时的文件；2) 把文件归档到 CD-R "
-"之类的可移动介质上；或 3) 获取更多存储容量。"
+"请释放足够的磁盘空间，方法包括：1) 删除不需要文件和临时文件；2) 把文件转移到 "
+"CD-R 之类的可移动媒体上；3) 获取更大的存储空间。"
 
 #: core/job_error.cpp:1209
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "源文件和目标文件是同一文件"
+msgstr "来源文件和目标文件是同一文件"
 
 #: core/job_error.cpp:1211
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
-msgstr "由于源文件和目标文件是同一文件，操作无法完成。"
+msgstr "由于来源文件和目标文件是同一文件，操作无法完成。"
 
 #: core/job_error.cpp:1213
 #, kde-format
 msgid "Choose a different filename for the destination file."
-msgstr "为目标文件选择另一个文件名。"
+msgstr "请为目标文件选择另一个文件名。"
 
 #: core/job_error.cpp:1217
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "文件或文件夹拖动到自身"
+msgstr "文件或者文件夹被拖放到了到自身"
 
 #: core/job_error.cpp:1219
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
-msgstr "由于源和目标文件或文件夹相同，操作无法完成。"
+msgstr "由于来源和目标文件或者文件夹相同，操作无法完成。"
 
 #: core/job_error.cpp:1221
 #, kde-format
 msgid "Drop the item into a different file or folder."
-msgstr "拖拽项目到不同的文件或文件夹。"
+msgstr "请将项目拖放到其他文件或者文件夹。"
 
 #: core/job_error.cpp:1231
 #, kde-format
 msgid "Folder moved into itself"
-msgstr "文件夹移动到自身"
+msgstr "文件夹被移动到自身"
 
 #: core/job_error.cpp:1233
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
-msgstr "由于源文件不能被移动到自身，操作无法完成。"
+msgstr "由于来源不能被移动到自身，操作无法完成。"
 
 #: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr "移动项目到不同的文件夹。"
+msgstr "请将项目项目移动到其他文件夹。"
 
 #: core/job_error.cpp:1239
 #, kde-format
@@ -2165,12 +2178,12 @@ msgstr "无法与密码服务器通信"
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
-msgstr "无法与请求密码服务 (kpasswdserver) 联系，操作无法完成。"
+msgstr "无法与请求密码服务 (kpasswdserver) 建立联系，操作无法完成。"
 
 #: core/job_error.cpp:1243
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
-msgstr "尝试重启会话，或者检查 kiod 的错误日志。"
+msgstr "请尝试重新启动当前会话，或者检查 kiod 的日志是否记录了错误。"
 
 #: core/job_error.cpp:1247
 #, kde-format
@@ -2188,8 +2201,8 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"您计算机上用于提供 <strong>%1</strong> 协议访问的 KIO 工作程序无法被启动。此"
-"类故障通常是因为技术原因导致的。"
+"本机系统中用于提供 <strong>%1</strong> 协议访问的 KIO 工作程序无法启动。这通"
+"常是由技术原因导致的。"
 
 #: core/job_error.cpp:1255
 #, kde-format
@@ -2204,7 +2217,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
-msgstr "无法传送文件 <filename>%1</filename>"
+msgstr "无法传输文件 <filename>%1</filename>"
 
 #: core/job_error.cpp:1263
 #, kde-kuit-format
@@ -2213,19 +2226,19 @@ msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
 msgstr ""
-"文件<filename>%1</filename> 无法被传送，因为目标文件系统不支持这么大的文件"
+"文件 <filename>%1</filename> 无法传输，因为目标文件系统不支持如此大的文件"
 
 #: core/job_error.cpp:1266
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
-msgstr "使用支持大文件的文件系统重新格式化目标磁盘。"
+msgstr "请将目标驱动器重新格式化为支持此大小文件的文件系统。"
 
 #: core/job_error.cpp:1271
 #, kde-format
 msgid "Undocumented Error"
-msgstr "未记录在文档中的错误"
+msgstr "程序文档中没有提及的错误"
 
 #: core/kfileitem.cpp:1362
 #, kde-format
@@ -2255,7 +2268,7 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr "无法确定文件 %1 的类型"
+msgstr "无法确定 %1 的文件类型"
 
 #: core/slave.cpp:429
 #, kde-format
@@ -2270,12 +2283,12 @@ msgstr "无法找到协议“%1”的 KIO 工作程序。"
 #: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "无法创建用于为协议“%1”创建套接字的 KIO 工作程序。"
+msgstr "无法创建用于为协议“%1”启动 KIO 工作程序的套接字。"
 
 #: core/slave.cpp:488
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
-msgstr "无法在 %1 找到 kioslave5 可知性文件"
+msgstr "无法在“%1”中找到“kioslave5”可执行程序"
 
 #: core/slavebase.cpp:878
 #, kde-format
@@ -2290,7 +2303,7 @@ msgstr "协议 %1 不支持关闭连接。"
 #: core/slavebase.cpp:882
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
-msgstr "协议 %1 不支持文件访问。"
+msgstr "协议 %1 不支持访问文件。"
 
 #: core/slavebase.cpp:884
 #, kde-format
@@ -2315,22 +2328,22 @@ msgstr "不支持从 %1 获取数据。"
 #: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "抱歉，不支持从 %1 获取 MIME 类型。"
+msgstr "对不起，程序不支持从 %1 获取 MIME 类型信息。"
 
 #: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "不支持在 %1 内重命名或移动文件。"
+msgstr "不支持在 %1 中重命名或者移动文件。"
 
 #: core/slavebase.cpp:896
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "协议 %1 不支持符号链接。"
+msgstr "协议 %1 不支持创建符号链接。"
 
 #: core/slavebase.cpp:898
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "不支持在 %1 内复制文件。"
+msgstr "不支持在 %1 中复制文件。"
 
 #: core/slavebase.cpp:900
 #, kde-format
@@ -2350,7 +2363,7 @@ msgstr "协议 %1 不支持更改文件属性。"
 #: core/slavebase.cpp:906
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "协议 %1 不支持更改文件属主。"
+msgstr "协议 %1 不支持更改文件所有者。"
 
 #: core/slavebase.cpp:908
 #, kde-format
@@ -2360,7 +2373,7 @@ msgstr "不支持在 %1 使用子 URL。"
 #: core/slavebase.cpp:910
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
-msgstr "协议 %1 不支持多次获取。"
+msgstr "协议 %1 不支持多重 get 操作。"
 
 #: core/slavebase.cpp:912
 #, kde-format
@@ -2386,13 +2399,13 @@ msgstr "否(&N)"
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:69
 #, kde-format
 msgid "&Details"
-msgstr "细节(&D)"
+msgstr "详情(&D)"
 
 #: core/slaveinterface.cpp:424 core/tcpslavebase.cpp:550
 #: core/tcpworkerbase.cpp:543 widgets/sslui.cpp:105
 #, kde-format
 msgid "&Forever"
-msgstr "永远(&F)"
+msgstr "总是(&F)"
 
 #: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
@@ -2414,7 +2427,7 @@ msgid ""
 "This means that a third party could observe your data in transit."
 msgstr ""
 "您即将离开安全模式，数据传输将不再加密。\n"
-"这意味着第三方有可能查看到您传输的数据。"
+"这意味着第三者可以监视您传输的数据。"
 
 #: core/tcpslavebase.cpp:293 core/tcpslavebase.cpp:488
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
@@ -2441,8 +2454,8 @@ msgid ""
 "This means that no third party will be able to easily observe your data in "
 "transit."
 msgstr ""
-"您即将进入安全模式。除非另外注明，所有的传输将会被加密。\n"
-"这表示第三方将不能轻易查看您传输的数据。"
+"您即将进入安全模式。所有的传输将被加密，除非另有说明。\n"
+"这意味着第三者将难以监视您传输的数据。"
 
 #: core/tcpslavebase.cpp:489 core/tcpworkerbase.cpp:481
 #, kde-format
@@ -2460,7 +2473,7 @@ msgid ""
 "The server failed the authenticity check (%1).\n"
 "\n"
 msgstr ""
-"服务器没有通过真实性检查 (%1)。\n"
+"服务器真实性验证失败 (%1)。\n"
 "\n"
 
 #: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
@@ -2468,18 +2481,18 @@ msgstr ""
 #: widgets/sslui.cpp:104
 #, kde-format
 msgid "Server Authentication"
-msgstr "服务器验证"
+msgstr "服务器真实性验证"
 
 #: core/tcpslavebase.cpp:546 core/tcpworkerbase.cpp:539 widgets/sslui.cpp:101
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
-msgstr "您希望以后不提示就接受该证书吗？"
+msgstr "您想要总是接受此证书而不进行提示吗？"
 
 #: filewidgets/kdiroperator.cpp:748
 #, kde-format
 msgid "A file or folder named %1 already exists."
-msgstr "名称为 %1 的文件或文件夹已存在。"
+msgstr "名称为 %1 的文件或者文件夹已存在。"
 
 #: filewidgets/kdiroperator.cpp:751
 #, kde-format
@@ -3087,7 +3100,7 @@ msgstr[0] "此设备中有文件正被以下应用程序打开：<application>%2
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr "，"
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3122,7 +3135,7 @@ msgstr "在新窗口中打开"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "添加条目…"
+msgstr "添加项目…"
 
 #: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
@@ -3389,12 +3402,12 @@ msgstr "常用位置"
 #: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "文件“%1”已经存在。您想要覆盖它吗？"
+msgstr "文件“%1”已存在。您想要覆盖它吗？"
 
 #: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
-msgstr "覆盖文件吗？"
+msgstr "您想要覆盖文件吗？"
 
 #: filewidgets/kfilewidget.cpp:1965
 #, kde-format
@@ -3712,13 +3725,13 @@ msgstr "点击以编辑位置"
 #: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "您没有被授权执行此文件。"
+msgstr "您没有此文件的执行权限。"
 
 #: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
-msgstr "启动 %1 中"
+msgstr "正在启动 %1"
 
 #: gui/applicationlauncherjob.cpp:156
 #, kde-format
@@ -3726,14 +3739,14 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"无法让 %1 服务可执行，已放弃执行。\n"
+"无法将 %1 服务设置为可执行，放弃执行操作。\n"
 "%2。"
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
-msgstr "您没有被授权选择应用程序打开此文件。"
+msgstr "您没有选择此文件的打开程序的权限。"
 
 #: gui/applicationlauncherjob.cpp:261
 #, kde-format
@@ -3744,7 +3757,7 @@ msgstr "内部错误：无法提示用户启动哪一个应用程序"
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
 msgid "No favicon found for %1"
-msgstr "%1 没有关联图标"
+msgstr "找不到 %1 的图标"
 
 #: gui/faviconrequestjob.cpp:157
 #, kde-format
@@ -3754,12 +3767,12 @@ msgstr "保存图像到 %1 时出错"
 #: gui/faviconrequestjob.cpp:167
 #, kde-format
 msgid "Icon file too big, download aborted"
-msgstr "图标文件太大，下载中止"
+msgstr "图标文件太大，下载已中止"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
-msgstr "未找到电子邮件客户端"
+msgstr "找不到电子邮件客户端"
 
 #: gui/kprocessrunner.cpp:94
 #, kde-format
@@ -3768,14 +3781,14 @@ msgid ""
 "%1\n"
 "is not valid."
 msgstr ""
-"桌面条目文件\n"
+"桌面项目文件\n"
 "%1\n"
 "是无效文件。"
 
 #: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
-msgstr "启动 %1"
+msgstr "正在启动 %1"
 
 #: gui/kprocessrunner.cpp:475
 #, kde-kuit-format
@@ -3786,7 +3799,7 @@ msgstr "命令 <command>%1</command> 无法找到。"
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
 msgid "No terminal emulator found"
-msgstr "未找到终端模拟器"
+msgstr "找不到终端模拟器"
 
 #: gui/openurljob.cpp:158
 #, kde-format
@@ -3802,27 +3815,27 @@ msgid ""
 msgstr ""
 "桌面项目文件\n"
 "%1\n"
-"是链接类型，但是没有包含 URL=... 项。"
+"的类型是链接，但它没有包含 URL=... 项。"
 
 #: gui/openurljob.cpp:364
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
-msgstr "可执行文件 \"%1\" 位于远程文件系统。出于安全原因，它将不被启动。"
+msgstr "可执行文件“%1”位于远程文件系统中。出于安全考虑，它将不会启动。"
 
 #: gui/openurljob.cpp:400
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
-msgstr "出于安全原因，在这种情况下不允许启动可执行程序。"
+msgstr "出于安全考虑，在这种情况下不允许启动可执行程序。"
 
 #: gui/openurljob.cpp:430
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "程序 \"%1\" 需要有可执行权限才能启动。"
+msgstr "程序“%1”需要有可执行权限才能启动。"
 
 #: gui/openurljob.cpp:441
 #, kde-format
@@ -3830,13 +3843,13 @@ msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"无法让文件 %1 变成可执行文件。\n"
+"无法赋予文件“%1”可执行权限。\n"
 "%2。"
 
 #: gui/openurljob.cpp:527 widgets/kdesktopfileactions.cpp:61
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "桌面项文件 %1 没有 Type=... 项。"
+msgstr "桌面项目文件 %1 没有 Type=... 项。"
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -3856,12 +3869,12 @@ msgstr "打开文件失败。"
 #: gui/openurljob.cpp:673
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "程序 \"%1\" 无法启动。"
+msgstr "程序“%1”无法启动。"
 
 #: ioslaves/file/file.cpp:171
 #, kde-format
 msgid "Setting ACL for %1"
-msgstr "设置 %1 的 ACL"
+msgstr "正在为 %1 设置 ACL"
 
 #: ioslaves/file/file.cpp:716
 #, kde-format
@@ -3869,13 +3882,13 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"无法改变 %1\n"
-"的权限"
+"无法为 %1\n"
+"更改权限"
 
 #: ioslaves/file/file.cpp:799
 #, kde-format
 msgid "mounting is not supported by Windows CE."
-msgstr "Windows CE 不支持挂载程序。"
+msgstr "Windows CE 不支持挂载功能。"
 
 #: ioslaves/file/file.cpp:829
 #, kde-format
@@ -3885,7 +3898,7 @@ msgstr "找不到程序“mount”"
 #: ioslaves/file/file.cpp:896
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
-msgstr "Windows CE 不支持卸载。"
+msgstr "Windows CE 不支持卸载功能。"
 
 #: ioslaves/file/file.cpp:911
 #, kde-format
@@ -3910,7 +3923,7 @@ msgstr "更改文件所有者"
 #: ioslaves/file/file_unix.cpp:107
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
-msgstr "新所有者：UID 为 %1，GID 为 %2"
+msgstr "新所有者：UID=%1, GID=%2"
 
 #: ioslaves/file/file_unix.cpp:110
 #, kde-format
@@ -3981,22 +3994,22 @@ msgstr ""
 #: ioslaves/file/file_unix.cpp:842
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "无法将文件从 %1 复制到 %2。(错误号：%3)"
+msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
 #: ioslaves/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
-msgstr "%1 设备中没有介质"
+msgstr "%1 设备中没有媒体"
 
 #: ioslaves/file/file_unix.cpp:1362
 #, kde-format
 msgid "Could not get user id for given user name %1"
-msgstr "无法获得给定用户名 %1 的用户 ID"
+msgstr "无法获取给定的用户名 %1 的用户 ID"
 
 #: ioslaves/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get group id for given group name %1"
-msgstr "无法获得给定组名 %1 的组 ID"
+msgstr "无法获取给定的用户组名 %1 的用户组 ID"
 
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
@@ -4222,15 +4235,17 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
-"<h1>Cookie</h1> <p>Cookie 含有使用 HTTP 协议的 KDE 应用程序 (例如 Konqueror) "
-"保存在计算机上的、始于远程 Internet 服务器的信息。这意味着，Web 服务器可以在"
-"您的计算机上保存关于您和您浏览活动的信息以供后用。您也许认为这是对隐私的侵"
-"害。</p><p>然而，Cookie 在某些情况下是很有用的。例如，网上商店经常使用它们，"
-"这样您可以“将商品放入购物车”。有些站点还要求您必须使用支持 Cookie 的浏览器。"
-"</p><p>因为多数的人需要对隐私和 Cookie 的好处进行折衷，HTTP KIO 工作程序允许"
-"您定制 Cookie 的处理方式。您也许希望设置 KDE 的默认策略，让它在服务器设置 "
-"Cookie 时给出提示，让您决定是否接受。对于您信任的常用购物网站，您也许愿意把策"
-"略设置为接受，这样访问该网站时，KDE 就不会每次接收到 Cookie 都询问您。</p>"
+"<h1>Cookies</h1> <p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
+"Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网页服"
+"务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信息，以便"
+"日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，Cookies 在某些"
+"情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实现“将商品放入购物"
+"车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏览器才能正常访问。</"
+"p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间寻求一个平衡点，所以 "
+"HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。您可以将 KDE 的默认策略设"
+"置为在服务器请求使用 Cookies 时进行提示，让您选择是否接受。对于您经常访问且信"
+"任的购物网站，您可以将策略设置为接受，这样在访问该网站时，KDE 就不会在每次收"
+"到 Cookies 时询问您。</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4241,28 +4256,28 @@ msgstr "D-Bus 通信错误"
 #: kcms/cookies/kcookiesmanagement.cpp:127
 #, kde-format
 msgid "Unable to delete all the cookies as requested."
-msgstr "无法按要求删除全部 Cookie。"
+msgstr "无法按照请求删除所有 Cookies。"
 
 #: kcms/cookies/kcookiesmanagement.cpp:144
 #, kde-format
 msgid "Unable to delete cookies as requested."
-msgstr "无法按要求删除 Cookie。"
+msgstr "无法按照请求删除 Cookies。"
 
 #: kcms/cookies/kcookiesmanagement.cpp:216
 #, kde-format
 msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>Cookie 管理快速帮助</h1>"
+msgstr "<h1>Cookies 管理快速帮助</h1>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:228
 #, kde-format
 msgid "Information Lookup Failure"
-msgstr "信息查阅失败"
+msgstr "信息查询失败"
 
 #: kcms/cookies/kcookiesmanagement.cpp:230
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
-msgstr "无法获取存储于您计算机上的 Cookie 的信息。"
+msgstr "无法获取存储在本机系统中的 Cookies 的信息。"
 
 #: kcms/cookies/kcookiesmanagement.cpp:321
 #, kde-format
@@ -4284,13 +4299,13 @@ msgstr "搜索"
 #: kcms/cookies/kcookiesmanagement.ui:27
 #, kde-format
 msgid "Search interactively for domains and hosts"
-msgstr "交互式搜索域和主机"
+msgstr "搜索域名和主机 (交互式)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:43
 #, kde-format
 msgid "Site"
-msgstr "站点"
+msgstr "网站"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:48
@@ -4310,7 +4325,7 @@ msgstr "删除(&E)"
 #: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
 #, kde-format
 msgid "Delete A&ll"
-msgstr "全部删除(&L)"
+msgstr "删除所有(&L)"
 
 #. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
 #: kcms/cookies/kcookiesmanagement.ui:70
@@ -4350,7 +4365,7 @@ msgstr "值："
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:274
 #, kde-format
 msgid "Domain:"
-msgstr "域："
+msgstr "域名："
 
 #. i18n: ectx: property (text), widget (QLabel, patchLabel)
 #: kcms/cookies/kcookiesmanagement.ui:175
@@ -4389,14 +4404,13 @@ msgstr "新建 Cookie 策略"
 msgid ""
 "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
 "replace it?</qt>"
-msgstr ""
-"<qt> 对 <center><b>%1</b></center> 已经存在一个策略，您想替换它吗？</qt>"
+msgstr "<qt><center><b>%1</b></center> 已存在一个策略，您想要替换它吗？</qt>"
 
 #: kcms/cookies/kcookiespolicies.cpp:210
 #, kde-format
 msgctxt "@title:window"
 msgid "Duplicate Policy"
-msgstr "复制策略"
+msgstr "重复策略"
 
 #: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
 #, kde-format
@@ -4410,7 +4424,7 @@ msgid ""
 "Any changes you made will not take effect until the service is restarted."
 msgstr ""
 "无法与 Cookie 处理服务通信。\n"
-"您所作的任何更改都将直到该服务重新启动后才会生效。"
+"您所作的更改只有在该服务重新启动之后才能生效。"
 
 #: kcms/cookies/kcookiespolicies.cpp:430
 #, kde-format
@@ -4435,18 +4449,20 @@ msgid ""
 "receive cookies from trusted web sites without being asked every time KDE "
 "receives a cookie.</p>"
 msgstr ""
-"<h1>Cookie</h1> <p>Cookie 含有使用 HTTP 协议的 KDE 应用程序 (例如 Konqueror) "
-"保存在计算机上的、始于远程 Internet 服务器的信息。这意味着，Web 服务器可以在"
-"您的计算机上保存关于您和您浏览活动的信息以供后用。您也许认为这是对隐私的侵"
-"害。</p><p> 然而，Cookie 在某些情况下是很有用的。例如，网络商店经常使用它们，"
-"这样您可以“将物品放入购物篮”。有些站点还要求您必须使用支持 Cookie 的浏览器。"
-"</p><p> 因为多数的人需要对隐私和 Cookie 的好处进行折衷，KDE 允许您定制 "
-"Cookie 的处理方式。您也许希望设置 KDE 的默认策略，让它在服务器设置 Cookie 时"
-"给出提示，让您决定是否接受，或者简单地拒绝或接受任何 Cookie。对于您信任的常用"
-"购物网站，您也许愿意接受它们的所有 Cookie。要这样您只需浏览该网站，在 Cookie "
-"对话框出现并决定接受它的时候选中“应用于”框内的<i>此域</i>一项，或者直接到<i>"
-"域特定策略</i>设定接受策略给该网站。这样将自动接受您信任的网站的 Cookie，不"
-"会 KDE 每次接收到 Cookie 都询问您。</p>"
+"<h1>Cookies</h1><p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
+"Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网页服"
+"务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信息，以便"
+"日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，Cookies 在某些"
+"情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实现“将商品放入购物"
+"车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏览器才能正常访问。</"
+"p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间寻求一个平衡点，所以 "
+"HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。您可以将 KDE 的默认策略设"
+"置为在服务器请求使用 Cookies 时进行提示，让您选择是否接受；也可以将默认策略设"
+"置为接受或者拒绝所有 Cookies。例如对于您经常访问且信任的购物网站，您可以将策"
+"略设置为接受。要设置此策略，您要么直接打开该网站，在 Cookie 对话框弹出时点"
+"击“应用到”标签页下的 <i> 此域名 </i>，并选择接受；您还可以在 <i> 特定域名策"
+"略 </i> 标签页中指定网站的域名，然后将其设置为接受。这样在访问您信任的网站"
+"时，KDE 就不会在每次收到 Cookies 时询问您。</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4460,16 +4476,16 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"<p>启用 Cookie 支持。通常您总会需要 Cookie 支持，并按照您对隐私的要求来定制"
-"它。</p><p>\n"
-"请注意，禁用 Cookie 支持可能导致很多网站无法浏览。</p>\n"
+"<p>启用 Cookie 支持。在正常情况下您可以启用 Cookie 支持，并按照您对隐私的要求"
+"来自定义相关策略。</p><p>\n"
+"请注意，禁用 Cookie 支持可能会导致很多网站无法浏览。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "启用 Cookie(&K)"
+msgstr "启用 Coo&kies"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4488,14 +4504,14 @@ msgstr ""
 "拒绝第三方 Cookies。第三方 Cookies 来自您当前浏览网站之外的网站。例如：您在勾"
 "选此项后访问了 <b>www.foobar.com</b>，那么按照此选项的设置，只有来自 www."
 "foobar.com 网站的 Cookies 才会被接受。来自其他网站的所有 Cookies 会被自动拒"
-"绝。这将减少某些网站收集您上网浏览习惯的途经。\n"
+"绝。此功能可以妨碍网站对您的日常浏览习惯进行收集和汇总。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "只接受始发服务器的 Cookie(&P)"
+msgstr "仅接受始发服务器的 Cookie(&P)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4513,13 +4529,13 @@ msgstr ""
 "自动接受在本次会话结束时自动过期的临时 Cookies。这种 Cookies 不会长期保存在电"
 "脑的硬盘或者其他存储设备里。在您关闭所有使用它们的程序 (例如网页浏览器) 后，"
 "它们就会被删除。</p><p><u>注意：</u>勾选此项后，它的设置将覆盖您的默认 "
-"Cookies 策略和指定网站的会话内 Cookies 策略。</p>"
+"Cookies 策略和指定网站的当次会话 Cookies 策略。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr "自动接受会话 Cookie(&Y)"
+msgstr "自动接受单次会话 Cookie(&Y)"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -4542,15 +4558,15 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"决定如何处理从远程机器收到的 Cookie：\n"
+"指定从远程机器收到 Cookies 时的处理方式：\n"
 "<ul>\n"
-"<li><b>询问</b>每次有服务器要设置 Cookie 时，KDE 都要求您确认。</li>\n"
-"<li><b>接受</b> 接受 Cookie，不作任何询问。</li>\n"
-"<li><b>接受</b> 接受 Cookie，但在会话结束后过期。</li>\n"
-"<li><b>拒绝</b> Cookie 将拒绝任何收到的 Cookie。</li>\n"
+"<li><b>询问：</b>每当服务器请求建立 Cookies 时，KDE 都会征求您的同意。</li>\n"
+"<li><b>接受：</b> 接受 Cookiess，不提示。</li>\n"
+"<li><b>接受 (当次会话)：</b> 接受 Cookies，但在当次会话结束后过期。</li>\n"
+"<li><b>拒绝：</b>cookiejar 程序将拒绝所有收到的 Cookies。</li>\n"
 "</ul><p>\n"
-"<u>注意：</u>您可在下面为单个域设置特别的策略，那么该域就不会使用默认策略。</"
-"p>\n"
+"<u>请注意：</u>您可以在下方为每个域名指定独立的策略，它们的优先权高于默认策"
+"略。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
@@ -4563,13 +4579,13 @@ msgstr "默认策略"
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "接受全部 Cookie(&T)"
+msgstr "接受所有 Cookies(&T)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr "会话结束前接受(&U)"
+msgstr "接受 (当次会话)(&U)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
@@ -4581,7 +4597,7 @@ msgstr "请求确认(&F)"
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "拒绝全部 Cookie(&J)"
+msgstr "拒绝所有 Cookies(&J)"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4597,9 +4613,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"要添加新策略，只需点击<b>添加...</b>按钮并提供必要的信息。要更改已经存在的策"
-"略，请点击<b>更改...</b>按钮并从策略对话框中选择新的策略。点击<b>删除</b>按钮"
-"将删除选中的策略，该域以后将使用默认策略；而<b>全部删除</b>将删除所有站点的特"
+"要添加新策略，请点击<b>添加...</b>按钮并提供所需信息。要更改已有策略，请点击"
+"<b>更改...</b>按钮并在策略对话框中选择新的策略。点击<b>删除</b>按钮将移除选中"
+"的策略，该域名将在此后使用默认策略；点击<b>删除所有</b>按钮将移除所有的域名特"
 "定策略。\n"
 "</qt>"
 
@@ -4607,13 +4623,13 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:126
 #, kde-format
 msgid "Site Policy"
-msgstr "站点策略"
+msgstr "网站策略"
 
 #. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:135
 #, kde-format
 msgid "Search interactively for domains"
-msgstr "交互式搜索域"
+msgstr "搜索域名 (交互式)"
 
 #. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:138
@@ -4631,15 +4647,15 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"列出您特别指定了 Cookie 策略的网站。对于这些网站来说，将会使用特定的策略而非"
-"默认的策略设置。\n"
+"已指定了域名特定 Cookies 策略的网站列表。这些网站将使用指定给它们的策略设置覆"
+"盖默认策略。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:163
 #, kde-format
 msgid "Domain"
-msgstr "域"
+msgstr "域名"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:168
@@ -4668,7 +4684,7 @@ msgstr "接受"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:28
 msgid "Accept For Session"
-msgstr "此会话同意"
+msgstr "接受 (当次会话)"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
@@ -4686,7 +4702,7 @@ msgstr "询问"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
-msgstr "不知道"
+msgstr "我不懂"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:22
@@ -4698,21 +4714,21 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"输入该策略所应用的站点或域的名字，如 <i>www.kde.org</i> 或者 <i>.kde.org</"
-"i>。\n"
+"输入要应用此策略的主机或者域名，例如 <b>www.kde.org</b> 或者 <b>.kde.org</"
+"b>。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:25
 #, kde-format
 msgid "Site name:"
-msgstr "网站名："
+msgstr "网站名称："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:38
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr "输入本规则所应用的主机或域名，例如 .kde.org。"
+msgstr "输入要应用此策略的主机或者域名，例如 .kde.org。"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
@@ -4732,13 +4748,13 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"选择希望的策略：\n"
+"选择想要使用的策略：\n"
 "<ul>\n"
-"<li><b>接受</b> - 允许这个站点设置 Cookie</li>\n"
-"<li><b>会话结束前接受</b> - 允许这个站点设置 Cookie 但在结束会话之后过期</"
-"li>\n"
-"<li><b>拒绝</b> - 拒绝来自这个站点的所有 Cookie</li>\n"
-"<li><b>询问</b> - 当从这个站点收到 Cookie 时询问用户如何处理。</li>\n"
+"<li><b>接受</b> - 允许此网站建立 Cookies</li>\n"
+"<li><b>接受 (当次会话)</b> - 允许此网站建立 Cookies，但在本次会话结束之后过期"
+"</li>\n"
+"<li><b>拒绝</b> - 拒绝此网站的所有 Cookies</li>\n"
+"<li><b>询问</b> - 收到此网站的 Cookies 时询问用户如何处理。</li>\n"
 "</ul>\n"
 "</qt>"
 
@@ -4752,7 +4768,7 @@ msgstr "策略："
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:86
 #, kde-format
 msgid "Accept until end of session"
-msgstr "会话结束前接受"
+msgstr "接受 (当次会话)"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4786,15 +4802,15 @@ msgid ""
 "of the other way round, so firewalls do not block the connection; old FTP "
 "servers may not support Passive FTP though."
 msgstr ""
-"FTP 连接是被动时，由客户向服务器发起连接，而不是反方向，这样防火墙就不会阻挡"
-"连接了；旧的 FTP 服务器可能不支持被动 FTP 流过。"
+"FTP 连接处于被动模式时，由客户端向服务器端发起连接，而不是相反，这样可以避免"
+"防火墙阻止连接；某些老旧的 FTP 服务器可能不支持被动式 FTP。"
 
 #. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: label, entry (MarkPartial), group (Global Options)
 #: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
 #, kde-format
 msgid "Mark partially uploaded files"
-msgstr "标记部分上载的文件"
+msgstr "标记部分上传的文件"
 
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
@@ -4804,12 +4820,13 @@ msgid ""
 "While a file is being uploaded its extension is \".part\". When fully "
 "uploaded it is renamed to its real name."
 msgstr ""
-"上传文件前，其扩展名被更改为“*.part”。完全上传后，再将其改为真实的名称。"
+"文件在上传过程中的扩展名将被更改为“*.part”。文件上传完成后，它将被改回实际的"
+"扩展名。"
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
 msgid "Timeout Values"
-msgstr "超时值"
+msgstr "超时时间"
 
 #: kcms/netpref/netpref.cpp:32
 #, kde-format
@@ -4820,8 +4837,8 @@ msgid_plural ""
 "Here you can set timeout values. You might want to tweak them if your "
 "connection is very slow. The maximum allowed value is %1 seconds."
 msgstr[0] ""
-"这里您可以设置超时值。如果您的连接很慢，可能需要调整它们。最大允许值是 %1 "
-"秒。"
+"您可以在此设置超时时间。如果您的连接很慢，可以调整此值。允许设置的最大值是 "
+"%1 秒。"
 
 #: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
 #: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
@@ -4833,22 +4850,22 @@ msgstr[0] " 秒"
 #: kcms/netpref/netpref.cpp:47
 #, kde-format
 msgid "Soc&ket read:"
-msgstr "读套接字(&K)："
+msgstr "套接字读取(&K)："
 
 #: kcms/netpref/netpref.cpp:53
 #, kde-format
 msgid "Pro&xy connect:"
-msgstr "连接代理(&X)："
+msgstr "代理服务器连接(&X)："
 
 #: kcms/netpref/netpref.cpp:59
 #, kde-format
 msgid "Server co&nnect:"
-msgstr "连接服务器(&N)："
+msgstr "服务器连接(&N)："
 
 #: kcms/netpref/netpref.cpp:65
 #, kde-format
 msgid "&Server response:"
-msgstr "服务器回应(&S)："
+msgstr "服务器响应(&S)："
 
 #: kcms/netpref/netpref.cpp:67
 #, kde-format
@@ -4858,7 +4875,7 @@ msgstr "全局选项"
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
 msgid "Mark &partially uploaded files"
-msgstr "标记部分上载的文件(&P)"
+msgstr "标记部分上传的文件(&P)"
 
 #: kcms/netpref/netpref.cpp:73
 #, kde-format
@@ -4868,8 +4885,8 @@ msgid ""
 "part\" extension. This extension will be removed once the transfer is "
 "complete.</p>"
 msgstr ""
-"<p>标记 SMB，SFTP 和其他协议的部分上载的文件。</p><p>此选项选中时，上载未完成"
-"的文件将被加上一个“.part”扩展名。一旦传送完成后这个扩展名就会被去掉。</p>"
+"<p>标记通过 SMB、SFTP 以及其他协议的部分上传文件。</p><p>勾选此项时，部分上传"
+"的文件将被附加“.part”扩展名。此扩展名将在传输完成后自动去除。</p>"
 
 #: kcms/netpref/netpref.cpp:90
 #, kde-format
@@ -4882,7 +4899,7 @@ msgstr[0] " 字节"
 msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr "如果取消，自动删除小于以下大小的部分上传文件："
+msgstr "如果传输被取消，自动删除体积小于此值的部分上传文件："
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
@@ -4899,7 +4916,7 @@ msgstr "启用被动模式(PASV)(&M)"
 msgid ""
 "Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
 "behind firewalls."
-msgstr "启用 FTP 的“被动模式”。从防火墙后面的机器用 FTP 时这是必需的。"
+msgstr "启用 FTP 的“被动模式”。这是在防火墙后面使用 FTP 的必须功能。"
 
 #: kcms/netpref/netpref.cpp:108
 #, kde-format
@@ -4908,8 +4925,8 @@ msgid ""
 "partially uploaded files will have a \".part\" extension. This extension "
 "will be removed once the transfer is complete.</p>"
 msgstr ""
-"<p>标记 FTP 部分上载的文件。</p><p>此选项选中时，上载未完成的文件将被加上一"
-"个“.part”扩展名。一旦传送完成后这个扩展名就会被去掉。</p>"
+"<p>标记 FTP 的部分上传文件。</p><p>勾选此项时，部分上传的文件将被附加“."
+"part”扩展名。此扩展名将在传输完成后自动去除。</p>"
 
 #: kcms/netpref/netpref.cpp:186
 #, kde-format
@@ -4919,8 +4936,8 @@ msgid ""
 "use a modem to connect to the Internet, you might want to adjust these "
 "settings."
 msgstr ""
-"<h1>网络首选项</h1>您可以在这里定义 KDE 程序使用互联网和网络连接的行为。如果"
-"您遇到超时或者使用调制解调器上网，也许需要调整这些设置。"
+"<h1>网络首选项</h1>您可以在这里设置 KDE 程序使用互联网和网络连接时的行为。如"
+"果您遇到网络超时问题，或者需要使用调制解调器上网，则可能需要调整这些设置。"
 
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
@@ -4935,13 +4952,13 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
-"不是所有的应用程序都会使用这里的代理设置。特别是 <application>Firefox</"
-"application> 和 <application>Chromium</application> 以及任何从它们衍生出来的"
-"应用。还有任何使用 <application>QtWebEngine</application>&nbsp; - 其中也包括"
+"并不是所有应用程序都会使用此处指定的代理服务器设置。例如 "
+"<application>Firefox</application>、<application>Chromium</application> 以及"
+"它们的衍生应用；所有基于 <application>QtWebEngine</application> 的应用，包括"
 "使用 <application>WebEnginePart</application> 的<application>Konqueror</"
-"application>，<application>Akregator</application> 和 <application>Falkon</"
-"application>&nbsp; 同样也不会使用这些设置。一些应用程序可能需要在它们自己的选"
-"项菜单中配置代理。"
+"application>、<application>Akregator</application> 和 <application>Falkon</"
+"application> 等应用均不会使用此处指定的代理服务器设置。某些应用程序可能要在它"
+"们自己的选项中配置代理服务器。"
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -4981,25 +4998,26 @@ msgstr ""
 "<qt>\n"
 "设置代理服务器配置。\n"
 "<p>\n"
-"代理服务器是一台位于您内部网络和 Internet 之间的机器，它会缓存您浏览的网页。"
-"它能让您能够更快的访问您已经浏览的网站，因为这些网站已经存储于代理服务器上"
-"了。\n"
+"代理服务器是一台位于本机和其他互联网服务器之间的中介计算机，它可以提供网页缓"
+"存和内容过滤等服务。缓存代理服务器可以将已访问的页面缓存到本地，从而提高您访"
+"问这些网站时的速度；内容过滤服务器通常可以拦截诸如广告、骚扰以及其他您想要阻"
+"止的请求。\n"
 "<p>\n"
-"<p>如果您不能确定自己是否需要使用代理服务器来连接 Internet，请查看 Internet "
-"服务提供商的设置指南，或者询问系统管理员。\n"
+"如果您不确定自己是否需要通过代理服务器来连接互联网，可以咨询您的互联网服务提"
+"供商或者系统管理员。\n"
 "</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:26
 #, kde-format
 msgid "Connect to the Internet directly."
-msgstr "直接连接到 Internet。"
+msgstr "直接连接到互联网。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:29
 #, kde-format
 msgid "No Proxy"
-msgstr "无代理"
+msgstr "不使用代理服务器"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
@@ -5015,28 +5033,28 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "自动检测并配置代理服务器设置。<p>\n"
-"自动检测使用 <b>Web 代理自动发现协议(WPAD)</b>进行处理。<p>\n"
-"<b>注意：</b>此选项可能无法正常工作，而且在某些 Unix/Linux 发行版中可能完全无"
-"法工作。\n"
+"自动检测功能使用 <b>Web 代理自动发现协议(WPAD)</b> 来处理相关信息。<p>\n"
+"<b>注意：</b>此选项在某些 Unix/Linux 发行版中可能存在问题，甚至完全无法工"
+"作。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
 #, kde-format
 msgid "Detect proxy configuration automatically"
-msgstr "自动检测代理配置"
+msgstr "自动检测代理服务器配置"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:59
 #, kde-format
 msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "使用指定的代理服务器脚本配置代理。"
+msgstr "使用指定的代理服务器脚本配置代理服务器。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:62
 #, kde-format
 msgid "Use proxy auto configuration URL:"
-msgstr "使用代理自动配置 URL："
+msgstr "使用代理服务器自动配置 URL："
 
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
 #: kcms/proxy/kproxydlg.ui:93
@@ -5059,14 +5077,13 @@ msgid ""
 "<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 msgstr ""
-"<qt><p>使用定义在这个系统上的代理设置。</p>\n"
-"<p>一些平台提供了系统级的代理配置信息，选中这个选项将允许您使用这些设置。</"
-"p>\n"
+"<qt><p>使用本机系统的全局代理服务器设置。</p>\n"
+"<p>某些系统平台提供了系统全局的代理配置信息，勾选此项时将使用这些设置。</p>\n"
 "<p>在 Mac 平台上</p>\n"
 "<p>在 Windows 平台上</p>\n"
-"<p>在 Unix 和 Linux 平台上，这样的系统代理设置通常使用环境变量进行定义。以下"
-"环境变量将被检测，并在定义时被使用：<b>HTTP_PROXY</b>，<b>HTTPS_PROXY</b>，"
-"<b>FTP_PROXY</b>，<b>NO_PROXY</b>。</p>\n"
+"<p>在 Unix 和 Linux 平台上，系统的全局代理服务器设置通常在环境变量中进行定"
+"义。程序将检测以下环境变量，如果存在则使用它们：<b>HTTP_PROXY</b>、"
+"<b>HTTPS_PROXY</b>、<b>FTP_PROXY</b>、<b>NO_PROXY</b>。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
@@ -5084,8 +5101,8 @@ msgid ""
 "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
 "</qt>"
 msgstr ""
-"<qt>尝试自动查找系统全局的代理服务器环境变量。<p>此特性将搜索最常用的环境变量"
-"名称，如 HTTP_PROXY、FTP_PROXY 和 NO_PROXY。</qt>"
+"<qt>尝试自动检测系统全局的代理服务器环境变量。<p>此功能将搜索最常用的相关环境"
+"变量名称，如 HTTP_PROXY、FTP_PROXY 和 NO_PROXY。</qt>"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
 #: kcms/proxy/kproxydlg.ui:130
@@ -5106,8 +5123,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"请输入用于保存 HTTP 代理服务器地址的环境变量名称，如 <b>HTTP_PROXY</b>。<p>\n"
-"另外，您可以按下<b>“自动检测”</b>按钮尝试自动发现该变量。</p>\n"
+"请输入用于存储 HTTP 代理服务器地址的环境变量名称，例如 <b>HTTP_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
@@ -5130,9 +5148,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"请输入用于保存 HTTPS 代理服务器地址的环境变量名称，如 <b>HTTPS_PROXY</b>。"
+"请输入用于存储 HTTPS 代理服务器地址的环境变量名称，例如 <b>HTTPS_PROXY</b> 。"
 "<p>\n"
-"另外，您可以按下<b>“自动检测”</b>按钮尝试自动发现该变量。</p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
@@ -5155,8 +5173,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"请输入用于保存 FTP 代理服务器地址的环境变量名称，如 <b>FTP_PROXY</b>。<p>\n"
-"另外，您可以按下<b>“自动检测”</b>按钮尝试自动发现该变量。</p>\n"
+"请输入用于存储 FTP 代理服务器地址的环境变量名称，例如 <b>FTP_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
@@ -5178,9 +5197,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"请输入用于保存 SOCKS 代理服务器地址的环境变量名称，如 <b>SOCKS_PROXY</b>。"
+"请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</b> 。"
 "<p>\n"
-"另外，您可以按下<b>“自动检测”</b>按钮尝试自动发现该变量。</p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
@@ -5199,9 +5218,9 @@ msgid ""
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>请输入用于保存 SOCKS 代理服务器地址的环境变量名称，如 <b>SOCKS_PROXY</"
-"b>。<p>另外，您可以按下<b>&quot;自动检测&quot;</b>按钮尝试自动发现该变量。</"
-"p></qt>"
+"<qt>请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</"
+"b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。"
+"</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5216,9 +5235,9 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"请输入用于保存不应使用代理服务器的网站地址的环境变量名称，如 <b>NO_PROXY</"
-"b>。<p>\n"
-"另外，您可以按下<b>“自动检测”</b>按钮尝试自动发现该变量。\n"
+"请输入用于存储不使用代理服务器的网站的环境变量名称，例如 <b>NO_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
@@ -5237,9 +5256,9 @@ msgid ""
 "<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>请输入用于保存不使用代理服务器的网站地址的环境变量名称，如 <b>NO_PROXY</"
-"b>。<p>另外，您可以按下<b>&quot;自动检测&quot;</b>按钮尝试自动发现该变量。</"
-"p></qt>"
+"<qt>请输入用于存储不使用上述代理服务器设置的网站的环境变量名称，例如 "
+"<b>NO_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有"
+"关的环境变量。</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
@@ -5257,7 +5276,7 @@ msgstr "手动输入代理服务器配置信息。"
 #: kcms/proxy/kproxydlg.ui:346
 #, kde-format
 msgid "Use manually specified proxy configuration:"
-msgstr "使用手动配置的代理服务器"
+msgstr "使用手动指定的代理服务器配置："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
 #: kcms/proxy/kproxydlg.ui:398
@@ -5285,7 +5304,7 @@ msgstr "请输入 HTTP 代理服务器的端口。"
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "所有协议都使用同样的代理服务器(&L)"
+msgstr "所有协议使用同一个代理服务器(&L)"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -5339,12 +5358,13 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"<p>输入按逗号分隔的需要被排除在上面代理设置之外的主机名和ip地址列表。</p>\n"
-"<p>如果您想要排除一个域名的所有主机，那么请在这个域名之前输入一个点。例如，排"
-"除所有<i>kde.org</i>，输入 <i>.kde.org</i>。通配符例如'*'和'?'不被支持，是无"
-"效的。</p>\n"
-"<p>另外，您也可以输入 IP 地址，例如 127.0.0.1 和带子网的 IP 地址，例如 "
-"192.168.0.1/24。</p>\n"
+"<p>请输入排除使用上述代理服务器设置的主机名或者 IP 地址的列表，用半角逗号分隔"
+"项目。</p>\n"
+"<p>如需排除某个域名的所有主机，请在该域名之前输入一个半角句点。例如，要排除所"
+"有<i>kde.org</i> 的主机名，请输入 <i>.kde.org</i>。不支持“*”和“?”等通配符，它"
+"们将不会生效。</p>\n"
+"<p>您也可以输入 IP 地址，例如 127.0.0.1；还可以输入带子网掩码的 IP 地址，例"
+"如 192.168.0.1/24。</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
@@ -5356,18 +5376,19 @@ msgid ""
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
 "<qt>\n"
-"如果您想要上面的代理设置只对<i>例外</i>列表中的地址应用，请选中此项。</qt>"
+"如果您想要上面的代理服务器设置只应用到 <i>例外</i> 列表中的地址，请勾选此项。"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:642
 #, kde-format
 msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "只为排除列表中的地址使用代理服务器"
+msgstr "仅对排除列表中的地址应用代理服务器设置"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
 msgid "These settings apply to network browsing only."
-msgstr "这些设置仅在网络浏览时有效。"
+msgstr "这些设置仅在浏览网上邻居时有效。"
 
 #: kcms/smb/smbrodlg.cpp:31
 #, kde-format
@@ -5390,15 +5411,15 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows 共享</h1><p>使用 SMB KIO 称作程序的应用程序 (例如Konqueror) 如果"
-"正确配置，可以访问共享的微软 Windows 文件系统。</p><p>您可以指定用于访问共享"
-"资源的身份。密码将保存在本地，并且打乱以从而人眼不可读。出于安全原因，您也许"
-"并不想这么做，因为有密码的项目将会明确表示。</p>"
+"<h1>Windows 共享</h1><p>使用 SMB KIO 工作程序的应用程序 (例如Konqueror) 在正"
+"确配置之后，可以访问 Windows 共享的文件系统。</p><p>您可以指定用于访问共享资"
+"源的身份验证信息。密码将在本地存储，并且打乱为人类难以识别的状态。出于安全考"
+"虑，您应该避免这样做，因为有密码的项目会有明确标识。</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
 msgid "Web Search Keywords"
-msgstr "网络搜索关键字"
+msgstr "网页搜索关键词"
 
 #: kcms/webshortcuts/main.cpp:30
 #, kde-format
@@ -5416,14 +5437,11 @@ msgid ""
 "changed this keyboard shortcut) and enter the shortcut in the Run Command "
 "dialog."
 msgstr ""
-"<h1>增强浏览</h1>\n"
-"在此模块中，你可以配置一些 KDE 的增强浏览功能。\n"
-"\n"
-"<h2>Web 搜索关键词</h2>\n"
-"Web 搜索关键词是一种快速使用 Web 搜索引擎的方法。例如，输入“duckduckgo:"
-"frobozz”或者“dd:frobozz”，你的浏览器就会在 DuckDuckGo 上搜索“frobozz”。还可以"
-"更简单的：只需按下 Alt+F2（假设你没有改过这个快捷键）然后在运行命令对话框中使"
-"用这个快捷方式。"
+"<h1>增强浏览</h1>在此模块中，你可以配置一些 KDE 的增强浏览功能。<h2>网页搜索"
+"关键词</h2>网页搜索关键词可以帮助您快速调用网页搜索引擎。例如输入“duckduckgo:"
+"frobozz”或者“dd:frobozz”即可命令浏览器在 DuckDuckGo 上搜索“frobozz”。您也可以"
+"按下 Alt+F2 快捷键 (假设你没有改过这个快捷键)，然后在“运行命令”对话框中输入上"
+"述搜索关键词。"
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -5432,7 +5450,7 @@ msgid ""
 "has been modified. Do you want to upload the changes?"
 msgstr ""
 "文件 %1\n"
-"已经被修改。您是否想要上传更改？"
+"已被修改。您想要上传更改后的文件吗？"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -5457,7 +5475,7 @@ msgstr "无效的 URL：%1"
 #: kioexec/main.cpp:65
 #, kde-format
 msgid "File not found: %1"
-msgstr "未找到文件：%1"
+msgstr "找不到文件：%1"
 
 #: kioexec/main.cpp:82
 #, kde-format
@@ -5475,7 +5493,7 @@ msgid ""
 "not allowed with --tempfiles switch"
 msgstr ""
 "远程 URL %1\n"
-"不允许使用 --tempfiles 选项开关"
+"不能使用 --tempfiles 选项开关"
 
 #: kioexec/main.cpp:236
 #, kde-format
@@ -5485,10 +5503,10 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
-"预想的临时文件\n"
+"本应是临时文件的\n"
 "%1\n"
 "已被修改。\n"
-"您仍然想要删除它吗？"
+"您确定要删除它吗？"
 
 #: kioexec/main.cpp:239
 #, kde-format
@@ -5505,8 +5523,8 @@ msgid ""
 msgstr ""
 "文件\n"
 "%1\n"
-"已经被修改。\n"
-"您是否想要上传更改？"
+"已被修改。\n"
+"您想要上传更改后的文件吗？"
 
 #: kioexec/main.cpp:286
 #, kde-format
@@ -5516,7 +5534,8 @@ msgstr "KIOExec"
 #: kioexec/main.cpp:288
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
-msgstr "KIO Exec - 用于打开远程文件检查修改，并提示上传"
+msgstr ""
+"KIO Exec - 用于提供打开远程文件、监视文件修改情况，提示上传等功能的程序"
 
 #: kioexec/main.cpp:290
 #, kde-format
@@ -5566,12 +5585,12 @@ msgstr "要执行的命令"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "命令要用的 URL 或本地文件"
+msgstr "命令使用的 URL 或者本地文件"
 
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
 msgid "Opening connection to host %1"
-msgstr "打开到主机 %1 的连接"
+msgstr "正在打开与主机 %1 的连接"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
@@ -5586,7 +5605,7 @@ msgstr "%1 (错误 %2)"
 #: kioworkers/ftp/ftp.cpp:492
 #, kde-format
 msgid "Sending login information"
-msgstr "发送登录信息"
+msgstr "正在发送登录信息"
 
 #: kioworkers/ftp/ftp.cpp:550
 #, kde-format
@@ -5598,22 +5617,22 @@ msgid ""
 "%2\n"
 "\n"
 msgstr ""
-"发送的消息：\n"
-"登录所用的用户名=%1，密码=[隐藏]\n"
+"已发送的消息：\n"
+"登录，用户名=%1，密码=[隐藏]\n"
 "\n"
-"服务器的回应：\n"
+"服务器的回复：\n"
 "%2\n"
 "\n"
 
 #: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5289
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
-msgstr "您需要提供用户名和密码来访问这个站点。"
+msgstr "您需要提供用户名和密码来访问此网站。"
 
 #: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5291
 #, kde-format
 msgid "Site:"
-msgstr "站点："
+msgstr "网站："
 
 #: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
 #, kde-format
@@ -5645,19 +5664,19 @@ msgstr ""
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
-msgstr "您需要为以下列出的代理服务器提供用户名和密码，才能够访问站点。"
+msgstr "您需要为下面列出的代理服务器提供用户名和密码才能够访问网站。"
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
 #: kioworkers/http/http.cpp:5307
 #, kde-format
 msgid "Proxy:"
-msgstr "代理："
+msgstr "代理服务器："
 
 #: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
 #: kioworkers/http/http.cpp:5322
 #, kde-format
 msgid "Proxy Authentication Failed."
-msgstr "代理验证失败。"
+msgstr "代理服务器身份验证失败。"
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -5677,27 +5696,27 @@ msgstr "正在准备文档"
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
 #, kde-format
 msgid "The requested help file could not be parsed:<br />%1"
-msgstr "不能解析请求的帮助文件：<br />%1"
+msgstr "无法解析请求的帮助文件：<br />%1"
 
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
 msgid "Saving to cache"
-msgstr "保存到缓存"
+msgstr "正在保存到缓存"
 
 #: kioworkers/help/kio_help.cpp:253
 #, kde-format
 msgid "Using cached version"
-msgstr "使用缓存版本"
+msgstr "正在使用已缓存版本"
 
 #: kioworkers/help/kio_help.cpp:314
 #, kde-format
 msgid "Looking up section"
-msgstr "查找章节"
+msgstr "正在查找章节"
 
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "在 %2 中找不到文件名 %1。"
+msgstr "无法在 %2 中找到文件名 %1。"
 
 #: kioworkers/http/http.cpp:587
 #, kde-format
@@ -5707,7 +5726,7 @@ msgstr "没有指定主机。"
 #: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
-msgstr "否则，该请求已经成功。"
+msgstr "如果不是那样的话，该请求理应能够成功执行。"
 
 #: kioworkers/http/http.cpp:1560
 #, kde-format
@@ -5731,61 +5750,61 @@ msgstr "创建请求的文件夹"
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "复制指定的文件或文件夹"
+msgstr "复制指定的文件或者文件夹"
 
 #: kioworkers/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "移动指定的文件或文件夹"
+msgstr "移动指定的文件或者文件夹"
 
 #: kioworkers/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
-msgstr "在指定的文件夹中搜索"
+msgstr "搜索指定文件夹中的内容"
 
 #: kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "锁定指定的文件或文件夹"
+msgstr "锁定指定的文件或者文件夹"
 
 #: kioworkers/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "解锁指定的文件或文件夹"
+msgstr "解锁指定的文件或者文件夹"
 
 #: kioworkers/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "删除指定的文件或文件夹"
+msgstr "删除指定的文件或者文件夹"
 
 #: kioworkers/http/http.cpp:1587
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
-msgstr "查询服务器的能力"
+msgstr "查询服务器的功能"
 
 #: kioworkers/http/http.cpp:1590
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "获取指定的文件或文件夹的内容"
+msgstr "获取指定的文件或者文件夹的内容"
 
 #: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "在指定的文件夹中运行报告"
+msgstr "在指定的文件夹中生成报告"
 
 #: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "试图%2时发生不可预料的错误(%1)。"
+msgstr "试图%2时发生意外错误 (%1)。"
 
 #: kioworkers/http/http.cpp:1614
 #, kde-format
@@ -5798,20 +5817,20 @@ msgctxt "%1: request type, %2: url"
 msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
-msgstr "试图%1 %2 时发生错误。原因摘要如下。"
+msgstr "尝试%1，%2 时发生错误。原因摘要如下。"
 
 #: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1812
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
-msgstr "试图%1时访问被拒绝。"
+msgstr "尝试%1时访问被拒绝。"
 
 #: kioworkers/http/http.cpp:1690 kioworkers/http/http.cpp:1819
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
-msgstr "在一个或多个中介集合(文件夹)被创建后才能够在目标处创建资源。"
+msgstr "在目标位置创建中介集合 (文件夹) 之后才能创建资源。"
 
 #: kioworkers/http/http.cpp:1699
 #, kde-format
@@ -5824,25 +5843,25 @@ msgid ""
 msgstr ""
 "服务器无法保持\n"
 "propertybehavior XML 元素所列举属性的活跃性；\n"
-"也有可能是因为您试图覆盖某个文件，\n"
-"与此同时却要求不覆盖文件。\n"
+"也有可能是您正在尝试覆盖某个文件，\n"
+"但您却同时请求了不要覆盖该文件。\n"
 "%1"
 
 #: kioworkers/http/http.cpp:1707
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr "请求的锁定无法被授予。%1"
+msgstr "请求的锁定无法实行。%1"
 
 #: kioworkers/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "服务器不支持内容中的请求类型。"
+msgstr "服务器不支持请求的正文类型。"
 
 #: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
-msgstr "无法%1，因为资源被锁定了。"
+msgstr "无法%1，因为资源被已被锁定。"
 
 #: kioworkers/http/http.cpp:1722
 #, kde-format
@@ -5855,7 +5874,7 @@ msgctxt "%1: request type"
 msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
-msgstr "无法%1，因为目标服务器拒绝接收该文件或文件夹。"
+msgstr "无法%1，因为目标服务器拒绝接受该文件或者文件夹。"
 
 #: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
 #, kde-format
@@ -5879,12 +5898,12 @@ msgstr "上传%1"
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "试图%2时发生未知的错误(%1)。"
+msgstr "尝试 %2时发生意外错误 (%1)。"
 
 #: kioworkers/http/http.cpp:2659
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
-msgstr "已连接到 %1。正在等候响应..."
+msgstr "已连接到 %1。正在等待响应..."
 
 #: kioworkers/http/http.cpp:2985
 #, kde-format
@@ -5894,14 +5913,14 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
-"<p>您将要使用用户名\"%2\"登录到站点\"%1\"，但是网站并不要求进行验证。这可能是"
-"在尝试欺骗您。</p><p>\"%1\"是您想要访问的网站吗？</p>"
+"<p>您即将使用用户名“%2”登录到“%1”网站，但是该网站并不需要进行身份验证。可能有"
+"人企图骗取您的身份验证信息。</p><p>您确定“%1”是您想要访问的网站吗？</p>"
 
 #: kioworkers/http/http.cpp:2992
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
-msgstr "确认网站访问"
+msgstr "确认访问该网站"
 
 #: kioworkers/http/http.cpp:3083
 #, kde-format
@@ -5911,48 +5930,48 @@ msgstr "服务器正在处理请求，请稍候..."
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
 msgid "Sending data to %1"
-msgstr "把数据发送到 %1"
+msgstr "正在发送数据到 %1"
 
 #: kioworkers/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "正在从 %2 中获取 %1..."
+msgstr "正在从 %2 获取 %1..."
 
 #: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> 在 <b>%2</b>"
+msgstr "<b>%2</b> 的 <b>%1</b>"
 
 #: kioworkers/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
-msgstr "验证失败。"
+msgstr "身份验证失败。"
 
 #: kioworkers/http/http.cpp:5449
 #, kde-format
 msgid "Authorization failed."
-msgstr "验证失败。"
+msgstr "授权失败。"
 
 #: kioworkers/http/http.cpp:5466
 #, kde-format
 msgid "Unknown Authorization method."
-msgstr "未知的验证方法。"
+msgstr "未知的授权方法。"
 
 #: kioworkers/http/httpfilter.cpp:175
 #, kde-format
 msgid "Receiving corrupt data."
-msgstr "收到损坏的数据。"
+msgstr "正在接收损坏的数据。"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
 msgid "Cannot Save Cookies"
-msgstr "无法保存 Cookie"
+msgstr "无法保存 Cookies"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #, kde-format
 msgid "Could not remove %1, check permissions"
-msgstr "无法删除 %1，请检查权限"
+msgstr "无法移除 %1，请检查权限是否足够"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
@@ -5973,7 +5992,9 @@ msgid ""
 msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
-msgstr[0] "<p>您收到 %1 Cookie，来自<br/><b>%2%3</b><br/>接受还是拒绝？</p>"
+msgstr[0] ""
+"<p>您收到了 %1 个 Cookies，来自<br/><b>%2%3</b><br/>您想要接受还是拒绝这些 "
+"Cookies？</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:78
 #, kde-format
@@ -5984,17 +6005,17 @@ msgstr "[跨域]"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:93
 #, kde-format
 msgid "See or modify the cookie information"
-msgstr "显示或修改 Cookie 信息"
+msgstr "查看或者修改 Cookie 信息"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:98
 #, kde-format
 msgid "Accept for this &session"
-msgstr "此会话同意(&S)"
+msgstr "接受 (当次会话)(&S)"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
 msgid "Accept cookie(s) until the end of the current session"
-msgstr "在本会话结束前接受 Cookie"
+msgstr "接受 Cookies (本次会话结束后过期)"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:111
 #, kde-format
@@ -6009,7 +6030,7 @@ msgstr "拒绝(&R)"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:150
 #, kde-format
 msgid "Apply Choice To"
-msgstr "将选择应用到"
+msgstr "应用此选择到"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:153
 #, kde-format
@@ -6019,7 +6040,7 @@ msgstr "仅这个 Cookie(&O)"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:153
 #, kde-format
 msgid "&Only these cookies"
-msgstr "仅这些 Cookie(&O)"
+msgstr "仅这些 Cookies(&O)"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:158
 #, kde-format
@@ -6027,12 +6048,12 @@ msgid ""
 "Select this option to only accept or reject this cookie. You will be "
 "prompted again if you receive another cookie."
 msgstr ""
-"使用该选项来接受或拒绝这个 Cookie。在收到另外一个 Cookie 时，您会被再次提示。"
+"选择此项将仅接受或者拒绝这个 Cookie。收到另外一个 Cookie 时，程序将再次提示。"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:161
 #, kde-format
 msgid "All cookies from this do&main"
-msgstr "来自此域的全部 Cookie(&M)"
+msgstr "所有来自此域名的 Cookies(&M)"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:165
 #, kde-format
@@ -6042,13 +6063,14 @@ msgid ""
 "This policy will be permanent until you manually change it from the System "
 "Settings."
 msgstr ""
-"使用该选项来接受或拒绝来自这个网站的所有 Cookie。选择该选项会给这个 Cookie 的"
-"来源站点添加一个新策略。这个策略将一直保持，直到您在控制中心手工修改它。"
+"选择此项将接受或者拒绝来自这个网站的所有 Cookies。程序将为这个 Cookie 的来源"
+"站点添加一个新策略。该策略将在系统中长期保持，除非您在系统设置中对它进行手动"
+"修改。"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:170
 #, kde-format
 msgid "All &cookies"
-msgstr "全部 &Cookie"
+msgstr "所有 &Cookies"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:174
 #, kde-format
@@ -6057,13 +6079,13 @@ msgid ""
 "option will change the global cookie policy for all cookies until you "
 "manually change it from the System Settings."
 msgstr ""
-"使用该选项来接受或拒绝来自任何地方的 Cookie。选择该选项会修改控制中心的全局 "
-"Cookie 设置，需要手动从系统设置修改。"
+"选择此项将接受或者拒绝来自所有网站的 Cookies。这将修改所有 Cookies 的全局策"
+"略。该策略将在系统中长期保持，除非您在系统设置中对它进行手动修改。"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:240
 #, kde-format
 msgid "Cookie Details"
-msgstr "Cookie 细节"
+msgstr "Cookie 详情"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:281
 #, kde-format
@@ -6071,7 +6093,7 @@ msgctxt ""
 "@label a description string of how 'accessible' the cookie is (e.g. see "
 "exposure string in this file)"
 msgid "Exposure:"
-msgstr "曝光量："
+msgstr "有效范围："
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:289
 #, kde-format
@@ -6082,7 +6104,7 @@ msgstr "下一个(&N) >>"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:294
 #, kde-format
 msgid "Show details of the next cookie"
-msgstr "显示下一个 Cookie 的细节"
+msgstr "显示下一个 Cookie 的详情"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:322
 #, kde-format
@@ -6094,13 +6116,13 @@ msgstr "未指定"
 #, kde-format
 msgctxt "@label the cookie expires when the browser session ends"
 msgid "End of Session"
-msgstr "会话结束"
+msgstr "当次会话"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:336
 #, kde-format
 msgctxt "@label exposure string - the cookie may only be used by https servers"
 msgid "Secure servers only"
-msgstr "仅安全服务器"
+msgstr " HTTPS 服务器"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:338
 #, kde-format
@@ -6108,13 +6130,13 @@ msgctxt ""
 "@label exposure string - the cookie may be used by https servers AND client-"
 "side javascripts"
 msgid "Secure servers, page scripts"
-msgstr "安全服务器，页面脚本"
+msgstr "HTTPS 服务器、页面脚本"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:342
 #, kde-format
 msgctxt "@label exposure string - the cookie may only be used by http servers"
 msgid "Servers"
-msgstr "服务器"
+msgstr "HTTP 服务器"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:344
 #, kde-format
@@ -6122,7 +6144,7 @@ msgctxt ""
 "@label exposure string - the cookie may be used by http servers AND client-"
 "side javascripts"
 msgid "Servers, page scripts"
-msgstr "服务器，页面脚本"
+msgstr "HTTP 服务器，页面脚本"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:359
 #, kde-format
@@ -6130,7 +6152,7 @@ msgctxt ""
 "@action:button show details about a cookie that needs approval. This string "
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
-msgstr "详细信息"
+msgstr "详情"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -6140,7 +6162,7 @@ msgstr "网络"
 #: kpac/discovery.cpp:96
 #, kde-format
 msgid "Could not find a usable proxy configuration script"
-msgstr "找不到可用的代理配置脚本"
+msgstr "无法找到可用的代理服务器配置脚本"
 
 #: kpac/downloader.cpp:77
 #, kde-format
@@ -6148,13 +6170,13 @@ msgid ""
 "Could not download the proxy configuration script:\n"
 "%1"
 msgstr ""
-"无法下载代理配置脚本：\n"
+"无法下载代理服务器配置脚本：\n"
 "%1"
 
 #: kpac/downloader.cpp:79
 #, kde-format
 msgid "Could not download the proxy configuration script"
-msgstr "无法下载代理配置脚本"
+msgstr "无法下载代理服务器配置脚本"
 
 #: kpac/proxyscout.cpp:270
 #, kde-format
@@ -6162,7 +6184,7 @@ msgid ""
 "The proxy configuration script is invalid:\n"
 "%1"
 msgstr ""
-"代理配置脚本无效：\n"
+"代理服务器配置脚本无效：\n"
 "%1"
 
 #: kpac/proxyscout.cpp:384
@@ -6171,28 +6193,28 @@ msgid ""
 "The proxy configuration script returned an error:\n"
 "%1"
 msgstr ""
-"代理配置脚本返回了错误：\n"
+"代理服务器配置脚本返回了错误：\n"
 "%1"
 
 #: kpac/script.cpp:674
 #, kde-format
 msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "找不到“FindProxyForURL”或“FindProxyForURLEx”"
+msgstr "无法找到“FindProxyForURL”或者“FindProxyForURLEx”"
 
 #: kpac/script.cpp:692
 #, kde-format
 msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "调用 %1 -> %2 时得到无效的响应"
+msgstr "调用 %1 -> %2 时收到了无效回复"
 
 #: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
 msgid "Do you want to retry?"
-msgstr "您想要再试一次吗？"
+msgstr "您想要重试吗？"
 
 #: kpasswdserver/kpasswdserver.cpp:525
 #, kde-format
 msgid "Retry Authentication"
-msgstr "重试身份验证"
+msgstr "重新尝试身份验证"
 
 #: kpasswdserver/kpasswdserver.cpp:528
 #, kde-format
@@ -6213,7 +6235,7 @@ msgstr "拒绝访问"
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
 msgid "You do not have permission to access the %1 protocol."
-msgstr "您可能没有访问 %1 协议的权限。"
+msgstr "您没有访问 %1 协议的权限。"
 
 #: urifilters/ikws/ikwsopts.cpp:39
 #, kde-format
@@ -6225,13 +6247,13 @@ msgstr "名称"
 #, kde-format
 msgctxt "@title:column"
 msgid "Keywords"
-msgstr "关键字"
+msgstr "关键词"
 
 #: urifilters/ikws/ikwsopts.cpp:43
 #, kde-format
 msgctxt "@title:column"
 msgid "Preferred"
-msgstr "设为首选"
+msgstr "首选"
 
 #: urifilters/ikws/ikwsopts.cpp:102
 #, kde-kuit-format
@@ -6241,8 +6263,8 @@ msgid ""
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
-"选择此项以将高亮的 Web 搜索关键词设置为优先使用。<nl/>\n"
-"优先使用的 Web 搜索关键词将在只有少数几个关键词可以同时显示的时候使用。"
+"勾选此项时，当前选中的网页搜索关键词将被设为首选。<nl/>\n"
+"设为首选的网页搜索关键词将在只能显示少量候选关键词的场合中优先显示。"
 
 #: urifilters/ikws/ikwsopts.cpp:203
 #, kde-format
@@ -6268,11 +6290,12 @@ msgid ""
 "them into the input widget of applications that have built-in support for "
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
-"<para>您可在此模块中配置 Web 搜索关键词功能。Web 搜索关键词允许您快速地在网上"
-"搜索或查阅单词。例如，要用 Google 搜索引擎搜索关于 KDE 项目的信息，只需输入 "
-"<emphasis>gg:KDE</emphasis> 或者 <emphasis>google:KDE</emphasis>。</para>\n"
-"<para>在内置本功能支持的应用程序中（例如 Konqueror），如果您选择了默认的搜索"
-"引擎，只需在应用程序的输入部件中直接输入普通的单词或短语即可。</para>"
+"<para>您可在此模块中配置网页搜索关键词功能。网页搜索关键词可以帮助您快速调用"
+"网页搜索引擎。例如在想要使用 Google 搜索引擎搜索关于 KDE 项目的信息时，您只需"
+"输入 <emphasis>gg:KDE</emphasis> 或者 <emphasis>google:KDE</emphasis> 即可。"
+"</para>\n"
+"<para>在支持本功能的应用程序中 (例如 Konqueror)，如果您已经选择了默认搜索引"
+"擎，那么只需在程序的输入框中直接输入要搜索的单词或者句子即可。</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -6286,47 +6309,47 @@ msgid ""
 "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
 "KDE</span>.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>启用或禁用 Web 搜索关键词。</p>\n"
-"<p>Web 搜索关键词允许您快速访问或搜索在线或存储在本地的信息。</p>\n"
-"<p>KDE 有许多预定义的关键词。这样的一个关键词可以用来进行 Google (注册商标) "
-"搜索；要使用，只需输入关键词 'gg'，后面跟着关键词分隔符和要搜索的内容。例如："
+"<html><head/><body><p>启用或者禁用网页搜索关键词功能。</p>\n"
+"<p>网页搜索关键词可以帮助您快速访问、搜索本机和互联网上的信息。</p>\n"
+"<p>KDE 已经预设了一些关键词，用于调用不同的搜索引擎。例如要使用 Google 搜"
+"索“KDE”时，只需输入关键词“gg”、分隔符 (此例子中是半角冒号) 和搜索条件即可："
 "<span style=\" font-weight:600;\">gg:KDE</span>。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr "启用网页搜索关键字(&E)"
+msgstr "启用网页搜索关键词(&E)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr "仅使用首选关键字(&U)"
+msgstr "仅使用首选关键词(&U)"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
 #, kde-format
 msgid "Search for web search keywords"
-msgstr "搜索网页关键字"
+msgstr "搜索网络搜索关键词"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
 #, kde-format
 msgid "Add a new Web search keyword"
-msgstr "添加网页搜索关键字"
+msgstr "添加网页搜索关键词"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
 #, kde-format
 msgid "Modify the highlighted Web search keyword"
-msgstr "修改高亮的网页搜索关键字"
+msgstr "修改选中的网页搜索关键词"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:97
 #, kde-format
 msgid "Delete the highlighted Web search keyword"
-msgstr "删除高亮的网页搜索关键字"
+msgstr "删除选中的网页搜索关键词"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:100
@@ -6345,15 +6368,15 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"选择一个默认的搜索引擎。当您在提供自动查阅服务的输入框中输入单词或短语而并非 "
-"URL 时，将使用该引擎进行搜索。要禁用此特性，请从列表中选择<b>无</b>。\n"
+"选择一个默认的搜索引擎。支持自动搜索服务的输入框将使用此引擎来搜索那些无法被"
+"识别为 URL 的输入内容。如需禁用此功能，请从列表中选择<b>无</b>。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
 #, kde-format
 msgid "Default Web &search keyword:"
-msgstr "默认网页搜索关键字(&S)："
+msgstr "默认网页搜索关键词(&S)："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6365,11 +6388,10 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
-"<html><head/><body><p>选择默认的 Web 搜索关键词。</p>\n"
-"<p>这允许应用程序将不是 URL 的词或词组输入自动转化为 Web 搜索关键词查询。</"
-"p>\n"
-"<p>要禁用此功能，请从列表中选择 <span style=\" font-weight:600;\">无</span>。"
-"</p></body></html>"
+"<html><head/><body><p>选择默认的网页搜索关键词。</p>\n"
+"<p>程序会把无法识别成 URL 的输入内容通过默认搜索关键词进行搜索。</p>\n"
+"<p>如需禁用此功能，请从列表中选择 <span style=\" font-weight:600;\">无</"
+"span>。</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
@@ -6377,43 +6399,43 @@ msgstr ""
 msgid ""
 "Choose the delimiter that separates the keyword from the phrase or word to "
 "be searched."
-msgstr "选择区分要搜索的关键字是单词还是短语的分隔符。"
+msgstr "选择一个分隔符，它用于分隔网页搜索关键词和搜索条件。"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:185
 #, kde-format
 msgid "&Keyword delimiter:"
-msgstr "关键字分隔符(&K)："
+msgstr "关键词分隔符(&K)："
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:204
 #, kde-format
 msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "选择标记网页搜索关键字的分隔符。"
+msgstr "选择用于标识网页搜索关键词的分隔符。"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:208
 #, kde-format
 msgctxt "Colon as keyword delimiter"
 msgid "Colon"
-msgstr "分号"
+msgstr "半角冒号"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:213
 #, kde-format
 msgctxt "Space as keyword delimiter"
 msgid "Space"
-msgstr "空格"
+msgstr "半角空格"
 
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
-msgstr "未找到首选的搜索提供者。"
+msgstr "找不到首选的搜索服务提供商。"
 
 #: urifilters/ikws/kuriikwsfilter.cpp:119
 #, kde-format
 msgid "No search providers were found."
-msgstr "未找到搜索提供者。"
+msgstr "找不到搜索服务提供商。"
 
 #: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
@@ -6424,19 +6446,19 @@ msgstr "默认"
 #: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
-msgstr "编辑速搜"
+msgstr "修改网页搜索缩略词"
 
 #: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
-msgstr "新建 Web 快捷方式"
+msgstr "新建网页搜索缩略词"
 
 #: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
-msgstr "速搜关键字“%1”已经指派给“%2”。请另选一个。"
+msgstr "缩略词“%1”已分配给了“%2”。请选择一个不同的缩略词。"
 
 #: urifilters/ikws/searchproviderdlg.cpp:126
 #, kde-format
@@ -6450,7 +6472,7 @@ msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
-"下列速搜关键字已经被指派过，请另选。\n"
+"下列网页搜索缩略词已被使用，请选择不同的缩略词。\n"
 "%1"
 
 #: urifilters/ikws/searchproviderdlg.cpp:143
@@ -6460,8 +6482,8 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
-"用户查询的网址中没有出现 \\{...} 占位符。\n"
-"这意味着不管您以后输入什么样的查找字串，最后看到的都是同一个网址。"
+"此网页搜索缩略词的 URL 中不包含用于提交搜索条件的 \\{...} 占位符。\n"
+"这意味着无论您使用此缩略词输入了什么内容，得到的都是同一个网页。"
 
 #: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
@@ -6472,13 +6494,13 @@ msgstr "保留"
 #: urifilters/ikws/searchproviderdlg_ui.ui:17
 #, kde-format
 msgid "Enter the human-readable name of the search provider here."
-msgstr "在此为搜索服务网站指定您自定义的名字，方便您记忆。"
+msgstr "请为此搜索服务提供商输入一个易于理解的名称。"
 
 #. i18n: ectx: property (text), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:23
 #, kde-format
 msgid "Shortcut &name:"
-msgstr "速搜名称(&N)："
+msgstr "缩略词名称(&N)："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
@@ -6503,28 +6525,28 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"在此输入搜索服务网站上进行检索用的网址。<br/>要检索的文本可以写做 \\{@} 或者 "
-"\\{0}。<br/>\n"
-"推荐使用 \\{@}，因为它能从生成的检索字串中自动剔除所有查询变量 (name=value)，"
-"而 \\{0} 只是被一字不差地代换到检索字串中。\n"
-"<br/>您可以用 \\{1} …… \\{n} 来表示检索字串中的某个词，用 \\{name} 来表示在检"
-"索字串中由“name=value”给出的词。<br/>另外通过名字、序号、和字串来一次性指定多"
-"个词也是可以的，如 \\{name1,name2,……,“字串”}。<br/>左起最先被匹配的字串将被代"
-"换到检索字串中，形成最后的检索网址。<br/>如果在用户输入的字串中无法匹配到合适"
-"的，可用引号括起来的字串作为默认值。\n"
+"请输入用于在该搜索引擎中进行搜索的 URI。<br/>搜索条件可以使用 \\{@} 或者 "
+"\\{0} 进行指定。<br/>\n"
+"推荐使用 \\{@}，因为它在被替换为查询字串时会自动剔除所有查询变量 "
+"(name=value)，而 \\{0} 则会原封不动地被替换为完整的查询字串。<br/>您可以使用 "
+"\\{1} ... \\{n} 来指定查询中的某个词语，使用 \\{name} 来指定查询中通"
+"过“name=value”指定的值。<br/>您还可以使用 (\\{name1,name2,...,\"string\"}) 来"
+"同时指定多个搜索条件 (例如名称、数字、字串等)。<br/>从左起第一个匹配的值将在"
+"生成的 URI 中用作替代值。<br/>被半角引号包围的值将被视作默认值，如果用户输入"
+"的条件中找不到匹配项，程序将使用该默认值进行查询。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbQuery)
 #: urifilters/ikws/searchproviderdlg_ui.ui:48
 #, kde-format
 msgid "Shortcut &URL:"
-msgstr "速搜网址(&U)："
+msgstr "缩略词 URL(&U)："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
-msgstr "选择您在查找字串中使用的文字编码字符集。"
+msgstr "请选择用于为搜索查询字串进行编码的字符集。"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
@@ -6541,8 +6563,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"在此输入的捷径可以在 KDE 中作为假网址来使用。 例如，捷径 <b>av</b> 的用法就"
-"是 <b>av</b>:<b>我的搜索</b>\n"
+"在此输入的缩略词可在 KDE 中作为伪 URI 方案使用。例如缩略词 <b>av</b> 可以通"
+"过 <b>av</b>:<b>搜索条件</b> 进行调用\n"
 "</qt>"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
@@ -6553,19 +6575,20 @@ msgstr ""
 msgid ""
 "<html><head/><body><p>Enter the human-readable name of the web shortcut here."
 "</p></body></html>"
-msgstr "<html><head/><body><p>在此为速搜指定您自定义的名字。</p></body></html>"
+msgstr ""
+"<html><head/><body><p>请为此缩略词输入一个易于理解的名称。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbShortcut)
 #: urifilters/ikws/searchproviderdlg_ui.ui:119
 #, kde-format
 msgid "&Shortcuts:"
-msgstr "速搜关键字(&S)："
+msgstr "缩略词(&S)："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:132
 #, kde-format
 msgid "Select the character set that will be used to encode your search query"
-msgstr "选择用于编码搜索查询的字符集"
+msgstr "请选择用于为搜索查询字串进行编码的字符集。"
 
 #. i18n: ectx: property (text), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
@@ -6587,12 +6610,12 @@ msgstr "<qt><b>%1</b> 没有主文件夹。</qt>"
 #: urifilters/shorturi/kshorturifilter.cpp:253
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
-msgstr "<qt>没有叫做 <b>%1</b> 的用户。</qt>"
+msgstr "<qt>没有名为 <b>%1</b> 的用户。</qt>"
 
 #: widgets/accessmanager.cpp:196
 #, kde-format
 msgid "Blocked request."
-msgstr "已屏蔽的请求。"
+msgstr "请求已被阻止。"
 
 #: widgets/accessmanager.cpp:267
 #, kde-format
@@ -6609,7 +6632,7 @@ msgstr "通用名称："
 #: widgets/certificateparty.ui:38
 #, kde-format
 msgid "Acme Co."
-msgstr "Acme Co."
+msgstr "江南皮革厂"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationTag)
 #: widgets/certificateparty.ui:48
@@ -6621,43 +6644,43 @@ msgstr "组织："
 #: widgets/certificateparty.ui:58
 #, kde-format
 msgid "Acme Sundry Products Company"
-msgstr "Acme 杂货公司"
+msgstr "江南皮革有限公司"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
 #: widgets/certificateparty.ui:68
 #, kde-format
 msgid "Organizational unit:"
-msgstr "组织单位："
+msgstr "组织内部单位："
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
 #: widgets/certificateparty.ui:78
 #, kde-format
 msgid "Fraud Department"
-msgstr "Fraud 部门"
+msgstr "财务部"
 
 #. i18n: ectx: property (text), widget (QLabel, countryTag)
 #: widgets/certificateparty.ui:88
 #, kde-format
 msgid "Country:"
-msgstr "国家："
+msgstr "国家/地区："
 
 #. i18n: ectx: property (text), widget (QLabel, country)
 #: widgets/certificateparty.ui:98
 #, kde-format
 msgid "Canada"
-msgstr "加拿大"
+msgstr "中国"
 
 #. i18n: ectx: property (text), widget (QLabel, stateTag)
 #: widgets/certificateparty.ui:108
 #, kde-format
 msgid "State:"
-msgstr "州："
+msgstr "州/省："
 
 #. i18n: ectx: property (text), widget (QLabel, state)
 #: widgets/certificateparty.ui:118
 #, kde-format
 msgid "Quebec"
-msgstr "魁北克"
+msgstr "浙江"
 
 #. i18n: ectx: property (text), widget (QLabel, cityTag)
 #: widgets/certificateparty.ui:128
@@ -6669,7 +6692,7 @@ msgstr "城市："
 #: widgets/certificateparty.ui:138
 #, kde-format
 msgid "Lakeridge Meadows"
-msgstr "Lakeridge 牧场"
+msgstr "温州"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/checksumswidget.ui:17
@@ -6678,7 +6701,7 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"复制粘贴校验和到下面的输入框。<br/>校验和通常是由下载文件来源网站提供。"
+"请将校验和复制粘贴到下面的输入框。<br/>校验和通常由下载文件的来源网站提供。"
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
@@ -6691,7 +6714,7 @@ msgstr "预期的校验和 (MD5，SHA1，SHA256 或 SHA512)..."
 #: widgets/checksumswidget.ui:36
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
-msgstr "点击来从剪贴板粘贴校验和到输入框中。"
+msgstr "点击以将剪贴板中的校验粘贴到输入框中。"
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
@@ -6741,7 +6764,7 @@ msgstr "计算"
 #: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "点击来复制校验和到剪贴板。"
+msgstr "点击以将校验和复制到剪贴板。"
 
 #: widgets/dropjob.cpp:181
 #, kde-format
@@ -6766,7 +6789,7 @@ msgstr "链接到此位置(&L)"
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
 msgid "What do you wish to do with this file?"
-msgstr "您想要对这个文件做什么？"
+msgstr "您想要对此文件进行什么操作？"
 
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
@@ -6867,8 +6890,8 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
-"文件 %1 复制自 %2，不过它似乎已于 %3 时被修改过。\n"
-"撤销复制操作将会删除该文件，所有的修改都将丢失。\n"
+"文件 %1 是之前从 %2 复制的，但是它在复制之后已于 %3 被修改过。\n"
+"撤销该复制操作将会删除该文件，所有的修改都将丢失。\n"
 "您确定要删除 %4 吗？"
 
 #: widgets/fileundomanager.cpp:736
@@ -6884,14 +6907,14 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"您真的想永久删除此项吗？<nl/><filename>%1</filename><nl/><nl/><emphasis "
+"您确定要彻底删除这个项目吗？<nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
 #: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
-msgstr "永久删除"
+msgstr "彻底删除"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
@@ -6899,7 +6922,7 @@ msgstr "永久删除"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "永久删除"
+msgstr "彻底删除"
 
 #: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
@@ -6911,8 +6934,8 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"您真的想永久删除这 %1 项吗？<nl/><nl/><emphasis strong='true'>此操作无法撤"
-"销。</emphasis>"
+"您确定要彻底删除这 %1 个项目吗？<nl/><nl/><emphasis strong='true'>此操作无法"
+"撤销。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
@@ -6921,7 +6944,7 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"您确定要永久删除回收站中的所有项目吗？<nl/><nl/><emphasis strong='true'>此操"
+"您确定要彻底删除回收站中的所有项目吗？<nl/><nl/><emphasis strong='true'>此操"
 "作无法撤销。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
@@ -6936,18 +6959,18 @@ msgctxt "@info"
 msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
-msgstr "您确定要将此项移动到回收站吗？<nl/><filename>%1</filename>"
+msgstr "您确定要将这个项目移动到回收站吗？<nl/><filename>%1</filename>"
 
 #: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "您确定要将 %1 个项目移动到回收站吗？"
+msgstr[0] "您确定要将这 %1 个项目移动到回收站吗？"
 
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr "对端的 SSL 证书链似乎已损坏。"
+msgstr "对端的 SSL 证书链似乎已经损坏。"
 
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
@@ -6982,7 +7005,7 @@ msgstr "所有者"
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
-msgstr "所属组"
+msgstr "所有组"
 
 #: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
 #, kde-format
@@ -7015,7 +7038,7 @@ msgstr "编辑 ACL 项目"
 #: widgets/kacleditwidget.cpp:387
 #, kde-format
 msgid "Entry Type"
-msgstr "项类型"
+msgstr "项目类型"
 
 #: widgets/kacleditwidget.cpp:393
 #, kde-format
@@ -7030,7 +7053,7 @@ msgstr "所有者"
 #: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
-msgstr "所属组"
+msgstr "所有组"
 
 #: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2139
 #, kde-format
@@ -7050,7 +7073,7 @@ msgstr "命名用户"
 #: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
-msgstr "具名分组"
+msgstr "命名用户组"
 
 #: widgets/kacleditwidget.cpp:443
 #, kde-format
@@ -7060,7 +7083,7 @@ msgstr "用户："
 #: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
-msgstr "分组："
+msgstr "用户组："
 
 #: widgets/kacleditwidget.cpp:595
 #, kde-format
@@ -7098,12 +7121,12 @@ msgstr "生效"
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating System Configuration"
-msgstr "更新系统配置"
+msgstr "正在更新系统配置"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating system configuration."
-msgstr "更新系统配置。"
+msgstr "正在更新系统配置。"
 
 #: widgets/kdesktopfileactions.cpp:77
 #, kde-format
@@ -7112,8 +7135,8 @@ msgid ""
 "%1\n"
 "is unknown."
 msgstr ""
-"桌面项的类型\n"
-"%1\n"
+"类型 %1\n"
+"的桌面项目\n"
 "未知。"
 
 #: widgets/kdesktopfileactions.cpp:95 widgets/kdesktopfileactions.cpp:170
@@ -7126,7 +7149,7 @@ msgid ""
 msgstr ""
 "桌面项目文件\n"
 "%1\n"
-"是文件系统设备类型，但是没有包含 Dev=... 项目。"
+"的类型是 FSDevice，但是它没有包含 Dev=... 项目。"
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7172,7 +7195,7 @@ msgstr "所有者"
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
-msgstr "分组"
+msgstr "所有组"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format
@@ -7183,7 +7206,7 @@ msgstr "类型"
 #: widgets/kfileitemactions.cpp:428
 #, kde-format
 msgid "Open &with %1"
-msgstr "用 %1 打开(&W)"
+msgstr "使用 %1 打开(&W)"
 
 #: widgets/kfileitemactions.cpp:430
 #, kde-format
@@ -7217,7 +7240,7 @@ msgstr "用 %1 打开文件夹(&O)"
 #: widgets/kfileitemactions.cpp:889
 #, kde-format
 msgid "&Open with %1"
-msgstr "用 %1 打开(&O)"
+msgstr "使用 %1 打开(&O)"
 
 #: widgets/kfileitemactions.cpp:922
 #, kde-format
@@ -7242,7 +7265,7 @@ msgstr "其他应用程序(&O)..."
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
-msgstr[0] "%1 项"
+msgstr[0] "%1 个项目"
 
 #: widgets/kfileitemdelegate.cpp:264 widgets/kfileitemdelegate.cpp:268
 #, kde-format
@@ -7362,25 +7385,25 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>选择用来打开 <b>%1</b> 的程序。如果程序未列出，输入程序名称或单击浏览按"
-"钮。</qt>"
+"<qt>选择用来打开 <b>%1</b> 的程序。如果您想使用的程序没有列出，请输入程序名称"
+"或者点击浏览按钮。</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr "选择用来打开文件的程序名。"
+msgstr "选择用来打开文件的程序名称。"
 
 #: widgets/kopenwithdialog.cpp:589
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
-msgstr "<qt>选择用于打开文件的程序<br/>%1</qt>"
+msgstr "<qt>选择用于打开这个文件的程序<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:591
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
-msgstr[0] "<qt>选择用于打开 %1 个文件的程序。</qt>"
+msgstr[0] "<qt>选择用于打开这 %1 个文件的程序。</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -7390,7 +7413,7 @@ msgstr "选择应用程序"
 #: widgets/kopenwithdialog.cpp:611
 #, kde-format
 msgid "Choose Application for %1"
-msgstr "选择用于 %1 的程序"
+msgstr "选择用于打开 %1 的应用程序"
 
 #: widgets/kopenwithdialog.cpp:613
 #, kde-format
@@ -7398,8 +7421,8 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>选择打开文件类型<b>%1</b>使用的程序。如果要使用的程序没有列出，输入程序名"
-"称或单击浏览按钮。</qt>"
+"<qt>选择用于打开 <b>%1</b> 文件类型的程序。如果您想使用的程序没有列出，请输入"
+"程序名称或者点击浏览按钮。</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
@@ -7407,14 +7430,17 @@ msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr ""
-"<qt>选择程序。如果要使用的程序没有列出，输入程序名称或单击浏览按钮。</qt>"
+"<qt>选择一款程序。如果您想使用的程序没有列出，请输入程序名称或者点击浏览按"
+"钮。</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
-msgstr "键入以筛选下面的应用程序，或者指定命令的名字。"
+msgstr ""
+"在此输入内容即可筛选下面的应用程序，您也可以直接指定一个命令名称。\n"
+"按方向键可以浏览筛选结果。"
 
 #: widgets/kopenwithdialog.cpp:698
 #, kde-format
@@ -7432,12 +7458,12 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
-"您可以在命令后面跟上几个占位符，程序运行时这些占位符将会替换为实际的值：\n"
+"您可以在命令后面附加一些占位符。程序运行时，这些占位符将被替换为实际的值：\n"
 "%f - 单个文件名\n"
 "%F - 文件列表；用于可同时打开多个本地文件的应用程序\n"
 "%u - 单个 URL\n"
 "%U - URL 列表\n"
-"%d - 要打开的文件所在目录\n"
+"%d - 要打开的文件的所在目录\n"
 "%D - 目录列表\n"
 "%i - 图标\n"
 "%m - 小图标\n"
@@ -7448,14 +7474,14 @@ msgstr ""
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
-msgstr "记住所有“%1”(%2)文件类型的应用程序关联(&R)"
+msgstr "记住“%1” (%2) 文件类型的应用程序关联(&R)"
 
 #: widgets/kopenwithdialog.cpp:743
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
-msgstr "记住所有“%1”文件类型的应用程序关联(&R)"
+msgstr "记住“%1”文件类型的应用程序关联(&R)"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7470,25 +7496,25 @@ msgstr "在终端中运行(&T)"
 #: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr "命令退出时不关闭(&D)"
+msgstr "命令退出时不关闭终端(&D)"
 
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr "从 Discover 获取更多应用"
+msgstr "使用 Discover 获取更多应用"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
-msgstr "无法从“%1”展开可执行文件名，请输入一个有效的程序名。"
+msgstr "无法从“%1”提取可执行名称，请输入一个有效的程序名称。"
 
 #: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "<filename>%1</filename> 似乎并不是一个可执行程序。"
+msgstr "<filename>%1</filename> 不是一个可执行程序。"
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7496,7 +7522,7 @@ msgctxt "@info"
 msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
-msgstr "<filename>%1</filename> 未找到；请输入一个可执行程序的有效路径。"
+msgstr "找不到 <filename>%1</filename>；请输入一个可执行程序的有效路径。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -7515,8 +7541,8 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"如果您想要运行的应用程序是文本模式应用程序，或者您需要的信息由终端模拟窗口所"
-"提供，请选中此选项。"
+"如果您想要运行的是文本模式程序，或者您想要读取程序在终端模式下运行时的信息，"
+"请勾选此项。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:54
@@ -7538,14 +7564,14 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"如果文本模式应用程序在退出时提供相关信息，请选中此选项。保持终端模拟器打开可"
-"允许您获取此信息。"
+"如果文本模式程序在退出时会输出相关信息，请勾选此项。这将保持终端模拟器处于打"
+"开状态，以便您获取这些信息。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, kde-format
 msgid "Do not close when command exits"
-msgstr "命令退出时不关闭"
+msgstr "命令退出时不关闭终端"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
 #: widgets/kpropertiesdesktopadvbase.ui:87
@@ -7566,20 +7592,20 @@ msgid ""
 "required to use this option."
 msgstr ""
 "如果您想要以不同的用户 ID 运行此应用程序，请勾选此项。每个进程都有一个与之关"
-"联的独立用户 ID。此 ID 用于确定文件访问权限以及和其他权限。您必须提供该用户的"
-"密码才能使用此选项。"
+"联的独立用户 ID。此 ID 用于确定文件访问权限和其他权限。使用此选项时您必须提供"
+"该用户的密码。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
 #, kde-format
 msgid "Run as a different user"
-msgstr "以不同的用户运行"
+msgstr "以其他用户身份运行"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:119
 #, kde-format
 msgid "Enter the user name you want to run the application as."
-msgstr "输入您想要以何用户名的身份运行此应用程序。"
+msgstr "输入您想要用来运行此应用程序的用户名。"
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:122
@@ -7591,19 +7617,19 @@ msgstr "用户名："
 #: widgets/kpropertiesdesktopadvbase.ui:132
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
-msgstr "在此输入您想要以何用户名的身份运行此应用程序。"
+msgstr "在此输入您想要用来运行此应用程序的用户名。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
 #: widgets/kpropertiesdesktopadvbase.ui:142
 #, kde-format
 msgid "Discrete GPU"
-msgstr "专用 GPU"
+msgstr "独立显卡"
 
 #. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "使用专门的显卡运行"
+msgstr "使用独立显卡运行"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -7621,14 +7647,14 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"如果您想要更清楚地了解您应用程序的启动过程，请选中此选项。此视觉反馈可能显示"
-"为忙光标，也可能在任务栏中有所体现。"
+"勾选此项后，应用程序会在启动时显示视觉反馈。视觉反馈可以是一个等待光标，也可"
+"以是任务栏动效。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr "启用加载反馈"
+msgstr "启用启动动效"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -7637,9 +7663,7 @@ msgstr "启用加载反馈"
 msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
-msgstr ""
-"在此输入您想要为此应用程序起的名字。此应用程序将以此名称出现在应用程序菜单和"
-"面板中。"
+msgstr "在此输入此应用程序的名称。应用菜单和面板将使用此名称来显示它。"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -7649,7 +7673,8 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "a dial up application (KPPP) would be \"Dial up tool\"."
 msgstr ""
-"在此根据用途输入此应用程序的描述。例如：拨号应用程序(KPPP)可能是“拨号工具”。"
+"在此输入此应用程序的用途描述。例如一款数字绘画程序 (如 Krita) 的用途描述可以"
+"是“绘画程序”。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:45
@@ -7662,7 +7687,7 @@ msgstr "描述(&D)："
 #: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
 #, kde-format
 msgid "Type any comment you think is useful here."
-msgstr "在此输入您认为有用的注释。"
+msgstr "在此输入您觉得有用的任意注释。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:65
@@ -7694,13 +7719,12 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"在此输入启动此应用程序的命令。\n"
+"在此输入用于启动此应用程序的命令。\n"
 "\n"
-"在命令的后面，您可以使用一些占位符，在实际运行程序的时候会将这些占位符替换成"
-"对应的值：\n"
+"您可以在命令后面附加一些占位符。程序运行时，这些占位符将被替换为实际的值：\n"
 "\n"
 "%f - 单个文件名\n"
-"%F - 文件列表；用于一次可打开多个本地文件的应用程序\n"
+"%F - 文件列表；用于可同时打开多个本地文件的应用程序\n"
 "%u - 单个 URL\n"
 "%U - URL 列表\n"
 "%i - .desktop 文件的图标\n"
@@ -7719,7 +7743,7 @@ msgstr "程序："
 msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
-msgstr "单击此处可在您的文件系统中浏览，以便找到想要的可执行文件。"
+msgstr "点击此处可在您的文件系统中浏览，以便找到您想使用的可执行程序。"
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:140
@@ -7732,7 +7756,7 @@ msgstr "浏览(&B)..."
 #: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "设置您应用程序的工作目录。"
+msgstr "设置此应用程序的工作目录。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:152
@@ -7766,15 +7790,16 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>在此选择您的应用程序可处理的一种或多种文件类型。此列表是按照 <u>MIME "
-"类型</u>组织的。</p>\n"
-"<p>MIME——多用途网际邮件扩展——是一种用来根据文件扩展名和相应的 <u>MIME 类型</"
-"u>来标识数据类型的标准协议。例如：flower.bmp 中句点后面的“bmp”部分表明了这是"
-"一种图像 <u>image/x-bmp</u>。要哪个应用程序应该打开哪种类型的文件，您系统通知"
-"系统每个应用程序可处理哪些扩展名和 MIME 类型。</p>\n"
-"<p>如果您想要将此应用程序与一种或多种未在列表中出现的 MIME 类型关联起来，请单"
-"击下面的<b>添加</b>按钮。如果此应用程序有一种或多种文件类型，您可以使用下面的"
-"<b>删除</b>按钮从列表中予以删除。</p></qt>"
+"<qt><p>此列表显示了此应用程序能够处理的文件类型。它按照 <u>MIME 类型</u>进行"
+"排序。</p>\n"
+"<p>MIME 是 Multipurpose Internet Mail Extension (多用途互联网邮件扩展) 的缩"
+"写。它是一种根据文件扩展名及其对应的 <u>MIME 类型</u>来识别数据类型的标准协"
+"议。例如：文件名 flower.bmp 中位于半角句点之后的“bmp”表明此文件是一种图像，它"
+"的类型是 <u>image/x-bmp</u>。应用程序会向系统报告它能够处理的扩展名和 MIME 类"
+"型，以便系统将它们关联到对应的文件类型。</p>\n"
+"<p>如果您想要关联到此应用程序的 MIME 类型不在此列表中，请点击下面的<b>添加</"
+"b>按钮来添加它们。如果此应用程序无法处理此列表中的某些 MIME 类型，请点击<b>移"
+"除</b>按钮来移除它们。</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:189
@@ -7800,7 +7825,7 @@ msgstr "描述"
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
-msgstr "如果您想要为您的应用程序可处理的文件类型(MIME 类型)，请单击此按钮。"
+msgstr "如果您想要添加此应用程序能够处理的文件类型 (MIME 类型)，请点击此按钮。"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:238
@@ -7815,14 +7840,14 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"如果您想要删除某种您应用程序无法处理的文件类型(MIME 类型)，请在上面的列表中选"
-"择该 MIME 类型，然后单击此按钮。"
+"如果您想要移除此应用程序无法处理的文件类型 (MIME 类型)，请在上面的列表中选择"
+"该 MIME 类型，然后点击此按钮。"
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Remove"
-msgstr "删除"
+msgstr "移除"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:271
@@ -7831,7 +7856,8 @@ msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
 "Bus options or to run it as a different user."
 msgstr ""
-"单击此处修改应用程序运行的方式，执行反馈，D-Bus 选项或者以不同的用户运行。"
+"点击此处修改此应用程序的运行方式、启动动效、D-Bus 选项，或者以其他用户身份运"
+"行它。"
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:274
@@ -7892,7 +7918,7 @@ msgstr "%1："
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "共 %2，剩余 %1 (已用 %3%)"
+msgstr "总共 %2，剩余 %1 (已用 %3%)"
 
 #: widgets/kpropertiesdialog.cpp:1362
 #, kde-format
@@ -7906,7 +7932,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"正在计算...%1 (%2)\n"
+"正在计算... %1 (%2)\n"
 "%3，%4"
 
 #: widgets/kpropertiesdialog.cpp:1375 widgets/kpropertiesdialog.cpp:1390
@@ -7939,12 +7965,12 @@ msgstr "新文件名为空。"
 #: widgets/kpropertiesdialog.cpp:1671
 #, kde-format
 msgid "No registered file type"
-msgstr "未注册的文件类型"
+msgstr "没有已注册的文件类型"
 
 #: widgets/kpropertiesdialog.cpp:1673
 #, kde-format
 msgid "No associated application"
-msgstr "没有关联的应用程序"
+msgstr "没有已关联的应用程序"
 
 #: widgets/kpropertiesdialog.cpp:1679
 #, kde-format
@@ -7965,27 +7991,27 @@ msgstr "禁止访问"
 
 #: widgets/kpropertiesdialog.cpp:1758
 msgid "Can Only View"
-msgstr "只可查看"
+msgstr "可查看"
 
 #: widgets/kpropertiesdialog.cpp:1758
 msgid "Can View & Modify"
-msgstr "可查看和修改"
+msgstr "可查看、修改"
 
 #: widgets/kpropertiesdialog.cpp:1759
 msgid "Can Only View Content"
-msgstr "只可查看内容"
+msgstr "可查看内容"
 
 #: widgets/kpropertiesdialog.cpp:1759
 msgid "Can View & Modify Content"
-msgstr "可查看和修改内容"
+msgstr "可查看、修改内容"
 
 #: widgets/kpropertiesdialog.cpp:1761
 msgid "Can Only View/Read Content"
-msgstr "只能查看/读取内容"
+msgstr "可查看/读取内容"
 
 #: widgets/kpropertiesdialog.cpp:1761
 msgid "Can View/Read & Modify/Write"
-msgstr "可查看/读取并修改/写入内容"
+msgstr "可查看/读取、修改/写入内容"
 
 #: widgets/kpropertiesdialog.cpp:1860
 #, kde-format
@@ -8016,17 +8042,17 @@ msgstr "所有者(&W)："
 #: widgets/kpropertiesdialog.cpp:1893
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr "指定所有者可执行的操作。"
+msgstr "指定允许所有者执行的操作。"
 
 #: widgets/kpropertiesdialog.cpp:1895
 #, kde-format
 msgid "Gro&up:"
-msgstr "用户组(&U)："
+msgstr "所有组(&U)："
 
 #: widgets/kpropertiesdialog.cpp:1901
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
-msgstr "指定所有者所在用户组成员可执行的操作。"
+msgstr "指定允许所有组用户执行的操作。"
 
 #: widgets/kpropertiesdialog.cpp:1903
 #, kde-format
@@ -8038,12 +8064,12 @@ msgstr "其他(&T)："
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
-msgstr "指定所有者和其所在用户组成员之外的所有其他用户可执行的操作。"
+msgstr "指定允许其他用户 (所有者和所有组成员之外的所有用户) 执行的操作。"
 
 #: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
-msgstr "只有所有者可以重命名并删除文件夹内容(&E)"
+msgstr "只允许所有者重命名、删除文件夹内容(&E)"
 
 #: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
@@ -8057,8 +8083,8 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"勾选此选项后，将允许文件夹所有者删除或重命名此文件夹中的文件和子文件夹。其他"
-"用户在具备“修改内容”权限的前提下，可添加新文件。"
+"勾选此项后，只有文件夹的所有者才能重命名、删除此文件夹中的文件和子文件夹。具"
+"备“修改内容”权限的用户只能新增文件。"
 
 #: widgets/kpropertiesdialog.cpp:1921
 #, kde-format
@@ -8066,7 +8092,8 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"勾选此选项后，将把此文件标为可执行。如果您要执行程序和脚本，必须勾选此项。"
+"勾选此项后，此文件将被标记为可执行。程序和脚本必须勾选此项才能执行。您不应在"
+"程序和脚本之外的文件上勾选此项。"
 
 #: widgets/kpropertiesdialog.cpp:1928
 #, kde-format
@@ -8142,8 +8169,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用粘性标记加以限"
-"制。"
+"此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用“粘性”标记加以"
+"限制。"
 
 #: widgets/kpropertiesdialog.cpp:2098
 #, kde-format
@@ -8186,14 +8213,14 @@ msgstr "特殊"
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
-msgstr "特殊标记。对整个文件夹有效，您可在右栏中查看标记的具体含义。"
+msgstr "特殊标记。对整个文件夹有效，您可以在右侧一列中查看该标记的具体含义。"
 
 #: widgets/kpropertiesdialog.cpp:2126
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
-msgstr "特殊标志。您可在右栏中查看标志的具体含义。"
+msgstr "特殊标记。您可以在右侧一列中查看该标记的具体含义。"
 
 #: widgets/kpropertiesdialog.cpp:2131
 #, kde-format
@@ -8210,7 +8237,7 @@ msgstr "用户组"
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
-msgstr "勾选此标记后，此文件夹的所有者也将是所有新文件的所有者。"
+msgstr "勾选此标记后，此文件夹的所有者将成为所有新文件的所有者。"
 
 #: widgets/kpropertiesdialog.cpp:2150
 #, kde-format
@@ -8223,14 +8250,14 @@ msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
-msgstr "勾选此标记后，此文件夹的用户组将被设置为所有新文件的用户组。"
+msgstr "勾选此标记后，此文件夹的所有组将成为所有新文件的所有组。"
 
 #: widgets/kpropertiesdialog.cpp:2161
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
-msgstr "勾选此标记后，如果此文件是可执行文件，它将以用户组的权限执行。"
+msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有组的权限执行。"
 
 #: widgets/kpropertiesdialog.cpp:2168
 #, kde-format
@@ -8238,15 +8265,16 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"勾选文件夹的粘性标记后，只有所有者和根用户可以删除或重命名文件。不勾选时，拥"
-"有写入权限的所有用户均可删除或重命名文件。"
+"勾选文件夹的“粘性”标记后，只有所有者和根用户可以删除或者重命名文件。不勾选"
+"时，拥有写入权限的所有用户均可删除或者重命名文件。"
 
 #: widgets/kpropertiesdialog.cpp:2173
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
-msgstr "文件的粘性标志在 Linux 环境中已被忽略，但是其他系统可能正在使用它们。"
+msgstr ""
+"文件的“粘性”标记在 Linux 系统中会被忽略，但是它们可能会在其他系统中生效"
 
 #: widgets/kpropertiesdialog.cpp:2234
 #, kde-format
@@ -8313,18 +8341,18 @@ msgstr "无效的校验和。"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
-msgstr "输入的内容并非有效的 MD5，SHA1 或者 SHA256 校验和。"
+msgstr "输入的内容并非有效的 MD5、SHA1 或者 SHA256 校验和。"
 
 #: widgets/kpropertiesdialog.cpp:3030
 #, kde-format
 msgid "Checksums match."
-msgstr "校验和相符。"
+msgstr "校验和一致。"
 
 #: widgets/kpropertiesdialog.cpp:3033
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
-msgstr "计算出的校验和与预期的校验和相符。"
+msgstr "计算出的校验和与预期的校验和一致。"
 
 #: widgets/kpropertiesdialog.cpp:3045
 #, kde-format
@@ -8333,14 +8361,14 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
-"<p>校验和不相符。</p>这可能是因为下载的文件包含错误。请尝试重新下载文件。<br/"
-">如果验证仍然失败，请与文件来源方联系。"
+"<p>校验和不一致。</p>这可能是因为文件在下载过程中发生了错误。请尝试重新下载该"
+"文件。<br/>如果仍然无法通过一致性验证，请联系该文件的提供者。"
 
 #: widgets/kpropertiesdialog.cpp:3050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
-msgstr "计算出的校验和与预期的校验和不符。"
+msgstr "计算出的校验和与预期的校验和不一致。"
 
 #: widgets/kpropertiesdialog.cpp:3058
 #, kde-format
@@ -8362,7 +8390,7 @@ msgstr "URL："
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
-msgstr "无法保存属性。只支持保存到本机文件系统上的项目。"
+msgstr "无法保存属性。只支持本地文件系统中的项目。"
 
 #: widgets/kpropertiesdialog.cpp:3296
 #, kde-format
@@ -8372,17 +8400,17 @@ msgstr "应用程序(&A)"
 #: widgets/kpropertiesdialog.cpp:3451
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "为 %1 添加文件类型"
+msgstr "添加文件类型到 %1"
 
 #: widgets/kpropertiesdialog.cpp:3452
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "选择要添加的一个或多个文件类型："
+msgstr "选择要添加的文件类型："
 
 #: widgets/kpropertiesdialog.cpp:3594
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "只支持本机文件系统上的可执行文件。"
+msgstr "只支持本地文件系统中的可执行文件。"
 
 #: widgets/kpropertiesdialog.cpp:3609
 #, kde-format
@@ -8394,12 +8422,12 @@ msgstr "%1 的高级选项"
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
 "not exist.</qt>"
-msgstr "<qt>无法运行指定的命令。文件或文件夹 <b>%1</b> 不存在。</qt>"
+msgstr "<qt>无法运行指定的命令。文件或者文件夹 <b>%1</b> 不存在。</qt>"
 
 #: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
-msgstr "无法找到可以处理 %1 的应用程序或处理器"
+msgstr "无法找到可以处理 %1 的应用程序或者处理程序"
 
 #: widgets/ksslinfodialog.cpp:39
 #, kde-format
@@ -8410,54 +8438,54 @@ msgstr "KDE SSL 信息"
 #, kde-format
 msgctxt "The receiver of the SSL certificate"
 msgid "Subject"
-msgstr "主体"
+msgstr "颁发对象"
 
 #: widgets/ksslinfodialog.cpp:51
 #, kde-format
 msgctxt "The authority that issued the SSL certificate"
 msgid "Issuer"
-msgstr "颁发者"
+msgstr "颁发机构"
 
 #: widgets/ksslinfodialog.cpp:83
 #, kde-format
 msgid "Current connection is secured with SSL."
-msgstr "当前连接使用安全的 SSL。"
+msgstr "当前连接使用了 SSL 来确保安全。"
 
 #: widgets/ksslinfodialog.cpp:87
 #, kde-format
 msgid ""
 "The main part of this document is secured with SSL, but some parts are not."
-msgstr "该文档的主要部分使用安全的 SSL，但是某些部分没有使用。"
+msgstr "此文档的主体部分使用了 SSL 来确保安全，但是它的某些部分并未使用 SSL。"
 
 #: widgets/ksslinfodialog.cpp:94
 #, kde-format
 msgid "Some of this document is secured with SSL, but the main part is not."
-msgstr "该文档的某些部分使用安全的 SSL，但是主要部分没有使用。"
+msgstr "此文档的某些部分使用了 SSL 来确保安全，但是它的主体部分并未使用 SSL。"
 
 #: widgets/ksslinfodialog.cpp:98
 #, kde-format
 msgid "Current connection is not secured with SSL."
-msgstr "当前连接没有使用安全的 SSL。"
+msgstr "当前连接并未使用 SSL 来确保安全。"
 
 #: widgets/ksslinfodialog.cpp:166
 #, kde-format
 msgctxt "%1, using %2 bits of a %3 bit key"
 msgid "%1, %2 %3"
-msgstr "%1，%2 %3"
+msgstr "%1，%3 %2"
 
 #: widgets/ksslinfodialog.cpp:168
 #, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] "使用 %1 位"
+msgstr[0] "中的 %1 位"
 
 #: widgets/ksslinfodialog.cpp:169
 #, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
-msgstr[0] "于 %1 位密钥"
+msgstr[0] "使用 %1 位密钥"
 
 #: widgets/ksslinfodialog.cpp:184
 #, kde-format
@@ -8491,7 +8519,7 @@ msgstr "%1"
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "配置网页快捷方式..."
+msgstr "配置网页搜索缩略词..."
 
 #: widgets/kurlrequester.cpp:351
 #, kde-format
@@ -8501,7 +8529,7 @@ msgstr "打开文件对话框"
 #: widgets/paste.cpp:100 widgets/paste.cpp:149 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr "用于剪贴板内容的文件名："
+msgstr "剪贴板内容的文件名："
 
 #: widgets/paste.cpp:141
 #, kde-format
@@ -8514,8 +8542,8 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
-"剪贴板自您使用“粘贴”之后已经发生了更改：所选的数据格式无法再接受。请再次复制"
-"您想要粘贴的内容。"
+"剪贴板中的内容在上次“粘贴”之后已经改变：所选的数据格式不再适用。请重新复制您"
+"想要粘贴的内容。"
 
 #: widgets/paste.cpp:291
 #, kde-format
@@ -8538,13 +8566,13 @@ msgstr "粘贴剪贴板内容(&P)"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "粘贴一个文件夹"
+msgstr "粘贴 1 个文件夹"
 
 #: widgets/paste.cpp:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "粘贴一个文件"
+msgstr "粘贴 1 个文件"
 
 #: widgets/paste.cpp:333
 #, kde-format
@@ -8573,7 +8601,7 @@ msgstr "数据格式："
 #: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr "拖曳内容的文件名："
+msgstr "拖放内容的文件名："
 
 #: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
 #, kde-format
@@ -8583,7 +8611,7 @@ msgstr "日期：%1"
 #: widgets/renamedialog.cpp:70 widgets/renamedialog.cpp:425
 #, kde-format
 msgid "Size: %1"
-msgstr "体积：%1"
+msgstr "大小：%1"
 
 #: widgets/renamedialog.cpp:226
 #, kde-format
@@ -8598,15 +8626,15 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"如果选中此项，点击的按钮将被应用到当前任务中所有剩余的冲突文件夹。\n"
-"除非您点击“跳过”，否则在与该目录已有文件冲突时依然会显示冲突提示。"
+"如果选中此项，您点击的按钮将被应用到当前任务在这之后发生冲突的所有文件夹。\n"
+"除非您点击“跳过”，否则当文件与目录中的已有文件发生冲突时仍然会提示您处理。"
 
 #: widgets/renamedialog.cpp:231
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
-msgstr "如果选中此项，点击的按钮将被应用到当前任务中所有剩余的冲突。"
+msgstr "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生的所有冲突。"
 
 #: widgets/renamedialog.cpp:237
 #, kde-format
@@ -8626,12 +8654,12 @@ msgstr "跳过(&S)"
 #: widgets/renamedialog.cpp:246
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
-msgstr "不要复制或移动此文件夹，跳过到下一项"
+msgstr "不复制或者移动此文件夹，跳过到下一项目"
 
 #: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
-msgstr "不要复制或移动此文件，跳过到下一项"
+msgstr "不复制或者移动此文件，跳过到下一项目"
 
 #: widgets/renamedialog.cpp:258
 #, kde-format
@@ -8647,8 +8675,8 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"文件和文件夹将被复制到已有目录，与该目录的已有内容一起保存。\n"
-"如果复制的内容与该目录的已有内容冲突，您将会再次看到相关提示。"
+"文件和文件夹将被复制到已有目录，与该目录的已有内容并列保存。\n"
+"如果复制的内容与目录中的已有内容冲突，程序会再次提示您处理。"
 
 #: widgets/renamedialog.cpp:266
 #, kde-format
@@ -8666,7 +8694,7 @@ msgstr "如果目标文件的修改时间比来源文件早，它将被覆盖，
 #: widgets/renamedialog.cpp:282
 #, kde-format
 msgid "&Resume"
-msgstr "继续(&R)"
+msgstr "另存(&R)"
 
 #: widgets/renamedialog.cpp:291
 #, kde-format
@@ -8685,7 +8713,7 @@ msgstr "继续(&O)"
 #: widgets/renamedialog.cpp:369
 #, kde-format
 msgid "This action will overwrite the destination."
-msgstr "此操作将覆盖目标。"
+msgstr "此操作将覆盖目标项目。"
 
 #: widgets/renamedialog.cpp:374
 #, kde-format
@@ -8705,12 +8733,12 @@ msgstr "差异"
 #: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr "目标要<b>小 %1</b>"
+msgstr "目标项目要<b>小 %1</b>"
 
 #: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr "目标要<b>大 %1</b>"
+msgstr "目标项目要<b>大 %1</b>"
 
 #: widgets/renamedialog.cpp:435
 #, kde-format
@@ -8720,7 +8748,7 @@ msgstr "文件相同。"
 #: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files seem identical."
-msgstr "文件貌似相同。"
+msgstr "文件可能相同。"
 
 #: widgets/renamedialog.cpp:441
 #, kde-format
@@ -8739,17 +8767,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "已经存在名为“%1”的旧项目。"
+msgstr "已存在名为“%1”的较旧项目。"
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "已经存在名为“%1”的相似文件。"
+msgstr "已存在名为“%1”的相似文件。"
 
 #: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "已经存在名为“%1”的较新项目。"
+msgstr "已存在名为“%1”的较新项目。"
 
 #: widgets/renamedialog.cpp:484
 #, kde-format
@@ -8778,7 +8806,7 @@ msgstr "重命名(&R)"
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "将项目 <filename>%1</filename> 重命名为："
+msgstr "重命名项目 <filename>%1</filename> 为："
 
 #: widgets/renamefiledialog.cpp:87
 #, kde-format
@@ -8786,20 +8814,20 @@ msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
 "the end character"
 msgid "New name #"
-msgstr "新名称 #"
+msgstr "新文件名 #"
 
 #: widgets/renamefiledialog.cpp:88
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "将 %1 个选中项重命名为："
+msgstr[0] "重命名 %1 个选中项目为："
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
-msgstr "# 将被替换为升序数字，数字开始于："
+msgstr "# 会被替换为升序数字，起始数字为："
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -8814,7 +8842,7 @@ msgstr "重试"
 #: widgets/skipdialog.cpp:60
 #, kde-format
 msgid "Replace All"
-msgstr "全部替换"
+msgstr "替换所有"
 
 #: widgets/skipdialog.cpp:67
 #, kde-format
@@ -8824,13 +8852,13 @@ msgstr "跳过"
 #: widgets/skipdialog.cpp:71
 #, kde-format
 msgid "Skip All"
-msgstr "全部跳过"
+msgstr "跳过所有"
 
 #. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
 #: widgets/sslinfo.ui:17
 #, kde-format
 msgid "[padlock]"
-msgstr "[数字键盘锁定]"
+msgstr "[挂锁]"
 
 #. i18n: ectx: property (text), widget (QLabel, addressTag)
 #: widgets/sslinfo.ui:34
@@ -8855,7 +8883,7 @@ msgstr "加密："
 #: widgets/sslinfo.ui:94
 #, kde-format
 msgid "Details:"
-msgstr "细节："
+msgstr "详情："
 
 #. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
 #: widgets/sslinfo.ui:114
@@ -8873,7 +8901,7 @@ msgstr "证书链："
 #: widgets/sslinfo.ui:163
 #, kde-format
 msgid "Trusted:"
-msgstr "已信任："
+msgstr "可信任："
 
 #. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
 #: widgets/sslinfo.ui:183
@@ -8906,7 +8934,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 "远程主机没有发送任何 SSL 证书。\n"
-"因此无法和主机建立验证连接，操作已经取消。"
+"由于无法确定主机的真实身份，操作将被取消。"
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
 #, kde-kuit-format
@@ -8916,8 +8944,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"您真的想永久删除此项吗？<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>此操作无法撤销。</emphasis>"
+"您确定要彻底删除这个项目吗？<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
 #, kde-kuit-format
@@ -8929,7 +8957,7 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"您真的想永久删除这 %1 项吗？<nl/><nl/><emphasis strong='true'>此操作无法撤"
+"您确定要删除这 %1 个项目吗？<nl/><nl/><emphasis strong='true'>此操作无法撤"
 "销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
@@ -8940,7 +8968,7 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"文件太大，无法移动到回收站。改为永久删除？<nl/><nl/><filename>%1</"
+"这个项目太大，无法移动到回收站。您想要彻底删除它吗？<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
@@ -8955,15 +8983,15 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"这 %1 个文件太大，无法移动到回收站。改为永久删除？<nl/><nl/><emphasis "
-"strong='true'>此操作无法撤销。</emphasis>"
+"这 %1 个项目太大，无法移动到回收站。您想要彻底删除它们吗？<nl/><nl/"
+"><emphasis strong='true'>此操作无法撤销。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "您真的要将这 %1 项移动至回收站吗？"
+msgstr[0] "您确定要将这 %1 个项目移动到回收站吗？"
 
 #: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
@@ -8998,4 +9026,4 @@ msgstr "这将启动此程序："
 #: widgets/widgetsuntrustedprogramhandler.cpp:131
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "如果您不信任此程序，请单击取消"
+msgstr "如果您不信任此程序，请点击取消"

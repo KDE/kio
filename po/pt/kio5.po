@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2022-12-04 13:24+0000\n"
+"PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -2421,10 +2421,7 @@ msgstr ""
 "pôde ser iniciado. Isto deve-se normalmente a razões técnicas."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -4062,11 +4059,10 @@ msgid "Launching %1"
 msgstr "A Iniciar o %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Não foi possível encontrar o ficheiro \"%1\""
+msgstr "Não foi possível encontrar o comando <command>%1</command>."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -9572,18 +9568,3 @@ msgstr "Isto irá iniciar o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se não confiar neste programa, carregue em Cancelar"
-
-#~ msgid "None"
-#~ msgstr "Nenhuma"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "Várias Instâncias"
-
-#~ msgid "Single Instance"
-#~ msgstr "Instância Única"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "Executar Até Terminar"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "Registo do D-Bus:"
