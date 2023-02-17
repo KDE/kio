@@ -108,9 +108,6 @@
          <property name="iconSize">
           <number>48</number>
          </property>
-         <property name="strictIconSize">
-          <bool>false</bool>
-         </property>
         </widget>
        </item>
        <item>
