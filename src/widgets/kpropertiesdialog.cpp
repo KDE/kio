@@ -958,7 +958,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         const int bsize = 66 + (2 * d->m_ui->iconButton->style()->pixelMetric(QStyle::PM_ButtonMargin));
         d->m_ui->iconButton->setFixedSize(bsize, bsize);
         d->m_ui->iconButton->setIconSize(48);
-        d->m_ui->iconButton->setStrictIconSize(false);
         if (bDesktopFile && isLocal) {
             const KDesktopFile config(url.toLocalFile());
             if (config.hasDeviceType()) {
