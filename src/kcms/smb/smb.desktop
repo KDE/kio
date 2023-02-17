@@ -8,6 +8,8 @@ X-KDE-Library=plasma/kcms/systemsettings_qwidgets/kcm_smb
 X-KDE-PluginInfo-Name=smb
 X-KDE-System-Settings-Parent-Category=networksettings
 X-KDE-ParentApp=kcontrol
+X-KDE-BugReportUrl=https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_smb
+
 
 Name=Windows Shares
 Name[af]=Vensters Gedeelde bronne
