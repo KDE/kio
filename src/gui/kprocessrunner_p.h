@@ -124,15 +124,6 @@ Q_SIGNALS:
      */
     void processFinished();
 
-    /**
-     * Notifies about having received the token were waiting for.
-     *
-     * It only gets emitted when on Wayland.
-     *
-     * @see m_waitingForXdgToken
-     */
-    void xdgActivationTokenArrived();
-
 protected:
     KProcessRunner();
     virtual void startProcess() = 0;

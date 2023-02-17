@@ -287,19 +287,18 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                 if (window) {
                     const int launchedSerial = KWindowSystem::lastInputSerial(window);
                     m_waitingForXdgToken = true;
-                    connect(this, &KProcessRunner::xdgActivationTokenArrived, m_process.get(), [this] {
-                        startProcess();
-                    });
-                    connect(KWindowSystem::self(),
-                            &KWindowSystem::xdgActivationTokenArrived,
-                            m_process.get(),
-                            [this, launchedSerial](int tokenSerial, const QString &token) {
-                                if (tokenSerial == launchedSerial) {
-                                    m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
-                                    Q_EMIT xdgActivationTokenArrived();
-                                    m_waitingForXdgToken = false;
-                                }
-                            });
+                    connect(
+                        KWindowSystem::self(),
+                        &KWindowSystem::xdgActivationTokenArrived,
+                        m_process.get(),
+                        [this, launchedSerial](int tokenSerial, const QString &token) {
+                            if (tokenSerial == launchedSerial) {
+                                m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
+                                m_waitingForXdgToken = false;
+                                startProcess();
+                            }
+                        },
+                        Qt::SingleShotConnection);
                     KWindowSystem::requestXdgActivationToken(window, launchedSerial, maybeAliasedName(QFileInfo(m_serviceEntryPath).completeBaseName()));
                 }
             }
