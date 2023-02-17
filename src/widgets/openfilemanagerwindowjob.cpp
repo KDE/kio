@@ -118,7 +118,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
                 job->setStartupId(token.toLatin1());
                 job->start();
             }
-        });
+        }, Qt::SingleShotConnection);
         KWindowSystem::requestXdgActivationToken(window, launchedSerial, {});
     } else {
         job->setStartupId(asn);
