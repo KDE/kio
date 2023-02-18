@@ -160,7 +160,7 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         // qDebug() << "error " << i << " " << str1;
         Q_EMIT error(i, str1);
         break;
-    case MSG_SLAVE_STATUS_V2: {
+    case MSG_WORKER_STATUS: {
         qint64 pid;
         QByteArray protocol;
         stream >> pid >> protocol >> str1 >> b;
