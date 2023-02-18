@@ -1,7 +1,6 @@
 add_subdirectory(core)
 
 # KIOCore-only executables
-add_subdirectory(protocoltojson)
 if (NOT ANDROID)
     add_subdirectory(ioslaves)
     add_subdirectory(kioworkers)
