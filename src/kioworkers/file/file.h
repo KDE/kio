@@ -17,7 +17,7 @@
 #include <QHash>
 #include <QObject>
 
-#include <config-kioslave-file.h>
+#include <config-kioworker-file.h>
 #include <qplatformdefs.h> // mode_t
 
 #if HAVE_SYS_ACL_H

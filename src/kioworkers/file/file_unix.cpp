@@ -11,7 +11,7 @@
 
 #include "file.h"
 
-#include "config-kioslave-file.h"
+#include "config-kioworker-file.h"
 
 #include "../utils_p.h"
 
