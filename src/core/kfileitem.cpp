@@ -234,7 +234,7 @@ void KFileItemPrivate::init() const
                 m_bLink = true;
                 if (QT_STAT(pathBA.constData(), &buf) == 0) {
                     mode = buf.st_mode;
-                } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in ioslaves/file/file.cpp)
+                } else { // link pointing to nowhere (see FileProtocol::createUDSEntry() in kioworkers/file/file.cpp)
                     mode = (QT_STAT_MASK - 1) | S_IRWXU | S_IRWXG | S_IRWXO;
                 }
             }
