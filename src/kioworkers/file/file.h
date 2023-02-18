@@ -63,7 +63,7 @@ public:
     KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override;
 
     /**
-     * Special commands supported by this slave:
+     * Special commands supported by this worker:
      * 1 - mount
      * 2 - unmount
      */

@@ -59,7 +59,7 @@ Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.workers.file")
 class KIOPluginForMetada : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.file" FILE "file.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.file" FILE "file.json")
 };
 
 using namespace KIO;
@@ -83,14 +83,14 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
     (void)new LegacyCodec;
 #endif
 
-    FileProtocol slave(argv[2], argv[3]);
+    FileProtocol worker(argv[2], argv[3]);
 
-    // Make sure the first kDebug is after the slave ctor (which sets a SIGPIPE handler)
+    // Make sure the first qDebug is after the worker ctor (which sets a SIGPIPE handler)
     // This is useful in case kdeinit was autostarted by another app, which then exited and closed fd2
     // (e.g. ctest does that, or closing the terminal window would do that)
     // qDebug() << "Starting" << getpid();
 
-    slave.dispatchLoop();
+    worker.dispatchLoop();
 
     // qDebug() << "Done";
     return 0;
@@ -134,7 +134,7 @@ FileProtocol::FileProtocol(const QByteArray &pool, const QByteArray &app)
     : KIO::WorkerBase(QByteArrayLiteral("file"), pool, app)
     , mFile(nullptr)
 {
-    testMode = !qEnvironmentVariableIsEmpty("KIOSLAVE_FILE_ENABLE_TESTMODE");
+    testMode = !qEnvironmentVariableIsEmpty("KIOWORKER_FILE_ENABLE_TESTMODE");
 }
 
 FileProtocol::~FileProtocol()
@@ -306,8 +306,8 @@ WorkerResult FileProtocol::get(const QUrl &url)
 #endif
 
     // Determine the MIME type of the file to be retrieved, and emit it.
-    // This is mandatory in all slaves (for KRun/BrowserRun to work)
-    // In real "remote" slaves, this is usually done using mimeTypeForFileNameAndData
+    // This is mandatory in all workers (for KRun/BrowserRun to work)
+    // In real "remote" workers, this is usually done using mimeTypeForFileNameAndData
     // after receiving some data. But we don't know how much data the mimemagic rules
     // need, so for local files, better use mimeTypeForFile.
     QMimeDatabase db;
@@ -404,7 +404,7 @@ WorkerResult FileProtocol::open(const QUrl &url, QIODevice::OpenMode mode)
         }
     }
     // Determine the MIME type of the file to be retrieved, and emit it.
-    // This is mandatory in all slaves (for KRun/BrowserRun to work).
+    // This is mandatory in all workers (for KRun/BrowserRun to work).
     // If we're not opening the file ReadOnly or ReadWrite, don't attempt to
     // read the file and send the MIME type.
     if (mode & QIODevice::ReadOnly) {

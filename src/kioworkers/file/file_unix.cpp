@@ -942,7 +942,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     destFile.close();
 
     if (wasKilled()) {
-        qCDebug(KIO_FILE) << "Clean dest file after ioslave was killed:" << dest;
+        qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
         if (!QFile::remove(dest)) { // don't keep partly copied file
             execWithElevatedPrivilege(DEL, {_dest}, errno);
         }

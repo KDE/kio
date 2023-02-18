@@ -71,7 +71,7 @@ void JobTest::initTestCase()
     QCoreApplication::instance()->setApplicationName("kio/jobtest"); // testing for #357499
 
     // to make sure io is not too fast
-    qputenv("KIOSLAVE_FILE_ENABLE_TESTMODE", "1");
+    qputenv("KIOWORKER_FILE_ENABLE_TESTMODE", "1");
 
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30); // 30 seconds ago
 
