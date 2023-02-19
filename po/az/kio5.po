@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:55+0000\n"
-"PO-Revision-Date: 2023-02-17 01:07+0400\n"
+"PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -42,10 +42,9 @@ msgstr ""
 "Sizin bu dəyişiklikləri etmək imtiyazınız yoxdur."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Köməkçi giriş-çıxış faylının yaradılmasında xəta: %1"
+msgstr "KIO işçisi yaratmaq mümkün olmadı: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -792,10 +791,9 @@ msgid "Communication with the local password server failed"
 msgstr "Lokal parol serveri ilə əlaqə rabitə deyil"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Giriş çıxış köməkçi prosesisinin yaradılmasında xəta. %1"
+msgstr "KIO işçisi yaratmaq mümkün olmadı: %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1169,21 +1167,15 @@ msgstr ""
 "uyğunsuz ola bilər."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Bu protokolu dəstəkləyən KDE proqramı üçün İnternetdə axtarış edə bilərsiniz."
-"(kioslove və ya ioslove). Axtarış ediləcək yerlərə <ahref=\"https://kde-apps."
-"org/\"> https://kde-apps.org/</a> və <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/ </a>."
+"Siz bu dəstəkləyən proqram təminatı əlavəsi (\"KIO Worker\" adlanır) üçün "
+"axtarışı internet üzərindən həyata keçirə bilərsiniz. Axtarış ünvanlarına <a "
+"href=\"https://store.kde.org/\">https://store.kde.org</a> ünvanı da daxildir."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2330,34 +2322,27 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 protokolu icra olunmur"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Giriş/Çıxış xidmətçisini yaratmaq alınmadı"
+msgstr "KİO işçisi yaratmaq mümkün olmadı"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"<strong>%1</strong> protokoluna girişi təmin edən giriş/çıxış xidməti işə "
-"salınmadı. Bu ümumiyyətlə texniki səbəblərdən qaynaqlanır."
+"<strong>%1</strong> protokoluna girişi təmin edən KİO xidmətini başlatmaq "
+"mümkün olmadı. Bu ümumiyyətlə texniki səbəblərdən qaynaqlanır."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"kauncher protokolun təqdim etdiyi plaqini tapa və ya başlada bilmədi. Ola "
-"bilsin bu texniki səbəblərdən qaynaqlanır."
+"klauncher protokolu təqdim edən plaqini tapa və ya başlada bilmədi. Bu o "
+"deməkdir ki, qoşmanın versiyası köhnəlib."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2425,16 +2410,16 @@ msgid "Unknown protocol '%1'."
 msgstr "Naməlum Protokol '%1'."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "'%1' protokolu üçün giriş/çıxış faylı xidməti tapılmadı."
+msgstr "'%1' protokolu üçün KİO xidməti tapılmadı."
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "'%1' giriş/çıxış  protokolunu başlatmaq üçün socket yaradıla bilmədi."
+msgstr ""
+"\"%1\" protokolu üçün KİO xidmətini başlatmağa lazım olan soket yaratmaq "
+"mümkün olmadı."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -3984,11 +3969,10 @@ msgid "Launching %1"
 msgstr "Başladılma %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "\"%1\" faylı tapılmadı"
+msgstr "<command>%1</command> əmri tapılmadı."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4429,23 +4413,7 @@ msgid "&Management"
 msgstr "&İdarəetmə"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4473,10 +4441,13 @@ msgstr ""
 "alış-veriş səbətinə\" qoya bilərsiniz. Bəzi saytlar üçünsə kukiləri "
 "dəstəkləyən bir brauzerinizin olması tələb olunur.</p><p>Buna görə də bəzi "
 "insanlar kimlik gizliliyi ilə kukilərin təqdim etdiyi üstünlüklər arasında "
-"otraq nöqtənin olması istəyirlər.Etibar etdiyiniz və ən sevdiyiniz alış-"
-"veriş veb saytları üçün,kuki qaydalarını qəbul edə bilərsiniz, sonra hər "
-"dəfə bir kuki qəbul etdiyiniz zaman veb saytlara sorğusuz daxil ola "
-"bilərsiniz.</p>"
+"otraq nöqtənin olması istəyirlər. HTTP KİO xidməti sizə kukilər ilə işləmək "
+"qaydasını özünüzə uyğun ayarlamaq imkanını təqdim edir. Məsələn siz elə bir "
+"standart qayda təyin edə bilərsiniz ki, hər dəfə server kuki göndərdikdə ona "
+"icazə verib verməycəyinizi sizdən soruşsun. Etibar etdiyiniz sevimli alış-"
+"veriş veb-saytlarınız üçün bu qaydanı qəbul etməklə hər dəfə kuki alınan "
+"zaman onların qəbul eidlib-edilməməsi soruşulmadan veb saytlara daxil ola "
+"bilərsiniz."
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5296,16 +5267,7 @@ msgstr "Proxy Yoxdur"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5316,13 +5278,11 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Konfiqurasiya və proxy ayarlarının avtomatik aşkarlanması.<p>\n"
+"Proksi ayarlarının və tənzimləmələrin avtomatik aşkarlanması.<p>\n"
 "Avtomatik aşkarlama <b>Veb Proxy Avtomatik Kəşf Protokolu (WPAD) </"
 "b>istifadə edərək həyata keçirilir.<p>\n"
 "<b>QEYD:</b> Bu seçim bəzi UNIX/Linux distributorlarında düzgün işləməyə və "
-"ya tamamilə işləməyə bilər. Bu seçimi istifadə edərkən bir problemlə "
-"qarşılaşarsanız, lütfən https://konqueror.org saytındakı FAQ bölməsin nəzər "
-"salın.\n"
+"ya tamamilə işləməyə bilər.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5706,15 +5666,7 @@ msgid "Default password:"
 msgstr "Standart istifadəçi parolu:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5724,8 +5676,8 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows Paylaşımlar</h1><p>Düzgün qurulduğu halda tətbiqlər SMB kioslave "
-"(Konqueror kimi) istifadə etdikdə Microsoft Windows fayl sistemləri "
+"<h1>Windows paylaşımlar</h1><p>Düzgün qurulduğu halda tətbiqlər SMB KİO "
+"xidməti (Konqueror kimi) istifadə etdikdə Microsoft Windows fayl sistemləri "
 "paylaşımlarına daxil ola bilər.</p><p>Paylaşılan mənbələrə daxil olmaq üçün "
 "istifadə olunan məlumatları burada göstərə bilərsiniz. Şifrələr lokal olaraq "
 "saxlanacaq və gözlə rahat oxuna bilməməsi üçün qarışdırılır. Təhlükəsizlik "

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:44+0000\n"
+"POT-Creation-Date: 2023-02-07 00:55+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr ""
 
-#: core/copyjob.cpp:165 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -56,7 +56,7 @@ msgid ""
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:176
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -66,7 +66,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:184
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -76,23 +76,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1397 core/job_error.cpp:581
+#: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Máhppa gávdno juo"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fiila gávdno juo"
 
-#: core/copyjob.cpp:1727 core/copyjob.cpp:2417
+#: core/copyjob.cpp:1726 core/copyjob.cpp:2416
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Gávdno juo máhppan"
 
-#: core/copyjob.cpp:1887 ioslaves/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1886 ioslaves/trash/kio_trash.cpp:286
 #, kde-format
 msgid "Trash"
 msgstr "Ruskalihtti"
@@ -186,14 +186,14 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:105
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Sirdimin"
 
 # unreviewed-context
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122 core/job.cpp:151
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The source of a file operation"
@@ -201,171 +201,171 @@ msgid "Source"
 msgstr "Gáldu"
 
 # unreviewed-context
-#: core/job.cpp:107 core/job.cpp:115 core/job.cpp:123
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:138
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Ulbmil"
 
-#: core/job.cpp:113
+#: core/job.cpp:112
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr ""
 
-#: core/job.cpp:121
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Máŋgemin"
 
-#: core/job.cpp:129
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Ráhkadeamen máhpa"
 
-#: core/job.cpp:130 widgets/fileundomanager.cpp:132
+#: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:467
 #, kde-format
 msgid "Directory"
 msgstr "Máhppa"
 
-#: core/job.cpp:136
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Sihkkumin"
 
-#: core/job.cpp:137 core/job.cpp:144 widgets/fileundomanager.cpp:148
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:466
 #, kde-format
 msgid "File"
 msgstr "Fiila"
 
-#: core/job.cpp:143
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Guorahallamin"
 
-#: core/job.cpp:150
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Sáddemin"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Čatnamin"
 
-#: core/job.cpp:157
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "Ovttadat"
 
-#: core/job.cpp:157 core/job.cpp:162
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "Čatnanbáiki"
 
-#: core/job.cpp:162
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
 msgstr "Galgamin"
 
-#: core/job.cpp:272
+#: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
 msgstr ""
 
-#: core/job.cpp:274
+#: core/job.cpp:273
 #, kde-format
 msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:278
+#: core/job.cpp:277
 #, kde-format
 msgid "Copy Files"
 msgstr ""
 
-#: core/job.cpp:280
+#: core/job.cpp:279
 #, kde-format
 msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:284
+#: core/job.cpp:283
 #, kde-format
 msgid "Delete Files"
 msgstr "Sihko fiillaid"
 
-#: core/job.cpp:286
+#: core/job.cpp:285
 #, kde-format
 msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:290
+#: core/job.cpp:289
 #, kde-format
 msgid "Create Folder"
 msgstr ""
 
-#: core/job.cpp:292
+#: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:296
+#: core/job.cpp:295
 #, kde-format
 msgid "Move Items"
 msgstr ""
 
-#: core/job.cpp:298
+#: core/job.cpp:297
 #, kde-format
 msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
 
-#: core/job.cpp:302 ioslaves/file/file_unix.cpp:126
+#: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
 msgid "Rename"
 msgstr "Rievdat nama"
 
-#: core/job.cpp:304
+#: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:308 filewidgets/knewfilemenu.cpp:632
+#: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
 #, kde-format
 msgid "Create Symlink"
 msgstr "Ráhkat symbolalaš liŋkka"
 
-#: core/job.cpp:310
+#: core/job.cpp:309
 #, kde-format
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
 
-#: core/job.cpp:314
+#: core/job.cpp:313
 #, kde-format
 msgid "Transfer data"
 msgstr ""
 
-#: core/job.cpp:316
+#: core/job.cpp:315
 #, kde-format
 msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
@@ -2237,7 +2237,7 @@ msgstr ""
 #: core/job_error.cpp:1255
 #, kde-format
 msgid ""
-"klauncher could not find or start the plugin which provides the protocol."
+"klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
@@ -2282,7 +2282,7 @@ msgstr "(%1, liŋka %2:ii)"
 msgid " (Points to %1)"
 msgstr " (Čujuha dása: %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145 widgets/krun.cpp:400
+#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145 widgets/krun.cpp:399
 #: widgets/paste.cpp:262 widgets/renamedialog.cpp:610
 #, kde-format
 msgid ""
@@ -2292,27 +2292,27 @@ msgstr ""
 "Boastohámát fierpmádatčujuhus\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:223
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slave.cpp:421
+#: core/slave.cpp:429
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Amas protokolla «%1»."
 
-#: core/slave.cpp:432
+#: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/slave.cpp:440
+#: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/slave.cpp:480
+#: core/slave.cpp:488
 #, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
 msgstr ""
@@ -2588,9 +2588,9 @@ msgstr "Viečča fas"
 msgid "New Folder..."
 msgstr "Ođđa máhppa …"
 
-#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:323
-#: widgets/jobuidelegate.cpp:324 widgets/jobuidelegate.cpp:333
-#: widgets/jobuidelegate.cpp:334 widgets/widgetsaskuseractionhandler.cpp:281
+#: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
+#: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
 #, kde-format
 msgid "Move to Trash"
 msgstr "Sirdde ruskalihttái"
@@ -2720,7 +2720,7 @@ msgstr "Ovdačájeheapmi"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kdiroperator.cpp:2357 filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgid "Properties"
 msgstr "Iešvuođat"
@@ -2833,18 +2833,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr ""
 
-#: filewidgets/kfilefiltercombo.cpp:178
+#: filewidgets/kfilefiltercombo.cpp:204
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr ""
 
-#: filewidgets/kfilefiltercombo.cpp:212
+#: filewidgets/kfilefiltercombo.cpp:238
 #, kde-format
 msgid "All Supported Files"
 msgstr "Buot dorjojuvvon fiillat"
 
-#: filewidgets/kfilefiltercombo.cpp:222 filewidgets/kfilefiltercombo.cpp:223
+#: filewidgets/kfilefiltercombo.cpp:248 filewidgets/kfilefiltercombo.cpp:249
 #, kde-format
 msgid "All Files"
 msgstr "Buot fiillat"
@@ -3135,83 +3135,83 @@ msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1115
+#: filewidgets/kfileplacesview.cpp:1116
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gurre ruskalihti"
 
-#: filewidgets/kfileplacesview.cpp:1135
+#: filewidgets/kfileplacesview.cpp:1136
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1141
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1154
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1164
+#: filewidgets/kfileplacesview.cpp:1165
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1169
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1185
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Čájet &buot merkošiid"
 
-#: filewidgets/kfileplacesview.cpp:1189
+#: filewidgets/kfileplacesview.cpp:1190
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1292
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3219,51 +3219,51 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1312
+#: filewidgets/kfileplacesview.cpp:1317
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1318
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1321
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "You can only select one file"
 msgstr "Sáhtát válljet dušše ovtta fiilla"
 
-#: filewidgets/kfilewidget.cpp:682
+#: filewidgets/kfilewidget.cpp:681
 #, kde-format
 msgid "More than one file provided"
 msgstr "Eanetgo okta fiila lea addon"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:860
+#: filewidgets/kfilewidget.cpp:859
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3274,12 +3274,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:882
+#: filewidgets/kfilewidget.cpp:881
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3290,12 +3290,12 @@ msgstr ""
 "leat vejolaš mearridit guđe máhppii galgá mannat. Válljes dušše ovtta máhppa "
 "vai oaidnit dan merkošiid listtus"
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Eanetgo okta máhpa addon"
 
-#: filewidgets/kfilewidget.cpp:894
+#: filewidgets/kfilewidget.cpp:893
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3304,22 +3304,22 @@ msgstr ""
 "Goit okta máhpa ja okta fiila leat válljejuvvon. Badjelgeahčá válljejuvvon "
 "fiillaid ja čájeha válljejuvvon máhpa sisdoalu"
 
-#: filewidgets/kfilewidget.cpp:895
+#: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Fiillat ja máhpat válljejuvvon"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Fiila «%1» ii gávdnon"
 
-#: filewidgets/kfilewidget.cpp:913
+#: filewidgets/kfilewidget.cpp:912
 #, kde-format
 msgid "Cannot open file"
 msgstr "Ii sáhte rahpat fiilla"
 
-#: filewidgets/kfilewidget.cpp:1315
+#: filewidgets/kfilewidget.cpp:1314
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3327,42 +3327,42 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1319
+#: filewidgets/kfilewidget.cpp:1318
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat ovddit lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1320
+#: filewidgets/kfilewidget.cpp:1319
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Coahkkal dán boalu jus háliidat boahtte lávkái bláđenhistorjás."
 
-#: filewidgets/kfilewidget.cpp:1322
+#: filewidgets/kfilewidget.cpp:1321
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Coahkkal dán boalu vai viežžat dán báikki sisdoalu ođđasit."
 
-#: filewidgets/kfilewidget.cpp:1324
+#: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Coahkkal dán boalu vai ráhkadit ođđa máhpa."
 
-#: filewidgets/kfilewidget.cpp:1326
+#: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1337
+#: filewidgets/kfilewidget.cpp:1336
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1348
+#: filewidgets/kfilewidget.cpp:1347
 #, kde-format
 msgid "Options"
 msgstr "Molssaeavttut"
 
-#: filewidgets/kfilewidget.cpp:1355
+#: filewidgets/kfilewidget.cpp:1354
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3372,12 +3372,12 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1374
+#: filewidgets/kfilewidget.cpp:1373
 #, kde-format
 msgid "Bookmarks"
 msgstr "Girjemearkkat"
 
-#: filewidgets/kfilewidget.cpp:1382
+#: filewidgets/kfilewidget.cpp:1381
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3391,12 +3391,12 @@ msgstr ""
 "muhto doibmet nugo girjemearkkat eará báikkiin KDE:s.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1421 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1420 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Namma:"
 
-#: filewidgets/kfilewidget.cpp:1496
+#: filewidgets/kfilewidget.cpp:1495
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3408,12 +3408,12 @@ msgstr ""
 "stivret doaimma jus coahkkalat olgeš sáhpánboalu ja válljet modusa maid "
 "háliidat geavahit <b>Teakstaollášuhttin</b>-fálus.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1503
+#: filewidgets/kfilewidget.cpp:1502
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dán nammii fiila vurkejuvvo."
 
-#: filewidgets/kfilewidget.cpp:1506
+#: filewidgets/kfilewidget.cpp:1505
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3422,79 +3422,79 @@ msgstr ""
 "Dát listu fiillain maid lea vejolaš rahpat. Sáhtát rahpat máŋga fiilla jus "
 "earohat fiilanamaid gaskkaiguin."
 
-#: filewidgets/kfilewidget.cpp:1511
+#: filewidgets/kfilewidget.cpp:1510
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dát lea nama dan fiillas mii rahppo."
 
-#: filewidgets/kfilewidget.cpp:1524
+#: filewidgets/kfilewidget.cpp:1523
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Báikkit"
 
-#: filewidgets/kfilewidget.cpp:1742
+#: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fiila %1 gávdno juo. Háliidatgo duođas dan buhttet?"
 
-#: filewidgets/kfilewidget.cpp:1743
+#: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Buhtte fiilla?"
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
 msgstr "Sáhtát válljet dušše báikkálaš fiillaid."
 
-#: filewidgets/kfilewidget.cpp:1966
+#: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ii sáhtte geavahit gáiddus fiillaid"
 
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2059
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Buot máhpat"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2061
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Buot fiillat"
 
-#: filewidgets/kfilewidget.cpp:2212 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:900
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Govašsturrodat: %1 govvačuoggá"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2460
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automáhtalaččat vállje fiila&dovddaldaga (%1)"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2461
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "dovddaldat <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automáhtalaččat vállje &fiiladovddaldaga"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2468
 #, kde-format
 msgid "a suitable extension"
 msgstr "heivvolaš dovddaldat"
 
-#: filewidgets/kfilewidget.cpp:2477
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3521,24 +3521,24 @@ msgstr ""
 "li> </ol> Jus ii leat sihkkar maid háliidat bargat, divtte dán molssaeavttu "
 "leat, dannego šaddá álkibut gieđahallat iežat fiillaid. "
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2936
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "&Silli:"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3757,12 +3757,12 @@ msgstr "Coahkkal jus háliidat navigeret báikkálaččat"
 msgid "Click to Edit Location"
 msgstr "Coahkkal jus háliidat báikki doaimmahit"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:237
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Dus ii leat lohpi vuodjit dán fiilla."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:115
+#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3776,7 +3776,7 @@ msgid ""
 msgstr ""
 
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
-#: widgets/krun.cpp:197
+#: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Dus ii leat lohpi válljet prográmma mii galgá rahpat dán fiilla."
@@ -3818,10 +3818,16 @@ msgstr ""
 "%1\n"
 "lea amas."
 
-#: gui/kprocessrunner.cpp:261
+#: gui/kprocessrunner.cpp:262
 #, kde-format
 msgid "Launching %1"
 msgstr "Álggaheamen %1"
+
+#: gui/kprocessrunner.cpp:475
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The command <command>%1</command> could not be found."
+msgstr ""
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -6388,12 +6394,12 @@ msgstr ""
 msgid "Insert query placeholder"
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:247
+#: urifilters/shorturi/kshorturifilter.cpp:251
 #, fuzzy, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt>Mállefiila <b>%1</b> ii gávdno.</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:249
+#: urifilters/shorturi/kshorturifilter.cpp:253
 #, fuzzy, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Dus ii leat lohppi vuodjit <b>%1</b>.</qt>"
@@ -6688,7 +6694,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Gáđa fiilamáŋgema"
 
-#: widgets/jobuidelegate.cpp:282
+#: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6697,13 +6703,13 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:285 widgets/jobuidelegate.cpp:299
-#: widgets/jobuidelegate.cpp:311 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
 #, kde-format
 msgid "Delete Permanently"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:286 widgets/jobuidelegate.cpp:300
+#: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
 #, kde-format
@@ -6711,7 +6717,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:295
+#: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6723,7 +6729,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6731,13 +6737,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:312 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Gurre ruskalihti"
 
-#: widgets/jobuidelegate.cpp:322 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6745,19 +6751,19 @@ msgid ""
 "filename>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:331
+#: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Peer-SSL-sertifikáhtta orroleamen billašuvvon."
 
-#: widgets/jobuidelegate.cpp:458 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8227,7 +8233,7 @@ msgstr "Dušše vuojehahtti fiillat báikkálaš fiilavuogádagas dorjojuvvo."
 msgid "Advanced Options for %1"
 msgstr "Erenoamáš molssaeavttut %1 várás"
 
-#: widgets/krun.cpp:434
+#: widgets/krun.cpp:433
 #, kde-format
 msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
@@ -8236,7 +8242,7 @@ msgstr ""
 "<qt>Ii sáhte vuodjit meroštuvvon gohččuma. Fiila dahje máhpa <b>%1</b> ii "
 "gávdno.</qt>"
 
-#: widgets/krun.cpp:493
+#: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
 msgstr ""
