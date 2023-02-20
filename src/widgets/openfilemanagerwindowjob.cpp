@@ -17,8 +17,6 @@
 #include <KJobWidgets>
 #include <KWindowSystem>
 
-#include <KIO/JobUiDelegate>
-#include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 
 namespace KIO
@@ -159,7 +157,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
 {
     KIO::OpenUrlJob *urlJob = new KIO::OpenUrlJob(urls.at(0).adjusted(QUrl::RemoveFilename), QStringLiteral("inode/directory"));
-    urlJob->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, KJobWidgets::window(m_job)));
+    urlJob->setUiDelegate(m_job->uiDelegate());
     urlJob->setStartupId(asn);
     QObject::connect(urlJob, &KJob::result, m_job, [this](KJob *urlJob) {
         if (urlJob->error()) {
