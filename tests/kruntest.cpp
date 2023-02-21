@@ -108,7 +108,7 @@ void Receiver::slotLaunchTest(QPushButton *sender)
     }
     KService::Ptr service;
     if (QByteArray(s_tests[testNumber].exec) == "nonexec") {
-        const QString desktopFile = QFINDTESTDATA("../src/ioslaves/trash/kcmtrash.desktop");
+        const QString desktopFile = QFINDTESTDATA("../src/kioworkers/trash/kcmtrash.desktop");
         if (desktopFile.isEmpty()) {
             qWarning() << "kcmtrash.desktop not found!";
         }

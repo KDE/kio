@@ -2,7 +2,6 @@ add_subdirectory(core)
 
 # KIOCore-only executables
 if (NOT ANDROID)
-    add_subdirectory(ioslaves)
     add_subdirectory(kioworkers)
     add_subdirectory(kiod)
     add_subdirectory(kssld)

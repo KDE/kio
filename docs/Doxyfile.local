@@ -2,7 +2,6 @@
 
 # workers are plugins and not part of the API
 EXCLUDE_PATTERNS += \
-    */ioslaves/* \
     */kioworkers/*
 # define so that deprecated API is not skipped
 PREDEFINED += \
