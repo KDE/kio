@@ -24,19 +24,19 @@
 class KIOPluginForMetaData : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.trash" FILE "trash.json")
+    Q_PLUGIN_METADATA(IID "org.kde.kio.worker.trash" FILE "trash.json")
 };
 
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
     bool bNeedsUninit = (CoInitializeEx(NULL, COINIT_MULTITHREADED) == S_OK);
-    // necessary to use other kio slaves
+    // necessary to use other KIO workers
     QCoreApplication app(argc, argv);
 
-    // start the slave
-    TrashProtocol slave(argv[1], argv[2], argv[3]);
-    slave.dispatchLoop();
+    // start the worker
+    TrashProtocol worker(argv[1], argv[2], argv[3]);
+    worker.dispatchLoop();
 
     if (bNeedsUninit) {
         CoUninitialize();
