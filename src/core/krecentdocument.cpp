@@ -540,7 +540,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
         }
     }
 
-    // create the applnk
+    // create the desktop file
     KDesktopFile configFile(ddesktop);
     KConfigGroup conf = configFile.desktopGroup();
     conf.writeEntry("Type", QStringLiteral("Link"));
