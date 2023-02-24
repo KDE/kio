@@ -157,9 +157,6 @@ static QString nameFromFileName(QString nameStr)
     if (nameStr.endsWith(QLatin1String(".desktop"))) {
         nameStr.chop(8);
     }
-    if (nameStr.endsWith(QLatin1String(".kdelnk"))) {
-        nameStr.chop(7);
-    }
     // Make it human-readable (%2F => '/', ...)
     nameStr = KIO::decodeFileName(nameStr);
     return nameStr;
@@ -1425,7 +1422,7 @@ void KFilePropsPlugin::applyChanges()
             QUrl oldurl = properties->url();
 
             QString newFileName = KIO::encodeFileName(n);
-            if (d->bDesktopFile && !newFileName.endsWith(QLatin1String(".desktop")) && !newFileName.endsWith(QLatin1String(".kdelnk"))) {
+            if (d->bDesktopFile && !newFileName.endsWith(QLatin1String(".desktop"))) {
                 newFileName += QLatin1String(".desktop");
             }
 

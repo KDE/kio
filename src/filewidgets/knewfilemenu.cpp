@@ -715,8 +715,7 @@ void KNewFileMenuPrivate::fillMenu()
     for (auto &entry : *s->templatesList) {
         ++idx;
         if (entry.entryType != KNewFileMenuSingleton::Unknown) {
-            // There might be a .desktop for that one already, if it's a kdelnk
-            // This assumes we read .desktop files before .kdelnk files ...
+            // There might be a .desktop for that one already.
 
             // In fact, we skip any second item that has the same text as another one.
             // Duplicates in a menu look bad in any case.
