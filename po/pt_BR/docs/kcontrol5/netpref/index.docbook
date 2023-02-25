@@ -145,7 +145,7 @@
 ><para
 >Quando esta opção estiver assinalada, os arquivos parcialmente enviados irão ter uma extensão <literal role="extension"
 >.part</literal
-> adicional no fim do arquivo. Esta extensão será removida quando o recebimento do arquivo terminar. </para
+> adicional no fim do arquivo. Esta extensão será removida quando o recebimento do arquivo terminar.</para
 ></listitem>
 </varlistentry>
 

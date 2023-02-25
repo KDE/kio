@@ -37,14 +37,14 @@
 <para
 >Similar a outros aplicativos Internet, o &FTP; usa o modelo cliente-servidor &mdash; onde um usuário invoca um programa &FTP; no computador, o instrui para contatar um computador remoto, e então requisita a transferência de um ou mais arquivos. O programa local de &FTP; torna-se um cliente, que usa o <acronym
 >TCP</acronym
-> para contatar um programa no servidor &FTP; na máquina remota. Cada vez que o usuário requisita uma transferência de arquivo, os programas cliente e servidor cooperam para enviar uma cópia dos dados pela Internet. </para>
+> para contatar um programa no servidor &FTP; na máquina remota. Cada vez que o usuário requisita uma transferência de arquivo, os programas cliente e servidor cooperam para enviar uma cópia dos dados pela Internet.</para>
 
 <para
 >Os servidores &FTP; que possuem o <quote
 >&FTP; anônimo</quote
 > permitem que qualquer usuário, não somente aqueles com contas na máquina, naveguem pelos arquivos do <quote
 >ftp</quote
-> e baixem os arquivos. Alguns servidores &FTP; são configurados para permitir aos usuários que também enviem arquivos. </para>
+> e baixem os arquivos. Alguns servidores &FTP; são configurados para permitir aos usuários que também enviem arquivos.</para>
 
 <para
 >O &FTP; é comumente usado para recuperar informações e obter software armazenado nos arquivos dos sites &FTP; no mundo todo. </para>
