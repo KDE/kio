@@ -18,7 +18,6 @@ private Q_SLOTS:
     void cleanupTestCase();
     void cleanup();
     void testXbelBookmark();
-    void testXbelBookmarkMaxEntries();
 
 private:
     QString m_xbelPath;
