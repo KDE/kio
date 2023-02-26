@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 00:55+0000\n"
+"POT-Creation-Date: 2023-02-26 00:55+0000\n"
 "PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -3737,12 +3737,12 @@ msgstr ""
 "ponto será removido automaticamente).</li></ol>Se não tiver a certeza, deixe "
 "esta opção ligada, dado que torna mais fácil a gestão dos seus ficheiros."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2930
 #, kde-format
 msgid "&File type:"
 msgstr "Tipo de &ficheiro:"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2931
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3751,12 +3751,12 @@ msgstr ""
 "<qt>Este é o selector do tipo de ficheiro. É usado para seleccionar o "
 "formato com que será gravado o ficheiro.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtro:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

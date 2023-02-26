@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 00:55+0000\n"
+"POT-Creation-Date: 2023-02-26 00:55+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3730,25 +3730,25 @@ msgstr ""
 "ئىناۋەتلىكلىكىنى ساقلاپ قېلىڭ، بۇنداق بولغاندا ھۆججەتلىرىڭىزنى تېخىمۇ ئاسان "
 "باشقۇرالايسىز."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2930
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "سۈزگۈچ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2931
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&Filter:"
 msgstr "سۈزگۈچ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

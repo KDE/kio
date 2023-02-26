@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 00:55+0000\n"
+"POT-Creation-Date: 2023-02-26 00:55+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3650,12 +3650,12 @@ msgstr ""
 "avtomatik olaraq silinəcək).</li></ol>Əmin deyilsinizsə bu seçimi aktiv "
 "saxlayın, beləki, bu sizin faylınızı daha idarə olunan edir."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2930
 #, kde-format
 msgid "&File type:"
 msgstr "&Fayl növü:"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2931
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3664,12 +3664,12 @@ msgstr ""
 "<qt>Bu fayl növü seçicisidir. Faylın qeyd olunduğu formatı seçmək üçün "
 "istifadə olunur.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&Filter:"
 msgstr "&Süzgəc:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

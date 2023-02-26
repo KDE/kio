@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 00:55+0000\n"
+"POT-Creation-Date: 2023-02-26 00:55+0000\n"
 "PO-Revision-Date: 2023-02-13 11:54+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -3659,12 +3659,12 @@ msgstr ""
 "от края на файла.</li></ol>Препоръчва се да оставите тази настройка "
 "включена. По този начин ще направите управлението на файловете си по-лесно."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2930
 #, kde-format
 msgid "&File type:"
 msgstr "&Тип файл:"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2931
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3673,12 +3673,12 @@ msgstr ""
 "<qt> Това е селекторът за тип файл. Използва се за избор на формата, в който "
 "файлът ще бъде запазен. </qt>"
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2933
 #, kde-format
 msgid "&Filter:"
 msgstr "&Филтър:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
