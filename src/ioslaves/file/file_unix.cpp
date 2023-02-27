@@ -822,7 +822,9 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
         const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), nullptr, destFile.handle(), nullptr, s_maxIPCSize, 0);
 
         if (copiedBytes == -1) {
-            if (errno == EINVAL || errno == EXDEV) {
+            // ENOENT is returned on cifs in some cases, probably a kernel bug
+            // (s.a. https://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=7fc84d1c0f6b35231b0b4577b70aaa26bf548a7c)
+            if (errno == EINVAL || errno == EXDEV || errno == ENOENT) {
                 break; // will continue with next copy mechanism
             }
 
