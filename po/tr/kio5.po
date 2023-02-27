@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-26 00:55+0000\n"
-"PO-Revision-Date: 2023-02-08 19:42+0300\n"
+"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"PO-Revision-Date: 2023-02-27 00:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3621,12 +3621,12 @@ msgstr ""
 "olarak silinecektir!). </li></ol> Emin değilseniz bu seçeneği etkin halde "
 "tutmak, sizin için daha yararlıdır."
 
-#: filewidgets/kfilewidget.cpp:2930
+#: filewidgets/kfilewidget.cpp:2934
 #, kde-format
 msgid "&File type:"
 msgstr "&Dosya türü:"
 
-#: filewidgets/kfilewidget.cpp:2931
+#: filewidgets/kfilewidget.cpp:2935
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3635,12 +3635,12 @@ msgstr ""
 "<qt>Bu, dosya türü seçicisidir. Dosyanın kaydedileceği biçimi seçmek için "
 "kullanılır.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2933
+#: filewidgets/kfilewidget.cpp:2937
 #, kde-format
 msgid "&Filter:"
 msgstr "S&üz:"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2939
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -8511,7 +8511,7 @@ msgstr "Klasöre girebilmek için bu bayrağı etkinleştirin."
 #: widgets/kpropertiesdialog.cpp:2108
 #, kde-format
 msgid "Exec"
-msgstr "Çalıştır"
+msgstr "Yürüt"
 
 #: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
@@ -8848,7 +8848,7 @@ msgstr "Evet"
 #, kde-format
 msgctxt "%1 is the effective date of the certificate, %2 is the expiry date"
 msgid "%1 to %2"
-msgstr "%1'den %2'ye"
+msgstr "%1 tarihinden %2 tarihine kadar"
 
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
@@ -9037,7 +9037,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "&Eski dosyaların üzerine yaz"
+msgstr "&Eski Dosyaların Üzerine Yaz"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
@@ -9216,7 +9216,7 @@ msgstr "Tümünü Atla"
 #: widgets/sslinfo.ui:17
 #, kde-format
 msgid "[padlock]"
-msgstr "[padlock]"
+msgstr "[kilit]"
 
 #. i18n: ectx: property (text), widget (QLabel, addressTag)
 #: widgets/sslinfo.ui:34
