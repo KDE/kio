@@ -54,7 +54,7 @@
 // TODO: Enable once file KIO worker is ported away and add endif, similar in the header file
 // #if KIOCORE_BUILD_DEPRECATED_SINCE(version where file:/ KIO worker was ported)
 
-#if KIO_ASSERT_SLAVE_STATES
+#if KIO_ASSERT_WORKER_STATES
 #define KIO_STATE_ASSERT(cond, where, what) Q_ASSERT_X(cond, where, what)
 #else
 /* clang-format off */

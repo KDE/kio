@@ -41,13 +41,13 @@ option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depen
 
 # Enable state assertion by default on Jenkins and from-git builds.
 # This option should eventually be dropped and always be enabled.
-set(ASSERT_SLAVE_STATES_DEFAULT OFF)
+set(ASSERT_WORKER_STATES_DEFAULT OFF)
 if(DEFINED ENV{JENKINS_SERVER_COOKIE} OR ECM_SOURCE_UNDER_VERSION_CONTROL)
-    set(ASSERT_SLAVE_STATES_DEFAULT ON)
+    set(ASSERT_WORKER_STATES_DEFAULT ON)
 endif()
-option(KIO_ASSERT_SLAVE_STATES
+option(KIO_ASSERT_WORKER_STATES
     "Used to control whether worker state assertions are enabled. When not enabled only warnings are generated."
-    ${ASSERT_SLAVE_STATES_DEFAULT})
+    ${ASSERT_WORKER_STATES_DEFAULT})
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
