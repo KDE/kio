@@ -42,6 +42,7 @@ Name[uk]=CPlusPlus
 Name[vi]=CPlusPlus
 Name[x-test]=xxCPlusPlusxx
 Name[zh_CN]=CPlusPlus
+Name[zh_TW]=CPlusPlus
 Type=Service
 Keys=cplusplus
 Query=http://cplusplus.com/search.do?q=\\{@}
@@ -87,3 +88,4 @@ Query[uk]=http://cplusplus.com/search.do?q=\\{@}
 Query[vi]=http://cplusplus.com/search.do?q=\\{@}
 Query[x-test]=xxhttp://cplusplus.com/search.do?q=\\{@}xx
 Query[zh_CN]=http://cplusplus.com/search.do?q=\\{@}
+Query[zh_TW]=http://cplusplus.com/search.do?q=\\{@}

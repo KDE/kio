@@ -142,4 +142,5 @@ Query[uk]=https://dle.rae.es/\\{@}
 Query[vi]=https://dle.rae.es/\\{@}
 Query[x-test]=xxhttps://dle.rae.es/\\{@}xx
 Query[zh_CN]=https://dle.rae.es/\\{@}
+Query[zh_TW]=https://dle.rae.es/\\{@}
 Type=Service

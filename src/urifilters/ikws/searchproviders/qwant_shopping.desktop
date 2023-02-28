@@ -109,4 +109,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Type=Service

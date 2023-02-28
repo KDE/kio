@@ -42,6 +42,7 @@ Name[uk]=Вади на KDE Invent
 Name[vi]=Các vấn đề ở Invent KDE
 Name[x-test]=xxKDE Invent Issuesxx
 Name[zh_CN]=KDE Invent 问题
+Name[zh_TW]=KDE Invent 議題
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ar]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ast]=https://invent.kde.org/search?scope=issues&search=\\{@}
@@ -85,4 +86,5 @@ Query[uk]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[vi]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?scope=issues&search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[zh_TW]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Type=Service

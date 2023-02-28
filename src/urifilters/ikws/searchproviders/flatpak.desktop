@@ -42,6 +42,7 @@ Name[uk]=Документація з Flatpak
 Name[vi]=Tài liệu Flatpak
 Name[x-test]=xxFlatpak Documentationxx
 Name[zh_CN]=Flatpak 文档
+Name[zh_TW]=Flatpak 說明文件
 Type=Service
 Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
@@ -87,3 +88,4 @@ Query[uk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[vi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[x-test]=xxhttps://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=defaultxx
 Query[zh_CN]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[zh_TW]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

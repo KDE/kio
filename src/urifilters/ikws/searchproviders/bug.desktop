@@ -50,6 +50,7 @@ Name[uk]=Вади KDE
 Name[vi]=Lỗi KDE
 Name[x-test]=xxKDE Bugsxx
 Name[zh_CN]=KDE 程序缺陷搜索
+Name[zh_TW]=KDE Bugs 問題回報
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[az]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

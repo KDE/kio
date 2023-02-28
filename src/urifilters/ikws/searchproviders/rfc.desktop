@@ -130,4 +130,5 @@ Query[uk]=https://datatracker.ietf.org/doc/\\{@}
 Query[vi]=https://datatracker.ietf.org/doc/\\{@}
 Query[x-test]=xxhttps://datatracker.ietf.org/doc/\\{@}xx
 Query[zh_CN]=https://datatracker.ietf.org/doc/\\{@}
+Query[zh_TW]=https://datatracker.ietf.org/doc/\\{@}
 Type=Service

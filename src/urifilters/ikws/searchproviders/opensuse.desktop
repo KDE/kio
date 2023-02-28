@@ -85,3 +85,4 @@ Query[uk]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[vi]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[x-test]=xxhttps://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}xx
 Query[zh_CN]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[zh_TW]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
