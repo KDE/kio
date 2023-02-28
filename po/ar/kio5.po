@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2023-01-25 18:25+0400\n"
+"PO-Revision-Date: 2023-02-16 11:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3917,11 +3917,10 @@ msgid "Launching %1"
 msgstr "يُطلق %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "تعذّر العثور على الملفّ ”%1“"
+msgstr "تعذّر العثور على الأمر <command>%1</command>"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
