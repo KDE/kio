@@ -25,4 +25,4 @@ program (xml parser and such).
 Again something I first notied in MSIE5, and that would be some sort of
 translation of what an error really means.  Yes this would have to be
 i18n'd and easily turned off.  But this could also be extended to all the
-slaves (ftp, pop3, etc, etc).
+workers (ftp, trash, etc, etc).
