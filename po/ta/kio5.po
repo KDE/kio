@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2023-02-14 22:10+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3438,7 +3438,8 @@ msgstr ""
 "<br /><br />இந்நினைவுக்குறிகள் கோப்புப் சாளரத்துக்கே தனிப்பட்டவையாகும், மற்றபடி கே.டீ.யீ."
 "இல் மற்ற இடங்களில் உள்ள நினைவுக்குறிகளைப் போலவே இவை செயல்படும்.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&பெயர்:"
@@ -3725,12 +3726,19 @@ msgstr "புதிய அடைவு"
 msgid "Create new folder in %1:"
 msgstr "%1 -இல் புதிய அடைவை உருவாக்கு: "
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "நகலெடு"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "ஒட்டு"
@@ -4038,6 +4046,104 @@ msgstr "அமர்வின் முடிவு"
 msgid "Yes"
 msgstr "ஆம்"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "தேடுங்கள்"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "இடங்கள் மற்றும் புரவன்களுக்கான ஊடாடும் தேடல்"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "இணையதளம்"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "நினைவியின் பெயர்"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "&நீக்கு"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "&அனைத்தையும் நீக்கு"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "&கொள்கையை அமை"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "பட்டியலை &மீளேற்று"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "பெயர்: "
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "உட்பொருள்:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "ஆள்களம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "பாதை:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "காலாவதி ஆவது:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "பாதுகாப்பானது:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4121,7 +4227,226 @@ msgstr ""
 "இவ்வாறு செய்வதால், நம்பகமான தளங்களிலிருந்து நினைவிகளை பெறுவதுடன், கே.டீ.யீ.யால் ஒவ்வொரு "
 "முறையும் கேட்கப்பட மாட்டீர்கள்.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>நினைவி ஆதரவை இயக்கு. சாதாரணமாக, நினைவி ஆதரவை இயக்கி, தங்களது தேவைக்கேற்ப அதை "
+"மாற்றியமைக்க பயனர்கள் விரும்புவர்.</p><p>\n"
+"நினைவி ஆதரவை முடக்கினால், பல இணையதளங்களை நீங்கள் பயன்படுத்த முடியாமல் போகலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "நினைவிகளை செயல்படுத்து"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"மூன்றாம் தரப்பு நினைவிகளை மறு.இவை, நீங்கள் பார்க்கும் இணையதளத்திலிருந்து இல்லாமல் வேறு "
+"தளங்களிலிருந்து வரும் நினைவிகள் ஆகும். எடுத்துக்காட்டாக, இந்த விருப்பத்தை தேர்வு செய்த "
+"பின் நீங்கள் <b>www.foobar.com</b> என்ற இணையதளத்துக்கு பயணித்தால், www.foobar.com "
+"இருந்து வரும் நினைவிகள் மட்டுமே உங்கள் விருப்பத்துக்கேற்ப கையாளப்படும். மற்ற "
+"தளங்களிலிருந்து வரும் நினைவிகள் மறுக்கப்படும். உங்கள் உலாவல் பழக்கங்களைப் பற்றி இணையதளங்கள் "
+"அறிவதன் வாய்ப்புகளை இது குறைக்கும்.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "மூல சேவையகத்திலிருந்து மட்டும் நினைவிகளை &ஏற்றுக்கொள்"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"தற்போதைய அமர்வு முடியும்போது காலவதியாகும் தற்காலிக நினைவிகளை ஏற்றுக்கொள்.இவ்வாறுள்ள "
+"நினைவிகள், உங்கள் வட்டில் சேமிக்கப்படாது.மாறாக, அவற்றை பயன்படுத்தும் அனைத்து செயலிகளையும் "
+"(எ.கா. உங்கள் உலாவியை) மூடும்போது இவை அகற்றப் படும்.</p><p> <u>குறிப்பு</u> இந்த "
+"விருப்பத்தை குறித்தல், உங்கள் இயல்பிருப்பு மற்றும் தள நினைவிக் கொள்கைகளை புறக்கணிக்கும்.</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "&அமர்வு நினைவிகளை தானாக ஏற்றுக்கொள்"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"தொலை சேவையகத்திலிருந்து வரும் நினைவிகளை எவ்வாறு கையாள வேண்டும் என்பதை தீர்மானிக்கும்: \n"
+"<ul>\n"
+"<li><b>கேள்</b> சேவையகம் ஒரு நினைவியை அமைக்க விரும்பும்போது என்ன செய்வதென்று கே.டீ.யீ. "
+"ஒவ்வொரு முறையும் உங்களிடம் கேட்கும்.</li>\n"
+"<li><b>ஏற்றுக்கொள்</b> உங்களிடம் கேட்காமல் நினைவிகள் ஏற்கப்படும்.</li>\n"
+"<li><b>அமர்வு முடியும் வரை ஏற்றுக்கொள்</b> நினைவிகள் ஏற்றுக்கொள்ளப் படும், ஆனால் அமர்வு "
+"முடியும்போது காலாவதி ஆகும்.</li>\n"
+"<li><b>மறு</b> பெறப்படும் அனைத்து நினைவிகளும் மறுக்கப்படும்.</li>\n"
+"</ul><p>\n"
+"<u>குறிப்பு:</u> கீழே அமைக்கக்கூடிய தனிப்பட்ட ஆள்களங்களுக்கான கொள்கைகள், இயல்பிருப்பு "
+"கொள்கையை விட முன்னிலை பெறும்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "இயல்பிருப்பு கொள்கை"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "&எல்லா நினைவிகளையும் ஏற்றுக்கொள்"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "அமர்வு முடியும் &வரை ஏற்றுக்கொள்"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "&உறுதிப்படுத்து"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "எல்லா நினைவிகளையும் &மறு"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"புதிய கொள்கையை சேர்க்க, <b>சேர்...</b> பட்டனை அழுத்தி தேவையான விவரங்களை உள்ளிடுங்கள். "
+"ஏற்கனவே உள்ள கொள்கையை மாற்ற, <b>மாற்று...</b> பட்டனை அழுத்தி, வரும் சாளரத்தில் புதிய "
+"கொள்கையை தேர்ந்தெடுங்கள். <b>நீக்கு</b> அழுத்தினால், தேர்வு செய்த கொள்கை நீக்கப்பட்டு, அந்த "
+"ஆள்களத்துக்கு இயல்பிருப்பு கொள்கையே பயன்படுத்தப்படும். <b>அனைத்தையும் நீக்கு</b> பட்டனை "
+"அழுத்துதல், எல்லா தனிப்பட்ட ஆள்கள கொள்கைகளை நீக்கும்.\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "தளக் கொள்கை"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "ஆள்களங்களுக்கான ஊடாடும் தேடல்"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "தேடு..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"இப்பட்டியலில் உள்ள ஆள்களங்களுக்கு நீங்கள் தனிப்பட்ட நினைவி கொள்கைகளை அமைத்துள்ளீர்கள். இந்த "
+"ஆள்களங்களில், இயல்பிருப்பு கொள்கைக்கு பதிலாக தனிப்பட்ட கொள்கைகள் பயன்படுத்தப்படும்.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "ஆள்களம்"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "கொள்கை"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&புதியது..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "&மாற்று..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
@@ -4129,17 +4454,91 @@ msgstr "ஏற்றுக்கொள்"
 msgid "Accept For Session"
 msgstr "இந்த அமர்வுக்கு ஏற்றுக்கொள்"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "மறு"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "கேள்"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "தெரியாது"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"எந்த புரவனுக்கு அல்லது இணையதளத்துக்கு இந்த கொள்கை பொருந்தும் என்று உள்ளிடுங்கள், எ.கா. "
+"<b>www.kde.org</b> அல்லது <b>.kde.org</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "இணையதளத்தின் பெயர்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+"இந்த கொள்கை எந்த புரவனுக்கு அல்லது ஆள்களத்துக்கு  பொருந்தும் என்று குறிப்பிடுங்கள் "
+"(உதாரணத்துக்கு .kde.org)."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"நீங்கள் விரும்பும் கொள்கையை தேர்ந்தெடுங்கள்:\n"
+"<ul>\n"
+"<li><b>ஏற்றுக்கொள்</b> - நினைவிகளை அமைக்க இந்த இணையதளத்தை அனுமதிக்கும்</li>\n"
+"<li><b>அமர்வு முடியும் வரை ஏற்றுக்கொள்</b> - இந்த இணையதளத்துக்கு நினைவிகளை அமைக்கும் "
+"அனுமதி தரப்படும், ஆனால் அவை அமர்வு முடியும்போது காலாவதி ஆகும்.</li>\n"
+"<li><b>மறு</b> - இந்த இணையதளம் அனுப்பும் அனைத்து நினைவிகளையும் மறு</li>\n"
+"<li><b>கேள்</b> - இந்த இணையதளம் நினைவிகளை அனுப்பும்போது என்ன செய்வதென்று கேள்</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "கொள்கை:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "அமர்வு முடியும் வரை ஏற்றுக்கொள்"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4159,6 +4558,42 @@ msgstr "புதுப்பித்தல் தோல்வியடைந�
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "இந்த மாற்றங்கள் செயல்பட, கே.டீ.யீ.-ஐ நீங்கள் மீள்துவக்க வேண்டும்."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Passive FTPஐ முடக்கு"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"FTP இணைப்புகள் 'passive'-ஆக இருக்கும் போது வாங்கியே சேவையகத்தை தொடர்பு கொள்ளும். "
+"இப்படி செய்வதால் தீயரண்கள் இணைப்பை தடுக்காமல் இருக்கும். ஆனால் பழைய FTP சேவையகங்கள் "
+"passive FTP-ஐ ஆதரிக்காமல் இருக்கலாம்."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "முழுதாக பதிவேற்றப்படாத கோப்புகளை குறி"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"ஒரு கோப்பு பதிவேற்றப்படும்போது அதன் வகைப்பெயர் \"*.part\"-ஆக இருக்கும். முழுதாக "
+"பதிவேற்றிய பின் அதற்கு சரியான பெயர் இடப்படும்."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4328,6 +4763,427 @@ msgstr ""
 "வகையில் அவற்றை உள்ளமைவாக சேமித்து வைக்கும்;  மாறாக, விளம்பரங்கள் போன்ற நீங்கள் தடுக்க "
 "விரும்பக்கூடியவற்றை வடிகட்டும் பதிலி சேவையகங்கள் தடுக்கும்.</p><p><u>குறிப்பு:</u> சில "
 "பதிலி சேவையகங்கள், மேற்கண்ட இரண்டு சேவைகளையும் வழங்கும்.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"பதிலியை அமையுங்கள்.\n"
+"<p>\n"
+"பதிலி சேவையகம் என்பது, உங்கள் கணினிக்கும் இணையத்துக்கும் இடையே இருந்து, வடிகட்டுதல் "
+"மற்றும் வலைபக்கங்களை தேக்கி வைத்தல் போன்ற சேவைகளை வழங்கும்.</p><p> தேக்கக பதிலி "
+"சேவையகங்கள், நீங்கள் ஏற்கனவே பார்த்த இணையதளங்களை மீண்டும் விரைவாக அணுகும் வகையில் அவற்றை "
+"உள்ளமைவாக சேமித்து வைக்கும்;  மாறாக, விளம்பரங்கள் போன்ற நீங்கள் தடுக்க விரும்பக்கூடியவற்றை "
+"வடிகட்டும் பதிலி சேவையகங்கள் தடுக்கும்.</p>\n"
+"<p>\n"
+"நீங்கள் பதிலி சேவையகத்தை பயன்படுத்த வேண்டுமா என்பது தெரியவில்லையெனில், உங்கள் கணினியின் "
+"நிர்வாகியிடம் கேளுங்கள், அல்லது உங்கள் இணைய சேவை நிறுவனத்தின் கையேடை பாருங்கள்.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "நேரடியாக இணையத்துடன் இணை"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "பதிலி இல்லை"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, kde-format
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"பதிலியை தானாக கண்டுபிடித்து அமை.<p>\n"
+"<b>Web Proxy Auto-Discovery Protocol (WPAD)</b> கொண்டு பதிலி தானாக "
+"கண்டுபிடிக்கப்படும்.<p>\n"
+"<b>குறிப்பு:</b> சில யூனிக்ஸ்/லினக்ஸ் இயக்குதளங்களில் இது சரியாக வேலை செய்யாமல் "
+"இருக்கலாம்.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "&பதிலியை தானாக அமை"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "பதிலியை அமைக்க குறிப்பிட்ட சிறுநிரலை பயன்படுத்து."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "பதிலி தானியக்க முகவரியை பயன்படுத்து:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "பதிலி அமைப்பு சிறுநிரலுக்கான முகவரியை உள்ளிடவும்."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>கணினியின் பதிலி அமைப்புகளை பயன்படுத்து.</p>\n"
+"<p>சில இயக்குதளங்கள், கணினி முழுவதற்குமான பதிலி விவரங்களை வழங்கும். இந்த விருப்பத்தை "
+"குறிப்பதால், நீங்கள் அந்த அமைப்புகளையே பயன்படுத்தலாம்.</p>\n"
+"<p>மெக் இயக்குதளத்தில்</p>\n"
+"<p>விண்டோஸ் இயக்குதளத்தில்</p>\n"
+"<p>லினக்ஸ் மற்றும் யூனிக்ஸ் இயக்குதளங்களில், இதைப்போன்ற கணினி பதிலி அமைப்புகள் பெரும்பாலும் "
+"சூழ்மாறிகளை (environment variables) கொண்டு வரையறுக்கப்படும். பின்வரும் சூழ்மாறிகள் "
+"இருக்கும்போது பயன்படுத்தப்படும்: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "&கணினி பதிலி அமைப்பை பயன்படுத்து:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>கணினி முழுவதுக்குமான பதிலி விவரங்களை அமைக்க பயன்படும் சூழல் மாறிகளை தானாக "
+"கண்டுபிடிக்க முயற்சி.<p> பரவலாக பயன்படுத்தப்படும் HTTP_PROXY, FTP_PROXY மற்றும் "
+"NO_PROXY போன்ற மாறிகளை இது தேடும்.</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "தானாக கண்டுபிடி"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"HTTP பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
+"<b>HTTP_PROXY</b>.<p>\n"
+"மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
+"கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP பதிலி:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"HTTPS பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
+"<b>HTTPS_PROXY</b>.<p>\n"
+"மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
+"கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL பதிலி:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"FTP பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
+"<b>FTP_PROXY</b>.<p>\n"
+"மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
+"கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP பதிலி:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"SOCKS பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
+"<b>SOCKS_PROXY</b>.<p>\n"
+"மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
+"கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS பதிலி:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>SOCKS பதிலி சேவையகத்தின் முகவரியை கொண்ட சூழ் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
+"<b>SOCKS_PROXY</b>.<p>மாறாக, நீங்கள் <b>&quot;தானாக கண்டுபிடி&quot;</b> என்ற "
+"பட்டனை அழுத்தி உரிய மாறியை தானாக கண்டுபிடிக்க முயற்சிக்கலாம்.</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"சூலல் மாறிக்கு பெயரினை உள்ளீடு செய், எ.கா. <b>FTP_பதிமாற்றம்</b>,  FTP பதிமாற்றம் "
+"வழங்கன் சேமிப்பதற்கு பயன்படுகிறது.<p>\n"
+"மாற்றாக, நீங்கள் சொடுக்க இயலும் <b>\"தானியக்க நீக்கம்t\"</b>இந்த மாறிகளை தானியக்க கண்டரிய "
+"இந்த பொத்தான் முயல்கிறது.\n"
+".</qt>."
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "விதிவிலக்குகள்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>மேலுள்ள பதிலி அமைப்புகளை பயன்படுத்தக் கூடாத இணயதளங்களின் முகவரிகளைக் கொண்ட சூழல் "
+"மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. <b>NO_PROXY</b>.<p>மாறாக, நீங்கள் <b>&quot;தானாக "
+"கண்டுபிடி&quot;</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக கண்டுபிடிக்க முயற்சிக்கலாம்."
+"</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "&சூழல் மாறிகளின் மதிப்புகளை காட்டு"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "பதிலி சேவையக அமைப்பு விவரங்களை கைமுறையாக உள்ளிடவும்."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "கைமுறையாக குறிப்பிடும் பதிலி அமைப்பை பயன்படுத்து:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "HTTPS  பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "புறை:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "HTTPS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடவும்."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "&அனைத்து நெறிமுறைகளுக்கும் இந்த பதிலி சேவையகத்தை பயன்படுத்து"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "HTTPS பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "HTTPS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "FTP பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "FTP பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "SOCKS பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "SOCKS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>மேலுள்ள பதிலி அமைப்புகளை பயன்படுத்தக் கூடாத புரவன் பெயர்கள் அல்லது IP முகவரிகளை "
+"காற்புள்ளிகளால் பிரித்த பட்டியலாக உள்ளிடுங்கள்.</p>\n"
+"<p>குறிப்பிட்ட ஆள்களத்தில் உள்ள எல்லா புரவன்களையும் விலக்க வேண்டுமென்றால், ஆள்கள பெயருக்கு "
+"முன்னாள் ஒரு புள்ளியை இடுங்கள். உதாரணத்துக்கு, <i>kde.org</i>-இல் உள்ள எல்லா "
+"புரவன்களையும் விலக்க வேண்டுமென்றால், <i>.kde.org</i> என்பதை உள்ளிடுங்கள். '*' அல்லது "
+"'?' போன்ற குழுக்குறிகள் இங்கு வேலை செய்யாது.</p>\n"
+"<p>மேலும், நீங்கள் IP முகவரிகளையும் (எ.கா. 127.0.0.1), சப்நெட் கொண்ட IP முகவரிகளையும் "
+"(எ.கா. 192.168.0.1/24) உள்ளிடலாம்.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"<i>விதிவிலக்குகள்</i> பட்டியலில் உள்ள இணையதளங்களுக்கு மட்டும் மேலுள்ள பதிலி அமைப்புகள் "
+"பயன்படுத்தப்பட வேண்டுமென்றால், இந்த தேர்வுப்பெட்டியை குறியுங்கள்.</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "விதிவிலக்குகளின் பட்டியலில் உள்ள முகவரிகளுக்கு மட்டும் பதிலி அமைப்பை பயன்படுத்து"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5088,11 +5944,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr "[குறுக்கு ஆள்களம்]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "விவரங்கள்"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5180,31 +6031,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "நினைவி விவரங்கள்"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "பெயர்: "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "உட்பொருள்:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "காலாவதி ஆவது:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "பாதை:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ஆள்களம்:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5361,7 +6187,8 @@ msgstr ""
 "<para>நீங்கள் குறிப்பிடும் தேக்கக இடத்துக்கு அகற்றிடத்தை வரம்புப்படுத்த இந்த தேர்வுப்பெட்டியை "
 "குறிக்கவும். இல்லையென்றால், வரம்பற்று இருக்கும்.</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "அளவு:"
@@ -5619,6 +6446,141 @@ msgstr ""
 "தேர்ந்தெடுத்தால், இந்த அம்சத்தை ஆதரிக்கும் செயலிகளின் உள்ளீட்டு பெட்டிகளில் சாதாரண சொற்களையோ "
 "சொற்றொடர்களையோ அப்படியே உள்ளிட்டு தேடலாம்.</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>இணையத் தேடல் முதன்மைச்சொற்களை இயக்குங்கள் அல்லது முடக்குங்கள். </"
+"p><p> இணையத்திலோ உங்கள் வட்டிலொ இருக்கும் தகவல்களை நீங்கள் எளிதில் தேட இணையத் தேடல் "
+"முதன்மைச்சொற்கள் உதவும். </p><p> கே.டீ.யீ.யில் பல முதன்மைச்சொற்கள் இயல்பாகவே "
+"அமைக்கப்பட்டிருக்கும். இவ்வாறு உள்ள ஒரு முதன்மைச்சொல்லைக் கொண்டு நீங்கள் கூகுளில் தேடலாம்; "
+"அதைப் பயன்படுத்த, 'gg' என்று உள்ளிட்டு, அதற்குப் பிறகு வரம்புக்குறி மற்றும் வினாவை "
+"உள்ளிடலாம், எ.கா. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "&இணையத் தேடல் முதன்மைச்சொற்களை இயக்கு"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "முதன்மையான முதன்மைச்சொற்களை மட்டும் &பயன்படுத்து"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "இணையத் தேடல் முதன்மைச்சொற்களைத் தேடுங்கள்"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "புதிய இணையத் தேடல் முதன்மைச்சொல்லை சேர்"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "குறிக்கப்பட்ட இணையத் தேடல் முதன்மைச்சொல்லை திருத்து"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "குறிக்கப்பட்ட இணையத் தேடல் முதன்மைச்சொல்லை நீக்கு"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "&நீக்கு"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"நீங்கள் ஒரு முகவரிக்கு பதிலாக சாதாரன சொற்களையே உள்ளிடும்போது அவற்றை தானாக தேடும் "
+"உள்ளீட்டு பெட்டிகளால் பயன்படுத்தப்படும் தேடல் சேவையை தேர்வு செய்யுங்கள். இந்த அம்சத்தை முடக்க, "
+"பட்டியலிலிருந்து <b>ஏதுமில்லை</b> என்பதை தேர்ந்தெடுங்கள்.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "இயல்பிருப்பு இணையத் &தேடல் முதன்மைச்சொல்:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>இயல்பிருப்பு இணையத் தேடல் முதன்மைச்சொல்லை தேர்வு செய்யுங்கள். </"
+"p><p> உள்ளிட்ட சொற்றொடர் ஒரு முறையான முகவரியாக இல்லாத பட்சத்தில், அதை தானாக ஒரு "
+"முறையான வினாவாக செயலிகள் மாற்ற இது உதவும். </p><p>இந்த அம்சத்தை முடக்க, "
+"பட்டியலிலிருந்து <span style=\" font-weight:600;\">ஏதுமில்லை</span> என்பதை தேர்வு "
+"செய்யுங்கள். </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"முதன்மைச்சொல்லையும், தேட வேண்டிய சொற்றொடரையும் பிரிக்கும் வரம்புக்குறியைத் தேர்ந்தெடுங்கள்."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "&முதன்மைச்சொல்லுக்கான வரம்புக்குறி:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "முதன்மைச்சொல்லை குறிப்பதற்கு பயன்படும் வரம்புக்குறியை தேர்ந்தெடுங்கள்."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "முக்கால்புள்ளி"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "இடைவெளி"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5685,6 +6647,125 @@ msgstr ""
 msgid "Keep It"
 msgstr "அப்படியே இருக்கட்டும்"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "தேடல் தளத்தின் மனிதர்களால் படிக்கக் கூடிய பெயரை இங்கு உள்ளிடவும்."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "சுருக்குவழியின் &பெயர்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"தேடல் சேவையில் தேட பயன்படுத்த வேண்டிய URI-ஐ இங்கு உள்ளிடுங்கள்.<br/>தேட வேண்டிய முழு "
+"உரையை நீங்கள் \\{@} அல்லது \\{0} என்று குறிக்கலாம்.<br/>\n"
+"\\{@} என்பது அனைத்து வினா மாறிகளை (name=value போன்றவற்றை) நீக்குவதால் "
+"பரிந்துரைக்கப்படுவது; மாறாக, \\{0} என்பதில் கேள்வித் தொடர் மாறாமல் அப்படியே இடப்படும்."
+"<br/> நீங்கள் \\{1} ... \\{n} என்பவற்றைக் கொண்டு, கேள்வித் தொடரில் உள்ள சொற்களை "
+"குறிக்கலாம். \\{name} என்பதைக் கொண்டு, கேள்வியில் 'name=value' என்று குறிப்பிடப்பட்டதன் "
+"மதிப்பை குறிக்கலாம்.<br/> மேலும், ஒரே நேரத்தில் பலவற்றை (பெயர்கள், எண்கள் மற்றும் "
+"தொடர்களை) குறிப்பிடலாம் (\\{name1,name2,...,\"string\"}).<br/> பொருந்தும் முதல் "
+"மதிப்பு (இடதிலிருந்து) URI-இல் பொருத்தப்படும்.<br/> ஒன்றும் பொருந்தவில்லையெனில் "
+"பயன்படுத்த வேண்டிய இயல்பிருப்பு மதிப்பாக மேற்கோளிட்ட தொடரை குறிப்பிடலாம்.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "சுருக்குவழி &முகவரி:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"உங்கள் கேள்வியை குறியாக்க பயன்படுத்த வேண்டிய உருத்தொகுதியை (character set-ஐ) "
+"தேர்ந்தெடுங்கள்."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"இங்கு உள்ளிடப்படும் சுருக்குவழிகளை கே.டீ.யீ.யில் ஒரு முகவரி திட்டத்தை போல பயன்படுத்தலாம். "
+"உதாரணத்துக்கு, <b>av</b> என்ற சுருக்குவழியை  <b>av</b>:<b>என் தேடல்</b> என்று "
+"பயன்படுத்தலாம்\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>இணைய தேடல் சுருக்குவழியின் மனிதர்களால் படிக்கக்கூடிய பெயரை "
+"இங்கு உள்ளிடுங்கள்.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&சுருக்குவழிகள்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"உங்கள் கேள்வியை குறியாக்க பயன்படுத்த வேண்டிய உருத்தொகுதியை (character set-ஐ) "
+"தேர்ந்தெடுங்கள்"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "&உருத்தொகுதி:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "கேள்விக்கான கொள்ளிடத்தை உள்ளிடு"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5704,6 +6785,151 @@ msgstr "கோரிக்கை தடுக்கப்பட்டது."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "தெரியாத HTTP வினை."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "பொதுப் பெயர்:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "முனியாண்டி நிறுவனம்"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "நிறுவனம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "முனியாண்டி பல்வகை தயாரிப்புகள் நிறுவனம்"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "நிறுவன அலகு:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "மோசடி பிரிவு"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "நாடு:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "இந்தியா"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "மாநிலம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "தமிழ்நாடு"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "ஊர்:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "புளியம்பட்டி"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"இங்கே ஒரு சரிகாண்தொகையை ஒட்டவும்.<br/>சாதாரணமாக, சரிகாண்தொகை என்பதை நீங்கள் இந்த கோப்பை "
+"பதிவிறக்கிய இணையதளம் வழங்கும்."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "எதிர்பார்க்கும் சரிகாண்தொகை (MD5, SHA1, SHA256, அல்லது SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "சரிகாண்தொகையை பிடிப்புப்பலகையிலிருந்து இங்கே உள்ளீடு அழுத்தவும்."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "கணி"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "சரிகாண்தொகையை பிடிப்புப்பலகைக்கு நகலெடுக்க அழுத்தவும்."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6189,6 +7415,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "தெரியாதது"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "நிறுத்து"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "ஃபைல்-லைட்டில் காட்டு"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "இங்கிருந்து ஏற்றப்பட்டுள்ளது:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "காலி இடம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "வகை:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "இடம்:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "மாற்று…"
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "உள்ளடக்கம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "சுட்டுகின்ற இடம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "மாற்றியது:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "உருவாக்கியது:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "கோப்பு முறைமை:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "தெரியாத அளவு"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "இங்கு ஏற்றப்பட்டுள்ளது:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "அணுகியது:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "இதனால் திற:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6358,6 +7680,353 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> கண்டுபிடிக்கப்படவில்லை; இயக்கவல்ல நிரலுக்கான சரியான பாதையை "
 "உள்ளிடவும்."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "முனையம்"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"நீங்கள் இயக்க விரும்பும் செயலி உரைமுறை செயலியாக இருந்தாலோ, முனைய சாளரம் தரும் தகவல்கள் "
+"உங்களுக்கு தேவைப்பட்டாலோ, இந்த விருப்பத்தை குறிக்கவும்."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "&முனையத்தில் இயக்கு"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "முனைய விருப்பங்கள்:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"உரைமுறை செயலி வெளியேறும் போது முக்கியமான தகவல்களை கொடுக்கும் என்றால் இந்த "
+"விருப்பத்தை குறிக்கவும். முனையத்தை திறந்து வைத்தல், நீங்கள் இந்த தகவல்களை பார்க்க உதவும்."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "கட்டளை முடியும் போது மூடு வேண்டாம்"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "பயனர்"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"செயலியை வேறு பயனர் கணக்கில் இயக்க விரும்பினால் இதை குறிக்கவும். ஒவ்வொரு "
+"செயல்பாட்டுடனும் ஏதாவதொரு பயனர் எண் இணைக்கப்பட்டிருக்கும். இந்த எண், கோப்பு அணுகல் மற்றும் "
+"பிற அனுமதிகளை தீர்மானிக்கிறது. இந்த விருப்பத்தைப் பயன்படுத்த பயனரின் கடவுச்சொல் "
+"தேவைப்படும்."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "வேறு பயனராக இயக்கு"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "செயலியை எந்த பயனரின் பெயரில் இயக்க வேண்டுமோ, அந்த பெயரை உள்ளிடவும்."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "பயனர் பெயர்:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "செயலியை எந்த பயனரின் பெயரில் இயக்க வேண்டுமோ, அந்த பெயரை இங்கு உள்ளிடவும்."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "பிரிநிலை GPU"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "பிரிநிலை GPU அட்டையைக் கொண்டு இயக்கவும்"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "தொடக்கம்"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"உங்கள் செயலி தொடங்கி விட்டது என்பதை வெளிப்படையாக காட்ட இதை குறிக்கவும். "
+"பணிப்பட்டையிலோ, பரபரப்பான சுட்டிக்குறியாகவோ இந்த பின்னூட்டம் காண்பிக்கப்படும்."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "தொடக்கும்போது பின்னூட்டம் காட்டு"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"இந்தப் செயலிக்கு நீங்கள் கொடுக்க விரும்பும் பெயரை உள்ளிடவும். இந்த செயலி இந்தப் பெயரின் கீழ் "
+"செயலிகள் பட்டியிலும் பலகையிலும் காண்பிக்கப்படும். "
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"பயனைப் பொறுத்து இந்த செயலியின் விவரணத்தை உள்ளிடவும். எடுத்துக்காட்டு: தொலைபேசி "
+"இணைப்பு செயலிக்கு (KPPP) \"தொலைபேசி இணைப்பு கருவி\" எனக் குறிப்பிடலாம்."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&விவரணம்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "பயனுள்ள குறிப்புகளை நீங்கள் இங்கு உள்ளிடலாம்."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "&குறிப்பு:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr "சூழல் மாறிகள்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"செயலியை துவக்க பயன்படுத்த வேண்டிய கட்டளையை இங்கு உள்ளிடுங்கள்.\n"
+"கட்டளைக்கு பின், நீங்கள் பல கொள்ளிடங்களை பயன்படுத்தலாம். செயலி துவக்கப்படும்போது, இந்த "
+"கொள்ளிடங்களில் கீழ்கண்டவாறு உண்மையான மதிப்புகள் இடப்படும்:\n"
+"\n"
+"%f - ஒரு கோப்பின் பெயர்\n"
+"%F - கோப்புகளின் பட்டியல் (ஒரே நேரத்தில் பல கோப்புகளை திறக்கக் கூடிய செயலிகளுக்கு)\n"
+"%u - ஒரு முகவரி\n"
+"%U - முகவரிகளின் பட்டியல்\n"
+"%i - .desktop கோப்பின் சின்னம்\n"
+"%c - .desktop கோப்பின் பெயர்\n"
+"%k - .desktop கோப்பின் இருப்பிடம்"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "நிரல்:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"விருப்பமான இயக்கவல்ல கோப்பை கண்டுபிடிப்பதற்காக, உங்கள் கோப்பு முறைமையில் உலாவ இங்கு "
+"அழுத்தவும்."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&உலாவு..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "உங்கள் செயலி, இங்கு உள்ளிடும் அடைவில் இயங்கும்."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&பணிப்பாதை:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "தருமதிப்புகள்:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>உங்கள் செயலி கையாளும் கோப்பு வகைகளை இந்த பட்டியல் காட்டும். இந்த பட்டியல், "
+"<u>மைம் வகைகளின்</u>படி தொகுக்கப்பட்டுள்ளது.</p> \n"
+"<p>மைம் (MIME, பல்பயன் இணைய அஞ்சல் இணைப்புகள்) என்பது, கோப்பு வகைப்பெயர்களையும் "
+"அவற்றிற்கான மைம் வகைகளையும் பொறுத்து தரவு வகையை அடையாளம் கண்டு கொள்ள உதவும் ஒரு "
+"நெறிமுறை. எடுத்துக்காட்டு: flower.bmp என்பதில் புள்ளிக்குப் பிறகு வரும் \"bmp\" "
+"என்பது, இது ஒரு குறிப்பிட்ட வகையிலான வரைபடம் (<u>image/x-bmp</u>) என்பதைக் "
+"காட்டுகிறது. எந்த வகை கோப்பினை எந்தப் செயலி திறக்க வேண்டும் என்பதை அறிய, கணினிக்கு "
+"ஒவ்வொரு செயலியின் திறன்களை பற்றி தெரிந்திருக்க வேண்டும். </p>\n"
+"<p>இந்தப் செயலியை பட்டியலில் இல்லாத மைம் வகைகளுடன் உறவுபடுத்த வேண்டும் என்றால் <b>சேர்</"
+"b> என்ற பட்டனை அழுத்தவும். இந்த செயலி கையாள முடியாத கோப்பு வகைகள் இந்தப் பட்டியலில் "
+"இருந்தால், அவற்றை நீக்க <b>நீக்கு</b> என்ற பட்டனை அழுத்தவும்.</p></qt> "
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "&ஆதரவுள்ள கோப்பு வகைகள்:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "மைம்வகை"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "விவரணம்"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr "உங்கள் செயலி கையாள கூடிய கோப்பு வகை ஒன்றை சேர்க்க இந்த பட்டனை அழுத்தவும்."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "சேர்..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"உங்கள் செயலி கையாள முடியாத கோப்பு வகை (மைம்வகை) ஒன்றை நீக்க, அந்த மைம்வகையை மேலே உள்ள "
+"பட்டியலில் தேர்ந்தெடுத்துவிட்டு இந்த பட்டனை அழுத்தவும்"
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "நீக்கு"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"இச்செயலி இயங்கும் முறை, தொடக்க பின்னூட்டம், மற்றும் D-Bus தேரவுகள் ஆகியவற்றை மாற்றவோ, "
+"இதனை வேறு பயனராக இயக்கவோ இங்கே க்ளிக் செய்யுங்கள்."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "&மேம்பட்ட விருப்பங்கள்"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7038,11 +8707,6 @@ msgstr "இணைய சுருக்குவழிகளை அமை..."
 msgid "Open file dialog"
 msgstr "கோப்பு திறப்பு சாளரம்"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "இடம்:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7364,6 +9028,79 @@ msgstr "தவிர்"
 msgid "Skip All"
 msgstr "அனைத்தையும் தவிர்"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[பூட்டு]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "முகவரி:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP முகவரி:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "மறையாக்கம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "விவரங்கள்:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL பதிப்பு:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "சான்றிதழ் தொடர்:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "நம்பகமானது:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "செல்லுபடியாகும் காலம்:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "தொடர் எண்:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 சரிகாண்தொகை:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1 சரிகாண்தொகை:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7500,788 +9237,6 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "விண்டோஸ் CE இறக்குதலை ஆதரிக்காது."
 
-#~ msgid "Search"
-#~ msgstr "தேடுங்கள்"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "இடங்கள் மற்றும் புரவன்களுக்கான ஊடாடும் தேடல்"
-
-#~ msgid "Site"
-#~ msgstr "இணையதளம்"
-
-#~ msgid "Cookie Name"
-#~ msgstr "நினைவியின் பெயர்"
-
-#~ msgid "D&elete"
-#~ msgstr "&நீக்கு"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "&அனைத்தையும் நீக்கு"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "&கொள்கையை அமை"
-
-#~ msgid "&Reload List"
-#~ msgstr "பட்டியலை &மீளேற்று"
-
-#~ msgid "Secure:"
-#~ msgstr "பாதுகாப்பானது:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>நினைவி ஆதரவை இயக்கு. சாதாரணமாக, நினைவி ஆதரவை இயக்கி, தங்களது தேவைக்கேற்ப "
-#~ "அதை மாற்றியமைக்க பயனர்கள் விரும்புவர்.</p><p>\n"
-#~ "நினைவி ஆதரவை முடக்கினால், பல இணையதளங்களை நீங்கள் பயன்படுத்த முடியாமல் போகலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "நினைவிகளை செயல்படுத்து"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "மூன்றாம் தரப்பு நினைவிகளை மறு.இவை, நீங்கள் பார்க்கும் இணையதளத்திலிருந்து இல்லாமல் வேறு "
-#~ "தளங்களிலிருந்து வரும் நினைவிகள் ஆகும். எடுத்துக்காட்டாக, இந்த விருப்பத்தை தேர்வு செய்த "
-#~ "பின் நீங்கள் <b>www.foobar.com</b> என்ற இணையதளத்துக்கு பயணித்தால், www.foobar.com "
-#~ "இருந்து வரும் நினைவிகள் மட்டுமே உங்கள் விருப்பத்துக்கேற்ப கையாளப்படும். மற்ற "
-#~ "தளங்களிலிருந்து வரும் நினைவிகள் மறுக்கப்படும். உங்கள் உலாவல் பழக்கங்களைப் பற்றி "
-#~ "இணையதளங்கள் அறிவதன் வாய்ப்புகளை இது குறைக்கும்.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "மூல சேவையகத்திலிருந்து மட்டும் நினைவிகளை &ஏற்றுக்கொள்"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "தற்போதைய அமர்வு முடியும்போது காலவதியாகும் தற்காலிக நினைவிகளை ஏற்றுக்கொள்.இவ்வாறுள்ள "
-#~ "நினைவிகள், உங்கள் வட்டில் சேமிக்கப்படாது.மாறாக, அவற்றை பயன்படுத்தும் அனைத்து "
-#~ "செயலிகளையும் (எ.கா. உங்கள் உலாவியை) மூடும்போது இவை அகற்றப் படும்.</p><p> "
-#~ "<u>குறிப்பு</u> இந்த விருப்பத்தை குறித்தல், உங்கள் இயல்பிருப்பு மற்றும் தள நினைவிக் "
-#~ "கொள்கைகளை புறக்கணிக்கும்.</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "&அமர்வு நினைவிகளை தானாக ஏற்றுக்கொள்"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "தொலை சேவையகத்திலிருந்து வரும் நினைவிகளை எவ்வாறு கையாள வேண்டும் என்பதை "
-#~ "தீர்மானிக்கும்: \n"
-#~ "<ul>\n"
-#~ "<li><b>கேள்</b> சேவையகம் ஒரு நினைவியை அமைக்க விரும்பும்போது என்ன செய்வதென்று கே.டீ."
-#~ "யீ. ஒவ்வொரு முறையும் உங்களிடம் கேட்கும்.</li>\n"
-#~ "<li><b>ஏற்றுக்கொள்</b> உங்களிடம் கேட்காமல் நினைவிகள் ஏற்கப்படும்.</li>\n"
-#~ "<li><b>அமர்வு முடியும் வரை ஏற்றுக்கொள்</b> நினைவிகள் ஏற்றுக்கொள்ளப் படும், ஆனால் "
-#~ "அமர்வு முடியும்போது காலாவதி ஆகும்.</li>\n"
-#~ "<li><b>மறு</b> பெறப்படும் அனைத்து நினைவிகளும் மறுக்கப்படும்.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>குறிப்பு:</u> கீழே அமைக்கக்கூடிய தனிப்பட்ட ஆள்களங்களுக்கான கொள்கைகள், இயல்பிருப்பு "
-#~ "கொள்கையை விட முன்னிலை பெறும்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "இயல்பிருப்பு கொள்கை"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "&எல்லா நினைவிகளையும் ஏற்றுக்கொள்"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "அமர்வு முடியும் &வரை ஏற்றுக்கொள்"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "&உறுதிப்படுத்து"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "எல்லா நினைவிகளையும் &மறு"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "புதிய கொள்கையை சேர்க்க, <b>சேர்...</b> பட்டனை அழுத்தி தேவையான விவரங்களை "
-#~ "உள்ளிடுங்கள். ஏற்கனவே உள்ள கொள்கையை மாற்ற, <b>மாற்று...</b> பட்டனை அழுத்தி, வரும் "
-#~ "சாளரத்தில் புதிய கொள்கையை தேர்ந்தெடுங்கள். <b>நீக்கு</b> அழுத்தினால், தேர்வு செய்த "
-#~ "கொள்கை நீக்கப்பட்டு, அந்த ஆள்களத்துக்கு இயல்பிருப்பு கொள்கையே பயன்படுத்தப்படும். "
-#~ "<b>அனைத்தையும் நீக்கு</b> பட்டனை அழுத்துதல், எல்லா தனிப்பட்ட ஆள்கள கொள்கைகளை நீக்கும்.\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "தளக் கொள்கை"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "ஆள்களங்களுக்கான ஊடாடும் தேடல்"
-
-#~ msgid "Search..."
-#~ msgstr "தேடு..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "இப்பட்டியலில் உள்ள ஆள்களங்களுக்கு நீங்கள் தனிப்பட்ட நினைவி கொள்கைகளை அமைத்துள்ளீர்கள். இந்த "
-#~ "ஆள்களங்களில், இயல்பிருப்பு கொள்கைக்கு பதிலாக தனிப்பட்ட கொள்கைகள் பயன்படுத்தப்படும்.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "ஆள்களம்"
-
-#~ msgid "Policy"
-#~ msgstr "கொள்கை"
-
-#~ msgid "&New..."
-#~ msgstr "&புதியது..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "&மாற்று..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "எந்த புரவனுக்கு அல்லது இணையதளத்துக்கு இந்த கொள்கை பொருந்தும் என்று உள்ளிடுங்கள், எ.கா. "
-#~ "<b>www.kde.org</b> அல்லது <b>.kde.org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "இணையதளத்தின் பெயர்:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "இந்த கொள்கை எந்த புரவனுக்கு அல்லது ஆள்களத்துக்கு  பொருந்தும் என்று குறிப்பிடுங்கள் "
-#~ "(உதாரணத்துக்கு .kde.org)."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "நீங்கள் விரும்பும் கொள்கையை தேர்ந்தெடுங்கள்:\n"
-#~ "<ul>\n"
-#~ "<li><b>ஏற்றுக்கொள்</b> - நினைவிகளை அமைக்க இந்த இணையதளத்தை அனுமதிக்கும்</li>\n"
-#~ "<li><b>அமர்வு முடியும் வரை ஏற்றுக்கொள்</b> - இந்த இணையதளத்துக்கு நினைவிகளை "
-#~ "அமைக்கும் அனுமதி தரப்படும், ஆனால் அவை அமர்வு முடியும்போது காலாவதி ஆகும்.</li>\n"
-#~ "<li><b>மறு</b> - இந்த இணையதளம் அனுப்பும் அனைத்து நினைவிகளையும் மறு</li>\n"
-#~ "<li><b>கேள்</b> - இந்த இணையதளம் நினைவிகளை அனுப்பும்போது என்ன செய்வதென்று கேள்</"
-#~ "li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "கொள்கை:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "அமர்வு முடியும் வரை ஏற்றுக்கொள்"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Passive FTPஐ முடக்கு"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "FTP இணைப்புகள் 'passive'-ஆக இருக்கும் போது வாங்கியே சேவையகத்தை தொடர்பு கொள்ளும். "
-#~ "இப்படி செய்வதால் தீயரண்கள் இணைப்பை தடுக்காமல் இருக்கும். ஆனால் பழைய FTP சேவையகங்கள் "
-#~ "passive FTP-ஐ ஆதரிக்காமல் இருக்கலாம்."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "முழுதாக பதிவேற்றப்படாத கோப்புகளை குறி"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "ஒரு கோப்பு பதிவேற்றப்படும்போது அதன் வகைப்பெயர் \"*.part\"-ஆக இருக்கும். முழுதாக "
-#~ "பதிவேற்றிய பின் அதற்கு சரியான பெயர் இடப்படும்."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "பதிலியை அமையுங்கள்.\n"
-#~ "<p>\n"
-#~ "பதிலி சேவையகம் என்பது, உங்கள் கணினிக்கும் இணையத்துக்கும் இடையே இருந்து, வடிகட்டுதல் "
-#~ "மற்றும் வலைபக்கங்களை தேக்கி வைத்தல் போன்ற சேவைகளை வழங்கும்.</p><p> தேக்கக பதிலி "
-#~ "சேவையகங்கள், நீங்கள் ஏற்கனவே பார்த்த இணையதளங்களை மீண்டும் விரைவாக அணுகும் வகையில் அவற்றை "
-#~ "உள்ளமைவாக சேமித்து வைக்கும்;  மாறாக, விளம்பரங்கள் போன்ற நீங்கள் தடுக்க "
-#~ "விரும்பக்கூடியவற்றை வடிகட்டும் பதிலி சேவையகங்கள் தடுக்கும்.</p>\n"
-#~ "<p>\n"
-#~ "நீங்கள் பதிலி சேவையகத்தை பயன்படுத்த வேண்டுமா என்பது தெரியவில்லையெனில், உங்கள் "
-#~ "கணினியின் நிர்வாகியிடம் கேளுங்கள், அல்லது உங்கள் இணைய சேவை நிறுவனத்தின் கையேடை "
-#~ "பாருங்கள்.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "நேரடியாக இணையத்துடன் இணை"
-
-#~ msgid "No Proxy"
-#~ msgstr "பதிலி இல்லை"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "பதிலியை தானாக கண்டுபிடித்து அமை.<p>\n"
-#~ "<b>Web Proxy Auto-Discovery Protocol (WPAD)</b> கொண்டு பதிலி தானாக "
-#~ "கண்டுபிடிக்கப்படும்.<p>\n"
-#~ "<b>குறிப்பு:</b> சில யூனிக்ஸ்/லினக்ஸ் இயக்குதளங்களில் இது சரியாக வேலை செய்யாமல் "
-#~ "இருக்கலாம்.\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "&பதிலியை தானாக அமை"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "பதிலியை அமைக்க குறிப்பிட்ட சிறுநிரலை பயன்படுத்து."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "பதிலி தானியக்க முகவரியை பயன்படுத்து:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "பதிலி அமைப்பு சிறுநிரலுக்கான முகவரியை உள்ளிடவும்."
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>கணினியின் பதிலி அமைப்புகளை பயன்படுத்து.</p>\n"
-#~ "<p>சில இயக்குதளங்கள், கணினி முழுவதற்குமான பதிலி விவரங்களை வழங்கும். இந்த "
-#~ "விருப்பத்தை குறிப்பதால், நீங்கள் அந்த அமைப்புகளையே பயன்படுத்தலாம்.</p>\n"
-#~ "<p>மெக் இயக்குதளத்தில்</p>\n"
-#~ "<p>விண்டோஸ் இயக்குதளத்தில்</p>\n"
-#~ "<p>லினக்ஸ் மற்றும் யூனிக்ஸ் இயக்குதளங்களில், இதைப்போன்ற கணினி பதிலி அமைப்புகள் "
-#~ "பெரும்பாலும் சூழ்மாறிகளை (environment variables) கொண்டு வரையறுக்கப்படும். "
-#~ "பின்வரும் சூழ்மாறிகள் இருக்கும்போது பயன்படுத்தப்படும்: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "&கணினி பதிலி அமைப்பை பயன்படுத்து:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>கணினி முழுவதுக்குமான பதிலி விவரங்களை அமைக்க பயன்படும் சூழல் மாறிகளை தானாக "
-#~ "கண்டுபிடிக்க முயற்சி.<p> பரவலாக பயன்படுத்தப்படும் HTTP_PROXY, FTP_PROXY மற்றும் "
-#~ "NO_PROXY போன்ற மாறிகளை இது தேடும்.</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "தானாக கண்டுபிடி"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "HTTP பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
-#~ "<b>HTTP_PROXY</b>.<p>\n"
-#~ "மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
-#~ "கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP பதிலி:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "HTTPS பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
-#~ "<b>HTTPS_PROXY</b>.<p>\n"
-#~ "மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
-#~ "கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL பதிலி:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "FTP பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
-#~ "<b>FTP_PROXY</b>.<p>\n"
-#~ "மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
-#~ "கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP பதிலி:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "SOCKS பதிலி சேவையகத்தின் முகவரியைக் கொண்ட சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. "
-#~ "<b>SOCKS_PROXY</b>.<p>\n"
-#~ "மாறாக, நீங்கள் <b>\"தானாக கண்டுபிடி\"</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
-#~ "கண்டுபிடிக்க முயற்சிக்கலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS பதிலி:"
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>SOCKS பதிலி சேவையகத்தின் முகவரியை கொண்ட சூழ் மாறியின் பெயரை உள்ளிடுங்கள், எ."
-#~ "கா. <b>SOCKS_PROXY</b>.<p>மாறாக, நீங்கள் <b>&quot;தானாக கண்டுபிடி&quot;</b> "
-#~ "என்ற பட்டனை அழுத்தி உரிய மாறியை தானாக கண்டுபிடிக்க முயற்சிக்கலாம்.</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "சூலல் மாறிக்கு பெயரினை உள்ளீடு செய், எ.கா. <b>FTP_பதிமாற்றம்</b>,  FTP பதிமாற்றம் "
-#~ "வழங்கன் சேமிப்பதற்கு பயன்படுகிறது.<p>\n"
-#~ "மாற்றாக, நீங்கள் சொடுக்க இயலும் <b>\"தானியக்க நீக்கம்t\"</b>இந்த மாறிகளை தானியக்க "
-#~ "கண்டரிய இந்த பொத்தான் முயல்கிறது.\n"
-#~ ".</qt>."
-
-#~ msgid "Exceptions:"
-#~ msgstr "விதிவிலக்குகள்:"
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>மேலுள்ள பதிலி அமைப்புகளை பயன்படுத்தக் கூடாத இணயதளங்களின் முகவரிகளைக் கொண்ட "
-#~ "சூழல் மாறியின் பெயரை உள்ளிடுங்கள், எ.கா. <b>NO_PROXY</b>.<p>மாறாக, நீங்கள் "
-#~ "<b>&quot;தானாக கண்டுபிடி&quot;</b> என்ற பட்டனை அழுத்தி இந்த மாறியை தானாக "
-#~ "கண்டுபிடிக்க முயற்சிக்கலாம்.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "&சூழல் மாறிகளின் மதிப்புகளை காட்டு"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "பதிலி சேவையக அமைப்பு விவரங்களை கைமுறையாக உள்ளிடவும்."
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "கைமுறையாக குறிப்பிடும் பதிலி அமைப்பை பயன்படுத்து:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "HTTPS  பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
-
-#~ msgid "Port:"
-#~ msgstr "புறை:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "HTTPS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடவும்."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "&அனைத்து நெறிமுறைகளுக்கும் இந்த பதிலி சேவையகத்தை பயன்படுத்து"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "HTTPS பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "HTTPS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "FTP பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "FTP பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "SOCKS பதிலி சேவையகத்தின் முகவரியை உள்ளிடுங்கள்."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "SOCKS பதிலி சேவையகத்தின் புறை எண்ணை உள்ளிடுங்கள்."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>மேலுள்ள பதிலி அமைப்புகளை பயன்படுத்தக் கூடாத புரவன் பெயர்கள் அல்லது IP முகவரிகளை "
-#~ "காற்புள்ளிகளால் பிரித்த பட்டியலாக உள்ளிடுங்கள்.</p>\n"
-#~ "<p>குறிப்பிட்ட ஆள்களத்தில் உள்ள எல்லா புரவன்களையும் விலக்க வேண்டுமென்றால், ஆள்கள "
-#~ "பெயருக்கு முன்னாள் ஒரு புள்ளியை இடுங்கள். உதாரணத்துக்கு, <i>kde.org</i>-இல் உள்ள "
-#~ "எல்லா புரவன்களையும் விலக்க வேண்டுமென்றால், <i>.kde.org</i> என்பதை உள்ளிடுங்கள். '*' "
-#~ "அல்லது '?' போன்ற குழுக்குறிகள் இங்கு வேலை செய்யாது.</p>\n"
-#~ "<p>மேலும், நீங்கள் IP முகவரிகளையும் (எ.கா. 127.0.0.1), சப்நெட் கொண்ட IP "
-#~ "முகவரிகளையும் (எ.கா. 192.168.0.1/24) உள்ளிடலாம்.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<i>விதிவிலக்குகள்</i> பட்டியலில் உள்ள இணையதளங்களுக்கு மட்டும் மேலுள்ள பதிலி "
-#~ "அமைப்புகள் பயன்படுத்தப்பட வேண்டுமென்றால், இந்த தேர்வுப்பெட்டியை குறியுங்கள்.</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr ""
-#~ "விதிவிலக்குகளின் பட்டியலில் உள்ள முகவரிகளுக்கு மட்டும் பதிலி அமைப்பை பயன்படுத்து"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>இணையத் தேடல் முதன்மைச்சொற்களை இயக்குங்கள் அல்லது முடக்குங்கள். "
-#~ "</p><p> இணையத்திலோ உங்கள் வட்டிலொ இருக்கும் தகவல்களை நீங்கள் எளிதில் தேட இணையத் தேடல் "
-#~ "முதன்மைச்சொற்கள் உதவும். </p><p> கே.டீ.யீ.யில் பல முதன்மைச்சொற்கள் இயல்பாகவே "
-#~ "அமைக்கப்பட்டிருக்கும். இவ்வாறு உள்ள ஒரு முதன்மைச்சொல்லைக் கொண்டு நீங்கள் கூகுளில் தேடலாம்; "
-#~ "அதைப் பயன்படுத்த, 'gg' என்று உள்ளிட்டு, அதற்குப் பிறகு வரம்புக்குறி மற்றும் வினாவை "
-#~ "உள்ளிடலாம், எ.கா. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
-#~ "body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "&இணையத் தேடல் முதன்மைச்சொற்களை இயக்கு"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "முதன்மையான முதன்மைச்சொற்களை மட்டும் &பயன்படுத்து"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "இணையத் தேடல் முதன்மைச்சொற்களைத் தேடுங்கள்"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "புதிய இணையத் தேடல் முதன்மைச்சொல்லை சேர்"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "குறிக்கப்பட்ட இணையத் தேடல் முதன்மைச்சொல்லை திருத்து"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "குறிக்கப்பட்ட இணையத் தேடல் முதன்மைச்சொல்லை நீக்கு"
-
-#~ msgid "De&lete"
-#~ msgstr "&நீக்கு"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "நீங்கள் ஒரு முகவரிக்கு பதிலாக சாதாரன சொற்களையே உள்ளிடும்போது அவற்றை தானாக தேடும் "
-#~ "உள்ளீட்டு பெட்டிகளால் பயன்படுத்தப்படும் தேடல் சேவையை தேர்வு செய்யுங்கள். இந்த அம்சத்தை "
-#~ "முடக்க, பட்டியலிலிருந்து <b>ஏதுமில்லை</b> என்பதை தேர்ந்தெடுங்கள்.\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "இயல்பிருப்பு இணையத் &தேடல் முதன்மைச்சொல்:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>இயல்பிருப்பு இணையத் தேடல் முதன்மைச்சொல்லை தேர்வு செய்யுங்கள். "
-#~ "</p><p> உள்ளிட்ட சொற்றொடர் ஒரு முறையான முகவரியாக இல்லாத பட்சத்தில், அதை தானாக ஒரு "
-#~ "முறையான வினாவாக செயலிகள் மாற்ற இது உதவும். </p><p>இந்த அம்சத்தை முடக்க, "
-#~ "பட்டியலிலிருந்து <span style=\" font-weight:600;\">ஏதுமில்லை</span> என்பதை "
-#~ "தேர்வு செய்யுங்கள். </p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "முதன்மைச்சொல்லையும், தேட வேண்டிய சொற்றொடரையும் பிரிக்கும் வரம்புக்குறியைத் "
-#~ "தேர்ந்தெடுங்கள்."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "&முதன்மைச்சொல்லுக்கான வரம்புக்குறி:"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "முதன்மைச்சொல்லை குறிப்பதற்கு பயன்படும் வரம்புக்குறியை தேர்ந்தெடுங்கள்."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "முக்கால்புள்ளி"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "இடைவெளி"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "தேடல் தளத்தின் மனிதர்களால் படிக்கக் கூடிய பெயரை இங்கு உள்ளிடவும்."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "சுருக்குவழியின் &பெயர்:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "தேடல் சேவையில் தேட பயன்படுத்த வேண்டிய URI-ஐ இங்கு உள்ளிடுங்கள்.<br/>தேட வேண்டிய "
-#~ "முழு உரையை நீங்கள் \\{@} அல்லது \\{0} என்று குறிக்கலாம்.<br/>\n"
-#~ "\\{@} என்பது அனைத்து வினா மாறிகளை (name=value போன்றவற்றை) நீக்குவதால் "
-#~ "பரிந்துரைக்கப்படுவது; மாறாக, \\{0} என்பதில் கேள்வித் தொடர் மாறாமல் அப்படியே இடப்படும்."
-#~ "<br/> நீங்கள் \\{1} ... \\{n} என்பவற்றைக் கொண்டு, கேள்வித் தொடரில் உள்ள சொற்களை "
-#~ "குறிக்கலாம். \\{name} என்பதைக் கொண்டு, கேள்வியில் 'name=value' என்று "
-#~ "குறிப்பிடப்பட்டதன் மதிப்பை குறிக்கலாம்.<br/> மேலும், ஒரே நேரத்தில் பலவற்றை (பெயர்கள், "
-#~ "எண்கள் மற்றும் தொடர்களை) குறிப்பிடலாம் (\\{name1,name2,...,\"string\"}).<br/> "
-#~ "பொருந்தும் முதல் மதிப்பு (இடதிலிருந்து) URI-இல் பொருத்தப்படும்.<br/> ஒன்றும் "
-#~ "பொருந்தவில்லையெனில் பயன்படுத்த வேண்டிய இயல்பிருப்பு மதிப்பாக மேற்கோளிட்ட தொடரை "
-#~ "குறிப்பிடலாம்.\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "சுருக்குவழி &முகவரி:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr ""
-#~ "உங்கள் கேள்வியை குறியாக்க பயன்படுத்த வேண்டிய உருத்தொகுதியை (character set-ஐ) "
-#~ "தேர்ந்தெடுங்கள்."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "இங்கு உள்ளிடப்படும் சுருக்குவழிகளை கே.டீ.யீ.யில் ஒரு முகவரி திட்டத்தை போல "
-#~ "பயன்படுத்தலாம். உதாரணத்துக்கு, <b>av</b> என்ற சுருக்குவழியை  <b>av</b>:<b>என் "
-#~ "தேடல்</b> என்று பயன்படுத்தலாம்\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>இணைய தேடல் சுருக்குவழியின் மனிதர்களால் படிக்கக்கூடிய பெயரை "
-#~ "இங்கு உள்ளிடுங்கள்.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&சுருக்குவழிகள்:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr ""
-#~ "உங்கள் கேள்வியை குறியாக்க பயன்படுத்த வேண்டிய உருத்தொகுதியை (character set-ஐ) "
-#~ "தேர்ந்தெடுங்கள்"
-
-#~ msgid "&Charset:"
-#~ msgstr "&உருத்தொகுதி:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "கேள்விக்கான கொள்ளிடத்தை உள்ளிடு"
-
-#~ msgid "Common name:"
-#~ msgstr "பொதுப் பெயர்:"
-
-#~ msgid "Acme Co."
-#~ msgstr "முனியாண்டி நிறுவனம்"
-
-#~ msgid "Organization:"
-#~ msgstr "நிறுவனம்:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "முனியாண்டி பல்வகை தயாரிப்புகள் நிறுவனம்"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "நிறுவன அலகு:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "மோசடி பிரிவு"
-
-#~ msgid "Country:"
-#~ msgstr "நாடு:"
-
-#~ msgid "Canada"
-#~ msgstr "இந்தியா"
-
-#~ msgid "State:"
-#~ msgstr "மாநிலம்:"
-
-#~ msgid "Quebec"
-#~ msgstr "தமிழ்நாடு"
-
-#~ msgid "City:"
-#~ msgstr "ஊர்:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "புளியம்பட்டி"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "இங்கே ஒரு சரிகாண்தொகையை ஒட்டவும்.<br/>சாதாரணமாக, சரிகாண்தொகை என்பதை நீங்கள் இந்த "
-#~ "கோப்பை பதிவிறக்கிய இணையதளம் வழங்கும்."
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "எதிர்பார்க்கும் சரிகாண்தொகை (MD5, SHA1, SHA256, அல்லது SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "சரிகாண்தொகையை பிடிப்புப்பலகையிலிருந்து இங்கே உள்ளீடு அழுத்தவும்."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "கணி"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "சரிகாண்தொகையை பிடிப்புப்பலகைக்கு நகலெடுக்க அழுத்தவும்."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8305,274 +9260,6 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 #~ msgid "Unmount"
 #~ msgstr "இறக்கு"
 
-#~ msgid "Stop"
-#~ msgstr "நிறுத்து"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "ஃபைல்-லைட்டில் காட்டு"
-
-#~ msgid "Mounted From:"
-#~ msgstr "இங்கிருந்து ஏற்றப்பட்டுள்ளது:"
-
-#~ msgid "Free Space:"
-#~ msgstr "காலி இடம்:"
-
-#~ msgid "Type:"
-#~ msgstr "வகை:"
-
-#~ msgid "Change..."
-#~ msgstr "மாற்று…"
-
-#~ msgid "Content:"
-#~ msgstr "உள்ளடக்கம்:"
-
-#~ msgid "Points to:"
-#~ msgstr "சுட்டுகின்ற இடம்:"
-
-#~ msgid "Modified:"
-#~ msgstr "மாற்றியது:"
-
-#~ msgid "Created:"
-#~ msgstr "உருவாக்கியது:"
-
-#~ msgid "File System:"
-#~ msgstr "கோப்பு முறைமை:"
-
-#~ msgid "Unknown size"
-#~ msgstr "தெரியாத அளவு"
-
-#~ msgid "Mounted On:"
-#~ msgstr "இங்கு ஏற்றப்பட்டுள்ளது:"
-
-#~ msgid "Accessed:"
-#~ msgstr "அணுகியது:"
-
-#~ msgid "Open With:"
-#~ msgstr "இதனால் திற:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "முனையம்"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "நீங்கள் இயக்க விரும்பும் செயலி உரைமுறை செயலியாக இருந்தாலோ, முனைய சாளரம் தரும் "
-#~ "தகவல்கள் உங்களுக்கு தேவைப்பட்டாலோ, இந்த விருப்பத்தை குறிக்கவும்."
-
-#~ msgid "Run in terminal"
-#~ msgstr "&முனையத்தில் இயக்கு"
-
-#~ msgid "Terminal options:"
-#~ msgstr "முனைய விருப்பங்கள்:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "உரைமுறை செயலி வெளியேறும் போது முக்கியமான தகவல்களை கொடுக்கும் என்றால் இந்த "
-#~ "விருப்பத்தை குறிக்கவும். முனையத்தை திறந்து வைத்தல், நீங்கள் இந்த தகவல்களை பார்க்க உதவும்."
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "கட்டளை முடியும் போது மூடு வேண்டாம்"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "பயனர்"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "செயலியை வேறு பயனர் கணக்கில் இயக்க விரும்பினால் இதை குறிக்கவும். ஒவ்வொரு "
-#~ "செயல்பாட்டுடனும் ஏதாவதொரு பயனர் எண் இணைக்கப்பட்டிருக்கும். இந்த எண், கோப்பு அணுகல் "
-#~ "மற்றும் பிற அனுமதிகளை தீர்மானிக்கிறது. இந்த விருப்பத்தைப் பயன்படுத்த பயனரின் "
-#~ "கடவுச்சொல் தேவைப்படும்."
-
-#~ msgid "Run as a different user"
-#~ msgstr "வேறு பயனராக இயக்கு"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "செயலியை எந்த பயனரின் பெயரில் இயக்க வேண்டுமோ, அந்த பெயரை உள்ளிடவும்."
-
-#~ msgid "Username:"
-#~ msgstr "பயனர் பெயர்:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "செயலியை எந்த பயனரின் பெயரில் இயக்க வேண்டுமோ, அந்த பெயரை இங்கு உள்ளிடவும்."
-
-#~ msgid "Discrete GPU"
-#~ msgstr "பிரிநிலை GPU"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "பிரிநிலை GPU அட்டையைக் கொண்டு இயக்கவும்"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "தொடக்கம்"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "உங்கள் செயலி தொடங்கி விட்டது என்பதை வெளிப்படையாக காட்ட இதை குறிக்கவும். "
-#~ "பணிப்பட்டையிலோ, பரபரப்பான சுட்டிக்குறியாகவோ இந்த பின்னூட்டம் காண்பிக்கப்படும்."
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "தொடக்கும்போது பின்னூட்டம் காட்டு"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "இந்தப் செயலிக்கு நீங்கள் கொடுக்க விரும்பும் பெயரை உள்ளிடவும். இந்த செயலி இந்தப் பெயரின் "
-#~ "கீழ் செயலிகள் பட்டியிலும் பலகையிலும் காண்பிக்கப்படும். "
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "பயனைப் பொறுத்து இந்த செயலியின் விவரணத்தை உள்ளிடவும். எடுத்துக்காட்டு: தொலைபேசி "
-#~ "இணைப்பு செயலிக்கு (KPPP) \"தொலைபேசி இணைப்பு கருவி\" எனக் குறிப்பிடலாம்."
-
-#~ msgid "&Description:"
-#~ msgstr "&விவரணம்:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "பயனுள்ள குறிப்புகளை நீங்கள் இங்கு உள்ளிடலாம்."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "&குறிப்பு:"
-
-#~ msgid "Environment Variables:"
-#~ msgstr "சூழல் மாறிகள்:"
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "செயலியை துவக்க பயன்படுத்த வேண்டிய கட்டளையை இங்கு உள்ளிடுங்கள்.\n"
-#~ "கட்டளைக்கு பின், நீங்கள் பல கொள்ளிடங்களை பயன்படுத்தலாம். செயலி துவக்கப்படும்போது, இந்த "
-#~ "கொள்ளிடங்களில் கீழ்கண்டவாறு உண்மையான மதிப்புகள் இடப்படும்:\n"
-#~ "\n"
-#~ "%f - ஒரு கோப்பின் பெயர்\n"
-#~ "%F - கோப்புகளின் பட்டியல் (ஒரே நேரத்தில் பல கோப்புகளை திறக்கக் கூடிய செயலிகளுக்கு)\n"
-#~ "%u - ஒரு முகவரி\n"
-#~ "%U - முகவரிகளின் பட்டியல்\n"
-#~ "%i - .desktop கோப்பின் சின்னம்\n"
-#~ "%c - .desktop கோப்பின் பெயர்\n"
-#~ "%k - .desktop கோப்பின் இருப்பிடம்"
-
-#~ msgid "Program:"
-#~ msgstr "நிரல்:"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "விருப்பமான இயக்கவல்ல கோப்பை கண்டுபிடிப்பதற்காக, உங்கள் கோப்பு முறைமையில் உலாவ இங்கு "
-#~ "அழுத்தவும்."
-
-#~ msgid "&Browse..."
-#~ msgstr "&உலாவு..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "உங்கள் செயலி, இங்கு உள்ளிடும் அடைவில் இயங்கும்."
-
-#~ msgid "&Work path:"
-#~ msgstr "&பணிப்பாதை:"
-
-#~ msgid "Arguments:"
-#~ msgstr "தருமதிப்புகள்:"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>உங்கள் செயலி கையாளும் கோப்பு வகைகளை இந்த பட்டியல் காட்டும். இந்த பட்டியல், "
-#~ "<u>மைம் வகைகளின்</u>படி தொகுக்கப்பட்டுள்ளது.</p> \n"
-#~ "<p>மைம் (MIME, பல்பயன் இணைய அஞ்சல் இணைப்புகள்) என்பது, கோப்பு வகைப்பெயர்களையும் "
-#~ "அவற்றிற்கான மைம் வகைகளையும் பொறுத்து தரவு வகையை அடையாளம் கண்டு கொள்ள உதவும் ஒரு "
-#~ "நெறிமுறை. எடுத்துக்காட்டு: flower.bmp என்பதில் புள்ளிக்குப் பிறகு வரும் \"bmp\" "
-#~ "என்பது, இது ஒரு குறிப்பிட்ட வகையிலான வரைபடம் (<u>image/x-bmp</u>) என்பதைக் "
-#~ "காட்டுகிறது. எந்த வகை கோப்பினை எந்தப் செயலி திறக்க வேண்டும் என்பதை அறிய, கணினிக்கு "
-#~ "ஒவ்வொரு செயலியின் திறன்களை பற்றி தெரிந்திருக்க வேண்டும். </p>\n"
-#~ "<p>இந்தப் செயலியை பட்டியலில் இல்லாத மைம் வகைகளுடன் உறவுபடுத்த வேண்டும் என்றால் "
-#~ "<b>சேர்</b> என்ற பட்டனை அழுத்தவும். இந்த செயலி கையாள முடியாத கோப்பு வகைகள் இந்தப் "
-#~ "பட்டியலில் இருந்தால், அவற்றை நீக்க <b>நீக்கு</b> என்ற பட்டனை அழுத்தவும்.</p></qt> "
-
-#~ msgid "&Supported file types:"
-#~ msgstr "&ஆதரவுள்ள கோப்பு வகைகள்:"
-
-#~ msgid "Mimetype"
-#~ msgstr "மைம்வகை"
-
-#~ msgid "Description"
-#~ msgstr "விவரணம்"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr "உங்கள் செயலி கையாள கூடிய கோப்பு வகை ஒன்றை சேர்க்க இந்த பட்டனை அழுத்தவும்."
-
-#~ msgid "Add..."
-#~ msgstr "சேர்..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "உங்கள் செயலி கையாள முடியாத கோப்பு வகை (மைம்வகை) ஒன்றை நீக்க, அந்த மைம்வகையை மேலே "
-#~ "உள்ள பட்டியலில் தேர்ந்தெடுத்துவிட்டு இந்த பட்டனை அழுத்தவும்"
-
-#~ msgid "Remove"
-#~ msgstr "நீக்கு"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "இச்செயலி இயங்கும் முறை, தொடக்க பின்னூட்டம், மற்றும் D-Bus தேரவுகள் ஆகியவற்றை மாற்றவோ, "
-#~ "இதனை வேறு பயனராக இயக்கவோ இங்கே க்ளிக் செய்யுங்கள்."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "&மேம்பட்ட விருப்பங்கள்"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8595,43 +9282,6 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு"
-
-#~ msgid "[padlock]"
-#~ msgstr "[பூட்டு]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "முகவரி:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP முகவரி:"
-
-#~ msgid "Encryption:"
-#~ msgstr "மறையாக்கம்:"
-
-#~ msgid "Details:"
-#~ msgstr "விவரங்கள்:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL பதிப்பு:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "சான்றிதழ் தொடர்:"
-
-#~ msgid "Trusted:"
-#~ msgstr "நம்பகமானது:"
-
-#~ msgid "Validity period:"
-#~ msgstr "செல்லுபடியாகும் காலம்:"
-
-#~ msgid "Serial number:"
-#~ msgstr "தொடர் எண்:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 சரிகாண்தொகை:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1 சரிகாண்தொகை:"
 
 #~ msgid "None"
 #~ msgstr "ஏதுமில்லை"

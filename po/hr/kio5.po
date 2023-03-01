@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -3597,7 +3597,8 @@ msgstr ""
 "odabirati oznake.<br/><br/>Iako su ove oznake specifične za datotečni "
 "dijalog, s njima možete raditi kao i s oznakama drugdje unutar KDE-a.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Naziv:"
@@ -3890,12 +3891,19 @@ msgstr ""
 "Stvori novu mapu u:\n"
 "%1"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Zalijepi"
@@ -4234,6 +4242,106 @@ msgstr "Kraj rada"
 msgid "Yes"
 msgstr "Da"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Traži"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Interaktivna pretraga domena i poslužitelja"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Stranica"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Naziv kolačića"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "O&briši"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "O&briši sve"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure..."
+msgid "Configure &Policy..."
+msgstr "Podešavanje…"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "P&onovo učitaj – popis"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detalji"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Ime:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Vrijednost:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domena:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Putanja:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Istječe:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "Sigurno:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4340,7 +4448,262 @@ msgstr ""
 "prihvaćanje kolačića iz povjerenih web stranica bez da Vas se pita svaki put "
 "kad KDE primi kolačić.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Uključi podršku za kolačiće. Obično se želi imati podršku za kolačiće "
+"koja se može namjestiti potrebama korisnika.</p><p>\n"
+"Imajte na umu da isključivanje podrške za kolačiće čini mnoge web stranice "
+"neupotrebljivim.</p>\n"
+" </qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "&Prihvati kolačiće"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Odbijanje tzv. \"third-party\" kolačića. Ovi kolačići stižu sa drugih "
+"stranica od onih koje trenutno pregledavate. Na primjer, ako posjetite "
+"<b>www.klik.hr</b>, a ova opcija je uključena, samo kolačići koji stižu sa "
+"tih stranica bit će obrađeni prema vašim postavkama. Kolačići s bilo koje "
+"druge adrese bit će odbijeni. Ova opcija smanjuje mogućnost vlasnika "
+"stranica da izrade profil vaših dnevnih navika pregledavanja web stranica.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "&Prihvati kolačiće samo s izvornog poslužitelja"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "<p>Automatically accept temporary cookies meant to expire at the end of "
+#| "the current session. Such cookies will not be stored in your computer's "
+#| "hard drive or storage device. Instead, they are deleted when you close "
+#| "all applications (e.g. your browser) that use them.</p><p>\n"
+#| "<u>NOTE:</u> Checking this option along with the next one will override "
+#| "your default as well as site specific cookie policies. However, doing so "
+#| "also increases your privacy since all cookies will be removed when the "
+#| "current session ends.</p>\n"
+#| "</qt>"
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<qt>\n"
+"<p>Automatski prihvati privremene kolačiće koji su određeni da isteknu na "
+"kraju trenutne sjednice. Takvi kolačići neće biti spremljeni na disk Vašeg "
+"računala. Umjesto toga, oni će biti izbrisani kad pozatvorite sve aplikacije "
+"(npr. Vaš web preglednik) koje ih koriste.</p> <p>\n"
+"<u>NAPOMENA:</u>Uključivanje ove opcije zajedno sa sljedećom će nadvladati "
+"vašu uobičajenu kao i politiku specifičnih web stranica. Međutim, to će "
+"također i povećati razinu privatnosti jer će svi kolačići biti izbrisani kad "
+"trenutna sjednica završi.</p> \n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "A&Utomatski prihvati kolačići"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Determines how cookies received from a remote machine will be handled: \n"
+#| "<ul>\n"
+#| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#| "server wants to set a cookie.</li>\n"
+#| "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#| "</li>\n"
+#| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#| "receives.</li>\n"
+#| "</ul><p>\n"
+#| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#| "take precedence over the default policy.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Određuje kako će se postupati s kolačićima koji su primljeni:\n"
+"<ul>\n"
+"<li><b>Pitaj</b> opcija će učiniti da Vas KDE svaki put pita što učiniti s "
+"kolačićem kada ga se primi</li> \n"
+"<li><b>Prihvati</b> opcija će učiniti da se svi kolačići prihvate bez "
+"pitanja</li> \n"
+"<li><b>Odbih</b> opcija će učiniti da se svi kolačići odbiju bez pitanja</"
+"li> \n"
+"</ul> <p>\n"
+"<u>NAPOMENA:</u> Politike specifičnih domena, koje mogu biti postavljene "
+"dolje, uvijek imaju prednost pred uobičajenim postavkama.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Uobičajena pravila"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "Pri&mi sve kolačiće"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgid "Accept &until end of session"
+msgstr "Kraj korištenja"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "Pi&taj za potvrdu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "Odba&ci sve kolačiće"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Za dodavanje nove politike, jednostavno kliknite na gumb <b>Dodaj…</b> i "
+"dajte potrebne informacije. Da biste promijenili trenutnu politiku, "
+"jednostavno koristite gumb <b>Promijeni</b> i odaberite novu politiku iz "
+"dialoga sa politikama. Ako kliknete na gumb <b>Izbriši</b>, onda ćete "
+"izbrisati trenutno postavljenu politiku pa će za tu domenu biti korištena "
+"uobičajena politika, dok će <b>Izbriši sve</b> gumb izbrisati sve specifične "
+"politike.\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Lokacijsko pravilo"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Interaktivno traži domene"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, fuzzy, kde-format
+#| msgid "Search"
+msgid "Search..."
+msgstr "Traži"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Popis stranica za koje ste postavili određenu politiku upravljanja "
+"kolačićima. Ove postavke vrijedit će umjesto podrazumijevanih za ove "
+"stranice.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Domena"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Pravilo"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Novi …"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "Promjena …"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Prihvati"
 
@@ -4350,11 +4713,17 @@ msgstr "Prihvati"
 msgid "Accept For Session"
 msgstr "Kraj korištenja"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Odbaci"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Pitaj"
 
@@ -4363,6 +4732,83 @@ msgstr "Pitaj"
 #| msgid "Do Not Store"
 msgid "Do Not Know"
 msgstr "Ne pohranjuj"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite domaćina ili domenu na koju se ovo pravilo odnosi, npr. <b>www.kde."
+"org</b> ili <b>.kde.org</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, fuzzy, kde-format
+#| msgid "File name:"
+msgid "Site name:"
+msgstr "Naziv datoteke:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Select the desired policy:\n"
+#| "<ul>\n"
+#| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#| "</ul>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Odaberite željenu politiku:\n"
+"<ul>\n"
+"<li><b>Prihvati</b> – Ove stranice smiju slati kolačiće</li>\n"
+"<li><b>Odbij</b> – Ove stranice ne smiju slati kolačiće</li>\n"
+"<li><b>Pitaj</b> – Traži se potvrda kad god ove stranice pokušaju poslati "
+"kolačić</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, fuzzy, kde-format
+#| msgid "&Policy:"
+msgid "Policy:"
+msgstr "&Pravila:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, fuzzy, kde-format
+#| msgid "End of Session"
+msgid "Accept until end of session"
+msgstr "Kraj korištenja"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4381,6 +4827,42 @@ msgstr "Neuspjelo ažuriranje"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Morate restartati KDE da bi ove izmjene bile vidljive."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Onemogući pasivni FTP"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Kada su FTP veze pasivne, klijent se povezuje na poslužitelj, umjesto "
+"obrnuto, tako da vatrozidi ne blokiraju vezu; stariji FTP poslužitelji možda "
+"ne podržavaju pasivni FTP."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Označi djelomično uploadane datoteke."
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"Dok se datoteka uploada njezina ekstenzija je \".part\". Kad upload završi, "
+"datoteka se preimenuje u njeno pravo ime."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4551,6 +5033,490 @@ msgstr ""
 "poslužitelji-posrednici Vam pružaju mogućnost blokiranja reklama ili bilo "
 "čega što Vas nervira.</p> <p><u>Napomena:</u>Neki poslužitelji-posrednici "
 "pružaju obje usluge.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Podešavanje poslužitelja-posrednika.\n"
+"<p>\n"
+"Poslužitelj-posrednik je posredovno računalo koje stoji između Vašeg "
+"računala i Interneta, te pruža usluge poput predmemoriranja web stranica ili "
+"filtriranja. Poslužitelji-posrednici za predmemoriranje Vam omogućuju brži "
+"pristup već posjećenim web stranicama tako da ih lokalno spremi ili "
+"predmemorira; filtrirajući poslužitelji-posrednici obično omogućuju "
+"blokiranje reklama ili bilo čega što Vas nervira.\n"
+"<p>\n"
+"Ako niste sigurni treba li vam poslužitelj-posrednik za pristup Internetu, "
+"provjerite upute vašeg pružatelja Internet usluga ili potražite savjet vašeg "
+"upravitelja sustava.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Izravno povezivanje na Internet"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, fuzzy, kde-format
+#| msgid "Proxy:"
+msgid "No Proxy"
+msgstr "Proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Automatski otkrij i postavi postavke posrednika. <p>\n"
+"Automatsko otkrivanje se izvodi pomoću <b>Protokola za automatsko otkrivanje "
+"web posrednika (WPAD – Web Proxy Auto-Discovery Protocol)</b>. <p>\n"
+"<b>NAPOMENA:</b>Ova opcija možda neće pravilno ili u potpunosti raditi na "
+"nekim UNIX/Linux distribucijama. Ako naiđete na problem prilikom korištenja "
+"ove opcije, molim provjerite FAQ dio na http://konqueror.kde.org\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, fuzzy, kde-format
+#| msgid ""
+#| "The proxy configuration script is invalid:\n"
+#| "%1"
+msgid "Detect proxy configuration automatically"
+msgstr ""
+"Skripta za podešenje proxyja je neispravna:\n"
+"%1"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, fuzzy, kde-format
+#| msgid "Use the specified proxy script URL to configure the proxy settings."
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr ""
+"Koristi navedenu skriptu za podešavanje postavki poslužitelja-posrednika."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, fuzzy, kde-format
+#| msgid "Reload configuration file"
+msgid "Use proxy auto configuration URL:"
+msgstr "Ponovno učitaj konfiguracijsku datoteku"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Unesite adresu HTTP proxy skripte."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Use system proxy configuration:"
+msgstr "Obnova postavki sustava."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Pokušaj automatskog otkrivanja varijabli okoline koje se koriste za "
+"postavljanje sustavskih informacija o posrednicima. <p>Ova mogućnost radi za "
+"pretragu često korištenih varijabli poput HTTP_PROXY, FTP_PROXY i NO_PROXY.</"
+"qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, fuzzy, kde-format
+#| msgid "A&uto detect"
+msgid "Auto D&etect"
+msgstr "&Automatsko nalaženje"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#| "to store the address of the HTTP proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
+"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, fuzzy, kde-format
+#| msgid "Proxy:"
+msgid "HTTP Proxy:"
+msgstr "Proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
+"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, fuzzy, kde-format
+#| msgid "Proxy:"
+msgid "SSL Proxy:"
+msgstr "Proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#| "to store the address of the FTP proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>FTP_PROXY</b>, koja će se koristiti "
+"za spremanje adrese FTP posredničkog poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, fuzzy, kde-format
+#| msgid "Proxy:"
+msgid "FTP Proxy:"
+msgstr "Proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
+"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, fuzzy, kde-format
+#| msgid "Proxy:"
+msgid "SOCKS Proxy:"
+msgstr "Proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
+"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se koristiti za "
+"spremanje adrese web stranica za koje neće biti korišten posrednički "
+"poslužitelj. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, fuzzy, kde-format
+#| msgid "Encryption:"
+msgid "Exceptions:"
+msgstr "Šifriranje:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#| "addresses of sites for which the proxy server should not be used.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se koristiti za "
+"spremanje adrese web stranica za koje neće biti korišten posrednički "
+"poslužitelj. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Prikaži &vrijednosti okolišni varijabli"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "Ručno unesite podatke za podešavanje poslužitelja-posrednika."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, fuzzy, kde-format
+#| msgid "Updating system configuration."
+msgid "Use manually specified proxy configuration:"
+msgstr "Obnova postavki sustava."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Unesite adresu HTTP proxy poslužitelja."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTP proxy server."
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Unesite adresu HTTP proxy poslužitelja."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, fuzzy, kde-format
+#| msgid "&Use the same proxy server for all protocols"
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Koristi isti Proxy poslužitelj za sve protokole"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Unesite adresu HTTPS proxy poslužitelja."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Unesite adresu HTTPS proxy poslužitelja."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Unesite adresu FTP posrednika.."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, fuzzy, kde-format
+#| msgid "Enter the address of the FTP proxy server."
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Unesite adresu FTP posrednika.."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Unesite adresu HTTPS proxy poslužitelja."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Unesite adresu HTTPS proxy poslužitelja."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "Koristi proxy samo za stavke u popisu"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5335,11 +6301,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " <b>[Križna domena]</b>"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detalji"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5443,31 +6404,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Detalji o kolačiću"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Ime:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Vrijednost:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Istječe:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Putanja:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domena:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, fuzzy, kde-format
@@ -5627,7 +6563,8 @@ msgid ""
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Veličina:"
@@ -5890,6 +6827,129 @@ msgid ""
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "&Enable Web search keywords"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Search for web search keywords"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Add a new Web search keyword"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Modify the highlighted Web search keyword"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Delete the highlighted Web search keyword"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "&Izbriši"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Default Web &search keyword:"
+msgstr "Uobičajena šifra:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5952,6 +7012,106 @@ msgstr ""
 msgid "Keep It"
 msgstr ""
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, fuzzy, kde-format
+#| msgid "Enter the address of the FTP proxy server."
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Unesite adresu FTP posrednika.."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, fuzzy, kde-format
+#| msgid "File name:"
+msgid "Shortcut &name:"
+msgstr "Naziv datoteke:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "Način ispreplitanja"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
@@ -5972,6 +7132,149 @@ msgstr "Blokiran zahtjev."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Nepoznata HTTP-metoda."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Uobičajen naziv:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "ACME d.o.o."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Organizacija:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "ACME – tvrka s proizvodima za zaštitu od Sunca"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Odjel:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Odjel za prijevare:"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "Država:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Kanada"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Savezna država:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Grad:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Travnjaci Lakeridge"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr ""
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr ""
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr ""
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Izračunaj"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr ""
 
 #: widgets/dropjob.cpp:182
 #, fuzzy, kde-format
@@ -6497,6 +7800,109 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Nepoznat"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Zaustaviti"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted From:"
+msgstr "Montiran na:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Vrsta:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Lokacija:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, fuzzy, kde-format
+#| msgid "C&hange..."
+msgid "Change..."
+msgstr "P&romijeni …"
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, fuzzy, kde-format
+#| msgid "Contents:"
+msgid "Content:"
+msgstr "Sadržaj:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Pokazuje na:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Mijenjano:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Stvoreno:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
+msgstr "Datotečni sustav"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, fuzzy, kde-format
+#| msgid "Unknown Host"
+msgid "Unknown size"
+msgstr "Nepoznato računalo"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted On:"
+msgstr "Montiran na:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Pristupljeno:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "Otvori pomoću"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6659,6 +8065,391 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Konzola"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Odaberite ovu opciju ako je aplikacija koju želite pokrenuti tekst mod "
+"aplikacija ili ako želite vidjeti informaciju koju pruža prozor terminal "
+"emulatora."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, fuzzy, kde-format
+#| msgid "&Run in terminal"
+msgid "Run in terminal"
+msgstr "Pok&reni u terminalu"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, fuzzy, kde-format
+#| msgid "&Terminal options:"
+msgid "Terminal options:"
+msgstr "Odrednice &terminala:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Odaberite ovu opciju ako tekst mod aplikacija nudi relevantne informacije "
+"pri izlasku. Držanje terminal emulatora otvorenim dozvoljava vam da uzmete "
+"ovu informaciju. "
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, fuzzy, kde-format
+#| msgid "&Do not close when command exits"
+msgid "Do not close when command exits"
+msgstr "Ne zatvaraj kad naredba izađe"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Korisnik"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Označite ovu opciju ako želite pokrenuti ovu aplikaciju a drugačijim "
+"korisničkim identitetom. Svaki proces ima drugačiji korisnički identifikator "
+"s kojim je povezan.  Ovaj identifikator određuje dozvole pristupa datotekama "
+"i druge dozvole. Zaporka korisnika je potrebna za korištenje ove opcije. "
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Run as a different user"
+msgstr "Pokre&ni kao neki drugi korisnik"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "Unesite korisničko ime pod kojim želite pokretati ovaj program."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "Unesite korisničko ime pod kojim želite pokretati ovaj program."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title:group Title of a group that lets the user choose options regargin "
+#| "program startup"
+#| msgid "Startup"
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Pokretanje"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Odaberite ovu opciju ako želite pojasniti da je vaša aplikacija pokrenuta. "
+"Ova vizualna povratna informacija se može prikazati kao pokazivač zauzetosti "
+"ili u programskoj traci. "
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, fuzzy, kde-format
+#| msgid "Enable &launch feedback"
+msgid "Enable launch feedback"
+msgstr "&Omogućite povratnu informaciju o pokretanju"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Ovdje unosite ime koje želite dati programu. Ovaj program će se pojavljivati "
+"pod ovim imenom u izborniku programa i u ploči."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Ovdje unosite opis ovog programa, na osnovu njegove svrhe. Na primjer: "
+"Program za povezivanje na Internet (KPPP) bi bio „Alat za povezivanje na "
+"Internet“."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Opis:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Ovdje unosite bilo koji komentar koji će možda biti koristan."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "&Komentar:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Morate definirati barem jednu valjanu okolišnu varijablu za proxy."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the caption"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Ovdje unesite naredbu za pokretanje ovog programa.\n"
+"\n"
+"Prateći naredbu, možete imati više simbola koji će prilikom pokretanja "
+"programa biti zamjenjeni stvarnim vrijednostima:\n"
+"%f – ime datoteke\n"
+"%F – popis datoteka koristi se za programe koji mogu otvoriti više lokalnih "
+"datoteka odjednom\n"
+"%u – jedan URL\n"
+"%U – popis URL-ova\n"
+"%d – direktorij datoteke za otvaranje\n"
+"%D – popis direktorija\n"
+"%i – sličica\n"
+"%m – mini sličica\n"
+"%c – komentar"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Pritisnite ovdje da pretražite svoj datotečni sustav kako bi našli željenu "
+"izvršnu datoteku."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "Po&traži…"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Postavlja radni direktorij za vašu aplikaciju."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&Radna putanja:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, fuzzy, kde-format
+#| msgid "FIXME: Document this"
+msgid "Arguments:"
+msgstr "POPRAVIME: Dokumentiraj ovo"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Ova lista bi trebala pokazivati tipove datoteka koje Vaša aplikacija "
+"može koristiti. Popis je organiziran po <u>mimetipovima</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension (Višesvrhni dodatak "
+"internet pošti) je standardni protokol za određivanje tipova podataka prema "
+"ekstenzijama imena datoteka i odgovarajućim <u>mimetipovima</u>. Na primjer: "
+"\"bmp\" dio koji dolazi iza točke u imenu datoteke \"cvijet.bmp\" označava "
+"da je to posebna vrsta slike, <u>image/x-bmp</u>. Kako bi znali koja "
+"aplikacija smije otvarati koju vrstu datoteke, sustav za svaku aplikaciju "
+"mora znati koju vrstu ekstenzija i mimetipova ona može otvarati.</p>\n"
+"<p>Ako želite pridružiti ovoj aplikaciji jedan ili više mimetipova koji nisu "
+"na ovome popisu, kliknite na gumb <b>Dodaj</b>. Ako je naveden jedan ili "
+"više mimetipova koje ova aplikacija ne može koristiti, možda ćete htjeti "
+"maknuti ih s popisa tako da kliknete na gumb <b>Makni</b>.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "&Podržani tipovi datoteka:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "Mimetip"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Opis"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Pritisnite na ovaj gumb ako želite dodati tip datoteke (mimetip) kojim vaša "
+"aplikacija može rukovati."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Dodaj…"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Ako želite da uklonite tip datoteke (mime tip) sa kojim vaš program ne može "
+"raditi, odaberite mime tip iz gornje liste i  pritisnite ovaj gumb."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Ukloni"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Pritisnite ovdje da izmijenite način na koji će se ova aplikacija "
+"izvršavati, davati povratnu informaciju, D-Bus opcije ili pokretati pod "
+"drugim korisnikom."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "Napredne op&cije"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -7367,11 +9158,6 @@ msgstr "Podešavanje…"
 msgid "Open file dialog"
 msgstr "Dijalog za otvoranje datoteke"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Lokacija:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7718,6 +9504,79 @@ msgstr "Preskoči"
 msgid "Skip All"
 msgstr "Preskoči"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adresa:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP adresa:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Šifriranje:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Detalji:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL inačica:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Lanac certifikata:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "Pouzdano:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Period :"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Serijski broj:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 sažetak:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1 sažetak:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7884,510 +9743,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "Sustav wince ne podržava montiranje."
 
-#~ msgid "Search"
-#~ msgstr "Traži"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Interaktivna pretraga domena i poslužitelja"
-
-#~ msgid "Site"
-#~ msgstr "Stranica"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Naziv kolačića"
-
-#~ msgid "D&elete"
-#~ msgstr "O&briši"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "O&briši sve"
-
-#, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid "Configure..."
-#~ msgid "Configure &Policy..."
-#~ msgstr "Podešavanje…"
-
-#~ msgid "&Reload List"
-#~ msgstr "P&onovo učitaj – popis"
-
-#~ msgid "Secure:"
-#~ msgstr "Sigurno:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Uključi podršku za kolačiće. Obično se želi imati podršku za kolačiće "
-#~ "koja se može namjestiti potrebama korisnika.</p><p>\n"
-#~ "Imajte na umu da isključivanje podrške za kolačiće čini mnoge web "
-#~ "stranice neupotrebljivim.</p>\n"
-#~ " </qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "&Prihvati kolačiće"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Odbijanje tzv. \"third-party\" kolačića. Ovi kolačići stižu sa drugih "
-#~ "stranica od onih koje trenutno pregledavate. Na primjer, ako posjetite "
-#~ "<b>www.klik.hr</b>, a ova opcija je uključena, samo kolačići koji stižu "
-#~ "sa tih stranica bit će obrađeni prema vašim postavkama. Kolačići s bilo "
-#~ "koje druge adrese bit će odbijeni. Ova opcija smanjuje mogućnost vlasnika "
-#~ "stranica da izrade profil vaših dnevnih navika pregledavanja web "
-#~ "stranica.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "&Prihvati kolačiće samo s izvornog poslužitelja"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "A&Utomatski prihvati kolačići"
-
-#~ msgid "Default Policy"
-#~ msgstr "Uobičajena pravila"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "Pri&mi sve kolačiće"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "Pi&taj za potvrdu"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "Odba&ci sve kolačiće"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Za dodavanje nove politike, jednostavno kliknite na gumb <b>Dodaj…</b> i "
-#~ "dajte potrebne informacije. Da biste promijenili trenutnu politiku, "
-#~ "jednostavno koristite gumb <b>Promijeni</b> i odaberite novu politiku iz "
-#~ "dialoga sa politikama. Ako kliknete na gumb <b>Izbriši</b>, onda ćete "
-#~ "izbrisati trenutno postavljenu politiku pa će za tu domenu biti korištena "
-#~ "uobičajena politika, dok će <b>Izbriši sve</b> gumb izbrisati sve "
-#~ "specifične politike.\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "Lokacijsko pravilo"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Interaktivno traži domene"
-
-#, fuzzy
-#~| msgid "Search"
-#~ msgid "Search..."
-#~ msgstr "Traži"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Popis stranica za koje ste postavili određenu politiku upravljanja "
-#~ "kolačićima. Ove postavke vrijedit će umjesto podrazumijevanih za ove "
-#~ "stranice.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Domena"
-
-#~ msgid "Policy"
-#~ msgstr "Pravilo"
-
-#~ msgid "&New..."
-#~ msgstr "&Novi …"
-
-#~ msgid "Chan&ge..."
-#~ msgstr "Promjena …"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite domaćina ili domenu na koju se ovo pravilo odnosi, npr. <b>www."
-#~ "kde.org</b> ili <b>.kde.org</b>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "File name:"
-#~ msgid "Site name:"
-#~ msgstr "Naziv datoteke:"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Onemogući pasivni FTP"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Kada su FTP veze pasivne, klijent se povezuje na poslužitelj, umjesto "
-#~ "obrnuto, tako da vatrozidi ne blokiraju vezu; stariji FTP poslužitelji "
-#~ "možda ne podržavaju pasivni FTP."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Označi djelomično uploadane datoteke."
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "Dok se datoteka uploada njezina ekstenzija je \".part\". Kad upload "
-#~ "završi, datoteka se preimenuje u njeno pravo ime."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Podešavanje poslužitelja-posrednika.\n"
-#~ "<p>\n"
-#~ "Poslužitelj-posrednik je posredovno računalo koje stoji između Vašeg "
-#~ "računala i Interneta, te pruža usluge poput predmemoriranja web stranica "
-#~ "ili filtriranja. Poslužitelji-posrednici za predmemoriranje Vam omogućuju "
-#~ "brži pristup već posjećenim web stranicama tako da ih lokalno spremi ili "
-#~ "predmemorira; filtrirajući poslužitelji-posrednici obično omogućuju "
-#~ "blokiranje reklama ili bilo čega što Vas nervira.\n"
-#~ "<p>\n"
-#~ "Ako niste sigurni treba li vam poslužitelj-posrednik za pristup "
-#~ "Internetu, provjerite upute vašeg pružatelja Internet usluga ili "
-#~ "potražite savjet vašeg upravitelja sustava.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Izravno povezivanje na Internet"
-
-#, fuzzy
-#~| msgid "Proxy:"
-#~ msgid "No Proxy"
-#~ msgstr "Proxy:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at http://konqueror.kde.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Automatski otkrij i postavi postavke posrednika. <p>\n"
-#~ "Automatsko otkrivanje se izvodi pomoću <b>Protokola za automatsko "
-#~ "otkrivanje web posrednika (WPAD – Web Proxy Auto-Discovery Protocol)</b>. "
-#~ "<p>\n"
-#~ "<b>NAPOMENA:</b>Ova opcija možda neće pravilno ili u potpunosti raditi na "
-#~ "nekim UNIX/Linux distribucijama. Ako naiđete na problem prilikom "
-#~ "korištenja ove opcije, molim provjerite FAQ dio na http://konqueror.kde."
-#~ "org\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "The proxy configuration script is invalid:\n"
-#~| "%1"
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr ""
-#~ "Skripta za podešenje proxyja je neispravna:\n"
-#~ "%1"
-
-#, fuzzy
-#~| msgid "Reload configuration file"
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Ponovno učitaj konfiguracijsku datoteku"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Unesite adresu HTTP proxy skripte."
-
-#, fuzzy
-#~| msgid "Updating system configuration."
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Obnova postavki sustava."
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Pokušaj automatskog otkrivanja varijabli okoline koje se koriste za "
-#~ "postavljanje sustavskih informacija o posrednicima. <p>Ova mogućnost radi "
-#~ "za pretragu često korištenih varijabli poput HTTP_PROXY, FTP_PROXY i "
-#~ "NO_PROXY.</qt>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~| "to store the address of the HTTP proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se "
-#~ "koristiti za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Proxy:"
-#~ msgid "HTTP Proxy:"
-#~ msgstr "Proxy:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se "
-#~ "koristiti za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Proxy:"
-#~ msgid "SSL Proxy:"
-#~ msgstr "Proxy:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~| "to store the address of the FTP proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>FTP_PROXY</b>, koja će se "
-#~ "koristiti za spremanje adrese FTP posredničkog poslužitelja. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Proxy:"
-#~ msgid "FTP Proxy:"
-#~ msgstr "Proxy:"
-
-#, fuzzy
-#~| msgid "Proxy:"
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "Proxy:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se "
-#~ "koristiti za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se koristiti "
-#~ "za spremanje adrese web stranica za koje neće biti korišten posrednički "
-#~ "poslužitelj. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Encryption:"
-#~ msgid "Exceptions:"
-#~ msgstr "Šifriranje:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~| "addresses of sites for which the proxy server should not be used.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se koristiti "
-#~ "za spremanje adrese web stranica za koje neće biti korišten posrednički "
-#~ "poslužitelj. <p>\n"
-#~ "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-#~ "biste pokrenuli automatsko otkrivanje te varijable.\n"
-#~ "</qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Prikaži &vrijednosti okolišni varijabli"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "Ručno unesite podatke za podešavanje poslužitelja-posrednika."
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Unesite adresu HTTP proxy poslužitelja."
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Unesite adresu HTTPS proxy poslužitelja."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Unesite adresu FTP posrednika.."
-
-#~ msgid "De&lete"
-#~ msgstr "&Izbriši"
-
-#, fuzzy
-#~| msgid "Default password:"
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "Uobičajena šifra:"
-
-#, fuzzy
-#~| msgctxt "@label"
-#~| msgid "Interlace Mode"
-#~ msgid "Insert query placeholder"
-#~ msgstr "Način ispreplitanja"
-
-#~ msgid "Common name:"
-#~ msgstr "Uobičajen naziv:"
-
-#~ msgid "Acme Co."
-#~ msgstr "ACME d.o.o."
-
-#~ msgid "Organization:"
-#~ msgstr "Organizacija:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "ACME – tvrka s proizvodima za zaštitu od Sunca"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Odjel:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Odjel za prijevare:"
-
-#~ msgid "Country:"
-#~ msgstr "Država:"
-
-#~ msgid "Canada"
-#~ msgstr "Kanada"
-
-#~ msgid "State:"
-#~ msgstr "Savezna država:"
-
-#~ msgid "Quebec"
-#~ msgstr "Quebec"
-
-#~ msgid "City:"
-#~ msgstr "Grad:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Travnjaci Lakeridge"
-
-#~ msgid "Calculate"
-#~ msgstr "Izračunaj"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8411,323 +9766,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 
 #~ msgid "Unmount"
 #~ msgstr "Demonitraj"
-
-#~ msgid "Stop"
-#~ msgstr "Zaustaviti"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted From:"
-#~ msgstr "Montiran na:"
-
-#~ msgid "Type:"
-#~ msgstr "Vrsta:"
-
-#, fuzzy
-#~| msgid "C&hange..."
-#~ msgid "Change..."
-#~ msgstr "P&romijeni …"
-
-#, fuzzy
-#~| msgid "Contents:"
-#~ msgid "Content:"
-#~ msgstr "Sadržaj:"
-
-#~ msgid "Points to:"
-#~ msgstr "Pokazuje na:"
-
-#~ msgid "Modified:"
-#~ msgstr "Mijenjano:"
-
-#~ msgid "Created:"
-#~ msgstr "Stvoreno:"
-
-#, fuzzy
-#~| msgid "File system:"
-#~ msgid "File System:"
-#~ msgstr "Datotečni sustav"
-
-#, fuzzy
-#~| msgid "Unknown Host"
-#~ msgid "Unknown size"
-#~ msgstr "Nepoznato računalo"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted On:"
-#~ msgstr "Montiran na:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Pristupljeno:"
-
-#, fuzzy
-#~| msgid "Open With"
-#~ msgid "Open With:"
-#~ msgstr "Otvori pomoću"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Konzola"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Odaberite ovu opciju ako je aplikacija koju želite pokrenuti tekst mod "
-#~ "aplikacija ili ako želite vidjeti informaciju koju pruža prozor terminal "
-#~ "emulatora."
-
-#, fuzzy
-#~| msgid "&Run in terminal"
-#~ msgid "Run in terminal"
-#~ msgstr "Pok&reni u terminalu"
-
-#, fuzzy
-#~| msgid "&Terminal options:"
-#~ msgid "Terminal options:"
-#~ msgstr "Odrednice &terminala:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Odaberite ovu opciju ako tekst mod aplikacija nudi relevantne informacije "
-#~ "pri izlasku. Držanje terminal emulatora otvorenim dozvoljava vam da "
-#~ "uzmete ovu informaciju. "
-
-#, fuzzy
-#~| msgid "&Do not close when command exits"
-#~ msgid "Do not close when command exits"
-#~ msgstr "Ne zatvaraj kad naredba izađe"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Korisnik"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Označite ovu opciju ako želite pokrenuti ovu aplikaciju a drugačijim "
-#~ "korisničkim identitetom. Svaki proces ima drugačiji korisnički "
-#~ "identifikator s kojim je povezan.  Ovaj identifikator određuje dozvole "
-#~ "pristupa datotekama i druge dozvole. Zaporka korisnika je potrebna za "
-#~ "korištenje ove opcije. "
-
-#, fuzzy
-#~| msgid "Ru&n as a different user"
-#~ msgid "Run as a different user"
-#~ msgstr "Pokre&ni kao neki drugi korisnik"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "Unesite korisničko ime pod kojim želite pokretati ovaj program."
-
-#~ msgid "Username:"
-#~ msgstr "Korisničko ime:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "Unesite korisničko ime pod kojim želite pokretati ovaj program."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "@title:group Title of a group that lets the user choose options regargin "
-#~| "program startup"
-#~| msgid "Startup"
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Pokretanje"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Odaberite ovu opciju ako želite pojasniti da je vaša aplikacija "
-#~ "pokrenuta. Ova vizualna povratna informacija se može prikazati kao "
-#~ "pokazivač zauzetosti ili u programskoj traci. "
-
-#, fuzzy
-#~| msgid "Enable &launch feedback"
-#~ msgid "Enable launch feedback"
-#~ msgstr "&Omogućite povratnu informaciju o pokretanju"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Ovdje unosite ime koje želite dati programu. Ovaj program će se "
-#~ "pojavljivati pod ovim imenom u izborniku programa i u ploči."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Ovdje unosite opis ovog programa, na osnovu njegove svrhe. Na primjer: "
-#~ "Program za povezivanje na Internet (KPPP) bi bio „Alat za povezivanje na "
-#~ "Internet“."
-
-#~ msgid "&Description:"
-#~ msgstr "&Opis:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Ovdje unosite bilo koji komentar koji će možda biti koristan."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "&Komentar:"
-
-#, fuzzy
-#~| msgid "Use preset proxy environment &variables"
-#~ msgid "Environment Variables:"
-#~ msgstr "Morate definirati barem jednu valjanu okolišnu varijablu za proxy."
-
-#, fuzzy
-#~| msgid ""
-#~| "Type the command to start this application here.\n"
-#~| "\n"
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the caption"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Ovdje unesite naredbu za pokretanje ovog programa.\n"
-#~ "\n"
-#~ "Prateći naredbu, možete imati više simbola koji će prilikom pokretanja "
-#~ "programa biti zamjenjeni stvarnim vrijednostima:\n"
-#~ "%f – ime datoteke\n"
-#~ "%F – popis datoteka koristi se za programe koji mogu otvoriti više "
-#~ "lokalnih datoteka odjednom\n"
-#~ "%u – jedan URL\n"
-#~ "%U – popis URL-ova\n"
-#~ "%d – direktorij datoteke za otvaranje\n"
-#~ "%D – popis direktorija\n"
-#~ "%i – sličica\n"
-#~ "%m – mini sličica\n"
-#~ "%c – komentar"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Pritisnite ovdje da pretražite svoj datotečni sustav kako bi našli "
-#~ "željenu izvršnu datoteku."
-
-#~ msgid "&Browse..."
-#~ msgstr "Po&traži…"
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Postavlja radni direktorij za vašu aplikaciju."
-
-#~ msgid "&Work path:"
-#~ msgstr "&Radna putanja:"
-
-#, fuzzy
-#~| msgid "FIXME: Document this"
-#~ msgid "Arguments:"
-#~ msgstr "POPRAVIME: Dokumentiraj ovo"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Ova lista bi trebala pokazivati tipove datoteka koje Vaša "
-#~ "aplikacija može koristiti. Popis je organiziran po <u>mimetipovima</u>.</"
-#~ "p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension (Višesvrhni dodatak "
-#~ "internet pošti) je standardni protokol za određivanje tipova podataka "
-#~ "prema ekstenzijama imena datoteka i odgovarajućim <u>mimetipovima</u>. Na "
-#~ "primjer: \"bmp\" dio koji dolazi iza točke u imenu datoteke \"cvijet.bmp"
-#~ "\" označava da je to posebna vrsta slike, <u>image/x-bmp</u>. Kako bi "
-#~ "znali koja aplikacija smije otvarati koju vrstu datoteke, sustav za svaku "
-#~ "aplikaciju mora znati koju vrstu ekstenzija i mimetipova ona može "
-#~ "otvarati.</p>\n"
-#~ "<p>Ako želite pridružiti ovoj aplikaciji jedan ili više mimetipova koji "
-#~ "nisu na ovome popisu, kliknite na gumb <b>Dodaj</b>. Ako je naveden jedan "
-#~ "ili više mimetipova koje ova aplikacija ne može koristiti, možda ćete "
-#~ "htjeti maknuti ih s popisa tako da kliknete na gumb <b>Makni</b>.</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "&Podržani tipovi datoteka:"
-
-#~ msgid "Mimetype"
-#~ msgstr "Mimetip"
-
-#~ msgid "Description"
-#~ msgstr "Opis"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Pritisnite na ovaj gumb ako želite dodati tip datoteke (mimetip) kojim "
-#~ "vaša aplikacija može rukovati."
-
-#~ msgid "Add..."
-#~ msgstr "Dodaj…"
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Ako želite da uklonite tip datoteke (mime tip) sa kojim vaš program ne "
-#~ "može raditi, odaberite mime tip iz gornje liste i  pritisnite ovaj gumb."
-
-#~ msgid "Remove"
-#~ msgstr "Ukloni"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Pritisnite ovdje da izmijenite način na koji će se ova aplikacija "
-#~ "izvršavati, davati povratnu informaciju, D-Bus opcije ili pokretati pod "
-#~ "drugim korisnikom."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "Napredne op&cije"
 
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -8755,43 +9793,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Zalijepi sadržaje odlagališta"
-
-#~ msgid "[padlock]"
-#~ msgstr "[padlock]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Adresa:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP adresa:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Šifriranje:"
-
-#~ msgid "Details:"
-#~ msgstr "Detalji:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL inačica:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Lanac certifikata:"
-
-#~ msgid "Trusted:"
-#~ msgstr "Pouzdano:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Period :"
-
-#~ msgid "Serial number:"
-#~ msgstr "Serijski broj:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 sažetak:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1 sažetak:"
 
 #~ msgid "None"
 #~ msgstr "Nijedna"
@@ -10078,29 +11079,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 
 #~ msgid ""
 #~ "<qt>\n"
-#~ "<p>Automatically accept temporary cookies meant to expire at the end of "
-#~ "the current session. Such cookies will not be stored in your computer's "
-#~ "hard drive or storage device. Instead, they are deleted when you close "
-#~ "all applications (e.g. your browser) that use them.</p><p>\n"
-#~ "<u>NOTE:</u> Checking this option along with the next one will override "
-#~ "your default as well as site specific cookie policies. However, doing so "
-#~ "also increases your privacy since all cookies will be removed when the "
-#~ "current session ends.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Automatski prihvati privremene kolačiće koji su određeni da isteknu na "
-#~ "kraju trenutne sjednice. Takvi kolačići neće biti spremljeni na disk "
-#~ "Vašeg računala. Umjesto toga, oni će biti izbrisani kad pozatvorite sve "
-#~ "aplikacije (npr. Vaš web preglednik) koje ih koriste.</p> <p>\n"
-#~ "<u>NAPOMENA:</u>Uključivanje ove opcije zajedno sa sljedećom će "
-#~ "nadvladati vašu uobičajenu kao i politiku specifičnih web stranica. "
-#~ "Međutim, to će također i povećati razinu privatnosti jer će svi kolačići "
-#~ "biti izbrisani kad trenutna sjednica završi.</p> \n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
 #~ "<p>Treat all cookies as session cookies. Session cookies are small pieces "
 #~ "of data that are temporarily stored in your computer's memory until you "
 #~ "quit or close all applications (e.g. your browser) that use them. Unlike "
@@ -10127,44 +11105,11 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 #~ msgid "Treat &all cookies as session cookies"
 #~ msgstr "Uzmi sve kolačiće kao kolačiće sesija"
 
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Određuje kako će se postupati s kolačićima koji su primljeni:\n"
-#~ "<ul>\n"
-#~ "<li><b>Pitaj</b> opcija će učiniti da Vas KDE svaki put pita što učiniti "
-#~ "s kolačićem kada ga se primi</li> \n"
-#~ "<li><b>Prihvati</b> opcija će učiniti da se svi kolačići prihvate bez "
-#~ "pitanja</li> \n"
-#~ "<li><b>Odbih</b> opcija će učiniti da se svi kolačići odbiju bez pitanja</"
-#~ "li> \n"
-#~ "</ul> <p>\n"
-#~ "<u>NAPOMENA:</u> Politike specifičnih domena, koje mogu biti postavljene "
-#~ "dolje, uvijek imaju prednost pred uobičajenim postavkama.</p>\n"
-#~ "</qt>"
-
 #~ msgid "Connect to the &Internet directly"
 #~ msgstr "Izravno povezivanje na &Internet"
 
 #~ msgid "A&utomatically detect proxy configuration"
 #~ msgstr "Automatski otkrij postavke promjenjivog posrednika (proxy)"
-
-#~ msgid "Use the specified proxy script URL to configure the proxy settings."
-#~ msgstr ""
-#~ "Koristi navedenu skriptu za podešavanje postavki poslužitelja-posrednika."
 
 #~ msgid "U&se proxy configuration URL:"
 #~ msgstr "Kori&sti sljedeći URL za postavljanje posrednika:"
@@ -10261,9 +11206,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 #~ "Unesite broj priljučka (port-a) vašeg HTTP posrednika (proxy). Obično se "
 #~ "koristi 8080."
 
-#~ msgid "&Use the same proxy server for all protocols"
-#~ msgstr "Koristi isti Proxy poslužitelj za sve protokole"
-
 #~ msgid "E&xceptions"
 #~ msgstr "&Izuzetci"
 
@@ -10284,9 +11226,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 #~ "kompliciranije potrebe, možda ćete htjeti koristiti konfiguracijsku "
 #~ "skriptu.\n"
 #~ "</qt>"
-
-#~ msgid "Use proxy only for entries in this list"
-#~ msgstr "Koristi proxy samo za stavke u popisu"
 
 #~ msgid "Remove all proxy exception addresses from the list."
 #~ msgstr ""
@@ -10310,29 +11249,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 
 #~ msgid "&Domain name:"
 #~ msgstr "Ime domene:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Odaberite željenu politiku:\n"
-#~ "<ul>\n"
-#~ "<li><b>Prihvati</b> – Ove stranice smiju slati kolačiće</li>\n"
-#~ "<li><b>Odbij</b> – Ove stranice ne smiju slati kolačiće</li>\n"
-#~ "<li><b>Pitaj</b> – Traži se potvrda kad god ove stranice pokušaju poslati "
-#~ "kolačić</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "&Policy:"
-#~ msgstr "&Pravila:"
 
 #~ msgid "Includes your platform type in the browser identification text"
 #~ msgstr "Uključuje vaš tip platforme u identifikacijski tekst preglednika."
@@ -10439,9 +11355,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 #~ msgstr ""
 #~ "Ako odaberete autodetekciju, KDE će automatski tragati za implementacijom "
 #~ "SOCKS-a na Vašem računalu."
-
-#~ msgid "A&uto detect"
-#~ msgstr "&Automatsko nalaženje"
 
 #~ msgid "This will force KDE to use NEC SOCKS if it can be found."
 #~ msgstr "Ovo će natjerati KDE da koristi NEC SOCKS ako se može pronaći."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2022-12-28 20:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -3547,7 +3547,8 @@ msgstr ""
 "dialogului de fișiere, dar ele operează la fel ca celelalte semne de carte "
 "întâlnite în alte părți ale KDE.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "De&numire:"
@@ -3838,12 +3839,19 @@ msgstr "Dosar nou"
 msgid "Create new folder in %1:"
 msgstr "Creează dosar nou în %1:"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Copiază"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Lipește"
@@ -4181,6 +4189,104 @@ msgstr "Sfârșitul sesiunii"
 msgid "Yes"
 msgstr "Da"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Caută"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Caută interactiv domenii și mașini"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Sait"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Denumire cookie"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "Șt&erge"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "Șterge t&ot"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "Configurare &politică..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "&Reîncarcă lista"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detalii"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Denumire:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Valoare:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domeniu:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Cale:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Expiră la:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "Securizat:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4291,7 +4397,244 @@ msgstr ""
 "primiți cookie-uri de la saiturile web în care aveți încredere fără să fiți "
 "întrebat de fiecare dată când KDE primește un cookie.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Activează suportul pentru cookie. În mod normal este nevoie să-l aveți "
+"activat și să îl configurați astfel încât să corespundă nevoilor "
+"dumneavoastră de intimitate.</p><p>\n"
+"Dacă dezactivați cookie-urile s-ar putea să nu mai puteți naviga prin unele "
+"saituri.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "Activează utilizarea &cookie-urilor"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>Respinge toate cookie-urile de la saituri, altele decât cel pe care l-"
+"ați cerut. Dacă, spre exemplu, vizitați <b>www.domeniu.com</b> în timp ce "
+"această opțiune este setată, numai cookie-urile de la www.domeniu.com vor fi "
+"procesate pentru această setare. Toate celelalte cookie-uri vor fi automat "
+"respinse. Acest lucru reduce posibilitatea ca operatorii sait-urilor să "
+"construiască un profil despre obiceiurile dumneavoastră de navigare.</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "&Acceptă cookie-uri numai de la serverul care le-a generat"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>Acceptă automat cookie-uri temporare, care vor expira la sfârșitul "
+"sesiunii curente. Astfel de cookie-uri nu vor fi stocate pe discul "
+"calculatorului sau pe un alt dispozitiv de stocare. În schimb, vor fi șterse "
+"când închideți toate aplicațiile (de exemplu navigatorul web) care le "
+"utilizează.</p><p><u>OBSERVAȚIE</u> Dacă alegeți această opțiune, veți "
+"suprascrie politica implicită de cookie-uri de sesiune, precum și politicile "
+"specifice saiturilor.</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "Acceptă a&utomat cookie-uri de sesiune"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Determines how cookies received from a remote machine will be handled: \n"
+#| "<ul>\n"
+#| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#| "server wants to set a cookie.</li>\n"
+#| "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#| "</li>\n"
+#| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#| "receives.</li>\n"
+#| "</ul><p>\n"
+#| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#| "take precedence over the default policy.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Determină modul în care KDE va procesa cookie-urile primite de la un server "
+"distant:\n"
+"<ul>\n"
+"<li><b>Întreabă</b> va determina KDE să vă ceară confirmarea de fiecare dată "
+"când un server dorește să vă trimită un cookie.</li>\n"
+"<li><b>Acceptă</b> va determina acceptarea cookie-urilor fără confirmare.</"
+"li>\n"
+"<li><b>Respinge</b> va determina respingerea tuturor cookie-urilor primite.</"
+"li>\n"
+"</ul><p>\n"
+"<u>NOTĂ:</u> Politicele specifice domeniului, care pot fi stabilite mai jos, "
+"întotdeauna au prioritate în fața politicii globale.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Politica implicită"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "&Acceptă toate cookie-urile"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "Acceptă până la sfârșitul sesi&unii"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "&Cere confirmarea"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "&Respinge toate cookie-urile"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Pentru a adăuga o politică nouă, dați clic pe butonul <b>Adaugă...</b> și "
+"introduceți informațiile necesare în căsuța de dialog. Pentru a modifica o "
+"politică existentă, dați clic pe butonul <b>Modifică...</b> și alegeți noua "
+"politică din căsuța de dialog pentru politică. Dacă dați clic pe <b>Șterge</"
+"b>, veți șterge politica selectată, indicând utilizarea politicii implicite "
+"pentru acel domeniu, iar <b>Șterge tot</b> determină ștergerea tuturor "
+"politicilor specifice sait-ului.</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Politică sait"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Caută interactiv domenii"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "Caută…"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Lista sait-urilor pentru care ați setat o politică de cookie specifică. "
+"Politicile specifice suprascriu politica implicită pentru aceste sait-uri.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Domeniu"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Politică"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Nou..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "&Modifică..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Acceptă"
 
@@ -4299,17 +4642,91 @@ msgstr "Acceptă"
 msgid "Accept For Session"
 msgstr "Acceptă pentru sesiune"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Respinge"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Întreabă"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "Nu știu"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>Introduceți numele sait-ului sau domeniului pentru care doriți să "
+"aplicați această politică. De exemplu <b>www.kde.org</b> sau <b>.kde.org</b>."
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "Denumire sait:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+"Introduceți numele gazdei sau domeniului căruia i se aplică această politică."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Alegeți politica dorită:\n"
+"<ul>\n"
+"<li><b>Acceptă</b> – Permite acestui sait să stabilească cookie-uri.</li>\n"
+"<li><b>Acceptă până la sfârșitul sesiunii</b> – Permite acestui sait să "
+"stabilească cookie-uri care vor expira la sfârșitul sesiunii.</li>\n"
+"<li><b>Respinge</b> – Refuză toate cookie-urile trimise de la acest sait</"
+"li>\n"
+"<li><b>Întreabă</b> – Întreabă când sunt primite cookie-uri de la acest "
+"sait</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "Politică:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "Acceptă până la sfârșitul sesiunii"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4330,6 +4747,42 @@ msgstr "Actualizare eșuată"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Aceste modificări vor avea efect după ce restartați mediul KDE."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Dezactivează FTP pasiv"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Când conexiunile FTP sunt pasive, clientul se conectează la server astfel "
+"încât zidurile de foc (firewall-urile) nu blochează conexiunea. Serverele "
+"FTP foarte vechi s-ar putea să nu suporte FTP pasiv."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Marchează fișierele încărcate parțial"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"La încărcarea unui fișier pe un server, extensia lui va fi \"*.part\". După "
+"ce încărcarea lui s-a terminat, este redenumit la numele lui real."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4503,6 +4956,441 @@ msgstr ""
 "oferă posibilitatea de a bloca cererile pentru reclame, spam sau orice "
 "altceva doriți să blocați.</p><p><u>Observație:</u> Unele servere proxy "
 "oferă ambele servicii.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt><p>Configurare setări proxy</p><p>Un server proxy este un calculator "
+"intermediar care este poziționat între calculatorul dumneavoastră și "
+"Internet și oferă servicii precum caching de pagini web și filtrare.</"
+"p><p>Serverele proxy pentru caching vă oferă acces mai rapid la sait-urile "
+"pe care le-ați vizitat deja, memorând local conținutul acelor pagini. "
+"Serverele proxy pentru filtrare oferă posibilitatea de a bloca cererile "
+"pentru reclame, spam sau orice altceva doriți să blocați.</p><p>Dacă nu "
+"sunteți sigur dacă doriți sau nu să utilizați un server proxy pentru a vă "
+"conecta la Internet, consultați furnizorul dumneavoastră de servicii "
+"Internet sau întrebați administratorul de sistem.\n"
+"</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Conectează direct la Internet."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "Fără proxy"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at https://konqueror.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Detectează automat și configurează parametrii de proxy.<p>\n"
+"Această detecție este făcută utilizând protocolul <b>Web Proxy Auto-"
+"Discovery Protocol (WPAD)</b>.</p><p>\n"
+"<b>Observație:</b> Această opțiune s-ar putea să nu meargă corespunzător sau "
+"chiar să nu meargă deloc pe unele distribuții de Linux/Unix. Dacă "
+"întâmpinați probleme la utilizarea acestei opțiuni, citiți secțiunea "
+"„Răspunsuri la întrebări frecvente” (F.A.Q.) de la https://konqueror.org.\n"
+"</p></qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "Detectează automat configurația proxy"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr ""
+"Folosește scriptul de configurare specificat pentru parametrii de server "
+"proxy."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "Folosește URL de configurare automată proxy:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Introduceți adresa scriptului de configurare proxy."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "Folosește configurația proxy din sistem:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Încearcă determinarea automată a variabilelor de mediu utilizate la "
+"configurările proxy valabile pentru întreg sistemul.<p>Această "
+"funcționalitate este îndeplinită prin căutarea variabilelor de mediu "
+"utilizate în mod obișnuit pentru proxy: HTTP_PROXY, FTP_PROXY și NO_PROXY</"
+"p></qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "D&etectează automat"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduceți numele variabilei de mediu, de exemplu <b>HTTP_PROXY</b>, "
+"utilizată la memorarea adresei serverului proxy HTTP.<p>\n"
+"Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "Proxy HTTP:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduceți numele variabilei de mediu, de exemplu <b>HTTPS_PROXY</b>, "
+"utilizată la memorarea adresei serverului proxy HTTPS.<p>\n"
+"Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "Proxy SSL:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduceți numele variabilei de mediu, de exemplu <b>FTP_PROXY</b>, "
+"utilizată la memorarea adresei serverului proxy FTP.<p>\n"
+"Alternativ, puteți da clic pe butonul <b>„Detectează automat”</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "Proxy FTP:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduceți numele variabilei de mediu, de exemplu <b>SOCKS_PROXY</b>, "
+"folosită pentru păstrarea adresei serverului proxy SOCKS.<p>\n"
+"Alternativ, puteți apăsa butonul <b>„Detectează automat”</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "Proxy SOCKS:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"Introduceți numele variabilei de mediu, de exemplu <b>HTTPS_PROXY</b>, "
+"utilizată la memorarea adresei serverului proxy HTTPS.<p>\n"
+"Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>Introduceți numele variabilei de mediu, de exemplu <tt>NO_PROXY</tt>, "
+"utilizată la memorarea adreselor sait-urilor pentru care nu este utilizat "
+"serverul de proxy.<p>Alternativ, puteți da clic pe butonul <b>\"Detectează "
+"automat\"</b> pentru a încerca descoperirea automată a acestei variabile.</"
+"p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "Excepții:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#| "addresses of sites for which the proxy server should not be used.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Introduceți numele variabilei de mediu, de exemplu <tt>NO_PROXY</tt>, "
+"utilizată la memorarea adreselor sait-urilor pentru care nu este utilizat "
+"serverul de proxy.<p>Alternativ, puteți da clic pe butonul <b>\"Detectează "
+"automat\"</b> pentru a încerca descoperirea automată a acestei variabile.</"
+"p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Afișează &valorile variabilelor de mediu"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr ""
+"<qt>\n"
+"Introduceți manual informațiile de configurare a serverului proxy.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "Folosește configurație proxy specficată manual:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Introduceți adresa serverului proxy HTTP."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Introduceți numărul de port al serverului proxy HTTP."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Fo&losește acest proxy pentru toate protocoalele"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Introduceți adresa serverului proxy HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Introduceți numărul de port al serverului proxy HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Introduceți adresa serverului proxy FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Introduceți numărul de port al serverului proxy FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Introduceți adresa serverului proxy SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Introduceți numărul de port al serverului proxy SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr "Utilizează proxy numai pentru adresele din această listă"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr ""
+"Folosește configurări de proximitate numai pentru adrese din lista de "
+"excepții"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5260,11 +6148,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Între domenii]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detalii"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5353,31 +6236,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Detalii cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Denumire:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Valoare:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Expiră la:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Cale:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domeniu:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5537,7 +6395,8 @@ msgstr ""
 "spațiu pe disc pe care o specificați mai jos. Altfel, acesta va fi nelimitat."
 "</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Dimensiune:"
@@ -5792,6 +6651,125 @@ msgid ""
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "Activ&ează cuvinte-cheie de căutare web"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "Folosește n&umai cuvinte-cheie preferate"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "Caută cuvinte-cheie de căutare web"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "Adaugă cuvânt-cheie de căutare web nou"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "Modifică cuvântul-cheie de căutare web evidențiat"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "Șterge cuvântul-cheie de căutare web evidențiat"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "Ș&terge"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "&Cuvânt-cheie implicit pentru căutare web:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Alegeți un delimitator ce separă cuvântul-cheie de fraza sau cuvântul de "
+"căutat."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "&Delimitator cuvânt-cheie:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "Alegeți un delimitator pentru a marca cuvântul-cheie de căutare web."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Două puncte"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Spațiu"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5853,6 +6831,113 @@ msgstr ""
 msgid "Keep It"
 msgstr "Păstrează"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Introduceți aici denumirea lizibilă a furnizorului de căutări."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "De&numire scurtătură:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "&URL scurtătură:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Alegeți setul de caractere ce va fi folosit pentru a codifica interogarea "
+"căutării."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Scurtăturile introduse aici pot fi folosite în KDE ca schemă pseudo-URI. De "
+"exemplu, scurtătura <b>av</b> poate fi folosită ca <b>av</b>:<b>căutarea "
+"mea</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Introduceți aici denumirea lizibilă a scurtăturii web."
+"</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&Scurtături:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Alegeți setul de caractere ce va fi folosit pentru a codifica interogarea "
+"căutării"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "Set de &caractere:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "Inserează substituent pentru interogare"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5872,6 +6957,152 @@ msgstr "Cerere blocată."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Verb HTTP necunoscut"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Nume comun:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Organizația:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Unitate organizaț.:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Departamentul Fraude"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "Țară:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Canada"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Stat:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Oraș:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"Copiați și lipiți o sumă de control în câmpul de mai jos.<br/>O sumă de "
+"control e furnizată de obicei de saitul de pe care ați descărcat fișierul."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "Suma de control așteptată (MD5, SHA1, SHA256 or SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+"Apăsați pentru a lipi suma de control din clipboard în câmpul de introducere."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Calculează"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "Apăsați pentru a copia suma de control în clipboard."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6364,6 +7595,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Necunoscut"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Oprește"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Explorează în Filelight"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "Montat din:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "Spațiu liber:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Tip:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Amplasare:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "Modifică…"
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "Conținut:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Indică spre:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Modificat:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Creat:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "Sistem de fișiere:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "Dimensiune necunoscută"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "Montat în:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Accesat:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "Deschide cu:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6538,6 +7865,389 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> nu a fost găsit. Introduceți o cale validă spre un "
 "program executabil."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminal"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Alegeți această opțiune dacă aplicația pe care doriți să o executați "
+"lucrează în modul text sau dacă doriți informații care să fie afișate la o "
+"fereastră emulator de terminal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "Rulează în terminal"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "Opțiuni terminal:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Alegeți această opțiune dacă aplicația în regim textual oferă informații "
+"relevante la terminare. Păstrarea ferestrei de terminal deschise vă permite "
+"să obțineți acele informații."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "Nu închide când comanda se termină"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Utilizator"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Alegeți această opțiune dacă doriți să rulați aplicația sub cont diferit de "
+"utilizator. Fiecare proces are un identificator de utilizator asociat. Acest "
+"cod identificator determină accesul la fișiere și alte permisiuni. Este "
+"necesară parola acelui utilizator pentru a folosi această opțiune."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "Rulează ca alt utilizator"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr ""
+"Introduceți numele de utilizator sub care doriți să executați aplicația."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Nume de utilizator:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Introduceți aici numele de utilizator sub care doriți să executați aplicația."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "GPU discret"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "Rulează folosind placa grafică dedicată"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Pornire"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Alegeți această opțiune dacă doriți să determinați în mod clar că aplicația "
+"a pornit. Acest indicator vizual poate fi sub forma unui cursor „ocupat” sau "
+"în bara de sarcini."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "Activează reacția la pornire"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Introduceți aici numele pe care doriți să îl dați aplicației. Aplicația va "
+"apărea sub acest nume în meniul aplicațiilor și în panou."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Introduceți aici descrierea pe care doriți să o dați aplicației, în funcție "
+"de scopul ei. Exemplu: pentru o aplicație de conectare la Internet prin "
+"telefon (KPPP) ar putea fi \"Utilitar de conectare la Internet prin linia "
+"telefonică\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Descriere:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Scrieți aici orice comentariu pe care îl considerați util."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "Com&entariu:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Utilizează &variabile de mediu proxy pre-setate"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the caption"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Introduceți aici comanda cu care va fi pornită aplicația.\n"
+"\n"
+"În continuarea comenzii puteți avea mai multe variabile care vor fi "
+"înlocuite cu valorile actuale la execuția programului:\n"
+"%f - un singur nume de fișier\n"
+"%F - o listă de fișiere; utilizați-o cu aplicații care pot deschide mai "
+"multe fișiere de odată\n"
+"%u - un singur URL\n"
+"%U - o listă de URL-uri\n"
+"%d - un dosar sau un fișier de deschis\n"
+"%D - o listă de dosare\n"
+"%i - pictograma\n"
+"%m - mini-pictograma\n"
+"%c - titlul"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Apăsați aici pentru a răsfoi sistemul de fișiere și să găsiți programul "
+"executabil dorit."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&Răsfoiește..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Stabilește dosarul de lucru pentru aplicația dumneavoastră."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "Cale de &lucru:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Documents"
+msgid "Arguments:"
+msgstr "Documente"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Această listă ar trebui să arate tipurile de fișier pe care le poate "
+"utiliza aplicația dumneavoastră. Ea este organizată după <u>tipurile MIME</"
+"u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, este un protocol standard "
+"pentru identificarea tipului de date bazat pe extensia de fișier și <u>tipul "
+"MIME</u> corespunzător. Exemplu: partea \"bmp\" care este după punctul din "
+"numele de fișier \"floare.bmp\" semnalează că este un tip specific de "
+"imagine, <u>image/x-bmp</u>. Pentru a ști ce aplicație trebuie să deschidă "
+"fiecare tip de fișier, sistemul trebuie să fie informat despre abilitățile "
+"fiecărei aplicații de a lucra cu acele extensii și tipuri MIME.</p><p>Dacă "
+"doriți să asociați această aplicație cu unul sau mai mai multe tipuri MIME "
+"care nu există în listă, dați clic pe butonul <b>Adaugă</b> de mai jos.Dacă "
+"există unul sau mai multe tipuri de fișier pe care aplicația nu le poate "
+"utiliza, ar trebui să le ștergeți din listă dând clic pe butonul <b>Șterge</"
+"b> de mai jos.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "Tipuri de fișier &susținute:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "Tip MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Descriere"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Apăsați acest buton dacă doriți să adăugați un tip de fișier (MIME) pe care "
+"aplicația îl poate înțelege."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Adaugă..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Dacă doriți să ștergeți un tip de fișier (MIME) pe care aplicația "
+"dumneavoastră nu îl poate utiliza, alegeți tipul MIME din lista de mai sus "
+"și apăsați acest buton."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Elimină"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Apăsați aici pentru a modifica modul în care va fi rulată aplicația, "
+"indicarea execuției ei, opțiuni D-BUS sau dacă să fie executată sub un alt "
+"cont de utilizator."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "Opțiuni &avansate"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7236,11 +8946,6 @@ msgstr "Configurare scurtături web..."
 msgid "Open file dialog"
 msgstr "Dialog deschidere fișiere"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Amplasare:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7565,6 +9270,79 @@ msgstr "Sari"
 msgid "Skip All"
 msgstr "Sari tot"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[lacăt]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adresă:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "Adresă IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Criptare:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Detalii:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "Versiune SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Lanț de certificate:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "De încredere:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Perioadă de valabilitate:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Număr de serie:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "Sumă MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "Sumă SHA1:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7723,729 +9501,6 @@ msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "demontarea nu este susținută de către Windows CE."
 
-#~ msgid "Search"
-#~ msgstr "Caută"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Caută interactiv domenii și mașini"
-
-#~ msgid "Site"
-#~ msgstr "Sait"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Denumire cookie"
-
-#~ msgid "D&elete"
-#~ msgstr "Șt&erge"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "Șterge t&ot"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "Configurare &politică..."
-
-#~ msgid "&Reload List"
-#~ msgstr "&Reîncarcă lista"
-
-#~ msgid "Secure:"
-#~ msgstr "Securizat:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Activează suportul pentru cookie. În mod normal este nevoie să-l aveți "
-#~ "activat și să îl configurați astfel încât să corespundă nevoilor "
-#~ "dumneavoastră de intimitate.</p><p>\n"
-#~ "Dacă dezactivați cookie-urile s-ar putea să nu mai puteți naviga prin "
-#~ "unele saituri.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "Activează utilizarea &cookie-urilor"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>Respinge toate cookie-urile de la saituri, altele decât cel pe care l-"
-#~ "ați cerut. Dacă, spre exemplu, vizitați <b>www.domeniu.com</b> în timp ce "
-#~ "această opțiune este setată, numai cookie-urile de la www.domeniu.com vor "
-#~ "fi procesate pentru această setare. Toate celelalte cookie-uri vor fi "
-#~ "automat respinse. Acest lucru reduce posibilitatea ca operatorii sait-"
-#~ "urilor să construiască un profil despre obiceiurile dumneavoastră de "
-#~ "navigare.</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "&Acceptă cookie-uri numai de la serverul care le-a generat"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>Acceptă automat cookie-uri temporare, care vor expira la sfârșitul "
-#~ "sesiunii curente. Astfel de cookie-uri nu vor fi stocate pe discul "
-#~ "calculatorului sau pe un alt dispozitiv de stocare. În schimb, vor fi "
-#~ "șterse când închideți toate aplicațiile (de exemplu navigatorul web) care "
-#~ "le utilizează.</p><p><u>OBSERVAȚIE</u> Dacă alegeți această opțiune, veți "
-#~ "suprascrie politica implicită de cookie-uri de sesiune, precum și "
-#~ "politicile specifice saiturilor.</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "Acceptă a&utomat cookie-uri de sesiune"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Determines how cookies received from a remote machine will be handled: \n"
-#~| "<ul>\n"
-#~| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~| "server wants to set a cookie.</li>\n"
-#~| "<li><b>Accept</b> will cause cookies to be accepted without prompting "
-#~| "you.</li>\n"
-#~| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~| "receives.</li>\n"
-#~| "</ul><p>\n"
-#~| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~| "take precedence over the default policy.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Determină modul în care KDE va procesa cookie-urile primite de la un "
-#~ "server distant:\n"
-#~ "<ul>\n"
-#~ "<li><b>Întreabă</b> va determina KDE să vă ceară confirmarea de fiecare "
-#~ "dată când un server dorește să vă trimită un cookie.</li>\n"
-#~ "<li><b>Acceptă</b> va determina acceptarea cookie-urilor fără confirmare."
-#~ "</li>\n"
-#~ "<li><b>Respinge</b> va determina respingerea tuturor cookie-urilor "
-#~ "primite.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTĂ:</u> Politicele specifice domeniului, care pot fi stabilite mai "
-#~ "jos, întotdeauna au prioritate în fața politicii globale.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "Politica implicită"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "&Acceptă toate cookie-urile"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "Acceptă până la sfârșitul sesi&unii"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "&Cere confirmarea"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "&Respinge toate cookie-urile"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Pentru a adăuga o politică nouă, dați clic pe butonul <b>Adaugă...</b> și "
-#~ "introduceți informațiile necesare în căsuța de dialog. Pentru a modifica "
-#~ "o politică existentă, dați clic pe butonul <b>Modifică...</b> și alegeți "
-#~ "noua politică din căsuța de dialog pentru politică. Dacă dați clic pe "
-#~ "<b>Șterge</b>, veți șterge politica selectată, indicând utilizarea "
-#~ "politicii implicite pentru acel domeniu, iar <b>Șterge tot</b> determină "
-#~ "ștergerea tuturor politicilor specifice sait-ului.</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "Politică sait"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Caută interactiv domenii"
-
-#~ msgid "Search..."
-#~ msgstr "Caută…"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Lista sait-urilor pentru care ați setat o politică de cookie specifică. "
-#~ "Politicile specifice suprascriu politica implicită pentru aceste sait-"
-#~ "uri.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Domeniu"
-
-#~ msgid "Policy"
-#~ msgstr "Politică"
-
-#~ msgid "&New..."
-#~ msgstr "&Nou..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "&Modifică..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>Introduceți numele sait-ului sau domeniului pentru care doriți să "
-#~ "aplicați această politică. De exemplu <b>www.kde.org</b> sau <b>.kde.org</"
-#~ "b>.</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "Denumire sait:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "Introduceți numele gazdei sau domeniului căruia i se aplică această "
-#~ "politică."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Alegeți politica dorită:\n"
-#~ "<ul>\n"
-#~ "<li><b>Acceptă</b> – Permite acestui sait să stabilească cookie-uri.</"
-#~ "li>\n"
-#~ "<li><b>Acceptă până la sfârșitul sesiunii</b> – Permite acestui sait să "
-#~ "stabilească cookie-uri care vor expira la sfârșitul sesiunii.</li>\n"
-#~ "<li><b>Respinge</b> – Refuză toate cookie-urile trimise de la acest sait</"
-#~ "li>\n"
-#~ "<li><b>Întreabă</b> – Întreabă când sunt primite cookie-uri de la acest "
-#~ "sait</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "Politică:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "Acceptă până la sfârșitul sesiunii"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Dezactivează FTP pasiv"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Când conexiunile FTP sunt pasive, clientul se conectează la server astfel "
-#~ "încât zidurile de foc (firewall-urile) nu blochează conexiunea. Serverele "
-#~ "FTP foarte vechi s-ar putea să nu suporte FTP pasiv."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Marchează fișierele încărcate parțial"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "La încărcarea unui fișier pe un server, extensia lui va fi \"*.part\". "
-#~ "După ce încărcarea lui s-a terminat, este redenumit la numele lui real."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>Configurare setări proxy</p><p>Un server proxy este un calculator "
-#~ "intermediar care este poziționat între calculatorul dumneavoastră și "
-#~ "Internet și oferă servicii precum caching de pagini web și filtrare.</"
-#~ "p><p>Serverele proxy pentru caching vă oferă acces mai rapid la sait-"
-#~ "urile pe care le-ați vizitat deja, memorând local conținutul acelor "
-#~ "pagini. Serverele proxy pentru filtrare oferă posibilitatea de a bloca "
-#~ "cererile pentru reclame, spam sau orice altceva doriți să blocați.</"
-#~ "p><p>Dacă nu sunteți sigur dacă doriți sau nu să utilizați un server "
-#~ "proxy pentru a vă conecta la Internet, consultați furnizorul "
-#~ "dumneavoastră de servicii Internet sau întrebați administratorul de "
-#~ "sistem.\n"
-#~ "</p></qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Conectează direct la Internet."
-
-#~ msgid "No Proxy"
-#~ msgstr "Fără proxy"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at https://konqueror.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Detectează automat și configurează parametrii de proxy.<p>\n"
-#~ "Această detecție este făcută utilizând protocolul <b>Web Proxy Auto-"
-#~ "Discovery Protocol (WPAD)</b>.</p><p>\n"
-#~ "<b>Observație:</b> Această opțiune s-ar putea să nu meargă corespunzător "
-#~ "sau chiar să nu meargă deloc pe unele distribuții de Linux/Unix. Dacă "
-#~ "întâmpinați probleme la utilizarea acestei opțiuni, citiți secțiunea "
-#~ "„Răspunsuri la întrebări frecvente” (F.A.Q.) de la https://konqueror."
-#~ "org.\n"
-#~ "</p></qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "Detectează automat configurația proxy"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr ""
-#~ "Folosește scriptul de configurare specificat pentru parametrii de server "
-#~ "proxy."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Folosește URL de configurare automată proxy:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Introduceți adresa scriptului de configurare proxy."
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Folosește configurația proxy din sistem:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Încearcă determinarea automată a variabilelor de mediu utilizate la "
-#~ "configurările proxy valabile pentru întreg sistemul.<p>Această "
-#~ "funcționalitate este îndeplinită prin căutarea variabilelor de mediu "
-#~ "utilizate în mod obișnuit pentru proxy: HTTP_PROXY, FTP_PROXY și "
-#~ "NO_PROXY</p></qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "D&etectează automat"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți numele variabilei de mediu, de exemplu <b>HTTP_PROXY</b>, "
-#~ "utilizată la memorarea adresei serverului proxy HTTP.<p>\n"
-#~ "Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> "
-#~ "pentru a încerca descoperirea automată a acestei variabile.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți numele variabilei de mediu, de exemplu <b>HTTPS_PROXY</b>, "
-#~ "utilizată la memorarea adresei serverului proxy HTTPS.<p>\n"
-#~ "Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> "
-#~ "pentru a încerca descoperirea automată a acestei variabile.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "Proxy SSL:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți numele variabilei de mediu, de exemplu <b>FTP_PROXY</b>, "
-#~ "utilizată la memorarea adresei serverului proxy FTP.<p>\n"
-#~ "Alternativ, puteți da clic pe butonul <b>„Detectează automat”</b> pentru "
-#~ "a încerca descoperirea automată a acestei variabile.</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "Proxy FTP:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți numele variabilei de mediu, de exemplu <b>SOCKS_PROXY</b>, "
-#~ "folosită pentru păstrarea adresei serverului proxy SOCKS.<p>\n"
-#~ "Alternativ, puteți apăsa butonul <b>„Detectează automat”</b> pentru a "
-#~ "încerca descoperirea automată a acestei variabile.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "Proxy SOCKS:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți numele variabilei de mediu, de exemplu <b>HTTPS_PROXY</b>, "
-#~ "utilizată la memorarea adresei serverului proxy HTTPS.<p>\n"
-#~ "Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> "
-#~ "pentru a încerca descoperirea automată a acestei variabile.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>Introduceți numele variabilei de mediu, de exemplu <tt>NO_PROXY</tt>, "
-#~ "utilizată la memorarea adreselor sait-urilor pentru care nu este utilizat "
-#~ "serverul de proxy.<p>Alternativ, puteți da clic pe butonul <b>"
-#~ "\"Detectează automat\"</b> pentru a încerca descoperirea automată a "
-#~ "acestei variabile.</p></qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "Excepții:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~| "addresses of sites for which the proxy server should not be used.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Introduceți numele variabilei de mediu, de exemplu <tt>NO_PROXY</tt>, "
-#~ "utilizată la memorarea adreselor sait-urilor pentru care nu este utilizat "
-#~ "serverul de proxy.<p>Alternativ, puteți da clic pe butonul <b>"
-#~ "\"Detectează automat\"</b> pentru a încerca descoperirea automată a "
-#~ "acestei variabile.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Afișează &valorile variabilelor de mediu"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduceți manual informațiile de configurare a serverului proxy.\n"
-#~ "</qt>"
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "Folosește configurație proxy specficată manual:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Introduceți adresa serverului proxy HTTP."
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "Introduceți numărul de port al serverului proxy HTTP."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "Fo&losește acest proxy pentru toate protocoalele"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Introduceți adresa serverului proxy HTTPS."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "Introduceți numărul de port al serverului proxy HTTPS."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Introduceți adresa serverului proxy FTP."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "Introduceți numărul de port al serverului proxy FTP."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "Introduceți adresa serverului proxy SOCKS."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "Introduceți numărul de port al serverului proxy SOCKS."
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr "Utilizează proxy numai pentru adresele din această listă"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr ""
-#~ "Folosește configurări de proximitate numai pentru adrese din lista de "
-#~ "excepții"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "Activ&ează cuvinte-cheie de căutare web"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "Folosește n&umai cuvinte-cheie preferate"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "Caută cuvinte-cheie de căutare web"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "Adaugă cuvânt-cheie de căutare web nou"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "Modifică cuvântul-cheie de căutare web evidențiat"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "Șterge cuvântul-cheie de căutare web evidențiat"
-
-#~ msgid "De&lete"
-#~ msgstr "Ș&terge"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "&Cuvânt-cheie implicit pentru căutare web:"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "Alegeți un delimitator ce separă cuvântul-cheie de fraza sau cuvântul de "
-#~ "căutat."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "&Delimitator cuvânt-cheie:"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr ""
-#~ "Alegeți un delimitator pentru a marca cuvântul-cheie de căutare web."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "Două puncte"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Spațiu"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "Introduceți aici denumirea lizibilă a furnizorului de căutări."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "De&numire scurtătură:"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "&URL scurtătură:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr ""
-#~ "Alegeți setul de caractere ce va fi folosit pentru a codifica interogarea "
-#~ "căutării."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Scurtăturile introduse aici pot fi folosite în KDE ca schemă pseudo-URI. "
-#~ "De exemplu, scurtătura <b>av</b> poate fi folosită ca <b>av</b>:"
-#~ "<b>căutarea mea</b>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Introduceți aici denumirea lizibilă a scurtăturii "
-#~ "web.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&Scurtături:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr ""
-#~ "Alegeți setul de caractere ce va fi folosit pentru a codifica interogarea "
-#~ "căutării"
-
-#~ msgid "&Charset:"
-#~ msgstr "Set de &caractere:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "Inserează substituent pentru interogare"
-
-#~ msgid "Common name:"
-#~ msgstr "Nume comun:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "Organizația:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Acme Sundry Products Company"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Unitate organizaț.:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Departamentul Fraude"
-
-#~ msgid "Country:"
-#~ msgstr "Țară:"
-
-#~ msgid "Canada"
-#~ msgstr "Canada"
-
-#~ msgid "State:"
-#~ msgstr "Stat:"
-
-#~ msgid "Quebec"
-#~ msgstr "Quebec"
-
-#~ msgid "City:"
-#~ msgstr "Oraș:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Meadows"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "Copiați și lipiți o sumă de control în câmpul de mai jos.<br/>O sumă de "
-#~ "control e furnizată de obicei de saitul de pe care ați descărcat fișierul."
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "Suma de control așteptată (MD5, SHA1, SHA256 or SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr ""
-#~ "Apăsați pentru a lipi suma de control din clipboard în câmpul de "
-#~ "introducere."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "Calculează"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "Apăsați pentru a copia suma de control în clipboard."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8471,311 +9526,6 @@ msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
 #~ msgid "Unmount"
 #~ msgstr "Demontează"
 
-#~ msgid "Stop"
-#~ msgstr "Oprește"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "Explorează în Filelight"
-
-#~ msgid "Mounted From:"
-#~ msgstr "Montat din:"
-
-#~ msgid "Free Space:"
-#~ msgstr "Spațiu liber:"
-
-#~ msgid "Type:"
-#~ msgstr "Tip:"
-
-#~ msgid "Change..."
-#~ msgstr "Modifică…"
-
-#~ msgid "Content:"
-#~ msgstr "Conținut:"
-
-#~ msgid "Points to:"
-#~ msgstr "Indică spre:"
-
-#~ msgid "Modified:"
-#~ msgstr "Modificat:"
-
-#~ msgid "Created:"
-#~ msgstr "Creat:"
-
-#~ msgid "File System:"
-#~ msgstr "Sistem de fișiere:"
-
-#~ msgid "Unknown size"
-#~ msgstr "Dimensiune necunoscută"
-
-#~ msgid "Mounted On:"
-#~ msgstr "Montat în:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Accesat:"
-
-#~ msgid "Open With:"
-#~ msgstr "Deschide cu:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Alegeți această opțiune dacă aplicația pe care doriți să o executați "
-#~ "lucrează în modul text sau dacă doriți informații care să fie afișate la "
-#~ "o fereastră emulator de terminal."
-
-#~ msgid "Run in terminal"
-#~ msgstr "Rulează în terminal"
-
-#~ msgid "Terminal options:"
-#~ msgstr "Opțiuni terminal:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Alegeți această opțiune dacă aplicația în regim textual oferă informații "
-#~ "relevante la terminare. Păstrarea ferestrei de terminal deschise vă "
-#~ "permite să obțineți acele informații."
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "Nu închide când comanda se termină"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Utilizator"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Alegeți această opțiune dacă doriți să rulați aplicația sub cont diferit "
-#~ "de utilizator. Fiecare proces are un identificator de utilizator asociat. "
-#~ "Acest cod identificator determină accesul la fișiere și alte permisiuni. "
-#~ "Este necesară parola acelui utilizator pentru a folosi această opțiune."
-
-#~ msgid "Run as a different user"
-#~ msgstr "Rulează ca alt utilizator"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr ""
-#~ "Introduceți numele de utilizator sub care doriți să executați aplicația."
-
-#~ msgid "Username:"
-#~ msgstr "Nume de utilizator:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr ""
-#~ "Introduceți aici numele de utilizator sub care doriți să executați "
-#~ "aplicația."
-
-#~ msgid "Discrete GPU"
-#~ msgstr "GPU discret"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "Rulează folosind placa grafică dedicată"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Pornire"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Alegeți această opțiune dacă doriți să determinați în mod clar că "
-#~ "aplicația a pornit. Acest indicator vizual poate fi sub forma unui cursor "
-#~ "„ocupat” sau în bara de sarcini."
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "Activează reacția la pornire"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Introduceți aici numele pe care doriți să îl dați aplicației. Aplicația "
-#~ "va apărea sub acest nume în meniul aplicațiilor și în panou."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Introduceți aici descrierea pe care doriți să o dați aplicației, în "
-#~ "funcție de scopul ei. Exemplu: pentru o aplicație de conectare la "
-#~ "Internet prin telefon (KPPP) ar putea fi \"Utilitar de conectare la "
-#~ "Internet prin linia telefonică\"."
-
-#~ msgid "&Description:"
-#~ msgstr "&Descriere:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Scrieți aici orice comentariu pe care îl considerați util."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "Com&entariu:"
-
-#, fuzzy
-#~| msgid "Use preset proxy environment &variables"
-#~ msgid "Environment Variables:"
-#~ msgstr "Utilizează &variabile de mediu proxy pre-setate"
-
-#, fuzzy
-#~| msgid ""
-#~| "Type the command to start this application here.\n"
-#~| "\n"
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the caption"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Introduceți aici comanda cu care va fi pornită aplicația.\n"
-#~ "\n"
-#~ "În continuarea comenzii puteți avea mai multe variabile care vor fi "
-#~ "înlocuite cu valorile actuale la execuția programului:\n"
-#~ "%f - un singur nume de fișier\n"
-#~ "%F - o listă de fișiere; utilizați-o cu aplicații care pot deschide mai "
-#~ "multe fișiere de odată\n"
-#~ "%u - un singur URL\n"
-#~ "%U - o listă de URL-uri\n"
-#~ "%d - un dosar sau un fișier de deschis\n"
-#~ "%D - o listă de dosare\n"
-#~ "%i - pictograma\n"
-#~ "%m - mini-pictograma\n"
-#~ "%c - titlul"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Apăsați aici pentru a răsfoi sistemul de fișiere și să găsiți programul "
-#~ "executabil dorit."
-
-#~ msgid "&Browse..."
-#~ msgstr "&Răsfoiește..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Stabilește dosarul de lucru pentru aplicația dumneavoastră."
-
-#~ msgid "&Work path:"
-#~ msgstr "Cale de &lucru:"
-
-#, fuzzy
-#~| msgctxt "KFile System Bookmarks"
-#~| msgid "Documents"
-#~ msgid "Arguments:"
-#~ msgstr "Documente"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Această listă ar trebui să arate tipurile de fișier pe care le "
-#~ "poate utiliza aplicația dumneavoastră. Ea este organizată după "
-#~ "<u>tipurile MIME</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, este un protocol "
-#~ "standard pentru identificarea tipului de date bazat pe extensia de fișier "
-#~ "și <u>tipul MIME</u> corespunzător. Exemplu: partea \"bmp\" care este "
-#~ "după punctul din numele de fișier \"floare.bmp\" semnalează că este un "
-#~ "tip specific de imagine, <u>image/x-bmp</u>. Pentru a ști ce aplicație "
-#~ "trebuie să deschidă fiecare tip de fișier, sistemul trebuie să fie "
-#~ "informat despre abilitățile fiecărei aplicații de a lucra cu acele "
-#~ "extensii și tipuri MIME.</p><p>Dacă doriți să asociați această aplicație "
-#~ "cu unul sau mai mai multe tipuri MIME care nu există în listă, dați clic "
-#~ "pe butonul <b>Adaugă</b> de mai jos.Dacă există unul sau mai multe tipuri "
-#~ "de fișier pe care aplicația nu le poate utiliza, ar trebui să le ștergeți "
-#~ "din listă dând clic pe butonul <b>Șterge</b> de mai jos.</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "Tipuri de fișier &susținute:"
-
-#~ msgid "Mimetype"
-#~ msgstr "Tip MIME"
-
-#~ msgid "Description"
-#~ msgstr "Descriere"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Apăsați acest buton dacă doriți să adăugați un tip de fișier (MIME) pe "
-#~ "care aplicația îl poate înțelege."
-
-#~ msgid "Add..."
-#~ msgstr "Adaugă..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Dacă doriți să ștergeți un tip de fișier (MIME) pe care aplicația "
-#~ "dumneavoastră nu îl poate utiliza, alegeți tipul MIME din lista de mai "
-#~ "sus și apăsați acest buton."
-
-#~ msgid "Remove"
-#~ msgstr "Elimină"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Apăsați aici pentru a modifica modul în care va fi rulată aplicația, "
-#~ "indicarea execuției ei, opțiuni D-BUS sau dacă să fie executată sub un "
-#~ "alt cont de utilizator."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "Opțiuni &avansate"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8800,43 +9550,6 @@ msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "Li&pește conținutul clipboard-ului"
-
-#~ msgid "[padlock]"
-#~ msgstr "[lacăt]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Adresă:"
-
-#~ msgid "IP address:"
-#~ msgstr "Adresă IP:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Criptare:"
-
-#~ msgid "Details:"
-#~ msgstr "Detalii:"
-
-#~ msgid "SSL version:"
-#~ msgstr "Versiune SSL:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Lanț de certificate:"
-
-#~ msgid "Trusted:"
-#~ msgstr "De încredere:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Perioadă de valabilitate:"
-
-#~ msgid "Serial number:"
-#~ msgstr "Număr de serie:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "Sumă MD5:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "Sumă SHA1:"
 
 #~ msgid "None"
 #~ msgstr "Nimic"

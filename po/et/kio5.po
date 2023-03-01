@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -3487,7 +3487,8 @@ msgstr ""
 "redigeerida.<br /><br />Need järjehoidjad kuuluvad failidialoogi juurde, "
 "kuid kõiges muus on nad samasugused kui muud KDE järjehoidjad.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
@@ -3776,12 +3777,19 @@ msgstr "Uus kataloog"
 msgid "Create new folder in %1:"
 msgstr "Uus kataloog asukohas %1;"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Aseta"
@@ -4111,6 +4119,104 @@ msgstr "Seansi lõpp"
 msgid "Yes"
 msgstr "Jah"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Otsing"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Interaktiivne domeenide ja masinate otsing"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Sait"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Küpsise nimi"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "&Kustuta"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "Ku&stuta kõik"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "Seadista ree&glit..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "Laadi nimeki&ri uuesti"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Üksikasjad"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Väärtus:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domeen:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Aadress:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Aegub:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "On turvaline:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4196,7 +4302,237 @@ msgstr ""
 "kasutada küpsiseid usaldusväärsetel veebilehekülgedel, ilma et KDE peaks "
 "sulle kogu aeg tülikaid kinnitusküsimusi esitama.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>See valik lülitab sisse küpsiste toetuse. Tõenäoliselt soovid sa hoida "
+"seda sisselülitatuna ning kohandada küpsiste aktsepteerimise reegleid "
+"vastavalt oma privaatsuse vajadustele.</p><p>\n"
+"Arvesta, et küpsiste toe keelamine võib muuta paljud veebileheküljed "
+"kättesaamatuks.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "&Küpsiste lubamine"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Lülita see valik sisse, kui soovid keelduda kõigi teiste saitide küpsistest, "
+"välja arvatud sinu poolt määratud saidi omadest. Kui näiteks külastad "
+"aadressi <b>www.foobar.com</b>, siis selle valiku sisselülitamise korral "
+"kontrollitakse ainult www.foobar.com-ist tulnud küpsiseid vastavalt sinu "
+"seadistustele. Kõigist muudest küpsistest keeldutakse automaatselt. See "
+"vähendab võimalusi, et veebisaitide haldajad saaksid koostada andmebaasi "
+"sinu veebilehitsemisharjumuste kohta.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr ""
+"Ainult serverist, millest leht on avatud, tulevad kü&psised aktsepteeritakse"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"Lülita see sisse, kui soovid automaatselt aksepteerida ajutisi küpsiseid, "
+"mis aeguvad seansi lõpus. Selliseid küpsiseid ei salvestata arvuti "
+"kõvakettale ega muudele salvestusseadmetele, vaid kustutakse pärast seda, "
+"kui kõik rakendused, mis neid kasutavad (näiteks veebilehitsejad), on "
+"suletud.</p><p><u>MÄRKUS:</u> kui sa selle valiku sisse lülitad, siis on "
+"sellel kõrgem prioriteet kui vaikeseadistustel ja konkreetsete saitide kohta "
+"käivatel seadistustel.</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "Seansiküpsised aktsepteeritakse aut&omaatselt"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Vaikereegel määrab viisi, kuidas KDE käsitleb küpsiseid, mis on saadetud "
+"serverist, mis ei kuulu domeeni, millele sa oled määranud spetsiifilise "
+"reegli.\n"
+"<ul>\n"
+"<li><b>Küsitakse</b> - KDE küsib iga kord sinu käest, kui server soovib "
+"küpsist saata</li>\n"
+"<li><b>Aktsepteeritakse</b> - KDE aktsepteerib vaikides kõik küpsised</li>\n"
+"<li><b>Aktsepteeritakse seansi lõpuni</b> - KDE aktsepteerib küpsiseid, kuid "
+"nende kehtivus lõpeb koos seansiga.</li>\n"
+"<li><b>Keeldutakse</b> - KDE ei aktsepteeri küpsiseid</li>\n"
+"</ul><p>\n"
+"<u>MÄRKUS:</u> arvesta, et vaikereeglit eiratakse iga domeeni puhul, millele "
+"on seatud oma reegel.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Vaikereegel"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "Ak&tsepteeritakse kõik küpsised"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "Aktsepteeritakse seansi lõp&uni"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "Kü&sitakse kinnitust"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "Keeldutakse kõi&gist küpsistest"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Siin saab määrata igale domeenile eraldi reeglid küpsiste käsitlemiseks. Uue "
+"reegli lisamiseks klõpsa lihtsalt nupul <b>Lisa...</b> ja sisesta "
+"dialoogiboksi kogu vajalik info. Eksisteeriva reegli muutmiseks klõpsa nupul "
+"<b>Muuda...</b> ning vali dialoogiboksis uus reegel. Nupul <b>Kustuta</b> "
+"klõpsates saad eemaldada valitud reegli ning siis kasutatakse edaspidi selle "
+"domeeni puhul vaikereeglit. <b>Kustuta kõik</b> aga kustutab kõik "
+"domeenipõhised reeglid.\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Saidi reegel"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Interaktiivne domeenide otsing"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "Otsing ..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Saitide nimekiri, millele on määratud spetsiaalne küpsiste käsitlemise "
+"reegel. Spetsiaalsed reeglid tühistavad saitide vaikereeglid.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Domeen"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Reegel"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Uus..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "&Muuda..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Aktsepteeri"
 
@@ -4204,17 +4540,91 @@ msgstr "Aktsepteeri"
 msgid "Accept For Session"
 msgstr "Aktsepteeri käesolevas seansis"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Keeldu"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Küsi"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "Ma ei tea"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta siia saidi või domeeni nimi, millele reeglit rakendatakse. Näiteks "
+"<b>www.kde.org</b> või <b>.kde.org</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "Saidi nimi:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr "Kirjuta masina või domeeni nimi, nt. kde.org, millele reegel kehtib."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Vali soovitud reegel:\n"
+"<ul>\n"
+"<li><b>Aktsepteeri</b> - Lubab sellele saidile küpsiste seadmise</li>\n"
+"<li><b>Aktsepteeri seansi lõpuni</b> - Lubab sellele saidile küpsiste "
+"seadmise, aga nende kehtivus lõpeb koos seansiga.</li>\n"
+"<li><b>Keeldu</b> - Kõigist sellest saidist saadetud küpsistest keeldutakse</"
+"li>\n"
+"<li><b>Küsi</b> - Kui sellest saidist küpsis vastu võetakse, küsitakse "
+"kasutajalt enne aktsepteerimist kinnitust</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "Reegel:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "Aktsepteeri seansi lõpuni"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4235,6 +4645,42 @@ msgstr "Värskendamine nurjus"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "KDE tuleb uuesti käivitada, et need muudatused arvesse võetaks."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Passiivse FTP keelamine"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Kui FTP ühendus on passiivne, võtab klient ühendust serveriga, mitte "
+"vastupidi ning sel juhul ei ole tulemüürid takistuseks. Siiski ei pruugi "
+"vanemad FTP serverid passiivset FTP-d toetada."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Märgitakse osaliselt üleslaaditud failid"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"Faili üleslaadimisel on selle laiendiks \"*.part\". Pärast täielikku "
+"üleslaadimist saab fail endale oma algse nime tagasi."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4408,6 +4854,445 @@ msgstr ""
 "puhverserveris.Filtreerivad puhverserverid võimaldavad blokeerida ligipääsu "
 "reklaamile, rämpsule või millele iganes vastavalt soovile.</p> <p><u>Märkus:"
 "</u> mõned puhverserverid pakuvad mõlemat teenust.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Puhverserveri seadistamine\n"
+"<p>\n"
+"Puhverserver on rakendus sinu arvuti interneti vahel, mis pakub veebilehtede "
+"puhverdamise ja/või filtreerimise teenust. Puhverdavad puhverserverid "
+"annavad sulle võimaluse varem külastatud lehekülgedele kiiremini ligi "
+"pääseda, sest need on salvestatud puhverserveris. Filtreerivad "
+"puhverserverid võimaldavad blokeerida ligipääsu reklaamile, rämpsule või "
+"millele iganes vastavalt soovile.\n"
+"<p>\n"
+"Kui sa pole kindel, kas sa peaksid puhverserverit kasutama, uuri oma "
+"internetiteenuse pakkuja antud seadistusjuhiseid või päri seda oma "
+"süsteemiadministraatorilt.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Internetti ühendutakse otse."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "Puhverserver puudub"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at https://konqueror.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Puhverserveri seadistuse automaatne tuvastamine ja seadistamine.<p>\n"
+"Automaatne tuvastamine teostatakse <b>veebi puhverserveri automaatse "
+"tuvastamise protokolli (WPAD)</b> vahendusel.<p>\n"
+"<b>MÄRKUS:</b> see võimalus ei pruugi töötada korrektselt kõigi UNIX/Linuxi "
+"distributsioonidega. Kui sul tekib seda kasutades probleeme, uuri palun KKK "
+"osa aadressil https://konqueror.kde.org.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "Puhverserveri seadistuse automaatne tuvastamine"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr ""
+"Kasutatakse määratud seadistusskripti puhverserveri seadistuste "
+"rakendamiseks."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "Kasutatakse järgnevat puhverserveri automaatse seadistuse URL-i:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Sisesta siia puhverserveri seadistusteskripti aadress."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>Süsteemis määratud puhverserveri seadistuste kasutamine.</p>\n"
+"<p>Mõned platvormid pakuvad süsteemset puhverserveri seadistust ning see "
+"valik võimaldab seda ära kasutada.</p>\n"
+"<p>Maci platvormil</p>\n"
+"<p>Windowsi platvormil</p>\n"
+"<p>Unixi ja Linuxi platvormil on süsteemsed puhverserveri seadistused "
+"tavaliselt kindlaks määratud keskkonnamuutujatega. Olemasolu korral leitakse "
+"ja kasutatakse järgmisi keskkonnamuutujaid: <b>HTTP_PROXY</b>, "
+"<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "Kasutatakse süsteemset puhverserveri seadistust:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Klõpsa sellel nupul, et proovida automaatset keskkonnamuutujate "
+"tuvastamist, mida saaks kasutada puhverserverite aadresside seadistamiseks. "
+"<p> See automaatne tuvastamine põhineb järgmistel enamkasutatud "
+"keskkkonnamuutujatel: HTTP_PROXY, FTP_PROXY ja NO_PROXY.</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "A&utomaatne tuvastus"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta keskkonnamuutuja nimi, näiteks <b>HTTP_PROXY</b>, mida kasutatakse "
+"HTTP puhverserveri aadressi seadistamiseks.<p>\n"
+"Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et proovida "
+"automaatset tuvastust.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP-puhverserver:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta keskkonnamuutuja nimi, näiteks <b>HTTPS_PROXY</b>, mida kasutatakse "
+"HTTPS puhverserveri aadressi seadistamiseks.<p>\n"
+"Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et proovida "
+"automaatset tuvastust.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL-puhverserver:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta keskkonnamuutuja nimi, näiteks <b>FTP_PROXY</b>, mida kasutatakse "
+"FTP puhverserveri aadressi seadistamiseks.<p>\n"
+"Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et proovida "
+"automaatset tuvastust.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP-puhverserver:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta keskkonnamuutuja nimi, näiteks <b>SOCKS_PROXY</b>, mida kasutatakse "
+"SOCKS puhverserveri aadressi seadistamiseks.<p>\n"
+"Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et proovida "
+"automaatset tuvastust.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS puhverserver:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Sisesta keskkonnamuutuja nimi, näiteks <b>SOCKS_PROXY</b>, mida "
+"kasutatakse SOCKS puhverserveri aadressi seadistamiseks.<p>Teine võimalus on "
+"klõpsata nuppu <b>&quot;Automaatne tuvastus&quot;</b>, et proovida "
+"automaatset tuvastust.</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta keskkonnamuutuja nimi, näiteks <b>NO_PROXY</b>, mida kasutatakse "
+"aadresside salvestamiseks, mille puhul puhverserverit ei kasutata.<p>\n"
+"Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et proovida "
+"automaatset tuvastust.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "Erandid:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Sisesta keskkonnamuutuja nimi, näiteks <b>NO_PROXY</b>, mida kasutatakse "
+"aadresside salvestamiseks, mille puhul ülal määratud puhverserveri "
+"seadistusi ei kasutata.<p>Teine võimalus on klõpsata nuppu <b>&quot;"
+"Automaatne tuvastus&quot;</b>, et proovida automaatset tuvastust.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Keskkonnamuutujate &väärtuse näitamine"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "Võimalus käsitsi sisestada puhverserveri seadistuste info."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "Käsitsi määratud puhverserveri seadistuse kasutamine:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Sisesta siia HTTP puhverserveri aadress."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Sisesta siia HTTP-puhverserveri port."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Kõigi protokollide puhul kas&utatakse seda puhverserverit"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Sisesta siia HTTPS proxy serveri aadress."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Sisesta siia HTTPS-puhverserveri port."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Sisesta siia FTP puhverserveri aadress."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Sisesta siia FTP-puhverserveri port."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Sisesta siia SOCKS puhverserveri aadress."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Sisesta siia SOCKS puhverserveri port."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Pane komadega eraldatult kirja masinanimed või IP-aadressid, millele ei "
+"tule rakendada ülal määratud puhverserveri seadistusi.</p>\n"
+"<p>Kui soovid välja jätta kõik mingi domeeni masinad, sisesta lihtsalt "
+"domeeni nimi ja pane selle ette punkt. Näiteks kõigi <i>kde.org</i> "
+"masinanimede välistamiseks kirjuta <i>.kde.org</i>. Metamärgid, näiteks '*' "
+"või '?', ei ole toetatud ja need ei avalda mingit mõju.</p>\n"
+"<p>Lisaks võib sisestada ka IP-aadresse, nt. 127.0.0.1, ja IP-aadresse "
+"alamvõrguga, nt. 192.168.0.1/24.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"Märkimisel rakendatakse ülal määratud puhverserveri seadistusi ainult "
+"aadressidele, mis on loetletud <i>erandite</i> nimekirjas.</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr ""
+"Puhverserveri seadistusi kasutatakse ainult erandite nimekirjas olevate "
+"aadresside puhul"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5183,11 +6068,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Domeeniülene]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Üksikasjad"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5274,31 +6154,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Detailne info küpsise kohta"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Nimi:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Väärtus:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Aegub:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Aadress:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domeen:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5455,7 +6310,8 @@ msgstr ""
 "<para>Märkimisel piiratakse prügikasti mahtu allpool määratud kettaruumiga. "
 "Vastasel juhul on prügikasti suurus piiramatu.</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Suurus:"
@@ -5717,6 +6573,140 @@ msgstr ""
 "millegi otsimiseks sellest, kui kirjutad soovitud sõna või lause seda "
 "funktsiooni toetava rakenduse sisestusväljale (näiteks Konqueroris).</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Veebiotsingu kiirkorralduste lubamine või keelamine.</"
+"p><p>Veebiotsingu kiirkorraldused võimaldavad kiiresti ligi pääseda teabele "
+"või otsida teavet, mis paikneb võrgus või ka sinu arvutis. </p><p>KDE pakub "
+"tervet hulka veebiotsingu kiirkorraldusi. Üks selliseid on näiteks Google™ "
+"otsingu kiirkorraldus. Selle kasutamiseks kirjuta lihtsalt võtmesõna 'gg' "
+"ning selle järel võtmesõna piiritleja ja otsingumõiste, nt. <span style=\" "
+"font-weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "V&eebiotsingu kiirkorralduste lubamine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "Ain&ult eelistatud kiirkorralduste kasutamine"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "Veebiotsingu kiirkorralduse otsing"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "Uue veebiotsingu kiirkorralduse lisamine"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "Esiletõstetud veebiotsingu kiirkorralduse muutmine"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "Esiletõstetud veebiotsingu kiirkorralduse kustutamine"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "&Kustuta"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Vali otsingumootor, mida kasutada vaikimisi automaatse otsingu "
+"sooritamiseks, kui kirjutad URL-i asemel tavalised sõnad või fraasid. Selle "
+"võimaluse väljalülitamiseks vali nimekirjast <b>Puudub</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "Vaikimi&si veebiotsingu kiirkorraldus:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Vaikimisi veebiotsingu kiirkorralduse valimine.</"
+"p><p>See võimaldab rakendustel automaatselt teisendada kirjutatud sõna või "
+"väljendi veebipäringuks, kui neid ei saa filtreerida korralikuks URL-iks. </"
+"p><p>Selle võimaluse keelamiseks vali loendist <span style=\" font-"
+"weight:600;\">Puudub</span>. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "Vali eraldaja, mis lahutab võtmesõna otsitavast sõnast või fraasist."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "&Võtmesõna eraldaja:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "Veebiotsingu kiirkorralduse võtmesõna tähistava piiritleja valimine."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Koolon"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Tühik"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5781,6 +6771,121 @@ msgstr ""
 msgid "Keep It"
 msgstr "Jäta alles"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Otsngumootori nimi inimesele mõistetaval kujul."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "Kiirkorralduse &nimi:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Sisesta URI, mida kasutada otsingu sooritamiseks otsingumootoris.<br/>Kogu "
+"otsitavat teksti võib määrata kui \\{@} või \\{0}.<br/>\n"
+"Soovitatav on \\{@}, sest see eemaldab kõik päringumuutujad (nimi=väärtus) "
+"tulemuse stringist, samas kui \\{0} asendatakse muutmata päringu stringiga."
+"<br/>Kindlate päringu sõnade määramiseks kasuta \\{1} ... \\{n} ning "
+"\\{name} väärtuse määramiseks, mille annab päringus 'nimi=väärtus'.<br/"
+">Lisaks sellele on võimalik määrata mitu viidet (nimed, numbrid ja stringid) "
+"korraga (\\{nimi1,nimi2,...,\"string\"}).<br/>Esimest sobivat väärtust "
+"(vasakult) kasutatakse tulemuse URI-s asendusväärtusena.<br/>Vaikeväärtusena "
+"saab kasutada jutumärkides stringi, kui viidete nimekirjas vasakult midagi "
+"ei sobi.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "Kiirkorralduse &URL:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "Kodeeringu valimine, mida kasutada päringu kodeerimiseks."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Siin antud kiirkorraldusi saab kasutada KDE-s pseudo-URI skeemina. Näiteks "
+"kiirkorraldust <b>av</b> saab kasutada kui <b>av</b>:<b>minu otsing</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Kirjuta siia inimesele mõistetav veebikiirkorralduse "
+"nimi.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "Kii&rkorraldused:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "Kodeering, mida otsingu sooritamisel kasutatakse."
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "Koo&ditabel:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "Päringu kohatäitja lisamine"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5800,6 +6905,151 @@ msgstr "Blokeeritud päring."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Tundmatu HTTP meetod."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Niigu-Näägu AS"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Organisatsioon:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Niigu-Näägu disainrõivaste aktsiaselts"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Allüksus:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Võltsingute osakond"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "Riik:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Eesti"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Maakond/provints:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Pärapõrgumaa"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Linn:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Katlatagune"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"Kopeeri ja aseta kontrollsumma allolevasse välja.<br/>Kontrollsummat pakub "
+"tavaliselt veebileht, kust selle faili alla laadisid."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "Oodatud kontrollsumma (MD5, SHA1, SHA256 või SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "Klõpsa kontrollsumma asetamiseks lõikepuhvrist sisestusväljale."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Arvuta"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "Klõpsa kontrollsuuma kopeerimiseks lõikepuhvrisse."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6282,6 +7532,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Tundmatu"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Peata"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Uuri Filelightis"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "Ühenduse allikas:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "Vaba ruum:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Tüüp:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Asukoht:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "Muuda ..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "Sisu:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Viitab asukohale:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Muudetud:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Loodud:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "Failisüsteem:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "Teadmata suurus"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "Ühenduspunkt:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Loetud:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "Avatakse rakendusega:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6447,6 +7793,359 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> jäi leidmata; palun sisesta kehtiv tee käivitatava "
 "programmi juurde."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminal"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Lülita see sisse, kui rakendus, mida soovid käivitada, töötab tekstirežiimis "
+"või kui soovid infot, mida edastab terminaliemulaatori aken."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "Käivitatakse terminalil"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "Terminali valikud:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Lülita see sisse, kui tekstirežiimis töötav rakendus pakub väljumisel mingit "
+"mõistlikku infot. Terminaliemulaatori avatuna hoidmine võimaldab seda ka "
+"kätte saada."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "Käsu lõpetamisel ei suleta"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Kasutaja"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Lülita see sisse, kui soovid käivitada rakenduse mõne muu kasutaja ID-ga. "
+"Iga protsessiga võib olla seotud erinev kasutaja ID. See määrab ära faili "
+"kasutamise ja muud õigused. Selle võimaluse pruukimiseks tuleb anda vastava "
+"kasutaja parool."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "Käivitamine teise kasutajana"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "Sisesta kasutajanimi, millega rakendus käivitada."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Kasutajanimi:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "Sisesta kasutajanimi, millega rakendus käivitada."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "Diskreetne GPU"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "Käivitamine spetsiaalse graafikakaardi abil"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Käivitamine"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Lülita see sisse, kui soovid olla kindel, et rakendus ikka käivitus. "
+"Visuaalne tagasiside võib kujutada endast hõivatud kursorit või märguannet "
+"tegumiribal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "Käivitamise tagasiside lubamine"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Siia saab kirjutada nimetuse, mida soovid rakendusele anda. See on nimi, "
+"mille all seda näeb rakenduste menüüs ja paneelil."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Siia saab kirjutada faili kirjelduse, näiteks sissehelistamisrakenduse "
+"(KPPP) kohta võiks kirjutada \"Sissehelistamisrakendus\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "Kirjel&dus:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Siia saab kirjutada kommentaari, kui pead seda vajalikuks."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "Komm&entaar:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Pu&hverserveri eelseadistatud keskkonnamuutujate kasutamine"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Siia saab kirjutada rakendust käivitava käsu.\n"
+"\n"
+"Käsule võib lisada mitmesuguseid kohanäitajaid, mis rakenduse käivitamisel "
+"asendatakse tegelike väärtustega:\n"
+"%f - ühe faili nimi\n"
+"%F - failide nimekiri; mõttekas ainult rakenduste korral, mis suudavad avada "
+"mitu faili korraga\n"
+"%u - üks URL\n"
+"%U - URL-ide nimekiri\n"
+"%i - .desktop-faili ikoon\n"
+"%c - .desktop-faili nimi\n"
+"%k - .desktop-faili asukoht"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "Programm:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "Siit saab lehitseda failisüsteemi, et leida vajalik käivitatav fail."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&Lehitse..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Määrab rakenduse töökataloogi."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&Töökataloog:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "Argumendid:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>See nimekiri näitab failitüüpe, mida rakendus suudab käsitleda. "
+"Nimekiri on korraldatud vastavalt <u>MIME tüüpidele</u>.</p>\n"
+"<p>MIME ehk \"mitmeotstarbeline interneti meililaiend\" on standardprotokoll "
+"andmete tüübi tuvastamiseks failinime laiendi ning vastava <u>MIME tüübi</u> "
+"järgi. Näide: failinimes flower.bmp punkti järel seisev \"bmp\" annab teada, "
+"et tegemist on teatud pilditüübiga, nimelt <u>image/x-bmp</u>. Selleks, et "
+"määrata, milline rakendus millist failitüüpi suudab avada, peab süsteem "
+"olema teadlik iga rakenduse oskusest tulla toime vastavate laiendite ja MIME "
+"tüüpidega.</p>\n"
+"<p>Kui soovid seostada rakenduse mõne MIME tüübiga, mida nimekirjas ei ole, "
+"klõpsa allpool nupule <b>Lisa</b>. Kui nimekirjas on mõni failitüüp, millega "
+"rakendus toime ei tule, saab selle eemaldada klõpsuga nupule <b>Eemalda</b>."
+"</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "Toetatud &failitüübid:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "MIME tüüp"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Kirjeldus"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Klõpsa sellele nupule, kui soovid lisada failitüübi (MIME tüübi), mida "
+"rakendus käsitleda suudab."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Lisa..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Kui soovid eemaldada failitüübi (MIME tüübi), millega rakendus ei suuda "
+"toime tulla, vali MIME tüüp ülalolevast nimekirjast ja klõpsa sellele nupule."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Eemalda"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Siin saab muuta, kuidas rakendus käivitada, millist tagasisidet see annab, D-"
+"Bus-i valikuid või määrata see töötama mõne muu kasutajanimega."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "&Täpsemad valikud"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7122,11 +8821,6 @@ msgstr "Seadista veebi kiirkorraldusi..."
 msgid "Open file dialog"
 msgstr "Ava failidialoog"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Asukoht:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7448,6 +9142,79 @@ msgstr "Jäta vahele"
 msgid "Skip All"
 msgstr "Jäta kõik vahele"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Aadress:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP-aadress:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Krüptimine:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Üksikasjad:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL versioon:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Sertifikaadiahel:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "Usaldatav:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Kehtivusaeg:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Seerianumber:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 kokkuvõte:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1 kokkuvõte:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7597,816 +9364,6 @@ msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "Windows CE ei toeta lahutamist."
 
-#~ msgid "Search"
-#~ msgstr "Otsing"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Interaktiivne domeenide ja masinate otsing"
-
-#~ msgid "Site"
-#~ msgstr "Sait"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Küpsise nimi"
-
-#~ msgid "D&elete"
-#~ msgstr "&Kustuta"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "Ku&stuta kõik"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "Seadista ree&glit..."
-
-#~ msgid "&Reload List"
-#~ msgstr "Laadi nimeki&ri uuesti"
-
-#~ msgid "Secure:"
-#~ msgstr "On turvaline:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>See valik lülitab sisse küpsiste toetuse. Tõenäoliselt soovid sa hoida "
-#~ "seda sisselülitatuna ning kohandada küpsiste aktsepteerimise reegleid "
-#~ "vastavalt oma privaatsuse vajadustele.</p><p>\n"
-#~ "Arvesta, et küpsiste toe keelamine võib muuta paljud veebileheküljed "
-#~ "kättesaamatuks.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "&Küpsiste lubamine"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Lülita see valik sisse, kui soovid keelduda kõigi teiste saitide "
-#~ "küpsistest, välja arvatud sinu poolt määratud saidi omadest. Kui näiteks "
-#~ "külastad aadressi <b>www.foobar.com</b>, siis selle valiku "
-#~ "sisselülitamise korral kontrollitakse ainult www.foobar.com-ist tulnud "
-#~ "küpsiseid vastavalt sinu seadistustele. Kõigist muudest küpsistest "
-#~ "keeldutakse automaatselt. See vähendab võimalusi, et veebisaitide "
-#~ "haldajad saaksid koostada andmebaasi sinu veebilehitsemisharjumuste "
-#~ "kohta.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr ""
-#~ "Ainult serverist, millest leht on avatud, tulevad kü&psised "
-#~ "aktsepteeritakse"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "Lülita see sisse, kui soovid automaatselt aksepteerida ajutisi küpsiseid, "
-#~ "mis aeguvad seansi lõpus. Selliseid küpsiseid ei salvestata arvuti "
-#~ "kõvakettale ega muudele salvestusseadmetele, vaid kustutakse pärast seda, "
-#~ "kui kõik rakendused, mis neid kasutavad (näiteks veebilehitsejad), on "
-#~ "suletud.</p><p><u>MÄRKUS:</u> kui sa selle valiku sisse lülitad, siis on "
-#~ "sellel kõrgem prioriteet kui vaikeseadistustel ja konkreetsete saitide "
-#~ "kohta käivatel seadistustel.</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "Seansiküpsised aktsepteeritakse aut&omaatselt"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Vaikereegel määrab viisi, kuidas KDE käsitleb küpsiseid, mis on saadetud "
-#~ "serverist, mis ei kuulu domeeni, millele sa oled määranud spetsiifilise "
-#~ "reegli.\n"
-#~ "<ul>\n"
-#~ "<li><b>Küsitakse</b> - KDE küsib iga kord sinu käest, kui server soovib "
-#~ "küpsist saata</li>\n"
-#~ "<li><b>Aktsepteeritakse</b> - KDE aktsepteerib vaikides kõik küpsised</"
-#~ "li>\n"
-#~ "<li><b>Aktsepteeritakse seansi lõpuni</b> - KDE aktsepteerib küpsiseid, "
-#~ "kuid nende kehtivus lõpeb koos seansiga.</li>\n"
-#~ "<li><b>Keeldutakse</b> - KDE ei aktsepteeri küpsiseid</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>MÄRKUS:</u> arvesta, et vaikereeglit eiratakse iga domeeni puhul, "
-#~ "millele on seatud oma reegel.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "Vaikereegel"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "Ak&tsepteeritakse kõik küpsised"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "Aktsepteeritakse seansi lõp&uni"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "Kü&sitakse kinnitust"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "Keeldutakse kõi&gist küpsistest"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Siin saab määrata igale domeenile eraldi reeglid küpsiste käsitlemiseks. "
-#~ "Uue reegli lisamiseks klõpsa lihtsalt nupul <b>Lisa...</b> ja sisesta "
-#~ "dialoogiboksi kogu vajalik info. Eksisteeriva reegli muutmiseks klõpsa "
-#~ "nupul <b>Muuda...</b> ning vali dialoogiboksis uus reegel. Nupul "
-#~ "<b>Kustuta</b> klõpsates saad eemaldada valitud reegli ning siis "
-#~ "kasutatakse edaspidi selle domeeni puhul vaikereeglit. <b>Kustuta kõik</"
-#~ "b> aga kustutab kõik domeenipõhised reeglid.\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "Saidi reegel"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Interaktiivne domeenide otsing"
-
-#~ msgid "Search..."
-#~ msgstr "Otsing ..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Saitide nimekiri, millele on määratud spetsiaalne küpsiste käsitlemise "
-#~ "reegel. Spetsiaalsed reeglid tühistavad saitide vaikereeglid.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Domeen"
-
-#~ msgid "Policy"
-#~ msgstr "Reegel"
-
-#~ msgid "&New..."
-#~ msgstr "&Uus..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "&Muuda..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta siia saidi või domeeni nimi, millele reeglit rakendatakse. "
-#~ "Näiteks <b>www.kde.org</b> või <b>.kde.org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "Saidi nimi:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "Kirjuta masina või domeeni nimi, nt. kde.org, millele reegel kehtib."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Vali soovitud reegel:\n"
-#~ "<ul>\n"
-#~ "<li><b>Aktsepteeri</b> - Lubab sellele saidile küpsiste seadmise</li>\n"
-#~ "<li><b>Aktsepteeri seansi lõpuni</b> - Lubab sellele saidile küpsiste "
-#~ "seadmise, aga nende kehtivus lõpeb koos seansiga.</li>\n"
-#~ "<li><b>Keeldu</b> - Kõigist sellest saidist saadetud küpsistest "
-#~ "keeldutakse</li>\n"
-#~ "<li><b>Küsi</b> - Kui sellest saidist küpsis vastu võetakse, küsitakse "
-#~ "kasutajalt enne aktsepteerimist kinnitust</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "Reegel:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "Aktsepteeri seansi lõpuni"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Passiivse FTP keelamine"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Kui FTP ühendus on passiivne, võtab klient ühendust serveriga, mitte "
-#~ "vastupidi ning sel juhul ei ole tulemüürid takistuseks. Siiski ei pruugi "
-#~ "vanemad FTP serverid passiivset FTP-d toetada."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Märgitakse osaliselt üleslaaditud failid"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "Faili üleslaadimisel on selle laiendiks \"*.part\". Pärast täielikku "
-#~ "üleslaadimist saab fail endale oma algse nime tagasi."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Puhverserveri seadistamine\n"
-#~ "<p>\n"
-#~ "Puhverserver on rakendus sinu arvuti interneti vahel, mis pakub "
-#~ "veebilehtede puhverdamise ja/või filtreerimise teenust. Puhverdavad "
-#~ "puhverserverid annavad sulle võimaluse varem külastatud lehekülgedele "
-#~ "kiiremini ligi pääseda, sest need on salvestatud puhverserveris. "
-#~ "Filtreerivad puhverserverid võimaldavad blokeerida ligipääsu reklaamile, "
-#~ "rämpsule või millele iganes vastavalt soovile.\n"
-#~ "<p>\n"
-#~ "Kui sa pole kindel, kas sa peaksid puhverserverit kasutama, uuri oma "
-#~ "internetiteenuse pakkuja antud seadistusjuhiseid või päri seda oma "
-#~ "süsteemiadministraatorilt.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Internetti ühendutakse otse."
-
-#~ msgid "No Proxy"
-#~ msgstr "Puhverserver puudub"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at https://konqueror.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Puhverserveri seadistuse automaatne tuvastamine ja seadistamine.<p>\n"
-#~ "Automaatne tuvastamine teostatakse <b>veebi puhverserveri automaatse "
-#~ "tuvastamise protokolli (WPAD)</b> vahendusel.<p>\n"
-#~ "<b>MÄRKUS:</b> see võimalus ei pruugi töötada korrektselt kõigi UNIX/"
-#~ "Linuxi distributsioonidega. Kui sul tekib seda kasutades probleeme, uuri "
-#~ "palun KKK osa aadressil https://konqueror.kde.org.\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "Puhverserveri seadistuse automaatne tuvastamine"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr ""
-#~ "Kasutatakse määratud seadistusskripti puhverserveri seadistuste "
-#~ "rakendamiseks."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Kasutatakse järgnevat puhverserveri automaatse seadistuse URL-i:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Sisesta siia puhverserveri seadistusteskripti aadress."
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>Süsteemis määratud puhverserveri seadistuste kasutamine.</p>\n"
-#~ "<p>Mõned platvormid pakuvad süsteemset puhverserveri seadistust ning see "
-#~ "valik võimaldab seda ära kasutada.</p>\n"
-#~ "<p>Maci platvormil</p>\n"
-#~ "<p>Windowsi platvormil</p>\n"
-#~ "<p>Unixi ja Linuxi platvormil on süsteemsed puhverserveri seadistused "
-#~ "tavaliselt kindlaks määratud keskkonnamuutujatega. Olemasolu korral "
-#~ "leitakse ja kasutatakse järgmisi keskkonnamuutujaid: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Kasutatakse süsteemset puhverserveri seadistust:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Klõpsa sellel nupul, et proovida automaatset keskkonnamuutujate "
-#~ "tuvastamist, mida saaks kasutada puhverserverite aadresside "
-#~ "seadistamiseks. <p> See automaatne tuvastamine põhineb järgmistel "
-#~ "enamkasutatud keskkkonnamuutujatel: HTTP_PROXY, FTP_PROXY ja NO_PROXY.</"
-#~ "qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "A&utomaatne tuvastus"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta keskkonnamuutuja nimi, näiteks <b>HTTP_PROXY</b>, mida "
-#~ "kasutatakse HTTP puhverserveri aadressi seadistamiseks.<p>\n"
-#~ "Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et "
-#~ "proovida automaatset tuvastust.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP-puhverserver:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta keskkonnamuutuja nimi, näiteks <b>HTTPS_PROXY</b>, mida "
-#~ "kasutatakse HTTPS puhverserveri aadressi seadistamiseks.<p>\n"
-#~ "Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et "
-#~ "proovida automaatset tuvastust.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL-puhverserver:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta keskkonnamuutuja nimi, näiteks <b>FTP_PROXY</b>, mida kasutatakse "
-#~ "FTP puhverserveri aadressi seadistamiseks.<p>\n"
-#~ "Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et "
-#~ "proovida automaatset tuvastust.</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP-puhverserver:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta keskkonnamuutuja nimi, näiteks <b>SOCKS_PROXY</b>, mida "
-#~ "kasutatakse SOCKS puhverserveri aadressi seadistamiseks.<p>\n"
-#~ "Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et "
-#~ "proovida automaatset tuvastust.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS puhverserver:"
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Sisesta keskkonnamuutuja nimi, näiteks <b>SOCKS_PROXY</b>, mida "
-#~ "kasutatakse SOCKS puhverserveri aadressi seadistamiseks.<p>Teine võimalus "
-#~ "on klõpsata nuppu <b>&quot;Automaatne tuvastus&quot;</b>, et proovida "
-#~ "automaatset tuvastust.</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta keskkonnamuutuja nimi, näiteks <b>NO_PROXY</b>, mida kasutatakse "
-#~ "aadresside salvestamiseks, mille puhul puhverserverit ei kasutata.<p>\n"
-#~ "Teine võimalus on klõpsata nuppu <b>\"Automaatne tuvastus\"</b>, et "
-#~ "proovida automaatset tuvastust.\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "Erandid:"
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Sisesta keskkonnamuutuja nimi, näiteks <b>NO_PROXY</b>, mida "
-#~ "kasutatakse aadresside salvestamiseks, mille puhul ülal määratud "
-#~ "puhverserveri seadistusi ei kasutata.<p>Teine võimalus on klõpsata nuppu "
-#~ "<b>&quot;Automaatne tuvastus&quot;</b>, et proovida automaatset tuvastust."
-#~ "</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Keskkonnamuutujate &väärtuse näitamine"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "Võimalus käsitsi sisestada puhverserveri seadistuste info."
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "Käsitsi määratud puhverserveri seadistuse kasutamine:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Sisesta siia HTTP puhverserveri aadress."
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "Sisesta siia HTTP-puhverserveri port."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "Kõigi protokollide puhul kas&utatakse seda puhverserverit"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Sisesta siia HTTPS proxy serveri aadress."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "Sisesta siia HTTPS-puhverserveri port."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Sisesta siia FTP puhverserveri aadress."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "Sisesta siia FTP-puhverserveri port."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "Sisesta siia SOCKS puhverserveri aadress."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "Sisesta siia SOCKS puhverserveri port."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Pane komadega eraldatult kirja masinanimed või IP-aadressid, millele "
-#~ "ei tule rakendada ülal määratud puhverserveri seadistusi.</p>\n"
-#~ "<p>Kui soovid välja jätta kõik mingi domeeni masinad, sisesta lihtsalt "
-#~ "domeeni nimi ja pane selle ette punkt. Näiteks kõigi <i>kde.org</i> "
-#~ "masinanimede välistamiseks kirjuta <i>.kde.org</i>. Metamärgid, näiteks "
-#~ "'*' või '?', ei ole toetatud ja need ei avalda mingit mõju.</p>\n"
-#~ "<p>Lisaks võib sisestada ka IP-aadresse, nt. 127.0.0.1, ja IP-aadresse "
-#~ "alamvõrguga, nt. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Märkimisel rakendatakse ülal määratud puhverserveri seadistusi ainult "
-#~ "aadressidele, mis on loetletud <i>erandite</i> nimekirjas.</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr ""
-#~ "Puhverserveri seadistusi kasutatakse ainult erandite nimekirjas olevate "
-#~ "aadresside puhul"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Veebiotsingu kiirkorralduste lubamine või keelamine."
-#~ "</p><p>Veebiotsingu kiirkorraldused võimaldavad kiiresti ligi pääseda "
-#~ "teabele või otsida teavet, mis paikneb võrgus või ka sinu arvutis. </"
-#~ "p><p>KDE pakub tervet hulka veebiotsingu kiirkorraldusi. Üks selliseid on "
-#~ "näiteks Google™ otsingu kiirkorraldus. Selle kasutamiseks kirjuta "
-#~ "lihtsalt võtmesõna 'gg' ning selle järel võtmesõna piiritleja ja "
-#~ "otsingumõiste, nt. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
-#~ "body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "V&eebiotsingu kiirkorralduste lubamine"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "Ain&ult eelistatud kiirkorralduste kasutamine"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "Veebiotsingu kiirkorralduse otsing"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "Uue veebiotsingu kiirkorralduse lisamine"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "Esiletõstetud veebiotsingu kiirkorralduse muutmine"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "Esiletõstetud veebiotsingu kiirkorralduse kustutamine"
-
-#~ msgid "De&lete"
-#~ msgstr "&Kustuta"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Vali otsingumootor, mida kasutada vaikimisi automaatse otsingu "
-#~ "sooritamiseks, kui kirjutad URL-i asemel tavalised sõnad või fraasid. "
-#~ "Selle võimaluse väljalülitamiseks vali nimekirjast <b>Puudub</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "Vaikimi&si veebiotsingu kiirkorraldus:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Vaikimisi veebiotsingu kiirkorralduse valimine.</"
-#~ "p><p>See võimaldab rakendustel automaatselt teisendada kirjutatud sõna "
-#~ "või väljendi veebipäringuks, kui neid ei saa filtreerida korralikuks URL-"
-#~ "iks. </p><p>Selle võimaluse keelamiseks vali loendist <span style=\" font-"
-#~ "weight:600;\">Puudub</span>. </p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "Vali eraldaja, mis lahutab võtmesõna otsitavast sõnast või fraasist."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "&Võtmesõna eraldaja:"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr ""
-#~ "Veebiotsingu kiirkorralduse võtmesõna tähistava piiritleja valimine."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "Koolon"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Tühik"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "Otsngumootori nimi inimesele mõistetaval kujul."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "Kiirkorralduse &nimi:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Sisesta URI, mida kasutada otsingu sooritamiseks otsingumootoris.<br/"
-#~ ">Kogu otsitavat teksti võib määrata kui \\{@} või \\{0}.<br/>\n"
-#~ "Soovitatav on \\{@}, sest see eemaldab kõik päringumuutujad "
-#~ "(nimi=väärtus) tulemuse stringist, samas kui \\{0} asendatakse muutmata "
-#~ "päringu stringiga.<br/>Kindlate päringu sõnade määramiseks kasuta "
-#~ "\\{1} ... \\{n} ning \\{name} väärtuse määramiseks, mille annab päringus "
-#~ "'nimi=väärtus'.<br/>Lisaks sellele on võimalik määrata mitu viidet "
-#~ "(nimed, numbrid ja stringid) korraga (\\{nimi1,nimi2,...,\"string\"}).<br/"
-#~ ">Esimest sobivat väärtust (vasakult) kasutatakse tulemuse URI-s "
-#~ "asendusväärtusena.<br/>Vaikeväärtusena saab kasutada jutumärkides "
-#~ "stringi, kui viidete nimekirjas vasakult midagi ei sobi.\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "Kiirkorralduse &URL:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "Kodeeringu valimine, mida kasutada päringu kodeerimiseks."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Siin antud kiirkorraldusi saab kasutada KDE-s pseudo-URI skeemina. "
-#~ "Näiteks kiirkorraldust <b>av</b> saab kasutada kui <b>av</b>:<b>minu "
-#~ "otsing</b>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Kirjuta siia inimesele mõistetav "
-#~ "veebikiirkorralduse nimi.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "Kii&rkorraldused:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "Kodeering, mida otsingu sooritamisel kasutatakse."
-
-#~ msgid "&Charset:"
-#~ msgstr "Koo&ditabel:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "Päringu kohatäitja lisamine"
-
-#~ msgid "Common name:"
-#~ msgstr "Nimi:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Niigu-Näägu AS"
-
-#~ msgid "Organization:"
-#~ msgstr "Organisatsioon:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Niigu-Näägu disainrõivaste aktsiaselts"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Allüksus:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Võltsingute osakond"
-
-#~ msgid "Country:"
-#~ msgstr "Riik:"
-
-#~ msgid "Canada"
-#~ msgstr "Eesti"
-
-#~ msgid "State:"
-#~ msgstr "Maakond/provints:"
-
-#~ msgid "Quebec"
-#~ msgstr "Pärapõrgumaa"
-
-#~ msgid "City:"
-#~ msgstr "Linn:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Katlatagune"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "Kopeeri ja aseta kontrollsumma allolevasse välja.<br/>Kontrollsummat "
-#~ "pakub tavaliselt veebileht, kust selle faili alla laadisid."
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "Oodatud kontrollsumma (MD5, SHA1, SHA256 või SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "Klõpsa kontrollsumma asetamiseks lõikepuhvrist sisestusväljale."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "Arvuta"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "Klõpsa kontrollsuuma kopeerimiseks lõikepuhvrisse."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8431,284 +9388,6 @@ msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
 #~ msgid "Unmount"
 #~ msgstr "Lahuta"
 
-#~ msgid "Stop"
-#~ msgstr "Peata"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "Uuri Filelightis"
-
-#~ msgid "Mounted From:"
-#~ msgstr "Ühenduse allikas:"
-
-#~ msgid "Free Space:"
-#~ msgstr "Vaba ruum:"
-
-#~ msgid "Type:"
-#~ msgstr "Tüüp:"
-
-#~ msgid "Change..."
-#~ msgstr "Muuda ..."
-
-#~ msgid "Content:"
-#~ msgstr "Sisu:"
-
-#~ msgid "Points to:"
-#~ msgstr "Viitab asukohale:"
-
-#~ msgid "Modified:"
-#~ msgstr "Muudetud:"
-
-#~ msgid "Created:"
-#~ msgstr "Loodud:"
-
-#~ msgid "File System:"
-#~ msgstr "Failisüsteem:"
-
-#~ msgid "Unknown size"
-#~ msgstr "Teadmata suurus"
-
-#~ msgid "Mounted On:"
-#~ msgstr "Ühenduspunkt:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Loetud:"
-
-#~ msgid "Open With:"
-#~ msgstr "Avatakse rakendusega:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Lülita see sisse, kui rakendus, mida soovid käivitada, töötab "
-#~ "tekstirežiimis või kui soovid infot, mida edastab terminaliemulaatori "
-#~ "aken."
-
-#~ msgid "Run in terminal"
-#~ msgstr "Käivitatakse terminalil"
-
-#~ msgid "Terminal options:"
-#~ msgstr "Terminali valikud:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Lülita see sisse, kui tekstirežiimis töötav rakendus pakub väljumisel "
-#~ "mingit mõistlikku infot. Terminaliemulaatori avatuna hoidmine võimaldab "
-#~ "seda ka kätte saada."
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "Käsu lõpetamisel ei suleta"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Kasutaja"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Lülita see sisse, kui soovid käivitada rakenduse mõne muu kasutaja ID-ga. "
-#~ "Iga protsessiga võib olla seotud erinev kasutaja ID. See määrab ära faili "
-#~ "kasutamise ja muud õigused. Selle võimaluse pruukimiseks tuleb anda "
-#~ "vastava kasutaja parool."
-
-#~ msgid "Run as a different user"
-#~ msgstr "Käivitamine teise kasutajana"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "Sisesta kasutajanimi, millega rakendus käivitada."
-
-#~ msgid "Username:"
-#~ msgstr "Kasutajanimi:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "Sisesta kasutajanimi, millega rakendus käivitada."
-
-#~ msgid "Discrete GPU"
-#~ msgstr "Diskreetne GPU"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "Käivitamine spetsiaalse graafikakaardi abil"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Käivitamine"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Lülita see sisse, kui soovid olla kindel, et rakendus ikka käivitus. "
-#~ "Visuaalne tagasiside võib kujutada endast hõivatud kursorit või "
-#~ "märguannet tegumiribal."
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "Käivitamise tagasiside lubamine"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Siia saab kirjutada nimetuse, mida soovid rakendusele anda. See on nimi, "
-#~ "mille all seda näeb rakenduste menüüs ja paneelil."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Siia saab kirjutada faili kirjelduse, näiteks sissehelistamisrakenduse "
-#~ "(KPPP) kohta võiks kirjutada \"Sissehelistamisrakendus\"."
-
-#~ msgid "&Description:"
-#~ msgstr "Kirjel&dus:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Siia saab kirjutada kommentaari, kui pead seda vajalikuks."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "Komm&entaar:"
-
-#, fuzzy
-#~| msgid "Use preset proxy environment &variables"
-#~ msgid "Environment Variables:"
-#~ msgstr "Pu&hverserveri eelseadistatud keskkonnamuutujate kasutamine"
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Siia saab kirjutada rakendust käivitava käsu.\n"
-#~ "\n"
-#~ "Käsule võib lisada mitmesuguseid kohanäitajaid, mis rakenduse "
-#~ "käivitamisel asendatakse tegelike väärtustega:\n"
-#~ "%f - ühe faili nimi\n"
-#~ "%F - failide nimekiri; mõttekas ainult rakenduste korral, mis suudavad "
-#~ "avada mitu faili korraga\n"
-#~ "%u - üks URL\n"
-#~ "%U - URL-ide nimekiri\n"
-#~ "%i - .desktop-faili ikoon\n"
-#~ "%c - .desktop-faili nimi\n"
-#~ "%k - .desktop-faili asukoht"
-
-#~ msgid "Program:"
-#~ msgstr "Programm:"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Siit saab lehitseda failisüsteemi, et leida vajalik käivitatav fail."
-
-#~ msgid "&Browse..."
-#~ msgstr "&Lehitse..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Määrab rakenduse töökataloogi."
-
-#~ msgid "&Work path:"
-#~ msgstr "&Töökataloog:"
-
-#~ msgid "Arguments:"
-#~ msgstr "Argumendid:"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>See nimekiri näitab failitüüpe, mida rakendus suudab käsitleda. "
-#~ "Nimekiri on korraldatud vastavalt <u>MIME tüüpidele</u>.</p>\n"
-#~ "<p>MIME ehk \"mitmeotstarbeline interneti meililaiend\" on "
-#~ "standardprotokoll andmete tüübi tuvastamiseks failinime laiendi ning "
-#~ "vastava <u>MIME tüübi</u> järgi. Näide: failinimes flower.bmp punkti "
-#~ "järel seisev \"bmp\" annab teada, et tegemist on teatud pilditüübiga, "
-#~ "nimelt <u>image/x-bmp</u>. Selleks, et määrata, milline rakendus millist "
-#~ "failitüüpi suudab avada, peab süsteem olema teadlik iga rakenduse "
-#~ "oskusest tulla toime vastavate laiendite ja MIME tüüpidega.</p>\n"
-#~ "<p>Kui soovid seostada rakenduse mõne MIME tüübiga, mida nimekirjas ei "
-#~ "ole, klõpsa allpool nupule <b>Lisa</b>. Kui nimekirjas on mõni failitüüp, "
-#~ "millega rakendus toime ei tule, saab selle eemaldada klõpsuga nupule "
-#~ "<b>Eemalda</b>.</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "Toetatud &failitüübid:"
-
-#~ msgid "Mimetype"
-#~ msgstr "MIME tüüp"
-
-#~ msgid "Description"
-#~ msgstr "Kirjeldus"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Klõpsa sellele nupule, kui soovid lisada failitüübi (MIME tüübi), mida "
-#~ "rakendus käsitleda suudab."
-
-#~ msgid "Add..."
-#~ msgstr "Lisa..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Kui soovid eemaldada failitüübi (MIME tüübi), millega rakendus ei suuda "
-#~ "toime tulla, vali MIME tüüp ülalolevast nimekirjast ja klõpsa sellele "
-#~ "nupule."
-
-#~ msgid "Remove"
-#~ msgstr "Eemalda"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Siin saab muuta, kuidas rakendus käivitada, millist tagasisidet see "
-#~ "annab, D-Bus-i valikuid või määrata see töötama mõne muu kasutajanimega."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "&Täpsemad valikud"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8731,43 +9410,6 @@ msgstr "Kui sa ei usalda seda programmi, klõpsa Loobu"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Aseta lõikepuhvri sisu"
-
-#~ msgid "[padlock]"
-#~ msgstr "[padlock]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Aadress:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP-aadress:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Krüptimine:"
-
-#~ msgid "Details:"
-#~ msgstr "Üksikasjad:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL versioon:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Sertifikaadiahel:"
-
-#~ msgid "Trusted:"
-#~ msgstr "Usaldatav:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Kehtivusaeg:"
-
-#~ msgid "Serial number:"
-#~ msgstr "Seerianumber:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 kokkuvõte:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1 kokkuvõte:"
 
 #~ msgid "None"
 #~ msgstr "Puudub"

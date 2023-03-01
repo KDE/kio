@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -3469,7 +3469,8 @@ msgstr ""
 "でのみ使用できます。その点を除けば、KDE の他のアプリケーションのブックマーク"
 "と同じように機能します。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "名前(&N):"
@@ -3747,12 +3748,19 @@ msgstr "新しいフォルダ"
 msgid "Create new folder in %1:"
 msgstr "%1 に新しいフォルダを作成:"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "コピー"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "貼り付け"
@@ -4080,6 +4088,107 @@ msgstr "セッション終了"
 msgid "Yes"
 msgstr "はい"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "検索"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "ドメインやホストを対話的に検索"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "サイト"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "クッキー名"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "削除(&E)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "すべて削除(&L)"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, fuzzy, kde-format
+#| msgid "Change &Policy..."
+msgid "Configure &Policy..."
+msgstr "ポリシーを変更(&G)..."
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "リストを再読み込み(&Y)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "詳細"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "名前:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "値:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "ドメイン:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "パス:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "有効期限:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "安全性:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4185,7 +4294,255 @@ msgstr ""
 "によって、毎回確認を求められることなしにその信頼するサイトからのクッキーを受"
 "け入れることができるようになります。</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>クッキーのサポートを有効にします。通常はクッキーのサポートを有効にしておい"
+"て、必要に応じてカスタマイズするとよいでしょう。</p>\n"
+"<p>クッキーのサポートを無効にすると、多くのサイトで自由に閲覧できなくなりま"
+"す。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "クッキーを有効にする(&K)"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"いわゆるサードパーティのクッキーを拒否します。サードパーティのクッキーとは、"
+"あなたが現在見ているサイト以外から送られてくるクッキーです。例えばこのオプ"
+"ションをチェックして www.foobar.com を見ているときは、www.foobar.com からの"
+"クッキーのみをあなたの設定に従って処理します。他のサイトからのクッキーは拒否"
+"します。これによりサイト運営者があなたのブラウジング情報を集める機会を減らす"
+"ことができます。\n"
+"</qt>"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "元のサーバからのクッキーのみ受け入れる(&U)"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "<p>Automatically accept temporary cookies meant to expire at the end of "
+#| "the current session. Such cookies will not be stored in your computer's "
+#| "hard drive or storage device. Instead, they are deleted when you close "
+#| "all applications (e.g. your browser) that use them.</p><p>\n"
+#| "<u>NOTE:</u> Checking this option along with the next one will override "
+#| "your default as well as site specific cookie policies. However, doing so "
+#| "also increases your privacy since all cookies will be removed when the "
+#| "current session ends.</p>\n"
+#| "</qt>"
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<qt>\n"
+"<p>セッションの終了と同時に期限切れになるセッションクッキーを自動的に受け入れ"
+"ます。このようなクッキーは、コンピュータのハードディスクや他のストレージデバ"
+"イスに保存されることはありません。セッションクッキーはそれらのクッキーを使用"
+"しているブラウザなどのアプリケーションを終了すると消滅します。</p>\n"
+"<p><note>このオプションを次のオプションと一緒に選択すると、サイトごとに設定し"
+"たポリシーだけでなくデフォルトのポリシーも無効になります。しかし、セッション"
+"終了時にすべてのクッキーが削除されるので、プライバシーはより保護されます。</"
+"note></p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "セッションクッキーを自動的に受け入れる(&Y)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Determines how cookies received from a remote machine will be handled: \n"
+#| "<ul>\n"
+#| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#| "server wants to set a cookie.</li>\n"
+#| "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#| "</li>\n"
+#| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#| "receives.</li>\n"
+#| "</ul><p>\n"
+#| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#| "take precedence over the default policy.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"リモートマシンから受け取ったクッキーをどのように扱うかを決定します。<ul>\n"
+"<li>確認する: サーバがクッキーを送ってくるたびに確認を求めます。</li>\n"
+"<li>許可する: 確認せずにクッキーを受け入れます。</li>\n"
+"<li>拒否する: すべてのクッキーを拒否します。</li>\n"
+"</ul>\n"
+"<p><note>ドメインごとに設定されたサイトポリシーは、常にデフォルトのポリシーよ"
+"り優先されます。</note></p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "デフォルトのポリシー"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "すべてのクッキーを受け入れる(&T)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "セッション終了まで許可"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "確認を求める(&F)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "すべてのクッキーを拒否する(&J)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"新しいポリシーを追加するには「新規」ボタンをクリックして、ダイアログボックス"
+"に必要な情報を入力してください。既存のポリシーを変更するには「変更」ボタンを"
+"クリックし、ダイアログで新しいポリシーを選んでください。「削除」ボタンをク"
+"リックすると、選択されたポリシーを削除します。削除した場合、そのドメインに対"
+"してはデフォルトのポリシーが適用されます。「すべて削除」はサイト別のポリシー"
+"をすべて削除します。\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "サイトポリシー"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "ドメインを対話的に検索"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "検索..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"個別にクッキーポリシーを指定したサイトのリストです。これらのサイトでは、デ"
+"フォルトのポリシーを無視して、それぞれのサイトポリシーが適用されます。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "ドメイン"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "ポリシー"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "新規(&N)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "変更(&G)..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "許可する"
 
@@ -4195,11 +4552,17 @@ msgstr "許可する"
 msgid "Accept For Session"
 msgstr "セッションの最後"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "拒否する"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "確認する"
 
@@ -4208,6 +4571,79 @@ msgstr "確認する"
 #| msgid "Do Not Store"
 msgid "Do Not Know"
 msgstr "保存しない"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ポリシーを適用するホストあるいはドメインを <code>www.kde.org</code> または "
+"<code>.kde.org</code> のように入力してください。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "サイト名:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Select the desired policy:\n"
+#| "<ul>\n"
+#| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#| "</ul>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"適用するポリシーを選んでください:<ul>\n"
+"<li>許可する: このサイトからのすべてのクッキーを受け入れます。</li>\n"
+"<li>拒否する: このサイトからのすべてのクッキーを拒否します。</li>\n"
+"<li>確認する: このサイトからクッキーが来たら確認を求めます。</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "ポリシー:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, fuzzy, kde-format
+#| msgid "End of session"
+msgid "Accept until end of session"
+msgstr "セッション終了"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4227,6 +4663,42 @@ msgstr "更新に失敗"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "変更を反映するには、KDE を再起動する必要があります。"
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "パッシブ FTP を無効にする"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"FTP 接続がパッシブの場合、通常の FTP 接続とは反対にクライアントがサーバに接続"
+"するので、ファイアウォールが接続をブロックすることがありません。古い FTP サー"
+"バによっては、パッシブ FTP をサポートしていないものもあります。"
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "部分的にアップロードされたファイルをマーク"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"ファイルをアップロードしている間の拡張子は “*.part” です。完全にアップロード"
+"されると、本来の名前になります。"
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4386,6 +4858,475 @@ msgstr ""
 "をローカルに保存することで、高速なアクセスを提供します。フィルタプロキシサー"
 "バを利用すると、広告やスパムを遮断することができます。</p><p>【注】 両方の"
 "サービスを提供するプロキシサーバもあります。</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>プロキシの設定</p>\n"
+"<p>プロキシサーバは、あなたのマシンとインターネットの間に介在するマシンで、"
+"ウェブページのキャッシングやフィルタリングなどのサービスを提供します。キャッ"
+"シュプロキシサーバは、あなたが訪問したウェブサイトをローカルに保存すること"
+"で、高速なアクセスを提供します。フィルタプロキシサーバを利用すると、広告やス"
+"パムを遮断することができます。</p>\n"
+"<p>インターネット接続にプロキシを使うべきかどうか分からない場合は、インター"
+"ネットサービスプロバイダのセットアップガイドを参照するか、システム管理者に相"
+"談してください。</p>\n"
+"</qt> "
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "インターネットに直接接続します。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "プロキシなし"
+
+# skip-rule: web-j
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>自動的にプロキシ設定を検出して設定します。</p>\n"
+"<p>自動検出は <b>Web Proxy Auto-Discovery Protocol (WPAD)</b> を使って行いま"
+"す。</p>\n"
+"<p>【注意】 このオプションは、一部の Unix/Linux ディストリビューションでは全"
+"くあるいは正しく機能しないかもしれません。このオプションを使って問題が発生す"
+"る場合は、http://konqueror.kde.org. の FAQ セクションをチェックしてください。"
+"</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "プロキシの設定を自動的に検出する"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, fuzzy, kde-format
+#| msgid "Use the specified proxy script URL to configure the proxy settings."
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "プロキシサーバの設定に、指定した設定スクリプトの URL を使用します。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, fuzzy, kde-format
+#| msgid "U&se proxy configuration URL:"
+msgid "Use proxy auto configuration URL:"
+msgstr "プロキシ設定 URL を使う(&S):"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "プロキシ設定スクリプトのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, fuzzy, kde-format
+#| msgid "U&se proxy configuration URL:"
+msgid "Use system proxy configuration:"
+msgstr "プロキシ設定 URL を使う(&S):"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt><p>システム全体のプロキシ情報の設定に使用されている環境変数の自動検出を試"
+"みます。</p><p>以下の一般的な変数名を検索します: <tt>HTTP_PROXY, FTP_PROXY, "
+"NO_PROXY</tt></p></qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "自動検出(&E)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#| "to store the address of the HTTP proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>HTTP プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
+"<icode>HTTP_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP プロキシ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
+"<icode>HTTPS_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL プロキシ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#| "to store the address of the FTP proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>FTP プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
+"<icode>FTP_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP プロキシ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
+"<icode>HTTPS_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS プロキシ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
+"<icode>HTTPS_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>プロキシサーバを使用しないサイトのアドレスを保存する環境変数名を入力しま"
+"す。例: <tt>NO_PROXY</tt></p>\n"
+"<p>代わりに「自動検出」ボタンを使って、この変数の自動検出を試みることもできま"
+"す。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "例外:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#| "addresses of sites for which the proxy server should not be used.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"<p>プロキシサーバを使用しないサイトのアドレスを保存する環境変数名を入力しま"
+"す。例: <icode>NO_PROXY</icode></p>\n"
+"<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検出"
+"を試みることもできます。</p>\n"
+"</qt>"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "環境変数の値を表示する(&E)"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "手動でプロキシサーバの設定情報を入力します。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, fuzzy, kde-format
+#| msgid "A&utomatically detect proxy configuration"
+msgid "Use manually specified proxy configuration:"
+msgstr "プロキシ設定を自動検出する(&U)"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "HTTP プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTP proxy server."
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "HTTP プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, fuzzy, kde-format
+#| msgid "&Use the same proxy server for all protocols"
+msgid "Use this proxy server for a&ll protocols"
+msgstr "すべてのプロトコルで同じプロキシサーバを使う(&U)"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "HTTPS プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "HTTPS プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "FTP プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, fuzzy, kde-format
+#| msgid "Enter the address of the FTP proxy server."
+msgid "Enter the port number of the FTP proxy server."
+msgstr "FTP プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "HTTPS プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "HTTPS プロキシサーバのアドレスを入力します。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr "このリストにある場合だけプロキシを使う"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "このリストにある場合だけプロキシを使う"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5136,11 +6077,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [クロスドメインです]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "詳細"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5245,31 +6181,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "クッキーの詳細"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "名前:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "値:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "有効期限:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "パス:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ドメイン:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5425,7 +6336,8 @@ msgstr ""
 "<para>ごみ箱が使用するディスク領域を下で指定するサイズに制限するには、この"
 "ボックスをチェックします。チェックしなければ無制限になります。</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "サイズ:"
@@ -5675,6 +6587,132 @@ msgid ""
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, fuzzy, kde-format
+#| msgid "&Enable Web shortcuts"
+msgid "&Enable Web search keywords"
+msgstr "ウェブショートカットを有効にする(&E)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, fuzzy, kde-format
+#| msgid "Search for shortcut"
+msgid "Search for web search keywords"
+msgstr "ショートカットを検索"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, fuzzy, kde-format
+#| msgid "Add a new Web shortcut"
+msgid "Add a new Web search keyword"
+msgstr "新しいウェブショートカットを追加する"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, fuzzy, kde-format
+#| msgid "Add a new Web shortcut"
+msgid "Modify the highlighted Web search keyword"
+msgstr "新しいウェブショートカットを追加する"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, fuzzy, kde-format
+#| msgid "Default Web &search keyword:"
+msgid "Delete the highlighted Web search keyword"
+msgstr "デフォルトのウェブ検索キーワード(&S):"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "削除(&L)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>URL ではなく普通の単語やフレーズだけを入力して検索するときに使用するデ"
+"フォルトの検索プロバイダを選択します。この機能を無効にする場合は「なし」を選"
+"択してください。</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "デフォルトのウェブ検索キーワード(&S):"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "複数の検索キーワードを分ける区切り文字を選択します。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "キーワード区切り文字(&K):"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, fuzzy, kde-format
+#| msgid "Add a new Web shortcut"
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "新しいウェブショートカットを追加する"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "コロン"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "スペース"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5741,6 +6779,123 @@ msgstr ""
 msgid "Keep It"
 msgstr "保持する"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "検索プロバイダの名前を入力します。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "ショートカット名(&N):"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"この検索プロバイダの URI を指定します。<br/>検索するテキスト全体は、\\{@} ま"
+"たは \\{0} で指定します。<br/>\\{0} では指定された文字列そのものに置き換わり"
+"ますが、\\{@} の場合には、指定された文字列からクエリ変数 (name=value) を取り"
+"除くので、ほとんどの場合、\\{@} の使用をお勧めします。<br/>また、クエリ内の特"
+"定の語を \\{1} ... \\{n} のようにして指定できる他、\\{name} で name=value の"
+"形で指定されたクエリ変数の参照も指定できます。<br/>さらに、複数参照 (名前、数"
+"字、文字列) も一度にできます ( \\{name1, name2, ....\"文字列\"} のように指定"
+"します)。<br/>結果の URI には、指定されたもののうち左から最初に一致した値に置"
+"き換えられたものが使われます。<br/>引用符で囲まれた文字列は、その左側の参照リ"
+"ストのいずれにもマッチしなかった場合のデフォルト値として使われます。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "ショートカット URL(&U):"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "検索語のエンコードに使用する文字セットを選択してください。"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ここで指定したショートカットは KDE で疑似 URI スキームとして使用できます。例"
+"えば、ショートカット “av” は “av:検索語” のように使用します。\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ウェブショートカットの名前を入力します。</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "ショートカット:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "検索語のエンコードに使用する文字セットを選択します。"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "文字セット(&T):"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "インターレースモード"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5760,6 +6915,151 @@ msgstr "要求がブロックされました。"
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "未知の HTTP メソッド"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "一般名:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "組織:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "組織単位:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "不正対策部門"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "国:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "カナダ"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "連邦・州:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "ケベック"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "市:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "レイクリッジメドゥ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"以下の欄にチェックサムをコピー＆ペーストしてください。<br/>通常、チェックサム"
+"はこのファイルのダウンロード元のサイトから提供されています。"
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "予想されるチェックサム (MD5, SHA1, SHA256 か SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "クリックしてクリップボードからチェックサムを入力欄に貼り付け。"
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "計算"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "クリックしてチェックサムをクリップボードにコピー。"
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6242,6 +7542,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "未知"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "停止"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Filelight で調査する"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "マウント元:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "空き容量:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "タイプ:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "場所:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "変更..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "内容:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "リンク先:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "更新日:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "作成:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "ファイルシステム:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "未知のサイズ"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "マウントポイント:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "アクセス:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "アプリケーションで開く:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6409,6 +7805,380 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "ターミナル"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"実行するアプリケーションがテキストモードのアプリケーションである場合や、ター"
+"ミナルエミュレータのウィンドウが提供する情報が必要な場合、このオプションを"
+"チェックします。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "ターミナルで実行する"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "ターミナルオプション:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"テキストモードのアプリケーションが終了時に重要な情報を提供する場合、このオプ"
+"ションをチェックします。ターミナルエミュレータを閉じずに開いておくと、この情"
+"報を取り出すことができます。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "コマンドの終了時に閉じない"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "ユーザ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"別のユーザ ID でこのアプリケーションを実行する場合、このオプションをチェック"
+"します。各プロセスには異なるユーザ ID が関連付けられます。ファイルへのアクセ"
+"スおよびその他の権限は、この ID コードによって決定されます。このオプションを"
+"使用するにはユーザのパスワードが必要です。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "別のユーザで実行する"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "このアプリケーションを実行するユーザ名を入力します。"
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "ユーザ名:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "ここでアプリケーションを実行するユーザ名を入力します。"
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "ディスクリート GPU"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "グラフィックボードを使用して実行する"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "起動"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"このオプションを有効にすると、アプリケーションが起動したことが分かりやすくな"
+"ります。起動フィードバックは、ビジー状態のカーソルとして、またはタスクバー内"
+"にビジュアルに表示されます。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "起動フィードバックを有効にする"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"このアプリケーションに付ける名前を入力します。アプリケーションはこの名前でア"
+"プリケーションメニューおよびパネル内に表示されます。"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"ここには、用途に応じてこのアプリケーションの説明を入力します。例えば、ダイヤ"
+"ルアップ用アプリケーション (KPPP) なら「ダイヤルアップツール」というふうに。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "説明(&D):"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "ここには、役に立つと思われるコメントを入力します。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "コメント(&E):"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the caption"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"このアプリケーションを起動するコマンドを入力してください。\n"
+"\n"
+"コマンドには以下のプレースホルダを追加できます。プレースホルダはプログラムが"
+"実行されるときに実際の値に置き換えられます:\n"
+"%f - 単一ファイル名\n"
+"%F - ファイルのリスト (一度に複数のローカルファイルを開くことのできるアプリ"
+"ケーションで使用)\n"
+"%u - 単一 URL\n"
+"%U - URL のリスト\n"
+"%d - 開くファイルを含むディレクトリ\n"
+"%D - ディレクトリのリスト\n"
+"%i - アイコン\n"
+"%m - ミニアイコン\n"
+"%c - キャプション"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"ファイル選択ダイアログを開いて必要な実行ファイルを探すには、ここをクリックし"
+"ます。"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "ブラウズ(&B)..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "あなたのアプリケーションの作業ディレクトリを設定"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "作業パス(&W):"
+
+# xdg-user-dirs 0.17 の翻訳に準拠した表記です。
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, fuzzy, kde-format
+#| msgctxt "KFile System Bookmarks"
+#| msgid "Documents"
+msgid "Arguments:"
+msgstr "ドキュメント"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>このリストはアプリケーションが処理できるファイルの種類を表示します。こ"
+"のリストは「MIME タイプ」で構成されています。</p> \n"
+"<p> MIME (Multipurpose Internet Mail Extension) は、ファイル名の拡張子と、対"
+"応する MIME タイプに基づいてデータのタイプを識別するための標準プロトコルで"
+"す。例えば、‘flower.bmp’ のドット (.) の後にくる “bmp” の部分は、ファイルが "
+"image/x-bmp という種類の画像であることを表します。各タイプのファイルを適切な"
+"アプリケーションで開くためには、拡張子と MIME タイプを処理できるアプリケー"
+"ションをシステムに知らせておく必要があります。</p>\n"
+"<p>このアプリケーションをこのリストにない MIME タイプと関連付けるには、下の"
+"「追加」ボタンをクリックします。このアプリケーションが処理できないファイルタ"
+"イプがある場合は、「削除」ボタンをクリックしてリストから削除することができま"
+"す。</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "サポートされているファイルタイプ(&S):"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "MIME タイプ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "説明"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"アプリケーションが処理できるファイルタイプ (MIME タイプ) を追加するには、この"
+"ボタンをクリックします。"
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "追加..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"アプリケーションが処理できないファイルタイプ (MIME タイプ) を削除する場合は、"
+"上のリストで MIME タイプを選択してこのボタンをクリックします。"
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "削除"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"このアプリケーションの起動方法、起動フィードバック、D-Bus オプションを変更す"
+"る場合や、別のユーザで実行する場合は、ここをクリックします。"
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "詳細オプション(&V)"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -7091,11 +8861,6 @@ msgstr "ウェブショートカットを設定..."
 msgid "Open file dialog"
 msgstr "ファイル選択ダイアログを開きます"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "場所:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7413,6 +9178,79 @@ msgstr "スキップ"
 msgid "Skip All"
 msgstr "すべてスキップ"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[パッドロック]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "アドレス:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP アドレス:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "暗号化:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "詳細:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL バージョン:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "証明書チェーン:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "信頼された:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "有効期間:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "シリアル番号:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 ダイジェスト:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1 ダイジェスト:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7566,819 +9404,6 @@ msgstr "このプログラムを信頼しない場合は「キャンセル」を
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "wince はマウントをサポートしません。"
 
-#~ msgid "Search"
-#~ msgstr "検索"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "ドメインやホストを対話的に検索"
-
-#~ msgid "Site"
-#~ msgstr "サイト"
-
-#~ msgid "Cookie Name"
-#~ msgstr "クッキー名"
-
-#~ msgid "D&elete"
-#~ msgstr "削除(&E)"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "すべて削除(&L)"
-
-# ACCELERATOR changed by translator
-#, fuzzy
-#~| msgid "Change &Policy..."
-#~ msgid "Configure &Policy..."
-#~ msgstr "ポリシーを変更(&G)..."
-
-# ACCELERATOR changed by translator
-#~ msgid "&Reload List"
-#~ msgstr "リストを再読み込み(&Y)"
-
-#~ msgid "Secure:"
-#~ msgstr "安全性:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>クッキーのサポートを有効にします。通常はクッキーのサポートを有効にして"
-#~ "おいて、必要に応じてカスタマイズするとよいでしょう。</p>\n"
-#~ "<p>クッキーのサポートを無効にすると、多くのサイトで自由に閲覧できなくなり"
-#~ "ます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "クッキーを有効にする(&K)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "いわゆるサードパーティのクッキーを拒否します。サードパーティのクッキーと"
-#~ "は、あなたが現在見ているサイト以外から送られてくるクッキーです。例えばこの"
-#~ "オプションをチェックして www.foobar.com を見ているときは、www.foobar.com "
-#~ "からのクッキーのみをあなたの設定に従って処理します。他のサイトからのクッ"
-#~ "キーは拒否します。これによりサイト運営者があなたのブラウジング情報を集める"
-#~ "機会を減らすことができます。\n"
-#~ "</qt>"
-
-# ACCELERATOR changed by translator
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "元のサーバからのクッキーのみ受け入れる(&U)"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "<p>Automatically accept temporary cookies meant to expire at the end of "
-#~| "the current session. Such cookies will not be stored in your computer's "
-#~| "hard drive or storage device. Instead, they are deleted when you close "
-#~| "all applications (e.g. your browser) that use them.</p><p>\n"
-#~| "<u>NOTE:</u> Checking this option along with the next one will override "
-#~| "your default as well as site specific cookie policies. However, doing so "
-#~| "also increases your privacy since all cookies will be removed when the "
-#~| "current session ends.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>セッションの終了と同時に期限切れになるセッションクッキーを自動的に受け"
-#~ "入れます。このようなクッキーは、コンピュータのハードディスクや他のストレー"
-#~ "ジデバイスに保存されることはありません。セッションクッキーはそれらのクッ"
-#~ "キーを使用しているブラウザなどのアプリケーションを終了すると消滅します。</"
-#~ "p>\n"
-#~ "<p><note>このオプションを次のオプションと一緒に選択すると、サイトごとに設"
-#~ "定したポリシーだけでなくデフォルトのポリシーも無効になります。しかし、セッ"
-#~ "ション終了時にすべてのクッキーが削除されるので、プライバシーはより保護され"
-#~ "ます。</note></p>\n"
-#~ "</qt>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "セッションクッキーを自動的に受け入れる(&Y)"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Determines how cookies received from a remote machine will be handled: \n"
-#~| "<ul>\n"
-#~| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~| "server wants to set a cookie.</li>\n"
-#~| "<li><b>Accept</b> will cause cookies to be accepted without prompting "
-#~| "you.</li>\n"
-#~| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~| "receives.</li>\n"
-#~| "</ul><p>\n"
-#~| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~| "take precedence over the default policy.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "リモートマシンから受け取ったクッキーをどのように扱うかを決定します。<ul>\n"
-#~ "<li>確認する: サーバがクッキーを送ってくるたびに確認を求めます。</li>\n"
-#~ "<li>許可する: 確認せずにクッキーを受け入れます。</li>\n"
-#~ "<li>拒否する: すべてのクッキーを拒否します。</li>\n"
-#~ "</ul>\n"
-#~ "<p><note>ドメインごとに設定されたサイトポリシーは、常にデフォルトのポリ"
-#~ "シーより優先されます。</note></p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "デフォルトのポリシー"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "すべてのクッキーを受け入れる(&T)"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "セッション終了まで許可"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "確認を求める(&F)"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "すべてのクッキーを拒否する(&J)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "新しいポリシーを追加するには「新規」ボタンをクリックして、ダイアログボック"
-#~ "スに必要な情報を入力してください。既存のポリシーを変更するには「変更」ボタ"
-#~ "ンをクリックし、ダイアログで新しいポリシーを選んでください。「削除」ボタン"
-#~ "をクリックすると、選択されたポリシーを削除します。削除した場合、そのドメイ"
-#~ "ンに対してはデフォルトのポリシーが適用されます。「すべて削除」はサイト別の"
-#~ "ポリシーをすべて削除します。\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "サイトポリシー"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "ドメインを対話的に検索"
-
-#~ msgid "Search..."
-#~ msgstr "検索..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "個別にクッキーポリシーを指定したサイトのリストです。これらのサイトでは、デ"
-#~ "フォルトのポリシーを無視して、それぞれのサイトポリシーが適用されます。\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "ドメイン"
-
-#~ msgid "Policy"
-#~ msgstr "ポリシー"
-
-#~ msgid "&New..."
-#~ msgstr "新規(&N)..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "変更(&G)..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ポリシーを適用するホストあるいはドメインを <code>www.kde.org</code> また"
-#~ "は <code>.kde.org</code> のように入力してください。\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "サイト名:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Select the desired policy:\n"
-#~| "<ul>\n"
-#~| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~| "</ul>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "適用するポリシーを選んでください:<ul>\n"
-#~ "<li>許可する: このサイトからのすべてのクッキーを受け入れます。</li>\n"
-#~ "<li>拒否する: このサイトからのすべてのクッキーを拒否します。</li>\n"
-#~ "<li>確認する: このサイトからクッキーが来たら確認を求めます。</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "ポリシー:"
-
-#, fuzzy
-#~| msgid "End of session"
-#~ msgid "Accept until end of session"
-#~ msgstr "セッション終了"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "パッシブ FTP を無効にする"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "FTP 接続がパッシブの場合、通常の FTP 接続とは反対にクライアントがサーバに"
-#~ "接続するので、ファイアウォールが接続をブロックすることがありません。古い "
-#~ "FTP サーバによっては、パッシブ FTP をサポートしていないものもあります。"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "部分的にアップロードされたファイルをマーク"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "ファイルをアップロードしている間の拡張子は “*.part” です。完全にアップロー"
-#~ "ドされると、本来の名前になります。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>プロキシの設定</p>\n"
-#~ "<p>プロキシサーバは、あなたのマシンとインターネットの間に介在するマシン"
-#~ "で、ウェブページのキャッシングやフィルタリングなどのサービスを提供します。"
-#~ "キャッシュプロキシサーバは、あなたが訪問したウェブサイトをローカルに保存す"
-#~ "ることで、高速なアクセスを提供します。フィルタプロキシサーバを利用すると、"
-#~ "広告やスパムを遮断することができます。</p>\n"
-#~ "<p>インターネット接続にプロキシを使うべきかどうか分からない場合は、イン"
-#~ "ターネットサービスプロバイダのセットアップガイドを参照するか、システム管理"
-#~ "者に相談してください。</p>\n"
-#~ "</qt> "
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "インターネットに直接接続します。"
-
-#~ msgid "No Proxy"
-#~ msgstr "プロキシなし"
-
-# skip-rule: web-j
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at http://konqueror.kde.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>自動的にプロキシ設定を検出して設定します。</p>\n"
-#~ "<p>自動検出は <b>Web Proxy Auto-Discovery Protocol (WPAD)</b> を使って行い"
-#~ "ます。</p>\n"
-#~ "<p>【注意】 このオプションは、一部の Unix/Linux ディストリビューションでは"
-#~ "全くあるいは正しく機能しないかもしれません。このオプションを使って問題が発"
-#~ "生する場合は、http://konqueror.kde.org. の FAQ セクションをチェックしてく"
-#~ "ださい。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "プロキシの設定を自動的に検出する"
-
-#, fuzzy
-#~| msgid "Use the specified proxy script URL to configure the proxy settings."
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "プロキシサーバの設定に、指定した設定スクリプトの URL を使用します。"
-
-#, fuzzy
-#~| msgid "U&se proxy configuration URL:"
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "プロキシ設定 URL を使う(&S):"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "プロキシ設定スクリプトのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "U&se proxy configuration URL:"
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "プロキシ設定 URL を使う(&S):"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt><p>システム全体のプロキシ情報の設定に使用されている環境変数の自動検出"
-#~ "を試みます。</p><p>以下の一般的な変数名を検索します: <tt>HTTP_PROXY, "
-#~ "FTP_PROXY, NO_PROXY</tt></p></qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "自動検出(&E)"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~| "to store the address of the HTTP proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>HTTP プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
-#~ "<icode>HTTP_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP プロキシ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
-#~ "<icode>HTTPS_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL プロキシ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~| "to store the address of the FTP proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>FTP プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
-#~ "<icode>FTP_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP プロキシ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
-#~ "<icode>HTTPS_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS プロキシ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>HTTPS プロキシサーバのアドレスを保存する環境変数名を入力します。例: "
-#~ "<icode>HTTPS_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>プロキシサーバを使用しないサイトのアドレスを保存する環境変数名を入力し"
-#~ "ます。例: <tt>NO_PROXY</tt></p>\n"
-#~ "<p>代わりに「自動検出」ボタンを使って、この変数の自動検出を試みることもで"
-#~ "きます。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "例外:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~| "addresses of sites for which the proxy server should not be used.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>プロキシサーバを使用しないサイトのアドレスを保存する環境変数名を入力し"
-#~ "ます。例: <icode>NO_PROXY</icode></p>\n"
-#~ "<p>代わりに<interface>自動検出</interface>ボタンを使って、この変数の自動検"
-#~ "出を試みることもできます。</p>\n"
-#~ "</qt>"
-
-# ACCELERATOR changed by translator
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "環境変数の値を表示する(&E)"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "手動でプロキシサーバの設定情報を入力します。"
-
-#, fuzzy
-#~| msgid "A&utomatically detect proxy configuration"
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "プロキシ設定を自動検出する(&U)"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "HTTP プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTP proxy server."
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "HTTP プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "&Use the same proxy server for all protocols"
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "すべてのプロトコルで同じプロキシサーバを使う(&U)"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "HTTPS プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "HTTPS プロキシサーバのアドレスを入力します。"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "FTP プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Enter the address of the FTP proxy server."
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "FTP プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "HTTPS プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "HTTPS プロキシサーバのアドレスを入力します。"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr "このリストにある場合だけプロキシを使う"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "このリストにある場合だけプロキシを使う"
-
-#, fuzzy
-#~| msgid "&Enable Web shortcuts"
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "ウェブショートカットを有効にする(&E)"
-
-#, fuzzy
-#~| msgid "Search for shortcut"
-#~ msgid "Search for web search keywords"
-#~ msgstr "ショートカットを検索"
-
-#, fuzzy
-#~| msgid "Add a new Web shortcut"
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "新しいウェブショートカットを追加する"
-
-#~ msgid "De&lete"
-#~ msgstr "削除(&L)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>URL ではなく普通の単語やフレーズだけを入力して検索するときに使用するデ"
-#~ "フォルトの検索プロバイダを選択します。この機能を無効にする場合は「なし」を"
-#~ "選択してください。</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "デフォルトのウェブ検索キーワード(&S):"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr "複数の検索キーワードを分ける区切り文字を選択します。"
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "キーワード区切り文字(&K):"
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "コロン"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "スペース"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "検索プロバイダの名前を入力します。"
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "ショートカット名(&N):"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "この検索プロバイダの URI を指定します。<br/>検索するテキスト全体は、\\{@} "
-#~ "または \\{0} で指定します。<br/>\\{0} では指定された文字列そのものに置き換"
-#~ "わりますが、\\{@} の場合には、指定された文字列からクエリ変数 (name=value) "
-#~ "を取り除くので、ほとんどの場合、\\{@} の使用をお勧めします。<br/>また、ク"
-#~ "エリ内の特定の語を \\{1} ... \\{n} のようにして指定できる他、\\{name} で "
-#~ "name=value の形で指定されたクエリ変数の参照も指定できます。<br/>さらに、複"
-#~ "数参照 (名前、数字、文字列) も一度にできます ( \\{name1, name2, ....\"文字"
-#~ "列\"} のように指定します)。<br/>結果の URI には、指定されたもののうち左か"
-#~ "ら最初に一致した値に置き換えられたものが使われます。<br/>引用符で囲まれた"
-#~ "文字列は、その左側の参照リストのいずれにもマッチしなかった場合のデフォルト"
-#~ "値として使われます。\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "ショートカット URL(&U):"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "検索語のエンコードに使用する文字セットを選択してください。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ここで指定したショートカットは KDE で疑似 URI スキームとして使用できます。"
-#~ "例えば、ショートカット “av” は “av:検索語” のように使用します。\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>ウェブショートカットの名前を入力します。</p></"
-#~ "body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "ショートカット:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "検索語のエンコードに使用する文字セットを選択します。"
-
-# ACCELERATOR changed by translator
-#~ msgid "&Charset:"
-#~ msgstr "文字セット(&T):"
-
-#, fuzzy
-#~| msgctxt "@label"
-#~| msgid "Interlace Mode"
-#~ msgid "Insert query placeholder"
-#~ msgstr "インターレースモード"
-
-#~ msgid "Common name:"
-#~ msgstr "一般名:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "組織:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Acme Sundry Products Company"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "組織単位:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "不正対策部門"
-
-#~ msgid "Country:"
-#~ msgstr "国:"
-
-#~ msgid "Canada"
-#~ msgstr "カナダ"
-
-#~ msgid "State:"
-#~ msgstr "連邦・州:"
-
-#~ msgid "Quebec"
-#~ msgstr "ケベック"
-
-#~ msgid "City:"
-#~ msgstr "市:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "レイクリッジメドゥ"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "以下の欄にチェックサムをコピー＆ペーストしてください。<br/>通常、チェック"
-#~ "サムはこのファイルのダウンロード元のサイトから提供されています。"
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "予想されるチェックサム (MD5, SHA1, SHA256 か SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "クリックしてクリップボードからチェックサムを入力欄に貼り付け。"
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "計算"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "クリックしてチェックサムをクリップボードにコピー。"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8403,298 +9428,6 @@ msgstr "このプログラムを信頼しない場合は「キャンセル」を
 #~ msgid "Unmount"
 #~ msgstr "アンマウント"
 
-#~ msgid "Stop"
-#~ msgstr "停止"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "Filelight で調査する"
-
-#~ msgid "Mounted From:"
-#~ msgstr "マウント元:"
-
-#~ msgid "Free Space:"
-#~ msgstr "空き容量:"
-
-#~ msgid "Type:"
-#~ msgstr "タイプ:"
-
-#~ msgid "Change..."
-#~ msgstr "変更..."
-
-#~ msgid "Content:"
-#~ msgstr "内容:"
-
-#~ msgid "Points to:"
-#~ msgstr "リンク先:"
-
-#~ msgid "Modified:"
-#~ msgstr "更新日:"
-
-#~ msgid "Created:"
-#~ msgstr "作成:"
-
-#~ msgid "File System:"
-#~ msgstr "ファイルシステム:"
-
-#~ msgid "Unknown size"
-#~ msgstr "未知のサイズ"
-
-#~ msgid "Mounted On:"
-#~ msgstr "マウントポイント:"
-
-#~ msgid "Accessed:"
-#~ msgstr "アクセス:"
-
-#~ msgid "Open With:"
-#~ msgstr "アプリケーションで開く:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "ターミナル"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "実行するアプリケーションがテキストモードのアプリケーションである場合や、"
-#~ "ターミナルエミュレータのウィンドウが提供する情報が必要な場合、このオプショ"
-#~ "ンをチェックします。"
-
-#~ msgid "Run in terminal"
-#~ msgstr "ターミナルで実行する"
-
-#~ msgid "Terminal options:"
-#~ msgstr "ターミナルオプション:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "テキストモードのアプリケーションが終了時に重要な情報を提供する場合、このオ"
-#~ "プションをチェックします。ターミナルエミュレータを閉じずに開いておくと、こ"
-#~ "の情報を取り出すことができます。"
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "コマンドの終了時に閉じない"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "ユーザ"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "別のユーザ ID でこのアプリケーションを実行する場合、このオプションをチェッ"
-#~ "クします。各プロセスには異なるユーザ ID が関連付けられます。ファイルへのア"
-#~ "クセスおよびその他の権限は、この ID コードによって決定されます。このオプ"
-#~ "ションを使用するにはユーザのパスワードが必要です。"
-
-#~ msgid "Run as a different user"
-#~ msgstr "別のユーザで実行する"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "このアプリケーションを実行するユーザ名を入力します。"
-
-#~ msgid "Username:"
-#~ msgstr "ユーザ名:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "ここでアプリケーションを実行するユーザ名を入力します。"
-
-#~ msgid "Discrete GPU"
-#~ msgstr "ディスクリート GPU"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "グラフィックボードを使用して実行する"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "起動"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "このオプションを有効にすると、アプリケーションが起動したことが分かりやすく"
-#~ "なります。起動フィードバックは、ビジー状態のカーソルとして、またはタスク"
-#~ "バー内にビジュアルに表示されます。"
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "起動フィードバックを有効にする"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "このアプリケーションに付ける名前を入力します。アプリケーションはこの名前で"
-#~ "アプリケーションメニューおよびパネル内に表示されます。"
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "ここには、用途に応じてこのアプリケーションの説明を入力します。例えば、ダイ"
-#~ "ヤルアップ用アプリケーション (KPPP) なら「ダイヤルアップツール」というふう"
-#~ "に。"
-
-#~ msgid "&Description:"
-#~ msgstr "説明(&D):"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "ここには、役に立つと思われるコメントを入力します。"
-
-#~ msgid "Comm&ent:"
-#~ msgstr "コメント(&E):"
-
-#, fuzzy
-#~| msgid ""
-#~| "Type the command to start this application here.\n"
-#~| "\n"
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the caption"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "このアプリケーションを起動するコマンドを入力してください。\n"
-#~ "\n"
-#~ "コマンドには以下のプレースホルダを追加できます。プレースホルダはプログラム"
-#~ "が実行されるときに実際の値に置き換えられます:\n"
-#~ "%f - 単一ファイル名\n"
-#~ "%F - ファイルのリスト (一度に複数のローカルファイルを開くことのできるアプ"
-#~ "リケーションで使用)\n"
-#~ "%u - 単一 URL\n"
-#~ "%U - URL のリスト\n"
-#~ "%d - 開くファイルを含むディレクトリ\n"
-#~ "%D - ディレクトリのリスト\n"
-#~ "%i - アイコン\n"
-#~ "%m - ミニアイコン\n"
-#~ "%c - キャプション"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "ファイル選択ダイアログを開いて必要な実行ファイルを探すには、ここをクリック"
-#~ "します。"
-
-#~ msgid "&Browse..."
-#~ msgstr "ブラウズ(&B)..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "あなたのアプリケーションの作業ディレクトリを設定"
-
-#~ msgid "&Work path:"
-#~ msgstr "作業パス(&W):"
-
-# xdg-user-dirs 0.17 の翻訳に準拠した表記です。
-#, fuzzy
-#~| msgctxt "KFile System Bookmarks"
-#~| msgid "Documents"
-#~ msgid "Arguments:"
-#~ msgstr "ドキュメント"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>このリストはアプリケーションが処理できるファイルの種類を表示しま"
-#~ "す。このリストは「MIME タイプ」で構成されています。</p> \n"
-#~ "<p> MIME (Multipurpose Internet Mail Extension) は、ファイル名の拡張子と、"
-#~ "対応する MIME タイプに基づいてデータのタイプを識別するための標準プロトコル"
-#~ "です。例えば、‘flower.bmp’ のドット (.) の後にくる “bmp” の部分は、ファイ"
-#~ "ルが image/x-bmp という種類の画像であることを表します。各タイプのファイル"
-#~ "を適切なアプリケーションで開くためには、拡張子と MIME タイプを処理できるア"
-#~ "プリケーションをシステムに知らせておく必要があります。</p>\n"
-#~ "<p>このアプリケーションをこのリストにない MIME タイプと関連付けるには、下"
-#~ "の「追加」ボタンをクリックします。このアプリケーションが処理できないファイ"
-#~ "ルタイプがある場合は、「削除」ボタンをクリックしてリストから削除することが"
-#~ "できます。</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "サポートされているファイルタイプ(&S):"
-
-#~ msgid "Mimetype"
-#~ msgstr "MIME タイプ"
-
-#~ msgid "Description"
-#~ msgstr "説明"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "アプリケーションが処理できるファイルタイプ (MIME タイプ) を追加するには、"
-#~ "このボタンをクリックします。"
-
-#~ msgid "Add..."
-#~ msgstr "追加..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "アプリケーションが処理できないファイルタイプ (MIME タイプ) を削除する場合"
-#~ "は、上のリストで MIME タイプを選択してこのボタンをクリックします。"
-
-#~ msgid "Remove"
-#~ msgstr "削除"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "このアプリケーションの起動方法、起動フィードバック、D-Bus オプションを変更"
-#~ "する場合や、別のユーザで実行する場合は、ここをクリックします。"
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "詳細オプション(&V)"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8717,43 +9450,6 @@ msgstr "このプログラムを信頼しない場合は「キャンセル」を
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "クリップボードの内容を貼り付け(&P)"
-
-#~ msgid "[padlock]"
-#~ msgstr "[パッドロック]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "アドレス:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP アドレス:"
-
-#~ msgid "Encryption:"
-#~ msgstr "暗号化:"
-
-#~ msgid "Details:"
-#~ msgstr "詳細:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL バージョン:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "証明書チェーン:"
-
-#~ msgid "Trusted:"
-#~ msgstr "信頼された:"
-
-#~ msgid "Validity period:"
-#~ msgstr "有効期間:"
-
-#~ msgid "Serial number:"
-#~ msgstr "シリアル番号:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 ダイジェスト:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1 ダイジェスト:"
 
 #~ msgid "None"
 #~ msgstr "なし"

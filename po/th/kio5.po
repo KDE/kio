@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -3525,7 +3525,8 @@ msgstr ""
 "แก้ไขหรือเลือกที่คั่นหน้าที่คุณต้องการ<br /><br />ที่คั่นหน้านี้จะกำหนดใช้กับกล่องแฟ้ม "
 "แต่จะทำงานคล้ายที่คั่นหน้าอื่น ๆ ของ KDE</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&ชื่อ:"
@@ -3814,12 +3815,19 @@ msgstr ""
 "สร้างโฟลเดอร์ใหม่ใน:\n"
 "%1"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "คัดลอก"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "วาง"
@@ -4153,6 +4161,105 @@ msgstr "จบวาระ"
 msgid "Yes"
 msgstr "ใช่"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "ค้นหา"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "ค้นหาโดเมนและโฮสต์แบบโต้ตอบ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "เว็บไซต์"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "ชื่อคุกกี้"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "&ลบ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "ลบ&ทั้งหมด"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, fuzzy, kde-format
+#| msgid "Change &Policy..."
+msgid "Configure &Policy..."
+msgstr "เปลี่ยน&ข้อกำหนด..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "ปรับปรุงรา&ยการ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "รายละเอียด"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "ชื่อ:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "ค่า:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "โดเมน:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "พาธ:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "หมดอายุ:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "ปลอดภัย:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, fuzzy, kde-format
 #| msgid "Change Cookie Policy"
@@ -4261,7 +4368,254 @@ msgstr ""
 "การทำแบบนี้จะทำให้คุณสามารถรับคุกกี้จากเว็บที่เชื่อถือได้ โดยไม่ต้องถูกถามจาก KDE "
 "ทุกครั้งที่จะต้องมีการรับคุกกี้อีก</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>เปิดใช้งานการรองรับคุกกี้ ตามปกติแล้วคุณจะต้องการเปิดการรองรับการใช้งานคุกกี้ "
+"และปรับแต่งมันให้เหมาะกับความต้องการความเป็นส่วนตัวของคุณ</p><p>\n"
+"โปรดสังเกตว่า การปิดการรองรับการใช้งานคุกกี้ อาจทำให้ไม่สามารถเรียกดูเว็บไซต์จำนวนมากได้</"
+"p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "เปิดใช้งานคุกกี้"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"การปฏิเสธสิ่งที่เรียกว่าคุกกี้จากกลุ่มอื่น สิ่งนี้คือคุกกี้ที่มาจากเว็บไซต์อื่นที่ไม่ใช่เว็บไซต์ที่คุณกำลังดูอยู่ "
+"ตัวอย่างเช่น ถ้าคุณไปดูเว็บไซต์ <b>www.foobar.com</b> ขณะที่เปิดใช้ตัวเลือกนี้ "
+"จะมีแต่คุกกี้ที่มาจาก www.foobar.com เท่านั้นที่จะประมวลผล และคุกกี้จากเว็บไซต์อื่น ๆ "
+"จะโดนปฏิเสธกลับไป สิ่งนี้จะลดโอกาสในการที่ผู้ดำเนินการของเว็บไซต์ "
+"จะทำการรวบรวมโพรไฟล์เกี่ยวกับพฤติกรรมการเข้าดูเว็บไซต์ประจำวันของคุณได้\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "ยอม&รับเฉพาะคุกกี้ที่มาจากเซิร์ฟเวอร์ที่เป็นฝ่ายเริ่มต้นเท่านั้น"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "<p>Automatically accept temporary cookies meant to expire at the end of "
+#| "the current session. Such cookies will not be stored in your computer's "
+#| "hard drive or storage device. Instead, they are deleted when you close "
+#| "all applications (e.g. your browser) that use them.</p><p>\n"
+#| "<u>NOTE:</u> Checking this option along with the next one will override "
+#| "your default as well as site specific cookie policies. However, doing so "
+#| "also increases your privacy since all cookies will be removed when the "
+#| "current session ends.</p>\n"
+#| "</qt>"
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<qt>\n"
+"<p>การยอมรับคุกกี้ชั่วคราวโดยอัตโนมัติ หมายความว่าคุกกี้จะหมดอายุหลังจากจบวาระปัจจุบัน "
+"โดยที่จะไม่มีการบันทึกคุกกี้เหล่านั้นลงบนฮาร์ดดิสก์ของเครื่องคุณ "
+"คุกกี้เหล่านี้จะโดนลบหลังจากที่คุณปิดโปรแกรม (เช่น เบราว์เซอร์) ที่ใช้มันไปแล้ว</p><p>\n"
+"<u>ข้อสังเกต:</u> การกาตัวเลือกนี้ร่วมกับตัวเลือกถัดไป จะเป็นการตั้งให้ทำงานแทนค่าปริยาย "
+"และแทนข้อกำหนดของเว็บไซต์เรื่องคุกกี้โดยเฉพาะ อย่างไรก็ตาม "
+"การทำแบบนี้เป็นการเพิ่มความเป็นส่วนตัวของคุณด้วย เพราะว่าคุกกี้ทั้งหมดจะโดนลบทิ้ง "
+"เมื่อวาระปัจจุบันสิ้นสุดลงแล้ว</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "ยอมรับคุกกี้ขอ&งเซสชันโดยอัตโนมัติ"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Determines how cookies received from a remote machine will be handled: \n"
+#| "<ul>\n"
+#| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#| "server wants to set a cookie.</li>\n"
+#| "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#| "</li>\n"
+#| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#| "receives.</li>\n"
+#| "</ul><p>\n"
+#| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#| "take precedence over the default policy.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"พิจารณาว่าจะจัดการกับคุกกี้ที่ได้รับมาจากเครื่องอื่นอย่างไร:\n"
+"<ul>\n"
+"<li><b>ถาม</b> จะทำให้ KDE ทำการถามยืนยัน เมื่อไรก็ตามที่เซิร์ฟเวอร์ต้องการตั้งคุกกี้ </li>\n"
+"<li><b>ยอมรับ</b> จะทำให้มีการยอมรับคุกกี้ทั้งหมดโดยไม่มีการถามเตือนคุณเลย</li>\n"
+"<li><b>ปฏิเสธ</b> จะทำให้โถคุกกี้ปฏิเสธคุกกี้ทั้งหมดที่ได้รับ</li>\n"
+"</ul> <p>\n"
+"<u>ข้อสังเกต:</u> การใช้งานข้อกำหนดเฉพาะของโดเมน ซึ่งสามารถตั้งค่าได้ที่ด้านล่างนั้น "
+"จะทำการควบคุมเหนือข้อกำหนดปริยายเสมอ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "ข้อกำหนดปริยาย"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "ยอมรั&บคุกกี้ทั้งหมด"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, fuzzy, kde-format
+#| msgid "End of session"
+msgid "Accept &until end of session"
+msgstr "จบวาระ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "&ถามยืนยันก่อน"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "&ปฏิเสธคุกกี้ทั้งหมด"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"การเพิ่มข้อกำหนดใหม่ สามารถทำได้โดยคลิกที่ปุ่ม <b>เพิ่ม...</b> และป้อนข้อมูลที่จำเป็นเข้าไป "
+"ในการเปลี่ยนข้อกำหนดที่มีอยู่ ให้ใช้ปุ่ม <b>เปลี่ยน...</b> และเลือกข้อกำหนดใหม่จากกล่องโต้ตอบ "
+"การคลิกที่ปุ่ม <b>ลบ</b> จะเป็นการลบข้อกำหนดที่เลือกเอาไว้ "
+"ซึ่งจะทำให้โดเมนนั้นหันมาใช้ข้อกำหนดปริยายแทน ขณะที่ปุ่ม <b>ลบทั้งหมด</b> "
+"จะเป็นการลบข้อกำหนดเฉพาะของเว็บไซต์ทั้งหมดออกไป\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "ข้อกำหนดของเว็บไซต์"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "ค้นหาโดเมนแบบโต้ตอบ"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, fuzzy, kde-format
+#| msgid "Search"
+msgid "Search..."
+msgstr "ค้นหา"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"รายชื่อของเว็บไซต์ที่คุณได้ทำการตั้งข้อกำหนดเฉพาะเรื่องคุกกี้ ข้อกำหนดเฉพาะ "
+"จะทำงานแทนข้อกำหนดปริยายสำหรับเว็บไซต์เหล่านี้\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "โดเมน"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "ข้อกำหนดการใช้"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "สร้างใ&หม่..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "เป&ลี่ยน..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "ยอมรับ"
 
@@ -4271,11 +4625,17 @@ msgstr "ยอมรับ"
 msgid "Accept For Session"
 msgstr "จบวาระ"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "ปฏิเสธ"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "ถาม"
 
@@ -4284,6 +4644,82 @@ msgstr "ถาม"
 #| msgid "Do Not Store"
 msgid "Do Not Know"
 msgstr "ไม่จัดเก็บ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อเครื่องหรือโดเมนที่จะใช้ข้อกำหนดนี้ ตัวอย่างเช่น <b>www.kde.org</b> หรือ <b>.kde."
+"org</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, fuzzy, kde-format
+#| msgid "Site Name"
+msgid "Site name:"
+msgstr "ชื่อเว็บไซต์"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Select the desired policy:\n"
+#| "<ul>\n"
+#| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#| "</ul>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"เลือกใช้ข้อกำหนดที่ต้องการ:\n"
+"<ul>\n"
+"<li><b>ยอมรับ</b> - อนุญาตให้เว็บไซต์นี้ตั้งคุกกี้ได้</li>\n"
+"<li><b>ปฏิเสธ</b> - ปฏิเสธทุกคุกกี้ที่ส่งมาจากเว็บไซต์นี้ </li>\n"
+"<li><b>ถาม</b> - ให้มีการถามเมื่อได้รับคุกกี้จากเว็บไซต์นี้ </li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, fuzzy, kde-format
+#| msgid "&Policy:"
+msgid "Policy:"
+msgstr "ข้&อกำหนด:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, fuzzy, kde-format
+#| msgid "End of session"
+msgid "Accept until end of session"
+msgstr "จบวาระ"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4303,6 +4739,42 @@ msgstr "การอัปเดตล้มเหลว"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "คุณต้องเริ่มการทำงานของ KDE ใหม่อีกครั้ง เพื่อให้การเปลี่ยนแปลงมีผล"
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "ปิด FTP แบบพาสซีฟ"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"เมื่อการเชื่อมต่อของ FTP เป็นแบบพาสซีฟโดยรอรับการติดต่อจากเครื่องลูกไปยังเซิร์ฟเวอร์ "
+"แทนการใช้วิธีอื่น จะทำให้ไฟร์วอลล์ไม่ปิดกันการเชื่อมต่อนั้น อย่างไรก็ตาม เซิร์ฟเวอร์สำหรับ FTP "
+"แบบเก่า อาจจะไม่รองรับการเชื่อมต่อแบบพาสซีฟ"
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "ป้อนส่วนขยายให้แฟ้มที่อัปโหลดไปบางส่วน"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"ขณะที่มีการส่งแฟ้มขึ้นไปยังเซิร์ฟเวอร์ ส่วนขยายของแฟ้มจะเป็น \".part\" "
+"เมื่อการส่งแฟ้มขึ้นเซิร์ฟเวอร์สำเร็จ ก็จะมีการแก้ชื่อเป็นชื่อจริงของแฟ้ม"
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4459,6 +4931,458 @@ msgstr ""
 "เซิร์ฟเวอร์พร็อกซีสำหรับกรองนั้น จะทำการปิดกั้นการร้องขอสำหรับ หน้าโฆษณา, สแปม, "
 "หรืออะไรก็แล้วแต่ที่คุณต้องการจะกันเอาไว้</p><p><u>ข้อสังเกต:</u> เซิร์ฟเวอร์พร็อกซีบางตัว "
 "จะให้บริการทั้งสองอย่าง</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"การตั้งค่าพร็อกซี\n"
+"<p>\n"
+"แม่ข่ายพร็อกซี คือ เครื่องคอมพิวเตอร์ตัวกลางที่อยู่ระหว่าง เครื่องคอมพิวเตอร์ของคุณและอินเทอร์เน็ต "
+"และให้บริการอย่างเช่น จัดเก็บหน้าเว็บที่เคยดูมาแล้ว (การทำแคช) และการกรองข้อมูล "
+"แม่ข่ายพร็อกซีที่ทำหน้าที่จัดเก็บข้อมูลหน้าเว็บ "
+"จะช่วยให้คุณสามารถเรียกดูหน้าเว็บที่คุณเคยไปมาแล้วได้เร็วขึ้น "
+"โดยการเก็บบันทึกหรือทำแคชหน้าเว็บเหล่านั้นเอาไว้ที่แม่ข่าย ส่วนพร็อกซีที่ทำหน้าที่กรองข้อมูล "
+"จะให้บริการในการปิดกั้นการร้องขอของพวกโฆษณา, สแปม หรืออะไรก็แล้วแต่ที่คุณต้องการจะปิดกั้น\n"
+"<p>\n"
+"หากคุณไม่แน่ใจว่าคุณต้องการใช้พร็อกซีสำหรับการเชี่อมต่อกับอินเทอร์เน็ตหรือไม่ "
+"ให้ดูที่คู่มือการติดตั้งของผู้ให้บริการอินเทอร์เน็ตของคุณ หรือปรึกษาผู้บริหารระบบของคุณ\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "เชื่อมต่ออินเทอร์เน็ตโดยตรง"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, fuzzy, kde-format
+#| msgid "&Proxy"
+msgid "No Proxy"
+msgstr "พร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ตรวจหาและปรับค่าพร็อกซีโดยอัตโนมัติ<p>\n"
+"การค้นหาโดยอัตโนมัติ ทำงานด้วยการใช้ <b>โพรโทคอลการตรวจหาเว็บพร็อกซีอัตโนมัติ (WPAD)</b> "
+"<p>\n"
+"<b>ข้อสังเกต</b> ตัวเลือกนี้อาจมีการทำงานที่ไม่เหมาะสม หรือไม่ทำงานเลยในระบบ UNIX/Linux "
+"บางดิสโทร หากคุณพบปัญหาเมื่อใช้งานตัวเลือกนี้ กรุณาดูที่ส่วนของ คำถามที่ถามบ่อย ที่ http://"
+"konqueror.kde.org\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, fuzzy, kde-format
+#| msgid "U&se proxy configuration URL:"
+msgid "Detect proxy configuration automatically"
+msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, fuzzy, kde-format
+#| msgid "Use the specified proxy script URL to configure the proxy settings."
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "ใช้สคริปต์ตั้งค่าพร็อกซีจากที่อยู่ URL ที่ระบุ เพื่อปรับแต่งค่าของพร็อกซี"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, fuzzy, kde-format
+#| msgid "U&se proxy configuration URL:"
+msgid "Use proxy auto configuration URL:"
+msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "ป้อนที่อยู่ของสคริปต์ตั้งค่าพร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, fuzzy, kde-format
+#| msgid "U&se proxy configuration URL:"
+msgid "Use system proxy configuration:"
+msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>การค้นหาตัวแปรแวดล้อมที่ถูกใช้เพื่อตั้งค่าข้อมูลพร็อกซีกับทั้งระบบโดยอัตโนมัติ<p>ความสามารถนี้ทำงานโดยการค้นหาชื่อตัวแปรที่ใช้โดยส่วนรวม "
+"เช่น HTTP_PROXY, FTP_PROXY และ NO_PROXY เป็นต้น </qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, fuzzy, kde-format
+#| msgid "Auto &Detect"
+msgid "Auto D&etect"
+msgstr "ตรวจ&สอบอัตโนมัติ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTP_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี HTTP<p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, fuzzy, kde-format
+#| msgid "&Proxy"
+msgid "HTTP Proxy:"
+msgstr "พร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
+"HTTPS<p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, fuzzy, kde-format
+#| msgid "&Proxy"
+msgid "SSL Proxy:"
+msgstr "พร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>FTP_PROXY</b>, ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี FTP<p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, fuzzy, kde-format
+#| msgid "&Proxy"
+msgid "FTP Proxy:"
+msgstr "พร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
+"HTTPS<p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, fuzzy, kde-format
+#| msgid "&Proxy"
+msgid "SOCKS Proxy:"
+msgstr "พร็อกซี"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#| "to store the address of the HTTPS proxy server.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.</p>\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
+"HTTPS<p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>NO_PROXY</b>, "
+"ที่ใช้สำหรับเก็บที่อยู่ของเว็บไซต์ที่จะไม่ให้ใช้งานพรอกซีเซิร์ฟเวอร์ <p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, fuzzy, kde-format
+#| msgid "E&xceptions"
+msgid "Exceptions:"
+msgstr "ข้อ&ยกเว้น"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#| "addresses of sites for which the proxy server should not be used.<p>\n"
+#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#| "attempt an automatic discovery of this variable.\n"
+#| "</qt>"
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"ป้อนชื่อตัวแปรแวดล้อม เช่น <b>NO_PROXY</b>, "
+"ที่ใช้สำหรับเก็บที่อยู่ของเว็บไซต์ที่จะไม่ให้ใช้งานพรอกซีเซิร์ฟเวอร์ <p>\n"
+"ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
+"และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "แสดงค่าของตัวแปรแวดล้อม"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "ป้อนข้อมูลการตั้งค่าพร็อกซีด้วยตนเอง"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, fuzzy, kde-format
+#| msgid "A&utomatically detect proxy configuration"
+msgid "Use manually specified proxy configuration:"
+msgstr "ตรวจหาการตั้งค่าพร็อกซีอัตโนมัติ"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTP"
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTP proxy server."
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTP"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, fuzzy, kde-format
+#| msgid "&Use the same proxy server for all protocols"
+msgid "Use this proxy server for a&ll protocols"
+msgstr "ใ&ช้แม่ข่ายพร็อกซีตัวเดียวกันกับทุกโพรโทคอล"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ FTP"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, fuzzy, kde-format
+#| msgid "Enter the address of the FTP proxy server."
+msgid "Enter the port number of the FTP proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ FTP"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, fuzzy, kde-format
+#| msgid "Enter the address of the HTTPS proxy server."
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr "ใช้พร็อกซีกับรายการเหล่านี้เท่านั้น"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "ใช้พร็อกซีกับรายการเหล่านี้เท่านั้น"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5218,11 +6142,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " <b>[ข้ามโดเมน]</b>"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "รายละเอียด"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5323,31 +6242,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "รายละเอียดของคุกกี้"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "ชื่อ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "ค่า:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "หมดอายุ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "พาธ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "โดเมน:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, fuzzy, kde-format
@@ -5505,7 +6399,8 @@ msgid ""
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "ขนาด:"
@@ -5764,6 +6659,129 @@ msgid ""
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "&Enable Web search keywords"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Search for web search keywords"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Add a new Web search keyword"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Modify the highlighted Web search keyword"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Delete the highlighted Web search keyword"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "&ลบ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, fuzzy, kde-format
+#| msgid "Default password:"
+msgid "Default Web &search keyword:"
+msgstr "รหัสผ่านปริยาย:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr ""
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5826,6 +6844,106 @@ msgstr ""
 msgid "Keep It"
 msgstr ""
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, fuzzy, kde-format
+#| msgid "Enter the address of the FTP proxy server."
+msgid "Enter the human-readable name of the search provider here."
+msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ FTP"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, fuzzy, kde-format
+#| msgid "Site Name"
+msgid "Shortcut &name:"
+msgstr "ชื่อเว็บไซต์"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Interlace Mode"
+msgid "Insert query placeholder"
+msgstr "โหมดอินเทอร์เลส"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
@@ -5847,6 +6965,149 @@ msgstr "การร้องขอถูกบล็อค"
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "ไม่รู้จักแท็กการกระทำของ HTTP"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "ชื่อส่วนรวม:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "องค์กร:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "หน่วยองค์กร:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Fraud Department"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "ประเทศ:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "แคนาดา"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "รัฐ:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "ประเทศ:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr ""
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr ""
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr ""
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "คำนวณ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr ""
 
 #: widgets/dropjob.cpp:182
 #, fuzzy, kde-format
@@ -6360,6 +7621,109 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "หยุด"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted From:"
+msgstr "จุดเมานท์:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "ประเภท:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "ตำแหน่ง:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, fuzzy, kde-format
+#| msgid "C&hange..."
+msgid "Change..."
+msgstr "เ&ปลี่ยน..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, fuzzy, kde-format
+#| msgid "Contents:"
+msgid "Content:"
+msgstr "เนื้อหา:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "ชี้ไปยัง:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "แก้ไขเมื่อ:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "สร้างเมื่อ:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
+msgstr "ระบบแฟ้ม:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, fuzzy, kde-format
+#| msgid "Unknown Host"
+msgid "Unknown size"
+msgstr "เครื่องที่ไม่รู้จัก"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted On:"
+msgstr "จุดเมานท์:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "เข้าใช้เมื่อ:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "เปิดใช้ด้วย"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6515,6 +7879,381 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "เทอร์มินัล"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"เลือกกาที่ตัวเลือกนี้ หากว่าโปรแกรมที่คุณต้องการจะสั่งให้ทำงาน เป็นโปรแกรมในโหมดตัวอักษร "
+"หรือหากคุณต้องการข้อมูลที่แสดงโดยหน้าต่างตัวจำลองเทอร์มินัล"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, fuzzy, kde-format
+#| msgid "&Run in terminal"
+msgid "Run in terminal"
+msgstr "&ประมวลผลในเทอร์มินัล"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, fuzzy, kde-format
+#| msgid "&Terminal options:"
+msgid "Terminal options:"
+msgstr "ตัวเลือกของเ&ทอร์มินัล:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"เลือกกาที่ตัวเลือกนี้ หากว่าโปรแกรมที่ทำงานในโหมดตัวอักษร มีการส่งข้อมูล "
+"ที่เกี่ยวข้องเมื่อออกจากโปรแกรม การเปิดหน้าต่างตัวจำลองเทอร์มินัลค้างไว้ "
+"จะทำให้คุณได้รับทราบข้อมูลเหล่านี้"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, fuzzy, kde-format
+#| msgid "&Do not close when command exits"
+msgid "Do not close when command exits"
+msgstr "ไ&ม่ต้องปิดเมื่อคำสั่งจบการทำงานแล้ว"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "ผู้ใช้"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"เลือกกาที่ตัวเลือกนี้ หากว่าคุณต้องการที่จะสั่งให้โปรแกรมทำงานด้วยหมายเลขผู้ใช้งานอื่น ทุก ๆ "
+"โพรเซสจะมีหมายเลขผู้ใช้งานสำหรับโพรเซสต่างๆ กัน "
+"รหัสหมายเลขนี้จะบ่งชีเรื่องของการเข้าถึงและสิทธิอนุญาตอื่น ๆ จำเป็นต้องใช้รหัสผ่านของผู้ใช้ "
+"เพื่อที่จะใช้งานตัวเลือกนี้"
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Run as a different user"
+msgstr "&ประมวลผลโดยใช้สิทธิ์ของผู้ใช้อื่น"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "ป้อนชื่อผู้ใช้ที่คุณต้องการจะใช้สิทธิ์ในการประมวลผลโปรแกรม"
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "ชื่อผู้ใช้:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "ป้อนชื่อผู้ใช้ที่คุณต้องการจะใช้สิทธิ์ในการประมวลผลโปรแกรมที่นี่"
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title:group Title of a group that lets the user choose options regargin "
+#| "program startup"
+#| msgid "Startup"
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "เริ่มโปรแกรม"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"เลือกตัวเลือกนี้หากคุณต้องการทราบว่าโปรแกรมของคุณได้เริ่มการทำงานหรือยัง "
+"โดยจะแจ้งให้ทราบทางเคอร์เซอร์เมาส์ หรือกระพริบในส่วนแถบงาน (ทาสก์บาร์)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, fuzzy, kde-format
+#| msgid "Enable &launch feedback"
+msgid "Enable launch feedback"
+msgstr "เปิดใช้การแจ้งเตือนการเ&ริ่มทำงาน"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"ป้อนชื่อที่คุณต้องการกำหนดให้กับโปรแกรมที่นี่ โดยโปรแกรมนี้จะปรากฎเป็นชื่อนี้ในเมนูและในพาเนล"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"ป้อนรายละเอียดของโปรแกรมนี้ โดยให้สัมพันธ์กับหน้าที่ของมัน เช่น : โปรแกรมหมุนโมเด็ม (KPPP) "
+"ควรให้รายละเอียดเป็น \"เครื่องมือหมุนโมเด็ม\" เป็นต้น"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&รายละเอียด:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "ป้อนคำอธิบายที่คุณคิดว่าเป็นประโยชน์ได้ที่นี่"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "หมายเ&หตุ:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "ใช้ตัวแปรแวดล้อมของพร็อกซีที่ตั้งค่าไว้แล้ว"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the caption"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"พิมพ์คำสั่งเรียกโปรแกรมนี้ที่นี่\n"
+"\n"
+"คุณสามารถเติมตัวแทนค่าได้หลายตัวตามหลังคำสั่ง ซึ่งตัวแทนค่าเหล่านี้ "
+"จะถูกแทนที่ด้วยค่าจริงเมื่อโปรแกรมถูกสั่งให้ทำงาน ดังนี้:\n"
+"%f - ชื่อแฟ้มเดี่ยว\n"
+"%F - รายการชื่อแฟ้ม ซึ่งใช้กับโปรแกรมที่สามารถเปิดแฟ้มบนเครื่องได้หลายแฟ้มพร้อมกัน\n"
+"%u - ที่อยู่ URL เดี่ยว\n"
+"%U - รายชื่อของที่อยู่ URL\n"
+"%d - ไดเรกทอรีของแฟ้มที่จะเปิด\n"
+"%D - รายชื่อของไดเรกทอรี\n"
+"%i - ไอคอน\n"
+"%m - ไอคอนขนาดเล็ก\n"
+"%c - คำอธิบาย"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "คลิกที่นี่เพื่อเรียกดูแฟ้มแบบประมวลผลได้ในระบบแฟ้มของคุณ"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "เลือ&ก..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "ตั้งค่าไดเรกทอรีในการทำงานให้กับโปรแกรมของคุณ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&พาธในการทำงาน:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, fuzzy, kde-format
+#| msgid "FIXME: Document this"
+msgid "Arguments:"
+msgstr "โปรดแก้ไข: โปรดสร้างเอกสารกำกับส่วนนี้ด้วย"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>รายการนี้ควรจะแสดงชนิดของแฟ้มที่โปรแกรมของคุณสามารถเปิดได้ "
+"ซึ่งรายการนี้จะถูกจัดระเบียบด้วย <u>ประเภท mime ของแฟ้ม</u> </p>\n"
+"<p>MIME หรือ Multipurpose Internet (e)Mail Extension "
+"(ส่วนขยายของเมล์อินเทอร์เน็ตอเนกประสงค์) คือโพรโทคอลมาตรฐานสำหรับระบุชนิดของแฟ้ม "
+"โดยอาศัยส่วนขยาย (นามสกุล) ของชื่อแฟ้ม และ<u>ประเภท mime ของแฟ้ม</u>ที่คล้ายกัน ตัวอย่าง: "
+"ส่วนของ \"bmp\" ที่ตามหลังเครื่องหมายจุด ใน flower.bmp จะบ่งบอกว่า นี่คือรูปภาพชนิดหนึ่ง "
+"<u>image/x-bmp</u>  ในการที่จะรู้ได้ว่า ควรจะใช้โปรแกรมไหนเปิดแฟ้มแต่ละชนิด "
+"ระบบควรจะได้รับข้อมูลเกี่ยวกับ ความสามารถในการรับมือส่วนขยายเหล่านี้ และประเภท mime "
+"ของแฟ้ม ของโปรแกรมแต่ละตัว</p><p>หากคุณต้องการเชื่อมโปรแกรมนี้เข้ากับประเภท mime ของแฟ้ม "
+"ตั้งแต่ 1 ขึ้นไปที่ไม่ได้อยู่ในรายการนี้ ให้คลิกที่ปุ่ม <b>เพิ่ม</b> ที่ด้านล่าง หากว่ามีชนิดของแฟ้มตั้งแต่ "
+"1 ชนิดที่โปรแกรมนี้ไม่สามารถเปิดได้ คุณอาจต้องการที่จะ เอาชนิดแฟ้มนั้นออกจากรายการ ให้คลิกที่ปุ่ม "
+"<b>เอาออก</b> ด้านล่าง </p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "ประเภทของแฟ้มที่&รองรับ:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "ประเภท Mime ของแฟ้ม"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "รายละเอียด"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"คลิกที่ปุ่มนี้ หากคุณต้องการเพิ่มชนิดของแฟ้ม (ประเภท mime ของแฟ้ม) ที่จะให้ใช้กับโปรแกรมของคุณ"
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "เพิ่ม..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"หากคุณต้องการจะลบชนิดของแฟ้ม (ประเภท mime ของแฟ้ม) ที่ไม่ให้ใช้กับโปรแกรมของคุณ "
+"ให้เลือกรายการประเภท mime ของแฟ้มทางด้านบน แล้วคลิกที่ปุ่มนี้"
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "เอาออก"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"คลิกที่นี่เพื่อแก้ไขวิธีที่โปรแกรมนี้จะทำงาน ไม่ว่าจะเป็นส่วน แจ้งเตือนการเริ่มทำงาน, ตัวเลือกต่าง ๆ "
+"ของ D-Bus หรือประมวลผลโดยใช้สิทธิ์ของผู้ใช้อื่น"
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "ตัวเลือกขั้น&สูง"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -7195,11 +8934,6 @@ msgstr "เปลี่ยน&ข้อกำหนด..."
 msgid "Open file dialog"
 msgstr "เปิดกล่องเลือกแฟ้ม"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "ตำแหน่ง:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7534,6 +9268,79 @@ msgstr "ข้าม"
 msgid "Skip All"
 msgstr "ข้าม"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "ที่อยู่:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "หมายเลขไอพี:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "การเข้ารหัส:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "รายละเอียด:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "รุ่นของ SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "ห่วงโซ่ใบรับรอง:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "ได้รับการเชื่อถือ:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "ช่วงที่ใช้งานได้:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "หมายเลขลำดับ:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "ผลการย่อยข้อมูล MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "ผลการย่อยข้อมูล SHA1:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7682,671 +9489,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "ยังไม่รองรับการเขียนไปยัง %1"
 
-#~ msgid "Search"
-#~ msgstr "ค้นหา"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "ค้นหาโดเมนและโฮสต์แบบโต้ตอบ"
-
-#~ msgid "Site"
-#~ msgstr "เว็บไซต์"
-
-#~ msgid "Cookie Name"
-#~ msgstr "ชื่อคุกกี้"
-
-#~ msgid "D&elete"
-#~ msgstr "&ลบ"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "ลบ&ทั้งหมด"
-
-#, fuzzy
-#~| msgid "Change &Policy..."
-#~ msgid "Configure &Policy..."
-#~ msgstr "เปลี่ยน&ข้อกำหนด..."
-
-#~ msgid "&Reload List"
-#~ msgstr "ปรับปรุงรา&ยการ"
-
-#~ msgid "Secure:"
-#~ msgstr "ปลอดภัย:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>เปิดใช้งานการรองรับคุกกี้ ตามปกติแล้วคุณจะต้องการเปิดการรองรับการใช้งานคุกกี้ "
-#~ "และปรับแต่งมันให้เหมาะกับความต้องการความเป็นส่วนตัวของคุณ</p><p>\n"
-#~ "โปรดสังเกตว่า การปิดการรองรับการใช้งานคุกกี้ "
-#~ "อาจทำให้ไม่สามารถเรียกดูเว็บไซต์จำนวนมากได้</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "เปิดใช้งานคุกกี้"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "การปฏิเสธสิ่งที่เรียกว่าคุกกี้จากกลุ่มอื่น สิ่งนี้คือคุกกี้ที่มาจากเว็บไซต์อื่นที่ไม่ใช่เว็บไซต์ที่คุณกำลังดูอยู่ "
-#~ "ตัวอย่างเช่น ถ้าคุณไปดูเว็บไซต์ <b>www.foobar.com</b> ขณะที่เปิดใช้ตัวเลือกนี้ "
-#~ "จะมีแต่คุกกี้ที่มาจาก www.foobar.com เท่านั้นที่จะประมวลผล และคุกกี้จากเว็บไซต์อื่น ๆ "
-#~ "จะโดนปฏิเสธกลับไป สิ่งนี้จะลดโอกาสในการที่ผู้ดำเนินการของเว็บไซต์ "
-#~ "จะทำการรวบรวมโพรไฟล์เกี่ยวกับพฤติกรรมการเข้าดูเว็บไซต์ประจำวันของคุณได้\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "ยอม&รับเฉพาะคุกกี้ที่มาจากเซิร์ฟเวอร์ที่เป็นฝ่ายเริ่มต้นเท่านั้น"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "<p>Automatically accept temporary cookies meant to expire at the end of "
-#~| "the current session. Such cookies will not be stored in your computer's "
-#~| "hard drive or storage device. Instead, they are deleted when you close "
-#~| "all applications (e.g. your browser) that use them.</p><p>\n"
-#~| "<u>NOTE:</u> Checking this option along with the next one will override "
-#~| "your default as well as site specific cookie policies. However, doing so "
-#~| "also increases your privacy since all cookies will be removed when the "
-#~| "current session ends.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>การยอมรับคุกกี้ชั่วคราวโดยอัตโนมัติ หมายความว่าคุกกี้จะหมดอายุหลังจากจบวาระปัจจุบัน "
-#~ "โดยที่จะไม่มีการบันทึกคุกกี้เหล่านั้นลงบนฮาร์ดดิสก์ของเครื่องคุณ "
-#~ "คุกกี้เหล่านี้จะโดนลบหลังจากที่คุณปิดโปรแกรม (เช่น เบราว์เซอร์) ที่ใช้มันไปแล้ว</p><p>\n"
-#~ "<u>ข้อสังเกต:</u> การกาตัวเลือกนี้ร่วมกับตัวเลือกถัดไป จะเป็นการตั้งให้ทำงานแทนค่าปริยาย "
-#~ "และแทนข้อกำหนดของเว็บไซต์เรื่องคุกกี้โดยเฉพาะ อย่างไรก็ตาม "
-#~ "การทำแบบนี้เป็นการเพิ่มความเป็นส่วนตัวของคุณด้วย เพราะว่าคุกกี้ทั้งหมดจะโดนลบทิ้ง "
-#~ "เมื่อวาระปัจจุบันสิ้นสุดลงแล้ว</p>\n"
-#~ "</qt>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "ยอมรับคุกกี้ขอ&งเซสชันโดยอัตโนมัติ"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Determines how cookies received from a remote machine will be handled: \n"
-#~| "<ul>\n"
-#~| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~| "server wants to set a cookie.</li>\n"
-#~| "<li><b>Accept</b> will cause cookies to be accepted without prompting "
-#~| "you.</li>\n"
-#~| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~| "receives.</li>\n"
-#~| "</ul><p>\n"
-#~| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~| "take precedence over the default policy.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "พิจารณาว่าจะจัดการกับคุกกี้ที่ได้รับมาจากเครื่องอื่นอย่างไร:\n"
-#~ "<ul>\n"
-#~ "<li><b>ถาม</b> จะทำให้ KDE ทำการถามยืนยัน เมื่อไรก็ตามที่เซิร์ฟเวอร์ต้องการตั้งคุกกี้ </"
-#~ "li>\n"
-#~ "<li><b>ยอมรับ</b> จะทำให้มีการยอมรับคุกกี้ทั้งหมดโดยไม่มีการถามเตือนคุณเลย</li>\n"
-#~ "<li><b>ปฏิเสธ</b> จะทำให้โถคุกกี้ปฏิเสธคุกกี้ทั้งหมดที่ได้รับ</li>\n"
-#~ "</ul> <p>\n"
-#~ "<u>ข้อสังเกต:</u> การใช้งานข้อกำหนดเฉพาะของโดเมน ซึ่งสามารถตั้งค่าได้ที่ด้านล่างนั้น "
-#~ "จะทำการควบคุมเหนือข้อกำหนดปริยายเสมอ</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "ข้อกำหนดปริยาย"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "ยอมรั&บคุกกี้ทั้งหมด"
-
-#, fuzzy
-#~| msgid "End of session"
-#~ msgid "Accept &until end of session"
-#~ msgstr "จบวาระ"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "&ถามยืนยันก่อน"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "&ปฏิเสธคุกกี้ทั้งหมด"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "การเพิ่มข้อกำหนดใหม่ สามารถทำได้โดยคลิกที่ปุ่ม <b>เพิ่ม...</b> และป้อนข้อมูลที่จำเป็นเข้าไป "
-#~ "ในการเปลี่ยนข้อกำหนดที่มีอยู่ ให้ใช้ปุ่ม <b>เปลี่ยน...</b> "
-#~ "และเลือกข้อกำหนดใหม่จากกล่องโต้ตอบ การคลิกที่ปุ่ม <b>ลบ</b> "
-#~ "จะเป็นการลบข้อกำหนดที่เลือกเอาไว้ ซึ่งจะทำให้โดเมนนั้นหันมาใช้ข้อกำหนดปริยายแทน ขณะที่ปุ่ม "
-#~ "<b>ลบทั้งหมด</b> จะเป็นการลบข้อกำหนดเฉพาะของเว็บไซต์ทั้งหมดออกไป\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "ข้อกำหนดของเว็บไซต์"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "ค้นหาโดเมนแบบโต้ตอบ"
-
-#, fuzzy
-#~| msgid "Search"
-#~ msgid "Search..."
-#~ msgstr "ค้นหา"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "รายชื่อของเว็บไซต์ที่คุณได้ทำการตั้งข้อกำหนดเฉพาะเรื่องคุกกี้ ข้อกำหนดเฉพาะ "
-#~ "จะทำงานแทนข้อกำหนดปริยายสำหรับเว็บไซต์เหล่านี้\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "โดเมน"
-
-#~ msgid "Policy"
-#~ msgstr "ข้อกำหนดการใช้"
-
-#~ msgid "&New..."
-#~ msgstr "สร้างใ&หม่..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "เป&ลี่ยน..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อเครื่องหรือโดเมนที่จะใช้ข้อกำหนดนี้ ตัวอย่างเช่น <b>www.kde.org</b> หรือ <b>.kde."
-#~ "org</b>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Site Name"
-#~ msgid "Site name:"
-#~ msgstr "ชื่อเว็บไซต์"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Select the desired policy:\n"
-#~| "<ul>\n"
-#~| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~| "</ul>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "เลือกใช้ข้อกำหนดที่ต้องการ:\n"
-#~ "<ul>\n"
-#~ "<li><b>ยอมรับ</b> - อนุญาตให้เว็บไซต์นี้ตั้งคุกกี้ได้</li>\n"
-#~ "<li><b>ปฏิเสธ</b> - ปฏิเสธทุกคุกกี้ที่ส่งมาจากเว็บไซต์นี้ </li>\n"
-#~ "<li><b>ถาม</b> - ให้มีการถามเมื่อได้รับคุกกี้จากเว็บไซต์นี้ </li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "&Policy:"
-#~ msgid "Policy:"
-#~ msgstr "ข้&อกำหนด:"
-
-#, fuzzy
-#~| msgid "End of session"
-#~ msgid "Accept until end of session"
-#~ msgstr "จบวาระ"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "ปิด FTP แบบพาสซีฟ"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "เมื่อการเชื่อมต่อของ FTP เป็นแบบพาสซีฟโดยรอรับการติดต่อจากเครื่องลูกไปยังเซิร์ฟเวอร์ "
-#~ "แทนการใช้วิธีอื่น จะทำให้ไฟร์วอลล์ไม่ปิดกันการเชื่อมต่อนั้น อย่างไรก็ตาม เซิร์ฟเวอร์สำหรับ FTP "
-#~ "แบบเก่า อาจจะไม่รองรับการเชื่อมต่อแบบพาสซีฟ"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "ป้อนส่วนขยายให้แฟ้มที่อัปโหลดไปบางส่วน"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "ขณะที่มีการส่งแฟ้มขึ้นไปยังเซิร์ฟเวอร์ ส่วนขยายของแฟ้มจะเป็น \".part\" "
-#~ "เมื่อการส่งแฟ้มขึ้นเซิร์ฟเวอร์สำเร็จ ก็จะมีการแก้ชื่อเป็นชื่อจริงของแฟ้ม"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "การตั้งค่าพร็อกซี\n"
-#~ "<p>\n"
-#~ "แม่ข่ายพร็อกซี คือ เครื่องคอมพิวเตอร์ตัวกลางที่อยู่ระหว่าง "
-#~ "เครื่องคอมพิวเตอร์ของคุณและอินเทอร์เน็ต และให้บริการอย่างเช่น จัดเก็บหน้าเว็บที่เคยดูมาแล้ว "
-#~ "(การทำแคช) และการกรองข้อมูล แม่ข่ายพร็อกซีที่ทำหน้าที่จัดเก็บข้อมูลหน้าเว็บ "
-#~ "จะช่วยให้คุณสามารถเรียกดูหน้าเว็บที่คุณเคยไปมาแล้วได้เร็วขึ้น "
-#~ "โดยการเก็บบันทึกหรือทำแคชหน้าเว็บเหล่านั้นเอาไว้ที่แม่ข่าย ส่วนพร็อกซีที่ทำหน้าที่กรองข้อมูล "
-#~ "จะให้บริการในการปิดกั้นการร้องขอของพวกโฆษณา, สแปม หรืออะไรก็แล้วแต่ที่คุณต้องการจะปิดกั้น\n"
-#~ "<p>\n"
-#~ "หากคุณไม่แน่ใจว่าคุณต้องการใช้พร็อกซีสำหรับการเชี่อมต่อกับอินเทอร์เน็ตหรือไม่ "
-#~ "ให้ดูที่คู่มือการติดตั้งของผู้ให้บริการอินเทอร์เน็ตของคุณ หรือปรึกษาผู้บริหารระบบของคุณ\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "เชื่อมต่ออินเทอร์เน็ตโดยตรง"
-
-#, fuzzy
-#~| msgid "&Proxy"
-#~ msgid "No Proxy"
-#~ msgstr "พร็อกซี"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at http://konqueror.kde.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ตรวจหาและปรับค่าพร็อกซีโดยอัตโนมัติ<p>\n"
-#~ "การค้นหาโดยอัตโนมัติ ทำงานด้วยการใช้ <b>โพรโทคอลการตรวจหาเว็บพร็อกซีอัตโนมัติ (WPAD)</"
-#~ "b> <p>\n"
-#~ "<b>ข้อสังเกต</b> ตัวเลือกนี้อาจมีการทำงานที่ไม่เหมาะสม หรือไม่ทำงานเลยในระบบ UNIX/"
-#~ "Linux บางดิสโทร หากคุณพบปัญหาเมื่อใช้งานตัวเลือกนี้ กรุณาดูที่ส่วนของ คำถามที่ถามบ่อย ที่ "
-#~ "http://konqueror.kde.org\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "U&se proxy configuration URL:"
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
-
-#, fuzzy
-#~| msgid "Use the specified proxy script URL to configure the proxy settings."
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "ใช้สคริปต์ตั้งค่าพร็อกซีจากที่อยู่ URL ที่ระบุ เพื่อปรับแต่งค่าของพร็อกซี"
-
-#, fuzzy
-#~| msgid "U&se proxy configuration URL:"
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "ป้อนที่อยู่ของสคริปต์ตั้งค่าพร็อกซี"
-
-#, fuzzy
-#~| msgid "U&se proxy configuration URL:"
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "ใ&ช้การตั้งค่าพร็อกซีจากที่อยู่ URL:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>การค้นหาตัวแปรแวดล้อมที่ถูกใช้เพื่อตั้งค่าข้อมูลพร็อกซีกับทั้งระบบโดยอัตโนมัติ<p>ความสามารถนี้ทำงานโดยการค้นหาชื่อตัวแปรที่ใช้โดยส่วนรวม "
-#~ "เช่น HTTP_PROXY, FTP_PROXY และ NO_PROXY เป็นต้น </qt>"
-
-#, fuzzy
-#~| msgid "Auto &Detect"
-#~ msgid "Auto D&etect"
-#~ msgstr "ตรวจ&สอบอัตโนมัติ"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTP_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
-#~ "HTTP<p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "&Proxy"
-#~ msgid "HTTP Proxy:"
-#~ msgstr "พร็อกซี"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
-#~ "HTTPS<p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "&Proxy"
-#~ msgid "SSL Proxy:"
-#~ msgstr "พร็อกซี"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>FTP_PROXY</b>, ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
-#~ "FTP<p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "&Proxy"
-#~ msgid "FTP Proxy:"
-#~ msgstr "พร็อกซี"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
-#~ "HTTPS<p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "&Proxy"
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "พร็อกซี"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, "
-#~| "used to store the address of the HTTPS proxy server.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.</p>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>HTTPS_PROXY</b> ที่ใช้สำหรับเก็บที่อยู่เซิร์ฟเวอร์พร็อกซี "
-#~ "HTTPS<p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>NO_PROXY</b>, "
-#~ "ที่ใช้สำหรับเก็บที่อยู่ของเว็บไซต์ที่จะไม่ให้ใช้งานพรอกซีเซิร์ฟเวอร์ <p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "E&xceptions"
-#~ msgid "Exceptions:"
-#~ msgstr "ข้อ&ยกเว้น"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~| "addresses of sites for which the proxy server should not be used.<p>\n"
-#~| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~| "attempt an automatic discovery of this variable.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ป้อนชื่อตัวแปรแวดล้อม เช่น <b>NO_PROXY</b>, "
-#~ "ที่ใช้สำหรับเก็บที่อยู่ของเว็บไซต์ที่จะไม่ให้ใช้งานพรอกซีเซิร์ฟเวอร์ <p>\n"
-#~ "ทางเลือกอื่น คุณสามารถคลิกที่ปุ่ม <b>\"ตรวจสอบอัตโนมัติ\"</b> เพื่อให้มีการตรวจสอบ "
-#~ "และค้นหาตัวแปรนี้ได้โดยอัตโนมัติ</p>\n"
-#~ "</qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "แสดงค่าของตัวแปรแวดล้อม"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "ป้อนข้อมูลการตั้งค่าพร็อกซีด้วยตนเอง"
-
-#, fuzzy
-#~| msgid "A&utomatically detect proxy configuration"
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "ตรวจหาการตั้งค่าพร็อกซีอัตโนมัติ"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTP"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTP proxy server."
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTP"
-
-#, fuzzy
-#~| msgid "&Use the same proxy server for all protocols"
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "ใ&ช้แม่ข่ายพร็อกซีตัวเดียวกันกับทุกโพรโทคอล"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ FTP"
-
-#, fuzzy
-#~| msgid "Enter the address of the FTP proxy server."
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ FTP"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
-
-#, fuzzy
-#~| msgid "Enter the address of the HTTPS proxy server."
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "ป้อนที่อยู่ของแม่ข่ายพร็อกซีบริการ HTTPS"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr "ใช้พร็อกซีกับรายการเหล่านี้เท่านั้น"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "ใช้พร็อกซีกับรายการเหล่านี้เท่านั้น"
-
-#~ msgid "De&lete"
-#~ msgstr "&ลบ"
-
-#, fuzzy
-#~| msgid "Default password:"
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "รหัสผ่านปริยาย:"
-
-#, fuzzy
-#~| msgctxt "@label"
-#~| msgid "Interlace Mode"
-#~ msgid "Insert query placeholder"
-#~ msgstr "โหมดอินเทอร์เลส"
-
-#~ msgid "Common name:"
-#~ msgstr "ชื่อส่วนรวม:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "องค์กร:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Acme Sundry Products Company"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "หน่วยองค์กร:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Fraud Department"
-
-#~ msgid "Country:"
-#~ msgstr "ประเทศ:"
-
-#~ msgid "Canada"
-#~ msgstr "แคนาดา"
-
-#~ msgid "State:"
-#~ msgstr "รัฐ:"
-
-#~ msgid "Quebec"
-#~ msgstr "Quebec"
-
-#~ msgid "City:"
-#~ msgstr "ประเทศ:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Meadows"
-
-#~ msgid "Calculate"
-#~ msgstr "คำนวณ"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8371,311 +9513,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~ msgid "Unmount"
 #~ msgstr "ยกเลิกการเมานท์"
 
-#~ msgid "Stop"
-#~ msgstr "หยุด"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted From:"
-#~ msgstr "จุดเมานท์:"
-
-#~ msgid "Type:"
-#~ msgstr "ประเภท:"
-
-#, fuzzy
-#~| msgid "C&hange..."
-#~ msgid "Change..."
-#~ msgstr "เ&ปลี่ยน..."
-
-#, fuzzy
-#~| msgid "Contents:"
-#~ msgid "Content:"
-#~ msgstr "เนื้อหา:"
-
-#~ msgid "Points to:"
-#~ msgstr "ชี้ไปยัง:"
-
-#~ msgid "Modified:"
-#~ msgstr "แก้ไขเมื่อ:"
-
-#~ msgid "Created:"
-#~ msgstr "สร้างเมื่อ:"
-
-#, fuzzy
-#~| msgid "File system:"
-#~ msgid "File System:"
-#~ msgstr "ระบบแฟ้ม:"
-
-#, fuzzy
-#~| msgid "Unknown Host"
-#~ msgid "Unknown size"
-#~ msgstr "เครื่องที่ไม่รู้จัก"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted On:"
-#~ msgstr "จุดเมานท์:"
-
-#~ msgid "Accessed:"
-#~ msgstr "เข้าใช้เมื่อ:"
-
-#, fuzzy
-#~| msgid "Open With"
-#~ msgid "Open With:"
-#~ msgstr "เปิดใช้ด้วย"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "เทอร์มินัล"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "เลือกกาที่ตัวเลือกนี้ หากว่าโปรแกรมที่คุณต้องการจะสั่งให้ทำงาน เป็นโปรแกรมในโหมดตัวอักษร "
-#~ "หรือหากคุณต้องการข้อมูลที่แสดงโดยหน้าต่างตัวจำลองเทอร์มินัล"
-
-#, fuzzy
-#~| msgid "&Run in terminal"
-#~ msgid "Run in terminal"
-#~ msgstr "&ประมวลผลในเทอร์มินัล"
-
-#, fuzzy
-#~| msgid "&Terminal options:"
-#~ msgid "Terminal options:"
-#~ msgstr "ตัวเลือกของเ&ทอร์มินัล:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "เลือกกาที่ตัวเลือกนี้ หากว่าโปรแกรมที่ทำงานในโหมดตัวอักษร มีการส่งข้อมูล "
-#~ "ที่เกี่ยวข้องเมื่อออกจากโปรแกรม การเปิดหน้าต่างตัวจำลองเทอร์มินัลค้างไว้ "
-#~ "จะทำให้คุณได้รับทราบข้อมูลเหล่านี้"
-
-#, fuzzy
-#~| msgid "&Do not close when command exits"
-#~ msgid "Do not close when command exits"
-#~ msgstr "ไ&ม่ต้องปิดเมื่อคำสั่งจบการทำงานแล้ว"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "ผู้ใช้"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "เลือกกาที่ตัวเลือกนี้ หากว่าคุณต้องการที่จะสั่งให้โปรแกรมทำงานด้วยหมายเลขผู้ใช้งานอื่น ทุก ๆ "
-#~ "โพรเซสจะมีหมายเลขผู้ใช้งานสำหรับโพรเซสต่างๆ กัน "
-#~ "รหัสหมายเลขนี้จะบ่งชีเรื่องของการเข้าถึงและสิทธิอนุญาตอื่น ๆ จำเป็นต้องใช้รหัสผ่านของผู้ใช้ "
-#~ "เพื่อที่จะใช้งานตัวเลือกนี้"
-
-#, fuzzy
-#~| msgid "Ru&n as a different user"
-#~ msgid "Run as a different user"
-#~ msgstr "&ประมวลผลโดยใช้สิทธิ์ของผู้ใช้อื่น"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "ป้อนชื่อผู้ใช้ที่คุณต้องการจะใช้สิทธิ์ในการประมวลผลโปรแกรม"
-
-#~ msgid "Username:"
-#~ msgstr "ชื่อผู้ใช้:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "ป้อนชื่อผู้ใช้ที่คุณต้องการจะใช้สิทธิ์ในการประมวลผลโปรแกรมที่นี่"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "@title:group Title of a group that lets the user choose options regargin "
-#~| "program startup"
-#~| msgid "Startup"
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "เริ่มโปรแกรม"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "เลือกตัวเลือกนี้หากคุณต้องการทราบว่าโปรแกรมของคุณได้เริ่มการทำงานหรือยัง "
-#~ "โดยจะแจ้งให้ทราบทางเคอร์เซอร์เมาส์ หรือกระพริบในส่วนแถบงาน (ทาสก์บาร์)"
-
-#, fuzzy
-#~| msgid "Enable &launch feedback"
-#~ msgid "Enable launch feedback"
-#~ msgstr "เปิดใช้การแจ้งเตือนการเ&ริ่มทำงาน"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "ป้อนชื่อที่คุณต้องการกำหนดให้กับโปรแกรมที่นี่ โดยโปรแกรมนี้จะปรากฎเป็นชื่อนี้ในเมนูและในพาเนล"
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "ป้อนรายละเอียดของโปรแกรมนี้ โดยให้สัมพันธ์กับหน้าที่ของมัน เช่น : โปรแกรมหมุนโมเด็ม "
-#~ "(KPPP) ควรให้รายละเอียดเป็น \"เครื่องมือหมุนโมเด็ม\" เป็นต้น"
-
-#~ msgid "&Description:"
-#~ msgstr "&รายละเอียด:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "ป้อนคำอธิบายที่คุณคิดว่าเป็นประโยชน์ได้ที่นี่"
-
-#~ msgid "Comm&ent:"
-#~ msgstr "หมายเ&หตุ:"
-
-#, fuzzy
-#~| msgid "Use preset proxy environment &variables"
-#~ msgid "Environment Variables:"
-#~ msgstr "ใช้ตัวแปรแวดล้อมของพร็อกซีที่ตั้งค่าไว้แล้ว"
-
-#, fuzzy
-#~| msgid ""
-#~| "Type the command to start this application here.\n"
-#~| "\n"
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the caption"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "พิมพ์คำสั่งเรียกโปรแกรมนี้ที่นี่\n"
-#~ "\n"
-#~ "คุณสามารถเติมตัวแทนค่าได้หลายตัวตามหลังคำสั่ง ซึ่งตัวแทนค่าเหล่านี้ "
-#~ "จะถูกแทนที่ด้วยค่าจริงเมื่อโปรแกรมถูกสั่งให้ทำงาน ดังนี้:\n"
-#~ "%f - ชื่อแฟ้มเดี่ยว\n"
-#~ "%F - รายการชื่อแฟ้ม ซึ่งใช้กับโปรแกรมที่สามารถเปิดแฟ้มบนเครื่องได้หลายแฟ้มพร้อมกัน\n"
-#~ "%u - ที่อยู่ URL เดี่ยว\n"
-#~ "%U - รายชื่อของที่อยู่ URL\n"
-#~ "%d - ไดเรกทอรีของแฟ้มที่จะเปิด\n"
-#~ "%D - รายชื่อของไดเรกทอรี\n"
-#~ "%i - ไอคอน\n"
-#~ "%m - ไอคอนขนาดเล็ก\n"
-#~ "%c - คำอธิบาย"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr "คลิกที่นี่เพื่อเรียกดูแฟ้มแบบประมวลผลได้ในระบบแฟ้มของคุณ"
-
-#~ msgid "&Browse..."
-#~ msgstr "เลือ&ก..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "ตั้งค่าไดเรกทอรีในการทำงานให้กับโปรแกรมของคุณ"
-
-#~ msgid "&Work path:"
-#~ msgstr "&พาธในการทำงาน:"
-
-#, fuzzy
-#~| msgid "FIXME: Document this"
-#~ msgid "Arguments:"
-#~ msgstr "โปรดแก้ไข: โปรดสร้างเอกสารกำกับส่วนนี้ด้วย"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>รายการนี้ควรจะแสดงชนิดของแฟ้มที่โปรแกรมของคุณสามารถเปิดได้ "
-#~ "ซึ่งรายการนี้จะถูกจัดระเบียบด้วย <u>ประเภท mime ของแฟ้ม</u> </p>\n"
-#~ "<p>MIME หรือ Multipurpose Internet (e)Mail Extension "
-#~ "(ส่วนขยายของเมล์อินเทอร์เน็ตอเนกประสงค์) คือโพรโทคอลมาตรฐานสำหรับระบุชนิดของแฟ้ม "
-#~ "โดยอาศัยส่วนขยาย (นามสกุล) ของชื่อแฟ้ม และ<u>ประเภท mime ของแฟ้ม</u>ที่คล้ายกัน "
-#~ "ตัวอย่าง: ส่วนของ \"bmp\" ที่ตามหลังเครื่องหมายจุด ใน flower.bmp จะบ่งบอกว่า "
-#~ "นี่คือรูปภาพชนิดหนึ่ง <u>image/x-bmp</u>  ในการที่จะรู้ได้ว่า "
-#~ "ควรจะใช้โปรแกรมไหนเปิดแฟ้มแต่ละชนิด ระบบควรจะได้รับข้อมูลเกี่ยวกับ "
-#~ "ความสามารถในการรับมือส่วนขยายเหล่านี้ และประเภท mime ของแฟ้ม ของโปรแกรมแต่ละตัว</"
-#~ "p><p>หากคุณต้องการเชื่อมโปรแกรมนี้เข้ากับประเภท mime ของแฟ้ม ตั้งแต่ 1 "
-#~ "ขึ้นไปที่ไม่ได้อยู่ในรายการนี้ ให้คลิกที่ปุ่ม <b>เพิ่ม</b> ที่ด้านล่าง หากว่ามีชนิดของแฟ้มตั้งแต่ 1 "
-#~ "ชนิดที่โปรแกรมนี้ไม่สามารถเปิดได้ คุณอาจต้องการที่จะ เอาชนิดแฟ้มนั้นออกจากรายการ ให้คลิกที่ปุ่ม "
-#~ "<b>เอาออก</b> ด้านล่าง </p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "ประเภทของแฟ้มที่&รองรับ:"
-
-#~ msgid "Mimetype"
-#~ msgstr "ประเภท Mime ของแฟ้ม"
-
-#~ msgid "Description"
-#~ msgstr "รายละเอียด"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "คลิกที่ปุ่มนี้ หากคุณต้องการเพิ่มชนิดของแฟ้ม (ประเภท mime ของแฟ้ม) ที่จะให้ใช้กับโปรแกรมของคุณ"
-
-#~ msgid "Add..."
-#~ msgstr "เพิ่ม..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "หากคุณต้องการจะลบชนิดของแฟ้ม (ประเภท mime ของแฟ้ม) ที่ไม่ให้ใช้กับโปรแกรมของคุณ "
-#~ "ให้เลือกรายการประเภท mime ของแฟ้มทางด้านบน แล้วคลิกที่ปุ่มนี้"
-
-#~ msgid "Remove"
-#~ msgstr "เอาออก"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "คลิกที่นี่เพื่อแก้ไขวิธีที่โปรแกรมนี้จะทำงาน ไม่ว่าจะเป็นส่วน แจ้งเตือนการเริ่มทำงาน, ตัวเลือกต่าง "
-#~ "ๆ ของ D-Bus หรือประมวลผลโดยใช้สิทธิ์ของผู้ใช้อื่น"
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "ตัวเลือกขั้น&สูง"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8697,43 +9534,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "ว&างเนื้อหาจากคลิปบอร์ด"
-
-#~ msgid "[padlock]"
-#~ msgstr "[padlock]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "ที่อยู่:"
-
-#~ msgid "IP address:"
-#~ msgstr "หมายเลขไอพี:"
-
-#~ msgid "Encryption:"
-#~ msgstr "การเข้ารหัส:"
-
-#~ msgid "Details:"
-#~ msgstr "รายละเอียด:"
-
-#~ msgid "SSL version:"
-#~ msgstr "รุ่นของ SSL:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "ห่วงโซ่ใบรับรอง:"
-
-#~ msgid "Trusted:"
-#~ msgstr "ได้รับการเชื่อถือ:"
-
-#~ msgid "Validity period:"
-#~ msgstr "ช่วงที่ใช้งานได้:"
-
-#~ msgid "Serial number:"
-#~ msgstr "หมายเลขลำดับ:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "ผลการย่อยข้อมูล MD5:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "ผลการย่อยข้อมูล SHA1:"
 
 #~ msgid "None"
 #~ msgstr "ไม่มี"

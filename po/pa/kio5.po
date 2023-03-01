@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3335,7 +3335,8 @@ msgstr ""
 "ਮੇਨੂ ਖੁੱਲ ਜਾਵੇਗਾ, ਜਿੱਥੇ ਤੁਸੀਂ ਇੱਕ ਬੁੱਕਮਾਰਕ ਜੋੜ, ਸੋਧ ਜਾਂ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ। <br /><br />ਇਹ ਬੁੱਕਮਾਰਕ "
 "ਫਾਈਲ ਡਾਈਲਾਗ ਲਈ ਹੀ ਖਾਸ ਹਨ, ਨਹੀਂ ਤਾਂ KDE ਵਿੱਚ ਹੋਰ ਬੁੱਕਮਾਰਕਾਂ ਵਾਂਗ ਕੰਮ ਕਰਦੇ।</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "ਨਾਂ(&N):"
@@ -3598,12 +3599,19 @@ msgstr "ਨਵਾਂ ਫੋਲਡਰ"
 msgid "Create new folder in %1:"
 msgstr "%1 ਵਿੱਚ ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਓ:"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "ਚੇਪੋ"
@@ -3893,6 +3901,104 @@ msgstr "ਸ਼ੈਸ਼ਨ ਦਾ ਅੰਤ"
 msgid "Yes"
 msgstr "ਹਾਂ"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "ਖੋਜ"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "ਡੋਮੇਨਾਂ ਅਤੇ ਹੋਸਟਾਂ ਲਈ ਖਾਸ ਖੋਜ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "ਸਾਈਟ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "ਕੂਕੀਜ਼ ਨਾਂ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "ਹਟਾਓ(&e)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "ਸਭ ਹਟਾਓ(&l)"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "ਪਾਲਸੀ ਦੀ ਸੰਰਚਨਾ(&P)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "ਲਿਸਟ ਮੁੜ ਲੋਡ(&R)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "ਵੇਰਵੇ"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "ਨਾਂ:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "ਮੁੱਲ:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "ਡੋਮੇਨ:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "ਮਾਰਗ:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "ਮਿਆਦ:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "ਸੁਰੱਖਿਅਤ:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -3958,7 +4064,184 @@ msgid ""
 "receives a cookie.</p>"
 msgstr ""
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "ਕੂਕੀਜ਼ ਯੋਗ(&k)"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "ਆਟੋਮੈਟਿਕ ਸ਼ੈਸ਼ਨ ਕੂਕੀਜ਼ ਸਵੀਕਾਰ(&y)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "ਡਿਫਾਲਟ ਪਾਲਸੀ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "ਸਭ ਕੂਕੀਜ਼ ਮਨਜ਼ੂਰ(&t)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "ਸ਼ੈਸ਼ਨ ਦੇ ਅੰਤ ਤੱਕ ਮਨਜ਼ੂਰ(&u)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "ਤਸਦੀਕ ਕਰਨ ਲਈ ਪੁੱਛੋ(&f)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "ਸਭ ਕੂਕੀਜ਼ ਨਾ-ਮਨਜ਼ੂਰ(&j)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "ਸਾਇਟ ਪਾਲਸੀ"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "ਖਾਸ ਡੋਮੇਨ ਲਈ ਖੋਜ"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "ਖੋਜ..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "ਡੋਮੇਨ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "ਪਾਲਸੀ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "ਨਵਾਂ(&N)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "ਤਬਦੀਲ(&g)..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ"
 
@@ -3966,17 +4249,96 @@ msgstr "ਮਨਜ਼ੂਰ"
 msgid "Accept For Session"
 msgstr "ਸ਼ੈਸ਼ਨ ਲਈ ਮਨਜ਼ੂਰ"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "ਨਾ-ਮਨਜ਼ੂਰ"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "ਪੁੱਛੋ"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "ਪਤਾ ਨਹੀਂ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ਇਹ ਨੀਤੀ ਲਾਗੂ ਕਰਨ ਲਈ ਹੋਸਟ ਜਾਂ ਡੋਮੇਨ ਦਿਓ, ਜਿਵੇਂ ਕਿ <b>www.kde.org</b> ਜਾਂ <b>.kde.org</"
+"b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "ਸਾਈਟ ਨਾਂ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Select the desired policy:\n"
+#| "<ul>\n"
+#| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#| "</ul>\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ਪਸੰਦੀਦਾ ਨੀਤੀ ਚੁਣੋ:\n"
+"<ul>\n"
+"<li><b> ਸਵੀਕਾਰ</b> - ਇਸ ਸਾਇਟ ਨੂੰ ਕੂਕੀਜ਼ ਸੈੱਟ ਕਰਨ ਦਿਓ</li>\n"
+"<li><b> ਅਸਵੀਕਾਰ</b> - ਇਸ ਸਾਇਟ ਤੋਂ ਸਭ ਕੂਕੀਜ਼ ਅਸਵੀਕਾਰ ਕਰੋ</li>\n"
+"<li><b>ਪੁਸ਼ਟੀ</b> - ਜਦੋਂ ਵੀ ਇਸ ਸਾਇਟ ਤੋਂ ਕੂਕੀਜ਼ ਪ੍ਰਾਪਤ ਹੋਣ ਤੇ ਪੁੱਛੋ</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "ਨੀਤੀ:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "ਸ਼ੈਸ਼ਨ ਦਾ ਅੰਤ ਤੱਕ ਮਨਜ਼ੂਰ"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -3995,6 +4357,37 @@ msgstr "ਅੱਪਡੇਟ ਅਸਫਲ"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "ਇਹਨਾਂ ਤਬਦੀਲੀਆਂ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ KDE ਮੁੜ ਚਾਲੂ ਕਰਨਾ ਪਵੇਗਾ।"
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "ਅਕਰਮਕ FTP ਅਯੋਗ"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "ਅਧੂਰੀਆਂ ਅੱਪਲੋਡ ਫਾਇਲਾਂ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4135,6 +4528,347 @@ msgid ""
 "to block out requests for ads, spam, or anything else you want to block.</"
 "p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "ਇੰਟਰਨੈੱਟ ਨਾਲ ਸਿੱਧਾ ਕੁਨੈਕਟ ਕਰੋ।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "ਕੋਈ ਪਰਾਕਸੀ ਨਹੀਂ"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, kde-format
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਆਟੋਮੈਟਿਕ ਹੀ ਖੋਜੋ"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "ਪਰਾਕਸੀ ਸੈਟਿੰਗ ਲਈ ਦਿੱਤੀ ਪਰਾਕਸੀ ਸਕਰਿਪਟ ਵਰਤੋਂ।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "ਪਰਾਕਸੀ ਆਪੇ ਸੰਰਚਨਾ URL ਵਰਤੋਂ:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਸਕਰਿਪਟ ਲਈ ਐਡਰੈੱਸ ਦਿਓ।"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "ਸਿਸਟਮ ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਵਰਤੋਂ:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "ਆਟੋ ਖੋਜ(&e)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP ਪਰਾਕਸੀ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL ਪਰਾਕਸੀ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP ਪਰਾਕਸੀ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS ਪਰਾਕਸੀ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "ਛੋਟ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "ਵਾਤਾਵਰਣ ਵੇਰੀਬਲਾਂ ਦਾ ਮੁੱਲ ਵੇਖਾਓ(&v)"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "ਪਰਾਕਸੀ ਸਰਵਰ ਸੰਰਚਨਾ ਜਾਣਕਾਰੀ ਦਸਤੀ ਦਿਓ।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "ਦਿੱਤੀ ਹੋਈ ਪਰਾਕਸੀ ਜਾਣਕਾਰੀ ਖੁਦ ਦਿਉ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "HTTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "ਪੋਰਟ:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "HTTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਓ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "ਸਭ ਪਰੋਟੋਕਾਲ ਲਈ ਇਹ ਪਰਾਕਸੀ ਸਰਵਰ ਵਰਤੋਂ(&l)"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "HTTPS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "HTTPS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਓ।"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "FTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "FTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਉ।"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "SOCKS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ।"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "SOCKS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਉ।"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr "ਇਸ ਲਿਸਟ ਵਿਚਲੇ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਹੀ ਪਰਾਕਸੀ ਵਰਤੋਂ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, fuzzy, kde-format
+#| msgid "Use proxy only for entries in this list"
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "ਇਸ ਲਿਸਟ ਵਿਚਲੇ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਹੀ ਪਰਾਕਸੀ ਵਰਤੋਂ"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -4861,11 +5595,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr "[ਅੰਤਰ ਡੋਮੇਨ]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "ਵੇਰਵੇ"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -4944,31 +5673,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "ਕੂਕੀਜ਼ ਵੇਰਵੇ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "ਨਾਂ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "ਮੁੱਲ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "ਮਿਆਦ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "ਮਾਰਗ:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ਡੋਮੇਨ:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5112,7 +5816,8 @@ msgid ""
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "ਆਕਾਰ:"
@@ -5359,6 +6064,127 @@ msgid ""
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "ਵੈਬ ਖੋਜ ਸ਼ਾਰਟਕੱਟ ਸਮਰੱਥ ਕਰੋ(&E)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "ਸਿਰਫ਼ ਤਰਜੀਹੀ ਸ਼ਾਰਟਕੱਟ ਹੀ ਵਰਤੋਂ(&U)"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "ਵੈੱਬ ਖੋਜ ਸ਼ਬਦਾਂ ਲਈ ਖੋਜ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "ਨਵਾਂ ਵੈੱਬ ਖੋਜ ਸ਼ਬਦ ਜੋੜੋ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, fuzzy, kde-format
+#| msgid "Delete the highlighted Web shortcut"
+msgid "Modify the highlighted Web search keyword"
+msgstr "ਹਾਈਲਾਈਟ ਕੀਤੇ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਹਟਾਓ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, fuzzy, kde-format
+#| msgid "Delete the highlighted Web shortcut"
+msgid "Delete the highlighted Web search keyword"
+msgstr "ਹਾਈਲਾਈਟ ਕੀਤੇ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਹਟਾਓ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "ਹਟਾਓ(&l)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, fuzzy, kde-format
+#| msgid "Default Web &shortcut:"
+msgid "Default Web &search keyword:"
+msgstr "ਡਿਫਾਲਟ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ(&s):"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "ਸ਼ਬਦ ਸੀਮਾ(&K):"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, fuzzy, kde-format
+#| msgid "Delete the highlighted Web shortcut"
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "ਹਾਈਲਾਈਟ ਕੀਤੇ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਹਟਾਓ"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "ਕਾਲਨ"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Space"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5420,6 +6246,103 @@ msgstr ""
 msgid "Keep It"
 msgstr "ਇਸ ਨੂੰ ਰੱਖੋ"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "ਖੋਜ ਕਰਨ ਵਾਲੇ ਲਈ ਇੱਥੇ ਮਨੁੱਖ ਦੇ ਪੜਨ ਯੋਗ ਨਾਂ ਦਿਉ।"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "ਸ਼ਾਰਟਕੱਟ ਨਾਂ(&n):"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "ਸ਼ਾਰਟਕੱਟ &URL:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "ਅੱਖਰ ਸੈੱਟ ਦੀ ਚੋਣ ਕਰੋ, ਜਿਸ ਇੰਕੋਡਿੰਗ ਨਾਲ ਤੁਹਾਡੀ ਖੋਜ ਸ਼ੁਰੂ ਕੀਤੀ।"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ਖੋਜ ਕਰਨ ਵਾਲੇ ਲਈ ਇੱਥੇ ਮਨੁੱਖ ਦੇ ਪੜਨ ਯੋਗ ਨਾਂ ਦਿਉ।</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "ਸ਼ਾਰਟਕੱਟ(&S):"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "ਅੱਖਰ ਸੈੱਟ ਦੀ ਚੋਣ ਕਰੋ, ਜਿਸ ਇੰਕੋਡਿੰਗ ਨਾਲ ਤੁਹਾਡੀ ਖੋਜ ਸ਼ੁਰੂ ਕੀਤੀ"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "ਅੱਖਰ-ਸੈੱਟ(&C):"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr ""
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5439,6 +6362,149 @@ msgstr "ਪਾਬੰਦੀਸ਼ੁਦਾ ਮੰਗ।"
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "ਅਣਜਾਣ HTTP ਵਰਬ।"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "ਆਮ ਨਾਂ:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "ਸੰਗਠਨ:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "ਸੰਗਠਨ ਯੂਨਿਟ:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "ਫਰਾਡ ਵਿਭਾਗ"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "ਦੇਸ਼:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "ਕੈਨੇਡਾ"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "ਸੂਬਾ:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "ਕਿਊਬਕ"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "ਸ਼ਹਿਰ:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "ਗਿਣੋ"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr ""
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -5918,6 +6984,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "ਅਣਪਛਾਤਾ"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "ਰੋਕੋ"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "ਫਾਇਲ-ਲਾਈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "ਇਸ ਤੋਂ ਮਾਊਂਟ ਹੈ:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "ਖਾਲੀ ਥਾਂ:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "ਕਿਸਮ:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "ਟਿਕਾਣਾ:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "ਬਦਲੋ..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "ਸਮੱਗਰੀ:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "ਇਸ ਵੱਲ ਇਸ਼ਾਰਾ:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "ਸੋਧਾਂ ਕੀਤੀਆਂ:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "ਬਣਾਇਆ:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "ਫ਼ਾਈਲ ਸਿਸਟਮ:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "ਅਣਪਛਾਤਾ ਆਕਾਰ"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "ਇਸ ਉੱਤੇ ਮਾਊਂਟ ਹੈ:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "ਅਸੈੱਸ ਕੀਤੀ:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6076,6 +7238,338 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr "<filename>%1</filename> ਨਹੀਂ ਲੱਭਿਆ, ਚੱਲਣਯੋਗ ਪਰੋਗਰਾਮ ਲਈ ਢੁੱਕਵਾਂ ਮਾਰਗ ਦਿਓ।"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "ਟਰਮੀਨਲ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "ਟਰਮੀਨਲ ਵਿੱਚ ਚਲਾਓ"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "ਟਰਮੀਨਲ ਚੋਣ:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "ਜਦੋਂ ਇੱਕ ਕਮਾਂਡ ਹੋਵੇ ਤਾਂ ਬੰਦ ਨਾ ਕਰੋ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "ਯੂਜ਼ਰ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਦੇ ਤੌਰ ਉੱਤੇ ਚਲਾਓ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "ਯੂਜ਼ਰ ਨਾਂ ਦਿਓ, ਜਿਸ ਦੇ ਤੌਰ 'ਤੇ ਤੁਸੀਂ ਕਾਰਜ ਨੂੰ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "ਯੂਜ਼ਰ ਨਾਂ: "
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "ਯੂਜ਼ਰ ਨਾਂ ਦਿਓ, ਜਿਸ ਦੇ ਤੌਰ 'ਤੇ ਤੁਸੀਂ ਕਾਰਜ ਨੂੰ ਇੱਥੇ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "ਡਿਸਕਰੀਟ GPU"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "ਖਾਸ ਗਰਾਫਿਕਸ ਕਾਰਡ ਵਰਤ ਕੇ ਚਲਾਓ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "ਸ਼ੁਰੂ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "ਸੁਝਾਅ ਚਲਾਉਣ ਸਮਰੱਥ ਕਰੋ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "ਵੇਰਵਾ(&D):"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "ਕੋਈ ਵੀ ਸੂਚਨਾ ਇੱਥੇ ਲਿਖੋ, ਜੋ ਤੁਸੀਂ ਸੋਚਦੇ ਹੋ ਕਿ ਲਾਭਦਾਇਕ ਹੋ ਸਕਦਾ ਹੈ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "ਟਿੱਪਣੀ(&e):"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr "ਇੰਵਾਇਰਨਮੈਂਟ ਵੇਰੀਬਲ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the comment"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"ਹੇਠ ਦਿੱਤੀਆਂ ਕਮਾਂਡਾਂ ਨਾਲ, ਤੁਹਾਡੇ ਕੋਲ ਕਈ ਥਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜਿੰਨਾਂ ਨੂੰ ਅਸਲ ਪਰੋਗਰਾਮ ਦੇ ਚੱਲਣ ਸਮੇਂ "
+"ਉਹਨਾਂ ਦੇ ਅਸਲੀ ਮੁੱਲਾਂ ਨਾਲ ਤਬਦੀਲ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ:\n"
+"%f - ਇੱਕ ਇੱਕਲਾ ਫਾਈਲ ਨਾਂ\n"
+"%F - ਫਾਈਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
+"%u - ਇੱਕ ਇੱਕਲਾ URL\n"
+"%U - URL ਦੀ ਇੱਕ ਲਿਸਟ\n"
+"%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਈਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
+"%D - ਡਾਇਰੈਕਟਰੀਆਂ ਦੀ ਲਿਸਟ\n"
+"%i - ਆਈਕਾਨ\n"
+"%m - ਨਿੰਮਾ ਆਈਕਾਨ\n"
+"%c - ਟਿੱਪਣੀ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "ਪਰੋਗਰਾਮ:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "ਲੋੜੀਦੀ ਚੱਲਣਯੋਗ ਫਾਈਲ ਲੱਭਣ ਵਾਸਤੇ ਆਪਣੇ ਫਾਈਲ ਸਿਸਟਮ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਦਬਾਓ।"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "ਝਲਕ(&B)..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "ਆਪਣੇ ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਵਰਕਿੰਗ ਡਾਇਰੈਕਟਰੀ ਦਿਓ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "ਕੰਮ ਮਾਰਗ(&W):"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "ਆਰਗੂਮੈਂਟ:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "ਸਹਾਇਕ ਫਾਈਲ ਕਿਸਮ(&S):"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "ਮਾਈਮ-ਕਿਸਮ"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "ਵੇਰਵਾ"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, fuzzy, kde-format
+#| msgid ""
+#| "Check this option if you want to have a system tray handle for your "
+#| "application."
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr "ਇਹ ਚੋਣ ਕਰੋ, ਜੇਕਰ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਤੁਹਾਡਾ ਕਾਰਜ ਲਈ ਸਿਸਟਮ ਟਰੇ ਹੈਂਡਲ ਕਰੋ।"
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "ਸ਼ਾਮਲ..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "ਹਟਾਓ"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "ਤਕਨੀਕੀ ਚੋਣ(&v)..."
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -6747,11 +8241,6 @@ msgstr "ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਦੀ ਸੰਰਚਨਾ..."
 msgid "Open file dialog"
 msgstr "ਫਾਈਲ ਖੋਲ੍ਹਣ ਡਾਈਲਾਗ"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "ਟਿਕਾਣਾ:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7061,6 +8550,79 @@ msgstr "ਛੱਡੋ"
 msgid "Skip All"
 msgstr "ਸਭ ਛੱਡੋ"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "ਐਡਰੈੱਸ:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP ਐਡਰੈੱਸ:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "ਵੇਰਵਾ:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL ਵਰਜ਼ਨ:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "ਸਰਟੀਫਿਕੇਟ ਚੇਨ:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "ਟਰੱਸਟ ਕੀਤਾ:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "ਵੈਧਤਾ ਪੀਰਿਅਡ:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "ਸੀਰੀਅਲ ਨੰਬਰ:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 ਡੀਜ਼ਿਟ:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "MD5 ਡੀਜ਼ਿਟ:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7209,342 +8771,6 @@ msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ �
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "ਅਣ-ਮਾਊਂਟ ਕਰਨਾ Windows CE ਰਾਹੀਂ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#~ msgid "Search"
-#~ msgstr "ਖੋਜ"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "ਡੋਮੇਨਾਂ ਅਤੇ ਹੋਸਟਾਂ ਲਈ ਖਾਸ ਖੋਜ"
-
-#~ msgid "Site"
-#~ msgstr "ਸਾਈਟ"
-
-#~ msgid "Cookie Name"
-#~ msgstr "ਕੂਕੀਜ਼ ਨਾਂ"
-
-#~ msgid "D&elete"
-#~ msgstr "ਹਟਾਓ(&e)"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "ਸਭ ਹਟਾਓ(&l)"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "ਪਾਲਸੀ ਦੀ ਸੰਰਚਨਾ(&P)..."
-
-#~ msgid "&Reload List"
-#~ msgstr "ਲਿਸਟ ਮੁੜ ਲੋਡ(&R)"
-
-#~ msgid "Secure:"
-#~ msgstr "ਸੁਰੱਖਿਅਤ:"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "ਕੂਕੀਜ਼ ਯੋਗ(&k)"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "ਆਟੋਮੈਟਿਕ ਸ਼ੈਸ਼ਨ ਕੂਕੀਜ਼ ਸਵੀਕਾਰ(&y)"
-
-#~ msgid "Default Policy"
-#~ msgstr "ਡਿਫਾਲਟ ਪਾਲਸੀ"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "ਸਭ ਕੂਕੀਜ਼ ਮਨਜ਼ੂਰ(&t)"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "ਸ਼ੈਸ਼ਨ ਦੇ ਅੰਤ ਤੱਕ ਮਨਜ਼ੂਰ(&u)"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "ਤਸਦੀਕ ਕਰਨ ਲਈ ਪੁੱਛੋ(&f)"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "ਸਭ ਕੂਕੀਜ਼ ਨਾ-ਮਨਜ਼ੂਰ(&j)"
-
-#~ msgid "Site Policy"
-#~ msgstr "ਸਾਇਟ ਪਾਲਸੀ"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "ਖਾਸ ਡੋਮੇਨ ਲਈ ਖੋਜ"
-
-#~ msgid "Search..."
-#~ msgstr "ਖੋਜ..."
-
-#~ msgid "Domain"
-#~ msgstr "ਡੋਮੇਨ"
-
-#~ msgid "Policy"
-#~ msgstr "ਪਾਲਸੀ"
-
-#~ msgid "&New..."
-#~ msgstr "ਨਵਾਂ(&N)..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "ਤਬਦੀਲ(&g)..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ਇਹ ਨੀਤੀ ਲਾਗੂ ਕਰਨ ਲਈ ਹੋਸਟ ਜਾਂ ਡੋਮੇਨ ਦਿਓ, ਜਿਵੇਂ ਕਿ <b>www.kde.org</b> ਜਾਂ <b>.kde."
-#~ "org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "ਸਾਈਟ ਨਾਂ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Select the desired policy:\n"
-#~| "<ul>\n"
-#~| "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~| "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~| "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~| "</ul>\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ਪਸੰਦੀਦਾ ਨੀਤੀ ਚੁਣੋ:\n"
-#~ "<ul>\n"
-#~ "<li><b> ਸਵੀਕਾਰ</b> - ਇਸ ਸਾਇਟ ਨੂੰ ਕੂਕੀਜ਼ ਸੈੱਟ ਕਰਨ ਦਿਓ</li>\n"
-#~ "<li><b> ਅਸਵੀਕਾਰ</b> - ਇਸ ਸਾਇਟ ਤੋਂ ਸਭ ਕੂਕੀਜ਼ ਅਸਵੀਕਾਰ ਕਰੋ</li>\n"
-#~ "<li><b>ਪੁਸ਼ਟੀ</b> - ਜਦੋਂ ਵੀ ਇਸ ਸਾਇਟ ਤੋਂ ਕੂਕੀਜ਼ ਪ੍ਰਾਪਤ ਹੋਣ ਤੇ ਪੁੱਛੋ</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "ਨੀਤੀ:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "ਸ਼ੈਸ਼ਨ ਦਾ ਅੰਤ ਤੱਕ ਮਨਜ਼ੂਰ"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "ਅਕਰਮਕ FTP ਅਯੋਗ"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "ਅਧੂਰੀਆਂ ਅੱਪਲੋਡ ਫਾਇਲਾਂ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "ਇੰਟਰਨੈੱਟ ਨਾਲ ਸਿੱਧਾ ਕੁਨੈਕਟ ਕਰੋ।"
-
-#~ msgid "No Proxy"
-#~ msgstr "ਕੋਈ ਪਰਾਕਸੀ ਨਹੀਂ"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਆਟੋਮੈਟਿਕ ਹੀ ਖੋਜੋ"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "ਪਰਾਕਸੀ ਸੈਟਿੰਗ ਲਈ ਦਿੱਤੀ ਪਰਾਕਸੀ ਸਕਰਿਪਟ ਵਰਤੋਂ।"
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "ਪਰਾਕਸੀ ਆਪੇ ਸੰਰਚਨਾ URL ਵਰਤੋਂ:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਸਕਰਿਪਟ ਲਈ ਐਡਰੈੱਸ ਦਿਓ।"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "ਸਿਸਟਮ ਪਰਾਕਸੀ ਸੰਰਚਨਾ ਵਰਤੋਂ:"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "ਆਟੋ ਖੋਜ(&e)"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP ਪਰਾਕਸੀ:"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL ਪਰਾਕਸੀ:"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP ਪਰਾਕਸੀ:"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS ਪਰਾਕਸੀ:"
-
-#~ msgid "Exceptions:"
-#~ msgstr "ਛੋਟ:"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "ਵਾਤਾਵਰਣ ਵੇਰੀਬਲਾਂ ਦਾ ਮੁੱਲ ਵੇਖਾਓ(&v)"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "ਪਰਾਕਸੀ ਸਰਵਰ ਸੰਰਚਨਾ ਜਾਣਕਾਰੀ ਦਸਤੀ ਦਿਓ।"
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "ਦਿੱਤੀ ਹੋਈ ਪਰਾਕਸੀ ਜਾਣਕਾਰੀ ਖੁਦ ਦਿਉ:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "HTTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
-
-#~ msgid "Port:"
-#~ msgstr "ਪੋਰਟ:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "HTTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਓ।"
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "ਸਭ ਪਰੋਟੋਕਾਲ ਲਈ ਇਹ ਪਰਾਕਸੀ ਸਰਵਰ ਵਰਤੋਂ(&l)"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "HTTPS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "HTTPS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਓ।"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "FTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ"
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "FTP ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਉ।"
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "SOCKS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਐਡਰੈੱਸ ਦਿਓ।"
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "SOCKS ਪਰਾਕਸੀ ਸਰਵਰ ਦਾ ਪੋਰਟ ਨੰਬਰ ਦਿਉ।"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr "ਇਸ ਲਿਸਟ ਵਿਚਲੇ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਹੀ ਪਰਾਕਸੀ ਵਰਤੋਂ"
-
-#, fuzzy
-#~| msgid "Use proxy only for entries in this list"
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "ਇਸ ਲਿਸਟ ਵਿਚਲੇ ਇੰਦਰਾਜ਼ਾਂ ਲਈ ਹੀ ਪਰਾਕਸੀ ਵਰਤੋਂ"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "ਵੈਬ ਖੋਜ ਸ਼ਾਰਟਕੱਟ ਸਮਰੱਥ ਕਰੋ(&E)"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "ਸਿਰਫ਼ ਤਰਜੀਹੀ ਸ਼ਾਰਟਕੱਟ ਹੀ ਵਰਤੋਂ(&U)"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "ਵੈੱਬ ਖੋਜ ਸ਼ਬਦਾਂ ਲਈ ਖੋਜ"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "ਨਵਾਂ ਵੈੱਬ ਖੋਜ ਸ਼ਬਦ ਜੋੜੋ"
-
-#, fuzzy
-#~| msgid "Delete the highlighted Web shortcut"
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "ਹਾਈਲਾਈਟ ਕੀਤੇ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਹਟਾਓ"
-
-#, fuzzy
-#~| msgid "Delete the highlighted Web shortcut"
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "ਹਾਈਲਾਈਟ ਕੀਤੇ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ ਹਟਾਓ"
-
-#~ msgid "De&lete"
-#~ msgstr "ਹਟਾਓ(&l)"
-
-#, fuzzy
-#~| msgid "Default Web &shortcut:"
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "ਡਿਫਾਲਟ ਵੈੱਬ ਸ਼ਾਰਟਕੱਟ(&s):"
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "ਸ਼ਬਦ ਸੀਮਾ(&K):"
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "ਕਾਲਨ"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Space"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "ਖੋਜ ਕਰਨ ਵਾਲੇ ਲਈ ਇੱਥੇ ਮਨੁੱਖ ਦੇ ਪੜਨ ਯੋਗ ਨਾਂ ਦਿਉ।"
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "ਸ਼ਾਰਟਕੱਟ ਨਾਂ(&n):"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "ਸ਼ਾਰਟਕੱਟ &URL:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "ਅੱਖਰ ਸੈੱਟ ਦੀ ਚੋਣ ਕਰੋ, ਜਿਸ ਇੰਕੋਡਿੰਗ ਨਾਲ ਤੁਹਾਡੀ ਖੋਜ ਸ਼ੁਰੂ ਕੀਤੀ।"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>ਖੋਜ ਕਰਨ ਵਾਲੇ ਲਈ ਇੱਥੇ ਮਨੁੱਖ ਦੇ ਪੜਨ ਯੋਗ ਨਾਂ ਦਿਉ।</p></body></"
-#~ "html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "ਸ਼ਾਰਟਕੱਟ(&S):"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "ਅੱਖਰ ਸੈੱਟ ਦੀ ਚੋਣ ਕਰੋ, ਜਿਸ ਇੰਕੋਡਿੰਗ ਨਾਲ ਤੁਹਾਡੀ ਖੋਜ ਸ਼ੁਰੂ ਕੀਤੀ"
-
-#~ msgid "&Charset:"
-#~ msgstr "ਅੱਖਰ-ਸੈੱਟ(&C):"
-
-#~ msgid "Common name:"
-#~ msgstr "ਆਮ ਨਾਂ:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "ਸੰਗਠਨ:"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "ਸੰਗਠਨ ਯੂਨਿਟ:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "ਫਰਾਡ ਵਿਭਾਗ"
-
-#~ msgid "Country:"
-#~ msgstr "ਦੇਸ਼:"
-
-#~ msgid "Canada"
-#~ msgstr "ਕੈਨੇਡਾ"
-
-#~ msgid "State:"
-#~ msgstr "ਸੂਬਾ:"
-
-#~ msgid "Quebec"
-#~ msgstr "ਕਿਊਬਕ"
-
-#~ msgid "City:"
-#~ msgstr "ਸ਼ਹਿਰ:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Meadows"
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "ਗਿਣੋ"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -7569,198 +8795,6 @@ msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ �
 #~ msgid "Unmount"
 #~ msgstr "ਅਣ-ਮਾਊਂਟ"
 
-#~ msgid "Stop"
-#~ msgstr "ਰੋਕੋ"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "ਫਾਇਲ-ਲਾਈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
-
-#~ msgid "Mounted From:"
-#~ msgstr "ਇਸ ਤੋਂ ਮਾਊਂਟ ਹੈ:"
-
-#~ msgid "Free Space:"
-#~ msgstr "ਖਾਲੀ ਥਾਂ:"
-
-#~ msgid "Type:"
-#~ msgstr "ਕਿਸਮ:"
-
-#~ msgid "Change..."
-#~ msgstr "ਬਦਲੋ..."
-
-#~ msgid "Content:"
-#~ msgstr "ਸਮੱਗਰੀ:"
-
-#~ msgid "Points to:"
-#~ msgstr "ਇਸ ਵੱਲ ਇਸ਼ਾਰਾ:"
-
-#~ msgid "Modified:"
-#~ msgstr "ਸੋਧਾਂ ਕੀਤੀਆਂ:"
-
-#~ msgid "Created:"
-#~ msgstr "ਬਣਾਇਆ:"
-
-#~ msgid "File System:"
-#~ msgstr "ਫ਼ਾਈਲ ਸਿਸਟਮ:"
-
-#~ msgid "Unknown size"
-#~ msgstr "ਅਣਪਛਾਤਾ ਆਕਾਰ"
-
-#~ msgid "Mounted On:"
-#~ msgstr "ਇਸ ਉੱਤੇ ਮਾਊਂਟ ਹੈ:"
-
-#~ msgid "Accessed:"
-#~ msgstr "ਅਸੈੱਸ ਕੀਤੀ:"
-
-#~ msgid "Open With:"
-#~ msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "ਟਰਮੀਨਲ"
-
-#~ msgid "Run in terminal"
-#~ msgstr "ਟਰਮੀਨਲ ਵਿੱਚ ਚਲਾਓ"
-
-#~ msgid "Terminal options:"
-#~ msgstr "ਟਰਮੀਨਲ ਚੋਣ:"
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "ਜਦੋਂ ਇੱਕ ਕਮਾਂਡ ਹੋਵੇ ਤਾਂ ਬੰਦ ਨਾ ਕਰੋ"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "ਯੂਜ਼ਰ"
-
-#~ msgid "Run as a different user"
-#~ msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਦੇ ਤੌਰ ਉੱਤੇ ਚਲਾਓ"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "ਯੂਜ਼ਰ ਨਾਂ ਦਿਓ, ਜਿਸ ਦੇ ਤੌਰ 'ਤੇ ਤੁਸੀਂ ਕਾਰਜ ਨੂੰ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
-
-#~ msgid "Username:"
-#~ msgstr "ਯੂਜ਼ਰ ਨਾਂ: "
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "ਯੂਜ਼ਰ ਨਾਂ ਦਿਓ, ਜਿਸ ਦੇ ਤੌਰ 'ਤੇ ਤੁਸੀਂ ਕਾਰਜ ਨੂੰ ਇੱਥੇ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
-
-#~ msgid "Discrete GPU"
-#~ msgstr "ਡਿਸਕਰੀਟ GPU"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "ਖਾਸ ਗਰਾਫਿਕਸ ਕਾਰਡ ਵਰਤ ਕੇ ਚਲਾਓ"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "ਸ਼ੁਰੂ"
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "ਸੁਝਾਅ ਚਲਾਉਣ ਸਮਰੱਥ ਕਰੋ"
-
-#~ msgid "&Description:"
-#~ msgstr "ਵੇਰਵਾ(&D):"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "ਕੋਈ ਵੀ ਸੂਚਨਾ ਇੱਥੇ ਲਿਖੋ, ਜੋ ਤੁਸੀਂ ਸੋਚਦੇ ਹੋ ਕਿ ਲਾਭਦਾਇਕ ਹੋ ਸਕਦਾ ਹੈ।"
-
-#~ msgid "Comm&ent:"
-#~ msgstr "ਟਿੱਪਣੀ(&e):"
-
-#~ msgid "Environment Variables:"
-#~ msgstr "ਇੰਵਾਇਰਨਮੈਂਟ ਵੇਰੀਬਲ:"
-
-#, fuzzy
-#~| msgid ""
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the comment"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "ਹੇਠ ਦਿੱਤੀਆਂ ਕਮਾਂਡਾਂ ਨਾਲ, ਤੁਹਾਡੇ ਕੋਲ ਕਈ ਥਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ, ਜਿੰਨਾਂ ਨੂੰ ਅਸਲ ਪਰੋਗਰਾਮ ਦੇ ਚੱਲਣ "
-#~ "ਸਮੇਂ ਉਹਨਾਂ ਦੇ ਅਸਲੀ ਮੁੱਲਾਂ ਨਾਲ ਤਬਦੀਲ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ:\n"
-#~ "%f - ਇੱਕ ਇੱਕਲਾ ਫਾਈਲ ਨਾਂ\n"
-#~ "%F - ਫਾਈਲਾਂ ਦੀ ਇੱਕ ਸੂਚੀ, ਕਾਰਜਾਂ ਲਈ ਵਰਤੋਂ, ਜੋ ਕਿ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਈਲਾਂ ਨੂੰ ਖੋਲ ਸਕਦੇ ਹਨ\n"
-#~ "%u - ਇੱਕ ਇੱਕਲਾ URL\n"
-#~ "%U - URL ਦੀ ਇੱਕ ਲਿਸਟ\n"
-#~ "%d - ਖੋਲ੍ਹਣ ਵਾਲੀ ਫਾਈਲ ਦੀ ਡਾਇਰੈਕਟਰੀ\n"
-#~ "%D - ਡਾਇਰੈਕਟਰੀਆਂ ਦੀ ਲਿਸਟ\n"
-#~ "%i - ਆਈਕਾਨ\n"
-#~ "%m - ਨਿੰਮਾ ਆਈਕਾਨ\n"
-#~ "%c - ਟਿੱਪਣੀ"
-
-#~ msgid "Program:"
-#~ msgstr "ਪਰੋਗਰਾਮ:"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr "ਲੋੜੀਦੀ ਚੱਲਣਯੋਗ ਫਾਈਲ ਲੱਭਣ ਵਾਸਤੇ ਆਪਣੇ ਫਾਈਲ ਸਿਸਟਮ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਦਬਾਓ।"
-
-#~ msgid "&Browse..."
-#~ msgstr "ਝਲਕ(&B)..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "ਆਪਣੇ ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਵਰਕਿੰਗ ਡਾਇਰੈਕਟਰੀ ਦਿਓ।"
-
-#~ msgid "&Work path:"
-#~ msgstr "ਕੰਮ ਮਾਰਗ(&W):"
-
-#~ msgid "Arguments:"
-#~ msgstr "ਆਰਗੂਮੈਂਟ:"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "ਸਹਾਇਕ ਫਾਈਲ ਕਿਸਮ(&S):"
-
-#~ msgid "Mimetype"
-#~ msgstr "ਮਾਈਮ-ਕਿਸਮ"
-
-#~ msgid "Description"
-#~ msgstr "ਵੇਰਵਾ"
-
-#, fuzzy
-#~| msgid ""
-#~| "Check this option if you want to have a system tray handle for your "
-#~| "application."
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr "ਇਹ ਚੋਣ ਕਰੋ, ਜੇਕਰ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਤੁਹਾਡਾ ਕਾਰਜ ਲਈ ਸਿਸਟਮ ਟਰੇ ਹੈਂਡਲ ਕਰੋ।"
-
-#~ msgid "Add..."
-#~ msgstr "ਸ਼ਾਮਲ..."
-
-#~ msgid "Remove"
-#~ msgstr "ਹਟਾਓ"
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "ਤਕਨੀਕੀ ਚੋਣ(&v)..."
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -7784,43 +8818,6 @@ msgstr "ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪਰੋਗਰਾਮ ਉੱਤੇ �
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਚੇਪੋ(&P)"
-
-#~ msgid "[padlock]"
-#~ msgstr "[padlock]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "ਐਡਰੈੱਸ:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP ਐਡਰੈੱਸ:"
-
-#~ msgid "Encryption:"
-#~ msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ:"
-
-#~ msgid "Details:"
-#~ msgstr "ਵੇਰਵਾ:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL ਵਰਜ਼ਨ:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "ਸਰਟੀਫਿਕੇਟ ਚੇਨ:"
-
-#~ msgid "Trusted:"
-#~ msgstr "ਟਰੱਸਟ ਕੀਤਾ:"
-
-#~ msgid "Validity period:"
-#~ msgstr "ਵੈਧਤਾ ਪੀਰਿਅਡ:"
-
-#~ msgid "Serial number:"
-#~ msgstr "ਸੀਰੀਅਲ ਨੰਬਰ:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 ਡੀਜ਼ਿਟ:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "MD5 ਡੀਜ਼ਿਟ:"
 
 #~ msgid "None"
 #~ msgstr "ਕੋਈ ਨਹੀਂ"

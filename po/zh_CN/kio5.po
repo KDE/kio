@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3329,7 +3329,8 @@ msgstr ""
 "添加、编辑或选择书签。<br /><br />这些书签是文件对话框的专用书签，但它们的工"
 "作方式与 KDE 其他位置的书签相同。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "名称(&N)："
@@ -3603,12 +3604,19 @@ msgstr "新建文件夹"
 msgid "Create new folder in %1:"
 msgstr "新建文件夹到 %1："
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "复制"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "粘贴"
@@ -3910,6 +3918,104 @@ msgstr "会话结束"
 msgid "Yes"
 msgstr "是"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "搜索"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "搜索域名和主机 (交互式)"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "网站"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Cookie 名称"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "删除(&E)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "删除所有(&L)"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "配置策略(&P)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "刷新列表(&R)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "详情"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "名称："
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "值："
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "域名："
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "路径："
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "过期时间："
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "安全："
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -3987,7 +4093,221 @@ msgstr ""
 "略 </i> 标签页中指定网站的域名，然后将其设置为接受。这样在访问您信任的网站"
 "时，KDE 就不会在每次收到 Cookies 时询问您。</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>启用 Cookie 支持。在正常情况下您可以启用 Cookie 支持，并按照您对隐私的要求"
+"来自定义相关策略。</p><p>\n"
+"请注意，禁用 Cookie 支持可能会导致很多网站无法浏览。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "启用 Coo&kies"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"拒绝第三方 Cookies。第三方 Cookies 来自您当前浏览网站之外的网站。例如：您在勾"
+"选此项后访问了 <b>www.foobar.com</b>，那么按照此选项的设置，只有来自 www."
+"foobar.com 网站的 Cookies 才会被接受。来自其他网站的所有 Cookies 会被自动拒"
+"绝。此功能可以妨碍网站对您的日常浏览习惯进行收集和汇总。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "仅接受始发服务器的 Cookie(&P)"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"自动接受在本次会话结束时自动过期的临时 Cookies。这种 Cookies 不会长期保存在电"
+"脑的硬盘或者其他存储设备里。在您关闭所有使用它们的程序 (例如网页浏览器) 后，"
+"它们就会被删除。</p><p><u>注意：</u>勾选此项后，它的设置将覆盖您的默认 "
+"Cookies 策略和指定网站的当次会话 Cookies 策略。</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "自动接受单次会话 Cookie(&Y)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"指定从远程机器收到 Cookies 时的处理方式：\n"
+"<ul>\n"
+"<li><b>询问：</b>每当服务器请求建立 Cookies 时，KDE 都会征求您的同意。</li>\n"
+"<li><b>接受：</b> 接受 Cookiess，不提示。</li>\n"
+"<li><b>接受 (当次会话)：</b> 接受 Cookies，但在当次会话结束后过期。</li>\n"
+"<li><b>拒绝：</b>cookiejar 程序将拒绝所有收到的 Cookies。</li>\n"
+"</ul><p>\n"
+"<u>请注意：</u>您可以在下方为每个域名指定独立的策略，它们的优先权高于默认策"
+"略。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "默认策略"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "接受所有 Cookies(&T)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "接受 (当次会话)(&U)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "请求确认(&F)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "拒绝所有 Cookies(&J)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"要添加新策略，请点击<b>添加...</b>按钮并提供所需信息。要更改已有策略，请点击"
+"<b>更改...</b>按钮并在策略对话框中选择新的策略。点击<b>删除</b>按钮将移除选中"
+"的策略，该域名将在此后使用默认策略；点击<b>删除所有</b>按钮将移除所有的域名特"
+"定策略。\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "网站策略"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "搜索域名 (交互式)"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "搜索..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"已指定了域名特定 Cookies 策略的网站列表。这些网站将使用指定给它们的策略设置覆"
+"盖默认策略。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "域名"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "策略"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "新建(&N)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "更改(&G)..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "接受"
 
@@ -3995,17 +4315,89 @@ msgstr "接受"
 msgid "Accept For Session"
 msgstr "接受 (当次会话)"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "拒绝"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "询问"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "我不懂"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"输入要应用此策略的主机或者域名，例如 <b>www.kde.org</b> 或者 <b>.kde.org</"
+"b>。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "网站名称："
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr "输入要应用此策略的主机或者域名，例如 .kde.org。"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"选择想要使用的策略：\n"
+"<ul>\n"
+"<li><b>接受</b> - 允许此网站建立 Cookies</li>\n"
+"<li><b>接受 (当次会话)</b> - 允许此网站建立 Cookies，但在本次会话结束之后过期"
+"</li>\n"
+"<li><b>拒绝</b> - 拒绝此网站的所有 Cookies</li>\n"
+"<li><b>询问</b> - 收到此网站的 Cookies 时询问用户如何处理。</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "策略："
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "接受 (当次会话)"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4024,6 +4416,41 @@ msgstr "更新失败"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "要让这些更改生效，您必须重新启动 KDE。"
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "禁用被动 FTP"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"FTP 连接处于被动模式时，由客户端向服务器端发起连接，而不是相反，这样可以避免"
+"防火墙阻止连接；某些老旧的 FTP 服务器可能不支持被动式 FTP。"
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "标记部分上传的文件"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"文件在上传过程中的扩展名将被更改为“*.part”。文件上传完成后，它将被改回实际的"
+"扩展名。"
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4177,6 +4604,415 @@ msgstr ""
 "序，它能够提供网页缓存、内容过滤等服务。</p><p>缓存代理服务器可以加快已浏览网"
 "站的访问速度；过滤代理服务器可以拦截广告、垃圾消息或者其他您想屏蔽的内容。</"
 "p><p><u>注意：</u>某些代理服务器能够同时提供上述两种服务。</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"设置代理服务器配置。\n"
+"<p>\n"
+"代理服务器是一台位于本机和其他互联网服务器之间的中介计算机，它可以提供网页缓"
+"存和内容过滤等服务。缓存代理服务器可以将已访问的页面缓存到本地，从而提高您访"
+"问这些网站时的速度；内容过滤服务器通常可以拦截诸如广告、骚扰以及其他您想要阻"
+"止的请求。\n"
+"<p>\n"
+"如果您不确定自己是否需要通过代理服务器来连接互联网，可以咨询您的互联网服务提"
+"供商或者系统管理员。\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "直接连接到互联网。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "不使用代理服务器"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, kde-format
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"自动检测并配置代理服务器设置。<p>\n"
+"自动检测功能使用 <b>Web 代理自动发现协议(WPAD)</b> 来处理相关信息。<p>\n"
+"<b>注意：</b>此选项在某些 Unix/Linux 发行版中可能存在问题，甚至完全无法工"
+"作。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "自动检测代理服务器配置"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "使用指定的代理服务器脚本配置代理服务器。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "使用代理服务器自动配置 URL："
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "请输入代理服务器配置脚本的地址。"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>使用本机系统的全局代理服务器设置。</p>\n"
+"<p>某些系统平台提供了系统全局的代理配置信息，勾选此项时将使用这些设置。</p>\n"
+"<p>在 Mac 平台上</p>\n"
+"<p>在 Windows 平台上</p>\n"
+"<p>在 Unix 和 Linux 平台上，系统的全局代理服务器设置通常在环境变量中进行定"
+"义。程序将检测以下环境变量，如果存在则使用它们：<b>HTTP_PROXY</b>、"
+"<b>HTTPS_PROXY</b>、<b>FTP_PROXY</b>、<b>NO_PROXY</b>。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "使用系统代理服务器配置："
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>尝试自动检测系统全局的代理服务器环境变量。<p>此功能将搜索最常用的相关环境"
+"变量名称，如 HTTP_PROXY、FTP_PROXY 和 NO_PROXY。</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "自动检测(&D)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于存储 HTTP 代理服务器地址的环境变量名称，例如 <b>HTTP_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP 代理："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于存储 HTTPS 代理服务器地址的环境变量名称，例如 <b>HTTPS_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL 代理："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于存储 FTP 代理服务器地址的环境变量名称，例如 <b>FTP_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP 代理："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS 代理："
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</"
+"b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。"
+"</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于存储不使用代理服务器的网站的环境变量名称，例如 <b>NO_PROXY</b> 。"
+"<p>\n"
+"您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "例外："
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>请输入用于存储不使用上述代理服务器设置的网站的环境变量名称，例如 "
+"<b>NO_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有"
+"关的环境变量。</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "显示环境变量的值(&V)"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "手动输入代理服务器配置信息。"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "使用手动指定的代理服务器配置："
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "请输入 HTTP 代理服务器的地址。"
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "端口："
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "请输入 HTTP 代理服务器的端口。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "所有协议使用同一个代理服务器(&L)"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "请输入 HTTPS 代理服务器的地址。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "请输入 HTTPS 代理服务器的端口。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "请输入 FTP 代理服务器的地址。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "请输入 FTP 代理服务器的端口。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "请输入 SOCKS 代理服务器的地址。"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "请输入 SOCKS 代理服务器的端口。"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>请输入排除使用上述代理服务器设置的主机名或者 IP 地址的列表，用半角逗号分隔"
+"项目。</p>\n"
+"<p>如需排除某个域名的所有主机，请在该域名之前输入一个半角句点。例如，要排除所"
+"有<i>kde.org</i> 的主机名，请输入 <i>.kde.org</i>。不支持“*”和“?”等通配符，它"
+"们将不会生效。</p>\n"
+"<p>您也可以输入 IP 地址，例如 127.0.0.1；还可以输入带子网掩码的 IP 地址，例"
+"如 192.168.0.1/24。</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"如果您想要上面的代理服务器设置只应用到 <i>例外</i> 列表中的地址，请勾选此项。"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "仅对排除列表中的地址应用代理服务器设置"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -4925,11 +5761,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr "[跨域]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "详情"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5014,31 +5845,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Cookie 详情"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "名称："
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "值："
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "过期时间："
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "路径："
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "域名："
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5189,7 +5995,8 @@ msgid ""
 msgstr ""
 "<para>勾选此项以限制回收站可使用的最大磁盘空间，不勾选此项则不作限制。</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "大小："
@@ -5444,6 +6251,136 @@ msgstr ""
 "<para>在支持本功能的应用程序中 (例如 Konqueror)，如果您已经选择了默认搜索引"
 "擎，那么只需在程序的输入框中直接输入要搜索的单词或者句子即可。</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>启用或者禁用网页搜索关键词功能。</p>\n"
+"<p>网页搜索关键词可以帮助您快速访问、搜索本机和互联网上的信息。</p>\n"
+"<p>KDE 已经预设了一些关键词，用于调用不同的搜索引擎。例如要使用 Google 搜"
+"索“KDE”时，只需输入关键词“gg”、分隔符 (此例子中是半角冒号) 和搜索条件即可："
+"<span style=\" font-weight:600;\">gg:KDE</span>。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "启用网页搜索关键词(&E)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "仅使用首选关键词(&U)"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "搜索网络搜索关键词"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "添加网页搜索关键词"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "修改选中的网页搜索关键词"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "删除选中的网页搜索关键词"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "删除(&L)"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"选择一个默认的搜索引擎。支持自动搜索服务的输入框将使用此引擎来搜索那些无法被"
+"识别为 URL 的输入内容。如需禁用此功能，请从列表中选择<b>无</b>。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "默认网页搜索关键词(&S)："
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>选择默认的网页搜索关键词。</p>\n"
+"<p>程序会把无法识别成 URL 的输入内容通过默认搜索关键词进行搜索。</p>\n"
+"<p>如需禁用此功能，请从列表中选择 <span style=\" font-weight:600;\">无</"
+"span>。</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "选择一个分隔符，它用于分隔网页搜索关键词和搜索条件。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "关键词分隔符(&K)："
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "选择用于标识网页搜索关键词的分隔符。"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "半角冒号"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "半角空格"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5507,6 +6444,118 @@ msgstr ""
 msgid "Keep It"
 msgstr "保留"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "请为此搜索服务提供商输入一个易于理解的名称。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "缩略词名称(&N)："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"请输入用于在该搜索引擎中进行搜索的 URI。<br/>搜索条件可以使用 \\{@} 或者 "
+"\\{0} 进行指定。<br/>\n"
+"推荐使用 \\{@}，因为它在被替换为查询字串时会自动剔除所有查询变量 "
+"(name=value)，而 \\{0} 则会原封不动地被替换为完整的查询字串。<br/>您可以使用 "
+"\\{1} ... \\{n} 来指定查询中的某个词语，使用 \\{name} 来指定查询中通"
+"过“name=value”指定的值。<br/>您还可以使用 (\\{name1,name2,...,\"string\"}) 来"
+"同时指定多个搜索条件 (例如名称、数字、字串等)。<br/>从左起第一个匹配的值将在"
+"生成的 URI 中用作替代值。<br/>被半角引号包围的值将被视作默认值，如果用户输入"
+"的条件中找不到匹配项，程序将使用该默认值进行查询。\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "缩略词 URL(&U)："
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "请选择用于为搜索查询字串进行编码的字符集。"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"在此输入的缩略词可在 KDE 中作为伪 URI 方案使用。例如缩略词 <b>av</b> 可以通"
+"过 <b>av</b>:<b>搜索条件</b> 进行调用\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>请为此缩略词输入一个易于理解的名称。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "缩略词(&S)："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "请选择用于为搜索查询字串进行编码的字符集。"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "字符集(&C)："
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "插入搜索占位符"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5526,6 +6575,150 @@ msgstr "请求已被阻止。"
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "未知 HTTP 操作。"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "通用名称："
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "江南皮革厂"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "组织："
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "江南皮革有限公司"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "组织内部单位："
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "财务部"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "国家/地区："
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "中国"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "州/省："
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "浙江"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "城市："
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "温州"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"请将校验和复制粘贴到下面的输入框。<br/>校验和通常由下载文件的来源网站提供。"
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "预期的校验和 (MD5，SHA1，SHA256 或 SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "点击以将剪贴板中的校验粘贴到输入框中。"
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5："
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1："
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256："
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512："
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "计算"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "点击以将校验和复制到剪贴板。"
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6001,6 +7194,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "未知"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "停止"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "使用 Filelight 浏览"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "挂载来源："
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "剩余空间："
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "类型："
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "位置："
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "更改..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "内容："
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "指向："
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "修改时间："
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "创建时间："
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "文件系统："
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "未知大小"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "挂载位置："
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "访问时间："
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "打开方式："
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6155,6 +7444,347 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr "找不到 <filename>%1</filename>；请输入一个可执行程序的有效路径。"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "终端"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"如果您想要运行的是文本模式程序，或者您想要读取程序在终端模式下运行时的信息，"
+"请勾选此项。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "在终端中运行"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "终端选项："
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"如果文本模式程序在退出时会输出相关信息，请勾选此项。这将保持终端模拟器处于打"
+"开状态，以便您获取这些信息。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "命令退出时不关闭终端"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "用户"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"如果您想要以不同的用户 ID 运行此应用程序，请勾选此项。每个进程都有一个与之关"
+"联的独立用户 ID。此 ID 用于确定文件访问权限和其他权限。使用此选项时您必须提供"
+"该用户的密码。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "以其他用户身份运行"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "输入您想要用来运行此应用程序的用户名。"
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "用户名："
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "在此输入您想要用来运行此应用程序的用户名。"
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "独立显卡"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "使用独立显卡运行"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "启动"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"勾选此项后，应用程序会在启动时显示视觉反馈。视觉反馈可以是一个等待光标，也可"
+"以是任务栏动效。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "启用启动动效"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr "在此输入此应用程序的名称。应用菜单和面板将使用此名称来显示它。"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"在此输入此应用程序的用途描述。例如一款数字绘画程序 (如 Krita) 的用途描述可以"
+"是“绘画程序”。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "描述(&D)："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "在此输入您觉得有用的任意注释。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "注释(&E)："
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr "环境变量："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"在此输入用于启动此应用程序的命令。\n"
+"\n"
+"您可以在命令后面附加一些占位符。程序运行时，这些占位符将被替换为实际的值：\n"
+"\n"
+"%f - 单个文件名\n"
+"%F - 文件列表；用于可同时打开多个本地文件的应用程序\n"
+"%u - 单个 URL\n"
+"%U - URL 列表\n"
+"%i - .desktop 文件的图标\n"
+"%c - .desktop 文件的名称\n"
+"%k - .desktop 文件的位置"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "程序："
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "点击此处可在您的文件系统中浏览，以便找到您想使用的可执行程序。"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "浏览(&B)..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "设置此应用程序的工作目录。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "工作路径(&W)："
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "参数："
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>此列表显示了此应用程序能够处理的文件类型。它按照 <u>MIME 类型</u>进行"
+"排序。</p>\n"
+"<p>MIME 是 Multipurpose Internet Mail Extension (多用途互联网邮件扩展) 的缩"
+"写。它是一种根据文件扩展名及其对应的 <u>MIME 类型</u>来识别数据类型的标准协"
+"议。例如：文件名 flower.bmp 中位于半角句点之后的“bmp”表明此文件是一种图像，它"
+"的类型是 <u>image/x-bmp</u>。应用程序会向系统报告它能够处理的扩展名和 MIME 类"
+"型，以便系统将它们关联到对应的文件类型。</p>\n"
+"<p>如果您想要关联到此应用程序的 MIME 类型不在此列表中，请点击下面的<b>添加</"
+"b>按钮来添加它们。如果此应用程序无法处理此列表中的某些 MIME 类型，请点击<b>移"
+"除</b>按钮来移除它们。</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "支持的 MIME 类型(&S)："
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "MIME 类型"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "描述"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr "如果您想要添加此应用程序能够处理的文件类型 (MIME 类型)，请点击此按钮。"
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "添加..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"如果您想要移除此应用程序无法处理的文件类型 (MIME 类型)，请在上面的列表中选择"
+"该 MIME 类型，然后点击此按钮。"
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "移除"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"点击此处修改此应用程序的运行方式、启动动效、D-Bus 选项，或者以其他用户身份运"
+"行它。"
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "高级选项(&V)"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -6805,11 +8435,6 @@ msgstr "配置网页搜索缩略词..."
 msgid "Open file dialog"
 msgstr "打开文件对话框"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "位置："
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7121,6 +8746,79 @@ msgstr "跳过"
 msgid "Skip All"
 msgstr "跳过所有"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[挂锁]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "地址："
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP 地址："
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "加密："
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "详情："
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL 版本："
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "证书链："
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "可信任："
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "有效期："
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "序列号："
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5 摘要："
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1 摘要："
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7246,756 +8944,6 @@ msgstr "如果您不信任此程序，请点击取消"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "Windows CE 不支持卸载功能。"
 
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "搜索域名和主机 (交互式)"
-
-#~ msgid "Site"
-#~ msgstr "网站"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Cookie 名称"
-
-#~ msgid "D&elete"
-#~ msgstr "删除(&E)"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "删除所有(&L)"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "配置策略(&P)..."
-
-#~ msgid "&Reload List"
-#~ msgstr "刷新列表(&R)"
-
-#~ msgid "Secure:"
-#~ msgstr "安全："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>启用 Cookie 支持。在正常情况下您可以启用 Cookie 支持，并按照您对隐私的"
-#~ "要求来自定义相关策略。</p><p>\n"
-#~ "请注意，禁用 Cookie 支持可能会导致很多网站无法浏览。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "启用 Coo&kies"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "拒绝第三方 Cookies。第三方 Cookies 来自您当前浏览网站之外的网站。例如：您"
-#~ "在勾选此项后访问了 <b>www.foobar.com</b>，那么按照此选项的设置，只有来自 "
-#~ "www.foobar.com 网站的 Cookies 才会被接受。来自其他网站的所有 Cookies 会被"
-#~ "自动拒绝。此功能可以妨碍网站对您的日常浏览习惯进行收集和汇总。\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "仅接受始发服务器的 Cookie(&P)"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "自动接受在本次会话结束时自动过期的临时 Cookies。这种 Cookies 不会长期保存"
-#~ "在电脑的硬盘或者其他存储设备里。在您关闭所有使用它们的程序 (例如网页浏览"
-#~ "器) 后，它们就会被删除。</p><p><u>注意：</u>勾选此项后，它的设置将覆盖您的"
-#~ "默认 Cookies 策略和指定网站的当次会话 Cookies 策略。</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "自动接受单次会话 Cookie(&Y)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "指定从远程机器收到 Cookies 时的处理方式：\n"
-#~ "<ul>\n"
-#~ "<li><b>询问：</b>每当服务器请求建立 Cookies 时，KDE 都会征求您的同意。</"
-#~ "li>\n"
-#~ "<li><b>接受：</b> 接受 Cookiess，不提示。</li>\n"
-#~ "<li><b>接受 (当次会话)：</b> 接受 Cookies，但在当次会话结束后过期。</li>\n"
-#~ "<li><b>拒绝：</b>cookiejar 程序将拒绝所有收到的 Cookies。</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>请注意：</u>您可以在下方为每个域名指定独立的策略，它们的优先权高于默认"
-#~ "策略。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "默认策略"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "接受所有 Cookies(&T)"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "接受 (当次会话)(&U)"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "请求确认(&F)"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "拒绝所有 Cookies(&J)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "要添加新策略，请点击<b>添加...</b>按钮并提供所需信息。要更改已有策略，请点"
-#~ "击<b>更改...</b>按钮并在策略对话框中选择新的策略。点击<b>删除</b>按钮将移"
-#~ "除选中的策略，该域名将在此后使用默认策略；点击<b>删除所有</b>按钮将移除所"
-#~ "有的域名特定策略。\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "网站策略"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "搜索域名 (交互式)"
-
-#~ msgid "Search..."
-#~ msgstr "搜索..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "已指定了域名特定 Cookies 策略的网站列表。这些网站将使用指定给它们的策略设"
-#~ "置覆盖默认策略。\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "域名"
-
-#~ msgid "Policy"
-#~ msgstr "策略"
-
-#~ msgid "&New..."
-#~ msgstr "新建(&N)..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "更改(&G)..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "输入要应用此策略的主机或者域名，例如 <b>www.kde.org</b> 或者 <b>.kde.org</"
-#~ "b>。\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "网站名称："
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr "输入要应用此策略的主机或者域名，例如 .kde.org。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "选择想要使用的策略：\n"
-#~ "<ul>\n"
-#~ "<li><b>接受</b> - 允许此网站建立 Cookies</li>\n"
-#~ "<li><b>接受 (当次会话)</b> - 允许此网站建立 Cookies，但在本次会话结束之后"
-#~ "过期</li>\n"
-#~ "<li><b>拒绝</b> - 拒绝此网站的所有 Cookies</li>\n"
-#~ "<li><b>询问</b> - 收到此网站的 Cookies 时询问用户如何处理。</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "策略："
-
-#~ msgid "Accept until end of session"
-#~ msgstr "接受 (当次会话)"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "禁用被动 FTP"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "FTP 连接处于被动模式时，由客户端向服务器端发起连接，而不是相反，这样可以避"
-#~ "免防火墙阻止连接；某些老旧的 FTP 服务器可能不支持被动式 FTP。"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "标记部分上传的文件"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "文件在上传过程中的扩展名将被更改为“*.part”。文件上传完成后，它将被改回实际"
-#~ "的扩展名。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "设置代理服务器配置。\n"
-#~ "<p>\n"
-#~ "代理服务器是一台位于本机和其他互联网服务器之间的中介计算机，它可以提供网页"
-#~ "缓存和内容过滤等服务。缓存代理服务器可以将已访问的页面缓存到本地，从而提高"
-#~ "您访问这些网站时的速度；内容过滤服务器通常可以拦截诸如广告、骚扰以及其他您"
-#~ "想要阻止的请求。\n"
-#~ "<p>\n"
-#~ "如果您不确定自己是否需要通过代理服务器来连接互联网，可以咨询您的互联网服务"
-#~ "提供商或者系统管理员。\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "直接连接到互联网。"
-
-#~ msgid "No Proxy"
-#~ msgstr "不使用代理服务器"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "自动检测并配置代理服务器设置。<p>\n"
-#~ "自动检测功能使用 <b>Web 代理自动发现协议(WPAD)</b> 来处理相关信息。<p>\n"
-#~ "<b>注意：</b>此选项在某些 Unix/Linux 发行版中可能存在问题，甚至完全无法工"
-#~ "作。\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "自动检测代理服务器配置"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "使用指定的代理服务器脚本配置代理服务器。"
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "使用代理服务器自动配置 URL："
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "请输入代理服务器配置脚本的地址。"
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>使用本机系统的全局代理服务器设置。</p>\n"
-#~ "<p>某些系统平台提供了系统全局的代理配置信息，勾选此项时将使用这些设置。</"
-#~ "p>\n"
-#~ "<p>在 Mac 平台上</p>\n"
-#~ "<p>在 Windows 平台上</p>\n"
-#~ "<p>在 Unix 和 Linux 平台上，系统的全局代理服务器设置通常在环境变量中进行定"
-#~ "义。程序将检测以下环境变量，如果存在则使用它们：<b>HTTP_PROXY</b>、"
-#~ "<b>HTTPS_PROXY</b>、<b>FTP_PROXY</b>、<b>NO_PROXY</b>。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "使用系统代理服务器配置："
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试自动检测系统全局的代理服务器环境变量。<p>此功能将搜索最常用的相关"
-#~ "环境变量名称，如 HTTP_PROXY、FTP_PROXY 和 NO_PROXY。</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "自动检测(&D)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 HTTP 代理服务器地址的环境变量名称，例如 <b>HTTP_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 HTTPS 代理服务器地址的环境变量名称，例如 <b>HTTPS_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 FTP 代理服务器地址的环境变量名称，例如 <b>FTP_PROXY</b> 。"
-#~ "<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS 代理："
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 "
-#~ "<b>SOCKS_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动"
-#~ "检测有关的环境变量。</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储不使用代理服务器的网站的环境变量名称，例如 <b>NO_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "例外："
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>请输入用于存储不使用上述代理服务器设置的网站的环境变量名称，例如 "
-#~ "<b>NO_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测"
-#~ "有关的环境变量。</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "显示环境变量的值(&V)"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "手动输入代理服务器配置信息。"
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "使用手动指定的代理服务器配置："
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "请输入 HTTP 代理服务器的地址。"
-
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "请输入 HTTP 代理服务器的端口。"
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "所有协议使用同一个代理服务器(&L)"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "请输入 HTTPS 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "请输入 HTTPS 代理服务器的端口。"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "请输入 FTP 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "请输入 FTP 代理服务器的端口。"
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "请输入 SOCKS 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "请输入 SOCKS 代理服务器的端口。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>请输入排除使用上述代理服务器设置的主机名或者 IP 地址的列表，用半角逗号"
-#~ "分隔项目。</p>\n"
-#~ "<p>如需排除某个域名的所有主机，请在该域名之前输入一个半角句点。例如，要排"
-#~ "除所有<i>kde.org</i> 的主机名，请输入 <i>.kde.org</i>。不支持“*”和“?”等通"
-#~ "配符，它们将不会生效。</p>\n"
-#~ "<p>您也可以输入 IP 地址，例如 127.0.0.1；还可以输入带子网掩码的 IP 地址，"
-#~ "例如 192.168.0.1/24。</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "如果您想要上面的代理服务器设置只应用到 <i>例外</i> 列表中的地址，请勾选此"
-#~ "项。</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "仅对排除列表中的地址应用代理服务器设置"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>启用或者禁用网页搜索关键词功能。</p>\n"
-#~ "<p>网页搜索关键词可以帮助您快速访问、搜索本机和互联网上的信息。</p>\n"
-#~ "<p>KDE 已经预设了一些关键词，用于调用不同的搜索引擎。例如要使用 Google 搜"
-#~ "索“KDE”时，只需输入关键词“gg”、分隔符 (此例子中是半角冒号) 和搜索条件即"
-#~ "可：<span style=\" font-weight:600;\">gg:KDE</span>。</p></body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "启用网页搜索关键词(&E)"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "仅使用首选关键词(&U)"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "搜索网络搜索关键词"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "添加网页搜索关键词"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "修改选中的网页搜索关键词"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "删除选中的网页搜索关键词"
-
-#~ msgid "De&lete"
-#~ msgstr "删除(&L)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "选择一个默认的搜索引擎。支持自动搜索服务的输入框将使用此引擎来搜索那些无法"
-#~ "被识别为 URL 的输入内容。如需禁用此功能，请从列表中选择<b>无</b>。\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "默认网页搜索关键词(&S)："
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>选择默认的网页搜索关键词。</p>\n"
-#~ "<p>程序会把无法识别成 URL 的输入内容通过默认搜索关键词进行搜索。</p>\n"
-#~ "<p>如需禁用此功能，请从列表中选择 <span style=\" font-weight:600;\">无</"
-#~ "span>。</p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr "选择一个分隔符，它用于分隔网页搜索关键词和搜索条件。"
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "关键词分隔符(&K)："
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "选择用于标识网页搜索关键词的分隔符。"
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "半角冒号"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "半角空格"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "请为此搜索服务提供商输入一个易于理解的名称。"
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "缩略词名称(&N)："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于在该搜索引擎中进行搜索的 URI。<br/>搜索条件可以使用 \\{@} 或者 "
-#~ "\\{0} 进行指定。<br/>\n"
-#~ "推荐使用 \\{@}，因为它在被替换为查询字串时会自动剔除所有查询变量 "
-#~ "(name=value)，而 \\{0} 则会原封不动地被替换为完整的查询字串。<br/>您可以使"
-#~ "用 \\{1} ... \\{n} 来指定查询中的某个词语，使用 \\{name} 来指定查询中通"
-#~ "过“name=value”指定的值。<br/>您还可以使用 (\\{name1,name2,...,\"string"
-#~ "\"}) 来同时指定多个搜索条件 (例如名称、数字、字串等)。<br/>从左起第一个匹"
-#~ "配的值将在生成的 URI 中用作替代值。<br/>被半角引号包围的值将被视作默认值，"
-#~ "如果用户输入的条件中找不到匹配项，程序将使用该默认值进行查询。\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "缩略词 URL(&U)："
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "请选择用于为搜索查询字串进行编码的字符集。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "在此输入的缩略词可在 KDE 中作为伪 URI 方案使用。例如缩略词 <b>av</b> 可以"
-#~ "通过 <b>av</b>:<b>搜索条件</b> 进行调用\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>请为此缩略词输入一个易于理解的名称。</p></body></"
-#~ "html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "缩略词(&S)："
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "请选择用于为搜索查询字串进行编码的字符集。"
-
-#~ msgid "&Charset:"
-#~ msgstr "字符集(&C)："
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "插入搜索占位符"
-
-#~ msgid "Common name:"
-#~ msgstr "通用名称："
-
-#~ msgid "Acme Co."
-#~ msgstr "江南皮革厂"
-
-#~ msgid "Organization:"
-#~ msgstr "组织："
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "江南皮革有限公司"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "组织内部单位："
-
-#~ msgid "Fraud Department"
-#~ msgstr "财务部"
-
-#~ msgid "Country:"
-#~ msgstr "国家/地区："
-
-#~ msgid "Canada"
-#~ msgstr "中国"
-
-#~ msgid "State:"
-#~ msgstr "州/省："
-
-#~ msgid "Quebec"
-#~ msgstr "浙江"
-
-#~ msgid "City:"
-#~ msgstr "城市："
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "温州"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "请将校验和复制粘贴到下面的输入框。<br/>校验和通常由下载文件的来源网站提"
-#~ "供。"
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "预期的校验和 (MD5，SHA1，SHA256 或 SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "点击以将剪贴板中的校验粘贴到输入框中。"
-
-#~ msgid "MD5:"
-#~ msgstr "MD5："
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1："
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256："
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512："
-
-#~ msgid "Calculate"
-#~ msgstr "计算"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "点击以将校验和复制到剪贴板。"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8020,270 +8968,6 @@ msgstr "如果您不信任此程序，请点击取消"
 #~ msgid "Unmount"
 #~ msgstr "卸载"
 
-#~ msgid "Stop"
-#~ msgstr "停止"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "使用 Filelight 浏览"
-
-#~ msgid "Mounted From:"
-#~ msgstr "挂载来源："
-
-#~ msgid "Free Space:"
-#~ msgstr "剩余空间："
-
-#~ msgid "Type:"
-#~ msgstr "类型："
-
-#~ msgid "Change..."
-#~ msgstr "更改..."
-
-#~ msgid "Content:"
-#~ msgstr "内容："
-
-#~ msgid "Points to:"
-#~ msgstr "指向："
-
-#~ msgid "Modified:"
-#~ msgstr "修改时间："
-
-#~ msgid "Created:"
-#~ msgstr "创建时间："
-
-#~ msgid "File System:"
-#~ msgstr "文件系统："
-
-#~ msgid "Unknown size"
-#~ msgstr "未知大小"
-
-#~ msgid "Mounted On:"
-#~ msgstr "挂载位置："
-
-#~ msgid "Accessed:"
-#~ msgstr "访问时间："
-
-#~ msgid "Open With:"
-#~ msgstr "打开方式："
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "终端"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "如果您想要运行的是文本模式程序，或者您想要读取程序在终端模式下运行时的信"
-#~ "息，请勾选此项。"
-
-#~ msgid "Run in terminal"
-#~ msgstr "在终端中运行"
-
-#~ msgid "Terminal options:"
-#~ msgstr "终端选项："
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "如果文本模式程序在退出时会输出相关信息，请勾选此项。这将保持终端模拟器处于"
-#~ "打开状态，以便您获取这些信息。"
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "命令退出时不关闭终端"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "用户"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "如果您想要以不同的用户 ID 运行此应用程序，请勾选此项。每个进程都有一个与之"
-#~ "关联的独立用户 ID。此 ID 用于确定文件访问权限和其他权限。使用此选项时您必"
-#~ "须提供该用户的密码。"
-
-#~ msgid "Run as a different user"
-#~ msgstr "以其他用户身份运行"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "输入您想要用来运行此应用程序的用户名。"
-
-#~ msgid "Username:"
-#~ msgstr "用户名："
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "在此输入您想要用来运行此应用程序的用户名。"
-
-#~ msgid "Discrete GPU"
-#~ msgstr "独立显卡"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "使用独立显卡运行"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "启动"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "勾选此项后，应用程序会在启动时显示视觉反馈。视觉反馈可以是一个等待光标，也"
-#~ "可以是任务栏动效。"
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "启用启动动效"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr "在此输入此应用程序的名称。应用菜单和面板将使用此名称来显示它。"
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "在此输入此应用程序的用途描述。例如一款数字绘画程序 (如 Krita) 的用途描述可"
-#~ "以是“绘画程序”。"
-
-#~ msgid "&Description:"
-#~ msgstr "描述(&D)："
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "在此输入您觉得有用的任意注释。"
-
-#~ msgid "Comm&ent:"
-#~ msgstr "注释(&E)："
-
-#~ msgid "Environment Variables:"
-#~ msgstr "环境变量："
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "在此输入用于启动此应用程序的命令。\n"
-#~ "\n"
-#~ "您可以在命令后面附加一些占位符。程序运行时，这些占位符将被替换为实际的"
-#~ "值：\n"
-#~ "\n"
-#~ "%f - 单个文件名\n"
-#~ "%F - 文件列表；用于可同时打开多个本地文件的应用程序\n"
-#~ "%u - 单个 URL\n"
-#~ "%U - URL 列表\n"
-#~ "%i - .desktop 文件的图标\n"
-#~ "%c - .desktop 文件的名称\n"
-#~ "%k - .desktop 文件的位置"
-
-#~ msgid "Program:"
-#~ msgstr "程序："
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr "点击此处可在您的文件系统中浏览，以便找到您想使用的可执行程序。"
-
-#~ msgid "&Browse..."
-#~ msgstr "浏览(&B)..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "设置此应用程序的工作目录。"
-
-#~ msgid "&Work path:"
-#~ msgstr "工作路径(&W)："
-
-#~ msgid "Arguments:"
-#~ msgstr "参数："
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>此列表显示了此应用程序能够处理的文件类型。它按照 <u>MIME 类型</u>进"
-#~ "行排序。</p>\n"
-#~ "<p>MIME 是 Multipurpose Internet Mail Extension (多用途互联网邮件扩展) 的"
-#~ "缩写。它是一种根据文件扩展名及其对应的 <u>MIME 类型</u>来识别数据类型的标"
-#~ "准协议。例如：文件名 flower.bmp 中位于半角句点之后的“bmp”表明此文件是一种"
-#~ "图像，它的类型是 <u>image/x-bmp</u>。应用程序会向系统报告它能够处理的扩展"
-#~ "名和 MIME 类型，以便系统将它们关联到对应的文件类型。</p>\n"
-#~ "<p>如果您想要关联到此应用程序的 MIME 类型不在此列表中，请点击下面的<b>添加"
-#~ "</b>按钮来添加它们。如果此应用程序无法处理此列表中的某些 MIME 类型，请点击"
-#~ "<b>移除</b>按钮来移除它们。</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "支持的 MIME 类型(&S)："
-
-#~ msgid "Mimetype"
-#~ msgstr "MIME 类型"
-
-#~ msgid "Description"
-#~ msgstr "描述"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "如果您想要添加此应用程序能够处理的文件类型 (MIME 类型)，请点击此按钮。"
-
-#~ msgid "Add..."
-#~ msgstr "添加..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "如果您想要移除此应用程序无法处理的文件类型 (MIME 类型)，请在上面的列表中选"
-#~ "择该 MIME 类型，然后点击此按钮。"
-
-#~ msgid "Remove"
-#~ msgstr "移除"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "点击此处修改此应用程序的运行方式、启动动效、D-Bus 选项，或者以其他用户身份"
-#~ "运行它。"
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "高级选项(&V)"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8302,40 +8986,3 @@ msgstr "如果您不信任此程序，请点击取消"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "粘贴剪贴板内容(&P)"
-
-#~ msgid "[padlock]"
-#~ msgstr "[挂锁]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "地址："
-
-#~ msgid "IP address:"
-#~ msgstr "IP 地址："
-
-#~ msgid "Encryption:"
-#~ msgstr "加密："
-
-#~ msgid "Details:"
-#~ msgstr "详情："
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL 版本："
-
-#~ msgid "Certificate chain:"
-#~ msgstr "证书链："
-
-#~ msgid "Trusted:"
-#~ msgstr "可信任："
-
-#~ msgid "Validity period:"
-#~ msgstr "有效期："
-
-#~ msgid "Serial number:"
-#~ msgstr "序列号："
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5 摘要："
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1 摘要："

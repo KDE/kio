@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3629,7 +3629,8 @@ msgstr ""
 "σχετιζόμενοι με το διάλογο αρχείου, αλλά λειτουργούν όπως και άλλοι "
 "σελιδοδείκτες στο KDE.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "Ό&νομα:"
@@ -3922,12 +3923,19 @@ msgstr ""
 "Δημιουργία νέου φακέλου στο:\n"
 "%1"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Επικόλληση"
@@ -4265,6 +4273,104 @@ msgstr "Τέλος συνεδρίας"
 msgid "Yes"
 msgstr "Ναι"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Αλληλεπιδραστική αναζήτηση για τομείς και υπολογιστές"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Ιστοσελίδα"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Όνομα cookie"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "Δια&γραφή"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "Διαγραφή ό&λων"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "Διαμόρφωση &πολιτικής..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "Επαναφό&ρτωση λίστας"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Όνομα:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Τιμή:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Τομέας:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Διαδρομή:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Λήγει:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "Ασφαλές:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4374,7 +4480,239 @@ msgstr ""
 "cookies από αξιόπιστες τοποθεσίες του διαδικτύου χωρίς να σας ρωτάει το KDE "
 "κάθε φορά που λαμβάνει ένα cookie.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Ενεργοποίηση υποστήριξης cookies. Κανονικά θα θέλετε να έχετε υποστήριξη "
+"cookies και να την προσαρμόσετε στις δικές σας ανάγκες.</p><p>\n"
+"Παρακαλώ σημειώστε ότι η απενεργοποίηση της υποστήριξης cookies μπορεί να "
+"κάνει πολλές ιστοσελίδες αδύνατο να εμφανιστούν σωστά.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "Ενεργοποίηση των coo&kies"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Απόρριψη των cookies τρίτων. Αυτά τα cookies προέρχονται από μία τοποθεσία "
+"διαφορετική από αυτή που εξερευνάτε. Για παράδειγμα, αν επισκεφθείτε την "
+"<b>www.foobar.com</b> όσο αυτή η επιλογή είναι ενεργοποιημένη, μόνο τα "
+"cookies που προέρχονται από τη www.foobar.com θα επεξεργαστούν με βάση τις "
+"ρυθμίσεις σας. Τα cookies από οποιαδήποτε άλλη τοποθεσία θα απορριφθούν. "
+"Αυτό μειώνει την πιθανότητα διαχειριστές μιας τοποθεσίας να μπορούν να "
+"φτιάξουν κάποιο προφίλ για τις καθημερινές συνήθειές σας κατά την πλοήγηση "
+"σε σελίδες.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "&Αποδοχή των cookies μόνο από τον εξυπηρετητή πηγής"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"Αυτόματη αποδοχή των προσωρινών cookies που είναι φτιαγμένα με προθεσμία "
+"λήξης το τέλος της τρέχουσας συνεδρίας σας. Τέτοια cookies δε θα "
+"αποθηκευτούν στον σκληρό δίσκο του υπολογιστή σας αλλά διαγράφονται όταν "
+"κλείσετε όλες τις εφαρμογές που τα χρησιμοποιεί. (π.χ. το πρόγραμμα "
+"πλοήγησής σας)</p><p><u>ΣΗΜΕΙΩΣΗ</u> Ενεργοποιώντας αυτήν την επιλογή θα "
+"αντικαταστήσει την προεπιλογή σας καθώς επίσης και τις ειδικές πολιτικές "
+"διαχείρισης των cookies για τις συνεδρίες.</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "Α&υτόματη αποδοχή των cookies συνεδρίας"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Καθορίζει τον τρόπο χειρισμού των cookies που παραλήφθηκαν από έναν "
+"απομακρυσμένο υπολογιστή: \n"
+"<ul>\n"
+"<li>Με το <b>Να ζητείται επιβεβαίωση</b> το KDE θα ζητήσει την επιβεβαίωσή "
+"σας όποτε ένας εξυπηρετητής θέλει να ορίσει ένα cookie.</li>\n"
+"<li>Η <b>Αποδοχή</b> θα ορίσει την αποδοχή όλων των cookies χωρίς προτροπή.</"
+"li>\n"
+"<li>Με την <b>Αποδοχή μέχρι το τέλος της συνεδρίας</b> τα cookies θα "
+"γίνονται αποδεκτά αλλά θα λήγουν στο τέλος της συνεδρίας.</li>\n"
+"<li>Με την <b>Απόρριψη</b> το cookiejar θα αρνηθεί όλα τα cookies που "
+"λαμβάνει.</li>\n"
+"</ul><p>\n"
+"<u>ΣΗΜΕΙΩΣΗ:</u> Οι ειδικές πολιτικές τομέα που μπορούν να ορισθούν "
+"παρακάτω, προηγούνται πάντα της προκαθορισμένης πολιτικής.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Προκαθορισμένη πολιτική"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "Α&ποδοχή όλων των cookies"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "Αποδοχή &μέχρι το τέλος της συνεδρίας"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "Να &ζητείται επιβεβαίωση"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "Από&ρριψη όλων των cookies"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Για την προσθήκη νέας πολιτικής, απλά κάντε κλικ στο <b>Προσθήκη...</b>και "
+"δώστε τις απαραίτητες πληροφορίες. Για αλλαγή μιας υπάρχουσας πολιτικής, "
+"χρησιμοποιήστε το κουμπί <b>Αλλαγή...</b> και επιλέξτε τη νέα πολιτική από "
+"το διάλογο πολιτικών. Κάνοντας κλικ στο <b>Διαγραφή</b> θα διαγράφει η "
+"επιλεγμένη πολιτική ενεργοποιώντας τη χρήση της προεπιλεγμένης πολιτικής για "
+"το συγκεκριμένο τομέα, και τέλος η <b>Διαγραφή όλων</b> θα διαγράψει όλες "
+"τις ειδικές πολιτικές για τοποθεσίες.\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Πολιτική ιστοσελίδας"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Αλληλεπιδραστική αναζήτηση τομέων"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, fuzzy, kde-format
+#| msgid "Search"
+msgid "Search..."
+msgstr "Αναζήτηση"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Λίστα με τις τοποθεσίας που ορίσατε ειδική πολιτική για τα cookies. Οι "
+"ειδικές πολιτικές αντικατασταθούν την προεπιλεγμένη ρύθμιση πολιτικής για "
+"αυτές τις τοποθεσίες.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Τομέας"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Πολιτική"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Νέο..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "Αλ&λαγή..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Αποδοχή"
 
@@ -4382,17 +4720,92 @@ msgstr "Αποδοχή"
 msgid "Accept For Session"
 msgstr "Αποδοχή για αυτήν τη συνεδρία"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Απόρριψη"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Ερώτηση"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "Δε γνωρίζω"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Δώστε τον υπολογιστή ή τον τομέα που ισχύει αυτή η πολιτική, π.χ. <b>www.kde."
+"org</b> ή <b>.kde.org</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "Όνομα ιστοσελίδας:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+"Εισάγετε το όνομα υπολογιστή ή τομέα, π.χ. .kde.org, που θα έχει εφαρμογή "
+"αυτή η πολιτική."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Επιλέξτε την επιθυμητή πολιτική:\n"
+"<ul>\n"
+"<li><b>Αποδοχή</b> - Επιτρέπει στον ιστοχώρο αυτόν να ορίζει cookies</li>\n"
+"<li><b>Αποδοχή μέχρι το τέλος της συνεδρίας</b> - Επιτρέπει στον ιστοχώρο "
+"αυτόν να ορίζει cookies τα οποία θα λήξουν στο τέλος της συνεδρίας.</li>\n"
+"<li><b>Απόρριψη</b> - Απορρίπτει όλα τα cookies από αυτόν τον ιστοχώρο</li>\n"
+"<li><b>Ερώτηση</b> - Προτροπή όταν λαμβάνονται cookies από αυτόν τον "
+"ιστοχώρο</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "Πολιτική:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "Αποδοχή μέχρι το τέλος της συνεδρίας"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4413,6 +4826,43 @@ msgstr "Η ενημέρωση απέτυχε"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Πρέπει να επανεκκινήσετε το KDE για να εφαρμοστούν αυτές οι αλλαγές."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Απενεργοποίηση παθητικού FTP"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Όταν οι συνδέσεις FTP είναι παθητικές, ο πελάτης συνδέεται στον εξυπηρετητή, "
+"και όχι το ανάποδο, έτσι τα τείχη προστασίας δεν μπλοκάρουν τη σύνδεση, "
+"ωστόσο παλιοί εξυπηρετητές FTP μπορεί να μην υποστηρίζουν την παθητική "
+"σύνδεση FTP."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Σήμανση μερικώς απεσταλμένων αρχείων"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"Όταν ένα αρχείο είναι απεσταλμένο μερικώς η επέκτασή του είναι \".part\". Η "
+"επέκταση αυτή θα αφαιρεθεί όταν η μεταφορά του αρχείου ολοκληρωθεί."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4578,6 +5028,467 @@ msgstr ""
 "διαμεσολαβητές φιλτραρίσματος, από την άλλη, προσφέρουν τη δυνατότητα να "
 "αποτρέψετε ανεπιθύμητο διαφημιστικό υλικό ή spam.</p><p><u>Σημείωση:</u> "
 "Μερικοί διαμεσολαβητές προσφέρουν και τις δύο παραπάνω υπηρεσίες</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Διαμόρφωση διαμεσολαβητή.\n"
+"<p>\n"
+"Ένας διαμεσολαβητής είναι μια ενδιάμεση εφαρμογή που στήνεται ανάμεσα στο "
+"μηχάνημά σας και το διαδίκτυο και προσφέρει υπηρεσίες λανθάνουσας μνήμης και "
+"φιλτραρίσματος ιστοσελίδων.Οι διαμεσολαβητές λανθάνουσας μνήμης σας δίνουν "
+"γρηγορότερη πρόσβαση σε ιστοσελίδες που έχετε  ήδη επισκεφθεί, αποθηκεύοντας "
+"τοπικά το περιεχόμενό τους. Οι διαμεσολαβητές φιλτραρίσματος, από την άλλη, "
+"προσφέρουν τη δυνατότητα να αποτρέψετε ανεπιθύμητο διαφημιστικό υλικό ή "
+"spam.\n"
+"<p>\n"
+"Αν δεν είστε σίγουροι αν χρειάζεστε ή όχι ένα διαμεσολαβητή για τη σύνδεση "
+"στο διαδίκτυο, ανατρέξτε στον οδηγό εγκατάστασης Internet από την εταιρεία "
+"που σας παρέχει τη σύνδεση ή το διαχειριστή του συστήματός σας.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Σύνδεση με το διαδίκτυο απευθείας."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "Χωρίς διαμεσολαβητή"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Αυτόματη ανίχνευση και διαμόρφωση του διαμεσολαβητή σας.<p>\n"
+"Η αυτόματη ανίχνευση γίνεται χρησιμοποιώντας το πρωτόκολλο <b>Web Proxy Auto-"
+"Discovery Protocol (WPAD)</b>.<p>\n"
+"<b>ΣΗΜΕΙΩΣΗ:</b> Αυτή η επιλογή μπορεί να μη λειτουργήσει σωστά ή να μη "
+"λειτουργήσει καθόλου σε κάποιες UNIX/Linux διανομές. Αν αντιμετωπίσετε "
+"κάποιο πρόβλημα χρησιμοποιώντας αυτή την επιλογή, παρακαλώ ελέγξτε της "
+"Ερωτήσεις/Απαντήσεις στο http://konqueror.kde.org.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "Ανίχνευση της διαμόρφωσης διαμεσολαβητή αυτόματα"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr ""
+"Χρήση του ορισμένου σεναρίου διαμεσολαβητή για τη διαμόρφωση των ρυθμίσεων "
+"διαμεσολαβητή."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "Χρήση του URL αυτόματης διαμόρφωσης διαμεσολαβητή:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Δώστε τη διεύθυνση για το σενάριο διαμόρφωσης διαμεσολαβητή."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>Χρήση ρυθμίσεων διαμεσολαβητή που ορίζονται στο σύστημα.</p>\n"
+"<p>Μερικές πλατφόρμες προσφέρουν πληροφορίες διαμόρφωσης διαμεσολαβητή σε "
+"επίπεδο συστήματος και με την επιλογή αυτή μπορείτε να χρησιμοποιήσετε αυτές "
+"τις ρυθμίσεις.</p>\n"
+"<p>Σε Mac πλατφόρμες</p>\n"
+"<p>Σε Windows πλατφόρμες</p>\n"
+"<p>Σε Unix και Linux πλατφόρμες, τέτοιες ρυθμίσεις διαμεσολαβητή συστήματος "
+"συνήθως ορίζονται μέσα από μεταβλητές περιβάλλοντος. Οι ακόλουθες μεταβλητές "
+"περιβάλλοντος ανιχνεύονται και χρησιμοποιούνται όταν υπάρχουν: "
+"<b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</"
+"p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "Χρήση διαμόρφωσης διαμεσολαβητή συστήματος:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Προσπάθεια αυτόματης ανίχνευσης των μεταβλητών περιβάλλοντος που "
+"χρησιμοποιούνται για τον ορισμό των διαμεσολαβητών του συστήματος. <p> Αυτό "
+"το χαρακτηριστικό λειτουργεί αναζητώντας για κοινά χρησιμοποιούμενα ονόματα "
+"μεταβλητών όπως τα HTTP_PROXY, FTP_PROXY και NO_PROXY. </qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "Αυτόματη ανίχν&ευση"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>HTTP_PROXY</b>, που "
+"χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή HTTP."
+"<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP διαμεσολαβητής:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>HTTPS_PROXY</b>, που "
+"χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή HTTPS."
+"<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής.</p> \n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL διαμεσολαβητής:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>FTP_PROXY</b>, που "
+"χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή FTP.<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής.</p> \n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP διαμεσολαβητής:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>SOCKS_PROXY</b>, που "
+"χρησιμεύει για την αποθήκευση της διεύθυνσης του διαμεσολαβητή SOCKS.<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS διαμεσολαβητής:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#| "can click on the <b>\"Auto Detect\"</b> button to attempt an automatic "
+#| "discovery of this variable.</p></qt>"
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>SOCKS_PROXY</b>, που "
+"χρησιμεύει για την αποθήκευση της διεύθυνσης του διαμεσολαβητή SOCKS.<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής.</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>NO_PROXY</b>, που "
+"χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή που δεν "
+"πρέπει να χρησιμοποιηθεί.<p>\n"
+"Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> για "
+"την αυτόματη εύρεση της μεταβλητής αυτής. \n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "Εξαιρέσεις:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#| "the addresses of sites for which the above proxy settings should not be "
+#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
+#| "to attempt an automatic discovery of this variable.</p></qt>"
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>NO_PROXY</b>, που "
+"χρησιμεύει για την αποθήκευση διευθύνσεων ιστοχώρων για τις οποίες οι "
+"παραπάνω ρυθμίσεις διαμεσολαβητή δεν πρέπει να χρησιμοποιηθούν."
+"<p>Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
+"για την αυτόματη εύρεση της μεταβλητής αυτής.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Εμφάνιση της &τιμής των μεταβλητών περιβάλλοντος"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "Χειροκίνητη εισαγωγή πληροφοριών διαμόρφωσης διαμεσολαβητή."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "Χρήση χειροκίνητα ορισμένης διαμόρφωσης διαμεσολαβητή:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή HTTP."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "Θύρα:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή HTTP."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Χρήση αυτού του διαμεσολαβητή για ό&λα τα πρωτόκολλα"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Δώστε μια λίστα με το κόμμα για διαχωριστικό από ονόματα υπολογιστών ή IP "
+"διευθύνσεις που πρέπει να εξαιρεθούν από τη χρήση των παραπάνω ρυθμίσεων "
+"διαμεσολαβητή.</p>\n"
+"<p>Αν θέλετε να εξαιρεθούν όλοι οι υπολογιστές για ένα δοσμένο τομέα, τότε "
+"απλά δώστε το όνομα του τομέα με μια τελεία μπροστά. Για παράδειγμα, για να "
+"αποκλείσετε όλους τους υπολογιστές για το <i>kde.org</i>, δώστε <i>.kde.org</"
+"i>. Χαρακτήρες υποκατάστασης όπως '*' ή '?' δεν υποστηρίζονται και δεν θα "
+"έχουν επίδραση.</p>\n"
+"<p>Επιπλέον, μπορείτε να εισάγετε IP διευθύνσεις, π.χ. 127.0.0.1 και IP "
+"διευθύνσεις με υποδίκτυο, π.χ. 192.168.0.1/24.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"Επιλέξτε το πλαίσιο αυτό αν θέλετε οι παραπάνω ρυθμίσεις διαμεσολαβητή να "
+"εφαρμόζονται μόνο στις διευθύνσεις που βρίσκονται στη λίστα με τις "
+"<i>Εξαιρέσεις</i>.</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr ""
+"Χρήση ρυθμίσεις διαμεσολαβητή μόνο για διευθύνσεις στη λίστα εξαιρέσεων"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5371,11 +6282,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Πολλών τομέων]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Λεπτομέρειες"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5463,31 +6369,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Λεπτομέρειες cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Όνομα:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Τιμή:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Λήγει:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Διαδρομή:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Τομέας:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, fuzzy, kde-format
@@ -5662,7 +6543,8 @@ msgstr ""
 "έναν μέγιστο χώρο στον δίσκο, που καθορίζεται παρακάτω. Διαφορετικά, ο χώρος "
 "των απορριμμάτων θα είναι απεριόριστος.</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Μέγεθος:"
@@ -5951,6 +6833,167 @@ msgstr ""
 "εισαγωγής των εφαρμογών που διαθέτουν ενσωματωμένη υποστήριξη για το "
 "χαρακτηριστικό αυτό, όπως για παράδειγμα ο Konqueror.</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
+#| "shortcuts allow you to quickly access or search for information located "
+#| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
+#| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
+#| "use it, you simply type the keyword 'gg' followed by the keyword "
+#| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+#| "KDE</span>.</p></body></html>"
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>(Απ)ενεργοποιήστε συντομεύσεις ιστού. </p><p>Οι "
+"συντομεύσεις ιστού σάς επιτρέπουν τη γρήγορη πρόσβαση ή την αναζήτηση "
+"πληροφοριών που βρίσκονται στον ιστό ή στον σκληρό σας δίσκο. </p><p>Το KDE "
+"περιέχει πολλές προκαθορισμένες συντομεύσεις ιστού. Μία τέτοια συντόμευση "
+"ιστού είναι η συντόμευση αναζήτησης Google (TM). Για να τη χρησιμοποιήσετε, "
+"απλώς πληκτρολογήστε 'gg' ακολουθούμενο από τον οριοθέτη και τον όρο της "
+"αναζήτησης, π.χ. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, fuzzy, kde-format
+#| msgid "&Enable Web shortcuts"
+msgid "&Enable Web search keywords"
+msgstr "&Ενεργοποίηση συντομεύσεων ιστού"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, fuzzy, kde-format
+#| msgid "&Use preferred shortcuts only"
+msgid "&Use preferred keywords only"
+msgstr "&Χρήση μόνο των προτιμώμενων συντομεύσεων"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, fuzzy, kde-format
+#| msgid "Search for shortcut"
+msgid "Search for web search keywords"
+msgstr "Αναζήτηση συντόμευσης"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, fuzzy, kde-format
+#| msgid "Add a new Web shortcut"
+msgid "Add a new Web search keyword"
+msgstr "Προσθήκη νέας συντόμευσης ιστού"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, fuzzy, kde-format
+#| msgid "Modify the highlighted Web shortcut"
+msgid "Modify the highlighted Web search keyword"
+msgstr "Να τροποποιηθεί η τονισμένη συντόμευση ιστού"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, fuzzy, kde-format
+#| msgid "Delete the highlighted Web shortcut"
+msgid "Delete the highlighted Web search keyword"
+msgstr "Να διαγραφεί η τονισμένη συντόμευση ιστού"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "Δια&γραφή"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Επιλέξτε τη μηχανή αναζήτησης που θα χρησιμοποιηθεί σε πλαίσια εισαγωγής που "
+"προσφέρουν υπηρεσίες αυτόματης αναζήτησης, όταν πληκτρολογείτε λέξεις και "
+"φράσεις αντί του αντίστοιχου URL. Για απενεργοποίηση του χαρακτηριστικού "
+"αυτού επιλέξτε <b>Καμία</b> από τη λίστα.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, fuzzy, kde-format
+#| msgid "Default Web &shortcut:"
+msgid "Default Web &search keyword:"
+msgstr "Προκαθορισμένη &συντόμευση ιστού:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+#| "applications to automatically convert the typed word or phrase to web "
+#| "shortcut queries when they cannot be filtered into a proper URL. </"
+#| "p><p>To disable this functionality select <span style=\" font-weight:600;"
+#| "\">None</span> from the list. </p></body></html>"
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Επιλέξτε μια προκαθορισμένη συντόμευση ιστού. </"
+"p><p>Θα επιτρέψει στις εφαρμογές να μετατρέψουν αυτόματα την πληκτρολογημένη "
+"λέξη ή φράση σε ερωτήσεις συντόμευσης ιστού όταν δεν γίνεται να "
+"φιλτραριστούν σε κατάλληλο URL. </p><p>Για να απενεργοποιήσετε τη λειτουργία "
+"αυτή επιλέξτε <span style=\" font-weight:600;\">Καμία</span> από τη λίστα. </"
+"p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Επιλέξτε τον οριοθέτη που διαχωρίζει τη λέξη κλειδί από τη φράση ή τη λέξη "
+"που θα αναζητηθεί."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "Οριοθέτης λέξης &κλειδιού:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, fuzzy, kde-format
+#| msgid "Choose a delimiter to mark the Web shortcut keyword."
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "Επιλογή οριοθέτη για να σημειωθεί η λέξη κλειδί συντόμευσης ιστού."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Άνω κάτω τελεία"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Διάστημα"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -6017,6 +7060,130 @@ msgstr ""
 msgid "Keep It"
 msgstr "Διατήρησέ το"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Εισάγετε εδώ το αναγνωρίσιμο όνομα του παρόχου αναζήτησης."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "Ό&νομα συντόμευσης:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Εισάγετε την URI που χρησιμοποιείται για αναζητήσεις σε μια μηχανή "
+"αναζήτησης εδώ. <br/> Το κείμενο αναζήτησης μπορεί να ορισθεί ως \\{@} ή "
+"\\{0}.<br/>\n"
+"Προτεινόμενο είναι το \\{@}, επειδή αφαιρεί όλες τις μεταβλητές αναζήτησης "
+"(name=value) από το αλφαριθμητικό-αποτέλεσμα, ενώ το \\{0} θα αντικατασταθεί "
+"με το μη τροποποιημένο αλφαριθμητικό αναζήτησης. <br/> Μπορείτε να "
+"χρησιμοποιήσετε το \\{1} ... \\{n} για να ορίσετε κάποιες λέξεις στην "
+"αναζήτηση και το \\{name} για να ορίσετε μια τιμή που αντιστοιχεί στο "
+"'name=value' στην αναζήτηση. <br/> Επιπλέον είναι δυνατός ο ορισμός "
+"πολλαπλών αντιστοιχιών (ονόματα αριθμοί και κείμενο) ταυτόχρονα (\\{name1,"
+"name2,...,\"string\"}). <br/> H πρώτη τιμή που αντιστοιχίζεται (αρχίζοντας "
+"από αριστερά) θα χρησιμοποιηθεί σαν τιμή αντικατάστασης για το URI - "
+"αποτέλεσμα. <br/>Μία συμβολοσειρά σε εισαγωγικά μπορεί να χρησιμοποιηθεί σαν "
+"προκαθορισμένη τιμή, αν τίποτα δεν αντιστοιχίζεται από τα αριστερά της "
+"λίστας αναφοράς.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "&URL συντόμευσης:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Επιλέξτε το συνόλων χαρακτήρων που θα χρησιμοποιηθεί για την κωδικοποίηση "
+"της αναζήτησης."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Οι συντομεύσεις που εισάγατε εδώ μπορούν να χρησιμοποιηθούν ως ψευδο-URI στο "
+"KDE. Για παράδειγμα, η συντόμευση <b>av</b> μπορεί να χρησιμοποιηθεί ως "
+"<b>av</b>:<b> η αναζήτησή μου</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Εισάγετε εδώ το αναγνωρίσιμο όνομα της συντόμευσης "
+"ιστού.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&Συντομεύσεις:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Επιλέξτε το συνόλων χαρακτήρων που θα χρησιμοποιηθεί για την κωδικοποίηση "
+"της αναζήτησης"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "&Σύνολο χαρακτήρων:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "Εισαγωγή αντικαταστάτη αναζήτησης"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -6036,6 +7203,155 @@ msgstr "Αίτηση σε φραγή."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Άγνωστο HTTP ρήμα."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Κοινό όνομα:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Οργανισμός:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Οργανωτική μονάδα:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Fraud Department"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "Χώρα:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Καναδάς"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Πολιτεία:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Κεμπέκ"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Πόλη:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"Αντιγραφή και επικόλληση του αθροίσματος ελέγχου στο παρακάτω πεδίο.<br/"
+">Συνήθως παρέχεται ένα άθροισμα ελέγχου από την ιστοσελίδα από όπου λάβατε "
+"το αρχείο."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, fuzzy, kde-format
+#| msgid "Expected checksum (MD5, SHA1 or SHA256)..."
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "Αναμενόμενο άθροισμα ελέγχου (MD5, SHA1 ή SHA256)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+"Κλικ για επικόλληση του αθροίσματος ελέγχου από το πρόχειρο στο πεδίο "
+"εισόδου."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Υπολογισμός"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "Κλικ για αντιγραφή του αθροίσματος ελέγχου στο πρόχειρο."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6557,6 +7873,112 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Σταμάτημα"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted From:"
+msgstr "Προσαρτημένο στο:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, fuzzy, kde-format
+#| msgctxt "Space as keyword delimiter"
+#| msgid "Space"
+msgid "Free Space:"
+msgstr "Διάστημα"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Τύπος:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, fuzzy, kde-format
+#| msgid "C&hange..."
+msgid "Change..."
+msgstr "Αλ&λαγή..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, fuzzy, kde-format
+#| msgid "Contents:"
+msgid "Content:"
+msgstr "Περιεχόμενα:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Δείχνει στο:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Τροποποιήθηκε:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Δημιουργήθηκε:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
+msgstr "Σύστημα αρχείων:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Unknown size"
+msgid "Unknown size"
+msgstr "Άγνωστο μέγεθος"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, fuzzy, kde-format
+#| msgid "Mounted on:"
+msgid "Mounted On:"
+msgstr "Προσαρτημένο στο:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Προσπελάστηκε:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "Άνοιγμα με"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6727,6 +8149,399 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Τερματικό"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή αν η εφαρμογή που θέλετε να εκτελέσετε είναι "
+"μια εφαρμογή που λειτουργεί σε κατάσταση κειμένου ή αν χρειάζεστε τις "
+"πληροφορίες που προέρχονται από το παράθυρο του προσομοιωτή τερματικού ."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, fuzzy, kde-format
+#| msgid "&Run in terminal"
+msgid "Run in terminal"
+msgstr "Εκτέλεση σε τε&ρματικό"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, fuzzy, kde-format
+#| msgid "&Terminal options:"
+msgid "Terminal options:"
+msgstr "Επιλο&γές τερματικού:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή αν η εφαρμογή που λειτουργεί σε κατάστασης "
+"κειμένου προσφέρει σχετικές πληροφορίες κατά την έξοδό της. Διατηρώντας τον "
+"προσομοιωτή τερματικού ανοικτό σας επιτρέπει να ανακτήσετε αυτές τις "
+"πληροφορίες."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, fuzzy, kde-format
+#| msgid "&Do not close when command exits"
+msgid "Do not close when command exits"
+msgstr "&Να μην κλείσει όταν η εντολή εκτελεστεί"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Χρήστης"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή αν θέλετε να εκτελέσετε αυτή την εφαρμογή με "
+"ένα διαφορετικό id χρήστη. Κάθε διεργασία έχει ένα διαφορετικό id χρήστη που "
+"συσχετίζεται με αυτήν. Αυτός ο κωδικός id καθορίζει την πρόσβαση σε αρχεία "
+"καθώς και άλλες άδειες. Ο κωδικός του χρήστη απαιτείται για τη χρήση αυτής "
+"της επιλογής."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgid "Run as a different user"
+msgstr "Εκτέλεση σαν διαφορετικός &χρήστης"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "Δώστε το όνομα χρήστη με το οποίο θέλετε να εκτελέσετε την εφαρμογή."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Όνομα χρήστη:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr ""
+"Δώστε εδώ το όνομα χρήστη με το οποίο θέλετε να εκτελέσετε την εφαρμογή."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title:group Title of a group that lets the user choose options regargin "
+#| "program startup"
+#| msgid "Startup"
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Έναρξη"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή αν θέλετε να γίνει φανερό ότι η εφαρμογή σας "
+"ξεκίνησε. Αυτή η οπτική πληροφόρηση μπορεί να εμφανιστεί ως ένας "
+"απασχολημένος δρομέας ή μέσα στη μπάρα εργασιών."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, fuzzy, kde-format
+#| msgid "Enable &launch feedback"
+msgid "Enable launch feedback"
+msgstr "Ενεργοποίηση ειδοποίησης &εκκίνησης"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Δώστε εδώ το όνομα που θέλετε για αυτή την εφαρμογή. Αυτή η εφαρμογή θα "
+"εμφανιστεί με αυτό το όνομα στο μενού εφαρμογών και στον πίνακα."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Δώστε εδώ την περιγραφή για αυτή την εφαρμογή, βασισμένη στη χρήση της. "
+"Παραδείγματα: μια εφαρμογή dial up (KPPP) θα έχει περιγραφή \"Εργαλείο dial "
+"up\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Περιγραφή:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Δώστε εδώ οποιοδήποτε σχόλιο θεωρείτε ότι είναι χρήσιμο."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "&Σχόλιο:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Use preset proxy environment &variables"
+msgid "Environment Variables:"
+msgstr "Χρήση προκαθορισμένων μεταβλ&ητών περιβάλλοντος διαμεσολαβητή"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the caption"
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Δώστε εδώ την εντολή για την εκκίνηση αυτής της εφαρμογής.\n"
+"\n"
+"Μετά την εντολή, μπορείτε να έχετε διάφορα δεσμευτικά θέσης τα οποία θα "
+"αντικατασταθούν με τις πραγματικές τιμές όταν το πρόγραμμα εκτελεστεί:\n"
+"%f - ένα όνομα αρχείου\n"
+"%F - μια λίστα από αρχεία; χρησιμοποιήστε το για εφαρμογές που μπορούν να "
+"ανοίξουν πολλά τοπικά αρχεία ταυτόχρονα\n"
+"%u - ένα URL\n"
+"%U - μια λίστα από URL\n"
+"%d - ο κατάλογος του αρχείου για άνοιγμα\n"
+"%D - μια λίστα από καταλόγους\n"
+"%i - το εικονίδιο\n"
+"%m - το μίνι εικονίδιο\n"
+"%c - η επικεφαλίδα"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Κάντε κλικ εδώ για να εξερευνήσετε το σύστημα αρχείων σας ώστε να βρείτε το "
+"επιθυμητό εκτελέσιμο."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "Ε&ξερεύνηση..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Ορίζει τον κατάλογο εργασίας για την εφαρμογή σας."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "Διαδρομή &εργασίας:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, fuzzy, kde-format
+#| msgid "FIXME: Document this"
+msgid "Arguments:"
+msgstr "ΦΤΙΑΞΕ ΜΕ: Τεκμηρίωση αυτού"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Αυτή η λίστα θα πρέπει να εμφανίζει τους τύπους αρχείων που μπορεί να "
+"διαχειριστή η εφαρμογή σας. Η λίστα οργανώνεται ανάλογα με τους <u>τύπους "
+"mime</u>.</p>\n"
+"<p>Το MIME, Multipurpose Internet (e)Mail Extension, (Επέκταση πολλαπλών "
+"χρήσεων αλληλογραφίας διαδικτύου) είναι ένα τυπικό πρωτόκολλο για την "
+"αναγνώριση του τύπου των δεδομένων βασισμένο στην αντιστοίχηση επεκτάσεων "
+"ονομάτων αρχείων με <u>τύπους mime</u>. Παράδειγμα: το \"bmp\" που "
+"εμφανίζεται μετά την τελεία στο flower.bmp καθορίζει ότι το περιεχόμενο "
+"είναι ένας συγκεκριμένος τύπος εικόνας, <u>image/x-bmp</u>. Για να "
+"αναγνωριστεί ποια εφαρμογή θα ανοίξει κάθε τύπο αρχείου, το σύστημα θα "
+"πρέπει να πληροφορηθεί σχετικά με τις ικανότητες κάθε εφαρμογής για το "
+"χειρισμό των επεκτάσεων και των τύπων mime.</p><p>Αν θέλετε τη συσχέτιση "
+"αυτής της εφαρμογής με έναν ή περισσότερους τύπους mime που δε βρίσκονται "
+"στη λίστα, κάντε κλικ στο κουμπί <b>Προσθήκη</b> παρακάτω. Αν υπάρχουν ένας "
+"ή περισσότεροι τύπου αρχείων που δεν μπορούν να διαχειριστεί αυτή η εφαρμογή "
+"μπορείτε να τους αφαιρέσετε από τη λίστα κάνοντας κλικ στο κουμπί "
+"<b>Αφαίρεση</b> παρακάτω.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "&Υποστηριζόμενοι τύποι αρχείου:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "Τύπος mime"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Περιγραφή"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Κάντε κλικ σε αυτό το κουμπί αν θέλετε να προσθέσετε έναν τύπο αρχείου "
+"(τύπος mime) που η εφαρμογή σας μπορεί να διαχειριστεί."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Προσθήκη..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Αν θέλετε να αφαιρέσετε έναν τύπο αρχείου (τύπος mime) που η εφαρμογή σας "
+"δεν μπορεί να διαχειριστεί, επιλέξτε τον τύπο mime στην παραπάνω λίστα και "
+"κάντε κλικ σε αυτό το κουμπί."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Κάντε κλικ εδώ για να τροποποιήσετε τον τρόπο με τον οποίο θα εκτελεστεί η "
+"εφαρμογή, την ειδοποίηση εκκίνησης, τις επιλογές D-Bus ή για να εκτελείται "
+"μέσω ενός διαφορετικού χρήστη."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "&Προχωρημένες επιλογές"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -7440,11 +9255,6 @@ msgstr "Διαμόρφωση συντομεύσεων ιστού..."
 msgid "Open file dialog"
 msgstr "Διάλογος ανοίγματος αρχείου"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Τοποθεσία:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7776,6 +9586,79 @@ msgstr "Παράλειψη"
 msgid "Skip All"
 msgstr "Παράλειψη"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[padlock]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Διεύθυνση:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "Διεύθυνση IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Κρυπτογράφηση:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Λεπτομέρειες:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "Έκδοση SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Ακολουθία πιστοποιητικού:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "Έμπιστο:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Περίοδος εγκυρότητας:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Σειριακός αριθμός:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "Σύνοψη MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "Σύνοψη SHA1:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7937,890 +9820,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "η προσάρτηση δεν υποστηρίζεται από το wince."
 
-#~ msgid "Search"
-#~ msgstr "Αναζήτηση"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Αλληλεπιδραστική αναζήτηση για τομείς και υπολογιστές"
-
-#~ msgid "Site"
-#~ msgstr "Ιστοσελίδα"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Όνομα cookie"
-
-#~ msgid "D&elete"
-#~ msgstr "Δια&γραφή"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "Διαγραφή ό&λων"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "Διαμόρφωση &πολιτικής..."
-
-#~ msgid "&Reload List"
-#~ msgstr "Επαναφό&ρτωση λίστας"
-
-#~ msgid "Secure:"
-#~ msgstr "Ασφαλές:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Ενεργοποίηση υποστήριξης cookies. Κανονικά θα θέλετε να έχετε "
-#~ "υποστήριξη cookies και να την προσαρμόσετε στις δικές σας ανάγκες.</"
-#~ "p><p>\n"
-#~ "Παρακαλώ σημειώστε ότι η απενεργοποίηση της υποστήριξης cookies μπορεί να "
-#~ "κάνει πολλές ιστοσελίδες αδύνατο να εμφανιστούν σωστά.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "Ενεργοποίηση των coo&kies"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Απόρριψη των cookies τρίτων. Αυτά τα cookies προέρχονται από μία "
-#~ "τοποθεσία διαφορετική από αυτή που εξερευνάτε. Για παράδειγμα, αν "
-#~ "επισκεφθείτε την <b>www.foobar.com</b> όσο αυτή η επιλογή είναι "
-#~ "ενεργοποιημένη, μόνο τα cookies που προέρχονται από τη www.foobar.com θα "
-#~ "επεξεργαστούν με βάση τις ρυθμίσεις σας. Τα cookies από οποιαδήποτε άλλη "
-#~ "τοποθεσία θα απορριφθούν. Αυτό μειώνει την πιθανότητα διαχειριστές μιας "
-#~ "τοποθεσίας να μπορούν να φτιάξουν κάποιο προφίλ για τις καθημερινές "
-#~ "συνήθειές σας κατά την πλοήγηση σε σελίδες.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "&Αποδοχή των cookies μόνο από τον εξυπηρετητή πηγής"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "Αυτόματη αποδοχή των προσωρινών cookies που είναι φτιαγμένα με προθεσμία "
-#~ "λήξης το τέλος της τρέχουσας συνεδρίας σας. Τέτοια cookies δε θα "
-#~ "αποθηκευτούν στον σκληρό δίσκο του υπολογιστή σας αλλά διαγράφονται όταν "
-#~ "κλείσετε όλες τις εφαρμογές που τα χρησιμοποιεί. (π.χ. το πρόγραμμα "
-#~ "πλοήγησής σας)</p><p><u>ΣΗΜΕΙΩΣΗ</u> Ενεργοποιώντας αυτήν την επιλογή θα "
-#~ "αντικαταστήσει την προεπιλογή σας καθώς επίσης και τις ειδικές πολιτικές "
-#~ "διαχείρισης των cookies για τις συνεδρίες.</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "Α&υτόματη αποδοχή των cookies συνεδρίας"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Καθορίζει τον τρόπο χειρισμού των cookies που παραλήφθηκαν από έναν "
-#~ "απομακρυσμένο υπολογιστή: \n"
-#~ "<ul>\n"
-#~ "<li>Με το <b>Να ζητείται επιβεβαίωση</b> το KDE θα ζητήσει την "
-#~ "επιβεβαίωσή σας όποτε ένας εξυπηρετητής θέλει να ορίσει ένα cookie.</li>\n"
-#~ "<li>Η <b>Αποδοχή</b> θα ορίσει την αποδοχή όλων των cookies χωρίς "
-#~ "προτροπή.</li>\n"
-#~ "<li>Με την <b>Αποδοχή μέχρι το τέλος της συνεδρίας</b> τα cookies θα "
-#~ "γίνονται αποδεκτά αλλά θα λήγουν στο τέλος της συνεδρίας.</li>\n"
-#~ "<li>Με την <b>Απόρριψη</b> το cookiejar θα αρνηθεί όλα τα cookies που "
-#~ "λαμβάνει.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>ΣΗΜΕΙΩΣΗ:</u> Οι ειδικές πολιτικές τομέα που μπορούν να ορισθούν "
-#~ "παρακάτω, προηγούνται πάντα της προκαθορισμένης πολιτικής.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "Προκαθορισμένη πολιτική"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "Α&ποδοχή όλων των cookies"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "Αποδοχή &μέχρι το τέλος της συνεδρίας"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "Να &ζητείται επιβεβαίωση"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "Από&ρριψη όλων των cookies"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Για την προσθήκη νέας πολιτικής, απλά κάντε κλικ στο <b>Προσθήκη...</"
-#~ "b>και δώστε τις απαραίτητες πληροφορίες. Για αλλαγή μιας υπάρχουσας "
-#~ "πολιτικής, χρησιμοποιήστε το κουμπί <b>Αλλαγή...</b> και επιλέξτε τη νέα "
-#~ "πολιτική από το διάλογο πολιτικών. Κάνοντας κλικ στο <b>Διαγραφή</b> θα "
-#~ "διαγράφει η επιλεγμένη πολιτική ενεργοποιώντας τη χρήση της "
-#~ "προεπιλεγμένης πολιτικής για το συγκεκριμένο τομέα, και τέλος η "
-#~ "<b>Διαγραφή όλων</b> θα διαγράψει όλες τις ειδικές πολιτικές για "
-#~ "τοποθεσίες.\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "Πολιτική ιστοσελίδας"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Αλληλεπιδραστική αναζήτηση τομέων"
-
-#, fuzzy
-#~| msgid "Search"
-#~ msgid "Search..."
-#~ msgstr "Αναζήτηση"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Λίστα με τις τοποθεσίας που ορίσατε ειδική πολιτική για τα cookies. Οι "
-#~ "ειδικές πολιτικές αντικατασταθούν την προεπιλεγμένη ρύθμιση πολιτικής για "
-#~ "αυτές τις τοποθεσίες.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Τομέας"
-
-#~ msgid "Policy"
-#~ msgstr "Πολιτική"
-
-#~ msgid "&New..."
-#~ msgstr "&Νέο..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "Αλ&λαγή..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Δώστε τον υπολογιστή ή τον τομέα που ισχύει αυτή η πολιτική, π.χ. <b>www."
-#~ "kde.org</b> ή <b>.kde.org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "Όνομα ιστοσελίδας:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "Εισάγετε το όνομα υπολογιστή ή τομέα, π.χ. .kde.org, που θα έχει εφαρμογή "
-#~ "αυτή η πολιτική."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Επιλέξτε την επιθυμητή πολιτική:\n"
-#~ "<ul>\n"
-#~ "<li><b>Αποδοχή</b> - Επιτρέπει στον ιστοχώρο αυτόν να ορίζει cookies</"
-#~ "li>\n"
-#~ "<li><b>Αποδοχή μέχρι το τέλος της συνεδρίας</b> - Επιτρέπει στον ιστοχώρο "
-#~ "αυτόν να ορίζει cookies τα οποία θα λήξουν στο τέλος της συνεδρίας.</li>\n"
-#~ "<li><b>Απόρριψη</b> - Απορρίπτει όλα τα cookies από αυτόν τον ιστοχώρο</"
-#~ "li>\n"
-#~ "<li><b>Ερώτηση</b> - Προτροπή όταν λαμβάνονται cookies από αυτόν τον "
-#~ "ιστοχώρο</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "Πολιτική:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "Αποδοχή μέχρι το τέλος της συνεδρίας"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Απενεργοποίηση παθητικού FTP"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Όταν οι συνδέσεις FTP είναι παθητικές, ο πελάτης συνδέεται στον "
-#~ "εξυπηρετητή, και όχι το ανάποδο, έτσι τα τείχη προστασίας δεν μπλοκάρουν "
-#~ "τη σύνδεση, ωστόσο παλιοί εξυπηρετητές FTP μπορεί να μην υποστηρίζουν την "
-#~ "παθητική σύνδεση FTP."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Σήμανση μερικώς απεσταλμένων αρχείων"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "Όταν ένα αρχείο είναι απεσταλμένο μερικώς η επέκτασή του είναι \".part\". "
-#~ "Η επέκταση αυτή θα αφαιρεθεί όταν η μεταφορά του αρχείου ολοκληρωθεί."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Διαμόρφωση διαμεσολαβητή.\n"
-#~ "<p>\n"
-#~ "Ένας διαμεσολαβητής είναι μια ενδιάμεση εφαρμογή που στήνεται ανάμεσα στο "
-#~ "μηχάνημά σας και το διαδίκτυο και προσφέρει υπηρεσίες λανθάνουσας μνήμης "
-#~ "και φιλτραρίσματος ιστοσελίδων.Οι διαμεσολαβητές λανθάνουσας μνήμης σας "
-#~ "δίνουν γρηγορότερη πρόσβαση σε ιστοσελίδες που έχετε  ήδη επισκεφθεί, "
-#~ "αποθηκεύοντας τοπικά το περιεχόμενό τους. Οι διαμεσολαβητές "
-#~ "φιλτραρίσματος, από την άλλη, προσφέρουν τη δυνατότητα να αποτρέψετε "
-#~ "ανεπιθύμητο διαφημιστικό υλικό ή spam.\n"
-#~ "<p>\n"
-#~ "Αν δεν είστε σίγουροι αν χρειάζεστε ή όχι ένα διαμεσολαβητή για τη "
-#~ "σύνδεση στο διαδίκτυο, ανατρέξτε στον οδηγό εγκατάστασης Internet από την "
-#~ "εταιρεία που σας παρέχει τη σύνδεση ή το διαχειριστή του συστήματός σας.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Σύνδεση με το διαδίκτυο απευθείας."
-
-#~ msgid "No Proxy"
-#~ msgstr "Χωρίς διαμεσολαβητή"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at http://konqueror.kde.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Αυτόματη ανίχνευση και διαμόρφωση του διαμεσολαβητή σας.<p>\n"
-#~ "Η αυτόματη ανίχνευση γίνεται χρησιμοποιώντας το πρωτόκολλο <b>Web Proxy "
-#~ "Auto-Discovery Protocol (WPAD)</b>.<p>\n"
-#~ "<b>ΣΗΜΕΙΩΣΗ:</b> Αυτή η επιλογή μπορεί να μη λειτουργήσει σωστά ή να μη "
-#~ "λειτουργήσει καθόλου σε κάποιες UNIX/Linux διανομές. Αν αντιμετωπίσετε "
-#~ "κάποιο πρόβλημα χρησιμοποιώντας αυτή την επιλογή, παρακαλώ ελέγξτε της "
-#~ "Ερωτήσεις/Απαντήσεις στο http://konqueror.kde.org.\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "Ανίχνευση της διαμόρφωσης διαμεσολαβητή αυτόματα"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr ""
-#~ "Χρήση του ορισμένου σεναρίου διαμεσολαβητή για τη διαμόρφωση των "
-#~ "ρυθμίσεων διαμεσολαβητή."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Χρήση του URL αυτόματης διαμόρφωσης διαμεσολαβητή:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Δώστε τη διεύθυνση για το σενάριο διαμόρφωσης διαμεσολαβητή."
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>Χρήση ρυθμίσεων διαμεσολαβητή που ορίζονται στο σύστημα.</p>\n"
-#~ "<p>Μερικές πλατφόρμες προσφέρουν πληροφορίες διαμόρφωσης διαμεσολαβητή σε "
-#~ "επίπεδο συστήματος και με την επιλογή αυτή μπορείτε να χρησιμοποιήσετε "
-#~ "αυτές τις ρυθμίσεις.</p>\n"
-#~ "<p>Σε Mac πλατφόρμες</p>\n"
-#~ "<p>Σε Windows πλατφόρμες</p>\n"
-#~ "<p>Σε Unix και Linux πλατφόρμες, τέτοιες ρυθμίσεις διαμεσολαβητή "
-#~ "συστήματος συνήθως ορίζονται μέσα από μεταβλητές περιβάλλοντος. Οι "
-#~ "ακόλουθες μεταβλητές περιβάλλοντος ανιχνεύονται και χρησιμοποιούνται όταν "
-#~ "υπάρχουν: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, "
-#~ "<b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Χρήση διαμόρφωσης διαμεσολαβητή συστήματος:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Προσπάθεια αυτόματης ανίχνευσης των μεταβλητών περιβάλλοντος που "
-#~ "χρησιμοποιούνται για τον ορισμό των διαμεσολαβητών του συστήματος. <p> "
-#~ "Αυτό το χαρακτηριστικό λειτουργεί αναζητώντας για κοινά χρησιμοποιούμενα "
-#~ "ονόματα μεταβλητών όπως τα HTTP_PROXY, FTP_PROXY και NO_PROXY. </qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "Αυτόματη ανίχν&ευση"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>HTTP_PROXY</b>, "
-#~ "που χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή "
-#~ "HTTP.<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP διαμεσολαβητής:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>HTTPS_PROXY</b>, "
-#~ "που χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή "
-#~ "HTTPS.<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p> \n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL διαμεσολαβητής:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>FTP_PROXY</b>, "
-#~ "που χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή "
-#~ "FTP.<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p> \n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP διαμεσολαβητής:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>SOCKS_PROXY</b>, "
-#~ "που χρησιμεύει για την αποθήκευση της διεύθυνσης του διαμεσολαβητή SOCKS."
-#~ "<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS διαμεσολαβητής:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~| "used to store the address of the SOCKS proxy server.<p>Alternatively, "
-#~| "you can click on the <b>\"Auto Detect\"</b> button to attempt an "
-#~| "automatic discovery of this variable.</p></qt>"
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>SOCKS_PROXY</b>, "
-#~ "που χρησιμεύει για την αποθήκευση της διεύθυνσης του διαμεσολαβητή SOCKS."
-#~ "<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>NO_PROXY</b>, που "
-#~ "χρησιμοποιείται για την αποθήκευση της διεύθυνσης του διαμεσολαβητή που "
-#~ "δεν πρέπει να χρησιμοποιηθεί.<p>\n"
-#~ "Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής. \n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "Εξαιρέσεις:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~| "the addresses of sites for which the above proxy settings should not be "
-#~| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> "
-#~| "button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε το όνομα της μεταβλητής περιβάλλοντος, π.χ. <b>NO_PROXY</b>, που "
-#~ "χρησιμεύει για την αποθήκευση διευθύνσεων ιστοχώρων για τις οποίες οι "
-#~ "παραπάνω ρυθμίσεις διαμεσολαβητή δεν πρέπει να χρησιμοποιηθούν."
-#~ "<p>Εναλλακτικά, μπορείτε να κάνετε κλικ στο <b>\"Αυτόματη ανίχνευση\"</b> "
-#~ "για την αυτόματη εύρεση της μεταβλητής αυτής.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Εμφάνιση της &τιμής των μεταβλητών περιβάλλοντος"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "Χειροκίνητη εισαγωγή πληροφοριών διαμόρφωσης διαμεσολαβητή."
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "Χρήση χειροκίνητα ορισμένης διαμόρφωσης διαμεσολαβητή:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή HTTP."
-
-#~ msgid "Port:"
-#~ msgstr "Θύρα:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή HTTP."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "Χρήση αυτού του διαμεσολαβητή για ό&λα τα πρωτόκολλα"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή HTTPS."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή HTTPS."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή FTP."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή FTP."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "Δώστε τη διεύθυνση του διαμεσολαβητή SOCKS."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "Δώστε τον αριθμό θύρας του διαμεσολαβητή SOCKS."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Δώστε μια λίστα με το κόμμα για διαχωριστικό από ονόματα υπολογιστών ή "
-#~ "IP διευθύνσεις που πρέπει να εξαιρεθούν από τη χρήση των παραπάνω "
-#~ "ρυθμίσεων διαμεσολαβητή.</p>\n"
-#~ "<p>Αν θέλετε να εξαιρεθούν όλοι οι υπολογιστές για ένα δοσμένο τομέα, "
-#~ "τότε απλά δώστε το όνομα του τομέα με μια τελεία μπροστά. Για παράδειγμα, "
-#~ "για να αποκλείσετε όλους τους υπολογιστές για το <i>kde.org</i>, δώστε "
-#~ "<i>.kde.org</i>. Χαρακτήρες υποκατάστασης όπως '*' ή '?' δεν "
-#~ "υποστηρίζονται και δεν θα έχουν επίδραση.</p>\n"
-#~ "<p>Επιπλέον, μπορείτε να εισάγετε IP διευθύνσεις, π.χ. 127.0.0.1 και IP "
-#~ "διευθύνσεις με υποδίκτυο, π.χ. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Επιλέξτε το πλαίσιο αυτό αν θέλετε οι παραπάνω ρυθμίσεις διαμεσολαβητή να "
-#~ "εφαρμόζονται μόνο στις διευθύνσεις που βρίσκονται στη λίστα με τις "
-#~ "<i>Εξαιρέσεις</i>.</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr ""
-#~ "Χρήση ρυθμίσεις διαμεσολαβητή μόνο για διευθύνσεις στη λίστα εξαιρέσεων"
-
-#, fuzzy
-#~| msgid ""
-#~| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
-#~| "shortcuts allow you to quickly access or search for information located "
-#~| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
-#~| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
-#~| "use it, you simply type the keyword 'gg' followed by the keyword "
-#~| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-#~| "KDE</span>.</p></body></html>"
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>(Απ)ενεργοποιήστε συντομεύσεις ιστού. </p><p>Οι "
-#~ "συντομεύσεις ιστού σάς επιτρέπουν τη γρήγορη πρόσβαση ή την αναζήτηση "
-#~ "πληροφοριών που βρίσκονται στον ιστό ή στον σκληρό σας δίσκο. </p><p>Το "
-#~ "KDE περιέχει πολλές προκαθορισμένες συντομεύσεις ιστού. Μία τέτοια "
-#~ "συντόμευση ιστού είναι η συντόμευση αναζήτησης Google (TM). Για να τη "
-#~ "χρησιμοποιήσετε, απλώς πληκτρολογήστε 'gg' ακολουθούμενο από τον οριοθέτη "
-#~ "και τον όρο της αναζήτησης, π.χ. <span style=\" font-weight:600;\">gg:"
-#~ "KDE</span>.</p></body></html>"
-
-#, fuzzy
-#~| msgid "&Enable Web shortcuts"
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "&Ενεργοποίηση συντομεύσεων ιστού"
-
-#, fuzzy
-#~| msgid "&Use preferred shortcuts only"
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "&Χρήση μόνο των προτιμώμενων συντομεύσεων"
-
-#, fuzzy
-#~| msgid "Search for shortcut"
-#~ msgid "Search for web search keywords"
-#~ msgstr "Αναζήτηση συντόμευσης"
-
-#, fuzzy
-#~| msgid "Add a new Web shortcut"
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "Προσθήκη νέας συντόμευσης ιστού"
-
-#, fuzzy
-#~| msgid "Modify the highlighted Web shortcut"
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "Να τροποποιηθεί η τονισμένη συντόμευση ιστού"
-
-#, fuzzy
-#~| msgid "Delete the highlighted Web shortcut"
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "Να διαγραφεί η τονισμένη συντόμευση ιστού"
-
-#~ msgid "De&lete"
-#~ msgstr "Δια&γραφή"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Επιλέξτε τη μηχανή αναζήτησης που θα χρησιμοποιηθεί σε πλαίσια εισαγωγής "
-#~ "που προσφέρουν υπηρεσίες αυτόματης αναζήτησης, όταν πληκτρολογείτε λέξεις "
-#~ "και φράσεις αντί του αντίστοιχου URL. Για απενεργοποίηση του "
-#~ "χαρακτηριστικού αυτού επιλέξτε <b>Καμία</b> από τη λίστα.\n"
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Default Web &shortcut:"
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "Προκαθορισμένη &συντόμευση ιστού:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
-#~| "applications to automatically convert the typed word or phrase to web "
-#~| "shortcut queries when they cannot be filtered into a proper URL. </"
-#~| "p><p>To disable this functionality select <span style=\" font-weight:600;"
-#~| "\">None</span> from the list. </p></body></html>"
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Επιλέξτε μια προκαθορισμένη συντόμευση ιστού. </"
-#~ "p><p>Θα επιτρέψει στις εφαρμογές να μετατρέψουν αυτόματα την "
-#~ "πληκτρολογημένη λέξη ή φράση σε ερωτήσεις συντόμευσης ιστού όταν δεν "
-#~ "γίνεται να φιλτραριστούν σε κατάλληλο URL. </p><p>Για να απενεργοποιήσετε "
-#~ "τη λειτουργία αυτή επιλέξτε <span style=\" font-weight:600;\">Καμία</"
-#~ "span> από τη λίστα. </p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "Επιλέξτε τον οριοθέτη που διαχωρίζει τη λέξη κλειδί από τη φράση ή τη "
-#~ "λέξη που θα αναζητηθεί."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "Οριοθέτης λέξης &κλειδιού:"
-
-#, fuzzy
-#~| msgid "Choose a delimiter to mark the Web shortcut keyword."
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "Επιλογή οριοθέτη για να σημειωθεί η λέξη κλειδί συντόμευσης ιστού."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "Άνω κάτω τελεία"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Διάστημα"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "Εισάγετε εδώ το αναγνωρίσιμο όνομα του παρόχου αναζήτησης."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "Ό&νομα συντόμευσης:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Εισάγετε την URI που χρησιμοποιείται για αναζητήσεις σε μια μηχανή "
-#~ "αναζήτησης εδώ. <br/> Το κείμενο αναζήτησης μπορεί να ορισθεί ως \\{@} ή "
-#~ "\\{0}.<br/>\n"
-#~ "Προτεινόμενο είναι το \\{@}, επειδή αφαιρεί όλες τις μεταβλητές "
-#~ "αναζήτησης (name=value) από το αλφαριθμητικό-αποτέλεσμα, ενώ το \\{0} θα "
-#~ "αντικατασταθεί με το μη τροποποιημένο αλφαριθμητικό αναζήτησης. <br/> "
-#~ "Μπορείτε να χρησιμοποιήσετε το \\{1} ... \\{n} για να ορίσετε κάποιες "
-#~ "λέξεις στην αναζήτηση και το \\{name} για να ορίσετε μια τιμή που "
-#~ "αντιστοιχεί στο 'name=value' στην αναζήτηση. <br/> Επιπλέον είναι δυνατός "
-#~ "ο ορισμός πολλαπλών αντιστοιχιών (ονόματα αριθμοί και κείμενο) ταυτόχρονα "
-#~ "(\\{name1,name2,...,\"string\"}). <br/> H πρώτη τιμή που αντιστοιχίζεται "
-#~ "(αρχίζοντας από αριστερά) θα χρησιμοποιηθεί σαν τιμή αντικατάστασης για "
-#~ "το URI - αποτέλεσμα. <br/>Μία συμβολοσειρά σε εισαγωγικά μπορεί να "
-#~ "χρησιμοποιηθεί σαν προκαθορισμένη τιμή, αν τίποτα δεν αντιστοιχίζεται από "
-#~ "τα αριστερά της λίστας αναφοράς.\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "&URL συντόμευσης:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr ""
-#~ "Επιλέξτε το συνόλων χαρακτήρων που θα χρησιμοποιηθεί για την κωδικοποίηση "
-#~ "της αναζήτησης."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Οι συντομεύσεις που εισάγατε εδώ μπορούν να χρησιμοποιηθούν ως ψευδο-URI "
-#~ "στο KDE. Για παράδειγμα, η συντόμευση <b>av</b> μπορεί να χρησιμοποιηθεί "
-#~ "ως <b>av</b>:<b> η αναζήτησή μου</b>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Εισάγετε εδώ το αναγνωρίσιμο όνομα της συντόμευσης "
-#~ "ιστού.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&Συντομεύσεις:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr ""
-#~ "Επιλέξτε το συνόλων χαρακτήρων που θα χρησιμοποιηθεί για την κωδικοποίηση "
-#~ "της αναζήτησης"
-
-#~ msgid "&Charset:"
-#~ msgstr "&Σύνολο χαρακτήρων:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "Εισαγωγή αντικαταστάτη αναζήτησης"
-
-#~ msgid "Common name:"
-#~ msgstr "Κοινό όνομα:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "Οργανισμός:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Acme Sundry Products Company"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Οργανωτική μονάδα:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Fraud Department"
-
-#~ msgid "Country:"
-#~ msgstr "Χώρα:"
-
-#~ msgid "Canada"
-#~ msgstr "Καναδάς"
-
-#~ msgid "State:"
-#~ msgstr "Πολιτεία:"
-
-#~ msgid "Quebec"
-#~ msgstr "Κεμπέκ"
-
-#~ msgid "City:"
-#~ msgstr "Πόλη:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Meadows"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "Αντιγραφή και επικόλληση του αθροίσματος ελέγχου στο παρακάτω πεδίο.<br/"
-#~ ">Συνήθως παρέχεται ένα άθροισμα ελέγχου από την ιστοσελίδα από όπου "
-#~ "λάβατε το αρχείο."
-
-#, fuzzy
-#~| msgid "Expected checksum (MD5, SHA1 or SHA256)..."
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "Αναμενόμενο άθροισμα ελέγχου (MD5, SHA1 ή SHA256)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr ""
-#~ "Κλικ για επικόλληση του αθροίσματος ελέγχου από το πρόχειρο στο πεδίο "
-#~ "εισόδου."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "Calculate"
-#~ msgstr "Υπολογισμός"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "Κλικ για αντιγραφή του αθροίσματος ελέγχου στο πρόχειρο."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8845,337 +9844,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 #~ msgid "Unmount"
 #~ msgstr "Αποπροσάρτηση"
 
-#~ msgid "Stop"
-#~ msgstr "Σταμάτημα"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted From:"
-#~ msgstr "Προσαρτημένο στο:"
-
-#, fuzzy
-#~| msgctxt "Space as keyword delimiter"
-#~| msgid "Space"
-#~ msgid "Free Space:"
-#~ msgstr "Διάστημα"
-
-#~ msgid "Type:"
-#~ msgstr "Τύπος:"
-
-#, fuzzy
-#~| msgid "C&hange..."
-#~ msgid "Change..."
-#~ msgstr "Αλ&λαγή..."
-
-#, fuzzy
-#~| msgid "Contents:"
-#~ msgid "Content:"
-#~ msgstr "Περιεχόμενα:"
-
-#~ msgid "Points to:"
-#~ msgstr "Δείχνει στο:"
-
-#~ msgid "Modified:"
-#~ msgstr "Τροποποιήθηκε:"
-
-#~ msgid "Created:"
-#~ msgstr "Δημιουργήθηκε:"
-
-#, fuzzy
-#~| msgid "File system:"
-#~ msgid "File System:"
-#~ msgstr "Σύστημα αρχείων:"
-
-#, fuzzy
-#~| msgctxt "@info:status"
-#~| msgid "Unknown size"
-#~ msgid "Unknown size"
-#~ msgstr "Άγνωστο μέγεθος"
-
-#, fuzzy
-#~| msgid "Mounted on:"
-#~ msgid "Mounted On:"
-#~ msgstr "Προσαρτημένο στο:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Προσπελάστηκε:"
-
-#, fuzzy
-#~| msgid "Open With"
-#~ msgid "Open With:"
-#~ msgstr "Άνοιγμα με"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Τερματικό"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Ενεργοποιήστε αυτή την επιλογή αν η εφαρμογή που θέλετε να εκτελέσετε "
-#~ "είναι μια εφαρμογή που λειτουργεί σε κατάσταση κειμένου ή αν χρειάζεστε "
-#~ "τις πληροφορίες που προέρχονται από το παράθυρο του προσομοιωτή "
-#~ "τερματικού ."
-
-#, fuzzy
-#~| msgid "&Run in terminal"
-#~ msgid "Run in terminal"
-#~ msgstr "Εκτέλεση σε τε&ρματικό"
-
-#, fuzzy
-#~| msgid "&Terminal options:"
-#~ msgid "Terminal options:"
-#~ msgstr "Επιλο&γές τερματικού:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Ενεργοποιήστε αυτή την επιλογή αν η εφαρμογή που λειτουργεί σε κατάστασης "
-#~ "κειμένου προσφέρει σχετικές πληροφορίες κατά την έξοδό της. Διατηρώντας "
-#~ "τον προσομοιωτή τερματικού ανοικτό σας επιτρέπει να ανακτήσετε αυτές τις "
-#~ "πληροφορίες."
-
-#, fuzzy
-#~| msgid "&Do not close when command exits"
-#~ msgid "Do not close when command exits"
-#~ msgstr "&Να μην κλείσει όταν η εντολή εκτελεστεί"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Χρήστης"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Ενεργοποιήστε αυτή την επιλογή αν θέλετε να εκτελέσετε αυτή την εφαρμογή "
-#~ "με ένα διαφορετικό id χρήστη. Κάθε διεργασία έχει ένα διαφορετικό id "
-#~ "χρήστη που συσχετίζεται με αυτήν. Αυτός ο κωδικός id καθορίζει την "
-#~ "πρόσβαση σε αρχεία καθώς και άλλες άδειες. Ο κωδικός του χρήστη "
-#~ "απαιτείται για τη χρήση αυτής της επιλογής."
-
-#, fuzzy
-#~| msgid "Ru&n as a different user"
-#~ msgid "Run as a different user"
-#~ msgstr "Εκτέλεση σαν διαφορετικός &χρήστης"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr ""
-#~ "Δώστε το όνομα χρήστη με το οποίο θέλετε να εκτελέσετε την εφαρμογή."
-
-#~ msgid "Username:"
-#~ msgstr "Όνομα χρήστη:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr ""
-#~ "Δώστε εδώ το όνομα χρήστη με το οποίο θέλετε να εκτελέσετε την εφαρμογή."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "@title:group Title of a group that lets the user choose options regargin "
-#~| "program startup"
-#~| msgid "Startup"
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Έναρξη"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Ενεργοποιήστε αυτή την επιλογή αν θέλετε να γίνει φανερό ότι η εφαρμογή "
-#~ "σας ξεκίνησε. Αυτή η οπτική πληροφόρηση μπορεί να εμφανιστεί ως ένας "
-#~ "απασχολημένος δρομέας ή μέσα στη μπάρα εργασιών."
-
-#, fuzzy
-#~| msgid "Enable &launch feedback"
-#~ msgid "Enable launch feedback"
-#~ msgstr "Ενεργοποίηση ειδοποίησης &εκκίνησης"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Δώστε εδώ το όνομα που θέλετε για αυτή την εφαρμογή. Αυτή η εφαρμογή θα "
-#~ "εμφανιστεί με αυτό το όνομα στο μενού εφαρμογών και στον πίνακα."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Δώστε εδώ την περιγραφή για αυτή την εφαρμογή, βασισμένη στη χρήση της. "
-#~ "Παραδείγματα: μια εφαρμογή dial up (KPPP) θα έχει περιγραφή \"Εργαλείο "
-#~ "dial up\"."
-
-#~ msgid "&Description:"
-#~ msgstr "&Περιγραφή:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Δώστε εδώ οποιοδήποτε σχόλιο θεωρείτε ότι είναι χρήσιμο."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "&Σχόλιο:"
-
-#, fuzzy
-#~| msgid "Use preset proxy environment &variables"
-#~ msgid "Environment Variables:"
-#~ msgstr "Χρήση προκαθορισμένων μεταβλ&ητών περιβάλλοντος διαμεσολαβητή"
-
-#, fuzzy
-#~| msgid ""
-#~| "Type the command to start this application here.\n"
-#~| "\n"
-#~| "Following the command, you can have several place holders which will be "
-#~| "replaced with the actual values when the actual program is run:\n"
-#~| "%f - a single file name\n"
-#~| "%F - a list of files; use for applications that can open several local "
-#~| "files at once\n"
-#~| "%u - a single URL\n"
-#~| "%U - a list of URLs\n"
-#~| "%d - the directory of the file to open\n"
-#~| "%D - a list of directories\n"
-#~| "%i - the icon\n"
-#~| "%m - the mini-icon\n"
-#~| "%c - the caption"
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Δώστε εδώ την εντολή για την εκκίνηση αυτής της εφαρμογής.\n"
-#~ "\n"
-#~ "Μετά την εντολή, μπορείτε να έχετε διάφορα δεσμευτικά θέσης τα οποία θα "
-#~ "αντικατασταθούν με τις πραγματικές τιμές όταν το πρόγραμμα εκτελεστεί:\n"
-#~ "%f - ένα όνομα αρχείου\n"
-#~ "%F - μια λίστα από αρχεία; χρησιμοποιήστε το για εφαρμογές που μπορούν να "
-#~ "ανοίξουν πολλά τοπικά αρχεία ταυτόχρονα\n"
-#~ "%u - ένα URL\n"
-#~ "%U - μια λίστα από URL\n"
-#~ "%d - ο κατάλογος του αρχείου για άνοιγμα\n"
-#~ "%D - μια λίστα από καταλόγους\n"
-#~ "%i - το εικονίδιο\n"
-#~ "%m - το μίνι εικονίδιο\n"
-#~ "%c - η επικεφαλίδα"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Κάντε κλικ εδώ για να εξερευνήσετε το σύστημα αρχείων σας ώστε να βρείτε "
-#~ "το επιθυμητό εκτελέσιμο."
-
-#~ msgid "&Browse..."
-#~ msgstr "Ε&ξερεύνηση..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Ορίζει τον κατάλογο εργασίας για την εφαρμογή σας."
-
-#~ msgid "&Work path:"
-#~ msgstr "Διαδρομή &εργασίας:"
-
-#, fuzzy
-#~| msgid "FIXME: Document this"
-#~ msgid "Arguments:"
-#~ msgstr "ΦΤΙΑΞΕ ΜΕ: Τεκμηρίωση αυτού"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Αυτή η λίστα θα πρέπει να εμφανίζει τους τύπους αρχείων που μπορεί "
-#~ "να διαχειριστή η εφαρμογή σας. Η λίστα οργανώνεται ανάλογα με τους "
-#~ "<u>τύπους mime</u>.</p>\n"
-#~ "<p>Το MIME, Multipurpose Internet (e)Mail Extension, (Επέκταση πολλαπλών "
-#~ "χρήσεων αλληλογραφίας διαδικτύου) είναι ένα τυπικό πρωτόκολλο για την "
-#~ "αναγνώριση του τύπου των δεδομένων βασισμένο στην αντιστοίχηση επεκτάσεων "
-#~ "ονομάτων αρχείων με <u>τύπους mime</u>. Παράδειγμα: το \"bmp\" που "
-#~ "εμφανίζεται μετά την τελεία στο flower.bmp καθορίζει ότι το περιεχόμενο "
-#~ "είναι ένας συγκεκριμένος τύπος εικόνας, <u>image/x-bmp</u>. Για να "
-#~ "αναγνωριστεί ποια εφαρμογή θα ανοίξει κάθε τύπο αρχείου, το σύστημα θα "
-#~ "πρέπει να πληροφορηθεί σχετικά με τις ικανότητες κάθε εφαρμογής για το "
-#~ "χειρισμό των επεκτάσεων και των τύπων mime.</p><p>Αν θέλετε τη συσχέτιση "
-#~ "αυτής της εφαρμογής με έναν ή περισσότερους τύπους mime που δε βρίσκονται "
-#~ "στη λίστα, κάντε κλικ στο κουμπί <b>Προσθήκη</b> παρακάτω. Αν υπάρχουν "
-#~ "ένας ή περισσότεροι τύπου αρχείων που δεν μπορούν να διαχειριστεί αυτή η "
-#~ "εφαρμογή μπορείτε να τους αφαιρέσετε από τη λίστα κάνοντας κλικ στο "
-#~ "κουμπί <b>Αφαίρεση</b> παρακάτω.</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "&Υποστηριζόμενοι τύποι αρχείου:"
-
-#~ msgid "Mimetype"
-#~ msgstr "Τύπος mime"
-
-#~ msgid "Description"
-#~ msgstr "Περιγραφή"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Κάντε κλικ σε αυτό το κουμπί αν θέλετε να προσθέσετε έναν τύπο αρχείου "
-#~ "(τύπος mime) που η εφαρμογή σας μπορεί να διαχειριστεί."
-
-#~ msgid "Add..."
-#~ msgstr "Προσθήκη..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Αν θέλετε να αφαιρέσετε έναν τύπο αρχείου (τύπος mime) που η εφαρμογή σας "
-#~ "δεν μπορεί να διαχειριστεί, επιλέξτε τον τύπο mime στην παραπάνω λίστα "
-#~ "και κάντε κλικ σε αυτό το κουμπί."
-
-#~ msgid "Remove"
-#~ msgstr "Αφαίρεση"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Κάντε κλικ εδώ για να τροποποιήσετε τον τρόπο με τον οποίο θα εκτελεστεί "
-#~ "η εφαρμογή, την ειδοποίηση εκκίνησης, τις επιλογές D-Bus ή για να "
-#~ "εκτελείται μέσω ενός διαφορετικού χρήστη."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "&Προχωρημένες επιλογές"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -9198,43 +9866,6 @@ msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, �
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Επικόλληση των περιεχομένων του πρόχειρου"
-
-#~ msgid "[padlock]"
-#~ msgstr "[padlock]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Διεύθυνση:"
-
-#~ msgid "IP address:"
-#~ msgstr "Διεύθυνση IP:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Κρυπτογράφηση:"
-
-#~ msgid "Details:"
-#~ msgstr "Λεπτομέρειες:"
-
-#~ msgid "SSL version:"
-#~ msgstr "Έκδοση SSL:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Ακολουθία πιστοποιητικού:"
-
-#~ msgid "Trusted:"
-#~ msgstr "Έμπιστο:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Περίοδος εγκυρότητας:"
-
-#~ msgid "Serial number:"
-#~ msgstr "Σειριακός αριθμός:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "Σύνοψη MD5:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "Σύνοψη SHA1:"
 
 #~ msgid "None"
 #~ msgstr "Κανένα"

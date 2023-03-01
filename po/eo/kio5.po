@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2023-01-23 01:18+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3496,7 +3496,8 @@ msgstr ""
 "elekti legosignon.<br /><br />Ĉi tiuj legosignoj estas specifaj por la "
 "dosierdialogo, sed alie funkcias kiel legosignoj aliloke en KDE.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nomo:"
@@ -3786,12 +3787,19 @@ msgstr "Nova Dosierujo"
 msgid "Create new folder in %1:"
 msgstr "Kreu novan dosierujon en %1:"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Kopiu"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Alglui"
@@ -4106,6 +4114,104 @@ msgstr "Fino de la kunsido"
 msgid "Yes"
 msgstr "Jes"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Serĉu"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Serĉu interage por domajnoj kaj gastigantoj"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Retejo"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Kuketa Nomo"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "D&forigi"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "Forigi A&ll"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "Agordi &politikon..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "&Reŝargi Listo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detaloj"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Nomo:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Valoro:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domajno:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Vojo:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Eksvalidiĝas:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "Sekura:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4190,7 +4296,232 @@ msgstr ""
 "ĝin por akcepti. Ĉi tio ebligas al vi ricevi kuketojn de fidindaj retejoj "
 "sen esti demandita ĉiufoje kiam KDE ricevas kuketon.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Ebligu kuketsubtenon. Kutime vi volas havi kuketsubtenon ebligita kaj "
+"personecigi ĝin laŭ viaj privatecaj bezonoj.</p><p>\n"
+"Bonvolu noti, ke malŝalti kuketsubtenon eble igos multajn retejojn "
+"neretumeblaj.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "Ebligu kuketojn"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Malakcepti la tiel nomatajn triapartajn kuketojn. Ĉi tiuj estas kuketoj, "
+"kiuj devenas de alia retejo ol tiu, kiun vi nuntempe foliumas. Ekzemple, se "
+"vi vizitas <b>www.foobar.com</b> dum ĉi tiu opcio estas aktiva, nur kuketoj "
+"kiuj devenas de www.foobar.com estos prilaboritaj laŭ viaj agordoj. Kuketoj "
+"de iu ajn alia retejo estos malakceptitaj. Ĉi tio reduktas la ŝancojn, ke "
+"retejo-funkciigistoj kompilos profilon pri viaj ĉiutagaj foliumkutimoj.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "Nur akceptu kuketojn de devena servilo"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"Aŭtomate akcepti provizorajn kuketojn destinitajn eksvalidiĝi ĉe la fino de "
+"la nuna sesio. Tiaj kuketoj ne estos konservitaj en la malmola disko aŭ "
+"konserva aparato de via komputilo. Anstataŭe, ili estas forigitaj kiam vi "
+"fermas ĉiujn aplikaĵojn (ekz. via retumilo) kiuj uzas ilin.</"
+"p><p><u>RIMARTU</u> Marki ĉi tiun opcion anstataŭas viajn defaŭltajn kaj "
+"ankaŭ specifajn retejojn pri kuketoj por sesiokuketoj. .</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "Aŭtomate&y akceptas sesiajn kuketojn"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Difinas kiel kuketoj ricevitaj de fora maŝino estos pritraktitaj: \n"
+"<ul>\n"
+"<li><b>Demandi</b> igos KDE peti vian konfirmon kiam ajn servilo volas "
+"agordi kuketon .</li>\n"
+"<li><b>Akcepti</b> akceptos kuketojn sen peti vin.</li>\n"
+"<li><b>Akceptu ĝis fino de la kunsido</b> faros kaŭzos ke kuketoj estu "
+"akceptitaj sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
+"<li><b>Malakcepto</b> igos la kuketon rifuzos ĉiujn kuketojn kiujn ĝi "
+"ricevas.</li>\n"
+" </ul><p>\n"
+"<u>RIMARKO:</u> Domajnaj specifaj politikoj, kiuj povas esti agordeblaj "
+"sube, ĉiam havas prioritaton super la defaŭlta politiko.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Defaŭlta Politiko"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "Akceptu ĉiujn kuketojn"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "Akceptu &ĝis fino de la sesio"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "Petu konfirmon"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "Malakcepti ĉiujn kuketojn"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Por aldoni novan politikon, simple alklaku la butonon <b>Aldoni...</b> kaj "
+"provizi la necesajn informojn. Por ŝanĝi ekzistantan politikon, uzu la "
+"butonon <b>Ŝanĝi...</b> kaj elektu la novan politikon el la politika "
+"dialogujo. Alklakante la butonon <b>Forigi</b> forigos la nuntempe elektitan "
+"politikon kaŭzante la defaŭltan politikan agordon esti uzata por tiu "
+"domajno, dum <b>Forigi Ĉion</b> forigos ĉiujn specifajn politikojn de la "
+"retejo.\n"
+" </ qt >"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Reteja Politiko"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Serĉu interage por domajnoj"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "Serĉu..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\\Listo de retejoj, por kiuj vi starigis specifan politikon pri kuketoj. "
+"Specifaj politikoj anstataŭas la defaŭltan politikan agordon por ĉi tiuj "
+"retejoj.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Domajno"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Politiko"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Nova..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "Ŝanĝu..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Akceptu"
 
@@ -4198,17 +4529,93 @@ msgstr "Akceptu"
 msgid "Accept For Session"
 msgstr "Akceptu Por Sesio"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Malakcepti"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Demandu"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "Ne scias"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la gastiganton aŭ domajnon al kiu ĉi tiu politiko aplikas, ekz. <b>www."
+"kde.org</b> aŭ <b>.kde.org</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "Reteja nomo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+"Enigu la gastigantan aŭ domajnan nomon, ekz. .kde.org, ĉi tiu politiko "
+"validas por."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Elektu la deziratan politikon:\n"
+"<ul>\n"
+"<li><b>Akcepti</b> - Permesas al ĉi tiu retejo agordi kuketojn</li>\n"
+"<li><b>Akceptu ĝis fino de sesio</b> - Permesas al ĉi tiu retejo agordi "
+"kuketojn sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
+"<li><b>Malakcepti</b> - Rifuzu ĉiujn kuketojn senditajn de ĉi tiu retejo</ "
+"li>\n"
+"<li><b>Demandi</b> - Peti kiam kuketoj estas ricevitaj de ĉi tiu retejo</"
+"li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "Politiko:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "Akceptu ĝis fino de la kunsido"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4228,6 +4635,42 @@ msgstr "Ĝisdatigo Malsukcesis"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Vi devas rekomenci KDE por ke ĉi tiuj ŝanĝoj efektiviĝu."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Malebligu Pasivan FTP"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Kiam FTP-konektoj estas pasivaj la kliento konektas al la servilo, anstataŭ "
+"inverse, do fajroŝirmiloj ne blokas la konekton; malnovaj FTP-serviloj eble "
+"ne subtenas Pasivan FTP tamen."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Marku parte alŝutitajn dosierojn"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"Dum dosiero estas alŝutita ĝia etendaĵo estas \".part\". Kiam plene alŝutite "
+"ĝi estas renomita al sia reala nomo."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4394,6 +4837,430 @@ msgstr ""
 "tiuj paĝoj; filtraj prokurserviloj, aliflanke, ebligas forbari petojn por "
 "anoncoj, spamon aŭ ion alian, kion vi volas bloki.</p><p><u>Noto:</u> Iuj "
 "prokurserviloj provizas ambaŭ. servoj.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Agordu prokuran agordon.\n"
+"<p>\n"
+"Prokura servilo estas meza maŝino, kiu sidas inter via komputilo kaj "
+"interreto kaj provizas servojn kiel retpaĝa kaŝmemoro kaj filtrado. "
+"Kaŝmemoraj prokurserviloj donas al vi pli rapidan aliron al retejoj, kiujn "
+"vi jam vizitis, loke konservante aŭ konservante tiujn paĝojn; filtraj "
+"prokurserviloj kutime ebligas forbari petojn por reklamoj, spamon aŭ ion "
+"alian, kion vi volas bloki.\n"
+"<p>\n"
+"Se vi ne certas ĉu vi bezonas aŭ ne uzi prokurilon por konekti al Interreto, "
+"konsultu la agordan gvidilon de via interreta provizanto aŭ vian "
+"sistemadministranton.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Konekti al la Interreto rekte."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "Neniu Prokurilo"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, kde-format
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Aŭtomate detekti kaj agordi la prokurajn agordojn.<p>\n"
+"Aŭtomata detekto estas farita per la <b>TTT-Prokura Aŭtomata Malkovra "
+"Protokolo (WPAD)</b>.<p>\n"
+"<b>NOTU:< /b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en iuj "
+"UNIX/Linuksaj distribuoj.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "Detekti prokurilon aŭtomate"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "Uzu la specifitan prokuran skripton por agordi la prokurajn agordojn."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "Uzu URL de aŭtomata agordo de prokurilo:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Enigu la adreson por la prokura agorda skripto."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>Uzu prokurajn agordojn difinitajn en la sistemo.</p>\n"
+"<p>Kelkaj platformoj ofertas tutsistemajn prokurajn agordajn informojn kaj "
+"elektante ĉi tiun opcion ebligas al vi uzi tiujn agordojn.</p>\n"
+"<p >Sur Mac-platformoj</p>\n"
+"<p>Sur Vindozaj platformoj</p>\n"
+"<p>Sur Unikso kaj Linukso platformoj, tiaj sistemaj prokuraj agordoj estas "
+"kutime difinitaj per mediovariabloj. La sekvaj mediovariabloj estas "
+"detektitaj kaj uzataj kiam ili ĉeestas: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</"
+"b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p> >>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "Uzu sisteman prokurilon:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Provu aŭtomatan malkovron de la medio-variabloj uzataj por agordi "
+"sistemojn de prokura informo.<p> Ĉi tiu funkcio funkcias serĉante ofte "
+"uzatajn variablo-nomojn kiel HTTP_PROXY, FTP_PROXY kaj NO_PROXY.</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "Aŭtomata Detekti"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la nomon de la mediovariablo, ekz. <b>HTTP_PROXY</b>, uzata por "
+"konservi la adreson de la HTTP-prokurservilo.<p>\n"
+"Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
+"provi aŭtomatan malkovron de ĉi tiu variablo.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "HTTP Prokurilo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la nomon de la mediovariablo, ekz. <b>HTTPS_PROXY</b>, uzata por "
+"konservi la adreson de la HTTPS-prokurservilo.<p>\n"
+"Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
+"provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "SSL-Prokurilo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la nomon de la mediovariablo, ekz. <b>FTP_PROXY</b>, uzata por "
+"konservi la adreson de la FTP-prokurservilo.<p>\n"
+"Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
+"provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "FTP-Prokurilo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
+"konservi la adreson de la prokurilo SOCKS.<p>\n"
+"Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
+"provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "SOCKS-Prokurilo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
+"konservi la adreson de la prokurilo SOCKS.<p>Alternative, vi povas alklaki "
+"la butonon <b>\"Aŭtomata Detekti\"</b> por provi aŭtomatan malkovron de ĉi "
+"tiu variablo. .</ p ></ qt >"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Enigu la mediovariablon, ekz. <b>NO_PROXY</b>, uzata por konservi la "
+"adresojn de retejoj, por kiuj la prokurilo ne estu uzata.<p>\n"
+"Alternative, vi povas alklaki la <b>\"Aŭtomata Detekti\"</b> butono por "
+"provi aŭtomatan malkovron de ĉi tiu variablo.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "Esceptoj:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Enigu la mediovariablon, ekz. <b>NO_PROXY</b>, uzata por konservi la "
+"adresojn de retejoj, por kiuj la ĉi-supraj prokuragordoj ne estu uzataj."
+"<p>Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
+"provu aŭtomatan malkovron de ĉi tiu variablo.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Montru la &valoron de la mediovariabloj"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "Mane enigu informojn pri agordo de prokura servilo."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "Uzu mane specifitan prokurilon:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Enigu la adreson de la HTTP prokura servilo."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "Haveno:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Enigu la pordan numeron de la HTTP prokura servilo."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Uzu ĉi tiun prokurilon por ĉiuj protokoloj"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Enigu la adreson de la HTTPS prokura servilo."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Enigu la pordan numeron de la HTTPS-prokura servilo."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Enigu la adreson de la FTP-prokurservilo."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Enigu la pordan numeron de la FTP-prokurservilo."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Enigu la adreson de la prokurilo SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Enigu la havenan numeron de la SOCKS-prokura servilo."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Entajpu komon apartigitan liston de gastigaj nomoj aŭ ip-adresoj, kiuj "
+"devus esti ekskluditaj de uzado de ĉi-supraj prokuraj agordoj.</p>\n"
+"<p>Se vi volas ekskludi ĉiujn gastigantojn por difinita domajno, tiam simple "
+"enigu la domajnan nomon antaŭita de punkto. Ekzemple, por ekskludi ĉiujn "
+"gastigajn nomojn por <i>kde.org</i>, enigu <i>.kde.org</i>. Ĵetantaj signoj "
+"kiel '*' aŭ '?' ne estas subtenataj kaj havos neniun efikon.</p>\n"
+"<p>Aldone, vi povas ankaŭ enigi IP-adresojn, ekz. 127.0.0.1 kaj IP-adresoj "
+"kun subreto, ekz. 192.168.0.1/24.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"Marku ĉi tiun skatolon se vi volas, ke la ĉi-supraj prokuragordoj aplikiĝu "
+"nur al la adresoj listigitaj en la listo <i>Esceptoj</i>.</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "Uzu prokurajn agordojn nur por adresoj en la listo de Esceptoj"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5144,11 +6011,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr "[Transdomajno]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detaloj"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5236,31 +6098,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Detaloj pri Kuketoj"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Nomo:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Valoro:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Eksvalidiĝas:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Vojo:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domajno:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5417,7 +6254,8 @@ msgstr ""
 "<para>Marku ĉi tiun skatolon por limigi la rubujon al la maksimuma kvanto de "
 "diskspaco kiun vi specifas sube. Alie, ĝi estos senlima.</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Grandeco:"
@@ -5681,6 +6519,142 @@ msgstr ""
 "aplikaĵoj kiuj havas enkonstruitan subtenon por tia funkcio, ekz. Konqueror."
 "</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Ebligi aŭ malŝalti retserĉajn ŝlosilvortojn. </"
+"p><p>Retaj serĉvortoj permesas vin rapide aliri aŭ serĉi informojn enrete aŭ "
+"sur via malmola disko. </p><p>KDE venas kun multaj antaŭdifinitaj "
+"ŝlosilvortoj. Unu tia ŝlosilvorto povas esti uzata por fari serĉon de Guglo "
+"(TM); por uzi ĝin, vi simple tajpu la ŝlosilvorton 'gg' sekvata de la "
+"ŝlosilvorto-limigilo kaj la serĉtermino, ekz. <span style=\" font-weight:600;"
+"\">gg:KDE</span>.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "&Ebligu TTT-serĉajn ŝlosilvortojn"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "&Uzu nur preferatajn ŝlosilvortojn"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "Serĉu retajn serĉvortojn"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "Aldonu novan TTT-serĉan ŝlosilvorton"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "Modifi la emfazitan TTT-serĉan ŝlosilvorton"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "Forigu la emfazitan TTT-serĉan ŝlosilvorton"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "Forigi"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Elektu la serĉilon por uzi por enigketoj kiuj disponigas aŭtomatajn "
+"serĉservojn kiam vi tajpas normalajn vortojn kaj frazojn anstataŭ URL. Por "
+"malŝalti ĉi tiun funkcion elektu <b>Neniu</b> el la listo.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "Defaŭlta &serĉa ŝlosilvorto:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Elektu defaŭltan retserĉan ŝlosilvorton. </p><p>Ĉi tio "
+"permesas al aplikaĵoj aŭtomate konverti la tajpitan vorton aŭ frazon al "
+"retserĉaj ŝlosilvortdemandoj kiam ili ne povas esti filtritaj en taŭgan URL. "
+"</p><p>Por malŝalti ĉi tiun funkcion elektu <span style=\" font-weight:600;"
+"\">Neniu</span> el la listo. </p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Elektu la limigilon, kiu apartigas la ŝlosilvorton de la serĉota frazo aŭ "
+"vorto."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "&Ŝlosilvorta limigo:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "Elektu limigilon por marki la TTT-serĉan ŝlosilvorton."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Dupunkto"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Spaco"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5746,6 +6720,122 @@ msgstr ""
 msgid "Keep It"
 msgstr "Teni ĝin"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Enigu ĉi tie la homlegeblan nomon de la serĉprovizanto."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "&nomo de mallongigo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Entajpu la URI, kiu estas uzata por fari serĉon ĉe la serĉilo ĉi tie.<br/>La "
+"tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/ >\n"
+"Rekomendita estas \\{@}, ĉar ĝi forigas ĉiujn demandvariablojn (nomo=valoro) "
+"el la rezulta ĉeno, dum \\{0} estos anstataŭigita per la nemodifita "
+"demandŝnuro.<br/>Vi povas uzi \\ {1} ... \\{n} por specifi iujn vortojn el "
+"la konsulto kaj \\{nomo} por specifi valoron donitan de 'nomo=valoro' en la "
+"uzanta demando.<br/>Krome eblas specifu plurajn referencojn (nomoj, nombroj "
+"kaj ĉenoj) samtempe (\\{nomo1,nomo2,...,\"ŝnuro\"}).<br/>La unua kongrua "
+"valoro (de maldekstre) estos uzata kiel la anstataŭiga valoro por la rezulta "
+"URI.<br/>Cita ĉeno povas esti uzata kiel defaŭlta valoro se nenio kongruas "
+"de la maldekstro de la referenclisto.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "&URL-mallongigo:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "Elektu la signaron, kiu estos uzata por kodi vian serĉdemandon."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"La ŝparvojoj ĉi tie enigitaj povas esti uzataj kiel pseŭdo-URI-skemo en KDE. "
+"Ekzemple, la ŝparvojo <b>av</b> povas esti uzata kiel en <b>av</b>:<b>mia "
+"serĉo</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Enigu ĉi tie la homlegeblan nomon de la interreta "
+"ŝparvojo.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&Mallongigoj:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "Elektu la signaron, kiu estos uzata por kodi vian serĉdemandon"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "&Charset:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "Enmetu demandan anstataŭilon"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5765,6 +6855,151 @@ msgstr "Peto blokita."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Nekonata HTTP-verbo."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Komuna nomo:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Organizo:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Kompania Informo Kompania Nomo Acme Sundry Products Company"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Organiza unuo:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Sekcio pri Fraŭdo"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "Lando:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Kanado"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Ŝtato:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Kebekio"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Urbo:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Herbejoj"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"Kopiu kaj algluu kontrolsumon en la suban kampon.<br/>Kontrolsumon kutime "
+"provizas la retejo de kiu vi elŝutis ĉi tiun dosieron."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "Atendita ĉeksumo (MD5, SHA1, SHA256 aŭ SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "Klaku por alglui la ĉeksumon de la tondujo al la eniga kampo."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Kalkuli"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "Klaku por kopii la kontrolsumon al la tondujo."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6246,6 +7481,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Nekonata"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Haltu"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Esploru en Filelight"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "Muntita de:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "Libera Spaco:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Tipo:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Loko:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "Ŝanĝi..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "Enhavo:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Indikas al:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Modifita:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Kreita:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "Dosier-sistemo:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "Nekonata grandeco"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "Montita Sur:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Alirita:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "Malfermu Kun:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6414,6 +7745,362 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> ne estis trovita; bonvolu enigi validan vojon al "
 "plenumebla programo."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminalo"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Marku ĉi tiun opcion se la aplikaĵo, kiun vi volas ruli, estas teksta reĝima "
+"aplikaĵo aŭ se vi volas la informojn provizitajn de la fenestro de la "
+"terminala emulilo."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "Kuru en terminalo"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "Finaj opcioj:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Marku ĉi tiun opcion se la tekstreĝima aplikaĵo ofertas koncernajn informojn "
+"pri eliro. Teni la terminalan emulilon malfermita permesas vin preni ĉi tiun "
+"informon."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "Ne fermu kiam komando eliras"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Uzanto"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Marku ĉi tiun opcion se vi volas ruli ĉi tiun aplikaĵon kun malsama "
+"uzantidentigilo. Ĉiu procezo havas malsaman uzantidentigilon asociitan kun "
+"ĝi. Ĉi tiu identigkodo determinas dosieraliron kaj aliajn permesojn. La "
+"pasvorto de la uzanto estas postulata por uzi ĉi tiun opcion."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "Kuru kiel malsama uzanto"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "Enigu la uzantnomon, kiel vi volas ruli la aplikaĵon."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Uzantnomo:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "Enigu la uzantnomon, kiun vi volas ruli la aplikaĵon kiel ĉi tie."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "Diskreta GPU"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "Kuru per dediĉita grafika karto"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Ekfunkciigo"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Marku ĉi tiun opcion se vi volas klarigi, ke via aplikaĵo komenciĝis. Ĉi tiu "
+"vida sugesto povas aperi kiel okupata kursoro aŭ en la taskobreto."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "Ebligu lanĉajn komentojn"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Tajpu la nomon, kiun vi volas doni al ĉi tiu aplikaĵo ĉi tie. Ĉi tiu "
+"aplikaĵo aperos sub ĉi tiu nomo en la menuo de aplikaĵoj kaj en la panelo."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Tajpu la priskribon de ĉi tiu aplikaĵo, laŭ ĝia uzo, ĉi tie. Ekzemploj: "
+"teletelefona aplikaĵo (KPPP) estus \"Dialalta ilo\"."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Priskribo:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Tajpu ĉi tie ajnan komenton, kiun vi opinias utila."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "Komentu:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr "Mediaj Variaĵoj:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Tajpu la komandon por lanĉi ĉi tiun aplikaĵon ĉi tie.\n"
+"\n"
+"Sekvante la komandon, vi povas havi plurajn anstataŭaĵojn kiuj estos "
+"anstataŭigitaj per la realaj valoroj kiam la efektiva programo estas "
+"rulita:\n"
+"\n"
+"%f - ununura dosiernomo\n"
+"%F - listo de dosieroj (por aplikaĵoj kiuj povas malfermi plurajn dosierojn "
+"samtempe)\n"
+"%u - ununura URL\n"
+"%U - listo de URL-oj\n"
+"%i - la piktogramo de la .desktop dosiero\n"
+"%c - la nomo de la .desktop dosiero\n"
+"%k - la loko de la .desktop dosiero"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "Programo:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Klaku ĉi tie por foliumi vian dosiersistemon por trovi la deziratan "
+"plenumeblan."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&Trarigardi..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Fiksas la labordosierujon por via aplikaĵo."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&Laborvojo:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "Argumentoj:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Ĉi tiu listo devus montri la tipojn de dosieroj kiujn via aplikaĵo "
+"povas pritrakti. Ĉi tiu listo estas organizita per <u>mimetipoj</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, estas norma protokolo por "
+"identigi la tipon de datumoj bazitaj sur dosiernomaj etendoj kaj "
+"korespondanto < u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post la "
+"punkto en flower.bmp indikas ke ĝi estas specifa speco de bildo, <u>image/x-"
+"bmp</u>. Por scii, kiu aplikaĵo devas malfermi ĉiun tipon de dosiero, la "
+"sistemo devas esti informita pri la kapabloj de ĉiu aplikaĵo por trakti ĉi "
+"tiujn etendaĵojn kaj mimetipojn.</p>\n"
+"<p>Se vi volas asocii ĉi tiun aplikaĵon kun unu aŭ pluraj mimetipoj. kiuj ne "
+"estas en ĉi tiu listo, alklaku la butonon <b>Aldoni</b> sube. Se estas unu "
+"aŭ pluraj dosiertipoj, kiujn ĉi tiu aplikaĵo ne povas trakti, vi eble volas "
+"forigi ilin el la listo alklakante la butonon <b>Forigi</b> sube.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "&Subtenataj dosiertipoj:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "Mimetipo"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Priskribo"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Alklaku ĉi tiun butonon se vi volas aldoni specon de dosiero (mimetipo) kiun "
+"via aplikaĵo povas manipuli."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Aldoni..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Se vi volas forigi tipon de dosiero (mimetipo) kiun via aplikaĵo ne povas "
+"trakti, elektu la mimetipon en la supra listo kaj alklaku ĉi tiun butonon."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Forigi"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Klaku ĉi tie por modifi la manieron kiel ĉi tiu aplikaĵo funkcios, lanĉi "
+"komentojn, opciojn de D-Bus aŭ por funkcii ĝin kiel malsama uzanto."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "Altnivelaj Opcioj"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7099,11 +8786,6 @@ msgstr "Agordi Retajn Ŝparvojojn..."
 msgid "Open file dialog"
 msgstr "Malfermu dosiero dialogon"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Loko:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7425,6 +9107,79 @@ msgstr "Saltu"
 msgid "Skip All"
 msgstr "Preterpasi Ĉion"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[seruro]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adreso:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "IP-adreso:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Ĉifrado:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Detaloj:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "SSL-versio:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Atestila ĉeno:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "Fidindaj:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Validperiodo:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Seria numero:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "MD5-digesto:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "SHA1-digesto:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7551,794 +9306,6 @@ msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "malmuntado ne estas subtenata de Windows CE."
 
-#~ msgid "Search"
-#~ msgstr "Serĉu"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Serĉu interage por domajnoj kaj gastigantoj"
-
-#~ msgid "Site"
-#~ msgstr "Retejo"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Kuketa Nomo"
-
-#~ msgid "D&elete"
-#~ msgstr "D&forigi"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "Forigi A&ll"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "Agordi &politikon..."
-
-#~ msgid "&Reload List"
-#~ msgstr "&Reŝargi Listo"
-
-#~ msgid "Secure:"
-#~ msgstr "Sekura:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Ebligu kuketsubtenon. Kutime vi volas havi kuketsubtenon ebligita kaj "
-#~ "personecigi ĝin laŭ viaj privatecaj bezonoj.</p><p>\n"
-#~ "Bonvolu noti, ke malŝalti kuketsubtenon eble igos multajn retejojn "
-#~ "neretumeblaj.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "Ebligu kuketojn"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Malakcepti la tiel nomatajn triapartajn kuketojn. Ĉi tiuj estas kuketoj, "
-#~ "kiuj devenas de alia retejo ol tiu, kiun vi nuntempe foliumas. Ekzemple, "
-#~ "se vi vizitas <b>www.foobar.com</b> dum ĉi tiu opcio estas aktiva, nur "
-#~ "kuketoj kiuj devenas de www.foobar.com estos prilaboritaj laŭ viaj "
-#~ "agordoj. Kuketoj de iu ajn alia retejo estos malakceptitaj. Ĉi tio "
-#~ "reduktas la ŝancojn, ke retejo-funkciigistoj kompilos profilon pri viaj "
-#~ "ĉiutagaj foliumkutimoj.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "Nur akceptu kuketojn de devena servilo"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "Aŭtomate akcepti provizorajn kuketojn destinitajn eksvalidiĝi ĉe la fino "
-#~ "de la nuna sesio. Tiaj kuketoj ne estos konservitaj en la malmola disko "
-#~ "aŭ konserva aparato de via komputilo. Anstataŭe, ili estas forigitaj kiam "
-#~ "vi fermas ĉiujn aplikaĵojn (ekz. via retumilo) kiuj uzas ilin.</"
-#~ "p><p><u>RIMARTU</u> Marki ĉi tiun opcion anstataŭas viajn defaŭltajn kaj "
-#~ "ankaŭ specifajn retejojn pri kuketoj por sesiokuketoj. .</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "Aŭtomate&y akceptas sesiajn kuketojn"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Difinas kiel kuketoj ricevitaj de fora maŝino estos pritraktitaj: \n"
-#~ "<ul>\n"
-#~ "<li><b>Demandi</b> igos KDE peti vian konfirmon kiam ajn servilo volas "
-#~ "agordi kuketon .</li>\n"
-#~ "<li><b>Akcepti</b> akceptos kuketojn sen peti vin.</li>\n"
-#~ "<li><b>Akceptu ĝis fino de la kunsido</b> faros kaŭzos ke kuketoj estu "
-#~ "akceptitaj sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
-#~ "<li><b>Malakcepto</b> igos la kuketon rifuzos ĉiujn kuketojn kiujn ĝi "
-#~ "ricevas.</li>\n"
-#~ " </ul><p>\n"
-#~ "<u>RIMARKO:</u> Domajnaj specifaj politikoj, kiuj povas esti agordeblaj "
-#~ "sube, ĉiam havas prioritaton super la defaŭlta politiko.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "Defaŭlta Politiko"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "Akceptu ĉiujn kuketojn"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "Akceptu &ĝis fino de la sesio"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "Petu konfirmon"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "Malakcepti ĉiujn kuketojn"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Por aldoni novan politikon, simple alklaku la butonon <b>Aldoni...</b> "
-#~ "kaj provizi la necesajn informojn. Por ŝanĝi ekzistantan politikon, uzu "
-#~ "la butonon <b>Ŝanĝi...</b> kaj elektu la novan politikon el la politika "
-#~ "dialogujo. Alklakante la butonon <b>Forigi</b> forigos la nuntempe "
-#~ "elektitan politikon kaŭzante la defaŭltan politikan agordon esti uzata "
-#~ "por tiu domajno, dum <b>Forigi Ĉion</b> forigos ĉiujn specifajn "
-#~ "politikojn de la retejo.\n"
-#~ " </ qt >"
-
-#~ msgid "Site Policy"
-#~ msgstr "Reteja Politiko"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Serĉu interage por domajnoj"
-
-#~ msgid "Search..."
-#~ msgstr "Serĉu..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\\Listo de retejoj, por kiuj vi starigis specifan politikon pri "
-#~ "kuketoj. Specifaj politikoj anstataŭas la defaŭltan politikan agordon por "
-#~ "ĉi tiuj retejoj.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Domajno"
-
-#~ msgid "Policy"
-#~ msgstr "Politiko"
-
-#~ msgid "&New..."
-#~ msgstr "&Nova..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "Ŝanĝu..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la gastiganton aŭ domajnon al kiu ĉi tiu politiko aplikas, ekz. "
-#~ "<b>www.kde.org</b> aŭ <b>.kde.org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "Reteja nomo:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "Enigu la gastigantan aŭ domajnan nomon, ekz. .kde.org, ĉi tiu politiko "
-#~ "validas por."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Elektu la deziratan politikon:\n"
-#~ "<ul>\n"
-#~ "<li><b>Akcepti</b> - Permesas al ĉi tiu retejo agordi kuketojn</li>\n"
-#~ "<li><b>Akceptu ĝis fino de sesio</b> - Permesas al ĉi tiu retejo agordi "
-#~ "kuketojn sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
-#~ "<li><b>Malakcepti</b> - Rifuzu ĉiujn kuketojn senditajn de ĉi tiu "
-#~ "retejo</ li>\n"
-#~ "<li><b>Demandi</b> - Peti kiam kuketoj estas ricevitaj de ĉi tiu retejo</"
-#~ "li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "Politiko:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "Akceptu ĝis fino de la kunsido"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Malebligu Pasivan FTP"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Kiam FTP-konektoj estas pasivaj la kliento konektas al la servilo, "
-#~ "anstataŭ inverse, do fajroŝirmiloj ne blokas la konekton; malnovaj FTP-"
-#~ "serviloj eble ne subtenas Pasivan FTP tamen."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Marku parte alŝutitajn dosierojn"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "Dum dosiero estas alŝutita ĝia etendaĵo estas \".part\". Kiam plene "
-#~ "alŝutite ĝi estas renomita al sia reala nomo."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Agordu prokuran agordon.\n"
-#~ "<p>\n"
-#~ "Prokura servilo estas meza maŝino, kiu sidas inter via komputilo kaj "
-#~ "interreto kaj provizas servojn kiel retpaĝa kaŝmemoro kaj filtrado. "
-#~ "Kaŝmemoraj prokurserviloj donas al vi pli rapidan aliron al retejoj, "
-#~ "kiujn vi jam vizitis, loke konservante aŭ konservante tiujn paĝojn; "
-#~ "filtraj prokurserviloj kutime ebligas forbari petojn por reklamoj, spamon "
-#~ "aŭ ion alian, kion vi volas bloki.\n"
-#~ "<p>\n"
-#~ "Se vi ne certas ĉu vi bezonas aŭ ne uzi prokurilon por konekti al "
-#~ "Interreto, konsultu la agordan gvidilon de via interreta provizanto aŭ "
-#~ "vian sistemadministranton.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Konekti al la Interreto rekte."
-
-#~ msgid "No Proxy"
-#~ msgstr "Neniu Prokurilo"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Aŭtomate detekti kaj agordi la prokurajn agordojn.<p>\n"
-#~ "Aŭtomata detekto estas farita per la <b>TTT-Prokura Aŭtomata Malkovra "
-#~ "Protokolo (WPAD)</b>.<p>\n"
-#~ "<b>NOTU:< /b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en "
-#~ "iuj UNIX/Linuksaj distribuoj.\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "Detekti prokurilon aŭtomate"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr ""
-#~ "Uzu la specifitan prokuran skripton por agordi la prokurajn agordojn."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Uzu URL de aŭtomata agordo de prokurilo:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Enigu la adreson por la prokura agorda skripto."
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>Uzu prokurajn agordojn difinitajn en la sistemo.</p>\n"
-#~ "<p>Kelkaj platformoj ofertas tutsistemajn prokurajn agordajn informojn "
-#~ "kaj elektante ĉi tiun opcion ebligas al vi uzi tiujn agordojn.</p>\n"
-#~ "<p >Sur Mac-platformoj</p>\n"
-#~ "<p>Sur Vindozaj platformoj</p>\n"
-#~ "<p>Sur Unikso kaj Linukso platformoj, tiaj sistemaj prokuraj agordoj "
-#~ "estas kutime difinitaj per mediovariabloj. La sekvaj mediovariabloj estas "
-#~ "detektitaj kaj uzataj kiam ili ĉeestas: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p> >>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Uzu sisteman prokurilon:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Provu aŭtomatan malkovron de la medio-variabloj uzataj por agordi "
-#~ "sistemojn de prokura informo.<p> Ĉi tiu funkcio funkcias serĉante ofte "
-#~ "uzatajn variablo-nomojn kiel HTTP_PROXY, FTP_PROXY kaj NO_PROXY.</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "Aŭtomata Detekti"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la nomon de la mediovariablo, ekz. <b>HTTP_PROXY</b>, uzata por "
-#~ "konservi la adreson de la HTTP-prokurservilo.<p>\n"
-#~ "Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
-#~ "provi aŭtomatan malkovron de ĉi tiu variablo.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP Prokurilo:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la nomon de la mediovariablo, ekz. <b>HTTPS_PROXY</b>, uzata por "
-#~ "konservi la adreson de la HTTPS-prokurservilo.<p>\n"
-#~ "Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
-#~ "provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL-Prokurilo:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la nomon de la mediovariablo, ekz. <b>FTP_PROXY</b>, uzata por "
-#~ "konservi la adreson de la FTP-prokurservilo.<p>\n"
-#~ "Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
-#~ "provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP-Prokurilo:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
-#~ "konservi la adreson de la prokurilo SOCKS.<p>\n"
-#~ "Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
-#~ "provi aŭtomatan malkovron. de ĉi tiu variablo.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS-Prokurilo:"
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata "
-#~ "por konservi la adreson de la prokurilo SOCKS.<p>Alternative, vi povas "
-#~ "alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por provi aŭtomatan "
-#~ "malkovron de ĉi tiu variablo. .</ p ></ qt >"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Enigu la mediovariablon, ekz. <b>NO_PROXY</b>, uzata por konservi la "
-#~ "adresojn de retejoj, por kiuj la prokurilo ne estu uzata.<p>\n"
-#~ "Alternative, vi povas alklaki la <b>\"Aŭtomata Detekti\"</b> butono por "
-#~ "provi aŭtomatan malkovron de ĉi tiu variablo.\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "Esceptoj:"
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Enigu la mediovariablon, ekz. <b>NO_PROXY</b>, uzata por konservi la "
-#~ "adresojn de retejoj, por kiuj la ĉi-supraj prokuragordoj ne estu uzataj."
-#~ "<p>Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> "
-#~ "por provu aŭtomatan malkovron de ĉi tiu variablo.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Montru la &valoron de la mediovariabloj"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "Mane enigu informojn pri agordo de prokura servilo."
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "Uzu mane specifitan prokurilon:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Enigu la adreson de la HTTP prokura servilo."
-
-#~ msgid "Port:"
-#~ msgstr "Haveno:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "Enigu la pordan numeron de la HTTP prokura servilo."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "Uzu ĉi tiun prokurilon por ĉiuj protokoloj"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Enigu la adreson de la HTTPS prokura servilo."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "Enigu la pordan numeron de la HTTPS-prokura servilo."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Enigu la adreson de la FTP-prokurservilo."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "Enigu la pordan numeron de la FTP-prokurservilo."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "Enigu la adreson de la prokurilo SOCKS."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "Enigu la havenan numeron de la SOCKS-prokura servilo."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Entajpu komon apartigitan liston de gastigaj nomoj aŭ ip-adresoj, kiuj "
-#~ "devus esti ekskluditaj de uzado de ĉi-supraj prokuraj agordoj.</p>\n"
-#~ "<p>Se vi volas ekskludi ĉiujn gastigantojn por difinita domajno, tiam "
-#~ "simple enigu la domajnan nomon antaŭita de punkto. Ekzemple, por ekskludi "
-#~ "ĉiujn gastigajn nomojn por <i>kde.org</i>, enigu <i>.kde.org</i>. "
-#~ "Ĵetantaj signoj kiel '*' aŭ '?' ne estas subtenataj kaj havos neniun "
-#~ "efikon.</p>\n"
-#~ "<p>Aldone, vi povas ankaŭ enigi IP-adresojn, ekz. 127.0.0.1 kaj IP-"
-#~ "adresoj kun subreto, ekz. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Marku ĉi tiun skatolon se vi volas, ke la ĉi-supraj prokuragordoj "
-#~ "aplikiĝu nur al la adresoj listigitaj en la listo <i>Esceptoj</i>.</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "Uzu prokurajn agordojn nur por adresoj en la listo de Esceptoj"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Ebligi aŭ malŝalti retserĉajn ŝlosilvortojn. </"
-#~ "p><p>Retaj serĉvortoj permesas vin rapide aliri aŭ serĉi informojn enrete "
-#~ "aŭ sur via malmola disko. </p><p>KDE venas kun multaj antaŭdifinitaj "
-#~ "ŝlosilvortoj. Unu tia ŝlosilvorto povas esti uzata por fari serĉon de "
-#~ "Guglo (TM); por uzi ĝin, vi simple tajpu la ŝlosilvorton 'gg' sekvata de "
-#~ "la ŝlosilvorto-limigilo kaj la serĉtermino, ekz. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "&Ebligu TTT-serĉajn ŝlosilvortojn"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "&Uzu nur preferatajn ŝlosilvortojn"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "Serĉu retajn serĉvortojn"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "Aldonu novan TTT-serĉan ŝlosilvorton"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "Modifi la emfazitan TTT-serĉan ŝlosilvorton"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "Forigu la emfazitan TTT-serĉan ŝlosilvorton"
-
-#~ msgid "De&lete"
-#~ msgstr "Forigi"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Elektu la serĉilon por uzi por enigketoj kiuj disponigas aŭtomatajn "
-#~ "serĉservojn kiam vi tajpas normalajn vortojn kaj frazojn anstataŭ URL. "
-#~ "Por malŝalti ĉi tiun funkcion elektu <b>Neniu</b> el la listo.\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "Defaŭlta &serĉa ŝlosilvorto:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Elektu defaŭltan retserĉan ŝlosilvorton. </p><p>Ĉi "
-#~ "tio permesas al aplikaĵoj aŭtomate konverti la tajpitan vorton aŭ frazon "
-#~ "al retserĉaj ŝlosilvortdemandoj kiam ili ne povas esti filtritaj en "
-#~ "taŭgan URL. </p><p>Por malŝalti ĉi tiun funkcion elektu <span style=\" "
-#~ "font-weight:600;\">Neniu</span> el la listo. </p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "Elektu la limigilon, kiu apartigas la ŝlosilvorton de la serĉota frazo aŭ "
-#~ "vorto."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "&Ŝlosilvorta limigo:"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "Elektu limigilon por marki la TTT-serĉan ŝlosilvorton."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "Dupunkto"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Spaco"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "Enigu ĉi tie la homlegeblan nomon de la serĉprovizanto."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "&nomo de mallongigo:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Entajpu la URI, kiu estas uzata por fari serĉon ĉe la serĉilo ĉi tie.<br/"
-#~ ">La tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/ >\n"
-#~ "Rekomendita estas \\{@}, ĉar ĝi forigas ĉiujn demandvariablojn "
-#~ "(nomo=valoro) el la rezulta ĉeno, dum \\{0} estos anstataŭigita per la "
-#~ "nemodifita demandŝnuro.<br/>Vi povas uzi \\ {1} ... \\{n} por specifi "
-#~ "iujn vortojn el la konsulto kaj \\{nomo} por specifi valoron donitan de "
-#~ "'nomo=valoro' en la uzanta demando.<br/>Krome eblas specifu plurajn "
-#~ "referencojn (nomoj, nombroj kaj ĉenoj) samtempe (\\{nomo1,nomo2,...,"
-#~ "\"ŝnuro\"}).<br/>La unua kongrua valoro (de maldekstre) estos uzata kiel "
-#~ "la anstataŭiga valoro por la rezulta URI.<br/>Cita ĉeno povas esti uzata "
-#~ "kiel defaŭlta valoro se nenio kongruas de la maldekstro de la "
-#~ "referenclisto.\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "&URL-mallongigo:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "Elektu la signaron, kiu estos uzata por kodi vian serĉdemandon."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "La ŝparvojoj ĉi tie enigitaj povas esti uzataj kiel pseŭdo-URI-skemo en "
-#~ "KDE. Ekzemple, la ŝparvojo <b>av</b> povas esti uzata kiel en <b>av</b>:"
-#~ "<b>mia serĉo</b>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Enigu ĉi tie la homlegeblan nomon de la interreta "
-#~ "ŝparvojo.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&Mallongigoj:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "Elektu la signaron, kiu estos uzata por kodi vian serĉdemandon"
-
-#~ msgid "&Charset:"
-#~ msgstr "&Charset:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "Enmetu demandan anstataŭilon"
-
-#~ msgid "Common name:"
-#~ msgstr "Komuna nomo:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "Organizo:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Kompania Informo Kompania Nomo Acme Sundry Products Company"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Organiza unuo:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Sekcio pri Fraŭdo"
-
-#~ msgid "Country:"
-#~ msgstr "Lando:"
-
-#~ msgid "Canada"
-#~ msgstr "Kanado"
-
-#~ msgid "State:"
-#~ msgstr "Ŝtato:"
-
-#~ msgid "Quebec"
-#~ msgstr "Kebekio"
-
-#~ msgid "City:"
-#~ msgstr "Urbo:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Herbejoj"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "Kopiu kaj algluu kontrolsumon en la suban kampon.<br/>Kontrolsumon kutime "
-#~ "provizas la retejo de kiu vi elŝutis ĉi tiun dosieron."
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "Atendita ĉeksumo (MD5, SHA1, SHA256 aŭ SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "Klaku por alglui la ĉeksumon de la tondujo al la eniga kampo."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "Kalkuli"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "Klaku por kopii la kontrolsumon al la tondujo."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8362,284 +9329,6 @@ msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
 #~ msgid "Unmount"
 #~ msgstr "Malmunti"
 
-#~ msgid "Stop"
-#~ msgstr "Haltu"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "Esploru en Filelight"
-
-#~ msgid "Mounted From:"
-#~ msgstr "Muntita de:"
-
-#~ msgid "Free Space:"
-#~ msgstr "Libera Spaco:"
-
-#~ msgid "Type:"
-#~ msgstr "Tipo:"
-
-#~ msgid "Change..."
-#~ msgstr "Ŝanĝi..."
-
-#~ msgid "Content:"
-#~ msgstr "Enhavo:"
-
-#~ msgid "Points to:"
-#~ msgstr "Indikas al:"
-
-#~ msgid "Modified:"
-#~ msgstr "Modifita:"
-
-#~ msgid "Created:"
-#~ msgstr "Kreita:"
-
-#~ msgid "File System:"
-#~ msgstr "Dosier-sistemo:"
-
-#~ msgid "Unknown size"
-#~ msgstr "Nekonata grandeco"
-
-#~ msgid "Mounted On:"
-#~ msgstr "Montita Sur:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Alirita:"
-
-#~ msgid "Open With:"
-#~ msgstr "Malfermu Kun:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Terminalo"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Marku ĉi tiun opcion se la aplikaĵo, kiun vi volas ruli, estas teksta "
-#~ "reĝima aplikaĵo aŭ se vi volas la informojn provizitajn de la fenestro de "
-#~ "la terminala emulilo."
-
-#~ msgid "Run in terminal"
-#~ msgstr "Kuru en terminalo"
-
-#~ msgid "Terminal options:"
-#~ msgstr "Finaj opcioj:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Marku ĉi tiun opcion se la tekstreĝima aplikaĵo ofertas koncernajn "
-#~ "informojn pri eliro. Teni la terminalan emulilon malfermita permesas vin "
-#~ "preni ĉi tiun informon."
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "Ne fermu kiam komando eliras"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Uzanto"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Marku ĉi tiun opcion se vi volas ruli ĉi tiun aplikaĵon kun malsama "
-#~ "uzantidentigilo. Ĉiu procezo havas malsaman uzantidentigilon asociitan "
-#~ "kun ĝi. Ĉi tiu identigkodo determinas dosieraliron kaj aliajn permesojn. "
-#~ "La pasvorto de la uzanto estas postulata por uzi ĉi tiun opcion."
-
-#~ msgid "Run as a different user"
-#~ msgstr "Kuru kiel malsama uzanto"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "Enigu la uzantnomon, kiel vi volas ruli la aplikaĵon."
-
-#~ msgid "Username:"
-#~ msgstr "Uzantnomo:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "Enigu la uzantnomon, kiun vi volas ruli la aplikaĵon kiel ĉi tie."
-
-#~ msgid "Discrete GPU"
-#~ msgstr "Diskreta GPU"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "Kuru per dediĉita grafika karto"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Ekfunkciigo"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Marku ĉi tiun opcion se vi volas klarigi, ke via aplikaĵo komenciĝis. Ĉi "
-#~ "tiu vida sugesto povas aperi kiel okupata kursoro aŭ en la taskobreto."
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "Ebligu lanĉajn komentojn"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Tajpu la nomon, kiun vi volas doni al ĉi tiu aplikaĵo ĉi tie. Ĉi tiu "
-#~ "aplikaĵo aperos sub ĉi tiu nomo en la menuo de aplikaĵoj kaj en la panelo."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Tajpu la priskribon de ĉi tiu aplikaĵo, laŭ ĝia uzo, ĉi tie. Ekzemploj: "
-#~ "teletelefona aplikaĵo (KPPP) estus \"Dialalta ilo\"."
-
-#~ msgid "&Description:"
-#~ msgstr "&Priskribo:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Tajpu ĉi tie ajnan komenton, kiun vi opinias utila."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "Komentu:"
-
-#~ msgid "Environment Variables:"
-#~ msgstr "Mediaj Variaĵoj:"
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Tajpu la komandon por lanĉi ĉi tiun aplikaĵon ĉi tie.\n"
-#~ "\n"
-#~ "Sekvante la komandon, vi povas havi plurajn anstataŭaĵojn kiuj estos "
-#~ "anstataŭigitaj per la realaj valoroj kiam la efektiva programo estas "
-#~ "rulita:\n"
-#~ "\n"
-#~ "%f - ununura dosiernomo\n"
-#~ "%F - listo de dosieroj (por aplikaĵoj kiuj povas malfermi plurajn "
-#~ "dosierojn samtempe)\n"
-#~ "%u - ununura URL\n"
-#~ "%U - listo de URL-oj\n"
-#~ "%i - la piktogramo de la .desktop dosiero\n"
-#~ "%c - la nomo de la .desktop dosiero\n"
-#~ "%k - la loko de la .desktop dosiero"
-
-#~ msgid "Program:"
-#~ msgstr "Programo:"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Klaku ĉi tie por foliumi vian dosiersistemon por trovi la deziratan "
-#~ "plenumeblan."
-
-#~ msgid "&Browse..."
-#~ msgstr "&Trarigardi..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Fiksas la labordosierujon por via aplikaĵo."
-
-#~ msgid "&Work path:"
-#~ msgstr "&Laborvojo:"
-
-#~ msgid "Arguments:"
-#~ msgstr "Argumentoj:"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Ĉi tiu listo devus montri la tipojn de dosieroj kiujn via aplikaĵo "
-#~ "povas pritrakti. Ĉi tiu listo estas organizita per <u>mimetipoj</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, estas norma protokolo "
-#~ "por identigi la tipon de datumoj bazitaj sur dosiernomaj etendoj kaj "
-#~ "korespondanto < u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post "
-#~ "la punkto en flower.bmp indikas ke ĝi estas specifa speco de bildo, "
-#~ "<u>image/x-bmp</u>. Por scii, kiu aplikaĵo devas malfermi ĉiun tipon de "
-#~ "dosiero, la sistemo devas esti informita pri la kapabloj de ĉiu aplikaĵo "
-#~ "por trakti ĉi tiujn etendaĵojn kaj mimetipojn.</p>\n"
-#~ "<p>Se vi volas asocii ĉi tiun aplikaĵon kun unu aŭ pluraj mimetipoj. kiuj "
-#~ "ne estas en ĉi tiu listo, alklaku la butonon <b>Aldoni</b> sube. Se estas "
-#~ "unu aŭ pluraj dosiertipoj, kiujn ĉi tiu aplikaĵo ne povas trakti, vi eble "
-#~ "volas forigi ilin el la listo alklakante la butonon <b>Forigi</b> sube.</"
-#~ "p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "&Subtenataj dosiertipoj:"
-
-#~ msgid "Mimetype"
-#~ msgstr "Mimetipo"
-
-#~ msgid "Description"
-#~ msgstr "Priskribo"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Alklaku ĉi tiun butonon se vi volas aldoni specon de dosiero (mimetipo) "
-#~ "kiun via aplikaĵo povas manipuli."
-
-#~ msgid "Add..."
-#~ msgstr "Aldoni..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Se vi volas forigi tipon de dosiero (mimetipo) kiun via aplikaĵo ne povas "
-#~ "trakti, elektu la mimetipon en la supra listo kaj alklaku ĉi tiun butonon."
-
-#~ msgid "Remove"
-#~ msgstr "Forigi"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Klaku ĉi tie por modifi la manieron kiel ĉi tiu aplikaĵo funkcios, lanĉi "
-#~ "komentojn, opciojn de D-Bus aŭ por funkcii ĝin kiel malsama uzanto."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "Altnivelaj Opcioj"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8652,40 +9341,3 @@ msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Algluu Enhavon de la Tondujo"
-
-#~ msgid "[padlock]"
-#~ msgstr "[seruro]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Adreso:"
-
-#~ msgid "IP address:"
-#~ msgstr "IP-adreso:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Ĉifrado:"
-
-#~ msgid "Details:"
-#~ msgstr "Detaloj:"
-
-#~ msgid "SSL version:"
-#~ msgstr "SSL-versio:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Atestila ĉeno:"
-
-#~ msgid "Trusted:"
-#~ msgstr "Fidindaj:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Validperiodo:"
-
-#~ msgid "Serial number:"
-#~ msgstr "Seria numero:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "MD5-digesto:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "SHA1-digesto:"

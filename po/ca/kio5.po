@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2023-02-05 10:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3540,7 +3540,8 @@ msgstr ""
 "adreces d'interès són específiques del diàleg de fitxer, però altrament "
 "operen com les adreces d'interès arreu del KDE.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nom:"
@@ -3830,12 +3831,19 @@ msgstr "Carpeta nova"
 msgid "Create new folder in %1:"
 msgstr "Crea una carpeta nova a %1:"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "Enganxa"
@@ -4154,6 +4162,104 @@ msgstr "Final de la sessió"
 msgid "Yes"
 msgstr "Sí"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "Cerca"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "Cerca dominis i ordinadors remots interactivament"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "Lloc"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "Nom de la galeta"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "Su&primeix"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "Suprimeix-ho &tot"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "Configura la &política..."
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "Re&carrega la llista"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detalls"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Nom:"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Valor:"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domini:"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Camí:"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Caduca:"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "És segura:"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4241,7 +4347,235 @@ msgstr ""
 "llocs web de confiança sense rebre preguntes cada cop que el KDE rebi una "
 "galeta.</p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Activa el funcionament amb les galetes. Normalment, voldreu tenir el "
+"funcionament amb les galetes activat i personalitzar-lo per a adequar-lo a "
+"les vostres necessitats de privadesa.</p><p>\n"
+"Cal tenir present que si es desactiva el funcionament amb les galetes, molts "
+"llocs web podrien ser no navegables.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "&Activa les galetes"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Rebutja les galetes anomenades de tercers. Són galetes originades des d'un "
+"lloc diferent del que esteu navegant. Per exemple, si visiteu <b>www.example."
+"com</b> amb aquesta opció seleccionada, la configuració només processarà les "
+"galetes originades a www.example.com. Es rebutjaran les galetes de qualsevol "
+"altre lloc. Això reduirà les possibilitats que els operadors dels llocs "
+"apleguin informació quant als vostres hàbits de navegació diaris.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "Acce&pta només les galetes del servidor original"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"Accepta automàticament les galetes temporals que expiraran al final de la "
+"sessió actual. Aquestes galetes no es desaran al disc dur o dispositiu "
+"d'emmagatzematge. En comptes d'això, se suprimiran quan tanqueu totes les "
+"aplicacions que les usen (p. ex. el navegador).</p><p><u>NOTA:</u> Si "
+"activeu aquesta opció, s'anul·laran les polítiques de galetes de sessió per "
+"omissió i específiques de lloc.</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "Accepta automàt&icament les galetes de sessió"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Determina com es gestionaran les galetes rebudes des d'un servidor remot:\n"
+"<ul>\n"
+"<li><b>Pregunta</b> farà que el KDE us demani confirmació sempre que un "
+"servidor vulgui establir una galeta.</li>\n"
+"<li><b>Accepta</b> farà que s'acceptin les galetes sense preguntar.</li>\n"
+"<li><b>Accepta fins al final de sessió</b> farà que s'acceptin les galetes, "
+"però expiraran al final de la sessió.</li>\n"
+"<li><b>Rebutja</b> farà que el programa «cookiejar» rebutgi totes les "
+"galetes que rep.</li>\n"
+"</ul><p>\n"
+"<u>NOTA:</u> Les polítiques específiques de domini, les quals es poden "
+"establir a sota, sempre tenen precedència sobre la política per omissió.</"
+"p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "Política per omissió"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "Accep&ta totes les galetes"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "Accepta &fins al final de la sessió"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "De&mana confirmació"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "Rebut&ja totes les galetes"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Per a afegir una política nova, simplement cliqueu el botó <b>Afegeix...</b> "
+"i proporcioneu la informació necessària. Per a canviar una política "
+"existent, cliqueu el botó <b>Canvia...</b> i trieu la nova política del "
+"quadre de diàleg de polítiques. En clicar al botó <b>Suprimeix</b> "
+"s'eliminarà la política seleccionada, fent que per a aquest domini s'usi la "
+"política per omissió, mentre que <b>Suprimeix-ho tot</b> eliminarà totes les "
+"polítiques específiques de lloc.\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "Política de lloc"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "Cerca dominis interactivament"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "Cerca..."
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Llista de llocs per als quals heu establert polítiques de galeta "
+"específiques. Les polítiques específiques anul·len els valors de política "
+"per omissió per a aquests llocs.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "Domini"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "Política"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Nova..."
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "&Canvia..."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
@@ -4249,17 +4583,92 @@ msgstr "Accepta"
 msgid "Accept For Session"
 msgstr "Accepta per sessió"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "Pregunta"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "No es coneix"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu el servidor o domini al qual s'aplica aquesta política, p. ex. "
+"<b>www.kde.org</b> o <b>.kde.org</b>.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "Nom del lloc:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr ""
+"Introduïu el nom de l'ordinador o del domini al qual s'aplica aquesta "
+"política, p. ex. kde.org."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Seleccioneu la política desitjada:\n"
+"<ul>\n"
+"<li><b>Accepta</b> - Permet a aquest lloc establir galetes</li>\n"
+"<li><b>Accepta fins al final de sessió</b> Permet que aquest lloc estableixi "
+"galetes, però expiraran al final de la sessió.</li>\n"
+"<li><b>Rebutja</b> - Rebutja totes les galetes enviades des d'aquest lloc</"
+"li>\n"
+"<li><b>Pregunta</b> - Demana quan es rebin galetes des d'aquest lloc</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "Política:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "Accepta fins al final de la sessió"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4280,6 +4689,42 @@ msgstr "L'actualització ha fallat"
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "Cal tornar a engegar el KDE perquè aquests canvis tinguin efecte."
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "Desactiva l'FTP passiu"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"Quan les connexions FTP són passives el client es connecta amb el servidor, "
+"en comptes de l'inrevés, per tant, els tallafocs no bloquegen la connexió; "
+"encara que els servidors FTP antics poden no acceptar l'FTP passiu."
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "Marca els fitxers carregats parcialment"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"Mentre es carrega un fitxer la seva extensió és «.part». Quan s'ha carregat "
+"del tot es reanomena al seu nom real."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4457,6 +4902,446 @@ msgstr ""
 "d'anuncis, correu brossa o qualsevol altra cosa que vulgueu bloquejar.</"
 "p><p><u>Nota:</u> Alguns servidors intermediaris proporcionen ambdós serveis."
 "</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Configuració dels valors d'intermediari.\n"
+"<p>\n"
+"Un servidor intermediari és un ordinador intermedi situat entre el vostre "
+"ordinador i Internet i proporciona serveis com ara cau de pàgines web i "
+"filtrat. Els servidors intermediaris de cau us donen accés més ràpid als "
+"llocs web que ja heu visitat guardant localment o encauant aquelles pàgines. "
+"Els servidors intermediaris de filtratge usualment proporcionen la capacitat "
+"de bloquejar peticions d'anuncis, correu brossa o qualsevol altra cosa que "
+"vulgueu bloquejar.\n"
+"<p>\n"
+"Si no esteu segur si us cal o no usar un servidor intermediari per a "
+"connectar-vos a Internet, consulteu la guia de configuració del vostre "
+"proveïdor de serveis d'Internet o a l'administrador del sistema.\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "Connecta a Internet directament."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "Sense intermediari"
+
+# skip-rule: acronyms-faq
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, kde-format
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Detecta automàticament i configura els valors d'intermediari.<p>\n"
+"La detecció automàtica s'efectua usant el <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTA:</b> Aquesta opció podria no funcionar correctament o no funcionar "
+"en absolut en algunes distribucions Unix/Linux.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "Detecta automàticament la configuració del servidor intermediari"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr ""
+"Usa l'script d'intermediari especificat per a configurar els valors "
+"d'intermediari."
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "Usa l'URL de configuració automàtica de l'intermediari:"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "Introduïu l'adreça de l'script de configuració de l'intermediari."
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>Usa l'arranjament del servidor intermediari definit en el sistema.</"
+"p>\n"
+"<p>Algunes plataformes ofereixen informació de la configuració del servidor "
+"intermediari global del sistema i en seleccionar aquesta opció us permet "
+"usar aquesta configuració.</p>\n"
+"<p>En plataformes Mac</p>\n"
+"<p>En plataformes Windows</p>\n"
+"<p>En plataformes Unix i Linux, aquesta configuració normalment es defineix "
+"mitjançant variables d'entorn. Les variables d'entorn següents es detecten i "
+"s'usen si estan definides: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "Usa la configuració d'intermediari del sistema:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>Intenta el descobriment automàtic de les variables d'entorn usades per a "
+"establir la informació d'intermediari per a tot el sistema. <p> Aquesta "
+"característica funciona cercant noms de variables usades comunament com ara "
+"HTTP_PROXY, FTP_PROXY i NO_PROXY.</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "D&etecta automàticament"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
+"servidor intermediari HTTP, p. ex. <b>HTTP_PROXY</b>.<p>\n"
+"Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per a "
+"provar el descobriment automàtic d'aquesta variable.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "Servidor intermediari HTTP:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
+"servidor intermediari HTTPS, p. ex. <b>HTTPS_PROXY</b>.<p>\n"
+"Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per a "
+"provar el descobriment automàtic d'aquesta variable.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "Servidor intermediari SSL:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu el nom de la variable d'entorn, p. ex. <b>FTP_PROXY</b>, emprada "
+"per a desar l'adreça del servidor intermediari FTP.<p>\n"
+"Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per a "
+"provar el descobriment automàtic d'aquesta variable.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "Servidor intermediari FTP:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
+"servidor intermediari SOCKS, p. ex. <b>SOCKS_PROXY</b>.<p>\n"
+"Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per a "
+"provar el descobriment automàtic d'aquesta variable.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "Servidor intermediari SOCKS:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Introduïu el nom de la variable d'entorn emprada per a desar l'adreça "
+"del servidor intermediari SOCKS, p. ex. <b>SOCKS_PROXY</b>."
+"<p>Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
+"a provar el descobriment automàtic d'aquesta variable.</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu la variable d'entorn usada per a desar les adreces dels llocs per "
+"als quals no s'ha d'usar el servidor intermediari, p. ex. <b>NO_PROXY</b>."
+"<p>\n"
+"Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per a "
+"provar el descobriment automàtic d'aquesta variable.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "Excepcions:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>Introduïu la variable d'entorn usada per a desar les adreces dels llocs "
+"per als quals no s'ha d'usar la configuració de servidor intermediari, p. "
+"ex. <b>NO_PROXY</b>.<p>Alternativament, podeu clicar al botó <b>«Detecta "
+"automàticament»</b> per a provar el descobriment automàtic d'aquesta "
+"variable.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "Mostra el &valor de les variables d'entorn"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr ""
+"Introdueix manualment la informació de configuració del servidor "
+"intermediari."
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "Usa la configuració de l'intermediari especificada manualment:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "Introduïu l'adreça del servidor intermediari HTTP."
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "Introduïu el número de port del servidor intermediari HTTP."
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "Usa &aquest mateix servidor intermediari per a tots els protocols"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "Introduïu l'adreça del servidor intermediari HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "Introduïu el número de port del servidor intermediari HTTPS."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "Introduïu l'adreça del servidor intermediari FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "Introduïu el número de port del servidor intermediari FTP."
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "Introduïu l'adreça del servidor intermediari SOCKS."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "Introduïu el número de port del servidor intermediari SOCKS."
+
+# skip-rule: t-pu_sp
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>Introduïu una llista separada per comes de noms d'ordinador o adreces IP "
+"que cal excloure d'usar l'arranjament del servidor intermediari anterior.</"
+"p>\n"
+"<p>Si voleu excloure tots els servidors d'un domini donat, introduïu només "
+"el nom de domini precedit amb un punt. Per exemple, per a excloure tots els "
+"servidors per a <i>kde.org</i>, introduïu <i>.kde.org</i>. Els caràcters de "
+"comodí com «*» o «?» no estan admesos i no tindran cap efecte.</p>\n"
+"<p>Addicionalment, també podeu introduir adreces IP, p. ex. 127.0.0.1 i "
+"adreces IP amb una subxarxa, p. ex. 192.168.0.1/24.</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"Activeu aquesta casella si voleu que l'arranjament del servidor intermediari "
+"anterior s'apliqui només per a les adreces de la llista d'<i>excepcions</i>."
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr ""
+"Usa l'arranjament del servidor intermediari només per a les adreces de la "
+"llista d'excepcions"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5226,11 +6111,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Domini creuat]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detalls"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5318,31 +6198,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "Detalls de la galeta"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Nom:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Valor:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Caduca:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Camí:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domini:"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5504,7 +6359,8 @@ msgstr ""
 "màxima d'espai en disc que indiqueu seguidament. En cas contrari, serà sense "
 "límit.</para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "Mida:"
@@ -5774,6 +6630,146 @@ msgstr ""
 "teclejant-les al giny d'entrada de les aplicacions que tenen la "
 "implementació d'aquesta funcionalitat, com el Konqueror.</para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Activa o desactiva les paraules clau de cerca a la web."
+"</p><p>Les paraules clau de cerca a la web us permeten accedir ràpidament o "
+"cercar informació ubicada en línia o en el disc dur.</p><p>El KDE incorpora "
+"moltes paraules clau de cerca a la web predefinides. Una d'aquestes paraules "
+"clau és la drecera de cerca de Google (TM). Per a usar-la, teclegeu només la "
+"paraula clau «gg» seguida pel delimitador de la paraula clau i el terme a "
+"cercar, p. ex. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "&Activa les paraules clau de cerca a la web"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "&Usa només les paraules clau preferides"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "Cerca paraules clau de cerca a la web"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "Afegeix una paraula clau nova de cerca a la web"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "Modifica la paraula clau de cerca a la web ressaltada"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "Suprimeix la paraula clau de cerca a la web ressaltada"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "Su&primeix"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Seleccioneu el motor de cerca a usar en els quadres d'entrada que "
+"proporcionin el servei de cerca automàtica quan teclegeu paraules normals o "
+"frases en lloc d'un URL. Per a desactivar aquesta funcionalitat seleccioneu "
+"<b>Cap</b> a la llista.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "Paraula clau de &cerca a la web predeterminada:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>Seleccioneu una paraula clau de cerca a la web "
+"predeterminada.</p><p>Això permet que les aplicacions converteixin "
+"automàticament la paraula o frase teclejada a les consultes de les paraules "
+"clau de cerca a la web quan no es poden filtrar en un URL apropiat.</"
+"p><p>Per a desactivar aquesta funcionalitat seleccioneu <span style=\" font-"
+"weight:600;\">Cap</span> a la llista.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr ""
+"Seleccioneu el delimitador que separa la paraula clau de la frase o paraula "
+"a cercar."
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "Delimitador de la paraula &clau:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr ""
+"Seleccioneu un delimitador per a marcar la paraula clau de la cerca a la web."
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "Dos punts"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "Espai"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5841,6 +6837,127 @@ msgstr ""
 msgid "Keep It"
 msgstr "Mantén-lo"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "Introduïu aquí un nom intel·ligible del proveïdor de cerca."
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "&Nom de la drecera:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Introduïu aquí l'URI que s'usarà per a fer la cerca en el motor de cerca.<br/"
+">El text sencer a cercar es pot indicar com \\{@} o \\{0}.<br/>\n"
+"Es recomana \\{@}, ja que elimina totes les variables de consulta "
+"(nom=valor) de la cadena resultant, mentre que \\{0} se substituirà amb la "
+"cadena de consulta sense modificar.<br/>Podeu usar \\{1}... \\{n} per a "
+"indicar certes paraules de la consulta i \\{nom} per a indicar un valor "
+"donat per «nom=valor» a la consulta de l'usuari.<br/>Addicionalment, és "
+"possible indicar referències múltiples (noms, nombres i cadenes) a la vegada "
+"(\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelli (des de "
+"l'esquerra) s'usarà com a valor de substitució a l'URI resultant.<br/>Es pot "
+"usar una cadena entre cometes com a valor per omissió si no hi ha cap "
+"aparellament des de l'esquerra de la llista de referències.\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "&URL de la drecera:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr ""
+"Seleccioneu el joc de caràcters que s'usarà per a codificar la consulta de "
+"la cerca."
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"Les dreceres introduïdes aquí es poden usar com a esquemes pseudo-URI en el "
+"KDE. Per exemple, la drecera <b>av</b> es pot usar com a <b>av</b>:<b>la "
+"meva cerca</b>\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Introduïu aquí un nom intel·ligible de la drecera web."
+"</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&Dreceres:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr ""
+"Seleccioneu el joc de caràcters que s'usarà per a codificar la consulta de "
+"la cerca"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "Joc de &caràcters:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "Inseriu el text variable de la consulta"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5860,6 +6977,154 @@ msgstr "Sol·licitud bloquejada."
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Ordre HTTP desconeguda."
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "Nom comú:"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "Acme Co."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "Organització:"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "Companyia de Productes Variats Acme"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "Unitat organitzativa:"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "Departament de frau"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "País:"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "Canadà"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "Estat:"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "Quebec"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "Ciutat:"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "Lakeridge Meadows"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"Copieu i enganxeu una suma de verificació en el camp següent.<br/"
+">Normalment, el lloc web des del qual baixeu aquest fitxer proporciona una "
+"suma de verificació."
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr ""
+"Feu clic per a enganxar la suma de verificació des del porta-retalls al camp "
+"d'entrada."
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "MD5:"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "SHA1:"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "SHA256:"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "SHA512:"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "Calcula"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "Feu clic per a copiar la suma de verificació al porta-retalls."
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6347,6 +7612,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "Desconegut"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "Atura"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "Explora en el Filelight"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "Muntat des de:"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "Espai lliure:"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "Tipus:"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "Ubicació:"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "Canvia..."
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "Contingut:"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "Apunta a:"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "Modificat:"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "Creat:"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "Sistema de fitxers:"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "Mida desconeguda"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "Muntat a:"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "Accedit:"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "Obre amb:"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6517,6 +7878,367 @@ msgid ""
 msgstr ""
 "No s'ha trobat <filename>%1</filename>. Si us plau, introduïu un camí vàlid "
 "a un programa executable."
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "Terminal"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"Marqueu aquesta opció si l'aplicació que voleu executar és una aplicació en "
+"mode text o si voleu la informació proporcionada per la finestra d'emulació "
+"de terminal."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "Executa en un terminal"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "Opcions del terminal:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"Marqueu aquesta opció si l'aplicació de mode text ofereix informació "
+"apropiada en acabar. Deixar obert l'emulador de terminal us permet recuperar "
+"aquesta informació."
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "No el tanquis quan finalitzi l'ordre"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "Usuari"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"Marqueu aquesta opció si voleu executar aquesta aplicació amb un ID d'usuari "
+"diferent. Cada procés té associat un ID d'usuari diferent. Aquest codi "
+"d'identificador determina l'accés al fitxer i altres permisos. Cal la "
+"contrasenya de l'usuari per a usar aquesta opció."
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "Executa com a usuari diferent"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "Introduïu el nom d'usuari amb el qual voleu executar l'aplicació."
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "Introduïu aquí el nom d'usuari amb el qual voleu executar l'aplicació."
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "GPU dedicada"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "Executa usant la targeta gràfica dedicada"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "Inici"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"Marqueu aquesta opció si voleu aclarir que l'aplicació ha engegat. Aquesta "
+"confirmació visual pot aparèixer com un cursor ocupat o a la barra de "
+"tasques."
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "Activa la confirmació de llançament"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"Introduïu aquí el nom que voleu donar-li a l'aplicació. Aquesta aplicació "
+"apareixerà amb aquest nom al menú d'aplicacions i al plafó."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"Introduïu aquí la descripció d'aquesta aplicació, basada en el seu ús. "
+"Exemples: una aplicació per a marcar un telèfon (KPPP) seria «Eina de "
+"marcació»."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Descripció:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "Introduïu aquí qualsevol comentari que creieu útil."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "Com&entari:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr "Variables d'entorn:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Introduïu aquí l'ordre per a engegar aquesta aplicació.\n"
+"\n"
+"A continuació de l'ordre podeu tenir diverses reserves de lloc que se "
+"substituiran amb els valors reals quan s'executi el programa real:\n"
+"\n"
+"%f - un sol nom de fitxer\n"
+"%F - una llista de fitxers (per a les aplicacions que poden obrir diversos "
+"fitxers a la vegada)\n"
+"%u - un sol URL\n"
+"%U - una llista d'URL\n"
+"%i - la icona del fitxer «.desktop»\n"
+"%c - el nom del fitxer «.desktop»\n"
+"%k - la ubicació del fitxer «.desktop»"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "Programa:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Cliqueu aquí per a navegar pel sistema de fitxers de cara a trobar "
+"l'executable desitjat."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&Navega..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "Estableix el directori de treball per a la vostra aplicació."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "Camí de &treball:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "Arguments:"
+
+# skip-rule: t-e_sola
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>Aquesta llista hauria de mostrar els tipus de fitxer que pot "
+"manipular la vostra aplicació. La llista està organitzada per <u>tipus MIME</"
+"u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension és un protocol estàndard "
+"per a identificar el tipus de dades basant-se en les extensions del nom de "
+"fitxer i els <u>tipus MIME</u> corresponents. Exemple: la part «bmp» que ve "
+"després del punt a flor.bmp indica que és un tipus especial d'imatge, "
+"<u>image/x-bmp</u>. Per a saber quina aplicació hauria d'obrir cada tipus de "
+"fitxer, el sistema hauria de ser informat quant a les capacitats de cada "
+"aplicació per a manipular aquestes extensions i tipus MIME.</p>\n"
+"<p> Si voleu associar aquesta aplicació amb un o més tipus MIME que no hi "
+"són a la llista, cliqueu al botó <b>Afegeix</b> de sota. Si hi ha un o més "
+"tipus de fitxer que aquesta aplicació no pot manipular, potser voldreu "
+"eliminar-los de la llista clicant al botó <b>Elimina</b> de sota.</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "Tipu&s de fitxer acceptats:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "Tipus MIME"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "Descripció"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr ""
+"Cliqueu en aquest botó si voleu afegir un tipus de fitxer (tipus MIME) que "
+"la vostra aplicació pot manipular."
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "Afegeix..."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació no "
+"pot manipular, seleccioneu el tipus MIME de la llista de sobre i cliqueu en "
+"aquest botó."
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "Elimina"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"Cliqueu aquí per a modificar la manera com s'executarà aquesta aplicació, la "
+"confirmació de llançament, les opcions D-Bus o per a executar-la com un "
+"usuari diferent."
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "Opcions a&vançades"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7206,11 +8928,6 @@ msgstr "Configura les dreceres web..."
 msgid "Open file dialog"
 msgstr "Diàleg d'obrir fitxers"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "Ubicació:"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7534,6 +9251,79 @@ msgstr "Omet"
 msgid "Skip All"
 msgstr "Omet-ho tot"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[cadenat]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "Adreça:"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "Adreça IP:"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "Encriptatge:"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "Detalls:"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "Versió SSL:"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "Cadena de certificats:"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "De confiança:"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "Període de validesa:"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "Número de sèrie:"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "Resum MD5:"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "Resum SHA1:"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7670,826 +9460,6 @@ msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "el desmuntatge no està disponible al Windows CE."
 
-#~ msgid "Search"
-#~ msgstr "Cerca"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "Cerca dominis i ordinadors remots interactivament"
-
-#~ msgid "Site"
-#~ msgstr "Lloc"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Nom de la galeta"
-
-#~ msgid "D&elete"
-#~ msgstr "Su&primeix"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "Suprimeix-ho &tot"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "Configura la &política..."
-
-#~ msgid "&Reload List"
-#~ msgstr "Re&carrega la llista"
-
-#~ msgid "Secure:"
-#~ msgstr "És segura:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Activa el funcionament amb les galetes. Normalment, voldreu tenir el "
-#~ "funcionament amb les galetes activat i personalitzar-lo per a adequar-lo "
-#~ "a les vostres necessitats de privadesa.</p><p>\n"
-#~ "Cal tenir present que si es desactiva el funcionament amb les galetes, "
-#~ "molts llocs web podrien ser no navegables.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "&Activa les galetes"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Rebutja les galetes anomenades de tercers. Són galetes originades des "
-#~ "d'un lloc diferent del que esteu navegant. Per exemple, si visiteu <b>www."
-#~ "example.com</b> amb aquesta opció seleccionada, la configuració només "
-#~ "processarà les galetes originades a www.example.com. Es rebutjaran les "
-#~ "galetes de qualsevol altre lloc. Això reduirà les possibilitats que els "
-#~ "operadors dels llocs apleguin informació quant als vostres hàbits de "
-#~ "navegació diaris.\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "Acce&pta només les galetes del servidor original"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "Accepta automàticament les galetes temporals que expiraran al final de la "
-#~ "sessió actual. Aquestes galetes no es desaran al disc dur o dispositiu "
-#~ "d'emmagatzematge. En comptes d'això, se suprimiran quan tanqueu totes les "
-#~ "aplicacions que les usen (p. ex. el navegador).</p><p><u>NOTA:</u> Si "
-#~ "activeu aquesta opció, s'anul·laran les polítiques de galetes de sessió "
-#~ "per omissió i específiques de lloc.</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "Accepta automàt&icament les galetes de sessió"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Determina com es gestionaran les galetes rebudes des d'un servidor "
-#~ "remot:\n"
-#~ "<ul>\n"
-#~ "<li><b>Pregunta</b> farà que el KDE us demani confirmació sempre que un "
-#~ "servidor vulgui establir una galeta.</li>\n"
-#~ "<li><b>Accepta</b> farà que s'acceptin les galetes sense preguntar.</li>\n"
-#~ "<li><b>Accepta fins al final de sessió</b> farà que s'acceptin les "
-#~ "galetes, però expiraran al final de la sessió.</li>\n"
-#~ "<li><b>Rebutja</b> farà que el programa «cookiejar» rebutgi totes les "
-#~ "galetes que rep.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTA:</u> Les polítiques específiques de domini, les quals es poden "
-#~ "establir a sota, sempre tenen precedència sobre la política per omissió.</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "Política per omissió"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "Accep&ta totes les galetes"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "Accepta &fins al final de la sessió"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "De&mana confirmació"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "Rebut&ja totes les galetes"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Per a afegir una política nova, simplement cliqueu el botó <b>Afegeix...</"
-#~ "b> i proporcioneu la informació necessària. Per a canviar una política "
-#~ "existent, cliqueu el botó <b>Canvia...</b> i trieu la nova política del "
-#~ "quadre de diàleg de polítiques. En clicar al botó <b>Suprimeix</b> "
-#~ "s'eliminarà la política seleccionada, fent que per a aquest domini s'usi "
-#~ "la política per omissió, mentre que <b>Suprimeix-ho tot</b> eliminarà "
-#~ "totes les polítiques específiques de lloc.\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "Política de lloc"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "Cerca dominis interactivament"
-
-#~ msgid "Search..."
-#~ msgstr "Cerca..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Llista de llocs per als quals heu establert polítiques de galeta "
-#~ "específiques. Les polítiques específiques anul·len els valors de política "
-#~ "per omissió per a aquests llocs.\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "Domini"
-
-#~ msgid "Policy"
-#~ msgstr "Política"
-
-#~ msgid "&New..."
-#~ msgstr "&Nova..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "&Canvia..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu el servidor o domini al qual s'aplica aquesta política, p. ex. "
-#~ "<b>www.kde.org</b> o <b>.kde.org</b>.\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "Nom del lloc:"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr ""
-#~ "Introduïu el nom de l'ordinador o del domini al qual s'aplica aquesta "
-#~ "política, p. ex. kde.org."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Seleccioneu la política desitjada:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accepta</b> - Permet a aquest lloc establir galetes</li>\n"
-#~ "<li><b>Accepta fins al final de sessió</b> Permet que aquest lloc "
-#~ "estableixi galetes, però expiraran al final de la sessió.</li>\n"
-#~ "<li><b>Rebutja</b> - Rebutja totes les galetes enviades des d'aquest "
-#~ "lloc</li>\n"
-#~ "<li><b>Pregunta</b> - Demana quan es rebin galetes des d'aquest lloc</"
-#~ "li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "Política:"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "Accepta fins al final de la sessió"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "Desactiva l'FTP passiu"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "Quan les connexions FTP són passives el client es connecta amb el "
-#~ "servidor, en comptes de l'inrevés, per tant, els tallafocs no bloquegen "
-#~ "la connexió; encara que els servidors FTP antics poden no acceptar l'FTP "
-#~ "passiu."
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "Marca els fitxers carregats parcialment"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "Mentre es carrega un fitxer la seva extensió és «.part». Quan s'ha "
-#~ "carregat del tot es reanomena al seu nom real."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Configuració dels valors d'intermediari.\n"
-#~ "<p>\n"
-#~ "Un servidor intermediari és un ordinador intermedi situat entre el vostre "
-#~ "ordinador i Internet i proporciona serveis com ara cau de pàgines web i "
-#~ "filtrat. Els servidors intermediaris de cau us donen accés més ràpid als "
-#~ "llocs web que ja heu visitat guardant localment o encauant aquelles "
-#~ "pàgines. Els servidors intermediaris de filtratge usualment proporcionen "
-#~ "la capacitat de bloquejar peticions d'anuncis, correu brossa o qualsevol "
-#~ "altra cosa que vulgueu bloquejar.\n"
-#~ "<p>\n"
-#~ "Si no esteu segur si us cal o no usar un servidor intermediari per a "
-#~ "connectar-vos a Internet, consulteu la guia de configuració del vostre "
-#~ "proveïdor de serveis d'Internet o a l'administrador del sistema.\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "Connecta a Internet directament."
-
-#~ msgid "No Proxy"
-#~ msgstr "Sense intermediari"
-
-# skip-rule: acronyms-faq
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Detecta automàticament i configura els valors d'intermediari.<p>\n"
-#~ "La detecció automàtica s'efectua usant el <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTA:</b> Aquesta opció podria no funcionar correctament o no "
-#~ "funcionar en absolut en algunes distribucions Unix/Linux.\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "Detecta automàticament la configuració del servidor intermediari"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr ""
-#~ "Usa l'script d'intermediari especificat per a configurar els valors "
-#~ "d'intermediari."
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "Usa l'URL de configuració automàtica de l'intermediari:"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "Introduïu l'adreça de l'script de configuració de l'intermediari."
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>Usa l'arranjament del servidor intermediari definit en el sistema."
-#~ "</p>\n"
-#~ "<p>Algunes plataformes ofereixen informació de la configuració del "
-#~ "servidor intermediari global del sistema i en seleccionar aquesta opció "
-#~ "us permet usar aquesta configuració.</p>\n"
-#~ "<p>En plataformes Mac</p>\n"
-#~ "<p>En plataformes Windows</p>\n"
-#~ "<p>En plataformes Unix i Linux, aquesta configuració normalment es "
-#~ "defineix mitjançant variables d'entorn. Les variables d'entorn següents "
-#~ "es detecten i s'usen si estan definides: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "Usa la configuració d'intermediari del sistema:"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>Intenta el descobriment automàtic de les variables d'entorn usades "
-#~ "per a establir la informació d'intermediari per a tot el sistema. <p> "
-#~ "Aquesta característica funciona cercant noms de variables usades "
-#~ "comunament com ara HTTP_PROXY, FTP_PROXY i NO_PROXY.</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "D&etecta automàticament"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
-#~ "servidor intermediari HTTP, p. ex. <b>HTTP_PROXY</b>.<p>\n"
-#~ "Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
-#~ "a provar el descobriment automàtic d'aquesta variable.</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "Servidor intermediari HTTP:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
-#~ "servidor intermediari HTTPS, p. ex. <b>HTTPS_PROXY</b>.<p>\n"
-#~ "Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
-#~ "a provar el descobriment automàtic d'aquesta variable.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "Servidor intermediari SSL:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu el nom de la variable d'entorn, p. ex. <b>FTP_PROXY</b>, "
-#~ "emprada per a desar l'adreça del servidor intermediari FTP.<p>\n"
-#~ "Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
-#~ "a provar el descobriment automàtic d'aquesta variable.</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "Servidor intermediari FTP:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu el nom de la variable d'entorn emprada per a desar l'adreça del "
-#~ "servidor intermediari SOCKS, p. ex. <b>SOCKS_PROXY</b>.<p>\n"
-#~ "Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
-#~ "a provar el descobriment automàtic d'aquesta variable.</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "Servidor intermediari SOCKS:"
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Introduïu el nom de la variable d'entorn emprada per a desar l'adreça "
-#~ "del servidor intermediari SOCKS, p. ex. <b>SOCKS_PROXY</b>."
-#~ "<p>Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> "
-#~ "per a provar el descobriment automàtic d'aquesta variable.</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu la variable d'entorn usada per a desar les adreces dels llocs "
-#~ "per als quals no s'ha d'usar el servidor intermediari, p. ex. "
-#~ "<b>NO_PROXY</b>.<p>\n"
-#~ "Alternativament, podeu clicar al botó <b>«Detecta automàticament»</b> per "
-#~ "a provar el descobriment automàtic d'aquesta variable.\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "Excepcions:"
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>Introduïu la variable d'entorn usada per a desar les adreces dels "
-#~ "llocs per als quals no s'ha d'usar la configuració de servidor "
-#~ "intermediari, p. ex. <b>NO_PROXY</b>.<p>Alternativament, podeu clicar al "
-#~ "botó <b>«Detecta automàticament»</b> per a provar el descobriment "
-#~ "automàtic d'aquesta variable.</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "Mostra el &valor de les variables d'entorn"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr ""
-#~ "Introdueix manualment la informació de configuració del servidor "
-#~ "intermediari."
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "Usa la configuració de l'intermediari especificada manualment:"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "Introduïu l'adreça del servidor intermediari HTTP."
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "Introduïu el número de port del servidor intermediari HTTP."
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "Usa &aquest mateix servidor intermediari per a tots els protocols"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "Introduïu l'adreça del servidor intermediari HTTPS."
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "Introduïu el número de port del servidor intermediari HTTPS."
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "Introduïu l'adreça del servidor intermediari FTP."
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "Introduïu el número de port del servidor intermediari FTP."
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "Introduïu l'adreça del servidor intermediari SOCKS."
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "Introduïu el número de port del servidor intermediari SOCKS."
-
-# skip-rule: t-pu_sp
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>Introduïu una llista separada per comes de noms d'ordinador o adreces "
-#~ "IP que cal excloure d'usar l'arranjament del servidor intermediari "
-#~ "anterior.</p>\n"
-#~ "<p>Si voleu excloure tots els servidors d'un domini donat, introduïu "
-#~ "només el nom de domini precedit amb un punt. Per exemple, per a excloure "
-#~ "tots els servidors per a <i>kde.org</i>, introduïu <i>.kde.org</i>. Els "
-#~ "caràcters de comodí com «*» o «?» no estan admesos i no tindran cap "
-#~ "efecte.</p>\n"
-#~ "<p>Addicionalment, també podeu introduir adreces IP, p. ex. 127.0.0.1 i "
-#~ "adreces IP amb una subxarxa, p. ex. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Activeu aquesta casella si voleu que l'arranjament del servidor "
-#~ "intermediari anterior s'apliqui només per a les adreces de la llista "
-#~ "d'<i>excepcions</i>.</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr ""
-#~ "Usa l'arranjament del servidor intermediari només per a les adreces de la "
-#~ "llista d'excepcions"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Activa o desactiva les paraules clau de cerca a la "
-#~ "web.</p><p>Les paraules clau de cerca a la web us permeten accedir "
-#~ "ràpidament o cercar informació ubicada en línia o en el disc dur.</"
-#~ "p><p>El KDE incorpora moltes paraules clau de cerca a la web "
-#~ "predefinides. Una d'aquestes paraules clau és la drecera de cerca de "
-#~ "Google (TM). Per a usar-la, teclegeu només la paraula clau «gg» seguida "
-#~ "pel delimitador de la paraula clau i el terme a cercar, p. ex. <span "
-#~ "style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "&Activa les paraules clau de cerca a la web"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "&Usa només les paraules clau preferides"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "Cerca paraules clau de cerca a la web"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "Afegeix una paraula clau nova de cerca a la web"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "Modifica la paraula clau de cerca a la web ressaltada"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "Suprimeix la paraula clau de cerca a la web ressaltada"
-
-#~ msgid "De&lete"
-#~ msgstr "Su&primeix"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Seleccioneu el motor de cerca a usar en els quadres d'entrada que "
-#~ "proporcionin el servei de cerca automàtica quan teclegeu paraules normals "
-#~ "o frases en lloc d'un URL. Per a desactivar aquesta funcionalitat "
-#~ "seleccioneu <b>Cap</b> a la llista.\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "Paraula clau de &cerca a la web predeterminada:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Seleccioneu una paraula clau de cerca a la web "
-#~ "predeterminada.</p><p>Això permet que les aplicacions converteixin "
-#~ "automàticament la paraula o frase teclejada a les consultes de les "
-#~ "paraules clau de cerca a la web quan no es poden filtrar en un URL "
-#~ "apropiat.</p><p>Per a desactivar aquesta funcionalitat seleccioneu <span "
-#~ "style=\" font-weight:600;\">Cap</span> a la llista.</p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr ""
-#~ "Seleccioneu el delimitador que separa la paraula clau de la frase o "
-#~ "paraula a cercar."
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "Delimitador de la paraula &clau:"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr ""
-#~ "Seleccioneu un delimitador per a marcar la paraula clau de la cerca a la "
-#~ "web."
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "Dos punts"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "Espai"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "Introduïu aquí un nom intel·ligible del proveïdor de cerca."
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "&Nom de la drecera:"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Introduïu aquí l'URI que s'usarà per a fer la cerca en el motor de cerca."
-#~ "<br/>El text sencer a cercar es pot indicar com \\{@} o \\{0}.<br/>\n"
-#~ "Es recomana \\{@}, ja que elimina totes les variables de consulta "
-#~ "(nom=valor) de la cadena resultant, mentre que \\{0} se substituirà amb "
-#~ "la cadena de consulta sense modificar.<br/>Podeu usar \\{1}... \\{n} per "
-#~ "a indicar certes paraules de la consulta i \\{nom} per a indicar un valor "
-#~ "donat per «nom=valor» a la consulta de l'usuari.<br/>Addicionalment, és "
-#~ "possible indicar referències múltiples (noms, nombres i cadenes) a la "
-#~ "vegada (\\{nom1,nom2,...,«cadena»}).<br/>El primer valor que aparelli "
-#~ "(des de l'esquerra) s'usarà com a valor de substitució a l'URI resultant."
-#~ "<br/>Es pot usar una cadena entre cometes com a valor per omissió si no "
-#~ "hi ha cap aparellament des de l'esquerra de la llista de referències.\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "&URL de la drecera:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr ""
-#~ "Seleccioneu el joc de caràcters que s'usarà per a codificar la consulta "
-#~ "de la cerca."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "Les dreceres introduïdes aquí es poden usar com a esquemes pseudo-URI en "
-#~ "el KDE. Per exemple, la drecera <b>av</b> es pot usar com a <b>av</b>:"
-#~ "<b>la meva cerca</b>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Introduïu aquí un nom intel·ligible de la drecera "
-#~ "web.</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&Dreceres:"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr ""
-#~ "Seleccioneu el joc de caràcters que s'usarà per a codificar la consulta "
-#~ "de la cerca"
-
-#~ msgid "&Charset:"
-#~ msgstr "Joc de &caràcters:"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "Inseriu el text variable de la consulta"
-
-#~ msgid "Common name:"
-#~ msgstr "Nom comú:"
-
-#~ msgid "Acme Co."
-#~ msgstr "Acme Co."
-
-#~ msgid "Organization:"
-#~ msgstr "Organització:"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "Companyia de Productes Variats Acme"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "Unitat organitzativa:"
-
-#~ msgid "Fraud Department"
-#~ msgstr "Departament de frau"
-
-#~ msgid "Country:"
-#~ msgstr "País:"
-
-#~ msgid "Canada"
-#~ msgstr "Canadà"
-
-#~ msgid "State:"
-#~ msgstr "Estat:"
-
-#~ msgid "Quebec"
-#~ msgstr "Quebec"
-
-#~ msgid "City:"
-#~ msgstr "Ciutat:"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "Lakeridge Meadows"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "Copieu i enganxeu una suma de verificació en el camp següent.<br/"
-#~ ">Normalment, el lloc web des del qual baixeu aquest fitxer proporciona "
-#~ "una suma de verificació."
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "S'espera una suma de verificació (MD5, SHA1, SHA256 o SHA512)..."
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr ""
-#~ "Feu clic per a enganxar la suma de verificació des del porta-retalls al "
-#~ "camp d'entrada."
-
-#~ msgid "MD5:"
-#~ msgstr "MD5:"
-
-#~ msgid "SHA1:"
-#~ msgstr "SHA1:"
-
-#~ msgid "SHA256:"
-#~ msgstr "SHA256:"
-
-#~ msgid "SHA512:"
-#~ msgstr "SHA512:"
-
-#~ msgid "Calculate"
-#~ msgstr "Calcula"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "Feu clic per a copiar la suma de verificació al porta-retalls."
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8514,291 +9484,6 @@ msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
 #~ msgid "Unmount"
 #~ msgstr "Desmunta"
 
-#~ msgid "Stop"
-#~ msgstr "Atura"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "Explora en el Filelight"
-
-#~ msgid "Mounted From:"
-#~ msgstr "Muntat des de:"
-
-#~ msgid "Free Space:"
-#~ msgstr "Espai lliure:"
-
-#~ msgid "Type:"
-#~ msgstr "Tipus:"
-
-#~ msgid "Change..."
-#~ msgstr "Canvia..."
-
-#~ msgid "Content:"
-#~ msgstr "Contingut:"
-
-#~ msgid "Points to:"
-#~ msgstr "Apunta a:"
-
-#~ msgid "Modified:"
-#~ msgstr "Modificat:"
-
-#~ msgid "Created:"
-#~ msgstr "Creat:"
-
-#~ msgid "File System:"
-#~ msgstr "Sistema de fitxers:"
-
-#~ msgid "Unknown size"
-#~ msgstr "Mida desconeguda"
-
-#~ msgid "Mounted On:"
-#~ msgstr "Muntat a:"
-
-#~ msgid "Accessed:"
-#~ msgstr "Accedit:"
-
-#~ msgid "Open With:"
-#~ msgstr "Obre amb:"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "Terminal"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "Marqueu aquesta opció si l'aplicació que voleu executar és una aplicació "
-#~ "en mode text o si voleu la informació proporcionada per la finestra "
-#~ "d'emulació de terminal."
-
-#~ msgid "Run in terminal"
-#~ msgstr "Executa en un terminal"
-
-#~ msgid "Terminal options:"
-#~ msgstr "Opcions del terminal:"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "Marqueu aquesta opció si l'aplicació de mode text ofereix informació "
-#~ "apropiada en acabar. Deixar obert l'emulador de terminal us permet "
-#~ "recuperar aquesta informació."
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "No el tanquis quan finalitzi l'ordre"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "Usuari"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "Marqueu aquesta opció si voleu executar aquesta aplicació amb un ID "
-#~ "d'usuari diferent. Cada procés té associat un ID d'usuari diferent. "
-#~ "Aquest codi d'identificador determina l'accés al fitxer i altres "
-#~ "permisos. Cal la contrasenya de l'usuari per a usar aquesta opció."
-
-#~ msgid "Run as a different user"
-#~ msgstr "Executa com a usuari diferent"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "Introduïu el nom d'usuari amb el qual voleu executar l'aplicació."
-
-#~ msgid "Username:"
-#~ msgstr "Nom d'usuari:"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr ""
-#~ "Introduïu aquí el nom d'usuari amb el qual voleu executar l'aplicació."
-
-#~ msgid "Discrete GPU"
-#~ msgstr "GPU dedicada"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "Executa usant la targeta gràfica dedicada"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "Inici"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "Marqueu aquesta opció si voleu aclarir que l'aplicació ha engegat. "
-#~ "Aquesta confirmació visual pot aparèixer com un cursor ocupat o a la "
-#~ "barra de tasques."
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "Activa la confirmació de llançament"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "Introduïu aquí el nom que voleu donar-li a l'aplicació. Aquesta aplicació "
-#~ "apareixerà amb aquest nom al menú d'aplicacions i al plafó."
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "Introduïu aquí la descripció d'aquesta aplicació, basada en el seu ús. "
-#~ "Exemples: una aplicació per a marcar un telèfon (KPPP) seria «Eina de "
-#~ "marcació»."
-
-#~ msgid "&Description:"
-#~ msgstr "&Descripció:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Introduïu aquí qualsevol comentari que creieu útil."
-
-#~ msgid "Comm&ent:"
-#~ msgstr "Com&entari:"
-
-#~ msgid "Environment Variables:"
-#~ msgstr "Variables d'entorn:"
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "Introduïu aquí l'ordre per a engegar aquesta aplicació.\n"
-#~ "\n"
-#~ "A continuació de l'ordre podeu tenir diverses reserves de lloc que se "
-#~ "substituiran amb els valors reals quan s'executi el programa real:\n"
-#~ "\n"
-#~ "%f - un sol nom de fitxer\n"
-#~ "%F - una llista de fitxers (per a les aplicacions que poden obrir "
-#~ "diversos fitxers a la vegada)\n"
-#~ "%u - un sol URL\n"
-#~ "%U - una llista d'URL\n"
-#~ "%i - la icona del fitxer «.desktop»\n"
-#~ "%c - el nom del fitxer «.desktop»\n"
-#~ "%k - la ubicació del fitxer «.desktop»"
-
-#~ msgid "Program:"
-#~ msgstr "Programa:"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr ""
-#~ "Cliqueu aquí per a navegar pel sistema de fitxers de cara a trobar "
-#~ "l'executable desitjat."
-
-#~ msgid "&Browse..."
-#~ msgstr "&Navega..."
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "Estableix el directori de treball per a la vostra aplicació."
-
-#~ msgid "&Work path:"
-#~ msgstr "Camí de &treball:"
-
-#~ msgid "Arguments:"
-#~ msgstr "Arguments:"
-
-# skip-rule: t-e_sola
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Aquesta llista hauria de mostrar els tipus de fitxer que pot "
-#~ "manipular la vostra aplicació. La llista està organitzada per <u>tipus "
-#~ "MIME</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension és un protocol estàndard "
-#~ "per a identificar el tipus de dades basant-se en les extensions del nom "
-#~ "de fitxer i els <u>tipus MIME</u> corresponents. Exemple: la part «bmp» "
-#~ "que ve després del punt a flor.bmp indica que és un tipus especial "
-#~ "d'imatge, <u>image/x-bmp</u>. Per a saber quina aplicació hauria d'obrir "
-#~ "cada tipus de fitxer, el sistema hauria de ser informat quant a les "
-#~ "capacitats de cada aplicació per a manipular aquestes extensions i tipus "
-#~ "MIME.</p>\n"
-#~ "<p> Si voleu associar aquesta aplicació amb un o més tipus MIME que no hi "
-#~ "són a la llista, cliqueu al botó <b>Afegeix</b> de sota. Si hi ha un o "
-#~ "més tipus de fitxer que aquesta aplicació no pot manipular, potser "
-#~ "voldreu eliminar-los de la llista clicant al botó <b>Elimina</b> de sota."
-#~ "</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "Tipu&s de fitxer acceptats:"
-
-#~ msgid "Mimetype"
-#~ msgstr "Tipus MIME"
-
-#~ msgid "Description"
-#~ msgstr "Descripció"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr ""
-#~ "Cliqueu en aquest botó si voleu afegir un tipus de fitxer (tipus MIME) "
-#~ "que la vostra aplicació pot manipular."
-
-#~ msgid "Add..."
-#~ msgstr "Afegeix..."
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "Si voleu eliminar un tipus de fitxer (tipus MIME) que la vostra aplicació "
-#~ "no pot manipular, seleccioneu el tipus MIME de la llista de sobre i "
-#~ "cliqueu en aquest botó."
-
-#~ msgid "Remove"
-#~ msgstr "Elimina"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "Cliqueu aquí per a modificar la manera com s'executarà aquesta aplicació, "
-#~ "la confirmació de llançament, les opcions D-Bus o per a executar-la com "
-#~ "un usuari diferent."
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "Opcions a&vançades"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8821,40 +9506,3 @@ msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Enganxa el contingut del porta-retalls"
-
-#~ msgid "[padlock]"
-#~ msgstr "[cadenat]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "Adreça:"
-
-#~ msgid "IP address:"
-#~ msgstr "Adreça IP:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Encriptatge:"
-
-#~ msgid "Details:"
-#~ msgstr "Detalls:"
-
-#~ msgid "SSL version:"
-#~ msgstr "Versió SSL:"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "Cadena de certificats:"
-
-#~ msgid "Trusted:"
-#~ msgstr "De confiança:"
-
-#~ msgid "Validity period:"
-#~ msgstr "Període de validesa:"
-
-#~ msgid "Serial number:"
-#~ msgstr "Número de sèrie:"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "Resum MD5:"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "Resum SHA1:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3392,7 +3392,8 @@ msgstr ""
 "စသည်တို့ကို လုပ်ဆောင်နိုင်သော စာမျက်နှာမှတ်သားချက်များ မီနူးကို ခလုတ်နိုပ်၍ ဖွင့်ပါ။<br /><br /"
 ">ထိုစာမျက်နှာမှတ်သားချက်များသည် ဖိုင်လ် အပြော-ဝင်းဒိုးတွင်သာ တည်နေရာ မှတ်သားခြင်းဖြစ်သည်။</qt>"
 
-#: filewidgets/kfilewidget.cpp:1375
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nအမည် -"
@@ -3673,12 +3674,19 @@ msgstr "ဖိုလ်ဒါအသစ်"
 msgid "Create new folder in %1:"
 msgstr "%1တွင် ဖိုလ်ဒါအသစ်တည်ဆောက်မည် -"
 
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
+#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
+#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
 #, kde-format
 msgid "Copy"
 msgstr "ကူးယူရန်"
 
-#: filewidgets/kurlnavigator.cpp:525
+#. i18n: ectx: property (text), widget (QPushButton, pasteButton)
+#: filewidgets/kurlnavigator.cpp:525 widgets/checksumswidget.ui:39
 #, kde-format
 msgid "Paste"
 msgstr "ပွား"
@@ -3999,6 +4007,104 @@ msgstr "ဆက်ရှင်၏အဆုံးသတ်"
 msgid "Yes"
 msgstr "အွန်း"
 
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
+#: kcms/cookies/kcookiesmanagement.ui:20
+#, kde-format
+msgid "Search"
+msgstr "ရှာရန်"
+
+#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:27
+#, kde-format
+msgid "Search interactively for domains and hosts"
+msgstr "ဒိုမန်းနှင့်အိမ်ရှင်များကို တစ်ဆင့်ချင်းရှာရန်"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:43
+#, kde-format
+msgid "Site"
+msgstr "ဆိုက်"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
+#: kcms/cookies/kcookiesmanagement.ui:48
+#, kde-format
+msgid "Cookie Name"
+msgstr "ကွတ်ကီးအမည်"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
+#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
+#, kde-format
+msgid "D&elete"
+msgstr "&eဖျက်မည်"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
+#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
+#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
+#, kde-format
+msgid "Delete A&ll"
+msgstr "&lအားလုံးဖျက်မည်"
+
+#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
+#: kcms/cookies/kcookiesmanagement.ui:70
+#, kde-format
+msgid "Configure &Policy..."
+msgstr "&Pပေါ်လစီ ပြင်ဆင်မည်…"
+
+#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
+#: kcms/cookies/kcookiesmanagement.ui:77
+#, kde-format
+msgid "&Reload List"
+msgstr "&Rစာရင်းပြန်တွန်းတင်"
+
+#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
+#: kcms/cookies/kcookiesmanagement.ui:97
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "အသေးစိတ်"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: kcms/cookies/kcookiesmanagement.ui:106
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "အမည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, valueLabel)
+#: kcms/cookies/kcookiesmanagement.ui:129
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "တန်ဖိုး -"
+
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: kcms/cookies/kcookiesmanagement.ui:152
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "ဒိုမိန်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, patchLabel)
+#: kcms/cookies/kcookiesmanagement.ui:175
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "လမ်းကြောင်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
+#: kcms/cookies/kcookiesmanagement.ui:198
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "သက်တမ်းကုန် -"
+
+#. i18n: ectx: property (text), widget (QLabel, secureLabel)
+#: kcms/cookies/kcookiesmanagement.ui:221
+#, kde-format
+msgid "Secure:"
+msgstr "လုံခြုံ -"
+
 #: kcms/cookies/kcookiespolicies.cpp:154
 #, kde-format
 msgctxt "@title:window"
@@ -4079,7 +4185,226 @@ msgstr ""
 "ဤကဲ့သို့လုပ်ခြင်းအားဖြင့် သင်ယုံကြည်သောဝက်ဘ်ဆိုက်များသို့ သွားရောက်သည့်အခါတိုင်း ကေဒီအီးမှ မေးခြင်းမခံရတော့ပါ။</"
 "p>"
 
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enable cookie support. Normally you will want to have cookie support "
+"enabled and customize it to suit your privacy needs.</p><p>\n"
+"Please note that disabling cookie support might make many web sites "
+"unbrowsable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>ကွတ်ကီးဆိုင်ရာလုပ်ဆောင်ချက်များထောက်ပံမှု ဖွင့်မည်။ ပုံမှန်အားဖြင့် ၎င်းထောက်ပံမှုဖွင့်ထားပြီး "
+"သင်၏အတွင်းရေးလျှိုဝှက်ခွင့်လိုလားမှုနှင့် ကိုက်ညီရန် စိတ်ကြိုက်ပြင်ဆင်ချင်လိမ့်မည်</p><p>\n"
+"မှတ်ထားသင့်သည်ကတော့ ကွတ်ကီးဆိုင်ရာလုပ်ဆောင်ချက်များထောက်ပံမှု ပိတ်ထားလျှင် ဆိုက်အများအပြားသို့ "
+"သွားရောက်၍မရဖြစ်မည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
+#: kcms/cookies/kcookiespolicies.ui:23
+#, kde-format
+msgid "Enable coo&kies"
+msgstr "&kကွတ်ကီးအသုံးပြု"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:35
+#, kde-format
+msgid ""
+"<qt>\n"
+"Reject the so called third-party cookies. These are cookies that originate "
+"from a site other than the one you are currently browsing. For example, if "
+"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
+"originate from www.foobar.com will be processed per your settings. Cookies "
+"from any other site will be rejected. This reduces the chances of site "
+"operators compiling a profile about your daily browsing habits.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"တတိယလူ-ကွတ်ကီးများကို ငြင်းပယ်မည်။ ၎င်းကွတ်ကီးများသည် သင်လက်ရှိရောက်ရှိနေသော ဆိုက်ထက် အခြားဆိုက်များက "
+"လာခြင်းဖြစ်သည်။ သာဓက။ ။သင်သည် ဤအချက်ကို ဖွင့်ပြီး <b>www.foobar.com</b>ကို သွားရောက်မည်ဆိုပါက "
+"www.foobar.comအားရေသောက်မြစ်ခံသော ကွတ်ကီးများကိုသာ သင်၏သတ်မှတ်ချက်များ အတိုင်းဆောင်ရွက်မည်။ "
+"အခြားဆိုက်များမှ ကွတ်ကီးအားလုံးကို ငြင်းပယ်မည်။ ဤသို့ပြုခြင်းအားဖြင့် ဆိုက်အော်ပရေတာများက "
+"သင်၏နေစဥ်အင်တာနက်သုံးစွဲမှုအလေ့အထားများကို စာရင်းပြုစုခံရခြင်းအား လျော့နည်းစေသည်။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
+#: kcms/cookies/kcookiespolicies.ui:38
+#, kde-format
+msgid "Only acce&pt cookies from originating server"
+msgstr "&pမူလဆာဗာမှကွတ်ကီးများသာ လက်ခံရန်"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:46
+#, kde-format
+msgid ""
+"<p>\n"
+"Automatically accept temporary cookies meant to expire at the end of the "
+"current session. Such cookies will not be stored in your computer's hard "
+"drive or storage device. Instead, they are deleted when you close all "
+"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
+"this option overrides your default as well as site specific cookie policies "
+"for session cookies.</p>"
+msgstr ""
+"<p>\n"
+"ယခု ဆက်ရှင် ပြီးသည်နှင့် သက်တမ်းကုန်မည့် ယာယီကွတ်ကီးများကို အလိုအလျောက်လက်ခံမည်။ ထိုကွတ်ကီးများကို သင်၏ "
+"မှတ်ဉာဏ်စက်များတွင် မသိမ်းဆည်းပါ။ ယင်းတို့ကို အသုံးပြုသော အပ္ပလီကေးရှင်းများ(သာဓက။ ။ဘရောက်ဇာ)အားလုံးကို "
+"သင်ပိတ်ပစ်ပါက ယင်းတို့အား ဖျက်ဆီးပစ်မည်။</p><p><u>သတိပြုပါ</u> ဤရွေးချယ်မှုပြုထားလျှင် "
+"မူလသတ်မှတ်ချက်များသာမက ဆက်ရှင်နှင့်သက်ဆိုင်သောကွတ်ကီးများအတွက် ဆိုက်တစ်ခုချင်းဆိုင်ရာ ကွတ်ကီးပေါ်လစီများကိုပါ "
+"ကျော်၍လုပ်ဆောင်မည်။</p>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
+#: kcms/cookies/kcookiespolicies.ui:49
+#, kde-format
+msgid "Automaticall&y accept session cookies"
+msgstr "&yဆက်ရှင်အတွက် အလိုအလျောက်လက်ခံရန်"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:68
+#, kde-format
+msgid ""
+"<qt>\n"
+"Determines how cookies received from a remote machine will be handled: \n"
+"<ul>\n"
+"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
+"wants to set a cookie.</li>\n"
+"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
+"li>\n"
+"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
+"</li>\n"
+"</ul><p>\n"
+"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
+"precedence over the default policy.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"အဝေးစက်မှ လက်ခံရရှိသော ကွတ်ကီးများကို မည်ကဲ့သို့ ကိုင်တွယ်မည်ကို ဆုံးဖြတ်ရန် -\n"
+"<ul>\n"
+"<li><b>မေးရန်</b> ရွေးပါက ကေဒီအီးသည် ဆာဗာမှကွတ်ကီးသုံးချင်သည့်အခါတိုင်း သင်၏အတည်ပြုချက် "
+"တောင်းခံလိမ့်မည်။</li>\n"
+"<li><b>လက်ခံရန်</b> ရွေးပါက သင့်အားမမေးတော့ပဲ အားလုံးလက်ခံမည်။</li>\n"
+"<li><b>ဆက်ရှင်ပြီးသည်ထိလက်ခံရန်</b> ရွေးပါက ကွတ်ကီးများကို ဆက်ရှင်ပြီးသည်နှင့်ဖျက်ပစ်မည်။</li>\n"
+"<li><b>ငြင်းပယ်ရန်</b> ရွေးပါက ကွတ်ကီးဘူးသည် ၎င်းလက်ခံရရှိသော ကွတ်ကီးများကို ငြင်းပယ်မည်။</li>\n"
+"</ul><p>\n"
+"<u>သတိပြုရန် -</u> အောက်တွင် သတ်မှတ်နိုင်သော ဒိုမန်းတစ်ခုချင်းဆိုင်ရာပေါ်လစီသည် မူလသတ်မှတ်-ပေါ်လစီထက် "
+"ပိုဦးစားပေးခံရသည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
+#: kcms/cookies/kcookiespolicies.ui:71
+#, kde-format
+msgid "Default Policy"
+msgstr "မူလသတ်မှတ်-ပေါ်လစီ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
+#: kcms/cookies/kcookiespolicies.ui:77
+#, kde-format
+msgid "Accep&t all cookies"
+msgstr "&tကွတ်ကီးများအားလုံးလက်ခံ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
+#: kcms/cookies/kcookiespolicies.ui:84
+#, kde-format
+msgid "Accept &until end of session"
+msgstr "&uဆက်ရှင် မပြီးခင်ထိလက်ခံရန်"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
+#: kcms/cookies/kcookiespolicies.ui:91
+#, kde-format
+msgid "Ask &for confirmation"
+msgstr "&fအတည်ပြုချက်တောင်းရန်"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
+#: kcms/cookies/kcookiespolicies.ui:98
+#, kde-format
+msgid "Re&ject all cookies"
+msgstr "&jကွတ်ကီးများအားလုံးငြင်းပယ်မည်"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:123
+#, kde-format
+msgid ""
+"<qt>\n"
+"To add a new policy, simply click on the <b>Add...</b> button and supply the "
+"necessary information. To change an existing policy, use the <b>Change...</"
+"b> button and choose the new policy from the policy dialog box. Clicking on "
+"the <b>Delete</b> button will remove the currently selected policy causing "
+"the default policy setting to be used for that domain, whereas <b>Delete "
+"All</b> will remove all the site specific policies.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ပေါ်လစီအသစ်ထည့်ရန်၊ <b>ထည့်မည်…</b>ခလုတ်ကို နှိပ်၍ လိုအပ်သော အချက်အလက်များ ထည့်ရုံနှင့် ရသည်။ ရှိနှင့်ပြီးသား "
+"ပေါ်လစီကို ပြောင်းရန် <b>ပြောင်းမည်…</b>ခလုတ်ကိုနှိပ်၍ ပေါ်လစီ ဒိုင်ယာလော့အတုံးမှ ပေါ်လစီအသစ် ရွေးချယ်ပါ။ "
+"<b>ဖျက်မည်</b> ကိုနှိပ်လျှင် လက်ရှိရွေးချယ်ထားသော ပေါ်လစီကို ဖယ်ရှားပစ်မည်။ ယင်းပေါ်လစီကို သုံးသော "
+"ဒိုမိန်းများတွင် မူလသတ်မှတ်ထားသော ပေါ်လစီကို သုံးသွားမည်။ <b>အားလုံးဖျက်မည်</b>ကို နှိပ်လျှင် "
+"ဆိုက်တစ်ခုချင်းဆိုင်ရာပေါ်လစီ အားလုံးဖျက်ပစ်မည်။\n"
+"</qt>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
+#: kcms/cookies/kcookiespolicies.ui:126
+#, kde-format
+msgid "Site Policy"
+msgstr "ဆိုက်ပေါ်လစိ"
+
+#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:135
+#, kde-format
+msgid "Search interactively for domains"
+msgstr "ဒိုမန်းများကို တစ်ဆင့်ချင်းရှာရန်"
+
+#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
+#: kcms/cookies/kcookiespolicies.ui:138
+#, kde-format
+msgid "Search..."
+msgstr "ရှာရန်…"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:147
+#, kde-format
+msgid ""
+"<qt>\n"
+"List of sites for which you have set a specific cookie policy. Specific "
+"policies override the default policy setting for these sites.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ဆိုက်တစ်ခုချင်းဆီအတွက် ကွတ်ကီးပေါ်လစီသတ်မှတ်ထားသော ဆိုက်များ၏စာရင်း။ ယင်းဆိုက်များတွင် မူလသတ်မှတ်-ပေါ်လစီထက် "
+"တစ်ဦးတည်းပေါ်လစီများကို ဦးစားပေးလိုက်နာသည်။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:163
+#, kde-format
+msgid "Domain"
+msgstr "ဒိုမိန်း"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
+#: kcms/cookies/kcookiespolicies.ui:168
+#, kde-format
+msgid "Policy"
+msgstr "ပေါ်လစီ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbNew)
+#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
+#, kde-format
+msgid "&New..."
+msgstr "&Nအသစ်…"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
+#, kde-format
+msgid "Chan&ge..."
+msgstr "&gပြောင်းမည်…"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
+#, kde-format
 msgid "Accept"
 msgstr "လက်ခံ"
 
@@ -4087,17 +4412,89 @@ msgstr "လက်ခံ"
 msgid "Accept For Session"
 msgstr "ဆက်ရှင်အတွက် လက်ခံရန်"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
+#, kde-format
 msgid "Reject"
 msgstr "ငြင်းပယ်မည်"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
+#, kde-format
 msgid "Ask"
 msgstr "မေး"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
 msgid "Do Not Know"
 msgstr "မသိ"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
+"b> or <b>.kde.org</b>.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ဤပေါ်လစီ သုံးသော အိမ်ရှင် သို့ ဒိုမိန်း ရေးသွင်းပါ။ သာဓက။ ။<b>www.kde.org</b>၊ <b>.kde.org</"
+"b>။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
+#, kde-format
+msgid "Site name:"
+msgstr "ဆိုက်အမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
+#, kde-format
+msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+msgstr "ဤပေါ်လစီ သုံးမည့် အိမ်ရှင် သို့မဟုတ် ဒိုမိန်း အမည် ရေးပါ။ သာဓက။ ။ .kde.org။"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the desired policy:\n"
+"<ul>\n"
+"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
+"they will expire at the end of the session.</li>\n"
+"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+"</ul>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"လိုချင်သော ပေါ်လစီ သတ်မှတ်ပါ -\n"
+"<ul>\n"
+"<li><b>လက်ခံမည်</b> - ဤဆိုက်ကို ကွတ်ကီးသတ်မှတ်ခွင့်ပြုသည်။</li>\n"
+"<li><b>ဆက်ရှင်ပြီးသည်ထိ လက်ခံမည်</b> - ဤဆိုက်ကို ကွတ်ကီးသတ်မှတ်ခွင့်ပြုသည်။ သို့သော် ယင်းကွတ်ကီးများသည် ဆက်ရှင် "
+"ပြီးသည်နှင့် သက်တမ်းကုန်မည်။</li>\n"
+"<li><b>ငြင်းပယ်မည်</b> - ဤဆိုက်မှ ကွတ်ကီးများအားလုံးငြင်းပယ်မည်။</li>\n"
+"<li><b>မေးမည်</b> - ဤဆိုက်မှ ကွတ်ကီးများ လက်ခံရရှိသည်အခါ ခွင့်ပြုချက်တောင်းမည်။</li>\n"
+"</ul>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
+#, kde-format
+msgid "Policy:"
+msgstr "ပေါ်လစီ -"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
+#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
+#, kde-format
+msgid "Accept until end of session"
+msgstr "ဆက်ရှင် မပြီးခင်ထိလက်ခံရန်"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4116,6 +4513,42 @@ msgstr "အပ်ဒိတ်စ်တင်ရန်ကျရှုံးခဲ
 #, kde-format
 msgid "You have to restart KDE for these changes to take effect."
 msgstr "ထိုပြောင်းလဲချက်များ သက်ဝင်စေရန် ကေဒီအီးကို ပြန်စတင်ရမည်။"
+
+#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:10
+#, kde-format
+msgid "Disable Passive FTP"
+msgstr "အငြိမ်အက်ဖ်တီပီပိတ်ရန်"
+
+#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
+#: kcms/netpref/kio_ftprc.kcfg:11
+#, kde-format
+msgid ""
+"When FTP connections are passive the client connects to the server, instead "
+"of the other way round, so firewalls do not block the connection; old FTP "
+"servers may not support Passive FTP though."
+msgstr ""
+"အက်ဖ်တီအငြိမ်ချိတ်ဆက်မှုတွင် ဆာဗာမှချိတ်ဆက်ရမည့်အစား ဖောက်သည်ကွန်ပြူတာသည် ဆာဗာသို့ ချိတ်ဆက်သည်။ ထို့ကြောင့် "
+"မီးတံတိုင်းများသည် ချိတ်ဆက်မှုကို မပိတ်ပင်ပါ။ အိုပြီဖြစ်သောအက်ဖ်တီပီဆာဗာများတွင်တော့ အက်ဖ်တီအငြိမ်ချိတ်ဆက်မှု "
+"မလုပ်နိုင်ပါ။"
+
+#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
+#, kde-format
+msgid "Mark partially uploaded files"
+msgstr "တစ်စိတ်တစ်ပိုင်း အပ်လုတ်တင်ထားသော ဖိုင်လ်များကို အမှတ်အသားပြုမည်"
+
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
+#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
+#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
+#, kde-format
+msgid ""
+"While a file is being uploaded its extension is \".part\". When fully "
+"uploaded it is renamed to its real name."
+msgstr ""
+"ဖိုင်တစ်ခုအပ်လုတ်တင်နေစဥ် ယင်းအမည်ကို \".part\"ဖြင့်ထပ်တိုးဖော်ပြထားသည်။ အပ်လုတ်ပြီးဆုံးလျှင် အမည်ရင်းသို့ "
+"ပြန်ပြောင်းသည်။"
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4274,6 +4707,429 @@ msgid ""
 msgstr ""
 "<h1>ကြားခံ</h1><p>ကြားခံဆာဗာသည် သင့်ကွန်ပြူတာနှင့် အင်တာနက်အကြားရှိသော "
 "ဝက်ဘ်စာမျက်နှာကေ့ချ်လုပ်ခြင်းနှင့် စစ်ထုတ်ခြင်း ဝန်ဆောင်မှုများပေးသည့် ကြားခံပရိုဂရမ်တစ်ခုဖြစ်သည်။</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
+#: kcms/proxy/kproxydlg.ui:20
+#, kde-format
+msgid ""
+"<qt>\n"
+"Setup proxy configuration.\n"
+"<p>\n"
+"A proxy server is an intermediate machine that sits between your computer "
+"and the Internet and provides services such as web page caching and "
+"filtering. Caching proxy servers give you faster access to web sites you "
+"have already visited by locally storing or caching those pages; filtering "
+"proxy servers usually provide the ability to block out requests for ads, "
+"spam, or anything else you want to block.\n"
+"<p>\n"
+"If you are uncertain whether or not you need to use a proxy server to "
+"connect to the Internet, consult your Internet service provider's setup "
+"guide or your system administrator.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ကြားခံပြင်ဆင်ချက်လုပ်ဆောင်မည်။\n"
+"<p>\n"
+"ကြားခံဆာဗာဆိုသည်မှာ သင်၏ကွန်ပြူတာနှင့် အင်တာနက်အကြား ရှိသော ကြားခံပရိုဂရမ်တစ်ခုဖြစ်သည်။ ၎င်းသည် "
+"ဝက်ဘ်စာမျက်နှာကေ့ချ်သွင်းခြင်း၊ စစ်ထုတ်ခြင်း စသည့်ဝန်ဆောင်မှုများ ပေးသည်။ ကေချ့်သွင်း-"
+"ကြားခံဆာဗာများသည် သင်သွားရောက်ပြီးသောစာမျက်နှာများကို စက်တွင်းသိမ်းဆည်း၍လည်းကောင်း "
+"ကေ့ချ်သွင်း၍လည်းကောင်း ပြုလုပ်ပေးသောကြောင့် ယင်းစာမျက်နှာများကို လျင်မြန်စွာသုံးစွဲနိုင်ပေသည်။ စစ်ထုတ်-"
+"ကြားခံဆာဗာများကတော့ ကြော်ငြာ၊ အမှိုက်စာ၊ သင် မလိုချင်သော အရာမှန်သမျှ ကို ပိတ်ပင်ရာတွင် "
+"တွင်အသုံးပြုသည်။\n"
+"<p>\n"
+"သင်အနေဖြင့် ကြားခံဆာဗာ သုံးသင့်၊ မသုံးသင့် ဝေခွဲမရဖြစ်နေလျှင် သင်၏အင်တာနက်ဝန်ဆောင်မှုပေးသူ၊ သို့မဟုတ် "
+"စစ်စတမ်အုပ်ချုပ်ရေးမှူးနှင့် တိုင်ပင်ကြည့်ပါ။\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:26
+#, kde-format
+msgid "Connect to the Internet directly."
+msgstr "အင်တာနက်နှင့်တိုက်ရိုက်ချိတ်ဆက်မည်။"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:29
+#, kde-format
+msgid "No Proxy"
+msgstr "ကြားခံမရှိ"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:46
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>\n"
+#| "Automatically detect and configure the proxy settings.<p>\n"
+#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#| "Protocol (WPAD)</b>.<p>\n"
+#| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#| "some UNIX/Linux distributions. If you encounter a problem when using this "
+#| "option, please check the FAQ section at https://konqueror.org.\n"
+#| "</qt>"
+msgid ""
+"<qt>\n"
+"Automatically detect and configure the proxy settings.<p>\n"
+"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>NOTE:</b> This option might not work properly or not work at all in some "
+"UNIX/Linux distributions.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ကြားခံ-သတ်မှတ်ချက်များကို အလိုအလျောက်ရှာဖွေပြင်ဆင်မည်။<p>\n"
+"အလိုအလျောက်ရှာဖွေခြင်းကို <b>ဝက်ဘ်ကြားခံအလိုလိုရှာဖွေမှု လုပ်ရိုးလုပ်ထုံး(ဒဗလျူပီအေဒီ)</b> သုံး၍လုပ်ဆောင်သည်။"
+"<p>\n"
+"<b>သတိပြုရန် -</b> ဤအချက်သည် အချို့ ယူနစ်စ်/လင်းနပ်စ် ဒစ်စထရီဗျူးရှင်းများတွင် ကောင်းမွန်စွာ "
+"အလုပ်လုပ်မည်မဟုတ်ပါ။ ယင်းကို သုံးရာတွင် ပြဿနာတစ်စုံတစ်ရာ တက်ရှိပါက https://konqueror.org၌ အက်ဖ်အေကျူ "
+"အခန်းကဏ္ဍတွင် သွားရောက်ဖတ်ကြည့်ပါ။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:49
+#, kde-format
+msgid "Detect proxy configuration automatically"
+msgstr "ဆ.သ.ရ-ကွန်ရက်ကြားခံပြင်ဆင်ချက်ကို အလိုအလျောက်ရှာမည်"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:59
+#, kde-format
+msgid "Use the specified proxy script to configure the proxy settings."
+msgstr "ကြားခံ-သတ်မှတ်ချက်များပြင်ဆင်ရန် သေချာသတ်မှတ်ထားသော ကြားခံ-ညွှန်ကြားချက်များ ကိုသုံးမည်"
+
+#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:62
+#, kde-format
+msgid "Use proxy auto configuration URL:"
+msgstr "ဆ.သ.ရ-ကွန်ရက်ကြားခံအလိုအလျောက်ပြင်ဆင်ချက် ယူအာအယ်လ် သုံးမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
+#: kcms/proxy/kproxydlg.ui:93
+#, kde-format
+msgid "Enter the address for the proxy configuration script."
+msgstr "ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အတွက် လိပ်စာရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:117
+#, kde-format
+msgid ""
+"<qt><p>Use proxy settings defined on the system.</p>\n"
+"<p>Some platforms offer system wide proxy configuration information and "
+"selecting this option allows you to use those settings.</p>\n"
+"<p>On Mac platforms</p>\n"
+"<p>On Windows platforms</p>\n"
+"<p>On Unix and Linux platforms, such system proxy settings are usually "
+"defined through environment variables. The following environment variables "
+"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+"</qt>"
+msgstr ""
+"<qt><p>စစ်စတမ်တွင် သတ်မှတ်ထားသော ကြားခံ-သတ်မှတ်ချက်များ သုံးမည်</p>\n"
+"<p>အချို့ စီမံစနစ်များသည် စစ်စတမ်တစ်ခုလုံးဆိုင်ရာ ကြားခံပြင်ဆင်မှုဆိုင်ရာ အချက်အလက်များ ပေးသည်။ ဤအချက်ကို "
+"ရွေးချယ်ခြင်းသည် ထိုသတ်မှတ်ချက်များကို အသုံးပြု၍ရစေသည်။</p>\n"
+"<p>Mac စီမံစနစ်</p>\n"
+"<p>Windows စီမံစနစ်</p>\n"
+"<p>ယူနစ်စ် နှင့် လင်းနပ်စ်မှာတော့ ထို စစ်စတမ်ကြားခံ-သတ်မှတ်ချက်များကို စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ "
+"မှတစ်ဆင့် သတ်မှတ်လေ့ရှိသည်။ အောက်ပါကိန်းရှင်းများ ရှိပါက အသုံးပြုသည် - <b>HTTP_PROXY</b>၊ "
+"<b>HTTPS_PROXY</b>၊ <b>FTP_PROXY</b>၊ <b>NO_PROXY</b>။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:120
+#, kde-format
+msgid "Use system proxy configuration:"
+msgstr "စစ်စတမ်၏ ဆ.သ.ရ-ကွန်ရက်ကြားခံ ပြင်ဆင်ချက်သုံးမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:127
+#, kde-format
+msgid ""
+"<qt>Attempt automatic discovery of the environment variables used for "
+"setting system wide proxy information.<p> This feature works by searching "
+"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
+"</qt>"
+msgstr ""
+"<qt>စစ်စတမ်တစ်ခုလုံးဆိုင်ရာ ကြားခံ-အချက်အလက်မျာကို သတ်မှတ်ရန်သုံးသော စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများကို "
+"အလိုအလျောက်ရှာတွေ့ရန် ကြိုးပမ်းမည်။<p> ဤစွမ်းဆောင်ရည်သည် အသုံးများသော HTTP_PROXY၊ FTP_PROXY နှင့် "
+"NO_PROXY ကဲ့သို့ ကိန်းရှင်းများကို ရှာဖွေခြင်းဖြင့် အလုပ်လုပ်သည်။</qt>"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: kcms/proxy/kproxydlg.ui:130
+#, kde-format
+msgid "Auto D&etect"
+msgstr "အလိုအလျောက်ရှာရန်"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
+"store the address of the HTTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အိပ်ချ်တီတီပီကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
+"<b>HTTP_PROXY</b>။<p>\n"
+"အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
+#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
+#, kde-format
+msgid "HTTP Proxy:"
+msgstr "အိပ်ချ်တီတီပီ ကြားခံ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
+"store the address of the HTTPS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
+"<b>HTTPS_PROXY</b>။<p>\n"
+"အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
+#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
+#, kde-format
+msgid "SSL Proxy:"
+msgstr "အက်စ်အက်စ်အယ်လ် ကြားခံ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
+"store the address of the FTP proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အက််ဖ်တီပီကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
+"<b>FTP_PROXY</b>။<p>\n"
+"အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
+#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
+#, kde-format
+msgid "FTP Proxy:"
+msgstr "အက်တီပီ ကြားခံ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
+#: kcms/proxy/kproxydlg.ui:263
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
+"store the address of the SOCKS proxy server.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
+"<b>SOCKS_PROXY</b>။<p>\n"
+"အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
+#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
+#, kde-format
+msgid "SOCKS Proxy:"
+msgstr "ဆော့ခ်စ်ကြားခံ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:285
+#, kde-format
+msgid ""
+"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+"automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင် ရေးသွင်းပါ။ သာဓက။ ။ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
+"<b>SOCKS_PROXY</b>။<p> အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>&quot;"
+"အလိုအလျောက်ရှာဖွေ&quot;</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p></qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the proxy server should not be used.<p>\n"
+"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
+"an automatic discovery of this variable.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။ကြားခံဆာဗာအသုံးမပြုသင့်သော ဆိုက်များ၏ လိပ်စာများကို "
+"သိမ်းဆည်းရန်သုံးသည့် <b>NO_PROXY</b>။<p>\n"
+"အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
+#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
+#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
+#, kde-format
+msgid "Exceptions:"
+msgstr "ခြွင်းချက်များ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:317
+#, kde-format
+msgid ""
+"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+"addresses of sites for which the above proxy settings should not be used."
+"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
+"to attempt an automatic discovery of this variable.</p></qt>"
+msgstr ""
+"<qt>စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင် ရေးသွင်းပါ။ သာဓက။ ။ကြားခံဆာဗာအသုံးမပြုသင့်သော ဆိုက်များ၏ "
+"လိပ်စာများကို သိမ်းဆည်းရန်သုံးသည့် <b>NO_PROXY</b>။<p> အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် "
+"<b>&quot;အလိုအလျောက်ရှာဖွေ&quot;</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p></qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
+#: kcms/proxy/kproxydlg.ui:324
+#, kde-format
+msgid "Show the &value of the environment variables"
+msgstr "&vစစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ၏ တန်ဖိုး ပြမည်"
+
+#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:343
+#, kde-format
+msgid "Manually enter proxy server configuration information."
+msgstr "ကြားခံဆာဗာပြင်ဆင်မှုဆိုင်ရာအချက်အလက်များ ကိုယ်တိုင်ရိုက်သွင်းမည်။"
+
+#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
+#: kcms/proxy/kproxydlg.ui:346
+#, kde-format
+msgid "Use manually specified proxy configuration:"
+msgstr "ကိုယ်တိုင် သေချာသတ်မှတ်ထားသော ဆ.သ.ရ-ကွန်ရက်ကြားခံ ပြင်ဆင်ချက်သုံးမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
+#: kcms/proxy/kproxydlg.ui:398
+#, kde-format
+msgid "Enter the address of the HTTP proxy server."
+msgstr "အိပ်ချ်တီတီပီကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
+#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
+#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
+#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
+#, kde-format
+msgid "Port:"
+msgstr "ကွန်ရက်ဆိပ်ကမ်း -"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
+#: kcms/proxy/kproxydlg.ui:421
+#, kde-format
+msgid "Enter the port number of the HTTP proxy server."
+msgstr "အိပ်ချ်တီတီပီကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:436
+#, kde-format
+msgid "Use this proxy server for a&ll protocols"
+msgstr "&lလုပ်ရိုးလုပ်ထုံးအားလုံးအတွက် ဤကြားခံဆာဗာကို အသုံးပြုမည်"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
+#: kcms/proxy/kproxydlg.ui:464
+#, kde-format
+msgid "Enter the address of the HTTPS proxy server."
+msgstr "အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
+#: kcms/proxy/kproxydlg.ui:481
+#, kde-format
+msgid "Enter the port number of the HTTPS proxy server."
+msgstr "အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
+#: kcms/proxy/kproxydlg.ui:517
+#, kde-format
+msgid "Enter the address of the FTP proxy server."
+msgstr "အက်ဖ်တီပီကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
+#: kcms/proxy/kproxydlg.ui:534
+#, kde-format
+msgid "Enter the port number of the FTP proxy server."
+msgstr "အက်ဖ်တီပီကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
+#: kcms/proxy/kproxydlg.ui:567
+#, kde-format
+msgid "Enter the address of the SOCKS proxy server."
+msgstr "ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
+#: kcms/proxy/kproxydlg.ui:584
+#, kde-format
+msgid "Enter the port number of the SOCKS proxy server."
+msgstr "ဆော့ခ်စ်ကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
+#: kcms/proxy/kproxydlg.ui:628
+#, kde-format
+msgid ""
+"<qt>\n"
+"<p>Enter a comma separated list of hostnames or ip addresses that should be "
+"excluded from using the above proxy settings.</p>\n"
+"<p>If you want to exclude all hosts for a given domain, then simply enter "
+"the domain name preceded by a dot. For example, to exclude all hostnames for "
+"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
+"'?' are not supported and will have no effect.</p>\n"
+"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"<p>အထက်ပါ ကြားခံ-သတ်မှတ်ချက်များကို အသုံးပြုခြင်းမှ ထုတ်ထားရန် ကော်မာခံ၍ရေးထားသော အိမ်ရှင်အမည်များ၊ "
+"အိုင်ပီလိပ်စာများ စာရင်း ထည့်သွင်းပါ။</p>\n"
+"<p> ဒိုမိန်းတစ်ခု၏အိမ်ရှင်အားလုံးကို ထုတ်ထားလိုပါက ဒိုမိန်းအမည်ကို '.'အားရှေ့မှခံ ရေးထည့်ပါ။ သာဓက။ ။<i>kde."
+"org</i>ဒိုမိန်းကို ထုတ်လိုပါက <i>.kde.org</i> ဟုရိုက်သွင်းပါ။ '*'၊ '?' ကဲ့သို့ ဖြစ်ချင်ရာဖြစ်၍ရသော "
+"အက္ခရာများကို လက်မခံပါ။</p>\n"
+"<p> အိုင်ပီလိပ်စာများလည်း ရိုက်သွင်းနိုင်သည်။ သာဓက။ ။127.0.0.1၊ 192.168.0.1/24</p>\n"
+"</qt>"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:639
+#, kde-format
+msgid ""
+"<qt>\n"
+"Check this box if you want the above proxy settings to apply only to the "
+"addresses listed in the <i>Exceptions</i> list.</qt>"
+msgstr ""
+"<qt>\n"
+"<i>ခြွင်းချက်များ</i>တွင်ထည့်သွင်းထားသော လိပ်စာများကိုသာ အထက်ပါကြားခံ-သတ်မှတ်ချက်များ ကျင့်သုံးရန် "
+"အမှန်ခြစ်ပါ။</qt>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
+#: kcms/proxy/kproxydlg.ui:642
+#, kde-format
+msgid "Use proxy settings only for addresses in the Exceptions list"
+msgstr "ခြွင်းချက်များ စာရင်းတွင်ပါသော လိပ်စာများအတွက်သာ ကြားခံ-သတ်မှတ်ချက်များကို သုံးမည်"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5033,11 +5889,6 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [ဖြတ်သန်းဒိုမန်း]"
 
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "အသေးစိတ်"
-
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5118,31 +5969,6 @@ msgstr ""
 #, kde-format
 msgid "Cookie Details"
 msgstr "ကွတ်ကီးအသေးစိတ်"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "အမည် -"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "တန်ဖိုး -"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "သက်တမ်းကုန် -"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "လမ်းကြောင်း -"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ဒိုမိန်း -"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
@@ -5295,7 +6121,8 @@ msgstr ""
 "<para>အမှိုက်ပုံး မှတ်ဉာဏ်နေရာသုံးစွဲမှုပမာဏကို ကန့်သတ်ရန် အမှန်ခြစ်ပါ။ မခြစ်ထားလျှင် အကန့်အသတ်မရှိ သုံးမည်။</"
 "para>"
 
-#: kioworkers/trash/kcmtrash.cpp:258
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:285
 #, kde-format
 msgid "Size:"
 msgstr "အရွယ်အစား -"
@@ -5551,6 +6378,138 @@ msgstr ""
 "အင်ဂျင် ရွေးချယ်ထားပါက ထိုထင်ရှား-လက္ခဏာပါသည့် အပ္ပလီကေးရှင်းများ(ကွန်ကာရာ ကဲ့သို့)၏ "
 "အသွင်းဝစ်ဒ်ဂတ်များတွင် ရှာဖွေလိုသည့်စာလုံးများ ရိုက်သွင်း၍ရှာနိုင်သည်။<para></para>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+"search keywords allow you to quickly access or search for information "
+"located online or on your hard drive. </p><p>KDE comes with many predefined "
+"keywords. One such keyword can be used to perform a the Google (TM) search; "
+"to use it, you simply type the keyword 'gg' followed by the keyword "
+"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+"KDE</span>.</p></body></html>"
+msgstr ""
+"<html><head/><body><p> ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ဖွင့်မည်၊ ပိတ်မည်။ </p><p>ဝက်ဘ်ရှာဖွေ-"
+"သော့ချက်စာလုံးများကိုသုံး၍ အွန်လိုင်း (သို့) စက်တွင်းမှ သတင်းအချက်အလက်များကို လျင်မြန်စွာရယူနိုင်သည်။</"
+"p><p>ကေဒီအီးတွင် ကြိုသတ်မှတ်ထားသော သော့ချက်စာလုံးများစွာပါဝင်သည်။ ၎င်းတို့တွင် ဂူးဂယ်ရှာဖွေစနစ် "
+"သုံးရန်သော့ချက်စာလုံးလည်းပါသည်။ ယင်းကိုအသုံးပြုရန် 'ဂျီဂျီ'ကိုရေး၊ ပြီးလျှင် "
+"သော့ချက်စာလုံးခွဲခြားအက္ခရာရေး၊ ပြီးလျှင် ရှာဖွေသည့် စာလုံးရေးပါ။ သာဓက။ ။<span style=\" font-"
+"weight:600;\">ဂျီဂျီ:ကေဒီအီး</span> ။</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
+#: urifilters/ikws/ikwsopts_ui.ui:20
+#, kde-format
+msgid "&Enable Web search keywords"
+msgstr "&Eဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ဖွင့်မည်"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
+#: urifilters/ikws/ikwsopts_ui.ui:30
+#, kde-format
+msgid "&Use preferred keywords only"
+msgstr "&Uပိုနှစ်သက်သော သော့ချက်စကားလုံးများသာ သုံးမည်"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
+#: urifilters/ikws/ikwsopts_ui.ui:37
+#, kde-format
+msgid "Search for web search keywords"
+msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ရှာမည်"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
+#: urifilters/ikws/ikwsopts_ui.ui:71
+#, kde-format
+msgid "Add a new Web search keyword"
+msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးသစ်ထည့်မည်"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
+#: urifilters/ikws/ikwsopts_ui.ui:84
+#, kde-format
+msgid "Modify the highlighted Web search keyword"
+msgstr "အလင်းတင်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး မွမ်းမံမည်"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:97
+#, kde-format
+msgid "Delete the highlighted Web search keyword"
+msgstr "အလင်းတင်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးဖျက်မည်"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
+#: urifilters/ikws/ikwsopts_ui.ui:100
+#, kde-format
+msgid "De&lete"
+msgstr "&lဖျက်မည်"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:138
+#, kde-format
+msgid ""
+"<qt>\n"
+"Select the search engine to use for input boxes that provide automatic "
+"lookup services when you type in normal words and phrases instead of a URL. "
+"To disable this feature select <b>None</b> from the list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ယူအာအယ်လ် မဟုတ်ဘဲ ပုံမှန်စာလုံးများ ရေးသွင်းသောအခါ အလိုအလျောက်ရှာဖွေပေးနိုင်သော စာသားလက်ခံ-"
+"ဝင်းဒိုးများတွင် သုံးရန် ရှာဖွေ-အင်ဂျင် ရွေးချယ်မည်။ ဤစွမ်းဆောင်ရည်ကို ပိတ်ထားရန် <b>မသတ်မှတ်ထား</b>ကို "
+"ရွေးပါ။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:141
+#, kde-format
+msgid "Default Web &search keyword:"
+msgstr "&sမူလသတ်မှတ်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး -"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
+#: urifilters/ikws/ikwsopts_ui.ui:166
+#, kde-format
+msgid ""
+"<html><head/><body><p>Select a default web search keyword. </p><p>This "
+"allows applications to automatically convert the typed word or phrase to web "
+"search keyword queries when they cannot be filtered into a proper URL. </"
+"p><p>To disable this functionality select <span style=\" font-weight:600;"
+"\">None</span> from the list. </p></body></html>"
+msgstr ""
+"<html><head/><body><p>ပုံသေဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး ရွေးပါ။ </p><p>ထိုသို့လုပ်ခြင်းအားဖြင့် "
+"အပ္ပလီကေးရှင်းများသည် ရေးသွင်းထားသော စာလုံး၊ စာလုံးစုများကို မှန်ကန်သင့်တော်သော ယူအာအယ်လ်အဖြစ် "
+"အလိုအလျောက်ပြောင်းလဲနိုင်သည်။</p><p> လုပ်ဆောင်မှုကိုပိတ်ပစ်ရန် စာရင်းမှ <span style=\" font-"
+"weight:600;\">မရှိ/မသတ်မှတ်</span> ကိုရွေးပါ။</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:182
+#, kde-format
+msgid ""
+"Choose the delimiter that separates the keyword from the phrase or word to "
+"be searched."
+msgstr "ရှာဖွေရန်စကားစုများမှ သော့ချက်စာလုံးကို ခွဲခြားပေးမည့် ခွဲခြား-အက္ခရာကို ရွေးချယ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:185
+#, kde-format
+msgid "&Keyword delimiter:"
+msgstr "&Kသော့ချက်စာလုံး ခွဲခြားအက္ခရာ -"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:204
+#, kde-format
+msgid "Choose a delimiter to mark the Web search keyword."
+msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးကို အမှတ်အသားပြုရန် ခွဲခြား-အက္ခရာ ရွေးချယ်မည်။"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:208
+#, kde-format
+msgctxt "Colon as keyword delimiter"
+msgid "Colon"
+msgstr "ကော်လွန်"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
+#: urifilters/ikws/ikwsopts_ui.ui:213
+#, kde-format
+msgctxt "Space as keyword delimiter"
+msgid "Space"
+msgstr "'နေရာလွတ်'အက္ခရာ"
+
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
 msgid "No preferred search providers were found."
@@ -5614,6 +6573,118 @@ msgstr ""
 msgid "Keep It"
 msgstr "၎င်းကိုသိမ်းထားပါ"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:17
+#, kde-format
+msgid "Enter the human-readable name of the search provider here."
+msgstr "ရှာဖွေခြင်းဝန်ဆောင်မှုပေးသူ၏ လူသားဖတ်၍ရသောအမည်ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, lbName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:23
+#, kde-format
+msgid "Shortcut &name:"
+msgstr "&nဖြတ်လမ်းအမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:42
+#: urifilters/ikws/searchproviderdlg_ui.ui:64
+#: urifilters/ikws/searchproviderdlg_ui.ui:70
+#, kde-format
+msgid ""
+"<qt>\n"
+"Enter the URI that is used to perform a search on the search engine here.<br/"
+">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
+"Recommended is \\{@}, since it removes all query variables (name=value) from "
+"the resulting string, whereas \\{0} will be substituted with the unmodified "
+"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
+"the query and \\{name} to specify a value given by 'name=value' in the user "
+"query.<br/>In addition it is possible to specify multiple references (names, "
+"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
+"matching value (from the left) will be used as the substitution value for "
+"the resulting URI.<br/>A quoted string can be used as the default value if "
+"nothing matches from the left of the reference list.\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ရှာဖွေအင်ဂျင်တွင်ရှာဖွေမှုလုပ်ဆောင်ရန်သုံးသော ယူအာအိုင် ရေးသွင်းပါ။<br/>ရှာရမည့် စာသားတစ်ခုလုံးကို \\{@} သို့ "
+"\\{0} အဖြစ်သတ်မှတ်နိုင်သည်။<br/>\n"
+"\\{@}သည် ရလဒ်အက္ခရာတန်းမှ မေးမြန်း-ကိန်ရှင်းများ(အမည်=တန်ဖိုး)အားလုံးဖယ်ရှာပေးသောကြောင့် ၎င်းကို "
+"သုံးရန် အကြံပြုသည်။ \\{0}ကိုတော့ မမွမ်းမံထားသော မေးမြန်း-အက္ခရာတန်းဖြင့်အစားထိုးသည်။<br/>\\{1} "
+"ကနေ \\{n}ထိကို မေးမြန်းချက်မှ အချို့စာလုံးများအား ညွှန်ပြသတ်မှတ်နိုင်သည်။ အသုံးပြုသူမေးမြန်းချက်တွင် "
+"'အမည်=တန်ဖိုး'ဖြင့်ပေးထားသော တန်းဖိုးကို သတ်မှတ်ရန် \\{name}ကို သုံးသည်။<br/>ထို့အပြင် "
+"ညွှန်ပြချက်အများအပြားကို တစ်ပြိုင်တည်းသတ်မှတ်နိုင်သည်။(\\{အမည်၁,အမည်၂,…,\"အက္ခရာတန်း\"})<br/> "
+"ဘယ်ဘက်မှ ပထမဆုံးကိုက်ညီသော တန်ဖိုးကို အစားထိုးတန်ဖိုးအဖြစ် အသုံးပြုမည်။<br/>အကယ်၍ ညွှန်ပြချက်စာရင်း၏ဘက်ဘက်မှ "
+"မည်သည်အရာနှင့်မျှ မကိုက်ညီသောအခါ ကိုးကားအက္ခရာတန်းကို မူလတန်ဖိုးအဖြစ်သုံးနိုင်သည်။\n"
+"</qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbQuery)
+#: urifilters/ikws/searchproviderdlg_ui.ui:48
+#, kde-format
+msgid "Shortcut &URL:"
+msgstr "&Uယူအာအယ်လ်ဖြတ်လမ်း -"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:83
+#, kde-format
+msgid "Select the character set that will be used to encode your search query."
+msgstr "သင်၏ရှာဖွေ-မေးမြန်စာသားကို ကုတ်ဝှက်ရာတွင် သုံးမည့် အက္ခရာအစုရွေးချယ်ပါ။"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:92
+#: urifilters/ikws/searchproviderdlg_ui.ui:97
+#: urifilters/ikws/searchproviderdlg_ui.ui:116
+#, kde-format
+msgid ""
+"<qt>\n"
+"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+"b>\n"
+"</qt>"
+msgstr ""
+"<qt>\n"
+"ဤနေရာတွင် မှတ်သွင်းသော ဖြတ်လမ်းများကို ဆူဒို-ယူအာအိုင် အစီအစဥ်ပြပုံအဖြစ် ကေဒီအီးတွင်သုံးနိုင်သည်။ သာဓကအားဖြင့် "
+"ဖြတ်လမ်း <b>av</b> ကို <b>av</b>:<b>ရှာဖွေလိုသောစကားလုံး</b> အဖြစ်သုံးနိုင်သည်။\n"
+"</qt>"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
+#: urifilters/ikws/searchproviderdlg_ui.ui:104
+#: urifilters/ikws/searchproviderdlg_ui.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
+"</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ဝက်ဘ်ဖြတ်လမ်း၏ လူဖတ်၍ရသော အမည် ရိုက်သွင်းပါ။</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
+#: urifilters/ikws/searchproviderdlg_ui.ui:119
+#, kde-format
+msgid "&Shortcuts:"
+msgstr "&Sဖြတ်လမ်းများ -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:132
+#, kde-format
+msgid "Select the character set that will be used to encode your search query"
+msgstr "သင်၏ရှာဖွေ-မေးမြန်စာသားကို ကုတ်ဝှက်ရာတွင် သုံးမည့် အက္ခရာအစုရွေးချယ်ပါ"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCharset)
+#: urifilters/ikws/searchproviderdlg_ui.ui:135
+#, kde-format
+msgid "&Charset:"
+msgstr "&Cအက္ခရာအစု -"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
+#: urifilters/ikws/searchproviderdlg_ui.ui:158
+#, kde-format
+msgid "Insert query placeholder"
+msgstr "မေးမြန်းချက်ဆိုင်ရာနေရာယူထားမှု ထည့်သွင်း"
+
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
@@ -5633,6 +6704,151 @@ msgstr "တောင်းဆိုချက်ကိုပိတ်ပင်ခ
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "မသိသော အပ်ချ်တီတီပီ ကြိယာ။"
+
+#. i18n: ectx: property (text), widget (QLabel, commonNameTag)
+#: widgets/certificateparty.ui:28
+#, kde-format
+msgid "Common name:"
+msgstr "အများသိ အမည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, commonName)
+#: widgets/certificateparty.ui:38
+#, kde-format
+msgid "Acme Co."
+msgstr "အေစီအမ်အီး စီအို."
+
+#. i18n: ectx: property (text), widget (QLabel, organizationTag)
+#: widgets/certificateparty.ui:48
+#, kde-format
+msgid "Organization:"
+msgstr "အဖွဲ့အစည်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, organization)
+#: widgets/certificateparty.ui:58
+#, kde-format
+msgid "Acme Sundry Products Company"
+msgstr "အေစီအမ်အီးနေ့စဥ်သုံးကုန်များကုမ္ပဏီ"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
+#: widgets/certificateparty.ui:68
+#, kde-format
+msgid "Organizational unit:"
+msgstr "အဖွဲ့အစည်းဆိုင်ရာယူနစ် -"
+
+#. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
+#: widgets/certificateparty.ui:78
+#, kde-format
+msgid "Fraud Department"
+msgstr "လိမ်ညာမှုတိုင်ကြားရန်ဌာန"
+
+#. i18n: ectx: property (text), widget (QLabel, countryTag)
+#: widgets/certificateparty.ui:88
+#, kde-format
+msgid "Country:"
+msgstr "နိုင်ငံ -"
+
+#. i18n: ectx: property (text), widget (QLabel, country)
+#: widgets/certificateparty.ui:98
+#, kde-format
+msgid "Canada"
+msgstr "ကနေဒါ"
+
+#. i18n: ectx: property (text), widget (QLabel, stateTag)
+#: widgets/certificateparty.ui:108
+#, kde-format
+msgid "State:"
+msgstr "ပြည်နယ် -"
+
+#. i18n: ectx: property (text), widget (QLabel, state)
+#: widgets/certificateparty.ui:118
+#, kde-format
+msgid "Quebec"
+msgstr "ကွီးဘက်"
+
+#. i18n: ectx: property (text), widget (QLabel, cityTag)
+#: widgets/certificateparty.ui:128
+#, kde-format
+msgid "City:"
+msgstr "မြို့ -"
+
+#. i18n: ectx: property (text), widget (QLabel, city)
+#: widgets/certificateparty.ui:138
+#, kde-format
+msgid "Lakeridge Meadows"
+msgstr "လိပ်ခ်ရစ်မဲဒေါင်းစ်"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/checksumswidget.ui:17
+#, kde-format
+msgid ""
+"Copy and paste a checksum in the field below.<br/>A checksum is usually "
+"provided by the website you downloaded this file from."
+msgstr ""
+"အောက်ပါကွက်လပ်ထဲသို့ ပေါင်းလဒ်စစ်တမ်းကို ကူးယူ၍ပွားထည့်ပါ။<br/> ပေါင်းလဒ်စစ်တမ်းအား ဒီဖိုင်လ်ကို "
+"သင်ဒေါင်းလုတ်ရယူထားသော ဝက်ဘ်ဆိုက်မှ ပေးထားလေ့ရှိသည်။"
+
+#. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
+#: widgets/checksumswidget.ui:29
+#, kde-format
+msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း(အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆)…"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
+#: widgets/checksumswidget.ui:36
+#, kde-format
+msgid "Click to paste the checksum from the clipboard to the input field."
+msgstr "ကလစ်ဘုတ်မှ ပေါင်းလဒ်စစ်တမ်းအား စာသွင်း-ကွက်လပ်သို့ ပွားရန် နှိပ်ပါ။"
+
+#. i18n: MD5 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, md5Label)
+#: widgets/checksumswidget.ui:65
+#, kde-format
+msgid "MD5:"
+msgstr "အမ်ဒီ၅ -"
+
+#. i18n: SHA1 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha1Label)
+#: widgets/checksumswidget.ui:72
+#, kde-format
+msgid "SHA1:"
+msgstr "အက်စ်အိပ့်ချ်အေ၁ -"
+
+#. i18n: SHA256 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha256Label)
+#: widgets/checksumswidget.ui:79
+#, kde-format
+msgid "SHA256:"
+msgstr "အက်စ်အိပ်ချ်အေ၂၅၆ -"
+
+#. i18n: SHA512 is the hashing algorithm
+#. i18n: ectx: property (text), widget (QLabel, sha512Label)
+#: widgets/checksumswidget.ui:86
+#, kde-format
+msgid "SHA512:"
+msgstr "အက်စ်အိပ်ချ်အေ၅၁၂ -"
+
+#. i18n: ectx: property (text), widget (QPushButton, md5Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha1Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha256Button)
+#. i18n: ectx: property (text), widget (QPushButton, sha512Button)
+#. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
+#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
+#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/kfilepropspluginwidget.ui:27
+#, kde-format
+msgid "Calculate"
+msgstr "တွက်ချက်ရန်"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#, kde-format
+msgid "Click to copy the checksum to the clipboard."
+msgstr "ကလစ်ဘုတ်သို့ ပေါင်းလဒ်စစ်တမ်း ကူးယူရန် နှိပ်ပါ။"
 
 #: widgets/dropjob.cpp:182
 #, kde-format
@@ -6109,6 +7325,102 @@ msgctxt "@info mimetype"
 msgid "Unknown"
 msgstr "မသိ"
 
+#. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
+#: widgets/kfilepropspluginwidget.ui:38
+#, kde-format
+msgid "Stop"
+msgstr "ရပ်"
+
+#. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
+#: widgets/kfilepropspluginwidget.ui:49
+#, kde-format
+msgid "Explore in Filelight"
+msgstr "ဖိုင်လ်လိုက်တွင် စူးစမ်းရန်"
+
+#. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:131
+#, kde-format
+msgid "Mounted From:"
+msgstr "မှ တပ်ဆင်ထားသည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
+#: widgets/kfilepropspluginwidget.ui:204
+#, kde-format
+msgid "Free Space:"
+msgstr "နေရာလွတ် -"
+
+#. i18n: ectx: property (text), widget (QLabel, typeLabel)
+#: widgets/kfilepropspluginwidget.ui:242
+#, kde-format
+msgid "Type:"
+msgstr "အမျိုးအစား -"
+
+#. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
+#, kde-format
+msgid "Location:"
+msgstr "တည်နေရာ -"
+
+#. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
+#: widgets/kfilepropspluginwidget.ui:333
+#, kde-format
+msgid "Change..."
+msgstr "ပြောင်းမည်…"
+
+#. i18n: ectx: property (text), widget (QLabel, contentLabel)
+#: widgets/kfilepropspluginwidget.ui:346
+#, kde-format
+msgid "Content:"
+msgstr "အကြောင်းအရာ -"
+
+#. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
+#: widgets/kfilepropspluginwidget.ui:369
+#, kde-format
+msgid "Points to:"
+msgstr "ညွှန်ပြသည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:379
+#, kde-format
+msgid "Modified:"
+msgstr "မွမ်းမံခဲ့သည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:389
+#, kde-format
+msgid "Created:"
+msgstr "ဖန်တီးခဲ့သည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:399
+#, kde-format
+msgid "File System:"
+msgstr "ဖိုင်စနစ် -"
+
+#. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
+#: widgets/kfilepropspluginwidget.ui:429
+#, kde-format
+msgid "Unknown size"
+msgstr "အရွယ်အစားမသိ"
+
+#. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:452
+#, kde-format
+msgid "Mounted On:"
+msgstr "တွင်တပ်ဆင်ခဲ့သည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:472
+#, kde-format
+msgid "Accessed:"
+msgstr "အသုံးပြုခဲ့သည် -"
+
+#. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
+#: widgets/kfilepropspluginwidget.ui:482
+#, kde-format
+msgid "Open With:"
+msgstr "ဖြင့်ဖွင့်ရန် -"
+
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
 msgid "Known Applications"
@@ -6268,6 +7580,351 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> ကိုမတွေ့ပါ။ ကျေးဇူးပြု၍ ဆောင်ရွက်၍ရသောပရိုဂရမ်သို့ "
 "မှန်ကန်စွာပြသောလမ်းကြောင်းရေးထည့်ပါ။"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
+#: widgets/kpropertiesdesktopadvbase.ui:29
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options about the "
+"terminal when launching a program"
+msgid "Terminal"
+msgstr "တာမီနယ်"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:51
+#, kde-format
+msgid ""
+"Check this option if the application you want to run is a text mode "
+"application or if you want the information that is provided by the terminal "
+"emulator window."
+msgstr ""
+"သင်မောင်းနှင်လိုသော အပ္ပလီကေးရှင်းသည် စာသားထုံးနည်းအပ္ပလီကေးရှင်း သို့မဟုတ် တာမီနယ်အီမျူလေတာ ဝင်းဒိုးမှ "
+"ပေးသော အချက်အလက်များကို လိုချင်ပါက အမှန်ခြစ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:54
+#, kde-format
+msgid "Run in terminal"
+msgstr "တာမီနယ်တွင် လုပ်ဆောင်မည်"
+
+#. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:61
+#, kde-format
+msgid "Terminal options:"
+msgstr "တာမီနယ်ရွေးချယ်စရာများ -"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:71
+#, kde-format
+msgid ""
+"Check this option if the text mode application offers relevant information "
+"on exit. Keeping the terminal emulator open allows you to retrieve this "
+"information."
+msgstr ""
+"စာသားထုံးနည်းအပ္ပလီကေးရှင်း ထွက်သည့်အခါ သက်ဆိုင်သော အချက်အလက်များပေးပါက အမှန်ဖြစ်ပါ။ "
+"တာမီနယ်အီမျူလေတာ ဖွင့်ထားခြင်းအားဖြင့် ၎င်းအချက်အလက်များကို ရယူနိုင်သည်။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:74
+#, kde-format
+msgid "Do not close when command exits"
+msgstr "အမိန့်ပြီးသွားသည့်အခါ မပိတ်ပါနှင့်"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
+#: widgets/kpropertiesdesktopadvbase.ui:87
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose which user to use "
+"when launching a program"
+msgid "User"
+msgstr "အသုံးပြုသူ"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:93
+#, kde-format
+msgid ""
+"Check this option if you want to run this application with a different user "
+"id. Every process has a different user id associated with it. This id code "
+"determines file access and other permissions. The password of the user is "
+"required to use this option."
+msgstr ""
+"ဤအပ္ပလီကေးရှင်းကို အခြားအသုံးပြုသူအိုင်ဒီဖြင့် မောင်းနှင်လိုပါက အမှန်ခြစ်ပါ။ ဖြစ်စဥ်တိုင်းတွင် ၎င်းတို့နှင့်သက်ဆိုင်သည့် "
+"အသုံးပြုသူအိုင်ဒီပါရှိသည်။ ယင်းအိုင်ဒီုကုတ်နံပါတ်ကို သုံး၍ ဖိုင်လ်အသုံးပြုခွင့်နှင့် အခြားခွင့်ပြုချက်များကို ဆုံးဖြတ်သည်။ "
+"ဤအချက်ကို သုံးရန် အသုံးပြုသူ၏စကားဝှက် လိုအပ်သည်။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:96
+#, kde-format
+msgid "Run as a different user"
+msgstr "အခြားအသုံးပြုသူအဖြစ် မောင်းနှင်မည်"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:119
+#, kde-format
+msgid "Enter the user name you want to run the application as."
+msgstr "အပ္ပလီကေးရှင်းကို မောင်းနှင်သူအဖြစ် သင်အသုံးပြုလိုသော အသုံးပြုသူအမည် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
+#: widgets/kpropertiesdesktopadvbase.ui:122
+#, kde-format
+msgid "Username:"
+msgstr "အသုံးပြုသူအမည် -"
+
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
+#: widgets/kpropertiesdesktopadvbase.ui:132
+#, kde-format
+msgid "Enter the user name you want to run the application as here."
+msgstr "အပ္ပလီကေးရှင်းကို မောင်းနှင်သူအဖြစ် သင်အသုံးပြုလိုသော အသုံးပြုသူအမည် ရေးသွင်းပါ။"
+
+#. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
+#: widgets/kpropertiesdesktopadvbase.ui:142
+#, kde-format
+msgid "Discrete GPU"
+msgstr "သီးခြားဂျီပီယူ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:148
+#, kde-format
+msgid "Run using dedicated graphics card"
+msgstr "သီးခြားဂရပ်ဖစ်ကတ်ဖြင့်လုပ်ဆောင်မည်"
+
+#. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
+#: widgets/kpropertiesdesktopadvbase.ui:158
+#, kde-format
+msgctxt ""
+"@title:group Title of a group that lets the user choose options regarding "
+"program startup"
+msgid "Startup"
+msgstr "ပရိုဂရမ်စတင်ချိန်"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:164
+#, kde-format
+msgid ""
+"Check this option if you want to make clear that your application has "
+"started. This visual feedback may appear as a busy cursor or in the taskbar."
+msgstr ""
+"သင်၏အပ္ပလီကေးရှင်း စ၊ မစ သေချာသိလိုလျှင် အမှန်ခြစ်ပါ။ ဆောင်ရွက်-တန်း သို့မဟုတ် အလုပ်ရှုပ်နေသော ကာဆာ "
+"အဖြစ် ရုပ်ပြတုံ့ပြန်မှု ထွက်လာမည်။"
+
+#. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
+#: widgets/kpropertiesdesktopadvbase.ui:167
+#, kde-format
+msgid "Enable launch feedback"
+msgstr "တုံ့ပြန်ချက်လွှင်တင်မှုအသုံးပြုမည်"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
+#: widgets/kpropertiesdesktopbase.ui:22 widgets/kpropertiesdesktopbase.ui:35
+#, kde-format
+msgid ""
+"Type the name you want to give to this application here. This application "
+"will appear under this name in the applications menu and in the panel."
+msgstr ""
+"ဤအပ္ပလီကေးရှင်းကို သင်ပေးချင်သော အမည် ရိုက်ထည့်ပါ။ အပ္ပလီကေးရှင်းများမီနူးနှင့် ပန်နယ်တွင် ယင်းအမည်ဖြင့် "
+"ပေါ်လာလိမ့်မည်။"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
+#: widgets/kpropertiesdesktopbase.ui:42 widgets/kpropertiesdesktopbase.ui:55
+#, kde-format
+msgid ""
+"Type the description of this application, based on its use, here. Examples: "
+"a dial up application (KPPP) would be \"Dial up tool\"."
+msgstr ""
+"အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) အတွက်ဆို "
+"\"ဖုန်းခေါ်ကိရိယာ\"။"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: widgets/kpropertiesdesktopbase.ui:45
+#, kde-format
+msgid "&Description:"
+msgstr "&Dဖော်ပြချက် -"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
+#: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
+#, kde-format
+msgid "Type any comment you think is useful here."
+msgstr "အသုံးဝင်သည်ဟုထင်သော မှတ်ချက်များ ရိုက်သွင်းပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: widgets/kpropertiesdesktopbase.ui:65
+#, kde-format
+msgid "Comm&ent:"
+msgstr "&eမှတ်ချက် -"
+
+#. i18n: ectx: property (text), widget (QLabel, labelenvvars)
+#: widgets/kpropertiesdesktopbase.ui:82
+#, kde-format
+msgid "Environment Variables:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
+#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#, no-c-format, kde-format
+msgid ""
+"Type the command to start this application here.\n"
+"\n"
+"Following the command, you can have several placeholders which will be "
+"replaced with the actual values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"ဤအပ္ပလီကေးရှင်းကို စတင်ရန် အမိန့် ရိုက်ထည့်ပါ။\n"
+"\n"
+"အမိန့်နောက်တွင် ပရိုဂရမ် မောင်းနှင်ချိန်တွင် တကယ်တန်ဖိုးများနှင့် အစားထိုးမည်ဖြစ်သော "
+"နေရာယူထားမှုအများအပြားလိုက်နိုင်သည်-\n"
+"\n"
+"%f - ဖိုင်လ်အမည်တစ်ခု\n"
+"%F - ဖိုင်လ်စာရင်း (ဖိုင်လ်အများအပြား တစ်ပြိုင်တည်း ဖွင့်နိုင်သည့် ပရိုဂရမ်းများအတွက်သာ)\n"
+"%u - ယူအာအယ်လ်တစ်ခုတည်း\n"
+"%U - ယူအာအယ်လ်စာရင်း\n"
+"%i - .desktop ဖိုင်လ်၏ အိုင်ကွန်\n"
+"%c - .desktop ဖိုင်လ်၏အမည်\n"
+"%k - .desktop ဖိုင်လ်၏တည်နေရာ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:108
+#, kde-format
+msgid "Program:"
+msgstr "ပရိုဂရမ်-"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:137
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "လိုချင်သော လုပ်ဆောင်-ဖိုင်လ်ရှာဖွေရန် သင်၏ဖိုင်လ်စနစ်အတွင်း ရှောက်ကြည့်ဖို့ ဒီနေရာကို နှိပ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:140
+#, kde-format
+msgid "&Browse..."
+msgstr "&Bရှောက်ကြည့်…"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
+#. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
+#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#, kde-format
+msgid "Sets the working directory for your application."
+msgstr "သင့်အပ္ပလီကေးရှင်းအတွက် အလုပ်လုပ်မည့်နေရာ ဒါရိုက်ထရီသတ်မှတ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel5)
+#: widgets/kpropertiesdesktopbase.ui:152
+#, kde-format
+msgid "&Work path:"
+msgstr "&Wအလုပ်လမ်းကြောင်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/kpropertiesdesktopbase.ui:169
+#, kde-format
+msgid "Arguments:"
+msgstr "ပေးချက်များ-"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#, kde-format
+msgid ""
+"<qt><p>This list should show the types of file that your application can "
+"handle. This list is organized by <u>mimetypes</u>.</p>\n"
+"<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol for "
+"identifying the type of data based on filename extensions and correspondent "
+"<u>mimetypes</u>. Example: the \"bmp\" part that comes after the dot in "
+"flower.bmp indicates that it is a specific kind of image, <u>image/x-bmp</"
+"u>. To know which application should open each type of file, the system "
+"should be informed about the abilities of each application to handle these "
+"extensions and mimetypes.</p>\n"
+"<p>If you want to associate this application with one or more mimetypes that "
+"are not in this list, click on the button <b>Add</b> below. If there are one "
+"or more filetypes that this application cannot handle, you may want to "
+"remove them from the list clicking on the button <b>Remove</b> below.</p></"
+"qt>"
+msgstr ""
+"<qt><p>ဤစာရင်းသည် သင်၏အပ္ပလီကေးရှင်း ကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစားများကို ပြသင့်သည်။ ယင်းကို "
+"<u>အမ်အိုင်အမ်အီးတိုက်</u> ဖြင့် စုစည်းစီစဥ်ထားသည်။</p>\n"
+"<p> အမ်အိုင်အမ်အီး (MIME)၊ Multipurpose Internet (e)Mail Extensionသည် "
+"ဖိုင်လ်အမည်နောက်တွဲများနှင့် ယင်းတို့၏သက်ဆိုင်ရာ <u>အမ်အိုင်အမ်အီးတိုက်</u>များကို အခြေခံ၍ ဒေတာအမျိုးအစားကို "
+"ခွဲခြားသတ်မှတ်သော စံလုပ်ရိုးလုပ်ထုံးဖြစ်သည်။ သာဓက။ ။ ပန်း.bmp တွင် '.'နောက်မှလာသော ဖိုင်လ်အမည်နောက်တွဲ "
+"\"bmp\" က ယင်းဖိုင်လ်သည် <u>image/x-bmp</u> ပုံရိပ်အမျိုးအစားဖြစ်ကြောင့်ပြသနေသည်။ ဘယ်ဖိုင်လ်ကို "
+"ဘယ်အပ္ပလီကေးရှင်းနှင့် ဖွင့်ရမည်ဆိုသည်ကို သိရှိရန် စစ်စတမ်ကို အပ္ပလီကေးရှင်းတစ်ခုချင်းစီ၏ ဖိုင်လ်အမည်နောက်တွဲနှင့် "
+"အမ်အိုင်အမ်အီးတိုက်များကို ကိုင်တွယ်နိုင်စွမ်းအကြောင်းအား အသိပေးထားရမည်။</p>\n"
+"<p>ဤအပ္ပလီကေးရှင်းကို စာရင်းတွင်မပါသော အမ်အိုင်အမ်အီးတိုက်များနှင့် ပတ်သက်စေလိုပါက အောက်ပါ <b>ထည့်မည်</b> "
+"ခလုတ်ကို နှိပ်ပါ။ ၎င်း မကိုင်တွယ်နိုင်သော အမ်အိုင်အမ်အီးတိုက်များ စာရင်းတွင်ပါပါက ထုတ်ပစ်ရန် <b>ဖယ်မည်</b> "
+"ခလုတ်ကိုနှိပ်ပါ။</p></qt>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: widgets/kpropertiesdesktopbase.ui:189
+#, kde-format
+msgid "&Supported file types:"
+msgstr "&Sထောက်ပံ့ထားသော ဖိုင်အမျိုးအစားများ -"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:220
+#, kde-format
+msgid "Mimetype"
+msgstr "အမ်အိုင်အမ်အီးတိုက်"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
+#: widgets/kpropertiesdesktopbase.ui:225
+#, kde-format
+msgid "Description"
+msgstr "ဖော်ပြချက်"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:235
+#, kde-format
+msgid ""
+"Click on this button if you want to add a type of file (mimetype) that your "
+"application can handle."
+msgstr "သင်၏အပ္ပလီကေးရှင်းကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype) ထည့်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:238
+#, kde-format
+msgid "Add..."
+msgstr "ထည့်…"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:245
+#, kde-format
+msgid ""
+"If you want to remove a type of file (mimetype) that your application cannot "
+"handle, select the mimetype in the list above and click on this button."
+msgstr ""
+"သင်၏အပ္ပလီကေးရှင်း မကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype)ကို ဖယ်ရှားချင်ပါက အထက်ပါစာရင်းမှ "
+"ရွေးချယ်ပြီး ဤခလုတ်ကို နှိပ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
+#: widgets/kpropertiesdesktopbase.ui:248
+#, kde-format
+msgid "Remove"
+msgstr "ဖယ်ရှား"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:271
+#, kde-format
+msgid ""
+"Click here to modify the way this application will run, launch feedback, D-"
+"Bus options or to run it as a different user."
+msgstr ""
+"ဤအပ္ပလီကေးရှင်း ဘယ်လိုလုပ်ဆောင်နေမည်၊ တုံံပြန်ချက်၊ ဒီ-ဘက်စ်ရွေးချယ်ချက်များ ဘယ်လို စတင်မည် သို့မဟုတ် "
+"အခြားအသုံးပြုသူတစ်ယောက်အနေဖြင့် လုပ်ဆောင်မည် စသည်တို့ကို မွမ်းမံရန် ဒီနေရာသို့ နှိပ်ပါ။"
+
+#. i18n: ectx: property (text), widget (QPushButton, advancedButton)
+#: widgets/kpropertiesdesktopbase.ui:274
+#, kde-format
+msgid "Ad&vanced Options"
+msgstr "&vအဆင့်မြင့်ရွေးချယ်စရာများ"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -6924,11 +8581,6 @@ msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ
 msgid "Open file dialog"
 msgstr "ဖိုင်လ် အပြော-ဝင်းဒိုး ဖွင့်မည်"
 
-#: widgets/kurlrequesterdialog.cpp:44
-#, kde-format
-msgid "Location:"
-msgstr "တည်နေရာ -"
-
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
@@ -7246,6 +8898,79 @@ msgstr "ကျော်"
 msgid "Skip All"
 msgstr "အားလုံးကျော်"
 
+#. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
+#: widgets/sslinfo.ui:17
+#, kde-format
+msgid "[padlock]"
+msgstr "[သော့ခလောက်]"
+
+#. i18n: ectx: property (text), widget (QLabel, addressTag)
+#: widgets/sslinfo.ui:34
+#, kde-format
+msgctxt "Web page address"
+msgid "Address:"
+msgstr "လိပ်စာ -"
+
+#. i18n: ectx: property (text), widget (QLabel, ipTag)
+#: widgets/sslinfo.ui:54
+#, kde-format
+msgid "IP address:"
+msgstr "အိုင်ပီလိပ်စာ -"
+
+#. i18n: ectx: property (text), widget (QLabel, encryptionTag)
+#: widgets/sslinfo.ui:74
+#, kde-format
+msgid "Encryption:"
+msgstr "ဝှက်စာဖွက်ခြင်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, detailsTag)
+#: widgets/sslinfo.ui:94
+#, kde-format
+msgid "Details:"
+msgstr "အသေးစိတ် -"
+
+#. i18n: ectx: property (text), widget (QLabel, sslVersionTag)
+#: widgets/sslinfo.ui:114
+#, kde-format
+msgid "SSL version:"
+msgstr "အက်စ်အက်စ်အယ်လ် ဗားရှင်း -"
+
+#. i18n: ectx: property (text), widget (QLabel, certSelectorTag)
+#: widgets/sslinfo.ui:134
+#, kde-format
+msgid "Certificate chain:"
+msgstr "သက်သေခံစာချွန် ဆက်နွယ်မှု -"
+
+#. i18n: ectx: property (text), widget (QLabel, trustedTag)
+#: widgets/sslinfo.ui:163
+#, kde-format
+msgid "Trusted:"
+msgstr "ယုံကြည်ရသော -"
+
+#. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
+#: widgets/sslinfo.ui:183
+#, kde-format
+msgid "Validity period:"
+msgstr "မှန်ကန်ဆဲကာလ -"
+
+#. i18n: ectx: property (text), widget (QLabel, serialTag)
+#: widgets/sslinfo.ui:203
+#, kde-format
+msgid "Serial number:"
+msgstr "နံပါတ်စဥ် -"
+
+#. i18n: ectx: property (text), widget (QLabel, digestTag)
+#: widgets/sslinfo.ui:223
+#, kde-format
+msgid "MD5 digest:"
+msgstr "အမ်ဒီ၅ အစီအစဥ်ကျထားမှု -"
+
+#. i18n: ectx: property (text), widget (QLabel, sha1DigestTag)
+#: widgets/sslinfo.ui:243
+#, kde-format
+msgid "SHA1 digest:"
+msgstr "အက်စ်အိပ့်ချ်အေ၁ အစီအစဥ်ကျထားမှု -"
+
 #: widgets/sslui.cpp:31
 #, kde-format
 msgid ""
@@ -7388,775 +9113,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 #~ msgid "unmounting is not supported by Windows CE."
 #~ msgstr "windows CEတွင် ဖြုတ်ရန်လုပ်ဆောင်ချက် လုပ်မရပါ။"
 
-#~ msgid "Search"
-#~ msgstr "ရှာရန်"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "ဒိုမန်းနှင့်အိမ်ရှင်များကို တစ်ဆင့်ချင်းရှာရန်"
-
-#~ msgid "Site"
-#~ msgstr "ဆိုက်"
-
-#~ msgid "Cookie Name"
-#~ msgstr "ကွတ်ကီးအမည်"
-
-#~ msgid "D&elete"
-#~ msgstr "&eဖျက်မည်"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "&lအားလုံးဖျက်မည်"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "&Pပေါ်လစီ ပြင်ဆင်မည်…"
-
-#~ msgid "&Reload List"
-#~ msgstr "&Rစာရင်းပြန်တွန်းတင်"
-
-#~ msgid "Secure:"
-#~ msgstr "လုံခြုံ -"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>ကွတ်ကီးဆိုင်ရာလုပ်ဆောင်ချက်များထောက်ပံမှု ဖွင့်မည်။ ပုံမှန်အားဖြင့် ၎င်းထောက်ပံမှုဖွင့်ထားပြီး "
-#~ "သင်၏အတွင်းရေးလျှိုဝှက်ခွင့်လိုလားမှုနှင့် ကိုက်ညီရန် စိတ်ကြိုက်ပြင်ဆင်ချင်လိမ့်မည်</p><p>\n"
-#~ "မှတ်ထားသင့်သည်ကတော့ ကွတ်ကီးဆိုင်ရာလုပ်ဆောင်ချက်များထောက်ပံမှု ပိတ်ထားလျှင် ဆိုက်အများအပြားသို့ "
-#~ "သွားရောက်၍မရဖြစ်မည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "&kကွတ်ကီးအသုံးပြု"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "တတိယလူ-ကွတ်ကီးများကို ငြင်းပယ်မည်။ ၎င်းကွတ်ကီးများသည် သင်လက်ရှိရောက်ရှိနေသော ဆိုက်ထက် အခြားဆိုက်များက "
-#~ "လာခြင်းဖြစ်သည်။ သာဓက။ ။သင်သည် ဤအချက်ကို ဖွင့်ပြီး <b>www.foobar.com</b>ကို "
-#~ "သွားရောက်မည်ဆိုပါက www.foobar.comအားရေသောက်မြစ်ခံသော ကွတ်ကီးများကိုသာ သင်၏သတ်မှတ်ချက်များ "
-#~ "အတိုင်းဆောင်ရွက်မည်။ အခြားဆိုက်များမှ ကွတ်ကီးအားလုံးကို ငြင်းပယ်မည်။ ဤသို့ပြုခြင်းအားဖြင့် "
-#~ "ဆိုက်အော်ပရေတာများက သင်၏နေစဥ်အင်တာနက်သုံးစွဲမှုအလေ့အထားများကို စာရင်းပြုစုခံရခြင်းအား "
-#~ "လျော့နည်းစေသည်။\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "&pမူလဆာဗာမှကွတ်ကီးများသာ လက်ခံရန်"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "ယခု ဆက်ရှင် ပြီးသည်နှင့် သက်တမ်းကုန်မည့် ယာယီကွတ်ကီးများကို အလိုအလျောက်လက်ခံမည်။ ထိုကွတ်ကီးများကို သင်၏ "
-#~ "မှတ်ဉာဏ်စက်များတွင် မသိမ်းဆည်းပါ။ ယင်းတို့ကို အသုံးပြုသော အပ္ပလီကေးရှင်းများ(သာဓက။ ။"
-#~ "ဘရောက်ဇာ)အားလုံးကို သင်ပိတ်ပစ်ပါက ယင်းတို့အား ဖျက်ဆီးပစ်မည်။</p><p><u>သတိပြုပါ</u> "
-#~ "ဤရွေးချယ်မှုပြုထားလျှင် မူလသတ်မှတ်ချက်များသာမက ဆက်ရှင်နှင့်သက်ဆိုင်သောကွတ်ကီးများအတွက် ဆိုက်တစ်ခုချင်းဆိုင်ရာ "
-#~ "ကွတ်ကီးပေါ်လစီများကိုပါ ကျော်၍လုပ်ဆောင်မည်။</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "&yဆက်ရှင်အတွက် အလိုအလျောက်လက်ခံရန်"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "အဝေးစက်မှ လက်ခံရရှိသော ကွတ်ကီးများကို မည်ကဲ့သို့ ကိုင်တွယ်မည်ကို ဆုံးဖြတ်ရန် -\n"
-#~ "<ul>\n"
-#~ "<li><b>မေးရန်</b> ရွေးပါက ကေဒီအီးသည် ဆာဗာမှကွတ်ကီးသုံးချင်သည့်အခါတိုင်း သင်၏အတည်ပြုချက် "
-#~ "တောင်းခံလိမ့်မည်။</li>\n"
-#~ "<li><b>လက်ခံရန်</b> ရွေးပါက သင့်အားမမေးတော့ပဲ အားလုံးလက်ခံမည်။</li>\n"
-#~ "<li><b>ဆက်ရှင်ပြီးသည်ထိလက်ခံရန်</b> ရွေးပါက ကွတ်ကီးများကို ဆက်ရှင်ပြီးသည်နှင့်ဖျက်ပစ်မည်။</li>\n"
-#~ "<li><b>ငြင်းပယ်ရန်</b> ရွေးပါက ကွတ်ကီးဘူးသည် ၎င်းလက်ခံရရှိသော ကွတ်ကီးများကို ငြင်းပယ်မည်။</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>သတိပြုရန် -</u> အောက်တွင် သတ်မှတ်နိုင်သော ဒိုမန်းတစ်ခုချင်းဆိုင်ရာပေါ်လစီသည် မူလသတ်မှတ်-ပေါ်လစီထက် "
-#~ "ပိုဦးစားပေးခံရသည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "မူလသတ်မှတ်-ပေါ်လစီ"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "&tကွတ်ကီးများအားလုံးလက်ခံ"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "&uဆက်ရှင် မပြီးခင်ထိလက်ခံရန်"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "&fအတည်ပြုချက်တောင်းရန်"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "&jကွတ်ကီးများအားလုံးငြင်းပယ်မည်"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ပေါ်လစီအသစ်ထည့်ရန်၊ <b>ထည့်မည်…</b>ခလုတ်ကို နှိပ်၍ လိုအပ်သော အချက်အလက်များ ထည့်ရုံနှင့် ရသည်။ "
-#~ "ရှိနှင့်ပြီးသား ပေါ်လစီကို ပြောင်းရန် <b>ပြောင်းမည်…</b>ခလုတ်ကိုနှိပ်၍ ပေါ်လစီ ဒိုင်ယာလော့အတုံးမှ "
-#~ "ပေါ်လစီအသစ် ရွေးချယ်ပါ။ <b>ဖျက်မည်</b> ကိုနှိပ်လျှင် လက်ရှိရွေးချယ်ထားသော ပေါ်လစီကို ဖယ်ရှားပစ်မည်။ "
-#~ "ယင်းပေါ်လစီကို သုံးသော ဒိုမိန်းများတွင် မူလသတ်မှတ်ထားသော ပေါ်လစီကို သုံးသွားမည်။ <b>အားလုံးဖျက်မည်</"
-#~ "b>ကို နှိပ်လျှင် ဆိုက်တစ်ခုချင်းဆိုင်ရာပေါ်လစီ အားလုံးဖျက်ပစ်မည်။\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "ဆိုက်ပေါ်လစိ"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "ဒိုမန်းများကို တစ်ဆင့်ချင်းရှာရန်"
-
-#~ msgid "Search..."
-#~ msgstr "ရှာရန်…"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ဆိုက်တစ်ခုချင်းဆီအတွက် ကွတ်ကီးပေါ်လစီသတ်မှတ်ထားသော ဆိုက်များ၏စာရင်း။ ယင်းဆိုက်များတွင် မူလသတ်မှတ်-"
-#~ "ပေါ်လစီထက် တစ်ဦးတည်းပေါ်လစီများကို ဦးစားပေးလိုက်နာသည်။\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "ဒိုမိန်း"
-
-#~ msgid "Policy"
-#~ msgstr "ပေါ်လစီ"
-
-#~ msgid "&New..."
-#~ msgstr "&Nအသစ်…"
-
-#~ msgid "Chan&ge..."
-#~ msgstr "&gပြောင်းမည်…"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ဤပေါ်လစီ သုံးသော အိမ်ရှင် သို့ ဒိုမိန်း ရေးသွင်းပါ။ သာဓက။ ။<b>www.kde.org</b>၊ <b>.kde."
-#~ "org</b>။\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "ဆိုက်အမည် -"
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr "ဤပေါ်လစီ သုံးမည့် အိမ်ရှင် သို့မဟုတ် ဒိုမိန်း အမည် ရေးပါ။ သာဓက။ ။ .kde.org။"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "လိုချင်သော ပေါ်လစီ သတ်မှတ်ပါ -\n"
-#~ "<ul>\n"
-#~ "<li><b>လက်ခံမည်</b> - ဤဆိုက်ကို ကွတ်ကီးသတ်မှတ်ခွင့်ပြုသည်။</li>\n"
-#~ "<li><b>ဆက်ရှင်ပြီးသည်ထိ လက်ခံမည်</b> - ဤဆိုက်ကို ကွတ်ကီးသတ်မှတ်ခွင့်ပြုသည်။ သို့သော် ယင်းကွတ်ကီးများသည် "
-#~ "ဆက်ရှင် ပြီးသည်နှင့် သက်တမ်းကုန်မည်။</li>\n"
-#~ "<li><b>ငြင်းပယ်မည်</b> - ဤဆိုက်မှ ကွတ်ကီးများအားလုံးငြင်းပယ်မည်။</li>\n"
-#~ "<li><b>မေးမည်</b> - ဤဆိုက်မှ ကွတ်ကီးများ လက်ခံရရှိသည်အခါ ခွင့်ပြုချက်တောင်းမည်။</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "ပေါ်လစီ -"
-
-#~ msgid "Accept until end of session"
-#~ msgstr "ဆက်ရှင် မပြီးခင်ထိလက်ခံရန်"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "အငြိမ်အက်ဖ်တီပီပိတ်ရန်"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "အက်ဖ်တီအငြိမ်ချိတ်ဆက်မှုတွင် ဆာဗာမှချိတ်ဆက်ရမည့်အစား ဖောက်သည်ကွန်ပြူတာသည် ဆာဗာသို့ ချိတ်ဆက်သည်။ ထို့ကြောင့် "
-#~ "မီးတံတိုင်းများသည် ချိတ်ဆက်မှုကို မပိတ်ပင်ပါ။ အိုပြီဖြစ်သောအက်ဖ်တီပီဆာဗာများတွင်တော့ အက်ဖ်တီအငြိမ်ချိတ်ဆက်မှု "
-#~ "မလုပ်နိုင်ပါ။"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "တစ်စိတ်တစ်ပိုင်း အပ်လုတ်တင်ထားသော ဖိုင်လ်များကို အမှတ်အသားပြုမည်"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "ဖိုင်တစ်ခုအပ်လုတ်တင်နေစဥ် ယင်းအမည်ကို \".part\"ဖြင့်ထပ်တိုးဖော်ပြထားသည်။ အပ်လုတ်ပြီးဆုံးလျှင် အမည်ရင်းသို့ "
-#~ "ပြန်ပြောင်းသည်။"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ကြားခံပြင်ဆင်ချက်လုပ်ဆောင်မည်။\n"
-#~ "<p>\n"
-#~ "ကြားခံဆာဗာဆိုသည်မှာ သင်၏ကွန်ပြူတာနှင့် အင်တာနက်အကြား ရှိသော ကြားခံပရိုဂရမ်တစ်ခုဖြစ်သည်။ ၎င်းသည် "
-#~ "ဝက်ဘ်စာမျက်နှာကေ့ချ်သွင်းခြင်း၊ စစ်ထုတ်ခြင်း စသည့်ဝန်ဆောင်မှုများ ပေးသည်။ ကေချ့်သွင်း-"
-#~ "ကြားခံဆာဗာများသည် သင်သွားရောက်ပြီးသောစာမျက်နှာများကို စက်တွင်းသိမ်းဆည်း၍လည်းကောင်း "
-#~ "ကေ့ချ်သွင်း၍လည်းကောင်း ပြုလုပ်ပေးသောကြောင့် ယင်းစာမျက်နှာများကို လျင်မြန်စွာသုံးစွဲနိုင်ပေသည်။ စစ်ထုတ်-"
-#~ "ကြားခံဆာဗာများကတော့ ကြော်ငြာ၊ အမှိုက်စာ၊ သင် မလိုချင်သော အရာမှန်သမျှ ကို ပိတ်ပင်ရာတွင် "
-#~ "တွင်အသုံးပြုသည်။\n"
-#~ "<p>\n"
-#~ "သင်အနေဖြင့် ကြားခံဆာဗာ သုံးသင့်၊ မသုံးသင့် ဝေခွဲမရဖြစ်နေလျှင် သင်၏အင်တာနက်ဝန်ဆောင်မှုပေးသူ၊ သို့မဟုတ် "
-#~ "စစ်စတမ်အုပ်ချုပ်ရေးမှူးနှင့် တိုင်ပင်ကြည့်ပါ။\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "အင်တာနက်နှင့်တိုက်ရိုက်ချိတ်ဆက်မည်။"
-
-#~ msgid "No Proxy"
-#~ msgstr "ကြားခံမရှိ"
-
-#, fuzzy
-#~| msgid ""
-#~| "<qt>\n"
-#~| "Automatically detect and configure the proxy settings.<p>\n"
-#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~| "Protocol (WPAD)</b>.<p>\n"
-#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~| "some UNIX/Linux distributions. If you encounter a problem when using "
-#~| "this option, please check the FAQ section at https://konqueror.org.\n"
-#~| "</qt>"
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ကြားခံ-သတ်မှတ်ချက်များကို အလိုအလျောက်ရှာဖွေပြင်ဆင်မည်။<p>\n"
-#~ "အလိုအလျောက်ရှာဖွေခြင်းကို <b>ဝက်ဘ်ကြားခံအလိုလိုရှာဖွေမှု လုပ်ရိုးလုပ်ထုံး(ဒဗလျူပီအေဒီ)</b> သုံး၍လုပ်ဆောင်သည်။"
-#~ "<p>\n"
-#~ "<b>သတိပြုရန် -</b> ဤအချက်သည် အချို့ ယူနစ်စ်/လင်းနပ်စ် ဒစ်စထရီဗျူးရှင်းများတွင် ကောင်းမွန်စွာ "
-#~ "အလုပ်လုပ်မည်မဟုတ်ပါ။ ယင်းကို သုံးရာတွင် ပြဿနာတစ်စုံတစ်ရာ တက်ရှိပါက https://konqueror.org၌ "
-#~ "အက်ဖ်အေကျူ အခန်းကဏ္ဍတွင် သွားရောက်ဖတ်ကြည့်ပါ။\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "ဆ.သ.ရ-ကွန်ရက်ကြားခံပြင်ဆင်ချက်ကို အလိုအလျောက်ရှာမည်"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "ကြားခံ-သတ်မှတ်ချက်များပြင်ဆင်ရန် သေချာသတ်မှတ်ထားသော ကြားခံ-ညွှန်ကြားချက်များ ကိုသုံးမည်"
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "ဆ.သ.ရ-ကွန်ရက်ကြားခံအလိုအလျောက်ပြင်ဆင်ချက် ယူအာအယ်လ် သုံးမည် -"
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အတွက် လိပ်စာရေးသွင်းပါ။"
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>စစ်စတမ်တွင် သတ်မှတ်ထားသော ကြားခံ-သတ်မှတ်ချက်များ သုံးမည်</p>\n"
-#~ "<p>အချို့ စီမံစနစ်များသည် စစ်စတမ်တစ်ခုလုံးဆိုင်ရာ ကြားခံပြင်ဆင်မှုဆိုင်ရာ အချက်အလက်များ ပေးသည်။ "
-#~ "ဤအချက်ကို ရွေးချယ်ခြင်းသည် ထိုသတ်မှတ်ချက်များကို အသုံးပြု၍ရစေသည်။</p>\n"
-#~ "<p>Mac စီမံစနစ်</p>\n"
-#~ "<p>Windows စီမံစနစ်</p>\n"
-#~ "<p>ယူနစ်စ် နှင့် လင်းနပ်စ်မှာတော့ ထို စစ်စတမ်ကြားခံ-သတ်မှတ်ချက်များကို စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ "
-#~ "မှတစ်ဆင့် သတ်မှတ်လေ့ရှိသည်။ အောက်ပါကိန်းရှင်းများ ရှိပါက အသုံးပြုသည် - <b>HTTP_PROXY</b>၊ "
-#~ "<b>HTTPS_PROXY</b>၊ <b>FTP_PROXY</b>၊ <b>NO_PROXY</b>။</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "စစ်စတမ်၏ ဆ.သ.ရ-ကွန်ရက်ကြားခံ ပြင်ဆင်ချက်သုံးမည် -"
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>စစ်စတမ်တစ်ခုလုံးဆိုင်ရာ ကြားခံ-အချက်အလက်မျာကို သတ်မှတ်ရန်သုံးသော စစ်စတမ်ပတ်ဝန်းကျင်-"
-#~ "ကိန်းရှင်းများကို အလိုအလျောက်ရှာတွေ့ရန် ကြိုးပမ်းမည်။<p> ဤစွမ်းဆောင်ရည်သည် အသုံးများသော "
-#~ "HTTP_PROXY၊ FTP_PROXY နှင့် NO_PROXY ကဲ့သို့ ကိန်းရှင်းများကို ရှာဖွေခြင်းဖြင့် အလုပ်လုပ်သည်။</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "အလိုအလျောက်ရှာရန်"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အိပ်ချ်တီတီပီကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
-#~ "<b>HTTP_PROXY</b>။<p>\n"
-#~ "အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "အိပ်ချ်တီတီပီ ကြားခံ -"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏လိပ်စာကို "
-#~ "သိမ်းဆည်းရန်သုံးသည့် <b>HTTPS_PROXY</b>။<p>\n"
-#~ "အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "အက်စ်အက်စ်အယ်လ် ကြားခံ -"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။အက််ဖ်တီပီကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
-#~ "<b>FTP_PROXY</b>။<p>\n"
-#~ "အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "အက်တီပီ ကြားခံ -"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာကို သိမ်းဆည်းရန်သုံးသည့် "
-#~ "<b>SOCKS_PROXY</b>။<p>\n"
-#~ "အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "ဆော့ခ်စ်ကြားခံ -"
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင် ရေးသွင်းပါ။ သာဓက။ ။ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာကို "
-#~ "သိမ်းဆည်းရန်သုံးသည့် <b>SOCKS_PROXY</b>။<p> အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>&quot;"
-#~ "အလိုအလျောက်ရှာဖွေ&quot;</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "စစ်စတမ်ပတ်ဝန်းကျင် ကိန်းရှင်ရေးသွင်းပါ။ သာဓက။ ။ကြားခံဆာဗာအသုံးမပြုသင့်သော ဆိုက်များ၏ "
-#~ "လိပ်စာများကို သိမ်းဆည်းရန်သုံးသည့် <b>NO_PROXY</b>။<p>\n"
-#~ "အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် <b>\"အလိုအလျောက်ရှာဖွေ\"</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p>\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "ခြွင်းချက်များ -"
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>စစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင် ရေးသွင်းပါ။ သာဓက။ ။ကြားခံဆာဗာအသုံးမပြုသင့်သော ဆိုက်များ၏ "
-#~ "လိပ်စာများကို သိမ်းဆည်းရန်သုံးသည့် <b>NO_PROXY</b>။<p> အခြားနည်းအားဖြင့် ထိုကိန်းရှင်းကိုရှာရန် "
-#~ "<b>&quot;အလိုအလျောက်ရှာဖွေ&quot;</b> ခလုတ်ကိုနှိပ်ကြည့်နိုင်သည်။</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "&vစစ်စတမ်ပတ်ဝန်းကျင်-ကိန်းရှင်းများ၏ တန်ဖိုး ပြမည်"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "ကြားခံဆာဗာပြင်ဆင်မှုဆိုင်ရာအချက်အလက်များ ကိုယ်တိုင်ရိုက်သွင်းမည်။"
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "ကိုယ်တိုင် သေချာသတ်မှတ်ထားသော ဆ.သ.ရ-ကွန်ရက်ကြားခံ ပြင်ဆင်ချက်သုံးမည် -"
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "အိပ်ချ်တီတီပီကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
-
-#~ msgid "Port:"
-#~ msgstr "ကွန်ရက်ဆိပ်ကမ်း -"
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "အိပ်ချ်တီတီပီကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "&lလုပ်ရိုးလုပ်ထုံးအားလုံးအတွက် ဤကြားခံဆာဗာကို အသုံးပြုမည်"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "အိပ်ချ်တီတီပီအက်စ်ကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "အက်ဖ်တီပီကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "အက်ဖ်တီပီကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "ဆော့ခ်စ်ကြားခံဆာဗာ၏လိပ်စာရေးသွင်းပါ။"
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "ဆော့ခ်စ်ကြားခံဆာဗာ၏ ကွန်ရက်-ဆိပ်ကမ်းနံပါတ် ရေးသွင်းပါ။"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>အထက်ပါ ကြားခံ-သတ်မှတ်ချက်များကို အသုံးပြုခြင်းမှ ထုတ်ထားရန် ကော်မာခံ၍ရေးထားသော "
-#~ "အိမ်ရှင်အမည်များ၊ အိုင်ပီလိပ်စာများ စာရင်း ထည့်သွင်းပါ။</p>\n"
-#~ "<p> ဒိုမိန်းတစ်ခု၏အိမ်ရှင်အားလုံးကို ထုတ်ထားလိုပါက ဒိုမိန်းအမည်ကို '.'အားရှေ့မှခံ ရေးထည့်ပါ။ သာဓက။ ။"
-#~ "<i>kde.org</i>ဒိုမိန်းကို ထုတ်လိုပါက <i>.kde.org</i> ဟုရိုက်သွင်းပါ။ '*'၊ '?' ကဲ့သို့ "
-#~ "ဖြစ်ချင်ရာဖြစ်၍ရသော အက္ခရာများကို လက်မခံပါ။</p>\n"
-#~ "<p> အိုင်ပီလိပ်စာများလည်း ရိုက်သွင်းနိုင်သည်။ သာဓက။ ။127.0.0.1၊ 192.168.0.1/24</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<i>ခြွင်းချက်များ</i>တွင်ထည့်သွင်းထားသော လိပ်စာများကိုသာ အထက်ပါကြားခံ-သတ်မှတ်ချက်များ "
-#~ "ကျင့်သုံးရန် အမှန်ခြစ်ပါ။</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "ခြွင်းချက်များ စာရင်းတွင်ပါသော လိပ်စာများအတွက်သာ ကြားခံ-သတ်မှတ်ချက်များကို သုံးမည်"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p> ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ဖွင့်မည်၊ ပိတ်မည်။ </p><p>ဝက်ဘ်ရှာဖွေ-"
-#~ "သော့ချက်စာလုံးများကိုသုံး၍ အွန်လိုင်း (သို့) စက်တွင်းမှ သတင်းအချက်အလက်များကို လျင်မြန်စွာရယူနိုင်သည်။</"
-#~ "p><p>ကေဒီအီးတွင် ကြိုသတ်မှတ်ထားသော သော့ချက်စာလုံးများစွာပါဝင်သည်။ ၎င်းတို့တွင် ဂူးဂယ်ရှာဖွေစနစ် "
-#~ "သုံးရန်သော့ချက်စာလုံးလည်းပါသည်။ ယင်းကိုအသုံးပြုရန် 'ဂျီဂျီ'ကိုရေး၊ ပြီးလျှင် "
-#~ "သော့ချက်စာလုံးခွဲခြားအက္ခရာရေး၊ ပြီးလျှင် ရှာဖွေသည့် စာလုံးရေးပါ။ သာဓက။ ။<span style=\" "
-#~ "font-weight:600;\">ဂျီဂျီ:ကေဒီအီး</span> ။</p></body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "&Eဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ဖွင့်မည်"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "&Uပိုနှစ်သက်သော သော့ချက်စကားလုံးများသာ သုံးမည်"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးများ ရှာမည်"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးသစ်ထည့်မည်"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "အလင်းတင်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး မွမ်းမံမည်"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "အလင်းတင်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးဖျက်မည်"
-
-#~ msgid "De&lete"
-#~ msgstr "&lဖျက်မည်"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ယူအာအယ်လ် မဟုတ်ဘဲ ပုံမှန်စာလုံးများ ရေးသွင်းသောအခါ အလိုအလျောက်ရှာဖွေပေးနိုင်သော စာသားလက်ခံ-"
-#~ "ဝင်းဒိုးများတွင် သုံးရန် ရှာဖွေ-အင်ဂျင် ရွေးချယ်မည်။ ဤစွမ်းဆောင်ရည်ကို ပိတ်ထားရန် <b>မသတ်မှတ်ထား</"
-#~ "b>ကို ရွေးပါ။\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "&sမူလသတ်မှတ်ထားသော ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး -"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>ပုံသေဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံး ရွေးပါ။ </p><p>ထိုသို့လုပ်ခြင်းအားဖြင့် "
-#~ "အပ္ပလီကေးရှင်းများသည် ရေးသွင်းထားသော စာလုံး၊ စာလုံးစုများကို မှန်ကန်သင့်တော်သော ယူအာအယ်လ်အဖြစ် "
-#~ "အလိုအလျောက်ပြောင်းလဲနိုင်သည်။</p><p> လုပ်ဆောင်မှုကိုပိတ်ပစ်ရန် စာရင်းမှ <span style=\" font-"
-#~ "weight:600;\">မရှိ/မသတ်မှတ်</span> ကိုရွေးပါ။</p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr "ရှာဖွေရန်စကားစုများမှ သော့ချက်စာလုံးကို ခွဲခြားပေးမည့် ခွဲခြား-အက္ခရာကို ရွေးချယ်ပါ။"
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "&Kသော့ချက်စာလုံး ခွဲခြားအက္ခရာ -"
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "ဝက်ဘ်ရှာဖွေ-သော့ချက်စာလုံးကို အမှတ်အသားပြုရန် ခွဲခြား-အက္ခရာ ရွေးချယ်မည်။"
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "ကော်လွန်"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "'နေရာလွတ်'အက္ခရာ"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "ရှာဖွေခြင်းဝန်ဆောင်မှုပေးသူ၏ လူသားဖတ်၍ရသောအမည်ရေးသွင်းပါ။"
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "&nဖြတ်လမ်းအမည် -"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ရှာဖွေအင်ဂျင်တွင်ရှာဖွေမှုလုပ်ဆောင်ရန်သုံးသော ယူအာအိုင် ရေးသွင်းပါ။<br/>ရှာရမည့် စာသားတစ်ခုလုံးကို \\{@} "
-#~ "သို့ \\{0} အဖြစ်သတ်မှတ်နိုင်သည်။<br/>\n"
-#~ "\\{@}သည် ရလဒ်အက္ခရာတန်းမှ မေးမြန်း-ကိန်ရှင်းများ(အမည်=တန်ဖိုး)အားလုံးဖယ်ရှာပေးသောကြောင့် ၎င်းကို "
-#~ "သုံးရန် အကြံပြုသည်။ \\{0}ကိုတော့ မမွမ်းမံထားသော မေးမြန်း-အက္ခရာတန်းဖြင့်အစားထိုးသည်။<br/>"
-#~ "\\{1} ကနေ \\{n}ထိကို မေးမြန်းချက်မှ အချို့စာလုံးများအား ညွှန်ပြသတ်မှတ်နိုင်သည်။ "
-#~ "အသုံးပြုသူမေးမြန်းချက်တွင် 'အမည်=တန်ဖိုး'ဖြင့်ပေးထားသော တန်းဖိုးကို သတ်မှတ်ရန် \\{name}ကို သုံးသည်။"
-#~ "<br/>ထို့အပြင် ညွှန်ပြချက်အများအပြားကို တစ်ပြိုင်တည်းသတ်မှတ်နိုင်သည်။(\\{အမည်၁,အမည်၂,…,\"အက္ခရာတန်း"
-#~ "\"})<br/> ဘယ်ဘက်မှ ပထမဆုံးကိုက်ညီသော တန်ဖိုးကို အစားထိုးတန်ဖိုးအဖြစ် အသုံးပြုမည်။<br/>အကယ်၍ "
-#~ "ညွှန်ပြချက်စာရင်း၏ဘက်ဘက်မှ မည်သည်အရာနှင့်မျှ မကိုက်ညီသောအခါ ကိုးကားအက္ခရာတန်းကို "
-#~ "မူလတန်ဖိုးအဖြစ်သုံးနိုင်သည်။\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "&Uယူအာအယ်လ်ဖြတ်လမ်း -"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "သင်၏ရှာဖွေ-မေးမြန်စာသားကို ကုတ်ဝှက်ရာတွင် သုံးမည့် အက္ခရာအစုရွေးချယ်ပါ။"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "ဤနေရာတွင် မှတ်သွင်းသော ဖြတ်လမ်းများကို ဆူဒို-ယူအာအိုင် အစီအစဥ်ပြပုံအဖြစ် ကေဒီအီးတွင်သုံးနိုင်သည်။ "
-#~ "သာဓကအားဖြင့် ဖြတ်လမ်း <b>av</b> ကို <b>av</b>:<b>ရှာဖွေလိုသောစကားလုံး</b> "
-#~ "အဖြစ်သုံးနိုင်သည်။\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>ဝက်ဘ်ဖြတ်လမ်း၏ လူဖတ်၍ရသော အမည် ရိုက်သွင်းပါ။</p></body></html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "&Sဖြတ်လမ်းများ -"
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "သင်၏ရှာဖွေ-မေးမြန်စာသားကို ကုတ်ဝှက်ရာတွင် သုံးမည့် အက္ခရာအစုရွေးချယ်ပါ"
-
-#~ msgid "&Charset:"
-#~ msgstr "&Cအက္ခရာအစု -"
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "မေးမြန်းချက်ဆိုင်ရာနေရာယူထားမှု ထည့်သွင်း"
-
-#~ msgid "Common name:"
-#~ msgstr "အများသိ အမည် -"
-
-#~ msgid "Acme Co."
-#~ msgstr "အေစီအမ်အီး စီအို."
-
-#~ msgid "Organization:"
-#~ msgstr "အဖွဲ့အစည်း -"
-
-#~ msgid "Acme Sundry Products Company"
-#~ msgstr "အေစီအမ်အီးနေ့စဥ်သုံးကုန်များကုမ္ပဏီ"
-
-#~ msgid "Organizational unit:"
-#~ msgstr "အဖွဲ့အစည်းဆိုင်ရာယူနစ် -"
-
-#~ msgid "Fraud Department"
-#~ msgstr "လိမ်ညာမှုတိုင်ကြားရန်ဌာန"
-
-#~ msgid "Country:"
-#~ msgstr "နိုင်ငံ -"
-
-#~ msgid "Canada"
-#~ msgstr "ကနေဒါ"
-
-#~ msgid "State:"
-#~ msgstr "ပြည်နယ် -"
-
-#~ msgid "Quebec"
-#~ msgstr "ကွီးဘက်"
-
-#~ msgid "City:"
-#~ msgstr "မြို့ -"
-
-#~ msgid "Lakeridge Meadows"
-#~ msgstr "လိပ်ခ်ရစ်မဲဒေါင်းစ်"
-
-#~ msgid ""
-#~ "Copy and paste a checksum in the field below.<br/>A checksum is usually "
-#~ "provided by the website you downloaded this file from."
-#~ msgstr ""
-#~ "အောက်ပါကွက်လပ်ထဲသို့ ပေါင်းလဒ်စစ်တမ်းကို ကူးယူ၍ပွားထည့်ပါ။<br/> ပေါင်းလဒ်စစ်တမ်းအား ဒီဖိုင်လ်ကို "
-#~ "သင်ဒေါင်းလုတ်ရယူထားသော ဝက်ဘ်ဆိုက်မှ ပေးထားလေ့ရှိသည်။"
-
-#~ msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-#~ msgstr "မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း(အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆)…"
-
-#~ msgid "Click to paste the checksum from the clipboard to the input field."
-#~ msgstr "ကလစ်ဘုတ်မှ ပေါင်းလဒ်စစ်တမ်းအား စာသွင်း-ကွက်လပ်သို့ ပွားရန် နှိပ်ပါ။"
-
-#~ msgid "MD5:"
-#~ msgstr "အမ်ဒီ၅ -"
-
-#~ msgid "SHA1:"
-#~ msgstr "အက်စ်အိပ့်ချ်အေ၁ -"
-
-#~ msgid "SHA256:"
-#~ msgstr "အက်စ်အိပ်ချ်အေ၂၅၆ -"
-
-#~ msgid "SHA512:"
-#~ msgstr "အက်စ်အိပ်ချ်အေ၅၁၂ -"
-
-#~ msgid "Calculate"
-#~ msgstr "တွက်ချက်ရန်"
-
-#~ msgid "Click to copy the checksum to the clipboard."
-#~ msgstr "ကလစ်ဘုတ်သို့ ပေါင်းလဒ်စစ်တမ်း ကူးယူရန် နှိပ်ပါ။"
-
 #~ msgid ""
 #~ "The desktop entry of type\n"
 #~ "%1\n"
@@ -8181,269 +9137,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 #~ msgid "Unmount"
 #~ msgstr "ဖြုတ်ရန်"
 
-#~ msgid "Stop"
-#~ msgstr "ရပ်"
-
-#~ msgid "Explore in Filelight"
-#~ msgstr "ဖိုင်လ်လိုက်တွင် စူးစမ်းရန်"
-
-#~ msgid "Mounted From:"
-#~ msgstr "မှ တပ်ဆင်ထားသည် -"
-
-#~ msgid "Free Space:"
-#~ msgstr "နေရာလွတ် -"
-
-#~ msgid "Type:"
-#~ msgstr "အမျိုးအစား -"
-
-#~ msgid "Change..."
-#~ msgstr "ပြောင်းမည်…"
-
-#~ msgid "Content:"
-#~ msgstr "အကြောင်းအရာ -"
-
-#~ msgid "Points to:"
-#~ msgstr "ညွှန်ပြသည် -"
-
-#~ msgid "Modified:"
-#~ msgstr "မွမ်းမံခဲ့သည် -"
-
-#~ msgid "Created:"
-#~ msgstr "ဖန်တီးခဲ့သည် -"
-
-#~ msgid "File System:"
-#~ msgstr "ဖိုင်စနစ် -"
-
-#~ msgid "Unknown size"
-#~ msgstr "အရွယ်အစားမသိ"
-
-#~ msgid "Mounted On:"
-#~ msgstr "တွင်တပ်ဆင်ခဲ့သည် -"
-
-#~ msgid "Accessed:"
-#~ msgstr "အသုံးပြုခဲ့သည် -"
-
-#~ msgid "Open With:"
-#~ msgstr "ဖြင့်ဖွင့်ရန် -"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options about the "
-#~ "terminal when launching a program"
-#~ msgid "Terminal"
-#~ msgstr "တာမီနယ်"
-
-#~ msgid ""
-#~ "Check this option if the application you want to run is a text mode "
-#~ "application or if you want the information that is provided by the "
-#~ "terminal emulator window."
-#~ msgstr ""
-#~ "သင်မောင်းနှင်လိုသော အပ္ပလီကေးရှင်းသည် စာသားထုံးနည်းအပ္ပလီကေးရှင်း သို့မဟုတ် တာမီနယ်အီမျူလေတာ ဝင်းဒိုးမှ "
-#~ "ပေးသော အချက်အလက်များကို လိုချင်ပါက အမှန်ခြစ်ပါ။"
-
-#~ msgid "Run in terminal"
-#~ msgstr "တာမီနယ်တွင် လုပ်ဆောင်မည်"
-
-#~ msgid "Terminal options:"
-#~ msgstr "တာမီနယ်ရွေးချယ်စရာများ -"
-
-#~ msgid ""
-#~ "Check this option if the text mode application offers relevant "
-#~ "information on exit. Keeping the terminal emulator open allows you to "
-#~ "retrieve this information."
-#~ msgstr ""
-#~ "စာသားထုံးနည်းအပ္ပလီကေးရှင်း ထွက်သည့်အခါ သက်ဆိုင်သော အချက်အလက်များပေးပါက အမှန်ဖြစ်ပါ။ "
-#~ "တာမီနယ်အီမျူလေတာ ဖွင့်ထားခြင်းအားဖြင့် ၎င်းအချက်အလက်များကို ရယူနိုင်သည်။"
-
-#~ msgid "Do not close when command exits"
-#~ msgstr "အမိန့်ပြီးသွားသည့်အခါ မပိတ်ပါနှင့်"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose which user to use "
-#~ "when launching a program"
-#~ msgid "User"
-#~ msgstr "အသုံးပြုသူ"
-
-#~ msgid ""
-#~ "Check this option if you want to run this application with a different "
-#~ "user id. Every process has a different user id associated with it. This "
-#~ "id code determines file access and other permissions. The password of the "
-#~ "user is required to use this option."
-#~ msgstr ""
-#~ "ဤအပ္ပလီကေးရှင်းကို အခြားအသုံးပြုသူအိုင်ဒီဖြင့် မောင်းနှင်လိုပါက အမှန်ခြစ်ပါ။ ဖြစ်စဥ်တိုင်းတွင် "
-#~ "၎င်းတို့နှင့်သက်ဆိုင်သည့် အသုံးပြုသူအိုင်ဒီပါရှိသည်။ ယင်းအိုင်ဒီုကုတ်နံပါတ်ကို သုံး၍ ဖိုင်လ်အသုံးပြုခွင့်နှင့် "
-#~ "အခြားခွင့်ပြုချက်များကို ဆုံးဖြတ်သည်။ ဤအချက်ကို သုံးရန် အသုံးပြုသူ၏စကားဝှက် လိုအပ်သည်။"
-
-#~ msgid "Run as a different user"
-#~ msgstr "အခြားအသုံးပြုသူအဖြစ် မောင်းနှင်မည်"
-
-#~ msgid "Enter the user name you want to run the application as."
-#~ msgstr "အပ္ပလီကေးရှင်းကို မောင်းနှင်သူအဖြစ် သင်အသုံးပြုလိုသော အသုံးပြုသူအမည် ရေးသွင်းပါ။"
-
-#~ msgid "Username:"
-#~ msgstr "အသုံးပြုသူအမည် -"
-
-#~ msgid "Enter the user name you want to run the application as here."
-#~ msgstr "အပ္ပလီကေးရှင်းကို မောင်းနှင်သူအဖြစ် သင်အသုံးပြုလိုသော အသုံးပြုသူအမည် ရေးသွင်းပါ။"
-
-#~ msgid "Discrete GPU"
-#~ msgstr "သီးခြားဂျီပီယူ"
-
-#~ msgid "Run using dedicated graphics card"
-#~ msgstr "သီးခြားဂရပ်ဖစ်ကတ်ဖြင့်လုပ်ဆောင်မည်"
-
-#~ msgctxt ""
-#~ "@title:group Title of a group that lets the user choose options regarding "
-#~ "program startup"
-#~ msgid "Startup"
-#~ msgstr "ပရိုဂရမ်စတင်ချိန်"
-
-#~ msgid ""
-#~ "Check this option if you want to make clear that your application has "
-#~ "started. This visual feedback may appear as a busy cursor or in the "
-#~ "taskbar."
-#~ msgstr ""
-#~ "သင်၏အပ္ပလီကေးရှင်း စ၊ မစ သေချာသိလိုလျှင် အမှန်ခြစ်ပါ။ ဆောင်ရွက်-တန်း သို့မဟုတ် အလုပ်ရှုပ်နေသော ကာဆာ "
-#~ "အဖြစ် ရုပ်ပြတုံ့ပြန်မှု ထွက်လာမည်။"
-
-#~ msgid "Enable launch feedback"
-#~ msgstr "တုံ့ပြန်ချက်လွှင်တင်မှုအသုံးပြုမည်"
-
-#~ msgid ""
-#~ "Type the name you want to give to this application here. This application "
-#~ "will appear under this name in the applications menu and in the panel."
-#~ msgstr ""
-#~ "ဤအပ္ပလီကေးရှင်းကို သင်ပေးချင်သော အမည် ရိုက်ထည့်ပါ။ အပ္ပလီကေးရှင်းများမီနူးနှင့် ပန်နယ်တွင် ယင်းအမည်ဖြင့် "
-#~ "ပေါ်လာလိမ့်မည်။"
-
-#~ msgid ""
-#~ "Type the description of this application, based on its use, here. "
-#~ "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
-#~ msgstr ""
-#~ "အသုံးပြုပုံပေါ်မူတည်ပြီး အပ္ပလီကေးရှင်း၏အမည် ရိုက်ထည့်ပါ။ သာဓက။ ။ ဖုန်းခေါ်အပ္ပလီကေးရှင်း(ကေပီပီပီ) "
-#~ "အတွက်ဆို \"ဖုန်းခေါ်ကိရိယာ\"။"
-
-#~ msgid "&Description:"
-#~ msgstr "&Dဖော်ပြချက် -"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "အသုံးဝင်သည်ဟုထင်သော မှတ်ချက်များ ရိုက်သွင်းပါ။"
-
-#~ msgid "Comm&ent:"
-#~ msgstr "&eမှတ်ချက် -"
-
-#~ msgid ""
-#~ "Type the command to start this application here.\n"
-#~ "\n"
-#~ "Following the command, you can have several placeholders which will be "
-#~ "replaced with the actual values when the actual program is run:\n"
-#~ "\n"
-#~ "%f - a single filename\n"
-#~ "%F - a list of files (for apps that can open several files at once)\n"
-#~ "%u - a single URL\n"
-#~ "%U - a list of URLs\n"
-#~ "%i - the icon of the .desktop file\n"
-#~ "%c - the name of the .desktop file\n"
-#~ "%k - the location of the .desktop file"
-#~ msgstr ""
-#~ "ဤအပ္ပလီကေးရှင်းကို စတင်ရန် အမိန့် ရိုက်ထည့်ပါ။\n"
-#~ "\n"
-#~ "အမိန့်နောက်တွင် ပရိုဂရမ် မောင်းနှင်ချိန်တွင် တကယ်တန်ဖိုးများနှင့် အစားထိုးမည်ဖြစ်သော "
-#~ "နေရာယူထားမှုအများအပြားလိုက်နိုင်သည်-\n"
-#~ "\n"
-#~ "%f - ဖိုင်လ်အမည်တစ်ခု\n"
-#~ "%F - ဖိုင်လ်စာရင်း (ဖိုင်လ်အများအပြား တစ်ပြိုင်တည်း ဖွင့်နိုင်သည့် ပရိုဂရမ်းများအတွက်သာ)\n"
-#~ "%u - ယူအာအယ်လ်တစ်ခုတည်း\n"
-#~ "%U - ယူအာအယ်လ်စာရင်း\n"
-#~ "%i - .desktop ဖိုင်လ်၏ အိုင်ကွန်\n"
-#~ "%c - .desktop ဖိုင်လ်၏အမည်\n"
-#~ "%k - .desktop ဖိုင်လ်၏တည်နေရာ"
-
-#~ msgid "Program:"
-#~ msgstr "ပရိုဂရမ်-"
-
-#~ msgid ""
-#~ "Click here to browse your file system in order to find the desired "
-#~ "executable."
-#~ msgstr "လိုချင်သော လုပ်ဆောင်-ဖိုင်လ်ရှာဖွေရန် သင်၏ဖိုင်လ်စနစ်အတွင်း ရှောက်ကြည့်ဖို့ ဒီနေရာကို နှိပ်ပါ။"
-
-#~ msgid "&Browse..."
-#~ msgstr "&Bရှောက်ကြည့်…"
-
-#~ msgid "Sets the working directory for your application."
-#~ msgstr "သင့်အပ္ပလီကေးရှင်းအတွက် အလုပ်လုပ်မည့်နေရာ ဒါရိုက်ထရီသတ်မှတ်ပါ။"
-
-#~ msgid "&Work path:"
-#~ msgstr "&Wအလုပ်လမ်းကြောင်း -"
-
-#~ msgid "Arguments:"
-#~ msgstr "ပေးချက်များ-"
-
-#~ msgid ""
-#~ "<qt><p>This list should show the types of file that your application can "
-#~ "handle. This list is organized by <u>mimetypes</u>.</p>\n"
-#~ "<p>MIME, Multipurpose Internet (e)Mail Extension, is a standard protocol "
-#~ "for identifying the type of data based on filename extensions and "
-#~ "correspondent <u>mimetypes</u>. Example: the \"bmp\" part that comes "
-#~ "after the dot in flower.bmp indicates that it is a specific kind of "
-#~ "image, <u>image/x-bmp</u>. To know which application should open each "
-#~ "type of file, the system should be informed about the abilities of each "
-#~ "application to handle these extensions and mimetypes.</p>\n"
-#~ "<p>If you want to associate this application with one or more mimetypes "
-#~ "that are not in this list, click on the button <b>Add</b> below. If there "
-#~ "are one or more filetypes that this application cannot handle, you may "
-#~ "want to remove them from the list clicking on the button <b>Remove</b> "
-#~ "below.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>ဤစာရင်းသည် သင်၏အပ္ပလီကေးရှင်း ကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစားများကို ပြသင့်သည်။ ယင်းကို "
-#~ "<u>အမ်အိုင်အမ်အီးတိုက်</u> ဖြင့် စုစည်းစီစဥ်ထားသည်။</p>\n"
-#~ "<p> အမ်အိုင်အမ်အီး (MIME)၊ Multipurpose Internet (e)Mail Extensionသည် "
-#~ "ဖိုင်လ်အမည်နောက်တွဲများနှင့် ယင်းတို့၏သက်ဆိုင်ရာ <u>အမ်အိုင်အမ်အီးတိုက်</u>များကို အခြေခံ၍ ဒေတာအမျိုးအစားကို "
-#~ "ခွဲခြားသတ်မှတ်သော စံလုပ်ရိုးလုပ်ထုံးဖြစ်သည်။ သာဓက။ ။ ပန်း.bmp တွင် '.'နောက်မှလာသော ဖိုင်လ်အမည်နောက်တွဲ "
-#~ "\"bmp\" က ယင်းဖိုင်လ်သည် <u>image/x-bmp</u> ပုံရိပ်အမျိုးအစားဖြစ်ကြောင့်ပြသနေသည်။ ဘယ်ဖိုင်လ်ကို "
-#~ "ဘယ်အပ္ပလီကေးရှင်းနှင့် ဖွင့်ရမည်ဆိုသည်ကို သိရှိရန် စစ်စတမ်ကို အပ္ပလီကေးရှင်းတစ်ခုချင်းစီ၏ ဖိုင်လ်အမည်နောက်တွဲနှင့် "
-#~ "အမ်အိုင်အမ်အီးတိုက်များကို ကိုင်တွယ်နိုင်စွမ်းအကြောင်းအား အသိပေးထားရမည်။</p>\n"
-#~ "<p>ဤအပ္ပလီကေးရှင်းကို စာရင်းတွင်မပါသော အမ်အိုင်အမ်အီးတိုက်များနှင့် ပတ်သက်စေလိုပါက အောက်ပါ <b>ထည့်မည်</"
-#~ "b> ခလုတ်ကို နှိပ်ပါ။ ၎င်း မကိုင်တွယ်နိုင်သော အမ်အိုင်အမ်အီးတိုက်များ စာရင်းတွင်ပါပါက ထုတ်ပစ်ရန် <b>ဖယ်မည်</"
-#~ "b> ခလုတ်ကိုနှိပ်ပါ။</p></qt>"
-
-#~ msgid "&Supported file types:"
-#~ msgstr "&Sထောက်ပံ့ထားသော ဖိုင်အမျိုးအစားများ -"
-
-#~ msgid "Mimetype"
-#~ msgstr "အမ်အိုင်အမ်အီးတိုက်"
-
-#~ msgid "Description"
-#~ msgstr "ဖော်ပြချက်"
-
-#~ msgid ""
-#~ "Click on this button if you want to add a type of file (mimetype) that "
-#~ "your application can handle."
-#~ msgstr "သင်၏အပ္ပလီကေးရှင်းကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype) ထည့်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
-
-#~ msgid "Add..."
-#~ msgstr "ထည့်…"
-
-#~ msgid ""
-#~ "If you want to remove a type of file (mimetype) that your application "
-#~ "cannot handle, select the mimetype in the list above and click on this "
-#~ "button."
-#~ msgstr ""
-#~ "သင်၏အပ္ပလီကေးရှင်း မကိုင်တွယ်နိုင်သော ဖိုင်လ်အမျိုးအစား(mimetype)ကို ဖယ်ရှားချင်ပါက အထက်ပါစာရင်းမှ "
-#~ "ရွေးချယ်ပြီး ဤခလုတ်ကို နှိပ်ပါ။"
-
-#~ msgid "Remove"
-#~ msgstr "ဖယ်ရှား"
-
-#~ msgid ""
-#~ "Click here to modify the way this application will run, launch feedback, "
-#~ "D-Bus options or to run it as a different user."
-#~ msgstr ""
-#~ "ဤအပ္ပလီကေးရှင်း ဘယ်လိုလုပ်ဆောင်နေမည်၊ တုံံပြန်ချက်၊ ဒီ-ဘက်စ်ရွေးချယ်ချက်များ ဘယ်လို စတင်မည် သို့မဟုတ် "
-#~ "အခြားအသုံးပြုသူတစ်ယောက်အနေဖြင့် လုပ်ဆောင်မည် စသည်တို့ကို မွမ်းမံရန် ဒီနေရာသို့ နှိပ်ပါ။"
-
-#~ msgid "Ad&vanced Options"
-#~ msgstr "&vအဆင့်မြင့်ရွေးချယ်စရာများ"
-
 #~ msgid ""
 #~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
 #~ "does not exist.</qt>"
@@ -8462,43 +9155,6 @@ msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်�
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "&Pကလစ်ဘုတ်ရှိဒေတာများ ပွားမည်"
-
-#~ msgid "[padlock]"
-#~ msgstr "[သော့ခလောက်]"
-
-#~ msgctxt "Web page address"
-#~ msgid "Address:"
-#~ msgstr "လိပ်စာ -"
-
-#~ msgid "IP address:"
-#~ msgstr "အိုင်ပီလိပ်စာ -"
-
-#~ msgid "Encryption:"
-#~ msgstr "ဝှက်စာဖွက်ခြင်း -"
-
-#~ msgid "Details:"
-#~ msgstr "အသေးစိတ် -"
-
-#~ msgid "SSL version:"
-#~ msgstr "အက်စ်အက်စ်အယ်လ် ဗားရှင်း -"
-
-#~ msgid "Certificate chain:"
-#~ msgstr "သက်သေခံစာချွန် ဆက်နွယ်မှု -"
-
-#~ msgid "Trusted:"
-#~ msgstr "ယုံကြည်ရသော -"
-
-#~ msgid "Validity period:"
-#~ msgstr "မှန်ကန်ဆဲကာလ -"
-
-#~ msgid "Serial number:"
-#~ msgstr "နံပါတ်စဥ် -"
-
-#~ msgid "MD5 digest:"
-#~ msgstr "အမ်ဒီ၅ အစီအစဥ်ကျထားမှု -"
-
-#~ msgid "SHA1 digest:"
-#~ msgstr "အက်စ်အိပ့်ချ်အေ၁ အစီအစဥ်ကျထားမှု -"
 
 #~ msgid "None"
 #~ msgstr "မသတ်မှတ်ထား"
