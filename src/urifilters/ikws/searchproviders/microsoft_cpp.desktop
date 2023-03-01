@@ -12,6 +12,7 @@ Name[cs]=Dokument Microsoft C++
 Name[cy]=Dogfennaeth C++ Microsoft
 Name[de]=Microsoft-C++-Dokumentation
 Name[en_GB]=Microsoft C++ Documentation
+Name[eo]=Microsoft C++ Dokumentado
 Name[es]=Documentación de C++ de Microsoft
 Name[et]=Microsofti C++ dokumentatsioon
 Name[eu]=Microsoft C++ dokumentazioa
@@ -40,6 +41,7 @@ Name[uk]=Документація з C++ Microsoft
 Name[vi]=Tài liệu C++ Microsoft
 Name[x-test]=xxMicrosoft C++ Documentationxx
 Name[zh_CN]=微软 C++ 文档
+Name[zh_TW]=Microsoft C++ 說明文件
 Type=Service
 Keys=microsoftcpp,mscpp
 Query=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
@@ -55,6 +57,7 @@ Query[cs]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[cy]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[de]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[en_GB]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[eo]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[es]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[et]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[eu]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
@@ -83,3 +86,4 @@ Query[uk]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[vi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[x-test]=xxhttps://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2Bxx
 Query[zh_CN]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[zh_TW]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

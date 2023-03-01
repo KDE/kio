@@ -13,6 +13,7 @@ Name[cs]=KDE Reddit
 Name[cy]=KDE Reddit
 Name[de]=KDE Reddit
 Name[en_GB]=KDE Reddit
+Name[eo]=KDE Reddit
 Name[es]=KDE Reddit
 Name[et]=KDE Reddit
 Name[eu]=KDE Reddit
@@ -41,6 +42,7 @@ Name[uk]=KDE Reddit
 Name[vi]=Reddit KDE
 Name[x-test]=xxKDE Redditxx
 Name[zh_CN]=KDE Reddit 版块
+Name[zh_TW]=KDE Reddit
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
@@ -56,6 +58,7 @@ Query[cs]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[cy]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[de]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[en_GB]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[eo]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[es]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[et]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[eu]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
@@ -84,4 +87,5 @@ Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[vi]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[x-test]=xxhttps://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1xx
 Query[zh_CN]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[zh_TW]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Icon=kde

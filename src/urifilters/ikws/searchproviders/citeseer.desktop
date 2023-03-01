@@ -21,7 +21,7 @@ Name[da]=CiteSeer: Digitalt bibliotek for digital litteratur
 Name[de]=CiteSeer: Digitale Bibliothek für wissenschaftliche Literatur
 Name[el]=CiteSeer: Ψηφιακή βιβλιοθήκη επιστημονικής βιβλιογραφίας
 Name[en_GB]=CiteSeer: Scientific Literature Digital Library
-Name[eo]=CiteSeer: cifereca sciencoliteratura libraro
+Name[eo]=CiteSeer: Sciencliteratura Cifereca Biblioteko
 Name[es]=CiteSeer: Biblioteca digital de literatura científica
 Name[et]=CiteSeer: Teaduskirjanduse digitaalraamatukogu
 Name[eu]=CiteSeer: zientzia-literaturaren liburutegi digitala
@@ -108,6 +108,7 @@ Query[da]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[de]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[el]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[en_GB]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[eo]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[es]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[et]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[eu]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

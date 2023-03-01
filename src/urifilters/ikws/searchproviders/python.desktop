@@ -22,7 +22,7 @@ Name[da]=Python reference-manual
 Name[de]=Python-Handbuch
 Name[el]=Εγχειρίδιο αναφοράς Python
 Name[en_GB]=Python Reference Manual
-Name[eo]=Manlibro de Pitono
+Name[eo]=Referenca Manlibro de Python
 Name[es]=Manual de referencia de Python
 Name[et]=Python Reference Manual
 Name[eu]=Python erreferentzia-eskuliburua
@@ -110,7 +110,7 @@ Query[da]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[de]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[el]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[en_GB]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
-Query[eo]=http://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[eo]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[es]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[et]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[eu]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

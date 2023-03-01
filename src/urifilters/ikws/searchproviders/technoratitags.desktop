@@ -21,7 +21,7 @@ Name[da]=Technorati mærker
 Name[de]=Technorati-Themen
 Name[el]=Ετικέτες Technorati
 Name[en_GB]=Technorati Tags
-Name[eo]=Etikedoj de Technorati
+Name[eo]=Technorati-Etikedoj
 Name[es]=Etiquetas de Technorati
 Name[et]=Technorati sildid
 Name[eu]=Technorati etiketak
@@ -106,6 +106,7 @@ Query[da]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[de]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[el]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[en_GB]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[eo]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[es]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[et]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[eu]=https://technorati.com/tag/\\{@}?sourceid=kde-search

@@ -13,6 +13,7 @@ Name[cs]=Yandex
 Name[cy]=Yandex
 Name[de]=Yandex
 Name[en_GB]=Yandex
+Name[eo]=Yandex
 Name[es]=Yandex
 Name[et]=Yandex
 Name[eu]=Yandex
@@ -41,6 +42,7 @@ Name[uk]=Yandex
 Name[vi]=Yandex
 Name[x-test]=xxYandexxx
 Name[zh_CN]=Yandex
+Name[zh_TW]=Yandex
 Query=https://yandex.ru/search/?text=\\{@}
 Query[ar]=https://yandex.ru/search/?text=\\{@}
 Query[ast]=https://yandex.ru/search/?text=\\{@}
@@ -54,6 +56,7 @@ Query[cs]=https://yandex.ru/search/?text=\\{@}
 Query[cy]=https://yandex.ru/search/?text=\\{@}
 Query[de]=https://yandex.ru/search/?text=\\{@}
 Query[en_GB]=https://yandex.ru/search/?text=\\{@}
+Query[eo]=https://yandex.ru/search/?text=\\{@}
 Query[es]=https://yandex.ru/search/?text=\\{@}
 Query[et]=https://yandex.ru/search/?text=\\{@}
 Query[eu]=https://yandex.ru/search/?text=\\{@}
@@ -82,4 +85,5 @@ Query[uk]=https://yandex.ru/search/?text=\\{@}
 Query[vi]=https://yandex.ru/search/?text=\\{@}
 Query[x-test]=xxhttps://yandex.ru/search/?text=\\{@}xx
 Query[zh_CN]=https://yandex.ru/search/?text=\\{@}
+Query[zh_TW]=https://yandex.ru/search/?text=\\{@}
 Type=Service

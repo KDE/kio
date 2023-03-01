@@ -16,6 +16,7 @@ Name[da]=Qwant
 Name[de]=Qwant
 Name[el]=Qwant
 Name[en_GB]=Qwant
+Name[eo]=Qwant
 Name[es]=Qwant
 Name[et]=Qwant
 Name[eu]=Qwant
@@ -75,6 +76,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
@@ -108,4 +110,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=webxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Type=Service

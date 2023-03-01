@@ -21,7 +21,7 @@ Name[da]=Multitran - oversæt mellem spansk og russisk
 Name[de]=Multitran – Übersetzung: Spanisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Ρωσικών και Γαλλικών
 Name[en_GB]=Multitran - Translate Between Spanish and Russian
-Name[eo]=Multitran - Traduko inter la hispana kaj la rusa
+Name[eo]=Multitran - Traduku Inter la hispana kaj la rusa
 Name[es]=Multitran - Traducción entre español y ruso
 Name[et]=Multitran - tõlkimine: hispaania-vene
 Name[eu]=Multitran gaztelaniatik errusierarako itzulpenak
@@ -106,6 +106,7 @@ Query[da]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[en_GB]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[eo]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[es]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[et]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[eu]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

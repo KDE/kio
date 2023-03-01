@@ -15,6 +15,7 @@ Name[cs]=Online dokumentace Qt6
 Name[cy]=Dogfennaeth Arlein Qt6
 Name[de]=Qt6-Online-Dokumentation
 Name[en_GB]=Qt6 Online Documentation
+Name[eo]=Qt6 Reta Dokumentaro
 Name[es]=Documentación Qt6 en línea
 Name[et]=Qt6 dokumentatsioon võrgus
 Name[eu]=Qt6-ren lerroko dokumentazioa
@@ -43,6 +44,7 @@ Name[uk]=Документація з Qt6 у мережі
 Name[vi]=Tài liệu trực tuyến Qt6
 Name[x-test]=xxQt6 Online Documentationxx
 Name[zh_CN]=Qt6 在线文档
+Name[zh_TW]=Qt6 線上說明文件
 Query=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[az]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
@@ -56,6 +58,7 @@ Query[cs]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[cy]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[de]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[en_GB]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[eo]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[et]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[eu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
@@ -84,4 +87,5 @@ Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[vi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[x-test]=xxhttps://doc.qt.io/qt-6/search-results.html?q=\\{@}xx
 Query[zh_CN]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[zh_TW]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Type=Service

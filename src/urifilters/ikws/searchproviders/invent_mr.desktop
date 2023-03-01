@@ -13,6 +13,7 @@ Name[ca@valencia]=Peticions de fusió de KDE Invent
 Name[cy]=Erfyniadau Cydlifo KDE Llifento
 Name[de]=Merge-Requests auf KDE Invent
 Name[en_GB]=KDE Invent Merge Requests
+Name[eo]=KDE Invent Kunfandopetoj
 Name[es]=Solicitudes de fusiones de KDE Invent
 Name[et]=KDE Inventi ühendamistaotlused
 Name[eu]=KDE Invent bateratzeko eskaera
@@ -40,6 +41,7 @@ Name[uk]=Запити щодо об'єднання на KDE Invent
 Name[vi]=Các đề nghị hoà trộn ở Invent KDE
 Name[x-test]=xxKDE Invent Merge Requestsxx
 Name[zh_CN]=KDE Invent 合并请求
+Name[zh_TW]=KDE Invent 合併請求
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ar]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[az]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
@@ -53,6 +55,7 @@ Query[cs]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[cy]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[de]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[en_GB]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[eo]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[es]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[et]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[eu]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
@@ -81,4 +84,5 @@ Query[uk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[vi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/search?scope=merge_requests&search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[zh_TW]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Type=Service

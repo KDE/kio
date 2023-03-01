@@ -16,7 +16,7 @@ Name[da]=Storartet ordbog for det katalanske sprog (GRan Enciclopèdia  Catalana
 Name[de]=Großes Wörterbuch der Katalanischen Sprache (GRan Enciclopèdia Catalana)
 Name[el]=Μεγάλο Λεξικό της Καταλανικής Γλώσσας  (GRan Enciclopèdia Catalana)
 Name[en_GB]=Great Dictionary of the Catalan Language (GRan Enciclopèdia Catalana)
-Name[eo]=Granda Vortaro de la Kataluna Lingvo (GRan Enciclopèdia  Catalana)
+Name[eo]=Granda Vortaro de la Kataluna Lingvo (GRan Enciclopèdia Catalana)
 Name[es]=Gran diccionario del idioma catalán (Gran Enciclopèdia Catalana)
 Name[et]=Suur katalaani sõnaraamat (GRan Enciclopèdia Catalana)
 Name[eu]=Katalan hizkuntzaren hiztegi  Handia (GRan Enciclopèdia Catalana)
@@ -55,7 +55,7 @@ Name[tr]=Katalanca Büyük Sözlük (GRan Enciclopèdia Catalana)
 Name[uk]=Великий словник каталанської мови (GRan Enciclopèdia Catalana)
 Name[vi]=Đại từ điển tiếng Catalan (GRan Enciclopèdia Catalana)
 Name[x-test]=xxGreat Dictionary of the Catalan Language (GRan Enciclopèdia Catalana)xx
-Name[zh_CN]=Catalan 语言的大目录(GRan Enciclopèdia Catalana)
+Name[zh_CN]=加泰罗尼亚语大词典 (GRan Enciclopèdia Catalana)
 Name[zh_TW]=很棒的加泰隆尼亞語文字典 (GRan Enciclopèdia  Catalana)
 Query=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ar]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}

@@ -18,7 +18,7 @@ Name[da]=Telefonbog-søgeudbyder
 Name[de]=Telefonbuchsuche
 Name[el]=Πάροχος αναζήτησης Telephonebook
 Name[en_GB]=Telephonebook Search Provider
-Name[eo]=Serĉprovizanto de telefonlibro
+Name[eo]=Serĉprovizanto de Telefonlibro
 Name[es]=Proveedor de búsqueda de teléfonos
 Name[et]=Hollandi telefoniraamatu otsingumootor
 Name[eu]=Detelefoongids telefono-bilatzailea
@@ -106,6 +106,7 @@ Query[da]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[de]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[el]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[en_GB]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[eo]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[es]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[et]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[eu]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

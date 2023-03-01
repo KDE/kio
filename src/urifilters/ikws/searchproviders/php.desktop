@@ -21,7 +21,7 @@ Name[da]=PHP-søgning
 Name[de]=PHP-Suche
 Name[el]=Αναζήτηση PHP
 Name[en_GB]=PHP Search
-Name[eo]=Serĉo en PHP
+Name[eo]=PHP Serĉo
 Name[es]=Búsqueda PHP
 Name[et]=PHP Search
 Name[eu]=PHP bilatzailea
@@ -109,6 +109,7 @@ Query[da]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[de]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[el]=https://www.php.net/manual-lookup.php?pattern=\\{@}
 Query[en_GB]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[eo]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[es]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[et]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[eu]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

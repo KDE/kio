@@ -22,7 +22,7 @@ Name[da]=WordReference.com oversættelse: Engelsk til fransk
 Name[de]=WordReference.com – Übersetzung: Englisch/Französisch
 Name[el]=WordReference.com Μετάφραση: Αγγλικά σε Γαλλικά
 Name[en_GB]=WordReference.com Translation: English to French
-Name[eo]=Tradukado WordReference.com: angle francen
+Name[eo]=WordReference.com Traduko: angla al franca
 Name[es]=WordReference.com Traducción: inglés a francés
 Name[et]=WordReference.com tõlkimine: inglise->prantsuse
 Name[eu]=WordReference.com ingelesetik frantseserako itzulpenak
@@ -108,6 +108,7 @@ Query[da]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[de]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[el]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[en_GB]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
+Query[eo]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[es]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[et]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[eu]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}

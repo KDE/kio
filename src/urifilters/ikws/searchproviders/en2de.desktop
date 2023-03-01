@@ -22,7 +22,7 @@ Name[da]=dict.cc oversættelse: Engelsk til tysk
 Name[de]=dict.cc – Übersetzung: Englisch/Deutsch
 Name[el]=dict.cc Μετάφραση: Αγγλικά σε Γερμανικά
 Name[en_GB]=dict.cc Translation: English to German
-Name[eo]=Tradukado dict.cc: angle germanen
+Name[eo]=dict.cc Traduko: angla al germana
 Name[es]=dict.cc Traducción: inglés a alemán
 Name[et]=dict.cc tõlkimine: inglise->saksa
 Name[eu]=dict.cc ingelesetik alemanerako itzulpenak
@@ -109,6 +109,7 @@ Query[da]=https://www.dict.cc/?s=\\{@}
 Query[de]=https://www.dict.cc/?s=\\{@}
 Query[el]=https://www.dict.cc/?s=\\{@}
 Query[en_GB]=https://www.dict.cc/?s=\\{@}
+Query[eo]=https://www.dict.cc/?s=\\{@}
 Query[es]=https://www.dict.cc/?s=\\{@}
 Query[et]=https://www.dict.cc/?s=\\{@}
 Query[eu]=https://www.dict.cc/?s=\\{@}

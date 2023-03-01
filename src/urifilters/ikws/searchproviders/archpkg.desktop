@@ -15,6 +15,7 @@ Name[da]=Arch Linux pakkesøgning
 Name[de]=Arch-Linux-Paketsuche
 Name[el]=Αναζήτηση πακέτων Arch Linux
 Name[en_GB]=Arch Linux Package Search
+Name[eo]=Arch-Linuksa Pakoserĉo
 Name[es]=Búsqueda de paquetes de Arch Linux
 Name[et]=Arch Linuxi paketiotsing
 Name[eu]=Arch Linuxen pakete-bilaketa
@@ -72,6 +73,7 @@ Query[da]=https://www.archlinux.org/packages/?q=\\{@}
 Query[de]=https://www.archlinux.org/packages/?q=\\{@}
 Query[el]=https://www.archlinux.org/packages/?q=\\{@}
 Query[en_GB]=https://www.archlinux.org/packages/?q=\\{@}
+Query[eo]=https://www.archlinux.org/packages/?q=\\{@}
 Query[es]=https://www.archlinux.org/packages/?q=\\{@}
 Query[et]=https://www.archlinux.org/packages/?q=\\{@}
 Query[eu]=https://www.archlinux.org/packages/?q=\\{@}

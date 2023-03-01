@@ -16,7 +16,7 @@ Name[da]=Qwant Videos
 Name[de]=Qwant-Videos
 Name[el]=Qwant Βίντεο
 Name[en_GB]=Qwant Videos
-Name[eo]=Videoj de Qwant
+Name[eo]=Qwant Videoj
 Name[es]=Qwant Vídeos
 Name[et]=Qwant Videos
 Name[eu]=Qwant Bideoak
@@ -75,6 +75,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
@@ -108,4 +109,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=videosxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Type=Service

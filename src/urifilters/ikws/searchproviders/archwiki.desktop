@@ -16,6 +16,7 @@ Name[da]=ArchWiki
 Name[de]=ArchWiki
 Name[el]=ArchWiki
 Name[en_GB]=ArchWiki
+Name[eo]=ArchWiki
 Name[es]=ArchWiki
 Name[et]=ArchWiki
 Name[eu]=ArchWiki
@@ -49,6 +50,7 @@ Name[uk]=ArchWiki
 Name[vi]=ArchWiki
 Name[x-test]=xxArchWikixx
 Name[zh_CN]=ArchWiki
+Name[zh_TW]=ArchWiki
 Query=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ar]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[ast]=https://wiki.archlinux.org/index.php?search=\\{@}
@@ -65,6 +67,7 @@ Query[da]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[de]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[el]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[en_GB]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[eo]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[et]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}
@@ -98,4 +101,5 @@ Query[uk]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[vi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[x-test]=xxhttps://wiki.archlinux.org/index.php?search=\\{@}xx
 Query[zh_CN]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[zh_TW]=https://wiki.archlinux.org/index.php?search=\\{@}
 Type=Service

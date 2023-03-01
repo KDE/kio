@@ -12,6 +12,7 @@ Name[cs]=Reddit
 Name[cy]=Reddit
 Name[de]=Reddit
 Name[en_GB]=Reddit
+Name[eo]=Reddit
 Name[es]=Reddit
 Name[et]=Reddit
 Name[eu]=Reddit
@@ -39,7 +40,8 @@ Name[tr]=Reddit
 Name[uk]=Reddit
 Name[vi]=Reddit
 Name[x-test]=xxRedditxx
-Name[zh_CN]=Reddit 网站
+Name[zh_CN]=Reddit
+Name[zh_TW]=Reddit
 Type=Service
 Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}
@@ -55,6 +57,7 @@ Query[cs]=https://www.reddit.com/search/?q=\\{@}
 Query[cy]=https://www.reddit.com/search/?q=\\{@}
 Query[de]=https://www.reddit.com/search/?q=\\{@}
 Query[en_GB]=https://www.reddit.com/search/?q=\\{@}
+Query[eo]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}
 Query[et]=https://www.reddit.com/search/?q=\\{@}
 Query[eu]=https://www.reddit.com/search/?q=\\{@}
@@ -83,3 +86,4 @@ Query[uk]=https://www.reddit.com/search/?q=\\{@}
 Query[vi]=https://www.reddit.com/search/?q=\\{@}
 Query[x-test]=xxhttps://www.reddit.com/search/?q=\\{@}xx
 Query[zh_CN]=https://www.reddit.com/search/?q=\\{@}
+Query[zh_TW]=https://www.reddit.com/search/?q=\\{@}

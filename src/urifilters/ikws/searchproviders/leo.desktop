@@ -92,7 +92,7 @@ Name[vi]=LEO-Dịch
 Name[wa]=LEO-Translate
 Name[xh]=LEO-Guqulela
 Name[x-test]=xxLEO-Translatexx
-Name[zh_CN]=LEO-Translate
+Name[zh_CN]=LEO 翻译
 Name[zh_TW]=LEO-Translate
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
@@ -111,6 +111,7 @@ Query[da]=https://dict.leo.org/?search=\\{@}
 Query[de]=https://dict.leo.org/?search=\\{@}
 Query[el]=https://dict.leo.org/?search=\\{@}
 Query[en_GB]=https://dict.leo.org/?search=\\{@}
+Query[eo]=https://dict.leo.org/?search=\\{@}
 Query[es]=https://dict.leo.org/?search=\\{@}
 Query[et]=https://dict.leo.org/?search=\\{@}
 Query[eu]=https://dict.leo.org/?search=\\{@}

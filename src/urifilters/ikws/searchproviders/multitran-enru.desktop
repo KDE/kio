@@ -21,7 +21,7 @@ Name[da]=Multitran - oversæt mellem engelsk og russisk
 Name[de]=Multitran – Übersetzung: Englisch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Γαλλικών και Ρωσικών
 Name[en_GB]=Multitran - Translate Between English and Russian
-Name[eo]=Multitran - Traduko inter la angla kaj la rusa
+Name[eo]=Multitran - Traduku Inter la angla kaj la rusa
 Name[es]=Multitran - Traducción entre inglés y ruso
 Name[et]=Multitran - tõlkimine: inglise-vene
 Name[eu]=Multitran ingelesetik errusierarako itzulpenak
@@ -106,6 +106,7 @@ Query[da]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[en_GB]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[eo]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[es]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[et]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[eu]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

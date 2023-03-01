@@ -18,7 +18,7 @@ Name[da]=Urban Dictionary
 Name[de]=Urban Dictionary
 Name[el]=Urban Dictionary(Λεξικό)
 Name[en_GB]=Urban Dictionary
-Name[eo]=Urba vortaro
+Name[eo]=Urba Vortaro
 Name[es]=Urban Dictionary
 Name[et]=Urban Dictionary
 Name[eu]=Urban Dictionary
@@ -75,7 +75,7 @@ Name[uk]=Urban Dictionary
 Name[vi]=Từ điển Thành thị
 Name[wa]=Urban Dictionary
 Name[x-test]=xxUrban Dictionaryxx
-Name[zh_CN]=都市词典
+Name[zh_CN]=Urban Dictionary 俚语词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ar]=https://www.urbandictionary.com/define.php?term=\\{@}
@@ -92,6 +92,7 @@ Query[da]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[de]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[el]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[en_GB]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[eo]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[es]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[et]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[eu]=https://www.urbandictionary.com/define.php?term=\\{@}

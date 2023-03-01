@@ -16,6 +16,7 @@ Name[da]=Qwant News
 Name[de]=Qwant-Neuigkeiten
 Name[el]=Qwant Ειδήσεις
 Name[en_GB]=Qwant News
+Name[eo]=Qwant Novaĵoj
 Name[es]=Qwant Noticias
 Name[et]=Qwant News
 Name[eu]=Qwant Berriak
@@ -75,6 +76,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
@@ -108,4 +110,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=newsxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Type=Service

@@ -91,7 +91,7 @@ Name[uz@cyrillic]=HyperDictionary.com луғати
 Name[vi]=Từ điển đồng nghĩa HyperDictionary.com
 Name[wa]=Motî HyperDictionary.com
 Name[x-test]=xxHyperDictionary.com Thesaurusxx
-Name[zh_CN]=HyperDictionary.com 宝藏
+Name[zh_CN]=HyperDictionary.com 同义词词典
 Name[zh_TW]=HyperDictionary.com 辭典
 Keys=hdt,hd-ths,hd-thesaurus
 Query=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

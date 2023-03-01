@@ -18,7 +18,7 @@ Name[da]=Duck Duck Go shopping
 Name[de]=Duck Duck Go Shopping
 Name[el]=Duck Duck Go Shopping
 Name[en_GB]=Duck Duck Go Shopping
-Name[eo]=Aĉetado de Duck Duck Go
+Name[eo]=Butikumo de Duck Duck Go
 Name[es]=Duck Duck Go Compras
 Name[et]=Duck Duck Go Shopping
 Name[eu]=Duck Duck Go Shopping
@@ -93,6 +93,7 @@ Query[da]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[de]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[el]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[en_GB]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[eo]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[es]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[et]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[eu]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

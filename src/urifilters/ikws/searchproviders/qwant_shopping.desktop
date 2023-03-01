@@ -16,6 +16,7 @@ Name[da]=Qwant Shopping
 Name[de]=Qwant-Shopping
 Name[el]=Qwant Αγορές
 Name[en_GB]=Qwant Shopping
+Name[eo]=Qwant Butikumado
 Name[es]=Qwant Compras
 Name[et]=Qwant Shopping
 Name[eu]=Qwant Erosketak
@@ -74,6 +75,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
@@ -107,4 +109,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=shoppingxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Type=Service

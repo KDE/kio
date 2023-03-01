@@ -13,6 +13,7 @@ Name[cs]=ProtonDB
 Name[cy]=ProtonDB
 Name[de]=ProtonDB
 Name[en_GB]=ProtonDB
+Name[eo]=ProtonDB
 Name[es]=ProtonDB
 Name[et]=ProtonDB
 Name[eu]=ProtonDB
@@ -40,7 +41,8 @@ Name[tr]=ProtonDB
 Name[uk]=ProtonDB
 Name[vi]=ProtonDB
 Name[x-test]=xxProtonDBxx
-Name[zh_CN]=ProtonDB 网站
+Name[zh_CN]=ProtonDB
+Name[zh_TW]=ProtonDB
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
@@ -57,6 +59,7 @@ Query[cs]=https://www.protondb.com/search?q=\\{@}
 Query[cy]=https://www.protondb.com/search?q=\\{@}
 Query[de]=https://www.protondb.com/search?q=\\{@}
 Query[en_GB]=https://www.protondb.com/search?q=\\{@}
+Query[eo]=https://www.protondb.com/search?q=\\{@}
 Query[es]=https://www.protondb.com/search?q=\\{@}
 Query[et]=https://www.protondb.com/search?q=\\{@}
 Query[eu]=https://www.protondb.com/search?q=\\{@}
@@ -85,4 +88,5 @@ Query[uk]=https://www.protondb.com/search?q=\\{@}
 Query[vi]=https://www.protondb.com/search?q=\\{@}
 Query[x-test]=xxhttps://www.protondb.com/search?q=\\{@}xx
 Query[zh_CN]=https://www.protondb.com/search?q=\\{@}
+Query[zh_TW]=https://www.protondb.com/search?q=\\{@}
 Icon=wine

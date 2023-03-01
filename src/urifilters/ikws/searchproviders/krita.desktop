@@ -13,6 +13,7 @@ Name[cs]=Příručka Krita
 Name[cy]=Canllaw Krita
 Name[de]=Krita-Handbuch
 Name[en_GB]=Krita Manual
+Name[eo]=Krita Manlibro
 Name[es]=Manual de Krita
 Name[et]=Krita käsiraamat
 Name[eu]=Krita-ren eskuliburua
@@ -41,7 +42,7 @@ Name[uk]=Підручник з Krita
 Name[vi]=Sổ tay Krita
 Name[x-test]=xxKrita Manualxx
 Name[zh_CN]=Krita 使用手册
-Name[zh_TW]=Krita 說明文件
+Name[zh_TW]=Krita 手冊
 Type=Service
 Keys=kritadocs,kritamanual,krita
 Query=https://docs.krita.org/en/search.html?q=\\{@}
@@ -58,6 +59,7 @@ Query[cs]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[cy]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[de]=https://docs.krita.org/de/search.html?q=\\{@}
 Query[en_GB]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[eo]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[et]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[eu]=https://docs.krita.org/en/search.html?q=\\{@}
@@ -86,3 +88,4 @@ Query[uk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[vi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[x-test]=xxhttps://docs.krita.org/en/search.html?q=\\{@}xx
 Query[zh_CN]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[zh_TW]=https://docs.krita.org/en/search.html?q=\\{@}

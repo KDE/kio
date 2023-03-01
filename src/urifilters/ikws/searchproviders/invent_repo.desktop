@@ -14,6 +14,7 @@ Name[cs]=Repozitáře KDE Invent
 Name[cy]=Cadwrfeydd Llifento KDE
 Name[de]=Repositories auf KDE Invent
 Name[en_GB]=KDE Invent Repositories
+Name[eo]=KDE Invent Deponejoj
 Name[es]=Repositorios de KDE Invent
 Name[et]=KDE Inventi hoidlad
 Name[eu]=KDE Invent gordetegiak
@@ -44,7 +45,8 @@ Name[tr]=KDE Invent Depoları
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[x-test]=xxKDE Invent Repositoriesxx
-Name[zh_CN]=KDE Invent 源代码库
+Name[zh_CN]=KDE Invent 仓库
+Name[zh_TW]=KDE Invent 軟體庫
 Query=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ar]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[az]=https://invent.kde.org/explore/projects/starred?name=\\{@}
@@ -58,6 +60,7 @@ Query[cs]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[cy]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[de]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[en_GB]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[eo]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[es]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[et]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[eu]=https://invent.kde.org/explore/projects/starred?name=\\{@}
@@ -89,4 +92,5 @@ Query[uk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[vi]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[x-test]=xxhttps://invent.kde.org/explore/projects/starred?name=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[zh_TW]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Type=Service

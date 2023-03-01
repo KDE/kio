@@ -21,7 +21,7 @@ Name[da]=Multitran - oversæt mellem tysk og russisk
 Name[de]=Multitran – Übersetzung: Deutsch/Russisch
 Name[el]=Multitran - Μετάφραση μεταξύ Γερμανικών και Ρωσικών
 Name[en_GB]=Multitran - Translate Between German and Russian
-Name[eo]=Multitran - Traduko inter la germana kaj la rusa
+Name[eo]=Multitran - Traduku Inter la germana kaj la rusa
 Name[es]=Multitran - Traducción entre alemán y ruso
 Name[et]=Multitran - tõlkimine: saksa-vene
 Name[eu]=Multitran alemanetik errusierarako itzulpenak
@@ -106,6 +106,7 @@ Query[da]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[de]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[el]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[en_GB]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[eo]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[es]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[et]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[eu]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

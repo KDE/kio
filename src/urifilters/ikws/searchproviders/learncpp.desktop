@@ -13,6 +13,7 @@ Name[cs]=Naučte se CPP
 Name[cy]=Dysgu CPP
 Name[de]=Learn CPP
 Name[en_GB]=Learn CPP
+Name[eo]=Lernu CPP
 Name[es]=Aprenda CPP
 Name[et]=Learn CPP
 Name[eu]=Ikasi CPP
@@ -40,7 +41,8 @@ Name[tr]=CPP Öğren
 Name[uk]=Learn CPP
 Name[vi]=Learn CPP
 Name[x-test]=xxLearn CPPxx
-Name[zh_CN]=Learn CPP 网站
+Name[zh_CN]=Learn CPP
+Name[zh_TW]=Learn CPP
 Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
@@ -57,6 +59,7 @@ Query[cs]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[cy]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[de]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[en_GB]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[eo]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[et]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[eu]=https://www.learncpp.com/gsearch/?q=\\{@}
@@ -85,3 +88,4 @@ Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[vi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[x-test]=xxhttps://www.learncpp.com/gsearch/?q=\\{@}xx
 Query[zh_CN]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[zh_TW]=https://www.learncpp.com/gsearch/?q=\\{@}

@@ -16,6 +16,7 @@ Name[da]=Qwant Images
 Name[de]=Qwant-Bilder
 Name[el]=Qwant Εικόνες
 Name[en_GB]=Qwant Images
+Name[eo]=Qwant Bildoj
 Name[es]=Qwant Imágenes
 Name[et]=Qwant Images
 Name[eu]=Qwant Irudiak
@@ -74,6 +75,7 @@ Query[da]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[de]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[el]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[en_GB]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
@@ -107,4 +109,5 @@ Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Type=Service

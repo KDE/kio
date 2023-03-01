@@ -13,6 +13,7 @@ Name[cs]=Dokumentace Flatpak
 Name[cy]=Dogfennaeth Flatpak
 Name[de]=Flatpak-Dokumentation
 Name[en_GB]=Flatpak Documentation
+Name[eo]=Flatpak Dokumentado
 Name[es]=Documentación de Flatpak
 Name[et]=Flatpaki dokumentatsioon
 Name[eu]=Flatpak dokumentazioa
@@ -41,6 +42,7 @@ Name[uk]=Документація з Flatpak
 Name[vi]=Tài liệu Flatpak
 Name[x-test]=xxFlatpak Documentationxx
 Name[zh_CN]=Flatpak 文档
+Name[zh_TW]=Flatpak 說明文件
 Type=Service
 Keys=flatpak
 Query=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
@@ -57,6 +59,7 @@ Query[cs]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[cy]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[de]=https://docs.flatpak.org/de/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[en_GB]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[eo]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[et]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[eu]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
@@ -85,3 +88,4 @@ Query[uk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[vi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[x-test]=xxhttps://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=defaultxx
 Query[zh_CN]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[zh_TW]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
