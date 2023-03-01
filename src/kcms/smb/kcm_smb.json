@@ -2,9 +2,11 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_smb",
         "Description": "Credentials used to access SMB shares",
+        "Description[x-test]": "xxCredentials used to access SMB sharesxx",
         "Icon": "preferences-system-network-share-windows",
         "Id": "smb",
-        "Name": "Windows Shares"
+        "Name": "Windows Shares",
+        "Name[x-test]": "xxWindows Sharesxx"
     },
     "X-DocPath": "kcontrol5/smb/index.html",
     "X-KDE-Keywords": "SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords",

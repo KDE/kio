@@ -2,9 +2,11 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_netpref",
         "Description": "Configure generic network preferences, like timeout values",
+        "Description[x-test]": "xxConfigure generic network preferences, like timeout valuesxx",
         "Icon": "preferences-system-network-connection",
         "Id": "netpref",
-        "Name": "Connection Preferences"
+        "Name": "Connection Preferences",
+        "Name[x-test]": "xxConnection Preferencesxx"
     },
     "X-DocPath": "kcontrol5/netpref/index.html",
     "X-KDE-Keywords": "timeout,iopref,netpref,network preferences,ftp",

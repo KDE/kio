@@ -2,9 +2,11 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_proxy",
         "Description": "Configure the proxy servers used",
+        "Description[x-test]": "xxConfigure the proxy servers usedxx",
         "Icon": "preferences-system-network-proxy",
         "Id": "proxy",
-        "Name": "Proxy"
+        "Name": "Proxy",
+        "Name[x-test]": "xxProxyxx"
     },
     "X-DocPath": "kcontrol5/proxy/index.html",
     "X-KDE-Keywords": "Proxy,Proxy server,Firewall,Squid",

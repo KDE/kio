@@ -1,8 +1,10 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[x-test]": "xxConfigure trash settingsxx",
         "Icon": "user-trash",
-        "Name": "Trash"
+        "Name": "Trash",
+        "Name[x-test]": "xxTrashxx"
     },
     "X-DocPath": "kcontrol5/trash/index.html",
     "X-KDE-Keywords": "trash",

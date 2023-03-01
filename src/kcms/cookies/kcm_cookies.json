@@ -1,9 +1,11 @@
 {
     "KPlugin": {
         "Description": "Configure the way cookies work",
+        "Description[x-test]": "xxConfigure the way cookies workxx",
         "Icon": "preferences-web-browser-cookies",
         "Id": "cookies",
-        "Name": "Cookies"
+        "Name": "Cookies",
+        "Name[x-test]": "xxCookiesxx"
     },
     "X-DocPath": "kcontrol5/cookies/index.html",
     "X-KDE-Keywords": "Cookies,Browsing,Internet,WWW,Network,Policy,Domains",

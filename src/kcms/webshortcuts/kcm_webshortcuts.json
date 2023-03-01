@@ -3,9 +3,11 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_webshortcuts",
         "Description": "Configure web search keywords",
+        "Description[x-test]": "xxConfigure web search keywordsxx",
         "Icon": "preferences-web-browser-shortcuts",
         "Id": "webshortcuts",
-        "Name": "Web Search Keywords"
+        "Name": "Web Search Keywords",
+        "Name[x-test]": "xxWeb Search Keywordsxx"
     },
     "X-DocPath": "kcontrol5/webshortcuts/index.html",
     "X-KDE-Keywords": "Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts",
