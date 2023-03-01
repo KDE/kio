@@ -726,7 +726,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                         if (!resultWasCancelled(result)) {
                             return WorkerResult::fail(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
                         }
-                        return WorkerResult::pass();
+                        return result;
                     }
                 }
             } else if (S_ISREG(buffDest.st_mode)) {
@@ -746,7 +746,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             if (!resultWasCancelled(result)) {
                 return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
             }
-            return WorkerResult::pass();
+            return result;
         }
     }
 
@@ -767,6 +767,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                     return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
                 }
             }
+            return result;
         }
         return WorkerResult::pass();
     }
@@ -836,15 +837,25 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                     existingDestDeleteAttempted = true;
                     continue;
                 }
+
+                if (!QFile::remove(dest)) { // don't keep partly copied file
+                    auto result = execWithElevatedPrivilege(DEL, {_dest}, errno);
+                    if (!result.success()) {
+                        return result;
+                    }
+                }
+
                 return WorkerResult::fail(KIO::ERR_DISK_FULL, dest);
-            } else {
-                return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
             }
 
             if (!QFile::remove(dest)) { // don't keep partly copied file
-                execWithElevatedPrivilege(DEL, {_dest}, errno);
+                auto result = execWithElevatedPrivilege(DEL, {_dest}, errno);
+                if (!result.success()) {
+                    return result;
+                }
             }
-            return WorkerResult::pass();
+
+            return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
         }
 
         sizeProcessed += copiedBytes;
@@ -1214,6 +1225,7 @@ WorkerResult FileProtocol::rename(const QUrl &srcUrl, const QUrl &destUrl, KIO::
                 }
             }
         }
+        return result;
     }
 
     return WorkerResult::pass();
@@ -1240,7 +1252,7 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &destUrl, K
                         return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, dest);
                     }
 
-                    return WorkerResult::pass();
+                    return result;
                 }
             }
 
@@ -1282,6 +1294,7 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &destUrl, K
             // Some error occurred while we tried to symlink
             return WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest);
         }
+        return result;
     }
     return WorkerResult::pass();
 }
@@ -1310,6 +1323,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
                         return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, path);
                     }
                 }
+                return result;
             }
             return WorkerResult::pass();
         }
@@ -1328,7 +1342,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
         if (QT_RMDIR(_path.data()) == -1) {
             auto result = execWithElevatedPrivilege(RMDIR, {_path}, errno);
             if (!result.success()) {
-                if (result.error() != KIO::ERR_USER_CANCELED && result.error() != KIO::ERR_PRIVILEGE_NOT_REQUIRED) {
+                if (!resultWasCancelled(result)) {
                     if ((result.error() == EACCES) || (result.error() == EPERM)) {
                         return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
                     } else {
@@ -1336,6 +1350,7 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
                         return WorkerResult::fail(KIO::ERR_CANNOT_RMDIR, path);
                     }
                 }
+                return result;
             }
         }
     }
