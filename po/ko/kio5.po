@@ -1,7 +1,7 @@
 # Translation of kio4 to Korean.
 # Copyright (c) 2003, 2004, 2007-2008 Free Software Foundation, Inc.
 # KIM KyungHeon <tody@teoal.net>, 2003, 2004.
-# Shinjo Park <kde@peremen.name>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # JungHee Lee <daemul72@gmail.com>, 2019, 2020.
 #
 msgid ""
@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2022-10-03 15:50+0200\n"
+"PO-Revision-Date: 2023-03-01 02:06+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,10 +44,9 @@ msgstr ""
 "권한이 없습니다."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "IO 슬레이브를 만들 수 없음: %1"
+msgstr "KIO 워커를 만들 수 없음: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
 #, kde-format
@@ -778,10 +777,9 @@ msgid "Communication with the local password server failed"
 msgstr "로컬 암호 서버와 통신할 수 없음"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "IO 슬레이브를 만들 수 없음: %1"
+msgstr "KIO 워커를 만들 수 없음: %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -805,10 +803,9 @@ msgstr ""
 "권한을 변경한 후 다시 시도하십시오."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "이 파일은 휴지통에 버리기에 너무 큽니다."
+msgstr "파일을 휴지통에 버리기에 너무 큽니다."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1146,21 +1143,15 @@ msgstr ""
 "다."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"인터넷에서 이 프로토콜을 지원하는 KDE 프로그램(Kioslave 또는 ioslave라고 함)"
-"을 검색할 수 있습니다. 검색 장소는 <a href=\"https://kde-apps.org/\">https://"
-"kde-apps.org</a> 및 <a href=\"http://freshmeat.net/\">http://freshmeat.net</"
-"a> 입니다."
+"인터넷에서 이 프로토콜을 지원하는 KDE 프로그램(KIO 워커라고 함)을 검색할 수 "
+"있습니다. <a href=\"https://store.kde.org/\">https://store.kde.org</a>에서 검"
+"색할 수 있습니다."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2266,28 +2257,21 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 프로토콜을 초기화할 수 없음"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "IO 슬레이브를 만들 수 없음"
+msgstr "KIO 워커를 만들 수 없음"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"<strong>%1</strong> 프로토콜을 구현하는 IO 슬레이브를 시작할 수 없습니다. 기"
-"술적인 문제일 가능성이 큽니다."
+"<strong>%1</strong> 프로토콜을 구현하는 KIO 워커를 시작할 수 없습니다. 기술적"
+"인 문제일 가능성이 큽니다."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2359,16 +2343,14 @@ msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "'%1' 프로토콜의 IO 슬레이브를 찾을 수 없습니다."
+msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "'%1' 프로토콜의 IO 슬레이브를 실행할 소켓을 만들 수 없습니다."
+msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -3114,12 +3096,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "폴더만 위치 패널에 추가할 수 있습니다."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "놓기(&R)"
+msgstr "해제 중…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3128,12 +3108,10 @@ msgid "&Release"
 msgstr "놓기(&R)"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "안전하게 제거(&S)"
+msgstr "안전하게 제거 중…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3142,12 +3120,10 @@ msgid "&Safely Remove"
 msgstr "안전하게 제거(&S)"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "마운트 해제 중"
+msgstr "마운트 해제 중…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3179,7 +3155,7 @@ msgstr "'%1'에 접근하는 중 오류가 발생했습니다"
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "이 장치에 있는 하나 이상의 파일이 다른 프로그램에서 열려 있습니다."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3190,12 +3166,14 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"이 장치에 있는 하나 이상의 파일이 다음 프로그램에서 열려 있습니다: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3899,11 +3877,10 @@ msgid "Launching %1"
 msgstr "%1 실행 중"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "\"%1\" 파일을 찾을 수 없습니다"
+msgstr "<command>%1</command> 명령을 찾을 수 없습니다."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4334,23 +4311,7 @@ msgid "&Management"
 msgstr "관리(&M)"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4375,11 +4336,11 @@ msgstr ""
 "p><p>하지만 쿠키는 특정 상황에서 유용합니다. 예를 들어, 온라인 쇼핑몰의 장바"
 "구니에 상품을 넣을 때 사용됩니다. 일부 사이트에는 쿠키를 지원하는 브라우저가 "
 "필요합니다.</p><p>대부분 쿠키가 제공하는 혜택과 개인 정보를 절충하기를 원하"
-"기 때문에 HTTP KIO 슬레이브는 사용자가 쿠키를 처리하는 방식을 사용자 정의할 "
-"수 있는 기능을 제공합니다. 따라서 사용자가 결정할 수 있도록 서버가 쿠키를 설"
-"정할 때마다 사용자에게 묻는 기본 정책을 설정할 수 있습니다. 신뢰할 수 있는 즐"
-"겨찾는 웹사이트의 경우 수락하도록 정책을 설정한 다음 쿠키를 받을 때마다 메시"
-"지가 표시되지 않고 웹사이트에 접근할 수 있습니다.</p>"
+"기 때문에 HTTP KIO 워커는 사용자가 쿠키를 처리하는 방식을 사용자 정의할 수 있"
+"는 기능을 제공합니다. 따라서 사용자가 결정할 수 있도록 서버가 쿠키를 설정할 "
+"때마다 사용자에게 묻는 기본 정책을 설정할 수 있습니다. 신뢰할 수 있는 즐겨찾"
+"는 웹사이트의 경우 수락하도록 정책을 설정한 다음 쿠키를 받을 때마다 메시지가 "
+"표시되지 않고 웹사이트에 접근할 수 있습니다.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -5172,16 +5133,7 @@ msgstr "프록시 없음"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5195,8 +5147,7 @@ msgstr ""
 "자동으로 프록시를 찾고 설정합니다.<p>\n"
 "자동 검색은 <b>웹 프록시 자동 검색 프로토콜(WPAD)</b>을 사용합니다.<p>\n"
 "<b>참고:</b> 일부 UNIX/리눅스 배포판에서 이 옵션이 제대로 작동하지 않거나 전"
-"혀 작동하지 않을 수 있습니다. 이 옵션을 사용할 때 문제가 발생하면 https://"
-"konqueror.org 사이트에서 FAQ 섹션을 확인십시오.\n"
+"혀 작동하지 않을 수 있습니다.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5569,15 +5520,7 @@ msgid "Default password:"
 msgstr "기본 암호:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5587,12 +5530,12 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows 공유</h1><p>SMB KIO 슬레이브(Konqueror 등)를 사용하는 프로그램은 "
-"올바르게 설정한 경우 공유된 Microsoft Windows 파일 시스템에 접근할 수 있습니"
-"다.</p><p> 여기서 공유 리소스에 접근하는 데 사용할 인증 정보를 지정할 수 있습"
-"니다. 암호는 로컬에 저장되며 사람의 눈으로 읽을 수 없도록 스크램블 처리됩니"
-"다. 암호가 있는 항목은 명확하게 표시되므로 보안상의 이유로 암호를 저장하지 않"
-"을 수 있습니다.</p>"
+"<h1>Windows 공유</h1><p>SMB KIO 워커(Konqueror 등)를 사용하는 프로그램은 올바"
+"르게 설정한 경우 공유된 Microsoft Windows 파일 시스템에 접근할 수 있습니다.</"
+"p><p> 여기서 공유 리소스에 접근하는 데 사용할 인증 정보를 지정할 수 있습니"
+"다. 암호는 로컬에 저장되며 사람의 눈으로 읽을 수 없도록 스크램블 처리됩니다. "
+"암호가 있는 항목은 명확하게 표시되므로 보안상의 이유로 암호를 저장하지 않을 "
+"수 있습니다.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -7112,8 +7055,7 @@ msgstr "완전히 삭제"
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "완전히 삭제"
@@ -7676,16 +7618,13 @@ msgstr ""
 "\"%1\"(%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "다음 형식의 모든 파일에 대한 프로그램 연결 기억(&R):\n"
-"\"%1\"(%2)"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7909,7 +7848,7 @@ msgstr "설명(&E):"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "환경 변수:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9176,19 +9115,14 @@ msgstr ""
 "호스트의 정체를 확인할 수 없으므로 중단합니다."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"이 항목을 완전히 삭제하시겠습니까?<nl/><filename>%1</filename><nl/><nl/"
+"이 항목을 완전히 삭제하시겠습니까?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
@@ -9205,30 +9139,19 @@ msgstr[0] ""
 "은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"이 항목을 완전히 삭제하시겠습니까?<nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
+"이 항목을 휴지통에 버리기에는 너무 큽니다. 대신 이 항목을 완전히 삭제하시겠습"
+"니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>이 작"
+"업은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9239,8 +9162,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"항목 %1개를 완전히 삭제하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업"
-"은 실행 취소할 수 없습니다.</emphasis>"
+"항목 %1개가 너무 커서 휴지통에 버릴 수 없습니다. 대신 완전히 삭제하시겠습니"
+"까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
