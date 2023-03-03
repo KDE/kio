@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2023-03-03 02:17+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "قادر به ایجاد io-slave نیست: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1268
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -5833,22 +5833,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:839
+#: kioworkers/file/file_unix.cpp:841
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "پرونده را نمی‌توان از %1 به %2 رونوشت کرد. )شماره خطا: %3("
 
-#: kioworkers/file/file_unix.cpp:1067
+#: kioworkers/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
 msgstr "در دستگاه، هیچ رسانه‌ای برای %1 وجود ندارد"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1357
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "نتوانست شناسه کاربر را برای نام کاربر داده‌شده %1 وارد کند"
 
-#: kioworkers/file/file_unix.cpp:1366
+#: kioworkers/file/file_unix.cpp:1368
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "نتوانست شناسه گروه را برای نام گروه داده‌شده %1 به دست آورد"

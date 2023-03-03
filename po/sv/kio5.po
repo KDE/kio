@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2023-03-03 02:17+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Kunde inte skapa I/O-slav: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1268
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -5648,22 +5648,22 @@ msgstr ""
 "Källa: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:839
+#: kioworkers/file/file_unix.cpp:841
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Kan inte kopiera fil från %1 till %2. (Felnummer: %3)"
 
-#: kioworkers/file/file_unix.cpp:1067
+#: kioworkers/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Inget medium i enheten för %1"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1357
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kunde inte hämta användaridentifikation för angivet användarnamn %1"
 
-#: kioworkers/file/file_unix.cpp:1366
+#: kioworkers/file/file_unix.cpp:1368
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kunde inte hämta gruppidentifikation för angivet gruppnamn %1"

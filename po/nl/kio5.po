@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2023-03-03 02:17+0000\n"
 "PO-Revision-Date: 2023-02-05 17:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Niet in staat KIO-worker aan te maken: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1268
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -5687,22 +5687,22 @@ msgstr ""
 "Bron: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:839
+#: kioworkers/file/file_unix.cpp:841
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bestand kan niet van %1 naar %2 worden gekopieerd. (foutcode: %3)"
 
-#: kioworkers/file/file_unix.cpp:1067
+#: kioworkers/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Geen medium in station voor %1"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1357
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kon gebruikers-id voor de opgegeven gebruikersnaam %1 niet verkrijgen"
 
-#: kioworkers/file/file_unix.cpp:1366
+#: kioworkers/file/file_unix.cpp:1368
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"

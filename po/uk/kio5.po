@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
-"PO-Revision-Date: 2023-02-05 09:37+0200\n"
+"POT-Creation-Date: 2023-03-03 02:17+0000\n"
+"PO-Revision-Date: 2023-03-02 20:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не вдалося створити обробник KIO: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1268
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2627,10 +2627,9 @@ msgstr ""
 "«%1»."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Не вдалося знайти виконуваний файл «kioslave5» у «%1»"
+msgstr "Не вдалося знайти виконуваний файл «kioworker» у «%1»"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5630,22 +5629,22 @@ msgstr ""
 "Джерело: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:839
+#: kioworkers/file/file_unix.cpp:841
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не вдалося скопіювати з %1 у %2. (Помилка: %3)"
 
-#: kioworkers/file/file_unix.cpp:1067
+#: kioworkers/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Немає носія інформації у пристрої, зв'язаному з %1"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1357
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не вдалося дістати ІД користувача для %1"
 
-#: kioworkers/file/file_unix.cpp:1366
+#: kioworkers/file/file_unix.cpp:1368
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не вдалося дістати ІД групи для %1"

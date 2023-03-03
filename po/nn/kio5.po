@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2023-03-03 02:17+0000\n"
 "PO-Revision-Date: 2023-02-09 21:41+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Klarte ikkje laga KIO-arbeidar: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1268
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -5520,22 +5520,22 @@ msgstr ""
 "Kjelde: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:839
+#: kioworkers/file/file_unix.cpp:841
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Klarte ikkje kopiera fil frå %1 til %2. (Feilkode: %3)"
 
-#: kioworkers/file/file_unix.cpp:1067
+#: kioworkers/file/file_unix.cpp:1069
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ingen media i eininga for %1"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1357
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Klarte ikkje henta brukar-ID-en til det oppgjevne brukarnamnet %1."
 
-#: kioworkers/file/file_unix.cpp:1366
+#: kioworkers/file/file_unix.cpp:1368
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Klarte ikkje henta gruppe-ID-en til det oppgjevne gruppenamnet %1."
@@ -9247,74 +9247,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "Du kan ikkje bruka deladresser med %1."
-
-#~ msgid "&Yes"
-#~ msgstr "&Ja"
-
-#~ msgid "&No"
-#~ msgstr "&Nei"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Ei fil eller mappe med namnet %1 finst frå før."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "Du har ikkje løyve til å laga den mappa."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "Skrivebordet er fråkopla"
-
-#~ msgid "mounting is not supported by Windows CE."
-#~ msgstr "montering er ikkje støtta av Windows CE."
-
-#~ msgid "unmounting is not supported by Windows CE."
-#~ msgstr "avmontering er ikkje støtta av Windows CE."
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "Skrivebordoppføringa av type\n"
-#~ "%1\n"
-#~ "er ukjend."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "Skrivebordoppføringsfila\n"
-#~ "%1\n"
-#~ "er av typen FSDevice, men har inga Dev=…-oppføring."
-
-#~ msgid "Mount"
-#~ msgstr "Monter"
-
-#~ msgid "Unmount"
-#~ msgstr "Avmonter"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>Kan ikkje køyra den aktuelle kommandoen. Fila eller mappa <b>%1</b> "
-#~ "finst ikkje.</qt>"
-
-#~ msgid "Could not find any application or handler for %1"
-#~ msgstr "Fann ikkje noko program eller nokon handsamar for %1"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "&Lim inn fil"
-#~ msgstr[1] "&Lim inn %1 filer"
-
-#~ msgid "&Paste URL"
-#~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "&Lim inn nettadresse"
-#~ msgstr[1] "&Lim inn %1 nettadresser"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Lim inn frå utklippstavla"
