@@ -12,7 +12,6 @@ else()
         file.cpp
         file_unix.cpp
         fdreceiver.cpp
-        legacycodec.cpp
     )
 endif()
 
@@ -36,10 +35,6 @@ endif()
 
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
-endif()
-
-if (TARGET Qt6::Core5Compat)
-    target_link_libraries(kio_file Qt6::Core5Compat)  # QTextCodec
 endif()
 
 if (UNIX)

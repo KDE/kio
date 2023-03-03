@@ -18,10 +18,6 @@
 #include "kioglobal_p.h"
 #include "statjob.h"
 
-#ifdef Q_OS_UNIX
-#include "legacycodec.h"
-#endif
-
 #include <assert.h>
 #include <cerrno>
 #ifdef Q_OS_WIN
@@ -77,11 +73,6 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
         fprintf(stderr, "Usage: kio_file protocol domain-socket1 domain-socket2\n");
         exit(-1);
     }
-
-#ifdef Q_OS_UNIX
-    // From Qt doc : "Note that you should not delete codecs yourself: once created they become Qt's responsibility"
-    (void)new LegacyCodec;
-#endif
 
     FileProtocol worker(argv[2], argv[3]);
 
