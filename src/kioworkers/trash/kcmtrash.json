@@ -1,9 +1,11 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[uk]": "Налаштування параметрів смітника",
         "Description[x-test]": "xxConfigure trash settingsxx",
         "Icon": "user-trash",
         "Name": "Trash",
+        "Name[uk]": "Смітник",
         "Name[x-test]": "xxTrashxx"
     },
     "X-DocPath": "kcontrol5/trash/index.html",

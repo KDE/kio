@@ -1,10 +1,12 @@
 {
     "KPlugin": {
         "Description": "Configure the way cookies work",
+        "Description[uk]": "Налаштування механізму кук",
         "Description[x-test]": "xxConfigure the way cookies workxx",
         "Icon": "preferences-web-browser-cookies",
         "Id": "cookies",
         "Name": "Cookies",
+        "Name[uk]": "Куки",
         "Name[x-test]": "xxCookiesxx"
     },
     "X-DocPath": "kcontrol5/cookies/index.html",
