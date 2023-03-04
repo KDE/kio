@@ -39,7 +39,6 @@ ecm_add_test(
    Qt6::Test
    Qt6::Network
    Qt6::Widgets
-   Qt6::Core5Compat
    KF6::I18n
    KF6::ConfigCore
    KF6::KIOCore
