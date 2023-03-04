@@ -1,10 +1,14 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[es]": "Configurar las preferencias de la papelera",
+        "Description[it]": "Configura le impostazioni del cestino",
         "Description[uk]": "Налаштування параметрів смітника",
         "Description[x-test]": "xxConfigure trash settingsxx",
         "Icon": "user-trash",
         "Name": "Trash",
+        "Name[es]": "Papelera",
+        "Name[it]": "Cestino",
         "Name[uk]": "Смітник",
         "Name[x-test]": "xxTrashxx"
     },

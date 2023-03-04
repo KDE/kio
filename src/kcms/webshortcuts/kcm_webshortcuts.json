@@ -3,11 +3,15 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_webshortcuts",
         "Description": "Configure web search keywords",
+        "Description[es]": "Configurar las palabras clave de búsqueda web",
+        "Description[it]": "Configure le parole chiave per ricerca web",
         "Description[uk]": "Налаштування ключових слів пошуку в інтернеті",
         "Description[x-test]": "xxConfigure web search keywordsxx",
         "Icon": "preferences-web-browser-shortcuts",
         "Id": "webshortcuts",
         "Name": "Web Search Keywords",
+        "Name[es]": "Palabras clave de búsqueda web",
+        "Name[it]": "Parole chiave per ricerca web",
         "Name[uk]": "Ключові слова пошуку в інтернеті",
         "Name[x-test]": "xxWeb Search Keywordsxx"
     },
