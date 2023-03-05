@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>Bağlantı Tercihleri</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>kcontrol</keyword>
+<keyword
+>ağ</keyword>
+<keyword
+>zaman aşımları</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>Bağlantı Tercihleri</title>
+
+<para
+>Burada zaman aşımı değerlerini ayarlayabilirsiniz. Eğer bağlantınız çok yavaşsa bunları değiştirmek isteyebilirsiniz, aksi takdirde öntanımlı ayarlar çoğu kullanıcı için uygundur.</para>
+
+<para
+>Buradaki <guilabel
+>Zaman Aşımı Değerleri</guilabel
+>, bir ağ işleminden yanıt için bir uygulamanın beklemesi gereken süre uzunluğunu belirtir.</para>
+
+<para
+>Aşağıdaki zaman aşımı değerlerini ayarlayabilirsiniz:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Soket okuma:</guilabel
+></term>
+<listitem>
+<para
+>Bazı uygulamalar, iletişim kurabilmek için <firstterm
+>soket</firstterm
+> kullanırlar. Soketleri musluk gibi düşünebilirsiniz. Açık iken, hiçbir etki olmadan su (şimdiki durumumuzda, veri) akışı olur. Eğer herhangi bir şey bu veri akışını durdurursa, uygulama, biraz daha gelmek için bekleyecektir. Bu çok uzun bir zaman olabilir, ancak bu seçenek ile bir uygulama için beklenecek maksimum süreyi belirleyebilirsiniz</para>
+<para
+>Bu ayarlar tabii ki sadece &kde; uygulamalarına uygulanacaktır.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Proksi bağlantısı:</guilabel
+></term>
+<listitem>
+<para
+>Eğer bir proksi ayarlanmışsa, proksiye bağlanmak için beklenecek süreyi belirler. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Sunucu bağlantısı:</guilabel
+></term>
+<listitem>
+<para
+>Hedef sunucuya bağlanmak için beklenecek süreyi ayarlar. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Sunucu yanıtı:</guilabel
+></term>
+<listitem>
+<para
+>Hedef sunucudan yanıt almak için beklenecek süreyi ayarlar. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Buradan <guilabel
+>FTP Ayarları</guilabel
+>nı düzenleyebilirsiniz. Şimdilik sadece iki seçenek var:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Pasif kipi aktifleştir (PASV)</guilabel
+></term>
+<listitem
+><para
+>Pasif &FTP;, genellikle bir güvenlik duvarı kullanıyorsanız sık sık ihtiyacınızın olacağı bir özelliktir. Birçok güvenlik duvarı sadece <quote
+>içerisinde</quote
+> tanımlı olan bağlantılara izin verir. Pasif &FTP; ise; kullanıcı tarafından çoğu güvenlik duvarına karşı kullanışlı olmak üzere kontrol edilebilir.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Bir kısmı gönderilmiş dosyaları işaretle</guilabel
+></term>
+<listitem
+><para
+>Bu kutu işaretlendiğinde, bir kısmı gönderilmiş dosyaların sonuna, uzantı olarak <literal role="extension"
+>.part</literal
+> eki eklenecektir. Bu uzantı, dosya tamamen indirildikten sonra kaldırılacaktır.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
