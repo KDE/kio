@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; işletim sistemine bağımlı olmaksızın bir bilgisayarın diskindeki bir veri dosyasını başka bir bilgisayarın diskine aktarmanızı sağlayan bir İnternet servisidir. </para>
+
+<para
+>Diğer İnternet uygulamalarına benzer bir şekilde, &FTP; istemci-sunucu yaklaşımını kullanır &mdash; kullanıcı bilgisayarında bir &FTP; uygulamasını başlatır, bu uygulamaya uzak bilgisayara bağlanması için bilgileri verir ve bir ya da daha fazla dosyayı aktarmasını ister. Yerel &FTP; uygulaması uzak bilgisayardaki &FTP; sunucusuna bağlanmak için bir istemciye dönüşür ve iletişim kurmak için de <acronym
+>TCP</acronym
+> kullanır. Kullanıcının her dosya göndermek istediğinde istemci ve sunucu uygulamaları verinin İnternet üzerinden copyalanması için birlikte çalışırlar.</para>
+
+<para
+><quote
+>anonim &FTP;</quote
+> bağlantılarını kabul eden &FTP; sunucuları, sadece o sunucu üzerinde hesabı olanlara değil, istekte bulunan tüm kullanıcılara <quote
+>ftp</quote
+> arşivlerine gözatma ve indirme izni verir. Bazı &FTP; sunucuları kullanıcıların dosya yüklemesine de izin verecek şekilde yapılandırılmıştır.</para>
+
+<para
+>&FTP;, genellikle dünyanın her yerinden &FTP; arşivi sitelerine erişmek, bilgi ve dosyalara kaydedilmiş yazılımların indirilmesini sağlamak için kullanılır. </para>
+
+
+<para
+>Kaynak: <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
+> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
+> sayfasından yararlanılarak oluşturulmuştur. </para>
+
+<para
+>Kılavuza bakın: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

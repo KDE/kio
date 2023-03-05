@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
-"PO-Revision-Date: 2023-02-08 06:15+0100\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"PO-Revision-Date: 2023-03-04 13:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2411,10 +2411,9 @@ msgstr ""
 "'%1'."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "'%1'-ზე 'kioslave5' გამშვები ფაილი ვერ ვიპოვე."
+msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვერ ვიპოვე."
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5044,22 +5043,22 @@ msgstr ""
 "წყარო: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "მოწყობილობაში მედია არ დევს %1-თვის"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "მომხმარებლის, %1, uid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
@@ -5960,31 +5959,27 @@ msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "Search for web search keywords"
-msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
+msgstr "ვებ-ძებნის საკვანძო სიტყვის ძებნა"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "Add a new Web search keyword"
-msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
+msgstr "ვებ-ძებნის საკვანძო სიტყვის დამატება"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "Modify the highlighted Web search keyword"
-msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
+msgstr "ვებ-ძებნის საკვანძო სიტყვის ჩასწორება"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:97
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "Delete the highlighted Web search keyword"
-msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
+msgstr "ვებ-ძებნის საკვანძო სიტყვის წაშლა"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:100
@@ -6005,10 +6000,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "Default Web &search keyword:"
-msgstr "ვებ-ძებნის საკვანძო სიტყვების &ჩართვა"
+msgstr "ნაგულისხმები ვებ-&ძებნის საკვანძო სიტყვა:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6116,10 +6110,9 @@ msgstr "შენარჩუნება"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, fuzzy, kde-format
-#| msgid "Enter the port number of the FTP proxy server."
+#, kde-format
 msgid "Enter the human-readable name of the search provider here."
-msgstr "შეიყვანეთ FTP პროქსი სერვერის პორტი."
+msgstr "აქ შეიყვანეთ საძიებო სისტემის ადამიანისთვის გასაგები სახელი."
 
 #. i18n: ectx: property (text), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:23

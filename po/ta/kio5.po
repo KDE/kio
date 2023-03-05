@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
 "PO-Revision-Date: 2023-02-14 22:10+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -5500,22 +5500,22 @@ msgstr ""
 "மூலம்: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr " %1 -இலிருந்து %2 -க்கு கோப்பினை நகலெடுக்க இயலவில்லை. (சிக்கல் எண்: %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 -க்குரிய ஊடகம் சாதனத்தில் இல்லை"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 என்ற பயனர் பெயருக்கான பயனர் எண்ணை பெற இயலவில்லை"
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"

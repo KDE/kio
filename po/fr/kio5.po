@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
-"PO-Revision-Date: 2023-02-06 18:28+0100\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"PO-Revision-Date: 2023-03-03 07:33+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Impossible de créer un module d'entrée / sortie : %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2695,11 +2695,9 @@ msgstr ""
 "le protocole « %1 »."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr ""
-"Impossible de trouver le programme d'entrée / sortie (kioslave5) à « %1 »"
+msgstr "Impossible de trouver le programme « kioworker5 »à « %1 »"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5742,22 +5740,22 @@ msgstr ""
 "Source : %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Impossible de copier le fichier %1 vers %2. (Num. d'erreur : %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Aucune méta-information dans le périphérique pour %1"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Impossible de trouver l'identifiant de l'utilisateur nommé %1"
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Impossible de trouver l'identifiant de du groupe nommé %1"

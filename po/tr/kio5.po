@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
-"PO-Revision-Date: 2023-02-27 00:46+0300\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"PO-Revision-Date: 2023-03-04 13:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi oluşturulamıyor: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2575,10 +2575,9 @@ msgstr ""
 "'%1' protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "'%1' konumunda 'kioslave5' yürütülebiliri bulunamadı"
+msgstr "'%1' konumunda 'kioworker' yürütülebiliri bulunamadı"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5545,22 +5544,22 @@ msgstr ""
 "Kaynak: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Dosya %1 konumundan %2 konumuna kopyalanamadı. (Hata: %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 için aygıtta medya bulunamadı"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
-"PO-Revision-Date: 2023-02-09 21:41+0100\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"PO-Revision-Date: 2023-03-04 16:27+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Klarte ikkje laga KIO-arbeidar: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2318,6 +2318,9 @@ msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
+"Programmet klauncher klarte ikkje å finna eller starta tillegget som gjev "
+"støtte for protokollen. Dette kan skuldast at du har ein utdatert versjon av "
+"tillegget."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2576,10 +2579,9 @@ msgstr ""
 "«%1»."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Finn ikkje programfila «kioslave5» på «%1»"
+msgstr "Finn ikkje programfila «kioworker» på «%1»"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5520,22 +5522,22 @@ msgstr ""
 "Kjelde: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Klarte ikkje kopiera fil frå %1 til %2. (Feilkode: %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ingen media i eininga for %1"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Klarte ikkje henta brukar-ID-en til det oppgjevne brukarnamnet %1."
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Klarte ikkje henta gruppe-ID-en til det oppgjevne gruppenamnet %1."

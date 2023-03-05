@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:17+0000\n"
+"POT-Creation-Date: 2023-03-05 03:08+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr ""
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1270
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -5196,22 +5196,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:841
+#: kioworkers/file/file_unix.cpp:858
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ii sáhte máŋget fiilla %1:s %2:ii. (Meattáhusnr: %3)"
 
-#: kioworkers/file/file_unix.cpp:1069
+#: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ii leat media %1-ovttadaga várás"
 
-#: kioworkers/file/file_unix.cpp:1357
+#: kioworkers/file/file_unix.cpp:1372
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ii sáhttán viežžat geavaheaddjinama %1 geavaheaddji-id"
 
-#: kioworkers/file/file_unix.cpp:1368
+#: kioworkers/file/file_unix.cpp:1383
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ii ožžon joavko-id dihto joavkonama %1"
@@ -8789,65 +8789,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "Ii leat vejolaš geavahit vuolle-URL:id %1:ain"
-
-#~ msgid "&Yes"
-#~ msgstr "&Jo"
-
-#~ msgid "&No"
-#~ msgstr "&Ii"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Fiila dahje máhppa nammaduvvon %1 gávdno juo."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "Dus eai leat vuoigatvuođat ráhkadit dien máhpa."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "Čállinbeavdi ii leat laktašuvvon"
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "Čállinbeavdemearkkuš mas lea šládja\n"
-#~ "%1\n"
-#~ "lea amas."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "Čállinbeavdemearkkušfiila\n"
-#~ "%1\n"
-#~ "lea FSDevice-šlájat, muhto das váilu Dev=… merkoša."
-
-#~ msgid "Mount"
-#~ msgstr "Čana"
-
-#~ msgid "Unmount"
-#~ msgstr "Galgga"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>Ii sáhte vuodjit meroštuvvon gohččuma. Fiila dahje máhpa <b>%1</b> ii "
-#~ "gávdno.</qt>"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "&Liibme sisa fiilla"
-#~ msgstr[1] "&Liibme sisa %1 fiilla"
-
-#~ msgid "&Paste URL"
-#~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "&Liibme sisa čujuhusa"
-#~ msgstr[1] "&Liibme sisa %1 čujuhusa"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Liibme sisa čuohppusbeavddi sisdoalu"
