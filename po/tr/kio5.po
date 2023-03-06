@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
 "PO-Revision-Date: 2023-03-04 13:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -5434,12 +5434,12 @@ msgstr "Yürütülecek komut"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'Komut' için yerel dosya(lar) veya adres(ler)"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1 için ACL ayarlanıyor"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5448,12 +5448,12 @@ msgstr ""
 "%1 dosyası için\n"
 "izinler değiştirilemiyor"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" uygulaması bulunamadı"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" uygulaması bulunamadı"

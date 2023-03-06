@@ -15,16 +15,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
-"PO-Revision-Date: 2023-02-28 08:44+0100\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"PO-Revision-Date: 2023-03-04 09:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.2.2\n"
 
@@ -2618,10 +2618,9 @@ msgstr ""
 "Ni mogoče ustvariti vtiča za zagon programa KIO Worker za protokol '%1'."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Ni mogoče najti izvedljive datoteke 'kioslave5' v '%1'"
+msgstr "Ni mogoče najti izvedljive datoteke 'kioworker' v '%1'"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5501,12 +5500,12 @@ msgstr "Ukaz, ki se naj izvede"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(ji) ali krajevna(e) datoteka(e) uporabljen(i) za 'ukaz'"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Nastavitev ACL za %1"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5515,12 +5514,12 @@ msgstr ""
 "Ni bilo mogoče spremeniti dovoljenj za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Programa \"mount\" ni bilo mogoče najti"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Programa \"umount\" ni bilo mogoče najti"

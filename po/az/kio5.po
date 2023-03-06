@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -5476,12 +5476,12 @@ msgstr "İcra üçün əmr"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Əmr üçün URL ünvanları və lokal fayllar"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "ACL -n %1 üçün ayarlanması"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5490,12 +5490,12 @@ msgstr ""
 "%1\n"
 "üçün icazələr dəyişdirilmir"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" proqramı tapılmadı"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"unmoumt\" proqramı tapılmadı"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
 "PO-Revision-Date: 2023-02-13 11:54+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -5495,12 +5495,12 @@ msgstr "Команда за изпълнение"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL адреси или локални файлове, използвани за \"команда\""
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Изпращане на ACL за %1"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5509,12 +5509,12 @@ msgstr ""
 "Неуспешна смяна на правата за достъп\n"
 "%1"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Програмата \"mount\" не може да бъде намерена"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Програмата \"umount\" не може да бъде намерена"

@@ -14,15 +14,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
-"PO-Revision-Date: 2023-02-07 07:28+0100\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"PO-Revision-Date: 2023-03-05 21:06+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language-Team: Basque\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -2619,10 +2619,9 @@ msgstr ""
 "Ezin du '%1' protokoloaren KIO behargin bat abiarazteko «socket» bat sortu."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Ezin da 'kioslave5' exekutagarria aurkitu '%1'(e)n"
+msgstr "Ezin da 'kioworker' exekutagarria aurkitu '%1'(e)n"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5505,12 +5504,12 @@ msgstr "Exekutatu beharreko komandoa"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'komando'-rentzako URL(ak) edo fitxategi lokala(k)"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1(r)en ACL ezartzea"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5519,12 +5518,12 @@ msgstr ""
 "Ezin izan dira aldatu\n"
 "%1(r)en baimenak"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ezin izan du «mount» programa aurkitu"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ezin izan du «umount» programa aurkitu"

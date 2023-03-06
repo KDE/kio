@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
-"PO-Revision-Date: 2023-03-04 13:53+0100\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"PO-Revision-Date: 2023-03-05 04:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -920,6 +920,8 @@ msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
 msgstr ""
+"ჩართეთ, რომ დარწმუნდეთ, რომ სხვა აპლიკაცია და მომხმარებელი ამ ფაილს არც "
+"იყენებენ და არც ჩაუკეტავთ ის."
 
 #: core/job_error.cpp:388
 #, kde-format
@@ -964,7 +966,7 @@ msgstr ""
 #: core/job_error.cpp:407
 #, kde-format
 msgid "There may have been a problem with your network connection."
-msgstr ""
+msgstr "თქვენს ქსელთან მიერთებას შეიძლება პრობლემები აქვს."
 
 #: core/job_error.cpp:411
 #, kde-format
@@ -1226,7 +1228,7 @@ msgstr ""
 #: core/job_error.cpp:575
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
-msgstr ""
+msgstr "სცადეთ, ჯერ მიმდინარე ფაილი მოიშოროთ, შემდეგ კი თავიდან სცადეთ."
 
 #: core/job_error.cpp:577
 #, kde-format
@@ -1248,7 +1250,7 @@ msgstr ""
 #: core/job_error.cpp:586
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
-msgstr ""
+msgstr "სცადეთ, ჯერ მიმდინარე საქაღალდე მოიშოროთ, შემდეგ კი თავიდან სცადეთ."
 
 #: core/job_error.cpp:588
 #, kde-format
@@ -1286,7 +1288,7 @@ msgstr "წვდომა აკრძალულია"
 #: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
-msgstr ""
+msgstr "მითითებულ რესურსთან წვდომა აკრძალულია. <strong>%1</strong>."
 
 #: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
@@ -1579,6 +1581,7 @@ msgstr ""
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
+"დარწმუნდით, რომ სხვა აპლიკაცია ამ მოწყობილობას არ იყენებს და თავიდან სცადეთ."
 
 #: core/job_error.cpp:809
 #, kde-format
@@ -1664,6 +1667,7 @@ msgstr "%1-ზე შესვლა წარუმატებელია"
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
+"მოთხოვნილი ოპერაციის შესასრულებლად შესვლის მცდელობა წარუმატებლად დასრულდა."
 
 #: core/job_error.cpp:902
 #, kde-format
@@ -1685,7 +1689,7 @@ msgstr ""
 #: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
-msgstr ""
+msgstr "მითითებული რესურსი არ არსებობს ან მიუწვდომელია."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
 #: core/job_error.cpp:921
@@ -1917,7 +1921,7 @@ msgstr ""
 #: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr ""
+msgstr "დაუკავშირდით სერვერის ადმინისტრატორს და ჰკითხეთ პრობლემის შესახებ."
 
 #: core/job_error.cpp:1088
 #, kde-format
@@ -2183,6 +2187,8 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
+"თავიდან დააფორმატეთ სამიზნე დისკი ფაილური სისტემით, რომელსაც ამხელა ფაილების "
+"მხარდაჭერა გააჩნია."
 
 #: core/job_error.cpp:1271
 #, kde-format
@@ -2438,7 +2444,7 @@ msgstr "წასაშლელი არაფერია"
 #: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
-msgstr ""
+msgstr "მითითებული საქაღალდე არ არსებობს, ან წაკითხვადი არაა."
 
 #: filewidgets/kdiroperator.cpp:1929
 #, kde-format
@@ -3201,11 +3207,13 @@ msgstr ""
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
+"ბრაუზერის ისტორიაში ერთი ნაბიჯით უკან გადასასვლელად დააწკაპუნეთ ამ ღილაკს."
 
 #: filewidgets/kfilewidget.cpp:1290
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
+"ბრაუზერის ისტორიაში ერთი ნაბიჯით წინ გადასასვლელად დააწკაპუნეთ ამ ღილაკს."
 
 #: filewidgets/kfilewidget.cpp:1292
 #, kde-format
@@ -3406,7 +3414,7 @@ msgstr "უკაცრავად"
 #: filewidgets/knewfilemenu.cpp:478
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr ""
+msgstr "<qt>ნიმუშის ფაილი <b>%1</b> არ არსებობს.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
 #, kde-format
@@ -3624,7 +3632,7 @@ msgstr ""
 #: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
-msgstr ""
+msgstr "ამ ფაილის გასახსნელი აპლიკაციის არჩევის ავტორიზაცია არ გაგაჩნიათ."
 
 #: gui/applicationlauncherjob.cpp:261
 #, kde-format
@@ -4872,6 +4880,10 @@ msgid ""
 "has been modified.\n"
 "Do you want to upload the changes?"
 msgstr ""
+"ფაილი\n"
+"%1\n"
+"შეიცვალა.\n"
+"გნებავთ ცვლილებების ატვირთვა?"
 
 #: kioexec/main.cpp:284
 #, kde-format
@@ -4916,7 +4928,7 @@ msgstr "Oswald Buddenhagen"
 #: kioexec/main.cpp:298
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr ""
+msgstr "URL-ებთან, როგორც ლოკალურ ფაილებთან მუშაობა და შემდეგ მათი წაშლა"
 
 #: kioexec/main.cpp:300
 #, kde-format
@@ -4933,12 +4945,12 @@ msgstr "შესასრულებელი ბრძანება"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ბრძანების URL-ები ან ადგილობრივი ფაილები"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1-ზე ACL-ის დაყენება"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4947,12 +4959,12 @@ msgstr ""
 "%1-ზე\n"
 "წვდომის ცვლილების შეცდომა"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""
@@ -5299,7 +5311,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
-msgstr ""
+msgstr "%1-ის მცდელობისას წვდომა აკრძალულია."
 
 #: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1805
 #, kde-format
@@ -5847,7 +5859,7 @@ msgstr ""
 #: kpac/script.cpp:692
 #, kde-format
 msgid "Got an invalid reply when calling %1 -> %2"
-msgstr ""
+msgstr "არასწორი პასუხი %1 -> %2 გამოძახებისას"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -6057,7 +6069,7 @@ msgstr ""
 #: urifilters/ikws/kuriikwsfilter.cpp:119
 #, kde-format
 msgid "No search providers were found."
-msgstr ""
+msgstr "საძიებო სისტემა აღმოჩენილი არაა."
 
 #: urifilters/ikws/searchproviderdlg.cpp:49
 #, kde-format
@@ -6559,7 +6571,9 @@ msgstr ""
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] ""
+"დარწმუნებული ბრძანდებით, რომ გნებავთ, ეს ჩანაწერი ნაგავში გადაიტანოთ?"
 msgstr[1] ""
+"დარწმუნებული ბრძანდებით, რომ გნებავთ, ეს %1 ჩანაწერი ნაგავში გადაიტანოთ?"
 
 #: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:521
 #, kde-format
@@ -7041,12 +7055,12 @@ msgstr "ტერმინალ&ში გაშვება"
 #: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr ""
+msgstr "&არ დახურო ბრძანების დასრულებისას"
 
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "მიიღეთ მეტი აპი Discover-დან"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -7223,7 +7237,7 @@ msgstr "&აღწერა:"
 #: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
 #, kde-format
 msgid "Type any comment you think is useful here."
-msgstr ""
+msgstr "აქ ნებისმიერი თქვენი აზრით სასარგებლო კომენტარი შეგიძლიათ, ჩაწეროთ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:65
@@ -7541,8 +7555,8 @@ msgstr "წვდომის უფლებები"
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ეს ფაილი ბმულია და წვდომები არ აქვს."
+msgstr[1] "ეს ფაილები ბმულებია და წვდომები არ აქვს."
 
 #: widgets/kpropertiesdialog.cpp:1822
 #, kde-format
@@ -7629,7 +7643,7 @@ msgstr "ჯგუფი:"
 #: widgets/kpropertiesdialog.cpp:1956
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
-msgstr ""
+msgstr "ცვლილებების გადატარება ყველა ქვესაქაღალდეზე და მათ შემცველობაზე"
 
 #: widgets/kpropertiesdialog.cpp:1998
 #, kde-format
@@ -7653,7 +7667,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2023
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
-msgstr ""
+msgstr "ეს ალამი საქაღალდის შემცველობის ნახვის უფლებას გაძლევთ."
 
 #: widgets/kpropertiesdialog.cpp:2025
 #, kde-format
@@ -7663,7 +7677,7 @@ msgstr "წაკითხვა"
 #: widgets/kpropertiesdialog.cpp:2026
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
-msgstr ""
+msgstr "ეს ალამი ფაილის შემცველობის ნახვის უფლებას გაძლევთ."
 
 #: widgets/kpropertiesdialog.cpp:2032
 #, kde-format
@@ -7680,6 +7694,9 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
+"ეს ალამი ფაილის დამატების, სახელის გადარქმევის და წაშლის უფლებას გალევთ. "
+"დაიმახსოვრეთ, რომ წაშლისა და სახელის გადარქმევის შეზღუდვა წებოვანი ალმით "
+"შეგიძლიათ."
 
 #: widgets/kpropertiesdialog.cpp:2037
 #, kde-format
@@ -7689,7 +7706,7 @@ msgstr "ჩასწორება"
 #: widgets/kpropertiesdialog.cpp:2038
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
-msgstr ""
+msgstr "ეს ალამი ფაილის შემცველობაში ჩაწერის უფლებას გაძლევთ."
 
 #: widgets/kpropertiesdialog.cpp:2044
 #, kde-format
@@ -7700,7 +7717,7 @@ msgstr "Enter"
 #: widgets/kpropertiesdialog.cpp:2045
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
-msgstr ""
+msgstr "ეს ალამი საქაღალდეში შესვლის უფლებას გაძლევთ."
 
 #: widgets/kpropertiesdialog.cpp:2047
 #, kde-format
@@ -7710,7 +7727,7 @@ msgstr "გაშვ"
 #: widgets/kpropertiesdialog.cpp:2048
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr ""
+msgstr "ფაილის პროგრამის სახით გასაშვებად ჩაერთეთ ეს სალამი."
 
 #: widgets/kpropertiesdialog.cpp:2056
 #, kde-format
@@ -7806,7 +7823,7 @@ msgstr "Ბმული"
 #: widgets/kpropertiesdialog.cpp:2308
 #, kde-format
 msgid "Varying (No Change)"
-msgstr ""
+msgstr "ცვალებადი (ცვლილების გარეშე)"
 
 #: widgets/kpropertiesdialog.cpp:2419
 #, kde-format
@@ -7943,7 +7960,7 @@ msgstr "გამომცემელი"
 #: widgets/ksslinfodialog.cpp:82
 #, kde-format
 msgid "Current connection is secured with SSL."
-msgstr ""
+msgstr "მიმდინარე კავშირი SSL-ითაა დაცული."
 
 #: widgets/ksslinfodialog.cpp:86
 #, kde-format
@@ -7959,7 +7976,7 @@ msgstr ""
 #: widgets/ksslinfodialog.cpp:97
 #, kde-format
 msgid "Current connection is not secured with SSL."
-msgstr ""
+msgstr "მიმდინარე კავშირი SSL-ით დაცული არაა."
 
 #: widgets/ksslinfodialog.cpp:139
 #, kde-format
@@ -7980,8 +7997,8 @@ msgstr[1] "%1 ბიტის გამოყენება"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1-ბიტიანი გასაღების"
+msgstr[1] "%1-ბიტიანი გასაღების"
 
 #: widgets/ksslinfodialog.cpp:157
 #, kde-format
@@ -8025,7 +8042,7 @@ msgstr "ფაილის გახსნის დიალოგი"
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr ""
+msgstr "ბუფერის შემცველობის ფაილის სახელი:"
 
 #: widgets/paste.cpp:110
 #, kde-format
@@ -8079,7 +8096,7 @@ msgstr "მონაცემების ფორმატი:"
 #: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr ""
+msgstr "მოცილებული შემცველობის ფაილის სახელი:"
 
 #: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
 #, kde-format
@@ -8156,7 +8173,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr ""
+msgstr "&ძველი ფაილების თავზე გადაწერა"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
@@ -8185,7 +8202,7 @@ msgstr "გაგრ&ძელება"
 #: widgets/renamedialog.cpp:369
 #, kde-format
 msgid "This action will overwrite the destination."
-msgstr ""
+msgstr "ეს ქმედება სამიზნეს თავზე გადააწერს."
 
 #: widgets/renamedialog.cpp:374
 #, kde-format
@@ -8205,12 +8222,12 @@ msgstr "განსხვავებები"
 #: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr ""
+msgstr "სამიზნე <b>%1-ით პატარაა</b>"
 
 #: widgets/renamedialog.cpp:421
 #, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr ""
+msgstr "სამიზნე <b>%1-ით დიდია</b>"
 
 #: widgets/renamedialog.cpp:435
 #, kde-format
@@ -8237,7 +8254,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr ""
+msgstr "ძველი ჩანაწერი სახელით '%1' უკვე არსებობს."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format

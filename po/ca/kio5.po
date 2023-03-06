@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
-"PO-Revision-Date: 2023-02-05 10:48+0100\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"PO-Revision-Date: 2023-03-05 12:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2649,10 +2649,9 @@ msgstr ""
 "protocol «%1»."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "No s'ha pogut trobar l'executable «kioslave5» a «%1»"
+msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -5552,12 +5551,12 @@ msgstr "Ordre a executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "El/s URL o fitxer/s local/s usat/s per l'«ordre»"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "S'està establint l'ACL per a %1"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5566,12 +5565,12 @@ msgstr ""
 "No s'han pogut canviar els permisos per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "No s'ha pogut trobar el programa «mount»"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "No s'ha pogut trobar el programa «umount»"
@@ -9435,74 +9434,3 @@ msgstr "Això iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "No s'accepta l'ús de sub-URL amb %1."
-
-#~ msgid "&Yes"
-#~ msgstr "&Sí"
-
-#~ msgid "&No"
-#~ msgstr "&No"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Ja existeix un fitxer o carpeta anomenat %1."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "No teniu permís per a crear aquesta carpeta."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "L'escriptori està desconnectat"
-
-#~ msgid "mounting is not supported by Windows CE."
-#~ msgstr "el muntatge no està disponible al Windows CE."
-
-#~ msgid "unmounting is not supported by Windows CE."
-#~ msgstr "el desmuntatge no està disponible al Windows CE."
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "L'entrada «desktop» del tipus\n"
-#~ "%1\n"
-#~ "és desconeguda."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "El fitxer d'entrada «desktop»\n"
-#~ "%1\n"
-#~ "és de tipus «FSDevice» però no té cap entrada Dev=..."
-
-#~ msgid "Mount"
-#~ msgstr "Munta"
-
-#~ msgid "Unmount"
-#~ msgstr "Desmunta"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>No es pot executar l'ordre especificada. El fitxer o carpeta <b>%1</"
-#~ "b> no existeix.</qt>"
-
-#~ msgid "Could not find any application or handler for %1"
-#~ msgstr "No s'ha pogut trobar cap aplicació o gestor per a %1"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "&Enganxa el fitxer"
-#~ msgstr[1] "&Enganxa %1 fitxers"
-
-#~ msgid "&Paste URL"
-#~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "&Enganxa l'URL"
-#~ msgstr[1] "&Enganxa els %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Enganxa el contingut del porta-retalls"

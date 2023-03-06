@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -5055,12 +5055,12 @@ msgstr "Goulev da seveniñ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, fuzzy, kde-format
 msgid "Setting ACL for %1"
 msgstr "Emaon o kas ar roadoù da %1 ..."
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5069,12 +5069,12 @@ msgstr ""
 "Ne m'eus ket kemmañ an aotroù evit\n"
 "%1"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, fuzzy, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ne m'eus ket gallet kas ar c'hemennad."
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, fuzzy, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ne m'eus ket gallet kas ar c'hemennad."

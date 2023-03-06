@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-05 03:08+0000\n"
-"PO-Revision-Date: 2023-03-04 16:27+0100\n"
+"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"PO-Revision-Date: 2023-03-04 16:58+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -4767,8 +4767,8 @@ msgstr ""
 "program som brukar <application>QtWebEngine</application> (blant anna "
 "<application>Konqueror</application> når denne brukar "
 "<application>WebEnginePart</application>, <application>Akregator</"
-"application> og <application>Falkon</application>) ikkje bruka "
-"innstillingane. I nokre program kan du velja eigne mellomtenar-innstillingar."
+"application> og <application>Falkon</application>) bruka innstillingane. I "
+"nokre program kan du velja eigne mellomtenar-innstillingar."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -4852,7 +4852,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:49
 #, kde-format
 msgid "Detect proxy configuration automatically"
-msgstr "Finn mellomtenaroppsett automatisk"
+msgstr "Finn automatisk mellomtenaroppsett"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:59
@@ -4865,7 +4865,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:62
 #, kde-format
 msgid "Use proxy auto configuration URL:"
-msgstr "Bruk mellomtenaroppsettet frå denne adressa:"
+msgstr "Bruk mellomtenaroppsettet på denne adressa:"
 
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
 #: kcms/proxy/kproxydlg.ui:93
@@ -5412,12 +5412,12 @@ msgstr "Kommando som skal køyrast"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Nettadresser eller lokale filer som skal brukast for «kommando»"
 
-#: kioworkers/file/file.cpp:168
+#: kioworkers/file/file.cpp:159
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Vel ACL til %1"
 
-#: kioworkers/file/file.cpp:721
+#: kioworkers/file/file.cpp:712
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5426,12 +5426,12 @@ msgstr ""
 "Klarte ikkje endra løyva for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:828
+#: kioworkers/file/file.cpp:819
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Fann ikkje programmet «mount»"
 
-#: kioworkers/file/file.cpp:902
+#: kioworkers/file/file.cpp:893
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Fann ikkje programmet «unmount»"
