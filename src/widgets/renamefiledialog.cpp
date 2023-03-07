@@ -132,6 +132,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         mainLayout->addWidget(infoLabel);
         d->spinBox = new QSpinBox(page);
         d->spinBox->setMinimum(0);
+        d->spinBox->setMaximum(1'000'000'000);
         d->spinBox->setSingleStep(1);
         d->spinBox->setValue(1);
         d->spinBox->setDisplayIntegerBase(10);
