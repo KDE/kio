@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2023-02-05 10:48+0100\n"
+"PO-Revision-Date: 2023-03-05 12:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2651,10 +2651,9 @@ msgstr ""
 "protocol «%1»."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "No s'ha pogut trobar l'executable «kioslave5» a «%1»"
+msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -9442,74 +9441,3 @@ msgstr "Iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "No s'accepta l'ús de sub-URL amb %1."
-
-#~ msgid "&Yes"
-#~ msgstr "&Sí"
-
-#~ msgid "&No"
-#~ msgstr "&No"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Ja existix un fitxer o carpeta anomenat %1."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "No teniu permís per a crear esta carpeta."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "L'escriptori està desconnectat"
-
-#~ msgid "mounting is not supported by Windows CE."
-#~ msgstr "el muntatge no està disponible a Windows CE."
-
-#~ msgid "unmounting is not supported by Windows CE."
-#~ msgstr "el desmuntatge no està disponible a Windows CE."
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "L'entrada «desktop» del tipus\n"
-#~ "%1\n"
-#~ "és desconeguda."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "El fitxer d'entrada «desktop»\n"
-#~ "%1\n"
-#~ "és de tipus «FSDevice» però no té cap entrada Dev=..."
-
-#~ msgid "Mount"
-#~ msgstr "Munta"
-
-#~ msgid "Unmount"
-#~ msgstr "Desmunta"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>No es pot executar l'ordre especificada. El fitxer o carpeta <b>%1</"
-#~ "b> no existix.</qt>"
-
-#~ msgid "Could not find any application or handler for %1"
-#~ msgstr "No s'ha trobat cap aplicació o gestor per a %1"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "A&pega el fitxer"
-#~ msgstr[1] "A&pega %1 fitxers"
-
-#~ msgid "&Paste URL"
-#~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "A&pega l'URL"
-#~ msgstr[1] "A&pega els %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "A&pega el contingut del porta-retalls"
