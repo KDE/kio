@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_proxy",
         "Description": "Configure the proxy servers used",
+        "Description[ca@valencia]": "Configura els servidors intermediaris emprats",
         "Description[ca]": "Configura els servidors intermediaris emprats",
         "Description[es]": "Configurar los servidores proxy que se usan",
         "Description[eu]": "Konfiguratu erabilitako ordezkari zerbitzariak",
@@ -14,9 +15,11 @@
         "Description[tr]": "Kullanılan vekil sunucuları yapılandır",
         "Description[uk]": "Налаштування проксі-сервера",
         "Description[x-test]": "xxConfigure the proxy servers usedxx",
+        "Description[zh_TW]": "設定代理伺服器如何被使用",
         "Icon": "preferences-system-network-proxy",
         "Id": "proxy",
         "Name": "Proxy",
+        "Name[ca@valencia]": "Servidor intermediari",
         "Name[ca]": "Servidor intermediari",
         "Name[es]": "Proxy",
         "Name[eu]": "Ordezkaria",
@@ -28,7 +31,8 @@
         "Name[sl]": "Posrednik",
         "Name[tr]": "Vekil",
         "Name[uk]": "Проксі",
-        "Name[x-test]": "xxProxyxx"
+        "Name[x-test]": "xxProxyxx",
+        "Name[zh_TW]": "代理伺服器"
     },
     "X-DocPath": "kcontrol5/proxy/index.html",
     "X-KDE-Keywords": "Proxy,Proxy server,Firewall,Squid",

@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_smb",
         "Description": "Credentials used to access SMB shares",
+        "Description[ca@valencia]": "Credencials utilitzades per a accedir a les comparticions SMB",
         "Description[ca]": "Credencials usades per a accedir a les comparticions SMB",
         "Description[es]": "Credenciales que se usan para acceder a los recursos compartidos SMB",
         "Description[eu]": "SMB partekatzeetara sartzeko egiaztagiriak",
@@ -14,9 +15,11 @@
         "Description[tr]": "SMB paylaşımlarına erişmek için kullanılan kimlik bilgileri",
         "Description[uk]": "Реєстраційні дані для доступу до спільних ресурсів SMB",
         "Description[x-test]": "xxCredentials used to access SMB sharesxx",
+        "Description[zh_TW]": "用以存取 SMB 共享硬碟的認證資訊",
         "Icon": "preferences-system-network-share-windows",
         "Id": "smb",
         "Name": "Windows Shares",
+        "Name[ca@valencia]": "Recursos compartits de Windows",
         "Name[ca]": "Recursos compartits de Windows",
         "Name[es]": "Recursos compartidos de Windows",
         "Name[eu]": "«Windows»ek partekatutakoak",
@@ -28,7 +31,8 @@
         "Name[sl]": "Skupni diski Windows",
         "Name[tr]": "Windows Paylaşımları",
         "Name[uk]": "Спільні ресурси Windows",
-        "Name[x-test]": "xxWindows Sharesxx"
+        "Name[x-test]": "xxWindows Sharesxx",
+        "Name[zh_TW]": "Windows 共享硬碟"
     },
     "X-DocPath": "kcontrol5/smb/index.html",
     "X-KDE-Keywords": "SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords",

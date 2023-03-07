@@ -3,6 +3,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_webshortcuts",
         "Description": "Configure web search keywords",
+        "Description[ca@valencia]": "Configura les paraules clau de busca en la web",
         "Description[ca]": "Configura les paraules clau de cerca a la web",
         "Description[es]": "Configurar las palabras clave de búsqueda web",
         "Description[eu]": "Konfiguratu web bilaketarako gako-hitzak",
@@ -15,9 +16,11 @@
         "Description[tr]": "Web araması anahtar sözcüklerini yapılandır",
         "Description[uk]": "Налаштування ключових слів пошуку в інтернеті",
         "Description[x-test]": "xxConfigure web search keywordsxx",
+        "Description[zh_TW]": "設定網路搜尋關鍵字",
         "Icon": "preferences-web-browser-shortcuts",
         "Id": "webshortcuts",
         "Name": "Web Search Keywords",
+        "Name[ca@valencia]": "Paraules clau de busca en la web",
         "Name[ca]": "Paraules clau de cerca a la web",
         "Name[es]": "Palabras clave de búsqueda web",
         "Name[eu]": "Web bilaketarako gako-hitzak",
@@ -29,7 +32,8 @@
         "Name[sl]": "Ključne besede iskanja po spletu",
         "Name[tr]": "Web Araması Anahtar Sözcükleri",
         "Name[uk]": "Ключові слова пошуку в інтернеті",
-        "Name[x-test]": "xxWeb Search Keywordsxx"
+        "Name[x-test]": "xxWeb Search Keywordsxx",
+        "Name[zh_TW]": "網路搜尋關鍵字"
     },
     "X-DocPath": "kcontrol5/webshortcuts/index.html",
     "X-KDE-Keywords": "Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts",

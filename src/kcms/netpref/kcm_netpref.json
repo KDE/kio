@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_netpref",
         "Description": "Configure generic network preferences, like timeout values",
+        "Description[ca@valencia]": "Configureu les preferències genèriques de la xarxa, com ara els valors dels temps d'espera",
         "Description[ca]": "Configuració de les preferències genèriques de la xarxa, com ara els valors dels temps d'espera",
         "Description[es]": "Configurar las preferencias de red genéricas, como los valores de espera",
         "Description[eu]": "Konfiguratu sarerako hobespen orokorrak, denbora-muga balioak, besteak beste",
@@ -14,9 +15,11 @@
         "Description[tr]": "Zaman aşımı değerleri gibi genel ağ tercihlerini yapılandır",
         "Description[uk]": "Налаштування загальних параметрів мережі, зокрема значень тайм-аутів",
         "Description[x-test]": "xxConfigure generic network preferences, like timeout valuesxx",
+        "Description[zh_TW]": "調整一般網路設定，例如逾時值",
         "Icon": "preferences-system-network-connection",
         "Id": "netpref",
         "Name": "Connection Preferences",
+        "Name[ca@valencia]": "Preferències de connexió",
         "Name[ca]": "Preferències de connexió",
         "Name[es]": "Preferencias de la conexión",
         "Name[eu]": "Konexio hobespenak",
@@ -28,7 +31,8 @@
         "Name[sl]": "Preference povezave",
         "Name[tr]": "Bağlantı Tercihleri",
         "Name[uk]": "Параметри з'єднання",
-        "Name[x-test]": "xxConnection Preferencesxx"
+        "Name[x-test]": "xxConnection Preferencesxx",
+        "Name[zh_TW]": "連線設定"
     },
     "X-DocPath": "kcontrol5/netpref/index.html",
     "X-KDE-Keywords": "timeout,iopref,netpref,network preferences,ftp",

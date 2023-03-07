@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[ca@valencia]": "Configura les opcions de la paperera",
         "Description[ca]": "Configura les opcions de la paperera",
         "Description[es]": "Configurar las preferencias de la papelera",
         "Description[eu]": "Konfiguratu zakarrontziaren ezarpenak",
@@ -13,8 +14,10 @@
         "Description[tr]": "Çöp kutusu ayarlarını yapılandır",
         "Description[uk]": "Налаштування параметрів смітника",
         "Description[x-test]": "xxConfigure trash settingsxx",
+        "Description[zh_TW]": "設定垃圾桶",
         "Icon": "user-trash",
         "Name": "Trash",
+        "Name[ca@valencia]": "Paperera",
         "Name[ca]": "Paperera",
         "Name[es]": "Papelera",
         "Name[eu]": "Zakarrontzia",
@@ -26,7 +29,8 @@
         "Name[sl]": "Smeti",
         "Name[tr]": "Çöp Kutusu",
         "Name[uk]": "Смітник",
-        "Name[x-test]": "xxTrashxx"
+        "Name[x-test]": "xxTrashxx",
+        "Name[zh_TW]": "垃圾桶"
     },
     "X-DocPath": "kcontrol5/trash/index.html",
     "X-KDE-Keywords": "trash",
