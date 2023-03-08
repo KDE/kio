@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2023-02-27 00:46+0300\n"
+"PO-Revision-Date: 2023-03-07 20:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -874,7 +874,7 @@ msgstr "<b>İstek ayrıntıları</b>:"
 #: core/job_error.cpp:303
 #, kde-format
 msgid "<li>URL: %1</li>"
-msgstr "<li>Adres: %1</li>"
+msgstr "<li>URL: %1</li>"
 
 #: core/job_error.cpp:305
 #, kde-format
@@ -1138,8 +1138,8 @@ msgid ""
 "strong></blockquote>"
 msgstr ""
 "Girilen <strong>a</strong><strong>d</strong><strong>r</strong>es düzgün bir "
-"biçime sahip değil. Bir adres genellikle aşağıdaki biçime sahiptir:"
-"<blockquote><strong>protokol://kullanıcı:parola@www.örnek.org.tr:/port/"
+"biçime sahip değil. Bir URL, genellikle aşağıdaki biçime sahiptir:"
+"<blockquote><strong>protokol://kullanıcı:parola@www.örnek.org.tr:/kapı/"
 "klasör/dosya.uzantı?değişken=değer</strong></blockquote>"
 
 #: core/job_error.cpp:491
@@ -1563,7 +1563,7 @@ msgstr ""
 #: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
-msgstr "Geçersiz Adres"
+msgstr "URL Özkaynağı Geçersiz"
 
 #: core/job_error.cpp:745
 #, kde-format
@@ -2951,10 +2951,10 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
-"<qt> Bu, Yerler panelinde görüntülenecek olan metindir.<br /><br /"
-">Açıklamanız bu girdinin ne işe yaradığını anımsatmak amacıyla bir ya da iki "
+"<qt>Bu, Yerler panelinde görüntülenecek olan metindir.<br /><br /"
+">Açıklamanız bu girdinin ne işe yaradığını anımsatmak amacıyla bir veya iki "
 "sözcükten oluşmalıdır. Eğer bir etiket girmezseniz açıklama konumun "
-"adresinden alınacaktır.</qt>"
+"URL'sinden alınacaktır.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
@@ -2974,9 +2974,9 @@ msgid ""
 "org/pub/kde/stable<br /><br />By clicking on the button next to the text "
 "edit box you can browse to an appropriate URL.</qt>"
 msgstr ""
-"<qt>Girdi ile ilişkilendirilecek konumdur. Herhangi bir geçerli adres "
+"<qt>Girdi ile ilişkilendirilecek konumdur. Herhangi bir geçerli URL "
 "kullanılabilir. Örneğin:<br /><br />%1<br />http://www.kde.org<br />ftp://"
-"ftp.kde.org/pub/kde/stable<br /><br />Sonraki düğmesine tıklayarak adrese "
+"ftp.kde.org/pub/kde/stable<br /><br />Sonraki düğmesine tıklayarak URL'ye "
 "uygun bir metin yazacağınız bir kutuya ulaşacaksınız.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
@@ -3671,7 +3671,7 @@ msgstr "Yeni bağlantının adı:"
 #: filewidgets/knewfilemenu.cpp:698
 #, kde-format
 msgid "Create link to URL"
-msgstr "Adrese Bağlantı Oluştur"
+msgstr "URL'ye Bağlantı Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:740 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -5267,7 +5267,7 @@ msgstr "Vekil sunucu ayarlarını yapılandırmak için belirtilen betiği kulla
 #: kcms/proxy/kproxydlg.ui:62
 #, kde-format
 msgid "Use proxy auto configuration URL:"
-msgstr "Vekil sunucu otomatik yapılandırma adresi:"
+msgstr "Vekil sunucu otomatik yapılandırma URL'si:"
 
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
 #: kcms/proxy/kproxydlg.ui:93
@@ -5705,7 +5705,7 @@ msgstr "Gönderme"
 #: kioexec/main.cpp:59
 #, kde-format
 msgid "Invalid URL: %1"
-msgstr "Geçersiz Adres: %1"
+msgstr "Geçersiz URL: %1"
 
 #: kioexec/main.cpp:65
 #, kde-format
@@ -5727,7 +5727,7 @@ msgid ""
 "Remote URL %1\n"
 "not allowed with --tempfiles switch"
 msgstr ""
-"Uzaktaki Adres %1\n"
+"Uzaktaki URL %1\n"
 "--tempfiles anahtarına izin verilmiyor"
 
 #: kioexec/main.cpp:236
@@ -5820,7 +5820,7 @@ msgstr "Yürütülecek komut"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "'Komut' için yerel dosya(lar) veya adres(ler)"
+msgstr "'Komut' için yerel dosya(lar) veya URL('ler)"
 
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
@@ -6802,7 +6802,7 @@ msgstr ""
 #: urifilters/ikws/searchproviderdlg_ui.ui:48
 #, kde-format
 msgid "Shortcut &URL:"
-msgstr "Kısayol &Adresi:"
+msgstr "Kısayol &URL'si:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
@@ -8902,8 +8902,8 @@ msgstr[1] "%1 Dosyayı &Yapıştır"
 #, kde-format
 msgid "&Paste URL"
 msgid_plural "&Paste %1 URLs"
-msgstr[0] "Adresi &Yapıştır"
-msgstr[1] "%1 Adresi &Yapıştır"
+msgstr[0] "URL'yi &Yapıştır"
+msgstr[1] "%1 URL'yi &Yapıştır"
 
 #: widgets/paste.cpp:296
 #, kde-format
