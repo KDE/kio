@@ -479,6 +479,13 @@ public:
     bool isRegularFile() const;
 
     /**
+     * Returns the file extension
+     * Similar to QFileInfo::suffix except it takes into account UDS_DISPLAY_NAME and saves a stat call
+     * @since 6.0
+     */
+    QString suffix() const;
+
+    /**
      * Somewhat like a comparison operator, but more explicit,
      * and it can detect that two fileitems differ if any property of the file item
      * has changed (file size, modification date, etc.). Two items are equal if

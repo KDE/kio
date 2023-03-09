@@ -1698,6 +1698,20 @@ bool KFileItem::isRegularFile() const
     return Utils::isRegFileMask(d->m_fileMode);
 }
 
+QString KFileItem::suffix() const
+{
+    if (!d || isDir()) {
+        return QString();
+    }
+
+    const int lastDot = d->m_strText.lastIndexOf(QStringLiteral("."));
+    if (lastDot > 0) {
+        return d->m_strText.mid(lastDot + 1);
+    } else {
+        return QString();
+    }
+}
+
 QDebug operator<<(QDebug stream, const KFileItem &item)
 {
     QDebugStateSaver saver(stream);
