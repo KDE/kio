@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[bg]": "Настройване на кошчето",
         "Description[ca@valencia]": "Configura les opcions de la paperera",
         "Description[ca]": "Configura les opcions de la paperera",
         "Description[es]": "Configurar las preferencias de la papelera",
@@ -17,6 +18,7 @@
         "Description[zh_TW]": "設定垃圾桶",
         "Icon": "user-trash",
         "Name": "Trash",
+        "Name[bg]": "Кошче",
         "Name[ca@valencia]": "Paperera",
         "Name[ca]": "Paperera",
         "Name[es]": "Papelera",

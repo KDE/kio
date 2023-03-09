@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_smb",
         "Description": "Credentials used to access SMB shares",
+        "Description[bg]": "Идентификационни данни за достъп до SMB споделяния",
         "Description[ca@valencia]": "Credencials utilitzades per a accedir a les comparticions SMB",
         "Description[ca]": "Credencials usades per a accedir a les comparticions SMB",
         "Description[es]": "Credenciales que se usan para acceder a los recursos compartidos SMB",
@@ -19,6 +20,7 @@
         "Icon": "preferences-system-network-share-windows",
         "Id": "smb",
         "Name": "Windows Shares",
+        "Name[bg]": "Споделяне с Windows",
         "Name[ca@valencia]": "Recursos compartits de Windows",
         "Name[ca]": "Recursos compartits de Windows",
         "Name[es]": "Recursos compartidos de Windows",

@@ -2,6 +2,7 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_proxy",
         "Description": "Configure the proxy servers used",
+        "Description[bg]": "Настройване на прокси сървъра",
         "Description[ca@valencia]": "Configura els servidors intermediaris emprats",
         "Description[ca]": "Configura els servidors intermediaris emprats",
         "Description[es]": "Configurar los servidores proxy que se usan",
@@ -19,6 +20,7 @@
         "Icon": "preferences-system-network-proxy",
         "Id": "proxy",
         "Name": "Proxy",
+        "Name[bg]": "Прокси",
         "Name[ca@valencia]": "Servidor intermediari",
         "Name[ca]": "Servidor intermediari",
         "Name[es]": "Proxy",
