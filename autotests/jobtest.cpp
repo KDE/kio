@@ -1369,7 +1369,7 @@ void JobTest::multipleListRecursive()
     // Note: listRecursive() must have been run first
     const QString src = homeTmpDir();
     m_names.clear();
-    QVector<KIO::ListJob *> jobs;
+    QList<KIO::ListJob *> jobs;
     for (int i = 0; i < 100; ++i) {
         KIO::ListJob *job = KIO::listRecursive(QUrl::fromLocalFile(src), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);

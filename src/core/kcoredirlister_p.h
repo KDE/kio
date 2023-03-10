@@ -18,10 +18,10 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 #include <QHash>
+#include <QList>
 #include <QMap>
 #include <QTimer>
 #include <QUrl>
-#include <QVector>
 
 #include <KDirWatch>
 #include <kio/global.h>
@@ -132,7 +132,7 @@ public:
         }
         bool isShowingDotFiles;
         bool dirOnlyMode;
-        QVector<QRegularExpression> lstFilters;
+        QList<QRegularExpression> lstFilters;
         QStringList mimeFilter;
         QStringList mimeExcludeFilter;
     };

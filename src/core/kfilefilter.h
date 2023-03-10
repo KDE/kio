@@ -83,7 +83,7 @@ private:
     /**
      * Convert a filter string understood by KFileWidget to a list of KFileFilters.
      */
-    static QVector<KFileFilter> fromFilterString(const QString &filterString);
+    static QList<KFileFilter> fromFilterString(const QString &filterString);
     friend class KFileFilterCombo;
     friend class KFileFilterTest;
 

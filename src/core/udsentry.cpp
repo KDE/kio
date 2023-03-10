@@ -14,8 +14,8 @@
 
 #include <QDataStream>
 #include <QDebug>
+#include <QList>
 #include <QString>
-#include <QVector>
 
 #include <KUser>
 
@@ -35,7 +35,7 @@ public:
     int count() const;
     QString stringValue(uint udsField) const;
     long long numberValue(uint udsField, long long defaultValue = -1) const;
-    QVector<uint> fields() const;
+    QList<uint> fields() const;
     bool contains(uint udsField) const;
     void clear();
     void save(QDataStream &s) const;
@@ -152,9 +152,9 @@ long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) co
     return defaultValue;
 }
 
-QVector<uint> UDSEntryPrivate::fields() const
+QList<uint> UDSEntryPrivate::fields() const
 {
-    QVector<uint> res;
+    QList<uint> res;
     res.reserve(storage.size());
     for (const Field &field : storage) {
         res.append(field.m_index);
@@ -204,7 +204,7 @@ void UDSEntryPrivate::load(QDataStream &s)
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
     // permits to use implicit sharing to save memory.
-    thread_local QVector<QString> cachedStrings;
+    thread_local QList<QString> cachedStrings;
     if (quint32(cachedStrings.size()) < size) {
         cachedStrings.resize(size);
     }
@@ -403,7 +403,7 @@ void UDSEntry::replace(uint field, long long value)
     d->replace(field, value);
 }
 
-QVector<uint> UDSEntry::fields() const
+QList<uint> UDSEntry::fields() const
 {
     return d->fields();
 }
@@ -448,7 +448,7 @@ KIOCORE_EXPORT bool operator==(const KIO::UDSEntry &entry, const KIO::UDSEntry &
         return false;
     }
 
-    const QVector<uint> fields = entry.fields();
+    const QList<uint> fields = entry.fields();
     for (uint field : fields) {
         if (!other.contains(field)) {
             return false;

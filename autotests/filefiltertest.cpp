@@ -48,7 +48,7 @@ private Q_SLOTS:
         QFETCH(QString, filterString);
         QFETCH(QVariantList, expectedFilters);
 
-        const QVector<KFileFilter> filters = KFileFilter::fromFilterString(filterString);
+        const QList<KFileFilter> filters = KFileFilter::fromFilterString(filterString);
 
         QCOMPARE(filters.size(), expectedFilters.size());
 

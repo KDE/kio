@@ -35,7 +35,7 @@ public:
     QStringList m_mimePatterns;
 };
 
-QVector<KFileFilter> KFileFilter::fromFilterString(const QString &filterString)
+QList<KFileFilter> KFileFilter::fromFilterString(const QString &filterString)
 {
     int pos = filterString.indexOf(QLatin1Char('/'));
 
@@ -45,7 +45,7 @@ QVector<KFileFilter> KFileFilter::fromFilterString(const QString &filterString)
     if (pos > 0 && filterString[pos - 1] != QLatin1Char('\\')) {
         const QStringList filters = filterString.split(QLatin1Char(' '), Qt::SkipEmptyParts);
 
-        QVector<KFileFilter> result;
+        QList<KFileFilter> result;
         result.reserve(filters.size());
 
         std::transform(filters.begin(), filters.end(), std::back_inserter(result), [](const QString &mimeType) {
@@ -65,7 +65,7 @@ QVector<KFileFilter> KFileFilter::fromFilterString(const QString &filterString)
 
     const QStringList filters = escapeRemoved.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
 
-    QVector<KFileFilter> result;
+    QList<KFileFilter> result;
 
     for (const QString &filter : filters) {
         int separatorPos = filter.indexOf(QLatin1Char('|'));

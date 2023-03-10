@@ -59,7 +59,7 @@ private:
     QByteArray m_savedSmallEntries;
     QByteArray m_savedLargeEntries;
 
-    QVector<uint> m_fieldsForLargeEntries;
+    QList<uint> m_fieldsForLargeEntries;
 };
 
 UDSEntryBenchmark::UDSEntryBenchmark()
@@ -106,7 +106,7 @@ void UDSEntryBenchmark::createSmallEntries()
     const QString user = QStringLiteral("user");
     const QString group = QStringLiteral("group");
 
-    QVector<QString> names(numberOfSmallUDSEntries);
+    QList<QString> names(numberOfSmallUDSEntries);
     for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
         names[i] = QString::number(i);
     }
@@ -135,7 +135,7 @@ void UDSEntryBenchmark::createLargeEntries()
     m_largeEntries.clear();
     m_largeEntries.reserve(numberOfLargeUDSEntries);
 
-    QVector<QString> names(numberOfLargeUDSEntries);
+    QList<QString> names(numberOfLargeUDSEntries);
     for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
         names[i] = QString::number(i);
     }

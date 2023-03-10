@@ -135,7 +135,7 @@ void KProtocolInfoTest::testProtocolForArchiveMimetype()
         return (protocols.find(QLatin1String("zip")) != protocols.end());
     };
 
-    const QVector<KPluginMetaData> workers = KPluginMetaData::findPlugins(QStringLiteral("kf6/kio"));
+    const QList<KPluginMetaData> workers = KPluginMetaData::findPlugins(QStringLiteral("kf6/kio"));
     if (std::none_of(workers.cbegin(), workers.cend(), supportsZipProtocol)) {
         QSKIP("kio-extras not installed");
     } else {

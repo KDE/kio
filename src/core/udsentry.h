@@ -172,7 +172,7 @@ public:
      * @return all fields for the current entry.
      * @since 5.8
      */
-    QVector<uint> fields() const;
+    QList<uint> fields() const;
 
     /**
      * remove all fields

@@ -165,9 +165,9 @@ public:
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
-    static QVector<KPluginMetaData> loadAvailablePlugins()
+    static QList<KPluginMetaData> loadAvailablePlugins()
     {
-        static QVector<KPluginMetaData> jsonMetaDataPlugins;
+        static QList<KPluginMetaData> jsonMetaDataPlugins;
         if (!jsonMetaDataPlugins.isEmpty()) {
             return jsonMetaDataPlugins;
         }
@@ -251,7 +251,7 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
     // Load the list of plugins to determine which MIME types are supported
-    const QVector<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
+    const QList<KPluginMetaData> plugins = KIO::PreviewJobPrivate::loadAvailablePlugins();
     QMap<QString, KPluginMetaData> mimeMap;
     QHash<QString, QHash<QString, KPluginMetaData>> protocolMap;
 
@@ -906,7 +906,7 @@ void PreviewJobPrivate::emitPreview(const QImage &thumb)
     Q_EMIT q->gotPreview(currentItem.item, pix);
 }
 
-QVector<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
+QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
 {
     return PreviewJobPrivate::loadAvailablePlugins();
 }

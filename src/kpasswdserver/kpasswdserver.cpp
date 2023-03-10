@@ -721,7 +721,7 @@ void KPasswdServer::removeAuthForWindowId(qlonglong windowId)
             continue;
         }
 
-        QMutableVectorIterator<AuthInfoContainer> it(*authList);
+        QMutableListIterator<AuthInfoContainer> it(*authList);
         while (it.hasNext()) {
             AuthInfoContainer &current = it.next();
             if (current.expire == AuthInfoContainer::expWindowClose) {

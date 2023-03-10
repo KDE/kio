@@ -1095,7 +1095,7 @@ void KFilePlacesModelTest::testPlaceGroupHidden()
     QStringList urls;
     urls << initialListOfPlaces() << initialListOfShared() << initialListOfRecent() << initialListOfDevices() << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
-    QVector<QModelIndex> indexesHidden;
+    QList<QModelIndex> indexesHidden;
 
     // WHEN
     m_places->setGroupHidden(KFilePlacesModel::PlacesType, true);
@@ -1112,7 +1112,7 @@ void KFilePlacesModelTest::testPlaceGroupHidden()
     QCOMPARE(m_places->hiddenCount(), indexesHidden.size());
 
     // and GIVEN
-    QVector<QModelIndex> indexesShown;
+    QList<QModelIndex> indexesShown;
 
     // WHEN
     m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
@@ -1172,7 +1172,7 @@ void KFilePlacesModelTest::testPlaceGroupHiddenAndShownWithHiddenChild()
     m_places->setGroupHidden(KFilePlacesModel::PlacesType, false);
 
     // THEN
-    QVector<QModelIndex> indexesShown;
+    QList<QModelIndex> indexesShown;
     for (int row = 0; row < m_places->rowCount(); ++row) {
         QModelIndex index = m_places->index(row, 0);
         if (index == firstIndexHidden) {

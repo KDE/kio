@@ -269,7 +269,7 @@ void FavIconTest::concurrentRequestsShouldWork()
     const int numThreads = 3;
     QThreadPool tp;
     tp.setMaxThreadCount(numThreads);
-    QVector<QFuture<QString>> futures(numThreads);
+    QList<QFuture<QString>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
         futures[i] = QtConcurrent::run(&tp, getAltIconUrl);
     }

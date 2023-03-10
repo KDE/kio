@@ -1711,7 +1711,7 @@ void KDirModelTest::testQUrlHash()
 {
     const int count = 3000;
     // Prepare an array of QUrls so that url constructing isn't part of the timing
-    QVector<QUrl> urls;
+    QList<QUrl> urls;
     urls.resize(count);
     for (int i = 0; i < count; ++i) {
         urls[i] = QUrl("http://www.kde.org/path/" + QString::number(i));

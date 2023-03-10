@@ -149,7 +149,7 @@ public:
      *
      * Available after the job emits result().
      */
-    QVector<qint64> pids() const;
+    QList<qint64> pids() const;
 
 private:
     friend class ::KRun; // KF6 REMOVE

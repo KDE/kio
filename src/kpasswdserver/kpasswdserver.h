@@ -115,7 +115,7 @@ private:
     void showPasswordDialog(Request *request);
     void updateCachedRequestKey(QList<Request *> &, const QString &oldKey, const QString &newKey);
 
-    using AuthInfoContainerList = QVector<AuthInfoContainer>;
+    using AuthInfoContainerList = QList<AuthInfoContainer>;
     QHash<QString, AuthInfoContainerList *> m_authDict;
 
     QList<Request *> m_authPending;

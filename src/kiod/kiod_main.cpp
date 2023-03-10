@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     // Also register as all the names we should respond to (org.kde.kssld, org.kde.kcookiejar, etc.)
     // so that the calling code is independent from the physical "location" of the service.
-    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/kiod"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/kiod"));
     for (const KPluginMetaData &metaData : plugins) {
         const QString serviceName = metaData.value(QStringLiteral("X-KDE-DBus-ServiceName"));
         if (serviceName.isEmpty()) {

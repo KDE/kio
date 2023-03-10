@@ -10,10 +10,10 @@
 #define KIO_CONNECTION_P_H
 
 #include "connectionbackend_p.h"
+#include <QList>
 #include <QObject>
 #include <QString>
 #include <QUrl>
-#include <QVector>
 
 #include <memory>
 
@@ -151,8 +151,8 @@ public:
     void disconnected();
     void setBackend(ConnectionBackend *b);
 
-    QVector<Task> outgoingTasks;
-    QVector<Task> incomingTasks;
+    QList<Task> outgoingTasks;
+    QList<Task> incomingTasks;
     ConnectionBackend *backend;
     Connection *q;
     bool suspended;

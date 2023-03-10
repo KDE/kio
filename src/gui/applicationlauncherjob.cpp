@@ -46,8 +46,8 @@ public:
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
     QByteArray m_startupId;
-    QVector<qint64> m_pids;
-    QVector<QPointer<KProcessRunner>> m_processRunners;
+    QList<qint64> m_pids;
+    QList<QPointer<KProcessRunner>> m_processRunners;
     int m_numProcessesPending = 0;
     KIO::ApplicationLauncherJob *q;
 };
@@ -241,7 +241,7 @@ qint64 KIO::ApplicationLauncherJob::pid() const
     return d->m_pids.at(0);
 }
 
-QVector<qint64> KIO::ApplicationLauncherJob::pids() const
+QList<qint64> KIO::ApplicationLauncherJob::pids() const
 {
     return d->m_pids;
 }

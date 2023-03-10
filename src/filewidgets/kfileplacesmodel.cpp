@@ -187,7 +187,7 @@ public:
     KFilePlacesModel *const q;
 
     QList<KFilePlacesItem *> items;
-    QVector<QString> availableDevices;
+    QList<QString> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
     QMap<QObject *, QPersistentModelIndex> teardownInProgress;
     QStringList supportedSchemes;
@@ -203,14 +203,14 @@ public:
     QList<KFilePlacesItem *> loadBookmarkList();
     int findNearestPosition(int source, int target);
 
-    QVector<QString> tags;
+    QList<QString> tags;
     const QString tagsUrlBase = QStringLiteral("tags:/");
     KCoreDirLister *tagsLister;
 
     void initDeviceList();
     void deviceAdded(const QString &udi);
     void deviceRemoved(const QString &udi);
-    void itemChanged(const QString &udi, const QVector<int> &roles);
+    void itemChanged(const QString &udi, const QList<int> &roles);
     void reloadBookmarks();
     void storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
     void storageTeardownDone(const QString &filePath, Solid::ErrorType error, const QVariant &errorData, QObject *sender);
@@ -788,7 +788,7 @@ void KFilePlacesModelPrivate::deviceRemoved(const QString &udi)
     }
 }
 
-void KFilePlacesModelPrivate::itemChanged(const QString &id, const QVector<int> &roles)
+void KFilePlacesModelPrivate::itemChanged(const QString &id, const QList<int> &roles)
 {
     for (int row = 0; row < items.size(); ++row) {
         if (items.at(row)->id() == id) {
@@ -884,8 +884,8 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark bookmark = root.first();
-    QVector<QString> devices = availableDevices;
-    QVector<QString> tagsList = tags;
+    QList<QString> devices = availableDevices;
+    QList<QString> tagsList = tags;
 
     while (!bookmark.isNull()) {
         const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
@@ -920,7 +920,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                 }
 
                 if (item) {
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
                         itemChanged(id, roles);
                     });
 
@@ -932,7 +932,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                     tagsList.removeAll(tag);
                     KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
                     items << item;
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
                         itemChanged(id, roles);
                     });
                 }
@@ -947,7 +947,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
         bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
-            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
                 itemChanged(id, roles);
             });
             // TODO: Update bookmark internal element
@@ -959,7 +959,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
         bookmark = KFilePlacesItem::createTagBookmark(bookmarkManager, tag);
         if (!bookmark.isNull()) {
             KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), tag, q);
-            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QVector<int> &roles) {
+            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
                 itemChanged(id, roles);
             });
             items << item;
@@ -1220,7 +1220,7 @@ void KFilePlacesModel::editPlace(const QModelIndex &index, const QString &text, 
         return;
     }
 
-    QVector<int> changedRoles;
+    QList<int> changedRoles;
     bool changed = false;
 
     if (text != bookmark.fullText()) {

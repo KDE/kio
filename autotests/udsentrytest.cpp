@@ -8,9 +8,9 @@
 #include "udsentrytest.h"
 
 #include <QDataStream>
+#include <QList>
 #include <QTemporaryFile>
 #include <QTest>
-#include <QVector>
 #include <qplatformdefs.h>
 
 #include <kfileitem.h>
@@ -47,66 +47,66 @@ struct UDSTestField {
  */
 void UDSEntryTest::testSaveLoad()
 {
-    const QVector<QVector<UDSTestField>> testCases{// Data for 1st UDSEntry.
-                                                   {UDSTestField(KIO::UDSEntry::UDS_SIZE, 1),
-                                                    UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user1")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456),
-                                                    UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 12345),
-                                                    UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 2),
-                                                    UDSTestField(KIO::UDSEntry::UDS_INODE, 56)},
-                                                   // 2nd entry: change some of the data.
-                                                   {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
-                                                    UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345),
-                                                    UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1234),
-                                                    UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
-                                                    UDSTestField(KIO::UDSEntry::UDS_INODE, 42)},
-                                                   // 3rd entry: keep the data, but change the order of the entries.
-                                                   {
-                                                       UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
-                                                       UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
-                                                       UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2")),
-                                                       UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2")),
-                                                       UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345),
-                                                       UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
-                                                       UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
-                                                       UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1234),
-                                                   },
-                                                   // 4th entry: change some of the data and the order of the entries.
-                                                   {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
-                                                    UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
-                                                    UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
-                                                    UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
-                                                    UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
-                                                    UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"))},
-                                                   // 5th entry: remove one field.
-                                                   {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
-                                                    UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
-                                                    UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
-                                                    UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
-                                                    UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"))},
-                                                   // 6th entry: add a new field, and change some others.
-                                                   {UDSTestField(KIO::UDSEntry::UDS_SIZE, 89),
-                                                    UDSTestField(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("icon6")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user6")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
-                                                    UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
-                                                    UDSTestField(KIO::UDSEntry::UDS_INODE, 32),
-                                                    UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
-                                                    UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename6"))}};
+    const QList<QList<UDSTestField>> testCases{// Data for 1st UDSEntry.
+                                               {UDSTestField(KIO::UDSEntry::UDS_SIZE, 1),
+                                                UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user1")),
+                                                UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
+                                                UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename1")),
+                                                UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456),
+                                                UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 12345),
+                                                UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 2),
+                                                UDSTestField(KIO::UDSEntry::UDS_INODE, 56)},
+                                               // 2nd entry: change some of the data.
+                                               {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
+                                                UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2")),
+                                                UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
+                                                UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2")),
+                                                UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345),
+                                                UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1234),
+                                                UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
+                                                UDSTestField(KIO::UDSEntry::UDS_INODE, 42)},
+                                               // 3rd entry: keep the data, but change the order of the entries.
+                                               {
+                                                   UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
+                                                   UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group1")),
+                                                   UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user2")),
+                                                   UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename2")),
+                                                   UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12345),
+                                                   UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
+                                                   UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
+                                                   UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1234),
+                                               },
+                                               // 4th entry: change some of the data and the order of the entries.
+                                               {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
+                                                UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4")),
+                                                UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
+                                                UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
+                                                UDSTestField(KIO::UDSEntry::UDS_DEVICE_ID, 87),
+                                                UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
+                                                UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
+                                                UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"))},
+                                               // 5th entry: remove one field.
+                                               {UDSTestField(KIO::UDSEntry::UDS_SIZE, 2),
+                                                UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user4")),
+                                                UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
+                                                UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
+                                                UDSTestField(KIO::UDSEntry::UDS_INODE, 42),
+                                                UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
+                                                UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename4"))},
+                                               // 6th entry: add a new field, and change some others.
+                                               {UDSTestField(KIO::UDSEntry::UDS_SIZE, 89),
+                                                UDSTestField(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("icon6")),
+                                                UDSTestField(KIO::UDSEntry::UDS_USER, QStringLiteral("user6")),
+                                                UDSTestField(KIO::UDSEntry::UDS_GROUP, QStringLiteral("group4")),
+                                                UDSTestField(KIO::UDSEntry::UDS_MODIFICATION_TIME, 12346),
+                                                UDSTestField(KIO::UDSEntry::UDS_INODE, 32),
+                                                UDSTestField(KIO::UDSEntry::UDS_CREATION_TIME, 1235),
+                                                UDSTestField(KIO::UDSEntry::UDS_NAME, QStringLiteral("filename6"))}};
     // Store the entries in a QByteArray.
     QByteArray data;
     {
         QDataStream stream(&data, QIODevice::WriteOnly);
-        for (const QVector<UDSTestField> &testCase : testCases) {
+        for (const QList<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
 
             for (const UDSTestField &field : testCase) {
@@ -127,7 +127,7 @@ void UDSEntryTest::testSaveLoad()
     // Re-load the entries and compare with the data in testCases.
     {
         QDataStream stream(data);
-        for (const QVector<UDSTestField> &testCase : testCases) {
+        for (const QList<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
             stream >> entry;
             QCOMPARE(entry.count(), testCase.count());
@@ -153,7 +153,7 @@ void UDSEntryTest::testSaveLoad()
 
     {
         QDataStream stream(&data, QIODevice::WriteOnly);
-        for (const QVector<UDSTestField> &testCase : testCases) {
+        for (const QList<UDSTestField> &testCase : testCases) {
             stream << static_cast<quint32>(testCase.count());
 
             for (const UDSTestField &field : testCase) {
@@ -172,7 +172,7 @@ void UDSEntryTest::testSaveLoad()
 
     {
         QDataStream stream(data);
-        for (const QVector<UDSTestField> &testCase : testCases) {
+        for (const QList<UDSTestField> &testCase : testCases) {
             KIO::UDSEntry entry;
             stream >> entry;
             QCOMPARE(entry.count(), testCase.count());

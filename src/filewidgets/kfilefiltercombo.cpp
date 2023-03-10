@@ -41,7 +41,7 @@ public:
     QString m_lastFilter;
     QString m_defaultFilter = i18nc("Default mime type filter that shows all file types", "*|All Files");
 
-    QVector<KFileFilter> m_fileFilters;
+    QList<KFileFilter> m_fileFilters;
     QStringList m_filters;
     bool m_allTypes;
 };

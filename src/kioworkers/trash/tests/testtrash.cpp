@@ -27,10 +27,10 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include <QList>
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QUrl>
-#include <QVector>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -147,7 +147,7 @@ void TestTrash::initTestCase()
     m_otherPartitionId = 0;
     m_tmpIsWritablePartition = false;
     m_tmpTrashId = -1;
-    QVector<int> writableTopDirs;
+    QList<int> writableTopDirs;
     for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
         if (it.key() == 0) {
             QCOMPARE(it.value(), m_trashDir);

@@ -10,7 +10,6 @@
 #include <QHash>
 #include <QList>
 #include <QMap>
-#include <QVector>
 
 #include <kio/global.h> // filesize_t
 #include <kio/udsentry.h>
@@ -350,9 +349,9 @@ public:
         QString m_str;
         long long m_long;
     };
-    QVector<Field> fields;
+    QList<Field> fields;
     // If udsIndexes[i] == uds, then fields[i] contains the value for 'uds'.
-    QVector<uint> udsIndexes;
+    QList<uint> udsIndexes;
 
     void reserve(int size)
     {

@@ -98,7 +98,7 @@ void ApplicationLauncherJobTest::startProcess()
         job->start();
         QVERIFY(job->waitForStarted());
     }
-    const QVector<qint64> pids = job->pids();
+    const QList<qint64> pids = job->pids();
 
     // Then the service should be executed (which copies the source file to "dest")
     QCOMPARE(pids.count(), numFiles);

@@ -65,7 +65,7 @@ public:
     static KBookmark createTagBookmark(KBookmarkManager *manager, const QString &tag);
 
 Q_SIGNALS:
-    void itemChanged(const QString &id, const QVector<int> &roles = {});
+    void itemChanged(const QString &id, const QList<int> &roles = {});
 
 private Q_SLOTS:
     void onAccessibilityChanged(bool);

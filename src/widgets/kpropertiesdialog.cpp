@@ -104,6 +104,7 @@
 #include <QFutureWatcher>
 #include <QLabel>
 #include <QLayout>
+#include <QList>
 #include <QLocale>
 #include <QMimeDatabase>
 #include <QProgressBar>
@@ -112,7 +113,6 @@
 #include <QStandardPaths>
 #include <QStyle>
 #include <QUrl>
-#include <QVector>
 #include <QtConcurrent>
 
 #include <cerrno>
@@ -2010,7 +2010,7 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     gl = new QGridLayout(gb);
     gl->addItem(new QSpacerItem(0, 10), 0, 0);
 
-    QVector<QWidget *> theNotSpecials;
+    QList<QWidget *> theNotSpecials;
 
     l = new QLabel(i18n("Class"), gb);
     gl->addWidget(l, 1, 0);

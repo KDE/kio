@@ -347,7 +347,7 @@ public:
     Q_INVOKABLE QJSValue DateRangeInternal(QJSValue args)
     {
         static const char *const months[] = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec", nullptr};
-        QVector<int> values;
+        QList<int> values;
         QJSValueIterator it(args);
         QString tz;
         bool onlySeenNumbers = true;

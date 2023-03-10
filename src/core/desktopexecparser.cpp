@@ -402,7 +402,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         QDBusPendingReply<QString> reply;
         int urlIndex;
     };
-    QVector<MountRequest> requests;
+    QList<MountRequest> requests;
     requests.reserve(d->urls.count());
 
     const QStringList appSupportedProtocols = supportedProtocols(d->service);

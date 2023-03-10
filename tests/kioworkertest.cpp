@@ -325,7 +325,7 @@ void KioWorkerTest::printUDSEntry(const KIO::UDSEntry &entry)
 
     QDateTime timestamp;
 
-    const QVector<uint> keys = entry.fields();
+    const QList<uint> keys = entry.fields();
     for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
         switch (*it) {
         case KIO::UDSEntry::UDS_FILE_TYPE: {
@@ -391,8 +391,8 @@ void KioWorkerTest::slotEntries(KIO::Job *job, const KIO::UDSEntryList &list)
         qDebug() << name;
 
         KProtocolInfo::ExtraFieldList::Iterator extraFieldsIt = extraFields.begin();
-        const QVector<uint> fields = it->fields();
-        QVector<uint>::ConstIterator it2 = fields.begin();
+        const QList<uint> fields = it->fields();
+        QList<uint>::ConstIterator it2 = fields.begin();
         for (; it2 != fields.end(); it2++) {
             if (*it2 >= UDSEntry::UDS_EXTRA && *it2 <= UDSEntry::UDS_EXTRA_END) {
                 if (extraFieldsIt != extraFields.end()) {

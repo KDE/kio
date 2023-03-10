@@ -154,7 +154,7 @@ static QString sanitizeCustomHTTPHeader(const QString &_header)
 {
     QString sanitizedHeaders;
 
-    const QVector<QStringView> headers = QStringView(_header).split(QRegularExpression(QStringLiteral("[\r\n]")));
+    const QList<QStringView> headers = QStringView(_header).split(QRegularExpression(QStringLiteral("[\r\n]")));
     for (const auto &header : headers) {
         // Do not allow Request line to be specified and ignore
         // the other HTTP headers.

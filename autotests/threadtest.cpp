@@ -68,7 +68,7 @@ bool KIOThreadTest::copyLocalFile(FileData *fileData)
 void KIOThreadTest::concurrentCopying()
 {
     const int numThreads = 20;
-    QVector<FileData> data(numThreads);
+    QList<FileData> data(numThreads);
     for (int i = 0; i < numThreads; ++i) {
         data[i].src = homeTmpDir() + "file" + QString::number(i);
         data[i].dest = homeTmpDir() + "file" + QString::number(i) + "_copied";
@@ -76,7 +76,7 @@ void KIOThreadTest::concurrentCopying()
     }
     QThreadPool tp;
     tp.setMaxThreadCount(numThreads);
-    QVector<QFuture<bool>> futures(numThreads);
+    QList<QFuture<bool>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
         futures[i] = QtConcurrent::run(&tp, &KIOThreadTest::copyLocalFile, this, &data[i]);
     }

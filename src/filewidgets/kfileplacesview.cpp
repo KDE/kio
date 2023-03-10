@@ -736,7 +736,7 @@ public:
     QTimeLine m_itemDisappearTimeline;
 
     QVariantAnimation m_deviceBusyAnimation;
-    QVector<QPersistentModelIndex> m_busyDevices;
+    QList<QPersistentModelIndex> m_busyDevices;
 
     QRect m_dropRect;
     QPersistentModelIndex m_dropIndex;
@@ -2028,13 +2028,13 @@ void KFilePlacesViewPrivate::deviceBusyAnimationValueChanged(const QVariant &val
     }
 }
 
-void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
 {
     QListView::dataChanged(topLeft, bottomRight, roles);
     d->adaptItemSize();
 
     if ((roles.isEmpty() || roles.contains(KFilePlacesModel::DeviceAccessibilityRole)) && d->shouldAnimate()) {
-        QVector<QPersistentModelIndex> busyDevices;
+        QList<QPersistentModelIndex> busyDevices;
 
         auto *placesModel = qobject_cast<KFilePlacesModel *>(model());
         for (int i = 0; i < placesModel->rowCount(); ++i) {

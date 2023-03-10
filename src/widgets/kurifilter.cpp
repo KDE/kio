@@ -531,7 +531,7 @@ public:
         qDeleteAll(pluginList);
         pluginList.clear();
     }
-    QVector<KUriFilterPlugin *> pluginList;
+    QList<KUriFilterPlugin *> pluginList;
 };
 
 class KUriFilterSingleton
@@ -633,7 +633,7 @@ QStringList KUriFilter::pluginNames() const
 
 void KUriFilter::loadPlugins()
 {
-    QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
+    QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
     const QString prefKey = QStringLiteral("X-KDE-InitialPreference");
     // Sort the plugins by order of priority
     std::sort(plugins.begin(), plugins.end(), [prefKey](const KPluginMetaData &a, const KPluginMetaData &b) {

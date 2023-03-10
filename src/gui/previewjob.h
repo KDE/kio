@@ -155,7 +155,7 @@ public:
      * The result is internally cached, meaning any further method call will not reload the plugins
      * @since 5.90
      */
-    static QVector<KPluginMetaData> availableThumbnailerPlugins();
+    static QList<KPluginMetaData> availableThumbnailerPlugins();
 
     /**
      * Returns a list of plugins that should be enabled by default, which is all plugins
