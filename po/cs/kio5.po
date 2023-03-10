@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2023-02-17 16:22+0100\n"
+"PO-Revision-Date: 2023-03-02 18:25+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2579,10 +2579,9 @@ msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Nelze vytvořit socket pro spuštění nástroje KIO pro protokol '%1'."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Nelze nalézt spustitelný soubor 'kioslave5' v '%1'"
+msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -6444,10 +6443,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
-#, fuzzy, kde-format
-#| msgid "Web Search Keywords"
+#, kde-format
 msgid "&Enable Web search keywords"
-msgstr "Klíčová slova pro hledání na webu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
@@ -6457,17 +6455,15 @@ msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-#| msgid "Web Search Keywords"
+#, kde-format
 msgid "Search for web search keywords"
-msgstr "Klíčová slova pro hledání na webu"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-#| msgid "Web Search Keywords"
+#, kde-format
 msgid "Add a new Web search keyword"
-msgstr "Klíčová slova pro hledání na webu"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
@@ -6477,10 +6473,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:97
-#, fuzzy, kde-format
-#| msgid "Choose a delimiter to mark the Web search keyword."
+#, kde-format
 msgid "Delete the highlighted Web search keyword"
-msgstr "Vyberte oddělovač pro označení klíčového slova pro hledání na webu."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:100
@@ -6506,10 +6501,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "Web Search Keywords"
+#, kde-format
 msgid "Default Web &search keyword:"
-msgstr "Klíčová slova pro hledání na webu"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -7836,20 +7830,7 @@ msgstr "Proměnné prostředí:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Following the command, you can have several place holders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "%f - a single file name\n"
-#| "%F - a list of files; use for applications that can open several local "
-#| "files at once\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%d - the directory of the file to open\n"
-#| "%D - a list of directories\n"
-#| "%i - the icon\n"
-#| "%m - the mini-icon\n"
-#| "%c - the comment"
+#, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
 "\n"
@@ -7864,18 +7845,6 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Za příkazem můžete použít několik zástupných znaků, které budou nahrazeny "
-"skutečnými hodnotami při spuštění programu:\n"
-"%f - název souboru\n"
-"%F - seznam souborů; použijte pro aplikace, které umí otevřít několik "
-"lokálních souborů naráz.\n"
-"%u - jedno URL\n"
-"%U - seznam URL\n"
-"%d - složka souboru k otevření\n"
-"%D - seznam složek\n"
-"%i - ikona\n"
-"%m - mini ikona\n"
-"%c - komentář"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:108
@@ -9206,67 +9175,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "Používání sub-URL '%1' nepodporuje."
-
-#~ msgid "&Yes"
-#~ msgstr "&Ano"
-
-#~ msgid "&No"
-#~ msgstr "&Ne"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Složka nebo soubor pojmenovaný %1 již existuje."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "Nemáte práva k vytvoření této složky."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "Pracovní plocha je offline"
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "Soubor pracovní plochy\n"
-#~ "%1\n"
-#~ "je neznámý."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "Soubor pracovní plochy\n"
-#~ "%1\n"
-#~ "je typu FSDevice, ale nemá položku Dev=..."
-
-#~ msgid "Mount"
-#~ msgstr "Připojit"
-
-#~ msgid "Unmount"
-#~ msgstr "Odpojit"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>Nelze spustit zadaný příkaz. Soubor nebo složka <b>%1</b> neexistuje."
-#~ "</qt>"
-
-#~ msgid "&Paste File"
-#~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "V&ložit soubor"
-#~ msgstr[1] "V&ložit %1 soubory"
-#~ msgstr[2] "V&ložit %1 souborů"
-
-#~ msgid "&Paste URL"
-#~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "V&ložit URL"
-#~ msgstr[1] "V&ložit %1 URL"
-#~ msgstr[2] "V&ložit %1 URL"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "Vloži&t obsah schránky"
