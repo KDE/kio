@@ -12,14 +12,14 @@
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
 # Teemu Rytilahti <tpr@d5k.net>, 2008.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2008.
-# Tommi Nieminen <translator@legisign.org>, 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2022-08-22 21:57+0300\n"
+"PO-Revision-Date: 2023-01-18 12:45+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -835,10 +835,9 @@ msgstr ""
 "Yritä uudelleen, kun käyttoikeuksia on muutettu."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Tiedosto on liian suuri mahtuakseen roskakoriin."
+msgstr "Tiedosto on liian suuri roskakoriin."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -3184,12 +3183,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Sijaintipaneeliin voi lisätä vain kansioita."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Irrota"
+msgstr "Irrotetaan…"
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3198,12 +3195,10 @@ msgid "&Release"
 msgstr "&Irrota"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Poista turvallisesti"
+msgstr "Poistetaan turvallisesti…"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3213,12 +3208,10 @@ msgstr "&Poista turvallisesti"
 
 # pmap: =:teonnimi=Irrottaminen:
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Irrotetaan"
+msgstr "Irrotetaan…"
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3251,7 +3244,7 @@ msgstr "Tapahtui virhe yritettäessä käyttää kohdetta %1"
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr "Yksi tai useampi tämän laitteen tiedosto on sovelluksessa auki."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3262,13 +3255,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Yksi tai useampi tämän laitteen tiedosto on auki sovelluksessa "
+"<application>”%2”</application>."
 msgstr[1] ""
+"Yksi tai useampi tämän laitteen tiedosto on auki seuraavissa sovelluksissa: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -7270,8 +7267,7 @@ msgstr "Poista pysyvästi"
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Poista pysyvästi"
@@ -7842,16 +7838,13 @@ msgstr ""
 "”%1” (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Avaa aina tällä ohjelmalla tiedostot, joiden tyyppi on\n"
-"”%1” (%2)"
+"Muista sovelluskytkös tiedostoille, jotka ovat tyyppiä\n"
+"”%1”"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -8114,7 +8107,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Ohjelma:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8146,11 +8139,9 @@ msgstr "&Työkansio:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Asiakirjat"
+msgstr "Parametrit:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -9400,31 +9391,19 @@ msgstr[1] ""
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Haluatko varmasti poistaa tämän kohteen pysyvästi?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Toimintoa ei voi kumota.</"
-"emphasis>"
+"Tämän kohteen siirto roskakoriin epäonnistui, koska se on liian iso. "
+"Poistetaanko se pysyvästi?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9435,11 +9414,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Haluatko varmasti poistaa tämän kohteen pysyvästi?<nl/><nl/><emphasis "
-"strong='true'>Toimintoa ei voi kumota.</emphasis>"
+"Tämän kohteen siirto roskakoriin epäonnistui, koska se on liian iso. "
+"Poistetaanko se pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi "
+"kumota.</emphasis>"
 msgstr[1] ""
-"Haluatko varmasti poistaa nämä %1 kohdetta pysyvästi?<nl/><nl/><emphasis "
-"strong='true'>Toimintoa ei voi kumota.</emphasis>"
+"Näiden %1 kohteen siirto roskakoriin epäonnistui, koska ne ovat liian isoja. "
+"Poistetaanko ne pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi "
+"kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
