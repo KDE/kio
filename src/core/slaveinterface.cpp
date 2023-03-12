@@ -423,6 +423,8 @@ void SlaveInterface::messageBox(int type,
         data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("help-about"));
     } else if (primaryActionText == i18n("&Forever")) {
         data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("flag-green"));
+    } else if (primaryActionText == i18n("C&ontinue Loading")) {
+        data.insert(UserNotificationHandler::MSG_PRIMARYACTION_ICON, QLatin1String("arrow-right"));
     }
 
     if (secondaryActionText == i18n("Co&ntinue")) {
