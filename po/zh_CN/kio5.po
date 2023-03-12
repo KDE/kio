@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2023-02-24 12:43\n"
+"PO-Revision-Date: 2023-03-11 04:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -9021,9 +9021,9 @@ msgstr "警告"
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
-msgstr "这将启动此程序："
+msgstr "即将启动此程序："
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:131
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "如果您不信任此程序，请点击取消"
+msgstr "如果您不信任此程序，请点击“取消”"
