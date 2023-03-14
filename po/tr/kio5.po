@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2023-03-09 13:38+0300\n"
+"PO-Revision-Date: 2023-03-13 13:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4302,7 +4302,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "Yalnızca &merkezi sunucuda oluşturulan çerezleri kabul et"
+msgstr "Yalnızca &kaynak sunucudan gelen çerezleri kabul et"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4375,13 +4375,13 @@ msgstr "Öntanımlı Politika"
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "Bü&tün çerezleri kabul et"
+msgstr "Tüm çerezleri &kabul et"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr "Ot&urum sonuna kadar kabul et"
+msgstr "&Oturum sonuna kadar kabul et"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
@@ -4393,7 +4393,7 @@ msgstr "&Onay iste"
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "Bütün çerezleri &reddet"
+msgstr "Tüm çerezleri &reddet"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4711,8 +4711,8 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
-"İptal edilirse aşağıdakilerden daha küçük kısmen karşıya yüklenen dosyaları "
-"otomatik olarak sil:"
+"İptal edilirse bir kısmı karşıya yüklenen ve şunlardan daha küçük olan "
+"dosyaları kendiliğinden sil:"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
