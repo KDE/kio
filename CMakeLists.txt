@@ -64,6 +64,7 @@ find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DocTools ${KF_DEP_VERSION})
 find_package(KF6Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
+find_package(KF6KCMUtils ${KF_DEP_VERSION} REQUIRED)
 if (NOT ANDROID)
     find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
     find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)

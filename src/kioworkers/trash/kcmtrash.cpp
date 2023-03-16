@@ -27,8 +27,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(TrashConfigModule, "kcmtrash.json")
 
-TrashConfigModule::TrashConfigModule(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+TrashConfigModule::TrashConfigModule(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
     , trashInitialize(false)
 {
     mTrashImpl = new TrashImpl();
@@ -191,7 +191,7 @@ void TrashConfigModule::writeConfig()
 
 void TrashConfigModule::setupGui()
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(widget());
 
 #ifdef Q_OS_OSX
     QLabel *infoText = new QLabel(i18n("<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></para>"));
@@ -206,7 +206,7 @@ void TrashConfigModule::setupGui()
     if (map.count() != 1) {
         // If we have multiple trashes, we setup a widget to choose
         // which trash to configure
-        QListWidget *mountPoints = new QListWidget(this);
+        QListWidget *mountPoints = new QListWidget(widget());
         layout->addWidget(mountPoints);
 
         QMapIterator<int, QString> it(map);
@@ -231,13 +231,13 @@ void TrashConfigModule::setupGui()
 
     QHBoxLayout *daysLayout = new QHBoxLayout();
 
-    mUseTimeLimit = new QCheckBox(i18n("Delete files older than"), this);
+    mUseTimeLimit = new QCheckBox(i18n("Delete files older than"), widget());
     mUseTimeLimit->setWhatsThis(
         xi18nc("@info:whatsthis",
                "<para>Check this box to allow <emphasis strong='true'>automatic deletion</emphasis> of files that are older than the value specified. "
                "Leave this disabled to <emphasis strong='true'>not</emphasis> automatically delete any items after a certain timespan</para>"));
     daysLayout->addWidget(mUseTimeLimit);
-    mDays = new QSpinBox(this);
+    mDays = new QSpinBox(widget());
 
     mDays->setRange(1, 365);
     mDays->setSingleStep(1);
@@ -250,14 +250,14 @@ void TrashConfigModule::setupGui()
     formLayout->addRow(i18n("Cleanup:"), daysLayout);
 
     QHBoxLayout *maximumSizeLayout = new QHBoxLayout();
-    mUseSizeLimit = new QCheckBox(i18n("Limit to"), this);
+    mUseSizeLimit = new QCheckBox(i18n("Limit to"), widget());
     mUseSizeLimit->setWhatsThis(xi18nc("@info:whatsthis",
                                        "<para>Check this box to limit the trash to the maximum amount of disk space that you specify below. "
                                        "Otherwise, it will be unlimited.</para>"));
     maximumSizeLayout->addWidget(mUseSizeLimit);
     formLayout->addRow(i18n("Size:"), maximumSizeLayout);
 
-    mPercent = new QDoubleSpinBox(this);
+    mPercent = new QDoubleSpinBox(widget());
     mPercent->setRange(0.01, 100);
     mPercent->setDecimals(2);
     mPercent->setSingleStep(1);
@@ -265,7 +265,7 @@ void TrashConfigModule::setupGui()
     mPercent->setWhatsThis(xi18nc("@info:whatsthis", "<para>This is the maximum percent of disk space that will be used for the trash.</para>"));
     maximumSizeLayout->addWidget(mPercent);
 
-    mSizeLabel = new QLabel(this);
+    mSizeLabel = new QLabel(widget());
     mSizeLabel->setWhatsThis(
         xi18nc("@info:whatsthis", "<para>This is the calculated amount of disk space that will be allowed for the trash, the maximum.</para>"));
     maximumSizeLayout->addWidget(mSizeLabel);

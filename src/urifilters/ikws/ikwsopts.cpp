@@ -239,14 +239,14 @@ static QSortFilterProxyModel *wrapInProxyModel(QAbstractItemModel *model)
     return proxyModel;
 }
 
-FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+FilterOptions::FilterOptions(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
     , m_providersModel(new ProvidersModel(this))
 {
     // Used for tab text in the KCM
-    setWindowTitle(i18n("Search F&ilters"));
+    widget()->setWindowTitle(i18n("Search F&ilters"));
 
-    m_dlg.setupUi(this);
+    m_dlg.setupUi(widget());
 
     QSortFilterProxyModel *searchProviderModel = wrapInProxyModel(m_providersModel);
     m_dlg.lvSearchProviders->setModel(searchProviderModel);
@@ -267,20 +267,6 @@ FilterOptions::FilterOptions(QWidget *parent, const QVariantList &args)
     connect(m_dlg.lvSearchProviders->selectionModel(), &QItemSelectionModel::currentChanged, this, &FilterOptions::updateSearchProviderEditingButons);
     connect(m_dlg.lvSearchProviders, &QAbstractItemView::doubleClicked, this, &FilterOptions::changeSearchProvider);
     connect(m_dlg.searchLineEdit, &QLineEdit::textEdited, searchProviderModel, &QSortFilterProxyModel::setFilterFixedString);
-}
-
-QString FilterOptions::quickHelp() const
-{
-    return xi18nc("@info:whatsthis",
-                  "<para>In this module you can configure the web search keywords feature. "
-                  "Web search keywords allow you to quickly search or lookup words on "
-                  "the Internet. For example, to search for information about the "
-                  "KDE project using the Google engine, you simply type <emphasis>gg:KDE</emphasis> "
-                  "or <emphasis>google:KDE</emphasis>.</para>"
-                  "<para>If you select a default search engine, then you can search for "
-                  "normal words or phrases by simply typing them into the input widget "
-                  "of applications that have built-in support for such a feature, e.g "
-                  "Konqueror.</para>");
 }
 
 void FilterOptions::setDefaultEngine(int index)
@@ -404,7 +390,7 @@ void FilterOptions::save()
 
     config.sync();
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 
     // Update filters in running applications...
     QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"));
@@ -432,7 +418,7 @@ void FilterOptions::defaults()
 void FilterOptions::addSearchProvider()
 {
     QList<SearchProvider *> providers = m_providersModel->providers();
-    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(nullptr, providers, this);
+    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(nullptr, providers, widget());
 
     if (dlg->exec()) {
         m_providersModel->addProvider(dlg->provider());
@@ -445,7 +431,7 @@ void FilterOptions::changeSearchProvider()
 {
     QList<SearchProvider *> providers = m_providersModel->providers();
     SearchProvider *provider = providers.at(m_dlg.lvSearchProviders->currentIndex().data(Qt::UserRole).toInt());
-    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(provider, providers, this);
+    QPointer<SearchProviderDialog> dlg = new SearchProviderDialog(provider, providers, widget());
 
     if (dlg->exec()) {
         m_providersModel->changeProvider(dlg->provider());

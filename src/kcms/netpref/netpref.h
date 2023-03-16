@@ -13,19 +13,17 @@ class KIOPreferences : public KCModule
     Q_OBJECT
 
 public:
-    KIOPreferences(QWidget *parent, const QVariantList &args);
+    KIOPreferences(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KIOPreferences() override;
 
     void load() override;
     void save() override;
     void defaults() override;
 
-    QString quickHelp() const override;
-
 protected Q_SLOTS:
     void configChanged()
     {
-        Q_EMIT changed(true);
+        setNeedsSave(true);
     }
 
 private:

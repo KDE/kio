@@ -25,12 +25,11 @@ class FilterOptions : public KCModule
     Q_OBJECT
 
 public:
-    explicit FilterOptions(QWidget *parent = nullptr, const QVariantList &args = {});
+    explicit FilterOptions(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
 
     void load() override;
     void save() override;
     void defaults() override;
-    QString quickHelp() const override;
 
 private Q_SLOTS:
     void updateSearchProviderEditingButons();

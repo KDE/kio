@@ -4,7 +4,7 @@ kcmutils_generate_desktop_file(kcm_webshortcuts)
 
 target_link_libraries(kcm_webshortcuts
   PUBLIC
-    KF6::ConfigWidgets # KCModule
+    KF6::KCMUtils # KCModule
     KF6::KIOWidgets    # KUriFilter
   PRIVATE
     KF6::I18n

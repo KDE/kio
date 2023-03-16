@@ -86,12 +86,12 @@ CookieProp *CookieListViewItem::leaveCookie()
     return ret;
 }
 
-KCookiesManagement::KCookiesManagement(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+KCookiesManagement::KCookiesManagement(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
     , mDeleteAllFlag(false)
-    , mMainWidget(parent)
+    , mMainWidget(widget())
 {
-    mUi.setupUi(this);
+    mUi.setupUi(widget());
     mUi.searchLineEdit->setTreeWidget(mUi.cookiesTreeWidget);
     mUi.cookiesTreeWidget->setColumnWidth(0, 150);
 
@@ -125,7 +125,7 @@ void KCookiesManagement::save()
         if (!reply.isValid()) {
             const QString title = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete all the cookies as requested.");
-            KMessageBox::error(this, message, title);
+            KMessageBox::error(widget(), message, title);
             return;
         }
         mDeleteAllFlag = false; // deleted[Cookies|Domains] have been cleared yet
@@ -142,7 +142,7 @@ void KCookiesManagement::save()
         if (!reply.isValid()) {
             const QString title = i18n("D-Bus Communication Error");
             const QString message = i18n("Unable to delete cookies as requested.");
-            KMessageBox::error(this, message, title);
+            KMessageBox::error(widget(), message, title);
             return;
         }
         it.remove();
@@ -176,7 +176,7 @@ void KCookiesManagement::save()
         mDeletedCookies.remove(cookiesDom.key());
     }
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void KCookiesManagement::defaults()
@@ -211,11 +211,6 @@ void KCookiesManagement::clearCookieDetails()
     mUi.secureLineEdit->clear();
 }
 
-QString KCookiesManagement::quickHelp() const
-{
-    return i18n("<h1>Cookie Management Quick Help</h1>");
-}
-
 void KCookiesManagement::reload()
 {
     QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
@@ -229,7 +224,7 @@ void KCookiesManagement::reload()
         const QString message = i18n(
             "Unable to retrieve information about the "
             "cookies stored on your computer.");
-        KMessageBox::error(this, message, title);
+        KMessageBox::error(widget(), message, title);
         return;
     }
 
@@ -250,7 +245,7 @@ void KCookiesManagement::reload()
     // are there any cookies?
     mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
     mUi.cookiesTreeWidget->sortItems(0, Qt::AscendingOrder);
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 Q_DECLARE_METATYPE(QList<int>)
@@ -405,12 +400,12 @@ void KCookiesManagement::deleteCurrent()
 
     mUi.deleteAllButton->setEnabled(mUi.cookiesTreeWidget->topLevelItemCount() > 0);
 
-    Q_EMIT changed(true);
+    setNeedsSave(true);
 }
 
 void KCookiesManagement::deleteAll()
 {
     mDeleteAllFlag = true;
     reset(true);
-    Q_EMIT changed(true);
+    setNeedsSave(true);
 }

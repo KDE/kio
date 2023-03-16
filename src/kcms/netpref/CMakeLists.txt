@@ -12,7 +12,7 @@ target_link_libraries(kcm_netpref
   PUBLIC
     Qt6::DBus
     KF6::ConfigCore
-    KF6::ConfigWidgets
+    KF6::KCMUtils
     KF6::KIOCore
     KF6::TextWidgets # KPluralHandlingSpinBox
   PRIVATE

@@ -23,6 +23,6 @@ target_link_libraries(kcm_cookies PRIVATE
     KF6::ConfigCore
     KF6::I18n
     KF6::ItemViews
-    KF6::ConfigWidgets
+    KF6::KCMUtils
     KF6::KIOCore
 )

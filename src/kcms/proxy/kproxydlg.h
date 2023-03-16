@@ -25,13 +25,12 @@ public:
     };
     Q_DECLARE_FLAGS(DisplayUrlFlags, DisplayUrlFlag)
 
-    KProxyDialog(QWidget *parent, const QVariantList &args);
+    KProxyDialog(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KProxyDialog() override;
 
     void load() override;
     void save() override;
     void defaults() override;
-    QString quickHelp() const override;
 
 private Q_SLOTS:
     void autoDetect();

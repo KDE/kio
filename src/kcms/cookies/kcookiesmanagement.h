@@ -57,13 +57,12 @@ class KCookiesManagement : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCookiesManagement(QWidget *parent, const QVariantList &args);
+    explicit KCookiesManagement(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCookiesManagement() override;
 
     void load() override;
     void save() override;
     void defaults() override;
-    QString quickHelp() const override;
 
 private Q_SLOTS:
     void deleteCurrent();

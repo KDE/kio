@@ -20,7 +20,7 @@ class KCookiesMain : public KCModule
 {
     Q_OBJECT
 public:
-    KCookiesMain(QWidget *parent, const QVariantList &args);
+    KCookiesMain(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCookiesMain() override;
 
     KCookiesPolicies *policyDlg()
@@ -31,7 +31,6 @@ public:
     void save() override;
     void load() override;
     void defaults() override;
-    QString quickHelp() const override;
 
 private:
     QTabWidget *tab;

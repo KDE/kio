@@ -20,6 +20,7 @@ Dependencies:
     'frameworks/kbookmarks' : '@same'
     'frameworks/knotifications' : '@same'
     'frameworks/kconfig' : '@same'
+    'frameworks/kcmutils' : '@same'
 
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':

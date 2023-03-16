@@ -27,13 +27,12 @@ class KCookiesPolicies : public KCModule
     Q_OBJECT
 
 public:
-    explicit KCookiesPolicies(QWidget *parent, const QVariantList &args);
+    explicit KCookiesPolicies(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KCookiesPolicies() override;
 
     void load() override;
     void save() override;
     void defaults() override;
-    QString quickHelp() const override;
 
     void setPolicy(const QString &domain);
 

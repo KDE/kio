@@ -166,10 +166,10 @@ static void setProxyInformation(const QString &value,
     manEdit->setText(value); // Manual proxy exception...
 }
 
-KProxyDialog::KProxyDialog(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+KProxyDialog::KProxyDialog(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
 {
-    mUi.setupUi(this);
+    mUi.setupUi(widget());
 
     connect(mUi.autoDetectButton, &QPushButton::clicked, this, &KProxyDialog::autoDetect);
     connect(mUi.showEnvValueCheckBox, &QAbstractButton::toggled, this, &KProxyDialog::showEnvValue);
@@ -391,12 +391,12 @@ void KProxyDialog::save()
     KSaveIOConfig::setProxyConfigScript(mProxyMap.value(QStringLiteral("ProxyScript")));
     KSaveIOConfig::setNoProxyFor(mProxyMap.value(QStringLiteral("NoProxy")));
 
-    KSaveIOConfig::updateRunningWorkers(this);
+    KSaveIOConfig::updateRunningWorkers(widget());
     if (isPACProxyType(lastProxyType) || isPACProxyType(proxyType)) {
-        KSaveIOConfig::updateProxyScout(this);
+        KSaveIOConfig::updateProxyScout(widget());
     }
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void KProxyDialog::defaults()
@@ -420,7 +420,7 @@ void KProxyDialog::defaults()
     mUi.systemProxyFtpEdit->clear();
     mUi.systemProxySocksEdit->clear();
 
-    Q_EMIT changed(true);
+    setNeedsSave(true);
 }
 
 bool KProxyDialog::autoDetectSystemProxy(QLineEdit *edit, const QString &envVarStr, bool showValue)
@@ -455,7 +455,7 @@ void KProxyDialog::autoDetect()
     wasChanged |= autoDetectSystemProxy(mUi.systemNoProxyEdit, QStringLiteral("NO_PROXY,no_proxy"), showValue);
 
     if (wasChanged) {
-        Q_EMIT changed(true);
+        setNeedsSave(true);
     }
 }
 
@@ -536,22 +536,7 @@ void KProxyDialog::slotChanged()
     const bool proxyWarning = mUi.autoScriptProxyRadioButton->isChecked() || mUi.manualProxyRadioButton->isChecked();
     mUi.infoMessageWidget->setVisible(proxyWarning);
 
-    Q_EMIT changed(true);
-}
-
-QString KProxyDialog::quickHelp() const
-{
-    return i18n(
-        "<h1>Proxy</h1>"
-        "<p>A proxy server is an intermediate program that sits between "
-        "your machine and the Internet and provides services such as "
-        "web page caching and/or filtering.</p>"
-        "<p>Caching proxy servers give you faster access to sites you have "
-        "already visited by locally storing or caching the content of those "
-        "pages; filtering proxy servers, on the other hand, provide the "
-        "ability to block out requests for ads, spam, or anything else you "
-        "want to block.</p>"
-        "<p><u>Note:</u> Some proxy servers provide both services.</p>");
+    setNeedsSave(true);
 }
 
 #include "kproxydlg.moc"

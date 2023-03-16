@@ -16,7 +16,7 @@ class KURIFilterModule : public KCModule
     Q_OBJECT
 
 public:
-    KURIFilterModule(QWidget *parent, const QVariantList &args);
+    KURIFilterModule(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KURIFilterModule() override;
 
     void load() override; // TODO KF6: remove it, not needed

@@ -20,30 +20,13 @@
 
 K_PLUGIN_CLASS_WITH_JSON(KURIFilterModule, "kcm_webshortcuts.json")
 
-KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+KURIFilterModule::KURIFilterModule(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
     , m_widget(nullptr)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_webshortcuts"),
-                                       i18n("Web Search Keywords"),
-                                       QStringLiteral("0.1"),
-                                       i18n("Configure enhanced browsing features"),
-                                       KAboutLicense::GPL);
-    setAboutData(about);
-
     KCModule::setButtons(KCModule::Buttons(KCModule::Default | KCModule::Apply | KCModule::Help));
 
     filter = KUriFilter::self();
-
-    setQuickHelp(
-        i18n("<h1>Enhanced Browsing</h1> In this module you can configure some enhanced browsing"
-             " features of KDE. "
-             "<h2>Web Search Keywords</h2>Web Search Keywords are a quick way of using Web search engines. For example, type \"duckduckgo:frobozz\""
-             " or \"dd:frobozz\" and your web browser will do a search on DuckDuckGo for \"frobozz\"."
-             " Even easier: just press Alt+F2 (if you have not"
-             " changed this keyboard shortcut) and enter the shortcut in the Run Command dialog."));
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
 
     QMap<QString, KCModule *> helper;
     // Load the plugins. This saves a public method in KUriFilter just for this.
@@ -51,39 +34,34 @@ KURIFilterModule::KURIFilterModule(QWidget *parent, const QVariantList &args)
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
     for (const KPluginMetaData &pluginMetaData : plugins) {
         if (auto factory = KPluginFactory::loadFactory(pluginMetaData).plugin) {
-            KCModule *module = nullptr;
-            if (!module) {
-                module = factory->create<KCModule>(this);
-            }
-            if (module) {
+            if (KCModule *module = factory->create<KCModule>(widget())) {
                 modules.append(module);
-                helper.insert(module->windowTitle(), module);
-                connect(module, qOverload<bool>(&KCModule::changed), this, qOverload<bool>(&KCModule::changed));
+                helper.insert(module->name(), module);
+                connect(module, &KCModule::needsSaveChanged, this, [module, this]() {
+                    setNeedsSave(module->needsSave());
+                });
             }
         }
     }
 
     if (modules.count() > 1) {
-        QTabWidget *tab = new QTabWidget(this);
+        QTabWidget *tab = new QTabWidget(widget());
 
         QMap<QString, KCModule *>::iterator it2;
         for (it2 = helper.begin(); it2 != helper.end(); ++it2) {
-            tab->addTab(it2.value(), it2.key());
+            tab->addTab(it2.value()->widget(), it2.key());
         }
 
-        tab->setCurrentIndex(tab->indexOf(modules.first()));
+        tab->setCurrentIndex(tab->indexOf(modules.first()->widget()));
         m_widget = tab;
     } else if (modules.count() == 1) {
-        m_widget = modules.first();
+        m_widget = modules.first()->widget();
         if (m_widget->layout()) {
             m_widget->layout()->setContentsMargins(0, 0, 0, 0);
         }
     }
 
-    if (m_widget) {
-        layout->addWidget(m_widget);
-    }
-    setMinimumWidth(700);
+    widget()->setMinimumWidth(700);
 }
 
 void KURIFilterModule::load()
@@ -118,7 +96,6 @@ void KURIFilterModule::defaults()
 
 KURIFilterModule::~KURIFilterModule()
 {
-    qDeleteAll(modules);
 }
 
 #include "main.moc"

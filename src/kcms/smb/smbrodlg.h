@@ -20,13 +20,12 @@ class SMBRoOptions : public KCModule
 {
     Q_OBJECT
 public:
-    SMBRoOptions(QWidget *parent, const QVariantList &args);
+    SMBRoOptions(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~SMBRoOptions() override;
 
     void load() override;
     void save() override;
     void defaults() override;
-    QString quickHelp() const override;
 
 private Q_SLOTS:
     void changed();

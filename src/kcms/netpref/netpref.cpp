@@ -22,12 +22,12 @@ static constexpr int s_maxTimeoutValue = 3600;
 
 K_PLUGIN_CLASS_WITH_JSON(KIOPreferences, "kcm_netpref.json")
 
-KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
-    : KCModule(parent)
+KIOPreferences::KIOPreferences(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(widget());
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    gb_Timeout = new QGroupBox(i18n("Timeout Values"), this);
+    gb_Timeout = new QGroupBox(i18n("Timeout Values"), widget());
     gb_Timeout->setWhatsThis(
         i18np("Here you can set timeout values. "
               "You might want to tweak them if your "
@@ -41,34 +41,34 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     mainLayout->addWidget(gb_Timeout);
 
     QFormLayout *timeoutLayout = new QFormLayout(gb_Timeout);
-    sb_socketRead = new KPluralHandlingSpinBox(this);
+    sb_socketRead = new KPluralHandlingSpinBox(widget());
     sb_socketRead->setSuffix(ki18np(" second", " seconds"));
     connect(sb_socketRead, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("Soc&ket read:"), sb_socketRead);
 
-    sb_proxyConnect = new KPluralHandlingSpinBox(this);
+    sb_proxyConnect = new KPluralHandlingSpinBox(widget());
     sb_proxyConnect->setValue(0);
     sb_proxyConnect->setSuffix(ki18np(" second", " seconds"));
     connect(sb_proxyConnect, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("Pro&xy connect:"), sb_proxyConnect);
 
-    sb_serverConnect = new KPluralHandlingSpinBox(this);
+    sb_serverConnect = new KPluralHandlingSpinBox(widget());
     sb_serverConnect->setValue(0);
     sb_serverConnect->setSuffix(ki18np(" second", " seconds"));
     connect(sb_serverConnect, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("Server co&nnect:"), sb_serverConnect);
 
-    sb_serverResponse = new KPluralHandlingSpinBox(this);
+    sb_serverResponse = new KPluralHandlingSpinBox(widget());
     sb_serverResponse->setValue(0);
     sb_serverResponse->setSuffix(ki18np(" second", " seconds"));
     connect(sb_serverResponse, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
     timeoutLayout->addRow(i18n("&Server response:"), sb_serverResponse);
 
-    QGroupBox *gb_Global = new QGroupBox(i18n("Global Options"), this);
+    QGroupBox *gb_Global = new QGroupBox(i18n("Global Options"), widget());
     mainLayout->addWidget(gb_Global);
     QVBoxLayout *globalLayout = new QVBoxLayout(gb_Global);
 
-    cb_globalMarkPartial = new QCheckBox(i18n("Mark &partially uploaded files"), this);
+    cb_globalMarkPartial = new QCheckBox(i18n("Mark &partially uploaded files"), widget());
     cb_globalMarkPartial->setWhatsThis(
         i18n("<p>Marks partially uploaded files "
              "through SMB, SFTP and other protocols."
@@ -80,22 +80,22 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     connect(cb_globalMarkPartial, &QAbstractButton::toggled, this, &KIOPreferences::configChanged);
     globalLayout->addWidget(cb_globalMarkPartial);
 
-    auto partialWidget = new QWidget(this);
+    auto partialWidget = new QWidget(widget());
     connect(cb_globalMarkPartial, &QAbstractButton::toggled, partialWidget, &QWidget::setEnabled);
     globalLayout->addWidget(partialWidget);
     auto partialLayout = new QFormLayout(partialWidget);
     partialLayout->setContentsMargins(20, 0, 0, 0); // indent below mark partial
 
-    sb_globalMinimumKeepSize = new KPluralHandlingSpinBox(this);
+    sb_globalMinimumKeepSize = new KPluralHandlingSpinBox(widget());
     sb_globalMinimumKeepSize->setSuffix(ki18np(" byte", " bytes"));
     connect(sb_globalMinimumKeepSize, qOverload<int>(&QSpinBox::valueChanged), this, &KIOPreferences::configChanged);
     partialLayout->addRow(i18nc("@label:spinbox", "If cancelled, automatically delete partially uploaded files smaller than:"), sb_globalMinimumKeepSize);
 
-    gb_Ftp = new QGroupBox(i18n("FTP Options"), this);
+    gb_Ftp = new QGroupBox(i18n("FTP Options"), widget());
     mainLayout->addWidget(gb_Ftp);
     QVBoxLayout *ftpLayout = new QVBoxLayout(gb_Ftp);
 
-    cb_ftpEnablePasv = new QCheckBox(i18n("Enable passive &mode (PASV)"), this);
+    cb_ftpEnablePasv = new QCheckBox(i18n("Enable passive &mode (PASV)"), widget());
     cb_ftpEnablePasv->setWhatsThis(
         i18n("Enables FTP's \"passive\" mode. "
              "This is required to allow FTP to "
@@ -103,7 +103,7 @@ KIOPreferences::KIOPreferences(QWidget *parent, const QVariantList &)
     connect(cb_ftpEnablePasv, &QAbstractButton::toggled, this, &KIOPreferences::configChanged);
     ftpLayout->addWidget(cb_ftpEnablePasv);
 
-    cb_ftpMarkPartial = new QCheckBox(i18n("Mark &partially uploaded files"), this);
+    cb_ftpMarkPartial = new QCheckBox(i18n("Mark &partially uploaded files"), widget());
     cb_ftpMarkPartial->setWhatsThis(
         i18n("<p>Marks partially uploaded FTP "
              "files.</p><p>When this option is "
@@ -142,7 +142,7 @@ void KIOPreferences::load()
     KConfig config(QStringLiteral("kio_ftprc"), KConfig::NoGlobals);
     cb_ftpEnablePasv->setChecked(!config.group("").readEntry("DisablePassiveMode", false));
     cb_ftpMarkPartial->setChecked(config.group("").readEntry("MarkPartial", true));
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void KIOPreferences::save()
@@ -160,9 +160,9 @@ void KIOPreferences::save()
     config.group("").writeEntry("MarkPartial", cb_ftpMarkPartial->isChecked());
     config.sync();
 
-    KSaveIOConfig::updateRunningWorkers(this);
+    KSaveIOConfig::updateRunningWorkers(widget());
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void KIOPreferences::defaults()
@@ -177,17 +177,7 @@ void KIOPreferences::defaults()
     cb_ftpEnablePasv->setChecked(true);
     cb_ftpMarkPartial->setChecked(true);
 
-    Q_EMIT changed(true);
-}
-
-QString KIOPreferences::quickHelp() const
-{
-    return i18n(
-        "<h1>Network Preferences</h1>Here you can define"
-        " the behavior of KDE programs when using Internet"
-        " and network connections. If you experience timeouts"
-        " or use a modem to connect to the Internet, you might"
-        " want to adjust these settings.");
+    setNeedsSave(true);
 }
 
 #include "netpref.moc"

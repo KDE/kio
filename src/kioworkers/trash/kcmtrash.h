@@ -26,7 +26,7 @@ class TrashConfigModule : public KCModule
     Q_OBJECT
 
 public:
-    TrashConfigModule(QWidget *parent, const QVariantList &args);
+    TrashConfigModule(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~TrashConfigModule() override;
 
     void save() override;

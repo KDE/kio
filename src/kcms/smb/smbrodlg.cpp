@@ -20,29 +20,29 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SMBRoOptions, "kcm_smb.json")
 
-SMBRoOptions::SMBRoOptions(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+SMBRoOptions::SMBRoOptions(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
 {
-    QGridLayout *layout = new QGridLayout(this);
-    QLabel *label = new QLabel(i18n("These settings apply to network browsing only."), this);
+    QGridLayout *layout = new QGridLayout(widget());
+    QLabel *label = new QLabel(i18n("These settings apply to network browsing only."), widget());
     layout->addWidget(label, 0, 0, 1, 2);
 
-    m_userLe = new QLineEdit(this);
-    label = new QLabel(i18n("Default user name:"), this);
+    m_userLe = new QLineEdit(widget());
+    label = new QLabel(i18n("Default user name:"), widget());
     label->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     label->setBuddy(m_userLe);
     layout->addWidget(label, 1, 0);
     layout->addWidget(m_userLe, 1, 1);
 
-    m_passwordLe = new QLineEdit(this);
+    m_passwordLe = new QLineEdit(widget());
     m_passwordLe->setEchoMode(QLineEdit::Password);
-    label = new QLabel(i18n("Default password:"), this);
+    label = new QLabel(i18n("Default password:"), widget());
     label->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     label->setBuddy(m_passwordLe);
     layout->addWidget(label, 2, 0);
     layout->addWidget(m_passwordLe, 2, 1);
 
-    layout->addWidget(new QWidget(this), 4, 0);
+    layout->addWidget(new QWidget(widget()), 4, 0);
 
     connect(m_userLe, &QLineEdit::textChanged, this, &SMBRoOptions::changed);
     connect(m_passwordLe, &QLineEdit::textChanged, this, &SMBRoOptions::changed);
@@ -113,19 +113,7 @@ void SMBRoOptions::defaults()
 
 void SMBRoOptions::changed()
 {
-    Q_EMIT KCModule::changed(true);
-}
-
-QString SMBRoOptions::quickHelp() const
-{
-    return i18n(
-        "<h1>Windows Shares</h1><p>Applications using the "
-        "SMB KIO worker (like Konqueror) are able to access shared Microsoft "
-        "Windows file systems, if properly configured.</p><p>You can specify "
-        "here the credentials used to access the shared resources. "
-        "Passwords will be stored locally, and scrambled so as to render them "
-        "unreadable to the human eye. For security reasons, you may not want to "
-        "do that, as entries with passwords are clearly indicated as such.</p>");
+    setNeedsSave(true);
 }
 
 #include "smbrodlg.moc"

@@ -93,7 +93,7 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
        trash_common_unix
        Qt6::DBus
        KF6::I18n
-       KF6::ConfigWidgets
+       KF6::KCMUtils
        KF6::KIOCore
        KF6::Solid)
     if(APPLE)
