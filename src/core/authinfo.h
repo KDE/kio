@@ -359,8 +359,8 @@ protected:
     bool parse(const QString &fileName);
 
 private:
-    NetRC();
-    ~NetRC();
+    KIOCORE_NO_EXPORT NetRC();
+    KIOCORE_NO_EXPORT ~NetRC();
 
     NetRC(const NetRC &) = delete;
     NetRC &operator=(const NetRC &) = delete;

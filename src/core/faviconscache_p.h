@@ -50,8 +50,8 @@ public:
 Q_SIGNALS:
 
 private:
-    FavIconsCache();
-    ~FavIconsCache() override;
+    KIOCORE_NO_EXPORT FavIconsCache();
+    KIOCORE_NO_EXPORT ~FavIconsCache() override;
     std::unique_ptr<FavIconsCachePrivate> const d;
 };
 

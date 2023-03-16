@@ -187,7 +187,7 @@ private:
     /**
      * Constructor
      */
-    KMountPoint();
+    KIOCORE_NO_EXPORT KMountPoint();
 
     friend KIOCORE_EXPORT QDebug operator<<(QDebug debug, const Ptr &mp);
 

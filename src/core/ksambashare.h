@@ -136,7 +136,7 @@ Q_SIGNALS:
     void changed();
 
 private:
-    KSambaShare();
+    KIOCORE_NO_EXPORT KSambaShare();
 
     KSambaSharePrivate *const d_ptr;
     Q_DECLARE_PRIVATE(KSambaShare)
