@@ -45,7 +45,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    RestoreJob(RestoreJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit RestoreJob(RestoreJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(RestoreJob)

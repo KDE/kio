@@ -155,7 +155,7 @@ protected Q_SLOTS:
     virtual void slotMimetype(const QString &mimetype);
 
 protected:
-    TransferJob(TransferJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit TransferJob(TransferJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(TransferJob)

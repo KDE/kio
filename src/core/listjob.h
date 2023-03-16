@@ -88,7 +88,8 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    ListJob(ListJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit ListJob(ListJobPrivate &dd);
+
     Q_DECLARE_PRIVATE(ListJob)
     friend class ListJobPrivate;
 };

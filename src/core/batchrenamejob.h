@@ -40,7 +40,7 @@ protected Q_SLOTS:
 
 protected:
     /// @internal
-    BatchRenameJob(BatchRenameJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit BatchRenameJob(BatchRenameJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(BatchRenameJob)

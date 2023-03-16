@@ -53,7 +53,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    DirectorySizeJob(DirectorySizeJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit DirectorySizeJob(DirectorySizeJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(DirectorySizeJob)

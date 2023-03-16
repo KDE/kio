@@ -55,7 +55,7 @@ public:
     QByteArray data() const;
 
 protected:
-    StoredTransferJob(StoredTransferJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit StoredTransferJob(StoredTransferJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(StoredTransferJob)

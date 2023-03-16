@@ -42,7 +42,7 @@ protected Q_SLOTS:
     void slotFinished() override;
 
 public:
-    FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(FileSystemFreeSpaceJob)

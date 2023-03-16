@@ -43,7 +43,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    MkpathJob(MkpathJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit MkpathJob(MkpathJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(MkpathJob)
