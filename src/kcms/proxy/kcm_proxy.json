@@ -24,7 +24,6 @@
         "Description[x-test]": "xxConfigure the proxy servers usedxx",
         "Description[zh_TW]": "設定代理伺服器如何被使用",
         "Icon": "preferences-system-network-proxy",
-        "Id": "proxy",
         "Name": "Proxy",
         "Name[ar]": "الوسيط",
         "Name[bg]": "Прокси",

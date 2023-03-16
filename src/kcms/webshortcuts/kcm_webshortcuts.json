@@ -25,7 +25,6 @@
         "Description[x-test]": "xxConfigure web search keywordsxx",
         "Description[zh_TW]": "設定網路搜尋關鍵字",
         "Icon": "preferences-web-browser-shortcuts",
-        "Id": "webshortcuts",
         "Name": "Web Search Keywords",
         "Name[ar]": "كلمات بحث الويب",
         "Name[bg]": "Ключови думи за уеб търсене",

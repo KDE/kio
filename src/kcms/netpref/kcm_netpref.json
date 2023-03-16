@@ -24,7 +24,6 @@
         "Description[x-test]": "xxConfigure generic network preferences, like timeout valuesxx",
         "Description[zh_TW]": "調整一般網路設定，例如逾時值",
         "Icon": "preferences-system-network-connection",
-        "Id": "netpref",
         "Name": "Connection Preferences",
         "Name[ar]": "تفضيلات الاتّصال",
         "Name[bg]": "Настройване на връзката",

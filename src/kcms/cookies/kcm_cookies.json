@@ -23,7 +23,6 @@
         "Description[x-test]": "xxConfigure the way cookies workxx",
         "Description[zh_TW]": "設定 cookie 如何運作",
         "Icon": "preferences-web-browser-cookies",
-        "Id": "cookies",
         "Name": "Cookies",
         "Name[ar]": "الكعك",
         "Name[bg]": "Бисквитки",

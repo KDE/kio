@@ -24,7 +24,6 @@
         "Description[x-test]": "xxCredentials used to access SMB sharesxx",
         "Description[zh_TW]": "用以存取 SMB 共享硬碟的認證資訊",
         "Icon": "preferences-system-network-share-windows",
-        "Id": "smb",
         "Name": "Windows Shares",
         "Name[ar]": "مشاركات وندوز",
         "Name[bg]": "Споделяне с Windows",
