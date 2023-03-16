@@ -7,7 +7,7 @@
 #ifndef KCMTRASH_H
 #define KCMTRASH_H
 
-#include <KCModule>
+#include <KCMUtils/KCModule>
 
 class QCheckBox;
 class QComboBox;
