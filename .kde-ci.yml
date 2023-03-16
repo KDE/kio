@@ -20,13 +20,13 @@ Dependencies:
     'frameworks/kbookmarks' : '@same'
     'frameworks/knotifications' : '@same'
     'frameworks/kconfig' : '@same'
-    'frameworks/kcmutils' : '@same'
 
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
     'frameworks/kcrash' : '@same'
     'frameworks/kdbusaddons' : '@same'
     'frameworks/kdoctools' : '@same'
+    'frameworks/kcmutils' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
