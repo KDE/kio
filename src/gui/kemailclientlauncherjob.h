@@ -100,7 +100,7 @@ private:
     QUrl mailToUrl() const; // for the unittest
     QStringList thunderbirdArguments() const; // for the unittest
 
-    void emitDelayedResult();
+    KIOGUI_NO_EXPORT void emitDelayedResult();
 
     friend class KEMailClientLauncherJobPrivate;
     std::unique_ptr<KEMailClientLauncherJobPrivate> d;

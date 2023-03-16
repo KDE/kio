@@ -81,7 +81,7 @@ private:
     void determineFullCommand(bool fallbackToKonsoleService = true); // for the unittest
     QString fullCommand() const; // for the unittest
 
-    void emitDelayedResult();
+    KIOGUI_NO_EXPORT void emitDelayedResult();
 
     friend class KTerminalLauncherJobPrivate;
     std::unique_ptr<KTerminalLauncherJobPrivate> d;

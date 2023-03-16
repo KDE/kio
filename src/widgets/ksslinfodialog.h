@@ -111,7 +111,7 @@ public:
     static QList<QList<QSslError::SslError>> certificateErrorsFromString(const QString &errorsString);
 
 private:
-    void updateWhichPartsEncrypted();
+    KIOWIDGETS_NO_EXPORT void updateWhichPartsEncrypted();
 
     class KSslInfoDialogPrivate;
     std::unique_ptr<KSslInfoDialogPrivate> const d;

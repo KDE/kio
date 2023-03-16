@@ -360,10 +360,10 @@ private:
     KIOCORE_NO_EXPORT Scheduler();
     KIOCORE_NO_EXPORT ~Scheduler() override;
 
-    static Scheduler *self();
+    KIOCORE_NO_EXPORT static Scheduler *self();
 
     friend class AccessManager;
-    // For internal use, since 5.90
+    // For internal use from KIOWidgets' KIO::AccessManager, since 5.90
     static void setSimpleJobPriority(SimpleJob *job, int priority);
 
     // connected to D-Bus signal:
@@ -377,7 +377,7 @@ private:
 #endif
 private:
     friend class SchedulerPrivate;
-    SchedulerPrivate *d_func();
+    KIOCORE_NO_EXPORT SchedulerPrivate *d_func();
 };
 
 }
