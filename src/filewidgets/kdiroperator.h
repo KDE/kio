@@ -1050,7 +1050,8 @@ Q_SIGNALS:
     void renamingFinished(const QList<QUrl> &urls);
 
 private:
-    void setViewInternal(QAbstractItemView *view);
+    KIOFILEWIDGETS_NO_EXPORT void setViewInternal(QAbstractItemView *view);
+
     friend class KDirOperatorPrivate;
     std::unique_ptr<KDirOperatorPrivate> d;
 };

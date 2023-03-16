@@ -571,7 +571,7 @@ private:
     /**
      * Hides the file.
      */
-    void setHidden();
+    KIOCORE_NO_EXPORT void setHidden();
 
 private:
     KIOCORE_EXPORT friend QDataStream &operator<<(QDataStream &s, const KFileItem &a);

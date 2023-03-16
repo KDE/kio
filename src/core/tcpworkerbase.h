@@ -197,7 +197,7 @@ protected:
 
 private:
     // For the certificate verification code
-    SslResult verifyServerCertificate();
+    KIOCORE_NO_EXPORT SslResult verifyServerCertificate();
 
     class TCPWorkerBasePrivate;
     std::unique_ptr<TCPWorkerBasePrivate> const d;

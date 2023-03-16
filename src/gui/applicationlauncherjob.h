@@ -158,8 +158,8 @@ private:
      * Blocks until the process has started. Only exists for KRun, will disappear in KF6.
      */
     bool waitForStarted();
-    void emitUnauthorizedError();
-    void proceedAfterSecurityChecks();
+    KIOGUI_NO_EXPORT void emitUnauthorizedError();
+    KIOGUI_NO_EXPORT void proceedAfterSecurityChecks();
 
     friend class ApplicationLauncherJobPrivate;
     QScopedPointer<ApplicationLauncherJobPrivate> d;
