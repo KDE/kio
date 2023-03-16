@@ -33,14 +33,14 @@ KCookiesMain::KCookiesMain(QObject *parent, const KPluginMetaData &data, const Q
     tab = new QTabWidget(widget());
     layout->addWidget(tab);
 
-    policies = new KCookiesPolicies(this, data, args);
+    policies = new KCookiesPolicies(widget(), data, args);
     tab->addTab(policies->widget(), i18n("&Policy"));
     connect(policies, &KCModule::needsSaveChanged, this, [this]() {
         setNeedsSave(policies->needsSave());
     });
 
     if (managerOK) {
-        management = new KCookiesManagement(this, KPluginMetaData(), args);
+        management = new KCookiesManagement(widget(), data, args);
         tab->addTab(management->widget(), i18n("&Management"));
         connect(management, &KCModule::needsSaveChanged, this, [this]() {
             setNeedsSave(management->needsSave());
@@ -70,11 +70,10 @@ void KCookiesMain::load()
 
 void KCookiesMain::defaults()
 {
-    KCModule *module = tab->currentWidget()->findChild<KCModule *>();
-
-    if (module == policies) {
+    QWidget *current = tab->currentWidget();
+    if (current == policies->widget()) {
         policies->defaults();
-    } else if (management) {
+    } else if (management && current == management->widget()) {
         management->defaults();
     }
 }
