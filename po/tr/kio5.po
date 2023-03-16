@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:56+0000\n"
-"PO-Revision-Date: 2023-03-09 13:35+0300\n"
+"PO-Revision-Date: 2023-03-15 13:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -9195,7 +9195,7 @@ msgstr "Bilgi"
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
-msgstr "Yeniden dene"
+msgstr "Yeniden Dene"
 
 #: widgets/skipdialog.cpp:60
 #, kde-format
