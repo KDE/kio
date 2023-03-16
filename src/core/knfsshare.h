@@ -66,7 +66,7 @@ Q_SIGNALS:
     void changed();
 
 private:
-    KNFSShare();
+    KIOCORE_NO_EXPORT KNFSShare();
     class KNFSSharePrivate;
     std::unique_ptr<KNFSSharePrivate> const d;
 

@@ -175,7 +175,7 @@ public:
     static ThumbnailResult fail();
 
 private:
-    ThumbnailResult();
+    KIOGUI_NO_EXPORT ThumbnailResult();
     std::unique_ptr<ThumbnailResultPrivate> d;
 };
 

@@ -86,8 +86,8 @@ public:
 private:
     friend class KSslCertificateManagerContainer;
     friend class KSslCertificateManagerPrivate;
-    KSslCertificateManager();
-    ~KSslCertificateManager();
+    KIOCORE_NO_EXPORT KSslCertificateManager();
+    KIOCORE_NO_EXPORT ~KSslCertificateManager();
 
     std::unique_ptr<KSslCertificateManagerPrivate> d;
 };

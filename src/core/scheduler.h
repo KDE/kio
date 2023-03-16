@@ -117,8 +117,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(Scheduler)
-    Scheduler();
-    ~Scheduler() override;
+    KIOCORE_NO_EXPORT Scheduler();
+    KIOCORE_NO_EXPORT ~Scheduler() override;
 
     static Scheduler *self();
 

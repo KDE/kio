@@ -206,8 +206,8 @@ Q_SIGNALS:
     void jobRecordingFinished(CommandType op); // clazy:exclude=fully-qualified-moc-types
 
 private:
-    FileUndoManager();
-    ~FileUndoManager() override;
+    KIOWIDGETS_NO_EXPORT FileUndoManager();
+    KIOWIDGETS_NO_EXPORT ~FileUndoManager() override;
     friend class FileUndoManagerSingleton;
 
     friend class UndoJob;

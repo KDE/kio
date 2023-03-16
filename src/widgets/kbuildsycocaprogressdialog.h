@@ -32,8 +32,8 @@ public:
     static void rebuildKSycoca(QWidget *parent);
 
 private:
-    KBuildSycocaProgressDialog(QWidget *parent, const QString &title, const QString &text);
-    ~KBuildSycocaProgressDialog() override;
+    KIOWIDGETS_NO_EXPORT KBuildSycocaProgressDialog(QWidget *parent, const QString &title, const QString &text);
+    KIOWIDGETS_NO_EXPORT ~KBuildSycocaProgressDialog() override;
 
 private:
     std::unique_ptr<KBuildSycocaProgressDialogPrivate> const d;
