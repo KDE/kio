@@ -79,7 +79,7 @@ class KIOWIDGETS_EXPORT KAbstractFileItemActionPlugin : public QObject
     Q_OBJECT
 
 public:
-    KAbstractFileItemActionPlugin(QObject *parent);
+    explicit KAbstractFileItemActionPlugin(QObject *parent);
 
     ~KAbstractFileItemActionPlugin() override;
 
