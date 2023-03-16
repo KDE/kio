@@ -102,7 +102,7 @@ public:
     static bool isDetailTreeView(const FileView &view);
 
 private:
-    KFile(); // forbidden
+    KFile() = delete;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KFile::Modes)
