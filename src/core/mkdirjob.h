@@ -50,8 +50,8 @@ Q_SIGNALS:
 protected Q_SLOTS:
     void slotFinished() override;
 
-public:
-    MkdirJob(MkdirJobPrivate &dd);
+protected:
+    KIOCORE_NO_EXPORT explicit MkdirJob(MkdirJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(MkdirJob)

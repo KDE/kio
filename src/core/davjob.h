@@ -71,7 +71,7 @@ protected Q_SLOTS:
     void slotData(const QByteArray &data) override;
 
 protected:
-    DavJob(DavJobPrivate &dd, int, const QString &);
+    KIOCORE_NO_EXPORT DavJob(DavJobPrivate &dd, int, const QString &);
 
 private:
     Q_DECLARE_PRIVATE(DavJob)

@@ -195,7 +195,7 @@ Q_SIGNALS:
     void truncated(KIO::Job *job, KIO::filesize_t length);
 
 protected:
-    FileJob(FileJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit FileJob(FileJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(FileJob)

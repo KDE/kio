@@ -47,7 +47,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    PasteJob(PasteJobPrivate &dd);
+    KIOWIDGETS_NO_EXPORT explicit PasteJob(PasteJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(PasteJob)

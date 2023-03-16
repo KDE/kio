@@ -83,7 +83,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    DeleteJob(DeleteJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit DeleteJob(DeleteJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(DeleteJob)

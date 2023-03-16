@@ -34,7 +34,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    ChmodJob(ChmodJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit ChmodJob(ChmodJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(ChmodJob)

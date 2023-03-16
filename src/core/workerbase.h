@@ -44,7 +44,7 @@ public:
     Q_REQUIRED_RESULT static WorkerResult pass();
 
 private:
-    explicit WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr);
+    KIOCORE_NO_EXPORT explicit WorkerResult(std::unique_ptr<WorkerResultPrivate> &&dptr);
     std::unique_ptr<WorkerResultPrivate> d;
 };
 

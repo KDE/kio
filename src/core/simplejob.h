@@ -131,7 +131,7 @@ protected:
      * Creates a new simple job. You don't need to use this constructor,
      * unless you create a new job that inherits from SimpleJob.
      */
-    SimpleJob(SimpleJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit SimpleJob(SimpleJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(SimpleJob)

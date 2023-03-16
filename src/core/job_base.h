@@ -47,7 +47,8 @@ class KIOCORE_EXPORT Job : public KCompositeJob
 
 protected:
     Job();
-    Job(JobPrivate &dd);
+    // used also from KIOGui's PreviewJob, so needs to be exported
+    explicit Job(JobPrivate &dd);
 
 public:
     ~Job() override;

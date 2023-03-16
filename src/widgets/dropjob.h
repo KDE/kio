@@ -102,7 +102,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    DropJob(DropJobPrivate &dd);
+    KIOWIDGETS_NO_EXPORT explicit DropJob(DropJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(DropJob)

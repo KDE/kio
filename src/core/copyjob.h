@@ -269,7 +269,7 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 protected:
-    CopyJob(CopyJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit CopyJob(CopyJobPrivate &dd);
     void emitResult();
 
 private:

@@ -34,7 +34,7 @@ protected Q_SLOTS:
     void slotFinished() override;
 
 protected:
-    MimetypeJob(MimetypeJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit MimetypeJob(MimetypeJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(MimetypeJob)

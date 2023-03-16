@@ -200,7 +200,7 @@ protected Q_SLOTS:
 #endif
 
 protected:
-    TransferJob(TransferJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit TransferJob(TransferJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(TransferJob)

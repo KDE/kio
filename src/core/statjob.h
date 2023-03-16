@@ -152,7 +152,7 @@ protected Q_SLOTS:
 #endif
 
 protected:
-    StatJob(StatJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit StatJob(StatJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(StatJob)

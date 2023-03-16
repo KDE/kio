@@ -33,7 +33,7 @@ protected:
     void slotFinished() override;
 
 private:
-    EmptyTrashJob(EmptyTrashJobPrivate &dd);
+    KIOCORE_NO_EXPORT explicit EmptyTrashJob(EmptyTrashJobPrivate &dd);
 
 private:
     Q_DECLARE_PRIVATE(EmptyTrashJob)
