@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2023-03-14 13:49+0300\n"
+"PO-Revision-Date: 2023-03-15 13:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6293,7 +6293,7 @@ msgstr ""
 #: kioworkers/trash/kcmtrash.cpp:280
 #, kde-format
 msgid "Full Trash:"
-msgstr "Tam Temizlik:"
+msgstr "Tam temizlik:"
 
 #: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
 #: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
@@ -6527,7 +6527,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr "&Web Arama Anahtar Sözcüklerini etkinleştir"
+msgstr "&Web'de arama anahtar sözcüklerini etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
@@ -6585,7 +6585,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:141
 #, kde-format
 msgid "Default Web &search keyword:"
-msgstr "Öntanımlı Web arama anahtar &sözcüğü:"
+msgstr "Öntanımlı Web'de arama anahtar &sözcüğü:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
