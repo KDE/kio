@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2023-02-16 11:12+0400\n"
+"PO-Revision-Date: 2023-03-16 11:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2543,10 +2543,9 @@ msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "تعذّر إنشاء مقبس لإطلاق تابع الدّخل/الخرج للميفاق ’%1‘."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "تعذّر العثور على تنفيذيّ 'kioslave5' في ’%1‘"
+msgstr "تعذّر العثور على تنفيذيّ 'kioworker' في ’%1‘"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -10113,7 +10112,7 @@ msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ�
 #, fuzzy
 #~ msgctxt "size in 10^15 bytes"
 #~ msgid "%1 PB"
-#~ msgstr "%1 پ.بايت"
+#~ msgstr "%1 ب.بايت"
 
 #, fuzzy
 #~ msgctxt "size in 10^18 bytes"
@@ -10148,7 +10147,7 @@ msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ�
 
 #~ msgctxt "size in 2^50 bytes"
 #~ msgid "%1 PiB"
-#~ msgstr "%1 پيبي.بايت"
+#~ msgstr "%1 بيبي.بايت"
 
 #~ msgctxt "size in 2^60 bytes"
 #~ msgid "%1 EiB"
