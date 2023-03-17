@@ -10154,7 +10154,7 @@ msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ�
 #, fuzzy
 #~ msgctxt "size in 10^15 bytes"
 #~ msgid "%1 PB"
-#~ msgstr "%1 پ.بايت"
+#~ msgstr "%1 ب.بايت"
 
 #, fuzzy
 #~ msgctxt "size in 10^18 bytes"
@@ -10189,7 +10189,7 @@ msgstr "إن كنت لا تثق بهذا البرنامج انقر ”ألغِ�
 
 #~ msgctxt "size in 2^50 bytes"
 #~ msgid "%1 PiB"
-#~ msgstr "%1 پيبي.بايت"
+#~ msgstr "%1 بيبي.بايت"
 
 #~ msgctxt "size in 2^60 bytes"
 #~ msgid "%1 EiB"
