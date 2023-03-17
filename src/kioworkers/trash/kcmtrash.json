@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Configure trash settings",
+        "Description[ar]": "إعدادات ضبط المهملات",
         "Description[bg]": "Настройване на кошчето",
         "Description[ca@valencia]": "Configura les opcions de la paperera",
         "Description[ca]": "Configura les opcions de la paperera",
@@ -10,6 +11,7 @@
         "Description[eu]": "Konfiguratu zakarrontziaren ezarpenak",
         "Description[fi]": "Roskakorin asetukset",
         "Description[fr]": "Configurer la corbeille",
+        "Description[ia]": "Configura preferentias de corbe",
         "Description[it]": "Configura le impostazioni del cestino",
         "Description[ka]": "ნაგვის მორგება",
         "Description[nl]": "Prullenbakconfiguratie instellen",
@@ -21,6 +23,7 @@
         "Description[zh_TW]": "設定垃圾桶",
         "Icon": "user-trash",
         "Name": "Trash",
+        "Name[ar]": "المهملات",
         "Name[bg]": "Кошче",
         "Name[ca@valencia]": "Paperera",
         "Name[ca]": "Paperera",
@@ -30,6 +33,7 @@
         "Name[eu]": "Zakarrontzia",
         "Name[fi]": "Roskakori",
         "Name[fr]": "Corbeille",
+        "Name[ia]": "Corbe",
         "Name[it]": "Cestino",
         "Name[ka]": "ნაგავი",
         "Name[nl]": "Prullenbak",

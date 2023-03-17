@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Configure the way cookies work",
+        "Description[ar]": "اضبط طريقة عمل الكعكات",
         "Description[bg]": "Настройване на бисквитките",
         "Description[ca@valencia]": "Configura com funcionaran les galetes",
         "Description[ca]": "Configura com funcionaran les galetes",
@@ -10,6 +11,7 @@
         "Description[eu]": "Konfiguratu «cookie»k lan egiteko era",
         "Description[fi]": "Evästeiden asetukset",
         "Description[fr]": "Configurer le mode de fonctionnement des cookies",
+        "Description[ia]": "Configura le modo de functionar del cookies",
         "Description[it]": "Configura come funzionano i cookie",
         "Description[ka]": "მოირგეთ ქუქიების მუშაობის სტილი",
         "Description[nl]": "Hier kunt u het cookiesbeleid instellen",
@@ -22,6 +24,7 @@
         "Icon": "preferences-web-browser-cookies",
         "Id": "cookies",
         "Name": "Cookies",
+        "Name[ar]": "الكعك",
         "Name[bg]": "Бисквитки",
         "Name[ca@valencia]": "Galetes",
         "Name[ca]": "Galetes",
@@ -31,6 +34,7 @@
         "Name[eu]": "«Cookie»ak",
         "Name[fi]": "Evästeet",
         "Name[fr]": "Cookies",
+        "Name[ia]": "Cookies",
         "Name[it]": "Cookie",
         "Name[ka]": "ქუქიები",
         "Name[nl]": "Cookies",
