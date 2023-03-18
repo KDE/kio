@@ -4,7 +4,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # Stephan Johach <lucardus@onlinehome.de>, 2006.
 # Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2020, 2021, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2011.
 # Kai Uwe Broulik <kde@privat.broulik.de>, 2021.
 # Frank Steinmetzger <dev@felsenfleischer.de>, 2021.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 02:12+0000\n"
-"PO-Revision-Date: 2022-12-19 09:36+0100\n"
+"PO-Revision-Date: 2023-03-17 23:21+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,8 +48,7 @@ msgstr ""
 "Vermutlich reichen Ihre Zugriffsrechte nicht aus."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Erstellung des Ein-/Ausgabemoduls nicht möglich: %1"
 
@@ -807,8 +806,7 @@ msgid "Communication with the local password server failed"
 msgstr "Die Kommunikation mit dem lokalen Passwort-Server ist fehlgeschlagen"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
 msgstr "Erstellung des Ein-/Ausgabemoduls nicht möglich. %1"
 
@@ -834,10 +832,9 @@ msgstr ""
 "Bitte versuchen Sie es erneut, nachdem Sie die Berechtigungen geändert haben."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "Diese Datei ist zu groß für den Papierkorb."
+msgstr "Datei ist zu groß für den Papierkorb."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -2402,16 +2399,12 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Das Protokoll %1 kann nicht initialisiert werden."
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Erstellung des Ein-/Ausgabemoduls nicht möglich"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
@@ -2421,10 +2414,7 @@ msgstr ""
 "technische Gründe."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2692,22 +2682,21 @@ msgid "Unknown protocol '%1'."
 msgstr "Unbekanntes Protokoll „%1“."
 
 #: core/worker.cpp:331
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Ein-/Ausgabemodul für „%1“ nicht auffindbar."
+msgstr "Ein-/Ausgabemodul für das Protokoll „%1“ nicht auffindbar."
 
 #: core/worker.cpp:339
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Socket für Ein-/Ausgabemodul für „%1“ kann nicht gestartet werden."
+msgstr ""
+"Socket für Ein-/Ausgabemodul für das Protokoll „%1“ kann nicht erstellt "
+"werden."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Ausführbare Datei „kioslave5“ wurde in „%1“ nicht gefunden"
+msgstr "Ausführbare Datei „kioworker“ wurde in „%1“ nicht gefunden"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -3303,6 +3292,7 @@ msgstr "Beim Zugriff auf „%1“ ist ein Fehler aufgetreten"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Mindestens eine Datei auf dem Gerät ist noch in einer Anwendung geöffnet."
 
 #: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-kuit-format
@@ -4050,11 +4040,10 @@ msgid "Launching %1"
 msgstr "%1 wird gestartet"
 
 #: gui/kprocessrunner.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Die Datei „%1“ wurde nicht gefunden"
+msgstr "Der Befehl <command>%1</command> kann nicht gefunden werden."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
