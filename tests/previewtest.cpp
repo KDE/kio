@@ -35,7 +35,7 @@ PreviewTest::PreviewTest()
 
     m_plugins = new QLineEdit(this);
     layout->addWidget(m_plugins, 1, 0, 1, 2);
-    m_plugins->setText(enabledPlugins.join("; "));
+    m_plugins->setText(enabledPlugins.join(QStringLiteral("; ")));
 
     m_preview = new QLabel(this);
     m_preview->setMinimumSize(400, 300);
@@ -48,7 +48,7 @@ void PreviewTest::slotGenerate()
     items.append(KFileItem(QUrl::fromUserInput(m_url->text())));
 
     QStringList enabledPlugins;
-    const QStringList splittedText = m_plugins->text().split(';');
+    const QStringList splittedText = m_plugins->text().split(QLatin1Char(';'));
     for (const QString &plugin : splittedText) {
         enabledPlugins << plugin.trimmed();
     }

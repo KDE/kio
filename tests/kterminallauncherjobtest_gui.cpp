@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     auto *job = new KTerminalLauncherJob(command);
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("MYVAR", "myvalue"); // for interactive testing that it was set
+    env.insert(QStringLiteral("MYVAR"), QStringLiteral("myvalue")); // for interactive testing that it was set
     job->setProcessEnvironment(env);
     job->setWorkingDirectory(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation)); // for testing
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));

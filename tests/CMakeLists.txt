@@ -5,6 +5,10 @@ find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
+if (ENABLE_PCH)
+    set_directory_properties(PROPERTIES PRECOMPILE_HEADERS_REUSE_FROM KF6KIOCore)
+endif()
+
 macro(KIOWIDGETS_EXECUTABLE_TESTS)
   foreach(_testname ${ARGN})
     add_executable(${_testname} ${_testname}.cpp)
@@ -17,6 +21,9 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
        Qt6::Test
        KF6::WidgetsAddons
        KF6::IconThemes)
+    if (ENABLE_PCH)
+      target_precompile_headers(${_testname} REUSE_FROM KF6KIOWidgets)
+    endif()
     ecm_mark_as_test(${_testname})
   endforeach()
 endmacro(KIOWIDGETS_EXECUTABLE_TESTS)

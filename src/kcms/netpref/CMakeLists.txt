@@ -19,3 +19,7 @@ target_link_libraries(kcm_netpref
     KF6::I18n
     KF6::CoreAddons
 )
+
+if (ENABLE_PCH)
+    target_precompile_headers(kcm_netpref REUSE_FROM KIOPchCore)
+endif()

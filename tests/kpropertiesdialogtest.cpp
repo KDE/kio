@@ -11,7 +11,7 @@ int main(int argc, char **argv)
         qWarning() << "Expected argument: [url], the path or url to the file/dir for which to show properties";
         return 1;
     }
-    const QUrl u = QUrl::fromUserInput(argv[1], QDir::currentPath());
+    const QUrl u = QUrl::fromUserInput(QString::fromLatin1(argv[1]), QDir::currentPath());
 
     {
         KPropertiesDialog dlg(u);

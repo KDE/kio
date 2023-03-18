@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     auto *job = new KEMailClientLauncherJob;
-    job->setTo({"David Faure <faure@kde.org>", "Another person <null@kde.org>"});
-    job->setCc({"CC me please <null@kde.org>"});
-    job->setSubject("This is the test email's subject");
-    job->setBody("This email was created by kemailclientlauncherjobtest_gui in KIO.");
+    job->setTo({QStringLiteral("David Faure <faure@kde.org>"), QStringLiteral("Another person <null@kde.org>")});
+    job->setCc({QStringLiteral("CC me please <null@kde.org>")});
+    job->setSubject(QStringLiteral("This is the test email's subject"));
+    job->setBody(QStringLiteral("This email was created by kemailclientlauncherjobtest_gui in KIO."));
     const QStringList urls = app.arguments();
     QList<QUrl> attachments;
     std::transform(urls.cbegin(), urls.cend(), std::back_inserter(attachments), [](const QString &arg) {

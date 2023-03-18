@@ -17,5 +17,9 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kshorturifilter KF6::I18n KF6::KIOWidgets Qt6::DBus)
 
+if (ENABLE_PCH)
+    target_precompile_headers(kshorturifilter REUSE_FROM KIOPchWidgets)
+endif()
+
 install( FILES kshorturifilterrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 

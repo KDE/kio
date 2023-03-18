@@ -5,3 +5,7 @@ target_link_libraries(remotedirnotify KF6::DBusAddons KF6::KIOCore)
 set_target_properties(remotedirnotify PROPERTIES OUTPUT_NAME "remotenotifier")
 
 install(TARGETS remotedirnotify DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kded )
+
+if (ENABLE_PCH)
+    target_precompile_headers(remotedirnotify REUSE_FROM KIOPchCore)
+endif()

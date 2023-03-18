@@ -80,10 +80,10 @@ Receiver::Receiver()
     for (uint i = 0; i < sizeof(s_tests) / sizeof(*s_tests); ++i) {
         QHBoxLayout *hbox = new QHBoxLayout;
         lay->addLayout(hbox);
-        QPushButton *button = new QPushButton(s_tests[i].text, this);
+        QPushButton *button = new QPushButton(QString::fromUtf8(s_tests[i].text), this);
         button->setProperty("testNumber", i);
         hbox->addWidget(button);
-        QLabel *label = new QLabel(s_tests[i].expectedResult, this);
+        QLabel *label = new QLabel(QString::fromUtf8(s_tests[i].expectedResult), this);
         hbox->addWidget(label);
         connect(button, &QAbstractButton::clicked, this, [this, button]() {
             slotLaunchTest(button);
@@ -100,7 +100,7 @@ void Receiver::slotLaunchTest(QPushButton *sender)
     const int testNumber = sender->property("testNumber").toInt();
     QList<QUrl> urls;
     if (s_tests[testNumber].url) {
-        QString urlStr(s_tests[testNumber].url);
+        QString urlStr = QString::fromUtf8(s_tests[testNumber].url);
         if (urlStr == QLatin1String(testFile)) {
             urlStr = QFINDTESTDATA(testFile);
         }
@@ -120,7 +120,7 @@ void Receiver::slotLaunchTest(QPushButton *sender)
         }
         service = KService::Ptr(new KService(QDir::currentPath() + QLatin1Char('/') + dest));
     } else {
-        service = KService::Ptr(new KService("Some Name", s_tests[testNumber].exec, QString()));
+        service = KService::Ptr(new KService(QStringLiteral("Some Name"), QString::fromLatin1(s_tests[testNumber].exec), QString()));
     }
     auto *job = new KIO::ApplicationLauncherJob(service, this);
     job->setUrls(urls);

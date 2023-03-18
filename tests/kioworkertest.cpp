@@ -413,7 +413,7 @@ void KioWorkerTest::slotData(KIO::Job *, const QByteArray &data)
     if (data.size() == 0) {
         qDebug() << "Data: <End>";
     } else {
-        qDebug() << "Data: \"" << QString(data) << "\"";
+        qDebug() << "Data: \"" << QString::fromUtf8(data) << "\"";
     }
 }
 
@@ -464,7 +464,7 @@ int main(int argc, char **argv)
     const char version[] = "v0.0.0 0000"; // :-)
 
     QApplication app(argc, argv);
-    app.setApplicationVersion(version);
+    app.setApplicationVersion(QString::fromLatin1(version));
 
     uint op = KioWorkerTest::Copy;
     uint pr = 0;

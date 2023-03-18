@@ -10,3 +10,7 @@ target_link_libraries(kcm_webshortcuts
     KF6::I18n
     KF6::CoreAddons
 )
+
+if (ENABLE_PCH)
+    target_precompile_headers(kcm_webshortcuts REUSE_FROM KIOPchWidgets)
+endif()

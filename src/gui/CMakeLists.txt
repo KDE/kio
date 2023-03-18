@@ -86,6 +86,10 @@ target_link_libraries(KF6KIOGui
 
 target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
 
+if (ENABLE_PCH)
+    target_precompile_headers(KF6KIOGui REUSE_FROM KIOPchCore)
+endif()
+
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOGui_CamelCase_HEADERS
   HEADER_NAMES

@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     KFileWidget *fileWidget = dlg.fileWidget();
     fileWidget->setMode(KFile::Directory);
     dlg.setOperationMode(KFileWidget::Opening);
-    dlg.setWindowTitle("Select folder");
+    dlg.setWindowTitle(QStringLiteral("Select folder"));
 
     dlg.connect(dlg.fileWidget(), &KFileWidget::accepted, &app, [&dlg]() {
         qDebug() << "Selected dir URL:" << dlg.fileWidget()->selectedUrl();

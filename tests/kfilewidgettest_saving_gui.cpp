@@ -19,8 +19,8 @@ int main(int argc, char **argv)
 
     // Do some args
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption("multiple", "Allows multiple files selection"));
-    parser.addPositionalArgument("folder", "The initial folder");
+    parser.addOption(QCommandLineOption(QStringLiteral("multiple"), QStringLiteral("Allows multiple files selection")));
+    parser.addPositionalArgument(QStringLiteral("folder"), QStringLiteral("The initial folder"));
     parser.process(app);
     QStringList posargs = parser.positionalArguments();
 

@@ -59,3 +59,6 @@ target_link_libraries(kurisearchfilter
    Qt6::Core5Compat # QTextCodec
    Qt6::DBus
 )
+if (ENABLE_PCH)
+    target_precompile_headers(kurisearchfilter REUSE_FROM KIOPchWidgets)
+endif()

@@ -19,3 +19,7 @@ target_link_libraries(kcm_proxy PRIVATE
     KF6::KCMUtils
     KF6::KIOWidgets
 )
+
+if (ENABLE_PCH)
+    target_precompile_headers(kcm_proxy REUSE_FROM KIOPchWidgets)
+endif()

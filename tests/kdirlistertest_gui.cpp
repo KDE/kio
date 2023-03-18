@@ -83,7 +83,7 @@ void KDirListerTest::startRoot()
 
 void KDirListerTest::startTar()
 {
-    QUrl root = QUrl::fromLocalFile(QDir::homePath() + "/aclocal_1.tgz");
+    QUrl root = QUrl::fromLocalFile(QDir::homePath() + QStringLiteral("/aclocal_1.tgz"));
     lister->openUrl(root, KDirLister::Keep | KDirLister::Reload);
     // lister->stop( root );
 }

@@ -20,4 +20,8 @@ PRIVATE
    Qt6::DBus
 )
 
+if (ENABLE_PCH)
+    target_precompile_headers(kssld REUSE_FROM KIOPchCore)
+endif()
+
 kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kssld5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

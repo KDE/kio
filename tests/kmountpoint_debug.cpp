@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
     QUrl url;
     if (argc > 1) {
-        url = QUrl::fromUserInput(argv[1]);
+        url = QUrl::fromUserInput(QString::fromUtf8(argv[1]));
     } else {
         url = QUrl::fromLocalFile(QDir::currentPath());
     }

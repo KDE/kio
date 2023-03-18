@@ -7,3 +7,7 @@ target_sources(fixhosturifilter PRIVATE
 )
 
 target_link_libraries(fixhosturifilter KF6::KIOWidgets)
+
+if (ENABLE_PCH)
+    target_precompile_headers(fixhosturifilter REUSE_FROM KIOPchWidgets)
+endif()

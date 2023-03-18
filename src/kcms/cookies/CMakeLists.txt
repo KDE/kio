@@ -26,3 +26,7 @@ target_link_libraries(kcm_cookies PRIVATE
     KF6::KCMUtils
     KF6::KIOCore
 )
+
+if (ENABLE_PCH)
+    target_precompile_headers(kcm_cookies REUSE_FROM KIOPchCore)
+endif()
