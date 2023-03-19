@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"POT-Creation-Date: 2023-03-19 02:06+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3912,30 +3912,10 @@ msgstr ""
 msgid "&Policy"
 msgstr "Q&oida"
 
-#: kcms/cookies/kcookiesmain.cpp:42
+#: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
 msgstr "&Boshqaruv"
-
-#: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
-"the HTTP protocol (like Konqueror) store on your computer, initiated by a "
-"remote Internet server. This means that a web server can store information "
-"about you and your browsing activities on your machine for later use. You "
-"might consider this an invasion of privacy.</p><p> However, cookies are "
-"useful in certain situations. For example, they are often used by Internet "
-"shops, so you can 'put things into a shopping basket'. Some sites require "
-"you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP KIO "
-"worker offers you the ability to customize the way it handles cookies. So "
-"you might want to set the default policy to ask you whenever a server wants "
-"to set a cookie, allowing you to decide. For your favorite shopping web "
-"sites that you trust, you might want to set the policy to accept, then you "
-"can access the web sites without being prompted every time a cookie is "
-"received.</p>"
-msgstr ""
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -3953,29 +3933,23 @@ msgstr "Hamma kukilarni oʻchirib boʻlmadi."
 msgid "Unable to delete cookies as requested."
 msgstr "Kukilarni oʻchirib boʻlmadi."
 
-#: kcms/cookies/kcookiesmanagement.cpp:216
-#, fuzzy, kde-format
-#| msgid "<h1>Cookies Management Quick Help</h1>"
-msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>Kukilarni boshqarish boʻyicha tez yordam</h1>"
-
-#: kcms/cookies/kcookiesmanagement.cpp:228
+#: kcms/cookies/kcookiesmanagement.cpp:223
 #, kde-format
 msgid "Information Lookup Failure"
 msgstr ""
 
-#: kcms/cookies/kcookiesmanagement.cpp:230
+#: kcms/cookies/kcookiesmanagement.cpp:225
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
 msgstr "Kompyuterda saqlangan kukilar haqida maʼlumotni aniqlab boʻlmadi."
 
-#: kcms/cookies/kcookiesmanagement.cpp:321
+#: kcms/cookies/kcookiesmanagement.cpp:316
 #, kde-format
 msgid "End of session"
 msgstr "Seans yakuni"
 
-#: kcms/cookies/kcookiesmanagement.cpp:328
+#: kcms/cookies/kcookiesmanagement.cpp:323
 #, fuzzy, kde-format
 #| msgid "&Reset"
 msgid "Yes"
@@ -4124,30 +4098,6 @@ msgstr "Joylar"
 msgid ""
 "Unable to communicate with the cookie handler service.\n"
 "Any changes you made will not take effect until the service is restarted."
-msgstr ""
-
-#: kcms/cookies/kcookiespolicies.cpp:430
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-"the HTTP protocol (like Konqueror) stores on your computer from a remote "
-"Internet server. This means that a web server can store information about "
-"you and your browsing activities on your machine for later use. You might "
-"consider this an invasion of privacy.</p><p>However, cookies are useful in "
-"certain situations. For example, they are often used by Internet shops, so "
-"you can 'put things into a shopping basket'. Some sites require you have a "
-"browser that supports cookies.</p><p>Because most people want a compromise "
-"between privacy and the benefits cookies offer, KDE offers you the ability "
-"to customize the way it handles cookies. You might, for example want to set "
-"KDE's default policy to ask you whenever a server wants to set a cookie or "
-"simply reject or accept everything. For example, you might choose to accept "
-"all cookies from your favorite shopping web site. For this all you have to "
-"do is either browse to that particular site and when you are presented with "
-"the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-"tab and choose accept or simply specify the name of the site in the <i> "
-"Domain Specific Policy </i> tab and set it to accept. This enables you to "
-"receive cookies from trusted web sites without being asked every time KDE "
-"receives a cookie.</p>"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
@@ -4599,15 +4549,6 @@ msgstr ""
 "yoqilgan boʻlsa, qisman yozib olingan fayllarga \".part\" kengaytmasi "
 "qoʻshiladi. Fayl toʻliq yozib olingach bu kengaytma olib tashlanadi.</p>"
 
-#: kcms/netpref/netpref.cpp:186
-#, kde-format
-msgid ""
-"<h1>Network Preferences</h1>Here you can define the behavior of KDE programs "
-"when using Internet and network connections. If you experience timeouts or "
-"use a modem to connect to the Internet, you might want to adjust these "
-"settings."
-msgstr ""
-
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
 msgctxt "@info"
@@ -4620,18 +4561,6 @@ msgid ""
 "application> and <application>Falkon</application>&nbsp;- will not use these "
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
-msgstr ""
-
-#: kcms/proxy/kproxydlg.cpp:545
-#, kde-format
-msgid ""
-"<h1>Proxy</h1><p>A proxy server is an intermediate program that sits between "
-"your machine and the Internet and provides services such as web page caching "
-"and/or filtering.</p><p>Caching proxy servers give you faster access to "
-"sites you have already visited by locally storing or caching the content of "
-"those pages; filtering proxy servers, on the other hand, provide the ability "
-"to block out requests for ads, spam, or anything else you want to block.</"
-"p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
@@ -5009,41 +4938,6 @@ msgstr "Andoza foydalanuvchi:"
 #, kde-format
 msgid "Default password:"
 msgstr "Andoza maxfiy soʻz:"
-
-#: kcms/smb/smbrodlg.cpp:122
-#, kde-format
-msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-"Konqueror) are able to access shared Microsoft Windows file systems, if "
-"properly configured.</p><p>You can specify here the credentials used to "
-"access the shared resources. Passwords will be stored locally, and scrambled "
-"so as to render them unreadable to the human eye. For security reasons, you "
-"may not want to do that, as entries with passwords are clearly indicated as "
-"such.</p>"
-msgstr ""
-
-#: kcms/webshortcuts/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "&Search:"
-msgid "Web Search Keywords"
-msgstr "Q&idirish:"
-
-#: kcms/webshortcuts/main.cpp:30
-#, fuzzy, kde-format
-msgid "Configure enhanced browsing features"
-msgstr "&Davom etish"
-
-#: kcms/webshortcuts/main.cpp:39
-#, kde-format
-msgid ""
-"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-"browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-"are a quick way of using Web search engines. For example, type \"duckduckgo:"
-"frobozz\" or \"dd:frobozz\" and your web browser will do a search on "
-"DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if you have not "
-"changed this keyboard shortcut) and enter the shortcut in the Run Command "
-"dialog."
-msgstr ""
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -6211,20 +6105,6 @@ msgstr "Yoʻq"
 #: urifilters/ikws/ikwsopts.cpp:247
 #, kde-format
 msgid "Search F&ilters"
-msgstr ""
-
-#: urifilters/ikws/ikwsopts.cpp:275
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>In this module you can configure the web search keywords feature. Web "
-"search keywords allow you to quickly search or lookup words on the Internet. "
-"For example, to search for information about the KDE project using the "
-"Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-"<emphasis>google:KDE</emphasis>.</para><para>If you select a default search "
-"engine, then you can search for normal words or phrases by simply typing "
-"them into the input widget of applications that have built-in support for "
-"such a feature, e.g Konqueror.</para>"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
@@ -8925,6 +8805,20 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "<h1>Cookies Management Quick Help</h1>"
+#~ msgid "<h1>Cookie Management Quick Help</h1>"
+#~ msgstr "<h1>Kukilarni boshqarish boʻyicha tez yordam</h1>"
+
+#, fuzzy
+#~| msgid "&Search:"
+#~ msgid "Web Search Keywords"
+#~ msgstr "Q&idirish:"
+
+#, fuzzy
+#~ msgid "Configure enhanced browsing features"
+#~ msgstr "&Davom etish"
 
 #~ msgid "&Yes"
 #~ msgstr "&Ha"

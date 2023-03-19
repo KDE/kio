@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"POT-Creation-Date: 2023-03-19 02:06+0000\n"
 "PO-Revision-Date: 2023-03-01 02:06+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3928,42 +3928,10 @@ msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
 msgid "&Policy"
 msgstr "정책(&P)"
 
-#: kcms/cookies/kcookiesmain.cpp:42
+#: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
 msgstr "관리(&M)"
-
-#: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
-"the HTTP protocol (like Konqueror) store on your computer, initiated by a "
-"remote Internet server. This means that a web server can store information "
-"about you and your browsing activities on your machine for later use. You "
-"might consider this an invasion of privacy.</p><p> However, cookies are "
-"useful in certain situations. For example, they are often used by Internet "
-"shops, so you can 'put things into a shopping basket'. Some sites require "
-"you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP KIO "
-"worker offers you the ability to customize the way it handles cookies. So "
-"you might want to set the default policy to ask you whenever a server wants "
-"to set a cookie, allowing you to decide. For your favorite shopping web "
-"sites that you trust, you might want to set the policy to accept, then you "
-"can access the web sites without being prompted every time a cookie is "
-"received.</p>"
-msgstr ""
-"<h1>쿠키</h1><p>쿠키에는 원격 인터넷 서버에서 시작한 HTTP 프로토콜(예: "
-"Konqueror)을 사용하는 KDE 프로그램이 컴퓨터에 저장하는 정보가 들어 있습니다. "
-"즉, 웹 서버가 나중에 사용할 수 있도록 사용자 및 사용자의 검색 활동에 대한 정"
-"보를 시스템에 저장할 수 있습니다. 특성 상 사생활 침해로 비칠 수도 있습니다.</"
-"p><p>하지만 쿠키는 특정 상황에서 유용합니다. 예를 들어, 온라인 쇼핑몰의 장바"
-"구니에 상품을 넣을 때 사용됩니다. 일부 사이트에는 쿠키를 지원하는 브라우저가 "
-"필요합니다.</p><p>대부분 쿠키가 제공하는 혜택과 개인 정보를 절충하기를 원하"
-"기 때문에 HTTP KIO 워커는 사용자가 쿠키를 처리하는 방식을 사용자 정의할 수 있"
-"는 기능을 제공합니다. 따라서 사용자가 결정할 수 있도록 서버가 쿠키를 설정할 "
-"때마다 사용자에게 묻는 기본 정책을 설정할 수 있습니다. 신뢰할 수 있는 즐겨찾"
-"는 웹사이트의 경우 수락하도록 정책을 설정한 다음 쿠키를 받을 때마다 메시지가 "
-"표시되지 않고 웹사이트에 접근할 수 있습니다.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -3981,28 +3949,23 @@ msgstr "요청한 모든 쿠키를 삭제할 수 없습니다."
 msgid "Unable to delete cookies as requested."
 msgstr "요청한 쿠키를 삭제할 수 없습니다."
 
-#: kcms/cookies/kcookiesmanagement.cpp:216
-#, kde-format
-msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>쿠키 관리 빠른 도움말</h1>"
-
-#: kcms/cookies/kcookiesmanagement.cpp:228
+#: kcms/cookies/kcookiesmanagement.cpp:223
 #, kde-format
 msgid "Information Lookup Failure"
 msgstr "정보 찾기 실패"
 
-#: kcms/cookies/kcookiesmanagement.cpp:230
+#: kcms/cookies/kcookiesmanagement.cpp:225
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
 msgstr "컴퓨터에 저장된 쿠키 정보를 검색할 수 없습니다."
 
-#: kcms/cookies/kcookiesmanagement.cpp:321
+#: kcms/cookies/kcookiesmanagement.cpp:316
 #, kde-format
 msgid "End of session"
 msgstr "세션 끝"
 
-#: kcms/cookies/kcookiesmanagement.cpp:328
+#: kcms/cookies/kcookiesmanagement.cpp:323
 #, kde-format
 msgid "Yes"
 msgstr "예"
@@ -4145,42 +4108,6 @@ msgid ""
 msgstr ""
 "쿠키 핸들러 서비스와 통신할 수 없습니다.\n"
 "변경 사항을 적용하려면 서비스를 다시 시작해야 합니다."
-
-#: kcms/cookies/kcookiespolicies.cpp:430
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-"the HTTP protocol (like Konqueror) stores on your computer from a remote "
-"Internet server. This means that a web server can store information about "
-"you and your browsing activities on your machine for later use. You might "
-"consider this an invasion of privacy.</p><p>However, cookies are useful in "
-"certain situations. For example, they are often used by Internet shops, so "
-"you can 'put things into a shopping basket'. Some sites require you have a "
-"browser that supports cookies.</p><p>Because most people want a compromise "
-"between privacy and the benefits cookies offer, KDE offers you the ability "
-"to customize the way it handles cookies. You might, for example want to set "
-"KDE's default policy to ask you whenever a server wants to set a cookie or "
-"simply reject or accept everything. For example, you might choose to accept "
-"all cookies from your favorite shopping web site. For this all you have to "
-"do is either browse to that particular site and when you are presented with "
-"the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-"tab and choose accept or simply specify the name of the site in the <i> "
-"Domain Specific Policy </i> tab and set it to accept. This enables you to "
-"receive cookies from trusted web sites without being asked every time KDE "
-"receives a cookie.</p>"
-msgstr ""
-"<h1>쿠키</h1><p>쿠키에는 원격 인터넷 서버에서 시작한 HTTP 프로토콜(예: "
-"Konqueror)을 사용하는 KDE 프로그램이 컴퓨터에 저장하는 정보가 들어 있습니다. "
-"즉, 웹 서버가 나중에 사용할 수 있도록 사용자 및 사용자의 검색 활동에 대한 정"
-"보를 시스템에 저장할 수 있습니다. 특성 상 사생활 침해로 비칠 수도 있습니다.</"
-"p><p>하지만 쿠키는 특정 상황에서 유용합니다. 예를 들어, 온라인 쇼핑몰의 장바"
-"구니에 상품을 넣을 때 사용됩니다. 일부 사이트에는 쿠키를 지원하는 브라우저가 "
-"필요합니다.</p><p>대부분 쿠키의 장점과 개인 정보 유출 사이에서 고민하기 때문"
-"에, KDE에서는 쿠키를 처리하는 방법을 사용자 정의할 수 있습니다. 서버에서 쿠키"
-"를 설정하려고 할 때 물어보게 하거나 모든 쿠키를 거부하게 할 수 있습니다. 또"
-"한, 특정한 웹사이트에서는 모든 쿠키를 받아들이도록 할 수 있습니다. <i>도메인 "
-"지정 정책</i> 탭에서는 이러한 것을 정의할 수 있습니다. KDE가 신뢰할 웹사이트"
-"에서 쿠키를 받을 때마다 항상 확인하지 않도록 할 수 있습니다.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4659,18 +4586,6 @@ msgstr ""
 "로드가 완료되지 않은 파일에 \".part\"라는 확장자가 붙습니다. 이 확장자는 전송"
 "이 완료되었을 때 사라집니다.</p>"
 
-#: kcms/netpref/netpref.cpp:186
-#, kde-format
-msgid ""
-"<h1>Network Preferences</h1>Here you can define the behavior of KDE programs "
-"when using Internet and network connections. If you experience timeouts or "
-"use a modem to connect to the Internet, you might want to adjust these "
-"settings."
-msgstr ""
-"<h1>네트워크 속성</h1> 이 곳에서 인터넷과 네트워크 연결을 사용하는 KDE 프로그"
-"램의 작동 방식을 지정할 수 있습니다. 만일 인터넷에 연결할 때 모뎀을 사용하거"
-"나 시간 초과가 발생한다면 설정을 변경해야 합니다."
-
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
 msgctxt "@info"
@@ -4691,24 +4606,6 @@ msgstr ""
 "application>, <application>Akregator</application>, <application>Falkon</"
 "application>)에서는 이 설정을 사용하지 않습니다. 일부 프로그램에서는 자체 설"
 "정으로 프록시 설정을 변경할 수 있습니다."
-
-#: kcms/proxy/kproxydlg.cpp:545
-#, kde-format
-msgid ""
-"<h1>Proxy</h1><p>A proxy server is an intermediate program that sits between "
-"your machine and the Internet and provides services such as web page caching "
-"and/or filtering.</p><p>Caching proxy servers give you faster access to "
-"sites you have already visited by locally storing or caching the content of "
-"those pages; filtering proxy servers, on the other hand, provide the ability "
-"to block out requests for ads, spam, or anything else you want to block.</"
-"p><p><u>Note:</u> Some proxy servers provide both services.</p>"
-msgstr ""
-"<h1>프록시</h1><p>프록시 서버는 사용자의 시스템과 인터넷 사이에 있는 중간 프"
-"로그램으로 웹 페이지 캐시나 필터링 등을 제공합니다.</p><p>프록시 서버는 한 "
-"번 방문했던 사이트의 내용을 프록시 서버의 로컬에 저장하거나 캐시해 둡니다. 또"
-"한 웹 페이지의 내용을 바꿀 수도 있습니다. 예를 들어서 필터가 내장되어 있는 프"
-"록시 서버는 광고나 스팸, 또는 원하지 않는 내용을 삭제할 수 있습니다.</"
-"p><p><u>참고:</u>일부 서버는 두 가지 기능을 모두 제공합니다.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -5141,52 +5038,6 @@ msgstr "기본 사용자 이름:"
 #, kde-format
 msgid "Default password:"
 msgstr "기본 암호:"
-
-#: kcms/smb/smbrodlg.cpp:122
-#, kde-format
-msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-"Konqueror) are able to access shared Microsoft Windows file systems, if "
-"properly configured.</p><p>You can specify here the credentials used to "
-"access the shared resources. Passwords will be stored locally, and scrambled "
-"so as to render them unreadable to the human eye. For security reasons, you "
-"may not want to do that, as entries with passwords are clearly indicated as "
-"such.</p>"
-msgstr ""
-"<h1>Windows 공유</h1><p>SMB KIO 워커(Konqueror 등)를 사용하는 프로그램은 올바"
-"르게 설정한 경우 공유된 Microsoft Windows 파일 시스템에 접근할 수 있습니다.</"
-"p><p> 여기서 공유 리소스에 접근하는 데 사용할 인증 정보를 지정할 수 있습니"
-"다. 암호는 로컬에 저장되며 사람의 눈으로 읽을 수 없도록 스크램블 처리됩니다. "
-"암호가 있는 항목은 명확하게 표시되므로 보안상의 이유로 암호를 저장하지 않을 "
-"수 있습니다.</p>"
-
-#: kcms/webshortcuts/main.cpp:28
-#, kde-format
-msgid "Web Search Keywords"
-msgstr "웹 검색 키워드"
-
-#: kcms/webshortcuts/main.cpp:30
-#, kde-format
-msgid "Configure enhanced browsing features"
-msgstr "확장된 브라우징 기능 설정"
-
-#: kcms/webshortcuts/main.cpp:39
-#, kde-format
-msgid ""
-"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-"browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-"are a quick way of using Web search engines. For example, type \"duckduckgo:"
-"frobozz\" or \"dd:frobozz\" and your web browser will do a search on "
-"DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if you have not "
-"changed this keyboard shortcut) and enter the shortcut in the Run Command "
-"dialog."
-msgstr ""
-"<h1>향상된 브라우징</h1> 이 모듈에서 KDE의 향상된 브라우징 기능을 설정할 수 "
-"있습니다. <h2>웹 검색 키워드</h2>웹 검색 키워드는 웹 검색 엔진을 이용하는 빠"
-"른 방법입니다.예를 들어 \"duckduckgo:frobozz\"나 \"dd:frobozz\"를 입력하면 "
-"웹 브라우저에서 DuckDuckGo를 열어서 \"frobozz\"로 검색합니다. 더 쉬운 방법으"
-"로, 단축키를 바꾸지 않았으면 Alt+F2 키를 눌러서 나타나는 명령 실행 창에 바로 "
-"가기를 입력해도 됩니다."
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -6360,26 +6211,6 @@ msgstr "없음"
 #, kde-format
 msgid "Search F&ilters"
 msgstr "검색 필터(&I)"
-
-#: urifilters/ikws/ikwsopts.cpp:275
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>In this module you can configure the web search keywords feature. Web "
-"search keywords allow you to quickly search or lookup words on the Internet. "
-"For example, to search for information about the KDE project using the "
-"Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-"<emphasis>google:KDE</emphasis>.</para><para>If you select a default search "
-"engine, then you can search for normal words or phrases by simply typing "
-"them into the input widget of applications that have built-in support for "
-"such a feature, e.g Konqueror.</para>"
-msgstr ""
-"<para>이 모듈에서는 웹 검색 키워드 기능을 설정할 수 있습니다. 웹 검색 키워드"
-"를 사용하면 인터넷에서 단어를 빠르게 찾을 수 있도록 도와 줍니다. 예를 들어, "
-"구글에서 KDE에 관해서 찾아 보고 싶으면 <emphasis>gg:KDE</emphasis> 또는 "
-"<emphasis>google:KDE</emphasis>만 입력하면 됩니다.</para><para>기본 검색 엔진"
-"을 선택하는 경우 해당 기능을 기본적으로 지원하는 프로그램의 입력 위젯에 입력"
-"하기만 하면 일반 단어 또는 구를 검색할 수 있습니다(예: Konqueror).</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -9097,6 +8928,159 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#~ "using the HTTP protocol (like Konqueror) store on your computer, "
+#~ "initiated by a remote Internet server. This means that a web server can "
+#~ "store information about you and your browsing activities on your machine "
+#~ "for later use. You might consider this an invasion of privacy.</p><p> "
+#~ "However, cookies are useful in certain situations. For example, they are "
+#~ "often used by Internet shops, so you can 'put things into a shopping "
+#~ "basket'. Some sites require you have a browser that supports cookies.</"
+#~ "p><p> Because most people want a compromise between privacy and the "
+#~ "benefits cookies offer, the HTTP KIO worker offers you the ability to "
+#~ "customize the way it handles cookies. So you might want to set the "
+#~ "default policy to ask you whenever a server wants to set a cookie, "
+#~ "allowing you to decide. For your favorite shopping web sites that you "
+#~ "trust, you might want to set the policy to accept, then you can access "
+#~ "the web sites without being prompted every time a cookie is received.</p>"
+#~ msgstr ""
+#~ "<h1>쿠키</h1><p>쿠키에는 원격 인터넷 서버에서 시작한 HTTP 프로토콜(예: "
+#~ "Konqueror)을 사용하는 KDE 프로그램이 컴퓨터에 저장하는 정보가 들어 있습니"
+#~ "다. 즉, 웹 서버가 나중에 사용할 수 있도록 사용자 및 사용자의 검색 활동에 "
+#~ "대한 정보를 시스템에 저장할 수 있습니다. 특성 상 사생활 침해로 비칠 수도 "
+#~ "있습니다.</p><p>하지만 쿠키는 특정 상황에서 유용합니다. 예를 들어, 온라인 "
+#~ "쇼핑몰의 장바구니에 상품을 넣을 때 사용됩니다. 일부 사이트에는 쿠키를 지원"
+#~ "하는 브라우저가 필요합니다.</p><p>대부분 쿠키가 제공하는 혜택과 개인 정보"
+#~ "를 절충하기를 원하기 때문에 HTTP KIO 워커는 사용자가 쿠키를 처리하는 방식"
+#~ "을 사용자 정의할 수 있는 기능을 제공합니다. 따라서 사용자가 결정할 수 있도"
+#~ "록 서버가 쿠키를 설정할 때마다 사용자에게 묻는 기본 정책을 설정할 수 있습"
+#~ "니다. 신뢰할 수 있는 즐겨찾는 웹사이트의 경우 수락하도록 정책을 설정한 다"
+#~ "음 쿠키를 받을 때마다 메시지가 표시되지 않고 웹사이트에 접근할 수 있습니"
+#~ "다.</p>"
+
+#~ msgid "<h1>Cookie Management Quick Help</h1>"
+#~ msgstr "<h1>쿠키 관리 빠른 도움말</h1>"
+
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
+#~ "the HTTP protocol (like Konqueror) stores on your computer from a remote "
+#~ "Internet server. This means that a web server can store information about "
+#~ "you and your browsing activities on your machine for later use. You might "
+#~ "consider this an invasion of privacy.</p><p>However, cookies are useful "
+#~ "in certain situations. For example, they are often used by Internet "
+#~ "shops, so you can 'put things into a shopping basket'. Some sites require "
+#~ "you have a browser that supports cookies.</p><p>Because most people want "
+#~ "a compromise between privacy and the benefits cookies offer, KDE offers "
+#~ "you the ability to customize the way it handles cookies. You might, for "
+#~ "example want to set KDE's default policy to ask you whenever a server "
+#~ "wants to set a cookie or simply reject or accept everything. For example, "
+#~ "you might choose to accept all cookies from your favorite shopping web "
+#~ "site. For this all you have to do is either browse to that particular "
+#~ "site and when you are presented with the cookie dialog box, click on <i> "
+#~ "This domain </i> under the 'apply to' tab and choose accept or simply "
+#~ "specify the name of the site in the <i> Domain Specific Policy </i> tab "
+#~ "and set it to accept. This enables you to receive cookies from trusted "
+#~ "web sites without being asked every time KDE receives a cookie.</p>"
+#~ msgstr ""
+#~ "<h1>쿠키</h1><p>쿠키에는 원격 인터넷 서버에서 시작한 HTTP 프로토콜(예: "
+#~ "Konqueror)을 사용하는 KDE 프로그램이 컴퓨터에 저장하는 정보가 들어 있습니"
+#~ "다. 즉, 웹 서버가 나중에 사용할 수 있도록 사용자 및 사용자의 검색 활동에 "
+#~ "대한 정보를 시스템에 저장할 수 있습니다. 특성 상 사생활 침해로 비칠 수도 "
+#~ "있습니다.</p><p>하지만 쿠키는 특정 상황에서 유용합니다. 예를 들어, 온라인 "
+#~ "쇼핑몰의 장바구니에 상품을 넣을 때 사용됩니다. 일부 사이트에는 쿠키를 지원"
+#~ "하는 브라우저가 필요합니다.</p><p>대부분 쿠키의 장점과 개인 정보 유출 사이"
+#~ "에서 고민하기 때문에, KDE에서는 쿠키를 처리하는 방법을 사용자 정의할 수 있"
+#~ "습니다. 서버에서 쿠키를 설정하려고 할 때 물어보게 하거나 모든 쿠키를 거부"
+#~ "하게 할 수 있습니다. 또한, 특정한 웹사이트에서는 모든 쿠키를 받아들이도록 "
+#~ "할 수 있습니다. <i>도메인 지정 정책</i> 탭에서는 이러한 것을 정의할 수 있"
+#~ "습니다. KDE가 신뢰할 웹사이트에서 쿠키를 받을 때마다 항상 확인하지 않도록 "
+#~ "할 수 있습니다.</p>"
+
+#~ msgid ""
+#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
+#~ "programs when using Internet and network connections. If you experience "
+#~ "timeouts or use a modem to connect to the Internet, you might want to "
+#~ "adjust these settings."
+#~ msgstr ""
+#~ "<h1>네트워크 속성</h1> 이 곳에서 인터넷과 네트워크 연결을 사용하는 KDE 프"
+#~ "로그램의 작동 방식을 지정할 수 있습니다. 만일 인터넷에 연결할 때 모뎀을 사"
+#~ "용하거나 시간 초과가 발생한다면 설정을 변경해야 합니다."
+
+#~ msgid ""
+#~ "<h1>Proxy</h1><p>A proxy server is an intermediate program that sits "
+#~ "between your machine and the Internet and provides services such as web "
+#~ "page caching and/or filtering.</p><p>Caching proxy servers give you "
+#~ "faster access to sites you have already visited by locally storing or "
+#~ "caching the content of those pages; filtering proxy servers, on the other "
+#~ "hand, provide the ability to block out requests for ads, spam, or "
+#~ "anything else you want to block.</p><p><u>Note:</u> Some proxy servers "
+#~ "provide both services.</p>"
+#~ msgstr ""
+#~ "<h1>프록시</h1><p>프록시 서버는 사용자의 시스템과 인터넷 사이에 있는 중간 "
+#~ "프로그램으로 웹 페이지 캐시나 필터링 등을 제공합니다.</p><p>프록시 서버는 "
+#~ "한 번 방문했던 사이트의 내용을 프록시 서버의 로컬에 저장하거나 캐시해 둡니"
+#~ "다. 또한 웹 페이지의 내용을 바꿀 수도 있습니다. 예를 들어서 필터가 내장되"
+#~ "어 있는 프록시 서버는 광고나 스팸, 또는 원하지 않는 내용을 삭제할 수 있습"
+#~ "니다.</p><p><u>참고:</u>일부 서버는 두 가지 기능을 모두 제공합니다.</p>"
+
+#~ msgid ""
+#~ "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
+#~ "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#~ "properly configured.</p><p>You can specify here the credentials used to "
+#~ "access the shared resources. Passwords will be stored locally, and "
+#~ "scrambled so as to render them unreadable to the human eye. For security "
+#~ "reasons, you may not want to do that, as entries with passwords are "
+#~ "clearly indicated as such.</p>"
+#~ msgstr ""
+#~ "<h1>Windows 공유</h1><p>SMB KIO 워커(Konqueror 등)를 사용하는 프로그램은 "
+#~ "올바르게 설정한 경우 공유된 Microsoft Windows 파일 시스템에 접근할 수 있습"
+#~ "니다.</p><p> 여기서 공유 리소스에 접근하는 데 사용할 인증 정보를 지정할 "
+#~ "수 있습니다. 암호는 로컬에 저장되며 사람의 눈으로 읽을 수 없도록 스크램블 "
+#~ "처리됩니다. 암호가 있는 항목은 명확하게 표시되므로 보안상의 이유로 암호를 "
+#~ "저장하지 않을 수 있습니다.</p>"
+
+#~ msgid "Web Search Keywords"
+#~ msgstr "웹 검색 키워드"
+
+#~ msgid "Configure enhanced browsing features"
+#~ msgstr "확장된 브라우징 기능 설정"
+
+#~ msgid ""
+#~ "<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+#~ "browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
+#~ "are a quick way of using Web search engines. For example, type "
+#~ "\"duckduckgo:frobozz\" or \"dd:frobozz\" and your web browser will do a "
+#~ "search on DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if "
+#~ "you have not changed this keyboard shortcut) and enter the shortcut in "
+#~ "the Run Command dialog."
+#~ msgstr ""
+#~ "<h1>향상된 브라우징</h1> 이 모듈에서 KDE의 향상된 브라우징 기능을 설정할 "
+#~ "수 있습니다. <h2>웹 검색 키워드</h2>웹 검색 키워드는 웹 검색 엔진을 이용하"
+#~ "는 빠른 방법입니다.예를 들어 \"duckduckgo:frobozz\"나 \"dd:frobozz\"를 입"
+#~ "력하면 웹 브라우저에서 DuckDuckGo를 열어서 \"frobozz\"로 검색합니다. 더 쉬"
+#~ "운 방법으로, 단축키를 바꾸지 않았으면 Alt+F2 키를 눌러서 나타나는 명령 실"
+#~ "행 창에 바로 가기를 입력해도 됩니다."
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>In this module you can configure the web search keywords feature. "
+#~ "Web search keywords allow you to quickly search or lookup words on the "
+#~ "Internet. For example, to search for information about the KDE project "
+#~ "using the Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
+#~ "<emphasis>google:KDE</emphasis>.</para><para>If you select a default "
+#~ "search engine, then you can search for normal words or phrases by simply "
+#~ "typing them into the input widget of applications that have built-in "
+#~ "support for such a feature, e.g Konqueror.</para>"
+#~ msgstr ""
+#~ "<para>이 모듈에서는 웹 검색 키워드 기능을 설정할 수 있습니다. 웹 검색 키워"
+#~ "드를 사용하면 인터넷에서 단어를 빠르게 찾을 수 있도록 도와 줍니다. 예를 들"
+#~ "어, 구글에서 KDE에 관해서 찾아 보고 싶으면 <emphasis>gg:KDE</emphasis> 또"
+#~ "는 <emphasis>google:KDE</emphasis>만 입력하면 됩니다.</para><para>기본 검"
+#~ "색 엔진을 선택하는 경우 해당 기능을 기본적으로 지원하는 프로그램의 입력 위"
+#~ "젯에 입력하기만 하면 일반 단어 또는 구를 검색할 수 있습니다(예: "
+#~ "Konqueror).</para>"
 
 #~ msgid "Using sub-URLs with %1 is not supported."
 #~ msgstr "%1 프로토콜에서 부 URL 사용은 지원되지 않습니다."

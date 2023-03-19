@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"POT-Creation-Date: 2023-03-19 02:06+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3840,41 +3840,10 @@ msgstr "程序“%1”无法启动。"
 msgid "&Policy"
 msgstr "策略(&P)"
 
-#: kcms/cookies/kcookiesmain.cpp:42
+#: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
 msgstr "管理(&M)"
-
-#: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
-"the HTTP protocol (like Konqueror) store on your computer, initiated by a "
-"remote Internet server. This means that a web server can store information "
-"about you and your browsing activities on your machine for later use. You "
-"might consider this an invasion of privacy.</p><p> However, cookies are "
-"useful in certain situations. For example, they are often used by Internet "
-"shops, so you can 'put things into a shopping basket'. Some sites require "
-"you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP KIO "
-"worker offers you the ability to customize the way it handles cookies. So "
-"you might want to set the default policy to ask you whenever a server wants "
-"to set a cookie, allowing you to decide. For your favorite shopping web "
-"sites that you trust, you might want to set the policy to accept, then you "
-"can access the web sites without being prompted every time a cookie is "
-"received.</p>"
-msgstr ""
-"<h1>Cookies</h1> <p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
-"Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网页服"
-"务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信息，以便"
-"日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，Cookies 在某些"
-"情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实现“将商品放入购物"
-"车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏览器才能正常访问。</"
-"p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间寻求一个平衡点，所以 "
-"HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。您可以将 KDE 的默认策略设"
-"置为在服务器请求使用 Cookies 时进行提示，让您选择是否接受。对于您经常访问且信"
-"任的购物网站，您可以将策略设置为接受，这样在访问该网站时，KDE 就不会在每次收"
-"到 Cookies 时询问您。</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -3892,28 +3861,23 @@ msgstr "无法按照请求删除所有 Cookies。"
 msgid "Unable to delete cookies as requested."
 msgstr "无法按照请求删除 Cookies。"
 
-#: kcms/cookies/kcookiesmanagement.cpp:216
-#, kde-format
-msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>Cookies 管理快速帮助</h1>"
-
-#: kcms/cookies/kcookiesmanagement.cpp:228
+#: kcms/cookies/kcookiesmanagement.cpp:223
 #, kde-format
 msgid "Information Lookup Failure"
 msgstr "信息查询失败"
 
-#: kcms/cookies/kcookiesmanagement.cpp:230
+#: kcms/cookies/kcookiesmanagement.cpp:225
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
 msgstr "无法获取存储在本机系统中的 Cookies 的信息。"
 
-#: kcms/cookies/kcookiesmanagement.cpp:321
+#: kcms/cookies/kcookiesmanagement.cpp:316
 #, kde-format
 msgid "End of session"
 msgstr "会话结束"
 
-#: kcms/cookies/kcookiesmanagement.cpp:328
+#: kcms/cookies/kcookiesmanagement.cpp:323
 #, kde-format
 msgid "Yes"
 msgstr "是"
@@ -4054,44 +4018,6 @@ msgid ""
 msgstr ""
 "无法与 Cookie 处理服务通信。\n"
 "您所作的更改只有在该服务重新启动之后才能生效。"
-
-#: kcms/cookies/kcookiespolicies.cpp:430
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-"the HTTP protocol (like Konqueror) stores on your computer from a remote "
-"Internet server. This means that a web server can store information about "
-"you and your browsing activities on your machine for later use. You might "
-"consider this an invasion of privacy.</p><p>However, cookies are useful in "
-"certain situations. For example, they are often used by Internet shops, so "
-"you can 'put things into a shopping basket'. Some sites require you have a "
-"browser that supports cookies.</p><p>Because most people want a compromise "
-"between privacy and the benefits cookies offer, KDE offers you the ability "
-"to customize the way it handles cookies. You might, for example want to set "
-"KDE's default policy to ask you whenever a server wants to set a cookie or "
-"simply reject or accept everything. For example, you might choose to accept "
-"all cookies from your favorite shopping web site. For this all you have to "
-"do is either browse to that particular site and when you are presented with "
-"the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-"tab and choose accept or simply specify the name of the site in the <i> "
-"Domain Specific Policy </i> tab and set it to accept. This enables you to "
-"receive cookies from trusted web sites without being asked every time KDE "
-"receives a cookie.</p>"
-msgstr ""
-"<h1>Cookies</h1><p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
-"Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网页服"
-"务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信息，以便"
-"日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，Cookies 在某些"
-"情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实现“将商品放入购物"
-"车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏览器才能正常访问。</"
-"p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间寻求一个平衡点，所以 "
-"HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。您可以将 KDE 的默认策略设"
-"置为在服务器请求使用 Cookies 时进行提示，让您选择是否接受；也可以将默认策略设"
-"置为接受或者拒绝所有 Cookies。例如对于您经常访问且信任的购物网站，您可以将策"
-"略设置为接受。要设置此策略，您要么直接打开该网站，在 Cookie 对话框弹出时点"
-"击“应用到”标签页下的 <i> 此域名 </i>，并选择接受；您还可以在 <i> 特定域名策"
-"略 </i> 标签页中指定网站的域名，然后将其设置为接受。这样在访问您信任的网站"
-"时，KDE 就不会在每次收到 Cookies 时询问您。</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4557,17 +4483,6 @@ msgstr ""
 "<p>标记 FTP 的部分上传文件。</p><p>勾选此项时，部分上传的文件将被附加“."
 "part”扩展名。此扩展名将在传输完成后自动去除。</p>"
 
-#: kcms/netpref/netpref.cpp:186
-#, kde-format
-msgid ""
-"<h1>Network Preferences</h1>Here you can define the behavior of KDE programs "
-"when using Internet and network connections. If you experience timeouts or "
-"use a modem to connect to the Internet, you might want to adjust these "
-"settings."
-msgstr ""
-"<h1>网络首选项</h1>您可以在这里设置 KDE 程序使用互联网和网络连接时的行为。如"
-"果您遇到网络超时问题，或者需要使用调制解调器上网，则可能需要调整这些设置。"
-
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
 msgctxt "@info"
@@ -4588,22 +4503,6 @@ msgstr ""
 "application>、<application>Akregator</application> 和 <application>Falkon</"
 "application> 等应用均不会使用此处指定的代理服务器设置。某些应用程序可能要在它"
 "们自己的选项中配置代理服务器。"
-
-#: kcms/proxy/kproxydlg.cpp:545
-#, kde-format
-msgid ""
-"<h1>Proxy</h1><p>A proxy server is an intermediate program that sits between "
-"your machine and the Internet and provides services such as web page caching "
-"and/or filtering.</p><p>Caching proxy servers give you faster access to "
-"sites you have already visited by locally storing or caching the content of "
-"those pages; filtering proxy servers, on the other hand, provide the ability "
-"to block out requests for ads, spam, or anything else you want to block.</"
-"p><p><u>Note:</u> Some proxy servers provide both services.</p>"
-msgstr ""
-"<h1>代理服务器</h1><p>代理服务器是一个位于您的计算机和 Internet 之间的中间程"
-"序，它能够提供网页缓存、内容过滤等服务。</p><p>缓存代理服务器可以加快已浏览网"
-"站的访问速度；过滤代理服务器可以拦截广告、垃圾消息或者其他您想屏蔽的内容。</"
-"p><p><u>注意：</u>某些代理服务器能够同时提供上述两种服务。</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -5028,49 +4927,6 @@ msgstr "默认用户名："
 #, kde-format
 msgid "Default password:"
 msgstr "默认密码："
-
-#: kcms/smb/smbrodlg.cpp:122
-#, kde-format
-msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-"Konqueror) are able to access shared Microsoft Windows file systems, if "
-"properly configured.</p><p>You can specify here the credentials used to "
-"access the shared resources. Passwords will be stored locally, and scrambled "
-"so as to render them unreadable to the human eye. For security reasons, you "
-"may not want to do that, as entries with passwords are clearly indicated as "
-"such.</p>"
-msgstr ""
-"<h1>Windows 共享</h1><p>使用 SMB KIO 工作程序的应用程序 (例如Konqueror) 在正"
-"确配置之后，可以访问 Windows 共享的文件系统。</p><p>您可以指定用于访问共享资"
-"源的身份验证信息。密码将在本地存储，并且打乱为人类难以识别的状态。出于安全考"
-"虑，您应该避免这样做，因为有密码的项目会有明确标识。</p>"
-
-#: kcms/webshortcuts/main.cpp:28
-#, kde-format
-msgid "Web Search Keywords"
-msgstr "网页搜索关键词"
-
-#: kcms/webshortcuts/main.cpp:30
-#, kde-format
-msgid "Configure enhanced browsing features"
-msgstr "配置增强浏览特性"
-
-#: kcms/webshortcuts/main.cpp:39
-#, kde-format
-msgid ""
-"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-"browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-"are a quick way of using Web search engines. For example, type \"duckduckgo:"
-"frobozz\" or \"dd:frobozz\" and your web browser will do a search on "
-"DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if you have not "
-"changed this keyboard shortcut) and enter the shortcut in the Run Command "
-"dialog."
-msgstr ""
-"<h1>增强浏览</h1>在此模块中，你可以配置一些 KDE 的增强浏览功能。<h2>网页搜索"
-"关键词</h2>网页搜索关键词可以帮助您快速调用网页搜索引擎。例如输入“duckduckgo:"
-"frobozz”或者“dd:frobozz”即可命令浏览器在 DuckDuckGo 上搜索“frobozz”。您也可以"
-"按下 Alt+F2 快捷键 (假设你没有改过这个快捷键)，然后在“运行命令”对话框中输入上"
-"述搜索关键词。"
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -6230,26 +6086,6 @@ msgstr "无"
 #, kde-format
 msgid "Search F&ilters"
 msgstr "搜索过滤(&I)"
-
-#: urifilters/ikws/ikwsopts.cpp:275
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>In this module you can configure the web search keywords feature. Web "
-"search keywords allow you to quickly search or lookup words on the Internet. "
-"For example, to search for information about the KDE project using the "
-"Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-"<emphasis>google:KDE</emphasis>.</para><para>If you select a default search "
-"engine, then you can search for normal words or phrases by simply typing "
-"them into the input widget of applications that have built-in support for "
-"such a feature, e.g Konqueror.</para>"
-msgstr ""
-"<para>您可在此模块中配置网页搜索关键词功能。网页搜索关键词可以帮助您快速调用"
-"网页搜索引擎。例如在想要使用 Google 搜索引擎搜索关于 KDE 项目的信息时，您只需"
-"输入 <emphasis>gg:KDE</emphasis> 或者 <emphasis>google:KDE</emphasis> 即可。"
-"</para>\n"
-"<para>在支持本功能的应用程序中 (例如 Konqueror)，如果您已经选择了默认搜索引"
-"擎，那么只需在程序的输入框中直接输入要搜索的单词或者句子即可。</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -8919,6 +8755,153 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#~ "using the HTTP protocol (like Konqueror) store on your computer, "
+#~ "initiated by a remote Internet server. This means that a web server can "
+#~ "store information about you and your browsing activities on your machine "
+#~ "for later use. You might consider this an invasion of privacy.</p><p> "
+#~ "However, cookies are useful in certain situations. For example, they are "
+#~ "often used by Internet shops, so you can 'put things into a shopping "
+#~ "basket'. Some sites require you have a browser that supports cookies.</"
+#~ "p><p> Because most people want a compromise between privacy and the "
+#~ "benefits cookies offer, the HTTP KIO worker offers you the ability to "
+#~ "customize the way it handles cookies. So you might want to set the "
+#~ "default policy to ask you whenever a server wants to set a cookie, "
+#~ "allowing you to decide. For your favorite shopping web sites that you "
+#~ "trust, you might want to set the policy to accept, then you can access "
+#~ "the web sites without being prompted every time a cookie is received.</p>"
+#~ msgstr ""
+#~ "<h1>Cookies</h1> <p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
+#~ "Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网"
+#~ "页服务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信"
+#~ "息，以便日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，"
+#~ "Cookies 在某些情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实"
+#~ "现“将商品放入购物车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏"
+#~ "览器才能正常访问。</p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间"
+#~ "寻求一个平衡点，所以 HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。"
+#~ "您可以将 KDE 的默认策略设置为在服务器请求使用 Cookies 时进行提示，让您选择"
+#~ "是否接受。对于您经常访问且信任的购物网站，您可以将策略设置为接受，这样在访"
+#~ "问该网站时，KDE 就不会在每次收到 Cookies 时询问您。</p>"
+
+#~ msgid "<h1>Cookie Management Quick Help</h1>"
+#~ msgstr "<h1>Cookies 管理快速帮助</h1>"
+
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
+#~ "the HTTP protocol (like Konqueror) stores on your computer from a remote "
+#~ "Internet server. This means that a web server can store information about "
+#~ "you and your browsing activities on your machine for later use. You might "
+#~ "consider this an invasion of privacy.</p><p>However, cookies are useful "
+#~ "in certain situations. For example, they are often used by Internet "
+#~ "shops, so you can 'put things into a shopping basket'. Some sites require "
+#~ "you have a browser that supports cookies.</p><p>Because most people want "
+#~ "a compromise between privacy and the benefits cookies offer, KDE offers "
+#~ "you the ability to customize the way it handles cookies. You might, for "
+#~ "example want to set KDE's default policy to ask you whenever a server "
+#~ "wants to set a cookie or simply reject or accept everything. For example, "
+#~ "you might choose to accept all cookies from your favorite shopping web "
+#~ "site. For this all you have to do is either browse to that particular "
+#~ "site and when you are presented with the cookie dialog box, click on <i> "
+#~ "This domain </i> under the 'apply to' tab and choose accept or simply "
+#~ "specify the name of the site in the <i> Domain Specific Policy </i> tab "
+#~ "and set it to accept. This enables you to receive cookies from trusted "
+#~ "web sites without being asked every time KDE receives a cookie.</p>"
+#~ msgstr ""
+#~ "<h1>Cookies</h1><p>Cookies 记录了使用 HTTP 协议的 KDE 应用程序 (例如 "
+#~ "Konqueror) 保存在计算机上的、由远程 Internet 服务器发起的信息。这意味着网"
+#~ "页服务器可以通过 Cookies 在您的计算机上保存关于您的身份和您的浏览活动的信"
+#~ "息，以便日后使用。这种行为可能会构成对您的隐私的侵害。</p><p>尽管如此，"
+#~ "Cookies 在某些情况下能够发挥重要功能。例如某些购物网站会使用 Cookies 来实"
+#~ "现“将商品放入购物车”的功能。某些网站甚至会要求您必须使用支持 Cookies 的浏"
+#~ "览器才能正常访问。</p><p>因为大多数人会选择在隐私保护和 Cookies 的便利之间"
+#~ "寻求一个平衡点，所以 HTTP KIO 工作程序支持用户自定义 Cookies 的处理方式。"
+#~ "您可以将 KDE 的默认策略设置为在服务器请求使用 Cookies 时进行提示，让您选择"
+#~ "是否接受；也可以将默认策略设置为接受或者拒绝所有 Cookies。例如对于您经常访"
+#~ "问且信任的购物网站，您可以将策略设置为接受。要设置此策略，您要么直接打开该"
+#~ "网站，在 Cookie 对话框弹出时点击“应用到”标签页下的 <i> 此域名 </i>，并选择"
+#~ "接受；您还可以在 <i> 特定域名策略 </i> 标签页中指定网站的域名，然后将其设"
+#~ "置为接受。这样在访问您信任的网站时，KDE 就不会在每次收到 Cookies 时询问"
+#~ "您。</p>"
+
+#~ msgid ""
+#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
+#~ "programs when using Internet and network connections. If you experience "
+#~ "timeouts or use a modem to connect to the Internet, you might want to "
+#~ "adjust these settings."
+#~ msgstr ""
+#~ "<h1>网络首选项</h1>您可以在这里设置 KDE 程序使用互联网和网络连接时的行为。"
+#~ "如果您遇到网络超时问题，或者需要使用调制解调器上网，则可能需要调整这些设"
+#~ "置。"
+
+#~ msgid ""
+#~ "<h1>Proxy</h1><p>A proxy server is an intermediate program that sits "
+#~ "between your machine and the Internet and provides services such as web "
+#~ "page caching and/or filtering.</p><p>Caching proxy servers give you "
+#~ "faster access to sites you have already visited by locally storing or "
+#~ "caching the content of those pages; filtering proxy servers, on the other "
+#~ "hand, provide the ability to block out requests for ads, spam, or "
+#~ "anything else you want to block.</p><p><u>Note:</u> Some proxy servers "
+#~ "provide both services.</p>"
+#~ msgstr ""
+#~ "<h1>代理服务器</h1><p>代理服务器是一个位于您的计算机和 Internet 之间的中间"
+#~ "程序，它能够提供网页缓存、内容过滤等服务。</p><p>缓存代理服务器可以加快已"
+#~ "浏览网站的访问速度；过滤代理服务器可以拦截广告、垃圾消息或者其他您想屏蔽的"
+#~ "内容。</p><p><u>注意：</u>某些代理服务器能够同时提供上述两种服务。</p>"
+
+#~ msgid ""
+#~ "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
+#~ "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#~ "properly configured.</p><p>You can specify here the credentials used to "
+#~ "access the shared resources. Passwords will be stored locally, and "
+#~ "scrambled so as to render them unreadable to the human eye. For security "
+#~ "reasons, you may not want to do that, as entries with passwords are "
+#~ "clearly indicated as such.</p>"
+#~ msgstr ""
+#~ "<h1>Windows 共享</h1><p>使用 SMB KIO 工作程序的应用程序 (例如Konqueror) 在"
+#~ "正确配置之后，可以访问 Windows 共享的文件系统。</p><p>您可以指定用于访问共"
+#~ "享资源的身份验证信息。密码将在本地存储，并且打乱为人类难以识别的状态。出于"
+#~ "安全考虑，您应该避免这样做，因为有密码的项目会有明确标识。</p>"
+
+#~ msgid "Web Search Keywords"
+#~ msgstr "网页搜索关键词"
+
+#~ msgid "Configure enhanced browsing features"
+#~ msgstr "配置增强浏览特性"
+
+#~ msgid ""
+#~ "<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
+#~ "browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
+#~ "are a quick way of using Web search engines. For example, type "
+#~ "\"duckduckgo:frobozz\" or \"dd:frobozz\" and your web browser will do a "
+#~ "search on DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if "
+#~ "you have not changed this keyboard shortcut) and enter the shortcut in "
+#~ "the Run Command dialog."
+#~ msgstr ""
+#~ "<h1>增强浏览</h1>在此模块中，你可以配置一些 KDE 的增强浏览功能。<h2>网页搜"
+#~ "索关键词</h2>网页搜索关键词可以帮助您快速调用网页搜索引擎。例如输"
+#~ "入“duckduckgo:frobozz”或者“dd:frobozz”即可命令浏览器在 DuckDuckGo 上搜"
+#~ "索“frobozz”。您也可以按下 Alt+F2 快捷键 (假设你没有改过这个快捷键)，然后"
+#~ "在“运行命令”对话框中输入上述搜索关键词。"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>In this module you can configure the web search keywords feature. "
+#~ "Web search keywords allow you to quickly search or lookup words on the "
+#~ "Internet. For example, to search for information about the KDE project "
+#~ "using the Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
+#~ "<emphasis>google:KDE</emphasis>.</para><para>If you select a default "
+#~ "search engine, then you can search for normal words or phrases by simply "
+#~ "typing them into the input widget of applications that have built-in "
+#~ "support for such a feature, e.g Konqueror.</para>"
+#~ msgstr ""
+#~ "<para>您可在此模块中配置网页搜索关键词功能。网页搜索关键词可以帮助您快速调"
+#~ "用网页搜索引擎。例如在想要使用 Google 搜索引擎搜索关于 KDE 项目的信息时，"
+#~ "您只需输入 <emphasis>gg:KDE</emphasis> 或者 <emphasis>google:KDE</"
+#~ "emphasis> 即可。</para>\n"
+#~ "<para>在支持本功能的应用程序中 (例如 Konqueror)，如果您已经选择了默认搜索"
+#~ "引擎，那么只需在程序的输入框中直接输入要搜索的单词或者句子即可。</para>"
 
 #~ msgid "Using sub-URLs with %1 is not supported."
 #~ msgstr "不支持在 %1 使用子 URL。"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"POT-Creation-Date: 2023-03-19 02:06+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4042,59 +4042,10 @@ msgstr "មិនអាច​រកឃើញ​ឯកសារ \"%1\" ទេ"
 msgid "&Policy"
 msgstr "គោលការណ៍"
 
-#: kcms/cookies/kcookiesmain.cpp:42
+#: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
 msgstr "ការ​គ្រប់គ្រង"
-
-#: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or other "
-#| "KDE applications using the HTTP protocol) stores on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, KDE offers you the ability to customize the way "
-#| "it handles cookies. So you might want to set KDE's default policy to ask "
-#| "you whenever a server wants to set a cookie, allowing you to decide. For "
-#| "your favorite shopping web sites that you trust, you might want to set "
-#| "the policy to accept, then you can access the web sites without being "
-#| "prompted every time KDE receives a cookie.</p>"
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
-"the HTTP protocol (like Konqueror) store on your computer, initiated by a "
-"remote Internet server. This means that a web server can store information "
-"about you and your browsing activities on your machine for later use. You "
-"might consider this an invasion of privacy.</p><p> However, cookies are "
-"useful in certain situations. For example, they are often used by Internet "
-"shops, so you can 'put things into a shopping basket'. Some sites require "
-"you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP KIO "
-"worker offers you the ability to customize the way it handles cookies. So "
-"you might want to set the default policy to ask you whenever a server wants "
-"to set a cookie, allowing you to decide. For your favorite shopping web "
-"sites that you trust, you might want to set the policy to accept, then you "
-"can access the web sites without being prompted every time a cookie is "
-"received.</p>"
-msgstr ""
-"<p><h1>ខូគី</h1> ខូគី​មាន​ព័ត៌មាន​ដែល Konqueror (ឬ​កម្មវិធី KDE ផ្សេងៗ​ទៀត ​ប្រើ​ពិធីការ HTTP) "
-"រក្សា​ទុក​លើ​កុំព្យូទ័រ​របស់​អ្នក ពី​ម៉ាស៊ីន​បម្រើ​អ៊ីនធឺណិត​ពី​ចម្ងាយ ។ នេះ​មាន​ន័យ​ថា ម៉ាស៊ីន​បម្រើ​បណ្តាញ​អាច​រក្សា​ទុក​"
-"ព័ត៌មាន​អំពី​អ្នក និង​សកម្មភាព​រុករក​របស់​អ្នក លើ​ម៉ាស៊ីន​របស់​អ្នក សម្រាប់​ប្រើ​ពេល​ក្រោយ ។ អ្នក​អាច​ចាត់ទុក​វា​"
-"នេះ ជា​ការ​លុកលុយ​ភាព​ឯកជន ។</p><p>ទោះ​បី​យ៉ាង​ណា ខូគី​គឺ​មាន​ប្រយោជន៍​ក្នុង​ស្ថានភាព​ខ្លះ ។ ឧទាហរណ៍ ពួក​"
-"វា​ជា​រឿយៗ​ត្រូវ​បាន​ប្រើ​ដោយ​ហាង​អ៊ីនធឺណិត ដូច្នេះ​អ្នក​អាច​ដាក់​វា​ទៅ​ក្នុង​​កន្ត្រក​ទំនិញ ។ តំបន់​ខ្លះ​ទាមទារ​ឲ្យ​"
-"អ្នក​មាន​កម្មវិធី​រុករក​មួយ​ដែល​គាំទ្រ​ខូគី ។</p><p>ដោយ​សារ​តែ​មនុស្ស​ភាគ​ច្រើន ចង់​ឲ្យ​មាន​ការ​សម្រួល​រវាង​"
-"ភាពឯកជន និង​អត្ថ​ប្រយោជន៍ ដែល​ខូគី​ផ្តល់​ឲ្យ KDE ផ្តល់​ឲ្យ​អ្នក​នូវ​លទ្ធភាព​ក្នុង​ការ​សម្រួល​នូវ​វិធី​ដែល​ខូគី​"
-"ដោះស្រាយ ។ ឧទាហរណ៍ អ្នក​ប្រហែល​ជា​ចង់​កំណត់​គោលការណ៍​លំនាំ​ដើម​ទៅ​ឲ្យ KDE ដើម្បី​សួរ​អ្នក​ពេល​ណា​ដែល​ម៉ាស៊ីន​"
-"បម្រើ​ចង់​កំណត់​ខូគី ឬ​បដិសេធ ឬ​ទទួលយក​​អ្វីៗ​ទាំងអស់ ។ ឧទាហរណ៍ អ្នក​អាច​ជ្រើស​ទទួល​យក​ខូគី​ទាំងអស់​ពី​តំបន់​បណ្តាញ​ទំនិញ​"
-"ដែល​ពេញ​ចិត្ត ។ ដូច្នេះ​អ្វី​ដែ​ល​អ្នក​ត្រូវ​ធ្វើ គឺ​រុករក​ទាំង​តំបន់​ពិសេស​នោះ និង​ពេល​ប្រអប់​ខូគី​មួយ​បង្ហាញ​ឡើង ចុច​"
-"លើ <i>ដែន​នេះ</i> ក្រោម​ផ្ទាំង 'អនុវត្ត​ទៅ' និង​ជ្រើស​ទទួល​យក ឬ​បញ្ជាក់​ឈ្មោះ​របស់​តំបន់​យ៉ាង​សាមញ្ញ​ក្នុង​"
-"ផ្ទាំង <i>គោលការណ៍​ជាក់លាក់​របស់​ដែន</i> ហើយ​កំណត់​វា​ទៅ​យល់ព្រម ។ វា​នេះ​អនុញ្ញាត​ឲ្យ​អ្នក​ទទួល​ខូគី​ពី​តំបន់​"
-"បណ្តាញ​ដែល​ជឿ​ទុកចិត្ត ដោយ​មិន​ត្រូវ​បាន​សួរ​រាល់ពេល ដែល KDE ទទួល​ខូគី ។</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4112,28 +4063,23 @@ msgstr "មិន​អាច​លុប​ខូគី​ទាំងអស់
 msgid "Unable to delete cookies as requested."
 msgstr "មិន​អាច​លុប​ខូគី​តាម​សំណើ​បាន​ឡើយ​ ។"
 
-#: kcms/cookies/kcookiesmanagement.cpp:216
-#, kde-format
-msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>ជំនួយ​រហ័ស​ក្នុង​ការ​គ្រប់គ្រង​ខូគី</h1>"
-
-#: kcms/cookies/kcookiesmanagement.cpp:228
+#: kcms/cookies/kcookiesmanagement.cpp:223
 #, kde-format
 msgid "Information Lookup Failure"
 msgstr "បរាជ័យ​ក្នុង​ការ​ស្វែងរក​ព័ត៌មាន"
 
-#: kcms/cookies/kcookiesmanagement.cpp:230
+#: kcms/cookies/kcookiesmanagement.cpp:225
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
 msgstr "មិន​អាច​ទៅ​យក​ព័ត៌មាន​អំពី​ខូគី ដែល​បាន​រក្សា​ទុក​ក្នុង​កុំព្យូទ័រ​របស់​អ្នក ។"
 
-#: kcms/cookies/kcookiesmanagement.cpp:321
+#: kcms/cookies/kcookiesmanagement.cpp:316
 #, kde-format
 msgid "End of session"
 msgstr "ចុង​នៃ​សម័យ"
 
-#: kcms/cookies/kcookiesmanagement.cpp:328
+#: kcms/cookies/kcookiesmanagement.cpp:323
 #, kde-format
 msgid "Yes"
 msgstr "បាទ/ចាស"
@@ -4288,64 +4234,6 @@ msgid ""
 msgstr ""
 "មិន​អាច​ទាក់ទង​សេវា​កម្មវិធី​ដោះស្រាយ​ខូគី ។\n"
 "ការ​ផ្លាស់ប្ដូរ​ណា​មួយ​ដែល​អ្នក​បាន​ធ្វើ នឹង​មិន​មាន​ប្រសិទ្ធិភាព​ឡើយ ទាល់​តែ​ចាប់​ផ្ដើម​សេវា​ឡើង​វិញ ។"
-
-#: kcms/cookies/kcookiespolicies.cpp:430
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or any "
-#| "other KDE application using the HTTP protocol) stores on your computer "
-#| "from a remote Internet server. This means that a web server can store "
-#| "information about you and your browsing activities on your machine for "
-#| "later use. You might consider this an invasion of privacy.</p><p>However, "
-#| "cookies are useful in certain situations. For example, they are often "
-#| "used by Internet shops, so you can 'put things into a shopping basket'. "
-#| "Some sites require you have a browser that supports cookies.</"
-#| "p><p>Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, KDE offers you the ability to customize the way "
-#| "it handles cookies. You might, for example want to set KDE's default "
-#| "policy to ask you whenever a server wants to set a cookie or simply "
-#| "reject or accept everything. For example, you might choose to accept all "
-#| "cookies from your favorite shopping web site. For this all you have to do "
-#| "is either browse to that particular site and when you are presented with "
-#| "the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-#| "tab and choose accept or simply specify the name of the site in the <i> "
-#| "Domain Specific Policy </i> tab and set it to accept. This enables you to "
-#| "receive cookies from trusted web sites without being asked every time KDE "
-#| "receives a cookie.</p>"
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-"the HTTP protocol (like Konqueror) stores on your computer from a remote "
-"Internet server. This means that a web server can store information about "
-"you and your browsing activities on your machine for later use. You might "
-"consider this an invasion of privacy.</p><p>However, cookies are useful in "
-"certain situations. For example, they are often used by Internet shops, so "
-"you can 'put things into a shopping basket'. Some sites require you have a "
-"browser that supports cookies.</p><p>Because most people want a compromise "
-"between privacy and the benefits cookies offer, KDE offers you the ability "
-"to customize the way it handles cookies. You might, for example want to set "
-"KDE's default policy to ask you whenever a server wants to set a cookie or "
-"simply reject or accept everything. For example, you might choose to accept "
-"all cookies from your favorite shopping web site. For this all you have to "
-"do is either browse to that particular site and when you are presented with "
-"the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-"tab and choose accept or simply specify the name of the site in the <i> "
-"Domain Specific Policy </i> tab and set it to accept. This enables you to "
-"receive cookies from trusted web sites without being asked every time KDE "
-"receives a cookie.</p>"
-msgstr ""
-"<p><h1>ខូគី</h1> ខូគី​មាន​ព័ត៌មាន​ដែល Konqueror (ឬ​កម្មវិធី KDE ផ្សេងៗ​ទៀត ដែល​ប្រើ​ពិធីការ "
-"HTTP) រក្សា​ទុក​លើ​កុំព្យូទ័រ​របស់​អ្នក ពី​ម៉ាស៊ីន​បម្រើ​អ៊ីនធឺណិត​ពី​ចម្ងាយ ។ នេះ​​មាន​ន័យ​ថា ម៉ាស៊ីន​បម្រើ​បណ្តាញ​អាច​"
-"រក្សា​ទុក​ព័ត៌មាន​អំពី​អ្នក និងសកម្មភាព​រុករក​របស់​អ្នក លើ​ម៉ាស៊ីន​របស់​អ្នក សម្រាប់​ប្រើ​ពេល​ក្រោយ ។ អ្នក​អាច​"
-"ចាត់ទុក​វា​នេះ ជា​ការ​លុកលុយ​ភាព​ឯកជន ។</p><p>ទោះបីយ៉ាងណា ខូគី​គឺ​មាន​ប្រយោជន៍​ក្នុង​ស្ថានភាព​ខ្លះ ។ "
-"ឧទាហរណ៍ ពួកវា​ជា​រឿយៗ​ត្រូវ​បាន​ប្រើ​ដោយ​ហាង​អ៊ីនធឺណិត ដូច្នេះ​អ្នក​អាច​ដាក់​វា​ទៅ​ក្នុង​កន្ត្រក​ទំនិញ ។តំបន់​ខ្លះ​"
-"ទាមទារ​ឲ្យ​អ្នក​មាន​កម្មវិធី​រុករក​មួយ​ដែល​គាំទ្រ​ខូគី ។</p><p>ដោយ​សារ​តែ​មនុស្ស​ភាគច្រើន ចង់​ឲ្យ​មាន​ការ​សម្រួល​"
-"រវាង​ភាពឯកជន និង​អត្ថប្រយោជន៍ ដែល​ខូគី​ផ្តល់​ឲ្យ KDE ផ្តល់​ឲ្យ​អ្នក​នូវ​លទ្ធភាព​ក្នុង​ការ​សម្រួល​នូវ​វិធី​ដែល​ខូគី​"
-"ដោះស្រាយ ។ ឧទាហរណ៍ អ្នក​ប្រហែល​ជា​ចង់​កំណត់​គោលការណ៍​លំនាំដើម​ទៅឲ្យ KDE ដើម្បី​សួរ​អ្នក​ពេលណា​ដែល​ម៉ាស៊ីន​"
-"បម្រើ​ចង់​កំណត់​ខូគី ឬ​បដិសេធ ឬ ទទួលយក​អ្វីៗទាំងអស់ ។ ឧទាហរណ៍ អ្នក​អាច​ជ្រើស​ទទួល​យក​ខូគី​ទាំងអស់​ពី​តំបន់​បណ្តាញ​"
-"ទំនិញ​ដែល​ពេញចិត្ត ។ ដូច្នេះ​អ្វី​ដែល​អ្នក​ត្រូវ​ធ្វើ គឺ​រុករក​ទាំង​តំបន់​ពិសេសនោះ និង ពេល​ប្រអប់​ខូគី​មួយ​បង្ហាញ​ឡើង "
-"ចុច​លើ <i>ដែន​នេះ</i> ក្រោម​ផ្ទាំង 'អនុវត្ត​ទៅ' និង ជ្រើស​ទទួលយក ឬ បញ្ជាក់​ឈ្មោះ​របស់​តំបន់ ​យ៉ាងសាមញ្ញ​"
-"ក្នុង​ផ្ទាំង <i>គោលការណ៍​ជាក់លាក់​របស់​ដែន</i> ហើយ​កំណត់​វា​ទៅ​យល់ព្រម ។ វា​នេះ​អនុញ្ញាត​ឲ្យ​អ្នក​ទទួល​ខូគី​ពី​"
-"តំបន់​បណ្តាញ​ដែល​ជឿ​ទុកចិត្ត ដោយ​មិន​ត្រូវ​បាន​សួរ​រាល់​ពេល ដែល KDE ទទួល​ខូគី​មួយ ។</p>"
 
 #  i18n: file kcookiespoliciesdlg_ui.ui line 30
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
@@ -4885,18 +4773,6 @@ msgstr ""
 "ផ្ទុក​ឡើង​តាម​ផ្នែក ហើយ​​មាន​កន្ទុយ \".part\" ។ កន្ទុយ​នេះ​នឹង​ត្រូវ​បាន​យក​ចេញ នៅ​ពេល​ការ​ផ្ទេរ​នេះ​បាន​"
 "បញ្ចប់​ទាំងស្រុង ។</p>"
 
-#: kcms/netpref/netpref.cpp:186
-#, kde-format
-msgid ""
-"<h1>Network Preferences</h1>Here you can define the behavior of KDE programs "
-"when using Internet and network connections. If you experience timeouts or "
-"use a modem to connect to the Internet, you might want to adjust these "
-"settings."
-msgstr ""
-"<h1>​ចំណូលចិត្ត​បណ្ដាញ</h1>នៅ​ទីនេះ អ្នក​អាច​កំណត់​ឥរិយាបថ​របស់​កម្មវិធី KDE ពេល​ប្រើ​ការ​តភ្ជាប់​អ៊ីនធឺណិត និង​"
-"បណ្ដាញ ។ បើ​អ្នក​ធ្លាប់​ជួប​ប្រទះ​​ពេល​សម្រាក ឬ​ប្រើ​ម៉ូដឹម​ដើម្បី​តភ្ជាប់​ទៅ​អ៊ីនធឺណិត អ្នក​ប្រហែល​ជា​ចង់​លៃ​តម្រូវ​ការ​"
-"កំណត់​ទាំងនេះ ។"
-
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
 msgctxt "@info"
@@ -4910,24 +4786,6 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
-
-#: kcms/proxy/kproxydlg.cpp:545
-#, kde-format
-msgid ""
-"<h1>Proxy</h1><p>A proxy server is an intermediate program that sits between "
-"your machine and the Internet and provides services such as web page caching "
-"and/or filtering.</p><p>Caching proxy servers give you faster access to "
-"sites you have already visited by locally storing or caching the content of "
-"those pages; filtering proxy servers, on the other hand, provide the ability "
-"to block out requests for ads, spam, or anything else you want to block.</"
-"p><p><u>Note:</u> Some proxy servers provide both services.</p>"
-msgstr ""
-"<h1>ប្រូកស៊ី</h1><p>ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី គឺ​ជា​កម្មវិធី​កណ្ដាល​មួយ ដែល​ស្ថិត​នៅ​ចន្លោះ​ម៉ាស៊ីន​របស់​អ្នក និង​អ៊ីនធឺណិត "
-"ហើយ​ផ្ដល់​នូវ​សេវា​ដូចជា ការ​ត្រង និង/ឬ រក្សាទុក​ទំព័រ​បណ្ដាញ​ក្នុង​ឃ្លាំង​សម្ងាត់ ។</p><p>ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​"
-"ឃ្លាំង​សម្ងាត់ ផ្ដល់​ឲ្យ​អ្នក​នូវ​ការ​ចូល​ដំណើរការ​លឿន​ជាង​ទៅ​កាន់​តំបន់ ដែល​អ្នក​បាន​ទស្សនា​រួច ដោយ​រក្សាទុក​"
-"មាតិកា​របស់​ទំព័រ​ទាំងនោះ​ក្នុង​មូលដ្ឋាន ឬ​ឃ្លាំង សម្ងាត់ ។ រី​ឯ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ត្រង​វិញ ផ្ដល់​នូ​វ​សមត្ថភាព​ក្នុង​"
-"ការ​ទប់ស្កាត់​ការ​ស្នើសុំ​ផ្សាយ​ពាណិជ្ជកម្ម សារ​ឥត​បាន​ការ ឬ​អ្វី​ផ្សេង​ទៀត​ដែល​អ្នក​ចង​ទប់ស្កាត់ ។</"
-"p><p><u>ចំណាំ ៖</u> ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ខ្លះ ផ្ដល់​នូវ​សេវា​ទាំងពីរ ។</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -5400,44 +5258,6 @@ msgstr "ឈ្មោះ​អ្នក​ប្រើ​លំនាំ​ដើ
 #, kde-format
 msgid "Default password:"
 msgstr "ពាក្យ​សម្ងាត់​លំនាំ​ដើម ៖"
-
-#: kcms/smb/smbrodlg.cpp:122
-#, kde-format
-msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-"Konqueror) are able to access shared Microsoft Windows file systems, if "
-"properly configured.</p><p>You can specify here the credentials used to "
-"access the shared resources. Passwords will be stored locally, and scrambled "
-"so as to render them unreadable to the human eye. For security reasons, you "
-"may not want to do that, as entries with passwords are clearly indicated as "
-"such.</p>"
-msgstr ""
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 155
-#: kcms/webshortcuts/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search"
-msgid "Web Search Keywords"
-msgstr "ស្វែងរក"
-
-#: kcms/webshortcuts/main.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Shown Data"
-msgid "Configure enhanced browsing features"
-msgstr "កំណត់​រចនាសម្ព័ន្ធ​ទិន្នន័យ​ដែល​បានបង្ហាញ"
-
-#: kcms/webshortcuts/main.cpp:39
-#, kde-format
-msgid ""
-"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-"browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-"are a quick way of using Web search engines. For example, type \"duckduckgo:"
-"frobozz\" or \"dd:frobozz\" and your web browser will do a search on "
-"DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if you have not "
-"changed this keyboard shortcut) and enter the shortcut in the Run Command "
-"dialog."
-msgstr ""
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -6637,20 +6457,6 @@ msgstr "គ្មាន"
 #: urifilters/ikws/ikwsopts.cpp:247
 #, kde-format
 msgid "Search F&ilters"
-msgstr ""
-
-#: urifilters/ikws/ikwsopts.cpp:275
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>In this module you can configure the web search keywords feature. Web "
-"search keywords allow you to quickly search or lookup words on the Internet. "
-"For example, to search for information about the KDE project using the "
-"Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-"<emphasis>google:KDE</emphasis>.</para><para>If you select a default search "
-"engine, then you can search for normal words or phrases by simply typing "
-"them into the input widget of applications that have built-in support for "
-"such a feature, e.g Konqueror.</para>"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
@@ -9450,6 +9256,155 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or other "
+#~| "KDE applications using the HTTP protocol) stores on your computer, "
+#~| "initiated by a remote Internet server. This means that a web server can "
+#~| "store information about you and your browsing activities on your machine "
+#~| "for later use. You might consider this an invasion of privacy.</p><p> "
+#~| "However, cookies are useful in certain situations. For example, they are "
+#~| "often used by Internet shops, so you can 'put things into a shopping "
+#~| "basket'. Some sites require you have a browser that supports cookies.</"
+#~| "p><p> Because most people want a compromise between privacy and the "
+#~| "benefits cookies offer, KDE offers you the ability to customize the way "
+#~| "it handles cookies. So you might want to set KDE's default policy to ask "
+#~| "you whenever a server wants to set a cookie, allowing you to decide. For "
+#~| "your favorite shopping web sites that you trust, you might want to set "
+#~| "the policy to accept, then you can access the web sites without being "
+#~| "prompted every time KDE receives a cookie.</p>"
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
+#~ "using the HTTP protocol (like Konqueror) store on your computer, "
+#~ "initiated by a remote Internet server. This means that a web server can "
+#~ "store information about you and your browsing activities on your machine "
+#~ "for later use. You might consider this an invasion of privacy.</p><p> "
+#~ "However, cookies are useful in certain situations. For example, they are "
+#~ "often used by Internet shops, so you can 'put things into a shopping "
+#~ "basket'. Some sites require you have a browser that supports cookies.</"
+#~ "p><p> Because most people want a compromise between privacy and the "
+#~ "benefits cookies offer, the HTTP KIO worker offers you the ability to "
+#~ "customize the way it handles cookies. So you might want to set the "
+#~ "default policy to ask you whenever a server wants to set a cookie, "
+#~ "allowing you to decide. For your favorite shopping web sites that you "
+#~ "trust, you might want to set the policy to accept, then you can access "
+#~ "the web sites without being prompted every time a cookie is received.</p>"
+#~ msgstr ""
+#~ "<p><h1>ខូគី</h1> ខូគី​មាន​ព័ត៌មាន​ដែល Konqueror (ឬ​កម្មវិធី KDE ផ្សេងៗ​ទៀត ​ប្រើ​ពិធីការ "
+#~ "HTTP) រក្សា​ទុក​លើ​កុំព្យូទ័រ​របស់​អ្នក ពី​ម៉ាស៊ីន​បម្រើ​អ៊ីនធឺណិត​ពី​ចម្ងាយ ។ នេះ​មាន​ន័យ​ថា ម៉ាស៊ីន​បម្រើ​បណ្តាញ​"
+#~ "អាច​រក្សា​ទុក​ព័ត៌មាន​អំពី​អ្នក និង​សកម្មភាព​រុករក​របស់​អ្នក លើ​ម៉ាស៊ីន​របស់​អ្នក សម្រាប់​ប្រើ​ពេល​ក្រោយ ។ អ្នក​"
+#~ "អាច​ចាត់ទុក​វា​នេះ ជា​ការ​លុកលុយ​ភាព​ឯកជន ។</p><p>ទោះ​បី​យ៉ាង​ណា ខូគី​គឺ​មាន​ប្រយោជន៍​ក្នុង​ស្ថានភាព​"
+#~ "ខ្លះ ។ ឧទាហរណ៍ ពួក​វា​ជា​រឿយៗ​ត្រូវ​បាន​ប្រើ​ដោយ​ហាង​អ៊ីនធឺណិត ដូច្នេះ​អ្នក​អាច​ដាក់​វា​ទៅ​ក្នុង​​កន្ត្រក​"
+#~ "ទំនិញ ។ តំបន់​ខ្លះ​ទាមទារ​ឲ្យ​អ្នក​មាន​កម្មវិធី​រុករក​មួយ​ដែល​គាំទ្រ​ខូគី ។</p><p>ដោយ​សារ​តែ​មនុស្ស​ភាគ​"
+#~ "ច្រើន ចង់​ឲ្យ​មាន​ការ​សម្រួល​រវាង​ភាពឯកជន និង​អត្ថ​ប្រយោជន៍ ដែល​ខូគី​ផ្តល់​ឲ្យ KDE ផ្តល់​ឲ្យ​អ្នក​នូវ​លទ្ធភាព​"
+#~ "ក្នុង​ការ​សម្រួល​នូវ​វិធី​ដែល​ខូគី​ដោះស្រាយ ។ ឧទាហរណ៍ អ្នក​ប្រហែល​ជា​ចង់​កំណត់​គោលការណ៍​លំនាំ​ដើម​ទៅ​ឲ្យ KDE "
+#~ "ដើម្បី​សួរ​អ្នក​ពេល​ណា​ដែល​ម៉ាស៊ីន​បម្រើ​ចង់​កំណត់​ខូគី ឬ​បដិសេធ ឬ​ទទួលយក​​អ្វីៗ​ទាំងអស់ ។ ឧទាហរណ៍ អ្នក​អាច​ជ្រើស​"
+#~ "ទទួល​យក​ខូគី​ទាំងអស់​ពី​តំបន់​បណ្តាញ​ទំនិញ​ដែល​ពេញ​ចិត្ត ។ ដូច្នេះ​អ្វី​ដែ​ល​អ្នក​ត្រូវ​ធ្វើ គឺ​រុករក​ទាំង​តំបន់​ពិសេស​"
+#~ "នោះ និង​ពេល​ប្រអប់​ខូគី​មួយ​បង្ហាញ​ឡើង ចុច​លើ <i>ដែន​នេះ</i> ក្រោម​ផ្ទាំង 'អនុវត្ត​ទៅ' និង​ជ្រើស​ទទួល​"
+#~ "យក ឬ​បញ្ជាក់​ឈ្មោះ​របស់​តំបន់​យ៉ាង​សាមញ្ញ​ក្នុង​ផ្ទាំង <i>គោលការណ៍​ជាក់លាក់​របស់​ដែន</i> ហើយ​កំណត់​វា​ទៅ​"
+#~ "យល់ព្រម ។ វា​នេះ​អនុញ្ញាត​ឲ្យ​អ្នក​ទទួល​ខូគី​ពី​តំបន់​បណ្តាញ​ដែល​ជឿ​ទុកចិត្ត ដោយ​មិន​ត្រូវ​បាន​សួរ​រាល់ពេល ដែល "
+#~ "KDE ទទួល​ខូគី ។</p>"
+
+#~ msgid "<h1>Cookie Management Quick Help</h1>"
+#~ msgstr "<h1>ជំនួយ​រហ័ស​ក្នុង​ការ​គ្រប់គ្រង​ខូគី</h1>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or any "
+#~| "other KDE application using the HTTP protocol) stores on your computer "
+#~| "from a remote Internet server. This means that a web server can store "
+#~| "information about you and your browsing activities on your machine for "
+#~| "later use. You might consider this an invasion of privacy.</"
+#~| "p><p>However, cookies are useful in certain situations. For example, "
+#~| "they are often used by Internet shops, so you can 'put things into a "
+#~| "shopping basket'. Some sites require you have a browser that supports "
+#~| "cookies.</p><p>Because most people want a compromise between privacy and "
+#~| "the benefits cookies offer, KDE offers you the ability to customize the "
+#~| "way it handles cookies. You might, for example want to set KDE's default "
+#~| "policy to ask you whenever a server wants to set a cookie or simply "
+#~| "reject or accept everything. For example, you might choose to accept all "
+#~| "cookies from your favorite shopping web site. For this all you have to "
+#~| "do is either browse to that particular site and when you are presented "
+#~| "with the cookie dialog box, click on <i> This domain </i> under the "
+#~| "'apply to' tab and choose accept or simply specify the name of the site "
+#~| "in the <i> Domain Specific Policy </i> tab and set it to accept. This "
+#~| "enables you to receive cookies from trusted web sites without being "
+#~| "asked every time KDE receives a cookie.</p>"
+#~ msgid ""
+#~ "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
+#~ "the HTTP protocol (like Konqueror) stores on your computer from a remote "
+#~ "Internet server. This means that a web server can store information about "
+#~ "you and your browsing activities on your machine for later use. You might "
+#~ "consider this an invasion of privacy.</p><p>However, cookies are useful "
+#~ "in certain situations. For example, they are often used by Internet "
+#~ "shops, so you can 'put things into a shopping basket'. Some sites require "
+#~ "you have a browser that supports cookies.</p><p>Because most people want "
+#~ "a compromise between privacy and the benefits cookies offer, KDE offers "
+#~ "you the ability to customize the way it handles cookies. You might, for "
+#~ "example want to set KDE's default policy to ask you whenever a server "
+#~ "wants to set a cookie or simply reject or accept everything. For example, "
+#~ "you might choose to accept all cookies from your favorite shopping web "
+#~ "site. For this all you have to do is either browse to that particular "
+#~ "site and when you are presented with the cookie dialog box, click on <i> "
+#~ "This domain </i> under the 'apply to' tab and choose accept or simply "
+#~ "specify the name of the site in the <i> Domain Specific Policy </i> tab "
+#~ "and set it to accept. This enables you to receive cookies from trusted "
+#~ "web sites without being asked every time KDE receives a cookie.</p>"
+#~ msgstr ""
+#~ "<p><h1>ខូគី</h1> ខូគី​មាន​ព័ត៌មាន​ដែល Konqueror (ឬ​កម្មវិធី KDE ផ្សេងៗ​ទៀត ដែល​ប្រើ​ពិធីការ "
+#~ "HTTP) រក្សា​ទុក​លើ​កុំព្យូទ័រ​របស់​អ្នក ពី​ម៉ាស៊ីន​បម្រើ​អ៊ីនធឺណិត​ពី​ចម្ងាយ ។ នេះ​​មាន​ន័យ​ថា ម៉ាស៊ីន​បម្រើ​បណ្តាញ​"
+#~ "អាច​រក្សា​ទុក​ព័ត៌មាន​អំពី​អ្នក និងសកម្មភាព​រុករក​របស់​អ្នក លើ​ម៉ាស៊ីន​របស់​អ្នក សម្រាប់​ប្រើ​ពេល​ក្រោយ ។ អ្នក​"
+#~ "អាច​ចាត់ទុក​វា​នេះ ជា​ការ​លុកលុយ​ភាព​ឯកជន ។</p><p>ទោះបីយ៉ាងណា ខូគី​គឺ​មាន​ប្រយោជន៍​ក្នុង​ស្ថានភាព​"
+#~ "ខ្លះ ។ ឧទាហរណ៍ ពួកវា​ជា​រឿយៗ​ត្រូវ​បាន​ប្រើ​ដោយ​ហាង​អ៊ីនធឺណិត ដូច្នេះ​អ្នក​អាច​ដាក់​វា​ទៅ​ក្នុង​កន្ត្រក​ទំនិញ "
+#~ "។តំបន់​ខ្លះ​ទាមទារ​ឲ្យ​អ្នក​មាន​កម្មវិធី​រុករក​មួយ​ដែល​គាំទ្រ​ខូគី ។</p><p>ដោយ​សារ​តែ​មនុស្ស​ភាគច្រើន ចង់​ឲ្យ​"
+#~ "មាន​ការ​សម្រួល​រវាង​ភាពឯកជន និង​អត្ថប្រយោជន៍ ដែល​ខូគី​ផ្តល់​ឲ្យ KDE ផ្តល់​ឲ្យ​អ្នក​នូវ​លទ្ធភាព​ក្នុង​ការ​"
+#~ "សម្រួល​នូវ​វិធី​ដែល​ខូគី​ដោះស្រាយ ។ ឧទាហរណ៍ អ្នក​ប្រហែល​ជា​ចង់​កំណត់​គោលការណ៍​លំនាំដើម​ទៅឲ្យ KDE ដើម្បី​សួរ​"
+#~ "អ្នក​ពេលណា​ដែល​ម៉ាស៊ីន​បម្រើ​ចង់​កំណត់​ខូគី ឬ​បដិសេធ ឬ ទទួលយក​អ្វីៗទាំងអស់ ។ ឧទាហរណ៍ អ្នក​អាច​ជ្រើស​ទទួល​យក​"
+#~ "ខូគី​ទាំងអស់​ពី​តំបន់​បណ្តាញ​ទំនិញ​ដែល​ពេញចិត្ត ។ ដូច្នេះ​អ្វី​ដែល​អ្នក​ត្រូវ​ធ្វើ គឺ​រុករក​ទាំង​តំបន់​ពិសេសនោះ និង "
+#~ "ពេល​ប្រអប់​ខូគី​មួយ​បង្ហាញ​ឡើង ចុច​លើ <i>ដែន​នេះ</i> ក្រោម​ផ្ទាំង 'អនុវត្ត​ទៅ' និង ជ្រើស​ទទួលយក ឬ "
+#~ "បញ្ជាក់​ឈ្មោះ​របស់​តំបន់ ​យ៉ាងសាមញ្ញ​ក្នុង​ផ្ទាំង <i>គោលការណ៍​ជាក់លាក់​របស់​ដែន</i> ហើយ​កំណត់​វា​ទៅ​"
+#~ "យល់ព្រម ។ វា​នេះ​អនុញ្ញាត​ឲ្យ​អ្នក​ទទួល​ខូគី​ពី​តំបន់​បណ្តាញ​ដែល​ជឿ​ទុកចិត្ត ដោយ​មិន​ត្រូវ​បាន​សួរ​រាល់​ពេល ដែល "
+#~ "KDE ទទួល​ខូគី​មួយ ។</p>"
+
+#~ msgid ""
+#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
+#~ "programs when using Internet and network connections. If you experience "
+#~ "timeouts or use a modem to connect to the Internet, you might want to "
+#~ "adjust these settings."
+#~ msgstr ""
+#~ "<h1>​ចំណូលចិត្ត​បណ្ដាញ</h1>នៅ​ទីនេះ អ្នក​អាច​កំណត់​ឥរិយាបថ​របស់​កម្មវិធី KDE ពេល​ប្រើ​ការ​តភ្ជាប់​"
+#~ "អ៊ីនធឺណិត និង​បណ្ដាញ ។ បើ​អ្នក​ធ្លាប់​ជួប​ប្រទះ​​ពេល​សម្រាក ឬ​ប្រើ​ម៉ូដឹម​ដើម្បី​តភ្ជាប់​ទៅ​អ៊ីនធឺណិត អ្នក​ប្រហែល​ជា​"
+#~ "ចង់​លៃ​តម្រូវ​ការ​កំណត់​ទាំងនេះ ។"
+
+#~ msgid ""
+#~ "<h1>Proxy</h1><p>A proxy server is an intermediate program that sits "
+#~ "between your machine and the Internet and provides services such as web "
+#~ "page caching and/or filtering.</p><p>Caching proxy servers give you "
+#~ "faster access to sites you have already visited by locally storing or "
+#~ "caching the content of those pages; filtering proxy servers, on the other "
+#~ "hand, provide the ability to block out requests for ads, spam, or "
+#~ "anything else you want to block.</p><p><u>Note:</u> Some proxy servers "
+#~ "provide both services.</p>"
+#~ msgstr ""
+#~ "<h1>ប្រូកស៊ី</h1><p>ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី គឺ​ជា​កម្មវិធី​កណ្ដាល​មួយ ដែល​ស្ថិត​នៅ​ចន្លោះ​ម៉ាស៊ីន​របស់​អ្នក និង​"
+#~ "អ៊ីនធឺណិត ហើយ​ផ្ដល់​នូវ​សេវា​ដូចជា ការ​ត្រង និង/ឬ រក្សាទុក​ទំព័រ​បណ្ដាញ​ក្នុង​ឃ្លាំង​សម្ងាត់ ។</p><p>ម៉ាស៊ីន​"
+#~ "បម្រើ​ប្រូកស៊ី​ឃ្លាំង​សម្ងាត់ ផ្ដល់​ឲ្យ​អ្នក​នូវ​ការ​ចូល​ដំណើរការ​លឿន​ជាង​ទៅ​កាន់​តំបន់ ដែល​អ្នក​បាន​ទស្សនា​រួច "
+#~ "ដោយ​រក្សាទុក​មាតិកា​របស់​ទំព័រ​ទាំងនោះ​ក្នុង​មូលដ្ឋាន ឬ​ឃ្លាំង សម្ងាត់ ។ រី​ឯ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ត្រង​វិញ ផ្ដល់​នូ​"
+#~ "វ​សមត្ថភាព​ក្នុង​ការ​ទប់ស្កាត់​ការ​ស្នើសុំ​ផ្សាយ​ពាណិជ្ជកម្ម សារ​ឥត​បាន​ការ ឬ​អ្វី​ផ្សេង​ទៀត​ដែល​អ្នក​ចង​"
+#~ "ទប់ស្កាត់ ។</p><p><u>ចំណាំ ៖</u> ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ខ្លះ ផ្ដល់​នូវ​សេវា​ទាំងពីរ ។</p>"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 155
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Web Search Keywords"
+#~ msgstr "ស្វែងរក"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Shown Data"
+#~ msgid "Configure enhanced browsing features"
+#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ​ទិន្នន័យ​ដែល​បានបង្ហាញ"
 
 #~ msgid "Using sub-URLs with %1 is not supported."
 #~ msgstr "ការ​ប្រើ URL រង​ជាមួយ​នឹង %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ឡើយ ។"

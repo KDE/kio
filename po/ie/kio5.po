@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 02:12+0000\n"
+"POT-Creation-Date: 2023-03-19 02:06+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3797,30 +3797,10 @@ msgstr "Ne successat lansar li programma «%1»."
 msgid "&Policy"
 msgstr "&Politica"
 
-#: kcms/cookies/kcookiesmain.cpp:42
+#: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
 msgstr "&Gerentie"
-
-#: kcms/cookies/kcookiesmain.cpp:81
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
-"the HTTP protocol (like Konqueror) store on your computer, initiated by a "
-"remote Internet server. This means that a web server can store information "
-"about you and your browsing activities on your machine for later use. You "
-"might consider this an invasion of privacy.</p><p> However, cookies are "
-"useful in certain situations. For example, they are often used by Internet "
-"shops, so you can 'put things into a shopping basket'. Some sites require "
-"you have a browser that supports cookies.</p><p> Because most people want a "
-"compromise between privacy and the benefits cookies offer, the HTTP KIO "
-"worker offers you the ability to customize the way it handles cookies. So "
-"you might want to set the default policy to ask you whenever a server wants "
-"to set a cookie, allowing you to decide. For your favorite shopping web "
-"sites that you trust, you might want to set the policy to accept, then you "
-"can access the web sites without being prompted every time a cookie is "
-"received.</p>"
-msgstr ""
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -3838,17 +3818,12 @@ msgstr "Ne successat remover omni cookie, quo esset demandat."
 msgid "Unable to delete cookies as requested."
 msgstr "Ne successat remover li demandat cookies."
 
-#: kcms/cookies/kcookiesmanagement.cpp:216
-#, kde-format
-msgid "<h1>Cookie Management Quick Help</h1>"
-msgstr "<h1>Rapid auxilie del gerentie de cookies</h1>"
-
-#: kcms/cookies/kcookiesmanagement.cpp:228
+#: kcms/cookies/kcookiesmanagement.cpp:223
 #, kde-format
 msgid "Information Lookup Failure"
 msgstr "Ne successat trovar information"
 
-#: kcms/cookies/kcookiesmanagement.cpp:230
+#: kcms/cookies/kcookiesmanagement.cpp:225
 #, kde-format
 msgid ""
 "Unable to retrieve information about the cookies stored on your computer."
@@ -3856,12 +3831,12 @@ msgstr ""
 "Ne successat obtener li information pri li cookies magasinat in vor "
 "computator."
 
-#: kcms/cookies/kcookiesmanagement.cpp:321
+#: kcms/cookies/kcookiesmanagement.cpp:316
 #, kde-format
 msgid "End of session"
 msgstr "Fin del session"
 
-#: kcms/cookies/kcookiesmanagement.cpp:328
+#: kcms/cookies/kcookiesmanagement.cpp:323
 #, kde-format
 msgid "Yes"
 msgstr "Yes"
@@ -4001,30 +3976,6 @@ msgstr "Substituer"
 msgid ""
 "Unable to communicate with the cookie handler service.\n"
 "Any changes you made will not take effect until the service is restarted."
-msgstr ""
-
-#: kcms/cookies/kcookiespolicies.cpp:430
-#, kde-format
-msgid ""
-"<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-"the HTTP protocol (like Konqueror) stores on your computer from a remote "
-"Internet server. This means that a web server can store information about "
-"you and your browsing activities on your machine for later use. You might "
-"consider this an invasion of privacy.</p><p>However, cookies are useful in "
-"certain situations. For example, they are often used by Internet shops, so "
-"you can 'put things into a shopping basket'. Some sites require you have a "
-"browser that supports cookies.</p><p>Because most people want a compromise "
-"between privacy and the benefits cookies offer, KDE offers you the ability "
-"to customize the way it handles cookies. You might, for example want to set "
-"KDE's default policy to ask you whenever a server wants to set a cookie or "
-"simply reject or accept everything. For example, you might choose to accept "
-"all cookies from your favorite shopping web site. For this all you have to "
-"do is either browse to that particular site and when you are presented with "
-"the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-"tab and choose accept or simply specify the name of the site in the <i> "
-"Domain Specific Policy </i> tab and set it to accept. This enables you to "
-"receive cookies from trusted web sites without being asked every time KDE "
-"receives a cookie.</p>"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
@@ -4447,18 +4398,6 @@ msgid ""
 "will be removed once the transfer is complete.</p>"
 msgstr ""
 
-#: kcms/netpref/netpref.cpp:186
-#, kde-format
-msgid ""
-"<h1>Network Preferences</h1>Here you can define the behavior of KDE programs "
-"when using Internet and network connections. If you experience timeouts or "
-"use a modem to connect to the Internet, you might want to adjust these "
-"settings."
-msgstr ""
-"<h1>Preferenties del rete</h1>Ci vu posse controlar li conduida de "
-"programmas KDE quel usa li Internet e conexe a retes. Si vu recive timeouts "
-"o usa un modem por conexer al Internet, vu posse ajustar ti parametres."
-
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
 msgctxt "@info"
@@ -4471,18 +4410,6 @@ msgid ""
 "application> and <application>Falkon</application>&nbsp;- will not use these "
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
-msgstr ""
-
-#: kcms/proxy/kproxydlg.cpp:545
-#, kde-format
-msgid ""
-"<h1>Proxy</h1><p>A proxy server is an intermediate program that sits between "
-"your machine and the Internet and provides services such as web page caching "
-"and/or filtering.</p><p>Caching proxy servers give you faster access to "
-"sites you have already visited by locally storing or caching the content of "
-"those pages; filtering proxy servers, on the other hand, provide the ability "
-"to block out requests for ads, spam, or anything else you want to block.</"
-"p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
@@ -4883,54 +4810,6 @@ msgstr "Predefinit nómine de usator:"
 #, kde-format
 msgid "Default password:"
 msgstr "Predefinit contrasigne:"
-
-#: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
-msgid ""
-"<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-"Konqueror) are able to access shared Microsoft Windows file systems, if "
-"properly configured.</p><p>You can specify here the credentials used to "
-"access the shared resources. Passwords will be stored locally, and scrambled "
-"so as to render them unreadable to the human eye. For security reasons, you "
-"may not want to do that, as entries with passwords are clearly indicated as "
-"such.</p>"
-msgstr ""
-"<h1>Partites de Windows</h1><p>Applicationes quel usa li kioslave SMB (quam "
-"Konqueror) posse acceder partit sistemas de files del Microsoft Windows, si "
-"it es configurat corectmen.</p><p>Vu posse provider ci li identification por "
-"obtener li accesse a partit ressurses. Contrasignes va esser gardat localmen "
-"e fat ínleibil por li ocul homan. Pro securitá vu posse ne far to, proque li "
-"intradas con contrasignes es clarmen marcat.</p>"
-
-#: kcms/webshortcuts/main.cpp:28
-#, kde-format
-msgid "Web Search Keywords"
-msgstr "Sercha web per clav-paroles"
-
-#: kcms/webshortcuts/main.cpp:30
-#, kde-format
-msgid "Configure enhanced browsing features"
-msgstr "Configurar li avansat functiones de navigation"
-
-#: kcms/webshortcuts/main.cpp:39
-#, kde-format
-msgid ""
-"<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-"browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-"are a quick way of using Web search engines. For example, type \"duckduckgo:"
-"frobozz\" or \"dd:frobozz\" and your web browser will do a search on "
-"DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if you have not "
-"changed this keyboard shortcut) and enter the shortcut in the Run Command "
-"dialog."
-msgstr ""
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -6087,20 +5966,6 @@ msgstr "Null"
 #, kde-format
 msgid "Search F&ilters"
 msgstr "F&iltres de sercha"
-
-#: urifilters/ikws/ikwsopts.cpp:275
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>In this module you can configure the web search keywords feature. Web "
-"search keywords allow you to quickly search or lookup words on the Internet. "
-"For example, to search for information about the KDE project using the "
-"Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-"<emphasis>google:KDE</emphasis>.</para><para>If you select a default search "
-"engine, then you can search for normal words or phrases by simply typing "
-"them into the input widget of applications that have built-in support for "
-"such a feature, e.g Konqueror.</para>"
-msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -8803,6 +8668,52 @@ msgstr "To va lansar li programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vu ne fide a ti-ci programma, selecte Anullar"
+
+#~ msgid "<h1>Cookie Management Quick Help</h1>"
+#~ msgstr "<h1>Rapid auxilie del gerentie de cookies</h1>"
+
+#~ msgid ""
+#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
+#~ "programs when using Internet and network connections. If you experience "
+#~ "timeouts or use a modem to connect to the Internet, you might want to "
+#~ "adjust these settings."
+#~ msgstr ""
+#~ "<h1>Preferenties del rete</h1>Ci vu posse controlar li conduida de "
+#~ "programmas KDE quel usa li Internet e conexe a retes. Si vu recive "
+#~ "timeouts o usa un modem por conexer al Internet, vu posse ajustar ti "
+#~ "parametres."
+
+#, fuzzy
+#~| msgid ""
+#~| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
+#~| "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#~| "properly configured.</p><p>You can specify here the credentials used to "
+#~| "access the shared resources. Passwords will be stored locally, and "
+#~| "scrambled so as to render them unreadable to the human eye. For security "
+#~| "reasons, you may not want to do that, as entries with passwords are "
+#~| "clearly indicated as such.</p>"
+#~ msgid ""
+#~ "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
+#~ "Konqueror) are able to access shared Microsoft Windows file systems, if "
+#~ "properly configured.</p><p>You can specify here the credentials used to "
+#~ "access the shared resources. Passwords will be stored locally, and "
+#~ "scrambled so as to render them unreadable to the human eye. For security "
+#~ "reasons, you may not want to do that, as entries with passwords are "
+#~ "clearly indicated as such.</p>"
+#~ msgstr ""
+#~ "<h1>Partites de Windows</h1><p>Applicationes quel usa li kioslave SMB "
+#~ "(quam Konqueror) posse acceder partit sistemas de files del Microsoft "
+#~ "Windows, si it es configurat corectmen.</p><p>Vu posse provider ci li "
+#~ "identification por obtener li accesse a partit ressurses. Contrasignes va "
+#~ "esser gardat localmen e fat ínleibil por li ocul homan. Pro securitá vu "
+#~ "posse ne far to, proque li intradas con contrasignes es clarmen marcat.</"
+#~ "p>"
+
+#~ msgid "Web Search Keywords"
+#~ msgstr "Sercha web per clav-paroles"
+
+#~ msgid "Configure enhanced browsing features"
+#~ msgstr "Configurar li avansat functiones de navigation"
 
 #~ msgid "Using sub-URLs with %1 is not supported."
 #~ msgstr "Usa de sub-URLs con %1 es ínsupportat."
