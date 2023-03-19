@@ -309,7 +309,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
         m_service = service;
         // Store the desktop name, used by debug output and for the systemd unit name
         m_desktopName = service->menuId();
-        if (m_desktopName.isEmpty() && m_executable == QLatin1String("systemsettings5")) {
+        if (m_desktopName.isEmpty() && m_executable == QLatin1String("systemsettings")) {
             m_desktopName = QStringLiteral("systemsettings.desktop");
         }
         if (m_desktopName.endsWith(QLatin1String(".desktop"))) { // always true, in theory
