@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>&Windows; Paylaşımları</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>sistem ayarları</keyword>
+<keyword
+>Windows Paylaşımları</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>&Windows; Paylaşımları</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Giriş</title>
+
+<para
+>&SMB; protokolü, birçok küçük yerel alan ağında ağ hizmetleri sunmak için kullanılır. <quote
+>&Windows; Ağı</quote
+> veya <quote
+>&Windows; for Workgroups Ağı </quote
+> veya <quote
+>LanManager</quote
+> da sıklıkla kullanılır. &SMB;'yi kullanarak, yazıcıların yanı sıra sözde <quote
+>paylaşımlara</quote
+> (sunucu tarafından sağlanan klasörlere) erişebilirsiniz.</para>
+
+<para
+>&kde; &SMB; protokolü için yerleşik destekle gelir &kde; ağlarda saydam olduğundan, bu, yerel dosyalarınıza erişebileceğiniz her yerden &SMB;'ye de erişebileceğiniz anlamına gelir; örneğin, &konqueror; dosya yöneticisinde veya dosya iletişim kutusunda. Bundan faydalanmak için &kde;'ye &SMB; ağınız hakkında biraz bilgi sağlamanız gerekir. Ancak endişelenmeyin, bu normalde oldukça basittir, örneğin tüm &Windows; ağınızdaki istemciler de aynı bilgilere gereksinim duyar.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb KIO worker doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan KIO worker,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>&SMB;'nin düzgün çalışması için &Samba;'nın düzgünce kurulu olması gerekir.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Kullanım</title>
+
+<para
+>Herkese erişim hakkı sunan birçok güvensiz &SMB; ağı olmasına rağmen, bir &SMB; sunucusunun hizmetlerine erişebilmek için kendinizi yetkilendirmeniz gerekir. Öntanımlı olarak &kde;, &SMB; makinelerinde kendini yetkilendirmek için <guilabel
+>Öntanımlı kullanıcı adı:</guilabel
+> ve <guilabel
+>Öntanımlı parola:</guilabel
+> alanlarını kullanır. <guilabel
+>Öntanımlı kullanıcı adı:</guilabel
+> alanını boş bırakırsanız &kde;, &SMB; makinelerine bir kullanıcı adı olmadan bağlanmaya çalışır. Öntanımlı parola alanını boş bırakırsanız aynı şeyi parolasız olarak dener. Eğer &kde; bu ayarları kullanarak bağlanmada başarısız olursa sizden bir kullanıcı adı ve parola ister.</para>
+
+<important
+><para
+>&kde;'nin &SMB; kullanıcı adınızı ve parolanızı depolaması sizin için kolaylık sağlasa da bir güvenlik sorunu ortaya çıkarabilir. &SMB;'yi güvenlik konusunda hassas bir ortamda kullanıyorsanız parolanızı depolamak yerine bir &SMB; makinesine bağlanmanız gereken her zaman yeniden girmelisiniz.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>

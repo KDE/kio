@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>Belgelendirme Bulunamadı</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>Frameworks 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>İstenen belgelendirme bilgisayarınızda bulunamadı.</para>
+
+<para
+>Belgelendirme var olmayabilir veya uygulamayla birlikte kurulmamış olabilir.</para>
+
+<tip
+><para
+>Lütfen eksik belgeyi bulmak için bu sayfanın yazarına e-posta göndermeyin. Size yalnızca bu sayfadaki talimatları izlemenizi söyleyecektir. </para
+></tip>
+
+<simplesect>
+<title
+>Bu sorunun çözümü</title>
+
+<para
+>Uygulama bir &kde; yazılımıysa önce &khelpcenter; yazılımındaki arama işlevini kullanın. Bazı durumlarda belgeler, yazılımın onu bulmaya çalışmak için kullandığından farklı bir ada sahiptir. Bu işe yaramazsa istenen belgeleri bulmak için <ulink url="https://docs.kde.org/"
+>&kde; Belgelendirmesi</ulink
+> sitesine bakın. Belgeleri bu sitede bulursanız dağıtımınız belgeler için ayrı bir paket çıkarabilir (örneğin, &plasma; ile ilgili belgeler plasma-doc olarak adlandırılır). Eksik belgelendirmeyi bulmak ve kurmak için lütfen dağıtımınızın paket yöneticisini kullanın.</para>
+
+<para
+>Gentoo gibi kaynak tabanlı bir dağıtım kullanıyorsanız belgelerin kurulumunu devre dışı bırakabilecek herhangi bir yapılandırma ayarı (Gentoo'daki USE bayraklarını kullanın) olmadığından emin olun. </para>
+
+<para
+>Bunu da yaptısanız; ancak yine de uygulama El Kitabı yerine bu sayfayı görüyorsanız yardım sisteminde bir hata bulmuş olmanız olasıdır. Bu durumda, bunu <ulink url="https://bugs.kde.org/"
+>&kde;'nin hata izleyicisnde </ulink
+> KIO bileşeni altında bildirin. </para>
+
+<para
+><ulink url="https://docs.kde.org/"
+>&kde; Belgelendirmesi</ulink
+> sitesinde hiçbir belge bulamadıysanız uygulamanın kendisinin çevrimdışı kullanılabilecek bir belgelendirmesi olmayabilir. Bunu, <ulink url="https://bugs.kde.org/"
+>&kde;'nin hata izleyicisinde</ulink
+> ilgili uygulama bileşeni altında bildirin. </para>
+
+<para
+>Uygulamanın çevrimdışı kullanılabilecek bir belgelendirmesi yoksa yardım almak için çevrimiçi <ulink url="https://userbase.kde.org/"
+>Kullanıcı Tabanı Belgelendirmesi</ulink
+> veya <ulink url="https://forum.kde.org/"
+>&kde; Topluluk Forumları</ulink
+>'na bakın. </para>
+
+<para
+>&kde; dışı uygulamalar için lütfen uygulama yazarıyla iletişime geçerek çevrimdışı belgelendirme var mı yok mu diye sorun.</para>
+</simplesect>
+
+</article>

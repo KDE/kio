@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="data">
+<title
+>Veri &URL;'leri</title>
+
+<articleinfo>
+<authorgroup>
+<author
+><personname
+><firstname
+>Leo</firstname
+><surname
+>Savernik</surname
+></personname
+> <address
+><email
+>l.savernik@aon.at</email
+></address
+> </author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2003-02-06</date>
+<!--releaseinfo
+>2.20.00</releaseinfo-->
+
+</articleinfo>
+
+<para
+>Veri URL'leri, bir &URL; kendisinde küçük belgelerin içerilebilmesine izin verir. Bu, çok küçük &HTML; sınama durumları veya ayrı bir belgenin olmasına gerek olmayan durumlar için yararlıdır.</para>
+
+<para
+><userinput
+>data:,veri</userinput
+> (iki noktadan sonraki virgüle dikkat), <literal
+>veri</literal
+>'den başka bir şey içermeyen bir metin dosyası döndürür. </para>
+
+<para
+>Son örnek bir metin dosyası döndürdü. &HTML; belgeleri için <literal
+>text/html</literal
+>: <quote
+><userinput
+>data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;Bu bir sınamadır&lt;/p&gt;</userinput
+></quote
+>  &MIME; türünü belirtmelidir. Bu, sanki içerik belgenin kendisinden gelmiş gibi bir çıktı sağlayacaktır. </para>
+
+<para
+>Alternatif karakter kümelerini belirtmek de olanaklıdır. 8 bit karakterlerin bir yüzde imi ve iki basamaklı onaltılık kodlarıyla kaçırılması gerektiğini unutmayın: <quote
+><userinput
+>data:;charset=iso-8859-1,Gr%FC%DFe aus Schl%E4gl</userinput
+></quote
+>, <quote
+><literal
+>Gr&uuml;&szlig;e aus Schl&auml;gl</literal
+></quote
+> çıktısını verir. Karakter kümesini belirtmezseniz çıktı şöyle olacaktır: <quote
+><literal
+>Gr??e aus Schl?gl</literal
+></quote
+>. </para>
+
+<para
+><ulink url="https://www.ietf.org/rfc/rfc2397.txt"
+>IETF RFC2397</ulink
+> bölümünde daha fazla bilgi bulabilirsiniz.</para>
+
+</article>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&HTTP;, <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol (Hiper Metin Aktarım Protokolü) kalıbının kısaltmasıdır.</para>
+
+<para
+>http KIO işçisi, tüm &kde; uygulamaları tarafından &HTTP; (web) sunucularına yapılan bağlantıları işlemek için kullanılır. En yaygın kullanımı, &konqueror; web tarayıcısında web sayfalarını görüntülemektir.</para>
+
+<para
+>&konqueror;'da https KIO işçisini, ona bir &URL;; örneğin, <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+> vererek kullanabilirsiniz.</para>
+
+<para
+>https, http'nin bir SSL/TLS akışında kapsüllenmiş halidir.</para>
+<para
+>SSL, internet üzerinden iletişim gizliliği sağlayan bir güvenlik protokolü olan Güvenli Yuva Katmanı protokolüdür. Protokol, istemci/sunucu uygulamalarının gizli dinleme, kurcalama veya ileti sahteciliğini önlemek üzere tasarlanmış bir biçimde iletişim kurmasını sağlar. </para>
+<para
+>TLS, Aktarım Katmanı Güvenliği anlamına gelir.</para>
+
+</article>

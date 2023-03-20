@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="webdav">
+<title
+>webdav / webdavs</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Hamish.Rodda; &Hamish.Rodda.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2002-01-21</date>
+</articleinfo>
+<para
+><acronym
+>WebDAV</acronym
+>, World Wide Web (WWW) için bir <emphasis
+>D</emphasis
+>istributed <emphasis
+>A</emphasis
+>uthoring and <emphasis
+>V</emphasis
+>ersioning (Dağıtılmış Yazma ve Sürümleme) protokolü anlamına gelir. Bir &HTTP; sunucusundaki belgelerin ve betiklerin kolay yönetimine izin verir ve sürüm yönetimini birden çok yazar arasında kolaylaştırmak için ek özelliklere iyedir.</para>
+
+<para
+>Bu protokolün kullanımı pek basittir. Görüntlemek istediğiniz konumu bir &HTTP; &URL;'sine benzer biçimde, yalnızca başında webdav:// protokolü adı ile girin. Örnek olarak, <userinput
+>webdav://<replaceable
+>www.alanadı.com/yol/</replaceable
+></userinput
+> kullanılabilir. Bir klasör adı belirtirseniz bir dosyalar ve klasörler listesi görüntülenir ve herhangi başka bir dosya sisteminde olduğu gibi bunları manipüle edebilirsiniz.</para>
+
+<variablelist>
+<title
+>WebDAV Özellikleri</title>
+<varlistentry>
+<term
+>Kilitleme</term>
+<listitem>
+<para
+>Dosya kilitleme, kullanıcıların dosyaları kilitleyerek, diğer kullanıcılara bu dosya üzerinde çalıştığı bilgisini vermelerini sağlar. Bu şekilde, dosya düzenleme sırasında bir başka kullanıcının aynı dosyayı düzenlemesi engelenerek yapılan işin boşa gitmesi olasılığı ortadan kaldırılmış olur.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Kaynak dosya erişimi</term>
+<listitem>
+<para
+><acronym
+>WebDAV</acronym
+>, belirli bir sayfayı üretmek için betiklerin çağrılmasına ve betiklerin kendilerinin de düzenlenmesine izin verir.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>Belge başına özellik desteği</term>
+<listitem>
+<para
+>Örneğin, belgenin yazarı gibi özellikler isteğe bağlı biçimde kimlik tanımlamaya yardımcı olmak için ayarlanabilirler.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Bu ek yeteneklerden yararlanmak için bunları destekleyen bir uygulamaya gereksiniminiz vardır. Şu anda hiçbir uygulama onları bu KIO işçisi aracılığıyla desteklemez.</para>
+
+<para
+><acronym
+>WebDAVS</acronym
+>, <acronym
+>WebDAV</acronym
+> protokolünün SSL ile şifrelenmiş halidir.</para>
+
+</article>

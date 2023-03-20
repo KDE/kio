@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="cookies" lang="&language;">
+<articleinfo>
+<title
+>Çerezler</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>sistem ayarları</keyword>
+<keyword
+>çerez</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="cookie">
+<title
+>Çerezler</title>
+
+<para
+>Çerezler, web siteleri tarafından tarayıcınızı kullanarak bilgi depolamak ve almak için kullanılan bir mekanizmadır. Örneğin, bir web sitesi, gördüğünüz sayfaların içeriğini ve düzenini özelleştirmenize izin verebilir, böylece o web sitesine yapılan farklı ziyaretlerde seçimleriniz kalıcı olur.</para>
+
+<para
+>Web sitesi, bilgisayarınıza bir çerez kaydederek tercihlerinizi hatırlayabilir. Ardından, gelecekteki ziyaretlerde, web sitesi, sitenin içeriğini önceden belirttiğiniz tercihlerinize göre biçimlendirmek için çerezde saklanan bilgileri alır.</para>
+
+<para
+>Böylece çerezler, web'de gezinmede çok yararlı bir rol oynar. Ne yazık ki, web siteleri genellikle sizin açık bilginiz veya izniniz olmadan bilgileri çerezlerde saklar ve alır. Bu bilgilerden bazıları, örneğin, web sitelerinin farklı alanlarının aldığı ziyaretlerin sayısı hakkında özet istatistikler toplamalarına veya tabela reklamlarını özelleştirmelerine izin vererek, web sitesi sahipleri için oldukça yararlı olabilir.</para>
+
+<para
+>Çerezler sayfası, web'i &konqueror; web tarayıcısı ile gezinirken çerez kullanımı üzerine politikalar ayarlamanıza izin verir.</para>
+
+<warning
+><para
+>Bu denetim modülünü kullanarak ayarladığınız politikaların; örneğin &firefox; gibi başka web tarayıcıların ayarlarını <emphasis
+>etkilemeyeceğini</emphasis
+> unutmayın.</para
+></warning>
+
+<sect2 id="cookie-policy">
+
+<title
+>Politika</title>
+
+<para
+><guilabel
+>Politika</guilabel
+> sekmesini kullanarak, çerezleri işleyen &kde; uygulamalarını yapılandırabilirsiniz. Bunu, genel bir çerez politikası veya bazı özel alan adları veya makineler için ayrımlı politikalar koyarak yapabilirsiniz.</para>
+
+<para
+>Politika sekmesinin en üstünde <guilabel
+>Çerezleri etkinleştir</guilabel
+> diye bir onay kutusu vardır. Bunu işaretlemezseniz çerezler tümüyle devre dışı kalırlar. Ancak bu, web'de dolaşmayı biraz sıkıntılı kılabilir, özellikle işlevleri için çerezlerden sıklıkla yararlanan web siteleri için.</para>
+
+<para
+>Çerezleri etkinleştirip onların işlenmesi konusunda özel politikalar belirlemek genelde en iyisidir.</para>
+
+<para
+>İlk seçenek grubu, bütün çerezler için geçerli olan ayarlar oluşturur.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Yalnızca kaynak sunucudan gelen çerezleri kabul et</guilabel
+></term>
+<listitem>
+<para
+>Bazı sayfalar, &HTML; sayfasını görüntülediğiniz sunucunun dışındaki sunuculardan çerezler koymaya çalışırlar. Örneğin, size reklamlar gösterirler; ancak bu reklamlar büyük bir reklam ajansına ait başka bir sunucudan gönderilirler. Bu reklamlar, sizi ziyaret ettiğiniz diğer sayfalarda da takip edebilecek çerezler ayarlamaya çalışırlar.</para>
+<para
+>Bu seçeneğin etkinleştirilmesi, yalnızca açıkça bağlandığınız aynı web sunucusundan gelen çerezlerin kabul edileceği anlamına gelir.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Oturum çerezlerini otomatik olarak kabul et</guilabel
+></term>
+<listitem>
+
+<para
+>Çerezlerin giderek yaygınlaşan bir kullanımı, bir web sitesine yapılan birçok ziyaretteki hareketlerinizi takip etmek değil, yalnızca tek bir ziyaret sırasında yaptıklarınızı takip etmektir. Oturum çerezleri, siz siteye baktığınız sürece kaydedilir ve siteden ayrıldığınızda silinir.</para>
+
+<para
+>Web siteleri bu bilgileri çeşitli şeyler için kullanabilir, çoğunlukla sayfaları görüntülemek için sürekli oturum açmanıza gerek kalmaması için kolaylık sağlar. Örneğin, bir web posta sitesinde, bir tür oturum <acronym
+>kimliği</acronym
+> olmadan, okumak istediğiniz her e-posta için şifrenizi yeniden vermeniz gerekir. Bunu başarmanın başka yolları da vardır; ancak çerezler çok basit ve çok yaygındır.</para>
+
+<para
+>Bu seçeneğin etkinleştirilmesi, diğer türdeki çerezleri kabul etmeseniz bile oturum çerezlerinin her zaman kabul edileceği ve belirli bir siteden gelen çerezleri reddetmeyi seçseniz bile o siteden alınan oturum çerezlerinin kabul edileceği anlamına gelir.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+><guilabel
+>Öntanımlı Politika</guilabel
+> bölümü, birlikte kullanılamayan birkaç ayarı yapmanıza izin verir &mdash; bunlardan yalnızca birini öntanımlı olarak seçebilirsiniz; ancak belirli herhangi bir web sunucusu için istediğiniz ayarı ayrı olarak yapabilirsiniz.</para>
+<note
+><para
+>Siteye özgü politikalar her zaman öntanımlı politikaya göre önceliklidir.</para
+></note>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Tüm çerezleri kabul et</guilabel
+></term>
+<listitem>
+<para
+>Bu seçenek seçilirse tüm çerezler onay istenmeden kabul edilir.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Oturum sonuna kadar kabul et</guilabel
+></term>
+<listitem>
+<para
+>Çerezler kabul edilir; ancak oturum sonunda geçerliliklerini yitirirler.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Onay iste</guilabel
+></term>
+<listitem>
+<para
+>Bu seçenek seçilirse bir çerez her kaydedildiğinde veya alındığında sizden onay istenecektir. Her çerezi seçerek kabul edebilir veya reddedebilirsiniz. Onay iletişim kutusu, o alan adı için her çerezi onaylamak istemiyorsanız alana özel bir politika belirlemenize de olanak tanır.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Tüm çerezleri reddet</guilabel
+></term>
+<listitem>
+<para
+>Bu seçenek seçilirse tüm çerezler onay istenmeden reddedilirler.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Yukarıda açıklanan üç seçenekten birini seçerek ayarlayabileceğiniz çerez öntanımlı politikasına ek olarak, <guilabel
+>Site Politikası</guilabel
+> grubundaki denetimleri kullanarak belirli ana bilgisayar alan adları için politikalar da belirleyebilirsiniz.</para>
+
+<para
+>Sor, Kabul et, Oturum sonuna kadar kabul et veya Reddet politikası, bir iletişim kutusu açan <guibutton
+>Yeni...</guibutton
+> düğmesine tıklanarak belirli bir alan adına uygulanabilir. Bu iletişim kutusunda, alan adını (başında bir nokta ile) yazabilir ve ardından bu alan adına uygulamak istediğiniz politikayı seçebilirsiniz. Tarama yaparken de girişlerin eklenebileceğini unutmayın; öntanımlı politika onay istemekse dahi belirli bir ana bilgisayar için genel bir politika seçebilirsiniz (örneğin, çerezi onaylamanız istendiğinde <guilabel
+>Reddet</guilabel
+>'i seçerek).</para>
+
+<para
+>Ayrıca listeden belirli bir ana bilgisayar alan adı seçebilir ve o ad için listede gösterilenden farklı bir politika seçmek için <guibutton
+>Değiştir...</guibutton
+> düğmesine tıklayabilirsiniz.</para>
+
+<para
+>Alana özgü bir politikayı silmek için listeden bir alan seçin ve ardından <guibutton
+>Sil</guibutton
+> düğmesine tıklayın. Öntanımlı politika, listeden silinen alan adları için geçerli olacaktır.</para>
+
+</sect2>
+
+<sect2 id="cookie-management">
+<title
+>Yönetim</title>
+
+<para
+><guilabel
+>Yönetim</guilabel
+> sekmesinde, geçmişte ayarlanmış çerezlere göz atabilir ve bunları seçerek silebilirsiniz.</para>
+
+<para
+>Bu iletişim kutusunun üst kısmında, ağaç olarak görüntülenen alan adlarının listesini görebilirsiniz. Belirli bir alan adı için ayarlanan tüm çerezleri görmek için bir alanın yanındaki küçük <guiicon
+>&gt;</guiicon
+> simgesine tıklayın. Bu çerezlerden birini seçerseniz içeriğinin aşağıdaki <guilabel
+>Ayrıntılar</guilabel
+> çerçevesinde görüneceğini fark edeceksiniz.</para>
+
+<para
+><guibutton
+>Sil</guibutton
+> düğmesine tıklayarak artık seçili çerezi silebilirsiniz. Depolanan tüm çerezleri silmek için <guibutton
+>Tümünü Sil</guibutton
+>'e tıklayın.</para>
+
+<para
+>Bir alan adı seçiliyse bir site politikası ayarlamak için <guibutton
+>Politikayı Yapılandır...</guibutton
+> seçeneğini kullanabilirsiniz.</para>
+
+<para
+>Listeyi sabit diskinizden yeniden yüklemek için <guibutton
+>Listeyi Yeniden Yükle</guibutton
+> seçeneğini seçin. Modülü açtıysanız ve web sitelerini sınıyorsanız veya modülün kendisinde birçok değişiklik yaptıysanız bunu yapmak isteyebilirsiniz.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

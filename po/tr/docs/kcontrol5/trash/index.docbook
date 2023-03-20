@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>Çöp Kutusu</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>Frameworks 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>sistem ayarları</keyword>
+<keyword
+>çöp kutusu</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>Bu modül, Çöp Kutusu ayarlarını yapılandırmanıza izin verir. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Temizle:</guilabel
+></term>
+<listitem
+><para
+>Belirtilen değerden daha eski olan dosyaların otomatik olarak silinmesine izin vermek için bu kutuyu işaretleyin. Belirli bir zaman aralığından sonra herhangi bir ögeyi otomatik olarak <emphasis
+>silmemek</emphasis
+> için bunu devre dışı bırakın. Dosyaların çöp kutusunda kalabileceği gün sayısını ayarlayın. Bundan daha eski tüm dosyalar otomatik olarak silinecektir. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Boyut:</guilabel
+></term>
+<listitem
+><para
+>Çöp kutusunu belirttiğiniz en çok disk alanı miktarıyla sınırlamak için bu kutuyu işaretleyin. Aksi takdirde sınırsız olacaktır. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Sınırla</guilabel
+></term>
+<listitem
+><para
+>Bu, çöp kutusu için kullanılacak en çok  disk alanı yüzdesidir. Çöp kutusu için izin verilecek hesaplanan disk alanı miktarı, sayacın sağında görüntülenir. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Tam temizlik:</guilabel
+></term>
+<listitem
+><para
+>Boyut sınırına ulaşıldığında seçilen işlem yapılır ve en eski veya en büyük dosyalar otomatik olarak silinir veya uyarılırsınız. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

@@ -71,26 +71,26 @@
 <varlistentry>
 <term
 ><guilabel
->Soket okuma:</guilabel
+>Yuva okuma:</guilabel
 ></term>
 <listitem>
 <para
 >Bazı uygulamalar, iletişim kurabilmek için <firstterm
->soket</firstterm
-> kullanırlar. Soketleri musluk gibi düşünebilirsiniz. Açık iken, hiçbir etki olmadan su (şimdiki durumumuzda, veri) akışı olur. Eğer herhangi bir şey bu veri akışını durdurursa, uygulama, biraz daha gelmek için bekleyecektir. Bu çok uzun bir zaman olabilir, ancak bu seçenek ile bir uygulama için beklenecek maksimum süreyi belirleyebilirsiniz</para>
+>yuvalar</firstterm
+> kullanırlar. Yuvalar bir musluk gibi düşünebilirsiniz. Açık iken, hiçbir etki olmadan su (şimdiki durumumuzda, veri) akışı olur. Eğer herhangi bir şey bu veri akışını durdurursa uygulama, biraz daha gelmesi için bekleyecektir. Bu çok uzun bir zaman olabilir; ancak bu seçenek ile bir uygulama için beklenecek en çok süreyi belirleyebilirsiniz.</para>
 <para
->Bu ayarlar tabii ki sadece &kde; uygulamalarına uygulanacaktır.</para>
+>Bu ayarlar tabii ki yalnızca &kde; uygulamalarına uygulanacaktır.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term
 ><guilabel
->Proksi bağlantısı:</guilabel
+>Vekil bağlantısı:</guilabel
 ></term>
 <listitem>
 <para
->Eğer bir proksi ayarlanmışsa, proksiye bağlanmak için beklenecek süreyi belirler. </para>
+>Eğer bir vekil ayarlanmışsa vekile bağlanmak için beklenecek süreyi belirler. </para>
 </listitem>
 </varlistentry>
 
@@ -120,32 +120,32 @@
 
 <para
 >Buradan <guilabel
->FTP Ayarları</guilabel
->nı düzenleyebilirsiniz. Şimdilik sadece iki seçenek var:</para>
+>FTP Seçenekleri</guilabel
+>'ni düzenleyebilirsiniz. Şimdilik yalnızca iki seçenek vardır:</para>
 <variablelist>
 <varlistentry>
 <term
 ><guilabel
->Pasif kipi aktifleştir (PASV)</guilabel
+>Pasif kipi etkinleştir (PASV)</guilabel
 ></term>
 <listitem
 ><para
->Pasif &FTP;, genellikle bir güvenlik duvarı kullanıyorsanız sık sık ihtiyacınızın olacağı bir özelliktir. Birçok güvenlik duvarı sadece <quote
->içerisinde</quote
-> tanımlı olan bağlantılara izin verir. Pasif &FTP; ise; kullanıcı tarafından çoğu güvenlik duvarına karşı kullanışlı olmak üzere kontrol edilebilir.</para
+>Pasif &FTP;, genellikle bir güvenlik duvarı kullanıyorsanız sık sık gereksiniminizin olacağı bir özelliktir. Birçok güvenlik duvarı yalnızca <quote
+>içinde</quote
+> tanımlı olan bağlantılara izin verir. Pasif &FTP; ise kullanıcı tarafından çoğu güvenlik duvarına karşı kullanışlı olmak üzere denetlenebilir.</para
 ></listitem>
 </varlistentry>
 
 <varlistentry>
 <term
 ><guilabel
->Bir kısmı gönderilmiş dosyaları işaretle</guilabel
+>Bir kısmı karşıya yüklenmiş dosyaları imle</guilabel
 ></term>
 <listitem
 ><para
->Bu kutu işaretlendiğinde, bir kısmı gönderilmiş dosyaların sonuna, uzantı olarak <literal role="extension"
+>Bu kutu imlendiğinde, bir kısmı karşıya yüklenmiş dosyaların sonuna uzantı olarak <literal role="extension"
 >.part</literal
-> eki eklenecektir. Bu uzantı, dosya tamamen indirildikten sonra kaldırılacaktır.</para
+> eklenir. Bu uzantı, dosya tümüyle indirildikten sonra kaldırılır.</para
 ></listitem>
 </varlistentry>
 
