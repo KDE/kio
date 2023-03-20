@@ -143,7 +143,7 @@ ecm_set_disabled_deprecation_versions(
     KF 5.240
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kio5\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kio6\")
 ki18n_install(po)
 
 if (KF6DocTools_FOUND)

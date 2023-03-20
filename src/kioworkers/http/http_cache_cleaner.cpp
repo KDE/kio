@@ -701,7 +701,7 @@ int main(int argc, char **argv)
     QCoreApplication app(argc, argv);
     app.setApplicationVersion(QStringLiteral("5.0"));
 
-    KLocalizedString::setApplicationDomain("kio5");
+    KLocalizedString::setApplicationDomain("kio6");
 
     QCommandLineParser parser;
     parser.addVersionOption();
