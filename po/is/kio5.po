@@ -5374,7 +5374,7 @@ msgstr ""
 "Sláðu inn heitið á umhverfisbreytunni, t.d. <b>HTTP_PROXY</b>, sem "
 "inniheldur vistfangið á HTTP-milliþjóninum.<p>\n"
 "Einnig getur þú smellt á hnappinn <b>\"Finna sjálfvirkt\"</b> til að reyna "
-"að finna þessa breytu sjálfvirkt.\n"
+"að finna þessa breytu sjálfvirkt.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
@@ -5400,7 +5400,7 @@ msgstr ""
 "Sláðu inn heitið á umhverfisbreytunni, t.d. <b>HTTPS_PROXY</b>, sem er notað "
 "til að geyma vistfangið á HTTPS-milliþjóninum.<p>\n"
 "Einnig getur þú smellt á hnappinn <b>\"Finna sjálfvirkt\"</b> til að reyna "
-"að finna þessa breytu sjálfvirkt.\n"
+"að finna þessa breytu sjálfvirkt.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
@@ -5426,7 +5426,7 @@ msgstr ""
 "Sláðu inn heitið á umhverfisbreytunni, t.d. <b>FTP_PROXY</b>, sem er notuð "
 "til að geyma vistfangið á FTP-milliþjóninum.<p>\n"
 "Einnig getur þú smellt á hnappinn <b>\"Finna sjálfvirkt\"</b> hnappinn til "
-"að reyna að finna breytuna sjálfvirkt.\n"
+"að reyna að finna breytuna sjálfvirkt.</p>\n"
 "</qt> "
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
@@ -5451,7 +5451,7 @@ msgstr ""
 "Sláðu inn heitið á umhverfisbreytunni, t.d. <b>SOCKS_PROXY</b>, sem notuð er "
 "til að geyma vistfangið á SOCKS-milliþjóninum.<p>\n"
 "Einnig getur þú smellt á hnappinn <b>\"Finna sjálfvirkt\"</b> hnappinn til "
-"að reyna að finna breytuna sjálfvirkt.\n"
+"að reyna að finna breytuna sjálfvirkt.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
