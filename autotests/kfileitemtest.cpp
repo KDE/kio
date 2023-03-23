@@ -44,6 +44,15 @@ void KFileItemTest::testPermissionsString()
     QCOMPARE((uint)fileItem.permissions(), (uint)0604);
     QCOMPARE(fileItem.permissionsString(), QStringLiteral("-rw----r--"));
     QVERIFY(fileItem.isReadable());
+    QCOMPARE(fileItem.getStatusBarInfo(), QStringLiteral("afile (empty document, 0 B)"));
+
+    // Folder
+    QVERIFY(QDir(tempDir.path()).mkdir(QStringLiteral("afolder")));
+    QFile folderFile(tempDir.path() + "/afolder");
+    KFileItem folderItem(QUrl::fromLocalFile(folderFile.fileName()), QString(), KFileItem::Unknown);
+    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxrwxr-x"));
+    QVERIFY(folderItem.isReadable());
+    QCOMPARE(folderItem.getStatusBarInfo(), QStringLiteral("afolder (folder)"));
 
     // Symlink to file
     QString symlink = tempDir.path() + "/asymlink";
@@ -55,6 +64,22 @@ void KFileItemTest::testPermissionsString()
     // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
     QCOMPARE(symlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
     QVERIFY(symlinkItem.isReadable());
+    QCOMPARE(symlinkItem.getStatusBarInfo(), QStringLiteral("asymlink (empty document, Link to %1/afile)").arg(tempDir.path()));
+
+#ifdef Q_OS_UNIX
+    // relative Symlink to a file
+    QFile relativeFile("../afile");
+    QString relativeSymlink = tempDir.path() + "/afolder/relative-symlink";
+    QVERIFY(::symlink("../afile", relativeSymlink.toLatin1()) == 0);
+    QUrl relativeSymlinkUrl = QUrl::fromLocalFile(relativeSymlink);
+    KFileItem relativeSymlinkItem(relativeSymlinkUrl, QString(), KFileItem::Unknown);
+    QCOMPARE((uint)relativeSymlinkItem.permissions(), (uint)0604);
+    // This is a bit different from "ls -l": we get the 'l' but we see the permissions of the target.
+    // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
+    QCOMPARE(relativeSymlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
+    QVERIFY(relativeSymlinkItem.isReadable());
+    QCOMPARE(relativeSymlinkItem.getStatusBarInfo(), QStringLiteral("relative-symlink (empty document, Link to %1/afile)").arg(tempDir.path()));
+#endif
 
     // Symlink to directory (#162544)
     QVERIFY(QFile::remove(symlink));
@@ -62,6 +87,12 @@ void KFileItemTest::testPermissionsString()
     KFileItem symlinkToDirItem(symlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)symlinkToDirItem.permissions(), (uint)0700);
     QCOMPARE(symlinkToDirItem.permissionsString(), QStringLiteral("lrwx------"));
+    QCOMPARE(symlinkToDirItem.getStatusBarInfo(), QStringLiteral("asymlink (folder, Link to %1)").arg(tempDir.path()));
+
+    // unkwnown file
+    QFile unkwnownFile(tempDir.path() + "/unkwnown_file");
+    KFileItem unkwnownfileItem(QUrl::fromLocalFile(unkwnownFile.fileName()), QString(), KFileItem::Unknown);
+    QCOMPARE(unkwnownfileItem.getStatusBarInfo(), QStringLiteral("unkwnown_file (unknown)"));
 }
 
 void KFileItemTest::testNull()

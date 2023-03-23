@@ -1294,12 +1294,12 @@ QString KFileItem::getStatusBarInfo() const
         return QString();
     }
 
-    auto toDisplayUrl = [this](const QUrl &url) {
+    auto toDisplayUrl = [](const QUrl &url) {
         QString dest;
         if (url.isLocalFile()) {
             dest = KShell::tildeCollapse(url.toLocalFile());
         } else {
-            dest = targetUrl().toDisplayString();
+            dest = url.toDisplayString();
         }
         return dest;
     };
@@ -1308,8 +1308,11 @@ QString KFileItem::getStatusBarInfo() const
     const QString comment = mimeComment();
 
     if (d->m_bLink) {
+        auto linkText = linkDest();
+        if (!linkText.startsWith(QStringLiteral("anon_inode:"))) {
+            linkText = toDisplayUrl(d->m_url.resolved(QUrl::fromUserInput(linkText)));
+        }
         text += QLatin1Char(' ');
-        QString linkText = toDisplayUrl(QUrl::fromUserInput(linkDest()));
         if (comment.isEmpty()) {
             text += i18n("(Symbolic Link to %1)", linkText);
         } else {
