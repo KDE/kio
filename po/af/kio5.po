@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-24 00:44+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie moontlik na skep io-slave: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4422,23 +4422,23 @@ msgid ""
 "%3"
 msgstr ""
 
-#: ioslaves/file/file_unix.cpp:842
+#: ioslaves/file/file_unix.cpp:844
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Kan nie kopie maak nie van lêer van %1 na %2. (Foutnommer: %3)"
 
-#: ioslaves/file/file_unix.cpp:1069
+#: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Geen media in toestel %1 gevind"
 
-#: ioslaves/file/file_unix.cpp:1362
+#: ioslaves/file/file_unix.cpp:1364
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Kon nie toegang tot gids %1 verkry nie"
 
-#: ioslaves/file/file_unix.cpp:1374
+#: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

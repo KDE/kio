@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-24 00:44+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave બનાવવામાં અસક્ષમ: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3977,22 +3977,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: ioslaves/file/file_unix.cpp:842
+#: ioslaves/file/file_unix.cpp:844
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"
 
-#: ioslaves/file/file_unix.cpp:1069
+#: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: ioslaves/file/file_unix.cpp:1362
+#: ioslaves/file/file_unix.cpp:1364
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "આપેલ વપરાશકર્તા નામ %1 માટે વપરાશકર્તા ઓળ મેળવી શકાતી નથી"
 
-#: ioslaves/file/file_unix.cpp:1374
+#: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"

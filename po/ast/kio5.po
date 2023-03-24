@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-24 00:44+0000\n"
 "PO-Revision-Date: 2022-12-05 23:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nun ye posible crear el trabayador de KIO: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3803,22 +3803,22 @@ msgstr ""
 "Orixe: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:842
+#: ioslaves/file/file_unix.cpp:844
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: ioslaves/file/file_unix.cpp:1069
+#: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: ioslaves/file/file_unix.cpp:1362
+#: ioslaves/file/file_unix.cpp:1364
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: ioslaves/file/file_unix.cpp:1374
+#: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

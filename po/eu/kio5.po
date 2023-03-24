@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-24 00:44+0000\n"
 "PO-Revision-Date: 2023-02-07 07:28+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ez da KIO behargina sortzeko gai: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4196,22 +4196,22 @@ msgstr ""
 "Sorburua: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:842
+#: ioslaves/file/file_unix.cpp:844
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ezin da fitxategia %1(e)tik %2(e)ra kopiatu. (Err.: %3)"
 
-#: ioslaves/file/file_unix.cpp:1069
+#: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ez dago euskarririk %1 gailuan"
 
-#: ioslaves/file/file_unix.cpp:1362
+#: ioslaves/file/file_unix.cpp:1364
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ezin izan du %1 erabiltzaile-izenaren erabiltzaile IDa lortu"
 
-#: ioslaves/file/file_unix.cpp:1374
+#: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ezin izan du %1 talde-izenaren talde IDa lortu"

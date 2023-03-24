@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-24 00:44+0000\n"
 "PO-Revision-Date: 2023-03-01 02:06+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1277
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4079,22 +4079,22 @@ msgstr ""
 "원본: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:842
+#: ioslaves/file/file_unix.cpp:844
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: ioslaves/file/file_unix.cpp:1069
+#: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: ioslaves/file/file_unix.cpp:1362
+#: ioslaves/file/file_unix.cpp:1364
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: ioslaves/file/file_unix.cpp:1374
+#: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
