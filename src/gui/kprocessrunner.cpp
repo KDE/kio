@@ -472,9 +472,8 @@ void ForkingProcessRunner::slotProcessExited(int exitCode, QProcess::ExitStatus 
     if (exitCode == 9009) {
 #endif
         const QStringList args = m_cmd.split(QLatin1Char(' '));
-        Q_EMIT error(xi18nc("@info", "The command <command>%1</command> could not be found.", args[0]));
+        emitDelayedError(xi18nc("@info", "The command <command>%1</command> could not be found.", args[0]));
     }
-    Q_EMIT processFinished();
 }
 
 // This code is also used in klauncher (and KRun).

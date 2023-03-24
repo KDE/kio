@@ -121,11 +121,6 @@ Q_SIGNALS:
     void processStarted(qint64 pid);
 
     /**
-     * @brief emitted when the process was finished
-     */
-    void processFinished();
-
-    /**
      * Notifies about having received the token were waiting for.
      *
      * It only gets emitted when on Wayland.
@@ -142,6 +137,7 @@ protected:
     QString name() const;
     QString maybeAliasedName(const QString &pattern) const;
     static QString escapeUnitName(const QString &input);
+    void emitDelayedError(const QString &errorMsg);
 
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path
@@ -157,7 +153,6 @@ protected:
     KStartupInfoId m_startupId;
 
 private:
-    void emitDelayedError(const QString &errorMsg);
     void initFromDesktopName(const QString &desktopName,
                              const QString &execName,
                              const QString &iconName,
