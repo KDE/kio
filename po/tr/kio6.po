@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-03-15 13:21+0300\n"
+"PO-Revision-Date: 2023-03-23 14:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -884,7 +884,7 @@ msgstr "<li>Protokol: %1</li>"
 #: core/job_error.cpp:307
 #, kde-format
 msgid "<li>Date and time: %1</li>"
-msgstr "<li>Tarih ve saat: %1</li>"
+msgstr "<li>Tarih ve zaman: %1</li>"
 
 #: core/job_error.cpp:307
 #, kde-format
@@ -7424,7 +7424,7 @@ msgstr[1] "<qt>%1 dosyayı açmakta kullanmak istediğiniz programı seçin.</qt
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
 msgid "Choose Application"
-msgstr "Uygulamayı Seç"
+msgstr "Uygulama Seç"
 
 #: widgets/kopenwithdialog.cpp:611
 #, kde-format
