@@ -119,11 +119,6 @@ Q_SIGNALS:
      */
     void processStarted(qint64 pid);
 
-    /**
-     * @brief emitted when the process was finished
-     */
-    void processFinished();
-
 protected:
     KProcessRunner();
     virtual void startProcess() = 0;
@@ -132,6 +127,7 @@ protected:
     QString name() const;
     QString maybeAliasedName(const QString &pattern) const;
     static QString escapeUnitName(const QString &input);
+    void emitDelayedError(const QString &errorMsg);
 
     std::unique_ptr<KProcess> m_process;
     QString m_executable; // can be a full path
@@ -149,7 +145,6 @@ protected:
 #endif
 
 private:
-    void emitDelayedError(const QString &errorMsg);
     void initFromDesktopName(const QString &desktopName,
                              const QString &execName,
                              const QByteArray &asn,
