@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-03-23 14:05+0300\n"
+"PO-Revision-Date: 2023-03-24 17:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -784,7 +784,7 @@ msgstr "%1 sunucu tarafından isteniyor, ancak bulunamadı."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "POST içindeki kısıtlı port erişimi engellendi."
+msgstr "POST içindeki kısıtlı kapı erişimi engellendi."
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -1139,7 +1139,7 @@ msgid ""
 msgstr ""
 "Girilen <strong>a</strong><strong>d</strong><strong>r</strong>es düzgün bir "
 "biçime sahip değil. Bir URL, genellikle aşağıdaki biçime sahiptir:"
-"<blockquote><strong>protokol://kullanıcı:parola@www.örnek.org.tr:/port/"
+"<blockquote><strong>protokol://kullanıcı:parola@www.örnek.org.tr:/kapı/"
 "klasör/dosya.uzantı?değişken=değer</strong></blockquote>"
 
 #: core/job_error.cpp:491
@@ -5026,7 +5026,7 @@ msgstr "Bağlantı Noktası:"
 #: kcms/proxy/kproxydlg.ui:421
 #, kde-format
 msgid "Enter the port number of the HTTP proxy server."
-msgstr "HTTP vekil sunucusunun port numarasını girin."
+msgstr "HTTP vekil sunucusunun kapı numarasını girin."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:436
@@ -5044,7 +5044,7 @@ msgstr "HTTPS vekil sunucusunun adresini girin."
 #: kcms/proxy/kproxydlg.ui:481
 #, kde-format
 msgid "Enter the port number of the HTTPS proxy server."
-msgstr "HTTPS vekil sunucusunun port numarasını girin."
+msgstr "HTTPS vekil sunucusunun kapı numarasını girin."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
 #: kcms/proxy/kproxydlg.ui:517
@@ -5056,7 +5056,7 @@ msgstr "FTP vekil sunucusunun adresini girin."
 #: kcms/proxy/kproxydlg.ui:534
 #, kde-format
 msgid "Enter the port number of the FTP proxy server."
-msgstr "FTP vekil sunucusunun port numarasını girin."
+msgstr "FTP vekil sunucusunun kapı numarasını girin."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:567
@@ -5068,7 +5068,7 @@ msgstr "SOCKS vekil sunucusunun adresini girin."
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr "SOCKS vekil sunucusunun port numarasını girin."
+msgstr "SOCKS vekil sunucusunun kapı numarasını girin."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:628
@@ -7447,8 +7447,8 @@ msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr ""
-"<qt> Bir program seçin. Eğer program listede yoksa adını girin veya Göz At "
-"düğmesine tıklayın.</qt>"
+"<qt> Bir program seçin. Eğer program listede yoksa adını girin veya seçmek "
+"için sağdaki dosya aç düğmesine tıklayın.</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
