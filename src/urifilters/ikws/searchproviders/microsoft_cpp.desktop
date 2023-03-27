@@ -18,6 +18,7 @@ Name[et]=Microsofti C++ dokumentatsioon
 Name[eu]=Microsoft C++ dokumentazioa
 Name[fi]=Microsoft C++ -ohjeistus
 Name[fr]=Documentation de Microsoft C++
+Name[gl]=Documentación de C++ de Microsoft
 Name[ia]=Documentation de Microsoft C++
 Name[id]=Dokumentasi Microsoft C++
 Name[ie]=Microsoft C++ Documentation
@@ -63,6 +64,7 @@ Query[et]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[eu]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[gl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[id]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ie]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
