@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:44+0000\n"
-"PO-Revision-Date: 2023-03-11 04:52\n"
+"PO-Revision-Date: 2023-03-26 02:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3223,7 +3223,7 @@ msgstr "您提供了多个文件"
 #: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid "You can only select local files"
-msgstr "您只能选择本机文件"
+msgstr "您只能选择本地文件"
 
 #: filewidgets/kfilewidget.cpp:852
 #, kde-format
@@ -3412,7 +3412,7 @@ msgstr "您想要覆盖文件吗？"
 #: filewidgets/kfilewidget.cpp:1965
 #, kde-format
 msgid "You can only select local files."
-msgstr "您只能选择本机文件。"
+msgstr "您只能选择本地文件。"
 
 #: filewidgets/kfilewidget.cpp:1965
 #, kde-format
