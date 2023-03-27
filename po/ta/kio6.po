@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-02-14 22:10+0530\n"
+"PO-Revision-Date: 2023-03-26 12:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.03.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2557,10 +2557,9 @@ msgstr ""
 "முடியவில்லை."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "'%1' -இல் 'kioslave5' என்ற நிரலை கண்டுபிடிக்க முடியவில்லை"
+msgstr "'%1' -இல் 'kioworker' நிரலை கண்டுபிடிக்க முடியவில்லை"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format

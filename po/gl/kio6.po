@@ -9,14 +9,14 @@
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
 # Marce Villarino <mvillarino@kde-espana.es>, 2009, 2011, 2012, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2020-01-12 11:01+0100\n"
+"PO-Revision-Date: 2023-03-26 17:58+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -24,51 +24,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Jesús Bravo Álvarez, Xabi G. Feal, Marce Villarino, Xosé Calvo"
+msgstr ""
+"Jesús Bravo Álvarez, Xabi G. Feal, Marce Villarino, Xosé Calvo, Adrián "
+"Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "proxecto@trasno.gal, xavigf@gmx.net, mvillarino@users.sourceforge.net, "
-"xosecalvo@gmail.com"
+"xosecalvo@gmail.com, adrian@chaves.io"
 
 #: core/chmodjob.cpp:201
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "Non se puideron modificar os donos do ficheiro %1."
+msgstr "Non se puido modificar a pertenza do ficheiro %1."
 
 #: core/chmodjob.cpp:235
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Could not modify the ownership of file <filename>%1</filename>. You have "
-#| "insufficient access to the file to perform the change."
+#, kde-kuit-format
 msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
-"<qt>Non se puido modificar o dono do ficheiro <b>%1</b>. Non ten os permisos "
-"necesarios para facer o cambio neste ficheiro.</qt>"
+"Non se puido modificar a pertenza do ficheiro <filename>%1</filename>. Non "
+"ten os permisos necesarios para facer o cambio neste ficheiro."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Non se pode crear o ioslave: %1"
+msgstr "Non se pode crear o traballador de KIO: %1"
 
 #: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "The first arg is the path to the symlink that couldn't be created, the "
-#| "secondarg is the filesystem type (e.g. vfat, exfat)"
-#| msgid ""
-#| "Could not create symlink \"%1\".\n"
-#| "The destination filesystem (%2) doesn't support symlinks."
+#, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
 "secondarg is the filesystem type (e.g. vfat, exfat)"
@@ -76,17 +68,11 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
-"Non se puido crear a ligazón simbólica %1.\n"
+"Non se puido crear a ligazón simbólica «%1».\n"
 "O sistema de ficheiros de destino (%2) non permite ligazóns simbólicas."
 
 #: core/copyjob.cpp:177
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create \"%1\".\n"
-#| "The destination filesystem (%2) disallows the following characters in "
-#| "folder names: %3\n"
-#| "Selecting Replace will replace any invalid characters (in the destination "
-#| "folder name) with an underscore \"_\"."
+#, kde-format
 msgid ""
 "Could not create \"%1\".\n"
 "The destination filesystem (%2) disallows the following characters in folder "
@@ -96,18 +82,12 @@ msgid ""
 msgstr ""
 "Non se puido crear «%1».\n"
 "O sistema de ficheiros de destino (%2) non permite os seguintes caracteres "
-"nos nomes dos cartafoles: %3\n"
-"Se selecciona «Trocar» se trocaran todos os caracteres non válidos (no  nome "
-"do cartafol de destino) por un trazo baixo («_»)."
+"en nomes de cartafoles: %3\n"
+"Seleccionar «Substituír» substituirá os caracteres non válidos (no nome do "
+"cartafol de destino) por unha barra baixa («_»)."
 
 #: core/copyjob.cpp:185
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create \"%1\".\n"
-#| "The destination filesystem (%2) disallows the following characters in "
-#| "file names: %3\n"
-#| "Selecting Replace will replace any invalid characters (in the destination "
-#| "file name) with an underscore \"_\"."
+#, kde-format
 msgid ""
 "Could not create \"%1\".\n"
 "The destination filesystem (%2) disallows the following characters in file "
@@ -117,9 +97,9 @@ msgid ""
 msgstr ""
 "Non se puido crear «%1».\n"
 "O sistema de ficheiros de destino (%2) non permite os seguintes caracteres "
-"nos nomes dos ficheiros: %3\n"
-"Se selecciona «Trocar» se trocaran todos os caracteres non válidos (no  nome "
-"do ficheiros de destino) por un trazo baixo («_»)."
+"en nomes de ficheiros: %3\n"
+"Seleccionar «Substituír» substituirá os caracteres non válidos (no nome do "
+"ficheiro de destino) por unha barra baixa («_»)."
 
 #: core/copyjob.cpp:1387 core/job_error.cpp:581
 #, kde-format
@@ -143,10 +123,9 @@ msgid "Trash"
 msgstr "Lixo"
 
 #: core/desktopexecparser.cpp:328
-#, fuzzy, kde-format
-#| msgid "No Exec field in %1"
+#, kde-format
 msgid "No Exec field in %1"
-msgstr "Non existe o campo «Exec» en %1"
+msgstr "Non hai campo «Exec» en %1"
 
 #: core/desktopexecparser.cpp:353
 #, kde-format
@@ -154,38 +133,30 @@ msgid "Could not find the program '%1'"
 msgstr "Non se puido atopar o programa «%1»"
 
 #: core/desktopexecparser.cpp:356
-#, fuzzy, kde-format
-#| msgid ""
-#| "The program '%1' was found at '%2' but it is missing executable "
-#| "permissions."
+#, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr ""
-"O programa «%1» atopouse en «%2», pero carece de permisos de execución."
+msgstr "O programa «%1» atopouse en «%2» pero fáltanlle permisos de execución."
 
 #: core/desktopexecparser.cpp:358
-#, fuzzy, kde-format
-#| msgid "The program '%1' is missing executable permissions."
+#, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "O programa «%1» carece de permisos de execución."
+msgstr "Ao programa «%1» fáltanlle permisos de execución."
 
 #: core/desktopexecparser.cpp:372
-#, fuzzy, kde-format
-#| msgid "Syntax error in command %1 coming from %2"
+#, kde-format
 msgid "Syntax error in command %1 coming from %2"
-msgstr "Erro de sintaxe na orde %1 que ven de %2"
+msgstr "Erro de sintaxe na orde %1 de %2"
 
 #: core/desktopexecparser.cpp:501
-#, fuzzy, kde-format
-#| msgid "Terminal %1 not found while trying to run %2"
+#, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr "Non se atopou o terminal %1 ao tentar executar %2"
+msgstr "O terminal %1 non se atopou ao intentar executar %2"
 
 #: core/desktopexecparser.cpp:518
-#, fuzzy, kde-format
-#| msgid "Syntax error in command %1 while trying to run %2"
+#, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
-msgstr "Erro de sintaxe na orde %1 ao tentar executar %2"
+msgstr "Erro de sintaxe na orde %1 ao intentar executar %2"
 
 #: core/global.cpp:81
 #, kde-format
@@ -260,23 +231,22 @@ msgid "Destination"
 msgstr "Destino"
 
 #: core/job.cpp:105
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Renomear"
+msgstr "Cambiando de nome"
 
 #: core/job.cpp:113
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
-msgstr "Estase a copiar"
+msgstr "Copiando"
 
 #: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "Estase a crear o directorio"
+msgstr "Creando un directorio"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:454
@@ -400,14 +370,14 @@ msgstr ""
 #: core/job.cpp:294 kioworkers/file/file_unix.cpp:125
 #, kde-format
 msgid "Rename"
-msgstr "Renomear"
+msgstr "Cambiar de nome"
 
 #: core/job.cpp:296
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
-"Requírense privilexios de root para completar o renomeamento. Quere "
+"Requírense privilexios de root para completar o cambio de nome. Quere "
 "continuar?"
 
 #: core/job.cpp:300 filewidgets/knewfilemenu.cpp:625
@@ -643,7 +613,7 @@ msgstr "Non se puido continuar o ficheiro %1."
 #: core/job_error.cpp:145
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "Non se puido renomear o ficheiro %1."
+msgstr "Non se puido cambiar de nome o ficheiro %1."
 
 #: core/job_error.cpp:148
 #, kde-format
@@ -653,7 +623,7 @@ msgstr "Non se puideron cambiar os permisos de %1."
 #: core/job_error.cpp:151
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "Non se puideron cambiar os donos de %1."
+msgstr "Non se puido cambiar a pertenza de %1."
 
 #: core/job_error.cpp:154
 #, kde-format
@@ -757,7 +727,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Non se puido renomear o ficheiro orixinal %1.\n"
+"Non se puido cambiar de nome o ficheiro orixinal %1.\n"
 "Revise os permisos."
 
 #: core/job_error.cpp:204
@@ -766,7 +736,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Non se puido renomear o ficheiro parcial %1.\n"
+"Non se puido cambiar de nome o ficheiro parcial %1.\n"
 "Revise os permisos."
 
 #: core/job_error.cpp:207
@@ -779,16 +749,13 @@ msgstr ""
 "Revise os permisos."
 
 #: core/job_error.cpp:210
-#, fuzzy, kde-format
-#| msgid ""
-#| "Cannot create symlinks at %1.\n"
-#| "The destination filesystem doesn't support symlinks."
+#, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Non se puido crear a ligazón simbólica %1.\n"
-"O sistema de ficheiros de destino\t non permite ligazóns simbólicas."
+"Non se poden crear ligazóns simbólicas en %1.\n"
+"O sistema de ficheiros de destino non permite ligazóns simbólicas."
 
 #: core/job_error.cpp:216
 #, kde-format
@@ -838,10 +805,9 @@ msgid "Communication with the local password server failed"
 msgstr "Fallou a comunicación co servidor local de contrasinais"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Non se pode crear o ioslave. %1"
+msgstr "Non se pode crear o traballador de KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -861,14 +827,13 @@ msgid ""
 "Please retry after changing permissions."
 msgstr ""
 "O aumento de privilexios non é necesario\n"
-"porque «%1» é propiedade do usuario actual.\n"
+"porque a persoa usuaria actual é dona de «%1».\n"
 "Inténteo de novo tras cambiar os permisos."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
-msgstr "O ficheiro é grande de máis para botarse no lixo."
+msgstr "O ficheiro é grande de máis para botar no lixo."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -1213,21 +1178,15 @@ msgstr ""
 "poden sen incompatíbeis."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Pode buscar en Internet un programa de KDE (chamado un kioslave ou un "
-"ioslave) compatíbel con este protocolo. Os lugares onde buscar inclúen <a "
-"href=\"https://kde-apps.org/\">https://kde-apps.org/</a> e <a href=\"http://"
-"freshmeat.net/\">http://freshmeat.net/</a>."
+"Pode buscar en Internet un complemento de software (chamado «traballador de "
+"KIO») compatíbel con este protocolo. Os lugares onde buscar inclúen <a href="
+"\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -1971,13 +1930,14 @@ msgstr "Inténteo de novo sen probar a continuar a transferencia."
 #: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
-msgstr "Non se puido renomear o recurso"
+msgstr "Non se puido cambiar de nome o recurso"
 
 #: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
-"O intento de renomear o recurso especificado, <strong>%1</strong>, fallou."
+"O intento de cambiar de nome o recurso especificado, <strong>%1</strong>, "
+"fallou."
 
 #: core/job_error.cpp:983
 #, kde-format
@@ -1996,7 +1956,7 @@ msgstr ""
 #: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
-msgstr "Non se puideron cambiar os donos do recurso"
+msgstr "Non se puido cambiar a pertenza do recurso"
 
 #: core/job_error.cpp:995
 #, kde-format
@@ -2004,7 +1964,7 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"O intento de cambiar os donos do recurso especificado, <strong>%1</strong>, "
+"O intento de cambiar a pertenza do recurso indicado, <strong>%1</strong>, "
 "fallou."
 
 #: core/job_error.cpp:1003
@@ -2239,7 +2199,7 @@ msgstr ""
 #: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "Non se puido renomear o ficheiro orixinal"
+msgstr "Non se puido cambiar de nome o ficheiro orixinal"
 
 #: core/job_error.cpp:1163
 #, kde-format
@@ -2247,13 +2207,13 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"A operación pedida requiría renomear o ficheiro orixinal, <strong>%1</"
-"strong>, porén non se puido renomear."
+"A operación pedida requiría cambiar de nome o ficheiro orixinal, <strong>%1</"
+"strong>, porén non se puido cambiar de nome."
 
 #: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Non se puido renomear o ficheiro temporal"
+msgstr "Non se puido cambiar de nome o ficheiro temporal"
 
 #: core/job_error.cpp:1174
 #, kde-format
@@ -2391,28 +2351,21 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Non se pode iniciar o protocolo %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Non se pode crear o ioslave"
+msgstr "Non se pode crear o traballador de KIO"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Non se puido iniciar o ioslave que fornece acceso ao protocolo <strong>%1</"
-"strong>. Polo xeral isto é debido a motivos técnicos."
+"Non se puido iniciar o traballador de KIO que fornece acceso ao protocolo "
+"<strong>%1</strong>. Polo xeral isto é debido a motivos técnicos."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2476,10 +2429,9 @@ msgstr ""
 "%1"
 
 #: core/mimetypefinderjob.cpp:223
-#, fuzzy, kde-format
-#| msgid "Unable to determine the type of file for %1"
+#, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr "No se puido determinar o tipo de ficheiro para %1"
+msgstr "Non se pode determinar o tipo de ficheiro de %1"
 
 #: core/slavebase.cpp:832
 #, kde-format
@@ -2524,7 +2476,7 @@ msgstr "Non se admite a obtención de información do tipo mime desde %1."
 #: core/slavebase.cpp:848
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "Non se admite renomear nin mover ficheiros dentro de %1."
+msgstr "Non se admite cambiar de nome nin mover ficheiros dentro de %1."
 
 #: core/slavebase.cpp:850
 #, kde-format
@@ -2554,7 +2506,7 @@ msgstr "Non se admite o cambio dos atributos dos ficheiros co protocolo %1."
 #: core/slavebase.cpp:860
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
-msgstr "Non se admite o cambio dos donos dos ficheiros co protocolo %1."
+msgstr "O protocolo %1 non permite cambiar a pertenza de ficheiros."
 
 #: core/slavebase.cpp:862
 #, kde-format
@@ -2669,23 +2621,21 @@ msgid "Unknown protocol '%1'."
 msgstr "Non se coñece o protocolo «%1»."
 
 #: core/worker.cpp:331
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Non se pode atopar o ioslave para o protocolo «%1»."
+msgstr "Non se pode atopar o traballador de KIO para o protocolo «%1»."
 
 #: core/worker.cpp:339
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Non se pode crear un sócket para iniciar o ioslave para o protocolo «%1»."
+"Non se pode crear un sócket para iniciar un traballador de KIO para o "
+"protocolo «%1»."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Non se pode atopar o executábel «kioslave5» en «%1»."
+msgstr "Non se pode atopar o executábel «kioworker» en «%1»."
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -2723,17 +2673,13 @@ msgid "Parent Folder"
 msgstr "Cartafol superior"
 
 #: filewidgets/kdiroperator.cpp:1941
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Go back"
+#, kde-format
 msgctxt "@info"
 msgid "Go back"
-msgstr "Volver"
+msgstr "Retroceder"
 
 #: filewidgets/kdiroperator.cpp:1945
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Go forward"
+#, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Avanzar"
@@ -2806,10 +2752,9 @@ msgid "Folders First"
 msgstr "Os cartafoles primeiro"
 
 #: filewidgets/kdiroperator.cpp:2031
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Mostrar os ficheiros agochados"
+msgstr "Ficheiros agochados ao final"
 
 #: filewidgets/kdiroperator.cpp:2038
 #, kde-format
@@ -2892,10 +2837,9 @@ msgid "Properties"
 msgstr "Propiedades"
 
 #: filewidgets/kdiroperator.cpp:2171
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "&Vista"
+msgstr "Modo da &vista"
 
 #: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
@@ -2995,17 +2939,13 @@ msgid "Move Here"
 msgstr "Mover aquí"
 
 #: filewidgets/kfilefiltercombo.cpp:42
-#, fuzzy, kde-format
-#| msgctxt "Default mime type filter that shows all file types"
-#| msgid "*|All Files"
+#, kde-format
 msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Todos os ficheiros"
 
 #: filewidgets/kfilefiltercombo.cpp:204
-#, fuzzy, kde-format
-#| msgctxt "%1 is the mimetype name, %2 is the extensions"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -3144,9 +3084,6 @@ msgid "Tags"
 msgstr "Etiquetas"
 
 #: filewidgets/kfileplacesmodel.cpp:160
-#, fuzzy
-#| msgctxt "KFile System Bookmarks"
-#| msgid "All tags"
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Todas as etiquetas"
@@ -3184,17 +3121,11 @@ msgid "Trash"
 msgstr "Lixo"
 
 #: filewidgets/kfileplacesmodel.cpp:376
-#, fuzzy
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Music"
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Música"
 
 #: filewidgets/kfileplacesmodel.cpp:383
-#, fuzzy
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Pictures"
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Imaxes"
@@ -3225,74 +3156,57 @@ msgid "Modified Yesterday"
 msgstr "Modificado onte"
 
 #: filewidgets/kfileplacesmodel.cpp:1139
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is error message"
-#| msgid "Could not add to the Places panel: %1"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Non se puido atopar o programa: %1"
+msgstr "Non se puido engadir ao panel de Lugares: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1146
-#, fuzzy, kde-format
-#| msgid "Only folders can be added to the Places panel."
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Só se pode engadir cartafoles ao panel de «Lugares»."
+msgstr "Ao panel de lugares só se poden engadir cartafoles."
 
 #: filewidgets/kfileplacesmodel.cpp:1410
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Liberar"
+msgstr "Liberando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1412
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Liberar"
 
 #: filewidgets/kfileplacesmodel.cpp:1416
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Quitar con &seguridade"
+msgstr "Retirando con seguridade…"
 
 #: filewidgets/kfileplacesmodel.cpp:1418
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
-msgstr "Quitar con &seguridade"
+msgstr "Retirar con &seguridade"
 
 #: filewidgets/kfileplacesmodel.cpp:1423
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Estase a desmontar"
+msgstr "Desmontando…"
 
 #: filewidgets/kfileplacesmodel.cpp:1425
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Unmount"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
-msgstr "Desmontar"
+msgstr "&Desmontar"
 
 #: filewidgets/kfileplacesmodel.cpp:1449
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Eject"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
-msgstr "Expulsar"
+msgstr "&Expulsar"
 
 #: filewidgets/kfileplacesmodel.cpp:1496
 #, kde-format
@@ -3313,6 +3227,7 @@ msgstr "Produciuse un erro ao acceder a «%1»"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Hai aberto polo menos un ficheiro deste dispositivo nalgunha aplicación."
 
 #: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-kuit-format
@@ -3323,13 +3238,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Hai aberto polo menos un ficheiro deste dispositivo na aplicación "
+"<application>«%2»</application>."
 msgstr[1] ""
+"Hai abertos un ou máis ficheiros deste dispositivo nas seguintes "
+"aplicacións: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3349,65 +3268,49 @@ msgid "Mount"
 msgstr "Montar"
 
 #: filewidgets/kfileplacesview.cpp:1142
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
-msgstr "Abrir nunha nova pestana"
+msgstr "Abrir nun novo separador"
 
 #: filewidgets/kfileplacesview.cpp:1145
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Window"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
-msgstr "Abrir unha nova ventá"
+msgstr "Abrir nunha xanela nova"
 
 #: filewidgets/kfileplacesview.cpp:1154
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add Entry…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Engadir unha entrada..."
+msgstr "Engadir unha entrada…"
 
 #: filewidgets/kfileplacesview.cpp:1160
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Editar..."
+msgstr "&Editar…"
 
 #: filewidgets/kfileplacesview.cpp:1165
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Retirar"
 
 #: filewidgets/kfileplacesview.cpp:1169
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Hide"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Agochar"
 
 #: filewidgets/kfileplacesview.cpp:1177
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Hide Section '%1'"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "Agochar a sección '%1'"
+msgstr "Agochar a sección «%1»"
 
 #: filewidgets/kfileplacesview.cpp:1177
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Hide Section"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Agochar a sección"
@@ -3418,56 +3321,42 @@ msgid "&Show All Entries"
 msgstr "&Mostrar todas as entradas"
 
 #: filewidgets/kfileplacesview.cpp:1190
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Icon Size"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Tamaño das iconas"
 
 #: filewidgets/kfileplacesview.cpp:1297
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inmenu Auto set icon size based on available space inthe Places "
-#| "side-panel"
-#| msgid "Auto Resize"
+#, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
 "panel"
 msgid "Auto Resize"
-msgstr "Cambiar de tamaño automáticamente"
+msgstr "Adaptar automaticamente"
 
 #: filewidgets/kfileplacesview.cpp:1317
-#, fuzzy, kde-format
-#| msgctxt "Small icon size"
-#| msgid "Small (%1x%1)"
+#, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Pequeno (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1320
-#, fuzzy, kde-format
-#| msgctxt "Medium icon size"
-#| msgid "Medium (%1x%1)"
+#, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
-msgstr "Medio (%1x%1)"
+msgstr "Mediano (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1323
-#, fuzzy, kde-format
-#| msgctxt "Large icon size"
-#| msgid "Large (%1x%1)"
+#, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Grande (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1326
-#, fuzzy, kde-format
-#| msgctxt "Huge icon size"
-#| msgid "Huge (%1x%1)"
+#, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
-msgstr "Xigante (%1x%1)"
+msgstr "Enorme (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:668
 #, kde-format
@@ -3806,10 +3695,9 @@ msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Non existe o ficheiro de modelo <b>%1</b>.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
-#, fuzzy, kde-format
-#| msgid "Name for new link:"
+#, kde-format
 msgid "Name for new link:"
-msgstr "Nome para a nova ligazón:"
+msgstr "Nome da nova ligazón:"
 
 #: filewidgets/knewfilemenu.cpp:691
 #, kde-format
@@ -3843,21 +3731,16 @@ msgstr ""
 "maneira predeterminada."
 
 #: filewidgets/knewfilemenu.cpp:1151
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> starts with a space, which will result "
-#| "in it being shown before other items when sorting alphabetically, among "
-#| "other potential oddities."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The name <filename>%1</filename> starts with a space, which will result in "
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
-"O nome <filename>%1</filename> empeza con un espazo, o que fará que se "
-"mostre antes que outros elementos ao ordear alfabéticamente, entre outras "
-"peculiaridades potenciais."
+"O nome <filename>%1</filename> comeza cun espazo, o que fará que se mostre "
+"antes que outros elementos ao ordenar alfabeticamente, entre outros "
+"comportamentos raros."
 
 #: filewidgets/knewfilemenu.cpp:1169
 #, kde-format
@@ -3892,17 +3775,13 @@ msgstr ""
 "pode resultar confuso ou perigoso ao usar o terminal para eliminar cousas."
 
 #: filewidgets/knewfilemenu.cpp:1274
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A directory with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "Xa existe un cartafol chamado <filename>%1</filename>."
+msgstr "Xa existe un directorio chamado <filename>%1</filename>."
 
 #: filewidgets/knewfilemenu.cpp:1276
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Xa existe un ficheiro chamado <filename>%1</filename>."
@@ -3952,20 +3831,16 @@ msgid "Paste"
 msgstr "Pegar"
 
 #: filewidgets/kurlnavigator.cpp:545
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Abrir nunha nova pestana"
+msgstr "Abrir «%1» nun novo separador"
 
 #: filewidgets/kurlnavigator.cpp:553
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Window"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Abrir unha nova ventá"
+msgstr "Abrir «%1» nunha nova xanela"
 
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
@@ -4027,9 +3902,7 @@ msgid "You are not authorized to execute this file."
 msgstr "Non está autorizado para executar este ficheiro."
 
 #: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:109
-#, fuzzy, kde-format
-#| msgctxt "Launching application"
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Iniciando %1"
@@ -4051,14 +3924,11 @@ msgstr ""
 "Non está autorizado a escoller unha aplicación coa que abrir este ficheiro."
 
 #: gui/applicationlauncherjob.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Internal error: could not prompt the user for which application to start"
+#, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
-"Erro interno: non se lle puido preguntar ao usuario qué aplicación se debe "
-"iniciar"
+"Erro interno: non se puido preguntar á persoa usuaria que aplicación iniciar"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -4076,10 +3946,9 @@ msgid "Icon file too big, download aborted"
 msgstr "O ficheiro de icona é grande de máis, interrompeuse a descarga."
 
 #: gui/kemailclientlauncherjob.cpp:92
-#, fuzzy, kde-format
-#| msgid "No mail client found"
+#, kde-format
 msgid "No mail client found"
-msgstr "Non se atopou ningún cliente de correo electrónico"
+msgstr "Non se atopou ningún cliente de correo"
 
 #: gui/kprocessrunner.cpp:94
 #, kde-format
@@ -4097,23 +3966,20 @@ msgid "Launching %1"
 msgstr "Estase a iniciar %1"
 
 #: gui/kprocessrunner.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Non se puido atopar o ficheiro «%1»"
+msgstr "Non se puido atopar a orde <command>%1</command>."
 
 #: gui/kterminallauncherjob.cpp:124
-#, fuzzy, kde-format
-#| msgid "No terminal emulator found"
+#, kde-format
 msgid "No terminal emulator found"
 msgstr "Non se atopou ningún emulador de terminal"
 
 #: gui/openurljob.cpp:158
-#, fuzzy, kde-format
-#| msgid "Failed to open %1"
+#, kde-format
 msgid "Failed to open %1"
-msgstr "Non se puido abrir %1"
+msgstr "Non se puido abrir %1."
 
 #: gui/openurljob.cpp:296
 #, kde-format
@@ -4126,50 +3992,35 @@ msgstr ""
 "ningunha entrada URL=…"
 
 #: gui/openurljob.cpp:364
-#, fuzzy, kde-format
-#| msgid ""
-#| "The executable file \"%1\" is located on a remote filesystem. For safety "
-#| "reasons it will not be started."
+#, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
-"O ficheiro executable \"%1\" atópase nun sistema de ficheiros remoto. Por "
-"razóns de seguridade non se iniciará."
+"O ficheiro executábel «%1» está nun sistema de ficheiros remoto. Por razóns "
+"de seguridade non se iniciará."
 
 #: gui/openurljob.cpp:400
-#, fuzzy, kde-format
-#| msgid ""
-#| "For security reasons, launching executables is not allowed in this "
-#| "context."
+#, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
-"Por razóns de seguridade, iniciar executables non está permitido neste "
-"contexto."
+"Por razóns de seguridade, iniciar executábeis non se permite neste contexto."
 
 #: gui/openurljob.cpp:430
-#, fuzzy, kde-format
-#| msgid ""
-#| "The program \"%1\" needs to have executable permission before it can be "
-#| "launched."
+#, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
-"O programa \"%1\" necesita ter permiso de execución antes de que se poda "
-"iniciar."
+msgstr "O programa «%1» necesita permisos de execución para poder iniciarse."
 
 #: gui/openurljob.cpp:441
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to make file \"%1\" executable.\n"
-#| "%2."
+#, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
-"Non se pode facer executábel o ficheiro <b>%1</b>.\n"
+"Non se pode facer executábel o ficheiro «%1».\n"
 "%2."
 
 #: gui/openurljob.cpp:527
@@ -4178,31 +4029,25 @@ msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "O ficheiro de entrada de escritorio %1 non ten ningunha entrada Type=…"
 
 #: gui/openurljob.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "This file is incomplete and should not be opened.\n"
-#| "Check your open applications and the notification area for any pending "
-#| "tasks or downloads."
+#, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
-"Este ficheiro está incompleto e non se debería abrir.\n"
-"Comprobe as aplicacións abertas e o área de notificacións para ver as tareas "
-"e descargas pendentes."
+"Este ficheiro está incompleto e non debería abrirse.\n"
+"Comprobe as súas aplicacións abertas e a área de notificacións por se "
+"houbese algunha tarefa ou descarga pendente."
 
 #: gui/openurljob.cpp:639
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgid "Failed to open the file."
-msgstr "Non se pode abrir o ficheiro."
+msgstr "Non se puido abrir o ficheiro."
 
 #: gui/openurljob.cpp:673
-#, fuzzy, kde-format
-#| msgid "The program \"%1\" could not be launched."
+#, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "Non se puido iniciar o ficheiro «%1»"
+msgstr "Non se puido iniciar o programa «%1»."
 
 #: kcms/cookies/kcookiesmain.cpp:37
 #, kde-format
@@ -4767,7 +4612,7 @@ msgid ""
 "uploaded it is renamed to its real name."
 msgstr ""
 "Mentres se está a enviar un ficheiro a súa extensión é «*.part». Cando se "
-"remata de enviar renoméase co seu nome real."
+"remata de enviar cámbiase de nome, ao seu nome real."
 
 #: kcms/netpref/netpref.cpp:30
 #, kde-format
@@ -4841,25 +4686,20 @@ msgstr ""
 "transferencia.</p>"
 
 #: kcms/netpref/netpref.cpp:90
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgid " byte"
 msgid_plural " bytes"
-msgstr[0] "byte"
-msgstr[1] "bytes"
+msgstr[0] " byte"
+msgstr[1] " bytes"
 
 #: kcms/netpref/netpref.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox"
-#| msgid ""
-#| "If cancelled, automatically delete partially uploaded files smaller than:"
+#, kde-format
 msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
-"Si se cancela, borrar de forma automática os ficheiros parcialmente "
-"descargados menores de:"
+"Se se cancela, eliminar automaticamente os ficheiros enviados parcialmente "
+"cun tamaño inferior a:"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
@@ -4892,18 +4732,7 @@ msgstr ""
 "extensión retirarase cando se remate a transferencia.</p>"
 
 #: kcms/proxy/kproxydlg.cpp:193
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all applications will use this proxy setting. In particular, "
-#| "<application>Firefox</application> and <application>Chromium</"
-#| "application> or anything derived from them, or anything using "
-#| "<application>QtWebEngine</application>&nbsp;- which includes "
-#| "<application>Konqueror</application> using the "
-#| "<application>WebEnginePart</application>, <application>Akregator</"
-#| "application> and <application>Falkon</application>&nbsp;- will not use "
-#| "these settings. Some applications may allow the proxy to be configured in "
-#| "their own settings."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Not all applications will use this proxy setting. In particular, "
@@ -4915,14 +4744,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
-"Non todas as aplicacións empregarán estas preferencias de proxy. En "
-"particular, <application>Firefox</application> e <application>Chromium</"
-"application> ou calqueira derivada de elas ou que empregue "
-"<application>QtWebEngine</application>&nbsp;(o que inclúe a "
-"<application>Konqueror</application> cando usa <application>WebEnginePart</"
-"application>, <application>Akregator</application> e <application>Falkon</"
-"application>)&nbsp;non usarán estas preferencias. Algunhas aplicacións poden "
-"permitir a configuración do proxy coas sus propias preferencias."
+"Non todas as aplicacións usarán esta configuración de proxy. Concretamente, "
+"<application>Firefox</application> e <application>Chromium</application>, "
+"así como aplicacións derivadas, ou aplicacións que usen "
+"<application>QtWebEngine</application> (entre elas <application>Konqueror</"
+"application> ao usar <application>WebEnginePart</application>, "
+"<application>Akregator</application> e<application>Falkon</application>) non "
+"usarán esta configuración. Algunhas aplicacións pode que permitan definir un "
+"proxy na súa propia configuración."
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -4972,16 +4801,7 @@ msgstr "Sen proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -4996,9 +4816,7 @@ msgstr ""
 "A detección automática realízase empregando o <b>Protocolo de descubrimento "
 "automático de Proxys Web (WPAD)</b>.<p>\n"
 "<b>NOTA:</b> Esta opción podería non funcionar axeitadamente ou non "
-"funcionar para nada nalgunhas distribucións Linux/Unix. Se se atopa cun "
-"problema cando empregue esta opción, por favor, comprobe a sección de FAQ en "
-"https://konqueror.org.\n"
+"funcionar para nada nalgunhas distribucións Linux/Unix.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5183,12 +5001,7 @@ msgstr "Proxy de SOCKS:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#| "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#| "automatic discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
@@ -5230,12 +5043,7 @@ msgstr "Excepcións:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#| "the addresses of sites for which the above proxy settings should not be "
-#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
-#| "to attempt an automatic discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
@@ -5560,108 +5368,89 @@ msgid "Could not find program \"umount\""
 msgstr "Non se puido atopar programa «umount»"
 
 #: kioworkers/file/file_unix.cpp:101
-#, fuzzy, kde-format
-#| msgid "Change File Permissions"
+#, kde-format
 msgid "Change File Permissions"
-msgstr "Trocar os permisos do ficheiro"
+msgstr "Cambiar os permisos do ficheiro"
 
 #: kioworkers/file/file_unix.cpp:102
-#, fuzzy, kde-format
-#| msgid "New Permissions: %1"
+#, kde-format
 msgid "New Permissions: %1"
 msgstr "Novos permisos: %1"
 
 #: kioworkers/file/file_unix.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgid "Change File Owner"
-msgstr "Trocar o dono do ficheiro"
+msgstr "Cambiar a dona do ficheiro"
 
 #: kioworkers/file/file_unix.cpp:106
-#, fuzzy, kde-format
-#| msgid "New Owner: UID=%1, GID=%2"
+#, kde-format
 msgid "New Owner: UID=%1, GID=%2"
-msgstr "Novo dono: UID=%1, GID=%2"
+msgstr "Nova pertenza: UID=%1, GID=%2"
 
 #: kioworkers/file/file_unix.cpp:109
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgid "Remove File"
-msgstr "Eliminar ficheiro"
+msgstr "Retirar o ficheiro"
 
 #: kioworkers/file/file_unix.cpp:112
-#, fuzzy, kde-format
-#| msgid "Remove Directory"
+#, kde-format
 msgid "Remove Directory"
-msgstr "Eliminar directorio"
+msgstr "Retira o directorio"
 
 #: kioworkers/file/file_unix.cpp:115
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Create Directory"
-msgstr "Crear o directorio"
+msgstr "Crear un directorio"
 
 #: kioworkers/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgid "Directory Permissions: %1"
+#, kde-format
 msgid "Directory Permissions: %1"
-msgstr "Permisos de directorio: %1"
+msgstr "Permisos do directorio: %1"
 
 #: kioworkers/file/file_unix.cpp:119
-#, fuzzy, kde-format
-#| msgid "Open File"
+#, kde-format
 msgid "Open File"
-msgstr "Abrir ficheiro"
+msgstr "Abrir o ficheiro"
 
 #: kioworkers/file/file_unix.cpp:122
-#, fuzzy, kde-format
-#| msgid "Open Directory"
+#, kde-format
 msgid "Open Directory"
-msgstr "Abrir directorio"
+msgstr "Abrir o directorio"
 
 #: kioworkers/file/file_unix.cpp:126
-#, fuzzy, kde-format
-#| msgid "New Filename: %1"
+#, kde-format
 msgid "New Filename: %1"
 msgstr "Novo nome de ficheiro: %1"
 
 #: kioworkers/file/file_unix.cpp:130
-#, fuzzy, kde-format
-#| msgid "Target: %1"
+#, kde-format
 msgid "Target: %1"
-msgstr "Obxectivo: %1"
+msgstr "Destino: %1"
 
 #: kioworkers/file/file_unix.cpp:133
-#, fuzzy, kde-format
-#| msgid "Change Timestamp"
+#, kde-format
 msgid "Change Timestamp"
-msgstr "Cambiar marca de tempo"
+msgstr "Cambiar a marca de tempo"
 
 #: kioworkers/file/file_unix.cpp:137
-#, fuzzy, kde-format
-#| msgid "From: %1, To: %2"
+#, kde-format
 msgid "From: %1, To: %2"
-msgstr "Dende: %1, ata: %2"
+msgstr "De «%1» a «%2»"
 
 #: kioworkers/file/file_unix.cpp:140
-#, fuzzy, kde-format
-#| msgid "Unknown Action"
+#, kde-format
 msgid "Unknown Action"
 msgstr "Acción descoñecida"
 
 #: kioworkers/file/file_unix.cpp:145
-#, fuzzy, kde-format
-#| msgid ""
-#| "Action: %1\n"
-#| "Source: %2\n"
-#| "%3"
+#, kde-format
 msgid ""
 "Action: %1\n"
 "Source: %2\n"
 "%3"
 msgstr ""
 "Acción: %1\n"
-"Fonte: %2\n"
+"Orixe: %2\n"
 "%3"
 
 #: kioworkers/file/file_unix.cpp:858
@@ -5938,13 +5727,7 @@ msgstr ""
 "coleccións (cartafoles) intermedias."
 
 #: kioworkers/http/http.cpp:1685
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element\n"
-#| " or you attempted to overwrite a file while requesting that files are not "
-#| "overwritten.\n"
-#| " %1"
+#, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
 "properties listed in the propertybehavior XML element\n"
@@ -6210,11 +5993,7 @@ msgid "Cookie Details"
 msgstr "Detalles da cookie"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label a description string of how 'accessible' the cookie is (e.g. see "
-#| "exposure string in this file)"
-#| msgid "Exposure:"
+#, kde-format
 msgctxt ""
 "@label a description string of how 'accessible' the cookie is (e.g. see "
 "exposure string in this file)"
@@ -6233,36 +6012,25 @@ msgid "Show details of the next cookie"
 msgstr "Mostra os detalles da seguinte cookie"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, fuzzy, kde-format
-#| msgctxt "@label cookie has no explicit 'Domain' value specified"
-#| msgid "Not specified"
+#, kde-format
 msgctxt "@label cookie has no explicit 'Domain' value specified"
 msgid "Not specified"
 msgstr "Non especificada"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, fuzzy, kde-format
-#| msgctxt "@label the cookie expires when the browser session ends"
-#| msgid "End of Session"
+#, kde-format
 msgctxt "@label the cookie expires when the browser session ends"
 msgid "End of Session"
 msgstr "Fin da sesión"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label exposure string - the cookie may only be used by https servers"
-#| msgid "Secure servers only"
+#, kde-format
 msgctxt "@label exposure string - the cookie may only be used by https servers"
 msgid "Secure servers only"
 msgstr "Só servidores seguros"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label exposure string - the cookie may be used by https servers AND "
-#| "client-side javascripts"
-#| msgid "Secure servers, page scripts"
+#, kde-format
 msgctxt ""
 "@label exposure string - the cookie may be used by https servers AND client-"
 "side javascripts"
@@ -6270,20 +6038,13 @@ msgid "Secure servers, page scripts"
 msgstr "Servidores seguros, scripts da páxina"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label exposure string - the cookie may only be used by http servers"
-#| msgid "Servers"
+#, kde-format
 msgctxt "@label exposure string - the cookie may only be used by http servers"
 msgid "Servers"
 msgstr "Servidores"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label exposure string - the cookie may be used by http servers AND "
-#| "client-side javascripts"
-#| msgid "Servers, page scripts"
+#, kde-format
 msgctxt ""
 "@label exposure string - the cookie may be used by http servers AND client-"
 "side javascripts"
@@ -6291,12 +6052,7 @@ msgid "Servers, page scripts"
 msgstr "Servidores, scripts da páxina"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button show details about a cookie that needs approval. This "
-#| "string gets >> and << appended, to visualize if the dialog expands or "
-#| "compacts!"
-#| msgid "Details"
+#, kde-format
 msgctxt ""
 "@action:button show details about a cookie that needs approval. This string "
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
@@ -6513,10 +6269,9 @@ msgid "Restore a trashed file to its original location"
 msgstr "Devolver un ficheiro do lixo a onde estaba antes"
 
 #: kioworkers/trash/trashimpl.cpp:1323
-#, fuzzy, kde-format
-#| msgid "The trash is full. Empty it or remove items manually."
+#, kde-format
 msgid "The trash is full. Empty it or remove items manually."
-msgstr "O lixo está cheo. Baleiralo ou eliminar elementos manualmente. "
+msgstr "O lixo está cheo. Baléireo ou retire elementos manualmente."
 
 #: kpac/discovery.cpp:96
 #, kde-format
@@ -6597,17 +6352,13 @@ msgid "You do not have permission to access the %1 protocol."
 msgstr "Non ten permisos para acceder ao protocolo %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@title:column Name label from web search keyword column"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Name label from web search keyword column"
 msgid "Name"
 msgstr "Nome"
 
 #: urifilters/ikws/ikwsopts.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:column"
 msgid "Keywords"
 msgstr "Palabras clave"
@@ -6619,29 +6370,22 @@ msgid "Preferred"
 msgstr "Preferido"
 
 #: urifilters/ikws/ikwsopts.cpp:102
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Check this box to select the highlighted web search keyword as preferred."
-#| "<nl/>Preferred web search keywords are used in places where only a few "
-#| "select keywords can be shown at one time."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Check this box to select the highlighted web search keyword as preferred.<nl/"
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
-"Marque esta opción para facer preferido o atallo web realzado.<nl/>Os "
-"atallos preferidos úsanse en lugares onde só se poden mostrar uns poucos "
-"atallos á vez."
+"Marque esta opción para facer preferida a palabra clave de busca web "
+"realzada.<nl/>As palabras clave de busca web preferidas úsanse en lugares "
+"onde só se poden mostrar unhas poucas palabras clave á vez."
 
 #: urifilters/ikws/ikwsopts.cpp:203
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox No default web search keyword"
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox No default web search keyword"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 #: urifilters/ikws/ikwsopts.cpp:247
 #, kde-format
@@ -6650,15 +6394,7 @@ msgstr "&Filtros de busca"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
-#| "shortcuts allow you to quickly access or search for information located "
-#| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
-#| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
-#| "use it, you simply type the keyword 'gg' followed by the keyword "
-#| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-#| "KDE</span>.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
 "search keywords allow you to quickly access or search for information "
@@ -6668,54 +6404,49 @@ msgid ""
 "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
 "KDE</span>.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Activar ou desactivar os atallos web.</p><p>Os atallos "
-"web permítenlle acceder ou buscar rapidamente información en Internet ou no "
-"disco duro.</p><p>KDE ven con moitos atallos predefinidos. Un deles é o do "
-"motor de buscas de Google (TM). Para usalo simplemente escriba «gg» seguido "
-"do delimitador de palabras clave e o termo que se vai buscar, por exemplo "
-"<span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
+"<html><head/><body><p>Activar ou desactivar as palabras clave de busca web.</"
+"p><p>As palabras clave de busca web permítenlle acceder ou buscar "
+"rapidamente información en internet ou no disco duro.</p><p>KDE ven con "
+"moitas palabras clave de busca web predefinidas. Unha delas é o do motor de "
+"buscas de Google (TM). Para usalo simplemente escriba «gg» seguido do "
+"delimitador de palabras clave e o termo que se vai buscar, por exemplo <span "
+"style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
-#, fuzzy, kde-format
-#| msgid "&Enable Web search keywords"
+#, kde-format
 msgid "&Enable Web search keywords"
-msgstr "&Activar os atallos web"
+msgstr "&Activar as palabras clave de busca web"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
-#, fuzzy, kde-format
-#| msgid "&Use preferred keywords only"
+#, kde-format
 msgid "&Use preferred keywords only"
-msgstr "&Usar só os atallos preferidos."
+msgstr "&Usar só as palabras clave de busca web preferidas"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-#| msgid "Search for shortcut"
+#, kde-format
 msgid "Search for web search keywords"
-msgstr "Buscar un atallo"
+msgstr "Buscar palabras clave de busca web"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-#| msgid "Add a new Web shortcut"
+#, kde-format
 msgid "Add a new Web search keyword"
-msgstr "Engadir un atallo web novo"
+msgstr "Engadir unha nova palabra clave de busca web"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
-#, fuzzy, kde-format
-#| msgid "Modify the highlighted Web search keyword"
+#, kde-format
 msgid "Modify the highlighted Web search keyword"
-msgstr "Modifica o atallo web realzado"
+msgstr "Modificar a palabra clave de busca web realzada"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:97
-#, fuzzy, kde-format
-#| msgid "Delete the highlighted Web shortcut"
+#, kde-format
 msgid "Delete the highlighted Web search keyword"
-msgstr "Elimina o atallo web realzado"
+msgstr "Eliminar a palabra clave de busca web realzada"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:100
@@ -6740,20 +6471,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "Default Web &shortcut:"
+#, kde-format
 msgid "Default Web &search keyword:"
-msgstr "&Atallo web predeterminado:"
+msgstr "Palabra clave de bu&sca web predeterminada:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
-#| "applications to automatically convert the typed word or phrase to web "
-#| "shortcut queries when they cannot be filtered into a proper URL. </"
-#| "p><p>To disable this functionality select <span style=\" font-weight:600;"
-#| "\">None</span> from the list. </p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Select a default web search keyword. </p><p>This "
 "allows applications to automatically convert the typed word or phrase to web "
@@ -6761,11 +6485,12 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
-"<html><head/><body><p>Escolle un atallo web predeterminado.</p><p>Isto "
-"permite que as aplicacións convertan automaticamente a palabra ou frase "
-"escrita en consultas a un atallo web cando non se poden converter nun URL "
-"correcto.</p><p>Para desactivar esta funcionalidade escolla <span style=\" "
-"font-weight:600;\">Ningún</span> na lista.</p></body></html>"
+"<html><head/><body><p>Seleccione unha palabra clave de busca web "
+"predeterminada.</p><p>Isto permite que as aplicacións convertan "
+"automaticamente a palabra ou frase escrita en consultas nunha palabra clave "
+"de busca web cando non se poden converter nun URL correcto.</p><p>Para "
+"desactivar esta funcionalidade escolla <span style=\" font-weight:600;"
+"\">Ningún</span> na lista.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
@@ -6785,10 +6510,9 @@ msgstr "&Separador de palabras clave:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:204
-#, fuzzy, kde-format
-#| msgid "Choose a delimiter to mark the Web shortcut keyword."
+#, kde-format
 msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Escolle un delimitador para marcar a palabra clave do atallo web."
+msgstr "Escolle un delimitador para marcar a palabra clave de busca web."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:208
@@ -7087,10 +6811,9 @@ msgstr ""
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: widgets/checksumswidget.ui:29
-#, fuzzy, kde-format
-#| msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
+#, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Suma de comprobación esperada (MD5, SHA1, SHA256 or SHA512)…"
+msgstr "Suma de comprobación esperada (MD5, SHA512 or SHA256)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7123,8 +6846,7 @@ msgstr "SHA256:"
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
 #: widgets/checksumswidget.ui:86
-#, fuzzy, kde-format
-#| msgid "SHA512:"
+#, kde-format
 msgid "SHA512:"
 msgstr "SHA512:"
 
@@ -7171,10 +6893,9 @@ msgid "&Link Here"
 msgstr "&Ligar aquí"
 
 #: widgets/executablefileopendialog.cpp:21
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this executable file?"
+#, kde-format
 msgid "What do you wish to do with this file?"
-msgstr "Que quere facer con este ficheiro executábel?"
+msgstr "Que quere facer con este ficheiro?"
 
 #: widgets/executablefileopendialog.cpp:24
 #, kde-format
@@ -7208,10 +6929,9 @@ msgid "Moving"
 msgstr "Estase a mover"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
-msgstr "Renomear"
+msgstr "Cambiando de nome"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -7241,7 +6961,7 @@ msgstr "&Desfacer: Mover"
 #: widgets/fileundomanager.cpp:312
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "Desfacer: renomear"
+msgstr "Desfacer: cambiar de n&ome"
 
 #: widgets/fileundomanager.cpp:314
 #, kde-format
@@ -7266,7 +6986,7 @@ msgstr "&Desfacer: Crear un ficheiro"
 #: widgets/fileundomanager.cpp:322
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "Desfacer: Renomear en l&ote"
+msgstr "Desfacer: cambiar de nome en l&ote"
 
 #: widgets/fileundomanager.cpp:721
 #, kde-format
@@ -7307,8 +7027,7 @@ msgstr "Eliminar permanentemente"
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
 #: widgets/widgetsaskuseractionhandler.cpp:237
 #: widgets/widgetsaskuseractionhandler.cpp:259
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Eliminar permanentemente"
@@ -7352,14 +7071,14 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
-"Seguro que quere deitar este elemento no lixo?<nl/><filename>%1</filename>"
+"Seguro que quere botar este elemento no lixo?<nl/><filename>%1</filename>"
 
 #: widgets/jobuidelegate.cpp:314
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Seguro que quere deitar este elemento no lixo?"
-msgstr[1] "Seguro que quere mover estes %1 elementos para o lixo?"
+msgstr[0] "Seguro que quere botar este elemento no lixo?"
+msgstr[1] "Seguro que quere botar estes %1 elementos no lixo?"
 
 #: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:521
 #, kde-format
@@ -7372,25 +7091,19 @@ msgid "SSL"
 msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "Engadir..."
+msgstr "Engadir…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Edit..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: widgets/kacleditwidget.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Eliminar"
@@ -7399,13 +7112,13 @@ msgstr "Eliminar"
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
-msgstr "Dono"
+msgstr "Dona"
 
 #: widgets/kacleditwidget.cpp:231
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
-msgstr "Grupo proprietario"
+msgstr "Grupo propietario"
 
 #: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
 #, kde-format
@@ -7428,7 +7141,7 @@ msgstr "Usuario con nome"
 #: widgets/kacleditwidget.cpp:254
 #, kde-format
 msgid "Owner (Default)"
-msgstr "Dono (predeterminado)"
+msgstr "Dona (predeterminado)"
 
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
@@ -7448,12 +7161,12 @@ msgstr "De maneira predeterminada para os novos ficheiros neste cartafol"
 #: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
-msgstr "Dono"
+msgstr "Dona"
 
 #: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
-msgstr "Grupo proprietario"
+msgstr "Grupo propietario"
 
 #: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2078
 #, kde-format
@@ -7556,7 +7269,7 @@ msgstr "Permisos"
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
-msgstr "Dono"
+msgstr "Dona"
 
 #: widgets/kdirmodel.cpp:1208
 #, kde-format
@@ -7588,12 +7301,10 @@ msgid "&Actions"
 msgstr "&Accións"
 
 #: widgets/kfileitemactions.cpp:675
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With..."
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Abrir cartafol con…"
+msgstr "&Abrir o cartafol con…"
 
 #: widgets/kfileitemactions.cpp:675
 #, kde-format
@@ -7602,10 +7313,9 @@ msgid "&Open With..."
 msgstr "&Abrir con…"
 
 #: widgets/kfileitemactions.cpp:713
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgid "&Open folder with %1"
-msgstr "&Abrir cartafol con %1"
+msgstr "&Abrir o cartafol con %1"
 
 #: widgets/kfileitemactions.cpp:713
 #, kde-format
@@ -7613,12 +7323,10 @@ msgid "&Open with %1"
 msgstr "&Abrir con %1"
 
 #: widgets/kfileitemactions.cpp:746
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Abrir cartafol con"
+msgstr "&Abrir o cartafol con"
 
 #: widgets/kfileitemactions.cpp:746
 #, kde-format
@@ -7654,22 +7362,19 @@ msgstr "Deter"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Explore in Filelight"
+#, kde-format
 msgid "Explore in Filelight"
 msgstr "Explorar en Filelight"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:131
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted From:"
-msgstr "Montado dende:"
+msgstr "Montado desde:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:204
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free Space:"
 msgstr "Espazo libre:"
 
@@ -7687,15 +7392,13 @@ msgstr "Lugar:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:333
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgid "Change..."
 msgstr "Cambiar…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:346
-#, fuzzy, kde-format
-#| msgid "Content:"
+#, kde-format
 msgid "Content:"
 msgstr "Contido:"
 
@@ -7725,15 +7428,13 @@ msgstr "Sistema de ficheiros:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:429
-#, fuzzy, kde-format
-#| msgid "Unknown size"
+#, kde-format
 msgid "Unknown size"
 msgstr "Tamaño descoñecido"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:452
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted On:"
 msgstr "Montado en:"
 
@@ -7745,8 +7446,7 @@ msgstr "Accedido o:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:482
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open With:"
 msgstr "Abrir con:"
 
@@ -7866,16 +7566,13 @@ msgstr ""
 "«%1» (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
 "Lembra&r a asociación coa aplicación para todos os ficheiros de tipo\n"
-"«%1» (%2)"
+"«%1»"
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7895,7 +7592,7 @@ msgstr "Non pechar cando a orde &saia"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Obter máis aplicacións de Discover"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -7907,26 +7604,20 @@ msgstr ""
 "de programa."
 
 #: widgets/kopenwithdialog.cpp:1034
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr "<filename>%1</filename> parece que non é un programa executable."
+msgstr "<filename>%1</filename> non parece un programa executábel."
 
 #: widgets/kopenwithdialog.cpp:1035
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "<filename>%1</filename> was not found; please enter a valid path to an "
-#| "executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
-"Non se atopou <filename>%1</filename>; por favor, engada unha ruta válida a "
-"o programa executable,"
+"<filename>%1</filename> non se atopou, escriba unha ruta válida dun programa "
+"executábel."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -8109,25 +7800,12 @@ msgstr "Co&mentario:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Variábeis de ambiente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
 "\n"
@@ -8142,24 +7820,24 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Escriba aquí o comando para iniciar este programa.\n"
+"Escriba aquí a orde para iniciar este programa.\n"
 "\n"
-"Tras o comando, pode pór varias marcas de substitución que se substituirán "
+"Tras a orde, pode pór varias marcas de substitución que se substituirán "
 "polos valores reais cando se execute o programa:\n"
 "%f : un nome de ficheiro\n"
-"%F : unha lista de ficheiros; úseo para aplicacións que poidan abrir varios "
-"ficheiros locais dunha vez\n"
+"%F : unha lista de ficheiros (para aplicacións que poidan abrir varios "
+"ficheiros dunha vez)\n"
 "%u : un único URL\n"
 "%U : unha lista de URL\n"
-"%i - a icona do ficheiro .desktop\n"
-"%c - o nome do ficheiro .desktop\n"
-"%k - a localización do ficheiro .desktop"
+"%i : a icona do ficheiro .desktop\n"
+"%c : o nome do ficheiro .desktop\n"
+"%k : a localización do ficheiro .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Programa:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8192,11 +7870,9 @@ msgstr "Ruta de &traballo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Documentos"
+msgstr "Argumentos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8300,18 +7976,14 @@ msgid "Ad&vanced Options"
 msgstr "Opcións a&vanzadas"
 
 #: widgets/kpropertiesdialog.cpp:171
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not save properties due to insufficient write access to:<nl/"
-#| "><filename>%1</filename>."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
-"Non se puideron gardar as propiedades. Non ten acceso de abondo para "
-"escribir en <nl/><filename>%1</filename>."
+"Non se puideron gardar as propiedades por falta de acceso de escritura a:<nl/"
+"><filename>%1</filename>."
 
 #: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
 #: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
@@ -8328,9 +8000,7 @@ msgstr[0] "Propiedades dun elemento"
 msgstr[1] "Propiedades dos %1 elementos escollidos"
 
 #: widgets/kpropertiesdialog.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Share"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Share"
 msgstr "Compartir"
@@ -8342,9 +8012,7 @@ msgid "&General"
 msgstr "&Xeral"
 
 #: widgets/kpropertiesdialog.cpp:1058
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Explore in %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Explorar en %1"
@@ -8355,8 +8023,7 @@ msgid "Refresh"
 msgstr "Refrescar"
 
 #: widgets/kpropertiesdialog.cpp:1184
-#, fuzzy, kde-format
-#| msgid "%1:"
+#, kde-format
 msgid "%1:"
 msgstr "%1:"
 
@@ -8396,14 +8063,12 @@ msgstr[0] "1 sub-cartafol"
 msgstr[1] "%1 sub-cartafoles"
 
 #: widgets/kpropertiesdialog.cpp:1343
-#, fuzzy, kde-format
-#| msgid "Calculating..."
+#, kde-format
 msgid "Calculating...\n"
-msgstr "Estase a calcular…"
+msgstr "Calculando…\n"
 
 #: widgets/kpropertiesdialog.cpp:1366
-#, fuzzy, kde-format
-#| msgid "At least %1\n"
+#, kde-format
 msgid "At least %1\n"
 msgstr "Polo menos %1\n"
 
@@ -8413,27 +8078,23 @@ msgid "The new file name is empty."
 msgstr "O nome do novo ficheiro está baleiro."
 
 #: widgets/kpropertiesdialog.cpp:1610
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "Tipos de ficheiro &admitidos:"
+msgstr "Non hai tipos de ficheiro rexistrados"
 
 #: widgets/kpropertiesdialog.cpp:1612
-#, fuzzy, kde-format
-#| msgid "No associated application"
+#, kde-format
 msgid "No associated application"
-msgstr "Non ten applicación asociada"
+msgstr "Non hai aplicacións asociadas"
 
 #: widgets/kpropertiesdialog.cpp:1618
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Creado o:"
+msgstr "Crear…"
 
 #: widgets/kpropertiesdialog.cpp:1621
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Cambiar…"
@@ -8487,17 +8148,17 @@ msgstr[1] "Todos os ficheiros son ligazóns e non teñen permisos."
 #: widgets/kpropertiesdialog.cpp:1822
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "Só o dono pode cambiar os permisos."
+msgstr "Só a persoa dona pode cambiar os permisos."
 
 #: widgets/kpropertiesdialog.cpp:1826
 #, kde-format
 msgid "O&wner:"
-msgstr "&Dono:"
+msgstr "&Dona:"
 
 #: widgets/kpropertiesdialog.cpp:1832
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr "Indica as accións que pode facer o dono."
+msgstr "Indica as accións que se lle permiten á persoa dona."
 
 #: widgets/kpropertiesdialog.cpp:1834
 #, kde-format
@@ -8520,13 +8181,13 @@ msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr ""
-"Indica as accións que poden facer todos os usuarios, que non sexan nin o "
-"dono nin pertenzan ao grupo."
+"Indica as accións que se lle permiten a calquera persoa usuaria que nin é "
+"dona nin está no grupo propietario."
 
 #: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
-msgstr "Só o dono pode &renomear e eliminar contido do cartafol"
+msgstr "Só a persoa dona pode cambia&r de nome e eliminar contido do cartafol"
 
 #: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
@@ -8540,9 +8201,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"Escolla esta opción para permitir que só o dono do cartafol elimine ou "
-"renomee os ficheiros e cartafoles que conteña. Os outros usuarios só poderán "
-"engadir novos ficheiros, se teñen o permiso de «Modificar o contido»."
+"Marque esta opción para permitir só á persoa dona do cartafol que elimine ou "
+"cambie de nome os ficheiros e cartafoles que contén. O resto de persoas "
+"usuarias só poden engadir novos ficheiros, o que require o permiso de "
+"«Modificar o contido»."
 
 #: widgets/kpropertiesdialog.cpp:1860
 #, kde-format
@@ -8561,7 +8223,7 @@ msgstr "Permisos &avanzados"
 #: widgets/kpropertiesdialog.cpp:1875
 #, kde-format
 msgid "Ownership"
-msgstr "Posesión"
+msgstr "Pertenza"
 
 #: widgets/kpropertiesdialog.cpp:1882
 #, kde-format
@@ -8627,8 +8289,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"Esta bandeira permite engadir, eliminar e renomear os ficheiros. Lembre que "
-"eliminar e renomear poden limitarse mediante a bandeira de Pegañento."
+"Esta marca permite engadir, eliminar e cambiar de nome os ficheiros. Lembre "
+"que eliminar e cambiar de nome poden limitarse mediante a marca «Pegañento»."
 
 #: widgets/kpropertiesdialog.cpp:2037
 #, kde-format
@@ -8700,8 +8362,8 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
-"Se sinala esta bandeira, o dono deste cartafol será o dono de todos os novos "
-"ficheiros."
+"Se define esta marca, a persoa dona deste cartafol será a dona de todos os "
+"novos ficheiros."
 
 #: widgets/kpropertiesdialog.cpp:2089
 #, kde-format
@@ -8709,8 +8371,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"Se o ficheiro é executábel e activa este indicador, executarase cos permisos "
-"do dono."
+"Se o ficheiro é executábel e activa esta marca, executarase cos permisos da "
+"persoa dona."
 
 #: widgets/kpropertiesdialog.cpp:2096
 #, kde-format
@@ -8735,9 +8397,9 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"Se activa o indicador de Pegañento nun cartafol, só o dono e root poderán "
-"eliminar ou renomear os seus ficheiros. En caso contrario calquera usuario "
-"con permisos de escritura poderá facelo."
+"Se a marca «Pegañento» está definida nun cartafol, só a persoa dona e a root "
+"poden eliminar ou cambiar de nome ficheiros. En caso contrario calquera "
+"persoa usuaria con permisos de escritura pode facelo."
 
 #: widgets/kpropertiesdialog.cpp:2112
 #, kde-format
@@ -9100,7 +8762,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:237
 #, kde-format
 msgid "&Rename"
-msgstr "&Renomear"
+msgstr "&Cambiar de nome"
 
 #: widgets/renamedialog.cpp:239
 #, kde-format
@@ -9144,24 +8806,19 @@ msgstr ""
 "existente no directorio."
 
 #: widgets/renamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgctxt "Overwrite files into an existing folder when files are older"
-#| msgid "&Overwrite older files"
+#, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "&Sobrescribir os ficheiros antigos"
+msgstr "S&obrescribir os ficheiros máis vellos?"
 
 #: widgets/renamedialog.cpp:270
-#, fuzzy, kde-format
-#| msgid ""
-#| "Destination files which have older modification times will be overwritten "
-#| "by the source, skipped otherwise."
+#, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
-"Os ficheiros de destino con tempos de modificación máis antigos "
-"sobrescribiranse cós de orixe, ou serán omitidos en caso contrario."
+"Os ficheiros de orixe sobrescribirán aos de destino con datas de "
+"modificación anteriores, o resto omitiranse."
 
 #: widgets/renamedialog.cpp:282
 #, kde-format
@@ -9198,52 +8855,43 @@ msgid "Destination"
 msgstr "Destino"
 
 #: widgets/renamedialog.cpp:397
-#, fuzzy, kde-format
-#| msgid "Differences"
+#, kde-format
 msgid "Differences"
 msgstr "Diferenzas"
 
 #: widgets/renamedialog.cpp:418
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr "O destino é <b>menor por %1</b>"
+msgstr "O destino é <b>un %1 menor</b>"
 
 #: widgets/renamedialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr "O destino é <b>maior por %1</b>"
+msgstr "O destino é <b>un %1 maior</b>"
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are identical."
-msgstr "Os ficheiros son idénticos"
+msgstr "Os ficheiros son idénticos."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files seem identical."
-msgstr "Os ficheiros parecen idénticos"
+msgstr "Os ficheiros parecen idénticos."
 
 #: widgets/renamedialog.cpp:441
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are different."
-msgstr "Os ficheiros son diferentes"
+msgstr "Os ficheiros son distintos."
 
 #: widgets/renamedialog.cpp:449
-#, fuzzy, kde-format
-#| msgid ""
-#| "The files are likely to be identical: they have the same size and their "
-#| "contents are the same at the beginning, middle and end."
+#, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
-"Os ficheiros parecen ser idénticos: teñen o menos tamaño e seu contido é o "
-"mesmo ao principio, no medio e no final."
+"Os ficheiros son probabelmente idénticos: teñen o mesmo tamaño e o seu "
+"contido coincide no principio, no medio, e no final."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
@@ -9263,46 +8911,34 @@ msgstr "Xa existe un elemento máis novo que «%1» co mesmo nome."
 #: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
-msgstr "Renomear:"
+msgstr "Cambiar de nome:"
 
 #: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
-msgstr "Renomear elemento"
+msgstr "Cambiar de nome o elemento"
 
 #: widgets/renamefiledialog.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Items"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
-msgstr "Renomear elementos"
+msgstr "Cambiar de nome os elementos"
 
 #: widgets/renamefiledialog.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
-msgstr "&Renomear"
+msgstr "&Cambiar de nome"
 
 #: widgets/renamefiledialog.cpp:84
-#, fuzzy, kde-kuit-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the item <filename>%1</filename> to:"
+#, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "Renomear of elemento <filename>%1</filename> a:"
+msgstr "Cambiar de nome o elemento <filename>%1</filename> a:"
 
 #: widgets/renamefiledialog.cpp:87
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "This a template for new filenames, # is replaced by a number later, must "
-#| "be the end character"
-#| msgid "New name #"
+#, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
 "the end character"
@@ -9310,23 +8946,18 @@ msgid "New name #"
 msgstr "Novo nome #"
 
 #: widgets/renamefiledialog.cpp:88
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "Renomear o elemento seleccionado %1:"
-msgstr[1] "Renomear os elementos seleccionados %1:"
+msgstr[0] "Cambiar de nome %1 elemento seleccionado a:"
+msgstr[1] "Cambiar de nome %1 elementos seleccionados a:"
 
 #: widgets/renamefiledialog.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "# will be replaced by ascending numbers starting with:"
+#, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
-msgstr "# será substituido por números ascendentes empezando por:"
+msgstr "# substituirase por números ascendentes comezando polo:"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -9339,10 +8970,9 @@ msgid "Retry"
 msgstr "Intentar de novo"
 
 #: widgets/skipdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Replace All"
+#, kde-format
 msgid "Replace All"
-msgstr "Substituír todo"
+msgstr "Substituílo todo"
 
 #: widgets/skipdialog.cpp:67
 #, kde-format
@@ -9350,10 +8980,9 @@ msgid "Skip"
 msgstr "Omitir"
 
 #: widgets/skipdialog.cpp:71
-#, fuzzy, kde-format
-#| msgid "Skip All"
+#, kde-format
 msgid "Skip All"
-msgstr "Omitir todo"
+msgstr "Saltalo todo"
 
 #. i18n: ectx: property (text), widget (QLabel, encryptionIndicator)
 #: widgets/sslinfo.ui:17
@@ -9438,31 +9067,19 @@ msgstr ""
 "Interrómpese porque non se pode estabelecer a identidade do servidor."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Seguro que quere eliminar permanentemente este elemento?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acción non se pode desfacer."
-"</emphasis>"
+"Seguro que quere eliminar permanentemente este elemento?<nl/> <nl/><filename>"
+"%1</filename><nl/><nl/><emphasis strong='true'>Esta acción non se pode "
+"desfacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this %1 item?<nl/><nl/><emphasis "
@@ -9478,31 +9095,19 @@ msgstr[1] ""
 "><emphasis strong='true'>Esta acción non se pode desfacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Seguro que quere eliminar permanentemente este elemento?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Esta acción non se pode desfacer."
-"</emphasis>"
+"Botar este elemento no lixo fallou porque é grande de máis. Quere eliminalo "
+"permanentemente no seu lugar?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Esta acción non se pode desfacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9513,45 +9118,39 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Seguro que quere eliminar permanentemente este elemento?<nl/><nl/><emphasis "
-"strong='true'>Esta acción non se pode desfacer.</emphasis>"
+"Botar este elemento no lixo fallou porque é grande de máis. Quere eliminalo "
+"permanentemente no seu lugar?<nl/><emphasis strong='true'>Esta acción non se "
+"pode desfacer.</emphasis>"
 msgstr[1] ""
-"Seguro que quere eliminar permanentemente estes %1 elementos?<nl/><nl/"
-"><emphasis strong='true'>Esta acción non se pode desfacer.</emphasis>"
+"Botar estes %1 elementos no lixo fallou porque son grandes de máis. Quere "
+"eliminalos permanentemente no seu lugar?<nl/><emphasis strong='true'>Esta "
+"acción non se pode desfacer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
-#, fuzzy, kde-kuit-format
-#| msgid "Do you really want to move this item to the Trash?"
-#| msgid_plural "Do you really want to move these %1 items to the Trash?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Seguro que quere deitar este elemento no lixo?"
-msgstr[1] "Seguro que quere mover estes %1 elementos para o lixo?"
+msgstr[0] "Seguro que quere botar este elemento no lixo?"
+msgstr[1] "Seguro que quere botar estes %1 elementos no lixo?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:335
-#, fuzzy, kde-format
-#| msgctxt "@option:checkbox"
-#| msgid "Do not ask again"
+#, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Non preguntar máis"
 
 #: widgets/widgetsaskuseractionhandler.cpp:387
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not ask again"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Non preguntar máis"
 
 #: widgets/widgetsaskuseractionhandler.cpp:416
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not show this message again"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
-msgstr "Non mostrar esta mensaxe outra vez"
+msgstr "Non mostrar esta mensaxe de novo"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:105
 #, kde-format
