@@ -65,7 +65,7 @@ contact me if you have questions. -->
 
 <note
 ><para
->Pour que le protocole &SMB;  fonctionne, il est nécessaire d'avoir correctement installé &Samba;.</para
+>Pour que le protocole &SMB; fonctionne, il est nécessaire d'avoir correctement installé &Samba;.</para
 ></note>
 
 <!-- TODO: link to some place which explains USING SMB, i.e. konqueror
