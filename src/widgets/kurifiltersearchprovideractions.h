@@ -58,8 +58,8 @@ public:
     void addWebShortcutsToMenu(QMenu *menu);
 
 private Q_SLOTS:
-    void slotConfigureWebShortcuts();
-    void slotHandleWebShortcutAction(QAction *action);
+    KIOWIDGETS_NO_EXPORT void slotConfigureWebShortcuts();
+    KIOWIDGETS_NO_EXPORT void slotHandleWebShortcutAction(QAction *action);
 
 private:
     std::unique_ptr<WebShortcutsMenuManagerPrivate> const d;

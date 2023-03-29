@@ -85,7 +85,7 @@ private:
     std::unique_ptr<KSslInfoDialogPrivate> const d;
 
 private Q_SLOTS:
-    void displayFromChain(int);
+    KIOWIDGETS_NO_EXPORT void displayFromChain(int);
 };
 
 #endif

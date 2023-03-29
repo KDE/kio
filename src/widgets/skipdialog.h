@@ -28,10 +28,10 @@ public:
     ~SkipDialog() override;
 
 private Q_SLOTS:
-    void cancelPressed();
-    void skipPressed();
-    void autoSkipPressed();
-    void retryPressed();
+    KIOWIDGETS_NO_EXPORT void cancelPressed();
+    KIOWIDGETS_NO_EXPORT void skipPressed();
+    KIOWIDGETS_NO_EXPORT void autoSkipPressed();
+    KIOWIDGETS_NO_EXPORT void retryPressed();
 
 private:
     SkipDialogPrivate *const d;

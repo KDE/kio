@@ -54,10 +54,10 @@ Q_SIGNALS:
     void error(KJob *error);
 
 private Q_SLOTS:
-    void slotAccepted();
-    void slotTextChanged(const QString &newName);
-    void slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
-    void slotResult(KJob *job);
+    KIOWIDGETS_NO_EXPORT void slotAccepted();
+    KIOWIDGETS_NO_EXPORT void slotTextChanged(const QString &newName);
+    KIOWIDGETS_NO_EXPORT void slotFileRenamed(const QUrl &oldUrl, const QUrl &newUrl);
+    KIOWIDGETS_NO_EXPORT void slotResult(KJob *job);
 
 private:
     class RenameFileDialogPrivate;
