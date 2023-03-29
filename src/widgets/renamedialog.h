@@ -85,7 +85,6 @@ public Q_SLOTS:
     void cancelPressed();
     void renamePressed();
     void skipPressed();
-    void autoSkipPressed();
     void overwritePressed();
     void overwriteAllPressed();
     void overwriteWhenOlderPressed();

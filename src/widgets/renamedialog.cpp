@@ -637,11 +637,6 @@ void RenameDialog::skipPressed()
     }
 }
 
-void RenameDialog::autoSkipPressed()
-{
-    done(Result_AutoSkip);
-}
-
 void RenameDialog::overwritePressed()
 {
     if (d->bApplyAll && d->bApplyAll->isChecked()) {
