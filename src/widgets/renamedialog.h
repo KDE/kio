@@ -111,12 +111,12 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void enableRenameButton(const QString &);
 private Q_SLOTS:
-    void applyAllPressed();
-    void showSrcIcon(const KFileItem &);
-    void showDestIcon(const KFileItem &);
-    void showSrcPreview(const KFileItem &, const QPixmap &);
-    void showDestPreview(const KFileItem &, const QPixmap &);
-    void resizePanels();
+    KIOWIDGETS_NO_EXPORT void applyAllPressed();
+    KIOWIDGETS_NO_EXPORT void showSrcIcon(const KFileItem &);
+    KIOWIDGETS_NO_EXPORT void showDestIcon(const KFileItem &);
+    KIOWIDGETS_NO_EXPORT void showSrcPreview(const KFileItem &, const QPixmap &);
+    KIOWIDGETS_NO_EXPORT void showDestPreview(const KFileItem &, const QPixmap &);
+    KIOWIDGETS_NO_EXPORT void resizePanels();
 
 private:
     KIOWIDGETS_NO_EXPORT QScrollArea *createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview);
