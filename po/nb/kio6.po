@@ -1,4 +1,4 @@
-# Translation of kio5 to Norwegian Bokmål
+# Translation of kio6 to Norwegian Bokmål
 #
 # Knut Yrvin <knut.yrvin@gmail.com>, 2003, 2004, 2005.
 # Knut Erik Hollund <khollund@responze.net>, 2003.

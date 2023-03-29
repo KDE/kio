@@ -7,31 +7,31 @@
 # Giovanni Venturi <jumpyj@tiscali.it>, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2007.
 # Luigi Toscano <luigi.toscano@tiscali.it>, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-03-02 22:19+0100\n"
-"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
+"PO-Revision-Date: 2023-03-22 10:25+0100\n"
+"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Luigi Toscano,Nicola Ruggero,Federico Cozzi"
+msgstr "Vincenzo Reale,Luigi Toscano,Nicola Ruggero,Federico Cozzi"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "luigi.toscano@tiscali.it,nicola@nxnt.org,"
+msgstr "smart2128vr@gmail.com,,,"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -1190,7 +1190,7 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Puoi cercare su Internet un'estensione softare (chiamata \"KIO worker\") che "
+"Puoi cercare su Internet un'estensione software (chiamata «KIO worker») che "
 "supporti questo protocollo. Tra i luoghi in cui cercare c'è <a href="
 "\"https://store.kde.org/\">https://store.kde.org</a>."
 
@@ -1786,12 +1786,12 @@ msgstr "Potresti non avere i permessi per scrivere su questa risorsa."
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
-msgstr "Impossibile aspettare connessioni di rete (\"listen\")"
+msgstr "Impossibile aspettare connessioni di rete («listen»)"
 
 #: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
-msgstr "Impossibile effettuare il \"bind\""
+msgstr "Impossibile effettuare il «bind»"
 
 #: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
@@ -1806,12 +1806,12 @@ msgstr ""
 #: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
-msgstr "Impossibile effettuare il \"listen\""
+msgstr "Impossibile effettuare il «listen»"
 
 #: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
-msgstr "Impossibile accettare la connessione di rete (\"accept\")"
+msgstr "Impossibile accettare la connessione di rete («accept»)"
 
 #: core/job_error.cpp:874
 #, kde-format
@@ -1848,7 +1848,7 @@ msgstr "Impossibile determinare lo stato della risorsa"
 #: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
-msgstr "Impossibile effettuare lo \"stat\" della risorsa"
+msgstr "Impossibile effettuare lo «stat» della risorsa"
 
 #: core/job_error.cpp:905
 #, kde-format
@@ -6686,8 +6686,8 @@ msgstr ""
 "specificare certe parole dell'interrogazione e \\{nome} per specificare un "
 "valore dato da «nome=valore» nell'interrogazione dell'utente.<br/>Inoltre è "
 "possibile specificare riferimenti multipli (nomi, numeri e stringhe) in una "
-"volta (\\{nome1, nome2, ..., «stringa»}).<br/>Il primo (da sinistra) valore "
-"corrispondente sarà usato come valore di sostituzione per l'URI risultante."
+"volta (\\{nome1, nome, ..., «stringa»}).<br/>Il primo (da sinistra) valore "
+"corrispondente sarà usato come valore di sostituzione per l'URL risultante."
 "<br/>Una stringa tra virgolette può essere usata come valore predefinito se "
 "nulla dovesse corrispondere nell'elenco di riferimenti a sinistra.\n"
 "</qt>"
@@ -8356,8 +8356,8 @@ msgid ""
 "and renaming can be limited using the Sticky flag."
 msgstr ""
 "Questo contrassegno permette di aggiungere, rinominare ed eliminare i file. "
-"Nota che l'eliminazione e la ridenominazione possono essere limitate usando "
-"il contrassegno sticky."
+"Nota che l'eliminazione e la rinomina possono essere limitate usando il "
+"parametro Sticky."
 
 #: widgets/kpropertiesdialog.cpp:2037
 #, kde-format
@@ -8467,7 +8467,7 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"Se il contrassegno sticky è impostato su una cartella, solo il proprietario "
+"Se il contrassegno Sticky è impostato su una cartella, solo il proprietario "
 "e l'amministratore di sistema possono eliminare o rinominare i file. "
 "Altrimenti chiunque con i permessi di scrittura può farlo."
 
@@ -8477,7 +8477,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"Il contrassegno sticky su un file è ignorato in Linux, ma potrebbe essere "
+"Il contrassegno Sticky su un file è ignorato in Linux, ma potrebbe essere "
 "usato in alcuni sistemi"
 
 # XXX "Imposta UID", forse?
@@ -9194,9 +9194,8 @@ msgid_plural ""
 "undone.</emphasis>"
 msgstr[0] ""
 "Lo spostamento di questo elemento nel Cestino non è riuscito poiché è troppo "
-"grande. Vuoi eliminarlo definitivamente?<nl/><nl/><filename>%1</filename><nl/"
-"><nl/><emphasis strong='true'>Questa azione non può essere annullata.</"
-"emphasis>"
+"grande. Vuoi eliminarlo definitivamente?<nl/><emphasis strong='true'>Questa "
+"azione non può essere annullata.</emphasis>"
 msgstr[1] ""
 "Lo spostamento di questi %1 elementi nel Cestino non è riuscito poiché sono "
 "troppo grandi. Vuoi eliminarli definitivamente?<nl/><nl/><emphasis "

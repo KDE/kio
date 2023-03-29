@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-03-24 17:47+0300\n"
+"PO-Revision-Date: 2023-03-28 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2379,12 +2379,12 @@ msgstr "%1 dosya türü algılanamadı"
 #: core/slavebase.cpp:832
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
-msgstr "%1 protokolü ile bağlantı açmak mümkün değil."
+msgstr "%1 protokolü ile bağlantı açmak olanaklı değil."
 
 #: core/slavebase.cpp:834
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
-msgstr "%1 protokolü ile bağlantı kapatmak mümkün değil."
+msgstr "%1 protokolü ile bağlantı kapatmak olanaklı değil."
 
 #: core/slavebase.cpp:836
 #, kde-format
@@ -2424,7 +2424,7 @@ msgstr "%1 içinde dosya taşımak veya adlarını değiştirmek desteklenmiyor.
 #: core/slavebase.cpp:850
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "%1 protokolü ile sembolik bağlantı oluşturulması mümkün değil."
+msgstr "%1 protokolü ile sembolik bağlantı oluşturulması olanaklı değil."
 
 #: core/slavebase.cpp:852
 #, kde-format
@@ -2439,13 +2439,14 @@ msgstr "%1'den dosya silmek desteklenmiyor."
 #: core/slavebase.cpp:856
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "%1 protokolü yardımıyla klasör oluşturmak mümkün değil."
+msgstr "%1 protokolü yardımıyla klasör oluşturmak olanaklı değil."
 
 #: core/slavebase.cpp:858
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
-"%1 protokolü yardımıyla dosyaların özelliklerini değiştirmek mümkün değil."
+"%1 protokolü yardımıyla dosyaların özniteliklerini değiştirmek olanaklı "
+"değil."
 
 #: core/slavebase.cpp:860
 #, kde-format
@@ -4278,8 +4279,8 @@ msgstr ""
 "<ul>\n"
 "<li><b>Sor</b>KDE'nin bir sunucu tarafından her çerez yerleştirilmesinde "
 "sizden onay almasını sağlar.</li>\n"
-"<li><b>Kabul et</b> çerezlerin size hatırlatılmadan kabul edilmesini sağlar."
-"</li>\n"
+"<li><b>Kabul et</b> çerezlerin size anımsatılmadan kabul edilmesini sağlar.</"
+"li>\n"
 "<li><b>Oturum sonuna kadar kabul et</b> çerezlerin kabul edilmesini ama "
 "oturum sonunda silinmelerini sağlar.</li>\n"
 "<li><b>Reddet</b> KDE'nin aldığı tüm çerezleri reddetmesini sağlar.</li>\n"
@@ -6153,9 +6154,9 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"%1 dizini artık olmadığından bu ögeleri eski yerlerine almak mümkün değil. "
+"%1 dizini artık olmadığından bu ögeleri eski yerlerine almak olanaklı değil. "
 "Yine de bu ögelerin bulunduğu eski dizini yeniden oluşturabilir ve işlemi "
-"yeniden yapabilirsiniz ya da bu ögeleri fare ile tutup istediğiniz yere "
+"yeniden yapabilirsiniz veya bu ögeleri fare ile tutup istediğiniz yere "
 "taşıyabilirsiniz."
 
 #: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
@@ -7493,7 +7494,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Bu tür ile ilişkilendirilmiş uygulamayı hatırla\n"
+"&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
@@ -7502,7 +7503,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Bu tür ile ilişkilendirilmiş uygulamayı hatırla\n"
+"&Bu tür ile ilişkilendirilmiş uygulamayı anımsa\n"
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
