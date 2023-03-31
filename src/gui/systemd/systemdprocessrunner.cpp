@@ -87,17 +87,19 @@ void SystemdProcessRunner::startProcess()
     const auto startReply = m_manager->StartTransientUnit(
         m_serviceName,
         QStringLiteral("fail"), // mode defines what to do in the case of a name conflict, in this case, just do nothing
-        {// Properties of the transient service unit
-         {QStringLiteral("Type"), QStringLiteral("oneshot")},
-         {QStringLiteral("Slice"), QStringLiteral("app.slice")},
-         {QStringLiteral("Description"), m_description},
-         {QStringLiteral("SourcePath"), m_desktopFilePath},
-         {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
-                                           // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
-         {QStringLiteral("Environment"), m_process->environment()},
-         {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
-         {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), m_process->program(), false}})},
-         {QStringLiteral("KillMode"), QStringLiteral("process")}},
+        {
+            // Properties of the transient service unit
+            {QStringLiteral("Type"), QStringLiteral("simple")},
+            {QStringLiteral("ExitType"), QStringLiteral("cgroup")},
+            {QStringLiteral("Slice"), QStringLiteral("app.slice")},
+            {QStringLiteral("Description"), m_description},
+            {QStringLiteral("SourcePath"), m_desktopFilePath},
+            {QStringLiteral("AddRef"), true}, // Asks systemd to avoid garbage collecting the service if it immediately crashes,
+                                              // so we can be notified (see https://github.com/systemd/systemd/pull/3984)
+            {QStringLiteral("Environment"), m_process->environment()},
+            {QStringLiteral("WorkingDirectory"), m_process->workingDirectory()},
+            {QStringLiteral("ExecStart"), QVariant::fromValue(ExecCommandList{{m_process->program().first(), m_process->program(), false}})},
+        },
         {} // aux is currently unused and should be passed as empty array.
     );
     connect(new QDBusPendingCallWatcher(startReply, this), &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
