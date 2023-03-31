@@ -168,8 +168,8 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
                 itemU->incAutoUpdate();
             }
             if (itemFromCache && itemFromCache->watchedWhileInCache) {
+                // item is promoted from cache update item autoupdate refcount accordingly
                 itemFromCache->watchedWhileInCache = false;
-                ;
                 itemFromCache->decAutoUpdate();
             }
 
@@ -222,6 +222,11 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         // Maybe listersCurrentlyListing/listersCurrentlyHolding should be QSets?
         Q_ASSERT(!dirData.listersCurrentlyListing.contains(lister));
         dirData.listersCurrentlyListing.append(lister);
+
+        // a new lister is listing this _url, incr watch refcount
+        if (lister->d->autoUpdate) {
+            itemU->incAutoUpdate();
+        }
 
         KIO::ListJob *job = jobForUrl(_url);
         // job will be 0 if we were listing from cache rather than listing from a kio job.
@@ -574,7 +579,7 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
                                             << (isManuallyMounted ? "is manually mounted" : "contains a manually mounted subdir");
                 item->complete = false; // set to "dirty"
             } else {
-                item->incAutoUpdate(); // keep watch
+                item->incAutoUpdate(); // keep watch, incr refcount to account for cache
                 item->watchedWhileInCache = true;
             }
         } else {

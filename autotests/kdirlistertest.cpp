@@ -1053,40 +1053,37 @@ void KDirListerTest::testBug211472()
     connect(&dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
     dirLister.openUrl(QUrl::fromLocalFile(path));
-    QSignalSpy spyCompleted(&dirLister, qOverload<>(&KCoreDirLister::completed));
-    QVERIFY(spyCompleted.wait(1000));
+    QVERIFY(dirLister.spyCompleted.wait(1000));
     QVERIFY(dirLister.isFinished());
     QVERIFY(m_items.isEmpty());
 
-    if (true) {
-        // This block is required to trigger bug 211472.
+    // This block is required to trigger bug 211472.
 
-        // Go 'up' to the parent of 'newsubdir'.
-        dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
-        QVERIFY(spyCompleted.wait(1000));
-        QTRY_VERIFY(dirLister.isFinished());
-        QTRY_VERIFY(!m_items.isEmpty());
-        m_items.clear();
+    // Go 'up' to the parent of 'newsubdir'.
+    dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
+    QVERIFY(dirLister.spyCompleted.wait(1000));
+    QTRY_VERIFY(dirLister.isFinished());
+    QTRY_VERIFY(!m_items.isEmpty());
+    m_items.clear();
 
-        // Create a file in 'newsubdir' while we are listing its parent dir.
-        createTestFile(path + "newFile-1");
-        // At this point, newsubdir is not used, so it's moved to the cache.
-        // This happens in checkUpdate, called when receiving a notification for the cached dir,
-        // this is why this unittest needs to create a test file in the subdir.
+    // Create a file in 'newsubdir' while we are listing its parent dir.
+    createTestFile(path + "newFile-1");
+    // At this point, newsubdir is not used, so it's moved to the cache.
+    // This happens in checkUpdate, called when receiving a notification for the cached dir,
+    // this is why this unittest needs to create a test file in the subdir.
 
-        // wait a second and ensure the list is still empty afterwards
-        QTest::qWait(1000);
-        QTRY_VERIFY(m_items.isEmpty());
+    // wait a second and ensure the list is still empty afterwards
+    QTest::qWait(1000);
+    QTRY_VERIFY(m_items.isEmpty());
 
-        // Return to 'newsubdir'. It will be emitted from the cache, then an update will happen.
-        dirLister.openUrl(QUrl::fromLocalFile(path));
-        // Check that completed is emitted twice
-        QVERIFY(spyCompleted.wait(1000));
-        QVERIFY(spyCompleted.wait(1000));
-        QTRY_VERIFY(dirLister.isFinished());
-        QTRY_COMPARE(m_items.count(), 1);
-        m_items.clear();
-    }
+    // Return to 'newsubdir'. It will be emitted from the cache, then an update will happen.
+    dirLister.openUrl(QUrl::fromLocalFile(path));
+    // Check that completed is emitted twice
+    QVERIFY(dirLister.spyCompleted.wait(1000));
+    QVERIFY(dirLister.spyCompleted.wait(1000));
+    QTRY_VERIFY(dirLister.isFinished());
+    QTRY_COMPARE(m_items.count(), 1);
+    m_items.clear();
 
     // Now try to create a second file in 'newsubdir' and verify that the
     // dir lister notices it.
@@ -1612,13 +1609,11 @@ void KDirListerTest::testDeleteCurrentDir()
 void KDirListerTest::testForgetDir()
 {
     QTemporaryDir tempDir(homeTmpDir());
-    QString path = tempDir.path() + QLatin1Char('/');
+    QString path = tempDir.path();
     createTestFile(path + "/file_1");
 
-    QSignalSpy spyCompleted(&m_dirLister, qOverload<>(&KCoreDirLister::completed));
-
     m_dirLister.openUrl(QUrl::fromLocalFile(path), KDirLister::Keep);
-    QVERIFY(spyCompleted.wait());
+    QVERIFY(m_dirLister.spyCompleted.wait());
 
     m_dirLister.forgetDirs(QUrl::fromLocalFile(path));
 
@@ -1677,6 +1672,71 @@ void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
     }
     // if (totalWait > 0)
     qDebug() << "Waited" << totalWait << "ms so that now" << now.toString(Qt::ISODate) << "is >" << ctime.toString(Qt::ISODate);
+}
+
+// A bug in the decAutoUpdate/incAutoUpdate logic made KDirLister stop watching a directory for changes,
+// and stop watching a directory because a separate lister left a directory open in another lister
+void KDirListerTest::testBug386763()
+{
+    QTemporaryDir newDir(homeTmpDir());
+    const QString path = newDir.path() + "/newsubdir/";
+    const QString otherpath = newDir.path() + "/othersubdir/";
+
+    QDir().mkdir(path);
+    MyDirLister dirLister;
+    dirLister.openUrl(QUrl::fromLocalFile(path));
+
+    // second lister opening same dir
+    MyDirLister dirLister2;
+    dirLister2.openUrl(QUrl::fromLocalFile(path));
+    QCOMPARE(dirLister2.spyCompleted.count(), 0);
+
+    connect(&dirLister2, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(dirLister.isFinished());
+    QVERIFY(m_items.isEmpty());
+
+    // first lister opening another dir
+    dirLister.openUrl(QUrl::fromLocalFile(otherpath));
+
+    // Create a file in 'newsubdir' while only opened in second lister
+    // bug is the watch on ’newsubdir’ is unwatched while supposed to still be watched
+    QCOMPARE(dirLister2.spyCompleted.count(), 1);
+    createTestFile(path + "newFile-1");
+
+    QTRY_COMPARE(m_items.count(), 1);
+    QVERIFY(KDirWatch::self()->contains(path));
+
+    dirLister2.openUrl(QUrl::fromLocalFile(otherpath));
+    // checks we still watch the old path when second lister leaves it as it should be now in cache
+    QVERIFY(KDirWatch::self()->contains(path));
+
+    newDir.remove();
+}
+
+void KDirListerTest::testCacheEviction()
+{
+    QTemporaryDir newDir(homeTmpDir());
+
+    MyDirLister dirLister;
+    dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(dirLister.isFinished());
+
+    for (int i = 0; i < 12; i++) {
+        const QString newDirPath = newDir.path() + QString("dir_%1").arg(i);
+        QVERIFY(QDir().mkdir(newDirPath));
+
+        dirLister.openUrl(QUrl::fromLocalFile(newDirPath));
+        QVERIFY(dirLister.spyCompleted.wait(500));
+        QVERIFY(dirLister.isFinished());
+        QVERIFY(KDirWatch::self()->contains(newDirPath));
+    }
+
+    // watch were removed as the dirItem were evicted from cache
+    QVERIFY(!KDirWatch::self()->contains(newDir.path()));
+    QVERIFY(!KDirWatch::self()->contains(newDir.path() + QString("dir_0")));
+    QVERIFY(KDirWatch::self()->contains(newDir.path() + QString("dir_1")));
 }
 
 #include "moc_kdirlistertest.cpp"

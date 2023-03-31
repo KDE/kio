@@ -123,6 +123,8 @@ private Q_SLOTS:
     void testRequestMimeType();
     void testMimeFilter_data();
     void testMimeFilter();
+    void testBug386763();
+    void testCacheEviction();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 
