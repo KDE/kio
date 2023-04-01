@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-19 02:06+0000\n"
-"PO-Revision-Date: 2023-03-29 16:13+0300\n"
+"PO-Revision-Date: 2023-03-31 21:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7965,7 +7965,7 @@ msgstr "%1:"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%2 alanın %1 kadarı boş (kullanılan: %%3)"
+msgstr "%2 alanın %1 kadarı boş (%​%3 kullanılıyor)"
 
 #: widgets/kpropertiesdialog.cpp:1301
 #, kde-format
