@@ -47,10 +47,10 @@ void PasteJobPrivate::slotStart()
     }
     const bool move = KIO::isClipboardDataCut(m_mimeData);
     KIO::Job *job = nullptr;
+    KIO::CopyJob *copyJob = nullptr;
     if (m_mimeData->hasUrls()) {
         const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls);
         if (!urls.isEmpty()) {
-            KIO::CopyJob *copyJob;
             if (move) {
                 copyJob = KIO::move(urls, m_destDir, m_flags);
             } else {
@@ -76,6 +76,9 @@ void PasteJobPrivate::slotStart()
     }
     if (job) {
         q->addSubjob(job);
+        if (copyJob) {
+            Q_EMIT q->copyJobStarted(copyJob);
+        }
     } else {
         q->setError(KIO::ERR_NO_CONTENT);
         q->emitResult();

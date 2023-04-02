@@ -16,6 +16,7 @@
 
 #include <KFileItem>
 #include <KUrlMimeData>
+#include <kio/copyjob.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
 
@@ -190,9 +191,22 @@ void KIOPasteTest::testPasteJob()
     const QString destDir = destTempDir.path();
     KIO::PasteJob *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     QSignalSpy spy(job, &KIO::PasteJob::itemCreated);
+    QSignalSpy spyCopyJobStarted(job, &KIO::PasteJob::copyJobStarted);
     QVERIFY(spy.isValid());
+    QVERIFY(spyCopyJobStarted.isValid());
     job->setUiDelegate(nullptr);
     const bool expectedSuccess = !expectedFileName.isEmpty();
+
+    int copying = 0, moving = 0;
+    connect(job, &KIO::PasteJob::copyJobStarted, this, [this, &copying, &moving](KIO::CopyJob *copyJob) {
+        connect(copyJob, &KIO::CopyJob::copying, this, [&copying](KIO::Job * /*job*/, const QUrl & /*src*/, const QUrl & /*dest*/) {
+            ++copying;
+        });
+        connect(copyJob, &KIO::CopyJob::moving, this, [&moving](KIO::Job * /*job*/, const QUrl & /*src*/, const QUrl & /*dest*/) {
+            ++moving;
+        });
+    });
+
     QCOMPARE(job->exec(), expectedSuccess);
     if (expectedSuccess) {
         const QString destFile = destDir + '/' + expectedFileName;
@@ -205,10 +219,14 @@ void KIOPasteTest::testPasteJob()
             QVERIFY(file.open(QIODevice::ReadOnly));
             QCOMPARE(QString(file.readAll()), QString("Hello world"));
         }
+        QCOMPARE(spyCopyJobStarted.count(), 1);
+
         if (cut) {
             QVERIFY(!QFile::exists(urls.first().toLocalFile()));
+            QCOMPARE(moving, 1);
         } else {
             QVERIFY(QFile::exists(urls.first().toLocalFile()));
+            QCOMPARE(copying, 1);
         }
         QCOMPARE(spy.count(), isFile || cut ? 1 : 2);
         QCOMPARE(spy.at(0).at(0).value<QUrl>().toLocalFile(), destFile);

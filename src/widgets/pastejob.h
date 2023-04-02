@@ -17,6 +17,7 @@ class QMimeData;
 
 namespace KIO
 {
+class CopyJob;
 class PasteJobPrivate;
 /**
  * @class KIO::PasteJob pastejob.h <KIO/PasteJob>
@@ -42,6 +43,17 @@ Q_SIGNALS:
      * Signals that a file or directory was created.
      */
     void itemCreated(const QUrl &url);
+
+    /**
+     * Emitted when a copy job was started as subjob as part of pasting. Note that a
+     * CopyJob isn't always started by PasteJob. For instance pasting image content will create a file.
+     *
+     * You can use @p job to monitor the progress of the copy/move/link operation.
+     *
+     * @param job the job started for moving, copying or symlinking files
+     * @since 6.0
+     */
+    void copyJobStarted(KIO::CopyJob *job);
 
 protected Q_SLOTS:
     void slotResult(KJob *job) override;
