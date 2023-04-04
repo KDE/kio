@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:44+0000\n"
-"PO-Revision-Date: 2023-01-18 12:45+0200\n"
+"PO-Revision-Date: 2023-03-14 21:58+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-POT-Import-Date: 2013-01-13 20:43:21+0000\n"
 
 #, kde-format
@@ -57,10 +57,9 @@ msgstr ""
 "ole riittäviä käyttöoikeuksia."
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Ei voitu luoda KIO-palvelua: %1"
+msgstr "KIO-työskentelijää ei voitu luoda: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
 #, kde-format
@@ -808,10 +807,9 @@ msgid "Communication with the local password server failed"
 msgstr "Viestintä paikallisen salasanapalvelimen kanssa epäonnistui"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "KIO-palvelua ei voitu luoda. %1"
+msgstr "KIO-työskentelijää ei voitu luoda. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -1181,21 +1179,15 @@ msgstr ""
 "saattavat olla yhteensopimattomat."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Internetistä voi etsiä tätä yhteyskäytäntöä tukevaa KIO-palvelua (kioslave "
-"tai ioslave). Osoitteista <a href=\"https://kde-apps.org/\">http://kde-apps."
-"org/</a> ja <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a> "
-"kannattaa aloittaa."
+"Liitännäistä (”KIO-työskentelijää”), joka tukee tätä yhteyskäytäntöä, voi "
+"etsiäinternetistä. Yksi mahdollinen hakupaikka on <a href=\"https://store."
+"kde.org/\">https://store.kde.org/</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2326,36 +2318,28 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Yhteyskäytäntöä %1 ei saada alustetuksi"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Ei voitu luoda KIO-palvelua"
+msgstr "KIO-työskentelijää ei voitu luoda"
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"KIO-palvelua, joka tarjoaa pääsyn yhteyskäytäntöön <strong>%1</strong> ei "
-"saatu käynnistetyksi. Tämä on yleensä tekninen vika."
+"KIO-työskentelijää, joka tarjoaa pääsyn <strong>%1</strong>-"
+"yhteyskäytäntöön, ei saatu käynnistettyä. Tämä johtuu yleensä teknisistä "
+"syistä."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"Klauncher ei löytänyt tai käynnistänyt yhteyskäytännön tarjoamaa "
-"liitännäistä. Liitännäisesi saattaa olla vanhentunut versio.Klauncher ei "
-"löytänyt tai käynnistänyt yhteyskäytännön tarjoamaa liitännäistä. "
-"Liitännäisesi saattaa olla vanhentunut versio."
+"KLauncher ei löytynyt tai käynnistänyt yhteyskäytännön tarjoavaa "
+"liitännäistä.Liitännäinen saattaa olla versioltaan vanhentunut."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2423,18 +2407,16 @@ msgid "Unknown protocol '%1'."
 msgstr "Tuntematon yhteyskäytäntö ”%1”."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "KIO-palvelua ”%1” ei löytynyt."
+msgstr "Yhteyskäytännölle ”%1” ei löytynyt KIO-työskentelijää."
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Ei onnistuttu luomaan pistoketta yhteyskäytännön ”%1” KIO-palvelun "
-"käynnistämiseksi."
+"Yhteyskäytännön ”%1” KIO-työskentelijän käynnistämiseksi ei voitu luoda "
+"pistoketta."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -3987,11 +3969,10 @@ msgid "Launching %1"
 msgstr "Käynnistetään %1"
 
 #: gui/kprocessrunner.cpp:475
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Tiedostoa ”%1” ei löytynyt"
+msgstr "Komentoa <command>%1</command> ei löytynyt."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4435,23 +4416,7 @@ msgid "&Management"
 msgstr "&Hallinta"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4472,9 +4437,9 @@ msgstr ""
 "<h1>Evästeet</h1><p>Evästeet sisältävät tietoja, jotka HTTP-yhteyskäytäntöä "
 "käyttävät KDE-sovellukset (kuten Konqueror) tallentavat tietokoneelle "
 "internetin etäpalvelimelta. Tämä tarkoittaa, että WWW-palvelin voi tallentaa "
-"tietoja sinusta ja selaustapahtumistasi tietokoneelle myöhempää käyttöä "
-"varten. Tämä voi tuntua yksityisyytesi loukkaukselta.</p><p>Evästeistä on "
-"kuitenkin hyötyä joissakin tilanteissa: niitä käytetään usein esimerkiksi "
+"tietoja sinusta ja selaustapahtumistasi tietokoneelle myöhempään käyttöön. "
+"Tämä voi tuntua yksityisyytesi loukkaukselta.</p><p>Evästeistä on kuitenkin "
+"hyötyä joissakin tilanteissa: niitä käytetään usein esimerkiksi "
 "verkkokaupoissa ostoskorien sisällön tallentamiseen. Jotkin palvelut jopa "
 "vaativat evästeitä tukevan selaimen käyttöä.</p><p> Koska useimmat haluavat "
 "kompromissin yksityisyytensä ja evästeiden hyötyjen välillä, HTTP-KIO-"
@@ -5294,16 +5259,7 @@ msgstr "Ei välityspalvelinta"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5317,9 +5273,7 @@ msgstr ""
 "Tunnista ja määritä välityspalvelinasetukset automaattisesti.<p>\n"
 "Automaattinen tunnistus käyttää <b>Web Proxy Auto-Discovery Protocol (WPAD)</"
 "b> -yhteyskäytäntöä.<p>\n"
-"<b>HUOM!</b> Valinta ei välttämättä toimi kaikissa UNIX/Linux-jakeluissa. "
-"Tarkista usein kysytyt kysymykset osoitteesta https://konqueror.org/, jos "
-"ongelmia ilmenee.\n"
+"<b>HUOM!</b> Valinta ei välttämättä toimi kaikissa UNIX/Linux-jakeluissa.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5699,15 +5653,7 @@ msgid "Default password:"
 msgstr "Salasana:"
 
 #: kcms/smb/smbrodlg.cpp:122
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#| "properly configured.</p><p>You can specify here the credentials used to "
-#| "access the shared resources. Passwords will be stored locally, and "
-#| "scrambled so as to render them unreadable to the human eye. For security "
-#| "reasons, you may not want to do that, as entries with passwords are "
-#| "clearly indicated as such.</p>"
+#, kde-format
 msgid ""
 "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -5717,13 +5663,13 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
-"<h1>Windows-jaot</h1><p>SMB-KIO-palvelua käyttävät sovellukset (kuten "
-"Konqueror) voivat käyttää Microsoft Windows -tiedostojärjestelmien jakoja, "
-"jos asetukset ovat kunnossa.</p><p>Tässä voit määrittää jaettujen "
+"<h1>Windows-jaot</h1><p>SMB-KIO-työskentelijää käyttävät sovellukset (kuten "
+"Konqueror) voivat käyttää oikein määritettyjä Microsoft Windows -"
+"tiedostojärjestelmien jakoja.</p><p>Tässä voi määrittää jaettujen "
 "resursseihin pääsemiseksi tarvittavat käyttäjätiedot. Salasanat tallennetaan "
-"paikallisesti sekoittaen ne ihmiselle lukukelvottomiksi. Turvallisuussyistä "
-"et ehkä kuitenkaan halua tehdä näin, koska salasanatiedot selvästi "
-"osoitetaan sellaisiksi.</p>"
+"paikallisesti ja sekoitetaan, jolloin ne eivät ole ihmisen luettavissa. "
+"Tietoturvasyistä näin ei kuitenkaan kannata tehdä, koska salasanatiedot "
+"selvästi osoitetaan sellaisiksi.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
 #, kde-format
@@ -8067,10 +8013,9 @@ msgstr "Komm&entti:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Käytä valmiiksi asetettuja välityspalvelinten ympäristömuut&tujia"
+msgstr "Ympäristömuuttujat"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -9358,20 +9303,15 @@ msgstr ""
 "Keskeytetään, koska palvelinta ei kyetä tunnistamaan."
 
 #: widgets/widgetsaskuseractionhandler.cpp:225
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Haluatko varmasti poistaa tämän kohteen pysyvästi?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Toimintoa ei voi kumota.</"
+"Haluatko varmasti poistaa tämän kohteen pysyvästi?<nl/><nl/><filename>%1</"
+"filename><nl/><nl/><emphasis strong='true'>Tätä toimintoa ei voi kumota.</"
 "emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
