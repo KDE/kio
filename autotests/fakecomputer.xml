@@ -174,6 +174,7 @@
                         <property key="isMounted">false</property>
                         <property key="usage">other</property>
                         <property key="size">1024</property>
+                        <property key="uuid">volumepart2size1024</property>
                     </device>
                     <device udi="/org/kde/solid/fakehw/volume_part5_size_1048576">
                         <property key="name">StorageVolume (swap)</property>

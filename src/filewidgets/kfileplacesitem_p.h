@@ -61,7 +61,7 @@ public:
                                           const QUrl &url,
                                           const QString &iconName,
                                           const KBookmark &after = KBookmark());
-    static KBookmark createDeviceBookmark(KBookmarkManager *manager, const QString &udi);
+    static KBookmark createDeviceBookmark(KBookmarkManager *manager, const Solid::Device &device);
     static KBookmark createTagBookmark(KBookmarkManager *manager, const QString &tag);
 
 Q_SIGNALS:

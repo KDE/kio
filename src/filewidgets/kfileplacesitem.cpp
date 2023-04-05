@@ -44,6 +44,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     , m_isSetupInProgress(false)
 {
     updateDeviceInfo(udi);
+
     setBookmark(m_manager->findByAddress(address));
 
     if (udi.isEmpty() && m_bookmark.metaDataItem(QStringLiteral("ID")).isEmpty()) {
@@ -158,7 +159,10 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 {
     m_bookmark = bookmark;
 
-    updateDeviceInfo(m_bookmark.metaDataItem(QStringLiteral("UDI")));
+    m_bookmark.setMetaDataItem(QStringLiteral("UDI"), m_device.udi());
+    if (m_volume) {
+        m_bookmark.setMetaDataItem(QStringLiteral("uuid"), m_volume->uuid());
+    }
 
     if (bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true")) {
         // This context must stay as it is - the translated system bookmark names
@@ -418,15 +422,20 @@ KBookmark KFilePlacesItem::createSystemBookmark(KBookmarkManager *manager,
     return bookmark;
 }
 
-KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager, const QString &udi)
+KBookmark KFilePlacesItem::createDeviceBookmark(KBookmarkManager *manager, const Solid::Device &device)
 {
     KBookmarkGroup root = manager->root();
     if (root.isNull()) {
         return KBookmark();
     }
     KBookmark bookmark = root.createNewSeparator();
-    bookmark.setMetaDataItem(QStringLiteral("UDI"), udi);
+    bookmark.setMetaDataItem(QStringLiteral("UDI"), device.udi());
     bookmark.setMetaDataItem(QStringLiteral("isSystemItem"), QStringLiteral("true"));
+
+    const auto storage = device.as<Solid::StorageVolume>();
+    if (storage) {
+        bookmark.setMetaDataItem(QStringLiteral("uuid"), storage->uuid());
+    }
     return bookmark;
 }
 
@@ -458,7 +467,7 @@ QString KFilePlacesItem::generateNewId()
 
 bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
 {
-    if (m_device.udi() == udi) {
+    if (udi.isEmpty() || m_device.udi() == udi) {
         return false;
     }
 

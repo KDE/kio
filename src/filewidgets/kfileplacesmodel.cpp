@@ -187,7 +187,7 @@ public:
     KFilePlacesModel *const q;
 
     QList<KFilePlacesItem *> items;
-    QList<QString> availableDevices;
+    QList<Solid::Device> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
     QMap<QObject *, QPersistentModelIndex> teardownInProgress;
     QStringList supportedSchemes;
@@ -759,12 +759,7 @@ void KFilePlacesModelPrivate::initDeviceList()
         deviceRemoved(device);
     });
 
-    const QList<Solid::Device> &deviceList = Solid::Device::listFromQuery(predicate);
-
-    availableDevices.reserve(deviceList.size());
-    for (const Solid::Device &device : deviceList) {
-        availableDevices << device.udi();
-    }
+    availableDevices = Solid::Device::listFromQuery(predicate);
 
     reloadBookmarks();
 }
@@ -774,14 +769,16 @@ void KFilePlacesModelPrivate::deviceAdded(const QString &udi)
     Solid::Device d(udi);
 
     if (predicate.matches(d)) {
-        availableDevices << udi;
+        availableDevices << d;
         reloadBookmarks();
     }
 }
 
 void KFilePlacesModelPrivate::deviceRemoved(const QString &udi)
 {
-    auto it = std::find(availableDevices.begin(), availableDevices.end(), udi);
+    auto it = std::find_if(availableDevices.begin(), availableDevices.end(), [udi](const Solid::Device &device) {
+        return device.udi() == udi;
+    });
     if (it != availableDevices.end()) {
         availableDevices.erase(it);
         reloadBookmarks();
@@ -884,11 +881,12 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark bookmark = root.first();
-    QList<QString> devices = availableDevices;
+    QList<Solid::Device> devices{availableDevices};
     QList<QString> tagsList = tags;
 
     while (!bookmark.isNull()) {
         const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
+        const QString uuid = bookmark.metaDataItem(QStringLiteral("uuid"));
         const QUrl url = bookmark.url();
         const QString tag = bookmark.metaDataItem(QStringLiteral("tag"));
         if (!udi.isEmpty() || url.isValid()) {
@@ -896,7 +894,15 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 
             // If it's not a tag it's a device
             if (tag.isEmpty()) {
-                auto it = std::find(devices.begin(), devices.end(), udi);
+                auto it = std::find_if(devices.begin(), devices.end(), [udi, uuid](const Solid::Device &device) {
+                    if (!uuid.isEmpty()) {
+                        auto storageVolume = device.as<Solid::StorageVolume>();
+                        if (storageVolume && !storageVolume->uuid().isEmpty()) {
+                            return storageVolume->uuid() == uuid;
+                        }
+                    }
+                    return device.udi() == udi;
+                });
                 bool deviceAvailable = (it != devices.end());
                 if (deviceAvailable) {
                     devices.erase(it);
@@ -909,7 +915,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 
                 KFilePlacesItem *item = nullptr;
                 if (deviceAvailable) {
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
+                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), it->udi(), q);
                     if (!item->hasSupportedScheme(supportedSchemes)) {
                         delete item;
                         item = nullptr;
@@ -943,10 +949,10 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     }
 
     // Add bookmarks for the remaining devices, they were previously unknown
-    for (const QString &udi : std::as_const(devices)) {
-        bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, udi);
+    for (const Solid::Device &device : std::as_const(devices)) {
+        bookmark = KFilePlacesItem::createDeviceBookmark(bookmarkManager, device);
         if (!bookmark.isNull()) {
-            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), udi, q);
+            KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), device.udi(), q);
             QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
                 itemChanged(id, roles);
             });
