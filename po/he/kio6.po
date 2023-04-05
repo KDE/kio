@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-19 02:06+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3563,7 +3563,7 @@ msgid "*|All Files"
 msgstr "*|כל הקבצים"
 
 #: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:724
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&פתח"
@@ -7148,24 +7148,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "סוג"
 
-#: widgets/kfileitemactions.cpp:365
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "פתח &באמצעות %1"
 
-#: widgets/kfileitemactions.cpp:367
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:501
+#: widgets/kfileitemactions.cpp:508
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&פעולות"
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With..."
@@ -7173,24 +7173,24 @@ msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&פתח באמצעות..."
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&פתח באמצעות..."
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "&פתח באמצעות %1"
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open with %1"
 msgstr "&פתח באמצעות %1"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -7198,13 +7198,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&פתח באמצעות"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&פתח באמצעות"
 
-#: widgets/kfileitemactions.cpp:757
+#: widgets/kfileitemactions.cpp:764
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

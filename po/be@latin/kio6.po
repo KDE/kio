@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-19 02:06+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3677,7 +3677,7 @@ msgid "*|All Files"
 msgstr "*|Usie fajly"
 
 #: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:724
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Adkryć"
@@ -7554,58 +7554,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Typ"
 
-#: widgets/kfileitemactions.cpp:365
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "Adkryć &z dapamohaj %1"
 
-#: widgets/kfileitemactions.cpp:367
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:501
+#: widgets/kfileitemactions.cpp:508
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Dziejanni"
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Adkryć &kataloh z dapamohaj..."
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Adkryć z dapamohaj..."
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Adkryć &kataloh z dapamohaj %1"
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Adkryć z dapamohaj %1"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Adkryć &kataloh z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Adkryć z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:757
+#: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."

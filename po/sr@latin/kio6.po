@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-19 02:06+0000\n"
+"POT-Creation-Date: 2023-04-05 02:18+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3682,7 +3682,7 @@ msgid "*|All Files"
 msgstr "*|svi fajlovi"
 
 #: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:724
+#: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Otvori"
@@ -7516,24 +7516,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "tip"
 
-#: widgets/kfileitemactions.cpp:365
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "Otvori &pomoću %1|/|Otvori $[ins-p %1]"
 
-#: widgets/kfileitemactions.cpp:367
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1|/|$[gen %1]"
 
-#: widgets/kfileitemactions.cpp:501
+#: widgets/kfileitemactions.cpp:508
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Radnje"
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With..."
@@ -7541,24 +7541,24 @@ msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Otvori pomoću..."
 
-#: widgets/kfileitemactions.cpp:675
+#: widgets/kfileitemactions.cpp:682
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Otvori pomoću..."
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "&Otvori pomoću %1|/|&Otvori $[ins-p %1]"
 
-#: widgets/kfileitemactions.cpp:713
+#: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Otvori pomoću %1|/|&Otvori $[ins-p %1]"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -7566,13 +7566,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Otvori pomoću"
 
-#: widgets/kfileitemactions.cpp:746
+#: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Otvori pomoću"
 
-#: widgets/kfileitemactions.cpp:757
+#: widgets/kfileitemactions.cpp:764
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
