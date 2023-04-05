@@ -1699,8 +1699,9 @@ void KDirListerTest::testBug386763()
     // first lister opening another dir
     dirLister.openUrl(QUrl::fromLocalFile(otherpath));
 
-    // Create a file in 'newsubdir' while only opened in second lister
-    // bug is the watch on ’newsubdir’ is unwatched while supposed to still be watched
+    // Create a file in 'newsubdir' while still opened in dirLister2
+    // bug was that the watch on ’newsubdir’ when dirLister left this dir
+    // eventhough dirLister2 is still listing it
     QCOMPARE(dirLister2.spyCompleted.count(), 1);
     createTestFile(path + "newFile-1");
 
@@ -1722,6 +1723,7 @@ void KDirListerTest::testCacheEviction()
     dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
     QVERIFY(dirLister.spyCompleted.wait(500));
     QVERIFY(dirLister.isFinished());
+    QVERIFY(KDirWatch::self()->contains(newDir.path()));
 
     for (int i = 0; i < 12; i++) {
         const QString newDirPath = newDir.path() + QString("dir_%1").arg(i);
@@ -1733,7 +1735,7 @@ void KDirListerTest::testCacheEviction()
         QVERIFY(KDirWatch::self()->contains(newDirPath));
     }
 
-    // watch were removed as the dirItem were evicted from cache
+    // watches were removed as the dirItem were evicted from cache
     QVERIFY(!KDirWatch::self()->contains(newDir.path()));
     QVERIFY(!KDirWatch::self()->contains(newDir.path() + QString("dir_0")));
     QVERIFY(KDirWatch::self()->contains(newDir.path() + QString("dir_1")));
