@@ -168,7 +168,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
                 itemU->incAutoUpdate();
             }
             if (itemFromCache && itemFromCache->watchedWhileInCache) {
-                // item is promoted from cache update item autoupdate refcount accordingly
+                // item is promoted from cache, update item autoupdate refcount accordingly
                 itemFromCache->watchedWhileInCache = false;
                 itemFromCache->decAutoUpdate();
             }
