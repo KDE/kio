@@ -885,64 +885,58 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     QList<QString> tagsList = tags;
 
     while (!bookmark.isNull()) {
+        KFilePlacesItem *item = nullptr;
+
         const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
-        const QString uuid = bookmark.metaDataItem(QStringLiteral("uuid"));
-        const QUrl url = bookmark.url();
-        const QString tag = bookmark.metaDataItem(QStringLiteral("tag"));
-        if (!udi.isEmpty() || url.isValid()) {
-            QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
-
-            // If it's not a tag it's a device
-            if (tag.isEmpty()) {
-                auto it = std::find_if(devices.begin(), devices.end(), [udi, uuid](const Solid::Device &device) {
-                    if (!uuid.isEmpty()) {
-                        auto storageVolume = device.as<Solid::StorageVolume>();
-                        if (storageVolume && !storageVolume->uuid().isEmpty()) {
-                            return storageVolume->uuid() == uuid;
-                        }
+        if (!udi.isEmpty()) {
+            const QString uuid = bookmark.metaDataItem(QStringLiteral("uuid"));
+            auto it = std::find_if(devices.begin(), devices.end(), [udi, uuid](const Solid::Device &device) {
+                if (!uuid.isEmpty()) {
+                    auto storageVolume = device.as<Solid::StorageVolume>();
+                    if (storageVolume && !storageVolume->uuid().isEmpty()) {
+                        return storageVolume->uuid() == uuid;
                     }
-                    return device.udi() == udi;
-                });
-                bool deviceAvailable = (it != devices.end());
-                if (deviceAvailable) {
-                    devices.erase(it);
                 }
 
-                bool allowedHere =
-                    appName.isEmpty() || ((appName == QCoreApplication::instance()->applicationName()) || (appName == alternativeApplicationName));
-                bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
-                bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
-
-                KFilePlacesItem *item = nullptr;
-                if (deviceAvailable) {
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), it->udi(), q);
-                    if (!item->hasSupportedScheme(supportedSchemes)) {
-                        delete item;
-                        item = nullptr;
-                    }
-                } else if (isSupportedScheme && isSupportedUrl && udi.isEmpty() && allowedHere) {
-                    // TODO: Update bookmark internal element
-                    item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
-                }
-
-                if (item) {
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
-                        itemChanged(id, roles);
-                    });
-
-                    items << item;
-                }
-            } else {
-                auto it = std::find(tagsList.begin(), tagsList.end(), tag);
-                if (it != tagsList.end()) {
-                    tagsList.removeAll(tag);
-                    KFilePlacesItem *item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
-                    items << item;
-                    QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
-                        itemChanged(id, roles);
-                    });
+                return device.udi() == udi;
+            });
+            if (it != devices.end()) {
+                devices.erase(it);
+                item = new KFilePlacesItem(bookmarkManager, bookmark.address(), it->udi(), q);
+                if (!item->hasSupportedScheme(supportedSchemes)) {
+                    delete item;
+                    item = nullptr;
                 }
             }
+        }
+
+        const QString tag = bookmark.metaDataItem(QStringLiteral("tag"));
+        if (!tag.isEmpty()) {
+            auto it = std::find(tagsList.begin(), tagsList.end(), tag);
+            if (it != tagsList.end()) {
+                tagsList.erase(it);
+                item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
+            }
+        }
+
+        const QUrl url = bookmark.url();
+        if (url.isValid()) {
+            QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
+            bool allowedHere = appName.isEmpty() || ((appName == QCoreApplication::instance()->applicationName()) || (appName == alternativeApplicationName));
+            bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
+            bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
+
+            if (isSupportedScheme && isSupportedUrl && allowedHere) {
+                // TODO: Update bookmark internal element
+                item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
+            }
+        }
+
+        if (item) {
+            QObject::connect(item, &KFilePlacesItem::itemChanged, q, [this](const QString &id, const QList<int> &roles) {
+                itemChanged(id, roles);
+            });
+            items << item;
         }
 
         bookmark = root.next(bookmark);
