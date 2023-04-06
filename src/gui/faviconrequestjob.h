@@ -109,7 +109,7 @@ public:
     }
 
 private Q_SLOTS:
-    void doStart(); // not called start() so that exec() doesn't call it too
+    KIOGUI_NO_EXPORT void doStart(); // not called start() so that exec() doesn't call it too
     void slotResult(KJob *job) override;
 
 private:
