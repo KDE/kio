@@ -42,4 +42,4 @@ Find the documentation of `KIO::WorkerBase` for the API to implement at
 https://api.kde.org/frameworks/kio/html/classKIO_1_1WorkerBase.html
 
 Learn about debugging your new KIO worker at
-https://community.kde.org/Guidelines_and_HOWTOs/Debugging/Debugging_IOSlaves
+https://community.kde.org/Guidelines_and_HOWTOs/Debugging/Debugging_KIO_Workers
