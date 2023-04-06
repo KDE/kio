@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-06 00:43+0000\n"
 "PO-Revision-Date: 2023-02-06 18:28+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2633,13 +2633,19 @@ msgstr "&Détails"
 msgid "&Forever"
 msgstr "Oui, &toujours"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
+#: core/slaveinterface.cpp:426 core/tcpslavebase.cpp:294
+#: core/tcpworkerbase.cpp:285
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "C&ontinuer le chargement"
+
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Co&ntinuer"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
+#: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2662,11 +2668,6 @@ msgstr ""
 #, kde-format
 msgid "Security Information"
 msgstr "Informations sur la sécurité"
-
-#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "C&ontinuer le chargement"
 
 #: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format

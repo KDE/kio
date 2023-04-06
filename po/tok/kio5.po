@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-06 00:43+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2380,13 +2380,19 @@ msgstr "&sona namako"
 msgid "&Forever"
 msgstr "lon &tenpo ale"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
+#: core/slaveinterface.cpp:426 core/tcpslavebase.cpp:294
+#: core/tcpworkerbase.cpp:285
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "o &awen kama jo"
+
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "o a&wen"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
+#: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2405,11 +2411,6 @@ msgstr ""
 #, kde-format
 msgid "Security Information"
 msgstr "sona kiwen"
-
-#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "o &awen kama jo"
 
 #: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-06 00:43+0000\n"
 "PO-Revision-Date: 2022-12-28 20:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2594,13 +2594,19 @@ msgstr "&Detalii"
 msgid "&Forever"
 msgstr "&Permanent"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
+#: core/slaveinterface.cpp:426 core/tcpslavebase.cpp:294
+#: core/tcpworkerbase.cpp:285
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "C&ontinuă încărcarea"
+
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Co&ntinuă"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
+#: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2623,11 +2629,6 @@ msgstr ""
 #, kde-format
 msgid "Security Information"
 msgstr "Informații de securitate"
-
-#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "C&ontinuă încărcarea"
 
 #: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format

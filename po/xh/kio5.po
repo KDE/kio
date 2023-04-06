@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-06 00:43+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2602,13 +2602,19 @@ msgstr "&Iinkcukacha"
 msgid "&Forever"
 msgstr "&Okokoko"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
+#: core/slaveinterface.cpp:426 core/tcpslavebase.cpp:294
+#: core/tcpworkerbase.cpp:285
+#, fuzzy, kde-format
+msgid "C&ontinue Loading"
+msgstr "Qhubekeka Nolayisho"
+
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Qhu&bekeka"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
+#: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"
@@ -2630,11 +2636,6 @@ msgstr ""
 #, kde-format
 msgid "Security Information"
 msgstr "Iinkcukacha Zokhuseleko"
-
-#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
-#, fuzzy, kde-format
-msgid "C&ontinue Loading"
-msgstr "Qhubekeka Nolayisho"
 
 #: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, fuzzy, kde-format
