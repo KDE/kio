@@ -159,9 +159,11 @@ void KFilePlacesItem::setBookmark(const KBookmark &bookmark)
 {
     m_bookmark = bookmark;
 
-    m_bookmark.setMetaDataItem(QStringLiteral("UDI"), m_device.udi());
-    if (m_volume) {
-        m_bookmark.setMetaDataItem(QStringLiteral("uuid"), m_volume->uuid());
+    if (m_device.isValid()) {
+        m_bookmark.setMetaDataItem(QStringLiteral("UDI"), m_device.udi());
+        if (m_volume && !m_volume->uuid().isEmpty()) {
+            m_bookmark.setMetaDataItem(QStringLiteral("uuid"), m_volume->uuid());
+        }
     }
 
     if (bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true")) {
@@ -467,7 +469,7 @@ QString KFilePlacesItem::generateNewId()
 
 bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
 {
-    if (udi.isEmpty() || m_device.udi() == udi) {
+    if (m_device.udi() == udi) {
         return false;
     }
 
