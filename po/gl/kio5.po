@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 00:43+0000\n"
-"PO-Revision-Date: 2023-03-26 17:58+0200\n"
+"PO-Revision-Date: 2023-04-06 22:21+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -1570,7 +1570,7 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
-"Poida que intervise unha devasa (un dispositivo que restrinxe os pedidos a "
+"Pode que interviñese unha devasa (un dispositivo que restrinxe os pedidos a "
 "Internet), que protexendo a súa rede ou a rede do servidor, evitase este "
 "pedido."
 
@@ -1659,7 +1659,7 @@ msgid ""
 msgstr ""
 "O dispositivo pode non estar preparado, por exemplo quizais non haxa disco "
 "nun dispositivo extraíbel (p.ex., unidade de CD sen CD-ROM), ou no caso dun "
-"dispositivo periférico/portábel, poida que non estea correctamente conectado."
+"dispositivo periférico/portátil, poida que non estea correctamente conectado."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1679,13 +1679,13 @@ msgid ""
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
 "Comprobe que o dispositivo estea preparado; as unidades extraíbeis deben "
-"conter medios, e os dispositivos portábeis deben estar conectados e "
+"conter medios, e os dispositivos portátiles deben estar conectados e "
 "acendidos; e inténteo de novo."
 
 #: core/job_error.cpp:786
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
-msgstr "Non se pode desinicializar o dispositivo de entrada/saída"
+msgstr "Non se pode desmontar o dispositivo de entrada/saída"
 
 #: core/job_error.cpp:787
 #, kde-format
@@ -1698,8 +1698,8 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
-"Non se puido desinicializar («desmontar») o dispositivo. O erro informado "
-"foi: <strong>%1</strong>"
+"Non se puido desmontar o dispositivo. O erro informado foi: <strong>%1</"
+"strong>"
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1719,9 +1719,9 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Poida que non teña permisos para desinicializar («desmontar») o dispositivo. "
-"Nos sistemas UNIX, polo xeral precísanse privilexios de administrados para "
-"desinicializar un dispositivo."
+"Poida que non teña permisos para desmontar o dispositivo. Nos sistemas UNIX, "
+"polo xeral precísanse privilexios de administrados para desmontar un "
+"dispositivo."
 
 #: core/job_error.cpp:803
 #, kde-format
@@ -2447,7 +2447,7 @@ msgstr "Non se pode atopar o traballador de KIO para o protocolo «%1»."
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Non se pode crear un sócket para iniciar un traballador de KIO para o "
+"Non se pode crear un socket para iniciar un traballador de KIO para o "
 "protocolo «%1»."
 
 #: core/slave.cpp:488
@@ -3175,7 +3175,7 @@ msgstr "Ficheiros recentes"
 #: filewidgets/kfileplacesmodel.cpp:429
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
-msgstr "Lugares recentes"
+msgstr "Localizacións recentes"
 
 #: filewidgets/kfileplacesmodel.cpp:452
 msgctxt "KFile System Bookmarks"
@@ -5249,10 +5249,10 @@ msgid ""
 msgstr ""
 "<h1>Proxy</h1> <p>Un servidor proxy é unha máquina intermediaria posta entre "
 "a súa máquina e Internet, e ofrece servizos como caché das páxinas que "
-"vostede quere visitar e filtraxe.</p><p>Os servidores proxy de caché "
+"vostede quere visitar e filtro.</p><p>Os servidores proxy de caché "
 "fornécenlle dun acceso máis rápido a sitios que xa visitou almacenando "
 "localmente ou cacheando o contido desas páxinas. Os servidores proxy de "
-"filtraxe posibilitan o bloqueo de pedidos de publicidade, correo lixo ou "
+"filtro posibilitan o bloqueo de pedidos de publicidade, correo lixo ou "
 "calquera outra cousa que queira bloquear.</p> <p><u>Nota:</u> Algúns "
 "servidores proxy fornecen ambos os dous servizos.</p>"
 
@@ -5279,11 +5279,11 @@ msgstr ""
 "Configuración do proxy.\n"
 "<p>\n"
 "Un servidor proxy é unha máquina intermediaria posta entre o seu computador "
-"e Internet que fornece servizos como cacheado de páxinas e filtraxe. Os "
+"e Internet que fornece servizos como cacheado de páxinas e filtro. Os "
 "servidores proxy de caché fornécenlle un acceso máis rápido a sitios que xa "
 "visitou almacenando localmente ou cacheando o contido desas páxinas. Os "
-"servidores proxy de filtraxe posibilitan o bloqueo de pedidos de "
-"publicidade, correo lixo ou calquera outra cousa que queira bloquear.\n"
+"servidores proxy de filtro posibilitan o bloqueo de pedidos de publicidade, "
+"correo lixo ou calquera outra cousa que queira bloquear.\n"
 "<p>\n"
 "Se non está seguro de se precisa ou non un servidor proxy para conectarse a "
 "Internet, consulte a guía de configuración do seu fornecedor de servizos de "
@@ -5663,9 +5663,9 @@ msgstr ""
 "<p>Se quere excluír todos os servidores dun determinado dominio simplemente "
 "insira o nome do dominio precedido por un punto. Por exemplo, para excluír "
 "todos os servidores de <i>kde.org</i>, insira <i>.kde.org</i>. Non se "
-"admiten os caracteres de sustitución «*» nin «?» e non terán efecto.</p>\n"
+"admiten os caracteres de substitución «*» nin «?» e non terán efecto.</p>\n"
 "<p>Adicionalmente tamén pode indicar enderezos IP, p.ex. 127.0.0.1 e "
-"enderezos IP cunha subrede, p.ex. 192.168.0.1/24.</p>\n"
+"enderezos IP cun subconxunto de rede, p.ex. 192.168.0.1/24.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
@@ -5812,7 +5812,7 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
-"Modificouse o ficheiro supostamente temporal\n"
+"Modificouse o ficheiro presuntamente temporal\n"
 "%1.\n"
 "Quere aínda así eliminalo?"
 
@@ -5893,7 +5893,7 @@ msgstr "A orde que se vai executar"
 #: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "O(s) URL ou ficheiro(s) loca(is) usado(s) para a «orde»"
+msgstr "Os URL ou ficheiros locais usados para a «orde»"
 
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
@@ -6158,7 +6158,7 @@ msgid ""
 " %1"
 msgstr ""
 "O servidor non puido manter a validez das propiedades listadas no elemento "
-"XML propertybehaviour,\n"
+"XML propertybehavior,\n"
 "ou intentou sobrescribir un ficheiro cando pedira que os ficheiros non foses "
 "sobrescritos.\n"
 "%1"
@@ -8970,7 +8970,7 @@ msgstr[1] "&Pegar %1 ficheiros"
 msgid "&Paste URL"
 msgid_plural "&Paste %1 URLs"
 msgstr[0] "&Pegar o URL"
-msgstr[1] "&Pegar %1 URLs"
+msgstr[1] "&Pegar %1 URL"
 
 #: widgets/paste.cpp:296
 #, kde-format
