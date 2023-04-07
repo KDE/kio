@@ -1,4 +1,4 @@
-# translation of kio5.pot to Esperanto
+# translation of kio6.pot to Esperanto
 # e-aj mesaĝoj de kio
 # Copyright (C) 1999, 2007 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 1999.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2023-01-23 01:18+0100\n"
+"PO-Revision-Date: 2023-04-07 02:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -81,7 +81,7 @@ msgstr ""
 "Ne eblis krei \"%1\".\n"
 "La celdosiersistemo (%2) malpermesas la sekvajn signojn en dosiernomoj: %3\n"
 "Elekti Anstataŭigi anstataŭigos ajnajn nevalidajn signojn (en la "
-"celdosierujo) per substreko \"_\\ \"."
+"celdosierujo) per substreko \"_\"."
 
 #: core/copyjob.cpp:185
 #, kde-format
@@ -95,7 +95,7 @@ msgstr ""
 "Ne eblis krei \"%1\".\n"
 "La celdosiersistemo (%2) malpermesas la sekvajn signojn en dosiernomoj: %3\n"
 "Elekti Anstataŭigi anstataŭigos ajnajn nevalidajn signojn (en la "
-"celdosiernomo) per substreko \"_\\ \"."
+"celdosiernomo) per substreko \"_\"."
 
 #: core/copyjob.cpp:1387 core/job_error.cpp:581
 #, kde-format
@@ -2351,10 +2351,7 @@ msgstr ""
 "ne povis esti komencita. Ĉi tio kutime estas pro teknikaj kialoj."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -2555,7 +2552,7 @@ msgstr ""
 #: core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
-msgstr "Montru SSL & Informojn"
+msgstr "Montru SSL &Informojn"
 
 #: core/tcpworkerbase.cpp:482
 #, kde-format
@@ -2619,10 +2616,9 @@ msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ne povas krei ingon por lanĉi KIO-laboriston por protokolo '%1'."
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Ne povas trovi 'kioslave5' ruleblan ĉe '%1'"
+msgstr "Ne povas trovi 'kioworker' ruleblan ĉe '%1'"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -2989,7 +2985,7 @@ msgid ""
 msgstr ""
 "<qt>Jen la loko asociita kun la eniro. Ajna valida URL povas esti uzata. "
 "Ekzemple:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/"
-"kde/stable<br />< br />Alklakante la butonon apud la tekstredakta skatolo vi "
+"kde/stable<br /><br />Alklakante la butonon apud la tekstredakta skatolo vi "
 "povas foliumi al taŭga URL.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
@@ -3474,9 +3470,8 @@ msgstr ""
 "<qt>Ĉi tio estas la prefera menuo por la dosiera dialogo. Diversaj opcioj "
 "estas alireblaj de ĉi tiu menuo inkluzive de: <ul><li>kiel dosieroj estas "
 "ordigitaj en la listo</li><li>specoj de vido, inkluzive de ikono kaj listo</"
-"li><li>montrado de kaŝitaj dosieroj< /li><li>la panelo Lokoj</"
-"li><li>dosieraj antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</"
-"li></ul></qt>"
+"li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</li><li>dosieraj "
+"antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1332
 #, kde-format
@@ -3657,8 +3652,8 @@ msgstr ""
 "<qt>Ĉi tio estas la filtrilo por apliki al la dosierlisto. Dosiernomoj kiuj "
 "ne kongruas kun la filtrilo ne estos montrataj.<p>Vi povas elekti el unu el "
 "la antaŭfiksitaj filtriloj en la falmenuo, aŭ vi povas enigi propran "
-"filtrilon rekte en la tekstan areon.</p><p >Ĝojkartoj kiel * kaj ? estas "
-"permesitaj.</ p ></ qt >"
+"filtrilon rekte en la tekstan areon.</p><p>Ĝojkartoj kiel * kaj ? estas "
+"permesitaj.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:467
 #, kde-format
@@ -3938,11 +3933,10 @@ msgid "Launching %1"
 msgstr "Lanĉante %1"
 
 #: gui/kprocessrunner.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "La dosiero \"%1\" ne estis trovita"
+msgstr "La komando <command>%1</command> ne povis esti trovata."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4377,7 +4371,7 @@ msgstr ""
 "politikon kaŭzante la defaŭltan politikan agordon esti uzata por tiu "
 "domajno, dum <b>Forigi Ĉion</b> forigos ĉiujn specifajn politikojn de la "
 "retejo.\n"
-" </ qt >"
+" </qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:126
@@ -4406,7 +4400,8 @@ msgid ""
 "policies override the default policy setting for these sites.\n"
 "</qt>"
 msgstr ""
-"<qt>\\Listo de retejoj, por kiuj vi starigis specifan politikon pri kuketoj. "
+"<qt>\n"
+"Listo de retejoj, por kiuj vi starigis specifan politikon pri kuketoj. "
 "Specifaj politikoj anstataŭas la defaŭltan politikan agordon por ĉi tiuj "
 "retejoj.\n"
 "</qt>"
@@ -4785,7 +4780,7 @@ msgstr ""
 "Aŭtomate detekti kaj agordi la prokurajn agordojn.<p>\n"
 "Aŭtomata detekto estas farita per la <b>TTT-Prokura Aŭtomata Malkovra "
 "Protokolo (WPAD)</b>.<p>\n"
-"<b>NOTU:< /b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en iuj "
+"<b>NOTU:</b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en iuj "
 "UNIX/Linuksaj distribuoj.\n"
 "</qt>"
 
@@ -4831,12 +4826,12 @@ msgstr ""
 "<qt><p>Uzu prokurajn agordojn difinitajn en la sistemo.</p>\n"
 "<p>Kelkaj platformoj ofertas tutsistemajn prokurajn agordajn informojn kaj "
 "elektante ĉi tiun opcion ebligas al vi uzi tiujn agordojn.</p>\n"
-"<p >Sur Mac-platformoj</p>\n"
+"<p>Sur Mac-platformoj</p>\n"
 "<p>Sur Vindozaj platformoj</p>\n"
 "<p>Sur Unikso kaj Linukso platformoj, tiaj sistemaj prokuraj agordoj estas "
 "kutime difinitaj per mediovariabloj. La sekvaj mediovariabloj estas "
 "detektitaj kaj uzataj kiam ili ĉeestas: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</"
-"b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p> >>\n"
+"b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
@@ -4979,7 +4974,7 @@ msgstr ""
 "<qt>Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
 "konservi la adreson de la prokurilo SOCKS.<p>Alternative, vi povas alklaki "
 "la butonon <b>\"Aŭtomata Detekti\"</b> por provi aŭtomatan malkovron de ĉi "
-"tiu variablo. .</ p ></ qt >"
+"tiu variablo. .</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5167,7 +5162,9 @@ msgstr "Defaŭlta pasvorto:"
 msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
-msgstr "La dosiero %1\\estas modifita. Ĉu vi volas alŝuti la ŝanĝojn?"
+msgstr ""
+"La dosiero %1\n"
+"estas modifita. Ĉu vi volas alŝuti la ŝanĝojn?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
 #, kde-format
@@ -5199,7 +5196,9 @@ msgstr "Dosiero ne trovita: %1"
 msgid ""
 "The URL %1\n"
 "is malformed"
-msgstr "La URL %1\\estas misformita"
+msgstr ""
+"La URL %1\n"
+"estas misformita"
 
 #: kioexec/main.cpp:80
 #, kde-format
@@ -5219,7 +5218,9 @@ msgid ""
 "Do you still want to delete it?"
 msgstr ""
 "La supozeble provizora dosiero\n"
-"%1\\estas modifita.\\Ĉu vi ankoraŭ volas forigi ĝin?"
+"%1\n"
+"estis modifita.\n"
+"Ĉu vi ankoraŭ volas forigi ĝin?"
 
 #: kioexec/main.cpp:237
 #, kde-format
@@ -5235,7 +5236,9 @@ msgid ""
 "Do you want to upload the changes?"
 msgstr ""
 "La dosiero\n"
-"%1\\estas modifita.\\Ĉu vi volas alŝuti la ŝanĝojn?"
+"%1\n"
+"estas modifita.\n"
+"Ĉu vi volas alŝuti la ŝanĝojn?"
 
 #: kioexec/main.cpp:284
 #, kde-format
@@ -5458,8 +5461,10 @@ msgid ""
 "%2\n"
 "\n"
 msgstr ""
-"Mesaĝo sendita:\\Ensalutu per uzantnomo=%1 kaj pasvorto=[kaŝita]\\en"
-"\\Servilo respondis:\n"
+"Mesaĝo sendita:\n"
+"Ensaluto per uzantnomo=%1 kaj pasvorto=[kaŝita]\n"
+"\n"
+"Servilo respondis:\n"
 "%2\n"
 "\n"
 
@@ -6571,7 +6576,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Entajpu la URI, kiu estas uzata por fari serĉon ĉe la serĉilo ĉi tie.<br/>La "
-"tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/ >\n"
+"tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/>\n"
 "Rekomendita estas \\{@}, ĉar ĝi forigas ĉiujn demandvariablojn (nomo=valoro) "
 "el la rezulta ĉeno, dum \\{0} estos anstataŭigita per la nemodifita "
 "demandŝnuro.<br/>Vi povas uzi \\ {1} ... \\{n} por specifi iujn vortojn el "
@@ -7841,7 +7846,7 @@ msgstr ""
 "povas pritrakti. Ĉi tiu listo estas organizita per <u>mimetipoj</u>.</p>\n"
 "<p>MIME, Multipurpose Internet (e)Mail Extension, estas norma protokolo por "
 "identigi la tipon de datumoj bazitaj sur dosiernomaj etendoj kaj "
-"korespondanto < u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post la "
+"korespondanto <u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post la "
 "punkto en flower.bmp indikas ke ĝi estas specifa speco de bildo, <u>image/x-"
 "bmp</u>. Por scii, kiu aplikaĵo devas malfermi ĉiun tipon de dosiero, la "
 "sistemo devas esti informita pri la kapabloj de ĉiu aplikaĵo por trakti ĉi "
@@ -8115,7 +8120,7 @@ msgstr "Specifas la agojn, kiujn la membroj de la grupo rajtas fari."
 #: widgets/kpropertiesdialog.cpp:1842
 #, kde-format
 msgid "O&thers:"
-msgstr "Aliaj & aliaj:"
+msgstr "A&liaj:"
 
 #: widgets/kpropertiesdialog.cpp:1849
 #, kde-format
@@ -9096,231 +9101,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgid ""
-#~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#~ "using the HTTP protocol (like Konqueror) store on your computer, "
-#~ "initiated by a remote Internet server. This means that a web server can "
-#~ "store information about you and your browsing activities on your machine "
-#~ "for later use. You might consider this an invasion of privacy.</p><p> "
-#~ "However, cookies are useful in certain situations. For example, they are "
-#~ "often used by Internet shops, so you can 'put things into a shopping "
-#~ "basket'. Some sites require you have a browser that supports cookies.</"
-#~ "p><p> Because most people want a compromise between privacy and the "
-#~ "benefits cookies offer, the HTTP KIO worker offers you the ability to "
-#~ "customize the way it handles cookies. So you might want to set the "
-#~ "default policy to ask you whenever a server wants to set a cookie, "
-#~ "allowing you to decide. For your favorite shopping web sites that you "
-#~ "trust, you might want to set the policy to accept, then you can access "
-#~ "the web sites without being prompted every time a cookie is received.</p>"
-#~ msgstr ""
-#~ "<h1>Kuketoj</h1><p>Kuketoj enhavas informojn, kiujn KDE-aplikoj uzantaj "
-#~ "la HTTP-protokolo (kiel Konqueror) konservas en via komputilo, "
-#~ "iniciatitaj de fora Interreta servilo. Ĉi tio signifas, ke retservilo "
-#~ "povas konservi informojn pri vi kaj viaj foliumagadoj sur via maŝino por "
-#~ "posta uzo. Vi povus konsideri ĉi tion kiel invado de privateco.</p><p> "
-#~ "Tamen, kuketoj estas utilaj en certaj situacioj. Ekzemple, ili ofte estas "
-#~ "uzataj de Interretaj butikoj, do vi povas 'meti aĵojn en aĉetkorbon'. Iuj "
-#~ "retejoj postulas, ke vi havu retumilon, kiu subtenas kuketojn.</p><p> Ĉar "
-#~ "plej multaj homoj volas kompromison inter privateco kaj la avantaĝoj, "
-#~ "kiujn proponas kuketoj, la HTTP KIO-laboristo ofertas al vi la kapablon "
-#~ "agordi la manieron kiel ĝi pritraktas kuketojn. Do vi eble volas agordi "
-#~ "la defaŭltan politikon por demandi vin kiam ajn servilo volas agordi "
-#~ "kuketon, permesante al vi decidi. Por viaj plej ŝatataj butikumadaj "
-#~ "retejoj, kiujn vi fidas, vi eble volas agordi la politikon por akcepti, "
-#~ "tiam vi povas aliri la retejojn sen esti instigita ĉiufoje kiam kuketo "
-#~ "ricevas.</p>"
-
-#~ msgid "<h1>Cookie Management Quick Help</h1>"
-#~ msgstr "<h1>Rapida Helpo pri Administrado de Kuketoj</h1>"
-
-#~ msgid ""
-#~ "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
-#~ "the HTTP protocol (like Konqueror) stores on your computer from a remote "
-#~ "Internet server. This means that a web server can store information about "
-#~ "you and your browsing activities on your machine for later use. You might "
-#~ "consider this an invasion of privacy.</p><p>However, cookies are useful "
-#~ "in certain situations. For example, they are often used by Internet "
-#~ "shops, so you can 'put things into a shopping basket'. Some sites require "
-#~ "you have a browser that supports cookies.</p><p>Because most people want "
-#~ "a compromise between privacy and the benefits cookies offer, KDE offers "
-#~ "you the ability to customize the way it handles cookies. You might, for "
-#~ "example want to set KDE's default policy to ask you whenever a server "
-#~ "wants to set a cookie or simply reject or accept everything. For example, "
-#~ "you might choose to accept all cookies from your favorite shopping web "
-#~ "site. For this all you have to do is either browse to that particular "
-#~ "site and when you are presented with the cookie dialog box, click on <i> "
-#~ "This domain </i> under the 'apply to' tab and choose accept or simply "
-#~ "specify the name of the site in the <i> Domain Specific Policy </i> tab "
-#~ "and set it to accept. This enables you to receive cookies from trusted "
-#~ "web sites without being asked every time KDE receives a cookie.</p>"
-#~ msgstr ""
-#~ "<h1>Kuketoj</h1><p>Kuketoj enhavas informojn, kiujn KDE-aplikaĵo uzante "
-#~ "la HTTP-protokolo (kiel Konqueror) konservas en via komputilo de fora "
-#~ "Interreta servilo. Ĉi tio signifas, ke retservilo povas konservi "
-#~ "informojn pri vi kaj viaj foliumagadoj sur via maŝino por posta uzo. Vi "
-#~ "povus konsideri ĉi tion kiel invado de privateco.</p><p>Tamen, kuketoj "
-#~ "estas utilaj en certaj situacioj. Ekzemple, ili ofte estas uzataj de "
-#~ "Interretaj butikoj, do vi povas 'meti aĵojn en aĉetkorbon'. Iuj retejoj "
-#~ "postulas, ke vi havu retumilon kiu subtenas kuketojn.</p><p>Ĉar la plej "
-#~ "multaj homoj volas kompromison inter privateco kaj la avantaĝoj, kiujn "
-#~ "proponas kuketoj, KDE ofertas al vi la eblon agordi la manieron kiel ĝi "
-#~ "pritraktas kuketojn. Vi eble volas, ekzemple, agordi la defaŭltan "
-#~ "politikon de KDE por demandi vin kiam ajn servilo volas agordi kuketon aŭ "
-#~ "simple malakcepti aŭ akcepti ĉion. Ekzemple, vi eble elektas akcepti "
-#~ "ĉiujn kuketojn de via plej ŝatata butikuma retejo. Por ĉi tio ĉio, kion "
-#~ "vi devas fari estas aŭ foliumi al tiu aparta retejo kaj kiam oni "
-#~ "prezentas al vi la kuketan dialogujon, alklaku <i> Ĉi tiu domajno </i> "
-#~ "sub la langeto 'apliki al' kaj elektu akcepti aŭ simple specifi la. nomo "
-#~ "de la retejo en la langeto <i> Specifa Politiko de Domajno </i> kaj "
-#~ "agordu ĝin por akcepti. Ĉi tio ebligas al vi ricevi kuketojn de fidindaj "
-#~ "retejoj sen esti demandita ĉiufoje kiam KDE ricevas kuketon.</p>"
-
-#~ msgid ""
-#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
-#~ "programs when using Internet and network connections. If you experience "
-#~ "timeouts or use a modem to connect to the Internet, you might want to "
-#~ "adjust these settings."
-#~ msgstr ""
-#~ "<h1>Retaj Preferoj</h1>Ĉi tie vi povas difini la konduton de KDE-"
-#~ "programoj dum uzado de Interreto kaj retaj konektoj. Se vi spertas "
-#~ "tempodaŭrojn aŭ uzas modemon por konekti al la Interreto, vi eble volas "
-#~ "alĝustigi ĉi tiujn agordojn."
-
-#~ msgid ""
-#~ "<h1>Proxy</h1><p>A proxy server is an intermediate program that sits "
-#~ "between your machine and the Internet and provides services such as web "
-#~ "page caching and/or filtering.</p><p>Caching proxy servers give you "
-#~ "faster access to sites you have already visited by locally storing or "
-#~ "caching the content of those pages; filtering proxy servers, on the other "
-#~ "hand, provide the ability to block out requests for ads, spam, or "
-#~ "anything else you want to block.</p><p><u>Note:</u> Some proxy servers "
-#~ "provide both services.</p>"
-#~ msgstr ""
-#~ "<h1>Prokurilo</h1><p>Prokura servilo estas meza programo kiu sidas inter "
-#~ "via maŝino kaj la Interreto kaj provizas servojn kiel retpaĝa kaŝmemoro "
-#~ "kaj/aŭ filtrado.</p><p>Kaŝmemoraj prokurserviloj donas vi pli rapida "
-#~ "aliro al retejoj, kiujn vi jam vizitis, loke konservante aŭ konservante "
-#~ "la enhavon de tiuj paĝoj; filtraj prokurserviloj, aliflanke, ebligas "
-#~ "forbari petojn por anoncoj, spamon aŭ ion alian, kion vi volas bloki.</"
-#~ "p><p><u>Noto:</u> Iuj prokurserviloj provizas ambaŭ. servoj.</p>"
-
-#~ msgid ""
-#~ "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
-#~ "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#~ "properly configured.</p><p>You can specify here the credentials used to "
-#~ "access the shared resources. Passwords will be stored locally, and "
-#~ "scrambled so as to render them unreadable to the human eye. For security "
-#~ "reasons, you may not want to do that, as entries with passwords are "
-#~ "clearly indicated as such.</p>"
-#~ msgstr ""
-#~ "<h1>Vindozaj Kundividoj</h1><p>Aplikoj uzantaj la SMB KIO-laboriston "
-#~ "(kiel Konqueror) povas aliri komunajn dosiersistemojn de Microsoft "
-#~ "Windows, se ĝuste agordite.</p><p>Vi povas specifi ĉi tie la uzatajn "
-#~ "akreditaĵojn. por aliri la komunajn rimedojn. Pasvortoj estos konservitaj "
-#~ "loke, kaj miksitaj por igi ilin nelegeblaj al la homa okulo. Pro "
-#~ "sekurecaj kialoj, vi eble ne volas fari tion, ĉar enskriboj kun pasvortoj "
-#~ "estas klare indikitaj kiel tiaj.</p>"
-
-#~ msgid "Web Search Keywords"
-#~ msgstr "Retaj Serĉaj Ŝlosilvortoj"
-
-#~ msgid "Configure enhanced browsing features"
-#~ msgstr "Agordu plibonigitajn foliumajn funkciojn"
-
-#~ msgid ""
-#~ "<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
-#~ "browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
-#~ "are a quick way of using Web search engines. For example, type "
-#~ "\"duckduckgo:frobozz\" or \"dd:frobozz\" and your web browser will do a "
-#~ "search on DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if "
-#~ "you have not changed this keyboard shortcut) and enter the shortcut in "
-#~ "the Run Command dialog."
-#~ msgstr ""
-#~ "<h1>Plibonigita Foliumado</h1> En ĉi tiu modulo vi povas agordi kelkajn "
-#~ "plibonigitajn foliumajn funkciojn de KDE. <h2>Retaj Serĉaj Ŝlosilvortoj</"
-#~ "h2>Retaj Serĉaj Ŝlosilvortoj estas rapida maniero uzi Retajn serĉilojn. "
-#~ "Ekzemple, tajpu \"duckduckgo:frobozz\" aŭ \"dd:frobozz\" kaj via retumilo "
-#~ "serĉos \"frobozz\" ĉe DuckDuckGo. Eĉ pli facile: simple premu Alt+F2 (se "
-#~ "vi ne ŝanĝis ĉi tiun klavaran ŝparvojon) kaj enigu la ŝparvojon en la "
-#~ "dialogo Run Command."
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>In this module you can configure the web search keywords feature. "
-#~ "Web search keywords allow you to quickly search or lookup words on the "
-#~ "Internet. For example, to search for information about the KDE project "
-#~ "using the Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-#~ "<emphasis>google:KDE</emphasis>.</para><para>If you select a default "
-#~ "search engine, then you can search for normal words or phrases by simply "
-#~ "typing them into the input widget of applications that have built-in "
-#~ "support for such a feature, e.g Konqueror.</para>"
-#~ msgstr ""
-#~ "<para>En ĉi tiu modulo vi povas agordi la funkcion pri retserĉaj "
-#~ "ŝlosilvortoj. Retaj serĉvortoj permesas vin rapide serĉi aŭ serĉi vortojn "
-#~ "en la Interreto. Ekzemple, por serĉi informojn pri la KDE-projekto per la "
-#~ "Guglo-motoro, vi simple tajpu <emphasis>gg:KDE</emphasis> aŭ "
-#~ "<emphasis>google:KDE</emphasis>.</para><para>Se vi elektu defaŭltan "
-#~ "serĉilon, tiam vi povas serĉi normalajn vortojn aŭ frazojn simple "
-#~ "tajpante ilin en la eniga fenestraĵo de aplikaĵoj kiuj havas "
-#~ "enkonstruitan subtenon por tia funkcio, ekz. Konqueror.</para>"
-
-#~ msgid "Using sub-URLs with %1 is not supported."
-#~ msgstr "Uzado de sub-URL-oj kun %1 ne estas subtenata."
-
-#~ msgid "&Yes"
-#~ msgstr "&Jes"
-
-#~ msgid "&No"
-#~ msgstr "&Ne"
-
-#~ msgid "A file or folder named %1 already exists."
-#~ msgstr "Dosiero aŭ dosierujo nomita %1 jam ekzistas."
-
-#~ msgid "You do not have permission to create that folder."
-#~ msgstr "Vi ne havas permeson krei tiun dosierujon."
-
-#~ msgid "The desktop is offline"
-#~ msgstr "La labortablo estas eksterrete"
-
-#~ msgid "mounting is not supported by Windows CE."
-#~ msgstr "muntado ne estas subtenata de Windows CE."
-
-#~ msgid "unmounting is not supported by Windows CE."
-#~ msgstr "malmuntado ne estas subtenata de Windows CE."
-
-#~ msgid ""
-#~ "The desktop entry of type\n"
-#~ "%1\n"
-#~ "is unknown."
-#~ msgstr ""
-#~ "La labortabla enskribo de tipo\n"
-#~ "%1\\estas nekonata."
-
-#~ msgid ""
-#~ "The desktop entry file\n"
-#~ "%1\n"
-#~ "is of type FSDevice but has no Dev=... entry."
-#~ msgstr ""
-#~ "La labortabla enigdosiero\n"
-#~ "%1\n"
-#~ " estas de tipo FS Device sed ne havas Dev=... eniron."
-
-#~ msgid "Mount"
-#~ msgstr "Monto"
-
-#~ msgid "Unmount"
-#~ msgstr "Malmunti"
-
-#~ msgid ""
-#~ "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
-#~ "does not exist.</qt>"
-#~ msgstr ""
-#~ "<qt>Ne eblas ruli la specifitan komandon. La dosiero aŭ dosierujo <b>%1</"
-#~ "b> ne ekzistas.</qt>"
-
-#~ msgid "Could not find any application or handler for %1"
-#~ msgstr "Ne eblis trovi ajnan aplikaĵon aŭ pritraktilon por %1"
-
-#~ msgid "&Paste Clipboard Contents"
-#~ msgstr "&Algluu Enhavon de la Tondujo"
