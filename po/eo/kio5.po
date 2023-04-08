@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 00:43+0000\n"
-"PO-Revision-Date: 2023-03-12 22:53+0100\n"
+"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"PO-Revision-Date: 2023-04-07 10:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -81,7 +81,7 @@ msgstr ""
 "Ne eblis krei \"%1\".\n"
 "La celdosiersistemo (%2) malpermesas la sekvajn signojn en dosiernomoj: %3\n"
 "Elekti Anstataŭigi anstataŭigos ajnajn nevalidajn signojn (en la "
-"celdosierujo) per substreko \"_\\ \"."
+"celdosierujo) per substreko \"_\"."
 
 #: core/copyjob.cpp:184
 #, kde-format
@@ -95,7 +95,7 @@ msgstr ""
 "Ne eblis krei \"%1\".\n"
 "La celdosiersistemo (%2) malpermesas la sekvajn signojn en dosiernomoj: %3\n"
 "Elekti Anstataŭigi anstataŭigos ajnajn nevalidajn signojn (en la "
-"celdosiernomo) per substreko \"_\\ \"."
+"celdosiernomo) per substreko \"_\"."
 
 #: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
@@ -3017,7 +3017,7 @@ msgid ""
 msgstr ""
 "<qt>Jen la loko asociita kun la eniro. Ajna valida URL povas esti uzata. "
 "Ekzemple:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/"
-"kde/stable<br />< br />Alklakante la butonon apud la tekstredakta skatolo vi "
+"kde/stable<br /><br />Alklakante la butonon apud la tekstredakta skatolo vi "
 "povas foliumi al taŭga URL.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
@@ -3502,9 +3502,8 @@ msgstr ""
 "<qt>Ĉi tio estas la prefera menuo por la dosiera dialogo. Diversaj opcioj "
 "estas alireblaj de ĉi tiu menuo inkluzive de: <ul><li>kiel dosieroj estas "
 "ordigitaj en la listo</li><li>specoj de vido, inkluzive de ikono kaj listo</"
-"li><li>montrado de kaŝitaj dosieroj< /li><li>la panelo Lokoj</"
-"li><li>dosieraj antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</"
-"li></ul></qt>"
+"li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</li><li>dosieraj "
+"antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1373
 #, kde-format
@@ -3598,7 +3597,7 @@ msgid "*|All Files"
 msgstr "*|Ĉiuj dosieroj"
 
 #: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:900
+#: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "&Malfermu"
@@ -3685,8 +3684,8 @@ msgstr ""
 "<qt>Ĉi tio estas la filtrilo por apliki al la dosierlisto. Dosiernomoj kiuj "
 "ne kongruas kun la filtrilo ne estos montrataj.<p>Vi povas elekti el unu el "
 "la antaŭfiksitaj filtriloj en la falmenuo, aŭ vi povas enigi propran "
-"filtrilon rekte en la tekstan areon.</p><p >Ĝojkartoj kiel * kaj ? estas "
-"permesitaj.</ p ></ qt >"
+"filtrilon rekte en la tekstan areon.</p><p>Ĝojkartoj kiel * kaj ? estas "
+"permesitaj.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:474
 #, kde-format
@@ -4840,7 +4839,7 @@ msgstr ""
 "politikon kaŭzante la defaŭltan politikan agordon esti uzata por tiu "
 "domajno, dum <b>Forigi Ĉion</b> forigos ĉiujn specifajn politikojn de la "
 "retejo.\n"
-" </ qt >"
+"</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:126
@@ -4869,7 +4868,8 @@ msgid ""
 "policies override the default policy setting for these sites.\n"
 "</qt>"
 msgstr ""
-"<qt>\\Listo de retejoj, por kiuj vi starigis specifan politikon pri kuketoj. "
+"<qt>\n"
+"Listo de retejoj, por kiuj vi starigis specifan politikon pri kuketoj. "
 "Specifaj politikoj anstataŭas la defaŭltan politikan agordon por ĉi tiuj "
 "retejoj.\n"
 "</qt>"
@@ -5280,7 +5280,7 @@ msgstr ""
 "Aŭtomate detekti kaj agordi la prokurajn agordojn.<p>\n"
 "Aŭtomata detekto estas farita per la <b>TTT-Prokura Aŭtomata Malkovra "
 "Protokolo (WPAD)</b>.<p>\n"
-"<b>NOTU:< /b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en iuj "
+"<b>NOTU:</b> Ĉi tiu opcio eble ne funkcias ĝuste aŭ tute ne funkcias en iuj "
 "UNIX/Linuksaj distribuoj.\n"
 "</qt>"
 
@@ -5326,12 +5326,12 @@ msgstr ""
 "<qt><p>Uzu prokurajn agordojn difinitajn en la sistemo.</p>\n"
 "<p>Kelkaj platformoj ofertas tutsistemajn prokurajn agordajn informojn kaj "
 "elektante ĉi tiun opcion ebligas al vi uzi tiujn agordojn.</p>\n"
-"<p >Sur Mac-platformoj</p>\n"
+"<p>Sur Mac-platformoj</p>\n"
 "<p>Sur Vindozaj platformoj</p>\n"
 "<p>Sur Unikso kaj Linukso platformoj, tiaj sistemaj prokuraj agordoj estas "
 "kutime difinitaj per mediovariabloj. La sekvaj mediovariabloj estas "
 "detektitaj kaj uzataj kiam ili ĉeestas: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</"
-"b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p> >>\n"
+"b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
@@ -5473,8 +5473,8 @@ msgid ""
 msgstr ""
 "<qt>Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
 "konservi la adreson de la prokurilo SOCKS.<p>Alternative, vi povas alklaki "
-"la butonon <b>\"Aŭtomata Detekti\"</b> por provi aŭtomatan malkovron de ĉi "
-"tiu variablo. .</ p ></ qt >"
+"la butonon <b>&quot;Aŭtomate Detekti&quot;</b> por provi aŭtomatan malkovron "
+"de ĉi tiu variablo.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5710,7 +5710,9 @@ msgstr ""
 msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
-msgstr "La dosiero %1\\estas modifita. Ĉu vi volas alŝuti la ŝanĝojn?"
+msgstr ""
+"La dosiero %1\n"
+"estas modifita. Ĉu vi volas alŝuti la ŝanĝojn?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -5742,7 +5744,9 @@ msgstr "Dosiero ne trovita: %1"
 msgid ""
 "The URL %1\n"
 "is malformed"
-msgstr "La URL %1\\estas misformita"
+msgstr ""
+"La URL %1\n"
+"estas misformita"
 
 #: kioexec/main.cpp:84
 #, kde-format
@@ -5762,7 +5766,9 @@ msgid ""
 "Do you still want to delete it?"
 msgstr ""
 "La supozeble provizora dosiero\n"
-"%1\\estas modifita.\\Ĉu vi ankoraŭ volas forigi ĝin?"
+"%1\n"
+"estas modifita.\n"
+"Ĉu vi ankoraŭ volas forigi ĝin?"
 
 #: kioexec/main.cpp:239
 #, kde-format
@@ -5778,7 +5784,9 @@ msgid ""
 "Do you want to upload the changes?"
 msgstr ""
 "La dosiero\n"
-"%1\\estas modifita.\\Ĉu vi volas alŝuti la ŝanĝojn?"
+"%1\n"
+"estas modifita.\n"
+"Ĉu vi volas alŝuti la ŝanĝojn?"
 
 #: kioexec/main.cpp:286
 #, kde-format
@@ -5871,8 +5879,10 @@ msgid ""
 "%2\n"
 "\n"
 msgstr ""
-"Mesaĝo sendita:\\Ensalutu per uzantnomo=%1 kaj pasvorto=[kaŝita]\\en"
-"\\Servilo respondis:\n"
+"Mesaĝo sendita:\n"
+"Ensalutu per uzantnomo=%1 kaj pasvorto=[kaŝita]\n"
+"\n"
+"Servilo respondis:\n"
 "%2\n"
 "\n"
 
@@ -7419,7 +7429,8 @@ msgid ""
 "is unknown."
 msgstr ""
 "La labortabla enskribo de tipo\n"
-"%1\\estas nekonata."
+"%1\n"
+"estas nekonata."
 
 #: widgets/kdesktopfileactions.cpp:95 widgets/kdesktopfileactions.cpp:170
 #: widgets/kdesktopfileactions.cpp:285
@@ -7485,58 +7496,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tajpu"
 
-#: widgets/kfileitemactions.cpp:428
+#: widgets/kfileitemactions.cpp:435
 #, kde-format
 msgid "Open &with %1"
 msgstr "Malfermu &kun %1"
 
-#: widgets/kfileitemactions.cpp:430
+#: widgets/kfileitemactions.cpp:437
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:614
+#: widgets/kfileitemactions.cpp:621
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Agoj"
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Malfermu Dosierujon Kun..."
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Malfermu Kun..."
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Malfermu dosierujon kun %1"
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Malfermu kun %1"
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Malfermu Dosierujon Kun"
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Malfermu Kun"
 
-#: widgets/kfileitemactions.cpp:933
+#: widgets/kfileitemactions.cpp:940
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -7755,7 +7766,8 @@ msgstr ""
 "%u - ununura URL\n"
 "%U - listo de URL-oj\n"
 "%d - la dosierujo de la dosiero por malfermi\n"
-"%D - listo de dosierujoj\\ n%i - la piktogramo\n"
+"%D - listo de dosierujoj\n"
+"%i - la piktogramo\n"
 "%m - la mini-ikono\n"
 "%c - la komento"
 
@@ -8101,7 +8113,7 @@ msgstr ""
 "povas pritrakti. Ĉi tiu listo estas organizita per <u>mimetipoj</u>.</p>\n"
 "<p>MIME, Multipurpose Internet (e)Mail Extension, estas norma protokolo por "
 "identigi la tipon de datumoj bazitaj sur dosiernomaj etendoj kaj "
-"korespondanto < u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post la "
+"korespondanto <u>mimtipoj</u>. Ekzemplo: la parto \"bmp\" kiu venas post la "
 "punkto en flower.bmp indikas ke ĝi estas specifa speco de bildo, <u>image/x-"
 "bmp</u>. Por scii, kiu aplikaĵo devas malfermi ĉiun tipon de dosiero, la "
 "sistemo devas esti informita pri la kapabloj de ĉiu aplikaĵo por trakti ĉi "

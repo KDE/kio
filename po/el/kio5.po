@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 00:43+0000\n"
+"POT-Creation-Date: 2023-04-08 00:43+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3736,7 +3736,7 @@ msgid "*|All Files"
 msgstr "*|Όλα τα αρχεία"
 
 #: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:900
+#: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "Ά&νοιγμα"
@@ -7879,24 +7879,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Τύπος"
 
-#: widgets/kfileitemactions.cpp:428
+#: widgets/kfileitemactions.cpp:435
 #, kde-format
 msgid "Open &with %1"
 msgstr "Άνοιγμα &με %1"
 
-#: widgets/kfileitemactions.cpp:430
+#: widgets/kfileitemactions.cpp:437
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:614
+#: widgets/kfileitemactions.cpp:621
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ενέργειες"
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With..."
@@ -7904,24 +7904,24 @@ msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Ά&νοιγμα με..."
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Ά&νοιγμα με..."
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "Ά&νοιγμα με %1"
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open with %1"
 msgstr "Ά&νοιγμα με %1"
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -7929,13 +7929,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Άνοιγμα &με"
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Άνοιγμα &με"
 
-#: widgets/kfileitemactions.cpp:933
+#: widgets/kfileitemactions.cpp:940
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
