@@ -1389,7 +1389,7 @@ WorkerResult FileProtocol::chown(const QUrl &url, const QString &owner, const QS
     if (::chown(_path.constData(), uid, gid) == -1) {
         auto result = execWithElevatedPrivilege(CHOWN, {_path, uid, gid}, errno);
         if (!result.success()) {
-            if (result.error() != KIO::ERR_USER_CANCELED && result.error() != KIO::ERR_PRIVILEGE_NOT_REQUIRED) {
+            if (!resultWasCancelled(result)) {
                 switch (result.error()) {
                 case EPERM:
                 case EACCES:
