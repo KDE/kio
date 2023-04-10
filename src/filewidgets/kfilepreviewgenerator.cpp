@@ -583,7 +583,9 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
             return; // the sequence index does not match the one we want
         }
 
-        m_sequenceIndices.erase(it);
+        if (it != m_sequenceIndices.end()) {
+            m_sequenceIndices.erase(it);
+        }
     }
 
     if (!m_previewShown) {
