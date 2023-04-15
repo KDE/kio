@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2023-02-27 22:21+0900\n"
+"PO-Revision-Date: 2023-04-14 22:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -2217,15 +2217,13 @@ msgstr ""
 "因所致。"
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"klauncher 找不到或無法啟動提供通訊協定的外掛。這代表了您的外掛程式太舊了。"
+"klauncher 找不到或無法啟動提供通訊協定的外掛。這代表您的外掛程式應該是太舊"
+"了。"
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2478,10 +2476,9 @@ msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "無法建立 socket 來開啟「%1」協定的 KIO worker。"
 
 #: core/worker.cpp:379
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "在 %1 找不到 kioslave5 執行檔"
+msgstr "在 '%1' 找不到 'kioworker' 執行檔"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -3771,11 +3768,10 @@ msgid "Launching %1"
 msgstr "裝載 %1 中"
 
 #: gui/kprocessrunner.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "找不到檔案 %1"
+msgstr "找不到命令 <command>%1</command>。"
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -7304,7 +7300,7 @@ msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
+msgstr "<filename>%1</filename> 看來不是可執行的程式。"
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7312,7 +7308,7 @@ msgctxt "@info"
 msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
-msgstr ""
+msgstr "找不到 <filename>%1</filename>；請輸入指向可執行程式的有效路徑。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
