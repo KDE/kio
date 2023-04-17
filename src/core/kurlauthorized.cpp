@@ -11,13 +11,12 @@
 #include <QUrl>
 #include <kprotocolinfo.h>
 
-namespace KAuthorized
+namespace KAuthorizedInternal
 {
 KCONFIGCORE_EXPORT extern bool
-authorizeUrlActionInternal(const QString &action, const QUrl &_baseURL, const QUrl &_destURL, const QString &baseClass, const QString &destClass);
+authorizeUrlAction(const QString &action, const QUrl &_baseURL, const QUrl &_destURL, const QString &baseClass, const QString &destClass);
 
-KCONFIGCORE_EXPORT extern void allowUrlActionInternal(const QString &action, const QUrl &_baseURL, const QUrl &_destURL);
-
+KCONFIGCORE_EXPORT extern void allowUrlAction(const QString &action, const QUrl &_baseURL, const QUrl &_destURL);
 }
 
 namespace KUrlAuthorized
@@ -26,7 +25,7 @@ bool authorizeUrlAction(const QString &action, const QUrl &baseURL, const QUrl &
 {
     const QString baseClass = baseURL.isEmpty() ? QString() : KProtocolInfo::protocolClass(baseURL.scheme());
     const QString destClass = destURL.isEmpty() ? QString() : KProtocolInfo::protocolClass(destURL.scheme());
-    return KAuthorized::authorizeUrlActionInternal(action, baseURL, destURL, baseClass, destClass);
+    return KAuthorizedInternal::authorizeUrlAction(action, baseURL, destURL, baseClass, destClass);
 }
 
 void allowUrlAction(const QString &action, const QUrl &_baseURL, const QUrl &_destURL)
@@ -35,7 +34,7 @@ void allowUrlAction(const QString &action, const QUrl &_baseURL, const QUrl &_de
         return;
     }
 
-    KAuthorized::allowUrlActionInternal(action, _baseURL, _destURL);
+    KAuthorizedInternal::allowUrlAction(action, _baseURL, _destURL);
 }
 
 } // namespace
