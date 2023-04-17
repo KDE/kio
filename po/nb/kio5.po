@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-08 00:43+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2474,13 +2474,19 @@ msgstr "&Detaljer"
 msgid "&Forever"
 msgstr "&For alltid"
 
-#: core/slaveinterface.cpp:428 core/tcpslavebase.cpp:537
+#: core/slaveinterface.cpp:426 core/tcpslavebase.cpp:294
+#: core/tcpworkerbase.cpp:285
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "F&ortsett lasting"
+
+#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Fortsett"
 
-#: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:551
+#: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
@@ -2503,11 +2509,6 @@ msgstr ""
 #, kde-format
 msgid "Security Information"
 msgstr "Sikkerhetsinformasjon"
-
-#: core/tcpslavebase.cpp:294 core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "F&ortsett lasting"
 
 #: core/tcpslavebase.cpp:347 core/tcpworkerbase.cpp:338
 #, kde-format
@@ -3505,7 +3506,7 @@ msgid "*|All Files"
 msgstr "*|Alle filer"
 
 #: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:900
+#: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "&Åpne"
@@ -7267,58 +7268,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Type "
 
-#: widgets/kfileitemactions.cpp:428
+#: widgets/kfileitemactions.cpp:435
 #, kde-format
 msgid "Open &with %1"
 msgstr "Åpne &med %1"
 
-#: widgets/kfileitemactions.cpp:430
+#: widgets/kfileitemactions.cpp:437
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:614
+#: widgets/kfileitemactions.cpp:621
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "H&andlinger"
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:851
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Å&pne med …"
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:889
+#: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Åpne med %1"
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:922
+#: widgets/kfileitemactions.cpp:929
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Å&pne med"
 
-#: widgets/kfileitemactions.cpp:933
+#: widgets/kfileitemactions.cpp:940
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
