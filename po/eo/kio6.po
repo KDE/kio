@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-05 02:18+0000\n"
-"PO-Revision-Date: 2023-04-12 20:45+0100\n"
+"PO-Revision-Date: 2023-04-16 04:27+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -159,29 +159,29 @@ msgstr "Sintaksoeraro en komando %1 dum provas ruli %2"
 #, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 tago %2"
+msgstr[1] "%1 tago %2"
 
 #: core/global.cpp:90 core/global.cpp:106
 #, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 elemento"
+msgstr[1] "%1 elementoj"
 
 #: core/global.cpp:94
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 dosierujo"
+msgstr[1] "%1 dosierujoj"
 
 #: core/global.cpp:95
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 dosiero"
+msgstr[1] "%1 dosieroj"
 
 #: core/global.cpp:97
 #, kde-format
@@ -2528,7 +2528,7 @@ msgstr "Sekurecaj Informoj"
 #: core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
-msgstr "C&daŭrigu Ŝarĝon"
+msgstr "Daŭrigi Ŝargad&on"
 
 #: core/tcpworkerbase.cpp:338
 #, kde-format
@@ -2552,12 +2552,12 @@ msgstr ""
 #: core/tcpworkerbase.cpp:481
 #, kde-format
 msgid "Display SSL &Information"
-msgstr "Montru SSL &Informojn"
+msgstr "Montri SSL &Informojn"
 
 #: core/tcpworkerbase.cpp:482
 #, kde-format
 msgid "C&onnect"
-msgstr "C&konekti"
+msgstr "K&onekti"
 
 #: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
 #, kde-format
@@ -2582,7 +2582,7 @@ msgstr "&Detaloj"
 #: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
-msgstr "Daŭrigu"
+msgstr "Daŭr&igi"
 
 #: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
 #, kde-format
@@ -2598,7 +2598,7 @@ msgstr "&Eterne"
 #: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
-msgstr "&Nur Nuna Sesio"
+msgstr "&Nur Nuna Seanco"
 
 #: core/worker.cpp:320
 #, kde-format
@@ -2968,7 +2968,7 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
 msgid "L&abel:"
-msgstr "L&abel:"
+msgstr "&Etikedo:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
@@ -3005,12 +3005,12 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
 msgid "Choose an &icon:"
-msgstr "Elektu &pikon:"
+msgstr "Elektu p&iktogramon:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
 msgid "&Only show when using this application (%1)"
-msgstr "&Nur montru kiam vi uzas ĉi tiun aplikaĵon (%1)"
+msgstr "Nur m&ontri kiam vi uzas ĉi tiun aplikaĵon (%1)"
 
 #: filewidgets/kfileplaceeditdialog.cpp:139
 #, kde-format
@@ -3158,7 +3158,7 @@ msgstr "Liberigante…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "&Liberigu"
+msgstr "Libe&rigi"
 
 #: filewidgets/kfileplacesmodel.cpp:1416
 #, kde-format
@@ -3182,7 +3182,7 @@ msgstr "Malmuntado…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
-msgstr "&Malmunti"
+msgstr "Malm&unti"
 
 #: filewidgets/kfileplacesmodel.cpp:1449
 #, kde-format
@@ -3220,7 +3220,11 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Unu aŭ pliaj dosieroj sur ĉi aparato estas malfermataj en aplikaĵo "
+"<application>\"%2\"</application>."
 msgstr[1] ""
+"Unu aŭ pliaj dosieroj sur ĉi aparato estas malfermataj en sekvaj aplikaĵoj: "
+"<application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-format
@@ -3267,7 +3271,7 @@ msgstr "Aldonu eniron..."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Redakti..."
+msgstr "R&edakti…"
 
 #: filewidgets/kfileplacesview.cpp:1165
 #, kde-format
@@ -3296,7 +3300,7 @@ msgstr "Kaŝi Sekcion"
 #: filewidgets/kfileplacesview.cpp:1185
 #, kde-format
 msgid "&Show All Entries"
-msgstr "&Montri ĉiujn enskribojn"
+msgstr "Montri ĉiujn en&skribojn"
 
 #: filewidgets/kfileplacesview.cpp:1190
 #, kde-format
@@ -3365,7 +3369,10 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"La elektita URL uzas nesubtenatan skemon. Bonvolu uzi la sekvan skemon: %2"
 msgstr[1] ""
+"La elektita URL uzas nesubtenatan skemon. Bonvolu uzi unu el la sekvaj "
+"skemoj: %2"
 
 #: filewidgets/kfilewidget.cpp:852
 #, kde-format
@@ -3568,7 +3575,7 @@ msgstr "*|Ĉiuj dosieroj"
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
-msgstr "&Malfermu"
+msgstr "&Malfermi"
 
 #: filewidgets/kfilewidget.cpp:2247
 #, kde-format
@@ -3578,7 +3585,7 @@ msgstr "Grando de piktogramoj: %1 pikseloj"
 #: filewidgets/kfilewidget.cpp:2395
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "Aŭtomate elektu dosiernomon e&etendo (%1)"
+msgstr "Aŭtomate elekti dosiernoman fin&aĵon (%1)"
 
 #: filewidgets/kfilewidget.cpp:2396
 #, kde-format
@@ -3588,7 +3595,7 @@ msgstr "la etendo <b>%1</b>"
 #: filewidgets/kfilewidget.cpp:2402
 #, kde-format
 msgid "Automatically select filename e&xtension"
-msgstr "Aŭtomate elektu dosiernomon e&etendo"
+msgstr "Aŭtomate elekti dosiernoman fin&aĵon"
 
 #: filewidgets/kfilewidget.cpp:2403
 #, kde-format
@@ -4028,7 +4035,7 @@ msgstr "&Politiko"
 #: kcms/cookies/kcookiesmain.cpp:44
 #, kde-format
 msgid "&Management"
-msgstr "&Administrado"
+msgstr "Ad&ministrado"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4097,14 +4104,14 @@ msgstr "Kuketa Nomo"
 #: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
 #, kde-format
 msgid "D&elete"
-msgstr "D&forigi"
+msgstr "&Forigi"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
 #. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
 #: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
 #, kde-format
 msgid "Delete A&ll"
-msgstr "Forigi A&ll"
+msgstr "Forigi ĉiu&jn"
 
 #. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
 #: kcms/cookies/kcookiesmanagement.ui:70
@@ -4116,7 +4123,7 @@ msgstr "Agordi &politikon..."
 #: kcms/cookies/kcookiesmanagement.ui:77
 #, kde-format
 msgid "&Reload List"
-msgstr "&Reŝargi Listo"
+msgstr "&Reŝargi liston"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: kcms/cookies/kcookiesmanagement.ui:97
@@ -4229,7 +4236,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "Ebligu kuketojn"
+msgstr "Ebligi &kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4257,7 +4264,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "Nur akceptu kuketojn de devena servilo"
+msgstr "Nur akce&pti kuketojn de devena servilo"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4283,7 +4290,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr "Aŭtomate&y akceptas sesiajn kuketojn"
+msgstr "Aŭtomat&e akcepti seancajn kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -4330,25 +4337,25 @@ msgstr "Defaŭlta Politiko"
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "Akceptu ĉiujn kuketojn"
+msgstr "Akcep&ti ĉiujn kuketojn"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr "Akceptu &ĝis fino de la sesio"
+msgstr "Akcept&u ĝis fino de la seanco"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
 #, kde-format
 msgid "Ask &for confirmation"
-msgstr "Petu konfirmon"
+msgstr "Peti kon&firmon"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "Malakcepti ĉiujn kuketojn"
+msgstr "Malakcepti ĉiu&jn kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4428,14 +4435,14 @@ msgstr "&Nova..."
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "Ŝanĝu..."
+msgstr "Ŝanĝ&i..."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:81
 #, kde-format
 msgid "Accept"
-msgstr "Akceptu"
+msgstr "Akcepti"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:28
 msgid "Accept For Session"
@@ -4527,7 +4534,7 @@ msgstr "Politiko:"
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:86
 #, kde-format
 msgid "Accept until end of session"
-msgstr "Akceptu ĝis fino de la kunsido"
+msgstr "Akcepti ĝis fino de la seanco"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -4598,20 +4605,24 @@ msgid_plural ""
 "Here you can set timeout values. You might want to tweak them if your "
 "connection is very slow. The maximum allowed value is %1 seconds."
 msgstr[0] ""
+"Ĉi tie vi povas meti eltempiĝajn valorojn. Vi eble volos ĝustigi ilin se via "
+"konekto estas tre malrapida. La maksimume allasebla valoro estas 1 sekundo."
 msgstr[1] ""
+"Ĉi tie vi povas meti eltempiĝajn valorojn. Vi eble volos ĝustigi ilin se via "
+"konekto estas tre malrapida. La maksimume allasebla valoro estas %1 sekundoj."
 
 #: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
 #: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " sekundo"
+msgstr[1] " sekundoj"
 
 #: kcms/netpref/netpref.cpp:47
 #, kde-format
 msgid "Soc&ket read:"
-msgstr "Soc&ket legi:"
+msgstr "Soc&ket lego:"
 
 #: kcms/netpref/netpref.cpp:53
 #, kde-format
@@ -4621,7 +4632,7 @@ msgstr "Pro&xy-konekto:"
 #: kcms/netpref/netpref.cpp:59
 #, kde-format
 msgid "Server co&nnect:"
-msgstr "Servilo-konekto:"
+msgstr "Servilo-ko&nekto:"
 
 #: kcms/netpref/netpref.cpp:65
 #, kde-format
@@ -4631,7 +4642,7 @@ msgstr "&Servila respondo:"
 #: kcms/netpref/netpref.cpp:67
 #, kde-format
 msgid "Global Options"
-msgstr "Tutmondaj Opcioj"
+msgstr "Ĉieaj opcioj"
 
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
@@ -4655,8 +4666,8 @@ msgstr ""
 #, kde-format
 msgid " byte"
 msgid_plural " bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " bajto"
+msgstr[1] " bajtoj"
 
 #: kcms/netpref/netpref.cpp:92
 #, kde-format
@@ -4674,7 +4685,7 @@ msgstr "FTP-Ebloj"
 #: kcms/netpref/netpref.cpp:98
 #, kde-format
 msgid "Enable passive &mode (PASV)"
-msgstr "Ebligi pasivan &reĝimon (PASV)"
+msgstr "Ebligi pasivan reĝi&mon (PASV)"
 
 #: kcms/netpref/netpref.cpp:100
 #, kde-format
@@ -4857,7 +4868,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:130
 #, kde-format
 msgid "Auto D&etect"
-msgstr "Aŭtomata Detekti"
+msgstr "Aŭtomate D&etekti"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
@@ -4973,8 +4984,8 @@ msgid ""
 msgstr ""
 "<qt>Enigu la nomon de la mediovariablo, ekz. <b>SOCKS_PROXY</b>, uzata por "
 "konservi la adreson de la prokurilo SOCKS.<p>Alternative, vi povas alklaki "
-"la butonon <b>\"Aŭtomata Detekti\"</b> por provi aŭtomatan malkovron de ĉi "
-"tiu variablo. .</p></qt>"
+"la butonon <b>&quot;Aŭtomate Detekti&quot;</b> por provi aŭtomatan malkovron "
+"de ĉi tiu variablo. .</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5013,14 +5024,14 @@ msgid ""
 msgstr ""
 "<qt>Enigu la mediovariablon, ekz. <b>NO_PROXY</b>, uzata por konservi la "
 "adresojn de retejoj, por kiuj la ĉi-supraj prokuragordoj ne estu uzataj."
-"<p>Alternative, vi povas alklaki la butonon <b>\"Aŭtomata Detekti\"</b> por "
-"provu aŭtomatan malkovron de ĉi tiu variablo.</p></qt>"
+"<p>Alternative, vi povas alklaki la butonon <b>&quot;Aŭtomate Detekti&quot;</"
+"b> por provi aŭtomatan malkovron de ĉi tiu variablo.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
 #, kde-format
 msgid "Show the &value of the environment variables"
-msgstr "Montru la &valoron de la mediovariabloj"
+msgstr "Montri la &valoron de la mediovariabloj"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:343
@@ -5060,7 +5071,7 @@ msgstr "Enigu la pordan numeron de la HTTP prokura servilo."
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "Uzu ĉi tiun prokurilon por ĉiuj protokoloj"
+msgstr "Uzu ĉi tiun prokuri&lon por ĉiuj protokoloj"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -5812,7 +5823,7 @@ msgstr "Nekonata Rajtiga metodo."
 #: kioworkers/http/httpfilter.cpp:175
 #, kde-format
 msgid "Receiving corrupt data."
-msgstr "Ricevante koruptajn datumojn."
+msgstr "Ricevante difektitajn datumojn."
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
@@ -5845,7 +5856,11 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] ""
+"<p>Vi ricevis kuketon de<br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
+"malakcepti ĉi tiun kuketon?</p>"
 msgstr[1] ""
+"<p>Vi ricevis %1 kuketojn de<br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
+"malakcepti ĉi tiujn kuketojn?</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:84
 #, kde-format
@@ -5861,7 +5876,7 @@ msgstr "Vidu aŭ modifi la informojn pri kuketo"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:104
 #, kde-format
 msgid "Accept for this &session"
-msgstr "Akceptu por ĉi tiu &sesio"
+msgstr "Akcepti por ĉi tiu &seanco"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:107
 #, kde-format
@@ -5871,7 +5886,7 @@ msgstr "Akceptu kuketon(j)n ĝis la fino de la nuna sesio"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:117
 #, kde-format
 msgid "&Accept"
-msgstr "&Akceptu"
+msgstr "&Akcepti"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:120
 #, kde-format
@@ -5886,12 +5901,12 @@ msgstr "Apliki Elekton Al"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:159
 #, kde-format
 msgid "&Only this cookie"
-msgstr "&Nur ĉi tiu kuketo"
+msgstr "Nur ĉi tiu kuket&o"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:159
 #, kde-format
 msgid "&Only these cookies"
-msgstr "&Nur ĉi tiuj kuketoj"
+msgstr "Nur ĉi tiuj kuket&oj"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:164
 #, kde-format
@@ -5905,7 +5920,7 @@ msgstr ""
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:167
 #, kde-format
 msgid "All cookies from this do&main"
-msgstr "Ĉiuj kuketoj de ĉi tiu domajno&maino"
+msgstr "Ĉiuj kuketoj de ĉi tiu do&majno"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:171
 #, kde-format
@@ -6063,8 +6078,8 @@ msgstr ""
 #, kde-format
 msgid " day"
 msgid_plural " days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " tago"
+msgstr[1] " tagoj"
 
 #: kioworkers/trash/kcmtrash.cpp:246
 #, kde-kuit-format
@@ -6337,7 +6352,7 @@ msgstr "Neniu"
 #: urifilters/ikws/ikwsopts.cpp:247
 #, kde-format
 msgid "Search F&ilters"
-msgstr "Serĉu F&filtrilojn"
+msgstr "Serĉi F&iltrilojn"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -6363,13 +6378,13 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr "&Ebligu TTT-serĉajn ŝlosilvortojn"
+msgstr "&Ebligi TTT-serĉajn ŝlosilvortojn"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr "&Uzu nur preferatajn ŝlosilvortojn"
+msgstr "&Uzi nur preferatajn ŝlosilvortojn"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
@@ -6399,7 +6414,7 @@ msgstr "Forigu la emfazitan TTT-serĉan ŝlosilvorton"
 #: urifilters/ikws/ikwsopts_ui.ui:100
 #, kde-format
 msgid "De&lete"
-msgstr "Forigi"
+msgstr "Fo&rigi"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:138
@@ -6421,7 +6436,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:141
 #, kde-format
 msgid "Default Web &search keyword:"
-msgstr "Defaŭlta &serĉa ŝlosilvorto:"
+msgstr "Defaŭlta ret&serĉa ŝlosilvorto:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6453,7 +6468,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:185
 #, kde-format
 msgid "&Keyword delimiter:"
-msgstr "&Ŝlosilvorta limigo:"
+msgstr "Ŝlosil&vorta limigo:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:204
@@ -6550,7 +6565,7 @@ msgstr "Enigu ĉi tie la homlegeblan nomon de la serĉprovizanto."
 #: urifilters/ikws/searchproviderdlg_ui.ui:23
 #, kde-format
 msgid "Shortcut &name:"
-msgstr "&nomo de mallongigo:"
+msgstr "&Nomo de mallongigo:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
@@ -6824,22 +6839,22 @@ msgstr "Klaku por kopii la kontrolsumon al la tondujo."
 #: widgets/dropjob.cpp:182
 #, kde-format
 msgid "C&ancel"
-msgstr "C&ancel"
+msgstr "N&uligi"
 
 #: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Move Here"
-msgstr "&Movu Ĉi tien"
+msgstr "&Movi ĉi tien"
 
 #: widgets/dropjob.cpp:315
 #, kde-format
 msgid "&Copy Here"
-msgstr "&Kopiu Ĉi tie"
+msgstr "&Kopii ĉi tien"
 
 #: widgets/dropjob.cpp:320
 #, kde-format
 msgid "&Link Here"
-msgstr "&Ligu Ĉi tie"
+msgstr "&Ligi ĉi tien"
 
 #: widgets/executablefileopendialog.cpp:21
 #, kde-format
@@ -6854,7 +6869,7 @@ msgstr "Ne demandu denove"
 #: widgets/executablefileopendialog.cpp:34
 #, kde-format
 msgid "&Execute"
-msgstr "&Efektivigu"
+msgstr "&Efektivigi"
 
 #: widgets/fileundomanager.cpp:118
 #, kde-format
@@ -6892,32 +6907,32 @@ msgstr "Foriganta"
 #: widgets/fileundomanager.cpp:300
 #, kde-format
 msgid "Und&o"
-msgstr "Und&o"
+msgstr "Malfar&o"
 
 #: widgets/fileundomanager.cpp:306
 #, kde-format
 msgid "Und&o: Copy"
-msgstr "Und&o: Kopiu"
+msgstr "Und&o: Kopion"
 
 #: widgets/fileundomanager.cpp:308
 #, kde-format
 msgid "Und&o: Link"
-msgstr "Und&o: Ligo"
+msgstr "Und&o: Ligon"
 
 #: widgets/fileundomanager.cpp:310
 #, kde-format
 msgid "Und&o: Move"
-msgstr "Und&o: Movu"
+msgstr "Und&o: Movon"
 
 #: widgets/fileundomanager.cpp:312
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "Und&o: Alinomi"
+msgstr "Und&o: Alinomon"
 
 #: widgets/fileundomanager.cpp:314
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "Und&o: Rubujo"
+msgstr "Und&o: Rubujigon"
 
 #: widgets/fileundomanager.cpp:316
 #, kde-format
@@ -6937,7 +6952,7 @@ msgstr "Und&o: Krei Dosieron"
 #: widgets/fileundomanager.cpp:322
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "Und&o: Batch Renomado"
+msgstr "Und&o: staplan alinomadon"
 
 #: widgets/fileundomanager.cpp:721
 #, kde-format
@@ -6993,7 +7008,11 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
+"Ĉu vi vere volas porĉiame forigi ĉi elementon?<nl/><nl/><emphasis "
+"strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 msgstr[1] ""
+"Ĉu vi vere volas porĉiame forigi ĉi %1 elementojn?<nl/><nl/><emphasis "
+"strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:266
 #, kde-kuit-format
@@ -7024,13 +7043,13 @@ msgstr ""
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu vi vere volas movi ĉi %1 objekton al rubujo?"
+msgstr[1] "Ĉu vi vere volas movi ĉi %1 objektojn al rubujo?"
 
 #: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:521
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr "La kunula SSL-atestĉeno ŝajnas esti korupta."
+msgstr "La kunula SSL-atestĉeno ŝajnas esti difektita."
 
 #: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:524
 #, kde-format
@@ -7233,7 +7252,7 @@ msgstr "Tajpu"
 #: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
-msgstr "Malfermu &kun %1"
+msgstr "Malfermi &kun %1"
 
 #: widgets/kfileitemactions.cpp:374
 #, kde-format
@@ -7251,49 +7270,49 @@ msgstr "&Agoj"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Malfermu Dosierujon Kun..."
+msgstr "&Malfermi dosierujon kun..."
 
 #: widgets/kfileitemactions.cpp:682
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Malfermu Kun..."
+msgstr "&Malfermi Kun..."
 
 #: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Malfermu dosierujon kun %1"
+msgstr "&Malfermi dosierujon kun %1"
 
 #: widgets/kfileitemactions.cpp:720
 #, kde-format
 msgid "&Open with %1"
-msgstr "&Malfermu kun %1"
+msgstr "&Malfermi kun %1"
 
 #: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Malfermu Dosierujon Kun"
+msgstr "&Malfermi dosierujon Kun"
 
 #: widgets/kfileitemactions.cpp:753
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
-msgstr "&Malfermu Kun"
+msgstr "&Malfermi kun"
 
 #: widgets/kfileitemactions.cpp:764
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Alia Apliko..."
+msgstr "Alia Aplik&o..."
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ero"
+msgstr[1] "%1 eroj"
 
 #: widgets/kfileitemdelegate.cpp:264 widgets/kfileitemdelegate.cpp:268
 #, kde-format
@@ -7436,7 +7455,9 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
+"<qt>Elektu la programon kiun vi volas uzi por malfermi la dosieron.</qt>"
 msgstr[1] ""
+"<qt>Elektu la programon kiun vi volas uzi por malfermi la %1 dosierojn.</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -7511,7 +7532,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Memoru aplikan asocion por ĉiuj dosieroj de tipo\n"
+"Memo&ri aplikan asocion por ĉiuj dosieroj de tipo\n"
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
@@ -7520,7 +7541,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Memoru aplikan asocion por ĉiuj dosieroj de tipo\n"
+"Memo&ri aplikan asocion por ĉiuj dosieroj de tipo\n"
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
@@ -7531,12 +7552,12 @@ msgstr "Finaj opcioj"
 #: widgets/kopenwithdialog.cpp:758
 #, kde-format
 msgid "Run in &terminal"
-msgstr "Kuru en &terminalo"
+msgstr "Ruli en &terminalo"
 
 #: widgets/kopenwithdialog.cpp:776
 #, kde-format
 msgid "&Do not close when command exits"
-msgstr "&Ne fermu kiam komando eliras"
+msgstr "Ne fermi kiam koman&do eliras"
 
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
@@ -7741,7 +7762,7 @@ msgstr "Tajpu ĉi tie ajnan komenton, kiun vi opinias utila."
 #: widgets/kpropertiesdesktopbase.ui:65
 #, kde-format
 msgid "Comm&ent:"
-msgstr "Komentu:"
+msgstr "Kom&ento:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
@@ -7921,7 +7942,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:274
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr "Altnivelaj Opcioj"
+msgstr "Altni&velaj Opcioj"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
@@ -7944,8 +7965,8 @@ msgstr "Propraĵoj por %1"
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Proprecoj for 1 elemento"
+msgstr[1] "Proprecoj for %1 elektitaj elementoj"
 
 #: widgets/kpropertiesdialog.cpp:434
 #, kde-format
@@ -7957,7 +7978,7 @@ msgstr "Kunhavigi"
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
-msgstr "&Ĝenerale"
+msgstr "Ĝ&enerala"
 
 #: widgets/kpropertiesdialog.cpp:1058
 #, kde-format
@@ -8000,15 +8021,15 @@ msgstr ""
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 dosiero"
+msgstr[1] "%1 dosieroj"
 
 #: widgets/kpropertiesdialog.cpp:1315 widgets/kpropertiesdialog.cpp:1330
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 subdosiero"
+msgstr[1] "%1 subdosieroj"
 
 #: widgets/kpropertiesdialog.cpp:1343
 #, kde-format
@@ -8090,8 +8111,8 @@ msgstr "Alirpermesoj"
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉi tiu dosiero estas ligilo kaj ne havas permesojn."
+msgstr[1] "Ĉiuj dosieroj estas ligiloj kaj ne havas permesojn."
 
 #: widgets/kpropertiesdialog.cpp:1822
 #, kde-format
@@ -8101,7 +8122,7 @@ msgstr "Nur la posedanto povas ŝanĝi permesojn."
 #: widgets/kpropertiesdialog.cpp:1826
 #, kde-format
 msgid "O&wner:"
-msgstr "Posedanto:"
+msgstr "&Posedanto:"
 
 #: widgets/kpropertiesdialog.cpp:1832
 #, kde-format
@@ -8111,7 +8132,7 @@ msgstr "Specifas la agojn, kiujn la posedanto rajtas fari."
 #: widgets/kpropertiesdialog.cpp:1834
 #, kde-format
 msgid "Gro&up:"
-msgstr "Grupo:"
+msgstr "Gr&upo:"
 
 #: widgets/kpropertiesdialog.cpp:1840
 #, kde-format
@@ -8135,7 +8156,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
-msgstr "Nur posedanto&er povas renomi kaj forigi enhavon de dosierujo"
+msgstr "Nur pos&edanto povas renomi kaj forigi enhavon de dosierujo"
 
 #: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
@@ -8166,7 +8187,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1867
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr "A&altnivelaj Permesiloj"
+msgstr "A&ltnivelaj Permesiloj"
 
 #: widgets/kpropertiesdialog.cpp:1875
 #, kde-format
@@ -8388,15 +8409,15 @@ msgstr "Varianta (Neniu Ŝanĝo)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉi tiu dosiero uzas altnivelajn permesojn."
+msgstr[1] "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 
 #: widgets/kpropertiesdialog.cpp:2441
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉi tiu dosierujo uzas altnivelajn permesojn."
+msgstr[1] "Ĉi tiuj dosierujoj uzas altnivelajn permesojn."
 
 #: widgets/kpropertiesdialog.cpp:2455
 #, kde-format
@@ -8407,7 +8428,7 @@ msgstr "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
-msgstr "C&kontrolsumoj"
+msgstr "&Kontrolsumoj"
 
 #: widgets/kpropertiesdialog.cpp:2766 widgets/kpropertiesdialog.cpp:2777
 #: widgets/kpropertiesdialog.cpp:2788 widgets/kpropertiesdialog.cpp:2799
@@ -8557,16 +8578,16 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "uzante %1 biton"
+msgstr[1] "uzante %1 bitojn"
 
 #: widgets/ksslinfodialog.cpp:142
 #, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "de %1-bita ŝlosilo"
+msgstr[1] "de %1-bita ŝlosilo"
 
 #: widgets/ksslinfodialog.cpp:157
 #, kde-format
@@ -8643,8 +8664,8 @@ msgstr "Algluu Unu Dosieron"
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Alglui unu eron"
+msgstr[1] "Alglui%1 erojn"
 
 #: widgets/paste.cpp:256
 #, kde-format
@@ -8681,7 +8702,7 @@ msgstr "Grandeco: %1"
 #: widgets/renamedialog.cpp:226
 #, kde-format
 msgid "Appl&y to All"
-msgstr "Apliki al Ĉiuj"
+msgstr "Aplik&i al Ĉiuj"
 
 #: widgets/renamedialog.cpp:227
 #, kde-format
@@ -8708,17 +8729,17 @@ msgstr ""
 #: widgets/renamedialog.cpp:237
 #, kde-format
 msgid "&Rename"
-msgstr "&Alinomi"
+msgstr "&Renomi"
 
 #: widgets/renamedialog.cpp:239
 #, kde-format
 msgid "Suggest New &Name"
-msgstr "Proponu Novan Nomon"
+msgstr "Proponi Novan &Nomon"
 
 #: widgets/renamedialog.cpp:245
 #, kde-format
 msgid "&Skip"
-msgstr "&Salti"
+msgstr "Preterla&si"
 
 #: widgets/renamedialog.cpp:246
 #, kde-format
@@ -8734,7 +8755,7 @@ msgstr "Ne kopiu aŭ movu ĉi tiun dosieron, anstataŭe saltu al la sekva ero"
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
-msgstr "&Skribu En"
+msgstr "&Skribi En"
 
 #: widgets/renamedialog.cpp:261
 #, kde-format
@@ -8753,7 +8774,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr "&Anstataŭigu pli malnovajn dosierojn"
+msgstr "Anstataŭigi pli maln&ovajn dosierojn"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
@@ -8781,7 +8802,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:297
 #, kde-format
 msgid "C&ontinue"
-msgstr "C&daŭrigu"
+msgstr "K&ontinui"
 
 #: widgets/renamedialog.cpp:369
 #, kde-format
@@ -8873,7 +8894,7 @@ msgstr "Alinomi Erojn"
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
-msgstr "&Alinomi"
+msgstr "&Renomi"
 
 #: widgets/renamefiledialog.cpp:84
 #, kde-kuit-format
@@ -8894,8 +8915,8 @@ msgstr "Nova nomo #"
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Alinomi la %1 elektitan eron al:"
+msgstr[1] "Alinomi la %1 elektitajn erojn al:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -9019,7 +9040,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 "Ĉu vi vere volas porĉiame forigi ĉi tiun eron?<nl/><nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Tiu ago estas malfarebla.</"
+"filename><nl/><nl/><emphasis strong='true'>Tiu ago ne estas malfarebla.</"
 "emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:231
@@ -9032,7 +9053,11 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
+"Ĉu vi vere volas porĉiame forigi ĉi %1 elementon?<nl/><nl/><emphasis "
+"strong='true'>Tiu ago ne estas malfarebla.</emphasis>"
 msgstr[1] ""
+"Ĉu vi vere volas porĉiame forigi ĉi %1 elementojn?<nl/><nl/><emphasis "
+"strong='true'>Tiu ago ne estas malfarebla.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:244
 #, kde-kuit-format
@@ -9044,7 +9069,7 @@ msgid ""
 msgstr ""
 "Movi ĉi tiun objekton al Rubujo malsukcesis ĉar ĝi estas tro granda. "
 "Konstante forigi ĝin anstataŭe?<nl/><nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'>Tiu ago ne povas esti malfarebla.</emphasis>"
+"><emphasis strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:251
 #, kde-kuit-format
@@ -9058,15 +9083,21 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
+"Movado de ĉi %1 objekto al rubujo malsukcesis ĉar ĝi estas tro granda. Ĉu "
+"porĉiame forigi ĝin anstataŭe?<nl/><nl/><emphasis strong='true'>Tiu ago ne "
+"estas malfarebla."
 msgstr[1] ""
+"Movado de ĉi %1 objektoj al rubujo malsukcesis ĉar ili estas tro grandaj. Ĉu "
+"porĉiame forigi ilin anstataŭe?<nl/><nl/><emphasis strong='true'>Tiu ago ne "
+"estas malfarebla."
 
 #: widgets/widgetsaskuseractionhandler.cpp:279
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu vi vere volas movi ĉi %1 elementon al rubujo?"
+msgstr[1] "Ĉu vi vere volas movi ĉi %1 elementojn al rubujo?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:335
 #, kde-format
