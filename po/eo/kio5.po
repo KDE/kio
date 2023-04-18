@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-08 00:43+0000\n"
-"PO-Revision-Date: 2023-04-10 04:45+0100\n"
+"PO-Revision-Date: 2023-04-17 06:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1650,10 +1650,9 @@ msgid ""
 "removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
-"La aparato eble ne estas preta, ekzemple eble ne ekzistas amaskomunikilaro "
-"en forprenebla amaskomunikilaro (t.e. neniu KD-ROM en KD-aparato), aŭ en la "
-"kazo de ekstercentra/portebla aparato, la aparato eble ne estas ĝuste "
-"konektita."
+"La aparato eble ne estas preta, ekzemple eble ne ekzistas aŭdvidaĵo en "
+"demetebla datumportilo (t.e. neniu KD-ROM en KD-aparato), aŭ en la kazo de "
+"ekstercentra/portebla aparato, la aparato eble ne estas ĝuste konektita."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1673,8 +1672,8 @@ msgid ""
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
 "Kontrolu, ke la aparato estas preta; forpreneblaj diskoj devas enhavi "
-"amaskomunikilaron, kaj porteblaj aparatoj devas esti konektitaj kaj "
-"ŝaltitaj.; kaj provu denove."
+"aŭdvidaĵon, kaj porteblaj aparatoj devas esti konektitaj kaj ŝaltitaj.; kaj "
+"provu denove."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -2251,8 +2250,8 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Liberigu sufiĉe da diskospaco per 1) forigo de nedezirataj kaj provizoraj "
-"dosieroj; 2) arkivado de dosieroj al forpreneblaj amaskomunikiloj kiel "
-"ekzemple KD-Registreblaj diskoj; aŭ 3) akiri pli da stoka kapacito."
+"dosieroj; 2) arkivado de dosieroj al forpreneblaj aŭdvidaĵoj kiel ekzemple "
+"KD-Registreblaj diskoj; aŭ 3) akiri pli da konserveja kapacito."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2573,7 +2572,7 @@ msgstr "Daŭrigu"
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
-msgstr "&Nur Nuna Sesio"
+msgstr "&Nur Nuna Seanco"
 
 #: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
@@ -2774,7 +2773,7 @@ msgstr "Kaŝitaj Dosieroj Laste"
 #: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Icons View"
-msgstr "Ikonoj Vido"
+msgstr "Piktograma Vido"
 
 #: filewidgets/kdiroperator.cpp:2198
 #, kde-format
@@ -2789,7 +2788,7 @@ msgstr "Detala Vido"
 #: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Icon Position"
-msgstr "Ikono Pozicio"
+msgstr "Piktograma Pozicio"
 
 #: filewidgets/kdiroperator.cpp:2236
 #, kde-format
@@ -3032,12 +3031,12 @@ msgid ""
 "on the button to select a different icon.</qt>"
 msgstr ""
 "<qt>Ĉi tio estas la piktogramo, kiu aperos en la panelo Lokoj.<br /><br /"
-">Alklaku la butonon por elekti alian ikonon.</qt>"
+">Alklaku la butonon por elekti alian piktogramon.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
 msgid "Choose an &icon:"
-msgstr "Elektu &pikon:"
+msgstr "Elektu &piktogramon:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
@@ -3334,7 +3333,7 @@ msgstr "&Montri ĉiujn enskribojn"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
-msgstr "Ikono Grandeco"
+msgstr "Piktograma Grandeco"
 
 #: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
@@ -3501,9 +3500,10 @@ msgid ""
 msgstr ""
 "<qt>Ĉi tio estas la prefera menuo por la dosiera dialogo. Diversaj opcioj "
 "estas alireblaj de ĉi tiu menuo inkluzive de: <ul><li>kiel dosieroj estas "
-"ordigitaj en la listo</li><li>specoj de vido, inkluzive de ikono kaj listo</"
-"li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</li><li>dosieraj "
-"antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</li></ul></qt>"
+"ordigitaj en la listo</li><li>specoj de vido, inkluzive de piktogramo kaj "
+"listo</li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</"
+"li><li>dosieraj antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</"
+"li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1373
 #, kde-format
@@ -3947,7 +3947,7 @@ msgstr "Eraro dum konservado de bildo al %1"
 #: gui/faviconrequestjob.cpp:167
 #, kde-format
 msgid "Icon file too big, download aborted"
-msgstr "Ikonodosiero tro granda, elŝuto ĉesigita"
+msgstr "Piktogramdosiero tro granda, elŝuto ĉesigita"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4186,7 +4186,7 @@ msgstr "Ne povas kopii dosieron de %1 al %2. (Eraro: %3)"
 #: ioslaves/file/file_unix.cpp:1071
 #, kde-format
 msgid "No media in device for %1"
-msgstr "Neniu amaskomunikilaro en aparato por %1"
+msgstr "Neniu aŭdvidaĵo en aparato por %1"
 
 #: ioslaves/file/file_unix.cpp:1364
 #, kde-format
@@ -4201,7 +4201,7 @@ msgstr "Ne eblis akiri grupidentigilon por donita grupnomo %1"
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
 msgid " days"
-msgstr "tagoj"
+msgstr " tagoj"
 
 #: ioslaves/trash/kcmtrash.cpp:197
 #, kde-format
@@ -4741,17 +4741,17 @@ msgid ""
 msgstr ""
 "<p>\n"
 "Aŭtomate akcepti provizorajn kuketojn destinitajn eksvalidiĝi ĉe la fino de "
-"la nuna sesio. Tiaj kuketoj ne estos konservitaj en la malmola disko aŭ "
+"la nuna seanco. Tiaj kuketoj ne estos konservitaj en la malmola disko aŭ "
 "konserva aparato de via komputilo. Anstataŭe, ili estas forigitaj kiam vi "
 "fermas ĉiujn aplikaĵojn (ekz. via retumilo) kiuj uzas ilin.</"
 "p><p><u>RIMARTU</u> Marki ĉi tiun opcion anstataŭas viajn defaŭltajn kaj "
-"ankaŭ specifajn retejojn pri kuketoj por sesiokuketoj. .</p>"
+"ankaŭ specifajn retejojn pri kuketoj por seancokuketoj.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr "Aŭtomate&y akceptas sesiajn kuketojn"
+msgstr "Aŭtomate&y akceptas seancajn kuketojn"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -4780,7 +4780,7 @@ msgstr ""
 "agordi kuketon .</li>\n"
 "<li><b>Akcepti</b> akceptos kuketojn sen peti vin.</li>\n"
 "<li><b>Akceptu ĝis fino de la kunsido</b> faros kaŭzos ke kuketoj estu "
-"akceptitaj sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
+"akceptitaj sed ili eksvalidiĝos ĉe la fino de la seanco.</li>\n"
 "<li><b>Malakcepto</b> igos la kuketon rifuzos ĉiujn kuketojn kiujn ĝi "
 "ricevas.</li>\n"
 " </ul><p>\n"
@@ -4804,7 +4804,7 @@ msgstr "Akceptu ĉiujn kuketojn"
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr "Akceptu &ĝis fino de la sesio"
+msgstr "Akceptu &ĝis fino de la seanco"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
@@ -4907,7 +4907,7 @@ msgstr "Akceptu"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:28
 msgid "Accept For Session"
-msgstr "Akceptu Por Sesio"
+msgstr "Akceptu Por Seanco"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
@@ -4977,7 +4977,7 @@ msgstr ""
 "<ul>\n"
 "<li><b>Akcepti</b> - Permesas al ĉi tiu retejo agordi kuketojn</li>\n"
 "<li><b>Akceptu ĝis fino de sesio</b> - Permesas al ĉi tiu retejo agordi "
-"kuketojn sed ili eksvalidiĝos ĉe la fino de la sesio.</li>\n"
+"kuketojn sed ili eksvalidiĝos ĉe la fino de la seanco.</li>\n"
 "<li><b>Malakcepti</b> - Rifuzu ĉiujn kuketojn senditajn de ĉi tiu retejo</"
 "li>\n"
 "<li><b>Demandi</b> - Peti kiam kuketoj estas ricevitaj de ĉi tiu retejo</"
@@ -5099,7 +5099,7 @@ msgstr "&Servila respondo:"
 #: kcms/netpref/netpref.cpp:67
 #, kde-format
 msgid "Global Options"
-msgstr "Tutmondaj Opcioj"
+msgstr "Ĉieaj Opcioj"
 
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
@@ -5548,7 +5548,7 @@ msgstr "Enigu la adreson de la HTTP prokura servilo."
 #: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
 #, kde-format
 msgid "Port:"
-msgstr "Haveno:"
+msgstr "Pordo:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
 #: kcms/proxy/kproxydlg.ui:421
@@ -5596,7 +5596,7 @@ msgstr "Enigu la adreson de la prokurilo SOCKS."
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Enigu la havenan numeron de la SOCKS-prokura servilo."
+msgstr "Enigu la pordan numeron de la SOCKS-prokura servilo."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:628
@@ -6263,10 +6263,10 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] ""
-"Vi ricevis kuketo de <br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ malakcepti "
-"ĉi tiun kuketon?</p>"
+"<p>Vi ricevis kuketo de <br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
+"malakcepti ĉi tiun kuketon?</p>"
 msgstr[1] ""
-"Vi ricevis %1 kuketojn de <br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
+"<p>Vi ricevis %1 kuketojn de <br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
 "malakcepti tiujn kuketojn?</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:78
@@ -6283,12 +6283,12 @@ msgstr "Vidu aŭ modifi la informojn pri kuketo"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:98
 #, kde-format
 msgid "Accept for this &session"
-msgstr "Akceptu por ĉi tiu &sesio"
+msgstr "Akceptu por ĉi tiu &seanco"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
 msgid "Accept cookie(s) until the end of the current session"
-msgstr "Akceptu kuketon(j)n ĝis la fino de la nuna sesio"
+msgstr "Akceptu kuketon(j)n ĝis la fino de la nuna seanco"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:111
 #, kde-format
@@ -6355,7 +6355,7 @@ msgid ""
 "manually change it from the System Settings."
 msgstr ""
 "Elektu ĉi tiun opcion por akcepti/malakcepti ĉiujn kuketojn de ie ajn. "
-"Elektante ĉi tiun opcion ŝanĝos la tutmondan politikon pri kuketoj por ĉiuj "
+"Elektante ĉi tiun opcion ŝanĝos la ĉiean politikon pri kuketoj por ĉiuj "
 "kuketoj ĝis vi mane ŝanĝos ĝin de la Sistema Agordoj."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:240
@@ -6392,7 +6392,7 @@ msgstr "Ne specifita"
 #, kde-format
 msgctxt "@label the cookie expires when the browser session ends"
 msgid "End of Session"
-msgstr "Fino de Sesio"
+msgstr "Fino de Seanco"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:336
 #, kde-format
@@ -6965,7 +6965,7 @@ msgstr "Kanado"
 #: widgets/certificateparty.ui:108
 #, kde-format
 msgid "State:"
-msgstr "Ŝtato:"
+msgstr "Stato:"
 
 #. i18n: ectx: property (text), widget (QLabel, state)
 #: widgets/certificateparty.ui:118
@@ -7778,7 +7778,7 @@ msgstr ""
 "%d - la dosierujo de la dosiero por malfermi\n"
 "%D - listo de dosierujoj\n"
 "%i - la piktogramo\n"
-"%m - la mini-ikono\n"
+"%m - la mini-piktogramo\n"
 "%c - la komento"
 
 #: widgets/kopenwithdialog.cpp:741
@@ -8411,7 +8411,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
-msgstr "Nur posedanto&er povas renomi kaj forigi enhavon de dosierujo"
+msgstr "Nur pos&edanto povas renomi kaj forigi enhavon de dosierujo"
 
 #: widgets/kpropertiesdialog.cpp:1914
 #, kde-format
