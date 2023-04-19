@@ -329,6 +329,9 @@ WorkerResult FileProtocol::get(const QUrl &url)
     QByteArray array;
 
     while (1) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
         int n = f.read(buffer, s_maxIPCSize);
         if (n == -1) {
             if (errno == EINTR) {
