@@ -348,6 +348,10 @@ void FileProtocol::get(const QUrl &url)
     QByteArray array;
 
     while (1) {
+        if (wasKilled()) {
+            finished();
+            return;
+        }
         int n = f.read(buffer, s_maxIPCSize);
         if (n == -1) {
             if (errno == EINTR) {
