@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-08 00:43+0000\n"
-"PO-Revision-Date: 2023-03-29 21:54+0300\n"
+"PO-Revision-Date: 2023-04-18 05:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -8225,7 +8225,7 @@ msgstr "%1:"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%2 alanın %1 kadarı boş (kullanılan: %%3)"
+msgstr "%1 / %2 boş (%%3 kullanılıyor)"
 
 #: widgets/kpropertiesdialog.cpp:1362
 #, kde-format
@@ -9397,34 +9397,3 @@ msgstr "Bu, uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal düğmesine tıklayın"
-
-#~ msgid "None"
-#~ msgstr "Hiçbiri"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "Çoklu Gerçekleme"
-
-#~ msgid "Single Instance"
-#~ msgstr "Tek Gerçekleme"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "Bitirinceye Kadar Çalıştır"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "D-Bus kaydı:"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Images"
-#~ msgstr "Görseller"
-
-#~ msgctxt "KFile System Bookmarks"
-#~ msgid "Audio"
-#~ msgstr "Ses"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~ "filename><emphasis strong='true'>This action cannot be undone.</emphasis>"
-#~ msgstr ""
-#~ "Bu ögeyi gerçekten kalıcı olarak silmek istiyor musunuz?<nl/><filename>"
-#~ "%1</filename><emphasis strong='true'>Bu eylem geri alınamaz.</emphasis>"
