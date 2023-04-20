@@ -2832,12 +2832,12 @@ msgstr "Monstra files celate"
 #: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Monstra pannello de vista preliminari"
+msgstr "Monstra pannello de vista preliminar"
 
 #: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
-msgstr "Monstrar vista preliminari"
+msgstr "Monstrar vista preliminar"
 
 #: filewidgets/kdiroperator.cpp:2155
 #, kde-format
@@ -10211,7 +10211,7 @@ msgstr "Si tu non ha fide in iste programma, tu pulsa Cancella"
 #~ msgstr "Crea directorio celate?"
 
 #~ msgid "Show Aside Preview"
-#~ msgstr "Monstra vista preliminari a latere"
+#~ msgstr "Monstra vista preliminar a latere"
 
 #~ msgid "Device usage:"
 #~ msgstr "Usage de dispositivo:"
