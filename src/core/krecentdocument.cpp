@@ -168,15 +168,28 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
     const QString newUrl = QString::fromLatin1(url.toEncoded());
     const QString currentTimestamp = QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs).chopped(1) + QStringLiteral("000Z");
 
-    auto addApplicationTag = [&output, desktopEntryName, currentTimestamp]() {
+    auto addApplicationTag = [&output, desktopEntryName, currentTimestamp, url]() {
         output.writeEmptyElement(applicationBookmarkTag);
         output.writeAttribute(nameAttribute, desktopEntryName);
         auto service = KService::serviceByDesktopName(desktopEntryName);
+        QString exec;
+        bool shouldAddParameter = true;
         if (service) {
-            output.writeAttribute(execAttribute, service->exec() + QLatin1String(" %u"));
+            exec = service->exec();
+            exec.replace(QLatin1String(" %U"), QLatin1String(" %u"));
+            exec.replace(QLatin1String(" %F"), QLatin1String(" %f"));
+            shouldAddParameter = !exec.contains(QLatin1String(" %u")) && !exec.contains(QLatin1String(" %f"));
         } else {
-            output.writeAttribute(execAttribute, QCoreApplication::instance()->applicationName() + QLatin1String(" %u"));
+            exec = QCoreApplication::instance()->applicationName();
         }
+        if (shouldAddParameter) {
+            if (url.isLocalFile()) {
+                exec += QLatin1String(" %f");
+            } else {
+                exec += QLatin1String(" %u");
+            }
+        }
+        output.writeAttribute(execAttribute, exec);
         output.writeAttribute(modifiedAttribute, currentTimestamp);
         output.writeAttribute(countAttribute, QStringLiteral("1"));
     };
