@@ -105,6 +105,7 @@ if (TARGET KF6::KIOGui)
     foreach(_systemd "" "SCOPE" "SERVICE")
       set(_scope 0)
       set(_service 0)
+      set(_forking 0)
       if(_systemd STREQUAL "SERVICE")
         set(KPR_TEST_TARGET ${_kprocessrunnerTest}_servicetest)
         set(_service 1)
@@ -113,13 +114,17 @@ if (TARGET KF6::KIOGui)
         set(_scope 1)
       else()
         set(KPR_TEST_TARGET ${_kprocessrunnerTest}_forkingtest)
+        set(_forking 1)
       endif()
       add_executable(${KPR_TEST_TARGET} ${_kprocessrunnerTest}test.cpp)
       target_link_libraries(${KPR_TEST_TARGET} KF6::WindowSystem KF6::KIOCore KF6::KIOGui Qt6::Test)
       ecm_mark_as_test(${KPR_TEST_TARGET})
       add_test(NAME ${KPR_TEST_TARGET} COMMAND ${KPR_TEST_TARGET})
       set_tests_properties(${KPR_TEST_TARGET} PROPERTIES ENVIRONMENT
-        "KDE_APPLICATIONS_AS_SERVICE=${_service};KDE_APPLICATIONS_AS_SCOPE=${_scope}")
+        "KDE_APPLICATIONS_AS_SERVICE=${_service};
+        KDE_APPLICATIONS_AS_SCOPE=${_scope};
+        KDE_APPLICATIONS_AS_FORKING=${_forking};"
+        )
     endforeach()
   endforeach()
 

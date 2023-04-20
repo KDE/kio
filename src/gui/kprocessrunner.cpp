@@ -53,16 +53,17 @@ KProcessRunner::KProcessRunner()
 static KProcessRunner *makeInstance()
 {
 #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
-    if (SystemdProcessRunner::isAvailable()) {
-        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE")) {
-            return new SystemdProcessRunner();
-        }
-        if (qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE")) {
-            return new ScopedProcessRunner();
-        }
-    }
+    switch (SystemdProcessRunner::modeAvailable()) {
+    case KProcessRunner::SystemdAsService:
+        return new SystemdProcessRunner();
+    case KProcessRunner::SystemdAsScope:
+        return new ScopedProcessRunner();
+    default:
+#else
+    {
 #endif
-    return new ForkingProcessRunner();
+        return new ForkingProcessRunner();
+    }
 }
 
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,

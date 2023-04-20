@@ -39,6 +39,13 @@ class KIOGUI_EXPORT KProcessRunner : public QObject
     Q_OBJECT
 
 public:
+    enum LaunchMode {
+        Forking,
+        SystemdAsScope,
+        SystemdAsService,
+    };
+    Q_ENUM(LaunchMode);
+
     /**
      * Run a KService (application desktop file) to open @p urls.
      * @param service the service to run

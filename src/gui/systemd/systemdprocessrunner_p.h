@@ -25,7 +25,7 @@ public:
     explicit SystemdProcessRunner();
     void startProcess() override;
     bool waitForStarted(int timeout) override;
-    static bool isAvailable();
+    static KProcessRunner::LaunchMode modeAvailable();
 
 private:
     void handleProperties(QDBusPendingCallWatcher *watcher);

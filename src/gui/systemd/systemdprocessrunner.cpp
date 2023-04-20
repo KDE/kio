@@ -18,23 +18,52 @@
 #include <signal.h>
 
 using namespace org::freedesktop;
+using namespace Qt::Literals::StringLiterals;
 
-bool SystemdProcessRunner::isAvailable()
+KProcessRunner::LaunchMode calculateLaunchMode()
 {
-    static std::once_flag dbusRegistered;
-    static bool runAsService = false;
-    std::call_once(dbusRegistered, []() {
-        if (QDBusConnection::sessionBus().interface()->isServiceRegistered(systemdService)) {
-            runAsService = true;
-            qDBusRegisterMetaType<QVariantMultiItem>();
-            qDBusRegisterMetaType<QVariantMultiMap>();
-            qDBusRegisterMetaType<TransientAux>();
-            qDBusRegisterMetaType<TransientAuxList>();
-            qDBusRegisterMetaType<ExecCommand>();
-            qDBusRegisterMetaType<ExecCommandList>();
-        }
+    // overrides for unit test purposes
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SERVICE"))) {
+        return KProcessRunner::SystemdAsService;
+    }
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_SCOPE"))) {
+        return KProcessRunner::SystemdAsScope;
+    }
+    if (Q_UNLIKELY(qEnvironmentVariableIntValue("KDE_APPLICATIONS_AS_FORKING"))) {
+        return KProcessRunner::Forking;
+    }
+
+    QDBusConnection bus = QDBusConnection::sessionBus();
+    auto queryVersionMessage =
+        QDBusMessage::createMethodCall(u"org.freedesktop.systemd1"_s, u"/org/freedesktop/systemd1"_s, u"org.freedesktop.DBus.Properties"_s, u"Get"_s);
+    queryVersionMessage << u"org.freedesktop.systemd1.Manager"_s << u"Version"_s;
+    QDBusReply<QDBusVariant> reply = bus.call(queryVersionMessage);
+    QVersionNumber systemdVersion = QVersionNumber::fromString(reply.value().variant().toString());
+    if (systemdVersion.isNull()) {
+        return KProcessRunner::Forking;
+    }
+    if (systemdVersion.majorVersion() >= 250) { // first version with ExitType=cgroup, which won't cleanup when the first process exits
+        return KProcessRunner::SystemdAsService;
+    } else {
+        return KProcessRunner::SystemdAsScope;
+    }
+}
+
+KProcessRunner::LaunchMode SystemdProcessRunner::modeAvailable()
+{
+    static std::once_flag launchModeCalculated;
+    static KProcessRunner::LaunchMode launchMode = Forking;
+    std::call_once(launchModeCalculated, [] {
+        launchMode = calculateLaunchMode();
+        qCDebug(KIO_GUI) << "Launching processes via" << launchMode;
+        qDBusRegisterMetaType<QVariantMultiItem>();
+        qDBusRegisterMetaType<QVariantMultiMap>();
+        qDBusRegisterMetaType<TransientAux>();
+        qDBusRegisterMetaType<TransientAuxList>();
+        qDBusRegisterMetaType<ExecCommand>();
+        qDBusRegisterMetaType<ExecCommandList>();
     });
-    return runAsService;
+    return launchMode;
 }
 
 SystemdProcessRunner::SystemdProcessRunner()
