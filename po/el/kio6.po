@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-04-21 02:17+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2448,17 +2448,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Μη τεκμηριωμένο σφάλμα"
 
-#: core/kfileitem.cpp:1314
+#: core/kfileitem.cpp:1317
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Συμβολικός δεσμός στο %1)"
 
-#: core/kfileitem.cpp:1316
+#: core/kfileitem.cpp:1319
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, δεσμός στο %2)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1322
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Δείκτης στο %1)"
@@ -4008,7 +4008,7 @@ msgstr "Κάντε κλικ για πλοήγηση τοποθεσίας"
 msgid "Click to Edit Location"
 msgstr "Κάντε κλικ για επεξεργασία τοποθεσίας"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:231
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Δεν έχετε άδεια εκτέλεσης αυτού του αρχείου."
@@ -4061,7 +4061,7 @@ msgstr "Πολύ μεγάλο αρχείο εικονιδίου, εγκατάλ�
 msgid "No mail client found"
 msgstr "Δε βρέθηκε favicon για το \"%1"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:95
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4072,12 +4072,12 @@ msgstr ""
 "%1\n"
 "δεν είναι έγκυρο."
 
-#: gui/kprocessrunner.cpp:255
+#: gui/kprocessrunner.cpp:256
 #, kde-format
 msgid "Launching %1"
 msgstr "Εκκίνηση %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:465
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

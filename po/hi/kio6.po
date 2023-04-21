@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-04-21 02:17+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -2290,17 +2290,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेज़ीकृत त्रुटि"
 
-#: core/kfileitem.cpp:1314
+#: core/kfileitem.cpp:1317
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एक सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1316
+#: core/kfileitem.cpp:1319
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, इस पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1322
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -3818,7 +3818,7 @@ msgstr "स्थान नेविगेशन के लिए क्लि�
 msgid "Click to Edit Location"
 msgstr "स्थान संपादन के लिये क्लिक करें"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:231
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "इस फ़ाइल को चलाने के लिए आप अधिकृत नहीं है."
@@ -3870,7 +3870,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 के लिए उपकरण में कोई मीडिया नहीं "
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:95
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -3885,12 +3885,12 @@ msgstr ""
 "%1\n"
 " अज्ञात है."
 
-#: gui/kprocessrunner.cpp:255
+#: gui/kprocessrunner.cpp:256
 #, kde-format
 msgid "Launching %1"
 msgstr "चालू किया जा रहा है %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:465
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"

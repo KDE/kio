@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:18+0000\n"
+"POT-Creation-Date: 2023-04-21 02:17+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2409,17 +2409,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументована грешка"
 
-#: core/kfileitem.cpp:1314
+#: core/kfileitem.cpp:1317
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(симболичка веза ка %1)"
 
-#: core/kfileitem.cpp:1316
+#: core/kfileitem.cpp:1319
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, веза ка %2)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1322
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (показује на %1)"
@@ -3985,7 +3985,7 @@ msgstr "Кликните за кретање кроз локације"
 msgid "Click to Edit Location"
 msgstr "Кликните за уређивање локације"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:231
+#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Нисте овлашћени да извршите овај фајл."
@@ -4037,7 +4037,7 @@ msgstr "Фајл иконице превелик, преузимање обус�
 msgid "No mail client found"
 msgstr "Нема фавиконице за %1"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:95
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4048,12 +4048,12 @@ msgstr ""
 "%1\n"
 "није добар."
 
-#: gui/kprocessrunner.cpp:255
+#: gui/kprocessrunner.cpp:256
 #, kde-format
 msgid "Launching %1"
 msgstr "Покрећем %1"
 
-#: gui/kprocessrunner.cpp:464
+#: gui/kprocessrunner.cpp:465
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
