@@ -2,6 +2,7 @@
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2000 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2000 Stephan Kulow <coolo@kde.org>
+    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -169,6 +170,19 @@ void Worker::deref()
     m_refCount--;
     if (!m_refCount) {
         aboutToDelete();
+        if (m_workerThread) {
+            // When on a thread, delete in a thread to prevent deadlocks between the main thread and the worker thread.
+            // This most notably can happen when the worker thread uses QDBus, because traffic will generally be routed
+            // through the main loop.
+            // Generally speaking we'd want to avoid waiting in the main thread anyway, the worker stopping isn't really
+            // useful for anything but delaying deletion.
+            // https://bugs.kde.org/show_bug.cgi?id=468673
+            WorkerThread *workerThread = nullptr;
+            std::swap(workerThread, m_workerThread);
+            workerThread->setParent(nullptr);
+            connect(workerThread, &QThread::finished, workerThread, &QThread::deleteLater);
+            workerThread->quit();
+        }
         delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
     }
 }
