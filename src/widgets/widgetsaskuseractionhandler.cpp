@@ -33,18 +33,6 @@ public:
     {
     }
 
-    void showUserMessageBox(WidgetsAskUserActionHandler::MessageDialogType type,
-                            const QString &text,
-                            const QString &title,
-                            const QString &primaryActionText,
-                            const QString &secondaryActionText,
-                            const QString &primaryActionIconName,
-                            const QString &secondaryActionIconName,
-                            const QString &dontAskAgainName,
-                            const QString &details,
-                            const KIO::MetaData &metaData,
-                            QWidget *parentWidget);
-
     // Creates a KSslInfoDialog or falls back to a generic Information dialog
     void sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent);
 
@@ -154,19 +142,21 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
         parentWidget = qApp->activeWindow();
     }
 
-    auto *dlg = new KIO::RenameDialog(parentWidget, title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+    QMetaObject::invokeMethod(qGuiApp, [=] {
+        auto *dlg = new KIO::RenameDialog(parentWidget, title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowModality(Qt::WindowModal);
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->setWindowModality(Qt::WindowModal);
 
-    connect(job, &KJob::finished, dlg, &QDialog::reject);
-    connect(dlg, &QDialog::finished, this, [this, job, dlg](const int exitCode) {
-        KIO::RenameDialog_Result result = static_cast<RenameDialog_Result>(exitCode);
-        const QUrl newUrl = result == Result_AutoRename ? dlg->autoDestUrl() : dlg->newDestUrl();
-        Q_EMIT askUserRenameResult(result, newUrl, job);
+        connect(job, &KJob::finished, dlg, &QDialog::reject);
+        connect(dlg, &QDialog::finished, this, [this, job, dlg](const int exitCode) {
+            KIO::RenameDialog_Result result = static_cast<RenameDialog_Result>(exitCode);
+            const QUrl newUrl = result == Result_AutoRename ? dlg->autoDestUrl() : dlg->newDestUrl();
+            Q_EMIT askUserRenameResult(result, newUrl, job);
+        });
+
+        dlg->show();
     });
-
-    dlg->show();
 }
 
 void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText)
@@ -185,16 +175,18 @@ void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Op
         parentWidget = qApp->activeWindow();
     }
 
-    auto *dlg = new KIO::SkipDialog(parentWidget, options, errorText);
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowModality(Qt::WindowModal);
+    QMetaObject::invokeMethod(qGuiApp, [=] {
+        auto *dlg = new KIO::SkipDialog(parentWidget, options, errorText);
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->setWindowModality(Qt::WindowModal);
 
-    connect(job, &KJob::finished, dlg, &QDialog::reject);
-    connect(dlg, &QDialog::finished, this, [this, job](const int exitCode) {
-        Q_EMIT askUserSkipResult(static_cast<KIO::SkipDialog_Result>(exitCode), job);
+        connect(job, &KJob::finished, dlg, &QDialog::reject);
+        connect(dlg, &QDialog::finished, this, [this, job](const int exitCode) {
+            Q_EMIT askUserSkipResult(static_cast<KIO::SkipDialog_Result>(exitCode), job);
+        });
+
+        dlg->show();
     });
-
-    dlg->show();
 }
 
 struct ProcessAskDeleteResult {
@@ -302,8 +294,6 @@ static ProcessAskDeleteResult processAskDelete(const QList<QUrl> &urls, AskIface
 
 void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType, QWidget *parent)
 {
-    KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
-
     QString keyName;
     bool ask = (confirmationType == ForceConfirmation);
     if (!ask) {
@@ -326,6 +316,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
             break;
         }
 
+        KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
         ask = kioConfig->group("Confirmations").readEntry(keyName, defaultValue);
     }
 
@@ -334,34 +325,36 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         return;
     }
 
-    const auto &[prettyList, dialogType, acceptButton, text, icon, title, singleUrl] = processAskDelete(urls, deletionType);
-
-    KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setCaption(title);
-    dlg->setIcon(icon);
-    dlg->setButtons(acceptButton, KStandardGuiItem::cancel());
-    if (!singleUrl) {
-        dlg->setListWidgetItems(prettyList);
-    }
-    dlg->setDontAskAgainText(i18nc("@option:checkbox", "Do not ask again"));
-    // If we get here, !ask must be false
-    dlg->setDontAskAgainChecked(!ask);
-
-    connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
-        const bool isDelete = (buttonCode == KMessageDialog::PrimaryAction);
-
-        Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
-
-        if (isDelete) {
-            KConfigGroup cg = kioConfig->group("Confirmations");
-            cg.writeEntry(keyName, !dlg->isDontAskAgainChecked());
-            cg.sync();
+    QMetaObject::invokeMethod(qGuiApp, [=] {
+        const auto &[prettyList, dialogType, acceptButton, text, icon, title, singleUrl] = processAskDelete(urls, deletionType);
+        KMessageDialog *dlg = new KMessageDialog(dialogType, text, parent);
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->setCaption(title);
+        dlg->setIcon(icon);
+        dlg->setButtons(acceptButton, KStandardGuiItem::cancel());
+        if (!singleUrl) {
+            dlg->setListWidgetItems(prettyList);
         }
-    });
+        dlg->setDontAskAgainText(i18nc("@option:checkbox", "Do not ask again"));
+        // If we get here, !ask must be false
+        dlg->setDontAskAgainChecked(!ask);
 
-    dlg->setWindowModality(Qt::WindowModal);
-    dlg->show();
+        connect(dlg, &QDialog::finished, this, [=](const int buttonCode) {
+            const bool isDelete = (buttonCode == KMessageDialog::PrimaryAction);
+
+            Q_EMIT askUserDeleteResult(isDelete, urls, deletionType, parent);
+
+            if (isDelete) {
+                KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
+                KConfigGroup cg = kioConfig->group("Confirmations");
+                cg.writeEntry(keyName, !dlg->isDontAskAgainChecked());
+                cg.sync();
+            }
+        });
+
+        dlg->setWindowModality(Qt::WindowModal);
+        dlg->show();
+    });
 }
 
 void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType type,
@@ -390,48 +383,6 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         parentWidget = qApp->activeWindow();
     }
 
-    if (!parentWidget && thread() != qGuiApp->thread()) {
-        qCDebug(KIO_WIDGETS) << "Cannot find a parent widget and the current thread" << thread() << "is different from the GUI thread" << qGuiApp->thread();
-        QMetaObject::invokeMethod(qGuiApp, [=]() {
-            d->showUserMessageBox(type,
-                                  text,
-                                  title,
-                                  primaryActionText,
-                                  secondaryActionText,
-                                  primaryActionIconName,
-                                  secondaryActionIconName,
-                                  dontAskAgainName,
-                                  details,
-                                  metaData,
-                                  nullptr);
-        });
-    } else {
-        d->showUserMessageBox(type,
-                              text,
-                              title,
-                              primaryActionText,
-                              secondaryActionText,
-                              primaryActionIconName,
-                              secondaryActionIconName,
-                              dontAskAgainName,
-                              details,
-                              metaData,
-                              parentWidget);
-    }
-}
-
-void KIO::WidgetsAskUserActionHandlerPrivate::showUserMessageBox(WidgetsAskUserActionHandler::MessageDialogType type,
-                                                                 const QString &text,
-                                                                 const QString &title,
-                                                                 const QString &primaryActionText,
-                                                                 const QString &secondaryActionText,
-                                                                 const QString &primaryActionIconName,
-                                                                 const QString &secondaryActionIconName,
-                                                                 const QString &dontAskAgainName,
-                                                                 const QString &details,
-                                                                 const KIO::MetaData &metaData,
-                                                                 QWidget *parentWidget)
-{
     const KGuiItem primaryActionButton(primaryActionText, primaryActionIconName);
     const KGuiItem secondaryActionButton(secondaryActionText, secondaryActionIconName);
 
@@ -461,7 +412,7 @@ void KIO::WidgetsAskUserActionHandlerPrivate::showUserMessageBox(WidgetsAskUserA
         hasCancelButton = true;
         break;
     case AskUserActionInterface::SSLMessageBox:
-        sslMessageBox(text, metaData, parentWidget);
+        d->sslMessageBox(text, metaData, parentWidget);
         return;
     case AskUserActionInterface::Information:
         dlgType = KMessageDialog::Information;
@@ -475,53 +426,55 @@ void KIO::WidgetsAskUserActionHandlerPrivate::showUserMessageBox(WidgetsAskUserA
         qCWarning(KIO_WIDGETS) << "Unknown message dialog type" << type;
         return;
     }
-    auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
 
-    auto *dialog = new KMessageDialog(dlgType, text, parentWidget);
+    QMetaObject::invokeMethod(qGuiApp, [=]() {
+        auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
+        auto *dialog = new KMessageDialog(dlgType, text, parentWidget);
 
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setCaption(title);
-    dialog->setIcon(QIcon{});
-    dialog->setButtons(primaryActionButton, secondaryActionButton, cancelButton);
-    dialog->setDetails(details);
-    dialog->setDontAskAgainText(dontAskAgainText);
-    dialog->setDontAskAgainChecked(false);
-    dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
+        dialog->setAttribute(Qt::WA_DeleteOnClose);
+        dialog->setCaption(title);
+        dialog->setIcon(QIcon{});
+        dialog->setButtons(primaryActionButton, secondaryActionButton, cancelButton);
+        dialog->setDetails(details);
+        dialog->setDontAskAgainText(dontAskAgainText);
+        dialog->setDontAskAgainChecked(false);
+        dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
 
-    q->connect(dialog, &QDialog::finished, q, [=](const int result) {
-        KIO::WorkerBase::ButtonCode btnCode;
-        switch (result) {
-        case KMessageDialog::PrimaryAction:
-            if (dlgType == KMessageDialog::WarningContinueCancel) {
-                btnCode = KIO::WorkerBase::Continue;
-            } else {
-                btnCode = KIO::WorkerBase::PrimaryAction;
+        connect(dialog, &QDialog::finished, this, [=](const int result) {
+            KIO::WorkerBase::ButtonCode btnCode;
+            switch (result) {
+            case KMessageDialog::PrimaryAction:
+                if (dlgType == KMessageDialog::WarningContinueCancel) {
+                    btnCode = KIO::WorkerBase::Continue;
+                } else {
+                    btnCode = KIO::WorkerBase::PrimaryAction;
+                }
+                break;
+            case KMessageDialog::SecondaryAction:
+                btnCode = KIO::WorkerBase::SecondaryAction;
+                break;
+            case KMessageDialog::Cancel:
+                btnCode = KIO::WorkerBase::Cancel;
+                break;
+            case KMessageDialog::Ok:
+                btnCode = KIO::WorkerBase::Ok;
+                break;
+            default:
+                qCWarning(KIO_WIDGETS) << "Unknown message dialog result" << result;
+                return;
             }
-            break;
-        case KMessageDialog::SecondaryAction:
-            btnCode = KIO::WorkerBase::SecondaryAction;
-            break;
-        case KMessageDialog::Cancel:
-            btnCode = KIO::WorkerBase::Cancel;
-            break;
-        case KMessageDialog::Ok:
-            btnCode = KIO::WorkerBase::Ok;
-            break;
-        default:
-            qCWarning(KIO_WIDGETS) << "Unknown message dialog result" << result;
-            return;
-        }
 
-        Q_EMIT q->messageBoxResult(btnCode);
+            Q_EMIT messageBoxResult(btnCode);
 
-        if ((result != KMessageDialog::Cancel) && dialog->isDontAskAgainChecked()) {
-            KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
-            KConfigGroup cg = reqMsgConfig->group("Notification Messages");
-            savePersistentUserReply(type, cg, dontAskAgainName, result);
-        }
+            if ((result != KMessageDialog::Cancel) && dialog->isDontAskAgainChecked()) {
+                KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
+                KConfigGroup cg = reqMsgConfig->group("Notification Messages");
+                d->savePersistentUserReply(type, cg, dontAskAgainName, result);
+            }
+        });
+
+        dialog->show();
     });
-
-    dialog->show();
 }
 
 void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
@@ -548,42 +501,44 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
         }
     }
 
-    if (decodedOk) { // Use KSslInfoDialog
-        KSslInfoDialog *ksslDlg = new KSslInfoDialog(parentWidget);
-        ksslDlg->setSslInfo(certChain,
-                            metaData.value(QStringLiteral("ssl_peer_ip")),
-                            text, // The URL
-                            metaData.value(QStringLiteral("ssl_protocol_version")),
-                            metaData.value(QStringLiteral("ssl_cipher")),
-                            metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
-                            metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
-                            KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
+    QMetaObject::invokeMethod(qGuiApp, [=] {
+        if (decodedOk) { // Use KSslInfoDialog
+            KSslInfoDialog *ksslDlg = new KSslInfoDialog(parentWidget);
+            ksslDlg->setSslInfo(certChain,
+                                metaData.value(QStringLiteral("ssl_peer_ip")),
+                                text, // The URL
+                                metaData.value(QStringLiteral("ssl_protocol_version")),
+                                metaData.value(QStringLiteral("ssl_cipher")),
+                                metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
+                                metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
+                                KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
 
-        // KSslInfoDialog deletes itself by setting Qt::WA_DeleteOnClose
+            // KSslInfoDialog deletes itself by setting Qt::WA_DeleteOnClose
 
-        QObject::connect(ksslDlg, &QDialog::finished, q, [this]() {
-            // KSslInfoDialog only has one button, QDialogButtonBox::Close
-            Q_EMIT q->messageBoxResult(KIO::WorkerBase::Cancel);
+            QObject::connect(ksslDlg, &QDialog::finished, q, [this]() {
+                // KSslInfoDialog only has one button, QDialogButtonBox::Close
+                Q_EMIT q->messageBoxResult(KIO::WorkerBase::Cancel);
+            });
+
+            ksslDlg->show();
+            return;
+        }
+
+        // Fallback to a generic message box
+        auto *dialog = new KMessageDialog(KMessageDialog::Information, i18n("The peer SSL certificate chain appears to be corrupt."), parentWidget);
+
+        dialog->setAttribute(Qt::WA_DeleteOnClose);
+        dialog->setCaption(i18n("SSL"));
+        // KMessageDialog will set a proper icon
+        dialog->setIcon(QIcon{});
+        dialog->setButtons(KStandardGuiItem::ok());
+
+        QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
+            Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::WorkerBase::Ok : KIO::WorkerBase::Cancel);
         });
 
-        ksslDlg->show();
-        return;
-    }
-
-    // Fallback to a generic message box
-    auto *dialog = new KMessageDialog(KMessageDialog::Information, i18n("The peer SSL certificate chain appears to be corrupt."), parentWidget);
-
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setCaption(i18n("SSL"));
-    // KMessageDialog will set a proper icon
-    dialog->setIcon(QIcon{});
-    dialog->setButtons(KStandardGuiItem::ok());
-
-    QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
-        Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::WorkerBase::Ok : KIO::WorkerBase::Cancel);
+        dialog->show();
     });
-
-    dialog->show();
 }
 
 void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
