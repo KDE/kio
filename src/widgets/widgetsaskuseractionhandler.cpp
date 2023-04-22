@@ -33,6 +33,18 @@ public:
     {
     }
 
+    void showUserMessageBox(WidgetsAskUserActionHandler::MessageDialogType type,
+                            const QString &text,
+                            const QString &title,
+                            const QString &primaryActionText,
+                            const QString &secondaryActionText,
+                            const QString &primaryActionIconName,
+                            const QString &secondaryActionIconName,
+                            const QString &dontAskAgainName,
+                            const QString &details,
+                            const KIO::MetaData &metaData,
+                            QWidget *parentWidget);
+
     // Creates a KSslInfoDialog or falls back to a generic Information dialog
     void sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent);
 
@@ -356,14 +368,18 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
                                                              const QString &text,
                                                              const QString &title,
                                                              const QString &primaryActionText,
-                                                             const QString &secondatyActionText,
+                                                             const QString &secondaryActionText,
                                                              const QString &primaryActionIconName,
-                                                             const QString &secondatyActionIconName,
+                                                             const QString &secondaryActionIconName,
                                                              const QString &dontAskAgainName,
                                                              const QString &details,
                                                              const KIO::MetaData &metaData,
                                                              QWidget *parent)
 {
+    if (d->gotPersistentUserReply(type, KSharedConfig::openConfig(QStringLiteral("kioslaverc"))->group("Notification Messages"), dontAskAgainName)) {
+        return;
+    }
+
     QWidget *parentWidget = parent;
 
     if (!parentWidget) {
@@ -374,14 +390,50 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         parentWidget = qApp->activeWindow();
     }
 
-    KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
-
-    if (d->gotPersistentUserReply(type, reqMsgConfig->group("Notification Messages"), dontAskAgainName)) {
-        return;
+    if (!parentWidget && thread() != qGuiApp->thread()) {
+        qCDebug(KIO_WIDGETS) << "Cannot find a parent widget and the current thread" << thread() << "is different from the GUI thread" << qGuiApp->thread();
+        QMetaObject::invokeMethod(qGuiApp, [=]() {
+            d->showUserMessageBox(type,
+                                  text,
+                                  title,
+                                  primaryActionText,
+                                  secondaryActionText,
+                                  primaryActionIconName,
+                                  secondaryActionIconName,
+                                  dontAskAgainName,
+                                  details,
+                                  metaData,
+                                  nullptr);
+        });
+    } else {
+        d->showUserMessageBox(type,
+                              text,
+                              title,
+                              primaryActionText,
+                              secondaryActionText,
+                              primaryActionIconName,
+                              secondaryActionIconName,
+                              dontAskAgainName,
+                              details,
+                              metaData,
+                              parentWidget);
     }
+}
 
+void KIO::WidgetsAskUserActionHandlerPrivate::showUserMessageBox(WidgetsAskUserActionHandler::MessageDialogType type,
+                                                                 const QString &text,
+                                                                 const QString &title,
+                                                                 const QString &primaryActionText,
+                                                                 const QString &secondaryActionText,
+                                                                 const QString &primaryActionIconName,
+                                                                 const QString &secondaryActionIconName,
+                                                                 const QString &dontAskAgainName,
+                                                                 const QString &details,
+                                                                 const KIO::MetaData &metaData,
+                                                                 QWidget *parentWidget)
+{
     const KGuiItem primaryActionButton(primaryActionText, primaryActionIconName);
-    const KGuiItem secondaryActionButton(secondatyActionText, secondatyActionIconName);
+    const KGuiItem secondaryActionButton(secondaryActionText, secondaryActionIconName);
 
     // It's "Do not ask again" every where except with Information
     QString dontAskAgainText = i18nc("@option:check", "Do not ask again");
@@ -390,32 +442,32 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     bool hasCancelButton = false;
 
     switch (type) {
-    case QuestionTwoActions:
+    case AskUserActionInterface::QuestionTwoActions:
         dlgType = KMessageDialog::QuestionTwoActions;
         break;
-    case QuestionTwoActionsCancel:
+    case AskUserActionInterface::QuestionTwoActionsCancel:
         dlgType = KMessageDialog::QuestionTwoActionsCancel;
         hasCancelButton = true;
         break;
-    case WarningTwoActions:
+    case AskUserActionInterface::WarningTwoActions:
         dlgType = KMessageDialog::WarningTwoActions;
         break;
-    case WarningTwoActionsCancel:
+    case AskUserActionInterface::WarningTwoActionsCancel:
         dlgType = KMessageDialog::WarningTwoActionsCancel;
         hasCancelButton = true;
         break;
-    case WarningContinueCancel:
+    case AskUserActionInterface::WarningContinueCancel:
         dlgType = KMessageDialog::WarningContinueCancel;
         hasCancelButton = true;
         break;
-    case SSLMessageBox:
-        d->sslMessageBox(text, metaData, parentWidget);
+    case AskUserActionInterface::SSLMessageBox:
+        sslMessageBox(text, metaData, parentWidget);
         return;
-    case Information:
+    case AskUserActionInterface::Information:
         dlgType = KMessageDialog::Information;
         dontAskAgainText = i18nc("@option:check", "Do not show this message again");
         break;
-    case Error:
+    case AskUserActionInterface::Error:
         dlgType = KMessageDialog::Error;
         dontAskAgainText = QString{}; // No dontAskAgain checkbox
         break;
@@ -436,7 +488,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     dialog->setDontAskAgainChecked(false);
     dialog->setOpenExternalLinks(true); // Allow opening external links in the text labels
 
-    connect(dialog, &QDialog::finished, this, [=](const int result) {
+    q->connect(dialog, &QDialog::finished, q, [=](const int result) {
         KIO::WorkerBase::ButtonCode btnCode;
         switch (result) {
         case KMessageDialog::PrimaryAction:
@@ -460,11 +512,12 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
             return;
         }
 
-        Q_EMIT messageBoxResult(btnCode);
+        Q_EMIT q->messageBoxResult(btnCode);
 
         if ((result != KMessageDialog::Cancel) && dialog->isDontAskAgainChecked()) {
+            KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
             KConfigGroup cg = reqMsgConfig->group("Notification Messages");
-            d->savePersistentUserReply(type, cg, dontAskAgainName, result);
+            savePersistentUserReply(type, cg, dontAskAgainName, result);
         }
     });
 
