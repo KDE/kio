@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -2687,7 +2687,7 @@ msgstr "Ҷузвадони нав..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "Интиқол додан ба сабад"
@@ -4000,7 +4000,7 @@ msgstr "Муҳосираи талабкарда тасдиқ карда наме
 msgid "Setting ACL for %1"
 msgstr ""
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4009,24 +4009,24 @@ msgstr ""
 "Наметавонам ҳуқуқи дастрасиро барои\n"
 "%1, тағйир диҳам"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "mounting is not supported by Windows CE."
 msgstr "Навиштан ба %1 дастгирӣ надорад"
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr ""
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "unmounting is not supported by Windows CE."
 msgstr "Навиштан ба %1 дастгирӣ надорад"
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr ""
@@ -6931,14 +6931,14 @@ msgstr ""
 "</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Бебозгашт нест кардан"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -6961,7 +6961,7 @@ msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро бебозгашт нест намоед?<nl/><nl/"
 "><emphasis strong='true'>Ин амал бекор карда намешавад.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6972,13 +6972,13 @@ msgstr ""
 "намоед?<nl/><nl/><emphasis strong='true'>Ин амал бекор карда намешавад.</"
 "emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Сабадро холӣ кардан"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6996,12 +6996,12 @@ msgstr[0] "Шумо дар ҳақиқат мехоҳед, ки ҷузъи зер
 msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро ба сабад интиқол намоед?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Чунин менамояд, ки занҷири гувоҳиномаи SSL вайрон аст."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9070,7 +9070,7 @@ msgstr ""
 "Мизбони дурдаст ягон гувоҳиномаи SSL-ро равон накард.\n"
 "Амал қатъ карда шуд, зеро ки шахсият тасдиқ карда намешавад."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9087,7 +9087,7 @@ msgstr ""
 "%1</filename><nl/><nl/><emphasis strong='true'>Ин амал бекор карда намешавад."
 "</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9110,7 +9110,7 @@ msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро бебозгашт нест намоед?<nl/><nl/"
 "><emphasis strong='true'>Ин амал бекор карда намешавад.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9127,7 +9127,7 @@ msgstr ""
 "%1</filename><nl/><nl/><emphasis strong='true'>Ин амал бекор карда намешавад."
 "</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9152,7 +9152,7 @@ msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро бебозгашт нест намоед?<nl/><nl/"
 "><emphasis strong='true'>Ин амал бекор карда намешавад.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the Trash?"
 #| msgid_plural "Do you really want to move these %1 items to the Trash?"
@@ -9163,21 +9163,21 @@ msgstr[0] "Шумо дар ҳақиқат мехоҳед, ки ҷузъи зер
 msgstr[1] ""
 "Шумо дар ҳақиқат мехоҳед, ки %1 ҷузъи зеринро ба сабад интиқол намоед?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Дигар пурсида нашавад"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Дигар пурсида нашавад"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

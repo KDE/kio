@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2782,7 +2782,7 @@ msgstr "Νέος φάκελος..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "Μετακίνηση στα απορρίμματα"
@@ -4207,7 +4207,7 @@ msgstr "Το αρχείο %1 δεν βρέθηκε"
 msgid "Setting ACL for %1"
 msgstr "Ορισμός ACL για %1"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4216,24 +4216,24 @@ msgstr ""
 "Αδύνατη η αλλαγή των αδειών για το\n"
 "%1"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "mounting is not supported by Windows CE."
 msgstr "η προσάρτηση δεν υποστηρίζεται από το wince."
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματος \"mount\""
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "unmounting is not supported by Windows CE."
 msgstr "η προσάρτηση δεν υποστηρίζεται από το wince."
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματος \"umount\""
@@ -7556,15 +7556,15 @@ msgstr ""
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Διαγραφή καταχώρησης"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -7591,7 +7591,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7605,13 +7605,13 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Άδειασμα απορριμμάτων"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7632,14 +7632,14 @@ msgstr[0] ""
 msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "Η ακολουθία πιστοποιητικού SSL του υπολογιστή φαίνεται να είναι "
 "κατεστραμμένη."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9784,7 +9784,7 @@ msgstr ""
 "Ο απομακρυσμένος υπολογιστής δεν έστειλε πιστοποιητικά SSL.\n"
 "Εγκατάλειψη καθώς η ταυτότητα του υπολογιστή δεν μπορεί να επαληθευτεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9799,7 +9799,7 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9819,7 +9819,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9834,7 +9834,7 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9856,7 +9856,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9868,21 +9868,21 @@ msgstr[0] ""
 msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

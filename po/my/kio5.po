@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2623,7 +2623,7 @@ msgstr "ဖိုလ်ဒါအသစ်…"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "အမှိုက်ပုံးသို့ရွေ့ယူရန်"
@@ -3949,29 +3949,29 @@ msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မ�
 msgid "Setting ACL for %1"
 msgstr "%1 အတွက် အေစီအယ်လ်သတ်မှတ်နေသည်"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1အတွက် ခွင့်ပြုချက်များကို ပြောင်းလဲမရပါ"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "windows CEတွင် တပ်ဆင်ရန်လုပ်ဆောင်ချက် လုပ်မရပါ။"
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "windows CEတွင် ဖြုတ်ရန်လုပ်ဆောင်ချက် လုပ်မရပါ။"
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
@@ -7042,14 +7042,14 @@ msgstr ""
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "အမြဲတမ်းအတွက်ဖျက်ရန်"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -7069,7 +7069,7 @@ msgstr[0] ""
 "ဤအိုင်တမ် %1ခုကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7079,13 +7079,13 @@ msgstr ""
 "အမှိုက်ပုံးမှ အိုင်တမ်အားလုံးကို ထာဝရဖျက်ပစ်တော့မှာလား။<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "အမှိုက်ပုံးရှင်း"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7099,12 +7099,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "ဤအိုင်တမ် %1ခုကို အမှိုက်ပုံးသို့ တကယ်ပို့တော့မည်လား။"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "မိတ်ဆွေ အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်အစဥ် ပျက်စီးနေပုံရသည်။"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "အက်စ်အက်စ်အယ်လ်"
@@ -9089,7 +9089,7 @@ msgstr ""
 "အဝေးအိမ်ရှင် မည်သည့် အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်မှ မပို့ခဲ့ပါ။\n"
 "အိမ်ရှင်၏ ဟုတ်မှန်မှုကို ခိုင်မာစွာမတည်ဆောက်နိုင်သောကြောင့် စွန့်လွတ်ဖျက်ချနေသည်။"
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9105,7 +9105,7 @@ msgstr ""
 "ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9118,7 +9118,7 @@ msgstr[0] ""
 "သင် တကယ် အိုင်တမ် %1ခုကို တစ်သက်တာအတွက်ဖျက်ပစ်တော့မှာလား။<nl/><nl/><emphasis "
 "strong='true'>ဖျက်ပြီးလျှင် ပြန်ယူလို့မရတော့ပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9134,7 +9134,7 @@ msgstr ""
 "ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9156,26 +9156,26 @@ msgstr[0] ""
 "ဤအိုင်တမ် %1ခုကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "အိုင်တမ် %1ခုကို အမှိုက်ပုံးသို့ တကယ်ပို့တော့မည်လား။"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

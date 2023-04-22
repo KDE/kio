@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2725,7 +2725,7 @@ msgstr "Новы каталог..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "Перамясціць у сметніцу"
@@ -4099,7 +4099,7 @@ msgstr "Не ўдалося запусціць праграму \"%1\"."
 msgid "Setting ACL for %1"
 msgstr "Параметр ACL для %1"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4108,22 +4108,22 @@ msgstr ""
 "Не ўдалося змяніць правы доступу для\n"
 "%1"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "мантаванне не падтрымліваецца ў Windows CE."
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Не ўдалося знайсці праграму \"mount\""
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "адмантаванне не падтрымліваецца ў Windows CE."
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Не ўдалося знайсці праграму \"umount\""
@@ -7295,14 +7295,14 @@ msgstr ""
 "><nl/><emphasis strong='true'>Гэтае дзеянне нельга скасаваць.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Выдаліць назаўсёды"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7337,7 +7337,7 @@ msgstr[3] ""
 "Сапраўды хочаце назаўсёды выдаліць %1 элементы?<nl/><nl/><emphasis "
 "strong='true'>Гэтае дзеянне нельга скасаваць.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7347,13 +7347,13 @@ msgstr ""
 "Хочаце назаўсёды выдаліць усе элементы са сметніцы?<nl/><nl/><emphasis "
 "strong='true'>Гэтае дзеянне немагчыма скасаваць.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Ачысціць сметніцу"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7374,12 +7374,12 @@ msgstr[1] "Сапраўды хочаце перамясціць гэтыя %1 э
 msgstr[2] "Сапраўды хочаце перамясціць гэтыя %1 элементаў у сметніцу?"
 msgstr[3] "Сапраўды хочаце перамясціць гэтыя %1 элементы ў сметніцу?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Выглядае, што ланцужок аднарангавых сертыфікатаў SSL пашкоджаны."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9468,7 +9468,7 @@ msgstr ""
 "Адлеглы хост не адправіў сертыфікаты SSL.\n"
 "Працэс быў перарваны, бо немагчыма вызначыць уліковыя даныя хоста."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9480,7 +9480,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Гэтае дзеянне нельга скасаваць.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9502,7 +9502,7 @@ msgstr[3] ""
 "Сапраўды хочаце назаўсёды выдаліць %1 элементы?<nl/><nl/><emphasis "
 "strong='true'>Гэтае дзеянне немагчыма скасаваць.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9514,7 +9514,7 @@ msgstr ""
 "Выдаліць яго назаўсёды?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Гэтае дзеянне нельга адрабіць.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9542,7 +9542,7 @@ msgstr[3] ""
 "Выдаліць яго назаўсёды?<nl/><nl/><emphasis strong='true'>Гэтае дзеянне "
 "нельга адрабіць.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9552,19 +9552,19 @@ msgstr[1] "Сапраўды хочаце перамясціць %1 элемен�
 msgstr[2] "Сапраўды хочаце перамясціць %1 элементаў у сметніцу?"
 msgstr[3] "Сапраўды хочаце перамясціць %1 элементы ў сметніцу?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Больш не пытацца"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Больш не пытацца"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

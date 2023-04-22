@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -2570,7 +2570,7 @@ msgstr "ਨਵਾਂ ਫੋਲਡਰ..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "ਰੱਦੀ ਵਿੱਚ ਭੇਜੋ"
@@ -3872,7 +3872,7 @@ msgstr "ਪਰੋਗਰਾਮ \"%1\" ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕ�
 msgid "Setting ACL for %1"
 msgstr "%1 ਲਈ ACL ਸੈਟਿੰਗ"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -3881,22 +3881,22 @@ msgstr ""
 "%1\n"
 "ਲਈ ਅਧਿਕਾਰ ਤਬਦੀਲ ਨਹੀਂ ਹੋ ਸਕਦੇ ਹਨ"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "ਮਾਊਂਟ ਕਰਨਾ Windows CE ਰਾਹੀਂ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ਪਰੋਗਰਾਮ \"mount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "ਅਣ-ਮਾਊਂਟ ਕਰਨਾ Windows CE ਰਾਹੀਂ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
@@ -6695,14 +6695,14 @@ msgstr ""
 "><emphasis strong='true'>ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਓ"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -6724,7 +6724,7 @@ msgstr[1] ""
 "ਕੀ ਤੁਸੀਂ %1 ਚੀਜ਼ਾਂ ਨੂੰ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><nl/><emphasis strong='true'>ਇਹ "
 "ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6734,13 +6734,13 @@ msgstr ""
 "ਕੀ ਤੁਸੀਂ ਸਭ ਆਈਟਮਾਂ ਨੂੰ ਰੱਦੀ ਚੋਂ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><nl/><emphasis "
 "strong='true'> ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਨਹੀਂ ਜਾ ਸਕਦੀ।</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "ਰੱਦੀ ਖਾਲੀ ਕਰੋ"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6757,12 +6757,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਹ ਆਈਟਮ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਆਈਟਮ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ਪੀਅਰ SSL ਸਰਟੀਫਿਕੇਟ ਚੇਨ ਖ਼ਰਾਬ ਹੋਈ ਜਾਪਦੀ ਹੈ।"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8744,7 +8744,7 @@ msgstr ""
 "ਰਿਮੋਟ ਹੋਸਟ ਨੇ ਕੋਈ ਵੀ SSL ਸਰਟੀਫਿਕੇਟ ਨਹੀਂ ਭੇਜਿਆ ਸੀ।\n"
 "ਅਧੂਰਾ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ, ਕਿਉਂਕਿ ਹੋਸਟ ਦੀ ਪਛਾਣ ਕੀਤੀ ਨਹੀਂ ਜਾ ਸਕਦੀ।"
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -8760,7 +8760,7 @@ msgstr ""
 "ਕੀ ਤੁਸੀਂ ਇਹ ਚੀਜ਼ ਨੂੰ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -8778,7 +8778,7 @@ msgstr[0] ""
 msgstr[1] ""
 "ਕੀ ਤੁਸੀਂ ਸਭ ਆਈਟਮਾਂ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਨਹੀਂ ਜਾ ਸਕਦੀ।"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -8794,7 +8794,7 @@ msgstr ""
 "ਕੀ ਤੁਸੀਂ ਇਹ ਚੀਜ਼ ਨੂੰ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -8819,7 +8819,7 @@ msgstr[1] ""
 "ਕੀ ਤੁਸੀਂ %1 ਚੀਜ਼ਾਂ ਨੂੰ ਪੱਕੇ ਤੌਰ ਉੱਤੇ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?<nl/><nl/><emphasis strong='true'>ਇਹ "
 "ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕੇਗੀ।</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -8827,19 +8827,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਸ %1 ਚੀਜ਼ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ %1 ਚੀਜ਼ਾਂ ਨੂੰ ਰੱਦੀ 'ਚ ਭੇਜਣੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "ਮੁੜ ਨਾ ਪੁੱਛੋ"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "ਮੁੜ ਨਾ ਪੁੱਛੋ"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

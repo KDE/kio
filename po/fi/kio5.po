@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2023-03-14 21:58+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2700,7 +2700,7 @@ msgstr "Uusi kansio…"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
@@ -4062,7 +4062,7 @@ msgstr "Ohjelmaa ”%1” ei voitu käynnistää."
 msgid "Setting ACL for %1"
 msgstr "Asetetaan ACL %1"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4071,22 +4071,22 @@ msgstr ""
 "Tiedoston %1 oikeuksia ei\n"
 "voitu muuttaa"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "Windows CE ei tue liittämistä."
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ohjelmaa ”mount” ei löytynyt"
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "Windows CE ei tue irrottamista."
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ohjelmaa ”umount” ei löytynyt"
@@ -7206,14 +7206,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Poista pysyvästi"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7235,7 +7235,7 @@ msgstr[1] ""
 "Haluatko varmasti poistaa nämä %1 kohdetta pysyvästi?<nl/><nl/><emphasis "
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7245,13 +7245,13 @@ msgstr ""
 "Haluatko varmasti tyhjentää koko roskakorin?<nl/><nl/><emphasis "
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7268,12 +7268,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Haluatko varmasti siirtää tämän kohteen roskakoriin?"
 msgstr[1] "Haluatko varmasti siirtää nämä %1 kohdetta roskakoriin?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vastapään SSL-varmenneketju näyttää olevan vioittunut."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9303,7 +9303,7 @@ msgstr ""
 "Etäpalvelin ei lähettänyt SSL-varmenteita.\n"
 "Keskeytetään, koska palvelinta ei kyetä tunnistamaan."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9315,7 +9315,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Tätä toimintoa ei voi kumota.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9331,7 +9331,7 @@ msgstr[1] ""
 "Haluatko varmasti poistaa pysyvästi nämä %1 kohdetta?<nl/><nl/><emphasis "
 "strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9343,7 +9343,7 @@ msgstr ""
 "Poistetaanko se pysyvästi?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9363,7 +9363,7 @@ msgstr[1] ""
 "Poistetaanko ne pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi "
 "kumota.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9371,19 +9371,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Haluatko varmasti siirtää tämän %1 kohteen roskakoriin?"
 msgstr[1] "Haluatko varmasti siirtää nämä %1 kohdetta roskakoriin?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:43+0000\n"
+"POT-Creation-Date: 2023-04-22 00:46+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2791,7 +2791,7 @@ msgstr "Novy kataloh..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "Pieramiascić u smietnicu"
@@ -4180,7 +4180,7 @@ msgstr "Nie ŭdalosia zapuscić prahramu \"%1\"."
 msgid "Setting ACL for %1"
 msgstr "Paramietr ACL dlia %1"
 
-#: ioslaves/file/file.cpp:716
+#: ioslaves/file/file.cpp:720
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4189,22 +4189,22 @@ msgstr ""
 "Nie ŭdalosia zmianić pravy dostupu dlia\n"
 "%1"
 
-#: ioslaves/file/file.cpp:799
+#: ioslaves/file/file.cpp:803
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "mantavannie nie padtrymlivajecca ŭ Windows CE."
 
-#: ioslaves/file/file.cpp:829
+#: ioslaves/file/file.cpp:833
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"mount\""
 
-#: ioslaves/file/file.cpp:896
+#: ioslaves/file/file.cpp:900
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "admantavannie nie padtrymlivajecca ŭ Windows CE."
 
-#: ioslaves/file/file.cpp:911
+#: ioslaves/file/file.cpp:915
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"umount\""
@@ -7549,14 +7549,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Vydalić nazaŭsiody"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -7592,7 +7592,7 @@ msgstr[3] ""
 "Sapraŭdy chočacie nazaŭsiody vydalić %1 eliemienty?<nl/><nl/><emphasis "
 "strong=true>Hetaje dziejannie nieĺha skasavać.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7606,13 +7606,13 @@ msgstr ""
 "Chočacie nazaŭsiody vydalić usie eliemienty sa smietnicy?<nl/><nl/><emphasis "
 "strong=true>Hetaje dziejannie niemahčyma skasavać.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Ačyscić smietnicu"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7633,12 +7633,12 @@ msgstr[1] "Sapraŭdy chočacie pieramiascić hetyja %1 eliemienty ŭ smietnicu?"
 msgstr[2] "Sapraŭdy chočacie pieramiascić hetyja %1 eliemientaŭ u smietnicu?"
 msgstr[3] "Sapraŭdy chočacie pieramiascić hetyja %1 eliemienty ŭ smietnicu?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:534
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vyhliadaje, što lancužok adnaranhavych siertyfikataŭ SSL paškodžany."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:537
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9761,7 +9761,7 @@ msgstr ""
 "Adliehly chost nie adpraviŭ siertyfikaty SSL.\n"
 "Praces byŭ pierarvany, bo niemahčyma vyznačyć ulikovyja danyja chosta."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9778,7 +9778,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong=true>Hetaje dziejannie nieĺha skasavać.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9807,7 +9807,7 @@ msgstr[3] ""
 "Sapraŭdy chočacie nazaŭsiody vydalić %1 eliemienty?<nl/><nl/><emphasis "
 "strong=true>Hetaje dziejannie niemahčyma skasavać.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9824,7 +9824,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong=true>Hetaje dziejannie nieĺha skasavać.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9855,7 +9855,7 @@ msgstr[3] ""
 "Sapraŭdy chočacie nazaŭsiody vydalić %1 eliemienty?<nl/><nl/><emphasis "
 "strong=true>Hetaje dziejannie nieĺha skasavać.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9865,19 +9865,19 @@ msgstr[1] "Sapraŭdy chočacie pieramiascić %1 eliemienty u smietnicu?"
 msgstr[2] "Sapraŭdy chočacie pieramiascić %1 eliemientaŭ u smietnicu?"
 msgstr[3] "Sapraŭdy chočacie pieramiascić %1 eliemienty ŭ smietnicu?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Boĺš nie pytacca"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Boĺš nie pytacca"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
