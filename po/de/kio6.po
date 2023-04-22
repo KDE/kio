@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:17+0000\n"
+"POT-Creation-Date: 2023-04-22 02:30+0000\n"
 "PO-Revision-Date: 2023-03-24 19:37+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2762,7 +2762,7 @@ msgstr "Neuer Ordner ..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
@@ -5430,7 +5430,7 @@ msgstr "Es werden URL(s) oder lokale Datei(en) für „befehl“ verwendet."
 msgid "Setting ACL for %1"
 msgstr "Setzen der ACL für %1"
 
-#: kioworkers/file/file.cpp:712
+#: kioworkers/file/file.cpp:715
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5439,12 +5439,12 @@ msgstr ""
 "Berechtigungen lassen sich nicht ändern für\n"
 "%1"
 
-#: kioworkers/file/file.cpp:819
+#: kioworkers/file/file.cpp:822
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Das Programm „mount“ wurde nicht gefunden"
 
-#: kioworkers/file/file.cpp:893
+#: kioworkers/file/file.cpp:896
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Das Programm „umount“ wurde nicht gefunden"
@@ -7134,14 +7134,14 @@ msgstr ""
 "rückgängig gemacht werden.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Unwiderruflich löschen"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7163,7 +7163,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7174,13 +7174,13 @@ msgstr ""
 "<nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht rückgängig "
 "gemacht werden.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Papierkorb leeren"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7198,12 +7198,12 @@ msgstr[0] "Möchten Sie dieses Element wirklich in den Papierkorb verschieben?"
 msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich in den Papierkorb verschieben?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:521
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Die „Peer-SSL“-Zertifikatkette scheint schadhaft zu sein."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:524
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9207,7 +9207,7 @@ msgstr ""
 "Es wird abgebrochen, weil die Identität des entfernten Rechners nicht "
 "überprüft werden kann."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9219,7 +9219,7 @@ msgstr ""
 "%1</filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
 "rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9235,7 +9235,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9252,7 +9252,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
 "rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9277,7 +9277,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9287,19 +9287,19 @@ msgstr[0] ""
 msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich in den Papierkorb verschieben?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

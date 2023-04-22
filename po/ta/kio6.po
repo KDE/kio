@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:17+0000\n"
+"POT-Creation-Date: 2023-04-22 02:30+0000\n"
 "PO-Revision-Date: 2023-03-26 12:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2625,7 +2625,7 @@ msgstr "புதிய அடைவு..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:281
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
 #, kde-format
 msgid "Move to Trash"
 msgstr "அகற்றிடத்துக்கு நகர்த்து"
@@ -5237,7 +5237,7 @@ msgstr "கட்டளைக்கு பயன்படும் முகவ�
 msgid "Setting ACL for %1"
 msgstr "%1 -க்கு ACL அமைத்தல்"
 
-#: kioworkers/file/file.cpp:712
+#: kioworkers/file/file.cpp:715
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -5246,12 +5246,12 @@ msgstr ""
 "%1\n"
 "என்பதற்கு அனுமதிகளை மாற்ற முடியவில்லை"
 
-#: kioworkers/file/file.cpp:819
+#: kioworkers/file/file.cpp:822
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:893
+#: kioworkers/file/file.cpp:896
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
@@ -6899,14 +6899,14 @@ msgstr ""
 "><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:194
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
 #, kde-format
 msgid "Delete Permanently"
 msgstr "நிரந்தரமாக அழிப்பது"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:237
-#: widgets/widgetsaskuseractionhandler.cpp:259
+#: widgets/widgetsaskuseractionhandler.cpp:249
+#: widgets/widgetsaskuseractionhandler.cpp:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -6928,7 +6928,7 @@ msgstr[1] ""
 "நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:266
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6938,13 +6938,13 @@ msgstr ""
 "அகற்றிடத்திலிருந்து எல்லா உருப்படிகளையும் நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/"
 "><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:268
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "அகற்றிடத்தை காலியாக்கு"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:274
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6961,14 +6961,14 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "உறுதியாக இவ்வுருப்படியை அகற்றிடத்துக்கு நகர்த்த வேண்டுமா?"
 msgstr[1] "உறுதியாக இந்த %1 உருப்படிகளை அகற்றிடத்துக்கு நகர்த்த வேண்டுமா?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:521
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "சக கணினியின் SSL சான்றிதழ் தொடரில் (certificate chain-இல்) பிழை உள்ளதுபோல் "
 "தெரிகிறது."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:524
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8932,7 +8932,7 @@ msgstr ""
 "தொலை புரவன் எந்த SSL சான்றிதழ்களையும் அனுப்பவில்லை.\n"
 "புரவனின் அடையாளத்தை உறுதிப்படுத்த முடியாததால் கைவிடப்படுகிறது."
 
-#: widgets/widgetsaskuseractionhandler.cpp:225
+#: widgets/widgetsaskuseractionhandler.cpp:237
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8944,7 +8944,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:231
+#: widgets/widgetsaskuseractionhandler.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8960,7 +8960,7 @@ msgstr[1] ""
 "நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:244
+#: widgets/widgetsaskuseractionhandler.cpp:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8972,7 +8972,7 @@ msgstr ""
 "நிரந்தரமாக அழிக்கலாமா?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்பப் பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:251
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8992,7 +8992,7 @@ msgstr[1] ""
 "பதிலாக இவற்றை நிரந்தரமாக அழிக்கலாமா?<nl/><emphasis strong='true'>இந்த செயலை "
 "திரும்பப் பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:279
+#: widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9000,19 +9000,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "இந்த %1 உருப்படியை உறுதியாக அகற்றிவிட வேண்டுமா?"
 msgstr[1] "இந்த %1 உருப்படிகளை உறுதியாக அகற்றிவிட வேண்டுமா?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:335
+#: widgets/widgetsaskuseractionhandler.cpp:347
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "மறுபடியும் கேட்காதே"
 
-#: widgets/widgetsaskuseractionhandler.cpp:387
+#: widgets/widgetsaskuseractionhandler.cpp:439
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "மறுபடியும் கேட்காதே"
 
-#: widgets/widgetsaskuseractionhandler.cpp:416
+#: widgets/widgetsaskuseractionhandler.cpp:468
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
