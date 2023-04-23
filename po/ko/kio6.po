@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2023-04-22 00:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2516,22 +2516,22 @@ msgstr "영원히(&F)"
 msgid "&Current Session only"
 msgstr "현재 세션만(&C)"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -2600,7 +2600,7 @@ msgstr "새 폴더..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "휴지통으로 이동"
@@ -2939,43 +2939,43 @@ msgstr ""
 "오.<br /><br />이 설정을 선택하지 않으면 모든 프로그램에서 항목을 사용할 수 "
 "있습니다.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "위치"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "원격"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "최근"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "검색 대상"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "장치"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "이동식 장치"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -6831,14 +6831,14 @@ msgstr ""
 "><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "완전히 삭제"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -6857,7 +6857,7 @@ msgstr[0] ""
 "항목 %1개를 완전히 삭제하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업"
 "은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6867,13 +6867,13 @@ msgstr ""
 "휴지통에서 모든 항목을 완전히 삭제하시겠습니까?<nl/><nl/><emphasis "
 "strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6887,12 +6887,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "이 항목 %1개를 휴지통에 버리시겠습니까?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "동료 SSL 인증서 체인이 잘못된 것 같습니다."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8834,7 +8834,7 @@ msgstr ""
 "원격 호스트에서 SSL 인증서를 보내지 않았습니다.\n"
 "호스트의 정체를 확인할 수 없으므로 중단합니다."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8845,7 +8845,7 @@ msgstr ""
 "이 항목을 완전히 삭제하시겠습니까?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8858,7 +8858,7 @@ msgstr[0] ""
 "항목 %1개를 완전히 삭제하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업"
 "은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8870,7 +8870,7 @@ msgstr ""
 "니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>이 작"
 "업은 실행 취소할 수 없습니다.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8886,26 +8886,26 @@ msgstr[0] ""
 "까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "이 항목 %1개를 휴지통에 버리시겠습니까?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "다시 묻지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "다시 묻지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

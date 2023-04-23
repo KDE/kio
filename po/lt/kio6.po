@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2021-08-27 01:43+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2608,23 +2608,23 @@ msgstr "&Visam laikui"
 msgid "&Current Session only"
 msgstr "Tik &dabartinė sesija"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nežinomas protokolas „%1“."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nepavyksta rasti io-slave protokolui '%1'."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, fuzzy, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Nepavyksta rasti io-slave protokolui '%1'."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -2694,7 +2694,7 @@ msgstr "Naujas aplankas..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Perkelti į šiukšlinę"
@@ -3042,43 +3042,43 @@ msgstr ""
 "naudojant šią programą. (%1).<br /><br /> Jei šis nustatymas nėra "
 "pasirinktas, įrašas bus prieinamas visoms programoms.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Vietos"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Nuotoliniai"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Paskiausi"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Ieškoti"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Įrenginiai"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Keičiamieji įrenginiai"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -7060,14 +7060,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Ištrinti negrįžtamai"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -7096,7 +7096,7 @@ msgstr[3] ""
 "Ar tikrai norite negrįžtamai ištrinti %1 objektą?<nl/><nl/><emphasis "
 "strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7106,13 +7106,13 @@ msgstr ""
 "Ar tikrai norite negrįžtamai ištrinti visą šiukšlinės turinį?<nl/><nl/"
 "><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Ištuštinti šiukšlinę"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7130,12 +7130,12 @@ msgstr[1] "Ar tikrai norite perkelti %1 objektus į šiukšlinę?"
 msgstr[2] "Ar tikrai norite perkelti %1 objektų į šiukšlinę?"
 msgstr[3] "Ar tikrai norite perkelti %1 objektą į šiukšlinę?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Atrodo, kad kito kompiuterio SSL liudijimo grandinė yra sugadinta."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9168,7 +9168,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9185,7 +9185,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9214,7 +9214,7 @@ msgstr[3] ""
 "Ar tikrai norite negrįžtamai ištrinti %1 objektą?<nl/><nl/><emphasis "
 "strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9231,7 +9231,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9262,7 +9262,7 @@ msgstr[3] ""
 "Ar tikrai norite negrįžtamai ištrinti %1 objektą?<nl/><nl/><emphasis "
 "strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the Trash?"
 #| msgid_plural "Do you really want to move these %1 items to the Trash?"
@@ -9274,19 +9274,19 @@ msgstr[1] "Ar tikrai norite perkelti %1 objektus į šiukšlinę?"
 msgstr[2] "Ar tikrai norite perkelti %1 objektų į šiukšlinę?"
 msgstr[3] "Ar tikrai norite perkelti %1 objektą į šiukšlinę?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Daugiau nebeklausti"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Daugiau nebeklausti"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

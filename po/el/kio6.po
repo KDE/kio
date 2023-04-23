@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2661,18 +2661,18 @@ msgstr "&Για πάντα"
 msgid "&Current Session only"
 msgstr "Μόνο για την &τρέχουσα συνεδρία"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Άγνωστο πρωτόκολλο '%1'."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Δεν ήταν δυνατό να βρεθεί io-slave για το πρωτόκολλο '%1'."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
@@ -2680,7 +2680,7 @@ msgstr ""
 "Δεν ήταν δυνατό να δημιουργηθεί υποδοχή για την εκκίνηση io-slave για το "
 "πρωτόκολλο '%1'."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -2750,7 +2750,7 @@ msgstr "Νέος φάκελος..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Μετακίνηση στα απορρίμματα"
@@ -3108,7 +3108,7 @@ msgstr ""
 "όταν χρησιμοποιείτε την τρέχουσα εφαρμογή (%1).<br /><br />Αν αυτή η ρύθμιση "
 "δεν επιλεχθεί, η καταχώρηση θα είναι διαθέσιμη σε όλες τις εφαρμογές.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Places"
@@ -3116,27 +3116,27 @@ msgctxt "@item"
 msgid "Places"
 msgstr "Τοποθεσίες"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@item"
 msgid "Remote"
 msgstr "Αφαίρεση"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@item"
 msgid "Search For"
 msgstr "Αναζήτηση"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Devices"
@@ -3144,13 +3144,13 @@ msgctxt "@item"
 msgid "Devices"
 msgstr "Συσκευές"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -7261,15 +7261,15 @@ msgstr ""
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Διαγραφή καταχώρησης"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -7296,7 +7296,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7310,13 +7310,13 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Άδειασμα απορριμμάτων"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7337,14 +7337,14 @@ msgstr[0] ""
 msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "Η ακολουθία πιστοποιητικού SSL του υπολογιστή φαίνεται να είναι "
 "κατεστραμμένη."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9423,7 +9423,7 @@ msgstr ""
 "Ο απομακρυσμένος υπολογιστής δεν έστειλε πιστοποιητικά SSL.\n"
 "Εγκατάλειψη καθώς η ταυτότητα του υπολογιστή δεν μπορεί να επαληθευτεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9438,7 +9438,7 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9458,7 +9458,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9473,7 +9473,7 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9495,7 +9495,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9507,21 +9507,21 @@ msgstr[0] ""
 msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

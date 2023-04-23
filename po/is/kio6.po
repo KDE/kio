@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2023-03-22 08:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2587,24 +2587,24 @@ msgstr "All&taf"
 msgid "&Current Session only"
 msgstr "Aðeins í &þessari setu"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Óþekkt samskiptaregla '%1'."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "KIO-vinnsla fyrir samskiptaregluna '%1' fannst ekki."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ekki tókst að búa til sökkul til að ræsa KIO-vinnslu fyrir samskiptaregluna "
 "'%1'."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Fann ekki 'kioworker' keyrsluskrá á '%1'."
@@ -2673,7 +2673,7 @@ msgstr "Ný mappa..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Setja í ruslið"
@@ -3013,43 +3013,43 @@ msgstr ""
 "núverandi forrit er notað (%1).<br /><br />Ef stillingin er ekki valin "
 "verður hún tiltæk í öllum forritum.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Staðir"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Fjartengt"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Nýlegt"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Leita að"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Tæki"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Fjarlægjanleg tæki"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -6979,14 +6979,14 @@ msgstr ""
 "><emphasis strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Eyða endanlega"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7008,7 +7008,7 @@ msgstr[1] ""
 "Viltu eyða endanlega þessum %1 atriðum? <nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7018,13 +7018,13 @@ msgstr ""
 "Viltu eyða endanlega öllum atriðum úr ruslinu? <nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tæma ruslakörfu"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7040,12 +7040,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Viltu örugglega setja þetta atriði í ruslið?"
 msgstr[1] "Viltu örugglega setja þessi %1 atriði í ruslið?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vottunarkeðja SSL-jafningja lítur út fyrir að vera gölluð."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9009,7 +9009,7 @@ msgstr ""
 "Fjartengda tölvan sendi engin SSL-skilríki.\n"
 "Hætt við vegna þess að ekki var hægt að sannreyna auðkenni vélarinnar."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9020,7 +9020,7 @@ msgstr ""
 "Viltu eyða endanlega þessu atriði?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9036,7 +9036,7 @@ msgstr[1] ""
 "Viltu eyða endanlega þessum %1 atriðum? <nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9048,7 +9048,7 @@ msgstr ""
 "eyða því endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9068,7 +9068,7 @@ msgstr[1] ""
 "að eyða þeim endanlega?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Ekki er hægt að afturkalla þessa aðgerð.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9076,19 +9076,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Viltu örugglega setja þetta %1 atriði í ruslið?"
 msgstr[1] "Viltu örugglega setja þessi %1 atriði í ruslið?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ekki spyrja aftur"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ekki spyrja aftur"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

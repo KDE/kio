@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2023-03-02 20:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2609,24 +2609,24 @@ msgstr "&Завжди"
 msgid "&Current Session only"
 msgstr "Тільки &поточний сеанс"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Невідомий протокол «%1»."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Неможливо знайти обробник KIO для протоколу «%1»."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не вдалося створити сокет для обробника KIO, що запускається, для протоколу "
 "«%1»."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не вдалося знайти виконуваний файл «kioworker» у «%1»"
@@ -2695,7 +2695,7 @@ msgstr "Нова тека..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Пересунути в смітник"
@@ -3035,43 +3035,43 @@ msgstr ""
 "програмою (%1).<br /><br />Якщо пункт позначено не буде, доступ до запису "
 "можна буде отримати і за допомогою інших програм.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Місця"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Віддалене"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Нещодавні"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Об'єкти пошуку"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Портативні пристрої"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -7044,14 +7044,14 @@ msgstr ""
 "об'єкти буде дуже важко.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Вилучити остаточно"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7083,7 +7083,7 @@ msgstr[3] ""
 "strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
 "emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7094,13 +7094,13 @@ msgstr ""
 "strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
 "emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Спорожнити Смітник"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7119,12 +7119,12 @@ msgstr[1] "Дійсно пересунути ці %1 об'єкти до сміт
 msgstr[2] "Дійсно пересунути ці %1 об'єктів до смітника?"
 msgstr[3] "Дійсно пересунути цей об'єкт до смітника?"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Схоже, що SSL сертифікат вузла пошкоджений."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9138,7 +9138,7 @@ msgstr ""
 "Віддаленим вузлом не було надіслано жодних сертифікатів SSL.\n"
 "З'єднання перервано через неможливість встановити автентичність вузла."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9150,7 +9150,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Відновити вилучені таким чином "
 "об'єкти буде дуже важко.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9176,7 +9176,7 @@ msgstr[3] ""
 "strong='true'>Відновити вилучені таким чином об'єкти буде дуже важко.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9189,7 +9189,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Скасувати наслідки цієї дії буде "
 "дуже важко.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9217,7 +9217,7 @@ msgstr[3] ""
 "великий розмір. Вилучити його остаточно?<nl/><emphasis "
 "strong='true'>Скасувати наслідки цієї дії буде дуже важко.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9227,19 +9227,19 @@ msgstr[1] "Ви справді хочете пересунути ці %1 об'є
 msgstr[2] "Ви справді хочете пересунути ці %1 об'єктів до «Смітника»?"
 msgstr[3] "Ви справді хочете пересунути цей об'єкт до «Смітника»?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Не запитувати знову"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Не запитувати знову"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

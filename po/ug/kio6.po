@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 02:30+0000\n"
+"POT-Creation-Date: 2023-04-23 03:27+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2605,24 +2605,24 @@ msgstr "مەڭگۈ(&F)"
 msgid "&Current Session only"
 msgstr "نۆۋەتتىكى ئەڭگىمەلا(&C)"
 
-#: core/worker.cpp:320
+#: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "نامەلۇم كېلىشىم '%1'."
 
-#: core/worker.cpp:331
+#: core/worker.cpp:345
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1'  كېلىشىم ئىشلىتىدىغان كىرگۈزۈش چىقىرىش ئارقا ئۇچىنى تاپالمىدى."
 
-#: core/worker.cpp:339
+#: core/worker.cpp:353
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1'  كېلىشىم ئىشلىتىدىغان كىرگۈزۈش چىقىرىش ئارقا ئۇچىنى تاپالمىدى."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:393
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -2692,7 +2692,7 @@ msgstr "يېڭى قىسقۇچ…"
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "ئەخلەتخانىغا يۆتكە"
@@ -3056,7 +3056,7 @@ msgstr ""
 "كۆرسىتىشنى ئويلىسىڭىز بۇ ئورۇننى تاللاڭ.<br /><br />ئەگەر بۇ تاللانما "
 "تاللانمىسا بۇ تۈر ھەممە قوللىنىشچان پروگراممىدا كۆرۈنىدۇ.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:177
+#: filewidgets/kfileplacesitem.cpp:183
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Places"
@@ -3064,27 +3064,27 @@ msgctxt "@item"
 msgid "Places"
 msgstr "ئورۇنلار"
 
-#: filewidgets/kfileplacesitem.cpp:180
+#: filewidgets/kfileplacesitem.cpp:186
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@item"
 msgid "Remote"
 msgstr "چىقىرىۋەت"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:189
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:192
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@item"
 msgid "Search For"
 msgstr "ئىزدە"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:195
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Devices"
@@ -3092,13 +3092,13 @@ msgctxt "@item"
 msgid "Devices"
 msgstr "ئۈسكۈنىلەر"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr ""
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:201
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -6931,15 +6931,15 @@ msgstr ""
 "بولمايدۇ."
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "تۈر ئۆچۈر"
 
 #: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -6963,7 +6963,7 @@ msgstr[0] ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -6977,13 +6977,13 @@ msgstr ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "ئەخلەتخانىنى تازىلاش"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7001,12 +7001,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "سىز راستلا %1 تۈرنى ئەخلەتخانىغا يۆتكەمسىز؟"
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "قارشى ئۇچتىكى SSL گۇۋاھنامىسى بۇزۇلغاندەك قىلىدۇ."
 
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9054,7 +9054,7 @@ msgstr ""
 "شۇڭلاشقا ماشىنا بىلەن دەلىللەنگەن باغلىنىش قۇرالمايدۇ، مەشغۇلات بىكار "
 "قىلىندى."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9069,7 +9069,7 @@ msgstr ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9086,7 +9086,7 @@ msgstr[0] ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9101,7 +9101,7 @@ msgstr ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9120,7 +9120,7 @@ msgstr[0] ""
 "ئەخلەتخانىدىكى تۈرلەرنى مەڭگۈلۈك ئۆچۈرەمسىز؟ بۇ مەشغۇلاتتىن يېنىۋالغىلى "
 "بولمايدۇ."
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9129,21 +9129,21 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "سىز راستلا %1 تۈرنى ئەخلەتخانىغا يۆتكەمسىز؟"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "قايتا سورىما"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "قايتا سورىما"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
