@@ -294,6 +294,7 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   WorkerBase
   WorkerFactory
   ForwardingWorkerBase
+  UntrustedProgramHandlerInterface
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS
