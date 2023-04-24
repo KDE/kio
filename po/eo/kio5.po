@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 00:46+0000\n"
+"POT-Creation-Date: 2023-04-24 00:44+0000\n"
 "PO-Revision-Date: 2023-04-17 06:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2715,7 +2715,7 @@ msgstr "Nova dosierujo..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Movu al Rubujo"
@@ -7207,14 +7207,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Forigi Konstante"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7236,7 +7236,7 @@ msgstr[1] ""
 "Ĉu vi vere volas porĉiame forigi ĉi %1 erojn?<nl/><nl/><emphasis "
 "strong='true'>Tiu ago ne povas esti malfarata.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7246,13 +7246,13 @@ msgstr ""
 "Ĉu vi volas konstante forigi ĉiujn erojn el la Rubujo?<nl/><nl/><emphasis "
 "strong='true'>Tiu ago ne povas esti malfarebla.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Malplenigi Rubujon"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7268,12 +7268,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ĉu vi vere volas movi ĉi tiun eron al la rubujo?"
 msgstr[1] "Ĉu vi vere volas movi ĉi tiujn %1 erojn al la rubujo?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La kunula SSL-atestĉeno ŝajnas esti korupta."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9319,7 +9319,7 @@ msgstr ""
 "La fora gastiganto sendis neniujn SSL-atestilojn.\n"
 "Malsukcesas ĉar la identeco de la gastiganto ne povas esti establita."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9331,7 +9331,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Tiu ago estas malfarebla.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9343,7 +9343,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9355,7 +9355,7 @@ msgstr ""
 "Konstante forigi ĝin anstataŭe?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>Tiu ago ne povas esti malfarebla.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9369,7 +9369,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9377,19 +9377,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ĉu vi vere volas movi tiun %1 eron al la rubujo?"
 msgstr[1] "Ĉu vi vere volas movi tiujn %1 erojn al la rubujo?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ne demandu denove"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ne demandu denove"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

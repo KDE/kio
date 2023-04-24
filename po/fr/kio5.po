@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 00:46+0000\n"
+"POT-Creation-Date: 2023-04-24 00:44+0000\n"
 "PO-Revision-Date: 2023-02-06 18:28+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2796,7 +2796,7 @@ msgstr "Nouveau dossier..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Mettre dans la corbeille"
@@ -7419,14 +7419,14 @@ msgstr ""
 "irréversible.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Supprimer définitivement"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7448,7 +7448,7 @@ msgstr[1] ""
 "Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/> <nl/> "
 "<emphasis strong='true'>Cette action est irréversible.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7459,13 +7459,13 @@ msgstr ""
 "corbeille ?<nl/><nl/> <emphasis strong='true'>Cette action est irréversible."
 "</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Vider la corbeille"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7482,12 +7482,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Voulez-vous vraiment mettre cet élément à la corbeille ?"
 msgstr[1] "Voulez-vous vraiment mettre ces %1 éléments à la corbeille ?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Le certificat SSL du pair semble endommagé."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9552,7 +9552,7 @@ msgstr ""
 "L'hôte distant n'a pas envoyé de certificat SSL.\n"
 "Abandon car il est impossible de connaître l'identité de cet hôte."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9564,7 +9564,7 @@ msgstr ""
 "><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
 "irréversible.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9580,7 +9580,7 @@ msgstr[1] ""
 "Voulez-vous vraiment supprimer définitivement ces %1 éléments ?<nl/><nl/> "
 "<emphasis strong='true'>Cette action ne peut être annulée.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9593,7 +9593,7 @@ msgstr ""
 "><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action ne "
 "peut être annulée.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9613,7 +9613,7 @@ msgstr[1] ""
 "><filename>%1</filename><nl/> <nl/> <emphasis strong='true'>Cette action est "
 "irréversible.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9621,19 +9621,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Voulez-vous vraiment déplacer cet élément %1 à la corbeille ?"
 msgstr[1] "Voulez-vous vraiment déplacer ces %1 éléments à la corbeille ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ne plus poser la question"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ne plus poser la question"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

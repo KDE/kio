@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 00:46+0000\n"
+"POT-Creation-Date: 2023-04-24 00:44+0000\n"
 "PO-Revision-Date: 2023-02-16 11:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2643,7 +2643,7 @@ msgstr "مجلّد جديد..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "انقل إلى المهملات"
@@ -7157,14 +7157,14 @@ msgstr ""
 "strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "احذف نهائيا"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7198,7 +7198,7 @@ msgstr[5] ""
 "أتريد حقاً حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7208,13 +7208,13 @@ msgstr ""
 "أتريد حقاً حذف جميع العناصر من سلة المهلات للأبد؟ <nl/><nl/> <emphasis "
 "strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "أفرِغ المهملات"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7233,12 +7233,12 @@ msgstr[3] "أمتأكّد من نقل هذا %1 العناصر إلى المهم
 msgstr[4] "أمتأكّد من نقل هذا %1 عنصرا إلى المهملات؟"
 msgstr[5] "أمتأكّد من نقل هذا %1 عنصر إلى المهملات؟"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "يبدو أن سلسلة شهادات النظير SSL تالفة."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
 #, kde-format
 msgid "SSL"
 msgstr "‏SSL"
@@ -9308,7 +9308,7 @@ msgstr ""
 "لم يُرسل المضيف البعيد أيّ شهادة SSL.\n"
 "سأُجهض هذا بسبب تعذّر إنشاء هويّة المضيف."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9319,7 +9319,7 @@ msgstr ""
 "أتريد حذف هذا الملف <nl/><nl/><filename>%1</filename><nl/><nl/>للأبد؟"
 "<emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9347,7 +9347,7 @@ msgstr[5] ""
 "أتريد حقاً حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9359,7 +9359,7 @@ msgstr ""
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة "
 "فيه.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9389,7 +9389,7 @@ msgstr[5] ""
 "فشلت عملية نقل %1 عنصر هذه إلى المهملات لأنها ضخمة جداً.  هل أحذفه للأبد؟ <nl/"
 "><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9401,19 +9401,19 @@ msgstr[3] "أمتأكّد من نقل هذا %1 العناصر إلى المهم
 msgstr[4] "أمتأكّد من نقل هذا %1 عنصرا إلى المهملات؟"
 msgstr[5] "أمتأكّد من نقل هذا %1 عنصر إلى المهملات؟"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "لا تسأل مجدّدًا"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "لا تسأل مجدّدًا"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
