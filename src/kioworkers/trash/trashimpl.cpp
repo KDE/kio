@@ -1034,7 +1034,7 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
             }
         }
 
-        entry.reserve(3);
+        entry.reserveNumbers(3);
         entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
 
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latestModifiedDate / 1000);

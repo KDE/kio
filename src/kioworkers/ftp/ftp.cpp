@@ -1251,7 +1251,8 @@ void FtpInternal::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftp
 {
     Q_ASSERT(entry.count() == 0); // by contract :-)
 
-    entry.reserve(9);
+    entry.reserveStrings(5);
+    entry.reserveNumbers(4);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
     entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toSecsSinceEpoch());
@@ -1286,7 +1287,8 @@ void FtpInternal::ftpShortStatAnswer(const QString &filename, bool isDir)
 {
     UDSEntry entry;
 
-    entry.reserve(4);
+    entry.reserveStrings(2);
+    entry.reserveNumbers(2);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : S_IFREG);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
@@ -1334,7 +1336,8 @@ Result FtpInternal::stat(const QUrl &url)
     // We can't stat root, but we know it's a dir.
     if (path.isEmpty() || path == QLatin1String("/")) {
         UDSEntry entry;
-        entry.reserve(6);
+        entry.reserveStrings(4);
+        entry.reserveNumbers(2);
         // entry.insert( KIO::UDSEntry::UDS_NAME, UDSField( QString() ) );
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);

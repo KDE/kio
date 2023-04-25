@@ -136,8 +136,21 @@ public:
     /**
      * Calling this function before inserting items into an empty UDSEntry may save time and memory.
      * @param size number of items for which memory will be pre-allocated
+     *
+     * @deprecated since 6.0, use reserveStrings and reserveNumbers
      */
     void reserve(int size);
+
+    /**
+     * Calling those functions before inserting items into an empty UDSEntry may save time and memory.
+     * @param size number of items for which memory will be pre-allocated
+     *
+     * Use reserveStrings for UDS_STRING fields and reserveNumbers for UDS_NUMBER fields.
+     *
+     * @since 6.0
+     */
+    void reserveStrings(int size);
+    void reserveNumbers(int size);
 
     /**
      * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
@@ -160,6 +173,8 @@ public:
      * @return the number of fields
      */
     int count() const;
+    int numbersCount() const;
+    int stringsCount() const;
 
     /**
      * check existence of a field

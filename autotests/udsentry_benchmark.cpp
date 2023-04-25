@@ -114,7 +114,8 @@ void UDSEntryBenchmark::createSmallEntries()
     QBENCHMARK_ONCE {
         for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
             KIO::UDSEntry entry;
-            entry.reserve(8);
+            entry.reserveStrings(3);
+            entry.reserveNumbers(5);
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, names[i]);
             entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, i);
             entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, i);
@@ -140,10 +141,16 @@ void UDSEntryBenchmark::createLargeEntries()
         names[i] = QString::number(i);
     }
 
+    int number_entries = std::count_if(m_fieldsForLargeEntries.cbegin(), m_fieldsForLargeEntries.cend(), [](const uint uds) {
+        return uds & KIO::UDSEntry::UDS_NUMBER;
+    });
+    int string_entries = m_fieldsForLargeEntries.size() - number_entries;
+
     QBENCHMARK_ONCE {
         for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
             KIO::UDSEntry entry;
-            entry.reserve(m_fieldsForLargeEntries.count());
+            entry.reserveNumbers(number_entries);
+            entry.reserveNumbers(string_entries);
             for (uint field : std::as_const(m_fieldsForLargeEntries)) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
                     entry.fastInsert(field, names[i]);
