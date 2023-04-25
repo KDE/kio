@@ -3534,8 +3534,7 @@ void KDesktopPropsPlugin::slotBrowseExec()
         return;
     }
 
-    QString path = f.toLocalFile();
-    path = KShell::quoteArg(path);
+    const QString path = f.toLocalFile();
     d->w->programEdit->setText(path);
 }
 
