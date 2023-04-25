@@ -461,19 +461,8 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
             buffer2[n] = 0;
         }
 
+        // this does not follow symlink on purpose
         entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QFile::decodeName(buffer2));
-        // Follow symlink
-        // That makes sense in kio_file, but not in the trash, especially for the size
-        // #136876
-#if 0
-        if (KDE_stat(physicalPath_c, &buff) == -1) {
-            // It is a link pointing to nowhere
-            buff.st_mode = S_IFLNK | S_IRWXU | S_IRWXG | S_IRWXO;
-            buff.st_mtime = 0;
-            buff.st_atime = 0;
-            buff.st_size = 0;
-        }
-#endif
     }
 
     mode_t type = buff.st_mode & S_IFMT; // extract file type
@@ -620,40 +609,6 @@ void TrashProtocol::jobFinished(KJob *job)
 {
     Q_EMIT leaveModality(job->error(), job->errorText());
 }
-
-#if 0
-void TrashProtocol::mkdir(const QUrl &url, int /*permissions*/)
-{
-    if (const auto initResult = initImpl(); !initResult.success()) {
-        return initResult;
-    }
-
-    // create info about deleted dir
-    // ############ Problem: we don't know the original path.
-    // Let's try to avoid this case (we should get to copy() instead, for local files)
-    qCDebug(KIO_TRASH) << "mkdir: " << url;
-    QString dir = url.adjusted(QUrl::RemoveFilename).path();
-
-    if (dir.length() <= 1) { // new toplevel entry
-        // ## we should use TrashImpl::parseURL to give the right filename to createInfo
-        int trashId;
-        QString fileId;
-        if (!impl.createInfo(url.path(), trashId, fileId)) {
-            error(impl.lastErrorCode(), impl.lastErrorMessage());
-        } else {
-            if (!impl.mkdir(trashId, fileId, permissions)) {
-                (void)impl.deleteInfo(trashId, fileId);
-                error(impl.lastErrorCode(), impl.lastErrorMessage());
-            } else {
-                finished();
-            }
-        }
-    } else {
-        // Well it's not allowed to add a directory to an existing deleted directory.
-        error(KIO::ERR_ACCESS_DENIED, url.toString());
-    }
-}
-#endif
 
 KIO::WorkerResult TrashProtocol::fileSystemFreeSpace(const QUrl &url)
 {
