@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000-2005 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2007 Norbert Frese <nf2@scheinwelt.at>
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2023 Méven Car <meven@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -58,13 +59,11 @@ class UDSEntryPrivate;
  *
  * The KIO::listDir() and KIO:stat() operations use this data structure.
  *
- * KIO defines a number of standard fields, see the UDS_XXX enums (see StandardFieldTypes).
- * at the moment UDSEntry only provides fields with numeric indexes,
- * but there might be named fields with string indexes in the future.
+ * KIO defines a number of standard fields, see UDSEntry::StandardFieldTypes enum.
  *
- * For instance, to retrieve the name of the entry, use:
+ * For instance, to retrieve the display name of the entry, use:
  * \code
- * QString displayName = entry.stringValue( KIO::UDSEntry::UDS_NAME );
+ * QString displayName = entry.stringValue( KIO::UDSEntry::UDS_DISPLAY_NAME );
  * \endcode
  *
  * To know the modification time of the file/url:
@@ -153,7 +152,35 @@ public:
     void reserveNumbers(int size);
 
     /**
-     * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
+     * Pre-allocate `fields` fields in the backend storage according to their UDS_TYPE
+     *
+     * @param fields
+     * @since 6.0
+     */
+    void reserve(std::initializer_list<uint> fields);
+
+    /**
+     * Insert the values passed as pairs {field, value} in a initializer_list
+     *
+     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     *
+     * @param fields
+     * @since 6.0
+     */
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
+
+    /**
+     * Insert the values passed as pairs {field, value} in a initializer_list
+     *
+     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     *
+     * @param fields
+     * @since 6.0
+     */
+    void insert(std::initializer_list<std::pair<uint, long long>> fields);
+
+    /**
+     * Insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
      * @param field numeric field id
      * @param value to set
      * @since 5.48
@@ -161,7 +188,7 @@ public:
     void fastInsert(uint field, const QString &value);
 
     /**
-     * insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
+     * Insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
      * @param field numeric field id
      * @param l value to set
      * @since 5.48
@@ -335,10 +362,6 @@ public:
         /// until UDS_EXTRA_END.
         UDS_EXTRA_END = 140 | UDS_STRING,
     };
-    void reserve(std::initializer_list<uint> fields);
-
-    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
-    void insert(std::initializer_list<std::pair<uint, long long>> fields);
 
 private:
     QSharedDataPointer<UDSEntryPrivate> d;
