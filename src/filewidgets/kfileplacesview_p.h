@@ -131,12 +131,12 @@ public:
         m_rubberBand = new QRubberBand(QRubberBand::Rectangle, parent);
     }
 
-    const QModelIndex &hoveredHeaderAreaIndex() const
+    const QModelIndex hoveredHeaderAreaIndex()
     {
         return m_hoveredHeaderAreaIndex;
     }
 
-    const QModelIndex &hoveredActionIndex() const
+    const QModelIndex hoveredActionIndex()
     {
         return m_hoveredActionIndex;
     }

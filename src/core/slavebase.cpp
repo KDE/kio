@@ -200,6 +200,7 @@ public:
 
     void verifyState(const char *cmdName)
     {
+        Q_UNUSED(cmdName)
         KIO_STATE_ASSERT(finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 did not call finished() or error()! Please fix the %2 KIO worker.")
@@ -216,6 +217,7 @@ public:
 
     void verifyErrorFinishedNotCalled(const char *cmdName)
     {
+        Q_UNUSED(cmdName)
         KIO_STATE_ASSERT(!finalState(),
                          Q_FUNC_INFO,
                          qUtf8Printable(QStringLiteral("%1 called finished() or error(), but it's not supposed to! Please fix the %2 KIO worker.")
