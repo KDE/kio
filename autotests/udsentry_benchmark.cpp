@@ -45,7 +45,9 @@ public:
 
 private Q_SLOTS:
     void createSmallEntries();
+    void createSmallEntriesNew();
     void createLargeEntries();
+    void createLargeEntriesNew();
     void readFieldsFromSmallEntries();
     void readFieldsFromLargeEntries();
     void saveSmallEntries();
@@ -131,6 +133,41 @@ void UDSEntryBenchmark::createSmallEntries()
     Q_ASSERT(m_smallEntries.count() == numberOfSmallUDSEntries);
 }
 
+void UDSEntryBenchmark::createSmallEntriesNew()
+{
+    m_smallEntries.clear();
+    m_smallEntries.reserve(numberOfSmallUDSEntries);
+
+    const QString user = QStringLiteral("user");
+    const QString group = QStringLiteral("group");
+
+    QList<QString> names(numberOfSmallUDSEntries);
+    for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
+        names[i] = QString::number(i);
+    }
+
+    QBENCHMARK_ONCE {
+        for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
+            KIO::UDSEntry entry;
+            entry.insert({
+                {KIO::UDSEntry::UDS_NAME, names[i]},
+                {KIO::UDSEntry::UDS_USER, user},
+                {KIO::UDSEntry::UDS_GROUP, group},
+            });
+            entry.insert({
+                {KIO::UDSEntry::UDS_FILE_TYPE, i},
+                {KIO::UDSEntry::UDS_ACCESS, i},
+                {KIO::UDSEntry::UDS_SIZE, i},
+                {KIO::UDSEntry::UDS_MODIFICATION_TIME, i},
+                {KIO::UDSEntry::UDS_ACCESS_TIME, i},
+            });
+            m_smallEntries.append(entry);
+        }
+    }
+
+    Q_ASSERT(m_smallEntries.count() == numberOfSmallUDSEntries);
+}
+
 void UDSEntryBenchmark::createLargeEntries()
 {
     m_largeEntries.clear();
@@ -150,7 +187,35 @@ void UDSEntryBenchmark::createLargeEntries()
         for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
             KIO::UDSEntry entry;
             entry.reserveNumbers(number_entries);
-            entry.reserveNumbers(string_entries);
+            entry.reserveStrings(string_entries);
+            for (uint field : std::as_const(m_fieldsForLargeEntries)) {
+                if (field & KIO::UDSEntry::UDS_STRING) {
+                    entry.fastInsert(field, names[i]);
+                } else {
+                    entry.fastInsert(field, i);
+                }
+            }
+            m_largeEntries.append(entry);
+        }
+    }
+
+    Q_ASSERT(m_largeEntries.count() == numberOfLargeUDSEntries);
+}
+
+void UDSEntryBenchmark::createLargeEntriesNew()
+{
+    m_largeEntries.clear();
+    m_largeEntries.reserve(numberOfLargeUDSEntries);
+
+    QList<QString> names(numberOfLargeUDSEntries);
+    for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
+        names[i] = QString::number(i);
+    }
+
+    QBENCHMARK_ONCE {
+        for (int i = 0; i < numberOfLargeUDSEntries; ++i) {
+            KIO::UDSEntry entry;
+            entry.reserve(m_fieldsForLargeEntries);
             for (uint field : std::as_const(m_fieldsForLargeEntries)) {
                 if (field & KIO::UDSEntry::UDS_STRING) {
                     entry.fastInsert(field, names[i]);

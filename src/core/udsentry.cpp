@@ -29,6 +29,9 @@ class KIO::UDSEntryPrivate : public QSharedData
 public:
     void reserveNumbers(int size);
     void reserveStrings(int size);
+    void reserve(QList<uint> fields);
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
+    void insert(std::initializer_list<std::pair<uint, long long>> fields);
     void insert(uint udsField, const QString &value);
     void replace(uint udsField, const QString &value);
     void insert(uint udsField, long long value);
@@ -77,6 +80,21 @@ private:
     std::vector<NumberField> numberStorage;
 };
 
+void UDSEntryPrivate::reserve(QList<uint> fields)
+{
+    int stringSize = 0;
+    int numberSize = 0;
+    for (const auto f : fields) {
+        if (f & UDSEntry::UDS_NUMBER) {
+            numberSize += 1;
+        } else {
+            stringSize += 1;
+        }
+    }
+    reserveStrings(stringSize);
+    reserveNumbers(numberSize);
+}
+
 void UDSEntryPrivate::reserveStrings(int size)
 {
     storage.reserve(size);
@@ -85,6 +103,22 @@ void UDSEntryPrivate::reserveStrings(int size)
 void UDSEntryPrivate::reserveNumbers(int size)
 {
     numberStorage.reserve(size);
+}
+
+void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, const QString &>> fields)
+{
+    storage.reserve(fields.size() + storage.size());
+    for (const auto &f : fields) {
+        insert(f.first, f.second);
+    }
+}
+
+void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, long long>> fields)
+{
+    numberStorage.reserve(fields.size() + numberStorage.size());
+    for (const auto &f : fields) {
+        insert(f.first, f.second);
+    }
 }
 
 void UDSEntryPrivate::insert(uint udsField, const QString &value)
@@ -509,6 +543,21 @@ void UDSEntry::reserve(int size)
 {
     d->reserveStrings(size / 2);
     d->reserveNumbers(size / 2);
+}
+
+void UDSEntry::reserve(QList<uint> fields)
+{
+    d->reserve(fields);
+}
+
+void UDSEntry::insert(std::initializer_list<std::pair<uint, const QString &>> fields)
+{
+    d->insert(fields);
+}
+
+void UDSEntry::insert(std::initializer_list<std::pair<uint, long long>> fields)
+{
+    d->insert(fields);
 }
 // END UDSEntry
 

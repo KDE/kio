@@ -335,6 +335,10 @@ public:
         /// until UDS_EXTRA_END.
         UDS_EXTRA_END = 140 | UDS_STRING,
     };
+    void reserve(QList<uint> fields);
+
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
+    void insert(std::initializer_list<std::pair<uint, long long>> fields);
 
 private:
     QSharedDataPointer<UDSEntryPrivate> d;
