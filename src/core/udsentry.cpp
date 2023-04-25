@@ -29,7 +29,7 @@ class KIO::UDSEntryPrivate : public QSharedData
 public:
     void reserveNumbers(int size);
     void reserveStrings(int size);
-    void reserve(QList<uint> fields);
+    void reserve(std::initializer_list<uint> fields);
     void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
     void insert(std::initializer_list<std::pair<uint, long long>> fields);
     void insert(uint udsField, const QString &value);
@@ -80,7 +80,7 @@ private:
     std::vector<NumberField> numberStorage;
 };
 
-void UDSEntryPrivate::reserve(QList<uint> fields)
+void UDSEntryPrivate::reserve(std::initializer_list<uint> fields)
 {
     int stringSize = 0;
     int numberSize = 0;
@@ -545,7 +545,7 @@ void UDSEntry::reserve(int size)
     d->reserveNumbers(size / 2);
 }
 
-void UDSEntry::reserve(QList<uint> fields)
+void UDSEntry::reserve(std::initializer_list<uint> fields)
 {
     d->reserve(fields);
 }
