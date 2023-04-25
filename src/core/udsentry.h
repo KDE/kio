@@ -180,19 +180,24 @@ public:
     void clear();
 
     /**
-     * Constants used to specify the type of a UDSField.
+     * Bit field used to specify the item type of a StandardFieldTypes.
      */
-    enum StandardFieldTypes {
-        // First let's define the item types: bit field
-
+    enum ItemTypes {
+        // Those are a bit field
         /// Indicates that the field is a QString
         UDS_STRING = 0x01000000,
         /// Indicates that the field is a number (long long)
         UDS_NUMBER = 0x02000000,
         /// Indicates that the field represents a time, which is modelled by a long long
         UDS_TIME = 0x04000000 | UDS_NUMBER,
+    };
 
-        // The rest isn't a bit field
+    /**
+     * Constants used to specify the type of a UDSEntry’s field.
+     */
+    enum StandardFieldTypes {
+
+        // The highest bit is reserved to store the used FieldTypes
 
         /// Size of the file
         UDS_SIZE = 1 | UDS_NUMBER,
@@ -273,33 +278,29 @@ public:
         /// @since 4.4
         UDS_DISPLAY_TYPE = 24 | UDS_STRING,
 
-        /// 25 was used by the now removed UDS_NEPOMUK_URI
-
         /// A comma-separated list of supplementary icon overlays
         /// which will be added to the list of overlays created
         /// by KFileItem.
         ///
         /// @since 4.5
-        UDS_ICON_OVERLAY_NAMES = 26 | UDS_STRING,
-
-        /// 27 was used by the now removed UDS_NEPOMUK_QUERY
+        UDS_ICON_OVERLAY_NAMES = 25 | UDS_STRING,
 
         /// A comment which will be displayed as is to the user. The string
         /// value may contain plain text or Qt-style rich-text extensions.
         ///
         /// @since 4.6
-        UDS_COMMENT = 28 | UDS_STRING,
+        UDS_COMMENT = 26 | UDS_STRING,
 
         /// Device number for this file, used to detect hardlinks
         /// @since 4.7.3
-        UDS_DEVICE_ID = 29 | UDS_NUMBER,
+        UDS_DEVICE_ID = 27 | UDS_NUMBER,
         /// Inode number for this file, used to detect hardlinks
         /// @since 4.7.3
-        UDS_INODE = 30 | UDS_NUMBER,
+        UDS_INODE = 28 | UDS_NUMBER,
 
         /// For folders, the recursize size of its content
         /// @since 5.70
-        UDS_RECURSIVE_SIZE = 31 | UDS_NUMBER,
+        UDS_RECURSIVE_SIZE = 29 | UDS_NUMBER,
 
         /// Extra data (used only if you specified Columns/ColumnsTypes)
         /// NB: you cannot repeat this entry; use UDS_EXTRA + i
