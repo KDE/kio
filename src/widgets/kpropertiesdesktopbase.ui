@@ -92,17 +92,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="textLabel4">
        <property name="whatsThis">
-        <string>Type the command to start this application here.
-
-Following the command, you can have several placeholders which will be replaced with the actual values when the actual program is run:
-
-%f - a single filename
-%F - a list of files (for apps that can open several files at once)
-%u - a single URL
-%U - a list of URLs
-%i - the icon of the .desktop file
-%c - the name of the .desktop file
-%k - the location of the .desktop file</string>
+        <string>Type the command to start this application here.</string>
        </property>
        <property name="text">
         <string>Program:</string>
@@ -117,17 +107,7 @@ Following the command, you can have several placeholders which will be replaced 
        <item>
         <widget class="QLineEdit" name="programEdit">
          <property name="whatsThis">
-          <string>Type the command to start this application here.
-
-Following the command, you can have several placeholders which will be replaced with the actual values when the actual program is run:
-
-%f - a single filename
-%F - a list of files (for apps that can open several files at once)
-%u - a single URL
-%U - a list of URLs
-%i - the icon of the .desktop file
-%c - the name of the .desktop file
-%k - the location of the .desktop file</string>
+          <string>Type the command to start this application here.</string>
          </property>
         </widget>
        </item>
@@ -142,6 +122,46 @@ Following the command, you can have several placeholders which will be replaced 
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="argumentsLabel">
+       <property name="whatsThis">
+        <string>Type the arguments to use when starting this application here.
+
+You can have several placeholders which will be replaced with the actual values when the actual program is run:
+
+%f - a single filename
+%F - a list of files (for apps that can open several files at once)
+%u - a single URL
+%U - a list of URLs
+%i - the icon of the .desktop file
+%c - the name of the .desktop file
+%k - the location of the .desktop file</string>
+       </property>
+       <property name="text">
+        <string>&amp;Arguments:</string>
+       </property>
+       <property name="buddy">
+        <cstring>argumentsEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="argumentsEdit">
+       <property name="whatsThis">
+        <string>Type the arguments to use when starting this application here.
+
+You can have several placeholders which will be replaced with the actual values when the actual program is run:
+
+%f - a single filename
+%F - a list of files (for apps that can open several files at once)
+%u - a single URL
+%U - a list of URLs
+%i - the icon of the .desktop file
+%c - the name of the .desktop file
+%k - the location of the .desktop file</string>
+       </property>
+      </widget>
      </item>
      <item row="6" column="0">
       <widget class="QLabel" name="textLabel5">
@@ -162,16 +182,6 @@ Following the command, you can have several placeholders which will be replaced 
         <string>Sets the working directory for your application.</string>
        </property>
       </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Arguments:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="argumentsEdit"/>
      </item>
     </layout>
    </item>
