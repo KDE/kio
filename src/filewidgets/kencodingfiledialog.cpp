@@ -77,7 +77,11 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
         sEncoding = systemEncoding;
     }
 
-    const auto encodings = QTextCodec::availableCodecs();
+    auto encodings = QTextCodec::availableCodecs();
+    std::sort(encodings.begin(), encodings.end(), [](auto &a, auto &b) {
+        return (a.compare(b, Qt::CaseInsensitive) < 0);
+    });
+
     int insert = 0;
     int system = 0;
     bool foundRequested = false;
