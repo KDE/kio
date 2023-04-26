@@ -71,7 +71,8 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QList<QUrl> &urls,
                                                 KIO::ApplicationLauncherJob::RunFlags flags,
                                                 const QString &suggestedFileName,
-                                                const QByteArray &asn)
+                                                const QByteArray &asn,
+                                                const QString &serviceAction)
 {
     KProcessRunner *instance;
     // special case for applicationlauncherjob
@@ -82,11 +83,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     // the invoked service/executable might not support.
     const bool notYetSupportedOpenActivationNeeded = !urls.isEmpty();
     if (!notYetSupportedOpenActivationNeeded && DBusActivationRunner::activationPossible(service, flags, suggestedFileName)) {
-        const auto actions = service->actions();
-        auto action = std::find_if(actions.cbegin(), actions.cend(), [service](const KServiceAction &action) {
-            return action.exec() == service->exec();
-        });
-        instance = new DBusActivationRunner(action != actions.cend() ? action->name() : QString());
+        instance = new DBusActivationRunner(serviceAction);
     } else {
         instance = makeInstance();
     }

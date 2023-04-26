@@ -41,6 +41,7 @@ public:
     void showOpenWithDialog();
 
     KService::Ptr m_service;
+    QString m_serviceAction;
     QString m_serviceEntryPath;
     QList<QUrl> m_urls;
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
@@ -66,6 +67,7 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &servic
     : ApplicationLauncherJob(serviceAction.service(), parent)
 {
     Q_ASSERT(d->m_service);
+    d->m_serviceAction = serviceAction.name();
     d->m_service.detach();
     d->m_service->setExec(serviceAction.exec());
 }
@@ -178,8 +180,13 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = d->m_urls.count();
         d->m_processRunners.reserve(d->m_numProcessesPending);
         for (int i = 1; i < d->m_urls.count(); ++i) {
-            auto *processRunner =
-                KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, {d->m_urls.at(i)}, d->m_runFlags, d->m_suggestedFileName, QByteArray{});
+            auto *processRunner = KProcessRunner::fromApplication(d->m_service,
+                                                                  d->m_serviceEntryPath,
+                                                                  {d->m_urls.at(i)},
+                                                                  d->m_runFlags,
+                                                                  d->m_suggestedFileName,
+                                                                  QByteArray{},
+                                                                  d->m_serviceAction);
             d->m_processRunners.push_back(processRunner);
             connect(processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
                 d->slotStarted(pid);
@@ -190,8 +197,13 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = 1;
     }
 
-    auto *processRunner =
-        KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, d->m_urls, d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
+    auto *processRunner = KProcessRunner::fromApplication(d->m_service,
+                                                          d->m_serviceEntryPath,
+                                                          d->m_urls,
+                                                          d->m_runFlags,
+                                                          d->m_suggestedFileName,
+                                                          d->m_startupId,
+                                                          d->m_serviceAction);
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);

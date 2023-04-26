@@ -58,13 +58,16 @@ public:
      * ApplicationLauncherJob is created from a @c KServiceAction, the
      * ApplicationLauncherJob will call KService::setExec() which clears the
      * entryPath() of the KService
+     * @param serviceAction the KService action to be lauched. If empty
+     * the service itself is launched
      */
     static KProcessRunner *fromApplication(const KService::Ptr &service,
                                            const QString &serviceEntryPath,
                                            const QList<QUrl> &urls,
                                            KIO::ApplicationLauncherJob::RunFlags flags = {},
                                            const QString &suggestedFileName = {},
-                                           const QByteArray &asn = {});
+                                           const QByteArray &asn = {},
+                                           const QString &serviceAction = {});
 
     /**
      * Run a shell command
