@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-23 03:27+0000\n"
+"POT-Creation-Date: 2023-04-26 02:16+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1995,7 +1995,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "服务器正忙于响应其他请求，无法对该请求做出响应。"
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1509
+#: core/job_error.cpp:1114 core/slavebase.cpp:1511
 #, kde-format
 msgid "Unknown Error"
 msgstr "未知错误"
@@ -2270,92 +2270,92 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "无法确定 %1 的文件类型"
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:834
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持打开连接。"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:836
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "协议 %1 不支持关闭连接。"
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:838
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "协议 %1 不支持访问文件。"
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "不支持写入 %1。"
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "协议 %1 没有可用的特殊操作。"
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "协议 %1 不支持列出文件夹内容。"
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "不支持从 %1 获取数据。"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "对不起，程序不支持从 %1 获取 MIME 类型信息。"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "不支持在 %1 中重命名或者移动文件。"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "协议 %1 不支持创建符号链接。"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "不支持在 %1 中复制文件。"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "不支持从 %1 删除文件。"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "协议 %1 不支持创建文件夹。"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件属性。"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "协议 %1 不支持更改文件所有者。"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "协议 %1 不支持多重 get 操作。"
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "协议 %1 不支持打开文件。"
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "协议 %1 不支持操作 %2。"
@@ -2714,16 +2714,16 @@ msgstr "最小在前"
 msgid "Encoding:"
 msgstr "编码："
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:125
+#: filewidgets/kencodingfiledialog.cpp:139
+#: filewidgets/kencodingfiledialog.cpp:152
+#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "打开"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:180
+#: filewidgets/kencodingfiledialog.cpp:198
 #, kde-format
 msgid "Save As"
 msgstr "另存为"
@@ -5906,8 +5906,8 @@ msgstr "回收站已满时："
 
 #: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
 #: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:582
-#: kioworkers/trash/kio_trash.cpp:592
+#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
+#: kioworkers/trash/kio_trash.cpp:581
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 格式错误"
@@ -8169,7 +8169,7 @@ msgstr "选择要添加的文件类型："
 msgid "Only executables on local file systems are supported."
 msgstr "只支持本地文件系统中的可执行文件。"
 
-#: widgets/kpropertiesdialog.cpp:3548
+#: widgets/kpropertiesdialog.cpp:3547
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的高级选项"

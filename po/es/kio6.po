@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-23 03:27+0000\n"
+"POT-Creation-Date: 2023-04-26 02:16+0000\n"
 "PO-Revision-Date: 2023-03-04 00:49+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2158,7 +2158,7 @@ msgstr ""
 "El servidor estaba demasiado ocupado atendiendo otras peticiones para "
 "responder."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1509
+#: core/job_error.cpp:1114 core/slavebase.cpp:1511
 #, kde-format
 msgid "Unknown Error"
 msgstr "Error desconocido"
@@ -2458,98 +2458,98 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "No se ha podido determinar el tipo de archivo para %1"
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:834
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "La apertura de conexiones con el protocolo %1 no está permitida."
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:836
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "El cierre de conexiones con el protocolo %1 no está permitido."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:838
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "El acceso de archivos con el protocolo %1 no está permitido."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "La escritura en %1 no está permitida."
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "No hay acciones especiales disponibles para el protocolo %1."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "El listado de carpetas con el protocolo %1 no está permitido."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "La descarga de datos desde %1 no está permitida."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 "La recuperación de información de tipos MIME desde %1 no está permitida."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "El cambio de nombres de archivos dentro de %1 no está permitido."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "La creación de enlaces simbólicos con el protocolo %1 no está permitida."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "La copia de archivos en %1 no está permitida."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "La eliminación de archivos de %1 no está permitida."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "La creación de carpetas con el protocolo %1 no está permitida."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "La modificación de los atributos de archivos con el protocolo %1 no está "
 "permitida."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "La modificación del propietario de archivos con el protocolo %1 no está "
 "permitida."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Multiple get is not supported with protocol %1."
 msgstr "La descarga múltiple con el protocolo %1 no está permitida."
 
-#: core/slavebase.cpp:864
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "No se permite la apertura de archivos con el protocolo %1."
 
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "El protocolo %1 no admite la acción %2."
@@ -2914,16 +2914,16 @@ msgstr "Más pequeños primero"
 msgid "Encoding:"
 msgstr "Codificación:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:125
+#: filewidgets/kencodingfiledialog.cpp:139
+#: filewidgets/kencodingfiledialog.cpp:152
+#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:180
+#: filewidgets/kencodingfiledialog.cpp:198
 #, kde-format
 msgid "Save As"
 msgstr "Guardar como"
@@ -6258,8 +6258,8 @@ msgstr "Papelera llena:"
 
 #: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
 #: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:582
-#: kioworkers/trash/kio_trash.cpp:592
+#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
+#: kioworkers/trash/kio_trash.cpp:581
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 mal formada"
@@ -8641,7 +8641,7 @@ msgstr "Seleccionar uno o más tipos de archivo a añadir:"
 msgid "Only executables on local file systems are supported."
 msgstr "Solo se permiten ejecutables de sistemas de archivos locales."
 
-#: widgets/kpropertiesdialog.cpp:3548
+#: widgets/kpropertiesdialog.cpp:3547
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opciones avanzadas para %1"
