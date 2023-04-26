@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-26 00:45+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2920,16 +2920,16 @@ msgstr "قىسقۇچ ئالدىدا"
 msgid "Encoding:"
 msgstr "كودلاش:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:125
+#: filewidgets/kencodingfiledialog.cpp:139
+#: filewidgets/kencodingfiledialog.cpp:152
+#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "ئاچ"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:180
+#: filewidgets/kencodingfiledialog.cpp:198
 #, kde-format
 msgid "Save As"
 msgstr "باشقا ئاتتا ساقلا"
@@ -8715,7 +8715,7 @@ msgstr "قوشىدىغان بىر ياكى كۆپ خىل ھۆججەت تىپىن
 msgid "Only executables on local file systems are supported."
 msgstr "پەقەت يەرلىك ھۆججەت سىستېمىسىدىكى ئىجراچان ھۆججەتنىلا قوللايدۇ."
 
-#: widgets/kpropertiesdialog.cpp:3609
+#: widgets/kpropertiesdialog.cpp:3608
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 نىڭ ئالىي تاللانمىسى"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 00:44+0000\n"
+"POT-Creation-Date: 2023-04-26 00:45+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2978,16 +2978,16 @@ msgstr "Πρώτα οι φάκελοι"
 msgid "Encoding:"
 msgstr "Κωδικοποίηση:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:125
+#: filewidgets/kencodingfiledialog.cpp:139
+#: filewidgets/kencodingfiledialog.cpp:152
+#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:180
+#: filewidgets/kencodingfiledialog.cpp:198
 #, kde-format
 msgid "Save As"
 msgstr "Αποθήκευση ως"
@@ -9230,7 +9230,7 @@ msgstr "Επιλέξτε έναν ή περισσότερους τύπους α�
 msgid "Only executables on local file systems are supported."
 msgstr "Μόνο εκτελέσιμα σε τοπικά συστήματα αρχείων υποστηρίζονται."
 
-#: widgets/kpropertiesdialog.cpp:3609
+#: widgets/kpropertiesdialog.cpp:3608
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Προχωρημένες επιλογές για %1"
