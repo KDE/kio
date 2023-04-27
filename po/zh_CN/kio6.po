@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 02:16+0000\n"
+"POT-Creation-Date: 2023-04-27 02:12+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -7460,13 +7460,54 @@ msgstr "环境变量："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
-#, no-c-format, kde-format
+#: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
+#, fuzzy, kde-format
+#| msgid "Enter the user name you want to run the application as here."
+msgid "Type the command to start this application here."
+msgstr "在此输入您想要用来运行此应用程序的用户名。"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:98
+#, kde-format
+msgid "Program:"
+msgstr "程序："
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:117
+#, kde-format
 msgid ""
-"Type the command to start this application here.\n"
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr "点击此处可在您的文件系统中浏览，以便找到您想使用的可执行程序。"
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:120
+#, kde-format
+msgid "&Browse..."
+msgstr "浏览(&B)..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
+#: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Type the command to start this application here.\n"
+#| "\n"
+#| "Following the command, you can have several placeholders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "\n"
+#| "%f - a single filename\n"
+#| "%F - a list of files (for apps that can open several files at once)\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%i - the icon of the .desktop file\n"
+#| "%c - the name of the .desktop file\n"
+#| "%k - the location of the .desktop file"
+msgid ""
+"Type the arguments to use when starting this application here.\n"
 "\n"
-"Following the command, you can have several placeholders which will be "
-"replaced with the actual values when the actual program is run:\n"
+"You can have several placeholders which will be replaced with the actual "
+"values when the actual program is run:\n"
 "\n"
 "%f - a single filename\n"
 "%F - a list of files (for apps that can open several files at once)\n"
@@ -7488,48 +7529,29 @@ msgstr ""
 "%c - .desktop 文件的名称\n"
 "%k - .desktop 文件的位置"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:108
-#, kde-format
-msgid "Program:"
-msgstr "程序："
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:137
-#, kde-format
-msgid ""
-"Click here to browse your file system in order to find the desired "
-"executable."
-msgstr "点击此处可在您的文件系统中浏览，以便找到您想使用的可执行程序。"
-
-#. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:140
-#, kde-format
-msgid "&Browse..."
-msgstr "浏览(&B)..."
+#. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
+#: widgets/kpropertiesdesktopbase.ui:142
+#, fuzzy, kde-format
+#| msgid "Arguments:"
+msgid "&Arguments:"
+msgstr "参数："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "设置此应用程序的工作目录。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:152
+#: widgets/kpropertiesdesktopbase.ui:172
 #, kde-format
 msgid "&Work path:"
 msgstr "工作路径(&W)："
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:169
-#, kde-format
-msgid "Arguments:"
-msgstr "参数："
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -7559,25 +7581,25 @@ msgstr ""
 "除</b>按钮来移除它们。</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:189
+#: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
 msgstr "支持的 MIME 类型(&S)："
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:220
+#: widgets/kpropertiesdesktopbase.ui:230
 #, kde-format
 msgid "Mimetype"
 msgstr "MIME 类型"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid "Description"
 msgstr "描述"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -7585,13 +7607,13 @@ msgid ""
 msgstr "如果您想要添加此应用程序能够处理的文件类型 (MIME 类型)，请点击此按钮。"
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:238
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
 msgstr "添加..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:245
+#: widgets/kpropertiesdesktopbase.ui:255
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -7601,13 +7623,13 @@ msgstr ""
 "该 MIME 类型，然后点击此按钮。"
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:248
+#: widgets/kpropertiesdesktopbase.ui:258
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:271
+#: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -7617,7 +7639,7 @@ msgstr ""
 "行它。"
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:274
+#: widgets/kpropertiesdesktopbase.ui:284
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "高级选项(&V)"

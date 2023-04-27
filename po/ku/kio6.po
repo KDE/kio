@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 02:16+0000\n"
+"POT-Creation-Date: 2023-04-27 02:12+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -7200,13 +7200,40 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
+#, kde-format
+msgid "Type the command to start this application here."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:98
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:117
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:120
+#, kde-format
+msgid "&Browse..."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
+#: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
 #, no-c-format, kde-format
 msgid ""
-"Type the command to start this application here.\n"
+"Type the arguments to use when starting this application here.\n"
 "\n"
-"Following the command, you can have several placeholders which will be "
-"replaced with the actual values when the actual program is run:\n"
+"You can have several placeholders which will be replaced with the actual "
+"values when the actual program is run:\n"
 "\n"
 "%f - a single filename\n"
 "%F - a list of files (for apps that can open several files at once)\n"
@@ -7217,48 +7244,28 @@ msgid ""
 "%k - the location of the .desktop file"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:108
+#. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
+#: widgets/kpropertiesdesktopbase.ui:142
 #, kde-format
-msgid "Program:"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:137
-#, kde-format
-msgid ""
-"Click here to browse your file system in order to find the desired "
-"executable."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:140
-#, kde-format
-msgid "&Browse..."
+msgid "&Arguments:"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:152
+#: widgets/kpropertiesdesktopbase.ui:172
 #, kde-format
 msgid "&Work path:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:169
-#, kde-format
-msgid "Arguments:"
-msgstr ""
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -7279,27 +7286,27 @@ msgstr ""
 
 # msgctxt "@title job"
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:189
+#: widgets/kpropertiesdesktopbase.ui:199
 #, fuzzy, kde-format
 #| msgid "Creating directory"
 msgid "&Supported file types:"
 msgstr "Pelrêç tê afirandin"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:220
+#: widgets/kpropertiesdesktopbase.ui:230
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "Mimetype"
 msgstr "&Parzûn:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid "Description"
 msgstr "Rave"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -7307,13 +7314,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:238
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
 msgstr "Lêzêdekirin..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:245
+#: widgets/kpropertiesdesktopbase.ui:255
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -7321,13 +7328,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:248
+#: widgets/kpropertiesdesktopbase.ui:258
 #, kde-format
 msgid "Remove"
 msgstr "Rakirin"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:271
+#: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -7335,7 +7342,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:274
+#: widgets/kpropertiesdesktopbase.ui:284
 #, fuzzy, kde-format
 #| msgid "A&dvanced Permissions"
 msgid "Ad&vanced Options"

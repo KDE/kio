@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 02:16+0000\n"
+"POT-Creation-Date: 2023-04-27 02:12+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -8090,7 +8090,38 @@ msgstr "Користи претходно поставени променли&в
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
+#: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
+#, fuzzy, kde-format
+#| msgid "Enter the user name you want to run the application as here."
+msgid "Type the command to start this application here."
+msgstr ""
+"Внесете го тука корисникот под чиешто име сакате да ја извршите апликацијата."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: widgets/kpropertiesdesktopbase.ui:98
+#, kde-format
+msgid "Program:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:117
+#, kde-format
+msgid ""
+"Click here to browse your file system in order to find the desired "
+"executable."
+msgstr ""
+"Кликнете тука за да разгледувате во вашиот датотечен систем за да ја "
+"пронајдете извршната датотека."
+
+#. i18n: ectx: property (text), widget (QPushButton, browseButton)
+#: widgets/kpropertiesdesktopbase.ui:120
+#, kde-format
+msgid "&Browse..."
+msgstr "&Разгледај..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
+#: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
 #, fuzzy, no-c-format, kde-format
 #| msgid ""
 #| "Type the command to start this application here.\n"
@@ -8108,10 +8139,10 @@ msgstr "Користи претходно поставени променли&в
 #| "%m - the mini-icon\n"
 #| "%c - the caption"
 msgid ""
-"Type the command to start this application here.\n"
+"Type the arguments to use when starting this application here.\n"
 "\n"
-"Following the command, you can have several placeholders which will be "
-"replaced with the actual values when the actual program is run:\n"
+"You can have several placeholders which will be replaced with the actual "
+"values when the actual program is run:\n"
 "\n"
 "%f - a single filename\n"
 "%F - a list of files (for apps that can open several files at once)\n"
@@ -8136,51 +8167,29 @@ msgstr ""
 "%m - минииконата\n"
 "%c - насловот"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:108
-#, kde-format
-msgid "Program:"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:137
-#, kde-format
-msgid ""
-"Click here to browse your file system in order to find the desired "
-"executable."
-msgstr ""
-"Кликнете тука за да разгледувате во вашиот датотечен систем за да ја "
-"пронајдете извршната датотека."
-
-#. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:140
-#, kde-format
-msgid "&Browse..."
-msgstr "&Разгледај..."
+#. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
+#: widgets/kpropertiesdesktopbase.ui:142
+#, fuzzy, kde-format
+#| msgid "FIXME: Document this"
+msgid "&Arguments:"
+msgstr "ПОПРАВИМЕ: Документација за ова"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Го поставува работниот именик за вашата апликација."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:152
+#: widgets/kpropertiesdesktopbase.ui:172
 #, kde-format
 msgid "&Work path:"
 msgstr "Ра&ботна патека:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgid "FIXME: Document this"
-msgid "Arguments:"
-msgstr "ПОПРАВИМЕ: Документација за ова"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -8215,25 +8224,25 @@ msgstr ""
 "b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:189
+#: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
 msgstr "&Поддржани типови датотеки:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:220
+#: widgets/kpropertiesdesktopbase.ui:230
 #, kde-format
 msgid "Mimetype"
 msgstr "MIME-тип"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid "Description"
 msgstr "Опис"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -8243,13 +8252,13 @@ msgstr ""
 "може да ракува вашата апликација."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:238
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
 msgstr "Додај..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:245
+#: widgets/kpropertiesdesktopbase.ui:255
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -8260,13 +8269,13 @@ msgstr ""
 "копче."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:248
+#: widgets/kpropertiesdesktopbase.ui:258
 #, kde-format
 msgid "Remove"
 msgstr "Отстрани"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:271
+#: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -8277,7 +8286,7 @@ msgstr ""
 "стартувате апликацијата како друг корисник."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:274
+#: widgets/kpropertiesdesktopbase.ui:284
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "На&предни опции"

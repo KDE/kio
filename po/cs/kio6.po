@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 02:16+0000\n"
+"POT-Creation-Date: 2023-04-27 02:12+0000\n"
 "PO-Revision-Date: 2023-03-02 18:25+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -7657,31 +7657,20 @@ msgstr "Proměnné prostředí:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
-#: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
-#, no-c-format, kde-format
-msgid ""
-"Type the command to start this application here.\n"
-"\n"
-"Following the command, you can have several placeholders which will be "
-"replaced with the actual values when the actual program is run:\n"
-"\n"
-"%f - a single filename\n"
-"%F - a list of files (for apps that can open several files at once)\n"
-"%u - a single URL\n"
-"%U - a list of URLs\n"
-"%i - the icon of the .desktop file\n"
-"%c - the name of the .desktop file\n"
-"%k - the location of the .desktop file"
-msgstr ""
+#: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
+#, fuzzy, kde-format
+#| msgid "Enter the user name you want to run the application as here."
+msgid "Type the command to start this application here."
+msgstr "Zde zadejte jméno uživatele, pod kterým si přejete aplikaci spustit."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: widgets/kpropertiesdesktopbase.ui:108
+#: widgets/kpropertiesdesktopbase.ui:98
 #, kde-format
 msgid "Program:"
 msgstr "Program:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:137
+#: widgets/kpropertiesdesktopbase.ui:117
 #, kde-format
 msgid ""
 "Click here to browse your file system in order to find the desired "
@@ -7691,33 +7680,78 @@ msgstr ""
 "program."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
-#: widgets/kpropertiesdesktopbase.ui:140
+#: widgets/kpropertiesdesktopbase.ui:120
 #, kde-format
 msgid "&Browse..."
 msgstr "&Listovat..."
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
+#: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "Following the command, you can have several place holders which will be "
+#| "replaced with the actual values when the actual program is run:\n"
+#| "%f - a single file name\n"
+#| "%F - a list of files; use for applications that can open several local "
+#| "files at once\n"
+#| "%u - a single URL\n"
+#| "%U - a list of URLs\n"
+#| "%d - the directory of the file to open\n"
+#| "%D - a list of directories\n"
+#| "%i - the icon\n"
+#| "%m - the mini-icon\n"
+#| "%c - the comment"
+msgid ""
+"Type the arguments to use when starting this application here.\n"
+"\n"
+"You can have several placeholders which will be replaced with the actual "
+"values when the actual program is run:\n"
+"\n"
+"%f - a single filename\n"
+"%F - a list of files (for apps that can open several files at once)\n"
+"%u - a single URL\n"
+"%U - a list of URLs\n"
+"%i - the icon of the .desktop file\n"
+"%c - the name of the .desktop file\n"
+"%k - the location of the .desktop file"
+msgstr ""
+"Za příkazem můžete použít několik zástupných znaků, které budou nahrazeny "
+"skutečnými hodnotami při spuštění programu:\n"
+"%f - název souboru\n"
+"%F - seznam souborů; použijte pro aplikace, které umí otevřít několik "
+"lokálních souborů naráz.\n"
+"%u - jedno URL\n"
+"%U - seznam URL\n"
+"%d - složka souboru k otevření\n"
+"%D - seznam složek\n"
+"%i - ikona\n"
+"%m - mini ikona\n"
+"%c - komentář"
+
+#. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
+#: widgets/kpropertiesdesktopbase.ui:142
+#, fuzzy, kde-format
+#| msgid "Arguments:"
+msgid "&Arguments:"
+msgstr "Argumenty:"
+
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
-#: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
+#: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
 msgstr "Nastaví pracovní adresář pro vaši aplikaci."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
-#: widgets/kpropertiesdesktopbase.ui:152
+#: widgets/kpropertiesdesktopbase.ui:172
 #, kde-format
 msgid "&Work path:"
 msgstr "Pra&covní cesta:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/kpropertiesdesktopbase.ui:169
-#, kde-format
-msgid "Arguments:"
-msgstr "Argumenty:"
-
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:186 widgets/kpropertiesdesktopbase.ui:207
+#: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
 #, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
@@ -7748,25 +7782,25 @@ msgstr ""
 "tlačítko <b>Odstranit</b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: widgets/kpropertiesdesktopbase.ui:189
+#: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
 msgstr "Podporované typy &souborů:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:220
+#: widgets/kpropertiesdesktopbase.ui:230
 #, kde-format
 msgid "Mimetype"
 msgstr "Typ MIME"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
-#: widgets/kpropertiesdesktopbase.ui:225
+#: widgets/kpropertiesdesktopbase.ui:235
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:235
+#: widgets/kpropertiesdesktopbase.ui:245
 #, kde-format
 msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
@@ -7776,13 +7810,13 @@ msgstr ""
 "který vaše aplikace umí zpracovat."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:238
+#: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
 msgstr "Přidat..."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:245
+#: widgets/kpropertiesdesktopbase.ui:255
 #, kde-format
 msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
@@ -7792,13 +7826,13 @@ msgstr ""
 "zpracovat, vyberte MIME typ v seznamu výše a klikněte na toto tlačítko."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
-#: widgets/kpropertiesdesktopbase.ui:248
+#: widgets/kpropertiesdesktopbase.ui:258
 #, kde-format
 msgid "Remove"
 msgstr "Odstranit"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:271
+#: widgets/kpropertiesdesktopbase.ui:281
 #, kde-format
 msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
@@ -7808,7 +7842,7 @@ msgstr ""
 "při spuštění, voleb D-Bus nebo spuštění pod jiným uživatelem."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
-#: widgets/kpropertiesdesktopbase.ui:274
+#: widgets/kpropertiesdesktopbase.ui:284
 #, kde-format
 msgid "Ad&vanced Options"
 msgstr "Po&kročilé možnosti"
