@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2023-03-04 00:49+0100\n"
+"PO-Revision-Date: 2023-04-28 00:13+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr ""
 "com>\n"
 "com>\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -7882,11 +7882,9 @@ msgstr "Variables de entorno:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Introduzca el nombre del usuario desde el que desea ejecutar la aplicación."
+msgstr "Introduzca aquí la orden para iniciar esta aplicación."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7913,20 +7911,7 @@ msgstr "E&xaminar..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7941,10 +7926,11 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Introduzca aquí la orden para lanzar esta aplicación.\n"
+"Introduzca aquí los argumentos que se deben usar para iniciar esta "
+"aplicación.\n"
 "\n"
-"Tras la orden puede añadir varios parámetros que se sustituirán por sus "
-"valores reales cuando se ejecute la orden:\n"
+"Puede tener varios parámetros que se sustituirán por sus valores reales "
+"cuando se ejecute la orden:\n"
 "\n"
 "%f - un nombre único de archivo\n"
 "%F - una lista de archivos (para las aplicaciones que pueden abrir varios "
@@ -7957,10 +7943,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumentos:"
+msgstr "&Argumentos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)

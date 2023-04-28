@@ -16,15 +16,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2023-04-24 09:33+0200\n"
+"PO-Revision-Date: 2023-04-27 06:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.2.2\n"
 
@@ -7820,10 +7820,9 @@ msgstr "Spremenljivke okolja:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "Sem vnesite uporabniško ime, s katerim bi radi zagnali ta program."
+msgstr "Sem vnesite ukaz za zagon te aplikacije."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7850,20 +7849,7 @@ msgstr "Pre&brskaj ..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7878,7 +7864,7 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Tukaj vnesite ukaz, s katerim zaženete program.\n"
+"Tukaj vnesite uporabljene argumente ob zagonu aplikacije.\n"
 "\n"
 "Za ukazom imate lahko več vsebnikov, ki bodo zamenjani z dejanskimi "
 "vrednostmi, ko se bo program izvedel:\n"
@@ -7893,10 +7879,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumenti:"
+msgstr "&Argumenti:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)

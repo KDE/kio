@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2023-03-04 17:45+0100\n"
+"PO-Revision-Date: 2023-04-27 14:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7906,11 +7906,9 @@ msgstr "Omgevingsvariabelen:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Voer hier de gebruikersnaam in waaronder u de toepassing wilt uitvoeren."
+msgstr "Typ het commando om hier deze toepassing te starten."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7937,20 +7935,7 @@ msgstr "&Bladeren..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7965,11 +7950,11 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Voer het commando in om de toepassing hier te starten.\n"
+"typ de te gebruiken argumenten hier in om deze toepassing te starten.\n"
 "\n"
-"Na het commando kunt u verschillende plaatshouders hebben die vervangen "
-"zullen worden door de actuele waarden wanneer het actuele programma wordt "
-"uitgevoerd:\n"
+"U kunt verschillende plaatshouders gebruiken die vervangen zullen worden "
+"door de actuele waarden wanneer het actuele programma wordt uitgevoerd:\n"
+"\n"
 "%f - een enkele bestandsnaam\n"
 "%F - een lijst met bestanden; gebruikt voor toepassingen die in een keer "
 "verschillende lokale bestanden kunnen openen\n"
@@ -7981,10 +7966,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumenten:"
+msgstr "&Argumenten:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
