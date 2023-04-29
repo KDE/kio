@@ -373,7 +373,7 @@ void ApplicationLauncherJobTest::showOpenWithDialog()
     if (withHandler) {
         QCOMPARE(openWithHandler->m_urls.count(), 1);
         QCOMPARE(openWithHandler->m_mimeTypes.count(), 1);
-        QCOMPARE(openWithHandler->m_mimeTypes.at(0), QString()); // the job doesn't have the information
+        QCOMPARE(openWithHandler->m_mimeTypes.at(0), QStringLiteral("text/plain")); // the job doesn't have the information
         if (handlerRetVal) {
             QVERIFY2(success, qPrintable(job->errorString()));
             // If the user chose a service, it should be executed (it writes to "dest")

@@ -11,6 +11,7 @@
 #include "jobuidelegatefactory.h"
 #include "kiogui_debug.h"
 #include "kprocessrunner_p.h"
+#include "mimetypefinderjob.h"
 #include "openwithhandlerinterface.h"
 #include "untrustedprogramhandlerinterface.h"
 
@@ -38,6 +39,7 @@ public:
         }
     }
 
+    void showOpenWithDialogForMimeType();
     void showOpenWithDialog();
 
     KService::Ptr m_service;
@@ -45,6 +47,7 @@ public:
     QList<QUrl> m_urls;
     KIO::ApplicationLauncherJob::RunFlags m_runFlags;
     QString m_suggestedFileName;
+    QString m_mimeTypeName;
     QByteArray m_startupId;
     QList<qint64> m_pids;
     QList<QPointer<KProcessRunner>> m_processRunners;
@@ -112,7 +115,7 @@ void KIO::ApplicationLauncherJob::emitUnauthorizedError()
 void KIO::ApplicationLauncherJob::start()
 {
     if (!d->m_service) {
-        d->showOpenWithDialog();
+        d->showOpenWithDialogForMimeType();
         return;
     }
 
@@ -246,6 +249,24 @@ QList<qint64> KIO::ApplicationLauncherJob::pids() const
     return d->m_pids;
 }
 
+void KIO::ApplicationLauncherJobPrivate::showOpenWithDialogForMimeType()
+{
+    if (m_urls.size() == 1) {
+        auto job = new KIO::MimeTypeFinderJob(m_urls[0], q);
+        job->setFollowRedirections(true);
+        job->setSuggestedFileName(m_suggestedFileName);
+        q->connect(job, &KJob::result, q, [this, job]() {
+            if (!job->error()) {
+                m_mimeTypeName = job->mimeType();
+            }
+            showOpenWithDialog();
+        });
+        job->start();
+    } else {
+        showOpenWithDialog();
+    }
+}
+
 void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
@@ -278,5 +299,5 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
         q->emitResult();
     });
 
-    openWithHandler->promptUserForApplication(q, m_urls, QString() /* MIME type name unknown */);
+    openWithHandler->promptUserForApplication(q, m_urls, m_mimeTypeName);
 }
