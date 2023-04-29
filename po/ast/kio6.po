@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kio package.
 #
-# enolp <enolp@softastur.org>, 2022.
+# enolp <enolp@softastur.org>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2022-12-05 23:18+0100\n"
+"PO-Revision-Date: 2023-04-28 22:17+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3722,11 +3722,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #. i18n: ectx: property (text), widget (QPushButton, deleteButton)
 #: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Deleting"
+#, kde-format
 msgid "D&elete"
-msgstr "Desaniciu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
 #. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
@@ -3759,28 +3757,28 @@ msgstr ""
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:251
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #. i18n: ectx: property (text), widget (QLabel, valueLabel)
 #: kcms/cookies/kcookiesmanagement.ui:129
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:259
 #, kde-format
 msgid "Value:"
-msgstr ""
+msgstr "Valor:"
 
 #. i18n: ectx: property (text), widget (QLabel, domainLabel)
 #: kcms/cookies/kcookiesmanagement.ui:152
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:280
 #, kde-format
 msgid "Domain:"
-msgstr ""
+msgstr "Dominiu:"
 
 #. i18n: ectx: property (text), widget (QLabel, patchLabel)
 #: kcms/cookies/kcookiesmanagement.ui:175
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:273
 #, kde-format
 msgid "Path:"
-msgstr ""
+msgstr "Camín:"
 
 #. i18n: ectx: property (text), widget (QLabel, expiresLabel)
 #: kcms/cookies/kcookiesmanagement.ui:198
@@ -3956,10 +3954,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:126
-#, fuzzy, kde-format
-#| msgid "Policy"
+#, kde-format
 msgid "Site Policy"
-msgstr "Política"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:135
@@ -4048,10 +4045,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, fuzzy, kde-format
-#| msgid "Site:"
+#, kde-format
 msgid "Site name:"
-msgstr "Sitiu:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:38
@@ -5894,10 +5890,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, fuzzy, kde-format
-#| msgid "&Shortcuts:"
+#, kde-format
 msgid "Shortcut &name:"
-msgstr "&Atayos:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
@@ -5924,10 +5919,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbQuery)
 #: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, fuzzy, kde-format
-#| msgid "&Shortcuts:"
+#, kde-format
 msgid "Shortcut &URL:"
-msgstr "&Atayos:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
@@ -6030,10 +6024,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
 #: widgets/certificateparty.ui:68
-#, fuzzy, kde-format
-#| msgid "Organization:"
+#, kde-format
 msgid "Organizational unit:"
-msgstr "Organización:"
+msgstr "Unidá organizativa:"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
 #: widgets/certificateparty.ui:78
@@ -6134,11 +6127,9 @@ msgstr "SHA512:"
 #: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
 #: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
 #: widgets/kfilepropspluginwidget.ui:27
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgid "Calculate"
-msgstr "Calculando…"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
@@ -6644,11 +6635,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
 #: widgets/kfilepropspluginwidget.ui:242
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Type"
+#, kde-format
 msgid "Type:"
-msgstr "Tipu"
+msgstr "Tipu:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:265 widgets/kurlrequesterdialog.cpp:44
@@ -6700,11 +6689,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:452
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Mounting"
+#, kde-format
 msgid "Mounted On:"
-msgstr "Montaxe"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:472
@@ -6876,13 +6863,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:54
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title:group Title of a group that lets the user choose options about the "
-#| "terminal when launching a program"
-#| msgid "Terminal"
+#, kde-format
 msgid "Run in terminal"
-msgstr "Terminal"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:61
@@ -7074,10 +7057,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumentos:"
+msgstr "&Argumentos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7115,10 +7097,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:199
-#, fuzzy, kde-format
-#| msgid "All Supported Files"
+#, kde-format
 msgid "&Supported file types:"
-msgstr "Tolos ficheros compatibles"
+msgstr "Tipos de ficheru &compatibles:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:230
