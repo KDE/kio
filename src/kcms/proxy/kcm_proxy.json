@@ -31,6 +31,7 @@
         "Icon": "preferences-system-network-proxy",
         "Name": "Proxy",
         "Name[ar]": "الوسيط",
+        "Name[ast]": "Proxy",
         "Name[bg]": "Прокси",
         "Name[ca@valencia]": "Servidor intermediari",
         "Name[ca]": "Servidor intermediari",
