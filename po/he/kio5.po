@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:45+0000\n"
+"POT-Creation-Date: 2023-04-30 00:44+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3897,19 +3897,19 @@ msgstr "לחץ כדי לנווט בין מיקומים"
 msgid "Click to Edit Location"
 msgstr "לחץ כדי לערוך את המיקום"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "אינך מורשה להפעיל קובץ זה."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "מפעיל את %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, fuzzy, kde-format
 #| msgid "Unable to make the service %1 executable, aborting execution"
 msgid ""
@@ -3917,13 +3917,13 @@ msgid ""
 "%2."
 msgstr "אין אפשרות לגרום לשירות %1 להפוך לבר הרצה, מבטל את ההפעלה"
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "אינך מורשה לבחור תוכנית לפתיחת קובץ זה."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

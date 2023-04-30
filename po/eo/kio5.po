@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:45+0000\n"
+"POT-Creation-Date: 2023-04-30 00:44+0000\n"
 "PO-Revision-Date: 2023-04-17 06:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3902,18 +3902,18 @@ msgstr "Klaku por Loka Navigado"
 msgid "Click to Edit Location"
 msgstr "Klaku por Redakti Lokon"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vi ne rajtas ekzekuti ĉi tiun dosieron."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Lanĉante %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3922,13 +3922,13 @@ msgstr ""
 "Ne eblas fari la servon %1 plenumebla, ĉesigante la ekzekuton.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Vi ne rajtas elekti aplikaĵon por malfermi ĉi tiun dosieron."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:45+0000\n"
+"POT-Creation-Date: 2023-04-30 00:44+0000\n"
 "PO-Revision-Date: 2023-03-01 02:06+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3809,18 +3809,18 @@ msgstr "위치를 탐색하려면 클릭하십시오"
 msgid "Click to Edit Location"
 msgstr "주소를 편집하려면 클릭하십시오"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "이 파일을 실행할 권한이 없습니다."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 실행 중"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3829,13 +3829,13 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 프로그램을 선택할 권한이 없습니다."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 00:46+0000\n"
+"POT-Creation-Date: 2023-04-26 00:45+0000\n"
 "PO-Revision-Date: 2023-03-04 16:58+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2680,7 +2680,7 @@ msgstr "Ny mappe …"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:293
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Flytt til papirkorga"
@@ -2861,16 +2861,16 @@ msgstr "Minste først"
 msgid "Encoding:"
 msgstr "Koding:"
 
-#: filewidgets/kencodingfiledialog.cpp:121
-#: filewidgets/kencodingfiledialog.cpp:135
-#: filewidgets/kencodingfiledialog.cpp:148
-#: filewidgets/kencodingfiledialog.cpp:162 widgets/kurlrequesterdialog.cpp:105
+#: filewidgets/kencodingfiledialog.cpp:125
+#: filewidgets/kencodingfiledialog.cpp:139
+#: filewidgets/kencodingfiledialog.cpp:152
+#: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: filewidgets/kencodingfiledialog.cpp:176
-#: filewidgets/kencodingfiledialog.cpp:194
+#: filewidgets/kencodingfiledialog.cpp:180
+#: filewidgets/kencodingfiledialog.cpp:198
 #, kde-format
 msgid "Save As"
 msgstr "Lagra som"
@@ -7154,14 +7154,14 @@ msgstr ""
 "<emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:206
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Slett for alltid"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:249
-#: widgets/widgetsaskuseractionhandler.cpp:271
+#: widgets/widgetsaskuseractionhandler.cpp:241
+#: widgets/widgetsaskuseractionhandler.cpp:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7185,7 +7185,7 @@ msgstr[1] ""
 "<nl/>\n"
 "<emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7195,13 +7195,13 @@ msgstr ""
 "Vil du sletta alle elementa i papirkorga for alltid?<nl/><nl/><emphasis "
 "strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:280
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Tøm papirkorga"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:286
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7218,12 +7218,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Er du sikker på at du vil flytta dette elementet til papirkorga?"
 msgstr[1] "Er du sikker på at du vil flytta desse %1 elementa til papirkorga?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:587
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Peer-SSL-sertifikatkjeda ser ut til å vera øydelagt."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:590
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8715,7 +8715,7 @@ msgstr "Vel ein eller fleire filtypar å leggja til:"
 msgid "Only executables on local file systems are supported."
 msgstr "Berre køyrbare filer på lokale filsystem er støtta."
 
-#: widgets/kpropertiesdialog.cpp:3609
+#: widgets/kpropertiesdialog.cpp:3608
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avanserte val for %1"
@@ -9262,7 +9262,7 @@ msgstr ""
 "Tenaren sende ikkje nokon SSL-sertifikat.\n"
 "Avbryt, då identiteten til verten ikkje kan fastsetjast."
 
-#: widgets/widgetsaskuseractionhandler.cpp:237
+#: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9274,7 +9274,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne "
 "handlinga.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:243
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9290,7 +9290,7 @@ msgstr[1] ""
 "Vil du sletta desse %1 elementa for alltid?<nl/><nl/><emphasis "
 "strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:256
+#: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9302,7 +9302,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne "
 "handlinga.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9322,7 +9322,7 @@ msgstr[1] ""
 "dei for alltid?<nl/>\n"
 "<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:291
+#: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9330,19 +9330,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Er du sikker på at du vil flytta elementet til papirkorga?"
 msgstr[1] "Er du sikker på at du vil flytta desse %1 elementa til papirkorga?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:347
+#: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ikkje spør igjen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:439
+#: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ikkje spør igjen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:468
+#: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

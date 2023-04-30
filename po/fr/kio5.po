@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:45+0000\n"
+"POT-Creation-Date: 2023-04-30 00:44+0000\n"
 "PO-Revision-Date: 2023-02-06 18:28+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -4012,18 +4012,18 @@ msgstr "Cliquez pour une navigation par emplacement"
 msgid "Click to Edit Location"
 msgstr "Cliquez pour modifier l'emplacement"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vous n'avez pas l'autorisation d'exécuter ce fichier."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Lancement de %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -4032,7 +4032,7 @@ msgstr ""
 "Impossible de rendre le service %1 exécutable. L'exécution est abandonnée.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
@@ -4040,7 +4040,7 @@ msgstr ""
 "Vous n'avez pas l'autorisation de choisir une application pour ouvrir ce "
 "fichier."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

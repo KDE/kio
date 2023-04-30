@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:45+0000\n"
+"POT-Creation-Date: 2023-04-30 00:44+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3793,18 +3793,18 @@ msgstr "တည်နေရာလမ်းညွှန်စနစ်အတွက
 msgid "Click to Edit Location"
 msgstr "တည်နေရာတည်းဖြတ်ရန် နှိပ်ပါ"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ဤဖိုင်လ်ကို ဆောင်ရွက်ရန် သင့်ကို ခွင့်ပြုထားခြင်းမရှိ။"
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 စတင်နေသည်"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3813,13 +3813,13 @@ msgstr ""
 "ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #: widgets/krun.cpp:196
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ဤဖိုင်လ်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
