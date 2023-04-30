@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2023-04-10 10:55+0200\n"
+"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"PO-Revision-Date: 2023-04-29 10:34+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -3864,18 +3864,18 @@ msgstr "Naciśnij, aby przejść do miejsca"
 msgid "Click to Edit Location"
 msgstr "Naciśnij, aby zmienić miejsce"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nie masz uprawnień do wykonania tego pliku."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Uruchamianie %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3885,12 +3885,12 @@ msgstr ""
 "wykonywania.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nie masz uprawnień do wyboru aplikacji do otworzenia tego pliku."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -7766,11 +7766,9 @@ msgstr "Zmienne środowiskowe:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Wpisz nazwę użytkownika, z którego uprawnieniami chcesz uruchomić program."
+msgstr "Wpisz polecenie, aby uruchomić ten program tutaj."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7796,20 +7794,7 @@ msgstr "&Przeglądaj..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7824,10 +7809,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Tutaj wpisz polecenie, aby uruchomić tę aplikację.\n"
+"Tutaj wpisz argumenty do uruchomienia tej aplikacji.\n"
 "\n"
-"Po poleceniu możesz umieścić kilka pól zastępczych, które zostaną zastąpione "
-"na właściwe wartości w czasie uruchomienia programu:\n"
+"Możesz umieścić kilka pól zastępczych, które zostaną zastąpione na właściwe "
+"wartości w czasie uruchomienia programu:\n"
 "%f - nazwa pojedynczego pliku\n"
 "%F - lista plików, użyj dla programów, które mogą otworzyć kilka plików na "
 "raz\n"
@@ -7839,10 +7824,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumenty:"
+msgstr "&Argumenty:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)

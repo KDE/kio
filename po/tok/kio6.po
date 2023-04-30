@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 02:12+0000\n"
+"POT-Creation-Date: 2023-04-30 03:35+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -3664,18 +3664,18 @@ msgstr "sina wile tawa la o pilin e ni"
 msgid "Click to Edit Location"
 msgstr "o pilin tawa ante ma"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "sina ken ala kepeken e lipu ni sama ilo."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "mi open e ilo %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3684,12 +3684,12 @@ msgstr ""
 "mi ken ala kepeken e %1 sama ilo, mi pini a!\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "sina jo ala e ken ni: sina ken ala toki e ilo tawa open lipu."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 02:12+0000\n"
+"POT-Creation-Date: 2023-04-30 03:35+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3903,18 +3903,18 @@ msgstr "Націсніце, каб перайсці да размяшчэння"
 msgid "Click to Edit Location"
 msgstr "Націсніце, каб рэдагаваць размяшчэнне"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Вы не аўтарызаваныя для выканання гэтага файла."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Запуск %1"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3923,13 +3923,13 @@ msgstr ""
 "Не ўдалося зрабіць службу %1 выканальнай, скасаванне выканання.\n"
 " %2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
 "Вы не аўтарызаваныя для таго, каб абраць праграму для адкрыцця гэтага файла."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 02:12+0000\n"
-"PO-Revision-Date: 2023-03-24 19:37+0100\n"
+"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"PO-Revision-Date: 2023-04-29 12:17+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 22.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3969,18 +3969,18 @@ msgstr "Klicken Sie hier, um zur Verknüpfungsansicht zu wechseln"
 msgid "Click to Edit Location"
 msgstr "Klicken Sie hier, um die Adresse zu bearbeiten"
 
-#: gui/applicationlauncherjob.cpp:108 gui/kprocessrunner.cpp:232
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:232
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Sie haben keine Berechtigung zum Ausführen der Datei."
 
-#: gui/applicationlauncherjob.cpp:119 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 wird gestartet"
 
-#: gui/applicationlauncherjob.cpp:156
+#: gui/applicationlauncherjob.cpp:159
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3989,13 +3989,13 @@ msgstr ""
 "Der Dienst %1 kann nicht ausführbar gemacht werden, Ausführung abgebrochen.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:253 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
 "Sie haben keine Berechtigung eine Anwendung zum Öffnen der Datei auszuwählen."
 
-#: gui/applicationlauncherjob.cpp:261
+#: gui/applicationlauncherjob.cpp:282
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -7965,20 +7965,7 @@ msgstr "&Auswählen ..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7993,10 +7980,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Geben Sie hier den Befehl zum Start des Programms ein.\n"
+"Geben Sie hier die Argumente zum Start des Programms ein.\n"
 "\n"
-"Nach dem Befehl können Sie mehrere Platzhalter verwenden, die beim "
-"Programmstart durch festgelegte Werte ersetzt werden:\n"
+"Sie können mehrere Platzhalter verwenden, die beim Programmstart durch "
+"festgelegte Werte ersetzt werden:\n"
 "%f – einzelner Dateiname\n"
 "%F – Liste von Dateinamen für Programme, die mehrere auf einmal können\n"
 "%u – einzelne Adresse (URL)\n"
@@ -8007,10 +7994,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumente:"
+msgstr "&Argumente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
