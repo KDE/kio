@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-03-26 12:39+0530\n"
+"PO-Revision-Date: 2023-04-30 21:43+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.80\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7686,10 +7686,9 @@ msgstr "சூழல் மாறிகள்:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "செயலியை எந்த பயனரின் பெயரில் இயக்க வேண்டுமோ, அந்த பெயரை இங்கு உள்ளிடவும்."
+msgstr "இந்நிரலைத் துவக்க பயன்படும் கட்டளையை இங்கு உள்ளிடுங்கள்."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7716,20 +7715,7 @@ msgstr "&உலாவு..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7744,9 +7730,9 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"செயலியை துவக்க பயன்படுத்த வேண்டிய கட்டளையை இங்கு உள்ளிடுங்கள்.\n"
-"கட்டளைக்கு பின், நீங்கள் பல கொள்ளிடங்களை பயன்படுத்தலாம். செயலி துவக்கப்படும்போது, இந்த "
-"கொள்ளிடங்களில் கீழ்கண்டவாறு உண்மையான மதிப்புகள் இடப்படும்:\n"
+"செயலியை துவக்க பயன்படுத்த வேண்டிய தருமதிப்புகளை இங்கு உள்ளிடுங்கள்.\n"
+"பல கொள்ளிடங்களை நீங்கள் பயன்படுத்தலாம். செயலி துவக்கப்படும்போது, இந்த கொள்ளிடங்களில் "
+"கீழ்கண்டவாறு உண்மையான மதிப்புகள் இடப்படும்:\n"
 "\n"
 "%f - ஒரு கோப்பின் பெயர்\n"
 "%F - கோப்புகளின் பட்டியல் (ஒரே நேரத்தில் பல கோப்புகளை திறக்கக் கூடிய செயலிகளுக்கு)\n"
@@ -7758,10 +7744,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "தருமதிப்புகள்:"
+msgstr "&தருமதிப்புகள்:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
