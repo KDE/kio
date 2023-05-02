@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-04-26 19:57+0100\n"
+"PO-Revision-Date: 2023-05-01 05:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -778,7 +778,7 @@ msgstr "%1 estas postulata de la servilo, sed ne disponeblas."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "Aliro al limigita haveno en POST neita."
+msgstr "Aliro al limigita pordo en POST neita."
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -1650,10 +1650,9 @@ msgid ""
 "removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
-"La aparato eble ne estas preta, ekzemple eble ne ekzistas amaskomunikilaro "
-"en forprenebla amaskomunikilaro (t.e. neniu KD-ROM en KD-aparato), aŭ en la "
-"kazo de ekstercentra/portebla aparato, la aparato eble ne estas ĝuste "
-"konektita."
+"La aparato eble ne estas preta, ekzemple eble ne ekzistas datumportanto en "
+"forprenebla datumportilo (t.e. neniu KD-ROM en KD-aparato), aŭ en la kazo de "
+"ekstercentra/portebla aparato, la aparato eble ne estas ĝuste konektita."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1673,8 +1672,8 @@ msgid ""
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
 "Kontrolu, ke la aparato estas preta; forpreneblaj diskoj devas enhavi "
-"amaskomunikilaron, kaj porteblaj aparatoj devas esti konektitaj kaj "
-"ŝaltitaj.; kaj provu denove."
+"datumportanton, kaj porteblaj aparatoj devas esti konektitaj kaj ŝaltitaj.; "
+"kaj provu denove."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -2251,8 +2250,8 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Liberigu sufiĉe da diskospaco per 1) forigo de nedezirataj kaj provizoraj "
-"dosieroj; 2) arkivado de dosieroj al forpreneblaj amaskomunikiloj kiel "
-"ekzemple KD-Registreblaj diskoj; aŭ 3) akiri pli da stoka kapacito."
+"dosieroj; 2) arkivado de dosieroj al forpreneblaj datumportiloj kiel "
+"ekzemple KD-Registreblaj diskoj; aŭ 3) akiri pli da konserveja kapacito."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -5059,7 +5058,7 @@ msgstr "Enigu la adreson de la HTTP prokura servilo."
 #: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
 #, kde-format
 msgid "Port:"
-msgstr "Haveno:"
+msgstr "Pordo:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
 #: kcms/proxy/kproxydlg.ui:421
@@ -5107,7 +5106,7 @@ msgstr "Enigu la adreson de la prokurilo SOCKS."
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Enigu la havenan numeron de la SOCKS-prokura servilo."
+msgstr "Enigu la pordan numeron de la SOCKS-prokura servilo."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:628
@@ -5430,7 +5429,7 @@ msgstr "Ne povas kopii dosieron de %1 al %2. (Eraro: %3)"
 #: kioworkers/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
-msgstr "Neniu amaskomunikilaro en aparato por %1"
+msgstr "Neniu datumportanto en aparato por %1"
 
 #: kioworkers/file/file_unix.cpp:1372
 #, kde-format
@@ -5589,13 +5588,13 @@ msgstr "Alie, la peto estus sukcesinta."
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
-msgstr "retrovi posedaĵvalorojn"
+msgstr "retrovi proprecvalorojn"
 
 #: kioworkers/http/http.cpp:1549
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
-msgstr "agordi posedaĵvalorojn"
+msgstr "agordi proprecvalorojn"
 
 #: kioworkers/http/http.cpp:1552
 #, kde-format
@@ -5701,7 +5700,7 @@ msgid ""
 " %1"
 msgstr ""
 "La servilo ne povis konservi la vivecon de la\n"
-"propraĵoj listigitaj en la posedaĵkonduto XML-elemento\n"
+"propraĵoj listigitaj en la propreckonduto XML-elemento\n"
 "ek vi provis anstataŭigi dosieron petante\n"
 "ke dosieroj ne estu anstataŭitaj.\n"
 " %1"
@@ -5948,7 +5947,7 @@ msgid ""
 "manually change it from the System Settings."
 msgstr ""
 "Elektu ĉi tiun opcion por akcepti/malakcepti ĉiujn kuketojn de ie ajn. "
-"Elektante ĉi tiun opcion ŝanĝos la tutmondan politikon pri kuketoj por ĉiuj "
+"Elektante ĉi tiun opcion ŝanĝos la ĉiean politikon pri kuketoj por ĉiuj "
 "kuketoj ĝis vi mane ŝanĝos ĝin de la Sistema Agordoj."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:246
@@ -6594,10 +6593,10 @@ msgstr ""
 "tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/>\n"
 "Rekomendita estas \\{@}, ĉar ĝi forigas ĉiujn demandvariablojn (nomo=valoro) "
 "el la rezulta ĉeno, dum \\{0} estos anstataŭigita per la nemodifita "
-"demandŝnuro.<br/>Vi povas uzi \\ {1} ... \\{n} por specifi iujn vortojn el "
-"la konsulto kaj \\{nomo} por specifi valoron donitan de 'nomo=valoro' en la "
+"demandŝnuro.<br/>Vi povas uzi \\{1} ... \\{n} por specifi iujn vortojn el la "
+"konsulto kaj \\{nomo} por specifi valoron donitan de 'nomo=valoro' en la "
 "uzanta demando.<br/>Krome eblas specifu plurajn referencojn (nomoj, nombroj "
-"kaj ĉenoj) samtempe (\\{nomo1,nomo2,...,\"ŝnuro\"}).<br/>La unua kongrua "
+"kaj ĉenoj) samtempe (\\{nomo1,nomo2,...,\"ĉeno\"}).<br/>La unua kongrua "
 "valoro (de maldekstre) estos uzata kiel la anstataŭiga valoro por la rezulta "
 "URI.<br/>Cita ĉeno povas esti uzata kiel defaŭlta valoro se nenio kongruas "
 "de la maldekstro de la referenclisto.\n"
@@ -7773,10 +7772,9 @@ msgstr "Mediaj Variaĵoj:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "Enigu la uzantnomon, kiun vi volas ruli la aplikaĵon kiel ĉi tie."
+msgstr "Enigu la komandon por lanĉi la aplikaĵon kiel ĉi tie."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7803,20 +7801,7 @@ msgstr "&Trarigardi..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7831,11 +7816,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Tajpu la komandon por lanĉi ĉi tiun aplikaĵon ĉi tie.\n"
+"Tajpu la argumentojn uzendajn je lanĉo de ĉi aplikaĵo ĉi tie.\n"
 "\n"
-"Sekvante la komandon, vi povas havi plurajn anstataŭaĵojn kiuj estos "
-"anstataŭigitaj per la realaj valoroj kiam la efektiva programo estas "
-"rulita:\n"
+"Vi povas havi plurajn lokokupilojn kiuj estos anstataŭigataj per la realaj "
+"valoroj kiam la efektiva programo estas rulita:\n"
 "\n"
 "%f - ununura dosiernomo\n"
 "%F - listo de dosieroj (por aplikaĵoj kiuj povas malfermi plurajn dosierojn "
@@ -7848,10 +7832,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumentoj:"
+msgstr "&Argumentoj:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
