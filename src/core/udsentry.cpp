@@ -135,7 +135,7 @@ void UDSEntryPrivate::replace(uint udsField, const QString &value)
         it->m_str = value;
         return;
     }
-    stringStorage.emplace_back(udsField, value);
+    stringStorage.emplace(it, udsField, value);
 }
 
 void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs)
@@ -168,7 +168,7 @@ void UDSEntryPrivate::replace(uint udsField, long long value)
         it->m_long = value;
         return;
     }
-    numberStorage.emplace_back(udsField, value);
+    numberStorage.emplace(it, udsField, value);
 }
 
 int UDSEntryPrivate::count() const

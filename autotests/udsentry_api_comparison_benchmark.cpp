@@ -469,16 +469,6 @@ private:
     std::vector<Field> storage;
     std::vector<NumberField> numberStorage;
 
-private:
-    static inline bool less(const Field &other, const uint index)
-    {
-        return other.m_index < index;
-    }
-    static inline bool less_number(const NumberField &other, const uint index)
-    {
-        return other.m_index < index;
-    }
-
 public:
     void reserve(int size)
     {
@@ -511,7 +501,7 @@ public:
             it->m_str = value;
             return;
         }
-        storage.emplace_back(udsField, value);
+        storage.emplace(it, udsField, value);
     }
     QString stringValue(uint udsField) const
     {
@@ -519,7 +509,7 @@ public:
         auto it = std::find_if(storage.cbegin(), storage.cend(), [udsField](const Field &field) {
             return field.m_index == udsField;
         });
-        if (it != storage.end() && it->m_index == udsField) {
+        if (it != storage.end()) {
             return it->m_str;
         }
         return QString();
@@ -540,11 +530,11 @@ public:
         auto it = std::find_if(numberStorage.begin(), numberStorage.end(), [udsField](const NumberField &field) {
             return field.m_index == udsField;
         });
-        if (it != numberStorage.end() && it->m_index == udsField) {
+        if (it != numberStorage.end()) {
             it->m_long = value;
             return;
         }
-        numberStorage.emplace_back(udsField, value);
+        numberStorage.emplace(it, udsField, value);
     }
     long long numberValue(uint udsField, long long defaultValue = -1) const
     {
