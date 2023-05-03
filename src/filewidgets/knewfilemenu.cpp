@@ -1598,10 +1598,8 @@ void KNewFileMenu::slotResult(KJob *job)
                 }
                 Q_EMIT fileCreated(destUrl);
             } else if (KIO::SimpleJob *simpleJob = ::qobject_cast<KIO::SimpleJob *>(job)) {
-#ifdef QT_DBUS_LIB
                 // Called in the storedPut() case
                 org::kde::KDirNotify::emitFilesAdded(simpleJob->url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
-#endif
                 Q_EMIT fileCreated(simpleJob->url());
             }
         }

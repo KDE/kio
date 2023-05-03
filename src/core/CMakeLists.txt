@@ -99,7 +99,7 @@ target_sources(KF5KIOCore PRIVATE
   kfilefilter.cpp
 )
 
-if (NOT ANDROID AND NOT WIN32)
+if (NOT ANDROID)
 target_sources(KF5KIOCore PRIVATE
   tcpslavebase.cpp
   tcpworkerbase.cpp

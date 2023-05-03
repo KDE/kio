@@ -45,7 +45,10 @@ target_sources(KF5KIOWidgets PRIVATE
   kurifilter.cpp
   previewjob.cpp
   renamedialog.cpp
+  ksslcertificatebox.cpp
+  ksslinfodialog.cpp
   skipdialog.cpp
+  jobuidelegate.cpp
   kdirlister.cpp
   executablefileopendialog.cpp
   dndpopupmenuplugin.cpp
@@ -53,42 +56,33 @@ target_sources(KF5KIOWidgets PRIVATE
   widgetsuntrustedprogramhandler.cpp
   widgetsopenwithhandler.cpp
   widgetsopenorexecutefilehandler.cpp
-)
-
-if (NOT WIN32)
-target_sources(KF5KIOWidgets PRIVATE
-  ksslcertificatebox.cpp
-  ksslinfodialog.cpp
   widgetsaskuseractionhandler.cpp
-  jobuidelegate.cpp
 )
-endif()
 
 if(NOT ANDROID)
 target_sources(KF5KIOWidgets PRIVATE
   ${kiowidgets_dbus_SRCS}
-)
-endif()
-
-if (NOT ANDROID AND NOT WIN32)
-    target_sources(KF5KIOWidgets PRIVATE
-  kdirmodel.cpp
-  renamefiledialog.cpp
+  accessmanager.cpp
+  accessmanagerreply_p.cpp
   deleteortrashjob.cpp
+  fileundomanager.cpp
+  kpropertiesdialog.cpp
   delegateanimationhandler.cpp
   kfileitemdelegate.cpp
   paste.cpp
-  joburlcache.cpp
-    openfilemanagerwindowjob.cpp
-  fileundomanager.cpp
-  kpropertiesdialog.cpp
   kbuildsycocaprogressdialog.cpp
-  accessmanager.cpp
-  accessmanagerreply_p.cpp
-        kdynamicjobtracker.cpp
   sslui.cpp
   dropjob.cpp
+  openfilemanagerwindowjob.cpp
   pastejob.cpp
+  joburlcache.cpp
+  kdirmodel.cpp
+  renamefiledialog.cpp
+)
+endif()
+if (NOT ANDROID)
+    target_sources(KF5KIOWidgets PRIVATE
+        kdynamicjobtracker.cpp
     )
 endif()
 if (NOT WIN32 AND NOT ANDROID)

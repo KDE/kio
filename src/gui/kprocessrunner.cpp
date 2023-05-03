@@ -22,7 +22,7 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
-#ifdef QT_DBUS_LIB
+#ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
@@ -108,7 +108,7 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     qCDebug(KIO_GUI) << "Starting process:" << args;
     *instance->m_process << args;
 
-#ifdef QT_DBUS_LIB
+#ifndef Q_OS_ANDROID
     enum DiscreteGpuCheck { NotChecked, Present, Absent };
     static DiscreteGpuCheck s_gpuCheck = NotChecked;
 
