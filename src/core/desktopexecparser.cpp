@@ -8,7 +8,7 @@
 */
 
 #include "desktopexecparser.h"
-#ifndef Q_OS_ANDROID
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_WIN)
 #include "kiofuse_interface.h"
 #endif
 
@@ -22,7 +22,7 @@
 #include <KShell>
 #include <kprotocolinfo.h> // KF6 TODO remove after moving hasSchemeHandler to OpenUrlJob
 
-#ifndef Q_OS_ANDROID
+#ifdef QT_DBUS_LIB
 #include <QDBusConnection>
 #include <QDBusReply>
 #endif
@@ -404,7 +404,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
-#ifndef Q_OS_ANDROID
+#ifdef QT_DBUS_LIB
     org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
     struct MountRequest {
         QDBusPendingReply<QString> reply;

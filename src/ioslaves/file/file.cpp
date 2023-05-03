@@ -707,7 +707,9 @@ void FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _flags)
                 return;
             }
         }
+#ifdef QT_DBUS_LIB
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
+#endif
     }
 
     // set final permissions

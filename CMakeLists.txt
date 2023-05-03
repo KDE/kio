@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.106.0") # handled by release scripts
-set(KF_DEP_VERSION "5.105.0") # handled by release scripts
+set(KF_VERSION "5.104.0") # handled by release scripts
+set(KF_DEP_VERSION "5.104.0") # handled by release scripts
 
 project(KIO VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.105.0 NO_MODULE)
+find_package(ECM 5.104.0 NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -67,8 +67,11 @@ find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF_DEP_VERSION})
 find_package(KF5Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
+
 if (NOT ANDROID)
     find_package(KF5Crash ${KF_DEP_VERSION} REQUIRED)
+endif()
+if (NOT ANDROID AND NOT WIN32)
     find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
 
@@ -102,7 +105,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION "Provides tools to gen
 
 set(REQUIRED_QT_VERSION 5.15.2)
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets Network Concurrent Xml Test)
-if (NOT ANDROID)
+if (NOT ANDROID AND NOT WIN32)
     find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus)
 endif()
 
@@ -145,7 +148,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     set(HAVE_LIB_MOUNT ${LibMount_FOUND})
 endif()
 
-if (ANDROID)
+if (ANDROID OR WIN32)
     # used to mark code that is just stubbed out on Android for now
     # and that would still need a decision on how to deal with that
     add_definitions(-DKIO_ANDROID_STUB)

@@ -92,9 +92,11 @@
 #include <QCheckBox>
 #include <QClipboard>
 #include <QComboBox>
+#ifdef QT_DBUS_LIB
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#endif
 #include <QDebug>
 #include <QDialogButtonBox>
 #include <QDir>
@@ -1698,7 +1700,9 @@ void KFilePropsPlugin::postApplyChanges()
 
     const KFileItemList items = properties->items();
     const QList<QUrl> lst = items.urlList();
+#ifdef QT_DBUS_LIB
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>(lst));
+#endif
 }
 
 class KFilePermissionsPropsPlugin::KFilePermissionsPropsPluginPrivate
@@ -3319,6 +3323,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     if (s_gpuCheck == NotChecked) {
         // Check whether we have a discrete gpu
         bool hasDiscreteGpu = false;
+#ifdef QT_DBUS_LIB
         QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
                              QStringLiteral("/org/kde/Solid/PowerManagement"),
                              QStringLiteral("org.kde.Solid.PowerManagement"),
@@ -3329,6 +3334,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
                 hasDiscreteGpu = reply.value();
             }
         }
+#endif
 
         s_gpuCheck = hasDiscreteGpu ? Present : Absent;
     }
