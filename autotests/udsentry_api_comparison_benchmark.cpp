@@ -571,7 +571,7 @@ static void fillUDSEntries(T &entry, time_t now_time_t, const QString &nameStr, 
     entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, now_time_t);
     entry.insert(KIO::UDSEntry::UDS_SIZE, 123456ULL);
     entry.insert(KIO::UDSEntry::UDS_NAME, nameStr);
-    entry.insert(KIO::UDSEntry::UDS_GROUP, nameStr);
+    entry.insert(KIO::UDSEntry::UDS_GROUP, groupStr);
     entry.insert(KIO::UDSEntry::UDS_USER, nameStr);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, 0644);
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
