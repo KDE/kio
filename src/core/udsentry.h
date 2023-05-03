@@ -149,10 +149,16 @@ public:
      * @since 6.0
      */
     void reserveStrings(int size);
+    /// @see reserveStrings
     void reserveNumbers(int size);
 
     /**
      * Pre-allocate `fields` fields in the backend storage according to their UDS_TYPE
+     *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.reserve({UDS_SIZE, UDS_ACCESS, UDS_MODIFICATION_TIME, UDS_NAME});
      *
      * @param fields
      * @since 6.0
@@ -164,20 +170,30 @@ public:
      *
      * This will first pre-allocates the necessary memory in the underlying storage vector.
      *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.insert({{UDS_SIZE, 0}, {UDS_ACCESS, 0}});
+     *
      * @param fields
      * @since 6.0
      */
-    void insert(std::initializer_list<std::pair<uint, const QString &>> fields);
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs);
 
     /**
      * Insert the values passed as pairs {field, value} in a initializer_list
      *
      * This will first pre-allocates the necessary memory in the underlying storage vector.
      *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.insert({{UDS_NAME, ""}, {UDS_USER, ""}});
+     *
      * @param fields
      * @since 6.0
      */
-    void insert(std::initializer_list<std::pair<uint, long long>> fields);
+    void insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs);
 
     /**
      * Insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
@@ -196,11 +212,32 @@ public:
     void fastInsert(uint field, long long l);
 
     /**
-     * count fields
-     * @return the number of fields
+     * Replace or insert field with string value
+     * @param field numeric field id
+     * @param value to set
+     * @since 5.47
+     */
+    void replace(uint field, const QString &value);
+
+    /**
+     * Replace or insert field with numeric value
+     * @param field numeric field id
+     * @param l value to set
+     * @since 5.47
+     */
+    void replace(uint field, long long l);
+
+    /**
+     * The number of fields
      */
     int count() const;
+    /**
+     * The number of string fields
+     */
     int numbersCount() const;
+    /**
+     * The number of number fields (include time fields)
+     */
     int stringsCount() const;
 
     /**
@@ -368,23 +405,6 @@ private:
     friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream &s, const KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream &s, KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
-
-public:
-    /**
-     * Replace or insert field with string value
-     * @param field numeric field id
-     * @param value to set
-     * @since 5.47
-     */
-    void replace(uint field, const QString &value);
-
-    /**
-     * Replace or insert field with numeric value
-     * @param field numeric field id
-     * @param l value to set
-     * @since 5.47
-     */
-    void replace(uint field, long long l);
 };
 
 }
