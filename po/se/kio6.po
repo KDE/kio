@@ -1,4 +1,4 @@
-# Translation of kio5 to Northern Sami
+# Translation of kio6 to Northern Sami
 #
 # Børre Gaup <boerre@skolelinux.no>, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
 msgid ""
@@ -8675,14 +8675,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid ""
-#~ "<h1>Network Preferences</h1>Here you can define the behavior of KDE "
-#~ "programs when using Internet and network connections. If you experience "
-#~ "timeouts or use a modem to connect to the Internet, you might want to "
-#~ "adjust these settings."
-#~ msgstr ""
-#~ "<h1>Fierpmádat oidimat</h1> Dás sáhtát mearridit mo KDE-prográmmat galget "
-#~ "láhttet go geavahat interneahta ja fierpmádatoktavuođaid. Jos dávjá "
-#~ "vásihat máŋunemiid ja geavahat modema interneahtas, de várra hálidat "
-#~ "muddet dáid heivehusaid."

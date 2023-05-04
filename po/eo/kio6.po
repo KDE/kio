@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-05-01 05:45+0100\n"
+"PO-Revision-Date: 2023-05-03 21:29+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2741,7 +2741,7 @@ msgstr "Kaŝitaj Dosieroj Laste"
 #: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
-msgstr "Ikonoj Vido"
+msgstr "Piktogramoj Vido"
 
 #: filewidgets/kdiroperator.cpp:2045
 #, kde-format
@@ -2756,7 +2756,7 @@ msgstr "Detala Vido"
 #: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
-msgstr "Ikono Pozicio"
+msgstr "Piktogramo Pozicio"
 
 #: filewidgets/kdiroperator.cpp:2074
 #, kde-format
@@ -2999,7 +2999,7 @@ msgid ""
 "on the button to select a different icon.</qt>"
 msgstr ""
 "<qt>Ĉi tio estas la piktogramo, kiu aperos en la panelo Lokoj.<br /><br /"
-">Alklaku la butonon por elekti alian ikonon.</qt>"
+">Alklaku la butonon por elekti alian piktogramon.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
@@ -3305,7 +3305,7 @@ msgstr "Montri ĉiujn en&skribojn"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
-msgstr "Ikono Grandeco"
+msgstr "Piktogramo Grandeco"
 
 #: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
@@ -3475,9 +3475,10 @@ msgid ""
 msgstr ""
 "<qt>Ĉi tio estas la prefera menuo por la dosiera dialogo. Diversaj opcioj "
 "estas alireblaj de ĉi tiu menuo inkluzive de: <ul><li>kiel dosieroj estas "
-"ordigitaj en la listo</li><li>specoj de vido, inkluzive de ikono kaj listo</"
-"li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</li><li>dosieraj "
-"antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</li></ul></qt>"
+"ordigitaj en la listo</li><li>specoj de vido, inkluzive de piktogramo kaj "
+"listo</li><li>montrado de kaŝitaj dosieroj</li><li>la panelo Lokoj</"
+"li><li>dosieraj antaŭrigardoj</li><li>apartigante dosierujojn de dosieroj</"
+"li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1332
 #, kde-format
@@ -3915,7 +3916,7 @@ msgstr "Eraro dum konservado de bildo al %1"
 #: gui/faviconrequestjob.cpp:167
 #, kde-format
 msgid "Icon file too big, download aborted"
-msgstr "Ikonodosiero tro granda, elŝuto ĉesigita"
+msgstr "Piktogramodosiero tro granda, elŝuto ĉesigita"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -6593,7 +6594,7 @@ msgstr ""
 "tuta serĉota teksto povas esti specifita kiel \\{@} aŭ \\{0}.<br/>\n"
 "Rekomendita estas \\{@}, ĉar ĝi forigas ĉiujn demandvariablojn (nomo=valoro) "
 "el la rezulta ĉeno, dum \\{0} estos anstataŭigita per la nemodifita "
-"demandŝnuro.<br/>Vi povas uzi \\{1} ... \\{n} por specifi iujn vortojn el la "
+"demandĉeno.<br/>Vi povas uzi \\{1} ... \\{n} por specifi iujn vortojn el la "
 "konsulto kaj \\{nomo} por specifi valoron donitan de 'nomo=valoro' en la "
 "uzanta demando.<br/>Krome eblas specifu plurajn referencojn (nomoj, nombroj "
 "kaj ĉenoj) samtempe (\\{nomo1,nomo2,...,\"ĉeno\"}).<br/>La unua kongrua "
@@ -7522,7 +7523,7 @@ msgstr ""
 "%d - la dosierujo de la dosiero por malfermi\n"
 "%D - listo de dosierujoj\n"
 "%i - la piktogramo\n"
-"%m - la mini-ikono\n"
+"%m - la mini-piktogramo\n"
 "%c - la komento"
 
 #: widgets/kopenwithdialog.cpp:741
