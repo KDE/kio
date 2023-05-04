@@ -243,7 +243,7 @@ void UDSEntryPrivate::clear()
 
 void UDSEntryPrivate::save(QDataStream &s) const
 {
-    s << static_cast<quint32>(stringStorage.size());
+    s << static_cast<quint32>(stringStorage.size() + numberStorage.size());
 
     for (const StringField &field : stringStorage) {
         uint uds = field.m_index;
@@ -255,8 +255,6 @@ void UDSEntryPrivate::save(QDataStream &s) const
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
     }
-
-    s << static_cast<quint32>(numberStorage.size());
 
     for (const NumberField &field : numberStorage) {
         uint uds = field.m_index;
@@ -276,7 +274,8 @@ void UDSEntryPrivate::load(QDataStream &s)
 
     quint32 size;
     s >> size;
-    reserveStrings(size);
+    reserveStrings(size / 3 );
+    reserveNumbers(size * 2 / 3 );
 
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
@@ -290,7 +289,7 @@ void UDSEntryPrivate::load(QDataStream &s)
         quint32 uds;
         s >> uds;
 
-        if (Q_LIKELY(uds & KIO::UDSEntry::UDS_STRING)) {
+        if (uds & KIO::UDSEntry::UDS_STRING) {
             // If the QString is the same like the one we read for the
             // previous UDSEntry at the i-th position, use an implicitly
             // shared copy of the same QString to save memory.
@@ -302,20 +301,8 @@ void UDSEntryPrivate::load(QDataStream &s)
             }
 
             insert(uds, cachedStrings.at(i));
-        } else {
-            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an unexpected type");
-        }
-    }
 
-    quint32 numberSize;
-    s >> numberSize;
-    reserveNumbers(numberSize);
-
-    for (quint32 i = 0; i < numberSize; ++i) {
-        quint32 uds;
-        s >> uds;
-
-        if (Q_LIKELY(uds & KIO::UDSEntry::UDS_NUMBER)) {
+        } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
             insert(uds, value);
