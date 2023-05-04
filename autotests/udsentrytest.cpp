@@ -145,6 +145,51 @@ void UDSEntryTest::testSaveLoad()
             }
         }
     }
+
+    // Now: Store the fields manually in the order in which they appear in
+    // testCases, and re-load them. This ensures that loading the entries
+    // works no matter in which order the fields appear in the QByteArray.
+    data.clear();
+
+    {
+        QDataStream stream(&data, QIODevice::WriteOnly);
+        for (const QList<UDSTestField> &testCase : testCases) {
+            stream << static_cast<quint32>(testCase.count());
+
+            for (const UDSTestField &field : testCase) {
+                uint uds = field.m_uds;
+                stream << uds;
+
+                if (uds & KIO::UDSEntry::UDS_STRING) {
+                    stream << field.m_string;
+                } else {
+                    Q_ASSERT(uds & KIO::UDSEntry::UDS_NUMBER);
+                    stream << field.m_long;
+                }
+            }
+        }
+    }
+
+    {
+        QDataStream stream(data);
+        for (const QList<UDSTestField> &testCase : testCases) {
+            KIO::UDSEntry entry;
+            stream >> entry;
+            QCOMPARE(entry.count(), testCase.count());
+
+            for (const UDSTestField &field : testCase) {
+                uint uds = field.m_uds;
+                QVERIFY(entry.contains(uds));
+
+                if (uds & KIO::UDSEntry::UDS_STRING) {
+                    QCOMPARE(entry.stringValue(uds), field.m_string);
+                } else {
+                    Q_ASSERT(uds & KIO::UDSEntry::UDS_NUMBER);
+                    QCOMPARE(entry.numberValue(uds), field.m_long);
+                }
+            }
+        }
+    }
 }
 
 /**
