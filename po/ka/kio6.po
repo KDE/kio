@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-04-28 06:49+0200\n"
+"PO-Revision-Date: 2023-05-04 05:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3153,7 +3153,9 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"მონიშნული ბმული მხარდაუჭერელ სქემას იყენებს. გამოიყენეთ შემდეგი სქემა: %2"
 msgstr[1] ""
+"მონიშნული ბმული მხარდაუჭერელ სქემას იყენებს. გამოიყენეთ შემდეგი სქემა: %2"
 
 #: filewidgets/kfilewidget.cpp:852
 #, kde-format
@@ -3639,6 +3641,8 @@ msgstr "ამ ფაილის გასახსნელი აპლიკ
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
+"შიდა შეცდომა: მომხმარებლისთვის აპლიკაციის არჩევანის მოთხოვნის ჩვენება "
+"შეუძლებელია"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3712,6 +3716,7 @@ msgstr ""
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
+"უსაფრთხოებისთვის გამშვები ფაილების შესრულება ამ კონტექსტში დაშვებული არაა."
 
 #: gui/openurljob.cpp:430
 #, kde-format
@@ -4158,6 +4163,8 @@ msgstr "საიტის სახელი:"
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
 msgstr ""
+"შეიყვანეთ ჰოსტის ან დომენის სახელი (მაგ: .kde.org) , რომელზეც ეს წესი "
+"ვრცელდება."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
@@ -4314,6 +4321,8 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
+"გაუქმების შემთხვევაში ნაწილობრივ ატვირთული ფაილები წაიშლება, თუ ისინი "
+"მცირეა, ვიდრე:"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
@@ -4331,6 +4340,8 @@ msgid ""
 "Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
 "behind firewalls."
 msgstr ""
+"FTP-ის პასიური რეჟიმის ჩართვა. ეს აუცილებელია FTP-ის ბრანდმაუერის მიღმა "
+"სამუშაოდ."
 
 #: kcms/netpref/netpref.cpp:108
 #, kde-format
@@ -5849,7 +5860,7 @@ msgstr "ვებ-ძებნის საკვანძო სიტყვე
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr ""
+msgstr "&მხოლოდ სასურველი საკვანძო სიტყვების გამოყენება"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
@@ -6096,7 +6107,7 @@ msgstr "&კოდირება:"
 #: urifilters/ikws/searchproviderdlg_ui.ui:158
 #, kde-format
 msgid "Insert query placeholder"
-msgstr ""
+msgstr "შეიყვანეთ მოთხოვნის ადგილმჭერი"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -6955,7 +6966,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
+msgstr "<filename>%1</filename> გამშვებ ფაილს არ გავს."
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format

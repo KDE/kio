@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-04-28 22:17+0200\n"
+"PO-Revision-Date: 2023-05-03 21:11+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -6593,7 +6593,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Otra aplicación..."
+msgstr "&Otra aplicación…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
