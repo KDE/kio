@@ -49,7 +49,7 @@ void DBusActivationRunner::startProcess()
 {
 #ifndef Q_OS_ANDROID
     // DBusActivatable as per https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#dbus
-    const QString objectPath = QStringLiteral("/%1").arg(m_desktopName).replace(QLatin1Char('.'), QLatin1Char('/'));
+    const QString objectPath = QStringLiteral("/%1").arg(m_desktopName).replace(QLatin1Char('.'), QLatin1Char('/')).replace(QLatin1Char('-'), QLatin1Char('_'));
     const QString interface = QStringLiteral("org.freedesktop.Application");
     QDBusMessage message;
     if (m_urls.isEmpty()) {
