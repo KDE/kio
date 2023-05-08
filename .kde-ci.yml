@@ -26,7 +26,6 @@ Dependencies:
     'frameworks/kcrash' : '@same'
     'frameworks/kdbusaddons' : '@same'
     'frameworks/kdoctools' : '@same'
-    'frameworks/kcmutils' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':

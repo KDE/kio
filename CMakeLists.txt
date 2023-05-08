@@ -69,7 +69,6 @@ find_package(KF6Solid ${KF_DEP_VERSION} REQUIRED) # for kio_trash
 if (NOT ANDROID)
     find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
     find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
-    find_package(KF6KCMUtils ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 if (NOT KIOCORE_ONLY)

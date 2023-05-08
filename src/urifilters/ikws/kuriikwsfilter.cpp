@@ -8,7 +8,6 @@
 */
 
 #include "kuriikwsfilter.h"
-#include "ikwsopts.h"
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
