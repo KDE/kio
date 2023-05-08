@@ -6,7 +6,7 @@
 <refentry lang="&language;">
 
 <refentryinfo>
-<title>kcookiejar5 User's Manual</title>
+<title>kcookiejar6 User's Manual</title>
 <author>
 <firstname>Waldo</firstname>
 <surname> Bastian</surname>
@@ -24,17 +24,17 @@
 </author>
 
 <date>2015-07-31</date>
-<releaseinfo>Frameworks 5.13</releaseinfo>
+<releaseinfo>Frameworks 6.0</releaseinfo>
 
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>kcookiejar5</command></refentrytitle>
+<refentrytitle><command>kcookiejar6</command></refentrytitle>
 <manvolnum>8</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>kcookiejar5</command></refname>
+<refname><command>kcookiejar6</command></refname>
 <refpurpose>Command line interface to the &kde; &HTTP; cookie daemon</refpurpose>
 </refnamediv>
 
@@ -42,7 +42,7 @@
 <title>Synopsis</title>
 
 <cmdsynopsis>
-<command>kcookiejar5</command>
+<command>kcookiejar6</command>
 
 <arg choice="opt">-h, --help</arg>
 <arg choice="opt">-v, --version</arg>
@@ -56,7 +56,7 @@
 <refsect1>
 <title>Description</title>
 
-<para><command>kcookiejar5</command> is a command line interface to the &HTTP; cookie store used by &kde;,
+<para><command>kcookiejar6</command> is a command line interface to the &HTTP; cookie store used by &kde;,
 a &DBus; service to store/retrieve/clean cookies.
 </para>
 </refsect1>
@@ -120,12 +120,12 @@ Reloads the configuration file.
 
 <refsect1>
 <title>Usage</title>
-<para><command>kcookiejar5</command> is a command line tool to access the kded module which manages cookies in &konqueror; and other &kde; applications.</para>
+<para><command>kcookiejar6</command> is a command line tool to access the kded module which manages cookies in &konqueror; and other &kde; applications.</para>
 <para>
 When started without parameters it loads the kded module to provide the &DBus; interface to store cookies.
 </para>
 <para>
-When <command>kcookiejar5</command> is started with some parameters, it does
+When <command>kcookiejar6</command> is started with some parameters, it does
 additional tasks to the cookies jar it provides, like removing the cookies from one
 <parameter>domain</parameter>.
 </para>
@@ -134,7 +134,7 @@ additional tasks to the cookies jar it provides, like removing the cookies from 
 
 <refsect1>
 <title>See Also</title>
-<para><replaceable>kf5options</replaceable>(7), <replaceable>qt5options</replaceable>(7)
+<para><replaceable>kf6options</replaceable>(7), <replaceable>qt6options</replaceable>(7)
 </para>
 </refsect1>
 
