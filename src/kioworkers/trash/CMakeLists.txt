@@ -103,7 +103,6 @@ if(NOT WIN32 AND NOT KIOCORE_ONLY)
         target_link_libraries(kcm_trash "-framework DiskArbitration -framework CoreFoundation")
     endif(APPLE)
 
+    kcmutils_generate_desktop_file(kcm_trash)
     install(TARGETS kcm_trash DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endif()
-
-install( FILES kcm_trash.desktop DESTINATION ${KDE_INSTALL_APPDIR} )

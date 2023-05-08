@@ -25,7 +25,7 @@
 #include <QIcon>
 #include <QSpinBox>
 
-K_PLUGIN_CLASS_WITH_JSON(TrashConfigModule, "kcmtrash.json")
+K_PLUGIN_CLASS_WITH_JSON(TrashConfigModule, "kcm_trash.json")
 
 TrashConfigModule::TrashConfigModule(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KCModule(parent, data, args)
