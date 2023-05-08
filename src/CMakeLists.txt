@@ -28,7 +28,6 @@ if (NOT ANDROID)
     add_subdirectory(filewidgets)
     add_subdirectory(kioexec)
     add_subdirectory(urifilters)
-    add_subdirectory(kcms)
 endif()
 
 if(NOT WIN32 AND NOT ANDROID)
