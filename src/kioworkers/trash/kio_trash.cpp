@@ -18,6 +18,8 @@
 #include <QDataStream>
 #include <QEventLoop>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMimeDatabase>
 #include <QMimeType>
 
@@ -543,6 +545,15 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
         QUrl url;
         stream >> url;
         return restore(url);
+    }
+    case 4: {
+        QJsonObject json;
+        const auto map = impl.trashDirectories();
+        for (auto it = map.begin(); it != map.end(); ++it) {
+            json[QString::number(it.key())] = it.value();
+        }
+        setMetaData(QStringLiteral("TRASH_DIRECTORIES"), QString::fromLocal8Bit(QJsonDocument(json).toJson()));
+        sendMetaData();
     }
     default:
         qCWarning(KIO_TRASH) << "Unknown command in special(): " << cmd;
