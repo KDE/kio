@@ -308,7 +308,7 @@ void DeleteJobPrivate::statNextSrc()
             // Done, jump to the last else of this method
             statNextSrc();
         } else {
-            KIO::SimpleJob *job = KIO::statDetails(m_currentURL, StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
+            KIO::SimpleJob *job = KIO::stat(m_currentURL, StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
             // qDebug() << "stat'ing" << m_currentURL;
             q->addSubjob(job);
         }

@@ -352,7 +352,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl()
 
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
-    auto *job = KIO::statDetails(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
+    auto *job = KIO::stat(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
     q->connect(job, &KJob::result, q, [this, job, text]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.:
         // - typing "bar" while at "/path/to/foo" ---> "/path/to/foo/bar/"

@@ -1767,7 +1767,7 @@ void JobTest::statDetailsBasic()
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
-    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide
@@ -1844,7 +1844,7 @@ void JobTest::statWithInode()
     const QString filePath = homeTmpDir() + "fileFromHome";
     createTestFile(filePath);
     const QUrl url(QUrl::fromLocalFile(filePath));
-    KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::SourceSide, KIO::StatInode);
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatInode);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
@@ -1856,7 +1856,7 @@ void JobTest::statWithInode()
     const QString path = otherTmpDir() + "otherFile";
     createTestFile(path);
     const QUrl otherUrl(QUrl::fromLocalFile(path));
-    KIO::StatJob *otherJob = KIO::statDetails(otherUrl, KIO::StatJob::SourceSide, KIO::StatInode);
+    KIO::StatJob *otherJob = KIO::stat(otherUrl, KIO::StatJob::SourceSide, KIO::StatInode);
     QVERIFY(otherJob);
     QVERIFY2(otherJob->exec(), qPrintable(otherJob->errorString()));
 
@@ -1889,10 +1889,8 @@ void JobTest::statSymlink()
     setTimeStamp(symlink, QDateTime::currentDateTime().addSecs(-20)); // differentiate link time and source file time
 
     const QUrl url(QUrl::fromLocalFile(symlink));
-    KIO::StatJob *job = KIO::statDetails(url,
-                                         KIO::StatJob::StatSide::SourceSide,
-                                         KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatUser | KIO::StatTime,
-                                         KIO::HideProgressInfo);
+    KIO::StatJob *job =
+        KIO::stat(url, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatUser | KIO::StatTime, KIO::HideProgressInfo);
     QVERIFY(job);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     // TODO set setSide, setDetails

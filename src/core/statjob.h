@@ -152,9 +152,16 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * You should minimize the detail level for better performance.
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
- * @since 5.69
+ * @since 6.0
  */
-KIOCORE_EXPORT StatJob *
+KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
+/**
+ * Alias for @see stat
+ *
+ * @since 5.69
+ * @deprecated since 6.0, use @see stat instead
+ */
+KIOCORE_DEPRECATED_EXPORT StatJob *
 statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
 
 /**

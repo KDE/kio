@@ -473,7 +473,7 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job = KIO::statDetails(currentItem.item.url(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+        KIO::Job *job = KIO::stat(currentItem.item.url(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
@@ -750,7 +750,7 @@ int PreviewJobPrivate::getDeviceId(const QString &path)
         return 0;
     }
     state = PreviewJobPrivate::STATE_DEVICE_INFO;
-    KIO::Job *job = KIO::statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::stat(url, StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
     job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     q->addSubjob(job);
 

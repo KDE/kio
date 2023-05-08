@@ -1081,7 +1081,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
             const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));
 
-            KIO::StatJob *statJob = KIO::statDetails(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
+            KIO::StatJob *statJob = KIO::stat(resolvedTargetLocation, KIO::StatJob::SourceSide, KIO::StatNoDetails, KIO::HideProgressInfo);
             connect(statJob, &KJob::finished, this, [this, statJob] {
                 if (statJob->error()) {
                     d->m_ui->symlinkTargetMessageWidget->setText(statJob->errorString());

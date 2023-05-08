@@ -170,12 +170,6 @@ void StatJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
-StatJob *KIO::stat(const QUrl &url, JobFlags flags)
-{
-    // Assume sideIsSource. Gets are more common than puts.
-    return statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
-}
-
 static bool isUrlValid(const QUrl &url)
 {
     if (!url.isValid()) {
@@ -198,7 +192,7 @@ static bool isUrlValid(const QUrl &url)
 
 StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
 {
-    StatJob *job = statDetails(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
+    StatJob *job = stat(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
     if (!isUrlValid(url)) {
         QTimer::singleShot(0, job, &StatJob::slotFinished);
         Scheduler::cancelJob(job); // deletes the worker if not 0
@@ -206,15 +200,25 @@ StatJob *KIO::mostLocalUrl(const QUrl &url, JobFlags flags)
     return job;
 }
 
-StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
+StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 {
-    // TODO KF6: rename to stat
+    // Assume SourceSide. Gets are more common than puts.
+    return stat(url, StatJob::SourceSide, KIO::StatDefaultDetails, flags);
+}
+
+StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
+{
     // qCDebug(KIO_CORE) << "stat" << url;
     KIO_ARGS << url;
     StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
     job->setSide(side);
     job->setDetails(details);
     return job;
+}
+
+StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
+{
+    return stat(url, side, details, flags);
 }
 
 #include "moc_statjob.cpp"

@@ -246,7 +246,7 @@ void KioWorkerTest::startJob()
     }
 
     case Stat:
-        job = KIO::statDetails(src, KIO::StatJob::SourceSide);
+        job = KIO::stat(src);
         break;
 
     case Get: {

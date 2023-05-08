@@ -498,7 +498,7 @@ void CopyJobPrivate::slotStart()
     state = STATE_STATING;
     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
     // We need isDir() and UDS_LOCAL_PATH (for workers who set it). Let's assume the latter is part of StatBasic too.
-    KIO::Job *job = KIO::statDetails(dest, StatJob::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::stat(dest, StatJob::DestinationSide, KIO::StatBasic | KIO::StatResolveSymlink, KIO::HideProgressInfo);
     qCDebug(KIO_COPYJOB_DEBUG) << "CopyJob: stating the dest" << dest;
     q->addSubjob(job);
 }
@@ -1050,7 +1050,7 @@ void CopyJobPrivate::statCurrentSrc()
         }
 
         // Stat the next src url
-        Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+        Job *job = KIO::stat(m_currentSrcURL, KIO::HideProgressInfo);
         qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
         state = STATE_STATING;
         q->addSubjob(job);
@@ -1260,7 +1260,7 @@ void CopyJobPrivate::slotResultCreatingDirs(KJob *job)
 
                         // We need to stat the existing dir, to get its last-modification time
                         QUrl existingDest((*it).uDest);
-                        SimpleJob *newJob = KIO::statDetails(existingDest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+                        SimpleJob *newJob = KIO::stat(existingDest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
                         qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingDest;
                         state = STATE_CONFLICT_CREATING_DIRS;
                         q->addSubjob(newJob);
@@ -1562,7 +1562,7 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
                     // We need to stat the existing file, to get its last-modification time
                     QUrl existingFile((*it).uDest);
                     SimpleJob *newJob =
-                        KIO::statDetails(existingFile, StatJob::DestinationSide, KIO::StatDetail::StatBasic | KIO::StatDetail::StatTime, KIO::HideProgressInfo);
+                        KIO::stat(existingFile, StatJob::DestinationSide, KIO::StatDetail::StatBasic | KIO::StatDetail::StatTime, KIO::HideProgressInfo);
                     qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat for resolving conflict on" << existingFile;
                     state = STATE_CONFLICT_COPYING_FILES;
                     q->addSubjob(newJob);
@@ -2260,7 +2260,7 @@ void CopyJobPrivate::directRenamingFailed(const QUrl &dest)
     qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", reverting to normal way, starting with stat";
     qCDebug(KIO_COPYJOB_DEBUG) << "KIO::stat on" << m_currentSrcURL;
 
-    KIO::Job *job = KIO::statDetails(m_currentSrcURL, StatJob::SourceSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+    KIO::Job *job = KIO::stat(m_currentSrcURL, KIO::HideProgressInfo);
     state = STATE_STATING;
     q->addSubjob(job);
     m_bOnlyRenames = false;
@@ -2311,7 +2311,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 m_dest = destDirectory;
                 m_dest.setPath(Utils::concatPaths(m_dest.path(), newName));
                 Q_EMIT q->renamed(q, dest, m_dest);
-                KIO::Job *job = KIO::statDetails(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+                KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
                 state = STATE_STATING;
                 destinationState = DEST_NOT_STATED;
                 q->addSubjob(job);
@@ -2480,7 +2480,7 @@ void CopyJobPrivate::processDirectRenamingConflictResult(RenameDialog_Result res
         // This is only for this src url; the next one will revert to m_globalDest
         m_dest = newUrl;
         Q_EMIT q->renamed(q, dest, m_dest); // For e.g. KPropertiesDialog
-        KIO::Job *job = KIO::statDetails(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+        KIO::Job *job = KIO::stat(m_dest, StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
         state = STATE_STATING;
         destinationState = DEST_NOT_STATED;
         q->addSubjob(job);

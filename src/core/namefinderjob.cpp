@@ -64,10 +64,10 @@ void KIO::NameFinderJobPrivate::statUrl()
     m_finalUrl = m_baseUrl;
     m_finalUrl.setPath(Utils::concatPaths(m_baseUrl.path(), m_name));
 
-    m_statJob = KIO::statDetails(m_finalUrl,
-                                 KIO::StatJob::DestinationSide,
-                                 KIO::StatNoDetails, // Just checking if it exists
-                                 KIO::HideProgressInfo);
+    m_statJob = KIO::stat(m_finalUrl,
+                          KIO::StatJob::DestinationSide,
+                          KIO::StatNoDetails, // Just checking if it exists
+                          KIO::HideProgressInfo);
 
     QObject::connect(m_statJob, &KJob::result, q, [this]() {
         slotStatResult();
