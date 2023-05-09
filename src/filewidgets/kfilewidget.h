@@ -24,7 +24,6 @@
 class QUrl;
 class QPushButton;
 class KActionCollection;
-class KToolBar;
 class KFileWidgetPrivate;
 class KUrlComboBox;
 class KFileFilterCombo;

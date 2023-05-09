@@ -51,7 +51,6 @@
 #include <KSharedConfig>
 #include <KShell>
 #include <KStandardAction>
-#include <KToolBar>
 
 #include <QAbstractProxyModel>
 #include <QApplication>
@@ -71,6 +70,7 @@
 #include <QSplitter>
 #include <QStandardPaths>
 #include <QTimer>
+#include <QToolBar>
 
 #include <algorithm>
 #include <array>
@@ -255,7 +255,7 @@ public:
 
     KActionMenu *m_bookmarkButton = nullptr;
 
-    KToolBar *m_toolbar = nullptr;
+    QToolBar *m_toolbar = nullptr;
     KUrlComboBox *m_locationEdit = nullptr;
     KDirOperator *m_ops = nullptr;
     KFileFilterCombo *m_filterWidget = nullptr;
@@ -1269,7 +1269,7 @@ void KFileWidgetPrivate::initZoomWidget()
 
 void KFileWidgetPrivate::initToolbar()
 {
-    m_toolbar = new KToolBar(m_opsWidget, true);
+    m_toolbar = new QToolBar(m_opsWidget);
     m_toolbar->setObjectName(QStringLiteral("KFileWidget::toolbar"));
     m_toolbar->setMovable(false);
 

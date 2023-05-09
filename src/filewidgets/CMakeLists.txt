@@ -1,5 +1,4 @@
 find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
 
 configure_file(config-kiofilewidgets.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiofilewidgets.h)
 
@@ -103,7 +102,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::I18n
     KF6::ConfigGui
     KF6::ConfigWidgets
-    KF6::XmlGui
 )
 
 if (ENABLE_PCH)
