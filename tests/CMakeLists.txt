@@ -1,7 +1,5 @@
 include(ECMMarkAsTest)
 
-find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
-
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
@@ -17,7 +15,6 @@ macro(KIOWIDGETS_EXECUTABLE_TESTS)
        KF6::KIOGui
        KF6::KIOWidgets
        KF6::KIOFileWidgets
-       KF6::XmlGui
        Qt6::Test
        KF6::WidgetsAddons
        KF6::IconThemes)

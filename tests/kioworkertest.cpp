@@ -42,7 +42,7 @@
 using namespace KIO;
 
 KioWorkerTest::KioWorkerTest(QString src, QString dest, uint op, uint pr)
-    : KMainWindow(nullptr)
+    : QMainWindow(nullptr)
 {
     job = nullptr;
 

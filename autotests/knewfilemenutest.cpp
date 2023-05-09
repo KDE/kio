@@ -7,7 +7,6 @@
 
 #include <QTest>
 
-#include <KActionCollection>
 #include <KIO/StoredTransferJob>
 #include <KShell>
 #include <QDialog>

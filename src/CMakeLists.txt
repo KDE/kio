@@ -44,7 +44,6 @@ set(NON_KIOCORE_LINK_QCHS
     KF6JobWidgets_QCH
     KF6Bookmarks_QCH
     KF6ItemViews_QCH
-    KF6XmlGui_QCH
     KF6Solid_QCH
     KF6WindowSystem_QCH
 )

@@ -11,11 +11,10 @@
 #include <QButtonGroup>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QWidget>
-
-#include <KMainWindow>
 
 #include "kio/global.h"
 #include <kio/simplejob.h>
@@ -23,7 +22,7 @@
 
 #include <KStatusBarJobTracker>
 
-class KioWorkerTest : public KMainWindow
+class KioWorkerTest : public QMainWindow
 {
     Q_OBJECT
 

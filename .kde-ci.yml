@@ -16,7 +16,6 @@ Dependencies:
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kcompletion' : '@same'
     'frameworks/ktextwidgets' : '@same'
-    'frameworks/kxmlgui' : '@same'
     'frameworks/kbookmarks' : '@same'
     'frameworks/knotifications' : '@same'
     'frameworks/kconfig' : '@same'

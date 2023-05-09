@@ -193,7 +193,6 @@ set_target_properties(kurlcompletiontest-nowait PROPERTIES COMPILE_FLAGS "-DNO_W
 endif()
 
 if (TARGET KF6::KIOFileWidgets)
-find_package(KF6XmlGui ${KF_DEP_VERSION} REQUIRED)
 include_directories(${CMAKE_SOURCE_DIR}/src/filewidgets ${CMAKE_BINARY_DIR}/src/filewidgets)
 ecm_add_tests(
  kurlnavigatortest.cpp
@@ -208,7 +207,7 @@ ecm_add_tests(
  kurlrequestertest.cpp
  kfilefiltercombotest.cpp
  NAME_PREFIX "kiofilewidgets-"
- LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::XmlGui KF6::Bookmarks Qt6::Test KF6::I18n
+ LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::Bookmarks Qt6::Test KF6::I18n
 )
 
 # TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage
