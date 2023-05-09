@@ -69,6 +69,8 @@ private:
     TrashImpl impl;
     QString m_userName;
     QString m_groupName;
+    __uid_t m_userId;
+    __gid_t m_groupId;
 };
 
 #endif

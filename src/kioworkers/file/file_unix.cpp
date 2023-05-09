@@ -462,8 +462,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     }
 
     if (details & KIO::StatUser) {
-        entry.fastInsert(KIO::UDSEntry::UDS_USER, getUserName(KUserId(stat_uid(buff))));
-        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, getGroupName(KGroupId(stat_gid(buff))));
+        const auto uid = stat_uid(buff);
+        const auto gid = stat_gid(buff);
+        entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_USER_ID, uid);
+        entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, gid);
     }
 
     if (details & KIO::StatTime) {

@@ -1725,8 +1725,10 @@ void JobTest::stat()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_LOCAL_USER_ID));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_LOCAL_GROUP_ID));
+    QVERIFY(!entry.contains(KIO::UDSEntry::UDS_USER));
+    QVERIFY(!entry.contains(KIO::UDSEntry::UDS_GROUP));
     // QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
@@ -1902,8 +1904,10 @@ void JobTest::statSymlink()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_SIZE));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_FILE_TYPE));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_LINK_DEST));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_USER));
-    QVERIFY(entry.contains(KIO::UDSEntry::UDS_GROUP));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_LOCAL_USER_ID));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_LOCAL_GROUP_ID));
+    QVERIFY(!entry.contains(KIO::UDSEntry::UDS_USER));
+    QVERIFY(!entry.contains(KIO::UDSEntry::UDS_GROUP));
     // QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME)); // only true if st_birthtime or statx is used
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));

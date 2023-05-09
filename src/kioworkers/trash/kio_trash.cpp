@@ -58,11 +58,13 @@ static bool isTopLevelEntry(const QUrl &url)
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : WorkerBase(protocol, pool, app)
 {
-    struct passwd *user = getpwuid(getuid());
+    m_userId = getuid();
+    struct passwd *user = getpwuid(m_userId);
     if (user) {
         m_userName = QString::fromLatin1(user->pw_name);
     }
-    struct group *grp = getgrgid(getgid());
+    m_groupId = getgid();
+    struct group *grp = getgrgid(m_groupId);
     if (grp) {
         m_groupName = QString::fromLatin1(grp->gr_name);
     }
@@ -290,6 +292,8 @@ void TrashProtocol::createTopLevelDirEntry(KIO::UDSEntry &entry)
     entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, impl.isEmpty() ? QStringLiteral("user-trash") : QStringLiteral("user-trash-full"));
     entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName);
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName);
+    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_USER_ID, m_userId);
+    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, m_groupId);
 }
 
 KIO::StatDetails TrashProtocol::getStatDetails()

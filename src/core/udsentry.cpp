@@ -250,6 +250,10 @@ QString UDSEntryPrivate::nameOfUdsField(uint field)
         return QStringLiteral("UDS_GROUP");
     case UDSEntry::UDS_NAME:
         return QStringLiteral("UDS_NAME");
+    case UDSEntry::UDS_LOCAL_GROUP_ID:
+        return QStringLiteral("UDS_LOCAL_GROUP_ID");
+    case UDSEntry::UDS_LOCAL_USER_ID:
+        return QStringLiteral("UDS_LOCAL_USER_ID");
     case UDSEntry::UDS_LOCAL_PATH:
         return QStringLiteral("UDS_LOCAL_PATH");
     case UDSEntry::UDS_HIDDEN:
@@ -347,8 +351,8 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     d->insert(UDS_MODIFICATION_TIME, buff.st_mtime);
     d->insert(UDS_ACCESS_TIME, buff.st_atime);
 #ifndef Q_OS_WIN
-    d->insert(UDS_USER, KUser(buff.st_uid).loginName());
-    d->insert(UDS_GROUP, KUserGroup(buff.st_gid).name());
+    d->insert(UDS_LOCAL_USER_ID, buff.st_uid);
+    d->insert(UDS_LOCAL_GROUP_ID,  buff.st_gid);
 #endif
 }
 

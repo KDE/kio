@@ -203,12 +203,14 @@ public:
         UDS_SIZE = 1 | UDS_NUMBER,
         /// @internal
         UDS_SIZE_LARGE = 2 | UDS_NUMBER,
-        /// User ID of the file owner
+        /// User Name of the file owner
+        /// Not present on local fs, use UDS_LOCAL_USER_ID
         UDS_USER = 3 | UDS_STRING,
         /// Name of the icon, that should be used for displaying.
         /// It overrides all other detection mechanisms
         UDS_ICON_NAME = 4 | UDS_STRING,
-        /// Group ID of the file owner
+        /// Group Name of the file owner
+        /// Not present on local fs, use UDS_LOCAL_GROUP_ID
         UDS_GROUP = 5 | UDS_STRING,
         /// Filename - as displayed in directory listings etc.
         /// "." has the usual special meaning of "current directory"
@@ -301,6 +303,13 @@ public:
         /// For folders, the recursize size of its content
         /// @since 5.70
         UDS_RECURSIVE_SIZE = 29 | UDS_NUMBER,
+
+        /// User ID of the file owner
+        /// @since 6.0
+        UDS_LOCAL_USER_ID = 30 | UDS_NUMBER,
+        /// Group ID of the file owner
+        /// @since 6.0
+        UDS_LOCAL_GROUP_ID = 31 | UDS_NUMBER,
 
         /// Extra data (used only if you specified Columns/ColumnsTypes)
         /// NB: you cannot repeat this entry; use UDS_EXTRA + i

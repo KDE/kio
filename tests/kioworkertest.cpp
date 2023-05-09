@@ -348,6 +348,12 @@ void KioWorkerTest::printUDSEntry(const KIO::UDSEntry &entry)
         case KIO::UDSEntry::UDS_GROUP:
             qDebug() << "Group : " << (entry.stringValue(*it));
             break;
+        case KIO::UDSEntry::UDS_LOCAL_USER_ID:
+            qDebug() << "User id : " << (entry.numberValue(*it));
+            break;
+        case KIO::UDSEntry::UDS_LOCAL_GROUP_ID:
+            qDebug() << "Group id : " << (entry.numberValue(*it));
+            break;
         case KIO::UDSEntry::UDS_NAME:
             qDebug() << "Name : " << (entry.stringValue(*it));
             // m_strText = decodeFileName( it.value().toString() );

@@ -247,8 +247,12 @@ void KFileItemPrivate::init() const
             m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, buf.st_mtime); // TODO: we could use msecs too...
             m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, buf.st_atime);
 #ifndef Q_OS_WIN
-            m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(buf.st_uid).loginName());
-            m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(buf.st_gid).name());
+            const auto uid = buf.st_uid;
+            const auto gid = buf.st_gid;
+            m_entry.replace(KIO::UDSEntry::UDS_LOCAL_USER_ID, uid);
+            m_entry.replace(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, gid);
+            m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(uid).loginName());
+            m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(gid).name());
 #endif
 
             // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
@@ -800,8 +804,26 @@ QString KFileItem::user() const
     if (!d) {
         return QString();
     }
+    if (entry().contains(KIO::UDSEntry::UDS_USER)) {
+        return entry().stringValue(KIO::UDSEntry::UDS_USER);
+    } else {
+#ifdef Q_OS_UNIX
+        auto uid = entry().numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1);
+        if (uid != -1) {
+            return KUser(uid).loginName();
+        }
+#endif
+    }
+    return QString();
+}
 
-    return entry().stringValue(KIO::UDSEntry::UDS_USER);
+int KFileItem::userId() const
+{
+    if (!d) {
+        return -1;
+    }
+
+    return entry().numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1);
 }
 
 QString KFileItem::group() const
@@ -810,7 +832,26 @@ QString KFileItem::group() const
         return QString();
     }
 
-    return entry().stringValue(KIO::UDSEntry::UDS_GROUP);
+    if (entry().contains(KIO::UDSEntry::UDS_GROUP)) {
+        return entry().stringValue(KIO::UDSEntry::UDS_GROUP);
+    } else {
+#ifdef Q_OS_UNIX
+        auto gid = entry().numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1);
+        if (gid != -1) {
+            return KUserGroup(gid).name();
+        }
+#endif
+    }
+    return QString();
+}
+
+int KFileItem::groupId() const
+{
+    if (!d) {
+        return -1;
+    }
+
+    return entry().numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1);
 }
 
 bool KFileItemPrivate::isSlow() const
@@ -1168,14 +1209,6 @@ bool KFileItem::isReadable() const
     }
 
     d->ensureInitialized();
-
-    /*
-      struct passwd * user = getpwuid( geteuid() );
-      bool isMyFile = (QString::fromLocal8Bit(user->pw_name) == d->m_user);
-      // This gets ugly for the group....
-      // Maybe we want a static QString for the user and a static QStringList
-      // for the groups... then we need to handle the deletion properly...
-      */
 
     if (d->m_permissions != KFileItem::Unknown) {
         const mode_t readMask = S_IRUSR | S_IRGRP | S_IROTH;

@@ -246,6 +246,19 @@ public:
     mode_t mode() const;
 
     /**
+     * Returns the file's owner's user id.
+     * Available only on supported protocols.
+     * @since 6.0
+     */
+    int userId() const;
+    /**
+     * Returns the file's owner's group id.
+     * Available only on supported protocols.
+     * @since 6.0
+     */
+    int groupId() const;
+
+    /**
      * Returns the owner of the file.
      * @return the file's owner
      */
