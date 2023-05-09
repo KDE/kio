@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 00:44+0000\n"
-"PO-Revision-Date: 2023-04-17 06:30+0100\n"
+"PO-Revision-Date: 2023-05-08 19:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -778,7 +778,7 @@ msgstr "%1 estas postulata de la servilo, sed ne disponeblas."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "Aliro al limigita haveno en POST neita."
+msgstr "Aliro al limigita pordo en POST neita."
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -4486,7 +4486,7 @@ msgstr ""
 #: kcms/cookies/kcookiesmanagement.cpp:321
 #, kde-format
 msgid "End of session"
-msgstr "Fino de la kunsido"
+msgstr "Fino de la seanco"
 
 #: kcms/cookies/kcookiesmanagement.cpp:328
 #, kde-format
@@ -4779,7 +4779,7 @@ msgstr ""
 "<li><b>Demandi</b> igos KDE peti vian konfirmon kiam ajn servilo volas "
 "agordi kuketon .</li>\n"
 "<li><b>Akcepti</b> akceptos kuketojn sen peti vin.</li>\n"
-"<li><b>Akceptu ĝis fino de la kunsido</b> faros kaŭzos ke kuketoj estu "
+"<li><b>Akceptu ĝis fino de la seanco</b> faros kaŭzos ke kuketoj estu "
 "akceptitaj sed ili eksvalidiĝos ĉe la fino de la seanco.</li>\n"
 "<li><b>Malakcepto</b> igos la kuketon rifuzos ĉiujn kuketojn kiujn ĝi "
 "ricevas.</li>\n"
@@ -4995,7 +4995,7 @@ msgstr "Politiko:"
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:86
 #, kde-format
 msgid "Accept until end of session"
-msgstr "Akceptu ĝis fino de la kunsido"
+msgstr "Akceptu ĝis fino de la seanco"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
