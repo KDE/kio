@@ -129,10 +129,11 @@ target_link_libraries(KF6KIOWidgets
   PRIVATE
     Qt6::Concurrent
     KF6::I18n
+    KF6::ConfigGui
     KF6::GuiAddons # KIconUtils
     KF6::IconThemes   # KIconLoader
     KF6::WindowSystem # KStartupInfo
-    KF6::ConfigWidgets # KColorScheme
+    KF6::ColorScheme
 )
 if (TARGET Qt6::DBus)
     target_link_libraries(KF6KIOWidgets
