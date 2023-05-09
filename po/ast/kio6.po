@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 03:35+0000\n"
-"PO-Revision-Date: 2023-05-03 21:11+0200\n"
+"PO-Revision-Date: 2023-05-09 01:00+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -2358,7 +2358,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
-msgstr "Menu"
+msgstr "Menú"
 
 #: filewidgets/kdiroperator.cpp:1934
 #, kde-format
