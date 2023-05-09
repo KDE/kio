@@ -74,6 +74,7 @@ endif()
 
 if (NOT KIOCORE_ONLY)
 find_package(KF6Bookmarks ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6ColorScheme ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Completion ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
