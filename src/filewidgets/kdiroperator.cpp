@@ -87,7 +87,7 @@ public:
 
     // private methods
     bool checkPreviewInternal() const;
-    bool openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags = KDirLister::NoFlags);
+    void openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags = KDirLister::NoFlags);
     int sortColumn() const;
     Qt::SortOrder sortOrder() const;
     void updateSorting(QDir::SortFlags sort);
@@ -962,14 +962,16 @@ bool KDirOperatorPrivate::isSchemeSupported(const QString &scheme) const
     return m_supportedSchemes.isEmpty() || m_supportedSchemes.contains(scheme);
 }
 
-bool KDirOperatorPrivate::openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags)
+void KDirOperatorPrivate::openUrl(const QUrl &url, KDirLister::OpenUrlFlags flags)
 {
-    const bool result = KProtocolManager::supportsListing(url) && isSchemeSupported(url.scheme()) && m_dirLister->openUrl(url, flags);
+    const bool result = KProtocolManager::supportsListing(url) && isSchemeSupported(url.scheme());
+
     if (!result) { // in that case, neither completed() nor canceled() will be emitted by KDL
         slotCanceled();
+        return;
     }
 
-    return result;
+    m_dirLister->openUrl(url, flags);
 }
 
 int KDirOperatorPrivate::sortColumn() const

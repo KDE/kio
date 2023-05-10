@@ -1063,7 +1063,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
 
 void KDirListerTest::slotOpenUrlOnRename(const QUrl &newUrl)
 {
-    QVERIFY(m_dirLister.openUrl(newUrl));
+    m_dirLister.openUrl(newUrl);
 }
 
 // This tests for a crash if you connect redirects to openUrl, due

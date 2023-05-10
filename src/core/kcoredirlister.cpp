@@ -84,7 +84,7 @@ KCoreDirListerCache::~KCoreDirListerCache()
 
 // setting _reload to true will emit the old files and
 // call updateDirectory
-bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bool _keep, bool _reload)
+void KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bool _keep, bool _reload)
 {
     QUrl _url(dirUrl);
     _url.setPath(QDir::cleanPath(_url.path())); // kill consecutive slashes
@@ -250,8 +250,6 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         printDebug();
 #endif
     }
-
-    return true;
 }
 
 KCoreDirListerPrivate::CachedItemsJob *KCoreDirListerPrivate::cachedItemsJobForUrl(const QUrl &url) const
@@ -2093,8 +2091,7 @@ KCoreDirLister::~KCoreDirLister()
     }
 }
 
-// TODO KF6: remove bool ret val, it's always true
-bool KCoreDirLister::openUrl(const QUrl &_url, OpenUrlFlags _flags)
+void KCoreDirLister::openUrl(const QUrl &_url, OpenUrlFlags _flags)
 {
     // emit the current changes made to avoid an inconsistent treeview
     if (d->hasPendingChanges && (_flags & Keep)) {
@@ -2103,7 +2100,7 @@ bool KCoreDirLister::openUrl(const QUrl &_url, OpenUrlFlags _flags)
 
     d->hasPendingChanges = false;
 
-    return kDirListerCache()->listDir(this, _url, _flags & Keep, _flags & Reload);
+    kDirListerCache()->listDir(this, _url, _flags & Keep, _flags & Reload);
 }
 
 void KCoreDirLister::stop()

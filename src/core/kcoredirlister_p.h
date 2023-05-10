@@ -167,7 +167,7 @@ public:
     KFileItem itemForUrl(const QUrl &url) const;
     QList<KFileItem> *itemsForDir(const QUrl &dir) const;
 
-    bool listDir(KCoreDirLister *lister, const QUrl &_url, bool _keep, bool _reload);
+    void listDir(KCoreDirLister *lister, const QUrl &_url, bool _keep, bool _reload);
 
     // stop all running jobs for lister
     void stop(KCoreDirLister *lister, bool silent = false);
