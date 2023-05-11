@@ -7,6 +7,7 @@
 */
 
 #include "kurifilter.h"
+#include "kurifilterdata_p.h"
 
 #include "hostinfo.h"
 
@@ -21,10 +22,9 @@
 #include <QHostAddress>
 #include <QHostInfo>
 
-typedef QList<KUriFilterPlugin *> KUriFilterPluginList;
-typedef QMap<QString, KUriFilterSearchProvider *> SearchProviderMap;
+#include "kurifilterplugin_p.h"
 
-static QString lookupIconNameFor(const QUrl &url, KUriFilterData::UriTypes type)
+QString KUriFilterDataPrivate::lookupIconNameFor(const QUrl &url, KUriFilterData::UriTypes type)
 {
     QString iconName;
 
@@ -159,91 +159,6 @@ void KUriFilterSearchProvider::setKeys(const QStringList &keys)
 {
     d->keys = keys;
 }
-
-class KUriFilterDataPrivate
-{
-public:
-    explicit KUriFilterDataPrivate(const QUrl &u, const QString &typedUrl)
-        : checkForExecs(true)
-        , wasModified(true)
-        , uriType(KUriFilterData::Unknown)
-        , searchFilterOptions(KUriFilterData::SearchFilterOptionNone)
-        , url(u.adjusted(QUrl::NormalizePathSegments))
-        , typedString(typedUrl)
-    {
-    }
-
-    ~KUriFilterDataPrivate()
-    {
-    }
-
-    void setData(const QUrl &u, const QString &typedUrl)
-    {
-        checkForExecs = true;
-        wasModified = true;
-        uriType = KUriFilterData::Unknown;
-        searchFilterOptions = KUriFilterData::SearchFilterOptionNone;
-
-        url = u.adjusted(QUrl::NormalizePathSegments);
-        typedString = typedUrl;
-
-        errMsg.clear();
-        iconName.clear();
-        absPath.clear();
-        args.clear();
-        searchTerm.clear();
-        searchProvider.clear();
-        searchTermSeparator = QChar();
-        alternateDefaultSearchProvider.clear();
-        alternateSearchProviders.clear();
-        searchProviderMap.clear();
-        defaultUrlScheme.clear();
-    }
-
-    KUriFilterDataPrivate(KUriFilterDataPrivate *data)
-    {
-        wasModified = data->wasModified;
-        checkForExecs = data->checkForExecs;
-        uriType = data->uriType;
-        searchFilterOptions = data->searchFilterOptions;
-
-        url = data->url;
-        typedString = data->typedString;
-
-        errMsg = data->errMsg;
-        iconName = data->iconName;
-        absPath = data->absPath;
-        args = data->args;
-        searchTerm = data->searchTerm;
-        searchTermSeparator = data->searchTermSeparator;
-        searchProvider = data->searchProvider;
-        alternateDefaultSearchProvider = data->alternateDefaultSearchProvider;
-        alternateSearchProviders = data->alternateSearchProviders;
-        searchProviderMap = data->searchProviderMap;
-        defaultUrlScheme = data->defaultUrlScheme;
-    }
-
-    bool checkForExecs;
-    bool wasModified;
-    KUriFilterData::UriTypes uriType;
-    KUriFilterData::SearchFilterOptions searchFilterOptions;
-
-    QUrl url;
-    QString typedString;
-    QString errMsg;
-    QString iconName;
-    QString absPath;
-    QString args;
-    QString searchTerm;
-    QString searchProvider;
-    QString alternateDefaultSearchProvider;
-    QString defaultUrlScheme;
-    QChar searchTermSeparator;
-
-    QStringList alternateSearchProviders;
-    QStringList searchProviderList;
-    SearchProviderMap searchProviderMap;
-};
 
 KUriFilterData::KUriFilterData()
     : d(new KUriFilterDataPrivate(QUrl(), QString()))
@@ -393,7 +308,7 @@ KUriFilterData::SearchFilterOptions KUriFilterData::searchFilteringOptions() con
 QString KUriFilterData::iconName()
 {
     if (d->wasModified) {
-        d->iconName = lookupIconNameFor(d->url, d->uriType);
+        d->iconName = KUriFilterDataPrivate::lookupIconNameFor(d->url, d->uriType);
         d->wasModified = false;
     }
 
@@ -456,66 +371,6 @@ KUriFilterData &KUriFilterData::operator=(const QString &url)
 {
     d->setData(QUrl(url), url);
     return *this;
-}
-
-/*************************  KUriFilterPlugin ******************************/
-
-KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
-    : QObject(parent)
-    , d(nullptr)
-{
-    setObjectName(name);
-}
-
-KUriFilterPlugin::~KUriFilterPlugin() = default;
-
-void KUriFilterPlugin::setFilteredUri(KUriFilterData &data, const QUrl &uri) const
-{
-    data.d->url = uri.adjusted(QUrl::NormalizePathSegments);
-    data.d->wasModified = true;
-    // qDebug() << "Got filtered to:" << uri;
-}
-
-void KUriFilterPlugin::setErrorMsg(KUriFilterData &data, const QString &errmsg) const
-{
-    data.d->errMsg = errmsg;
-}
-
-void KUriFilterPlugin::setUriType(KUriFilterData &data, KUriFilterData::UriTypes type) const
-{
-    data.d->uriType = type;
-    data.d->wasModified = true;
-}
-
-void KUriFilterPlugin::setArguments(KUriFilterData &data, const QString &args) const
-{
-    data.d->args = args;
-}
-
-void KUriFilterPlugin::setSearchProvider(KUriFilterData &data, const QString &provider, const QString &term, const QChar &separator) const
-{
-    data.d->searchProvider = provider;
-    data.d->searchTerm = term;
-    data.d->searchTermSeparator = separator;
-}
-
-void KUriFilterPlugin::setSearchProviders(KUriFilterData &data, const QList<KUriFilterSearchProvider *> &providers) const
-{
-    data.d->searchProviderList.reserve(data.d->searchProviderList.size() + providers.size());
-    for (KUriFilterSearchProvider *searchProvider : providers) {
-        data.d->searchProviderList << searchProvider->name();
-        data.d->searchProviderMap.insert(searchProvider->name(), searchProvider);
-    }
-}
-
-QString KUriFilterPlugin::iconNameFor(const QUrl &url, KUriFilterData::UriTypes type) const
-{
-    return lookupIconNameFor(url, type);
-}
-
-QHostInfo KUriFilterPlugin::resolveName(const QString &hostname, unsigned long timeout) const
-{
-    return KIO::HostInfo::lookupHost(hostname, timeout);
 }
 
 /*******************************  KUriFilter ******************************/

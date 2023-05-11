@@ -10,6 +10,7 @@
 #ifndef LOCALDOMAINURIFILTER_H
 #define LOCALDOMAINURIFILTER_H
 
+#include "kurifilterplugin_p.h"
 #include <KUriFilter>
 
 #include <QRegularExpression>

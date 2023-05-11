@@ -11,6 +11,7 @@
 #include <KUriFilter>
 #include <QLoggingCategory>
 
+#include <KPluginMetaData>
 #include <QDir>
 #include <QHostInfo>
 #include <QRegularExpression>

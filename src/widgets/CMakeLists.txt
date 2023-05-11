@@ -36,6 +36,7 @@ target_sources(KF6KIOWidgets PRIVATE
   kshellcompletion.cpp
   kurlcompletion.cpp
   kurifilter.cpp
+  kurifilterplugin.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
   ksslinfodialog.cpp

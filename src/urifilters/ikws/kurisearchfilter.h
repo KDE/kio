@@ -11,6 +11,7 @@
 #define KURISEARCHFILTER_H
 
 #include <QVariant>
+#include "kurifilterplugin_p.h"
 #include <kurifilter.h>
 
 class KUriSearchFilter : public KUriFilterPlugin

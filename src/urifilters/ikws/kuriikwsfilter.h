@@ -10,6 +10,7 @@
 #ifndef KURIIKWSFILTER_H
 #define KURIIKWSFILTER_H
 
+#include "kurifilterplugin_p.h"
 #include <QVariant>
 #include <kurifilter.h>
 

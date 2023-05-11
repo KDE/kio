@@ -10,6 +10,7 @@
 #ifndef FIXHOSTURIFILTER_H
 #define FIXHOSTURIFILTER_H
 
+#include "kurifilterplugin_p.h"
 #include <KUriFilter>
 
 class QHostInfo;
