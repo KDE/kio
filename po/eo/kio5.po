@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-30 00:44+0000\n"
-"PO-Revision-Date: 2023-05-08 19:55+0100\n"
+"PO-Revision-Date: 2023-05-10 20:14+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3274,7 +3274,7 @@ msgstr "Malplenigi Rubujon"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
-msgstr "Monto"
+msgstr "Munti"
 
 #: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
@@ -7455,7 +7455,7 @@ msgstr ""
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
 msgid "Mount"
-msgstr "Monto"
+msgstr "Munti"
 
 #: widgets/kdesktopfileactions.cpp:190
 #, kde-format
@@ -7657,7 +7657,7 @@ msgstr "Nekonata grandeco"
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "Mounted On:"
-msgstr "Montita Sur:"
+msgstr "Muntita Sur:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:475
