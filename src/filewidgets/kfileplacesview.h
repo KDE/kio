@@ -86,12 +86,11 @@ public:
      */
     void setTeardownFunction(TeardownFunction teardownFunc);
 
+    QSize sizeHint() const override; // clazy:exclude=const-signal-or-slot
+
 public Q_SLOTS:
     void setUrl(const QUrl &url);
     void setShowAll(bool showAll);
-
-    // TODO KF6: make it a public method, not a slot
-    QSize sizeHint() const override; // clazy:exclude=const-signal-or-slot
 
     void setModel(QAbstractItemModel *model) override;
 
