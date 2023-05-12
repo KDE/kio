@@ -1091,6 +1091,9 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     const KFilePlacesModel::GroupType type = placesModel->groupType(index);
 
     QMenu menu;
+    // Polish before creating a native window below. The style could want change the surface format
+    // of the window which will have no effect when the native window has already been created.
+    menu.ensurePolished();
 
     QAction *emptyTrash = nullptr;
     QAction *eject = nullptr;
