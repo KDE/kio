@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave を作成できません: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -108,7 +108,7 @@ msgstr "ファイルは既に存在します"
 msgid "Already Exists as Folder"
 msgstr "フォルダとして既に存在します"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, kde-format
 msgid "Trash"
 msgstr "ごみ箱"
@@ -2352,17 +2352,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "ドキュメント化されていないエラー"
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 へのシンボリックリンク)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 へのリンク)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (リンク先: %1)"
@@ -5444,22 +5444,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 から %2 にファイルをコピーできませんでした。(Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 用のデバイスにメディアがありません"
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ユーザ名 %1 のユーザ ID を取得できませんでした"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "グループ名 %1 のグループ ID を取得できませんでした"
@@ -6207,15 +6207,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "ごみ箱が満杯:"
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "不正な形式の URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6227,12 +6227,12 @@ msgstr ""
 "ルダを作成してもう一度この操作を実行するか、アイテムを別の場所へドラッグして"
 "復元してください。"
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "このファイルは既にごみ箱にあります。"

@@ -10,12 +10,12 @@
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # zayed <zayed.alsaidi@gmail.com>, 2008, 2009.
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
-# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, ٢٠١٦, 2017, 2018.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, 2016, 2017, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2023-04-27 12:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "تعذّر إنشاء تابع الدّخل/الخرج: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -112,7 +112,7 @@ msgstr "الملفّ موجود بالفعل"
 msgid "Already Exists as Folder"
 msgstr "موجود كمجلّد بالفعل"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, kde-format
 msgid "Trash"
 msgstr "المهملات"
@@ -817,7 +817,7 @@ msgid ""
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
 "لا يمكن نقل <filename>%1</filename> بسبب أنه ضخم جدا. نظام الملفات المُستقبِل "
-"يدعم ملفات ذات حجم لا يتعدى ٤ جيجابايت."
+"يدعم ملفات ذات حجم لا يتعدى 4 جيجابايت."
 
 #: core/job_error.cpp:254
 #, kde-format
@@ -2189,9 +2189,9 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"قم بتحرير مساحة كافية على القرص بواسطة ١) حذف الملفات غير المرغوب فيها "
-"والمؤقتة أو ٢) أرشفة الملفات إلى وسائط تخزين قابلة للإزالة مثل الأقراص "
-"المضغوطة القابلة للتسجيل  أو ٣) الحصول على سعة تخزين أكبر. "
+"قم بتحرير مساحة كافية على القرص بواسطة 1) حذف الملفات غير المرغوب فيها "
+"والمؤقتة أو 2) أرشفة الملفات إلى وسائط تخزين قابلة للإزالة مثل الأقراص "
+"المضغوطة القابلة للتسجيل  أو 3) الحصول على سعة تخزين أكبر. "
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2318,17 +2318,17 @@ msgstr "أعد تهيئة قرص المقصد ليستخدم نظام ملفات
 msgid "Undocumented Error"
 msgstr "خطأ غير موثّق"
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(رابط رمزيّ إلى %1)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1، رابط إلى %2)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (يشير إلى %1)"
@@ -4523,7 +4523,7 @@ msgid_plural ""
 "connection is very slow. The maximum allowed value is %1 seconds."
 msgstr[0] ""
 "يمكنك من هنا تعيين قِيَم المهلة. قد ترغب بتغييرها إذا كان اتصالك بالإنترنت "
-"بطيء جدًا. أكبر قيمة ممكنة هي ٠ ثانية."
+"بطيء جدًا. أكبر قيمة ممكنة هي 0 ثانية."
 msgstr[1] ""
 "يمكنك من هنا تعيين قِيَم المهلة. قد ترغب بتغييرها إذا كان اتصالك بالإنترنت "
 "بطيء جدًا. أكبر قيمة ممكنة هي ثانية واحدة."
@@ -5349,22 +5349,22 @@ msgstr ""
 "المصدر: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "تعذّر نسخ الملفّ من %1 إلى %2. (رقم الخطأ: %3)"
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr "لا يوجد وسائط في الجهاز لـ%1"
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "تعذّر جلب معرّف المستخدم لاسم المستخدم %1 المعطى"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "تعذّر جلب معرّف المجموعة لاسم المجموعة %1 المعطى"
@@ -6124,15 +6124,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "عند امتلاء سلة المهملات:"
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "العنوان %1 مشوّه"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6144,12 +6144,12 @@ msgstr ""
 "يمكنك إما إعادة إنشاء هذا المجلد واستخدام عملية الاستعادة مرة أخرى ، أو سحب "
 "العنصر إلى أي مكان آخر لاستعادته."
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "مجموعة موافيق غير صالحة."
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "هذا الملفّ في سلّة المهملات بالفعل."

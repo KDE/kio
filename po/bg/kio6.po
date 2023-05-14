@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2023-05-09 19:53+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Невъзможно създаване на входно/изходна връзка: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -106,7 +106,7 @@ msgstr "Вече има такъв файл"
 msgid "Already Exists as Folder"
 msgstr "Вече съществува като директория"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, kde-format
 msgid "Trash"
 msgstr "Кошче"
@@ -2376,17 +2376,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументирана грешка"
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Символна връзка към %1)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(Връзка към %1 (%2)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Сочи към %1)"
@@ -5438,22 +5438,22 @@ msgstr ""
 "Източник: %2 \n"
 " %3"
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Копирането на файла от %1 в %2 беше неуспешно. (грешка: %3)"
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носител в устройството %1"
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ИД за потребител \"%1\" не може да бъде получен"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ИД за група \"%1\" не може да бъде получен"
@@ -6191,15 +6191,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "Пълно кошче:"
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Неправилно оформен URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6212,12 +6212,12 @@ msgstr ""
 "тази директория или да използвате операцията за възстановяване отново или "
 "плъзнете елемента някъде другаде,за да го възстановете."
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Невалидна комбинация от протоколи."
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Този файл вече е в кошчето."

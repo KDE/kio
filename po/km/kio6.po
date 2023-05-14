@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "មិន​អាច​បង្កើត io-slave ៖ %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -101,7 +101,7 @@ msgstr "មាន​ឯកសារ​រួច​ហើយ"
 msgid "Already Exists as Folder"
 msgstr "មាន​ជា​ថត​រួច​ហើយ"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
@@ -2341,17 +2341,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "កំហុស​ដែល​មិន​បាន​កត់​ត្រា"
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(តំណ​និមិត្តសញ្ញា​ទៅកាន់ %1)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1 តភ្ជាប់​ទៅ %2)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (ចង្អុល​ទៅ %1)"
@@ -5517,22 +5517,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "មិន​អាច​ចម្លង​ឯកសារ​ពី %1 ទៅកាន់ %2 បានឡើយ ។ (លេខ​កំហុស ៖ %3)"
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr "គ្មាន​ឧបករណ៍​ផ្ទុក​ក្នុង​ឧបករណ៍​សម្រាប់ %1 ឡើយ"
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​អ្នក​ប្រើ​សម្រាប់​ឈ្មោះ​អ្នក​ប្រើ %1"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
@@ -6266,16 +6266,16 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "ធុងសំរាម"
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"
 msgstr "URL %1 មិន​ត្រឹមត្រូវ ។"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6284,12 +6284,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, fuzzy, kde-format
 #| msgid "This file is a link and does not have permissions."
 #| msgid_plural "All files are links and do not have permissions."

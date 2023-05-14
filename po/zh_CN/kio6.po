@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "无法创建 KIO 工作程序：%1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -105,7 +105,7 @@ msgstr "文件已存在"
 msgid "Already Exists as Folder"
 msgstr "已存在同名文件夹"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, kde-format
 msgid "Trash"
 msgstr "回收站"
@@ -2240,17 +2240,17 @@ msgstr "请将目标驱动器重新格式化为支持此大小文件的文件系
 msgid "Undocumented Error"
 msgstr "程序文档中没有提及的错误"
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(指向 %1 的符号链接)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1，链接到 %2)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (指向 %1)"
@@ -5182,22 +5182,22 @@ msgstr ""
 "来源：%2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 设备中没有媒体"
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "无法获取给定的用户名 %1 的用户 ID"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "无法获取给定的用户组名 %1 的用户组 ID"
@@ -5904,15 +5904,15 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "回收站已满时："
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 格式错误"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -5923,12 +5923,12 @@ msgstr ""
 "目录 %1 已经不存在，所以无法将此项目恢复到原始位置。您可以重新创建该目录，然"
 "后重新进行恢复；也可以将项目拖放到其他位置进行恢复。"
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "无效协议组合。"
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "此文件已经位于回收站。"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 03:35+0000\n"
+"POT-Creation-Date: 2023-05-14 02:26+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "ফোল্ডারে ঢোকা যায়নি"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1282
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -106,7 +106,7 @@ msgstr "ফাইল আগে থেকেই আছে"
 msgid "Already Exists as Folder"
 msgstr "ফোল্ডার হিসেবে আগে থেকেই আছে"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:286
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
 #, fuzzy, kde-format
 msgid "Trash"
 msgstr "ক্যাশ (Cache) ফাঁকা করো"
@@ -2172,17 +2172,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr ""
 
-#: core/kfileitem.cpp:1317
+#: core/kfileitem.cpp:1350
 #, fuzzy, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/kfileitem.cpp:1319
+#: core/kfileitem.cpp:1352
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/kfileitem.cpp:1322
+#: core/kfileitem.cpp:1355
 #, fuzzy, kde-format
 msgid " (Points to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
@@ -5051,22 +5051,22 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:858
+#: kioworkers/file/file_unix.cpp:860
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1080
+#: kioworkers/file/file_unix.cpp:1082
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1372
+#: kioworkers/file/file_unix.cpp:1374
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 ফোল্ডারে ঢোকা যায়নি।"
 
-#: kioworkers/file/file_unix.cpp:1383
+#: kioworkers/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -5776,16 +5776,16 @@ msgstr ""
 msgid "Full Trash:"
 msgstr "ক্যাশ (Cache) ফাঁকা করো"
 
-#: kioworkers/trash/kio_trash.cpp:110 kioworkers/trash/kio_trash.cpp:154
-#: kioworkers/trash/kio_trash.cpp:212 kioworkers/trash/kio_trash.cpp:373
-#: kioworkers/trash/kio_trash.cpp:405 kioworkers/trash/kio_trash.cpp:571
-#: kioworkers/trash/kio_trash.cpp:581
+#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
+#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
+#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
+#: kioworkers/trash/kio_trash.cpp:585
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"
 msgstr "বিকৃত ইউ-আর-এল  %1।"
 
-#: kioworkers/trash/kio_trash.cpp:129
+#: kioworkers/trash/kio_trash.cpp:131
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -5794,12 +5794,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:180 kioworkers/trash/kio_trash.cpp:201
+#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:192 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr ""
