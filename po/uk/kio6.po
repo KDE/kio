@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 02:26+0000\n"
+"POT-Creation-Date: 2023-05-16 02:14+0000\n"
 "PO-Revision-Date: 2023-04-27 16:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -3035,43 +3035,43 @@ msgstr ""
 "програмою (%1).<br /><br />Якщо пункт позначено не буде, доступ до запису "
 "можна буде отримати і за допомогою інших програм.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Місця"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:188
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Віддалене"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:191
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Нещодавні"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:194
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Об'єкти пошуку"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Портативні пристрої"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:203
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3357,27 +3357,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Величезний (%1⨯%1)"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "You can only select one file"
 msgstr "Можна вибирати лише один файл"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "More than one file provided"
 msgstr "Вказано більше за один файл"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "You can only select local files"
 msgstr "Можна вибирати тільки локальні файли"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Віддалені файли не приймаються"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3398,12 +3398,12 @@ msgstr[3] ""
 "Вибрано адресу із непідтримуваною схемою. Будь ласка, скористайтеся такою "
 "схемою: %2"
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:838
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Непідтримувана схема адреси"
 
-#: filewidgets/kfilewidget.cpp:868
+#: filewidgets/kfilewidget.cpp:854
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3414,12 +3414,12 @@ msgstr ""
 "декілька тек: програма не зможе визначити, яку з тек слід відкрити. Будь "
 "ласка, оберіть лише одну з тек, щоб побачити список для неї."
 
-#: filewidgets/kfilewidget.cpp:870
+#: filewidgets/kfilewidget.cpp:856
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Вказано більше за одну теку"
 
-#: filewidgets/kfilewidget.cpp:880
+#: filewidgets/kfilewidget.cpp:866
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3428,22 +3428,22 @@ msgstr ""
 "Було обрано принаймні одну теку і один файл. Вибрані файли буде пропущено, — "
 "буде показано лише список для вибраної теки"
 
-#: filewidgets/kfilewidget.cpp:881
+#: filewidgets/kfilewidget.cpp:867
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Було обрано файли і теки"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Не вдалося знайти файл «%1»"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "Cannot open file"
 msgstr "Не вдалося відкрити файл"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3454,44 +3454,44 @@ msgstr ""
 "якщо поточною адресою є file:/home/konqi, натискання цієї кнопки перенесе "
 "вас до file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1289
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Натисніть цю кнопку, щоб перейти на один крок назад у журналі перегляду."
 
-#: filewidgets/kfilewidget.cpp:1290
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Натисніть цю кнопку, щоб перейти на один крок вперед у журналі перегляду."
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Натисніть цю кнопку, щоб перезавантажити дані за поточною адресою."
 
-#: filewidgets/kfilewidget.cpp:1294
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Натисніть цю кнопку, щоб створити нову теку."
 
-#: filewidgets/kfilewidget.cpp:1296
+#: filewidgets/kfilewidget.cpp:1224
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Показати панель місць"
 
-#: filewidgets/kfilewidget.cpp:1303
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Показати кнопку закладок"
 
-#: filewidgets/kfilewidget.cpp:1310
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Options"
 msgstr "Параметри"
 
-#: filewidgets/kfilewidget.cpp:1313
+#: filewidgets/kfilewidget.cpp:1241
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3506,12 +3506,12 @@ msgstr ""
 "li><li>панель місць</li><li>перегляд файлів</li><li>відокремлення тек від "
 "файлів</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1332
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: filewidgets/kfilewidget.cpp:1336
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3526,12 +3526,12 @@ msgstr ""
 "закладок KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1303 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Назва:"
 
-#: filewidgets/kfilewidget.cpp:1450
+#: filewidgets/kfilewidget.cpp:1378
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3543,12 +3543,12 @@ msgstr ""
 "Цю можливість можна наладнати, клацнувши правою кнопкою миші та вибравши "
 "потрібній режим у меню <b>Завершення тексту</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1385
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Це назва, з якою його буде збережено файл."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1388
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3557,79 +3557,79 @@ msgstr ""
 "Це список файлів для відкривання. Можна вибрати більше, ніж один файл "
 "відразу: для цього слід вказати список назв файлів, розділений пробілами."
 
-#: filewidgets/kfilewidget.cpp:1465
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Це назва файла для відкривання."
 
-#: filewidgets/kfilewidget.cpp:1478
+#: filewidgets/kfilewidget.cpp:1406
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Місця"
 
-#: filewidgets/kfilewidget.cpp:1696
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Файл з назвою «%1» вже існує. Бажаєте його перезаписати?"
 
-#: filewidgets/kfilewidget.cpp:1697
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Перезаписати файл?"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "You can only select local files."
 msgstr "Можна вибирати тільки локальні файли."
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Віддалені файли не приймаються"
 
-#: filewidgets/kfilewidget.cpp:1994
+#: filewidgets/kfilewidget.cpp:1903
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Всі теки"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:1905
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Всі файли"
 
-#: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2055 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Відкрити"
 
-#: filewidgets/kfilewidget.cpp:2247
+#: filewidgets/kfilewidget.cpp:2156
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Розмір піктограм: %1 пікселів"
 
-#: filewidgets/kfilewidget.cpp:2395
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Автоматично вибрати с&уфікс назви файла (%1)"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "суфікс <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2402
+#: filewidgets/kfilewidget.cpp:2311
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Автоматично вибрати с&уфікс назви файла"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "a suitable extension"
 msgstr "відповідний суфікс"
 
-#: filewidgets/kfilewidget.cpp:2411
+#: filewidgets/kfilewidget.cpp:2320
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3656,12 +3656,12 @@ msgstr ""
 "впевнені щодо потрібних вам налаштувань, позначте цей пункт, оскільки це "
 "зробить назви файлів більш керованими."
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2772
 #, kde-format
 msgid "&File type:"
 msgstr "&Тип файла:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3670,12 +3670,12 @@ msgstr ""
 "<qt>Це засіб вибору типу файлів. Його використовують для вибору формату, у "
 "якому буде збережено дані файла.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2861
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid "&Filter:"
 msgstr "&Фільтр:"
 
-#: filewidgets/kfilewidget.cpp:2863
+#: filewidgets/kfilewidget.cpp:2777
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

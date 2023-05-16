@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 02:26+0000\n"
+"POT-Creation-Date: 2023-05-16 02:14+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2990,43 +2990,43 @@ msgstr ""
 "ションを指定してください。<br /><br />指定がなければ、すべてのアプリケーショ"
 "ンで利用可能になります。</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "場所"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:188
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "リモート"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:191
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "最近"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:194
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "検索"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "デバイス"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "リムーバブルデバイス"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:203
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3313,27 +3313,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "巨大 (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "You can only select one file"
 msgstr "1 つのファイルしか選択できません"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "More than one file provided"
 msgstr "複数のファイルが選択されました"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "You can only select local files"
 msgstr "ローカルファイルしか選択できません"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "リモートファイルは扱えません"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3344,12 +3344,12 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:838
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "サポートされていない URL スキーム"
 
-#: filewidgets/kfilewidget.cpp:868
+#: filewidgets/kfilewidget.cpp:854
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3360,12 +3360,12 @@ msgstr ""
 "ダに移動すればよいのか判断できません。内容を表示するフォルダを 1 つだけ選択し"
 "てください。"
 
-#: filewidgets/kfilewidget.cpp:870
+#: filewidgets/kfilewidget.cpp:856
 #, kde-format
 msgid "More than one folder provided"
 msgstr "複数のフォルダが選択されました"
 
-#: filewidgets/kfilewidget.cpp:880
+#: filewidgets/kfilewidget.cpp:866
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3374,22 +3374,22 @@ msgstr ""
 "少なくとも 1 つのフォルダと 1 つのファイルが選択されました。ファイルは無視し"
 "て選択されたフォルダの内容を表示します"
 
-#: filewidgets/kfilewidget.cpp:881
+#: filewidgets/kfilewidget.cpp:867
 #, kde-format
 msgid "Files and folders selected"
 msgstr "ファイルとフォルダが選択されました"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "ファイル ‘%1’ が見つかりませんでした"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "Cannot open file"
 msgstr "ファイルを開けません"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3400,42 +3400,42 @@ msgstr ""
 "場所が ‘file:/home/konqi なら、このボタンをクリックすると ‘file:/home’ に移動"
 "します。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1289
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "このボタンをクリックしてブラウズ履歴の一つ前に戻ります。"
 
-#: filewidgets/kfilewidget.cpp:1290
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "このボタンをクリックしてブラウズ履歴の一つ先に進みます。"
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "現在の場所の内容を再読み込みするには、このボタンをクリックします。"
 
-#: filewidgets/kfilewidget.cpp:1294
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "新しいフォルダを作成するには、このボタンをクリックします。"
 
-#: filewidgets/kfilewidget.cpp:1296
+#: filewidgets/kfilewidget.cpp:1224
 #, kde-format
 msgid "Show Places Panel"
 msgstr "場所パネルを表示"
 
-#: filewidgets/kfilewidget.cpp:1303
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "ブックマークボタンを表示"
 
-#: filewidgets/kfilewidget.cpp:1310
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Options"
 msgstr "オプション"
 
-#: filewidgets/kfilewidget.cpp:1313
+#: filewidgets/kfilewidget.cpp:1241
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3450,12 +3450,12 @@ msgstr ""
 "示</li><li>場所ナビゲーションパネルの表示</li><li>ファイルのプレビューの表示"
 "</li><li>フォルダとファイルの分離</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1332
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
-#: filewidgets/kfilewidget.cpp:1336
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3470,12 +3470,12 @@ msgstr ""
 "と同じように機能します。</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1303 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "名前(&N):"
 
-#: filewidgets/kfilewidget.cpp:1450
+#: filewidgets/kfilewidget.cpp:1378
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3487,12 +3487,12 @@ msgstr ""
 "の挙動は、マウスの右ボタンをクリックして「テキスト補完」メニューから他のモー"
 "ドを選択することによって変更できます。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1385
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "保存するファイルに付ける名前です。"
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1388
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3501,79 +3501,79 @@ msgstr ""
 "開くファイルのリストです。スペースで区切って複数のファイル名を指定することが"
 "できます。"
 
-#: filewidgets/kfilewidget.cpp:1465
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "開くファイルの名前です。"
 
-#: filewidgets/kfilewidget.cpp:1478
+#: filewidgets/kfilewidget.cpp:1406
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "場所"
 
-#: filewidgets/kfilewidget.cpp:1696
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ファイル ‘%1’ は既に存在します。上書きしますか？"
 
-#: filewidgets/kfilewidget.cpp:1697
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "Overwrite File?"
 msgstr "上書きしますか？"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "You can only select local files."
 msgstr "ローカルファイルのみ選択できます。"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "リモートファイルは指定できません"
 
-#: filewidgets/kfilewidget.cpp:1994
+#: filewidgets/kfilewidget.cpp:1903
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|すべてのフォルダ"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:1905
 #, kde-format
 msgid "*|All Files"
 msgstr "*|すべてのファイル"
 
-#: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2055 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "開く(&O)"
 
-#: filewidgets/kfilewidget.cpp:2247
+#: filewidgets/kfilewidget.cpp:2156
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "アイコンサイズ: %1 ピクセル"
 
-#: filewidgets/kfilewidget.cpp:2395
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ファイル名の拡張子を自動的に選択する(&X) (%1)"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "拡張子 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2402
+#: filewidgets/kfilewidget.cpp:2311
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ファイル名の拡張子を自動的に選択する(&X)"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "a suitable extension"
 msgstr "適切な拡張子"
 
-#: filewidgets/kfilewidget.cpp:2411
+#: filewidgets/kfilewidget.cpp:2320
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3598,24 +3598,24 @@ msgstr ""
 "(ピリオドは自動的に削除されます)。</li></ol>このオプションを利用するとファイ"
 "ルが管理しやすくなるので、よく分からなければ有効にしておきましょう。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2772
 #, kde-format
 msgid "&File type:"
 msgstr "ファイルのタイプ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2861
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid "&Filter:"
 msgstr "フィルタ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2863
+#: filewidgets/kfilewidget.cpp:2777
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

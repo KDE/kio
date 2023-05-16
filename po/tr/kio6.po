@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 02:26+0000\n"
-"PO-Revision-Date: 2023-04-27 12:07+0300\n"
+"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"PO-Revision-Date: 2023-05-15 22:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1432,7 +1432,7 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"Bir UNIX ortamında bir dosya ya da klasör farklı bir bölgeye bağlanabilir. "
+"Bir UNIX ortamında bir dosya veya klasör farklı bir bölgeye bağlanabilir. "
 "KDE sınırsız sayıda bağlantıya neden olan bir durumla karşılaştı."
 
 #: core/job_error.cpp:666 core/job_error.cpp:692
@@ -1470,7 +1470,7 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"Bir UNIX ortamında bir dosya ya da klasör farklı bir bölgeye bağlanabilir. "
+"Bir UNIX ortamında bir dosya veya klasör farklı bir bölgeye bağlanabilir. "
 "KDE sınırsız sayıda bağlantıya neden olan bir durumla karşılaştı."
 
 #: core/job_error.cpp:698
@@ -2212,9 +2212,9 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"1) Gereksiz ve geçici dosyalarınızı silerek, 2) yazılabilir CD'lere mevcut "
-"arşivinizi aktararak, ya da 3) daha geniş bir disk temin ederek mevcut "
-"sisteminizde daha fazla yer açmanız gerekmektedir."
+"1) Gereksiz ve geçici dosyalarınızı silerek, 2) yazılabilir CD'lere var olan "
+"arşivinizi aktararak veya 3) daha büyük depolama kapasitesi edinerek yeterli "
+"disk alanı açabilirsiniz."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2984,43 +2984,43 @@ msgstr ""
 "istiyorsanız bu ayarı etkinleştirin.<br /><br />Eğer bu ayar seçilmezse "
 "girdi tüm uygulamalar tarafından kullanılabilir olacaktır.</qt>"
 
-#: filewidgets/kfileplacesitem.cpp:183
+#: filewidgets/kfileplacesitem.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "Places"
 msgstr "Yerler"
 
-#: filewidgets/kfileplacesitem.cpp:186
+#: filewidgets/kfileplacesitem.cpp:188
 #, kde-format
 msgctxt "@item"
 msgid "Remote"
 msgstr "Uzak"
 
-#: filewidgets/kfileplacesitem.cpp:189
+#: filewidgets/kfileplacesitem.cpp:191
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
 msgstr "Son Kullanılanlar"
 
-#: filewidgets/kfileplacesitem.cpp:192
+#: filewidgets/kfileplacesitem.cpp:194
 #, kde-format
 msgctxt "@item"
 msgid "Search For"
 msgstr "Ara"
 
-#: filewidgets/kfileplacesitem.cpp:195
+#: filewidgets/kfileplacesitem.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: filewidgets/kfileplacesitem.cpp:198
+#: filewidgets/kfileplacesitem.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
 msgstr "Çıkarılabilir Aygıtlar"
 
-#: filewidgets/kfileplacesitem.cpp:201
+#: filewidgets/kfileplacesitem.cpp:203
 #, kde-format
 msgctxt "@item"
 msgid "Tags"
@@ -3301,27 +3301,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Devasa (%1 x %1)"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "You can only select one file"
 msgstr "Yalnızca bir dosya seçebilirsiniz"
 
-#: filewidgets/kfilewidget.cpp:668
+#: filewidgets/kfilewidget.cpp:654
 #, kde-format
 msgid "More than one file provided"
 msgstr "Birden fazla dosya verildi"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "You can only select local files"
 msgstr "Yalnızca yerel dosyaları seçebilirsiniz"
 
-#: filewidgets/kfilewidget.cpp:839
+#: filewidgets/kfilewidget.cpp:825
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Uzak dosyalar kabul edilmiyor"
 
-#: filewidgets/kfilewidget.cpp:846
+#: filewidgets/kfilewidget.cpp:832
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3336,12 +3336,12 @@ msgstr[1] ""
 "Seçili URL desteklenmeyen bir düzeni kullanıyor. Lütfen aşağıdaki şemaları "
 "kullanın: %2"
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:838
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Desteklenmeyen URL şeması"
 
-#: filewidgets/kfilewidget.cpp:868
+#: filewidgets/kfilewidget.cpp:854
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3352,12 +3352,12 @@ msgstr ""
 "hangi seçime girileceğine karar verilemiyor. Lütfen yalnızca bir klasör "
 "seçin."
 
-#: filewidgets/kfilewidget.cpp:870
+#: filewidgets/kfilewidget.cpp:856
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Birden fazla klasör verildi"
 
-#: filewidgets/kfilewidget.cpp:880
+#: filewidgets/kfilewidget.cpp:866
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3366,22 +3366,22 @@ msgstr ""
 "En azından bir klasör ve bir dosya seçilmelidir. Seçilen dosyalar yok "
 "sayılacak ve seçilen klasör listelenecektir"
 
-#: filewidgets/kfilewidget.cpp:881
+#: filewidgets/kfilewidget.cpp:867
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Dosyalar ve klasörler seçildi"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" dosyası bulunamadı"
 
-#: filewidgets/kfilewidget.cpp:899
+#: filewidgets/kfilewidget.cpp:885
 #, kde-format
 msgid "Cannot open file"
 msgstr "Dosya açılamadı"
 
-#: filewidgets/kfilewidget.cpp:1285
+#: filewidgets/kfilewidget.cpp:1213
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3392,42 +3392,42 @@ msgstr ""
 "güncel konum file:/home/konqi ise bu düğmeye tıklanması halinde file:/home "
 "dizinine geçeceksiniz.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1289
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Tarama günlüğünde bir adım geri gitmek için bu düğmeyi tıklayın."
 
-#: filewidgets/kfilewidget.cpp:1290
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Tarama günlüğünde bir adım ileri gitmek için bu düğmeyi tıklayın."
 
-#: filewidgets/kfilewidget.cpp:1292
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Güncel konumdaki bilgileri yeniden yüklemek için bu düğmeye tıklayın."
 
-#: filewidgets/kfilewidget.cpp:1294
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Yeni bir klasör oluşturmak için bu düğmeye tıklayın."
 
-#: filewidgets/kfilewidget.cpp:1296
+#: filewidgets/kfilewidget.cpp:1224
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Yerler Panelini Göster"
 
-#: filewidgets/kfilewidget.cpp:1303
+#: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Yer İmleri Düğmesini Göster"
 
-#: filewidgets/kfilewidget.cpp:1310
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Options"
 msgstr "Seçenekler"
 
-#: filewidgets/kfilewidget.cpp:1313
+#: filewidgets/kfilewidget.cpp:1241
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3442,12 +3442,12 @@ msgstr ""
 "li><li>Gizli dosyaların gösterimi</li><li>Yerler paneli</li><li>Dosya "
 "önizlemeleri</li><li>Klasörleri dosyalardan ayırma</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1332
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid "Bookmarks"
 msgstr "Yer İmleri"
 
-#: filewidgets/kfilewidget.cpp:1336
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3461,12 +3461,12 @@ msgstr ""
 "içerisindeki diğer yerler için de kullanılabilir.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1375 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1303 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Ad:"
 
-#: filewidgets/kfilewidget.cpp:1450
+#: filewidgets/kfilewidget.cpp:1378
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3478,12 +3478,12 @@ msgstr ""
 "Bu özelliği, farenin sağ düğmesine basınca çıkan <b>Metin Tamamlama</b> "
 "menüsünden istediğiniz kipi seçerek denetleyebilirsiniz.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1385
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Kaydedilecek dosyanın adı."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1388
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3492,79 +3492,79 @@ msgstr ""
 "Burada açılacak dosyaların bir listesi vardır. Aralarında boşluk karakteri "
 "olacak şekilde birden fazla dosya adı belirtilebilir."
 
-#: filewidgets/kfilewidget.cpp:1465
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Bu açılacak dosyanın adıdır"
 
-#: filewidgets/kfilewidget.cpp:1478
+#: filewidgets/kfilewidget.cpp:1406
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Yerler"
 
-#: filewidgets/kfilewidget.cpp:1696
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" dosyası var. Üzerine yazmak ister misiniz?"
 
-#: filewidgets/kfilewidget.cpp:1697
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Dosyanın Üzerine Yazılsın mı?"
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "You can only select local files."
 msgstr "Yalnızca yerel dosyaları seçebilirsiniz."
 
-#: filewidgets/kfilewidget.cpp:1900
+#: filewidgets/kfilewidget.cpp:1809
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Uzaktaki Dosyalar Kabul Edilmiyor"
 
-#: filewidgets/kfilewidget.cpp:1994
+#: filewidgets/kfilewidget.cpp:1903
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Tüm Klasörler"
 
-#: filewidgets/kfilewidget.cpp:1996
+#: filewidgets/kfilewidget.cpp:1905
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Tüm Dosyalar"
 
-#: filewidgets/kfilewidget.cpp:2146 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2055 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Aç"
 
-#: filewidgets/kfilewidget.cpp:2247
+#: filewidgets/kfilewidget.cpp:2156
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Simge boyutu: %1 piksel"
 
-#: filewidgets/kfilewidget.cpp:2395
+#: filewidgets/kfilewidget.cpp:2304
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Dosya adı uzantısını otomatik seç (%1)"
 
-#: filewidgets/kfilewidget.cpp:2396
+#: filewidgets/kfilewidget.cpp:2305
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> uzantısı"
 
-#: filewidgets/kfilewidget.cpp:2402
+#: filewidgets/kfilewidget.cpp:2311
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "D&osya adı uzantısını otomatik seç"
 
-#: filewidgets/kfilewidget.cpp:2403
+#: filewidgets/kfilewidget.cpp:2312
 #, kde-format
 msgid "a suitable extension"
 msgstr "uygun bir uzantı"
 
-#: filewidgets/kfilewidget.cpp:2411
+#: filewidgets/kfilewidget.cpp:2320
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3591,12 +3591,12 @@ msgstr ""
 "olarak silinecektir!). </li></ol> Emin değilseniz bu seçeneği etkin halde "
 "tutmak, sizin için daha yararlıdır."
 
-#: filewidgets/kfilewidget.cpp:2858
+#: filewidgets/kfilewidget.cpp:2772
 #, kde-format
 msgid "&File type:"
 msgstr "&Dosya türü:"
 
-#: filewidgets/kfilewidget.cpp:2859
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3605,12 +3605,12 @@ msgstr ""
 "<qt>Bu, dosya türü seçicisidir. Dosyanın kaydedileceği biçimi seçmek için "
 "kullanılır.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2861
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid "&Filter:"
 msgstr "S&üz:"
 
-#: filewidgets/kfilewidget.cpp:2863
+#: filewidgets/kfilewidget.cpp:2777
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4241,12 +4241,12 @@ msgid ""
 "for session cookies.</p>"
 msgstr ""
 "<p>\n"
-"Geçerli oturumdan sonra yok olan çerezleri otomatik olarak kabul et. Böyle "
-"çerezler bilgisayarınızın diskinde ya da saklama aygıtlarında "
-"kaydedilmeyecektir. Bunun yerine, bunları kullanan tüm uygulamaları "
-"(örneğin, tarayıcınızı) kapattığınızda bunlar silinecektir.</p><p><u>NOT:</"
-"u> Bu seçeneği işaretlemek önceki çerez politikanızı ve hatta siteye özel "
-"çerez politikalarınızı geçersiz kılacaktır.</p>"
+"Geçerli oturumun sonunda sona erecek olan çerezleri otomatik olarak kabul "
+"edin. Bu tür çerezler, bilgisayarınızın sabit sürücüsünde veya depolama "
+"aygıtında depolanmayacaktır. Bunun yerine, onları kullanan tüm uygulamaları "
+"(örn. tarayıcınız) kapattığınızda silinirler.</p><p><u>NOT</u> Bu seçeneğin "
+"işaretlenmesi, oturum çerezleri için öntanımlı ve siteye özel çerez "
+"politikalarını geçersiz kılar.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:49
@@ -4800,8 +4800,8 @@ msgstr ""
 "<p>Mac platformlarında</p>\n"
 "<p>Windows platformlarında</p>\n"
 "<p>Unix ve Linux platformlarında, benzer sistem vekil sunucu ayarları "
-"genellikle çevre değişkeni aracılığıyla tanımlanır. Aşağıdaki ortam "
-"değişkenleri tespit edilir ve mevcut olduklarında kullanılırlar: "
+"genellikle çevre değişkeni aracılığıyla tanımlanır. Aşağıdaki çevre "
+"değişkenleri tespit edilir ve kullanılabilin olduklarında kullanılırlar: "
 "<b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</"
 "p>\n"
 "</qt>"
@@ -4845,8 +4845,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"HTTP vekil sunucusunun adresini saklamak için kullanılan çevre değişkeninin "
-"adını girin, örneğin <b>HTTP_PROXY</b>.<p>\n"
+"HTTP vekil sunucusunun adresini depolamak için kullanılan çevre değişkeninin "
+"adını girin; örneğin <b>HTTP_PROXY</b>.<p>\n"
 "Alternatif olarak, bu değişkeni otomatik olarak bulmayı denemek için <b>"
 "\"Otomatik Algıla\"</b> düğmesine tıklayabilirsiniz.</p>\n"
 "</qt>"
@@ -4871,8 +4871,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"HTTPS vekil sunucusunun adresini saklamak için kullanılan çevre değişkeninin "
-"adını girin, örneğin <b>HTTPS_PROXY</b>.<p>\n"
+"HTTPS vekil sunucusunun adresini depolamak için kullanılan çevre "
+"değişkeninin adını girin; örneğin <b>HTTPS_PROXY</b>.<p>\n"
 "Alternatif olarak, bu değişkeni otomatik olarak bulmayı denemek için <b>"
 "\"Otomatik Algıla\"</b> düğmesine tıklayabilirsiniz.</p>\n"
 "</qt>"
@@ -4897,8 +4897,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"FTP vekil sunucusunun adresini saklamak için kullanılan çevre değişkeninin "
-"adını girin, örneğin <b>FTP_PROXY</b>.<p>\n"
+"FTP vekil sunucusunun adresini depolamak için kullanılan çevre değişkeninin "
+"adını girin; örneğin <b>FTP_PROXY</b>.<p>\n"
 "Alternatif olarak, bu değişkeni otomatik olarak bulmayı denemek için <b>"
 "\"Otomatik Algıla\"</b> düğmesine tıklayabilirsiniz.</p>\n"
 "</qt>"
@@ -4922,8 +4922,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"SOCKS vekil sunucusunun adresini saklamak için kullanılan çevre değişkeninin "
-"adını girin, örneğin.<b>SOCKS_PROXY</b>.<p>\n"
+"SOCKS vekil sunucusunun adresini depolamak için kullanılan çevre "
+"değişkeninin adını girin; örneğin.<b>SOCKS_PROXY</b>.<p>\n"
 "Alternatif olarak, bu değişkeni otomatik olarak bulmayı denemek için <b>"
 "\"Otomatik Algıla\"</b> düğmesine tıklayabilirsiniz.</p>\n"
 "</qt>"
@@ -4944,7 +4944,7 @@ msgid ""
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>SOCKS vekil sunucusunun adresini saklamak için kullanılan ortam "
+"<qt>SOCKS vekil sunucusunun adresini depolamak için kullanılan çevre "
 "değişkeninin adını girin, örneğin.<b>SOCKS_PROXY</b>.<p>Alternatif olarak, "
 "bu değişkeni otomatik olarak bulmayı denemek için <b>\"Otomatik Algıla\"</b> "
 "düğmesine tıklayabilirsiniz.</p></qt>"
@@ -4962,8 +4962,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Vekil sunucunun kullanılmaması gereken siteleri saklamak için kullanılan "
-"çevre değişkeninin adını girmek için örneğin: <b>NO_PROXY</b> girin. <p>\n"
+"Vekil sunucunun kullanılmaması gereken siteleri depolamak için kullanılan "
+"çevre değişkeninin adını girmek için; örneğin: <b>NO_PROXY</b> girin. <p>\n"
 "Alternatif olarak, bu değişkenin otomatik olarak keşfini denemek için <b>"
 "\"Otomatik Algılama\"</b> düğmesine tıklayabilirsiniz.\n"
 "</qt>"
@@ -4984,7 +4984,7 @@ msgid ""
 "<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>Vekil sunucusunun kullanılmaması gereken siteleri saklamak için "
+"<qt>Vekil sunucusunun kullanılmaması gereken siteleri depolamak için "
 "kullanılan çevre değişkeninin adını girmek için örneğin: <b>NO_PROXY</b> "
 "girin. <p>Alternatif olarak, bu değişkenin otomatik olarak keşfini denemek "
 "için <b>\"Otomatik Algılama\"</b> düğmesine tıklayabilirsiniz.</p></qt>"
