@@ -790,9 +790,6 @@ void KCoreDirListerCache::itemsAddedInDirectory(const QUrl &urlDir)
 
 void KCoreDirListerCache::slotFilesRemoved(const QStringList &fileList) // from KDirNotify signals
 {
-    // TODO: handling of symlinks-to-directories isn't done here,
-    // because I'm not sure how to do it and keep the performance ok...
-
     slotFilesRemoved(QUrl::fromStringList(fileList));
 }
 
@@ -824,7 +821,7 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
             }
 
             auto dirItemIt = std::find_if(dirItem->lstItems.begin(), dirItem->lstItems.end(), [&url](const KFileItem &fitem) {
-                return fitem.url() == url;
+                return fitem.name() == url.fileName();
             });
             if (dirItemIt != dirItem->lstItems.end()) {
                 const KFileItem fileitem = *dirItemIt;
