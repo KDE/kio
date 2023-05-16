@@ -360,15 +360,18 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     }
     MyDirLister dirLister2;
     m_items2.clear();
+    m_items.clear();
     connect(&dirLister2, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems2);
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
     // The initial listing
-    dirLister2.openUrl(QUrl::fromLocalFile(symPath), KDirLister::NoFlags);
+    m_dirLister.openUrl(QUrl::fromLocalFile(path));
+    dirLister2.openUrl(QUrl::fromLocalFile(symPath));
+    QTRY_COMPARE(m_items.count(), m_items2.count());
     QTRY_COMPARE(m_items.count(), origItemCount);
     QTRY_VERIFY(dirLister2.isFinished());
 
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
+    QTest::qWait(100); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
 
     qDebug() << "Creating new file";
     const QString fileName = QStringLiteral("toplevelfile_newinlink");
@@ -396,17 +399,29 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     // Test file deletion
     {
         qDebug() << "Deleting" << (path + fileName);
-        QTest::qWait(1000); // for timestamp difference
+        QTest::qWait(100); // for timestamp difference
         QFile::remove(path + fileName);
         QTRY_COMPARE(dirLister2.spyItemsDeleted.count(), 1);
+        QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 1);
         const KFileItem item = dirLister2.spyItemsDeleted[0][0].value<KFileItemList>().at(0);
         QCOMPARE(item.url().toLocalFile(), QString(symPath + '/' + fileName));
+    }
+    // Test file deletion in symlink dir #469254
+    {
+        qDebug() << "Deleting" << (symPath + "/" + fileName2);
+        QTest::qWait(100); // for timestamp difference
+        QFile::remove(symPath + "/" + fileName2);
+        QTRY_COMPARE(dirLister2.spyItemsDeleted.count(), 2);
+        QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 2);
+        const KFileItem item = dirLister2.spyItemsDeleted[1][0].value<KFileItemList>().at(0);
+        QCOMPARE(item.url().toLocalFile(), QString(symPath + '/' + fileName2));
     }
 
     // TODO: test file update.
     disconnect(&m_dirLister, nullptr, this, nullptr);
 
     QFile::remove(symPath);
+    m_dirLister.openUrl(QUrl::fromLocalFile(tempPath()));
 }
 
 // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
