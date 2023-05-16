@@ -825,7 +825,14 @@ PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &pat
     if (!shouldAllow) {
         Solid::Device device = Solid::Device::storageAccessFromPath(checkedPath);
         if (device.isValid()) {
-            shouldAllow = !device.as<Solid::StorageAccess>()->isEncrypted();
+            // If the checked device is encrypted, allow thumbnailing if the thumbnails are stored in an encrypted location.
+            // Or, if the checked device is unencrypted, allow thumbnailing.
+            if (device.as<Solid::StorageAccess>()->isEncrypted()) {
+                const Solid::Device thumbRootDevice = Solid::Device::storageAccessFromPath(thumbRoot);
+                shouldAllow = thumbRootDevice.as<Solid::StorageAccess>()->isEncrypted();
+            } else {
+                shouldAllow = true;
+            }
         }
     }
     if (!isDifferentSystem) {
