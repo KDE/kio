@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2848,7 +2848,7 @@ msgstr "نمایش پیش‌‌نمایش"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgid "Properties"
 msgstr "ویژگیها"
@@ -3310,87 +3310,87 @@ msgstr ""
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "زباله‌دان را خالی کن"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "سوار کردن"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "باز کردن با"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "افزودن مدخل..."
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "ویرایش"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "حذف"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "&مخفی کردن »%1«‌"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "&مخفی کردن »%1«‌"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&نمایش همه مدخلها‌"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "نمای کوتاه"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3399,26 +3399,26 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "&آشکارسازی به طور خودکار‌"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "گرداننده: %1"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2633,7 +2633,7 @@ msgstr "o sitelen e lukin lipu"
 msgid "Open Containing Folder"
 msgstr "o open e poki pi jo lipu ni"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgid "Properties"
 msgstr "ijo lipu"
@@ -3052,61 +3052,61 @@ msgstr ""
 msgid "%1 (hidden)"
 msgstr "%1 (len tawa oko)"
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "poki jaki o jo e ala"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "o kama insa e ilo"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "o namako e ijo…"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&o ante…"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "o weka e ni"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "o &len e ni"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Hide Section '%1'"
@@ -3114,18 +3114,18 @@ msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, kde-format
 msgid "&Show All Entries"
 msgstr "o &ken e lukin tawa ijo ale"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "suli pi sitelen lili"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3133,25 +3133,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ilo o pona e suli"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "lili (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "lili ala (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "suli (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

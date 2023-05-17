@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
 "PO-Revision-Date: 2023-04-27 16:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2825,7 +2825,7 @@ msgstr "Показати перегляд"
 msgid "Open Containing Folder"
 msgstr "Відкрити теку об'єкта"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgid "Properties"
 msgstr "Властивості"
@@ -3254,78 +3254,78 @@ msgstr ", "
 msgid "%1 (hidden)"
 msgstr "%1 (приховано)"
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Спорожнити Смітник"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Змонтувати"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Відкрити у новій вкладці"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Відкрити у новому вікні"
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Додати запис…"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "З&мінити…"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "При&ховати"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Приховати розділ «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Приховати розділ"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, kde-format
 msgid "&Show All Entries"
 msgstr "По&казати всі записи"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Розмір піктограм"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3333,25 +3333,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Автоматична зміна"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Малий (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Середній (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Великий (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

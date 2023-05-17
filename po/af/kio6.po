@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -2911,7 +2911,7 @@ msgstr "Vertoon Voorskou"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, fuzzy, kde-format
 msgid "Properties"
 msgstr "Eienskappe vir %1"
@@ -3391,7 +3391,7 @@ msgstr ""
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, fuzzy, kde-format
 #| msgctxt "to trash"
 #| msgid "&Trash"
@@ -3399,67 +3399,67 @@ msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gemors"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Mount"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Open Met"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Redigeer..."
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Verwyder Inskrywing"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Voeg by Inskrywing..."
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, fuzzy, kde-format
 #| msgid ""
 #| "Show\n"
@@ -3469,14 +3469,14 @@ msgstr ""
 "Vertoon\n"
 "Inskrywings"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Kort Aansig"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3485,25 +3485,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Outo Verklik"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "grootte %1"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

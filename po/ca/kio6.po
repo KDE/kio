@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
 "PO-Revision-Date: 2023-04-27 11:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2847,7 +2847,7 @@ msgstr "Mostra la vista prèvia"
 msgid "Open Containing Folder"
 msgstr "Obre la carpeta contenidora"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgid "Properties"
 msgstr "Propietats"
@@ -3270,78 +3270,78 @@ msgstr ", "
 msgid "%1 (hidden)"
 msgstr "%1 (oculta)"
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Buida la paperera"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Munta"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Obre en una pestanya nova"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Obre en una finestra nova"
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Afegeix una entrada…"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Edita…"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Elimina"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "Ocu&lta"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Oculta la secció «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Oculta la secció"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Mo&stra totes les entrades"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Mida de les icones"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3349,25 +3349,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Redimensiona automàticament"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Petita (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Mitjana (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Gran (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

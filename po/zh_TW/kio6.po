@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:14+0000\n"
-"PO-Revision-Date: 2023-04-14 22:04+0900\n"
+"POT-Creation-Date: 2023-05-17 02:04+0000\n"
+"PO-Revision-Date: 2023-05-17 04:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -936,7 +936,7 @@ msgstr ""
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
 "tools to update your software."
-msgstr "請將您的軟體更新至最新版本。您使用的散布版應該提供更新軟體的工具。"
+msgstr "請將您的軟體更新至最新版本。您使用的發行版應該提供更新軟體的工具。"
 
 #: core/job_error.cpp:398
 #, kde-format
@@ -2674,7 +2674,7 @@ msgstr "顯示預覽"
 msgid "Open Containing Folder"
 msgstr "開啟包含資料夾"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgid "Properties"
 msgstr "屬性"
@@ -3090,78 +3090,78 @@ msgstr "、"
 msgid "%1 (hidden)"
 msgstr "%1（隱藏）"
 
-#: filewidgets/kfileplacesview.cpp:1116
+#: filewidgets/kfileplacesview.cpp:1119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "清空垃圾桶"
 
-#: filewidgets/kfileplacesview.cpp:1136
+#: filewidgets/kfileplacesview.cpp:1139
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "掛載"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "在新分頁開啟"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: filewidgets/kfileplacesview.cpp:1154
+#: filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "新增項目…"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "編輯(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1165
+#: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "移除"
 
-#: filewidgets/kfileplacesview.cpp:1169
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "隱藏(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "隱藏區段「%1」"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1180
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "隱藏區段"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1188
 #, kde-format
 msgid "&Show All Entries"
 msgstr "顯示所有項目(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1190
+#: filewidgets/kfileplacesview.cpp:1193
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "圖示大小"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3169,25 +3169,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "自動調整大小"
 
-#: filewidgets/kfileplacesview.cpp:1317
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "小 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "中 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "大 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -4510,6 +4510,13 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"不是所有應用程式都會使用這裡的代理伺服器設定。具體來說，"
+"<application>Firefox</application>、<application>Chromium</application> 和任"
+"何基於它們的應用程式，以及任何基於 <application>QtWebEngine</application> 的"
+"應用程式&nbsp;—— 這包含了使用 <application>WebEnginePart</application> 的 "
+"<application>Konqueror</application>、<application>Akregator</application> "
+"及 <application>Falkon</application>&nbsp;——都不會使用這裡的設定。某些應用程"
+"式可能有在它們自己的設定裡提供代理伺服器的選項。"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -4556,16 +4563,7 @@ msgstr "沒有代理伺服器"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -4578,9 +4576,8 @@ msgstr ""
 "<qt>\n"
 "自動偵測並設定代理伺服器設定值。<p>\n"
 "自動偵測是使用 <b>網頁代理伺服器自動發現協定 (WPAD)</b> 進行的。<p>\n"
-"<b>注意：</b>這個選項在某些 UNIX/Linux 散布版可能無法正常運作或者完全無法運"
-"作。如果您在使用這個選項時遇到問題，請查閱在 https://konqueror.org 的 FAQ 章"
-"節。\n"
+"<b>注意：</b>這個選項在某些 UNIX/Linux 發行版可能無法正常運作或者完全無法運"
+"作。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -4757,12 +4754,7 @@ msgstr "SOCKS 代理伺服器："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#| "can click on the <b>\"Auto Detect\"</b> button to attempt an automatic "
-#| "discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
@@ -4802,12 +4794,7 @@ msgstr "例外："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#| "the addresses of sites for which the above proxy settings should not be "
-#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
-#| "to attempt an automatic discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
@@ -6521,10 +6508,9 @@ msgstr ""
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: widgets/checksumswidget.ui:29
-#, fuzzy, kde-format
-#| msgid "Expected checksum (MD5, SHA1 or SHA256)..."
+#, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "預期中的總和檢查碼 (MD5、SHA1 或 SHA256)..."
+msgstr "預期的總和檢查碼 (MD5、SHA1、SHA256 或 SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7492,10 +7478,9 @@ msgstr "環境變數："
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "在這裡輸入你想要在這個應用程式使用的使用者名稱。"
+msgstr "在這裡輸入啟動這個應用程式的命令。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7520,20 +7505,7 @@ msgstr "瀏覽(&B)..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7548,9 +7520,9 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"在這裡輸入啟動這個應用程式的命令。\n"
+"在這裡輸入啟動這個應用程式時要使用的引數。\n"
 "\n"
-"在命令後方您可以使用一些換位符，它們會在實際程式執行時換成實際的數值：\n"
+"您可以使用一些換位符，它們在實際程式執行時會換成實際的數值：\n"
 "\n"
 "%f - 一個檔案名稱\n"
 "%F - 檔案的清單（用在可以一次開啟多個檔案的應用程式）\n"
@@ -7562,10 +7534,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "引數："
+msgstr "引數(&A)："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7677,15 +7648,13 @@ msgid "Ad&vanced Options"
 msgstr "進階的選項(&V)"
 
 #: widgets/kpropertiesdialog.cpp:171
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
-msgstr "<qt>無法儲存內容。您沒有足夠的存取權來寫入 <b>%1</b>。</qt>"
+msgstr ""
+"無法儲存屬性。沒有足夠的存取權來寫入檔案：<nl/><filename>%1</filename>。"
 
 #: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
 #: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
@@ -7777,10 +7746,9 @@ msgid "The new file name is empty."
 msgstr "新的檔案名稱是空的。"
 
 #: widgets/kpropertiesdialog.cpp:1610
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "支援的檔案類型(&S):"
+msgstr "沒有定義檔案類型"
 
 #: widgets/kpropertiesdialog.cpp:1612
 #, kde-format
