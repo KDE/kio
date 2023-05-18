@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-17 00:43+0000\n"
-"PO-Revision-Date: 2023-05-10 20:14+0100\n"
+"PO-Revision-Date: 2023-05-17 11:58+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2560,13 +2560,13 @@ msgstr "&Eterne"
 #: core/tcpworkerbase.cpp:285
 #, kde-format
 msgid "C&ontinue Loading"
-msgstr "C&daŭrigu Ŝarĝon"
+msgstr "Daŭrigi Ŝarg&on"
 
 #: core/slaveinterface.cpp:430 core/tcpslavebase.cpp:537
 #: core/tcpworkerbase.cpp:530 widgets/sslui.cpp:70
 #, kde-format
 msgid "Co&ntinue"
-msgstr "Daŭrigu"
+msgstr "Ko&ntinui"
 
 #: core/slaveinterface.cpp:432 core/tcpslavebase.cpp:551
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
@@ -3251,13 +3251,17 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Unu aŭ pluraj dosieroj sur ĉi aparato estas malfermataj en aplikaĵo "
+"<application>\"%2\"</application>."
 msgstr[1] ""
+"Unu aŭ pluraj dosieroj sur ĉi aparato estas malfermataj en sekvantaj "
+"aplikaĵoj: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3292,13 +3296,13 @@ msgstr "Malfermu en Nova Fenestro"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Aldonu eniron..."
+msgstr "Aldonu eniron…"
 
 #: filewidgets/kfileplacesview.cpp:1163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "&Redakti..."
+msgstr "R&edakti…"
 
 #: filewidgets/kfileplacesview.cpp:1168
 #, kde-format
@@ -3396,7 +3400,10 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"La elektita URL uzas nesubtenatan skemon. Bonvolu uzi la sekvontan skemon: %2"
 msgstr[1] ""
+"La elektita URL uzas nesubtenatan skemon. Bonvolu uzi la sekvontajn skemojn: "
+"%2"
 
 #: filewidgets/kfilewidget.cpp:865
 #, kde-format
@@ -3600,7 +3607,7 @@ msgstr "*|Ĉiuj dosieroj"
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
-msgstr "&Malfermu"
+msgstr "&Malfermi"
 
 #: filewidgets/kfilewidget.cpp:2312
 #, kde-format
@@ -3995,7 +4002,7 @@ msgid ""
 msgstr ""
 "La labortabla enigdosiero\n"
 "%1\n"
-"is de tipo Ligilo sed ne havas URL=... eniron."
+"estas de tipo Ligilo sed ne havas URL=... eniron."
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -4851,13 +4858,13 @@ msgstr "Reteja Politiko"
 #: kcms/cookies/kcookiespolicies.ui:135
 #, kde-format
 msgid "Search interactively for domains"
-msgstr "Serĉu interage por domajnoj"
+msgstr "Serĉi interage por domajnoj"
 
 #. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:138
 #, kde-format
 msgid "Search..."
-msgstr "Serĉu..."
+msgstr "Serĉi..."
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -4896,14 +4903,14 @@ msgstr "&Nova..."
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "Ŝanĝu..."
+msgstr "Ŝanĝ&i..."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:81
 #, kde-format
 msgid "Accept"
-msgstr "Akceptu"
+msgstr "Akcepti"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:28
 msgid "Accept For Session"
@@ -7288,7 +7295,7 @@ msgstr "Aldoni..."
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Redaktu..."
+msgstr "Redakti..."
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7507,7 +7514,7 @@ msgstr "Tajpu"
 #: widgets/kfileitemactions.cpp:435
 #, kde-format
 msgid "Open &with %1"
-msgstr "Malfermu &kun %1"
+msgstr "Malfermi &kun %1"
 
 #: widgets/kfileitemactions.cpp:437
 #, kde-format
@@ -7525,13 +7532,13 @@ msgstr "&Agoj"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Malfermu Dosierujon Kun..."
+msgstr "&Malfermi Dosierujon Kun..."
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Malfermu Kun..."
+msgstr "&Malfermi Kun..."
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
@@ -7717,12 +7724,12 @@ msgstr[1] ""
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
 msgid "Choose Application"
-msgstr "Elektu Aplikon"
+msgstr "Elekti Aplikon"
 
 #: widgets/kopenwithdialog.cpp:611
 #, kde-format
 msgid "Choose Application for %1"
-msgstr "Elektu Aplikon por %1"
+msgstr "Elekti Aplikon por %1"
 
 #: widgets/kopenwithdialog.cpp:613
 #, kde-format
@@ -8664,15 +8671,15 @@ msgstr "Varianta (Neniu Ŝanĝo)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉi tiu dosiero uzas altnivelajn permesojn."
+msgstr[1] "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 
 #: widgets/kpropertiesdialog.cpp:2502
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉi dosierujo uzas altnivelajn permesojn."
+msgstr[1] "Ĉi dosierujoj uzas altnivelajn permesojn."
 
 #: widgets/kpropertiesdialog.cpp:2516
 #, kde-format
@@ -8683,7 +8690,7 @@ msgstr "Ĉi tiuj dosieroj uzas altnivelajn permesojn."
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
-msgstr "C&kontrolsumoj"
+msgstr "&Kontrolsumoj"
 
 #: widgets/kpropertiesdialog.cpp:2827 widgets/kpropertiesdialog.cpp:2838
 #: widgets/kpropertiesdialog.cpp:2849 widgets/kpropertiesdialog.cpp:2860
@@ -8695,7 +8702,7 @@ msgstr "Kalkulante..."
 #: widgets/kpropertiesdialog.cpp:3016
 #, kde-format
 msgid "Invalid checksum."
-msgstr "Nevalida ĉeksumo."
+msgstr "Nevalida kontrolsumo."
 
 #: widgets/kpropertiesdialog.cpp:3019
 #, kde-format
@@ -8735,7 +8742,7 @@ msgstr "La kalkulita ĉeksumo kaj la atendata ĉeksumo malsamas."
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Kontrolante ĉeksumon..."
+msgstr "Kontrolante kontrolsumon..."
 
 #: widgets/kpropertiesdialog.cpp:3147
 #, kde-format
@@ -8847,16 +8854,16 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "uzante %1 biton"
+msgstr[1] "uzante %1 bitojn"
 
 #: widgets/ksslinfodialog.cpp:169
 #, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "de %1-bita ŝlosilo"
+msgstr[1] "de %1-bita ŝlosilo"
 
 #: widgets/ksslinfodialog.cpp:184
 #, kde-format
@@ -8920,32 +8927,32 @@ msgstr ""
 #, kde-format
 msgid "&Paste File"
 msgid_plural "&Paste %1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "&Alglui Dosieron"
+msgstr[1] "&Alglui %1 Dosierojn"
 
 #: widgets/paste.cpp:293
 #, kde-format
 msgid "&Paste URL"
 msgid_plural "&Paste %1 URLs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "&Alglui URL"
+msgstr[1] "&Alglui %1 URL-ojn"
 
 #: widgets/paste.cpp:296
 #, kde-format
 msgid "&Paste Clipboard Contents"
-msgstr "&Algluu Enhavon de la Tondujo"
+msgstr "&Alglui Enhavon de la Tondujo"
 
 #: widgets/paste.cpp:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "Algluu Unu Dosierujon"
+msgstr "Alglui Unu Dosierujon"
 
 #: widgets/paste.cpp:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "Algluu Unu Dosieron"
+msgstr "Alglui Unu Dosieron"
 
 #: widgets/paste.cpp:333
 #, kde-format
@@ -8959,7 +8966,7 @@ msgstr[1] "Alglui %1 erojn"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "Algluu enhavon de la tondujo..."
+msgstr "Alglui enhavon de la tondujo..."
 
 #: widgets/paste.cpp:339
 #, kde-format
