@@ -62,6 +62,5 @@ target_link_libraries(kded_kcookiejar
 ########### install files ###############
 
 install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF}/kcookiejar )
-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KCookieServer.xml)
 
 kdbusaddons_generate_dbus_service_file(kded5 org.kde.kcookiejar5 ${KDE_INSTALL_FULL_BINDIR})

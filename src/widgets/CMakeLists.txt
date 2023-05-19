@@ -201,11 +201,6 @@ install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDED
 install(TARGETS KF6KIOWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
-   org.kde.kio.FileUndoManager.xml
-   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
-   RENAME kf5_org.kde.kio.FileUndoManager.xml)
-
-install(FILES
   ${KIO_namespaced_widgets_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/kio COMPONENT Devel)
 

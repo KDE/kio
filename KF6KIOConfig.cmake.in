@@ -2,8 +2,6 @@
 
 # Any changes in this ".cmake" file will be overwritten by CMake, the source is the ".cmake.in" file.
 
-set(KCookieServer_DBUS_INTERFACE "@PACKAGE_KDE_INSTALL_DBUSINTERFACEDIR@/kf5_org.kde.KCookieServer.xml")
-
 include(CMakeFindDependencyMacro)
 find_dependency(KF6CoreAddons "@KF_DEP_VERSION@")
 find_dependency(KF6Config "@KF_DEP_VERSION@")

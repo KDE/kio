@@ -172,15 +172,6 @@ target_sources(KF6KIOCore PRIVATE
     ${kiocore_dbus_SRCS}
 )
 
-install(FILES
-   org.kde.KDirNotify.xml
-   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
-   RENAME kf5_org.kde.KDirNotify.xml)
-install(FILES
-   org.kde.KPasswdServer.xml
-   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
-   RENAME kf5_org.kde.KPasswdServer.xml)
-
 ecm_generate_export_header(KF6KIOCore
     BASE_NAME KIOCore
     GROUP_BASE_NAME KF
