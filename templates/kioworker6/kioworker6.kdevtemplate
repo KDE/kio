@@ -1,5 +1,14 @@
 [General]
 Name=C++ (KF6)
+Name[ca]=C++ (KF6)
+Name[ca@valencia]=C++ (KF6)
+Name[es]=C++ (KF6)
+Name[ia]=C++ (KF6)
+Name[nl]=C++ (KF6)
+Name[pl]=C++ (KF6)
+Name[tr]=C++ (KF6)
+Name[uk]=C++ (KF6)
+Name[x-test]=xxC++ (KF6)xx
 Comment=KIO Worker Template
 Comment[ar]=قالب عامل الدخل والخرج
 Comment[az]=KİO modulu nümunəsi
