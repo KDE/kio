@@ -58,7 +58,7 @@
         "Name[x-test]": "xxProxyxx",
         "Name[zh_TW]": "代理伺服器"
     },
-    "X-DocPath": "kcontrol5/proxy/index.html",
+    "X-DocPath": "kcontrol6/proxy/index.html",
     "X-KDE-Keywords": "Proxy,Proxy server,Firewall,Squid",
     "X-KDE-Keywords[ar]": "وسيط,خادم وسيط,جدار حماية,سكود",
     "X-KDE-Keywords[az]": "Proxy,Proxy server,Firewall,Squid",
