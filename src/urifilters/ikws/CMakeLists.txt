@@ -23,7 +23,7 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kuriikwsfilter
-    KF6::KIOWidgets     # KUriFilter
+    KF6::KIOGui     # KUriFilter
     KF6::I18n
     Qt6::DBus
 )

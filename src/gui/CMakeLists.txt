@@ -25,6 +25,8 @@ target_sources(KF6KIOGui PRIVATE
    previewjob.cpp
    thumbnailcreator.cpp
    gpudetection.cpp
+   kurifilter.cpp
+   kurifilterplugin.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -116,6 +118,7 @@ ecm_generate_headers(KIOGui_HEADERS
   KCoreUrlNavigator
   KEMailClientLauncherJob
   KTerminalLauncherJob
+  KUriFilter
 
   REQUIRED_HEADERS KIOGui_HEADERS
 )

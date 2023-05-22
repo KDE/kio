@@ -3,7 +3,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 #include "kurifilter.h"
 
 /**
@@ -20,7 +20,7 @@
  *
  * @short Abstract class for URI filter plugins.
  */
-class KIOWIDGETS_EXPORT KUriFilterPlugin : public QObject
+class KIOGUI_EXPORT KUriFilterPlugin : public QObject
 {
     Q_OBJECT
 

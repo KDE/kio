@@ -11,7 +11,7 @@
 #ifndef KURIFILTER_H
 #define KURIFILTER_H
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 
 #include <QHash>
 #include <QObject>
@@ -35,7 +35,7 @@ class QHostInfo;
  * Class that holds information about a search provider.
  *
  */
-class KIOWIDGETS_EXPORT KUriFilterSearchProvider
+class KIOGUI_EXPORT KUriFilterSearchProvider
 {
 public:
     /**
@@ -149,7 +149,7 @@ private:
  * @author Dawit Alemayehu <adawit at kde.org>
  */
 
-class KIOWIDGETS_EXPORT KUriFilterData
+class KIOGUI_EXPORT KUriFilterData
 {
 public:
     /**
@@ -697,7 +697,7 @@ private:
  *
  * @short Filters the given input into a valid url whenever possible.
  */
-class KIOWIDGETS_EXPORT KUriFilter
+class KIOGUI_EXPORT KUriFilter
 {
 public:
     /**

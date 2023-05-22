@@ -4,6 +4,7 @@
 */
 
 #include "kurifilter.h"
+#include <QMap>
 
 typedef QMap<QString, KUriFilterSearchProvider *> SearchProviderMap;
 class KUriFilterDataPrivate

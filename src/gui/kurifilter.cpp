@@ -11,7 +11,6 @@
 
 #include "hostinfo.h"
 
-#include <KIconLoader>
 #include <KService>
 #include <kio/global.h>
 
@@ -21,6 +20,7 @@
 #include <QHashIterator>
 #include <QHostAddress>
 #include <QHostInfo>
+#include <QIcon>
 
 #include "kurifilterplugin_p.h"
 
@@ -40,12 +40,10 @@ QString KUriFilterDataPrivate::lookupIconNameFor(const QUrl &url, KUriFilterData
             iconName = service->icon();
         }
         // Try to find an icon with the same name as the binary (useful for non-kde apps)
-        // Use iconPath rather than loadIcon() as the latter uses QPixmap (not threadsafe)
-        else if (!KIconLoader::global()->iconPath(exeName, KIconLoader::NoGroup, true).isNull()) {
+        else if (!QIcon::fromTheme(exeName).isNull()) {
             iconName = exeName;
-        } else
-        // not found, use default
-        {
+        } else {
+            // not found, use default
             iconName = QStringLiteral("system-run");
         }
         break;

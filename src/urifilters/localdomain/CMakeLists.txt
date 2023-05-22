@@ -15,5 +15,5 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(localdomainurifilter KF6::KIOWidgets)
+target_link_libraries(localdomainurifilter KF6::KIOGui)
 

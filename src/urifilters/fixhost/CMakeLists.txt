@@ -6,4 +6,4 @@ target_sources(fixhosturifilter PRIVATE
     fixhosturifilter.cpp
 )
 
-target_link_libraries(fixhosturifilter KF6::KIOWidgets)
+target_link_libraries(fixhosturifilter KF6::KIOGui)

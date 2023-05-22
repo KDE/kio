@@ -35,8 +35,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kurlrequester.cpp
   kshellcompletion.cpp
   kurlcompletion.cpp
-  kurifilter.cpp
-  kurifilterplugin.cpp
   renamedialog.cpp
   ksslcertificatebox.cpp
   ksslinfodialog.cpp
@@ -165,7 +163,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KDirModel
   KShellCompletion
   KUrlCompletion
-  KUriFilter
 
   REQUIRED_HEADERS KIOWidgets_HEADERS
 )
