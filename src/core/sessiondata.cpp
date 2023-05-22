@@ -27,12 +27,10 @@ class SessionData::SessionDataPrivate
 public:
     SessionDataPrivate()
     {
-        useCookie = true;
         initDone = false;
     }
 
     bool initDone;
-    bool useCookie;
     QString charsets;
     QString language;
 };
@@ -54,9 +52,6 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
         // These might have already been set so check first
         // to make sure that we do not trumpt settings sent
         // by apps or end-user.
-        if (configData[QStringLiteral("Cookies")].isEmpty()) {
-            configData[QStringLiteral("Cookies")] = d->useCookie ? QStringLiteral("true") : QStringLiteral("false");
-        }
         if (configData[QStringLiteral("Languages")].isEmpty()) {
             configData[QStringLiteral("Languages")] = d->language;
         }
@@ -77,8 +72,6 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
 void SessionData::reset()
 {
     d->initDone = true;
-    // Get Cookie settings...
-    d->useCookie = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy").readEntry("Cookies", true);
 
     d->language = KProtocolManager::acceptLanguagesHeader();
     d->charsets = QStringLiteral("utf-8");

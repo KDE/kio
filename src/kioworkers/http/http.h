@@ -111,7 +111,6 @@ public:
             doNotWWWAuthenticate = false;
             doNotProxyAuthenticate = false;
             preferErrorPage = false;
-            useCookieJar = false;
         }
 
         QByteArray methodString() const;
@@ -151,10 +150,8 @@ public:
         // Indicates whether an error page or error message is preferred.
         bool preferErrorPage;
 
-        // Use the cookie jar (or pass cookies to the application as metadata instead)
-        bool useCookieJar;
         // Cookie flags
-        enum { CookiesAuto, CookiesManual, CookiesNone } cookieMode;
+        enum { CookiesManual, CookiesNone } cookieMode;
 
         CacheTag cacheTag;
     };
@@ -388,16 +385,6 @@ protected:
      * Returns the appropriate If: header
      */
     QString davProcessLocks();
-
-    /**
-     * Send a cookie to the cookiejar
-     */
-    void addCookies(const QString &url, const QByteArray &cookieHeader);
-
-    /**
-     * Look for cookies in the cookiejar
-     */
-    QString findCookies(const QString &url);
 
     void cacheParseResponseHeader(const HeaderTokenizer &tokenizer);
 

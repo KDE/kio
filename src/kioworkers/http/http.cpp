@@ -44,14 +44,12 @@
 #include <KLocalizedString>
 #include <QDebug>
 
-#include <QDBusInterface>
 #include <QSslSocket>
 #include <kremoteencoding.h>
 
 #include <http_worker_defaults.h>
 #include <ioworker_defaults.h>
 
-#include <QDBusReply>
 #include <QProcess>
 #include <httpfilter.h>
 
@@ -110,41 +108,6 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 static QString toQString(const QByteArray &value)
 {
     return QString::fromLatin1(value.constData(), value.size());
-}
-
-static bool isCrossDomainRequest(const QString &fqdn, const QString &originURL)
-{
-    // TODO read the RFC
-    if (originURL == QLatin1String("true")) { // Backwards compatibility
-        return true;
-    }
-
-    QUrl url(originURL);
-
-    // Document Origin domain
-    QString a = url.host();
-    // Current request domain
-    const QString &b = fqdn;
-
-    if (a == b) {
-        return false;
-    }
-
-    QStringList la = a.split(QLatin1Char('.'), Qt::SkipEmptyParts);
-    QStringList lb = b.split(QLatin1Char('.'), Qt::SkipEmptyParts);
-
-    if (qMin(la.count(), lb.count()) < 2) {
-        return true; // better safe than sorry...
-    }
-
-    while (la.count() > 2) {
-        la.pop_front();
-    }
-    while (lb.count() > 2) {
-        lb.pop_front();
-    }
-
-    return la != lb;
 }
 
 /*
@@ -429,7 +392,6 @@ void HTTPProtocol::resetSessionSettings()
     m_request.keepAliveTimeout = 0;
 
     m_request.redirectUrl = QUrl();
-    m_request.useCookieJar = configValue(QStringLiteral("Cookies"), false);
     m_request.cacheTag.useCache = configValue(QStringLiteral("UseCache"), true);
     m_request.preferErrorPage = configValue(QStringLiteral("errorPage"), true);
     const bool noAuth = configValue(QStringLiteral("no-auth"), false);
@@ -2535,16 +2497,10 @@ KIO::WorkerResult HTTPProtocol::sendQuery()
         QString cookieStr;
         const QString cookieMode = metaData(QStringLiteral("cookies")).toLower();
 
-        if (cookieMode == QLatin1String("none")) {
-            m_request.cookieMode = HTTPRequest::CookiesNone;
-        } else if (cookieMode == QLatin1String("manual")) {
+        m_request.cookieMode = HTTPRequest::CookiesNone;
+        if (cookieMode == QLatin1String("manual")) {
             m_request.cookieMode = HTTPRequest::CookiesManual;
             cookieStr = metaData(QStringLiteral("setcookies"));
-        } else {
-            m_request.cookieMode = HTTPRequest::CookiesAuto;
-            if (m_request.useCookieJar) {
-                cookieStr = findCookies(m_request.url.toString());
-            }
         }
 
         if (!cookieStr.isEmpty()) {
@@ -3347,14 +3303,7 @@ endParsing:
             cookieStr += "Set-Cookie: " + tIt.next() + '\n';
         }
         if (!cookieStr.isEmpty()) {
-            if ((m_request.cookieMode == HTTPRequest::CookiesAuto) && m_request.useCookieJar) {
-                // Give cookies to the cookiejar.
-                const QString domain = configValue(QStringLiteral("cross-domain"));
-                if (!domain.isEmpty() && isCrossDomainRequest(m_request.url.host(), domain)) {
-                    cookieStr = "Cross-Domain\n" + cookieStr;
-                }
-                addCookies(m_request.url.toString(), cookieStr);
-            } else if (m_request.cookieMode == HTTPRequest::CookiesManual) {
+            if (m_request.cookieMode == HTTPRequest::CookiesManual) {
                 // Pass cookie to application
                 setMetaData(QStringLiteral("setcookies"), QString::fromUtf8(cookieStr)); // ## is encoding ok?
             }
@@ -4462,26 +4411,6 @@ KIO::WorkerResult HTTPProtocol::error(int _err, const QString &_text)
     m_kioError = _err;
     m_kioErrorString = _text;
     return WorkerResult::fail(_err, _text);
-}
-
-void HTTPProtocol::addCookies(const QString &url, const QByteArray &cookieHeader)
-{
-    qlonglong windowId = m_request.windowId.toLongLong();
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
-    (void)kcookiejar.call(QDBus::NoBlock, QStringLiteral("addCookies"), url, cookieHeader, windowId);
-}
-
-QString HTTPProtocol::findCookies(const QString &url)
-{
-    qlonglong windowId = m_request.windowId.toLongLong();
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
-    QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findCookies"), url, windowId);
-
-    if (!reply.isValid()) {
-        qCWarning(KIO_HTTP) << "Can't communicate with kded_kcookiejar!";
-        return QString();
-    }
-    return reply;
 }
 
 /******************************* CACHING CODE ****************************/

@@ -75,10 +75,9 @@ cache-creation-date  number     Date on which a cache entry has been created.
 
 http-refresh    string          Passes HTTP Refresh meta-data back to the application.
 
-cookies         "auto"          Use kcookiejar to lookup and collect cookies (default)
-                "manual"        Cookies set in "setcookies" are send, received cookies are reported
+cookies         "manual"        Cookies set in "setcookies" are send, received cookies are reported
                                 via "setcookies".
-                "none"          No cookies are sent, received cookies are discarded.
+                "none"          No cookies are sent, received cookies are discarded (default).
 
 setcookies      string          Used to send/receive HTTP cookies when "cookies" is set to "manual".
 
