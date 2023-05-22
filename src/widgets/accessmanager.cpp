@@ -460,7 +460,7 @@ QList<QNetworkCookie> CookieJar::cookiesForUrl(const QUrl &url) const
     if (!d->isEnabled) {
         return cookieList;
     }
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar6"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
     QDBusReply<QString> reply = kcookiejar.call(QStringLiteral("findDOMCookies"), url.toString(QUrl::RemoveUserInfo), (qlonglong)d->windowId);
 
     if (!reply.isValid()) {
@@ -488,7 +488,7 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
         return false;
     }
 
-    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
+    QDBusInterface kcookiejar(QStringLiteral("org.kde.kcookiejar6"), QStringLiteral("/modules/kcookiejar"), QStringLiteral("org.kde.KCookieServer"));
     for (const QNetworkCookie &cookie : cookieList) {
         QByteArray cookieHeader("Set-Cookie: ");
         if (d->isStorageDisabled && !cookie.isSessionCookie()) {

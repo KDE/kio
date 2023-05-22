@@ -371,13 +371,13 @@ void KCookiesPolicies::save()
 
     // Update the cookiejar...
     if (!mUi.cbEnableCookies->isChecked()) {
-        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                             QStringLiteral("/modules/kcookiejar"),
                             QStringLiteral("org.kde.KCookieServer"),
                             QDBusConnection::sessionBus());
         kded.call(QStringLiteral("shutdown"));
     } else {
-        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                             QStringLiteral("/modules/kcookiejar"),
                             QStringLiteral("org.kde.KCookieServer"),
                             QDBusConnection::sessionBus());

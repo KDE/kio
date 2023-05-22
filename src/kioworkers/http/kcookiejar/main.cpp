@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     parser.process(app);
 
     org::kde::KCookieServer *kcookiejar =
-        new org::kde::KCookieServer(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());
+        new org::kde::KCookieServer(QStringLiteral("org.kde.kcookiejar6"), QStringLiteral("/modules/kcookiejar"), QDBusConnection::sessionBus());
     if (parser.isSet(QStringLiteral("remove-all"))) {
         kcookiejar->deleteAllCookies();
     }

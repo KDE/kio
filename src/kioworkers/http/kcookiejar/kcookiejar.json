@@ -119,7 +119,7 @@
         "Name[zh_CN]": "Cookie Jar",
         "Name[zh_TW]": "Cookie Jar"
     },
-    "X-KDE-DBus-ServiceName": "org.kde.kcookiejar5",
+    "X-KDE-DBus-ServiceName": "org.kde.kcookiejar6",
     "X-KDE-Kded-autoload": false,
     "X-KDE-Kded-load-on-demand": true
 }

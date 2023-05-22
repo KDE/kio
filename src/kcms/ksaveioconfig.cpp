@@ -219,7 +219,7 @@ void KSaveIOConfig::updateProxyScout(QWidget *parent)
 {
     // Inform the proxyscout kded module about changes if we cannot update,
     // KIO workers inform the end user...
-    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"));
+    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"));
     QDBusReply<void> reply = kded.call(QStringLiteral("reset"));
     if (!reply.isValid()) {
         KMessageBox::information(parent, i18n("You have to restart KDE for these changes to take effect."), i18nc("@title:window", "Update Failed"));

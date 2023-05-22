@@ -117,7 +117,7 @@ void KCookiesManagement::save()
 {
     // If delete all cookies was requested!
     if (mDeleteAllFlag) {
-        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                             QStringLiteral("/modules/kcookiejar"),
                             QStringLiteral("org.kde.KCookieServer"),
                             QDBusConnection::sessionBus());
@@ -134,7 +134,7 @@ void KCookiesManagement::save()
     // Certain groups of cookies were deleted...
     QMutableStringListIterator it(mDeletedDomains);
     while (it.hasNext()) {
-        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+        QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                             QStringLiteral("/modules/kcookiejar"),
                             QStringLiteral("org.kde.KCookieServer"),
                             QDBusConnection::sessionBus());
@@ -156,7 +156,7 @@ void KCookiesManagement::save()
         CookiePropList list = cookiesDom.value();
         for (auto it = list.begin(); it < list.end(); ++it) {
             CookieProp *cookie = *it;
-            QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+            QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                                 QStringLiteral("/modules/kcookiejar"),
                                 QStringLiteral("org.kde.KCookieServer"),
                                 QDBusConnection::sessionBus());
@@ -213,7 +213,7 @@ void KCookiesManagement::clearCookieDetails()
 
 void KCookiesManagement::reload()
 {
-    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                         QStringLiteral("/modules/kcookiejar"),
                         QStringLiteral("org.kde.KCookieServer"),
                         QDBusConnection::sessionBus());
@@ -261,7 +261,7 @@ void KCookiesManagement::listCookiesForDomain(QTreeWidgetItem *item)
     const QList<int> fields{0, 1, 2, 3};
     // Always check for cookies in both "foo.bar" and ".foo.bar" domains...
     const QString domain = cookieDom->domain() + QLatin1String(" .") + cookieDom->domain();
-    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                         QStringLiteral("/modules/kcookiejar"),
                         QStringLiteral("org.kde.KCookieServer"),
                         QDBusConnection::sessionBus());
@@ -291,7 +291,7 @@ bool KCookiesManagement::cookieDetails(CookieProp *cookie)
 {
     const QList<int> fields{4, 5, 7};
 
-    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar5"),
+    QDBusInterface kded(QStringLiteral("org.kde.kcookiejar6"),
                         QStringLiteral("/modules/kcookiejar"),
                         QStringLiteral("org.kde.KCookieServer"),
                         QDBusConnection::sessionBus());

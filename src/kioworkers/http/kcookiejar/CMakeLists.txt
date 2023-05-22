@@ -1,6 +1,6 @@
 ####### kcookiejar: command line tool for talking to the kded kcookiejar module #######
-add_executable( kcookiejar5)
-ecm_mark_nongui_executable(kcookiejar5)
+add_executable(kcookiejar6)
+ecm_mark_nongui_executable(kcookiejar6)
 
 qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/kcookieserver.h org.kde.KCookieServer.xml)
 set(kcookieserver_xml ${CMAKE_CURRENT_BINARY_DIR}/org.kde.KCookieServer.xml)
@@ -10,18 +10,18 @@ qt_add_dbus_interfaces(kcookiejar_dbus_SRCS ${kcookieserver_xml})
 
 configure_file(config-kcookiejar.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcookiejar.h )
 
-target_sources(kcookiejar5 PRIVATE
+target_sources(kcookiejar6 PRIVATE
     ${kcookiejar_dbus_SRCS}
     main.cpp
 )
 
-target_link_libraries( kcookiejar5
+target_link_libraries(kcookiejar6
    Qt6::DBus
    KF6::I18n
    KF6::WidgetsAddons
 )
 
-install(TARGETS kcookiejar5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kcookiejar6 ${KF_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### kded kcookiejar module ###############
 
@@ -63,4 +63,4 @@ target_link_libraries(kded_kcookiejar
 
 install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF}/kcookiejar )
 
-kdbusaddons_generate_dbus_service_file(kded5 org.kde.kcookiejar5 ${KDE_INSTALL_FULL_BINDIR})
+kdbusaddons_generate_dbus_service_file(kded5 org.kde.kcookiejar6 ${KDE_INSTALL_FULL_BINDIR})

@@ -293,7 +293,7 @@ KCookieJar::KCookieJar()
     m_configChanged = false;
     m_cookiesChanged = false;
 
-    KConfig cfg(QStringLiteral("kf5/kcookiejar/domain_info"), KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
+    KConfig cfg(QStringLiteral("kf6/kcookiejar/domain_info"), KConfig::NoGlobals, QStandardPaths::GenericDataLocation);
     KConfigGroup group(&cfg, QString());
 
     const QStringList tldList = group.readEntry("gTLDs", QStringList());
