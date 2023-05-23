@@ -27,6 +27,7 @@
         "Description[tr]": "Kullanılan vekil sunucuları yapılandır",
         "Description[uk]": "Налаштування проксі-сервера",
         "Description[x-test]": "xxConfigure the proxy servers usedxx",
+        "Description[zh_CN]": "配置使用的代理服务器",
         "Description[zh_TW]": "設定代理伺服器如何被使用",
         "Icon": "preferences-system-network-proxy",
         "Name": "Proxy",
@@ -56,6 +57,7 @@
         "Name[tr]": "Vekil",
         "Name[uk]": "Проксі",
         "Name[x-test]": "xxProxyxx",
+        "Name[zh_CN]": "代理服务器",
         "Name[zh_TW]": "代理伺服器"
     },
     "X-DocPath": "kcontrol6/proxy/index.html",

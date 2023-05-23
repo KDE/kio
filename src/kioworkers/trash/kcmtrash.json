@@ -27,6 +27,7 @@
         "Description[tr]": "Çöp Kutusu ayarlarını yapılandır",
         "Description[uk]": "Налаштування параметрів смітника",
         "Description[x-test]": "xxConfigure trash settingsxx",
+        "Description[zh_CN]": "配置回收站设置",
         "Description[zh_TW]": "設定垃圾桶",
         "Icon": "user-trash",
         "Name": "Trash",
@@ -56,6 +57,7 @@
         "Name[tr]": "Çöp Kutusu",
         "Name[uk]": "Смітник",
         "Name[x-test]": "xxTrashxx",
+        "Name[zh_CN]": "回收站",
         "Name[zh_TW]": "垃圾桶"
     },
     "X-DocPath": "kcontrol6/trash/index.html",

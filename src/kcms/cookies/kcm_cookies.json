@@ -26,6 +26,7 @@
         "Description[tr]": "Çerezlerin nasıl çalıştığını yapılandır",
         "Description[uk]": "Налаштування механізму кук",
         "Description[x-test]": "xxConfigure the way cookies workxx",
+        "Description[zh_CN]": "配置 Cookies 的工作方式",
         "Description[zh_TW]": "設定 cookie 如何運作",
         "Icon": "preferences-web-browser-cookies",
         "Name": "Cookies",
@@ -55,6 +56,7 @@
         "Name[tr]": "Çerezler",
         "Name[uk]": "Куки",
         "Name[x-test]": "xxCookiesxx",
+        "Name[zh_CN]": "Cookies",
         "Name[zh_TW]": "Cookies"
     },
     "X-DocPath": "kcontrol6/cookies/index.html",

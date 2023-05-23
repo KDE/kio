@@ -27,6 +27,7 @@
         "Description[tr]": "Zaman aşımı değerleri gibi genel ağ tercihlerini yapılandır",
         "Description[uk]": "Налаштування загальних параметрів мережі, зокрема значень тайм-аутів",
         "Description[x-test]": "xxConfigure generic network preferences, like timeout valuesxx",
+        "Description[zh_CN]": "配置常规网络首选项，例如超时值等",
         "Description[zh_TW]": "調整一般網路設定，例如逾時值",
         "Icon": "preferences-system-network-connection",
         "Name": "Connection Preferences",
@@ -55,6 +56,7 @@
         "Name[tr]": "Bağlantı Tercihleri",
         "Name[uk]": "Параметри з'єднання",
         "Name[x-test]": "xxConnection Preferencesxx",
+        "Name[zh_CN]": "连接首选项",
         "Name[zh_TW]": "連線設定"
     },
     "X-DocPath": "kcontrol6/netpref/index.html",

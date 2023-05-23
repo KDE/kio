@@ -28,6 +28,7 @@
         "Description[tr]": "Web araması anahtar sözcüklerini yapılandır",
         "Description[uk]": "Налаштування ключових слів пошуку в інтернеті",
         "Description[x-test]": "xxConfigure web search keywordsxx",
+        "Description[zh_CN]": "配置网页搜索关键词",
         "Description[zh_TW]": "設定網路搜尋關鍵字",
         "Icon": "preferences-web-browser-shortcuts",
         "Name": "Web Search Keywords",
@@ -56,6 +57,7 @@
         "Name[tr]": "Web Araması Anahtar Sözcükleri",
         "Name[uk]": "Ключові слова пошуку в інтернеті",
         "Name[x-test]": "xxWeb Search Keywordsxx",
+        "Name[zh_CN]": "网页搜索关键词",
         "Name[zh_TW]": "網路搜尋關鍵字"
     },
     "X-DocPath": "kcontrol6/webshortcuts/index.html",
