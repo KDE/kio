@@ -1047,9 +1047,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // Size widgets
     if (!hasDirs) { // Only files [and symlinks]
         d->m_ui->sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), QLocale().toString(totalSize)));
-        d->m_ui->calculateSizeBtn->hide();
-        d->m_ui->stopCalculateSizeBtn->hide();
-        d->m_ui->sizeDetailsBtn->hide();
+        d->m_ui->sizeBtnWidget->hide();
     } else { // Directory
         connect(d->m_ui->calculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
         connect(d->m_ui->stopCalculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeStop);
