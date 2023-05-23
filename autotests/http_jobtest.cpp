@@ -26,9 +26,6 @@ private Q_SLOTS:
 void HTTPJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-
-    // To let ctest exit, we shouldn't start kio_http_cache_cleaner
-    qputenv("KIO_DISABLE_CACHE_CLEANER", "yes");
 }
 
 void HTTPJobTest::testBasicGet()

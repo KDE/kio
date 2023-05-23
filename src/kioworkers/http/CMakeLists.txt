@@ -26,24 +26,6 @@ endif()
 
 ########### next target ###############
 
-add_executable(kio_http_cache_cleaner)
-# Mark it as non-gui so we won't create an app bundle on Mac OS X
-ecm_mark_nongui_executable(kio_http_cache_cleaner)
-
-target_sources(kio_http_cache_cleaner PRIVATE
-    http_cache_cleaner.cpp
-)
-
-target_link_libraries(kio_http_cache_cleaner
-   Qt6::DBus
-   Qt6::Network # QLocalSocket
-   KF6::KIOCore # KProtocolManager
-   KF6::I18n)
-
-install(TARGETS kio_http_cache_cleaner DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
-
-########### next target ###############
-
 # kio/httpfilter/Makefile.am: httpfilter
 kcoreaddons_add_plugin(kio_http INSTALL_NAMESPACE "kf6/kio")
 

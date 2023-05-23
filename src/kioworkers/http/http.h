@@ -60,45 +60,6 @@ public:
         int depth;
     };
 
-    enum CacheIOMode {
-        NoCache = 0,
-        ReadFromCache = 1,
-        WriteToCache = 2,
-    };
-
-    struct CacheTag {
-        CacheTag()
-        {
-            useCache = false;
-            ioMode = NoCache;
-            bytesCached = 0;
-            file = nullptr;
-        }
-
-        enum CachePlan {
-            UseCached = 0,
-            ValidateCached,
-            IgnoreCached,
-        };
-        // int maxCacheAge refers to seconds
-        CachePlan plan(int maxCacheAge) const;
-
-        QByteArray serialize() const;
-        bool deserialize(const QByteArray &);
-
-        KIO::CacheControl policy; // ### initialize in the constructor?
-        bool useCache; // Whether the cache should be used
-        enum CacheIOMode ioMode; // Write to cache file, read from it, or don't use it.
-        quint32 fileUseCount;
-        quint32 bytesCached;
-        QString etag; // entity tag header as described in the HTTP standard.
-        QFile *file; // file on disk - either a QTemporaryFile (write) or QFile (read)
-        QDateTime servedDate; // Date when the resource was served by the origin server
-        QDateTime lastModifiedDate; // Last modified.
-        QDateTime expireDate; // Date when the cache entry will expire
-        QString charset;
-    };
-
     /** The request for the current connection **/
     struct HTTPRequest {
         HTTPRequest()
@@ -155,8 +116,6 @@ public:
         bool useCookieJar;
         // Cookie flags
         enum { CookiesAuto, CookiesManual, CookiesNone } cookieMode;
-
-        CacheTag cacheTag;
     };
 
     /** State of the current connection to the server **/
@@ -314,7 +273,6 @@ protected:
      *
      * @p cacheHasPage will be set to true if the page was found, false otherwise.
      */
-    Q_REQUIRED_RESULT bool satisfyRequestFromCache(bool *cacheHasPage, KIO::WorkerResult &result);
     QString formatRequestUri() const;
     /**
      * create HTTP authentications response(s), if any
@@ -355,7 +313,6 @@ protected:
     void fixupResponseContentEncoding();
 
     Q_REQUIRED_RESULT KIO::WorkerResult readResponseHeader();
-    bool parseHeaderFromCache();
     void parseContentDisposition(const QString &disposition);
 
     Q_REQUIRED_RESULT KIO::WorkerResult sendBody();
@@ -398,27 +355,6 @@ protected:
      * Look for cookies in the cookiejar
      */
     QString findCookies(const QString &url);
-
-    void cacheParseResponseHeader(const HeaderTokenizer &tokenizer);
-
-    QString cacheFilePathFromUrl(const QUrl &url) const;
-    bool cacheFileOpenRead();
-    bool cacheFileOpenWrite();
-    void cacheFileClose();
-    void sendCacheCleanerCommand(const QByteArray &command);
-
-    QByteArray cacheFileReadPayload(int maxLength);
-    void cacheFileWritePayload(const QByteArray &d);
-    void cacheFileWriteTextHeader();
-    /**
-     * check URL to guard against hash collisions, and load the etag for validation
-     */
-    bool cacheFileReadTextHeader1(const QUrl &desiredUrl);
-    /**
-     * load the rest of the text fields
-     */
-    bool cacheFileReadTextHeader2();
-    void setCacheabilityMetadata(bool cachingAllowed);
 
     /**
      * Do everything proceedUntilResponseHeader does, and also get the response body.
@@ -554,12 +490,6 @@ protected:
     // happened to get a 401/407 response when submitting
     // a form.
     QIODevice *m_POSTbuf;
-
-    // Cache related
-    int m_maxCacheAge; ///< Maximum age of a cache entry in seconds.
-    long m_maxCacheSize; ///< Maximum cache size in Kb.
-    QString m_strCacheDir; ///< Location of the cache.
-    QLocalSocket m_cacheCleanerConnection; ///< Connection to the cache cleaner process
 
     // Operation mode
     QByteArray m_protocol;
