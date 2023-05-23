@@ -163,7 +163,7 @@ Comment[vi]=Cấu hình cách bánh quy hoạt động
 Comment[wa]=Apontyî l' dujhance des coûkes
 Comment[xh]=Qwalasela indlela ezisebenza ngayo i cookies
 Comment[x-test]=xxConfigure the way cookies workxx
-Comment[zh_CN]=配置 Cookies 相关设置
+Comment[zh_CN]=配置 Cookies 的工作方式
 Comment[zh_TW]=設定 cookies 運作方式
 
 X-KDE-Keywords=Cookies,Browsing,Internet,WWW,Network,Policy,Domains
@@ -223,5 +223,5 @@ X-KDE-Keywords[tr]=Çerezler,Tarama,İnternet,WWW,Ağ,Politika,Alan Adları
 X-KDE-Keywords[uk]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,кука,куки,перегляд,інтернет,мережа,правило,правила,домен,домени
 X-KDE-Keywords[vi]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,Bánh quy,Duyệt,Liên Mạng,WWW,Mạng,Chính sách,Miền
 X-KDE-Keywords[x-test]=xxCookiesxx,xxBrowsingxx,xxInternetxx,xxWWWxx,xxNetworkxx,xxPolicyxx,xxDomainsxx
-X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,网络,策略,域名
+X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,万维网,网络,策略,域名
 X-KDE-Keywords[zh_TW]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains

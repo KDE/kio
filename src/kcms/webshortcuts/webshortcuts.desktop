@@ -59,7 +59,7 @@ Name[tr]=Web Arama Anahtar Sözcükleri
 Name[uk]=Ключові слова пошуку в інтернеті
 Name[vi]=Từ khoá tìm kiếm web
 Name[x-test]=xxWeb Search Keywordsxx
-Name[zh_CN]=网络搜索关键词
+Name[zh_CN]=网页搜索关键词
 Name[zh_TW]=網路搜尋關鍵字
 
 Comment=Configure web search keywords
@@ -112,7 +112,7 @@ Comment[tr]=Web arama kısayollarını yapılandır
 Comment[uk]=Налаштування ключових слів пошуку в інтернеті
 Comment[vi]=Cấu hình từ khoá tìm kiếm web
 Comment[x-test]=xxConfigure web search keywordsxx
-Comment[zh_CN]=配置网络搜索关键词
+Comment[zh_CN]=配置网页搜索关键词
 Comment[zh_TW]=設定網路搜尋關鍵字
 
 X-KDE-Keywords=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts
@@ -164,7 +164,7 @@ X-KDE-Keywords[tr]=Web Arama Kısayolları,Anahtar sözcük,Web Kısayolları,Ta
 X-KDE-Keywords[uk]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,ключові,слова,вебпошук,пошук,слово,додатково,додатковий,інтернет,фільтри,фільтрування,фільтр,мережа,рушій,пошук,рушії пошуку,скорочення,вебскорочення
 X-KDE-Keywords[vi]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,Từ khoá tìm kiếm web,Tìm kiếm web,Tìm kiếm,Từ khoá,Lối tắt web,Duyệt,WWW,Liên Mạng,Bộ lọc Liên Mạng,Mạng,Dụng cụ tìm kiếm,Lối tắt
 X-KDE-Keywords[x-test]=xxWeb Search Keywordsxx,xxWeb Searchxx,xxSearchxx,xxKeywordxx,xxWeb Shortcutsxx,xxBrowsingxx,xxWWWxx,xxInternetxx,xxInternet Filtersxx,xxNetworkxx,xxSearch Enginesxx,xxShortcutsxx
-X-KDE-Keywords[zh_CN]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,网络搜索关键词,网络搜索,搜索,关键词,网络快捷方式,浏览,万维网,互联网,互联网过滤器,网络,搜索引擎,快捷方式
+X-KDE-Keywords[zh_CN]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,网页搜索关键词,网页搜索,搜索,关键词,网页快捷方式,浏览,万维网,互联网,互联网过滤器,网络,搜索引擎,快捷方式
 X-KDE-Keywords[zh_TW]=Web Search Keywords,Web Search,Search,Keyword,Web Shortcuts,Browsing,WWW,Internet,Internet Filters,Network,Search Engines,Shortcuts,網路搜尋關鍵字,捷徑,網路
 
 Categories=Qt;KDE;X-KDE-settings-webbrowsing;

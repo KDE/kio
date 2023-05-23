@@ -191,7 +191,7 @@ Comment[vi]=Cấu hình các thiết lập mạng chung, chẳng hạn như giá
 Comment[wa]=Apontyî les preferinces rantoele djenerikes, come les tins d' tårdjaedje
 Comment[xh]=Qwalasela iinketho zomsebenzi womnatha ka wonke-wonke, njengamaxabiso ophelelo lwexesha
 Comment[x-test]=xxConfigure generic network preferences, like timeout valuesxx
-Comment[zh_CN]=配置通用网络首选项，例如超时值
+Comment[zh_CN]=配置常规网络首选项，例如超时值等
 Comment[zh_TW]=設定一般網路喜好設定，例如逾時值
 
 X-KDE-Keywords=timeout,iopref,netpref,network preferences,ftp
