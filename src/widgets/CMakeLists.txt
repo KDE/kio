@@ -53,8 +53,6 @@ target_sources(KF6KIOWidgets PRIVATE
 if(NOT ANDROID)
 target_sources(KF6KIOWidgets PRIVATE
   ${kiowidgets_dbus_SRCS}
-  accessmanager.cpp
-  accessmanagerreply_p.cpp
   deleteortrashjob.cpp
   fileundomanager.cpp
   kpropertiesdialog.cpp
@@ -178,7 +176,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES
-  AccessManager
   DeleteOrTrashJob
   SslUi
   DropJob

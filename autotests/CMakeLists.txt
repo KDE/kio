@@ -145,7 +145,6 @@ ecm_add_tests(
  kurlcompletiontest.cpp
  ${jobguitest_SRC}
  pastetest.cpp
- accessmanagertest.cpp
  kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test Qt6::DBus
@@ -169,16 +168,6 @@ ecm_add_test(kurifiltertest.cpp
     TEST_NAME ${URIFILTER_SPACE_TEST}
 )
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
-
-# Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
-# behave the same
-ecm_add_test(
- accessmanagertest.cpp
- TEST_NAME accessmanagertest-qnam
- NAME_PREFIX "kiowidgets-"
- LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test
-)
-set_target_properties(accessmanagertest-qnam PROPERTIES COMPILE_FLAGS "-DUSE_QNAM")
 
 # Same as kurlcompletiontest, but with immediate return, and results posted by thread later
 ecm_add_test(

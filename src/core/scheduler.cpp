@@ -605,11 +605,6 @@ void Scheduler::doJob(SimpleJob *job)
 }
 
 // static
-void Scheduler::setSimpleJobPriority(SimpleJob *job, int priority)
-{
-    schedulerPrivate()->setJobPriority(job, priority);
-}
-
 void Scheduler::cancelJob(SimpleJob *job)
 {
     schedulerPrivate()->cancelJob(job);

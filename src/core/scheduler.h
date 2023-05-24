@@ -122,10 +122,6 @@ private:
 
     KIOCORE_NO_EXPORT static Scheduler *self();
 
-    friend class AccessManager;
-    // For internal use from KIOWidgets' KIO::AccessManager, since 5.90
-    static void setSimpleJobPriority(SimpleJob *job, int priority);
-
     // connected to D-Bus signal:
 #ifndef KIO_ANDROID_STUB
     Q_PRIVATE_SLOT(d_func(), void slotReparseSlaveConfiguration(const QString &, const QDBusMessage &))
