@@ -21,6 +21,8 @@
 
 class QWidget;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 107)
+
 namespace KIO
 {
 /**
@@ -58,7 +60,7 @@ namespace KIO
  * @author Urs Wolfer \<uwolfer @ kde.org\>
  * @author Dawit Alemayehu \<adawit @ kde.org\>
  *
- * @deprecated Use the KIO::Integration::AccessManager typedef to access this class instead.
+ * @deprecated since 5.107, use QNetworkAccessManager or KIO API.
  * @since 4.3
  */
 class KIOWIDGETS_EXPORT AccessManager : public QNetworkAccessManager
@@ -77,6 +79,7 @@ public:
     /**
      * Constructor
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 107, "Use QNetworkAccessManager or KIO API")
     AccessManager(QObject *parent);
 
     /**
@@ -270,6 +273,8 @@ KIOWIDGETS_EXPORT bool sslConfigFromMetaData(const KIO::MetaData &metadata, QSsl
  *
  * @author Dawit Alemayehu \<adawit @ kde.org\>
  * @since 4.4
+ *
+ * @deprecated since 5.107, use QNetworkCookieJar
  */
 class KIOWIDGETS_EXPORT CookieJar : public QNetworkCookieJar
 {
@@ -278,6 +283,7 @@ public:
     /**
      * Constructs a KNetworkCookieJar with parent @p parent.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 107, "Use QNetworkCookieJar")
     explicit CookieJar(QObject *parent = nullptr);
 
     /**
@@ -352,5 +358,7 @@ private:
 }
 
 }
+
+#endif
 
 #endif // KIO_ACCESSMANAGER_H

@@ -9,6 +9,8 @@
 
 #include "accessmanager.h"
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 107)
+
 #include "accessmanagerreply_p.h"
 #include "kio_widgets_debug.h"
 #include "scheduler.h"
@@ -549,3 +551,5 @@ void CookieJar::reparseConfiguration()
     KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kcookiejarrc"), KConfig::NoGlobals)->group("Cookie Policy");
     d->isEnabled = cfg.readEntry("Cookies", true);
 }
+
+#endif
