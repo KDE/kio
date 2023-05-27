@@ -1070,7 +1070,7 @@ void KDirModelTest::testMimeFilter()
     QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
     QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
-    m_dirModel->dirLister()->setMimeFilter(QStringList{QStringLiteral("application/pdf")});
+    m_dirModel->dirLister()->setMimeFilter({QStringLiteral("application/pdf")});
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
     m_dirModel->dirLister()->emitChanges();
@@ -1079,18 +1079,47 @@ void KDirModelTest::testMimeFilter()
 
     QVERIFY(spyRowsRemoved.count() >= 1); // depends on contiguity...
     QVERIFY(spyItemsDeleted.count() >= 1); // once for every dir
-    // Maybe it would make sense to have those items in itemsFilteredByMime,
-    // but well, for the only existing use of that signal (MIME type filter plugin),
-    // it's not really necessary, the plugin has seen those files before anyway.
-    // The signal is mostly useful for the case of listing a dir with a MIME type filter set.
-    // QCOMPARE(spyItemsFilteredByMime.count(), 1);
-    // QCOMPARE(spyItemsFilteredByMime[0][0].value<KFileItemList>().count(), 4);
+    QCOMPARE(spyItemsFilteredByMime.count(), 3);
+    spyItemsDeleted.clear();
+    spyItemsFilteredByMime.clear();
+
+    // Reset the filter
+    m_dirModel->dirLister()->setMimeFilter({});
+    m_dirModel->dirLister()->emitChanges();
+
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);
+    QCOMPARE(spyItemsDeleted.count(), 0);
+    QCOMPARE(spyItemsFilteredByMime.count(), 0);
+
+    // The order of things changed because of filtering.
+    // Fill again, so that m_fileIndex etc. are correct again.
+    fillModel(true);
+}
+
+void KDirModelTest::testMimeExcludeFilter()
+{
+    QVERIFY(m_dirIndex.isValid());
+    const int oldTopLevelRowCount = m_dirModel->rowCount();
+    const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
+    QSignalSpy spyItemsFilteredByMime(m_dirModel->dirLister(), &KCoreDirLister::itemsFilteredByMime);
+    QSignalSpy spyItemsDeleted(m_dirModel->dirLister(), &KCoreDirLister::itemsDeleted);
+    QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
+    m_dirModel->dirLister()->setMimeExcludeFilter({QStringLiteral("application/pdf")});
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
+    m_dirModel->dirLister()->emitChanges();
+
+    QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount - 1); // no pdf files anymore
+
+    QCOMPARE(spyRowsRemoved.count(), 1); // one pdf file removed ...
+    QCOMPARE(spyItemsDeleted.count(), 1);
+    QCOMPARE(spyItemsFilteredByMime.count(), 1);
+    QCOMPARE(spyItemsFilteredByMime[0][0].value<KFileItemList>().count(), 1);
     spyItemsFilteredByMime.clear();
     spyItemsDeleted.clear();
 
-    // Reset the filter
-    qDebug() << "reset to no filter";
-    m_dirModel->dirLister()->setMimeFilter(QStringList());
+    // Reset the exclude filter
+    m_dirModel->dirLister()->setMimeExcludeFilter({});
     m_dirModel->dirLister()->emitChanges();
 
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount);

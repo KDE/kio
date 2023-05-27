@@ -2251,10 +2251,14 @@ void KCoreDirListerPrivate::emitChanges()
                 continue;
             }
             const bool wasVisible = oldVisibleItems.find(item.name()) != oldVisibleItems.cend();
-            const bool nowVisible = isItemVisible(item) && q->matchesMimeFilter(item);
+            const bool mimeFiltered = q->matchesMimeFilter(item);
+            const bool nowVisible = isItemVisible(item) && mimeFiltered;
             if (nowVisible && !wasVisible) {
                 addNewItem(dir, item); // takes care of emitting newItem or itemsFilteredByMime
             } else if (!nowVisible && wasVisible) {
+                if (!mimeFiltered) {
+                    lstMimeFilteredItems.append(item);
+                }
                 deletedItems.append(item);
             }
         }

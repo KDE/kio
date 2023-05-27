@@ -49,6 +49,7 @@ private Q_SLOTS:
     void testFilter();
     void testFilterPatterns();
     void testMimeFilter();
+    void testMimeExcludeFilter();
     void testShowHiddenFiles();
     void testMultipleSlashes();
     void testUrlWithRef();
