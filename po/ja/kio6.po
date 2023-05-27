@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-25 02:01+0000\n"
+"POT-Creation-Date: 2023-05-27 02:03+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -5501,12 +5501,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5263
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "このサイトにアクセスするためにはユーザ名とパスワードが必要です。"
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5265
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
 #, kde-format
 msgid "Site:"
 msgstr "サイト:"
@@ -5534,8 +5534,8 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 を起動中"
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5143
-#: kioworkers/http/http.cpp:5278
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
+#: kioworkers/http/http.cpp:5207
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -5544,14 +5544,14 @@ msgstr ""
 "サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
 "が必要です。"
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5147
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
+#: kioworkers/http/http.cpp:5210
 #, kde-format
 msgid "Proxy:"
 msgstr "プロキシ:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5150
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "プロキシ認証に失敗しました。"
@@ -5599,100 +5599,100 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "ファイル <filename>%1</filename> を読めませんでした。"
 
-#: kioworkers/http/http.cpp:579
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr "ホストが指定されていません。"
 
-#: kioworkers/http/http.cpp:1542
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "そうでなければ要求は成功していたでしょう。"
 
-#: kioworkers/http/http.cpp:1546
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "プロパティの値を取得"
 
-#: kioworkers/http/http.cpp:1549
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "プロパティの値をセット"
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "要求されたフォルダを作成"
 
-#: kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをコピー"
 
-#: kioworkers/http/http.cpp:1558
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを移動"
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "指定されたフォルダで検索"
 
-#: kioworkers/http/http.cpp:1564
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをロック"
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダのロックを解除"
 
-#: kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを削除"
 
-#: kioworkers/http/http.cpp:1573
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "サーバの機能を問い合わせ"
 
-#: kioworkers/http/http.cpp:1576
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "指定されたファイルまたはフォルダの内容を取得"
 
-#: kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "指定されたフォルダでレポートを実行"
 
-#: kioworkers/http/http.cpp:1591
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
 
-#: kioworkers/http/http.cpp:1600
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "サーバは WebDAV プロトコルをサポートしていません。"
 
-#: kioworkers/http/http.cpp:1644
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -5702,13 +5702,13 @@ msgstr ""
 "%1しようとしていたときにエラーが発生しました (%2)。原因の要約は以下のとおりで"
 "す。"
 
-#: kioworkers/http/http.cpp:1662 kioworkers/http/http.cpp:1798
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1しようとしていたときにアクセスが拒否されました。"
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1805
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -5717,7 +5717,7 @@ msgstr ""
 "一つ以上の中間コレクション (フォルダ) が作成されるまで、リソースはその場所に"
 "作成できません。"
 
-#: kioworkers/http/http.cpp:1685
+#: kioworkers/http/http.cpp:1647
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -5734,28 +5734,28 @@ msgstr ""
 "の liveness を保持できなかったか、ファイルを上書きしないよう要求しながら、あ"
 "なたがファイルを上書きしようとしました。%1"
 
-#: kioworkers/http/http.cpp:1693
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "要求されたロックは承諾されませんでした。%1"
 
-#: kioworkers/http/http.cpp:1699
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "サーバはこのタイプの body の要求をサポートしていません。"
 
-#: kioworkers/http/http.cpp:1704 kioworkers/http/http.cpp:1813
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1できません。リソースがロックされています。"
 
-#: kioworkers/http/http.cpp:1708
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "このアクションは他のエラーによって妨害されました。"
 
-#: kioworkers/http/http.cpp:1715 kioworkers/http/http.cpp:1820
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -5765,7 +5765,7 @@ msgstr ""
 "%1できません。相手のサーバがファイルまたはフォルダの受け取りを拒否していま"
 "す。"
 
-#: kioworkers/http/http.cpp:1724 kioworkers/http/http.cpp:1829
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -5774,29 +5774,29 @@ msgstr ""
 "ターゲットのリソースには、このメソッドを実行した後にリソースの状態を保存する"
 "のに十分なスペースがありません。"
 
-#: kioworkers/http/http.cpp:1776
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "このリソースは削除できません。"
 
-#: kioworkers/http/http.cpp:1789
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 をアップロード"
 
-#: kioworkers/http/http.cpp:1840
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
 
-#: kioworkers/http/http.cpp:2633
+#: kioworkers/http/http.cpp:2589
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 にコンタクトしました。応答を待っています..."
 
-#: kioworkers/http/http.cpp:2959
+#: kioworkers/http/http.cpp:2915
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -5805,45 +5805,45 @@ msgid ""
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
 
-#: kioworkers/http/http.cpp:2966
+#: kioworkers/http/http.cpp:2922
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr ""
 
-#: kioworkers/http/http.cpp:3057
+#: kioworkers/http/http.cpp:3013
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "サーバは要求を処理しています、しばらくお待ちください..."
 
-#: kioworkers/http/http.cpp:3752 kioworkers/http/http.cpp:3807
+#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1 にデータを送信中"
 
-#: kioworkers/http/http.cpp:4252
+#: kioworkers/http/http.cpp:4201
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2 から %1 を受信中..."
 
-#: kioworkers/http/http.cpp:5148 kioworkers/http/http.cpp:5385
+#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> の <b>%1</b>"
 
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Authentication Failed."
 msgstr "認証に失敗しました。"
 
-#: kioworkers/http/http.cpp:5423
+#: kioworkers/http/http.cpp:5352
 #, kde-format
 msgid "Authorization failed."
 msgstr "権限付与に失敗しました。"
 
 # skip-rule: authorization
 # パスワードによる認証を行うダイアログ
-#: kioworkers/http/http.cpp:5440
+#: kioworkers/http/http.cpp:5369
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "未知の認証方法です。"
@@ -6707,16 +6707,6 @@ msgstr "<qt><b>%1</b> はホームフォルダを持っていません。</qt>"
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt><b>%1</b> と呼ばれるユーザは存在しません。</qt>"
-
-#: widgets/accessmanager.cpp:167
-#, kde-format
-msgid "Blocked request."
-msgstr "要求がブロックされました。"
-
-#: widgets/accessmanager.cpp:238
-#, kde-format
-msgid "Unknown HTTP verb."
-msgstr "未知の HTTP メソッド"
 
 #. i18n: ectx: property (text), widget (QLabel, commonNameTag)
 #: widgets/certificateparty.ui:28
@@ -9185,6 +9175,12 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
+
+#~ msgid "Blocked request."
+#~ msgstr "要求がブロックされました。"
+
+#~ msgid "Unknown HTTP verb."
+#~ msgstr "未知の HTTP メソッド"
 
 #, fuzzy
 #~| msgid ""

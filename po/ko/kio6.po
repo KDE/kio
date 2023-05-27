@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-25 02:01+0000\n"
+"POT-Creation-Date: 2023-05-27 02:03+0000\n"
 "PO-Revision-Date: 2023-04-22 00:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -5348,12 +5348,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5263
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "이 사이트에 연결하려면 사용자 이름과 암호가 필요합니다."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5265
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
 #, kde-format
 msgid "Site:"
 msgstr "사이트:"
@@ -5382,8 +5382,8 @@ msgstr ""
 "\n"
 "서버 응답: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5143
-#: kioworkers/http/http.cpp:5278
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
+#: kioworkers/http/http.cpp:5207
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -5392,14 +5392,14 @@ msgstr ""
 "모든 사이트에 접근하려면 아래에 나열된 프록시 서버에 대한 사용자 이름과 암호"
 "를 입력해야 합니다."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5147
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
+#: kioworkers/http/http.cpp:5210
 #, kde-format
 msgid "Proxy:"
 msgstr "프록시:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5150
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "프록시 인증이 실패했습니다."
@@ -5444,100 +5444,100 @@ msgstr "장과 절 찾는 중"
 msgid "Could not find filename %1 in %2."
 msgstr "%2에서 %1 파일 이름을 찾을 수 없습니다."
 
-#: kioworkers/http/http.cpp:579
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr "호스트를 지정하지 않았습니다."
 
-#: kioworkers/http/http.cpp:1542
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "그렇지 않다면 요청이 성공했을 수도 있습니다."
 
-#: kioworkers/http/http.cpp:1546
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "속성 값 가져오기"
 
-#: kioworkers/http/http.cpp:1549
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "속성 값 설정"
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "요청한 폴더 만들기"
 
-#: kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 복사"
 
-#: kioworkers/http/http.cpp:1558
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 이동"
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "지정한 폴더에서 검색"
 
-#: kioworkers/http/http.cpp:1564
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠그기"
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠금 풀기"
 
-#: kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "지정한 파일이나 폴더 지우기"
 
-#: kioworkers/http/http.cpp:1573
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "서버의 기능 조회"
 
-#: kioworkers/http/http.cpp:1576
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "지정한 파일이나 폴더의 내용 가져오기"
 
-#: kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "지정한 폴더에서 보고서 실행"
 
-#: kioworkers/http/http.cpp:1591
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
 
-#: kioworkers/http/http.cpp:1600
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "서버가 WebDAV 프로토콜을 지원하지 않습니다."
 
-#: kioworkers/http/http.cpp:1644
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -5547,13 +5547,13 @@ msgstr ""
 "%1, %2을(를) 시도하는 동안 오류가 발생했습니다. 이유에 대한 요약은 다음과 같"
 "습니다."
 
-#: kioworkers/http/http.cpp:1662 kioworkers/http/http.cpp:1798
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1에 접근하려는 시도가 거부되었습니다."
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1805
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -5562,7 +5562,7 @@ msgstr ""
 "하나 이상의 중간 모음집(폴더)이 생성될 때까지 대상에 리소스를 생성할 수 없습"
 "니다."
 
-#: kioworkers/http/http.cpp:1685
+#: kioworkers/http/http.cpp:1647
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -5577,28 +5577,28 @@ msgstr ""
 "겹쳐 쓰려고 했습니다.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1693
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "요청한 잠금이 허가되지 않았습니다. %1"
 
-#: kioworkers/http/http.cpp:1699
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "서버가 본문의 요청 형식을 지원하지 않습니다."
 
-#: kioworkers/http/http.cpp:1704 kioworkers/http/http.cpp:1813
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "리소스가 잠겨 %1을(를) 사용할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1708
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "이 작업은 다른 오류로 인해 차단되었습니다."
 
-#: kioworkers/http/http.cpp:1715 kioworkers/http/http.cpp:1820
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -5606,7 +5606,7 @@ msgid ""
 "folder."
 msgstr "대상 서버가 파일이나 폴더를 받아들일 수 없기 때문에 %1할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1724 kioworkers/http/http.cpp:1829
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -5614,29 +5614,29 @@ msgid ""
 msgstr ""
 "대상 리소스에 이 방법을 실행한 후, 리소스 상태를 기록할 공간이 부족합니다."
 
-#: kioworkers/http/http.cpp:1776
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "리소스를 삭제할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1789
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 업로드"
 
-#: kioworkers/http/http.cpp:1840
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
 
-#: kioworkers/http/http.cpp:2633
+#: kioworkers/http/http.cpp:2589
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1에 연결됨. 응답 기다리는 중..."
 
-#: kioworkers/http/http.cpp:2959
+#: kioworkers/http/http.cpp:2915
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -5648,43 +5648,43 @@ msgstr ""
 "트에서 인증이 필요하지 않습니다. 사용자를 속이려는 시도일 수 있습니다.</p><p>"
 "\"%1\" 사이트를 방문하시겠습니까?</p>"
 
-#: kioworkers/http/http.cpp:2966
+#: kioworkers/http/http.cpp:2922
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "웹사이트 접근 확인"
 
-#: kioworkers/http/http.cpp:3057
+#: kioworkers/http/http.cpp:3013
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "서버에서 요청 처리 중, 잠시 기다려 주십시오..."
 
-#: kioworkers/http/http.cpp:3752 kioworkers/http/http.cpp:3807
+#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1(으)로 데이터 보내는 중"
 
-#: kioworkers/http/http.cpp:4252
+#: kioworkers/http/http.cpp:4201
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2에서 %1 가져오는 중..."
 
-#: kioworkers/http/http.cpp:5148 kioworkers/http/http.cpp:5385
+#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b>의 <b>%1</b>"
 
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Authentication Failed."
 msgstr "인증이 실패했습니다."
 
-#: kioworkers/http/http.cpp:5423
+#: kioworkers/http/http.cpp:5352
 #, kde-format
 msgid "Authorization failed."
 msgstr "인증이 실패했습니다."
 
-#: kioworkers/http/http.cpp:5440
+#: kioworkers/http/http.cpp:5369
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "알 수 없는 인증 방식."
@@ -6530,16 +6530,6 @@ msgstr "<qt><b>%1</b> 사용자의 홈 폴더가 없습니다.</qt>"
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt><b>%1</b> 사용자가 없습니다.</qt>"
-
-#: widgets/accessmanager.cpp:167
-#, kde-format
-msgid "Blocked request."
-msgstr "요청이 거부되었습니다."
-
-#: widgets/accessmanager.cpp:238
-#, kde-format
-msgid "Unknown HTTP verb."
-msgstr "알 수 없는 HTTP 동작."
 
 #. i18n: ectx: property (text), widget (QLabel, commonNameTag)
 #: widgets/certificateparty.ui:28
@@ -8949,6 +8939,12 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid "Blocked request."
+#~ msgstr "요청이 거부되었습니다."
+
+#~ msgid "Unknown HTTP verb."
+#~ msgstr "알 수 없는 HTTP 동작."
 
 #~ msgid ""
 #~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-25 02:01+0000\n"
+"POT-Creation-Date: 2023-05-27 02:03+0000\n"
 "PO-Revision-Date: 2023-03-22 08:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -5469,13 +5469,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5263
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð til að komast á vefsvæðið."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5265
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
 #, kde-format
 msgid "Site:"
 msgstr "Vefsvæði:"
@@ -5504,8 +5504,8 @@ msgstr ""
 "\n"
 "Þjónninn svaraði: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5143
-#: kioworkers/http/http.cpp:5278
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
+#: kioworkers/http/http.cpp:5207
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -5514,14 +5514,14 @@ msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð fyrir milliþjóninn hér fyrir "
 "neðan til að komast inn á vefsvæði."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5147
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
+#: kioworkers/http/http.cpp:5210
 #, kde-format
 msgid "Proxy:"
 msgstr "Milliþjónn (proxy):"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5150
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Auðkenning við milliþjón brást."
@@ -5566,100 +5566,100 @@ msgstr "Fletti upp hluta"
 msgid "Could not find filename %1 in %2."
 msgstr "Tókst ekki að finna skrána %1 í %2."
 
-#: kioworkers/http/http.cpp:579
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr "Enginn þjónn skilgreindur."
 
-#: kioworkers/http/http.cpp:1542
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars hefði beiðnin tekist."
 
-#: kioworkers/http/http.cpp:1546
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "sækja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1549
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "velja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "búa til umbeðna möppu"
 
-#: kioworkers/http/http.cpp:1555
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "afrita umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1558
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "færa umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "leita í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1564
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "læsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "aflæsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1570
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "eyða umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1573
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "spyrja um getu þjónsins"
 
-#: kioworkers/http/http.cpp:1576
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "sækja innihald umbeðinnar skrár eða möppu"
 
-#: kioworkers/http/http.cpp:1579
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "keyra skýrslu í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1591
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að framkvæma %2."
 
-#: kioworkers/http/http.cpp:1600
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "Netþjónninn styður ekki WebDAV samskiptaregluna."
 
-#: kioworkers/http/http.cpp:1644
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -5669,13 +5669,13 @@ msgstr ""
 "Villa kom upp þegar reynt var að %1, %2. Yfirlit yfir ástæður er hér fyrir "
 "neðan."
 
-#: kioworkers/http/http.cpp:1662 kioworkers/http/http.cpp:1798
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Aðgangi var hafnað þegar reynt var að %1."
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1805
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -5684,7 +5684,7 @@ msgstr ""
 "Ekki er hægt að búa til tilfang á áfangastaðnum fyrr en búið er að búa til "
 "eitt eða fleiri söfn (möppur) á slóðinni."
 
-#: kioworkers/http/http.cpp:1685
+#: kioworkers/http/http.cpp:1647
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -5698,28 +5698,28 @@ msgstr ""
 "að skrifa yfir skrá á meðan þú baðst um að ekki væri\n"
 "skrifað yfir skrár. %1"
 
-#: kioworkers/http/http.cpp:1693
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ekki tókst að að útvega umbeðna læsingu. %1"
 
-#: kioworkers/http/http.cpp:1699
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Þjónninn styður ekki gerð beiðninnar."
 
-#: kioworkers/http/http.cpp:1704 kioworkers/http/http.cpp:1813
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 gengur ekki vegna þess að tilfang er læst."
 
-#: kioworkers/http/http.cpp:1708
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Þessi aðgerð var stöðvuð vegna annarrar villu."
 
-#: kioworkers/http/http.cpp:1715 kioworkers/http/http.cpp:1820
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -5728,7 +5728,7 @@ msgid ""
 msgstr ""
 "%1 gengur ekki því viðtakandinn neitar að taka við skránni eða möppunni."
 
-#: kioworkers/http/http.cpp:1724 kioworkers/http/http.cpp:1829
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -5737,29 +5737,29 @@ msgstr ""
 "Viðtökutilfangið hefur ekki nægjanlegt pláss til að skrá ástand tilfangsins "
 "eftir keyrslu þessarar aðgerðar."
 
-#: kioworkers/http/http.cpp:1776
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ekki er hægt að eyða þessu tilfangi."
 
-#: kioworkers/http/http.cpp:1789
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "hleð upp %1"
 
-#: kioworkers/http/http.cpp:1840
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að %2."
 
-#: kioworkers/http/http.cpp:2633
+#: kioworkers/http/http.cpp:2589
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "Náði sambandi við %1. Bíð eftir svari..."
 
-#: kioworkers/http/http.cpp:2959
+#: kioworkers/http/http.cpp:2915
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -5771,43 +5771,43 @@ msgstr ""
 "vefsvæðið krefst ekki auðkenningar. Þetta gæti verið tilraun til að gabba "
 "þig.</p><p>Er \"%1\" vefsvæðið sem þú vilt heimsækja?</p>"
 
-#: kioworkers/http/http.cpp:2966
+#: kioworkers/http/http.cpp:2922
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "Staðfesta aðgang að vefsvæði"
 
-#: kioworkers/http/http.cpp:3057
+#: kioworkers/http/http.cpp:3013
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "Þjónn vinnur úr beiðni, vinsamlegast bíðið..."
 
-#: kioworkers/http/http.cpp:3752 kioworkers/http/http.cpp:3807
+#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Sendi gögn til %1"
 
-#: kioworkers/http/http.cpp:4252
+#: kioworkers/http/http.cpp:4201
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Sæki %1 frá %2..."
 
-#: kioworkers/http/http.cpp:5148 kioworkers/http/http.cpp:5385
+#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> á <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5296
+#: kioworkers/http/http.cpp:5225
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Auðkenning brást."
 
-#: kioworkers/http/http.cpp:5423
+#: kioworkers/http/http.cpp:5352
 #, kde-format
 msgid "Authorization failed."
 msgstr "Auðkenning brást."
 
-#: kioworkers/http/http.cpp:5440
+#: kioworkers/http/http.cpp:5369
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "Óþekkt auðkenningaraðferð."
@@ -6676,16 +6676,6 @@ msgstr "<qt><b>%1</b> á sér enga heimamöppu.</qt>"
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Það er enginn notandi sem heitir <b>%1</b>.</qt>"
-
-#: widgets/accessmanager.cpp:167
-#, kde-format
-msgid "Blocked request."
-msgstr "Óleyfileg beiðni."
-
-#: widgets/accessmanager.cpp:238
-#, kde-format
-msgid "Unknown HTTP verb."
-msgstr "Óþekkt HTTP-sögn."
 
 #. i18n: ectx: property (text), widget (QLabel, commonNameTag)
 #: widgets/certificateparty.ui:28
@@ -9132,6 +9122,12 @@ msgstr "Þetta mun ræsa forritið:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
+
+#~ msgid "Blocked request."
+#~ msgstr "Óleyfileg beiðni."
+
+#~ msgid "Unknown HTTP verb."
+#~ msgstr "Óþekkt HTTP-sögn."
 
 #~ msgid ""
 #~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
