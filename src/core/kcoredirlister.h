@@ -357,6 +357,21 @@ public:
     virtual void setMimeFilter(const QStringList &mimeList); // TODO KF6: remove virtual
 
     /**
+     * Filtering should be done with KFileFilter. This will be implemented in a later
+     * revision of KCoreDirLister. This method may be removed then.
+     *
+     * Set MIME type based exclude filter to only list items not matching the given MIME types
+     *
+     * NOTE: setting the filter does not automatically reload directory.
+     * Also calling this function will not affect any named filter already set.
+     *
+     * @param mimeList a list of MIME types
+     * @see clearMimeFilter
+     * @see matchesMimeFilter
+     */
+    void setMimeExcludeFilter(const QStringList &mimeList);
+
+    /**
      * Clears the MIME type based filter.
      *
      * You need to call emitChanges() afterwards.
@@ -533,6 +548,13 @@ Q_SIGNALS:
      * @param items a list of new items
      */
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
+
+    /**
+     * Send a list of items filtered-out by MIME type.
+     * @param items the list of filtered items
+     *
+     */
+    void itemsFilteredByMime(const KFileItemList &items);
 
     /**
      * Signal that items have been deleted

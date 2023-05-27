@@ -2329,6 +2329,16 @@ void KCoreDirLister::setMimeFilter(const QStringList &mimeFilter)
     }
 }
 
+void KCoreDirLister::setMimeExcludeFilter(const QStringList &mimeExcludeFilter)
+{
+    if (d->settings.mimeExcludeFilter == mimeExcludeFilter) {
+        return;
+    }
+
+    d->prepareForSettingsChange();
+    d->settings.mimeExcludeFilter = mimeExcludeFilter;
+}
+
 void KCoreDirLister::clearMimeFilter()
 {
     d->prepareForSettingsChange();
@@ -2476,6 +2486,7 @@ void KCoreDirListerPrivate::emitItems()
     }
 
     if (!lstMimeFilteredItems.empty()) {
+        Q_EMIT q->itemsFilteredByMime(lstMimeFilteredItems);
         lstMimeFilteredItems.clear();
     }
 
