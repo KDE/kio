@@ -10,6 +10,7 @@
 #include "kio/renamedialog.h"
 #include "../utils_p.h"
 #include "kio_widgets_debug.h"
+#include "kshell.h"
 
 #include <QApplication>
 #include <QCheckBox>
@@ -366,7 +367,13 @@ RenameDialog::RenameDialog(QWidget *parent,
         pLayout->addLayout(gridLayout);
 
         int gridRow = 0;
-        QLabel *titleLabel = new QLabel(i18n("This action will overwrite the destination."), this);
+        auto title = i18n("This action will overwrite the destination.");
+        if (d->srcItem.isDir() && d->destItem.isDir()) {
+            title = i18n("This action will merge the contents of '%1' into '%2'.",
+                         KShell::tildeCollapse(d->src.toDisplayString(QUrl::PreferLocalFile)),
+                         KShell::tildeCollapse(d->dest.toDisplayString(QUrl::PreferLocalFile)));
+        }
+        QLabel *titleLabel = new QLabel(title, this);
         gridLayout->addWidget(titleLabel, gridRow, 0, 1, 2); // takes the complete first line
 
         gridLayout->setRowMinimumHeight(++gridRow, 15); // spacer
