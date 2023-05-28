@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2023-02-27 22:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -6654,12 +6654,12 @@ msgstr "<qt><b>%1</b> 沒有家目錄。</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>沒有叫做 <b>%1</b> 的使用者。</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "以封鎖的要求。"
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "不明的 HTTP 動作。"

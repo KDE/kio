@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -6943,12 +6943,12 @@ msgstr "<qt>Kasutajal <b>%1</b> pole kodukataloogi.</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Kasutajat <b>%1</b> ei ole olemas.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "Blokeeritud päring."
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Tundmatu HTTP meetod."

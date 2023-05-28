@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -6994,12 +6994,12 @@ msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម�
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>អ្នក​មិនមានសិទ្ធិ​ក្នុងការ​រត់ <b>%1</b> ឡើយ ។</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "សំណើ​ដែល​បានទប់ស្កាត់ ។"
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "មិនស្គាល​ HTTP"

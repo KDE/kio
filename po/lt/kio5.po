@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2021-08-27 01:43+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -6989,12 +6989,12 @@ msgstr "<qt><b>%1</b> neturi pradinio aplanko!</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Nėra naudotojo <b>%1</b>.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "Užklausa užblokuota."
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Nežinomas HTTP veiks."

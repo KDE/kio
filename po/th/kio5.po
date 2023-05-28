@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -6999,12 +6999,12 @@ msgstr "<qt>ยังไม่มีแฟ้มแม่แบบ <b>%1</b> อ
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>คุณยังไม่ได้รับอนุญาตให้ประมวลผล <b>%1</b> ได้</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "การร้องขอถูกบล็อค"
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "ไม่รู้จักแท็กการกระทำของ HTTP"

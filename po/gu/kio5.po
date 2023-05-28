@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -6431,12 +6431,12 @@ msgstr "%1 નામની ફાઇલ અથવા ફોલ્ડર હા�
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>તમારી પાસે <b>%1</b> ચલાવવાની પરવાનગી નથી.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr ""
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, fuzzy, kde-format
 #| msgid "Unknown Host"
 msgid "Unknown HTTP verb."

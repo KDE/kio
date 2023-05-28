@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -6911,12 +6911,12 @@ msgstr ""
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Awunazimvume zokusebenzisa <b>%1</b>.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr ""
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, fuzzy, kde-format
 #| msgid "Unknown Error"
 msgid "Unknown HTTP verb."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -6766,12 +6766,12 @@ msgstr ""
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>केडीई ने वॉलेट '<b>%1</b>' को खोलने के लिए निवेदन किया है.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr ""
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, fuzzy, kde-format
 #| msgid "Unknown Error"
 msgid "Unknown HTTP verb."
