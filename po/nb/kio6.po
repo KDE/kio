@@ -4272,7 +4272,6 @@ msgstr "Søk interaktivt etter domener"
 #. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:138
 #, fuzzy, kde-format
-#| msgid "Search"
 msgid "Search..."
 msgstr "Søk"
 
@@ -4834,13 +4833,6 @@ msgstr "Mellomtjener for SOCKS:"
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
 #, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#| "to store the address of the SOCKS proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.</p>\n"
-#| "</qt>"
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
@@ -4882,13 +4874,6 @@ msgstr "Unntak:"
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
 #, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#| "addresses of sites for which the proxy server should not be used.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.\n"
-#| "</qt>"
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
@@ -6288,7 +6273,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
 #, fuzzy, kde-format
-#| msgid "Default password:"
 msgid "Default Web &search keyword:"
 msgstr "Standard passord:"
 
@@ -7165,8 +7149,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:222
 #, fuzzy, kde-format
-#| msgctxt "Space as keyword delimiter"
-#| msgid "Space"
 msgid "Free Space:"
 msgstr "Mellomrom"
 
@@ -7185,14 +7167,12 @@ msgstr "Adresse:"
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
 #, fuzzy, kde-format
-#| msgid "Chan&ge..."
 msgid "Change..."
 msgstr "En&dre …"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:364
 #, fuzzy, kde-format
-#| msgid "No Content"
 msgid "Content:"
 msgstr "Uten innhold"
 
@@ -7223,16 +7203,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:447
 #, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Unknown size"
 msgid "Unknown size"
 msgstr "Ukjent størrelse"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:470
 #, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Mounting"
 msgid "Mounted On:"
 msgstr "Monterer"
 
@@ -7245,7 +7221,6 @@ msgstr "Brukt:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:500
 #, fuzzy, kde-format
-#| msgid "Open With"
 msgid "Open With:"
 msgstr "Åpne med"
 
@@ -7435,10 +7410,6 @@ msgstr "Kjør i terminal"
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:61
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "@title:group Title of a group that lets the user choose options about the "
-#| "terminal when launching a program"
-#| msgid "Terminal"
 msgid "Terminal options:"
 msgstr "Terminal"
 
@@ -7457,7 +7428,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, fuzzy, kde-format
-#| msgid "&Do not close when command exits"
 msgid "Do not close when command exits"
 msgstr "&Ikke lukk når programmet avslutter"
 
@@ -7597,7 +7567,6 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
 #, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
 msgid "Type the command to start this application here."
 msgstr "Oppgi navnet her på brukeren som skal kjøre dette programmet."
 
@@ -7626,19 +7595,6 @@ msgstr "&Bla gjennom …"
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
 #, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Following the command, you can have several place holders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "%f - a single file name\n"
-#| "%F - a list of files; use for applications that can open several local "
-#| "files at once\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%d - the directory of the file to open\n"
-#| "%D - a list of directories\n"
-#| "%i - the icon\n"
-#| "%m - the mini-icon\n"
-#| "%c - the comment"
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7669,8 +7625,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
 #, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
 msgid "&Arguments:"
 msgstr "Dokumenter"
 
@@ -8951,9 +8905,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk Avbryt"
-
-#~ msgid "Blocked request."
-#~ msgstr "Forespørsel blokkert."
-
-#~ msgid "Unknown HTTP verb."
-#~ msgstr "Ukjent HTTP-verb."

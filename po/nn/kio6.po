@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-27 02:03+0000\n"
-"PO-Revision-Date: 2023-03-04 16:58+0100\n"
+"PO-Revision-Date: 2023-05-27 14:18+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -7699,11 +7699,9 @@ msgstr "Miljøvariablar:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Her oppgjev du namnet på brukaren som dette programmet skal køyrast av."
+msgstr "Skriv kommando for å starta programmet her."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -7729,20 +7727,7 @@ msgstr "&Bla gjennom …"
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -7757,10 +7742,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Skriv her inn kommandoen for å starta programmet.\n"
+"Skriv argumenta som skal brukast når programmet vert starta her.\n"
 "\n"
-"Etter kommandoen kan du ha fleire plasshaldarar, og desse vert bytte ut med "
-"faktiske verdiar når programmet vert køyrt:\n"
+"Du kan bruka plasshaldarar, og desse vert bytte ut med faktiske verdiar når "
+"programmet vert køyrt:\n"
 "\n"
 "%f – eitt filnamn\n"
 "%F – ei liste over filer (for program som kan opna fleire filer på éin "
@@ -7773,10 +7758,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argument:"
+msgstr "&Argument:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -9078,9 +9062,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "Blocked request."
-#~ msgstr "Førespurnad blokkert."
-
-#~ msgid "Unknown HTTP verb."
-#~ msgstr "Ukjent HTTP-verb."

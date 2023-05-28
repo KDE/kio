@@ -3926,14 +3926,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:43
 #, fuzzy, kde-format
-#| msgid "Site:"
 msgid "Site"
 msgstr "Fierpmádatbáiki:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:48
 #, fuzzy, kde-format
-#| msgid "Cookie Alert"
 msgid "Cookie Name"
 msgstr "Diehtočoahkováruhus"
 
@@ -4268,7 +4266,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:25
 #, fuzzy, kde-format
-#| msgid "Rename:"
 msgid "Site name:"
 msgstr "Molsso nama:"
 
@@ -4299,7 +4296,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, lbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:56
 #, fuzzy, kde-format
-#| msgid "Policy"
 msgid "Policy:"
 msgstr "Doaibmanvuohki"
 
@@ -4503,7 +4499,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:29
 #, fuzzy, kde-format
-#| msgid "Proxy:"
 msgid "No Proxy"
 msgstr "Gaskabálvá:"
 
@@ -4523,7 +4518,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
 #, fuzzy, kde-format
-#| msgid "Manually enter proxy server configuration information."
 msgid "Detect proxy configuration automatically"
 msgstr "Daga ieš gaskabálvaheivehusaid."
 
@@ -4564,7 +4558,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:120
 #, fuzzy, kde-format
-#| msgid "Updating system configuration."
 msgid "Use system proxy configuration:"
 msgstr "Ođasmahtimin vuogádatheivehusa."
 
@@ -4601,7 +4594,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
 #: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
 #, fuzzy, kde-format
-#| msgid "Proxy:"
 msgid "HTTP Proxy:"
 msgstr "Gaskabálvá:"
 
@@ -4622,7 +4614,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
 #: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
 #, fuzzy, kde-format
-#| msgid "Proxy:"
 msgid "SSL Proxy:"
 msgstr "Gaskabálvá:"
 
@@ -4643,7 +4634,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
 #: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
 #, fuzzy, kde-format
-#| msgid "Proxy:"
 msgid "FTP Proxy:"
 msgstr "Gaskabálvá:"
 
@@ -4663,7 +4653,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
 #: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
 #, fuzzy, kde-format
-#| msgid "Proxy:"
 msgid "SOCKS Proxy:"
 msgstr "Gaskabálvá:"
 
@@ -4694,7 +4683,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
 #: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
 #, fuzzy, kde-format
-#| msgid "Encryption:"
 msgid "Exceptions:"
 msgstr "Krypteren:"
 
@@ -4723,7 +4711,6 @@ msgstr "Daga ieš gaskabálvaheivehusaid."
 #. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:346
 #, fuzzy, kde-format
-#| msgid "Manually enter proxy server configuration information."
 msgid "Use manually specified proxy configuration:"
 msgstr "Daga ieš gaskabálvaheivehusaid."
 
@@ -4746,7 +4733,6 @@ msgstr "Verrát:"
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
 #: kcms/proxy/kproxydlg.ui:421
 #, fuzzy, kde-format
-#| msgid "Enter the address of the HTTP proxy server."
 msgid "Enter the port number of the HTTP proxy server."
 msgstr "Čális HTTP proxy bálvvá čujuhusa."
 
@@ -4765,7 +4751,6 @@ msgstr "Čális HTTPS proxy bálvvá čujuhusa."
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
 #: kcms/proxy/kproxydlg.ui:481
 #, fuzzy, kde-format
-#| msgid "Enter the address of the HTTPS proxy server."
 msgid "Enter the port number of the HTTPS proxy server."
 msgstr "Čális HTTPS proxy bálvvá čujuhusa."
 
@@ -4784,14 +4769,12 @@ msgstr "Čális FTP gaskabálvvá čujuhusa."
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:567
 #, fuzzy, kde-format
-#| msgid "Enter the address of the HTTPS proxy server."
 msgid "Enter the address of the SOCKS proxy server."
 msgstr "Čális HTTPS proxy bálvvá čujuhusa."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
 #: kcms/proxy/kproxydlg.ui:584
 #, fuzzy, kde-format
-#| msgid "Enter the address of the HTTPS proxy server."
 msgid "Enter the port number of the SOCKS proxy server."
 msgstr "Čális HTTPS proxy bálvvá čujuhusa."
 
@@ -6908,14 +6891,12 @@ msgstr "Čujuhus:"
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
 #, fuzzy, kde-format
-#| msgid "Chan&ge..."
 msgid "Change..."
 msgstr "Rie&vdat …"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:364
 #, fuzzy, kde-format
-#| msgid "No Content"
 msgid "Content:"
 msgstr "Ii sisdoallu"
 
@@ -6946,15 +6927,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:447
 #, fuzzy, kde-format
-#| msgid "Unknown Host"
 msgid "Unknown size"
 msgstr "Amas guossoheaddji"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:470
 #, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Mounting"
 msgid "Mounted On:"
 msgstr "Čatnamin"
 
@@ -6967,7 +6945,6 @@ msgstr "Geavahuvvon:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:500
 #, fuzzy, kde-format
-#| msgid "Open With"
 msgid "Open With:"
 msgstr "Raba geavahettiin"
 
@@ -7151,7 +7128,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:54
 #, fuzzy, kde-format
-#| msgid "Run in &terminal"
 msgid "Run in terminal"
 msgstr "Vuoje &terminálas"
 
@@ -7159,10 +7135,6 @@ msgstr "Vuoje &terminálas"
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:61
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "@title:group Title of a group that lets the user choose options about the "
-#| "terminal when launching a program"
-#| msgid "Terminal"
 msgid "Terminal options:"
 msgstr "Terminála"
 
@@ -7181,7 +7153,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, fuzzy, kde-format
-#| msgid "&Do not close when command exits"
 msgid "Do not close when command exits"
 msgstr "&Ale gidde go gohččun heaittihuvvo"
 
@@ -7224,7 +7195,6 @@ msgstr "Čális makkár geavaheaddjinamas háliidat vuodjit prográmma."
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:122
 #, fuzzy, kde-format
-#| msgid "Rename:"
 msgid "Username:"
 msgstr "Molsso nama:"
 
@@ -7323,7 +7293,6 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
 #, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
 msgid "Type the command to start this application here."
 msgstr "Čális geavaheaddjinama mas háliidat vuodjit prográmma."
 
@@ -7353,19 +7322,6 @@ msgstr "&Bláđđe …"
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
 #, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Following the command, you can have several place holders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "%f - a single file name\n"
-#| "%F - a list of files; use for applications that can open several local "
-#| "files at once\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%d - the directory of the file to open\n"
-#| "%D - a list of directories\n"
-#| "%i - the icon\n"
-#| "%m - the mini-icon\n"
-#| "%c - the comment"
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -8665,9 +8621,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "Blocked request."
-#~ msgstr "Hilgojuvvon jearaldat"
-
-#~ msgid "Unknown HTTP verb."
-#~ msgstr "Amas HTTP-vearba."
