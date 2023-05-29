@@ -8,7 +8,7 @@
 #ifndef OPENFILEMANAGERWINDOWJOB_H
 #define OPENFILEMANAGERWINDOWJOB_H
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 
 #include <KJob>
 
@@ -44,7 +44,7 @@ class OpenFileManagerWindowJobPrivate;
  *
  * @since 5.24
  */
-class KIOWIDGETS_EXPORT OpenFileManagerWindowJob : public KJob
+class KIOGUI_EXPORT OpenFileManagerWindowJob : public KJob
 {
     Q_OBJECT
 
@@ -110,7 +110,7 @@ private:
  *
  * @since 5.24
  */
-KIOWIDGETS_EXPORT OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const QByteArray &asn = QByteArray());
+KIOGUI_EXPORT OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const QByteArray &asn = QByteArray());
 
 } // namespace KIO
 

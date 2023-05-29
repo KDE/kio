@@ -62,7 +62,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kbuildsycocaprogressdialog.cpp
   sslui.cpp
   dropjob.cpp
-  openfilemanagerwindowjob.cpp
   pastejob.cpp
   joburlcache.cpp
   kdirmodel.cpp
@@ -180,7 +179,6 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   DeleteOrTrashJob
   SslUi
   DropJob
-  OpenFileManagerWindowJob
   PasteJob
   RenameDialog
   SkipDialog

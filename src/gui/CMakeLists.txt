@@ -44,6 +44,10 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     )
 endif ()
 
+if (NOT ANDROID)
+  target_sources(KF6KIOGui PRIVATE openfilemanagerwindowjob.cpp)
+endif()
+
 ecm_qt_declare_logging_category(KF6KIOGui
     HEADER kiogui_debug.h
     IDENTIFIER KIO_GUI
@@ -99,6 +103,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   CommandLauncherJob
   DndPopupMenuPlugin
   FavIconRequestJob
+  OpenFileManagerWindowJob
   OpenUrlJob
   OpenWithHandlerInterface
   PreviewJob

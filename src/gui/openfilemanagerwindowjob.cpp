@@ -14,7 +14,6 @@
 #include <QDBusPendingReply>
 #include <QGuiApplication>
 
-#include <KJobWidgets>
 #include <KWindowSystem>
 
 #include <KIO/OpenUrlJob>
