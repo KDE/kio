@@ -130,6 +130,7 @@ target_link_libraries(KF6KIOWidgets
     KF6::ConfigGui
     KF6::GuiAddons # KIconUtils
     KF6::IconThemes   # KIconLoader
+    KF6::IconWidgets  # KIconButton
     KF6::WindowSystem # KStartupInfo
     KF6::ColorScheme
 )

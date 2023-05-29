@@ -99,6 +99,7 @@ target_link_libraries(KF6KIOFileWidgets
     Qt6::Core5Compat
     KF6::GuiAddons    # KIconUtils
     KF6::IconThemes   # KIconLoader
+    KF6::IconWidgets   # KIconButton
     KF6::I18n
     KF6::ConfigGui
     KF6::ConfigWidgets
