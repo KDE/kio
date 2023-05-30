@@ -339,15 +339,6 @@ ecm_generate_headers(KIOCore_HEADERS
   REQUIRED_HEADERS KIOCore_HEADERS
 )
 
-ecm_generate_headers(KIOCore_HEADERS
-  HEADER_NAMES
-  KSSLSettings
-
-  RELATIVE kssl
-  REQUIRED_HEADERS KIOCore_HEADERS
-)
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
-
 install(FILES
   ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}

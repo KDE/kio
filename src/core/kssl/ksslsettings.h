@@ -8,8 +8,6 @@
 #ifndef _KSSLSETTINGS_H
 #define _KSSLSETTINGS_H
 
-#include "kiocore_export.h"
-
 #include <QString>
 
 #include <KConfig>
@@ -27,7 +25,7 @@ class KSSLSettingsPrivate;
  * @see KSSL
  * @short KDE SSL Settings
  */
-class KIOCORE_EXPORT KSSLSettings
+class KSSLSettings
 {
 public:
     /**
