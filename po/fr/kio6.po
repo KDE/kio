@@ -17,7 +17,7 @@
 # Simon Depiets <sdepiets@gmail.com>, 2017, 2018, 2019, 2020.
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"

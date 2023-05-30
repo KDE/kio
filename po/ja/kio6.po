@@ -22,7 +22,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 22.04.1\n"
@@ -153,29 +153,25 @@ msgstr ""
 #, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
-msgstr[0] "1 日 %2"
-msgstr[1] "%1 日 %2"
+msgstr[0] "%1 日 %2"
 
 #: core/global.cpp:90 core/global.cpp:106
 #, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
 msgstr[0] "%1 アイテム"
-msgstr[1] "%1 アイテム"
 
 #: core/global.cpp:94
 #, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
-msgstr[0] "1 フォルダ"
-msgstr[1] "%1 フォルダ"
+msgstr[0] "%1 フォルダ"
 
 #: core/global.cpp:95
 #, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
-msgstr[0] "1 ファイル"
-msgstr[1] "%1 ファイル"
+msgstr[0] "%1 ファイル"
 
 #: core/global.cpp:97
 #, kde-format
@@ -3197,7 +3193,6 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-msgstr[1] ""
 
 #: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-format
@@ -3342,7 +3337,6 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
-msgstr[1] ""
 
 #: filewidgets/kfilewidget.cpp:838
 #, kde-format
@@ -4595,9 +4589,6 @@ msgid_plural ""
 "connection is very slow. The maximum allowed value is %1 seconds."
 msgstr[0] ""
 "ここでタイムアウトの時間を指定できます。接続が非常に遅いのであれば、これらの"
-"値を調整するのがいいでしょう。最大値は 1 秒です。"
-msgstr[1] ""
-"ここでタイムアウトの時間を指定できます。接続が非常に遅いのであれば、これらの"
 "値を調整するのがいいでしょう。最大値は %1 秒です。"
 
 #: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
@@ -4606,7 +4597,6 @@ msgstr[1] ""
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " 秒"
-msgstr[1] " 秒"
 
 #: kcms/netpref/netpref.cpp:47
 #, kde-format
@@ -4656,7 +4646,6 @@ msgstr ""
 msgid " byte"
 msgid_plural " bytes"
 msgstr[0] ""
-msgstr[1] ""
 
 #: kcms/netpref/netpref.cpp:92
 #, kde-format
@@ -5885,7 +5874,6 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] "受け入れますか？拒否しますか？"
-msgstr[1] "受け入れますか？拒否しますか？"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:84
 #, kde-format
@@ -6120,7 +6108,6 @@ msgstr ""
 msgid " day"
 msgid_plural " days"
 msgstr[0] "日"
-msgstr[1] "日"
 
 #: kioworkers/trash/kcmtrash.cpp:246
 #, kde-kuit-format
@@ -7023,9 +7010,6 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"本当にこのアイテムを完全に削除しますか<nl/><nl/><emphasis strong='true'>この"
-"操作はもとに戻せません</emphasis>"
-msgstr[1] ""
 "本当にこれら%1個のアイテムを完全に削除しますか<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
@@ -7057,8 +7041,7 @@ msgstr "本当にこのアイテムをごみ箱に移動しますか？<nl/><fil
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "本当にこのアイテムをごみ箱に移動しますか？"
-msgstr[1] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
+msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
 
 #: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
@@ -7325,8 +7308,7 @@ msgstr "その他のアプリケーション(&O)..."
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
-msgstr[0] "1 アイテム"
-msgstr[1] "%1 アイテム"
+msgstr[0] "%1 アイテム"
 
 #: widgets/kfileitemdelegate.cpp:264 widgets/kfileitemdelegate.cpp:268
 #, kde-format
@@ -7465,8 +7447,7 @@ msgstr "<qt>ファイルを開くためのプログラムを選択<br/>%1</qt>"
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
-msgstr[0] "<qt>ファイルを開くためのプログラムを選択してください。</qt>"
-msgstr[1] "<qt>%1個のファイルを開くためのプログラムを選択してください。</qt>"
+msgstr[0] "<qt>%1個のファイルを開くためのプログラムを選択してください。</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -8004,8 +7985,7 @@ msgstr "%1 のプロパティ"
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
-msgstr[0] "アイテムのプロパティ"
-msgstr[1] "選択された %1 アイテムのプロパティ"
+msgstr[0] "選択された %1 アイテムのプロパティ"
 
 #: widgets/kpropertiesdialog.cpp:434
 #, kde-format
@@ -8060,15 +8040,13 @@ msgstr ""
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
-msgstr[0] "1 ファイル"
-msgstr[1] "%1 ファイル"
+msgstr[0] "%1 ファイル"
 
 #: widgets/kpropertiesdialog.cpp:1313 widgets/kpropertiesdialog.cpp:1328
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
-msgstr[0] "1 サブフォルダ"
-msgstr[1] "%1 サブフォルダ"
+msgstr[0] "%1 サブフォルダ"
 
 #: widgets/kpropertiesdialog.cpp:1341
 #, kde-format
@@ -8153,8 +8131,7 @@ msgstr "アクセス許可"
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
-msgstr[0] "このファイルはリンクなのでパーミッションはありません。"
-msgstr[1] "これらのファイルはすべてリンクなのでパーミッションはありません。"
+msgstr[0] "これらのファイルはすべてリンクなのでパーミッションはありません。"
 
 #: widgets/kpropertiesdialog.cpp:1820
 #, kde-format
@@ -8445,15 +8422,13 @@ msgstr "多種 (変更なし)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "このファイルは詳細なパーミッションを使用します。"
-msgstr[1] "これらのファイルは詳細なパーミッションを使用します。"
+msgstr[0] "これらのファイルは詳細なパーミッションを使用します。"
 
 #: widgets/kpropertiesdialog.cpp:2439
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "このフォルダは詳細なパーミッションを使用します。"
-msgstr[1] "これらのフォルダは詳細なパーミッションを使用します。"
+msgstr[0] "これらのフォルダは詳細なパーミッションを使用します。"
 
 #: widgets/kpropertiesdialog.cpp:2453
 #, kde-format
@@ -8612,7 +8587,6 @@ msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
 msgstr[0] "%1 ビット使用"
-msgstr[1] "%1 ビット使用"
 
 #: widgets/ksslinfodialog.cpp:142
 #, kde-format
@@ -8620,7 +8594,6 @@ msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
 msgstr[0] "%1 ビット鍵"
-msgstr[1] "%1 ビット鍵"
 
 #: widgets/ksslinfodialog.cpp:157
 #, kde-format
@@ -8698,8 +8671,7 @@ msgstr "1個のファイルを貼り付け"
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
-msgstr[0] "1個のアイテムを貼り付け"
-msgstr[1] "%1個のアイテムを貼り付け"
+msgstr[0] "%1個のアイテムを貼り付け"
 
 #: widgets/paste.cpp:256
 #, kde-format
@@ -8945,7 +8917,6 @@ msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "選択された %1 アイテムの新しい名前:"
-msgstr[1] "選択された %1 アイテムの新しい名前:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -9086,9 +9057,6 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"本当にこの %1 アイテムを完全に削除しますか？<nl/><nl/><emphasis "
-"strong='true'>この操作はもとに戻せません</emphasis>"
-msgstr[1] ""
 "本当にこれら%1個のアイテムを完全に削除しますか？<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
@@ -9127,9 +9095,6 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"本当にこのアイテムを完全に削除しますか<nl/><nl/><emphasis strong='true'>この"
-"操作はもとに戻せません</emphasis>"
-msgstr[1] ""
 "本当にこれら%1個のアイテムを完全に削除しますか<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
@@ -9138,8 +9103,7 @@ msgstr[1] ""
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "本当にこの %1 アイテムをごみ箱に移動しますか？"
-msgstr[1] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
+msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
 
 #: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
@@ -9395,13 +9359,11 @@ msgstr "このプログラムを信頼しない場合は「キャンセル」を
 
 #~ msgid "&Paste File"
 #~ msgid_plural "&Paste %1 Files"
-#~ msgstr[0] "ファイルを貼り付け(&P)"
-#~ msgstr[1] "%1 ファイルを貼り付け(&P)"
+#~ msgstr[0] "%1 ファイルを貼り付け(&P)"
 
 #~ msgid "&Paste URL"
 #~ msgid_plural "&Paste %1 URLs"
-#~ msgstr[0] "URL を貼り付け(&P)"
-#~ msgstr[1] "%1 個の URL を貼り付け(&P)"
+#~ msgstr[0] "%1 個の URL を貼り付け(&P)"
 
 #~ msgid "&Paste Clipboard Contents"
 #~ msgstr "クリップボードの内容を貼り付け(&P)"
