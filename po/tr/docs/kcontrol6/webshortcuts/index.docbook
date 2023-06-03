@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>Web Kısayolları</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>Frameworks 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>sistem ayarları</keyword>
+<keyword
+>gelişmiş tarama</keyword>
+<keyword
+>web kısayolları</keyword>
+<keyword
+>tarama</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>Web Kısayolları</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>Giriş</title>
+
+<para
+>&konqueror;, tarama deneyiminizi geliştirmek için bazı özellikler sunar. Bunlardan biri de <emphasis
+>Web Kısayolları</emphasis
+>'dır.</para>
+
+<para
+>&kde;'nin bayağı internet canlısı olduğunu fark etmiş olabilirsiniz. Örneğin, <guimenuitem
+>Çalıştır</guimenuitem
+> menü ögesine tıklayın veya bu eyleme atanmış klavye kısayolunu çağırın (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> veya <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>, eğer değiştirmediyseniz) ve bir &URI; girin. <footnote
+><para
+>Tekdüzen Kaynak Tanımlayıcı. Bilgisayarınızdaki bir dosyaya, bir internet veya bir e-posta adresine başvurmanın standartlaştırılmış bir yolu.</para
+></footnote
+></para>
+
+<para
+>Web Kısayolları, bunun yanında yeni bir yalancıktan &URL; şeması veya kısayolu kullanmanıza izin verirler. Bunlarla, sık kullanılan &URL;'leri <emphasis
+>parametreleştirebilirsiniz</emphasis
+>. Örneğin, DuckDuckGo arama motorunu pek seviyorsanız &kde;'yi <emphasis
+>ddg</emphasis
+> gibi çalıştırıldığında DuckDuckGo'yu çağıracak bir &URL; şemasıyla yapılandırabilirsiniz. Böylece, <userinput
+>ddg:<replaceable
+>sorgu</replaceable
+></userinput
+>, DuckDuckGo üzerinde <replaceable
+>sorgu</replaceable
+>'yu arar.</para>
+
+<note
+><para
+>Bunları neden yalancı &URL; şemaları olarak adlandırdığımızı görebiliyorsunuzdur. Bir &URL; şeması gibi kullanılırlar; ancak girdi tam bir &URL; gibi kodlanmamıştır. Bundan dolayı <userinput
+>duckduckgo:kde+uygulamaları</userinput
+> yerine <userinput
+>duckduckgo:kde uygulamaları</userinput
+> yazılır.</para
+></note>
+
+<para
+>Normalde &URI;'ler kullandığınız her yerde web kısayollarını kullanabilirsiniz. Birkaç arama motoru için kısayollar sisteminizde zaten yapılandırılmış olmalıdır; ancak bu modülde yeni anahtar sözcükler ekleyebilir ve var olanları değiştirebilir veya silebilirsiniz.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>Web Araması Anahtar Sözcükleri</title>
+
+<para
+>Tanımlanan web kısayollarının açıklayıcı adları bir liste kutusunda gösterilir. &kde; içindeki diğer listelerde olduğu gibi, sıralama düzenini artan ve azalan arasında değiştirmek için bir sütun başlığına tıklayabilir ve sütunları yeniden boyutlandırabilirsiniz.</para>
+
+<para
+>Bu özelliği etkinleştirmek için listenin en altında <guilabel
+>Web'de arama anahtar sözcüklerini etkinleştir</guilabel
+> seçili olmalıdır. Kısayollar oluşturmak, değiştirmek ve silmek için sağdaki düğmeleri kullanın.</para>
+
+<para
+>Eğer <guilabel
+>Yalnızca yeğlenen kısayolları kullan</guilabel
+> işaretliyse yalnızca listenin ikinci sütununda yeğlenen olarak işaretlenen anahtar sözcükler aynı anda yalnızca birkaç seçim kısayolunun gösterilebildiği yerlerde kullanılır. </para>
+ 
+<para
+>Listenin altında iki adet ek seçenek bulacaksınız:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Öntanımlı Web'de arama anahtar sözcüğü:</guilabel
+></term>
+<listitem>
+<para
+>&URL; yerine normal sözcükler ve sözcük öbekleri yazdığınızda otomatik arama hizmetleri sağlayan giriş kutuları için kullanılacak arama motorunu seçin. Bu özelliği devre dışı bırakmak için listeden <guilabel
+>Yok</guilabel
+> ögesini seçin. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Anahtar sözcük sınırlandırıcı:</guilabel
+></term>
+<listitem>
+<para
+>Anahtar sözcüğü aranacak sözcük öbeğinden veya sözcükten ayıran sınırlayıcıyı seçin.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Tanımlı arama sağlayıcıları listesindeki belirli bir girişe çift tıklarsanız veya <guibutton
+>Değiştir...</guibutton
+> düğmesine tıklarsanız o girişin ayrıntıları bir açılır iletişim kutusunda gösterilir. Ögenin tanımlayıcı adına ek olarak &kde; içinde &URI;'lerin beklendiği her yere yazabileceğiniz ilişkilendirilmiş kısayolların yanı sıra kullanılan &URI;'yi de görebilirsiniz. Herhangi bir arama sağlayıcısının virgülle ayrılmış birden çok kısayolu olabilir.</para>
+
+<para
+>Metin kutuları yalnızca web kısayolları listesindeki bir öge hakkında bilgi görüntülemek için değil, aynı zamanda yeni ögeler eklemek veya değiştirmek için de kullanılır.</para>
+
+<para
+><guilabel
+>Kısayol URL'si:</guilabel
+> veya <guilabel
+>Kısayollar:</guilabel
+> metin kutusundaki içeriğin herhangi birini değiştirebilirsiniz. Değişikliklerinizi kaydetmek için <guibutton
+>Tamam</guibutton
+> düğmesine veya iletişim kutusundan değişikliklerinizi kaydetmeden çıkmak için <guibutton
+>İptal</guibutton
+>'i kullanın.</para>
+
+<para
+><guilabel
+>Kısayol URL'si:</guilabel
+> metin kutusunun içeriğini incelerseniz tüm girişlerde olmasa da çoğunda bir <option
+>\{@}</option
+> bulunduğunu göreceksiniz. Bu dört dizi bir parametre görevi görür, yani kısayol ile parametresi arasındaki iki nokta üst üste karakterinden sonra ne yazarsanız yazın onların yerini alır. Bu sorgu yer tutucusunu bir kısayol &URL;'sine eklemek için metin kutusunun sağındaki düğmeyi tıklayın. Web kısayollarının nasıl kullanılacağını netleştirmek için bazı örneklere bakalım.</para>
+
+<para
+>&URI;'nin <userinput
+>https://www.google.com/search?q=\{@}</userinput
+> olduğunu ve <userinput
+>gg</userinput
+>'nin de bu &URI; için bir kısayol olduğunu varsayalım. Sonrasında <userinput
+>gg:<replaceable
+>alfa</replaceable
+></userinput
+> yazmak, <userinput
+>https://www.google.com/search?q=<replaceable
+>alfa</replaceable
+></userinput
+>'ya eşdeğerdir. <userinput
+>:</userinput
+> karakterinden sonra istediğiniz bir şey yazabilirsiniz; yazdığınız her şey <option
+>\{@}</option
+> karakterinin yerine geçer. Bu girdi uygun karakter kümesine çevrilir ve &URL; düzgünce kodlanır. Arama &URI;'sinin yalnızca <option
+>\{@}</option
+> kısmına dokunulur; gerisi normal bir &URL; olarak kodlanmıştır ve öylece bırakılır.</para>
+
+<para
+>Aynı zamanda parametresiz kısayollar da oluşturabilirsiniz. &URI;'nin <emphasis
+>file:/home/ben/belgelerim/calligra/words</emphasis
+> olduğunu ve kısayolun <emphasis
+>words</emphasis
+> olduğunu varsayalım. Sonrasında <userinput
+>words:</userinput
+> yazmak, &URI;'nin tümünü yazmaya eşdeğerdir. Kısayolu yazarken iki noktadan sonra hiçbir şey olmadığına; ancak iki noktanın kısayolun tanımlanabilmesi adına her zaman gerekli olduğuna dikkat edin.</para>
+
+<para
+>Şimdiye kadar, bu kısayollara web kısayolları denmesine rağmen, bunların yalnızca arama motorları gibi web sitelerine değil, aynı zamanda bir kullanıcı tarafından işaret edilebilecek başka herhangi bir şeye de işaret edebilen parametreleştirilmiş &URI;'lerin kısayolları olduğunu anlayacaksınız. &URI; Web kısayolları, &kde;'de gezinmenin çok güçlü bir özelliğidir.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
