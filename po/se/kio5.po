@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:43+0000\n"
+"POT-Creation-Date: 2023-05-28 00:43+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -6405,12 +6405,12 @@ msgstr "<qt>Mállefiila <b>%1</b> ii gávdno.</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Dus ii leat lohppi vuodjit <b>%1</b>.</qt>"
 
-#: widgets/accessmanager.cpp:196
+#: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
 msgstr "Hilgojuvvon jearaldat"
 
-#: widgets/accessmanager.cpp:267
+#: widgets/accessmanager.cpp:269
 #, kde-format
 msgid "Unknown HTTP verb."
 msgstr "Amas HTTP-vearba."

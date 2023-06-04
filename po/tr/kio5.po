@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-28 00:43+0000\n"
-"PO-Revision-Date: 2023-05-29 12:38+0300\n"
+"PO-Revision-Date: 2023-06-03 13:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3127,7 +3127,7 @@ msgstr "Bugün Değiştirildi"
 #: filewidgets/kfileplacesmodel.cpp:456
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
-msgstr "Dün Değiştirilmiş"
+msgstr "Dün Değiştirildi"
 
 #: filewidgets/kfileplacesmodel.cpp:1144
 #, kde-format
