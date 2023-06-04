@@ -36,6 +36,7 @@ Name[pt]=Documentação do Flatpak
 Name[pt_BR]=Documentação do Flatpak
 Name[ro]=Documentația Flatpak
 Name[ru]=Документация по Flatpak
+Name[sk]=Dokumentácia Flatpak
 Name[sl]=Dokumentacija za Flatpak
 Name[sv]=Flatpak-dokumentation
 Name[tr]=Flatpak Belgelendirmesi
@@ -83,6 +84,7 @@ Query[pt]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[pt_BR]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ro]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ru]=https://docs.flatpak.org/ru/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[sk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[sl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=privzeto
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[tr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
