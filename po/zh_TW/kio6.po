@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2023-05-17 04:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -112,7 +112,7 @@ msgstr "檔案已存在"
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"
@@ -3848,1101 +3848,6 @@ msgstr "無法開啟檔案。"
 msgid "The program \"%1\" could not be launched."
 msgstr "程式「%1」無法啟動。"
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "政策(&P)"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "管理(&M)"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "D-Bus 通訊錯誤"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "無法刪除所有的 cookie"
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "無法刪除 cookie"
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "資訊查詢錯誤"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr "無法取得儲存在你電腦上的 cookie 的資訊"
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "結束工作階段"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "是"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "搜尋"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "互動式搜尋網域和主機"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "站台"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "Cookie 名稱"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "刪除(&E)"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "刪除全部(&L)"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "設定政策(&P)..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "重新讀取列表(&R)"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "詳細資料"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "名稱:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "數值:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "網域:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "路徑:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "過期:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "安全性:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "變更 Cookie 政策"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "新增 Cookie 政策"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>關於<center><b>%1</b></center>的政策已經存在，您確定要覆蓋它嗎？</qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "重複的政策"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "取代"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"無法和 cookie handler 服務溝通。\n"
-"這個服務重新啟動，你所做的變更才能被執行。"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>這個選項將啟動 cookie 支援。一般您會希望啟用 cookie 支援並調整 它以符合您"
-"的隱私需求。</p>\n"
-"<p>請注意停用 cookie 支援可能造成許多網站無法瀏覽。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "啟用 Cookies(&K)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"拒絕所謂的第三方 cookies。這些 cookies 是由您正在瀏覽的網站以外的網站所產生"
-"的。比方說當您參觀 <b>www.foobar.com</b> 時選取了這個選項，只有來自 www."
-"foobar.com 的 cookies 才會被處理。所有其他的 cookies 會被自動拒絕。這減少了網"
-"站管理者收集您每日瀏覽習慣的機會。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "只接受來自原伺服器的 cookies(&P)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>\n"
-"自動接收暫存 cookies 代表它們會在目前的工作階段結束時過期。這類 cookies 不會"
-"儲存在您電腦的硬碟或儲存裝置裡。因為當您關閉所有使用它們的應用程式（例如您的"
-"瀏覽器）時，它們就被刪除了。</p><p><u>注意：</u>勾選此選項連帶地會覆蓋您的特"
-"定網站 cookie 政策。然而，這麼做會增進您的隱私，因為所有的 cookies 會在目前工"
-"作階段結束時移除。</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "自動接受工作階段 cookies(&Y)"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"決定收到來自遠端機器的 cookies 將如何處理：\n"
-"<ul>\n"
-"<li><b>詢問</b>會讓 KDE 在每次有伺服器要設定 cookie 時要求您的許可</li>\n"
-"<li><b>接受</b>會不提示您而接受 cookies</li>\n"
-"<li><b>暫時接受</b>會接受 cookies，但是在工作階段結束後就刪除。</li>\n"
-"<li><b>拒絕</b>會拒絕所有收到的 cookies</li>\n"
-"</ul><p>\n"
-"<u>注意：</u>特定網域政策可以在下面設定，它的優先權會高於預設的政策。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "預設政策"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "接受所有 cookies(&T)"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "暫時接受到工作階段結束為止(&U)"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "詢問以獲得確認(&F)"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "拒絕所有 cookies(&J)"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"要增加新的政策。只要單擊 <b>新增...</b>按鈕，並提供對話窗中必須的資訊。要變更"
-"一個現存的政策，單擊 <b>變更...</b>按鈕，並在對話窗中選擇新的政策。單擊 <b>刪"
-"除</b> 將會移除您所選擇的項目，並以預設的政策取代該網域的政策。<b>刪除全部</"
-"b> 會移除所有的特定網站政策。\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "網站政策"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "互動式搜尋網域"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, kde-format
-msgid "Search..."
-msgstr "搜尋…"
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"你所設定使用不同的 cookie 處理方式的網站列表。 對這些網站，系統會使用自訂的 "
-"cookie 處理方式，原不是預設的處理方式。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "網域"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "政策"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "新增(&N)..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "變更(&H)..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "接受"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "在此工作階段接受"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "拒絕"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "詢問"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "不知道"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入此要套用此政策的主機或網域。例如 <i>www.kde.org</i> 或 <i>.kde.org</"
-"i>。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "站台名稱："
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr "輸入此政策要套用到的主機或網域名稱，例如 kde.org。"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"選擇欲使用的政策：\n"
-"<ul>\n"
-"<li><b>接受</b> - 允許此網址設定 cookie</li>\n"
-"<li><b>暫時接受</b> - 接受 cookie 但是在工作階段結束後即失效。</li>\n"
-"<li><b>拒絕</b> - 拒絕所有網址送來的 cookie</li>\n"
-"<li><b>詢問</b> - 詢問使用者是否接受cookie</li>\n"
-"</ul>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "政策："
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "暫時接受"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr "您必須重新啟動執行中的程式才能讓這些改變生效。"
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "更新失敗"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "您必須重新啟動 KDE 才能讓這些改變生效。"
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "停用被動 FTP"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"當 FTP 連線是用戶端以被動連線到伺服器，而非其他方式，防火牆將不會阻擋該連線；"
-"舊式 FTP 伺服器可能不支援被動 FTP 通行。"
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "標記部分上傳的檔案"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"當檔案開始上傳時為它加上延伸檔名「.part」。當檔案完整的上傳時將它的名稱改變為"
-"真實名稱。"
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "逾時設定"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"您可以在此設定逾時時間。當連線速度很慢時，您可能會想調整它。 最大的允許值是 "
-"%1 秒。"
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " 秒"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "讀取 Socket(&K):"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "連結代理伺服器(&X):"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "連結伺服器(&N):"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "伺服器回應(&S):"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "全域選項"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "標記部分上傳的檔案(&P)"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<p>標記已經透過 SMB、SFTP 與其他協定部分上傳的檔案。</p><p>當此啟用選項時，只"
-"上傳部分的檔案會加上「.part」的延伸檔名。這個延伸檔名會在傳輸全部完成後移除。"
-"</p>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " 位元組"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr "若被取消，將部分上傳的檔案中小於以下大小的進行自動刪除："
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "FTP 選項"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "啟用被動模式(PASV)(&M)"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr "啟用 FTP 的「被動」模式。要讓 FTP 在防火牆下運作的話這是必要的。"
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<p>標記已經部分上傳的 FTP 檔案。</p><p>當此啟用選項時，只上傳部分的檔案會加上"
-"「.part」的延伸檔名。這個延伸檔名會在傳輸全部完成後移除。</p>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-"不是所有應用程式都會使用這裡的代理伺服器設定。具體來說，"
-"<application>Firefox</application>、<application>Chromium</application> 和任"
-"何基於它們的應用程式，以及任何基於 <application>QtWebEngine</application> 的"
-"應用程式&nbsp;—— 這包含了使用 <application>WebEnginePart</application> 的 "
-"<application>Konqueror</application>、<application>Akregator</application> "
-"及 <application>Falkon</application>&nbsp;——都不會使用這裡的設定。某些應用程"
-"式可能有在它們自己的設定裡提供代理伺服器的選項。"
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"設定代理伺服器組態。\n"
-"<p>\n"
-"代理伺服器是位於您的電腦和網際網路的中介程式，提供網頁快取和/或過濾的服務。</"
-"p><p>快取式代理伺服器會將您曾經參訪過的網站內容儲存起來，以加速加速網際網路資"
-"料讀取速度；過濾式快取伺服器，則提供阻擋廣告、垃圾以及其他任何你想要阻擋的東"
-"西的能力。\n"
-"<p>\n"
-"若您不知道是否需要設定代理伺服器，請先參考您的網路服務供應商的設定指南，或詢"
-"問系統管理員。\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "直接連線到網際網路。"
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "沒有代理伺服器"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, kde-format
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"自動偵測並設定代理伺服器設定值。<p>\n"
-"自動偵測是使用 <b>網頁代理伺服器自動發現協定 (WPAD)</b> 進行的。<p>\n"
-"<b>注意：</b>這個選項在某些 UNIX/Linux 發行版可能無法正常運作或者完全無法運"
-"作。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "自動偵測代理伺服器設定"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "使用指定的代理伺服器命令稿來設定代理伺服器設定值。"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "使用代理伺服器自動設定網址："
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "請輸入代理伺服器組態命令稿位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>使用系統上定義的代理伺服器設定。</p>\n"
-"<p>有些平台會提供系統的代理伺服器資訊。選擇此選項讓您可以直接使用這些設定。</"
-"p>\n"
-"<p>在 Mac 平台上</p>\n"
-"<p>在 Windows 平台上</p>\n"
-"<p>在 Unix and Linux 平台上，這些系統端的代理伺服器設定通常是透過環境變數指"
-"定。以下的環境變數若有偵測到就會使用： <b>HTTP_PROXY</b>，<b>HTTPS_PROXY</"
-"b>，<b>FTP_PROXY</b> 以及 <b>NO_PROXY</b>。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "使用系統代理伺服器設定："
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt>自動尋找系統中可能是用來設定 proxy 的環境變數。<p>尋找方法是搜尋一些可能"
-"的變數名稱，像是 HTTP_PROXY, FTP_PROXY 和 NO_PROXY.</qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, kde-format
-msgid "Auto D&etect"
-msgstr "自動偵測(&E)"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>HTTP_PROXY</tt>，這是用來儲存 HTTP 代理伺服器的"
-"位址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "HTTP 代理伺服器："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>HTTPS_PROXY</tt>，這是用來儲存 HTTPS 代理伺服器"
-"的位址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "SSL 代理伺服器："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>FTP_PROXY</tt>，這是用來儲存 FTP 代理伺服器的位"
-"址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "FTP 代理伺服器："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>SOCKS_PROXY</tt>，這是用來儲存 SOCKS 代理伺服器"
-"的位址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "SOCKS 代理伺服器："
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>SOCKS_PROXY</tt>，這是用來儲存 SOCKS 代理伺服器"
-"的位址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"請輸入環境變數名稱，例如 <tt>FTP_PROXY</tt>，這是用來儲存 FTP 代理伺服器的位"
-"址。<p>\n"
-"或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "例外："
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>請輸入用於排除使用代理伺服器的位址的環境變數，如 <b>NO_PROXY</b>。\n"
-"<p>或者，您也可以點擊<b>「自動偵測」</b>來自動找出變數。</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "顯示環境變數(&V)"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "手動輸入代理伺服器的設定資訊。"
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "手動輸入代理伺服器設定："
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "請輸入 HTTP 代理伺服器位址。"
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "連接埠："
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "請輸入 HTTP 代理伺服器位址。"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "所有通訊協定都使用此代理伺服器(&L)"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "請輸入 HTTPS 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "請輸入 HTTPS 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "請輸入 FTP 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "請輸入 FTP 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "請輸入 SOCKS 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "請輸入 SOCKS 代理伺服器位址。"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>輸入要排除適用於上面所列的代理伺服器的主機名稱或 IP 位址，以逗號分隔。</"
-"p>\n"
-"<p>若您要排除某個網域裡所有的主機，那麼只要輸入該網域名稱，前面加個點 (.)。例"
-"如，要排除所有 <i>kde.org</i> 的主機，您只要輸入 <i>.kde.org</i>。注意，萬用"
-"字元如 '*' 或 '?' 在此不適用。</p>\n"
-"<p>此外，您也可以輸入 IP 位址，如 127.0.0.1，或是同時加上子網域遮罩，如 "
-"192.168.0.1/24。</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>\n"
-"勾選此選項，將只有在「例外」清單中的主機與 IP 才使用代理伺服器。</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "只有在例外清單中的主機與 IP 才使用代理伺服器"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "這些設定只會套用到網路瀏覽。"
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "預設使用者名稱:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "預設密碼:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5635,6 +4540,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr "[跨網域]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "詳細資料"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5720,6 +4630,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Cookie 詳細資料"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "名稱:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "數值:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "過期:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "路徑:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "網域:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -5792,144 +4727,15 @@ msgstr "詳細資料"
 msgid "Network"
 msgstr "網路"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " 天"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr "<para>KDE 的垃圾桶被設定為使用 <b>Finder</b> 的垃圾桶。<br/></para>"
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<para>清空 KDE 的垃圾桶將只會移除 KDE 的垃圾桶項目， 而<br/>透過 Finder 清空"
-"垃圾桶將會刪除所有東西。</para><para>KDE 的垃圾桶項目將會顯示在一個稱為 KDE."
-"trash 的資料夾中，其 在垃圾桶中。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, kde-format
-msgid "Delete files older than"
-msgstr "刪除超過多久的檔案"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>勾選此選項，可以<emphasis strong='true'>自動刪除</emphasis>超過多久以上"
-"的檔案。若不勾選則<emphasis strong='true'>不會自動</emphasis>刪除。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " 天"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr "<para>設定垃圾桶中的檔案可以保留多久。超過此期限則自動刪除。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr "清理："
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr "限制至"
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>勾選此選項的話，則可以限制垃圾桶佔磁碟空間最大的大小。不勾選的話則不限"
-"制。</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "大小："
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr "<para>這是垃圾桶佔磁碟空間大的百分比。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr "<para>這是計算後垃圾桶最大會佔掉多少磁碟空間大小。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr "顯示警告"
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "刪除垃圾桶裡最舊的檔案"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "刪除垃圾桶裡最大的檔案"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>當達到大小限制時，它會先刪掉您指定的型態的檔案。若設定成警告，則不會自"
-"動刪掉那些檔案。</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, kde-format
-msgid "Full Trash:"
-msgstr "滿的垃圾桶："
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "不正確的 URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -5940,12 +4746,12 @@ msgstr ""
 "目錄 %1 不存在，所以無法回復這個檔案。您可以重新建立該目錄，或是把這個檔案拖"
 "曳到別處去存放。"
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "無效的通訊協定結合。"
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "檔案已經在垃圾桶內了。"
@@ -6064,344 +4870,15 @@ msgstr "存取被拒"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "您可能沒有權限存取 %1 通訊協定。"
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "名稱"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "關鍵字"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "偏好"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"勾選此選項來將突顯的網路搜尋關鍵字設為預設。<nl/>預設的網路搜尋關鍵字會在只能"
-"顯示少量的關鍵字的地方使用。"
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "無"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "搜尋過濾器(&I)"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>啟用或停用網路搜尋關鍵字。</p><p>網路搜尋關鍵字讓您可以"
-"快速存取或搜尋線上或硬碟中的資訊。</p><p>KDE 內建許多事先定義的關鍵字，如 "
-"Google (TM) 搜尋：您只要輸入 'gg' 加上關鍵字分隔符和您要搜尋的字串，如 <span "
-"style=\" font-weight:600;\">gg:KDE</span> 即可在 Google 搜尋 KDE。</p></"
-"body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, kde-format
-msgid "&Enable Web search keywords"
-msgstr "啟用網路搜尋關鍵字(&E)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr "只使用預設的關鍵字(&U)"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, kde-format
-msgid "Search for web search keywords"
-msgstr "在網路搜尋關鍵字中進行搜尋"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, kde-format
-msgid "Add a new Web search keyword"
-msgstr "新增網路搜尋關鍵字"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "修改選取的網路搜尋關鍵字"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "刪除選取的網路搜尋關鍵字"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "刪除(&L)"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>選擇預設要使用的搜尋引擎，當您在網址列直接輸入單字或片語時，會直接使用該"
-"引擎查詢。要關閉此功能，請在清單上選擇「無」。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, kde-format
-msgid "Default Web &search keyword:"
-msgstr "預設網路搜尋關鍵字(&S)"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>選取預設的網路搜尋關鍵字。</p><p>這讓應用程式在沒辦法從"
-"輸入的詞彙或詞組產生正確的網址時，可以自動將其轉換為網路搜尋關鍵字查詢。</"
-"p><p>要關閉此功能，請在清單中選擇「<span style=\" font-weight:600;\">無</"
-"span>」。</p></body></html>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr "選擇把關鍵字和要搜尋的詞彙或詞組分開的分隔符。"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "關鍵字分隔符(&K)："
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "選擇標記網路搜尋關鍵字用的分隔符。"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "冒號"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "空白"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "找不到想要的搜尋提供者。"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "找不到搜尋提供者。"
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "預設"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "變更網頁捷徑"
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "新增網頁捷徑"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr "捷徑 %1 已指定給 %2。請選擇不同的捷徑。"
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "- %1: \"%2\""
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"以下的捷徑已經被指定。請選擇其它的捷徑。\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"此捷徑網址不包含 \\{...} 符號。這表示不管輸入什麼文字，都會跑到同一個網址。"
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "保留"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "在此輸入搜尋引擎的名稱。"
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "捷徑名稱(&N)："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt>在此輸入搜尋引擎的網址。<br />要搜尋的文字可以用 \\{@} 或 \\{0} 來表示。"
-"<br />\n"
-"建議使用 \\{@}，因為它會將所有查詢變數（name=value）從結果字串中移除，而 "
-"\\{0} 則是會被替換為整個查詢字串。<br /> 您可以用 \\{1} ... \\{n} 來指定查詢"
-"中的特定單字，\\{name} 則是指定 name=value 中的值。<br /> 此外也可以一次指定"
-"多個參考（名稱、數字與字串），如 \\{name1,name2,...,\"string\"}。<br /> 這種"
-"狀況下會替換為第一個符合的值。<br /> 如果 name1 name2 等都不符合，則以 "
-"\"string\" 為預設值。\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "捷徑網址(&U)："
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr "選擇您的查詢字串所使用的字元集。"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>在此輸入的捷徑可以做為 KDE 中的虛擬網址。例如，<b>av</b> 這個捷徑可以表"
-"示 <b>av</b>:<b>my search</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr "<html><head/><body><p>輸入易於辨識的網頁捷徑名稱。</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "捷徑(&S)："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr "選擇您的查詢字串所使用的字元集"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "字元集(&C)："
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "插入查詢佔位符"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7068,6 +5545,12 @@ msgstr "類型："
 #, kde-format
 msgid "Location:"
 msgstr "位置："
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "大小："
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -8578,6 +7061,11 @@ msgstr "# 會取代成從下述數字往上數的數字："
 msgid "Information"
 msgstr "資訊"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "取代"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -8773,6 +7261,1019 @@ msgstr "這會啟動此程式："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "若您不信任此程式，請點擊「取消」"
+
+#~ msgid "&Policy"
+#~ msgstr "政策(&P)"
+
+#~ msgid "&Management"
+#~ msgstr "管理(&M)"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "D-Bus 通訊錯誤"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "無法刪除所有的 cookie"
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "無法刪除 cookie"
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "資訊查詢錯誤"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr "無法取得儲存在你電腦上的 cookie 的資訊"
+
+#~ msgid "End of session"
+#~ msgstr "結束工作階段"
+
+#~ msgid "Yes"
+#~ msgstr "是"
+
+#~ msgid "Search"
+#~ msgstr "搜尋"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "互動式搜尋網域和主機"
+
+#~ msgid "Site"
+#~ msgstr "站台"
+
+#~ msgid "Cookie Name"
+#~ msgstr "Cookie 名稱"
+
+#~ msgid "D&elete"
+#~ msgstr "刪除(&E)"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "刪除全部(&L)"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "設定政策(&P)..."
+
+#~ msgid "&Reload List"
+#~ msgstr "重新讀取列表(&R)"
+
+#~ msgid "Secure:"
+#~ msgstr "安全性:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "變更 Cookie 政策"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "新增 Cookie 政策"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>關於<center><b>%1</b></center>的政策已經存在，您確定要覆蓋它嗎？</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "重複的政策"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "無法和 cookie handler 服務溝通。\n"
+#~ "這個服務重新啟動，你所做的變更才能被執行。"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>這個選項將啟動 cookie 支援。一般您會希望啟用 cookie 支援並調整 它以符合"
+#~ "您的隱私需求。</p>\n"
+#~ "<p>請注意停用 cookie 支援可能造成許多網站無法瀏覽。</p>\n"
+#~ "</qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "啟用 Cookies(&K)"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "拒絕所謂的第三方 cookies。這些 cookies 是由您正在瀏覽的網站以外的網站所產"
+#~ "生的。比方說當您參觀 <b>www.foobar.com</b> 時選取了這個選項，只有來自 www."
+#~ "foobar.com 的 cookies 才會被處理。所有其他的 cookies 會被自動拒絕。這減少"
+#~ "了網站管理者收集您每日瀏覽習慣的機會。\n"
+#~ "</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "只接受來自原伺服器的 cookies(&P)"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "自動接收暫存 cookies 代表它們會在目前的工作階段結束時過期。這類 cookies 不"
+#~ "會儲存在您電腦的硬碟或儲存裝置裡。因為當您關閉所有使用它們的應用程式（例如"
+#~ "您的瀏覽器）時，它們就被刪除了。</p><p><u>注意：</u>勾選此選項連帶地會覆蓋"
+#~ "您的特定網站 cookie 政策。然而，這麼做會增進您的隱私，因為所有的 cookies "
+#~ "會在目前工作階段結束時移除。</p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "自動接受工作階段 cookies(&Y)"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "決定收到來自遠端機器的 cookies 將如何處理：\n"
+#~ "<ul>\n"
+#~ "<li><b>詢問</b>會讓 KDE 在每次有伺服器要設定 cookie 時要求您的許可</li>\n"
+#~ "<li><b>接受</b>會不提示您而接受 cookies</li>\n"
+#~ "<li><b>暫時接受</b>會接受 cookies，但是在工作階段結束後就刪除。</li>\n"
+#~ "<li><b>拒絕</b>會拒絕所有收到的 cookies</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>注意：</u>特定網域政策可以在下面設定，它的優先權會高於預設的政策。</"
+#~ "p>\n"
+#~ "</qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "預設政策"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "接受所有 cookies(&T)"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "暫時接受到工作階段結束為止(&U)"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "詢問以獲得確認(&F)"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "拒絕所有 cookies(&J)"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "要增加新的政策。只要單擊 <b>新增...</b>按鈕，並提供對話窗中必須的資訊。要"
+#~ "變更一個現存的政策，單擊 <b>變更...</b>按鈕，並在對話窗中選擇新的政策。單"
+#~ "擊 <b>刪除</b> 將會移除您所選擇的項目，並以預設的政策取代該網域的政策。<b>"
+#~ "刪除全部</b> 會移除所有的特定網站政策。\n"
+#~ "</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "網站政策"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "互動式搜尋網域"
+
+#~ msgid "Search..."
+#~ msgstr "搜尋…"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "你所設定使用不同的 cookie 處理方式的網站列表。 對這些網站，系統會使用自訂"
+#~ "的 cookie 處理方式，原不是預設的處理方式。\n"
+#~ "</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "網域"
+
+#~ msgid "Policy"
+#~ msgstr "政策"
+
+#~ msgid "&New..."
+#~ msgstr "新增(&N)..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "變更(&H)..."
+
+#~ msgid "Accept"
+#~ msgstr "接受"
+
+#~ msgid "Accept For Session"
+#~ msgstr "在此工作階段接受"
+
+#~ msgid "Reject"
+#~ msgstr "拒絕"
+
+#~ msgid "Ask"
+#~ msgstr "詢問"
+
+#~ msgid "Do Not Know"
+#~ msgstr "不知道"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入此要套用此政策的主機或網域。例如 <i>www.kde.org</i> 或 <i>.kde.org</"
+#~ "i>。\n"
+#~ "</qt>"
+
+#~ msgid "Site name:"
+#~ msgstr "站台名稱："
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr "輸入此政策要套用到的主機或網域名稱，例如 kde.org。"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "選擇欲使用的政策：\n"
+#~ "<ul>\n"
+#~ "<li><b>接受</b> - 允許此網址設定 cookie</li>\n"
+#~ "<li><b>暫時接受</b> - 接受 cookie 但是在工作階段結束後即失效。</li>\n"
+#~ "<li><b>拒絕</b> - 拒絕所有網址送來的 cookie</li>\n"
+#~ "<li><b>詢問</b> - 詢問使用者是否接受cookie</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "政策："
+
+#~ msgid "Accept until end of session"
+#~ msgstr "暫時接受"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr "您必須重新啟動執行中的程式才能讓這些改變生效。"
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "更新失敗"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "您必須重新啟動 KDE 才能讓這些改變生效。"
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "停用被動 FTP"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "當 FTP 連線是用戶端以被動連線到伺服器，而非其他方式，防火牆將不會阻擋該連"
+#~ "線；舊式 FTP 伺服器可能不支援被動 FTP 通行。"
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "標記部分上傳的檔案"
+
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "當檔案開始上傳時為它加上延伸檔名「.part」。當檔案完整的上傳時將它的名稱改"
+#~ "變為真實名稱。"
+
+#~ msgid "Timeout Values"
+#~ msgstr "逾時設定"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "您可以在此設定逾時時間。當連線速度很慢時，您可能會想調整它。 最大的允許值"
+#~ "是 %1 秒。"
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " 秒"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "讀取 Socket(&K):"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "連結代理伺服器(&X):"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "連結伺服器(&N):"
+
+#~ msgid "&Server response:"
+#~ msgstr "伺服器回應(&S):"
+
+#~ msgid "Global Options"
+#~ msgstr "全域選項"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "標記部分上傳的檔案(&P)"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<p>標記已經透過 SMB、SFTP 與其他協定部分上傳的檔案。</p><p>當此啟用選項"
+#~ "時，只上傳部分的檔案會加上「.part」的延伸檔名。這個延伸檔名會在傳輸全部完"
+#~ "成後移除。</p>"
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " 位元組"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid ""
+#~ "If cancelled, automatically delete partially uploaded files smaller than:"
+#~ msgstr "若被取消，將部分上傳的檔案中小於以下大小的進行自動刪除："
+
+#~ msgid "FTP Options"
+#~ msgstr "FTP 選項"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "啟用被動模式(PASV)(&M)"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr "啟用 FTP 的「被動」模式。要讓 FTP 在防火牆下運作的話這是必要的。"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<p>標記已經部分上傳的 FTP 檔案。</p><p>當此啟用選項時，只上傳部分的檔案會"
+#~ "加上「.part」的延伸檔名。這個延伸檔名會在傳輸全部完成後移除。</p>"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Not all applications will use this proxy setting. In particular, "
+#~ "<application>Firefox</application> and <application>Chromium</"
+#~ "application> or anything derived from them, or anything using "
+#~ "<application>QtWebEngine</application>&nbsp;- which includes "
+#~ "<application>Konqueror</application> using the "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> and <application>Falkon</application>&nbsp;- will not use "
+#~ "these settings. Some applications may allow the proxy to be configured in "
+#~ "their own settings."
+#~ msgstr ""
+#~ "不是所有應用程式都會使用這裡的代理伺服器設定。具體來說，"
+#~ "<application>Firefox</application>、<application>Chromium</application> 和"
+#~ "任何基於它們的應用程式，以及任何基於 <application>QtWebEngine</"
+#~ "application> 的應用程式&nbsp;—— 這包含了使用 <application>WebEnginePart</"
+#~ "application> 的 <application>Konqueror</application>、"
+#~ "<application>Akregator</application> 及 <application>Falkon</"
+#~ "application>&nbsp;——都不會使用這裡的設定。某些應用程式可能有在它們自己的設"
+#~ "定裡提供代理伺服器的選項。"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "設定代理伺服器組態。\n"
+#~ "<p>\n"
+#~ "代理伺服器是位於您的電腦和網際網路的中介程式，提供網頁快取和/或過濾的服"
+#~ "務。</p><p>快取式代理伺服器會將您曾經參訪過的網站內容儲存起來，以加速加速"
+#~ "網際網路資料讀取速度；過濾式快取伺服器，則提供阻擋廣告、垃圾以及其他任何你"
+#~ "想要阻擋的東西的能力。\n"
+#~ "<p>\n"
+#~ "若您不知道是否需要設定代理伺服器，請先參考您的網路服務供應商的設定指南，或"
+#~ "詢問系統管理員。\n"
+#~ "</qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "直接連線到網際網路。"
+
+#~ msgid "No Proxy"
+#~ msgstr "沒有代理伺服器"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "自動偵測並設定代理伺服器設定值。<p>\n"
+#~ "自動偵測是使用 <b>網頁代理伺服器自動發現協定 (WPAD)</b> 進行的。<p>\n"
+#~ "<b>注意：</b>這個選項在某些 UNIX/Linux 發行版可能無法正常運作或者完全無法"
+#~ "運作。\n"
+#~ "</qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "自動偵測代理伺服器設定"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr "使用指定的代理伺服器命令稿來設定代理伺服器設定值。"
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "使用代理伺服器自動設定網址："
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "請輸入代理伺服器組態命令稿位址。"
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>使用系統上定義的代理伺服器設定。</p>\n"
+#~ "<p>有些平台會提供系統的代理伺服器資訊。選擇此選項讓您可以直接使用這些設"
+#~ "定。</p>\n"
+#~ "<p>在 Mac 平台上</p>\n"
+#~ "<p>在 Windows 平台上</p>\n"
+#~ "<p>在 Unix and Linux 平台上，這些系統端的代理伺服器設定通常是透過環境變數"
+#~ "指定。以下的環境變數若有偵測到就會使用： <b>HTTP_PROXY</b>，"
+#~ "<b>HTTPS_PROXY</b>，<b>FTP_PROXY</b> 以及 <b>NO_PROXY</b>。</p>\n"
+#~ "</qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "使用系統代理伺服器設定："
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt>自動尋找系統中可能是用來設定 proxy 的環境變數。<p>尋找方法是搜尋一些可"
+#~ "能的變數名稱，像是 HTTP_PROXY, FTP_PROXY 和 NO_PROXY.</qt>"
+
+#~ msgid "Auto D&etect"
+#~ msgstr "自動偵測(&E)"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>HTTP_PROXY</tt>，這是用來儲存 HTTP 代理伺服器"
+#~ "的位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
+#~ "</qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "HTTP 代理伺服器："
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>HTTPS_PROXY</tt>，這是用來儲存 HTTPS 代理伺服"
+#~ "器的位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
+#~ "</qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "SSL 代理伺服器："
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>FTP_PROXY</tt>，這是用來儲存 FTP 代理伺服器的"
+#~ "位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
+#~ "</qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "FTP 代理伺服器："
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>SOCKS_PROXY</tt>，這是用來儲存 SOCKS 代理伺服"
+#~ "器的位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
+#~ "</qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "SOCKS 代理伺服器："
+
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>SOCKS_PROXY</tt>，這是用來儲存 SOCKS 代理伺服"
+#~ "器的位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "請輸入環境變數名稱，例如 <tt>FTP_PROXY</tt>，這是用來儲存 FTP 代理伺服器的"
+#~ "位址。<p>\n"
+#~ "或者，您也可以單擊 <b>「自動偵測」</b> 按鈕試著自動取得此變數。\n"
+#~ "</qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "例外："
+
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>請輸入用於排除使用代理伺服器的位址的環境變數，如 <b>NO_PROXY</b>。\n"
+#~ "<p>或者，您也可以點擊<b>「自動偵測」</b>來自動找出變數。</p></qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "顯示環境變數(&V)"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "手動輸入代理伺服器的設定資訊。"
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "手動輸入代理伺服器設定："
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "請輸入 HTTP 代理伺服器位址。"
+
+#~ msgid "Port:"
+#~ msgstr "連接埠："
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "請輸入 HTTP 代理伺服器位址。"
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "所有通訊協定都使用此代理伺服器(&L)"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "請輸入 HTTPS 代理伺服器位址。"
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "請輸入 HTTPS 代理伺服器位址。"
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "請輸入 FTP 代理伺服器位址。"
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "請輸入 FTP 代理伺服器位址。"
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "請輸入 SOCKS 代理伺服器位址。"
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "請輸入 SOCKS 代理伺服器位址。"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>輸入要排除適用於上面所列的代理伺服器的主機名稱或 IP 位址，以逗號分隔。"
+#~ "</p>\n"
+#~ "<p>若您要排除某個網域裡所有的主機，那麼只要輸入該網域名稱，前面加個點 "
+#~ "(.)。例如，要排除所有 <i>kde.org</i> 的主機，您只要輸入 <i>.kde.org</i>。"
+#~ "注意，萬用字元如 '*' 或 '?' 在此不適用。</p>\n"
+#~ "<p>此外，您也可以輸入 IP 位址，如 127.0.0.1，或是同時加上子網域遮罩，如 "
+#~ "192.168.0.1/24。</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "勾選此選項，將只有在「例外」清單中的主機與 IP 才使用代理伺服器。</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "只有在例外清單中的主機與 IP 才使用代理伺服器"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "這些設定只會套用到網路瀏覽。"
+
+#~ msgid "Default user name:"
+#~ msgstr "預設使用者名稱:"
+
+#~ msgid "Default password:"
+#~ msgstr "預設密碼:"
+
+#~ msgid " days"
+#~ msgstr " 天"
+
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr "<para>KDE 的垃圾桶被設定為使用 <b>Finder</b> 的垃圾桶。<br/></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<para>清空 KDE 的垃圾桶將只會移除 KDE 的垃圾桶項目， 而<br/>透過 Finder 清"
+#~ "空垃圾桶將會刪除所有東西。</para><para>KDE 的垃圾桶項目將會顯示在一個稱為 "
+#~ "KDE.trash 的資料夾中，其 在垃圾桶中。</para>"
+
+#~ msgid "Delete files older than"
+#~ msgstr "刪除超過多久的檔案"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>勾選此選項，可以<emphasis strong='true'>自動刪除</emphasis>超過多久"
+#~ "以上的檔案。若不勾選則<emphasis strong='true'>不會自動</emphasis>刪除。</"
+#~ "para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " 天"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr "<para>設定垃圾桶中的檔案可以保留多久。超過此期限則自動刪除。</para>"
+
+#~ msgid "Cleanup:"
+#~ msgstr "清理："
+
+#~ msgid "Limit to"
+#~ msgstr "限制至"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>勾選此選項的話，則可以限制垃圾桶佔磁碟空間最大的大小。不勾選的話則不"
+#~ "限制。</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr "<para>這是垃圾桶佔磁碟空間大的百分比。</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr "<para>這是計算後垃圾桶最大會佔掉多少磁碟空間大小。</para>"
+
+#~ msgid "Show a Warning"
+#~ msgstr "顯示警告"
+
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "刪除垃圾桶裡最舊的檔案"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "刪除垃圾桶裡最大的檔案"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>當達到大小限制時，它會先刪掉您指定的型態的檔案。若設定成警告，則不會"
+#~ "自動刪掉那些檔案。</para>"
+
+#~ msgid "Full Trash:"
+#~ msgstr "滿的垃圾桶："
+
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "名稱"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "關鍵字"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "偏好"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "勾選此選項來將突顯的網路搜尋關鍵字設為預設。<nl/>預設的網路搜尋關鍵字會在"
+#~ "只能顯示少量的關鍵字的地方使用。"
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "無"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "搜尋過濾器(&I)"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>啟用或停用網路搜尋關鍵字。</p><p>網路搜尋關鍵字讓您"
+#~ "可以快速存取或搜尋線上或硬碟中的資訊。</p><p>KDE 內建許多事先定義的關鍵"
+#~ "字，如 Google (TM) 搜尋：您只要輸入 'gg' 加上關鍵字分隔符和您要搜尋的字"
+#~ "串，如 <span style=\" font-weight:600;\">gg:KDE</span> 即可在 Google 搜尋 "
+#~ "KDE。</p></body></html>"
+
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "啟用網路搜尋關鍵字(&E)"
+
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "只使用預設的關鍵字(&U)"
+
+#~ msgid "Search for web search keywords"
+#~ msgstr "在網路搜尋關鍵字中進行搜尋"
+
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "新增網路搜尋關鍵字"
+
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "修改選取的網路搜尋關鍵字"
+
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "刪除選取的網路搜尋關鍵字"
+
+#~ msgid "De&lete"
+#~ msgstr "刪除(&L)"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>選擇預設要使用的搜尋引擎，當您在網址列直接輸入單字或片語時，會直接使用"
+#~ "該引擎查詢。要關閉此功能，請在清單上選擇「無」。\n"
+#~ "</qt>"
+
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "預設網路搜尋關鍵字(&S)"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>選取預設的網路搜尋關鍵字。</p><p>這讓應用程式在沒辦"
+#~ "法從輸入的詞彙或詞組產生正確的網址時，可以自動將其轉換為網路搜尋關鍵字查"
+#~ "詢。</p><p>要關閉此功能，請在清單中選擇「<span style=\" font-weight:600;"
+#~ "\">無</span>」。</p></body></html>"
+
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr "選擇把關鍵字和要搜尋的詞彙或詞組分開的分隔符。"
+
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "關鍵字分隔符(&K)："
+
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr "選擇標記網路搜尋關鍵字用的分隔符。"
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "冒號"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "空白"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "預設"
+
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "變更網頁捷徑"
+
+#~ msgid "New Web Shortcut"
+#~ msgstr "新增網頁捷徑"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr "捷徑 %1 已指定給 %2。請選擇不同的捷徑。"
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "- %1: \"%2\""
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "以下的捷徑已經被指定。請選擇其它的捷徑。\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "此捷徑網址不包含 \\{...} 符號。這表示不管輸入什麼文字，都會跑到同一個網"
+#~ "址。"
+
+#~ msgid "Keep It"
+#~ msgstr "保留"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr "在此輸入搜尋引擎的名稱。"
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "捷徑名稱(&N)："
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>在此輸入搜尋引擎的網址。<br />要搜尋的文字可以用 \\{@} 或 \\{0} 來表"
+#~ "示。<br />\n"
+#~ "建議使用 \\{@}，因為它會將所有查詢變數（name=value）從結果字串中移除，而 "
+#~ "\\{0} 則是會被替換為整個查詢字串。<br /> 您可以用 \\{1} ... \\{n} 來指定查"
+#~ "詢中的特定單字，\\{name} 則是指定 name=value 中的值。<br /> 此外也可以一次"
+#~ "指定多個參考（名稱、數字與字串），如 \\{name1,name2,...,\"string\"}。<br /"
+#~ "> 這種狀況下會替換為第一個符合的值。<br /> 如果 name1 name2 等都不符合，則"
+#~ "以 \"string\" 為預設值。\n"
+#~ "</qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "捷徑網址(&U)："
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr "選擇您的查詢字串所使用的字元集。"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>在此輸入的捷徑可以做為 KDE 中的虛擬網址。例如，<b>av</b> 這個捷徑可以"
+#~ "表示 <b>av</b>:<b>my search</b>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>輸入易於辨識的網頁捷徑名稱。</p></body></html>"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "捷徑(&S)："
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr "選擇您的查詢字串所使用的字元集"
+
+#~ msgid "&Charset:"
+#~ msgstr "字元集(&C)："
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "插入查詢佔位符"
 
 #~ msgid "Blocked request."
 #~ msgstr "以封鎖的要求。"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -112,7 +112,7 @@ msgstr "Ffeil yn Bodoli'n Barod"
 msgid "Already Exists as Folder"
 msgstr "Yn Bodoli'n Barod fel Blygell"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "Sbwriel"
@@ -4063,1164 +4063,6 @@ msgstr "Methu i agor y ffeil."
 msgid "The program \"%1\" could not be launched."
 msgstr "Ni allai lansio rhaglen \"%1\"."
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&Polisi"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&Rheolaeth"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "Gwall Cyfathrebu D-Bus"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "Methwyd dileu pob bisgïen fel gofynnwyd."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "Methwyd dileu bisgedi fel gofynnwyd."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "Methiant Chwiliad Gwybodaeth"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr "Methwyd nôl gwybodaeth am y bisgedi a gedwid ar eich cyfrifiadur."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "Diwedd sesiwn"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "Ie"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "Chwilio"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "Chwilio yn rhyngweithrediadol am diriogaeth a gwesteiwyr"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "Safwe"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "Enw Coginiaid"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "Dil&eu"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "Dileu i &Gyd"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "Newid &Polisi..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "&Ail-lwytho Rhestr"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Manylion"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Enw:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Gwerth:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Parth:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Llwybr:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Darfoda:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "Diogel:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "Newid Polisi Bisgedi"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "Polisi Bisgedi Newydd"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>Mae polisi ar gyfer <center><b>%1</b></center> yn bodoli eisioes. A "
-"ydych am ei amnewid?</qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "Dyblygu Polisi"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "Cyfnewid"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"Methu cyfathrebu â'r gwasanaeth trin bisgedi.\n"
-"Ni fydd unrhyw newidiadau y wnaethoch yn dod i rym tan i'r gwasanaeth gael "
-"ei ailgychwyn."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, fuzzy, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Galluogi cynhaliaeth bisgedi. Fel arfer, byddwch am alluogi cynhaliaeth "
-"bisgedi a'i addasu at eich anghenion preifatrwydd.</p><p>\n"
-"Noder bod analluogi cynhaliaeth bisgedi yn gwneud llawer o safweoedd "
-"heddiw'n amhoradwy.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "Galluogi bis&gedi"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Gwrthod y bisgedi trydydd plaid fel y'i gelwir. Bisgedi yw'r rhain sy'n "
-"tarddu o safwe arall na'r un yr ydych yn ei bori'n gyfredol. Er enghraifft, "
-"os ymwelwch â <b>www.foobar.com</b> tra bo'r dewisiad yma ymlaen, dim ond "
-"bisgedi sy'n tarddu o www.foobar.com gaiff eu trin yn ôl eich gosodiadau. "
-"Gwrthodir bisgedi o unrhyw safwe arall. Mae hyn yn lleihau'r tebygolrwydd "
-"bod gweithredwyr safweodd yn gallu crynhoi proffil am eich pori dyddiol.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "Der&byn bisgedi o'r gweinydd cychwynnol yn unig"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, fuzzy, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>\n"
-"Derbyn bisgedi dros dro sy'n darfod ar ddiwedd y sesiwn cyfredol yn "
-"ymysgogol. Ni gedwir y fath fisgedi ar ddisg galed neu ddyfais gadw eich "
-"cyfrifiadur. Yn lle hyn, fe'u dilëir pan geuwch pob cymhwysiad (h.y. eich "
-"porwr) sy'n eu defnyddio.</p><p><u>NODER:</u> Bydd dewis y dewisiad yma "
-"ynghŷd â'r un nesaf yn cymeryd blaenoriaeth dros eich polisi rhagosod a'ch "
-"polisïau ar gyfer safweoedd penodol hefyd. </p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "Derbyn bisgedi sesiwn yn &ymysgogol"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, fuzzy, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Penna sut i drin bisgedi a dderbynnir o beiriant pell: \n"
-"<ul>\n"
-"<li>Achosa <b>Gofyn</b> i KDE ofyn am wiriad oddi wrthych bob tro mae "
-"gweinydd am osod bisgïen.</li>\n"
-"<li>Achosa <b>Derbyn</b> i KDE dderbyn pob bisgïen heb wiriad.</li>\n"
-"<li>Achosa <b>Gwrthod</b> i'r pot bisgedi wrthod pob bisgïen y derbynia.</"
-"li>\n"
-"</ul><p> <u>NODER:</u>Cymera polisïau parthau penodol, a ellir eu gosod "
-"isod, flaenoriaeth dros y polisi rhagosod bob amser.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "Polisi Rhagosodedig"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "Derbyn p&ob bisgïen"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "Derbyn &hyd at diwedd y sesiwn"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "Gofy&n am wiriad"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "G&wrthod pob bisgïen"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"I ychwanegu polisi newydd, cliciwch ar y botwm <b>Ychwanegu...</b> a rhowch "
-"y wybodaeth angenrheidiol. I newid polisi sy'n bodoli eisioes, cliciwch ar y "
-"botwm <b>Newid...</b> a dewiswch y polisi newydd o'r blwch ymgom polisïau. "
-"Bydd clicio ar y botwm <b>Dileu</b> yn gwaredu'r polisi dewisiedig gan "
-"achosi defnyddio'r polisi rhagosod ar gyfer y parth yna.  Bydd <b>Dileu "
-"Popeth</b> yn gwaredu pob polisi sy'n benodol i safwe.\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "Polisi Safwe"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "Chwilio yn rhyngweithrediadol am diriogaethau"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, kde-format
-msgid "Search..."
-msgstr "Chwilio..."
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhestr o safweoedd rydych wedi gosod polisi bisgedi penodol iddynt. Cymera'r "
-"polisïau yma flaenoriaeth dros y polisi rhagosod ar gyfer y safweoedd yma.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "Parth"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "Polisi"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&Newydd..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "New&id..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "Derbyn"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "Derbyn Am Gyfeistedd"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "Gwrthod"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "Gofyn"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "Ni Wybyddir"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch y gwesteiwr neu'r parth y  gweithreda'r polisi hwn arno, e.e. <b>www."
-"kde.org</b> neu <b>.kde.org</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "Enw Safwe:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-"Mewnbynnwch yr enw gwesteiwr neu diriogaeth, e.e. .kde.org, lle mae'r "
-"ardwyaeth hon yn ei chymhwyso."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Dewiswch y polisi yr hoffech:\n"
-"<ul>\n"
-"<li><b>Derbyn</b> - Caniatâ i'r safwe yma osod bisgïen</li>\n"
-"<li><b>Derbyn hyd at ddiwedd o gyfeistedd</b> - Caniatâ i'r safwe yma osod "
-"bisgïen ond fe fydd hi'n amseru maes ar y diwedd o'r cyfeistedd.</li>\n"
-"<li><b>Gwrthod</b> - Gwrthodir pob bisgïen o'r safwe yma</li>\n"
-"<li><b>Gofyn</b> - Anogir pan dderbynnir bisgedi o'r safwe yma</li>\n"
-"</ul>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "Polisi:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "Derbyn hyd at ddiwedd o gyfeistedd"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr ""
-"Rhaid i chi ail-gychwyn y cymhwysiadau sy'n rhedeg er mwyn i'r newidiadau "
-"yma ddod i rym."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "Methodd yr Adnewyddiad"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "Rhaid i chi ail-gychwyn KDE er mwyn i'r newidiadau yma ddod i rym."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "Analluogi FTP Goddefol"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"Pan mae'r cysylltiadau FTP yn oddefol mae'r treuliwr yn cysylltu i'r "
-"gweiniwr, yn lle o'r ffordd arall, fel na llesteiriont tânfuriau y "
-"cysylltiad; serch hynnyn fe allont gweiniwyr FTP hen ddim yn cynnal FTP "
-"Goddefol."
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "Nodi ffeiliau a lwythwyd i fyny'n rhannol"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"Tra fod ffeil yn cael ei uwchlwytho y mae ei estyniad yn \".part\". Pan mae "
-"e'n wedi uwchlwytho yn gwbl y mae e'n cael ei ailenwyd i'w enw go iawn."
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "Gwerthoedd Goramser"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"Yma gallwch osod gwerthoedd goramseru. Efallai hoffech eu newid yn fanwl os "
-"yw'ch cysylltiad yn araf iawn. 1 yw'r uchafswm gwerth a ganiateir."
-msgstr[1] ""
-"Yma gallwch osod gwerthoedd goramseru. Efallai hoffech eu newid yn fanwl os "
-"yw'ch cysylltiad yn araf iawn. %1 yw'r uchafswm gwerth a ganiateir."
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " eiliad"
-msgstr[1] " eiliadau"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "Darllen so&ced:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "Cysylltu â dirprw&y:"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "Cysylltu â gwei&nydd:"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "Ymateb &gweinydd:"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "Dewisiadau Hollfydol"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "Nodi ffeiliau a lwythwyd i fyny'n &rhannol"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<p>Noda ffeiliau a lwythwyd i fyny'n rhannol.</p><p>Pan fo'r dewisiad yma'n "
-"alluog, bydd gan ffeiliau a lwythwyd i fyny'n rhannol estyniad \".part\". "
-"Gwaredir yr estyniad yma wedi i'r trosglwyddiad gyflawni.</p>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " beit"
-msgstr[1] " beitiau"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-"Os diddymwyd, yn hunanweithredol dileu ffeiliau uwchlwythwyd yn rhanniedig "
-"yn llai na:"
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "Dewisiadau FTP"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "Galluogu &modd goddefol (PASV)"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"Galluoga modd \"goddefol\" FTP. Mae hyn yn angenrhaid i ganiatáu i FTP i "
-"weithio tu ôl i fur cadarn."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<p>Noda ffeiliau a lwythwyd i fyny'n rhannol.</p><p>Pan fo'r dewisiad yma'n "
-"alluog, bydd gan ffeiliau a lwythwyd i fyny'n rhannol estyniad \".part\". "
-"Gwaredir yr estyniad yma wedi i'r trosglwyddiad gyflawni.</p>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-"Ni fydd pob cymhwysiad yn defnyddio y gosodiad dirprwy yma. Yn enwedig, "
-"<application>Firefox</application> a <application>Chromium</application> neu "
-"unrhyw beth deilliwyd oddiwrthynt, neu unrhyw beth yn defnyddio "
-"<application>QtWebEngine</application>&nbsp;- sydd yn cynhwys "
-"<application>Konqueror</application> yn defnyddio y "
-"<application>WebEnginePart</application>, <application>Akregator</"
-"application> a <application>Falkon</application>&nbsp; - ni fydd y rhain yn "
-"defnyddio y gosodiadau hyn. Fe aller rhai o'r cymhywsiadau yn caniatáu y "
-"dirprwy i fod ei ffurfweddwyd yn eu gosodiadau eu hunain."
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Ffurfweddu dirprwy.\n"
-"<p>\n"
-"Mae gweinydd dirprwyol yn beiriant canolraddol sy'n eistedd rhwng eich "
-"rhwydwaith mewnol a'r Rhyngrwyd, ac sy'n darparu gwasanaethau megis celcio "
-"tudalennau gwe a/neu hidlo.  Mae gweinyddion dirprwyol celcio yn rhoi "
-"mynediad cyflymach i safleoedd rydych wedi ymweld â nhw eisoes gan storio "
-"neu gelcio yn lleol cynnwys y tudalennau yna.  Mae gweinyddion dirprwyol "
-"hidlo fel rheol yn darparu'r gallu o atal ceisiadau ar gyfer hybysebion, "
-"ebostach, neu unrhyw beth arall yr hoffech ei atal.\n"
-"<p>\n"
-"Os ydych yn ansicr am oes angen defnyddio gweinydd dirprwyol i gysylltu â'r "
-"Rhyngrwyd ai peidio, gweler llawlyfr gosod eich darparwr gwasanaeth "
-"Rhyngrwyd neu gweinyddwr eich cysawd.\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "Cysylltu â'r Rhyngrwyd yn uniongyrchol."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "Dim Dirprwy"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Darganfod a ffurfweddu gosodiadau'r dirprwy yn ymysgogol.<p>\n"
-"Gweithredir darganfod ymysgogol gan ddefnyddio'r <b>Protocol Hunan-Darganfod "
-"Dirprwyon Gwe (WPAD)</b>.<p>\n"
-"<b>NODER:</b>Gall y dewisiad yma beidio â gweithio yn iawn, neu o gwbl, mewn "
-"rhai dosbarthiadau  Unix/Linux.  Os cewch broblem wrth ddefnyddio'r dewisiad "
-"yma, gwiriwch yr adran CAG (FAQ) ar  http://konqueror.kde.org.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "Synhwyro ffurfweddiad dirprwy yn ymysgogol"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr ""
-"Defnyddio'r URL sgript ffurfweddiad phenodwyd i ffurfweddu gosodiadau'r "
-"dirprwy."
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "Defnyddio'r URL ffurfweddiad ymysgogol dirprwy:"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "Rhowch gyfeiriad y sgript ffurfweddu'r dirprwy."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Defnyddiwch y gosodiadau diffiniwyd ar y gyfundrefn.</p>\n"
-"<p>Fe aller rhai llwyfannau yn cynnig gwybodaeth ffurfweddiad dirprwy "
-"cyfundrefn-eang a thrwy dethol y dewisiad hwn fe gallech defnyddio y "
-"gosodiadau hynny.</p>\n"
-"<p>Ar lwyfannau Mac</p>\n"
-"<p>Ar lwyfannau Windows</p>\n"
-"<p>Ar lwyfannau Unix a Linux, mae'r cyfryw gosodiadau dirprwy cyfundrefn yn "
-"arferol yn eu diffiniwyd trwy'r amrywolion amgylchiad. Mae'r amrywolion "
-"amgylchiad canlynol yn eu synhwyrwyd a'u defnyddiwyd os ydynt yn mhresennol: "
-"<b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</"
-"p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "Defnyddio ffurfweddiad dirprwy cyfundrefn:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt>Ceisio canfod yn ymysgogol y newidynnau amgylchedd a ddefnyddir i osod "
-"gwybodaeth dirprwyon cysawd-eang.<p> Gweithia'r canfod ymysgogol yma drwy "
-"chilio am enwau cyffredin y newidynnau fel HTTP_PROXY, FTP_PROXY a NO_PROXY."
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, kde-format
-msgid "Auto D&etect"
-msgstr "&Canfod Ymysgogol"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTP_PROXY</b>, i'w ddefnyddio i "
-"gadw cyfeiriad y gweinydd dirprwy HTTP.<p>\n"
-"Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod "
-"y newidyn yma'n ymysgogol.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "Dirprwy HTTP:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w ddefnyddio i "
-"gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>\n"
-"Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod "
-"y newidyn yma'n ymysgogol.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "Dirprwy SSL:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch enw'r newidyn amgylchedd, e.e.<b>FTP_PROXY</b>, i'w ddefnyddio i gadw "
-"cyfeiriad y gweinydd dirprwy FTP.<p>\n"
-"Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod "
-"y newidyn yma'n ymysgogol.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "Dirprwy FTP:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w ddefnyddio i "
-"gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>\n"
-"Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod "
-"y newidyn yma'n ymysgogol.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "Dirprwy SOCKS:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w ddefnyddio "
-"i gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>Neu gallwch glicio ar y botwm "
-"<b>&quot;Canfod yn Ymysgogol&quot;</b> i geisio canfod y newidyn yma'n "
-"ymysgogol.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Rhowch enw'r newidyn amgylchedd, e.e.<b>NO_PROXY</b>, i'w ddefnyddio i gadw "
-"cyfeiriadau'r safweodd na ddylid defnyddio dirprwy iddynt.<p>Fel arall, "
-"gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod y "
-"newidyn yma'n ymysgogol.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "Eithriadau:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Rhowch enw'r newidyn amgylchedd, e.e.<b>NO_PROXY</b>, i'w ddefnyddio i "
-"gadw cyfeiriadau'r safweodd na ddylid defnyddio dirprwy iddynt.<p>Fel arall, "
-"gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio canfod y "
-"newidyn yma'n ymysgogol.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "Dangos gwerthoedd y &newidynnau amgylchedd"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr ""
-"Mewnosod y wybodaeth ffurfweddiad ar gyfer y gweinydd dirprwyol â llaw."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "Defnyddiwch ffurfweddiadaeth dirprwy penodwyd â llaw:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "Rhowch gyfeiriad y gweinydd dirprwyol HTTP."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "Porthladd:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "Rhowch rhif y porthladd y gweinydd dirprwyol HTTP."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "Defnyddio'r gweinydd dirprwyo&l yma ar gyfer bob protocol"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "Rhowch gyfeiriad y gweinydd dirprwyol HTTPS."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol HTTPS."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "Rhowch gyfeiriad y gweinydd dirprwyol FTP."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol FTP."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "Rhowch gyfeiriad y gweinydd dirprwyol SOCKS."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol SOCKS."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Mewnbynnwch rhestr atalnodwahanwyd o gwesteiwrenwau y dylent nhw'n cael "
-"eu hallgaewyd oddiwrth defnyddio y gosodiadau dirprwy yn uchod.</p>\n"
-"<p>Os ydych chi'n eisiau i allgae pob gwesteiwr oddiwrth rhyw diriogaeth, "
-"felly dim ond mewnbynnwch yr enw o'r diriogaeth blaenweddwyd gyda "
-"llawnatalnod. Er enghraifft, i allgae pob gwesteiwyr ar gyfer <i>kde.org</"
-"i>, mewnbynnwch <i>.kde.org</i>. Ni gynhelir arwyddnodiau gwylltgarden fel "
-"'*' neu '?', a ni fydd gyda'r rhain unrhyw effaith.</p>\n"
-"<p>Yn mhellach, fe allwch mewnbynnu cyfeiriadau IP, .e.e. 127.0.0.1 a "
-"chyfeiriadau  IP heb isrwyd, e.e. 192.168.0.1/24.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>\n"
-"Gwiriwch y blwch yma os ydych yn eisiau y gosodiadau dirprwy yn uchod i "
-"gymhwyso dim ond i'r cyfeiriadau rhestrwyd yn y rhestr <i>Eithriadau</i>.</"
-"qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr ""
-"Defnyddio gosodiadau dirprwy dim ond ar gyfer cyfeiriadau yn y rhestr "
-"Eithriadau"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "Mae'r gosodiadau hyn yn cymhwyso dim ond i bori rhwydwaith."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "Enw defnyddiwr rhagosodedig:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "Cyfrinair rhagosodedig:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5923,6 +4765,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Dros Barth]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Manylion"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -6010,6 +4857,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Manylion Cwci"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Enw:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Gwerth:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Darfoda:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Llwybr:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Parth:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -6082,159 +4954,15 @@ msgstr "Manylion"
 msgid "Network"
 msgstr "Rhwydwaith"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " dyddiau"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr ""
-"<para>Mae'r gwastraff-fin KDE wedi'i ffurfweddwyd i ddefnyddio y Sbwriel y "
-"<b>Canfyddwr.</b></para>"
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<para>Fe fydd gwacáu gwastraff-fin KDE dim ond godynnu eitemau sbwriel KDE, "
-"tra fod <br>gwacáu y Sbwriel trwy'r Canfyddwr yn dileu pob dim.</"
-"para><para>Fe fydd eitemau sbwriel KDE yn arddangos yn mhlygell gyda'r enw "
-"KDE.trash, yn y bin Sbwriel.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, kde-format
-msgid "Delete files older than"
-msgstr "Dileu ffeiliau hŷn na"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>Gwiriwch y blwch yma i ganiatáu <emphasis strong='true'>dilead "
-"hunanweithredol</emphasis> o ffeiliau sydd yn hŷn na'r gwerth penodwyd. "
-"Gadewch hyn yn ei analluogwyd i  <emphasis strong='true'>beidio</emphasis> â "
-"dileu yn hunanweithredol unrhyw eitemau ar ol rhyw rhychwant amser "
-"penodiedig</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] "  dydd"
-msgstr[1] " dyddiau"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-"<para>Penodi y nifer o ddyddiau y gallai ffeiliau aros yn y sbwriel. Fe fydd "
-"unrhyw ffeiliau hŷn nag hynny yn cael ei ddileu yn ymysgogol.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr "Glanháu:"
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr "Cyfyngu i"
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>Gwiriwch y blwch yma i gyfyngu y sbwriel i'r cyfanswm mwyaf o ofod "
-"disg ydych yn ei benodi. Os yn amgen, fe fydd e'n angyfyngwd.</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "Maint:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-"<para>Mae'r hyn y mwyaf canran o ofotddisg er mwyn defnyddiad y sbwriel.</"
-"para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr ""
-"<para>Mae'r hyn y maint o ofotddisg cyfrifwyd er mwyn y lwfiant ar gyfer y "
-"sbwriel, y mwyaf.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr "Arddangos Rhybudd"
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "Dileu Ffeiliau Hynaf Oddiwrth Sbwriel"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "Dileu Ffeiliau Mwyaf Oddiwrth Sbwriel"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>Pan mae'r ffin o'r maint yn ei gyrhaeddwyd, fe fydd e'n ffafrïo i "
-"ddileu y fath o ffeiliau yr ydych yn ei phenodi, yn cyntaf. Os ydy hyn "
-"wedi'i benodi i'ch rhybuddio, fe fydd e'n ei wneud yn lle o ddileu y "
-"ffeiliau yn hunanweithredol.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, kde-format
-msgid "Full Trash:"
-msgstr "Sbwriel Llawn:"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL annilys %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6247,12 +4975,12 @@ msgstr ""
 "cyfeiriadur hynny ac yn defnyddio y gweithrediad adfer unwaith eto, neu ar y "
 "llall ochr llusgo yr eitem unrhywle arall i'w adfer."
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Ymuniad annilys o brotocoliau."
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Mae'r ffeil yma yn gyswllt ac nid oes ganddo ganiatadau."
@@ -6371,376 +5099,15 @@ msgstr "Gwaharddwyd Cyrchiad"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Nid oes ganddoch caniatad i gyrchu'r protocol %1."
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "Enw"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "Allweddeiriau"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "Ffafriwyd"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"Gwiriwch y blwch yma i ddewis yr allweddair chwilio gwe aroleuwyd fel "
-"ffafriwyd.<nl/>Mae'r allweddeiriau chwilio gwe ffafriwyd yn cael eu "
-"defnyddio yn lleoedd lle all dim ond ychydig o allweddeiriau yn cael eu "
-"arddangos ar yr un pryd."
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "Diddim"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "H&idlau Chwilio"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Galluogi neu analluogi allweddeiriau chwilio gwe.</"
-"p><p>Mae allweddeiriau chwilio gwe yn eich galluogi i fynedu yn gyflym neu "
-"chwilio am wybodaeth lleolwyd arlein neu ar eich gyrrwr caled.</p><p>Mae KDE "
-"yn dod gyda llawer o allweddeiriau rhagddiffiniedig. Fe all un o'r cyfryw "
-"allweddair ei ddefnyddio i berffurfio chwiiliad Google (TM); i'w ddefnyddio, "
-"dim ond teipiwch yr allweddair 'gg' dilynwyd gyda'r amgyfyngwr allweddair "
-"a'r term chwilio, e.e. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
-"body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, kde-format
-msgid "&Enable Web search keywords"
-msgstr "&Galluogi allweddeiriau chwilio Gwe"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr "&Defnyddiwch dim ond allweddeiriau ffafriedig"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, kde-format
-msgid "Search for web search keywords"
-msgstr "Chwilio am allweddeiriau chwilio gwe"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, kde-format
-msgid "Add a new Web search keyword"
-msgstr "Ychwanegwch allweddair chwilio Gwe newydd"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "Amnewidwch yr allweddair chwilio Gwe aroleuwyd"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "Dileuwch yr allweddair chwilio Gwe aroleuwyd"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "Di&leu"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Dewiswch yr agerbeiriant chwilio i ddefnyddio ar gyfer blychau mewnbynnu "
-"sydd yn darparu gwasanaethau amedrych ymysgogol  pan ydych yn teipio i mewn "
-"geiriau ac ymadroddion cyffredinol yn hytrach nag URL. I analluogi y "
-"gweddnod yma dewiswch <b>Diddim</b> oddiwrth y rhestr.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, kde-format
-msgid "Default Web &search keyword:"
-msgstr "Allweddair chwilio Gwe rhago&sodedig:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>Dewiswch allweddair chwilio gwe rhagosodwyd.</"
-"p><p>Mae'r hyn yn caniatáu cymhwysiadau i drosffurfio yn ymysgogol y gair "
-"neu ymadrodd teipiwyd i holiadau allweddair chwilio gwe pan nad allant eu "
-"chael eu hidlo i mewn URL priodol.</p><p>I analluogi y swyddogaeth hon "
-"dewiswch <span style=\" font-weight:600;\">Diddim</span> oddiwrth y rhestr. "
-"</p></body></html>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-"Dewiswch yr amffiniwr sydd yn gwahanu yr allweddair oddiwrth yr ymadrodd neu "
-"air chwiliedig."
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "&Amffiniwr allweddair:"
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Dewiswch amffiniwr i nodi yr allweddair chwilio Gwe."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "Gwahannod"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "Gwagle"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Nid oedd darparwyr chwilio ffafriedig yn eu darganfuwyd."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "Nid oedd darparwyr chwilio yn eu darganfuwyd."
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "Rhagosodedig"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "Amnewid Byrlwybr Gwe"
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "Byrlwybr Gwe Newydd"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr ""
-"Mae'r byrlwybr \"%1\" wedi'i benodwyd i \"%2\". Atolwg dewiswch un gwahanol."
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "- %1: \"%2\""
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"Mae'r byrlwybrau canlynol wedi'u phenodwyd. Atolwg dewiswch y rhai "
-"gwahanol.\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"Ni gynhwys yr URL byrlwybr unrhyw a\\{...} safleddaliwr ar gyfer y holiad "
-"defnyddiwr.\n"
-"Mae'r hyn yn ystyru fydd y dudalen yn wastad cael ei hymwelwyd, beth bynnag "
-"y testun teipiwyd i mewn gyda'r byrlwybr."
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "Cadwch Fe"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "Mewnbynnwch yr enw dynolrywddarllenadwy o'r cynnigwr chwilio fan yma."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "Byrlwybr e&nw:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Mewnbynnwch yr URI sydd yn ei ddefnyddio i berffurfio chwiliad ar yr "
-"agerbeiriant chwilio fan yma. <br/>Fe all yr holl destun chwiledig ei "
-"benodwyd fel \\{@} neu \\{0}.<br/>\n"
-"Fe argymellwyd \\{@}, am ei fod yn godynnu pob amrywolion holiad "
-"{name=value} oddiwrth y linell ganlynol, lle y fydd \\{0} yn ei cyfnewid "
-"gyda'r linell holiad anamnewidwyd.<br/>Fe allwch defnyddio \\{1} ... \\{n} i "
-"benodi geiriau penodiedig oddiwth yr holiad a \\{name} i benodi gwerth "
-"rhowyd gyda 'name=value' yn yr holiad defnyddiwr.<br/>Yn ychwanegol mae'n "
-"alluadwy i benodi cyfeirebau lluosog (enwau, rhifau a llinellau) ar yr un "
-"pryd (\\{name1, name2,...,\"string\"}).<br/>Fe fydd y cyntaf werth "
-"cydgyffelybiedig (oddiwrth y chwith) yn cael ei ddefnyddio fel y gwerth "
-"cyfnewidiedig ar gyfer y URI canlynol.<br/>Fe all llinell dyfynnodwyd ei "
-"defnyddio fel werth amwall os nid oes unrhyw gydgyffelybiadau oddiwrth y "
-"chwith o'r rhestr cyfeirdeb.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "Byrlwybr &URL:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr ""
-"Dewiswch y swpyn arwyddnod fydd yn ei ddefnyddio i amgodio eich holiad "
-"chwilio."
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Fe all y byrlwybrau mewnbynnwyd fan yma yn cael eu ddefnyddio fel gynlluniau "
-"gau-URI yn KDE. Er enghraifft, fe all y byrlwybr <b>av</b> yn cael ei "
-"ddefnyddio fel yn <b>av</b>:<b>fy chwiliad</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Mewnbynnwch yr enw dynolrywddarllenadwy o'r byrlwybr "
-"gwefan fan yma.</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "&Byrlwybrau:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr ""
-"Dewiswch y swpyn arwyddnod fydd yn ei ddefnyddio i amgôdio eich holiad "
-"chwilio"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "&Charset:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "Mewnbynnwch safleddaliwr holiad"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7424,6 +5791,12 @@ msgstr "Math:"
 #, kde-format
 msgid "Location:"
 msgstr "Lleoliad:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "Maint:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -9035,6 +7408,11 @@ msgstr "# a amnewidir gyda rhifau esgynniedig yn dechreu gyda:"
 msgid "Information"
 msgstr "Gwybodaeth"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "Cyfnewid"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -9258,6 +7636,1134 @@ msgstr "Fe fydd hwn yn dechreu y rhaglen:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Os nid ydych chi'n ymddiried yn y rhaglen yma, cliciwch Diddymu"
+
+#~ msgid "&Policy"
+#~ msgstr "&Polisi"
+
+#~ msgid "&Management"
+#~ msgstr "&Rheolaeth"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "Gwall Cyfathrebu D-Bus"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "Methwyd dileu pob bisgïen fel gofynnwyd."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "Methwyd dileu bisgedi fel gofynnwyd."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "Methiant Chwiliad Gwybodaeth"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr "Methwyd nôl gwybodaeth am y bisgedi a gedwid ar eich cyfrifiadur."
+
+#~ msgid "End of session"
+#~ msgstr "Diwedd sesiwn"
+
+#~ msgid "Yes"
+#~ msgstr "Ie"
+
+#~ msgid "Search"
+#~ msgstr "Chwilio"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "Chwilio yn rhyngweithrediadol am diriogaeth a gwesteiwyr"
+
+#~ msgid "Site"
+#~ msgstr "Safwe"
+
+#~ msgid "Cookie Name"
+#~ msgstr "Enw Coginiaid"
+
+#~ msgid "D&elete"
+#~ msgstr "Dil&eu"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "Dileu i &Gyd"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "Newid &Polisi..."
+
+#~ msgid "&Reload List"
+#~ msgstr "&Ail-lwytho Rhestr"
+
+#~ msgid "Secure:"
+#~ msgstr "Diogel:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "Newid Polisi Bisgedi"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "Polisi Bisgedi Newydd"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>Mae polisi ar gyfer <center><b>%1</b></center> yn bodoli eisioes. A "
+#~ "ydych am ei amnewid?</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "Dyblygu Polisi"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "Methu cyfathrebu â'r gwasanaeth trin bisgedi.\n"
+#~ "Ni fydd unrhyw newidiadau y wnaethoch yn dod i rym tan i'r gwasanaeth "
+#~ "gael ei ailgychwyn."
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Galluogi cynhaliaeth bisgedi. Fel arfer, byddwch am alluogi "
+#~ "cynhaliaeth bisgedi a'i addasu at eich anghenion preifatrwydd.</p><p>\n"
+#~ "Noder bod analluogi cynhaliaeth bisgedi yn gwneud llawer o safweoedd "
+#~ "heddiw'n amhoradwy.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "Galluogi bis&gedi"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Gwrthod y bisgedi trydydd plaid fel y'i gelwir. Bisgedi yw'r rhain sy'n "
+#~ "tarddu o safwe arall na'r un yr ydych yn ei bori'n gyfredol. Er "
+#~ "enghraifft, os ymwelwch â <b>www.foobar.com</b> tra bo'r dewisiad yma "
+#~ "ymlaen, dim ond bisgedi sy'n tarddu o www.foobar.com gaiff eu trin yn ôl "
+#~ "eich gosodiadau. Gwrthodir bisgedi o unrhyw safwe arall. Mae hyn yn "
+#~ "lleihau'r tebygolrwydd bod gweithredwyr safweodd yn gallu crynhoi proffil "
+#~ "am eich pori dyddiol.\n"
+#~ "</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "Der&byn bisgedi o'r gweinydd cychwynnol yn unig"
+
+#, fuzzy
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "Derbyn bisgedi dros dro sy'n darfod ar ddiwedd y sesiwn cyfredol yn "
+#~ "ymysgogol. Ni gedwir y fath fisgedi ar ddisg galed neu ddyfais gadw eich "
+#~ "cyfrifiadur. Yn lle hyn, fe'u dilëir pan geuwch pob cymhwysiad (h.y. eich "
+#~ "porwr) sy'n eu defnyddio.</p><p><u>NODER:</u> Bydd dewis y dewisiad yma "
+#~ "ynghŷd â'r un nesaf yn cymeryd blaenoriaeth dros eich polisi rhagosod "
+#~ "a'ch polisïau ar gyfer safweoedd penodol hefyd. </p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "Derbyn bisgedi sesiwn yn &ymysgogol"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Penna sut i drin bisgedi a dderbynnir o beiriant pell: \n"
+#~ "<ul>\n"
+#~ "<li>Achosa <b>Gofyn</b> i KDE ofyn am wiriad oddi wrthych bob tro mae "
+#~ "gweinydd am osod bisgïen.</li>\n"
+#~ "<li>Achosa <b>Derbyn</b> i KDE dderbyn pob bisgïen heb wiriad.</li>\n"
+#~ "<li>Achosa <b>Gwrthod</b> i'r pot bisgedi wrthod pob bisgïen y derbynia.</"
+#~ "li>\n"
+#~ "</ul><p> <u>NODER:</u>Cymera polisïau parthau penodol, a ellir eu gosod "
+#~ "isod, flaenoriaeth dros y polisi rhagosod bob amser.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "Polisi Rhagosodedig"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "Derbyn p&ob bisgïen"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "Derbyn &hyd at diwedd y sesiwn"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "Gofy&n am wiriad"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "G&wrthod pob bisgïen"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "I ychwanegu polisi newydd, cliciwch ar y botwm <b>Ychwanegu...</b> a "
+#~ "rhowch y wybodaeth angenrheidiol. I newid polisi sy'n bodoli eisioes, "
+#~ "cliciwch ar y botwm <b>Newid...</b> a dewiswch y polisi newydd o'r blwch "
+#~ "ymgom polisïau. Bydd clicio ar y botwm <b>Dileu</b> yn gwaredu'r polisi "
+#~ "dewisiedig gan achosi defnyddio'r polisi rhagosod ar gyfer y parth yna.  "
+#~ "Bydd <b>Dileu Popeth</b> yn gwaredu pob polisi sy'n benodol i safwe.\n"
+#~ "</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "Polisi Safwe"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "Chwilio yn rhyngweithrediadol am diriogaethau"
+
+#~ msgid "Search..."
+#~ msgstr "Chwilio..."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhestr o safweoedd rydych wedi gosod polisi bisgedi penodol iddynt. "
+#~ "Cymera'r polisïau yma flaenoriaeth dros y polisi rhagosod ar gyfer y "
+#~ "safweoedd yma.\n"
+#~ "</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "Parth"
+
+#~ msgid "Policy"
+#~ msgstr "Polisi"
+
+#~ msgid "&New..."
+#~ msgstr "&Newydd..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "New&id..."
+
+#~ msgid "Accept"
+#~ msgstr "Derbyn"
+
+#~ msgid "Accept For Session"
+#~ msgstr "Derbyn Am Gyfeistedd"
+
+#~ msgid "Reject"
+#~ msgstr "Gwrthod"
+
+#~ msgid "Ask"
+#~ msgstr "Gofyn"
+
+#~ msgid "Do Not Know"
+#~ msgstr "Ni Wybyddir"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch y gwesteiwr neu'r parth y  gweithreda'r polisi hwn arno, e.e. "
+#~ "<b>www.kde.org</b> neu <b>.kde.org</b>\n"
+#~ "</qt>"
+
+#~ msgid "Site name:"
+#~ msgstr "Enw Safwe:"
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr ""
+#~ "Mewnbynnwch yr enw gwesteiwr neu diriogaeth, e.e. .kde.org, lle mae'r "
+#~ "ardwyaeth hon yn ei chymhwyso."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Dewiswch y polisi yr hoffech:\n"
+#~ "<ul>\n"
+#~ "<li><b>Derbyn</b> - Caniatâ i'r safwe yma osod bisgïen</li>\n"
+#~ "<li><b>Derbyn hyd at ddiwedd o gyfeistedd</b> - Caniatâ i'r safwe yma "
+#~ "osod bisgïen ond fe fydd hi'n amseru maes ar y diwedd o'r cyfeistedd.</"
+#~ "li>\n"
+#~ "<li><b>Gwrthod</b> - Gwrthodir pob bisgïen o'r safwe yma</li>\n"
+#~ "<li><b>Gofyn</b> - Anogir pan dderbynnir bisgedi o'r safwe yma</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "Polisi:"
+
+#~ msgid "Accept until end of session"
+#~ msgstr "Derbyn hyd at ddiwedd o gyfeistedd"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr ""
+#~ "Rhaid i chi ail-gychwyn y cymhwysiadau sy'n rhedeg er mwyn i'r newidiadau "
+#~ "yma ddod i rym."
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "Methodd yr Adnewyddiad"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "Rhaid i chi ail-gychwyn KDE er mwyn i'r newidiadau yma ddod i rym."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "Analluogi FTP Goddefol"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "Pan mae'r cysylltiadau FTP yn oddefol mae'r treuliwr yn cysylltu i'r "
+#~ "gweiniwr, yn lle o'r ffordd arall, fel na llesteiriont tânfuriau y "
+#~ "cysylltiad; serch hynnyn fe allont gweiniwyr FTP hen ddim yn cynnal FTP "
+#~ "Goddefol."
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "Nodi ffeiliau a lwythwyd i fyny'n rhannol"
+
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "Tra fod ffeil yn cael ei uwchlwytho y mae ei estyniad yn \".part\". Pan "
+#~ "mae e'n wedi uwchlwytho yn gwbl y mae e'n cael ei ailenwyd i'w enw go "
+#~ "iawn."
+
+#~ msgid "Timeout Values"
+#~ msgstr "Gwerthoedd Goramser"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "Yma gallwch osod gwerthoedd goramseru. Efallai hoffech eu newid yn fanwl "
+#~ "os yw'ch cysylltiad yn araf iawn. 1 yw'r uchafswm gwerth a ganiateir."
+#~ msgstr[1] ""
+#~ "Yma gallwch osod gwerthoedd goramseru. Efallai hoffech eu newid yn fanwl "
+#~ "os yw'ch cysylltiad yn araf iawn. %1 yw'r uchafswm gwerth a ganiateir."
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " eiliad"
+#~ msgstr[1] " eiliadau"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "Darllen so&ced:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "Cysylltu â dirprw&y:"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "Cysylltu â gwei&nydd:"
+
+#~ msgid "&Server response:"
+#~ msgstr "Ymateb &gweinydd:"
+
+#~ msgid "Global Options"
+#~ msgstr "Dewisiadau Hollfydol"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "Nodi ffeiliau a lwythwyd i fyny'n &rhannol"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<p>Noda ffeiliau a lwythwyd i fyny'n rhannol.</p><p>Pan fo'r dewisiad "
+#~ "yma'n alluog, bydd gan ffeiliau a lwythwyd i fyny'n rhannol estyniad \"."
+#~ "part\". Gwaredir yr estyniad yma wedi i'r trosglwyddiad gyflawni.</p>"
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " beit"
+#~ msgstr[1] " beitiau"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid ""
+#~ "If cancelled, automatically delete partially uploaded files smaller than:"
+#~ msgstr ""
+#~ "Os diddymwyd, yn hunanweithredol dileu ffeiliau uwchlwythwyd yn "
+#~ "rhanniedig yn llai na:"
+
+#~ msgid "FTP Options"
+#~ msgstr "Dewisiadau FTP"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "Galluogu &modd goddefol (PASV)"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "Galluoga modd \"goddefol\" FTP. Mae hyn yn angenrhaid i ganiatáu i FTP i "
+#~ "weithio tu ôl i fur cadarn."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<p>Noda ffeiliau a lwythwyd i fyny'n rhannol.</p><p>Pan fo'r dewisiad "
+#~ "yma'n alluog, bydd gan ffeiliau a lwythwyd i fyny'n rhannol estyniad \"."
+#~ "part\". Gwaredir yr estyniad yma wedi i'r trosglwyddiad gyflawni.</p>"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Not all applications will use this proxy setting. In particular, "
+#~ "<application>Firefox</application> and <application>Chromium</"
+#~ "application> or anything derived from them, or anything using "
+#~ "<application>QtWebEngine</application>&nbsp;- which includes "
+#~ "<application>Konqueror</application> using the "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> and <application>Falkon</application>&nbsp;- will not use "
+#~ "these settings. Some applications may allow the proxy to be configured in "
+#~ "their own settings."
+#~ msgstr ""
+#~ "Ni fydd pob cymhwysiad yn defnyddio y gosodiad dirprwy yma. Yn enwedig, "
+#~ "<application>Firefox</application> a <application>Chromium</application> "
+#~ "neu unrhyw beth deilliwyd oddiwrthynt, neu unrhyw beth yn defnyddio "
+#~ "<application>QtWebEngine</application>&nbsp;- sydd yn cynhwys "
+#~ "<application>Konqueror</application> yn defnyddio y "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> a <application>Falkon</application>&nbsp; - ni fydd y rhain "
+#~ "yn defnyddio y gosodiadau hyn. Fe aller rhai o'r cymhywsiadau yn caniatáu "
+#~ "y dirprwy i fod ei ffurfweddwyd yn eu gosodiadau eu hunain."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Ffurfweddu dirprwy.\n"
+#~ "<p>\n"
+#~ "Mae gweinydd dirprwyol yn beiriant canolraddol sy'n eistedd rhwng eich "
+#~ "rhwydwaith mewnol a'r Rhyngrwyd, ac sy'n darparu gwasanaethau megis "
+#~ "celcio tudalennau gwe a/neu hidlo.  Mae gweinyddion dirprwyol celcio yn "
+#~ "rhoi mynediad cyflymach i safleoedd rydych wedi ymweld â nhw eisoes gan "
+#~ "storio neu gelcio yn lleol cynnwys y tudalennau yna.  Mae gweinyddion "
+#~ "dirprwyol hidlo fel rheol yn darparu'r gallu o atal ceisiadau ar gyfer "
+#~ "hybysebion, ebostach, neu unrhyw beth arall yr hoffech ei atal.\n"
+#~ "<p>\n"
+#~ "Os ydych yn ansicr am oes angen defnyddio gweinydd dirprwyol i gysylltu "
+#~ "â'r Rhyngrwyd ai peidio, gweler llawlyfr gosod eich darparwr gwasanaeth "
+#~ "Rhyngrwyd neu gweinyddwr eich cysawd.\n"
+#~ "</qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "Cysylltu â'r Rhyngrwyd yn uniongyrchol."
+
+#~ msgid "No Proxy"
+#~ msgstr "Dim Dirprwy"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>\n"
+#~| "Automatically detect and configure the proxy settings.<p>\n"
+#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~| "Protocol (WPAD)</b>.<p>\n"
+#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~| "some UNIX/Linux distributions. If you encounter a problem when using "
+#~| "this option, please check the FAQ section at https://konqueror.org.\n"
+#~| "</qt>"
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Darganfod a ffurfweddu gosodiadau'r dirprwy yn ymysgogol.<p>\n"
+#~ "Gweithredir darganfod ymysgogol gan ddefnyddio'r <b>Protocol Hunan-"
+#~ "Darganfod Dirprwyon Gwe (WPAD)</b>.<p>\n"
+#~ "<b>NODER:</b>Gall y dewisiad yma beidio â gweithio yn iawn, neu o gwbl, "
+#~ "mewn rhai dosbarthiadau  Unix/Linux.  Os cewch broblem wrth ddefnyddio'r "
+#~ "dewisiad yma, gwiriwch yr adran CAG (FAQ) ar  http://konqueror.kde.org.\n"
+#~ "</qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "Synhwyro ffurfweddiad dirprwy yn ymysgogol"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr ""
+#~ "Defnyddio'r URL sgript ffurfweddiad phenodwyd i ffurfweddu gosodiadau'r "
+#~ "dirprwy."
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "Defnyddio'r URL ffurfweddiad ymysgogol dirprwy:"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "Rhowch gyfeiriad y sgript ffurfweddu'r dirprwy."
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Defnyddiwch y gosodiadau diffiniwyd ar y gyfundrefn.</p>\n"
+#~ "<p>Fe aller rhai llwyfannau yn cynnig gwybodaeth ffurfweddiad dirprwy "
+#~ "cyfundrefn-eang a thrwy dethol y dewisiad hwn fe gallech defnyddio y "
+#~ "gosodiadau hynny.</p>\n"
+#~ "<p>Ar lwyfannau Mac</p>\n"
+#~ "<p>Ar lwyfannau Windows</p>\n"
+#~ "<p>Ar lwyfannau Unix a Linux, mae'r cyfryw gosodiadau dirprwy cyfundrefn "
+#~ "yn arferol yn eu diffiniwyd trwy'r amrywolion amgylchiad. Mae'r "
+#~ "amrywolion amgylchiad canlynol yn eu synhwyrwyd a'u defnyddiwyd os ydynt "
+#~ "yn mhresennol: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, "
+#~ "<b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "Defnyddio ffurfweddiad dirprwy cyfundrefn:"
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt>Ceisio canfod yn ymysgogol y newidynnau amgylchedd a ddefnyddir i "
+#~ "osod gwybodaeth dirprwyon cysawd-eang.<p> Gweithia'r canfod ymysgogol yma "
+#~ "drwy chilio am enwau cyffredin y newidynnau fel HTTP_PROXY, FTP_PROXY a "
+#~ "NO_PROXY.</qt>"
+
+#~ msgid "Auto D&etect"
+#~ msgstr "&Canfod Ymysgogol"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTP_PROXY</b>, i'w ddefnyddio i "
+#~ "gadw cyfeiriad y gweinydd dirprwy HTTP.<p>\n"
+#~ "Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.</p>\n"
+#~ "</qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "Dirprwy HTTP:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w ddefnyddio i "
+#~ "gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>\n"
+#~ "Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "Dirprwy SSL:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch enw'r newidyn amgylchedd, e.e.<b>FTP_PROXY</b>, i'w ddefnyddio i "
+#~ "gadw cyfeiriad y gweinydd dirprwy FTP.<p>\n"
+#~ "Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.</p>\n"
+#~ "</qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "Dirprwy FTP:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w ddefnyddio i "
+#~ "gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>\n"
+#~ "Neu gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "Dirprwy SOCKS:"
+
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Rhowch enw'r newidyn amgylchedd, e.e.<b>HTTPS_PROXY</b>, i'w "
+#~ "ddefnyddio i gadw cyfeiriad y gweinydd dirprwy HTTPS.<p>Neu gallwch "
+#~ "glicio ar y botwm <b>&quot;Canfod yn Ymysgogol&quot;</b> i geisio canfod "
+#~ "y newidyn yma'n ymysgogol.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Rhowch enw'r newidyn amgylchedd, e.e.<b>NO_PROXY</b>, i'w ddefnyddio i "
+#~ "gadw cyfeiriadau'r safweodd na ddylid defnyddio dirprwy iddynt.<p>Fel "
+#~ "arall, gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.\n"
+#~ "</qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "Eithriadau:"
+
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Rhowch enw'r newidyn amgylchedd, e.e.<b>NO_PROXY</b>, i'w ddefnyddio "
+#~ "i gadw cyfeiriadau'r safweodd na ddylid defnyddio dirprwy iddynt.<p>Fel "
+#~ "arall, gallwch glicio ar y botwm <b>\"Canfod yn Ymysgogol\"</b> i geisio "
+#~ "canfod y newidyn yma'n ymysgogol.</p></qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "Dangos gwerthoedd y &newidynnau amgylchedd"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr ""
+#~ "Mewnosod y wybodaeth ffurfweddiad ar gyfer y gweinydd dirprwyol â llaw."
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "Defnyddiwch ffurfweddiadaeth dirprwy penodwyd â llaw:"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "Rhowch gyfeiriad y gweinydd dirprwyol HTTP."
+
+#~ msgid "Port:"
+#~ msgstr "Porthladd:"
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "Rhowch rhif y porthladd y gweinydd dirprwyol HTTP."
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "Defnyddio'r gweinydd dirprwyo&l yma ar gyfer bob protocol"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "Rhowch gyfeiriad y gweinydd dirprwyol HTTPS."
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol HTTPS."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "Rhowch gyfeiriad y gweinydd dirprwyol FTP."
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol FTP."
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "Rhowch gyfeiriad y gweinydd dirprwyol SOCKS."
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "Rhowch rhif y porthladd o'r gweinydd dirprwyol SOCKS."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Mewnbynnwch rhestr atalnodwahanwyd o gwesteiwrenwau y dylent nhw'n "
+#~ "cael eu hallgaewyd oddiwrth defnyddio y gosodiadau dirprwy yn uchod.</p>\n"
+#~ "<p>Os ydych chi'n eisiau i allgae pob gwesteiwr oddiwrth rhyw diriogaeth, "
+#~ "felly dim ond mewnbynnwch yr enw o'r diriogaeth blaenweddwyd gyda "
+#~ "llawnatalnod. Er enghraifft, i allgae pob gwesteiwyr ar gyfer <i>kde.org</"
+#~ "i>, mewnbynnwch <i>.kde.org</i>. Ni gynhelir arwyddnodiau gwylltgarden "
+#~ "fel '*' neu '?', a ni fydd gyda'r rhain unrhyw effaith.</p>\n"
+#~ "<p>Yn mhellach, fe allwch mewnbynnu cyfeiriadau IP, .e.e. 127.0.0.1 a "
+#~ "chyfeiriadau  IP heb isrwyd, e.e. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Gwiriwch y blwch yma os ydych yn eisiau y gosodiadau dirprwy yn uchod i "
+#~ "gymhwyso dim ond i'r cyfeiriadau rhestrwyd yn y rhestr <i>Eithriadau</i>."
+#~ "</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr ""
+#~ "Defnyddio gosodiadau dirprwy dim ond ar gyfer cyfeiriadau yn y rhestr "
+#~ "Eithriadau"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "Mae'r gosodiadau hyn yn cymhwyso dim ond i bori rhwydwaith."
+
+#~ msgid "Default user name:"
+#~ msgstr "Enw defnyddiwr rhagosodedig:"
+
+#~ msgid "Default password:"
+#~ msgstr "Cyfrinair rhagosodedig:"
+
+#~ msgid " days"
+#~ msgstr " dyddiau"
+
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr ""
+#~ "<para>Mae'r gwastraff-fin KDE wedi'i ffurfweddwyd i ddefnyddio y Sbwriel "
+#~ "y <b>Canfyddwr.</b></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<para>Fe fydd gwacáu gwastraff-fin KDE dim ond godynnu eitemau sbwriel "
+#~ "KDE, tra fod <br>gwacáu y Sbwriel trwy'r Canfyddwr yn dileu pob dim.</"
+#~ "para><para>Fe fydd eitemau sbwriel KDE yn arddangos yn mhlygell gyda'r "
+#~ "enw KDE.trash, yn y bin Sbwriel.</para>"
+
+#~ msgid "Delete files older than"
+#~ msgstr "Dileu ffeiliau hŷn na"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>Gwiriwch y blwch yma i ganiatáu <emphasis strong='true'>dilead "
+#~ "hunanweithredol</emphasis> o ffeiliau sydd yn hŷn na'r gwerth penodwyd. "
+#~ "Gadewch hyn yn ei analluogwyd i  <emphasis strong='true'>beidio</"
+#~ "emphasis> â dileu yn hunanweithredol unrhyw eitemau ar ol rhyw rhychwant "
+#~ "amser penodiedig</para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] "  dydd"
+#~ msgstr[1] " dyddiau"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr ""
+#~ "<para>Penodi y nifer o ddyddiau y gallai ffeiliau aros yn y sbwriel. Fe "
+#~ "fydd unrhyw ffeiliau hŷn nag hynny yn cael ei ddileu yn ymysgogol.</para>"
+
+#~ msgid "Cleanup:"
+#~ msgstr "Glanháu:"
+
+#~ msgid "Limit to"
+#~ msgstr "Cyfyngu i"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>Gwiriwch y blwch yma i gyfyngu y sbwriel i'r cyfanswm mwyaf o ofod "
+#~ "disg ydych yn ei benodi. Os yn amgen, fe fydd e'n angyfyngwd.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr ""
+#~ "<para>Mae'r hyn y mwyaf canran o ofotddisg er mwyn defnyddiad y sbwriel.</"
+#~ "para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr ""
+#~ "<para>Mae'r hyn y maint o ofotddisg cyfrifwyd er mwyn y lwfiant ar gyfer "
+#~ "y sbwriel, y mwyaf.</para>"
+
+#~ msgid "Show a Warning"
+#~ msgstr "Arddangos Rhybudd"
+
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "Dileu Ffeiliau Hynaf Oddiwrth Sbwriel"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "Dileu Ffeiliau Mwyaf Oddiwrth Sbwriel"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>Pan mae'r ffin o'r maint yn ei gyrhaeddwyd, fe fydd e'n ffafrïo i "
+#~ "ddileu y fath o ffeiliau yr ydych yn ei phenodi, yn cyntaf. Os ydy hyn "
+#~ "wedi'i benodi i'ch rhybuddio, fe fydd e'n ei wneud yn lle o ddileu y "
+#~ "ffeiliau yn hunanweithredol.</para>"
+
+#~ msgid "Full Trash:"
+#~ msgstr "Sbwriel Llawn:"
+
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "Enw"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "Allweddeiriau"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "Ffafriwyd"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "Gwiriwch y blwch yma i ddewis yr allweddair chwilio gwe aroleuwyd fel "
+#~ "ffafriwyd.<nl/>Mae'r allweddeiriau chwilio gwe ffafriwyd yn cael eu "
+#~ "defnyddio yn lleoedd lle all dim ond ychydig o allweddeiriau yn cael eu "
+#~ "arddangos ar yr un pryd."
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "Diddim"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "H&idlau Chwilio"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Galluogi neu analluogi allweddeiriau chwilio gwe.</"
+#~ "p><p>Mae allweddeiriau chwilio gwe yn eich galluogi i fynedu yn gyflym "
+#~ "neu chwilio am wybodaeth lleolwyd arlein neu ar eich gyrrwr caled.</"
+#~ "p><p>Mae KDE yn dod gyda llawer o allweddeiriau rhagddiffiniedig. Fe all "
+#~ "un o'r cyfryw allweddair ei ddefnyddio i berffurfio chwiiliad Google "
+#~ "(TM); i'w ddefnyddio, dim ond teipiwch yr allweddair 'gg' dilynwyd gyda'r "
+#~ "amgyfyngwr allweddair a'r term chwilio, e.e. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "&Galluogi allweddeiriau chwilio Gwe"
+
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "&Defnyddiwch dim ond allweddeiriau ffafriedig"
+
+#~ msgid "Search for web search keywords"
+#~ msgstr "Chwilio am allweddeiriau chwilio gwe"
+
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "Ychwanegwch allweddair chwilio Gwe newydd"
+
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "Amnewidwch yr allweddair chwilio Gwe aroleuwyd"
+
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "Dileuwch yr allweddair chwilio Gwe aroleuwyd"
+
+#~ msgid "De&lete"
+#~ msgstr "Di&leu"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Dewiswch yr agerbeiriant chwilio i ddefnyddio ar gyfer blychau mewnbynnu "
+#~ "sydd yn darparu gwasanaethau amedrych ymysgogol  pan ydych yn teipio i "
+#~ "mewn geiriau ac ymadroddion cyffredinol yn hytrach nag URL. I analluogi y "
+#~ "gweddnod yma dewiswch <b>Diddim</b> oddiwrth y rhestr.\n"
+#~ "</qt>"
+
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "Allweddair chwilio Gwe rhago&sodedig:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Dewiswch allweddair chwilio gwe rhagosodwyd.</"
+#~ "p><p>Mae'r hyn yn caniatáu cymhwysiadau i drosffurfio yn ymysgogol y gair "
+#~ "neu ymadrodd teipiwyd i holiadau allweddair chwilio gwe pan nad allant eu "
+#~ "chael eu hidlo i mewn URL priodol.</p><p>I analluogi y swyddogaeth hon "
+#~ "dewiswch <span style=\" font-weight:600;\">Diddim</span> oddiwrth y "
+#~ "rhestr. </p></body></html>"
+
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr ""
+#~ "Dewiswch yr amffiniwr sydd yn gwahanu yr allweddair oddiwrth yr ymadrodd "
+#~ "neu air chwiliedig."
+
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "&Amffiniwr allweddair:"
+
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr "Dewiswch amffiniwr i nodi yr allweddair chwilio Gwe."
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "Gwahannod"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "Gwagle"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "Rhagosodedig"
+
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "Amnewid Byrlwybr Gwe"
+
+#~ msgid "New Web Shortcut"
+#~ msgstr "Byrlwybr Gwe Newydd"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr ""
+#~ "Mae'r byrlwybr \"%1\" wedi'i benodwyd i \"%2\". Atolwg dewiswch un "
+#~ "gwahanol."
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "- %1: \"%2\""
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Mae'r byrlwybrau canlynol wedi'u phenodwyd. Atolwg dewiswch y rhai "
+#~ "gwahanol.\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "Ni gynhwys yr URL byrlwybr unrhyw a\\{...} safleddaliwr ar gyfer y holiad "
+#~ "defnyddiwr.\n"
+#~ "Mae'r hyn yn ystyru fydd y dudalen yn wastad cael ei hymwelwyd, beth "
+#~ "bynnag y testun teipiwyd i mewn gyda'r byrlwybr."
+
+#~ msgid "Keep It"
+#~ msgstr "Cadwch Fe"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr ""
+#~ "Mewnbynnwch yr enw dynolrywddarllenadwy o'r cynnigwr chwilio fan yma."
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "Byrlwybr e&nw:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Mewnbynnwch yr URI sydd yn ei ddefnyddio i berffurfio chwiliad ar yr "
+#~ "agerbeiriant chwilio fan yma. <br/>Fe all yr holl destun chwiledig ei "
+#~ "benodwyd fel \\{@} neu \\{0}.<br/>\n"
+#~ "Fe argymellwyd \\{@}, am ei fod yn godynnu pob amrywolion holiad "
+#~ "{name=value} oddiwrth y linell ganlynol, lle y fydd \\{0} yn ei cyfnewid "
+#~ "gyda'r linell holiad anamnewidwyd.<br/>Fe allwch defnyddio \\{1} ... "
+#~ "\\{n} i benodi geiriau penodiedig oddiwth yr holiad a \\{name} i benodi "
+#~ "gwerth rhowyd gyda 'name=value' yn yr holiad defnyddiwr.<br/>Yn "
+#~ "ychwanegol mae'n alluadwy i benodi cyfeirebau lluosog (enwau, rhifau a "
+#~ "llinellau) ar yr un pryd (\\{name1, name2,...,\"string\"}).<br/>Fe fydd y "
+#~ "cyntaf werth cydgyffelybiedig (oddiwrth y chwith) yn cael ei ddefnyddio "
+#~ "fel y gwerth cyfnewidiedig ar gyfer y URI canlynol.<br/>Fe all llinell "
+#~ "dyfynnodwyd ei defnyddio fel werth amwall os nid oes unrhyw "
+#~ "gydgyffelybiadau oddiwrth y chwith o'r rhestr cyfeirdeb.\n"
+#~ "</qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "Byrlwybr &URL:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr ""
+#~ "Dewiswch y swpyn arwyddnod fydd yn ei ddefnyddio i amgodio eich holiad "
+#~ "chwilio."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Fe all y byrlwybrau mewnbynnwyd fan yma yn cael eu ddefnyddio fel "
+#~ "gynlluniau gau-URI yn KDE. Er enghraifft, fe all y byrlwybr <b>av</b> yn "
+#~ "cael ei ddefnyddio fel yn <b>av</b>:<b>fy chwiliad</b>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Mewnbynnwch yr enw dynolrywddarllenadwy o'r "
+#~ "byrlwybr gwefan fan yma.</p></body></html>"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "&Byrlwybrau:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr ""
+#~ "Dewiswch y swpyn arwyddnod fydd yn ei ddefnyddio i amgôdio eich holiad "
+#~ "chwilio"
+
+#~ msgid "&Charset:"
+#~ msgstr "&Charset:"
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "Mewnbynnwch safleddaliwr holiad"
 
 #~ msgid "Blocked request."
 #~ msgstr "Erfyn gwaharddwyd."

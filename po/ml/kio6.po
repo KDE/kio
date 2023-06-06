@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -99,7 +99,7 @@ msgstr "ഫയല്‍ നിലവിലുണ്ടു്"
 msgid "Already Exists as Folder"
 msgstr "ഫോള്‍ഡറായി നിലവിലുണ്ടു്"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "ചവറ്റുകുട്ട"
@@ -3886,983 +3886,6 @@ msgstr ""
 msgid "The program \"%1\" could not be launched."
 msgstr ""
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&നയം"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&നടത്തിപ്പു്"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "D-Bus ആശയവിനിമയ തെറ്റ്"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "ആവശ്യപ്പെട്ടതുപോലെ എല്ലാ കുക്കികളും നീക്കം ചെയ്യാന്‍ കഴിഞ്ഞില്ല."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "ആവശ്യപ്പെട്ടതുപോലെ കുക്കികള്‍ നീക്കം ചെയ്യാന്‍ കഴിഞ്ഞില്ല."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "വിവരം വായിക്കുന്നതില്‍ പരാജയം"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr ""
-"നിങ്ങളുടെ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിച്ചിട്ടുള്ള കുക്കികളെക്കുറിച്ചുള്ള വിവരങ്ങള്‍ കണ്ടെത്താന്‍ സാധിച്ചില്ല."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "സെഷനിന്റെ അന്ത്യം"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "അതെ"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "തിരയുക"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "ഡൊമെയ്നുകള്‍ക്കും ഹോസ്റ്റുകള്‍ക്കുമായി ഇന്ററാക്ടീവായി തെരയുക."
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, fuzzy, kde-format
-msgid "Site"
-msgstr "സൈറ്റിന്റെ പേരു്"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, fuzzy, kde-format
-msgid "Cookie Name"
-msgstr "സൈറ്റിന്റെ പേരു്"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "&നീക്കം ചെയ്യുക"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "എ&ല്ലാം നീക്കം ചെയ്യുക"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, fuzzy, kde-format
-msgid "Configure &Policy..."
-msgstr "നയം മാറ്റുക..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "പട്ടിക &വീണ്ടും ലോഡ് ചെയ്യുക"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "വിശദാംശങ്ങള്‍"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "പേരു്:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "മൂല്യം:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ഡൊമെയ്നു്:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "വഴി:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "കാലഹരണപ്പെടുന്നു:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "സുരക്ഷിതമായ:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "കുക്കി നയം മാറ്റുക"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "പുതിയ കുക്കി നയം"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt><center><b>%1</b></center>എന്നതിനായി ഒരു നയം ഇപ്പോഴേയുണ്ട്. നിങ്ങള്‍ക്കിത് മാറ്റണോ?</"
-"qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "ഡ്യൂപ്ളിക്കേറ്റ് നയം"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "മാറ്റുക"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"കുക്കി കൈകാര്യസേവനവുമായി ആശയവിനിമയം നടത്താന്‍ സാധിച്ചില്ല.\n"
-"സേവനം പുനരാരംഭിക്കുന്നതുവരെ ഉണ്ടാക്കിയ ഒരു മാറ്റങ്ങളും ഫലവത്താകില്ല."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "കുക്കികള്‍ &പ്രാവര്‍ത്തികമാക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "സെഷന്‍ കുക്കികള്‍ &തനിയെ സ്വീകരിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "സഹജമായ നയം"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "കുക്കികളെല്ലാം സ്വീകരിക്കുക"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, fuzzy, kde-format
-msgid "Accept &until end of session"
-msgstr "സെഷനിന്റെ അന്ത്യം"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "രണ്ടാമതും ചോദിയ്ക്കുക:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "കുക്കികളെല്ലാം നിരാകരിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "സൈറ്റിന്റെ നയം"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "ഡൊമെയ്നുകള്‍ക്കായി ഇന്ററാക്ടീവായി തെരയുക."
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, fuzzy, kde-format
-msgid "Search..."
-msgstr "തിരയുക"
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "ഡൊമെയ്നു്"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "നയം"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&പുതിയ..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "&മാറ്റുക..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "അംഗീകരിക്കുക"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "നിരാകരിക്കുക"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "ചോദിക്കുക"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, fuzzy, kde-format
-msgid "Site name:"
-msgstr "സൈറ്റിന്റെ പേരു്"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, fuzzy, kde-format
-msgid "Policy:"
-msgstr "&നയം:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, fuzzy, kde-format
-msgid "Accept until end of session"
-msgstr "സെഷനിന്റെ അന്ത്യം"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr "ഈ മാറ്റങ്ങള്‍ ഫലവത്താകാന്‍ ഓടിക്കൊണ്ടിരിക്കുന്ന പ്രയോഗങ്ങള്‍ പുനരാരംഭിക്കേണ്ടിയിരിക്കുന്നു."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "%s: പ്രവര്‍ത്തിപ്പിക്കുന്നതില്‍ പിഴവ്: %s"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "ഈ മാറ്റങ്ങള്‍ ഫലവത്താകാന്‍ കെഡിഇ പുനരാരംഭിക്കേണ്ടിയിരിക്കുന്നു."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "നിര്‍ജ്ജീവ എഫ്‌ടിപി പ്രാവര്‍ത്തികമല്ലാതാക്കുക"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ അടയാളപ്പെടുത്തുക"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "ടൈമൌട്ട് മൂല്യങ്ങള്‍"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-msgstr[1] ""
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, fuzzy, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " sec"
-msgstr[1] " sec"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "സോ&ക്കറ്റ് വായന:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "പ്രോക്സി ബന്ധം"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "സെര്‍വര്‍ ബന്ധം:"
-
-#: kcms/netpref/netpref.cpp:65
-#, fuzzy, kde-format
-msgid "&Server response:"
-msgstr "എക്സ് സേവക പ്രവര്‍ത്തകം:"
-
-#: kcms/netpref/netpref.cpp:67
-#, fuzzy, kde-format
-msgid "Global Options"
-msgstr "എഫ്‌ടിപി ഐച്ഛികങ്ങള്‍"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "&ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ അടയാളപ്പെടുത്തുക"
-
-#: kcms/netpref/netpref.cpp:73
-#, fuzzy, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"ഭാഗികമായി അപ്ലോഡ് ചെയ്ത എഫ്‌ടിപി ഫയലുകള്‍ അടയാളപ്പെടുത്തുക. ഈ ഐച്ഛികം പ്രാവര്‍ത്തികമാക്കുമ്പോള്‍ "
-"ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ക്ക് ഒരു \".part\" എക്സ്റ്റന്‍ഷനുണ്ടാകും. ഈ എക്സ്റ്റന്‍ഷന്‍ മാറ്റം പൂര്‍"
-"ത്തിയാകുന്നതോടെ നീക്കം ചെയ്യപ്പെടും."
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " ബൈറ്റ്"
-msgstr[1] " ബൈറ്റുകൾ"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "എഫ്‌ടിപി ഐച്ഛികങ്ങള്‍"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "&നിര്‍ജ്ജീവാവസ്ഥ (PASV) പ്രാവര്‍ത്തികമാക്കുക"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"എഫ്‌ടിപിയുടെ \"നിര്‍ജ്ജീവം\" (\"passive\") എന്ന അവസ്ഥ പ്രാവര്‍ത്തികമാക്കുന്നു. എഫ്‌ടിപി ഫയര്‍"
-"വാളുകളുടെ പിറകില്‍നിന്നു പ്രവര്‍ത്തിക്കാന്‍ ഇതാവശ്യമാണ്."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"ഭാഗികമായി അപ്ലോഡ് ചെയ്ത എഫ്‌ടിപി ഫയലുകള്‍ അടയാളപ്പെടുത്തുക. ഈ ഐച്ഛികം പ്രാവര്‍ത്തികമാക്കുമ്പോള്‍ "
-"ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ക്ക് ഒരു \".part\" എക്സ്റ്റന്‍ഷനുണ്ടാകും. ഈ എക്സ്റ്റന്‍ഷന്‍ മാറ്റം പൂര്‍"
-"ത്തിയാകുന്നതോടെ നീക്കം ചെയ്യപ്പെടും."
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "ഇന്റര്‍നെറ്റിലേക്ക് നേരിട്ട് ബന്ധപ്പെടുക."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, fuzzy, kde-format
-msgid "No Proxy"
-msgstr "&പ്രോക്സി"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"തനിയെ പ്രോക്സി സജ്ജീകരണങ്ങള്‍ കണ്ടുപിടിക്കുകയും ക്രമീകരിക്കുകയും ചെയ്യുക.<p>\n"
-"തനിയെ കണ്ടുപിടിത്തം <b>വെബ്ബ് പ്രോക്സി ഓട്ടോ-ഡിസ്കവറി പ്രോട്ടോക്കോള്‍ (WPAD)</b> ഉപയോഗിച്ച് "
-"നിര്‍വഹിക്കുന്നു.<p>\n"
-"<b>കുറിപ്പ്:</b> ഈ ഐച്ഛികം ചില യൂണിക്സ്/ലിനക്സ് വിതരണങ്ങളില്‍ ശരിയായി പ്രവര്‍"
-"ത്തിക്കാതിരിക്കുകയോ ഒട്ടും പ്രവര്‍ത്തിക്കാതിരിക്കുകയോ ചെയ്തേക്കാം. ഈ ഐച്ഛികം ഉപയോഗിക്കുമ്പോള്‍ "
-"പ്രശ്നം നേരിടുകയാണെങ്കില്‍ http://konqueror.kde.org എന്നയിടത്തെ FAQ ഭാഗം നോക്കുക.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, fuzzy, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, fuzzy, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "&തനിയെ പ്രോക്സി ക്രമീകരണം കണ്ടുപിടിക്കുക"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, fuzzy, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "പ്രോക്സി ക്രമീകരണ സ്ക്രിപ്റ്റിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, fuzzy, kde-format
-msgid "Use system proxy configuration:"
-msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, fuzzy, kde-format
-msgid "Auto D&etect"
-msgstr "തനിയെ &കണ്ടുപിടിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, fuzzy, kde-format
-msgid "HTTP Proxy:"
-msgstr "&പ്രോക്സി"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, fuzzy, kde-format
-msgid "SSL Proxy:"
-msgstr "&പ്രോക്സി"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, fuzzy, kde-format
-msgid "FTP Proxy:"
-msgstr "&പ്രോക്സി"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, fuzzy, kde-format
-msgid "SOCKS Proxy:"
-msgstr "&പ്രോക്സി"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, fuzzy, kde-format
-msgid "Exceptions:"
-msgstr "എ&ക്സപ്ഷനുകള്‍"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "പരിസ്ഥിതി വേരിയബിളുകളുടെ &മൂല്യം കാണിയ്ക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "സ്വയം പ്രോക്സി ക്രമീകരണ വിവരം നല്‍കുക."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, fuzzy, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "&തനിയെ പ്രോക്സി ക്രമീകരണം കണ്ടുപിടിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "എച്ച്ടിടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "പോർട്ട്"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, fuzzy, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "എച്ച്ടിടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, fuzzy, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "എല്ലാ നിയമാവലികള്‍ക്കും ഒരേ പ്രോക്സി സെര്‍വര്‍ &ഉപയോഗിക്കുക"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, fuzzy, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, fuzzy, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, fuzzy, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, fuzzy, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, fuzzy, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr "പട്ടികയിലുള്ളവയ്ക്ക് പ്രോക്സി മാത്രം ഉപയോഗിക്കുക"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, fuzzy, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "പട്ടികയിലുള്ളവയ്ക്ക് പ്രോക്സി മാത്രം ഉപയോഗിക്കുക"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "ഈ സജ്ജീകരണങ്ങള്‍ ശൃംഖലാ തിരച്ചിലിനേ ബാധകമാവൂ."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "സഹജമായ ഉപയോക്താവിന്റെ പേരു്:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5518,6 +4541,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr ""
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "വിശദാംശങ്ങള്‍"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5597,6 +4625,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr ""
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "പേരു്:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "മൂല്യം:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "കാലഹരണപ്പെടുന്നു:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "വഴി:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "ഡൊമെയ്നു്:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -5672,136 +4725,15 @@ msgstr "വിശദാംശങ്ങള്‍"
 msgid "Network"
 msgstr "നെറ്റ്‌വര്‍ക്ക്"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " ദിവസങ്ങൾ"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, fuzzy, kde-format
-msgid "Delete files older than"
-msgstr "ഫയലുകള്‍ വെട്ടിമാറ്റുക"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " ദിവസം"
-msgstr[1] " ദിവസങ്ങൾ"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "വലുപ്പം:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, fuzzy, kde-format
-msgid "Full Trash:"
-msgstr "ചവറ്റുകുട്ട"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, fuzzy, kde-format
 msgid "Malformed URL %1"
 msgstr "തെറ്റായ യുആര്‍എല്‍ %1."
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -5810,12 +4742,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr ""
@@ -5927,316 +4859,14 @@ msgstr "%1-ലേക്കുള്ള പ്രവേശനം നിഷേധ�
 msgid "You do not have permission to access the %1 protocol."
 msgstr ""
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "പേരനുസരിച്ചു്"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "കീവേഡുകൾ"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr ""
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "ഒന്നുമില്ല"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, fuzzy, kde-format
-msgid "&Enable Web search keywords"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr ""
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-msgid "Search for web search keywords"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-msgid "Add a new Web search keyword"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, fuzzy, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, fuzzy, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "&നീക്കം ചെയ്യുക"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-msgid "Default Web &search keyword:"
-msgstr "സഹജമായ അടയാളവാക്കു്:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "കോളൻ"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "സ്പേസ്"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "സ്വതവേയുള്ള"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, fuzzy, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "%1 (%2)"
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, fuzzy, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, fuzzy, kde-format
-#| msgid "&Shortcuts:"
-msgid "Shortcut &name:"
-msgstr "കുറുക്കുവഴികൾ: (&S)"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, fuzzy, kde-format
-#| msgid "&Shortcuts:"
-msgid "Shortcut &URL:"
-msgstr "കുറുക്കുവഴികൾ: (&S)"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "കുറുക്കുവഴികൾ: (&S)"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
 msgstr ""
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
@@ -6909,6 +5539,12 @@ msgstr "തരം"
 #, kde-format
 msgid "Location:"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "വലുപ്പം:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -8364,6 +7000,11 @@ msgstr ""
 msgid "Information"
 msgstr "വിവരം"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "മാറ്റുക"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -8553,6 +7194,471 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില്ലെങ്കിൽ, റദ്ദാക്കുക്ക ക്ലിക്ക് ചെയ്യുക"
+
+#~ msgid "&Policy"
+#~ msgstr "&നയം"
+
+#~ msgid "&Management"
+#~ msgstr "&നടത്തിപ്പു്"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "D-Bus ആശയവിനിമയ തെറ്റ്"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "ആവശ്യപ്പെട്ടതുപോലെ എല്ലാ കുക്കികളും നീക്കം ചെയ്യാന്‍ കഴിഞ്ഞില്ല."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "ആവശ്യപ്പെട്ടതുപോലെ കുക്കികള്‍ നീക്കം ചെയ്യാന്‍ കഴിഞ്ഞില്ല."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "വിവരം വായിക്കുന്നതില്‍ പരാജയം"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr ""
+#~ "നിങ്ങളുടെ കമ്പ്യൂട്ടറില്‍ സൂക്ഷിച്ചിട്ടുള്ള കുക്കികളെക്കുറിച്ചുള്ള വിവരങ്ങള്‍ കണ്ടെത്താന്‍ സാധിച്ചില്ല."
+
+#~ msgid "End of session"
+#~ msgstr "സെഷനിന്റെ അന്ത്യം"
+
+#~ msgid "Yes"
+#~ msgstr "അതെ"
+
+#~ msgid "Search"
+#~ msgstr "തിരയുക"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "ഡൊമെയ്നുകള്‍ക്കും ഹോസ്റ്റുകള്‍ക്കുമായി ഇന്ററാക്ടീവായി തെരയുക."
+
+#, fuzzy
+#~ msgid "Site"
+#~ msgstr "സൈറ്റിന്റെ പേരു്"
+
+#, fuzzy
+#~ msgid "Cookie Name"
+#~ msgstr "സൈറ്റിന്റെ പേരു്"
+
+#~ msgid "D&elete"
+#~ msgstr "&നീക്കം ചെയ്യുക"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "എ&ല്ലാം നീക്കം ചെയ്യുക"
+
+#, fuzzy
+#~ msgid "Configure &Policy..."
+#~ msgstr "നയം മാറ്റുക..."
+
+#~ msgid "&Reload List"
+#~ msgstr "പട്ടിക &വീണ്ടും ലോഡ് ചെയ്യുക"
+
+#~ msgid "Secure:"
+#~ msgstr "സുരക്ഷിതമായ:"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "കുക്കി നയം മാറ്റുക"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "പുതിയ കുക്കി നയം"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt><center><b>%1</b></center>എന്നതിനായി ഒരു നയം ഇപ്പോഴേയുണ്ട്. നിങ്ങള്‍ക്കിത് "
+#~ "മാറ്റണോ?</qt>"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "ഡ്യൂപ്ളിക്കേറ്റ് നയം"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "കുക്കി കൈകാര്യസേവനവുമായി ആശയവിനിമയം നടത്താന്‍ സാധിച്ചില്ല.\n"
+#~ "സേവനം പുനരാരംഭിക്കുന്നതുവരെ ഉണ്ടാക്കിയ ഒരു മാറ്റങ്ങളും ഫലവത്താകില്ല."
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "കുക്കികള്‍ &പ്രാവര്‍ത്തികമാക്കുക"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "സെഷന്‍ കുക്കികള്‍ &തനിയെ സ്വീകരിക്കുക"
+
+#~ msgid "Default Policy"
+#~ msgstr "സഹജമായ നയം"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "കുക്കികളെല്ലാം സ്വീകരിക്കുക"
+
+#, fuzzy
+#~ msgid "Accept &until end of session"
+#~ msgstr "സെഷനിന്റെ അന്ത്യം"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "രണ്ടാമതും ചോദിയ്ക്കുക:"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "കുക്കികളെല്ലാം നിരാകരിക്കുക"
+
+#~ msgid "Site Policy"
+#~ msgstr "സൈറ്റിന്റെ നയം"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "ഡൊമെയ്നുകള്‍ക്കായി ഇന്ററാക്ടീവായി തെരയുക."
+
+#, fuzzy
+#~ msgid "Search..."
+#~ msgstr "തിരയുക"
+
+#~ msgid "Domain"
+#~ msgstr "ഡൊമെയ്നു്"
+
+#~ msgid "Policy"
+#~ msgstr "നയം"
+
+#~ msgid "&New..."
+#~ msgstr "&പുതിയ..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "&മാറ്റുക..."
+
+#~ msgid "Accept"
+#~ msgstr "അംഗീകരിക്കുക"
+
+#~ msgid "Reject"
+#~ msgstr "നിരാകരിക്കുക"
+
+#~ msgid "Ask"
+#~ msgstr "ചോദിക്കുക"
+
+#, fuzzy
+#~ msgid "Site name:"
+#~ msgstr "സൈറ്റിന്റെ പേരു്"
+
+#, fuzzy
+#~ msgid "Policy:"
+#~ msgstr "&നയം:"
+
+#, fuzzy
+#~ msgid "Accept until end of session"
+#~ msgstr "സെഷനിന്റെ അന്ത്യം"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr ""
+#~ "ഈ മാറ്റങ്ങള്‍ ഫലവത്താകാന്‍ ഓടിക്കൊണ്ടിരിക്കുന്ന പ്രയോഗങ്ങള്‍ പുനരാരംഭിക്കേണ്ടിയിരിക്കുന്നു."
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "%s: പ്രവര്‍ത്തിപ്പിക്കുന്നതില്‍ പിഴവ്: %s"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "ഈ മാറ്റങ്ങള്‍ ഫലവത്താകാന്‍ കെഡിഇ പുനരാരംഭിക്കേണ്ടിയിരിക്കുന്നു."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "നിര്‍ജ്ജീവ എഫ്‌ടിപി പ്രാവര്‍ത്തികമല്ലാതാക്കുക"
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ അടയാളപ്പെടുത്തുക"
+
+#~ msgid "Timeout Values"
+#~ msgstr "ടൈമൌട്ട് മൂല്യങ്ങള്‍"
+
+#, fuzzy
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " sec"
+#~ msgstr[1] " sec"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "സോ&ക്കറ്റ് വായന:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "പ്രോക്സി ബന്ധം"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "സെര്‍വര്‍ ബന്ധം:"
+
+#, fuzzy
+#~ msgid "&Server response:"
+#~ msgstr "എക്സ് സേവക പ്രവര്‍ത്തകം:"
+
+#, fuzzy
+#~ msgid "Global Options"
+#~ msgstr "എഫ്‌ടിപി ഐച്ഛികങ്ങള്‍"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "&ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ അടയാളപ്പെടുത്തുക"
+
+#, fuzzy
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "ഭാഗികമായി അപ്ലോഡ് ചെയ്ത എഫ്‌ടിപി ഫയലുകള്‍ അടയാളപ്പെടുത്തുക. ഈ ഐച്ഛികം പ്രാവര്‍"
+#~ "ത്തികമാക്കുമ്പോള്‍ ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ക്ക് ഒരു \".part\" എക്സ്റ്റന്‍ഷനുണ്ടാകും. ഈ "
+#~ "എക്സ്റ്റന്‍ഷന്‍ മാറ്റം പൂര്‍ത്തിയാകുന്നതോടെ നീക്കം ചെയ്യപ്പെടും."
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " ബൈറ്റ്"
+#~ msgstr[1] " ബൈറ്റുകൾ"
+
+#~ msgid "FTP Options"
+#~ msgstr "എഫ്‌ടിപി ഐച്ഛികങ്ങള്‍"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "&നിര്‍ജ്ജീവാവസ്ഥ (PASV) പ്രാവര്‍ത്തികമാക്കുക"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "എഫ്‌ടിപിയുടെ \"നിര്‍ജ്ജീവം\" (\"passive\") എന്ന അവസ്ഥ പ്രാവര്‍ത്തികമാക്കുന്നു. എഫ്‌ടിപി ഫയര്‍"
+#~ "വാളുകളുടെ പിറകില്‍നിന്നു പ്രവര്‍ത്തിക്കാന്‍ ഇതാവശ്യമാണ്."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "ഭാഗികമായി അപ്ലോഡ് ചെയ്ത എഫ്‌ടിപി ഫയലുകള്‍ അടയാളപ്പെടുത്തുക. ഈ ഐച്ഛികം പ്രാവര്‍"
+#~ "ത്തികമാക്കുമ്പോള്‍ ഭാഗികമായി അപ്ലോഡ് ചെയ്ത ഫയലുകള്‍ക്ക് ഒരു \".part\" എക്സ്റ്റന്‍ഷനുണ്ടാകും. ഈ "
+#~ "എക്സ്റ്റന്‍ഷന്‍ മാറ്റം പൂര്‍ത്തിയാകുന്നതോടെ നീക്കം ചെയ്യപ്പെടും."
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "ഇന്റര്‍നെറ്റിലേക്ക് നേരിട്ട് ബന്ധപ്പെടുക."
+
+#, fuzzy
+#~ msgid "No Proxy"
+#~ msgstr "&പ്രോക്സി"
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "തനിയെ പ്രോക്സി സജ്ജീകരണങ്ങള്‍ കണ്ടുപിടിക്കുകയും ക്രമീകരിക്കുകയും ചെയ്യുക.<p>\n"
+#~ "തനിയെ കണ്ടുപിടിത്തം <b>വെബ്ബ് പ്രോക്സി ഓട്ടോ-ഡിസ്കവറി പ്രോട്ടോക്കോള്‍ (WPAD)</b> "
+#~ "ഉപയോഗിച്ച് നിര്‍വഹിക്കുന്നു.<p>\n"
+#~ "<b>കുറിപ്പ്:</b> ഈ ഐച്ഛികം ചില യൂണിക്സ്/ലിനക്സ് വിതരണങ്ങളില്‍ ശരിയായി പ്രവര്‍"
+#~ "ത്തിക്കാതിരിക്കുകയോ ഒട്ടും പ്രവര്‍ത്തിക്കാതിരിക്കുകയോ ചെയ്തേക്കാം. ഈ ഐച്ഛികം ഉപയോഗിക്കുമ്പോള്‍ "
+#~ "പ്രശ്നം നേരിടുകയാണെങ്കില്‍ http://konqueror.kde.org എന്നയിടത്തെ FAQ ഭാഗം നോക്കുക.\n"
+#~ "</qt>"
+
+#, fuzzy
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
+
+#, fuzzy
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr "&തനിയെ പ്രോക്സി ക്രമീകരണം കണ്ടുപിടിക്കുക"
+
+#, fuzzy
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "പ്രോക്സി ക്രമീകരണ സ്ക്രിപ്റ്റിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "ഇനി പറയുന്ന പ്രോക്സി ക്രമീകരണ യുആര്‍എല്‍ ഉപയോഗിക്കുക"
+
+#, fuzzy
+#~ msgid "Auto D&etect"
+#~ msgstr "തനിയെ &കണ്ടുപിടിക്കുക"
+
+#, fuzzy
+#~ msgid "HTTP Proxy:"
+#~ msgstr "&പ്രോക്സി"
+
+#, fuzzy
+#~ msgid "SSL Proxy:"
+#~ msgstr "&പ്രോക്സി"
+
+#, fuzzy
+#~ msgid "FTP Proxy:"
+#~ msgstr "&പ്രോക്സി"
+
+#, fuzzy
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "&പ്രോക്സി"
+
+#, fuzzy
+#~ msgid "Exceptions:"
+#~ msgstr "എ&ക്സപ്ഷനുകള്‍"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "പരിസ്ഥിതി വേരിയബിളുകളുടെ &മൂല്യം കാണിയ്ക്കുക"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "സ്വയം പ്രോക്സി ക്രമീകരണ വിവരം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "&തനിയെ പ്രോക്സി ക്രമീകരണം കണ്ടുപിടിക്കുക"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "എച്ച്ടിടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#~ msgid "Port:"
+#~ msgstr "പോർട്ട്"
+
+#, fuzzy
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "എച്ച്ടിടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "എല്ലാ നിയമാവലികള്‍ക്കും ഒരേ പ്രോക്സി സെര്‍വര്‍ &ഉപയോഗിക്കുക"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "എച്ച്ടിടിപിഎസ് പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr "പട്ടികയിലുള്ളവയ്ക്ക് പ്രോക്സി മാത്രം ഉപയോഗിക്കുക"
+
+#, fuzzy
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "പട്ടികയിലുള്ളവയ്ക്ക് പ്രോക്സി മാത്രം ഉപയോഗിക്കുക"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "ഈ സജ്ജീകരണങ്ങള്‍ ശൃംഖലാ തിരച്ചിലിനേ ബാധകമാവൂ."
+
+#~ msgid "Default user name:"
+#~ msgstr "സഹജമായ ഉപയോക്താവിന്റെ പേരു്:"
+
+#~ msgid "Default password:"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#~ msgid " days"
+#~ msgstr " ദിവസങ്ങൾ"
+
+#, fuzzy
+#~ msgid "Delete files older than"
+#~ msgstr "ഫയലുകള്‍ വെട്ടിമാറ്റുക"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " ദിവസം"
+#~ msgstr[1] " ദിവസങ്ങൾ"
+
+#, fuzzy
+#~ msgid "Full Trash:"
+#~ msgstr "ചവറ്റുകുട്ട"
+
+#, fuzzy
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "പേരനുസരിച്ചു്"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "കീവേഡുകൾ"
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "ഒന്നുമില്ല"
+
+#, fuzzy
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#, fuzzy
+#~ msgid "Search for web search keywords"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#, fuzzy
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#, fuzzy
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#, fuzzy
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#~ msgid "De&lete"
+#~ msgstr "&നീക്കം ചെയ്യുക"
+
+#, fuzzy
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "സഹജമായ അടയാളവാക്കു്:"
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "കോളൻ"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "സ്പേസ്"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "സ്വതവേയുള്ള"
+
+#, fuzzy
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "%1 (%2)"
+
+#, fuzzy
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr "എഫ്‌ടിപി പ്രോക്സി സെര്‍വറിന്റെ വിലാസം നല്‍കുക."
+
+#, fuzzy
+#~| msgid "&Shortcuts:"
+#~ msgid "Shortcut &name:"
+#~ msgstr "കുറുക്കുവഴികൾ: (&S)"
+
+#, fuzzy
+#~| msgid "&Shortcuts:"
+#~ msgid "Shortcut &URL:"
+#~ msgstr "കുറുക്കുവഴികൾ: (&S)"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "കുറുക്കുവഴികൾ: (&S)"
 
 #, fuzzy
 #~ msgid "Unknown HTTP verb."

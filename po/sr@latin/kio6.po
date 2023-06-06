@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -107,7 +107,7 @@ msgstr "Fajl već postoji"
 msgid "Already Exists as Folder"
 msgstr "Već postoji kao fascikla"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
@@ -4142,1131 +4142,6 @@ msgstr "Ne mogu da otvorim fajl"
 msgid "The program \"%1\" could not be launched."
 msgstr "Ne mogu da nađem fajl ‘%1’"
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&smernica"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&Upravljanje"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "Greška u D‑Bus komunikaciji"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "Ne mogu da obrišem sve kolačiće kao što je zahtevano."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "Ne mogu da obrišem kolačiće kao što je zahtevano."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "Neuspela potraga za podacima"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr "Ne mogu da dobavim podatke o kolačićima smeštenim na ovom računaru."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "Kraj sesije"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "Da"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "Traži"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "Interaktivno tražite domene i domaćine"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "sajt"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "ime kolačića"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "&Obriši"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "Obriši &sve"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "Podesi &smernicu..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "&Učitaj ponovo spisak"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detalji"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Ime:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Vrednost:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domen:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Putanja:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Ističe:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "Bezbedno:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "Promena smernice kolačića"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "Nova smernica kolačića"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>Već postoji smernica za<center><b>%1</b></center>Želite li da je "
-"zamenite?</qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "Udvostručavanje smernice"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "Zameni"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"Ne mogu da komuniciram sa servisom za rukovanje kolačićima.\n"
-"Promene koje ste načinili neće stupiti na snagu dok ne pokrenete servis "
-"ponovo."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Uključi podršku za kolačiće. Najverovatnije ćete hteti da su kolačići "
-"uključeni, uz izvesna prilagođavanja radi privatnosti.</p><p>Imajte na umu "
-"da isključivanje podrške za kolačiće čini mnoge današnje veb sajtove "
-"neupotrebljivim.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "Aktiviraj &kolačiće"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>Odbaci tzv. kolačiće sa stranice: one koji ne stižu sa sajta koji "
-"trenutno pregledate. Na primer, ako posetite <tt>www.foobar.com</tt> dok je "
-"ova opcija uključena, samo kolačići koji potiču sa tog sajta će biti "
-"obrađivani po vašim postavkama, dok će oni koji ne stižu s njega biti "
-"odbacivani. Ovo umanjuje izglede da neko sakuplja profil vaših dnevnih "
-"navika u pregledanju Interneta.</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "&Prihvati samo kolačiće sa izvornog servera"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>Automatsko prihvatanje privremenih kolačića znači da oni ističu po "
-"završetku tekuće sesije. Takvi kolačići neće biti sačuvani na lokalnom "
-"hard‑disku ili drugoj skladišnoj jedinici, već će biti obrisani kada "
-"zatvorite sve programe (npr. pregledač) koji ih koriste.</p><p><u>Napomena:</"
-"u> Uključivanjem ove opcije potiskuju se podrazumevane smernice kolačića kao "
-"i one posebne za sajtove.</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "&Automatski prihvati kolačiće sesije"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Određuje kako će kolačići primljeni sa udaljenog računara biti "
-"obrađeni:</p><ul><li><i>Traži potvrdu</i>: bićete upitani svaki put kada "
-"server hoće da ostavi kolačić.</li><li><i>Prihvati sve kolačiće</i>: svi "
-"kolačići se prihvataju bez pitanja.</li><li><i>Prihvati do kraja sesije</i>: "
-"svi kolačići se prihvataju, ali tako da isteknu na kraju sesije.</"
-"li><li><i>Odbaci sve kolačiće</i>: svi kolačiće se odbacuju bez pitanja.</"
-"li></ul><p><u>Napomena:</u> Posebne smernice za domene, koje se mogu zadati "
-"ispod, uvek imaju prednost nad podrazumevanom smernicom.</p></qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "Podrazumevana smernica"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "&Prihvati sve kolačiće"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "Prihvati do &kraja sesije"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "&Traži potvrdu"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "&Odbaci sve kolačiće"
-
-# rewrite-msgid: /default policy setting/default policy/
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>Da biste dodali novu smernicu, kliknite na <i>Dodaj...</i> i unesite "
-"potrebne podatke. Za izmenu postojeće smernice, kliknite na <i>Izmeni...</i> "
-"i izaberite smernicu iz dijaloga. Klikom na dugme <i>Obriši</i> uklanjate "
-"trenutno izabranu smernicu, čime će njeni domeni spasti na podrazumevanu "
-"smernicu. Dugme <i>Obriši sve</i> uklanja sve posebne smernice za sajtove.</"
-"qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "smernica sajta"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "Interaktivno tražite domene"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, fuzzy, kde-format
-#| msgid "Search"
-msgid "Search..."
-msgstr "Traži"
-
-# rewrite-msgid: /default policy setting/default policy/
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>Spisak sajtova za koje ste postavili posebne smernice kolačića. One "
-"imaju prednost nad podrazumevanom smernicom, za navedene sajtove.</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "Domen"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "Smernica"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&Novo..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, fuzzy, kde-format
-#| msgid "Chan&ge..."
-msgid "Chan&ge..."
-msgstr "&Izmeni..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "prihvati"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "Prihvati tokom sesije"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "odbaci"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "pitaj"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "Ne znam"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"<qt>Unesite ime domaćina ili domena na koji se ova smernica odnosi, npr. "
-"<tt>www.kde.org</tt> ili <tt>.kde.org</tt>.</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "Ime sajta:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-"Unesite ime domaćina ili domena (npr. .kde.org) na koji se ova smernica "
-"odnosi."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Izaberite željenu smernicu:</p><ul><li><i>prihvati</i>: ovaj sajt "
-"može da postavlja kolačiće.</li><li><i>prihvati do kraja sesije</i>: "
-"kolačići sa ovog sajta se prihvataju, ali tako da isteknu na kraju sesije.</"
-"li><li><i>odbaci</i>: odbijaju se kolačići koje bi sajt da postavi.</"
-"li><li><i>pitaj</i>: bićete upitani kada sajt pokuša da postavi kolačić.</"
-"li></ul></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "Smernica:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "prihvati do kraja sesije"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr ""
-"Morate ponovo pokrenuti programe u pogonu da bi ove izmene stupile na snagu."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "Ažuriranje nije uspelo"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "Morate ponovo pokrenuti KDE da bi izmene stupile na snagu."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "Isključi pasivni FTP"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"<qt>Kada su FTP veze pasivne klijent se povezuje na server, umesto obrnuto, "
-"tako da zaštitni zidovi ne blokiraju vezu. Stari FTP serveri ponekad ne "
-"podržavaju pasivni režim.</qt>"
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "Označi delimično otpremljene fajlove"
-
-# rewrite-msgid: /it is renamed/it gets its real name/
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"<qt>Dok se otprema fajl će imati nastavak <tt>.part</tt>. Kada se prenos "
-"završi biće mu vraćeno stvarno ime.</qt>"
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "Vrednosti prekovremena"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
-"izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je %1 "
-"sekunda."
-msgstr[1] ""
-"Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
-"izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je %1 "
-"sekunde."
-msgstr[2] ""
-"Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
-"izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je %1 "
-"sekundi."
-msgstr[3] ""
-"Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
-"izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je 1 "
-"sekunda."
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " sekunda"
-msgstr[1] " sekunde"
-msgstr[2] " sekundi"
-msgstr[3] " sekunda"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "Čitanje so&keta:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "Povezivanje &proksija:"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "Povezivanje &servera:"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "&Odgovor servera:"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "Globalne opcije"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "Označi &delimično otpremljene fajlove"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<qt><p>Označi delimično otpremljene fajlove preko SMB‑a, FTP‑a i drugih "
-"protokola.</p><p>Kada je ova opcija uključena, delimično otpremljeni fajlovi "
-"će imati nastavak <tt>.part</tt>. Ovaj nastavak će biti uklonjen kada se "
-"prenos okonča.</p></qt>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "Opcije FTP‑a"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "Uključi &pasivni režim"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"Uključuje „pasivni“ režim FTP‑a. Ovo je neophodno da bi FTP radio iza "
-"zaštitnih zidova."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<qt><p>Označi delimično otpremljene fajlove.</p><p>Kada je ova opcija "
-"uključena, delimično otpremljeni fajlovi će imati nastavak <tt>.part</tt>. "
-"Ovaj nastavak će biti uklonjen kada se prenos okonča.</p></qt>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-
-# skip-rule: t-service
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt><p>Postava proksija.</p><p>Proksi server je međuračunar koji stoji "
-"između lokalnog računara i Interneta, i kešira ili filtrira veb stranice "
-"koje posećujete. Keširajući proksiji daju brži pristup veb sajtovima koje "
-"ste već posetili, tako što lokalno smeštaju sadržaj tih stranica. "
-"Filtrirajući proksiji omogućavaju da blokirate reklame, spam ili bilo šta "
-"drugo što ne želite da vidite.</p><p>Ako niste sigurni treba li da koristite "
-"proksi za povezivanje na Internet, pogledajte u uputstvu provajdera, ili "
-"upitajte sistem-administratora.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "Poveži se na Internet direktno."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "Bez proksija"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
-#| "</qt>"
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt><p>Automatski otkrij i podesi postavke proksija.</p><p>Automatsko "
-"otkrivanje se obavlja „protokolom za automatsko otkrivanje veb "
-"proksija“ (WPAD).</p><p><i>Napomena</i>: Ova opcija možda neće raditi "
-"ispravno, ili uopšte neće raditi, na nekim distribucijama Linuxa i drugih "
-"sistema. Ako naiđete na problem prilikom korišćenja ove opcije, pogledajte "
-"odeljak čestih pitanja na <a href=\"http://konqueror.kde.org.\">http://"
-"konqueror.kde.org.</a></p></qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "Automatski otkrij postavu proksija"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "Koristi zadatu skriptu za podešavanje postavki proksija."
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "URL za automatsko podešavanje proksija:"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "Unesite adresu postavne skripte proksija."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Korišćenje postavki proksija definisanih sistemom.</p><p>Neke "
-"platforme nude podatke o postavi proksija važeće širom sistema, i oni se "
-"mogu upotrebiti izborom ove opcije.</p><p>Na MacOS platformama</p><p>Na "
-"windows platformama</p><p>Na Unix i linux platformama, sistemske postavke "
-"proksija obično su date promenljivama okruženja: <tt>$HTTP_PROXY</tt>, <tt>"
-"$HTTPS_PROXY</tt>, <tt>$FTP_PROXY</tt>, <tt>$NO_PROXY</tt>.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "Sistemska postava proksija:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt><p>Pokušaj automatskog otkrivanja promenljivih okruženja koje zadaju "
-"postavke proksija važeće širom sistema.</p><p>Ova mogućnost radi tako što se "
-"potraže promenljive obično korišćene u tu svrhu, kao što su <tt>$HTTP_PROXY</"
-"tt>, <tt>$FTP_PROXY</tt> i <tt>$NO_PROXY</tt>.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, fuzzy, kde-format
-#| msgid "Auto D&etect"
-msgid "Auto D&etect"
-msgstr "Otkrij &automatski"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>HTTP_PROXY</tt>, koja "
-"sadrži adresu HTTP proksija.</p><p>Drugačije, možete kliknuti na dugme "
-"<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
-"odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "HTTP proksi:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>HTTPS_PROXY</tt>, koja "
-"sadrži adresu HTTPS proksija.</p><p>Drugačije, možete kliknuti na dugme "
-"<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
-"odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "SSL proksi:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>FTP_PROXY</tt>, koja "
-"sadrži adresu FTP proksija.</p><p>Drugačije, možete kliknuti na dugme "
-"<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
-"odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "FTP proksi:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>SOCKS_PROXY</tt>, koja "
-"sadrži adresu SOCKS proksija.</p><p>Drugačije, možete kliknuti na dugme "
-"<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
-"odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "SOCKS proksi:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#| "can click on the <b>\"Auto Detect\"</b> button to attempt an automatic "
-#| "discovery of this variable.</p></qt>"
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>SOCKS_PROXY</tt>, koja "
-"sadrži adresu SOCKS proksija.</p><p>Drugačije, možete kliknuti na dugme "
-"<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
-"odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>NO_PROXY</tt>, koja "
-"sadrži adrese sajtova za koje ne treba koristiti proksi.</p><p>Drugačije, "
-"možete kliknuti na dugme <i>Otkrij automatski</i> kako bi se pokušalo "
-"automatsko otkrivanje odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "Izuzeci:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#| "the addresses of sites for which the above proxy settings should not be "
-#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
-#| "to attempt an automatic discovery of this variable.</p></qt>"
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt><p>Unesite ime promenljive okruženja, npr. <tt>NO_PROXY</tt>, koja "
-"sadrži adrese sajtova za koje ne treba koristiti gornje postavke proksija.</"
-"p><p>Drugačije, možete kliknuti na dugme <i>Otkrij automatski</i> kako bi se "
-"pokušalo automatsko otkrivanje odgovarajuće promenljive.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "Prikaži &vrednosti promenljivih okruženja"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "Unesite ručno podatke za podešavanje proksi servera."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "Koristi ručno zadatu postavu proksija:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "Unesite adresu HTTP proksi servera."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "Unesite broj porta HTTP proksi servera."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "&Ovaj proksi server važi za sve protokole"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "Unesite adresu HTTPS proksija."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Unesite broj porta HTTPS proksi servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "Unesite adresu FTP proksija."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "Unesite broj porta FTP proksi servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "Unesite adresu SOCKS proksi servera."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Unesite broj porta SOCKS proksi servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite zapetama razdvojen spisak imena domaćina ili IP adresa za "
-"koje ne treba koristiti gornje postavke proksija.</p><p>Ako želite da "
-"isključite sve domaćine za određeni domen, jednostavno unesite ime domena sa "
-"tačkom ispred. Na primer, da isključite sva imena domaćina pod <tt>kde.org</"
-"tt>, unesite <tt>.kde.org</tt>. Džokerski znakovi poput ‘*’ i ‘?’ nisu "
-"podržani i neće imati nikakvog dejstva.</p><p>Pored ovoga, možete uneti i IP "
-"adrese, npr. 127.0.0.1, ili IP adrese sa podmrežom, npr. 192.168.0.1/24.</"
-"p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>Popunite ovu kućicu ako želite da se gornje postavke proksija odnose "
-"samo na adrese navedene na spisku izuzetaka.</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "Postavke proksija važe samo za adrese na spisku izuzetaka"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "Ove se postavke odnose samo na pregledanje mreže."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "Podrazumevano korisničko ime:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "Podrazumevana lozinka:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -6038,6 +4913,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [prekodomenski]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detalji"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -6125,6 +5005,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Detalji o kolačiću"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Ime:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Vrednost:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Ističe:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Putanja:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domen:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, fuzzy, kde-format
 #| msgid "Exposure:"
@@ -6207,166 +5112,15 @@ msgstr "Detalji"
 msgid "Network"
 msgstr "Mreža"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " dana"
-
-# rewrite-msgid: /para>/p>/
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr ""
-"<p>KDE‑ovo rukovanje smećem podešeno je da koristi <b>Nalazačevo</b> smeće.</"
-"p>"
-
-# rewrite-msgid: /para>/p>/
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<p>Pražnjenjem KDE‑ovog smeća biće uklonjene samo KDE stavke, dok će "
-"pražnjenje smeća preko Nalazača obrisati sve.</p><p>KDE‑ove stavke smeća "
-"videće se u fascikli po imenu <tt>KDE.trash</tt>, u korpi za smeće.</p>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, fuzzy, kde-format
-#| msgid "Delete files older than:"
-msgid "Delete files older than"
-msgstr "Briši fajlove starije od:"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>Popunite ovu kućicu da dozvolite <emphasis strong='true'>automatsko "
-"brisanje</emphasis> fajlova starijih od zadate vrednosti. Ostavite prazno "
-"ako <emphasis strong='true'>ne</emphasis> želite automatsko brisanje posle "
-"određenog vremena.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " dana"
-msgstr[1] " dana"
-msgstr[2] " dana"
-msgstr[3] " dan"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-"<para>Broj dana koji fajlovi mogu da provedu u smeću. Fajlovi koji ga "
-"premaše automatski se brišu.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr ""
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>Popunite ovu kućicu da ograničite smeće na najviše onoliko prostora na "
-"disku koliko zadate ispod. U suprotnom, nema ograničenja.</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "Veličina:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-"<para>Najveći procenat prostora na disku koji se može koristiti za smeće.</"
-"para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr ""
-"<para>Proračunati najveći prostor na disku koji se može koristiti za smeće.</"
-"para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, fuzzy, kde-format
-#| msgctxt "Warning about executing unknown .desktop file"
-#| msgid "Warning"
-msgid "Show a Warning"
-msgstr "Upozorenje"
-
-# >> @item:inlistbox When limit reached
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "obriši iz smeća najstarije"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "obriši iz smeća najveće"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>Kada se dostigne ograničenje prostora, prvo će se brisati fajlovi tipa "
-"koji zadate. Ako je postavljeno upozoravanje, bićete upozoreni pre "
-"automatskog brisanja fajlova.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Trash"
-msgid "Full Trash:"
-msgstr "Smeće"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Neispravan URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6378,12 +5132,12 @@ msgstr ""
 "na izvornu lokaciju. Možete ili ponovo napraviti tu fasciklu pa ponoviti "
 "naredbu, ili prevući stavku bilo gde drugde da biste je vratili."
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Ovaj fajl je već u smeću."
@@ -6506,390 +5260,15 @@ msgstr "Pristup odbijen"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Nemate dozvolu za pristup protokolu %1."
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-#| msgid "Name"
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "Ime"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr ""
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "poželjno"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Check this box to select the highlighted web shortcut as preferred.<nl/"
-#| ">Preferred web shortcuts are used in places where only a few select "
-#| "shortcuts can be shown at one time."
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"<para>Popunite ovu kućicu da izaberete istaknutu veb prečicu kao poželjnu.</"
-"para><para>Poželjne veb prečice koriste se na mestima gde se istovremeno "
-"može prikazati samo mali broj prečica.</para>"
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, fuzzy, kde-format
-#| msgid "None"
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "nikakva"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "&Filteri pretrage"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
-#| "shortcuts allow you to quickly access or search for information located "
-#| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
-#| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
-#| "use it, you simply type the keyword 'gg' followed by the keyword "
-#| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-#| "KDE</span>.</p></body></html>"
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Aktivira ili deaktivira veb prečice.</p><p>Veb "
-"prečicama možete brzo pristupiti informacijama ili ih potražiti, na vezi ili "
-"na lokalnom disku.</p><p>Uz KDE stižu mnoge predefinisane veb prečice. Na "
-"primer, jedna od njih je prečica za pretraživanje Googleom. Koristite je "
-"tako što unesete <tt>gg</tt> praćeno razdvajačem ključne reči i izrazom za "
-"pretragu, poput <code>gg:KDE</code>.</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Search For"
-msgid "&Enable Web search keywords"
-msgstr "Pretraga"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, fuzzy, kde-format
-#| msgid "&Use preferred shortcuts only"
-msgid "&Use preferred keywords only"
-msgstr "&Samo poželjne prečice"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Search For"
-msgid "Search for web search keywords"
-msgstr "Pretraga"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, fuzzy, kde-format
-#| msgid "Add a new Web shortcut"
-msgid "Add a new Web search keyword"
-msgstr "Dodaj novu veb prečicu"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, fuzzy, kde-format
-#| msgid "Modify the highlighted Web shortcut"
-msgid "Modify the highlighted Web search keyword"
-msgstr "Izmenite istaknutu veb prečicu."
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, fuzzy, kde-format
-#| msgid "Delete the highlighted Web shortcut"
-msgid "Delete the highlighted Web search keyword"
-msgstr "Obrišite istaknutu veb prečicu."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "&Obriši"
-
-# rewrite-msgid: /services//
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>Izaberite pretraživač za polja unosa koja pružaju automatsko traženje "
-"kada upišete obične reči ili izraze umesto URL‑a. Ovu mogućnost možete "
-"isključiti izborom <i>nijedna</i> sa spiska.</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "Default Web &shortcut:"
-msgid "Default Web &search keyword:"
-msgstr "&Podrazumevana veb prečica:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
-#| "applications to automatically convert the typed word or phrase to web "
-#| "shortcut queries when they cannot be filtered into a proper URL. </"
-#| "p><p>To disable this functionality select <span style=\" font-weight:600;"
-#| "\">None</span> from the list. </p></body></html>"
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>Izaberite podrazumevanu veb prečicu. </p><p>Ovo "
-"omogućava programima da automatski pretvore unesenu reč ili izraz koji se ne "
-"može protumačiti kao pravilan URL u upit veb prečicom.</p><p>Ako ne želite "
-"ovu funkcionalnost, izaberite <i>nijedna</i> sa spiska.</p></body></html>"
-
-# rewrite-msgid: /delimiter/separator/
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-"Izaberite znak razdvajač ključne reči od izraza ili reči koja se traži."
-
-# rewrite-msgid: /delimiter/separator/
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "&Razdvajač ključne reči:"
-
-# rewrite-msgid: /delimiter/separator/
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, fuzzy, kde-format
-#| msgid "Choose a delimiter to mark the Web shortcut keyword."
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Izaberite razdvajač za označavanje ključne reči veb prečice."
-
-# >> @item:inlistbox Keyword delimiter character
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "dvotačka"
-
-# >> @item:inlistbox Keyword delimiter character
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "razmak"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Nije nađen nijedan poželjni pretraživač."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "Nije nađen nijedan pretraživač."
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "podrazumevani"
-
-# >> @title:window
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "Izmena veb prečice"
-
-# >> @title:window
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "Nova veb prečica"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr "Prečica „%1“ već se koristi za „%2“. Izaberite neku drugu."
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "— %1: \"%2\""
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"Sledeće prečice su već dodeljene. Izaberite neke druge.\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"<html>URL prečice ne sadrži mestodržač <tt>\\{...}</tt> za korisnički upit. "
-"Ovo znači da se uvek posećuje ista stranica, bez obzira na tekst unet uz "
-"prečicu.</html>"
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "Ostavi tako"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "Korisniku čitljiv naziv pretraživača."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "&Ime prečice:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt><p>Unesite URI kojim se upit šalje pretraživaču.</p><p>Ceo tekst za "
-"traženje zadaje se kao <tt>\\{@}</tt> ili <tt>\\{0}</tt>; preporučljivo je "
-"<tt>\\{@}</tt>, jer uklanja sve promenljive upita (<tt>ime=vrednost</tt>), "
-"dok će <tt>\\{0}</tt> biti umetnuto bez izmena u nisku upita.</p><p>Za "
-"navođenje pojedinih reči iz upita koristite <tt>\\{1}...\\{n}</tt>, a <tt>"
-"\\{ime}</tt> za vrednost datu parom <tt>ime=vrednost</tt> u upitu.</"
-"p><p>Moguće je i višestruko upućivati (imena, brojevi i niske) kao <tt>"
-"\\{ime1,ime2,...,\"niska\"}</tt>. Pritom se za smenu u rezultujućem URI‑ju "
-"koristi prva poklopljena vrednost (gledano s leva). Niska pod navodnicima se "
-"uzima za podrazumevanu vrednost ako se ništa levo od nje ne uklopi.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "&URL prečice:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr "Kodiranje kojim se šalje upit za pretragu."
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>Ovde zadate prečice koriste se kao pseudo-URI šeme u KDE‑u. Na primer, "
-"prečica <tt>av</tt> može se upotrebiti kao <tt>av: moja pretraga</tt>.</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Lako prepoznatljiv naziv veb prečice.</p></body></html>"
-
-# >> @title:column
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "&Prečice:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr "Kodiranje kojim se šalje upit za pretragu."
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "&Kodiranje:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "Umetni mestodržač upita"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7624,6 +6003,12 @@ msgstr "Tip:"
 #, kde-format
 msgid "Location:"
 msgstr "Lokacija:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "Veličina:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -9272,6 +7657,11 @@ msgstr ""
 msgid "Information"
 msgstr "Informacija"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "Zameni"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -9511,6 +7901,1104 @@ msgstr "Ovo će pokrenuti program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ako ne verujete programu, kliknite na „Odustani“."
+
+#~ msgid "&Policy"
+#~ msgstr "&smernica"
+
+#~ msgid "&Management"
+#~ msgstr "&Upravljanje"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "Greška u D‑Bus komunikaciji"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "Ne mogu da obrišem sve kolačiće kao što je zahtevano."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "Ne mogu da obrišem kolačiće kao što je zahtevano."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "Neuspela potraga za podacima"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr "Ne mogu da dobavim podatke o kolačićima smeštenim na ovom računaru."
+
+#~ msgid "End of session"
+#~ msgstr "Kraj sesije"
+
+#~ msgid "Yes"
+#~ msgstr "Da"
+
+#~ msgid "Search"
+#~ msgstr "Traži"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "Interaktivno tražite domene i domaćine"
+
+#~ msgid "Site"
+#~ msgstr "sajt"
+
+#~ msgid "Cookie Name"
+#~ msgstr "ime kolačića"
+
+#~ msgid "D&elete"
+#~ msgstr "&Obriši"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "Obriši &sve"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "Podesi &smernicu..."
+
+#~ msgid "&Reload List"
+#~ msgstr "&Učitaj ponovo spisak"
+
+#~ msgid "Secure:"
+#~ msgstr "Bezbedno:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "Promena smernice kolačića"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "Nova smernica kolačića"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>Već postoji smernica za<center><b>%1</b></center>Želite li da je "
+#~ "zamenite?</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "Udvostručavanje smernice"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "Ne mogu da komuniciram sa servisom za rukovanje kolačićima.\n"
+#~ "Promene koje ste načinili neće stupiti na snagu dok ne pokrenete servis "
+#~ "ponovo."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Uključi podršku za kolačiće. Najverovatnije ćete hteti da su "
+#~ "kolačići uključeni, uz izvesna prilagođavanja radi privatnosti.</"
+#~ "p><p>Imajte na umu da isključivanje podrške za kolačiće čini mnoge "
+#~ "današnje veb sajtove neupotrebljivim.</p></qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "Aktiviraj &kolačiće"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Odbaci tzv. kolačiće sa stranice: one koji ne stižu sa sajta koji "
+#~ "trenutno pregledate. Na primer, ako posetite <tt>www.foobar.com</tt> dok "
+#~ "je ova opcija uključena, samo kolačići koji potiču sa tog sajta će biti "
+#~ "obrađivani po vašim postavkama, dok će oni koji ne stižu s njega biti "
+#~ "odbacivani. Ovo umanjuje izglede da neko sakuplja profil vaših dnevnih "
+#~ "navika u pregledanju Interneta.</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "&Prihvati samo kolačiće sa izvornog servera"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>Automatsko prihvatanje privremenih kolačića znači da oni ističu po "
+#~ "završetku tekuće sesije. Takvi kolačići neće biti sačuvani na lokalnom "
+#~ "hard‑disku ili drugoj skladišnoj jedinici, već će biti obrisani kada "
+#~ "zatvorite sve programe (npr. pregledač) koji ih koriste.</"
+#~ "p><p><u>Napomena:</u> Uključivanjem ove opcije potiskuju se podrazumevane "
+#~ "smernice kolačića kao i one posebne za sajtove.</p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "&Automatski prihvati kolačiće sesije"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Određuje kako će kolačići primljeni sa udaljenog računara biti "
+#~ "obrađeni:</p><ul><li><i>Traži potvrdu</i>: bićete upitani svaki put kada "
+#~ "server hoće da ostavi kolačić.</li><li><i>Prihvati sve kolačiće</i>: svi "
+#~ "kolačići se prihvataju bez pitanja.</li><li><i>Prihvati do kraja sesije</"
+#~ "i>: svi kolačići se prihvataju, ali tako da isteknu na kraju sesije.</"
+#~ "li><li><i>Odbaci sve kolačiće</i>: svi kolačiće se odbacuju bez pitanja.</"
+#~ "li></ul><p><u>Napomena:</u> Posebne smernice za domene, koje se mogu "
+#~ "zadati ispod, uvek imaju prednost nad podrazumevanom smernicom.</p></qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "Podrazumevana smernica"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "&Prihvati sve kolačiće"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "Prihvati do &kraja sesije"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "&Traži potvrdu"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "&Odbaci sve kolačiće"
+
+# rewrite-msgid: /default policy setting/default policy/
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Da biste dodali novu smernicu, kliknite na <i>Dodaj...</i> i unesite "
+#~ "potrebne podatke. Za izmenu postojeće smernice, kliknite na <i>Izmeni...</"
+#~ "i> i izaberite smernicu iz dijaloga. Klikom na dugme <i>Obriši</i> "
+#~ "uklanjate trenutno izabranu smernicu, čime će njeni domeni spasti na "
+#~ "podrazumevanu smernicu. Dugme <i>Obriši sve</i> uklanja sve posebne "
+#~ "smernice za sajtove.</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "smernica sajta"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "Interaktivno tražite domene"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search..."
+#~ msgstr "Traži"
+
+# rewrite-msgid: /default policy setting/default policy/
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Spisak sajtova za koje ste postavili posebne smernice kolačića. One "
+#~ "imaju prednost nad podrazumevanom smernicom, za navedene sajtove.</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "Domen"
+
+#~ msgid "Policy"
+#~ msgstr "Smernica"
+
+#~ msgid "&New..."
+#~ msgstr "&Novo..."
+
+#, fuzzy
+#~| msgid "Chan&ge..."
+#~ msgid "Chan&ge..."
+#~ msgstr "&Izmeni..."
+
+#~ msgid "Accept"
+#~ msgstr "prihvati"
+
+#~ msgid "Accept For Session"
+#~ msgstr "Prihvati tokom sesije"
+
+#~ msgid "Reject"
+#~ msgstr "odbaci"
+
+#~ msgid "Ask"
+#~ msgstr "pitaj"
+
+#~ msgid "Do Not Know"
+#~ msgstr "Ne znam"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Unesite ime domaćina ili domena na koji se ova smernica odnosi, npr. "
+#~ "<tt>www.kde.org</tt> ili <tt>.kde.org</tt>.</qt>"
+
+#~ msgid "Site name:"
+#~ msgstr "Ime sajta:"
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr ""
+#~ "Unesite ime domaćina ili domena (npr. .kde.org) na koji se ova smernica "
+#~ "odnosi."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Izaberite željenu smernicu:</p><ul><li><i>prihvati</i>: ovaj sajt "
+#~ "može da postavlja kolačiće.</li><li><i>prihvati do kraja sesije</i>: "
+#~ "kolačići sa ovog sajta se prihvataju, ali tako da isteknu na kraju sesije."
+#~ "</li><li><i>odbaci</i>: odbijaju se kolačići koje bi sajt da postavi.</"
+#~ "li><li><i>pitaj</i>: bićete upitani kada sajt pokuša da postavi kolačić.</"
+#~ "li></ul></qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "Smernica:"
+
+#~ msgid "Accept until end of session"
+#~ msgstr "prihvati do kraja sesije"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr ""
+#~ "Morate ponovo pokrenuti programe u pogonu da bi ove izmene stupile na "
+#~ "snagu."
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "Ažuriranje nije uspelo"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "Morate ponovo pokrenuti KDE da bi izmene stupile na snagu."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "Isključi pasivni FTP"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "<qt>Kada su FTP veze pasivne klijent se povezuje na server, umesto "
+#~ "obrnuto, tako da zaštitni zidovi ne blokiraju vezu. Stari FTP serveri "
+#~ "ponekad ne podržavaju pasivni režim.</qt>"
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "Označi delimično otpremljene fajlove"
+
+# rewrite-msgid: /it is renamed/it gets its real name/
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "<qt>Dok se otprema fajl će imati nastavak <tt>.part</tt>. Kada se prenos "
+#~ "završi biće mu vraćeno stvarno ime.</qt>"
+
+#~ msgid "Timeout Values"
+#~ msgstr "Vrednosti prekovremena"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
+#~ "izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je "
+#~ "%1 sekunda."
+#~ msgstr[1] ""
+#~ "Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
+#~ "izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je "
+#~ "%1 sekunde."
+#~ msgstr[2] ""
+#~ "Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
+#~ "izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je "
+#~ "%1 sekundi."
+#~ msgstr[3] ""
+#~ "Ovde možete podesiti vrednosti prekovremena. Možda ćete želeti da ih "
+#~ "izmenite ako radite na vrlo sporoj vezi. Najveća dozvoljena vrednost je 1 "
+#~ "sekunda."
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " sekunda"
+#~ msgstr[1] " sekunde"
+#~ msgstr[2] " sekundi"
+#~ msgstr[3] " sekunda"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "Čitanje so&keta:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "Povezivanje &proksija:"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "Povezivanje &servera:"
+
+#~ msgid "&Server response:"
+#~ msgstr "&Odgovor servera:"
+
+#~ msgid "Global Options"
+#~ msgstr "Globalne opcije"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "Označi &delimično otpremljene fajlove"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<qt><p>Označi delimično otpremljene fajlove preko SMB‑a, FTP‑a i drugih "
+#~ "protokola.</p><p>Kada je ova opcija uključena, delimično otpremljeni "
+#~ "fajlovi će imati nastavak <tt>.part</tt>. Ovaj nastavak će biti uklonjen "
+#~ "kada se prenos okonča.</p></qt>"
+
+#~ msgid "FTP Options"
+#~ msgstr "Opcije FTP‑a"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "Uključi &pasivni režim"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "Uključuje „pasivni“ režim FTP‑a. Ovo je neophodno da bi FTP radio iza "
+#~ "zaštitnih zidova."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<qt><p>Označi delimično otpremljene fajlove.</p><p>Kada je ova opcija "
+#~ "uključena, delimično otpremljeni fajlovi će imati nastavak <tt>.part</"
+#~ "tt>. Ovaj nastavak će biti uklonjen kada se prenos okonča.</p></qt>"
+
+# skip-rule: t-service
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Postava proksija.</p><p>Proksi server je međuračunar koji stoji "
+#~ "između lokalnog računara i Interneta, i kešira ili filtrira veb stranice "
+#~ "koje posećujete. Keširajući proksiji daju brži pristup veb sajtovima koje "
+#~ "ste već posetili, tako što lokalno smeštaju sadržaj tih stranica. "
+#~ "Filtrirajući proksiji omogućavaju da blokirate reklame, spam ili bilo šta "
+#~ "drugo što ne želite da vidite.</p><p>Ako niste sigurni treba li da "
+#~ "koristite proksi za povezivanje na Internet, pogledajte u uputstvu "
+#~ "provajdera, ili upitajte sistem-administratora.</p></qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "Poveži se na Internet direktno."
+
+#~ msgid "No Proxy"
+#~ msgstr "Bez proksija"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>\n"
+#~| "Automatically detect and configure the proxy settings.<p>\n"
+#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~| "Protocol (WPAD)</b>.<p>\n"
+#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~| "some UNIX/Linux distributions. If you encounter a problem when using "
+#~| "this option, please check the FAQ section at http://konqueror.kde.org.\n"
+#~| "</qt>"
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Automatski otkrij i podesi postavke proksija.</p><p>Automatsko "
+#~ "otkrivanje se obavlja „protokolom za automatsko otkrivanje veb "
+#~ "proksija“ (WPAD).</p><p><i>Napomena</i>: Ova opcija možda neće raditi "
+#~ "ispravno, ili uopšte neće raditi, na nekim distribucijama Linuxa i drugih "
+#~ "sistema. Ako naiđete na problem prilikom korišćenja ove opcije, "
+#~ "pogledajte odeljak čestih pitanja na <a href=\"http://konqueror.kde.org."
+#~ "\">http://konqueror.kde.org.</a></p></qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "Automatski otkrij postavu proksija"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr "Koristi zadatu skriptu za podešavanje postavki proksija."
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "URL za automatsko podešavanje proksija:"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "Unesite adresu postavne skripte proksija."
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Korišćenje postavki proksija definisanih sistemom.</p><p>Neke "
+#~ "platforme nude podatke o postavi proksija važeće širom sistema, i oni se "
+#~ "mogu upotrebiti izborom ove opcije.</p><p>Na MacOS platformama</p><p>Na "
+#~ "windows platformama</p><p>Na Unix i linux platformama, sistemske postavke "
+#~ "proksija obično su date promenljivama okruženja: <tt>$HTTP_PROXY</tt>, "
+#~ "<tt>$HTTPS_PROXY</tt>, <tt>$FTP_PROXY</tt>, <tt>$NO_PROXY</tt>.</p></qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "Sistemska postava proksija:"
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt><p>Pokušaj automatskog otkrivanja promenljivih okruženja koje zadaju "
+#~ "postavke proksija važeće širom sistema.</p><p>Ova mogućnost radi tako što "
+#~ "se potraže promenljive obično korišćene u tu svrhu, kao što su <tt>"
+#~ "$HTTP_PROXY</tt>, <tt>$FTP_PROXY</tt> i <tt>$NO_PROXY</tt>.</p></qt>"
+
+#, fuzzy
+#~| msgid "Auto D&etect"
+#~ msgid "Auto D&etect"
+#~ msgstr "Otkrij &automatski"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>HTTP_PROXY</tt>, koja "
+#~ "sadrži adresu HTTP proksija.</p><p>Drugačije, možete kliknuti na dugme "
+#~ "<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
+#~ "odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "HTTP proksi:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>HTTPS_PROXY</tt>, koja "
+#~ "sadrži adresu HTTPS proksija.</p><p>Drugačije, možete kliknuti na dugme "
+#~ "<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
+#~ "odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "SSL proksi:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>FTP_PROXY</tt>, koja "
+#~ "sadrži adresu FTP proksija.</p><p>Drugačije, možete kliknuti na dugme "
+#~ "<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
+#~ "odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "FTP proksi:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>SOCKS_PROXY</tt>, koja "
+#~ "sadrži adresu SOCKS proksija.</p><p>Drugačije, možete kliknuti na dugme "
+#~ "<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
+#~ "odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "SOCKS proksi:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~| "used to store the address of the SOCKS proxy server.<p>Alternatively, "
+#~| "you can click on the <b>\"Auto Detect\"</b> button to attempt an "
+#~| "automatic discovery of this variable.</p></qt>"
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>SOCKS_PROXY</tt>, koja "
+#~ "sadrži adresu SOCKS proksija.</p><p>Drugačije, možete kliknuti na dugme "
+#~ "<i>Otkrij automatski</i> kako bi se pokušalo automatsko otkrivanje "
+#~ "odgovarajuće promenljive.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>NO_PROXY</tt>, koja "
+#~ "sadrži adrese sajtova za koje ne treba koristiti proksi.</p><p>Drugačije, "
+#~ "možete kliknuti na dugme <i>Otkrij automatski</i> kako bi se pokušalo "
+#~ "automatsko otkrivanje odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "Izuzeci:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~| "the addresses of sites for which the above proxy settings should not be "
+#~| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> "
+#~| "button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite ime promenljive okruženja, npr. <tt>NO_PROXY</tt>, koja "
+#~ "sadrži adrese sajtova za koje ne treba koristiti gornje postavke proksija."
+#~ "</p><p>Drugačije, možete kliknuti na dugme <i>Otkrij automatski</i> kako "
+#~ "bi se pokušalo automatsko otkrivanje odgovarajuće promenljive.</p></qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "Prikaži &vrednosti promenljivih okruženja"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "Unesite ručno podatke za podešavanje proksi servera."
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "Koristi ručno zadatu postavu proksija:"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "Unesite adresu HTTP proksi servera."
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "Unesite broj porta HTTP proksi servera."
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "&Ovaj proksi server važi za sve protokole"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "Unesite adresu HTTPS proksija."
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "Unesite broj porta HTTPS proksi servera."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "Unesite adresu FTP proksija."
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "Unesite broj porta FTP proksi servera."
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "Unesite adresu SOCKS proksi servera."
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "Unesite broj porta SOCKS proksi servera."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite zapetama razdvojen spisak imena domaćina ili IP adresa za "
+#~ "koje ne treba koristiti gornje postavke proksija.</p><p>Ako želite da "
+#~ "isključite sve domaćine za određeni domen, jednostavno unesite ime domena "
+#~ "sa tačkom ispred. Na primer, da isključite sva imena domaćina pod <tt>kde."
+#~ "org</tt>, unesite <tt>.kde.org</tt>. Džokerski znakovi poput ‘*’ i ‘?’ "
+#~ "nisu podržani i neće imati nikakvog dejstva.</p><p>Pored ovoga, možete "
+#~ "uneti i IP adrese, npr. 127.0.0.1, ili IP adrese sa podmrežom, npr. "
+#~ "192.168.0.1/24.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>Popunite ovu kućicu ako želite da se gornje postavke proksija odnose "
+#~ "samo na adrese navedene na spisku izuzetaka.</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "Postavke proksija važe samo za adrese na spisku izuzetaka"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "Ove se postavke odnose samo na pregledanje mreže."
+
+#~ msgid "Default user name:"
+#~ msgstr "Podrazumevano korisničko ime:"
+
+#~ msgid "Default password:"
+#~ msgstr "Podrazumevana lozinka:"
+
+#~ msgid " days"
+#~ msgstr " dana"
+
+# rewrite-msgid: /para>/p>/
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr ""
+#~ "<p>KDE‑ovo rukovanje smećem podešeno je da koristi <b>Nalazačevo</b> "
+#~ "smeće.</p>"
+
+# rewrite-msgid: /para>/p>/
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<p>Pražnjenjem KDE‑ovog smeća biće uklonjene samo KDE stavke, dok će "
+#~ "pražnjenje smeća preko Nalazača obrisati sve.</p><p>KDE‑ove stavke smeća "
+#~ "videće se u fascikli po imenu <tt>KDE.trash</tt>, u korpi za smeće.</p>"
+
+#, fuzzy
+#~| msgid "Delete files older than:"
+#~ msgid "Delete files older than"
+#~ msgstr "Briši fajlove starije od:"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>Popunite ovu kućicu da dozvolite <emphasis strong='true'>automatsko "
+#~ "brisanje</emphasis> fajlova starijih od zadate vrednosti. Ostavite prazno "
+#~ "ako <emphasis strong='true'>ne</emphasis> želite automatsko brisanje "
+#~ "posle određenog vremena.</para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " dana"
+#~ msgstr[1] " dana"
+#~ msgstr[2] " dana"
+#~ msgstr[3] " dan"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr ""
+#~ "<para>Broj dana koji fajlovi mogu da provedu u smeću. Fajlovi koji ga "
+#~ "premaše automatski se brišu.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>Popunite ovu kućicu da ograničite smeće na najviše onoliko prostora "
+#~ "na disku koliko zadate ispod. U suprotnom, nema ograničenja.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr ""
+#~ "<para>Najveći procenat prostora na disku koji se može koristiti za smeće."
+#~ "</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr ""
+#~ "<para>Proračunati najveći prostor na disku koji se može koristiti za "
+#~ "smeće.</para>"
+
+#, fuzzy
+#~| msgctxt "Warning about executing unknown .desktop file"
+#~| msgid "Warning"
+#~ msgid "Show a Warning"
+#~ msgstr "Upozorenje"
+
+# >> @item:inlistbox When limit reached
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "obriši iz smeća najstarije"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "obriši iz smeća najveće"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>Kada se dostigne ograničenje prostora, prvo će se brisati fajlovi "
+#~ "tipa koji zadate. Ako je postavljeno upozoravanje, bićete upozoreni pre "
+#~ "automatskog brisanja fajlova.</para>"
+
+#, fuzzy
+#~| msgctxt "KFile System Bookmarks"
+#~| msgid "Trash"
+#~ msgid "Full Trash:"
+#~ msgstr "Smeće"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "Ime"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "poželjno"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "Check this box to select the highlighted web shortcut as preferred.<nl/"
+#~| ">Preferred web shortcuts are used in places where only a few select "
+#~| "shortcuts can be shown at one time."
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "<para>Popunite ovu kućicu da izaberete istaknutu veb prečicu kao poželjnu."
+#~ "</para><para>Poželjne veb prečice koriste se na mestima gde se "
+#~ "istovremeno može prikazati samo mali broj prečica.</para>"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "nikakva"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "&Filteri pretrage"
+
+#, fuzzy
+#~| msgid ""
+#~| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
+#~| "shortcuts allow you to quickly access or search for information located "
+#~| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
+#~| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
+#~| "use it, you simply type the keyword 'gg' followed by the keyword "
+#~| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
+#~| "KDE</span>.</p></body></html>"
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Aktivira ili deaktivira veb prečice.</p><p>Veb "
+#~ "prečicama možete brzo pristupiti informacijama ili ih potražiti, na vezi "
+#~ "ili na lokalnom disku.</p><p>Uz KDE stižu mnoge predefinisane veb "
+#~ "prečice. Na primer, jedna od njih je prečica za pretraživanje Googleom. "
+#~ "Koristite je tako što unesete <tt>gg</tt> praćeno razdvajačem ključne "
+#~ "reči i izrazom za pretragu, poput <code>gg:KDE</code>.</p></body></html>"
+
+#, fuzzy
+#~| msgctxt "@item"
+#~| msgid "Search For"
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "Pretraga"
+
+#, fuzzy
+#~| msgid "&Use preferred shortcuts only"
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "&Samo poželjne prečice"
+
+#, fuzzy
+#~| msgctxt "@item"
+#~| msgid "Search For"
+#~ msgid "Search for web search keywords"
+#~ msgstr "Pretraga"
+
+#, fuzzy
+#~| msgid "Add a new Web shortcut"
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "Dodaj novu veb prečicu"
+
+#, fuzzy
+#~| msgid "Modify the highlighted Web shortcut"
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "Izmenite istaknutu veb prečicu."
+
+#, fuzzy
+#~| msgid "Delete the highlighted Web shortcut"
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "Obrišite istaknutu veb prečicu."
+
+#~ msgid "De&lete"
+#~ msgstr "&Obriši"
+
+# rewrite-msgid: /services//
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Izaberite pretraživač za polja unosa koja pružaju automatsko traženje "
+#~ "kada upišete obične reči ili izraze umesto URL‑a. Ovu mogućnost možete "
+#~ "isključiti izborom <i>nijedna</i> sa spiska.</qt>"
+
+#, fuzzy
+#~| msgid "Default Web &shortcut:"
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "&Podrazumevana veb prečica:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
+#~| "applications to automatically convert the typed word or phrase to web "
+#~| "shortcut queries when they cannot be filtered into a proper URL. </"
+#~| "p><p>To disable this functionality select <span style=\" font-weight:600;"
+#~| "\">None</span> from the list. </p></body></html>"
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Izaberite podrazumevanu veb prečicu. </p><p>Ovo "
+#~ "omogućava programima da automatski pretvore unesenu reč ili izraz koji se "
+#~ "ne može protumačiti kao pravilan URL u upit veb prečicom.</p><p>Ako ne "
+#~ "želite ovu funkcionalnost, izaberite <i>nijedna</i> sa spiska.</p></"
+#~ "body></html>"
+
+# rewrite-msgid: /delimiter/separator/
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr ""
+#~ "Izaberite znak razdvajač ključne reči od izraza ili reči koja se traži."
+
+# rewrite-msgid: /delimiter/separator/
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "&Razdvajač ključne reči:"
+
+# rewrite-msgid: /delimiter/separator/
+#, fuzzy
+#~| msgid "Choose a delimiter to mark the Web shortcut keyword."
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr "Izaberite razdvajač za označavanje ključne reči veb prečice."
+
+# >> @item:inlistbox Keyword delimiter character
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "dvotačka"
+
+# >> @item:inlistbox Keyword delimiter character
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "razmak"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "podrazumevani"
+
+# >> @title:window
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "Izmena veb prečice"
+
+# >> @title:window
+#~ msgid "New Web Shortcut"
+#~ msgstr "Nova veb prečica"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr "Prečica „%1“ već se koristi za „%2“. Izaberite neku drugu."
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "— %1: \"%2\""
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Sledeće prečice su već dodeljene. Izaberite neke druge.\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "<html>URL prečice ne sadrži mestodržač <tt>\\{...}</tt> za korisnički "
+#~ "upit. Ovo znači da se uvek posećuje ista stranica, bez obzira na tekst "
+#~ "unet uz prečicu.</html>"
+
+#~ msgid "Keep It"
+#~ msgstr "Ostavi tako"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr "Korisniku čitljiv naziv pretraživača."
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "&Ime prečice:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Unesite URI kojim se upit šalje pretraživaču.</p><p>Ceo tekst za "
+#~ "traženje zadaje se kao <tt>\\{@}</tt> ili <tt>\\{0}</tt>; preporučljivo "
+#~ "je <tt>\\{@}</tt>, jer uklanja sve promenljive upita (<tt>ime=vrednost</"
+#~ "tt>), dok će <tt>\\{0}</tt> biti umetnuto bez izmena u nisku upita.</"
+#~ "p><p>Za navođenje pojedinih reči iz upita koristite <tt>\\{1}...\\{n}</"
+#~ "tt>, a <tt>\\{ime}</tt> za vrednost datu parom <tt>ime=vrednost</tt> u "
+#~ "upitu.</p><p>Moguće je i višestruko upućivati (imena, brojevi i niske) "
+#~ "kao <tt>\\{ime1,ime2,...,\"niska\"}</tt>. Pritom se za smenu u "
+#~ "rezultujućem URI‑ju koristi prva poklopljena vrednost (gledano s leva). "
+#~ "Niska pod navodnicima se uzima za podrazumevanu vrednost ako se ništa "
+#~ "levo od nje ne uklopi.</p></qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "&URL prečice:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr "Kodiranje kojim se šalje upit za pretragu."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Ovde zadate prečice koriste se kao pseudo-URI šeme u KDE‑u. Na "
+#~ "primer, prečica <tt>av</tt> može se upotrebiti kao <tt>av: moja pretraga</"
+#~ "tt>.</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Lako prepoznatljiv naziv veb prečice.</p></body></"
+#~ "html>"
+
+# >> @title:column
+#~ msgid "&Shortcuts:"
+#~ msgstr "&Prečice:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr "Kodiranje kojim se šalje upit za pretragu."
+
+#~ msgid "&Charset:"
+#~ msgstr "&Kodiranje:"
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "Umetni mestodržač upita"
 
 #~ msgid "Blocked request."
 #~ msgstr "Blokiran zahtev."

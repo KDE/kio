@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -98,7 +98,7 @@ msgstr "Filen findes allerede"
 msgid "Already Exists as Folder"
 msgstr "Findes allerede som en mappe"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "Papirkurv"
@@ -4067,1152 +4067,6 @@ msgstr "Kunne ikke åbne filen."
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmet \"%1\" kunne ikke startes."
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&Politik"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&Håndtering"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "D-Bus-kommunikationsfejl"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "Kunne ikke slette alle cookies."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "Kunne ikke slette alle de cookies der blev bedt om."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "Mislykket informationsopslag"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr "Kunne ikke hente information om cookies gemt på din computer."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "Slut på session"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "Ja"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "Søg"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "Søg interaktivt efter domæner og værter"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "Site"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "Cookie-navn"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "S&let"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "Sl&et alt"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "Indstil &politik..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "&Genindlæs liste"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detaljer"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Navn:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Værdi:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domæne:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Sti:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Udløber:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "Sikker:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "Ændr cookie-politik"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "Ny cookie-politik"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>Der findes allerede en politik for<center><b>%1</b></center>Ønsker du at "
-"erstatte den?</qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "Duplikér politik"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "Erstat"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"Kan ikke kommunikere med cookie-håndterings service.\n"
-"Enhver ændring du laver vil ikke få virkning før service er genstartet."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Aktivér cookie-understøttelse til. Normalt vil du ønske at have cookie-"
-"understøttelse slået til, og så brugerindstille det så det passer til dit "
-"ønske om privatliv.</p><p>\n"
-"Bemærk venligst at deaktivering af cookie-understøttelse gør mange websider "
-"ulæselige.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "&Aktivér cookies"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Afslå alle såkaldte tredjeparts-cookies. Dette er cookies der kommer fra et "
-"andet sted end det du bad om. Hvis du for eksempel besøger <b>www.foobar."
-"com</b> og har dette afkrydset, er det kun cookies der kommer fra www.foobar."
-"com der vil blive behandlet ifølge din standard- eller sted-specifikke "
-"politik. Alle andre cookies vil automatisk blive afslået. Dette reducerer "
-"chancerne for stedets operatører for at samle en profil om dine daglige "
-"vaner angående webbrowsing.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "A&cceptér kun cookies fra oprindelig server"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>\n"
-"Acceptér midlertidige cookies automatisk, betyder at ved slutningen af denne "
-"session udløber de. Sådanne cookies gemmes ikke til din lokale "
-"opbevaringsenhed eller harddisk. I stedet slettes de når du lukker alle "
-"programmer (f.eks. din browser) der bruger dem.</p><p><u>BEMÆRK:</u>: "
-"Markering af denne indstilling tilsidesætter din standard- såvel som dine "
-"sted-specifikke cookie-politikker for sessioncookies.</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "Acceptér session-cookies a&utomatisk"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Afgør hvordan cookies modtaget fra en ekstern maskine vil blive håndteret.\n"
-"<ul>\n"
-"<li><b>Spørg</b> vil få KDE til at bede om din godkendelse hver gang en "
-"server ønsker at sætte en cookie.</li>\n"
-"<li><b>Acceptér</b> vil få cookies til at blive accepteret uden at spørge.</"
-"li>\n"
-"<li><b>Acceptér i resten af sessionen</b> vil gøre at cookies accepteres, "
-"men de vil udløbe ved afslutningen af sessionen.</li>\n"
-"<li><b>Afslå</b> vil få cookie-lageret til at afslå alle cookies den "
-"modtager.</li>\n"
-"</ul><p>\n"
-"<u>BEMÆRK:</u>Domænespecifikke politikker, som kan sættes nedenfor går altid "
-"forud for standardpolitikken.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "Standardpolitik"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "Acce&ptér alle cookies"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "Acceptér i &resten af sessionen"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "&Bed om bekræftelse"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "&Afvis alle cookies"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"For at tilføje en ny politik, klikker du simpelthen på <b>Tilføj...</b>-"
-"knappen og giver den nødvendige information. For at ændre en eksisterende "
-"politik, bruger du <b>Ændr...</b>-knappen og vælger den nye politik fra "
-"politik-dialogen. Ved at klikke på <b>Slet</b>-knappen vil den valgte "
-"politik blive fjernet og det vil få standardpolitikken til at blive brugt på "
-"dette domæne hvorimod <b>Slet alt</b> vil fjerne alle sted-specifikke "
-"politikker.\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "Sidepolitik"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "Søg interaktivt efter domæner"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, kde-format
-msgid "Search..."
-msgstr "Søg..."
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Liste af steder for hvilke du har sat en specifik cookie-politik. Specifikke "
-"politikker går forud for standardpolitik-indstillingen på disse steder.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "Domæne"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "Politik"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&Ny..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "Æ&ndr..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "Acceptér"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "Acceptér i denne session"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "Afslå"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "Spørg"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "Kender den ikke"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Indtast værten eller domænet for hvilket denne politik gælder, f.eks. <b>www."
-"kde.org</b> eller <b>.kde.org</b>.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "Sidenavn:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-"Angiv vært eller domænenavn, f.eks. .kde.org, som denne politik gælder for."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Vælg ønsket politik:\n"
-"<ul>\n"
-"<li><b>Acceptér</b> - Tillader dette sted at sætte cookies</li>\n"
-"<li><b>Acceptér i resten af sessionen</b> - Tillader webstedet at sætte "
-"cookies, men de vil udløbe ved afslutningen af sessionen.</li>\n"
-"<li><b>Afslå</b> - Afslår alle cookies fra denne side</li>\n"
-"<li><b>Spørg</b> - Spørger dig når cookies modtages fra denne side</li>\n"
-"</ul>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "Politik:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "Acceptér i resten af sessionen"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr ""
-"Du skal genstarte de kørende programmer for at disse ændringer skal få "
-"virkning."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "Opdatering mislykkedes"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "Du må genstarte KDE før disse ændringer træder i kraft."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "Deaktivér passiv FTP"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"Når FTP-forbindelser er passive forbinder klienten til serveren, i stedet "
-"for omvendt, så firewalls blokerer ikke forbindelsen. Gamle FTP-servere "
-"understøtter dog måske ikke passiv FTP."
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "Markér delvist uploadede filer"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"Mens en fil overføres er dens endelse \".part\". Når den er fuldt overført "
-"omdøbes den til sit rigtige navn."
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "Værdier for udløb af tid"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"Her kan du indstille værdier for tidsudløb. Du vil måske at tilpasse dem "
-"hvis din forbindelse er meget langsom. Den maksimalt tilladte værdi er 1 "
-"sekund."
-msgstr[1] ""
-"Her kan du indstille værdier for tidsudløb. Du vil måske at tilpasse dem "
-"hvis din forbindelse er meget langsom. Den maksimalt tilladte værdi er %1 "
-"sekunder."
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " sekund"
-msgstr[1] " sekunder"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "So&kkel-læsning:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "Pro&xy-forbindelse:"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "Server-for&bindelse:"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "Server-&svar:"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "Globale indstillinger"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "Markér &delvist uploadede filer"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<p>Markerer filer der er delvist uploadet via SMB, SFTP og andre protokoller."
-"</p><p>Når dette er aktiveret, vil filer der er delvist uploadet, have "
-"filendelsen \".part\". Denne filendelse vil blive fjernet når overførslen er "
-"gennemført.</p>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " byte"
-msgstr[1] " bytes"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-"Hvis der annulleres, så slet automatisk uploadede filer som er mindre end:"
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "FTP-tilvalg"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "Aktivér passiv &tilstand (PASV)"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"Aktiverer FTP's \"passive\" tilstand. Dette kræves for at tillade FTP at "
-"virke bag en firewall."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<p>Markerer FTP-filer der er delvist uploadet.</p><p>Når dette er aktiveret, "
-"vil filer der er delvist uploadet, have filendelsen \".part\". Denne "
-"filendelse vil blive fjernet når overførslen er gennemført.</p>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Proxy-konfiguration.\n"
-"<p>\n"
-"En proxyserver er en maskine der sidder mellem dit interne netværk og "
-"internettet og sørger for tjenester såsom at cache internetsider og filtrere "
-"dem. Dette giver dig hurtigere adgang til steder du allerede har besøgt da "
-"de bliver opbevaret lokalt på din proxy-server. Filtrerende proxy-servere "
-"har sædvanligvis evnen til at blokere forespørgsler om reklamer, spam og "
-"hvad du ellers måtte ønske at blokere.\n"
-"<p>\n"
-"Hvis du er usikker på om du behøver at bruge en proxy-server til at forbinde "
-"dig til internettet, så spørg din Internet serviceudbyder eller din "
-"systemadministrator.\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "Forbind direkte til internettet."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "Ingen proxy"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Detektér og indstil proxy automatisk.<p>\n"
-"Automatisk detektion udføres ved brug af <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>BEMÆRK:</b> Dette virker muligvis ikke rigtigt eller ikke overhovedet i "
-"nogle UNIX/Linux distributioner. Hvis du støder på et problem når du bruger "
-"dette, så tjek venligst afsnittet om OSS på https://konqueror.org.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "Detektér proxy-konfiguration automatisk"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "Brug det angivne proxy-script til indstilling af proxy."
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "Brug URL til auto-konfiguration af proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "Skriv adressen på proxy-indstillingsscriptet."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Brug de proxy-indstillinger der er defineret for systemet.</p>\n"
-"<p>Nogle platforme tilbyder systemomfattende proxy-konfiguration og valg af "
-"denne indstilling lader dig bruge de indstillinger.</p>\n"
-"<p>På Mac-platforme</p>\n"
-"<p>På Windows-platforme</p>\n"
-"<p>På Unix- og Linux-platforme, er sådanne proxy-indstillinger normalt "
-"defineret gennem miljøvariable. De følgende miljøvarible bliver detekteret "
-"og brugt når de er til stede: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "Brug systemets proxy-konfiguration:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt>Forsøg automatisk opdagelse af de miljøvariabler der bruges til at "
-"indstille systemomfattende proxy-information.<p>Denne egenskab virker ved at "
-"gennemsøge almindeligt brugte variabelnavne såsom HTTP_PROXY, FTP_PROXY og "
-"NO_PROXY.</qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, kde-format
-msgid "Auto D&etect"
-msgstr "Autod&etektér"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Indtast navnet på miljøvariablen, f.eks. <b>HTTP_PROXY</b>, der bliver brugt "
-"til at gemme adressen på HTTP-proxyserveren.<p>\n"
-"Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge at "
-"opdage denne variabel automatisk.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "HTTP-proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Indtast navnet på miljøvariablen, f.eks. <b>HTTPS_PROXY</b>, der bliver "
-"brugt til at gemme adressen på HTTPS-proxyserveren.<p>\n"
-"Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge at "
-"opdage denne variabel automatisk.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "SSL-proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Angiv navnet på miljøvariablen, f.eks. <b>FTP_PROXY</b>,som bliver brugt til "
-"at gemme adressen på FTP-proxyserveren.<p>\n"
-"Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge at "
-"opdage denne variabel automatisk.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "FTP-proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Angiv navnet på miljøvariablen, f.eks. <b>SOCKS_PROXY</b>, der bliver brugt "
-"til at gemme adressen på SOCKS-proxy-serveren.<p>\n"
-"Alternativt kan du klikke på knappen <b>Autodetektér</b> for at forsøge at "
-"opdage denne variabel automatisk.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "SOCKS-proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Angiv navnet på miljøvariablen, f.eks. <b>SOCKS_PROXY</b>, der bliver "
-"brugt til at gemme adressen på SOCKS-proxy-serveren.<p>Alternativt kan du "
-"klikke på knappen <b>&quot;Autodetektér&quot;</b> for at forsøge at opdage "
-"denne variabel automatisk.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Indtast miljøvariablen, f.eks. <b>NO_PROXY</b>, som bliver brugt til at "
-"gemme adresser på steder for hvilke proxy-serveren ikke skal bruges.<p>\n"
-"Alternativt kan du klikke på <b>\"Autodetektér</b>-knappen for at forsøge at "
-"opdage denne variabel automatisk.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "Undtagelser:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Angiv miljøvariablen, f.eks. <b>NO_PROXY</b>, som bliver brugt til at "
-"gemme adresser på steder for hvilke proxy-indstillingerne ovenfor ikke skal "
-"bruges.<p>\n"
-"Alternativt kan du klikke på knappen <b>&quot;Autodetektér&quot;</b> for at "
-"forsøge at opdage denne variabel automatisk.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "Vis &værdien af miljøvariablerne"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "Indtast proxy-server indstillingsinformation manuelt."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "Brug manuelt angivet proxy-konfiguration:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "Skriv adressen på HTTP-proxyserveren."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "Angiv portnummer for HTTP-proxy-serveren."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "Brug denne proxy-server til a&lle protokoller"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "Skriv adressen på HTTPS-proxyserveren."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Angiv portnummer for HTTPS-proxy-serveren."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "Angiv adressen på FTP-proxyserveren."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "Angiv portnummer for FTP-proxy-serveren."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "Angiv adresse på SOCKS-proxy-serveren."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Angiv portnummeret for SOCKS-proxy-serveren."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Angiv en kommasepareret liste over værtsnavne eller IP-adresser der skal "
-"undtages fra at bruge proxy-indstillingerne ovenfor.</p>\n"
-"<p>Hvis du vil undtage alle værtsmaskiner for et givent domæne, så angiv "
-"simpelthen domænenavnet med punktum foran. For eksempel, for at undtage alle "
-"værtsnavne for <i>kde.org</i>, så angiv <i>.kde.org</i>. Jokertegn såsom \"*"
-"\" eller \"?\" er ikke understøttet og har ingen virkning.</p>\n"
-"<p>Ydermere kan du også angive IP-adresser, f.eks. 127.0.0.1 og IP-adresser "
-"med et subnet, f.eks. 192.168.0.1/24.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>\n"
-"Markér dette felt hvis du ønsker at proxy-indstillingerne ovenfor kun skal "
-"anvendes på adresserne i listen <i>Undtagelser</i>.</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "Brug kun proxy-indstillinger for adresser i listen Undtagelser"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "Disse indstillinger gælder kun for gennemsøgning af netværket."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "Standard-brugernavn:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "Standardadgangskode:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5916,6 +4770,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [På tværs af domæner]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Detaljer"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -6004,6 +4863,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Cookie-detaljer"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Navn:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Værdi:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Udløber:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Sti:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Domæne:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -6076,157 +4960,15 @@ msgstr "Detaljer"
 msgid "Network"
 msgstr "Netværk"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " dage"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr ""
-"<para>KDE's papirkurv er konfigureret til at bruge <b>Finder</b>s papirkurv."
-"<br></para>"
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<para>At tømme KDE's papirkurv vil kun fjerne KDE's papirkurvselementer, "
-"hvorimod <br>tømning af papirkurven via Finder vil slette alt.</"
-"para><para>KDE's papirkurvselementer vil dukke op i en mappe med navnet KDE."
-"trash, i papirkurven.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, kde-format
-msgid "Delete files older than"
-msgstr "Slet filer som er ældre end"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>Markér dette felt for at tillade <emphasis strong='true'>automatisk "
-"sletning</emphasis> af filer som er ældre end den angivne værdi. Lad dette "
-"være deaktiveret for <emphasis strong='true'>ikke</emphasis> at slette nogen "
-"elementer automatisk efter et bestemt tidsrum</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " dag"
-msgstr[1] " dage"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-"<para>Angiv det antal dage som filer må blive i papirkurven. Alle filer som "
-"er ældre end dette vil automatisk blive slettet.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr "Oprydning:"
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr "Begræns til"
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>Markér dette felt for at begrænse papirkurven til den maksimale mængde "
-"diskplads som du angiver nedenfor. Ellers vil den være ubegrænset.</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "Størrelse:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-"<para>Dette er den maksimale procentdel af diskplads, der vil blive brugt "
-"til papirkurven.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr ""
-"<para>Dette er den beregnede mængde diskplads, som vil blive tilladt til "
-"papirkurven. Dvs. maksimum.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr "Vis advarsel"
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "Slet de ældste filer fra papirkurv"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "Slet de største filer fra papirkurv"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>Når størrelsesgrænsen nås, vil den foretrække at slette den type af "
-"filer, som du angiver, først. Hvis det er sat til at advare dig, så vil den "
-"gøre det, i stedet for at slette filerne automatisk.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, kde-format
-msgid "Full Trash:"
-msgstr "Fuld papirkurv:"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Forkert URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6239,12 +4981,12 @@ msgstr ""
 "bruge genskabelsesfunktionen igen, eller trække elementet et andet sted hen "
 "for at genskabe det."
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Ugyldig kombination af protokoller."
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Denne fil er allerede i papirkurven."
@@ -6363,365 +5105,15 @@ msgstr "Adgang nægtet"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Du har måske ikke rettigheder til adgang til %1-protokollen."
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "Navn"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "Nøgleord"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "Foretrukken"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"Markér dette felt for at vælge det fremhævede nøgleord til websøgning som "
-"foretrukken.<nl/>Foretrukne nøgleord til websøgning bruges på steder hvor "
-"kun nogle få udvalgte genveje kan vises ad gangen."
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "Ingen"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "Søgef&iltre"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Aktivér eller deaktivér nøgleord til websøgning. </"
-"p><p>Nøgleord til websøgning lader dig nemt og hurtigt tilgå og søge efter "
-"information online eller på din harddisk. </p><p>KDE leveres med mange "
-"prædefinerede nøgleord til websøgning. Et sådan nøgleord til websøgning er "
-"genvejen til søgemaskinen Google (TM). For at bruge den, skal du blot skrive "
-"nøgleordet \"gg\" efterfulgt af nøgleordsafgrænseren og søgeudtrykket, f."
-"eks. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, kde-format
-msgid "&Enable Web search keywords"
-msgstr "&Aktivér nøgleord til websøgning"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr "&Brug kun foretrukne nøgleord"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, kde-format
-msgid "Search for web search keywords"
-msgstr "Søg efter nøgleord til websøgning"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, kde-format
-msgid "Add a new Web search keyword"
-msgstr "Tilføj et nyt nøgleord til websøgning"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "Ændr det fremhævede nøgleord til websøgning"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "Slet det fremhævede nøgleord til websøgning"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "S&let"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Vælg den søgemaskine der skal bruges til inputfelter som leverer automatisk "
-"opslåningstjeneste, når du indtaster normale ord og fraser i stedet for en "
-"URL. For at deaktivere denne funktion vælges <b>Ingen</b> i listen.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, kde-format
-msgid "Default Web &search keyword:"
-msgstr "Standard nøgleord til web&søgning:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>Vælg et standard nøgleord til websøgning. </p><p>Dette "
-"gør det muligt for programmer automatisk at omdanne skrevne ord eller fraser "
-"til forespørgsler med nøgleord til websøgning når de ikke kan filtreres ind "
-"i en rigtig URL. </p><p>Vælg <span style=\" font-weight:600;\">Ingen</span> "
-"fra listen for at deaktivere denne funktion. </p></body></html>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-"Vælg den afgrænser som adskiller nøgleordet fra frasen eller ordet hvorefter "
-"der skal søges."
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "&Nøgleordsafgrænser:"
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Vælg en afgrænser til at markere nøgleordet til websøgning."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "Kolon"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "Mellemrum"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Ingen foretrukne søgeudbydere blev fundet."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "Ingen søgeudbydere blev fundet."
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "Standard"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "Ændr webgenveje"
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "Ny webgenvej"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr "Genvejen \"%1\" er allerede tildelt \"%2\". Vælg venligst en anden."
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "- %1: \"%2\""
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"Følgende genveje er allerede tildelt. Vælg venligst nogle andre.\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"URL'en for genvejen indeholder ikke en \"\\{...}\"-stedholder for "
-"brugerforespørgslen.\n"
-"Det betyder at den samme side altid vil blive besøgt, uanset hvad brugeren "
-"indtaster med genvejen."
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "Behold den"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr ""
-"Indtast et navn for søgeleverandøren her, som er læseligt for mennesker."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "&Navn på genvej:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Indtast den URI som bruges til at udføre en søgning på søgemaskinen her.<br /"
-">Hele teksten der skal søges efter kan angives som \\{@} eller \\{0}.<br/>\n"
-"\\{@} er anbefalet fordi det fjerner alle forespørgselsvariable (navn=værdi) "
-"fra den resulterende streng, hvorimod \\{0} vil blive udskiftet med den "
-"uændrede søgestreng.<br />Du kan bruge \\{1} ... \\{n} til at angive visse "
-"ord fra forespørgslen og \\{name} til at angive en værdi givet af "
-"'navn=værdi' i brugerforespørgslen.<br />Derudover er det muligt at angive "
-"flere referencer (navne, tal og strenge) samtidigt (\\{navn1,navn2,...,"
-"\"streng\"}).<br /> Den første matchende værdi (fra venstre) vil blive "
-"anvendt som udskiftningsværdi for den resulterende URI.<br />En citeret "
-"streng kan bruges som standard hvis intet matcher fra venstre i "
-"referencelisten.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "Genvejens &URL:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr "Vælg det tegnsæt der skal bruges til at indkode dine søgeforespørgsel."
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Genvejene som indtastes her kan bruges som pseudo-URI-skema i KDE. For "
-"eksempel kan genvejen <b>av</b> bruges som i <b>av</b>:<b>min søgning</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Angiv et forståeligt navn til webgenvejen her.</p></"
-"body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "&Genveje:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr ""
-"Vælg det tegnsæt der skal bruges til indkodning af dine søgeforespørgsel"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "&Tegnsæt"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "Indsæt pladsholder til forespørgsel"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7406,6 +5798,12 @@ msgstr "Type:"
 #, kde-format
 msgid "Location:"
 msgstr "Placering:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "Størrelse:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -9003,6 +7401,11 @@ msgstr "# vil blive erstattet af faldende tal, begyndende med:"
 msgid "Information"
 msgstr "Information"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "Erstat"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -9231,6 +7634,1098 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke har tillid til dette program, så tryk på Annullér"
+
+#~ msgid "&Policy"
+#~ msgstr "&Politik"
+
+#~ msgid "&Management"
+#~ msgstr "&Håndtering"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "D-Bus-kommunikationsfejl"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "Kunne ikke slette alle cookies."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "Kunne ikke slette alle de cookies der blev bedt om."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "Mislykket informationsopslag"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr "Kunne ikke hente information om cookies gemt på din computer."
+
+#~ msgid "End of session"
+#~ msgstr "Slut på session"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "Search"
+#~ msgstr "Søg"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "Søg interaktivt efter domæner og værter"
+
+#~ msgid "Site"
+#~ msgstr "Site"
+
+#~ msgid "Cookie Name"
+#~ msgstr "Cookie-navn"
+
+#~ msgid "D&elete"
+#~ msgstr "S&let"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "Sl&et alt"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "Indstil &politik..."
+
+#~ msgid "&Reload List"
+#~ msgstr "&Genindlæs liste"
+
+#~ msgid "Secure:"
+#~ msgstr "Sikker:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "Ændr cookie-politik"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "Ny cookie-politik"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>Der findes allerede en politik for<center><b>%1</b></center>Ønsker du "
+#~ "at erstatte den?</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "Duplikér politik"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "Kan ikke kommunikere med cookie-håndterings service.\n"
+#~ "Enhver ændring du laver vil ikke få virkning før service er genstartet."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Aktivér cookie-understøttelse til. Normalt vil du ønske at have cookie-"
+#~ "understøttelse slået til, og så brugerindstille det så det passer til dit "
+#~ "ønske om privatliv.</p><p>\n"
+#~ "Bemærk venligst at deaktivering af cookie-understøttelse gør mange "
+#~ "websider ulæselige.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "&Aktivér cookies"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Afslå alle såkaldte tredjeparts-cookies. Dette er cookies der kommer fra "
+#~ "et andet sted end det du bad om. Hvis du for eksempel besøger <b>www."
+#~ "foobar.com</b> og har dette afkrydset, er det kun cookies der kommer fra "
+#~ "www.foobar.com der vil blive behandlet ifølge din standard- eller sted-"
+#~ "specifikke politik. Alle andre cookies vil automatisk blive afslået. "
+#~ "Dette reducerer chancerne for stedets operatører for at samle en profil "
+#~ "om dine daglige vaner angående webbrowsing.\n"
+#~ "</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "A&cceptér kun cookies fra oprindelig server"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "Acceptér midlertidige cookies automatisk, betyder at ved slutningen af "
+#~ "denne session udløber de. Sådanne cookies gemmes ikke til din lokale "
+#~ "opbevaringsenhed eller harddisk. I stedet slettes de når du lukker alle "
+#~ "programmer (f.eks. din browser) der bruger dem.</p><p><u>BEMÆRK:</u>: "
+#~ "Markering af denne indstilling tilsidesætter din standard- såvel som dine "
+#~ "sted-specifikke cookie-politikker for sessioncookies.</p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "Acceptér session-cookies a&utomatisk"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Afgør hvordan cookies modtaget fra en ekstern maskine vil blive "
+#~ "håndteret.\n"
+#~ "<ul>\n"
+#~ "<li><b>Spørg</b> vil få KDE til at bede om din godkendelse hver gang en "
+#~ "server ønsker at sætte en cookie.</li>\n"
+#~ "<li><b>Acceptér</b> vil få cookies til at blive accepteret uden at spørge."
+#~ "</li>\n"
+#~ "<li><b>Acceptér i resten af sessionen</b> vil gøre at cookies accepteres, "
+#~ "men de vil udløbe ved afslutningen af sessionen.</li>\n"
+#~ "<li><b>Afslå</b> vil få cookie-lageret til at afslå alle cookies den "
+#~ "modtager.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>BEMÆRK:</u>Domænespecifikke politikker, som kan sættes nedenfor går "
+#~ "altid forud for standardpolitikken.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "Standardpolitik"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "Acce&ptér alle cookies"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "Acceptér i &resten af sessionen"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "&Bed om bekræftelse"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "&Afvis alle cookies"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "For at tilføje en ny politik, klikker du simpelthen på <b>Tilføj...</b>-"
+#~ "knappen og giver den nødvendige information. For at ændre en eksisterende "
+#~ "politik, bruger du <b>Ændr...</b>-knappen og vælger den nye politik fra "
+#~ "politik-dialogen. Ved at klikke på <b>Slet</b>-knappen vil den valgte "
+#~ "politik blive fjernet og det vil få standardpolitikken til at blive brugt "
+#~ "på dette domæne hvorimod <b>Slet alt</b> vil fjerne alle sted-specifikke "
+#~ "politikker.\n"
+#~ "</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "Sidepolitik"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "Søg interaktivt efter domæner"
+
+#~ msgid "Search..."
+#~ msgstr "Søg..."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Liste af steder for hvilke du har sat en specifik cookie-politik. "
+#~ "Specifikke politikker går forud for standardpolitik-indstillingen på "
+#~ "disse steder.\n"
+#~ "</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "Domæne"
+
+#~ msgid "Policy"
+#~ msgstr "Politik"
+
+#~ msgid "&New..."
+#~ msgstr "&Ny..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "Æ&ndr..."
+
+#~ msgid "Accept"
+#~ msgstr "Acceptér"
+
+#~ msgid "Accept For Session"
+#~ msgstr "Acceptér i denne session"
+
+#~ msgid "Reject"
+#~ msgstr "Afslå"
+
+#~ msgid "Ask"
+#~ msgstr "Spørg"
+
+#~ msgid "Do Not Know"
+#~ msgstr "Kender den ikke"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Indtast værten eller domænet for hvilket denne politik gælder, f.eks. "
+#~ "<b>www.kde.org</b> eller <b>.kde.org</b>.\n"
+#~ "</qt>"
+
+#~ msgid "Site name:"
+#~ msgstr "Sidenavn:"
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr ""
+#~ "Angiv vært eller domænenavn, f.eks. .kde.org, som denne politik gælder "
+#~ "for."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Vælg ønsket politik:\n"
+#~ "<ul>\n"
+#~ "<li><b>Acceptér</b> - Tillader dette sted at sætte cookies</li>\n"
+#~ "<li><b>Acceptér i resten af sessionen</b> - Tillader webstedet at sætte "
+#~ "cookies, men de vil udløbe ved afslutningen af sessionen.</li>\n"
+#~ "<li><b>Afslå</b> - Afslår alle cookies fra denne side</li>\n"
+#~ "<li><b>Spørg</b> - Spørger dig når cookies modtages fra denne side</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "Politik:"
+
+#~ msgid "Accept until end of session"
+#~ msgstr "Acceptér i resten af sessionen"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr ""
+#~ "Du skal genstarte de kørende programmer for at disse ændringer skal få "
+#~ "virkning."
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "Opdatering mislykkedes"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "Du må genstarte KDE før disse ændringer træder i kraft."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "Deaktivér passiv FTP"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "Når FTP-forbindelser er passive forbinder klienten til serveren, i stedet "
+#~ "for omvendt, så firewalls blokerer ikke forbindelsen. Gamle FTP-servere "
+#~ "understøtter dog måske ikke passiv FTP."
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "Markér delvist uploadede filer"
+
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "Mens en fil overføres er dens endelse \".part\". Når den er fuldt "
+#~ "overført omdøbes den til sit rigtige navn."
+
+#~ msgid "Timeout Values"
+#~ msgstr "Værdier for udløb af tid"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "Her kan du indstille værdier for tidsudløb. Du vil måske at tilpasse dem "
+#~ "hvis din forbindelse er meget langsom. Den maksimalt tilladte værdi er 1 "
+#~ "sekund."
+#~ msgstr[1] ""
+#~ "Her kan du indstille værdier for tidsudløb. Du vil måske at tilpasse dem "
+#~ "hvis din forbindelse er meget langsom. Den maksimalt tilladte værdi er %1 "
+#~ "sekunder."
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " sekund"
+#~ msgstr[1] " sekunder"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "So&kkel-læsning:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "Pro&xy-forbindelse:"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "Server-for&bindelse:"
+
+#~ msgid "&Server response:"
+#~ msgstr "Server-&svar:"
+
+#~ msgid "Global Options"
+#~ msgstr "Globale indstillinger"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "Markér &delvist uploadede filer"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<p>Markerer filer der er delvist uploadet via SMB, SFTP og andre "
+#~ "protokoller.</p><p>Når dette er aktiveret, vil filer der er delvist "
+#~ "uploadet, have filendelsen \".part\". Denne filendelse vil blive fjernet "
+#~ "når overførslen er gennemført.</p>"
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " byte"
+#~ msgstr[1] " bytes"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid ""
+#~ "If cancelled, automatically delete partially uploaded files smaller than:"
+#~ msgstr ""
+#~ "Hvis der annulleres, så slet automatisk uploadede filer som er mindre end:"
+
+#~ msgid "FTP Options"
+#~ msgstr "FTP-tilvalg"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "Aktivér passiv &tilstand (PASV)"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "Aktiverer FTP's \"passive\" tilstand. Dette kræves for at tillade FTP at "
+#~ "virke bag en firewall."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<p>Markerer FTP-filer der er delvist uploadet.</p><p>Når dette er "
+#~ "aktiveret, vil filer der er delvist uploadet, have filendelsen \".part\". "
+#~ "Denne filendelse vil blive fjernet når overførslen er gennemført.</p>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Proxy-konfiguration.\n"
+#~ "<p>\n"
+#~ "En proxyserver er en maskine der sidder mellem dit interne netværk og "
+#~ "internettet og sørger for tjenester såsom at cache internetsider og "
+#~ "filtrere dem. Dette giver dig hurtigere adgang til steder du allerede har "
+#~ "besøgt da de bliver opbevaret lokalt på din proxy-server. Filtrerende "
+#~ "proxy-servere har sædvanligvis evnen til at blokere forespørgsler om "
+#~ "reklamer, spam og hvad du ellers måtte ønske at blokere.\n"
+#~ "<p>\n"
+#~ "Hvis du er usikker på om du behøver at bruge en proxy-server til at "
+#~ "forbinde dig til internettet, så spørg din Internet serviceudbyder eller "
+#~ "din systemadministrator.\n"
+#~ "</qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "Forbind direkte til internettet."
+
+#~ msgid "No Proxy"
+#~ msgstr "Ingen proxy"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>\n"
+#~| "Automatically detect and configure the proxy settings.<p>\n"
+#~| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~| "Protocol (WPAD)</b>.<p>\n"
+#~| "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~| "some UNIX/Linux distributions. If you encounter a problem when using "
+#~| "this option, please check the FAQ section at https://konqueror.org.\n"
+#~| "</qt>"
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Detektér og indstil proxy automatisk.<p>\n"
+#~ "Automatisk detektion udføres ved brug af <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>BEMÆRK:</b> Dette virker muligvis ikke rigtigt eller ikke overhovedet "
+#~ "i nogle UNIX/Linux distributioner. Hvis du støder på et problem når du "
+#~ "bruger dette, så tjek venligst afsnittet om OSS på https://konqueror."
+#~ "org.\n"
+#~ "</qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "Detektér proxy-konfiguration automatisk"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr "Brug det angivne proxy-script til indstilling af proxy."
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "Brug URL til auto-konfiguration af proxy:"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "Skriv adressen på proxy-indstillingsscriptet."
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Brug de proxy-indstillinger der er defineret for systemet.</p>\n"
+#~ "<p>Nogle platforme tilbyder systemomfattende proxy-konfiguration og valg "
+#~ "af denne indstilling lader dig bruge de indstillinger.</p>\n"
+#~ "<p>På Mac-platforme</p>\n"
+#~ "<p>På Windows-platforme</p>\n"
+#~ "<p>På Unix- og Linux-platforme, er sådanne proxy-indstillinger normalt "
+#~ "defineret gennem miljøvariable. De følgende miljøvarible bliver "
+#~ "detekteret og brugt når de er til stede: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "Brug systemets proxy-konfiguration:"
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt>Forsøg automatisk opdagelse af de miljøvariabler der bruges til at "
+#~ "indstille systemomfattende proxy-information.<p>Denne egenskab virker ved "
+#~ "at gennemsøge almindeligt brugte variabelnavne såsom HTTP_PROXY, "
+#~ "FTP_PROXY og NO_PROXY.</qt>"
+
+#~ msgid "Auto D&etect"
+#~ msgstr "Autod&etektér"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Indtast navnet på miljøvariablen, f.eks. <b>HTTP_PROXY</b>, der bliver "
+#~ "brugt til at gemme adressen på HTTP-proxyserveren.<p>\n"
+#~ "Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge "
+#~ "at opdage denne variabel automatisk.</p>\n"
+#~ "</qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "HTTP-proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Indtast navnet på miljøvariablen, f.eks. <b>HTTPS_PROXY</b>, der bliver "
+#~ "brugt til at gemme adressen på HTTPS-proxyserveren.<p>\n"
+#~ "Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge "
+#~ "at opdage denne variabel automatisk.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "SSL-proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Angiv navnet på miljøvariablen, f.eks. <b>FTP_PROXY</b>,som bliver brugt "
+#~ "til at gemme adressen på FTP-proxyserveren.<p>\n"
+#~ "Alternativt kan du klikke på <b>Autodetektér</b>-knappen for at forsøge "
+#~ "at opdage denne variabel automatisk.</p>\n"
+#~ "</qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "FTP-proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Angiv navnet på miljøvariablen, f.eks. <b>SOCKS_PROXY</b>, der bliver "
+#~ "brugt til at gemme adressen på SOCKS-proxy-serveren.<p>\n"
+#~ "Alternativt kan du klikke på knappen <b>Autodetektér</b> for at forsøge "
+#~ "at opdage denne variabel automatisk.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "SOCKS-proxy:"
+
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Angiv navnet på miljøvariablen, f.eks. <b>SOCKS_PROXY</b>, der bliver "
+#~ "brugt til at gemme adressen på SOCKS-proxy-serveren.<p>Alternativt kan du "
+#~ "klikke på knappen <b>&quot;Autodetektér&quot;</b> for at forsøge at "
+#~ "opdage denne variabel automatisk.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Indtast miljøvariablen, f.eks. <b>NO_PROXY</b>, som bliver brugt til at "
+#~ "gemme adresser på steder for hvilke proxy-serveren ikke skal bruges.<p>\n"
+#~ "Alternativt kan du klikke på <b>\"Autodetektér</b>-knappen for at forsøge "
+#~ "at opdage denne variabel automatisk.\n"
+#~ "</qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "Undtagelser:"
+
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Angiv miljøvariablen, f.eks. <b>NO_PROXY</b>, som bliver brugt til at "
+#~ "gemme adresser på steder for hvilke proxy-indstillingerne ovenfor ikke "
+#~ "skal bruges.<p>\n"
+#~ "Alternativt kan du klikke på knappen <b>&quot;Autodetektér&quot;</b> for "
+#~ "at forsøge at opdage denne variabel automatisk.</p></qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "Vis &værdien af miljøvariablerne"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "Indtast proxy-server indstillingsinformation manuelt."
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "Brug manuelt angivet proxy-konfiguration:"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "Skriv adressen på HTTP-proxyserveren."
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "Angiv portnummer for HTTP-proxy-serveren."
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "Brug denne proxy-server til a&lle protokoller"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "Skriv adressen på HTTPS-proxyserveren."
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "Angiv portnummer for HTTPS-proxy-serveren."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "Angiv adressen på FTP-proxyserveren."
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "Angiv portnummer for FTP-proxy-serveren."
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "Angiv adresse på SOCKS-proxy-serveren."
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "Angiv portnummeret for SOCKS-proxy-serveren."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Angiv en kommasepareret liste over værtsnavne eller IP-adresser der "
+#~ "skal undtages fra at bruge proxy-indstillingerne ovenfor.</p>\n"
+#~ "<p>Hvis du vil undtage alle værtsmaskiner for et givent domæne, så angiv "
+#~ "simpelthen domænenavnet med punktum foran. For eksempel, for at undtage "
+#~ "alle værtsnavne for <i>kde.org</i>, så angiv <i>.kde.org</i>. Jokertegn "
+#~ "såsom \"*\" eller \"?\" er ikke understøttet og har ingen virkning.</p>\n"
+#~ "<p>Ydermere kan du også angive IP-adresser, f.eks. 127.0.0.1 og IP-"
+#~ "adresser med et subnet, f.eks. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Markér dette felt hvis du ønsker at proxy-indstillingerne ovenfor kun "
+#~ "skal anvendes på adresserne i listen <i>Undtagelser</i>.</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "Brug kun proxy-indstillinger for adresser i listen Undtagelser"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "Disse indstillinger gælder kun for gennemsøgning af netværket."
+
+#~ msgid "Default user name:"
+#~ msgstr "Standard-brugernavn:"
+
+#~ msgid "Default password:"
+#~ msgstr "Standardadgangskode:"
+
+#~ msgid " days"
+#~ msgstr " dage"
+
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr ""
+#~ "<para>KDE's papirkurv er konfigureret til at bruge <b>Finder</b>s "
+#~ "papirkurv.<br></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<para>At tømme KDE's papirkurv vil kun fjerne KDE's papirkurvselementer, "
+#~ "hvorimod <br>tømning af papirkurven via Finder vil slette alt.</"
+#~ "para><para>KDE's papirkurvselementer vil dukke op i en mappe med navnet "
+#~ "KDE.trash, i papirkurven.</para>"
+
+#~ msgid "Delete files older than"
+#~ msgstr "Slet filer som er ældre end"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>Markér dette felt for at tillade <emphasis strong='true'>automatisk "
+#~ "sletning</emphasis> af filer som er ældre end den angivne værdi. Lad "
+#~ "dette være deaktiveret for <emphasis strong='true'>ikke</emphasis> at "
+#~ "slette nogen elementer automatisk efter et bestemt tidsrum</para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " dag"
+#~ msgstr[1] " dage"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr ""
+#~ "<para>Angiv det antal dage som filer må blive i papirkurven. Alle filer "
+#~ "som er ældre end dette vil automatisk blive slettet.</para>"
+
+#~ msgid "Cleanup:"
+#~ msgstr "Oprydning:"
+
+#~ msgid "Limit to"
+#~ msgstr "Begræns til"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>Markér dette felt for at begrænse papirkurven til den maksimale "
+#~ "mængde diskplads som du angiver nedenfor. Ellers vil den være ubegrænset."
+#~ "</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr ""
+#~ "<para>Dette er den maksimale procentdel af diskplads, der vil blive brugt "
+#~ "til papirkurven.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr ""
+#~ "<para>Dette er den beregnede mængde diskplads, som vil blive tilladt til "
+#~ "papirkurven. Dvs. maksimum.</para>"
+
+#~ msgid "Show a Warning"
+#~ msgstr "Vis advarsel"
+
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "Slet de ældste filer fra papirkurv"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "Slet de største filer fra papirkurv"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>Når størrelsesgrænsen nås, vil den foretrække at slette den type af "
+#~ "filer, som du angiver, først. Hvis det er sat til at advare dig, så vil "
+#~ "den gøre det, i stedet for at slette filerne automatisk.</para>"
+
+#~ msgid "Full Trash:"
+#~ msgstr "Fuld papirkurv:"
+
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "Navn"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "Nøgleord"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "Foretrukken"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "Markér dette felt for at vælge det fremhævede nøgleord til websøgning som "
+#~ "foretrukken.<nl/>Foretrukne nøgleord til websøgning bruges på steder hvor "
+#~ "kun nogle få udvalgte genveje kan vises ad gangen."
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "Ingen"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "Søgef&iltre"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Aktivér eller deaktivér nøgleord til websøgning. </"
+#~ "p><p>Nøgleord til websøgning lader dig nemt og hurtigt tilgå og søge "
+#~ "efter information online eller på din harddisk. </p><p>KDE leveres med "
+#~ "mange prædefinerede nøgleord til websøgning. Et sådan nøgleord til "
+#~ "websøgning er genvejen til søgemaskinen Google (TM). For at bruge den, "
+#~ "skal du blot skrive nøgleordet \"gg\" efterfulgt af nøgleordsafgrænseren "
+#~ "og søgeudtrykket, f.eks. <span style=\" font-weight:600;\">gg:KDE</span>."
+#~ "</p></body></html>"
+
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "&Aktivér nøgleord til websøgning"
+
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "&Brug kun foretrukne nøgleord"
+
+#~ msgid "Search for web search keywords"
+#~ msgstr "Søg efter nøgleord til websøgning"
+
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "Tilføj et nyt nøgleord til websøgning"
+
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "Ændr det fremhævede nøgleord til websøgning"
+
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "Slet det fremhævede nøgleord til websøgning"
+
+#~ msgid "De&lete"
+#~ msgstr "S&let"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Vælg den søgemaskine der skal bruges til inputfelter som leverer "
+#~ "automatisk opslåningstjeneste, når du indtaster normale ord og fraser i "
+#~ "stedet for en URL. For at deaktivere denne funktion vælges <b>Ingen</b> i "
+#~ "listen.\n"
+#~ "</qt>"
+
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "Standard nøgleord til web&søgning:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Vælg et standard nøgleord til websøgning. </"
+#~ "p><p>Dette gør det muligt for programmer automatisk at omdanne skrevne "
+#~ "ord eller fraser til forespørgsler med nøgleord til websøgning når de "
+#~ "ikke kan filtreres ind i en rigtig URL. </p><p>Vælg <span style=\" font-"
+#~ "weight:600;\">Ingen</span> fra listen for at deaktivere denne funktion. </"
+#~ "p></body></html>"
+
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr ""
+#~ "Vælg den afgrænser som adskiller nøgleordet fra frasen eller ordet "
+#~ "hvorefter der skal søges."
+
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "&Nøgleordsafgrænser:"
+
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr "Vælg en afgrænser til at markere nøgleordet til websøgning."
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "Kolon"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "Mellemrum"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "Standard"
+
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "Ændr webgenveje"
+
+#~ msgid "New Web Shortcut"
+#~ msgstr "Ny webgenvej"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr "Genvejen \"%1\" er allerede tildelt \"%2\". Vælg venligst en anden."
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "- %1: \"%2\""
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Følgende genveje er allerede tildelt. Vælg venligst nogle andre.\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "URL'en for genvejen indeholder ikke en \"\\{...}\"-stedholder for "
+#~ "brugerforespørgslen.\n"
+#~ "Det betyder at den samme side altid vil blive besøgt, uanset hvad "
+#~ "brugeren indtaster med genvejen."
+
+#~ msgid "Keep It"
+#~ msgstr "Behold den"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr ""
+#~ "Indtast et navn for søgeleverandøren her, som er læseligt for mennesker."
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "&Navn på genvej:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Indtast den URI som bruges til at udføre en søgning på søgemaskinen her."
+#~ "<br />Hele teksten der skal søges efter kan angives som \\{@} eller \\{0}."
+#~ "<br/>\n"
+#~ "\\{@} er anbefalet fordi det fjerner alle forespørgselsvariable "
+#~ "(navn=værdi) fra den resulterende streng, hvorimod \\{0} vil blive "
+#~ "udskiftet med den uændrede søgestreng.<br />Du kan bruge \\{1} ... \\{n} "
+#~ "til at angive visse ord fra forespørgslen og \\{name} til at angive en "
+#~ "værdi givet af 'navn=værdi' i brugerforespørgslen.<br />Derudover er det "
+#~ "muligt at angive flere referencer (navne, tal og strenge) samtidigt "
+#~ "(\\{navn1,navn2,...,\"streng\"}).<br /> Den første matchende værdi (fra "
+#~ "venstre) vil blive anvendt som udskiftningsværdi for den resulterende URI."
+#~ "<br />En citeret streng kan bruges som standard hvis intet matcher fra "
+#~ "venstre i referencelisten.\n"
+#~ "</qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "Genvejens &URL:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr ""
+#~ "Vælg det tegnsæt der skal bruges til at indkode dine søgeforespørgsel."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Genvejene som indtastes her kan bruges som pseudo-URI-skema i KDE. For "
+#~ "eksempel kan genvejen <b>av</b> bruges som i <b>av</b>:<b>min søgning</"
+#~ "b>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Angiv et forståeligt navn til webgenvejen her.</p></"
+#~ "body></html>"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "&Genveje:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr ""
+#~ "Vælg det tegnsæt der skal bruges til indkodning af dine søgeforespørgsel"
+
+#~ msgid "&Charset:"
+#~ msgstr "&Tegnsæt"
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "Indsæt pladsholder til forespørgsel"
 
 #~ msgid "Blocked request."
 #~ msgstr "Blokerede anmodning."

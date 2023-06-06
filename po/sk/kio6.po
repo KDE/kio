@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2023-06-03 21:00+0200\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
@@ -106,7 +106,7 @@ msgstr "Súbor už existuje"
 msgid "Already Exists as Folder"
 msgstr "Už existuje ako priečinok"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "Kôš"
@@ -4001,1149 +4001,6 @@ msgstr "Nepodarilo sa otvoriť súbor."
 msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ sa nepodarilo spustiť."
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&Politika"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&Správa"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "Chyba komunikácie D-Bus"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "Nie je možné odstrániť všetky požadované cookies."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "Nie je možné odstrániť požadované cookies."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "Nepodarilo sa nájsť informáciu"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr "Nie je možné získať informácie o cookies uložených vo vašom počítači."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "Koniec sedenia"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "Áno"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "Hľadať"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "Interaktívne hľadanie domén a počítačov"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "Stránka"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "Názov cookie"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "O&dstrániť"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "Odstrániť &všetky"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "Nastaviť politiku..."
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "&Znovu načítať zoznam"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Podrobnosti"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Názov:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Hodnota:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Doména:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Cesta:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Vyprší:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "Bezpečný:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "Zmeniť politiku cookue"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "Nová politika cookie"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>Už existuje politika pre <center><b>%1</b></center>Chcete ju nahradiť?</"
-"qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "Politika duplikácie"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "Nahradiť"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"Nie je možné komunikovať so službou správy cookies.\n"
-"Zmeny, ktoré se urobili, sa neprejavia, kým nebude táto služba reštartovaná."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Zapnutie podpory cookies. Zvyčajne budete chcieť mať podporu cookies "
-"zapnutú a manipulovať s nimi tak, aby to vyhovelo potrebe vášho zabezpečenia."
-"</p><p>\n"
-"Prosím pamätajte, že po zakázaní cookies nebude možné pristupovať k "
-"niektorým stránkam.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "Povoliť &cookies"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zamietnutie tzv. third-party cookies. Zvoľte si túto možnosť, ak chcete "
-"zamietnuť všetky cookies zo iných stránok než z tej, ktorú ste si vyžiadali. "
-"Napríklad, ak navštíivte <b>www.foobar.com</b> s touto voľbou zapnutou, iba "
-"cookies pochádzajúce z www.foobar.com budú spracované podľa vašich "
-"nastavení. Cookies zo všetých ostatných serverov budú automaticky "
-"odmietnuté. Toto redukuje možnosť operátorov stránok vytvárať si profil o "
-"vašich prehliadacích zvykoch.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "A&kceptovať cookies iba z pôvodného serveru"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>\n"
-"Automaticky prijať dočasné cookies určené na vypršanie pri ukončení "
-"aktuálneho sedenia. Tieto cookies nebudú uložené na vašom disku alebo "
-"úložnom zariadení.Namiesto toho budú odstránené pri ukončení všetkých "
-"aplikácií, ktoré ich používajú (prehliadač). </p><p><u>POZNÁMKA</u> "
-"Zaškrtnutie tejto voľby prepíše vaše predvolené nastavenia ako aj špecifické "
-"nastavenie podľa serverov pre cookies sedení.</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "&Automaticky akceptovať cookies sedenia"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Určuje spôsob, ako sa bude manipulovať s cookies prijatými zo vzdialeného "
-"serveru: \n"
-"<ul>\n"
-"<li><b>Pýtať sa</b> spôsobí, že KDE sa vás opýta na prijatie cookie, "
-"kedykoľvek chce server nastaviť cookie.</li>\n"
-"<li><b>Prijať</b> spôsobí, že všetky cookies budú v tichosti a bez opýtania "
-"prijaté.</li>\n"
-"<li><b>Prijať do konca sedenia</b> spôsobí, že cookies budú prijaté ale "
-"vypršia pri ukončení sedenia.</li>\n"
-"<li><b>Odmietnuť</b> spôsobí, že všetky prijaté cookies budú odmietnuté.</"
-"li>\n"
-"</ul><p>\n"
-"<u>POZNÁMKA:</u> Politiky definované pre jednotlivé domény, ktoré môžete "
-"nastaviť nižšie, budú mať vždy prednosť pred štandardnou politikou.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "Implicitná politika"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "Akcep&tovať všetky cookies"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "Prijať do konca sedenia"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "&Pýtať sa na potvrdenie"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "&Odmietnuť všetky cookies"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Ak chcete pridať novú politiku, jednoducho kliknite na tlačidlo <b>Pridať..."
-"</b> a vyplňte požadované informácie. Ak chcete zmeniť existujúcu politiku, "
-"kliknite na tlačidlo <b>Zmeniť...</b> a zvoľte v dialógovom okne novú "
-"politiku. Kliknutím na tlačidlo <b>Odstrániť</b> sa odstráni vybraná "
-"politika a pre túto doménu sa bude ďalej používať štandardná politika. "
-"<b>Odstrániť všetky</b> odstráni všetky politiky.\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "Politika stránky"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "Interaktívne hľadanie domén"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, kde-format
-msgid "Search..."
-msgstr "Hľadať..."
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zoznam serverov, pre ktoré máte nastavenú špecifickú politiku pre cookies. "
-"Tá má pre tieto servery prednosť pred štandardnou politikou.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "Doména"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "Politika"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&Nový..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "Zmeniť..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "Akceptovať"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "Prijať pre sedenie"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "Odmietnuť"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "Pýtať sa"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "Neviem"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno hostiteľa alebo domény, pre ktorý má politika platiť. Napríklad "
-"<b>www.kde.org</b> alebo <b>.kde.org</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "Názov stránky:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-"Zadajte názov hostiteľa alebo domény, napr. .kde.org, pre ktoré platí táto "
-"politika."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Vyberte požadovanú politiku:\n"
-"<ul>\n"
-"<li><b>Prijať</b> - Povolí tomuto serveru nastavovať cookies.</li>\n"
-"<li><b>Prijať do konca sedenia</b> - Povolí tomuto serveru nastaviť cookies "
-"ale vypršia pri ukončení sedenia.</li>\n"
-"<li><b>Pýtať sa</b> - Vyzve pri prijatí cookie z tohto serveru.</li>\n"
-"</ul>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "Politika:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "Prijať do konca sedenia"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr "Aby zmeny boli aktívne musíte spustené aplikácie reštartovať."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "Obnova zlyhala"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "KDE musí byť reštartované, aby sa zmena prejavila."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "Zakázať pasívne FTP"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"Ak sú FTP spojenia pasívne, klient sa pripojí na server a nie naopak. Preto "
-"firewall neblokuje spojenie. Staré servery FTP ale pasívne FTP nemusia "
-"podporovať."
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "Označiť čiastočne nahrané súbory"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"Počas posielania je prípona súboru \".part\". Až po dokončení prenosu sa "
-"premenuje na skutočné meno."
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "Hodnoty čakania"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
-"máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekunda."
-msgstr[1] ""
-"Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
-"máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekundy."
-msgstr[2] ""
-"Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
-"máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekúnd."
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " sekunda"
-msgstr[1] " sekundy"
-msgstr[2] " sekúnd"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "Čítanie so&ketu:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "Spojenie s &proxy:"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "Spojenie so &serverom:"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "Odpoveď &servera:"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "Globálne možnosti"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "O&značiť čiastočne nahrané súbory"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<p>Označí čiastočne nahrané súbory cez SMB, SFTP a iné protokoly.</p><p>Ak "
-"je táto voľba zapnutá, čiastočne nahrané súbory budú mať príponu \".part\". "
-"Táto prípona bude odstránená, keď bude prenos ukončený.</p>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " bajt"
-msgstr[1] " bajty"
-msgstr[2] " bajtov"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-"Ak je zrušené, automaticky odstrániť čiastočne nahrané súbory menšie ako:"
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "Možnosti FTP"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "Povoliť pasívny &mód (PASV)"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"Povolí \"pasívne\" FTP. Toto je požadované pre správnu funckiu FTP spoza "
-"firewallu."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<p>Označí čiastočne nahrané FTP súbory.</p><p>Ak je táto voľba zapnutá, "
-"čiastočne nahrané súbory budú mať príponu \".part\". Táto prípona bude "
-"odstránená, keď bude prenos ukončený.</p>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-"Nie všetky aplikácie budú používať toto nastavenie proxy. Najmä "
-"<application>Firefox</application> a <application>Chromium</application> "
-"alebo čokoľvek z nich odvodené, alebo čokoľvek, čo používa "
-"<application>QtWebEngine</application>&nbsp;- čo zahŕňa "
-"<application>Konqueror</application> používajúci <application>WebEnginePart</"
-"application>, <application>Akregator</application> a <application>Falkon</"
-"application>&nbsp;- nebudú používať tieto nastavenia. Niektoré aplikácie "
-"môžu umožniť konfiguráciu proxy vo vlastných nastaveniach."
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Nastavenie proxy.\n"
-"<p>\n"
-"Proxy server je počítač medzi vaším počítačom a Internetom, ktorý poskytuje "
-"služby ako napríklad kešovanie a filtrovanie navštívených stránok. Kešujúce "
-"proxy servery umožňujú rýchlejší prístup k už navštíveným stránkam, pretože "
-"sú uložené lokálne na proxy serveri; filtrovacie proxy servery zvyčajne "
-"poskytujú schopnosť blokovať reklamu, spam alebo ľubovolný iný obsah.\n"
-"<p>\n"
-"Ak si nie ste istý, či potrebujete proxy server na prístup do Internetu, "
-"opýtajte sa vášho poskytovateľa Internetu alebo vášho administrátora "
-"systému.\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "Pripojiť k Internetu priamo."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "Bez &proxy"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, kde-format
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Automatické zisťovanie a konfigurácia nastavení proxy.<p>\n"
-"Automatické zisťovanie sa vykonáva pomocou <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>POZNÁMKA:</b> Táto možnosť nemusí v niektorých distribúciách UNIX/Linux "
-"fungovať správne alebo nemusí fungovať vôbec.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "Automaticky zistiť nastavenia proxy"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr "Použiť zadaný proxy skript pre nastavenie proxy serveru."
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "Použiť URL automatickej konfigurácie proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "Zadajte adresu skriptu pre nastavenie proxy serveru."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Použiť nastavenia proxy definované v systéme.</p>\n"
-"<p>Niektoré platformy ponúkajú konfiguračné informácie pre celý systém a "
-"výber tejto možnosti vám umožní použiť tieto nastavenia.</p>\n"
-"<p>Na platformách Mac</p>\n"
-"<p>Na platformách Windows</p>\n"
-"<p>Na platformách Unix a Linux, tieto nastavenia sú obyčajne definované cez "
-"premenné prostredia. Nasledovné premenné prostredia sú detekované a použité, "
-"ak sú dostupné: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, "
-"<b>NO_PROXY</b>.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "Použiť systémové nastavenie proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt>Kliknutím na toto tlačidlo spustíte pokus o automatické určenie "
-"premenných použitých pre systémové nastavenie proxy. <p>\n"
-"Toto automatické určenie funguje ako hľadanie obvyklých mien premenných, ako "
-"sú HTTP_PROXY, FTP_PROXY A NO_PROXY.</qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, kde-format
-msgid "Auto D&etect"
-msgstr "&Automatické zistenie"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno premennej prostredia, napr. <b>HTTP_PROXY</b>, ktorá sa má "
-"použiť ako adresa proxy serveru HTTP.<p>\n"
-"Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "HTTP Proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno premennej prostredia, napr. <b>HTTPS_PROXY</b>, ktorá sa má "
-"použiť ako adresa proxy serveru HTTPS.<p>\n"
-"Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "SSL Proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno premennej prostredia, napr. <b>FTP_PROXY</b>, ktorá sa má "
-"použiť ako adresa proxy serveru FTP.<p>\n"
-"Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "FTP Proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno premennej prostredia, napr. <b>HTTP_PROXY</b>, ktorá sa má "
-"použiť ako adresa proxy serveru HTTP.<p>\n"
-"Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "SOCKS Proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Zadajte názov premennej prostredia, napr. <b>SOCKS_PROXY</b>, ktorá sa "
-"používa na uloženie adresy proxy servera SOCKS.<p>Prípadne môžete kliknúť na "
-"tlačidlo <b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa o automatické "
-"zistenie tejto premennej.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Zadajte meno premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa má použiť "
-"na uloženie adries, pre ktoré sa proxy server používať nemá.<p>\n"
-"Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "Výnimky:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Zadajte názov premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa "
-"používa na uloženie adries lokalít, pre ktoré by sa vyššie uvedené "
-"nastavenia proxy nemali používať.<p>Prípadne môžete kliknúť na tlačidlo "
-"<b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa o automatické zistenie "
-"tejto premennej.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "Zobraziť prednastavené premenné &prostredia"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "Ručne zadajte informácie o nastavení proxy serverov."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "Použiť ručne zadanú konfiguráciu proxy:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "Zadajte adresu proxy serveru pre HTTP."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "Zadajte číslo portu HTTP proxy servera."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "Použiť tento proxy server pre všetky protokoly"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "Zadajte adresu proxy serveru pre HTTPS."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Zadajte číslo portu HTTPS proxy servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "Zadajte adresu proxy serveru pre FTP."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "Zadajte číslo portu FTP proxy servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "Zadajte adresu SOCKS proxy servera."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Zadajte číslo portu SOCKS proxy servera."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Zadajte zoznam oddelený čiarkami hostiteľov alebo IP adries, ktoré by "
-"mali byť vyňaté z používania zadaných nastavení proxy.</p>\n"
-"<p>Ak chcete vylúčiť všetkých hostiteľov pre danú doménu, zadajte jednoducho "
-"názov domény za bodkou. Napríklad na vylúčenie všetkých hostiteľov pre "
-"<i>kde.org</i>, zadajte <i>.kde.org</i>. Znaky žolíka ako '*' alebo '?' nie "
-"sú podporované a nemajú žiadny účinok.</p>\n"
-"<p>Okrem toho môžete zadať aj IP adresy, napr. 127.0.0.1 a IP adresy s "
-"podsieťou, napr. 192.168.0.1/24.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>\n"
-"Zaškrtnite ak chcete dané nastavenia proxy aplikovať iba na adresy zadané v "
-"zozname <i>Výnimky</i>.</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "Použiť nastavenie proxy iba pre adresy v zozname Výnimiek"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "Tieto nastavenia sa vzťahujú len na prehliadanie siete."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "Predvolené meno užívateľa:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "Štandardné heslo:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5846,6 +4703,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [Krížová doména]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Podrobnosti"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -5933,6 +4795,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Podrobnosti o cookie"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Názov:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Hodnota:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Vyprší:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Cesta:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Doména:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -6005,153 +4892,15 @@ msgstr "Podrobnosti"
 msgid "Network"
 msgstr "Sieť"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " dní"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr "<para>KDE kôš je nastavený na použitie koša <b>Finder</b>.<br></para>"
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<para>Vyprázdnenie koša KDE odstráni iba KDE položky koša, zatiaľ čo "
-"<br>vyprázdnenie koša cez Finder odstráni všetko.</para> <para>KDE položky "
-"koša sa zobrazia v priečinku nazvanom KDE.trash, v odpadkovom koši.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, kde-format
-msgid "Delete files older than"
-msgstr "Odstrániť súbory staršie ako"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>Zaškrtnite, ak chcete <emphasis strong='true'>automaticky odstraňovať</"
-"emphasis> súbory, ktoré sú staršie ako zadaná hodnota. Zakážte túto možnosť "
-"na <emphasis strong='true'>vypnutie</emphasis> automatického odstránenia "
-"položiek po určitom čase</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " deň"
-msgstr[1] " dni"
-msgstr[2] " dní"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-"<para>Nastavte počet dní, koľko môžu ostať súbory v koši. Všetky staršie "
-"súbory budú automaticky odstránené.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr "Čistenie:"
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr "Obmedziť na"
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>Zaškrtnite pre obmedzenie maximálnej veľkosti koša na disku zadanú "
-"nižšie. Inak bude priestor neobmedzený.</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "Veľkosť:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-"<para>Toto je maximálne percento priestoru na disku, ktorý bude použité pre "
-"kôš.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr "<para>Toto je maximálna veľkosť disku určená pre kôš.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr "Zobraziť upozornenie"
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "Odstrániť najstaršie súbory z koša"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "Odstrániť najväčšie súbory z koša"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>Ak sa dosiahne limit veľkosti, bude preferované odstránenie typov "
-"súborov, ktoré ste zadali prvé. Ak je nastavené na varovať, budete varovaný "
-"namiesto odstránenia súborov.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, kde-format
-msgid "Full Trash:"
-msgstr "Plný kôš:"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Neplatné URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6163,12 +4912,12 @@ msgstr ""
 "pôvodné miesto. Buď znovu vytvoríte priečinok a potom operáciu zopakujete, "
 "alebo pretiahnite myšou položku na iné miesto."
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Neplatná kombinácia protokolov."
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Tento súbor už je v koši."
@@ -6287,365 +5036,15 @@ msgstr "Prístup odmietnutý"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Nemáte práva pre prístup k protokolu %1."
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "Názov"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "Kľúčové slová"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "Preferované"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"Začiarknite toto políčko, ak chcete vybrať zvýraznené kľúčové slovo "
-"vyhľadávania na webe ako preferované.<nl/>Preferované kľúčové slová "
-"vyhľadávania na webe sa používajú na miestach, kde sa môže naraz zobraziť "
-"len niekoľko vybraných kľúčových slov."
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "Žiadne"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "Vyhľadávacie &filtre"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Povolenie alebo zakázanie kľúčových slov vyhľadávania "
-"na webe. </p><p>Kľúčové slová vyhľadávania na webe umožňujú rýchly prístup "
-"alebo vyhľadávanie informácií umiestnených online alebo na pevnom disku.  </"
-"p><p>Prostredie KDE obsahuje mnoho preddefinovaných kľúčových slov. Jedno z "
-"takýchto kľúčových slov možno použiť na vyhľadávanie v Google (TM); stačí "
-"zadať kľúčové slovo \"gg\", za ktorým nasleduje oddeľovač kľúčových slov a "
-"hľadaný výraz, napr. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
-"body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, kde-format
-msgid "&Enable Web search keywords"
-msgstr "Povoliť webové skratky"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr "Použiť iba preferované skratky"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, kde-format
-msgid "Search for web search keywords"
-msgstr "Hľadať kľúčové slová na webe"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, kde-format
-msgid "Add a new Web search keyword"
-msgstr "Pridať nové kľúčové slovo pre vyhľadávanie na webe"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "Upravte zvýraznené kľúčové slovo vyhľadávania na webe"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "Odstrániť zvýraznené kľúčové slovo vyhľadávania na webe"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "Ods&trániť"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Vyberte vyhľadávací nástroj, ktorý sa má používať pre vstupné polia, ktoré "
-"poskytujú automatické hľadanie pri zadaní normálnych slov a fráz namiesto "
-"URL. Ak chcete túto funkciu vypnúť, použite voľbu <b>Žiadny</b>.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, kde-format
-msgid "Default Web &search keyword:"
-msgstr "Predvolené kľúčové slovo pre vyhľadávanie na webe:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>Vyberte predvolené kľúčové slovo vyhľadávania na webe. "
-"</p><p>To umožňuje aplikáciám automaticky konvertovať napísané slovo alebo "
-"frázu na dopyty kľúčových slov vyhľadávania na webe, ak ich nie je možné "
-"odfiltrovať na správnu adresu URL. </p><p>Ak chcete túto funkciu zakázať, "
-"vyberte <span style=\" font-weight:600;\">Žiadne</span> zo zoznamu. </p></"
-"body></html>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-"Vyberte znak, ktorý oddeľuje kľúčové slová od fráz alebo slov, ktoré sa majú "
-"nájsť."
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "O&ddeľovací znak kľúčových slov:"
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr "Zvoľte oddeľovač na označenie kľúčového slova webového vyhľadávania."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "Dvojbodka"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "Medzera"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Neboli nájdení žiadny preferovaní poskytovatelia vyhľadávania."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "Neboli nájdení žiadny poskytovatelia."
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "Predvolené"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "Zmeniť webovú skratku"
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "Nová webová skratka"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr "Skratka \"%1\" je už priradená k \"%2\". Vyberte inú skratku."
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "- %1: \"%2\""
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"Nasledujúca skratka je už priradená. Vyberte inú skratku.\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"URI neobsahuje zástupný znak \\{...} pre užívateľskú žiadosť.\n"
-"To znamená, že vždy bude navštevovaná tá istá stránka bez ohľadu na to, čo "
-"užívateľ napíše."
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "Ponechať"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "Tu zadajte zrozumiteľný názov poskytovateľa vyhľadávania."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "Názov sk&ratky:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Sem zadajte URI, ktoré sa má použiť pri hľadaní.<br/>Celý hľadaný text "
-"môžete špecifikovať pomocou  \\{@} alebo \\{0}.<br/>\n"
-"Doporučujeme používať \\{@}, pretože odstráni všetky premenné otázky "
-"(meno=hodnota) z výsledného reťazca, zatiaľčo \\{0} bude nahradené "
-"nezmeneným reťazcom otázky.<br/>Pomocou \\{1} ... \\{n} môžete určiť "
-"jednotlivé slová z otázky a pomocou \\{meno} hodnotu zadanú pomocou časti "
-"'meno=hodnota' otázky.<br/>Ďalej môžete použiť viac referencií (mená, čísla "
-"a reťazce) naraz pomocou (\\{meno1,meno2,...,\"reťazec\"}).<br/>Prvá "
-"odpovedajúca hodnota (zľava) sa použije ako hodnota nahradenia pre výsledné "
-"URI.<br/>Reťazec v úvodzovkách sa dá použiť ako štandardná hodnota v "
-"prípade, že sa nič odpovedajúce naľavo od zoznamu nenájde.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "&URL skratky:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie."
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Skratky, ktoré tu zadáte, môžete neskôr použiť ako pseudo-URI schému v KDE. "
-"Napríklad, skratka <b>av</b> môže byť použitá ako <b>av</b>:<b>moje "
-"hľadanie</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Tu zadajte zrozumiteľný názov poskytovateľa "
-"vyhľadávania. </p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "&Skratky:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "Z&naková sada:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "Vložiť zástupný znak dotazu"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7323,6 +5722,12 @@ msgstr "Typ:"
 #, kde-format
 msgid "Location:"
 msgstr "Umiestnenie:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "Veľkosť:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -8909,6 +7314,11 @@ msgstr "# bude nahradené rastúcimi číslami začínajúcimi od:"
 msgid "Information"
 msgstr "Informácia"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "Nahradiť"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -9121,6 +7531,1100 @@ msgstr "Spustí sa program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
+
+#~ msgid "&Policy"
+#~ msgstr "&Politika"
+
+#~ msgid "&Management"
+#~ msgstr "&Správa"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "Chyba komunikácie D-Bus"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "Nie je možné odstrániť všetky požadované cookies."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "Nie je možné odstrániť požadované cookies."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "Nepodarilo sa nájsť informáciu"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr ""
+#~ "Nie je možné získať informácie o cookies uložených vo vašom počítači."
+
+#~ msgid "End of session"
+#~ msgstr "Koniec sedenia"
+
+#~ msgid "Yes"
+#~ msgstr "Áno"
+
+#~ msgid "Search"
+#~ msgstr "Hľadať"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "Interaktívne hľadanie domén a počítačov"
+
+#~ msgid "Site"
+#~ msgstr "Stránka"
+
+#~ msgid "Cookie Name"
+#~ msgstr "Názov cookie"
+
+#~ msgid "D&elete"
+#~ msgstr "O&dstrániť"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "Odstrániť &všetky"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "Nastaviť politiku..."
+
+#~ msgid "&Reload List"
+#~ msgstr "&Znovu načítať zoznam"
+
+#~ msgid "Secure:"
+#~ msgstr "Bezpečný:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "Zmeniť politiku cookue"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "Nová politika cookie"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>Už existuje politika pre <center><b>%1</b></center>Chcete ju nahradiť?"
+#~ "</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "Politika duplikácie"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "Nie je možné komunikovať so službou správy cookies.\n"
+#~ "Zmeny, ktoré se urobili, sa neprejavia, kým nebude táto služba "
+#~ "reštartovaná."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Zapnutie podpory cookies. Zvyčajne budete chcieť mať podporu cookies "
+#~ "zapnutú a manipulovať s nimi tak, aby to vyhovelo potrebe vášho "
+#~ "zabezpečenia.</p><p>\n"
+#~ "Prosím pamätajte, že po zakázaní cookies nebude možné pristupovať k "
+#~ "niektorým stránkam.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "Povoliť &cookies"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zamietnutie tzv. third-party cookies. Zvoľte si túto možnosť, ak chcete "
+#~ "zamietnuť všetky cookies zo iných stránok než z tej, ktorú ste si "
+#~ "vyžiadali. Napríklad, ak navštíivte <b>www.foobar.com</b> s touto voľbou "
+#~ "zapnutou, iba cookies pochádzajúce z www.foobar.com budú spracované podľa "
+#~ "vašich nastavení. Cookies zo všetých ostatných serverov budú automaticky "
+#~ "odmietnuté. Toto redukuje možnosť operátorov stránok vytvárať si profil o "
+#~ "vašich prehliadacích zvykoch.\n"
+#~ "</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "A&kceptovať cookies iba z pôvodného serveru"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "Automaticky prijať dočasné cookies určené na vypršanie pri ukončení "
+#~ "aktuálneho sedenia. Tieto cookies nebudú uložené na vašom disku alebo "
+#~ "úložnom zariadení.Namiesto toho budú odstránené pri ukončení všetkých "
+#~ "aplikácií, ktoré ich používajú (prehliadač). </p><p><u>POZNÁMKA</u> "
+#~ "Zaškrtnutie tejto voľby prepíše vaše predvolené nastavenia ako aj "
+#~ "špecifické nastavenie podľa serverov pre cookies sedení.</p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "&Automaticky akceptovať cookies sedenia"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Určuje spôsob, ako sa bude manipulovať s cookies prijatými zo vzdialeného "
+#~ "serveru: \n"
+#~ "<ul>\n"
+#~ "<li><b>Pýtať sa</b> spôsobí, že KDE sa vás opýta na prijatie cookie, "
+#~ "kedykoľvek chce server nastaviť cookie.</li>\n"
+#~ "<li><b>Prijať</b> spôsobí, že všetky cookies budú v tichosti a bez "
+#~ "opýtania prijaté.</li>\n"
+#~ "<li><b>Prijať do konca sedenia</b> spôsobí, že cookies budú prijaté ale "
+#~ "vypršia pri ukončení sedenia.</li>\n"
+#~ "<li><b>Odmietnuť</b> spôsobí, že všetky prijaté cookies budú odmietnuté.</"
+#~ "li>\n"
+#~ "</ul><p>\n"
+#~ "<u>POZNÁMKA:</u> Politiky definované pre jednotlivé domény, ktoré môžete "
+#~ "nastaviť nižšie, budú mať vždy prednosť pred štandardnou politikou.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "Implicitná politika"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "Akcep&tovať všetky cookies"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "Prijať do konca sedenia"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "&Pýtať sa na potvrdenie"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "&Odmietnuť všetky cookies"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Ak chcete pridať novú politiku, jednoducho kliknite na tlačidlo "
+#~ "<b>Pridať...</b> a vyplňte požadované informácie. Ak chcete zmeniť "
+#~ "existujúcu politiku, kliknite na tlačidlo <b>Zmeniť...</b> a zvoľte v "
+#~ "dialógovom okne novú politiku. Kliknutím na tlačidlo <b>Odstrániť</b> sa "
+#~ "odstráni vybraná politika a pre túto doménu sa bude ďalej používať "
+#~ "štandardná politika. <b>Odstrániť všetky</b> odstráni všetky politiky.\n"
+#~ "</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "Politika stránky"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "Interaktívne hľadanie domén"
+
+#~ msgid "Search..."
+#~ msgstr "Hľadať..."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zoznam serverov, pre ktoré máte nastavenú špecifickú politiku pre "
+#~ "cookies. Tá má pre tieto servery prednosť pred štandardnou politikou.\n"
+#~ "</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "Doména"
+
+#~ msgid "Policy"
+#~ msgstr "Politika"
+
+#~ msgid "&New..."
+#~ msgstr "&Nový..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "Zmeniť..."
+
+#~ msgid "Accept"
+#~ msgstr "Akceptovať"
+
+#~ msgid "Accept For Session"
+#~ msgstr "Prijať pre sedenie"
+
+#~ msgid "Reject"
+#~ msgstr "Odmietnuť"
+
+#~ msgid "Ask"
+#~ msgstr "Pýtať sa"
+
+#~ msgid "Do Not Know"
+#~ msgstr "Neviem"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno hostiteľa alebo domény, pre ktorý má politika platiť. "
+#~ "Napríklad <b>www.kde.org</b> alebo <b>.kde.org</b>\n"
+#~ "</qt>"
+
+#~ msgid "Site name:"
+#~ msgstr "Názov stránky:"
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr ""
+#~ "Zadajte názov hostiteľa alebo domény, napr. .kde.org, pre ktoré platí "
+#~ "táto politika."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Vyberte požadovanú politiku:\n"
+#~ "<ul>\n"
+#~ "<li><b>Prijať</b> - Povolí tomuto serveru nastavovať cookies.</li>\n"
+#~ "<li><b>Prijať do konca sedenia</b> - Povolí tomuto serveru nastaviť "
+#~ "cookies ale vypršia pri ukončení sedenia.</li>\n"
+#~ "<li><b>Pýtať sa</b> - Vyzve pri prijatí cookie z tohto serveru.</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "Politika:"
+
+#~ msgid "Accept until end of session"
+#~ msgstr "Prijať do konca sedenia"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr "Aby zmeny boli aktívne musíte spustené aplikácie reštartovať."
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "Obnova zlyhala"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr "KDE musí byť reštartované, aby sa zmena prejavila."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "Zakázať pasívne FTP"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "Ak sú FTP spojenia pasívne, klient sa pripojí na server a nie naopak. "
+#~ "Preto firewall neblokuje spojenie. Staré servery FTP ale pasívne FTP "
+#~ "nemusia podporovať."
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "Označiť čiastočne nahrané súbory"
+
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "Počas posielania je prípona súboru \".part\". Až po dokončení prenosu sa "
+#~ "premenuje na skutočné meno."
+
+#~ msgid "Timeout Values"
+#~ msgstr "Hodnoty čakania"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
+#~ "máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekunda."
+#~ msgstr[1] ""
+#~ "Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
+#~ "máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekundy."
+#~ msgstr[2] ""
+#~ "Tu je možné nastaviť hodnoty čakania. Možno ich budete chcieť upraviť, ak "
+#~ "máte veľmi pomalé spojenie. Maximálna hodnota je %1 sekúnd."
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " sekunda"
+#~ msgstr[1] " sekundy"
+#~ msgstr[2] " sekúnd"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "Čítanie so&ketu:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "Spojenie s &proxy:"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "Spojenie so &serverom:"
+
+#~ msgid "&Server response:"
+#~ msgstr "Odpoveď &servera:"
+
+#~ msgid "Global Options"
+#~ msgstr "Globálne možnosti"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "O&značiť čiastočne nahrané súbory"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<p>Označí čiastočne nahrané súbory cez SMB, SFTP a iné protokoly.</"
+#~ "p><p>Ak je táto voľba zapnutá, čiastočne nahrané súbory budú mať príponu "
+#~ "\".part\". Táto prípona bude odstránená, keď bude prenos ukončený.</p>"
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " bajt"
+#~ msgstr[1] " bajty"
+#~ msgstr[2] " bajtov"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid ""
+#~ "If cancelled, automatically delete partially uploaded files smaller than:"
+#~ msgstr ""
+#~ "Ak je zrušené, automaticky odstrániť čiastočne nahrané súbory menšie ako:"
+
+#~ msgid "FTP Options"
+#~ msgstr "Možnosti FTP"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "Povoliť pasívny &mód (PASV)"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "Povolí \"pasívne\" FTP. Toto je požadované pre správnu funckiu FTP spoza "
+#~ "firewallu."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<p>Označí čiastočne nahrané FTP súbory.</p><p>Ak je táto voľba zapnutá, "
+#~ "čiastočne nahrané súbory budú mať príponu \".part\". Táto prípona bude "
+#~ "odstránená, keď bude prenos ukončený.</p>"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Not all applications will use this proxy setting. In particular, "
+#~ "<application>Firefox</application> and <application>Chromium</"
+#~ "application> or anything derived from them, or anything using "
+#~ "<application>QtWebEngine</application>&nbsp;- which includes "
+#~ "<application>Konqueror</application> using the "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> and <application>Falkon</application>&nbsp;- will not use "
+#~ "these settings. Some applications may allow the proxy to be configured in "
+#~ "their own settings."
+#~ msgstr ""
+#~ "Nie všetky aplikácie budú používať toto nastavenie proxy. Najmä "
+#~ "<application>Firefox</application> a <application>Chromium</application> "
+#~ "alebo čokoľvek z nich odvodené, alebo čokoľvek, čo používa "
+#~ "<application>QtWebEngine</application>&nbsp;- čo zahŕňa "
+#~ "<application>Konqueror</application> používajúci "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> a <application>Falkon</application>&nbsp;- nebudú používať "
+#~ "tieto nastavenia. Niektoré aplikácie môžu umožniť konfiguráciu proxy vo "
+#~ "vlastných nastaveniach."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Nastavenie proxy.\n"
+#~ "<p>\n"
+#~ "Proxy server je počítač medzi vaším počítačom a Internetom, ktorý "
+#~ "poskytuje služby ako napríklad kešovanie a filtrovanie navštívených "
+#~ "stránok. Kešujúce proxy servery umožňujú rýchlejší prístup k už "
+#~ "navštíveným stránkam, pretože sú uložené lokálne na proxy serveri; "
+#~ "filtrovacie proxy servery zvyčajne poskytujú schopnosť blokovať reklamu, "
+#~ "spam alebo ľubovolný iný obsah.\n"
+#~ "<p>\n"
+#~ "Ak si nie ste istý, či potrebujete proxy server na prístup do Internetu, "
+#~ "opýtajte sa vášho poskytovateľa Internetu alebo vášho administrátora "
+#~ "systému.\n"
+#~ "</qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "Pripojiť k Internetu priamo."
+
+#~ msgid "No Proxy"
+#~ msgstr "Bez &proxy"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Automatické zisťovanie a konfigurácia nastavení proxy.<p>\n"
+#~ "Automatické zisťovanie sa vykonáva pomocou <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>POZNÁMKA:</b> Táto možnosť nemusí v niektorých distribúciách UNIX/"
+#~ "Linux fungovať správne alebo nemusí fungovať vôbec.\n"
+#~ "</qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "Automaticky zistiť nastavenia proxy"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr "Použiť zadaný proxy skript pre nastavenie proxy serveru."
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "Použiť URL automatickej konfigurácie proxy:"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "Zadajte adresu skriptu pre nastavenie proxy serveru."
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Použiť nastavenia proxy definované v systéme.</p>\n"
+#~ "<p>Niektoré platformy ponúkajú konfiguračné informácie pre celý systém a "
+#~ "výber tejto možnosti vám umožní použiť tieto nastavenia.</p>\n"
+#~ "<p>Na platformách Mac</p>\n"
+#~ "<p>Na platformách Windows</p>\n"
+#~ "<p>Na platformách Unix a Linux, tieto nastavenia sú obyčajne definované "
+#~ "cez premenné prostredia. Nasledovné premenné prostredia sú detekované a "
+#~ "použité, ak sú dostupné: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
+#~ "<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "Použiť systémové nastavenie proxy:"
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt>Kliknutím na toto tlačidlo spustíte pokus o automatické určenie "
+#~ "premenných použitých pre systémové nastavenie proxy. <p>\n"
+#~ "Toto automatické určenie funguje ako hľadanie obvyklých mien premenných, "
+#~ "ako sú HTTP_PROXY, FTP_PROXY A NO_PROXY.</qt>"
+
+#~ msgid "Auto D&etect"
+#~ msgstr "&Automatické zistenie"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno premennej prostredia, napr. <b>HTTP_PROXY</b>, ktorá sa má "
+#~ "použiť ako adresa proxy serveru HTTP.<p>\n"
+#~ "Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
+#~ "systém pokúsil automaticky určiť túto premennú.</p>\n"
+#~ "</qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "HTTP Proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno premennej prostredia, napr. <b>HTTPS_PROXY</b>, ktorá sa má "
+#~ "použiť ako adresa proxy serveru HTTPS.<p>\n"
+#~ "Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
+#~ "systém pokúsil automaticky určiť túto premennú.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "SSL Proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno premennej prostredia, napr. <b>FTP_PROXY</b>, ktorá sa má "
+#~ "použiť ako adresa proxy serveru FTP.<p>\n"
+#~ "Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
+#~ "systém pokúsil automaticky určiť túto premennú.</p>\n"
+#~ "</qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "FTP Proxy:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno premennej prostredia, napr. <b>HTTP_PROXY</b>, ktorá sa má "
+#~ "použiť ako adresa proxy serveru HTTP.<p>\n"
+#~ "Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
+#~ "systém pokúsil automaticky určiť túto premennú.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "SOCKS Proxy:"
+
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Zadajte názov premennej prostredia, napr. <b>SOCKS_PROXY</b>, ktorá "
+#~ "sa používa na uloženie adresy proxy servera SOCKS.<p>Prípadne môžete "
+#~ "kliknúť na tlačidlo <b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa "
+#~ "o automatické zistenie tejto premennej.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zadajte meno premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa má "
+#~ "použiť na uloženie adries, pre ktoré sa proxy server používať nemá.<p>\n"
+#~ "Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
+#~ "systém pokúsil automaticky určiť túto premennú.\n"
+#~ "</qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "Výnimky:"
+
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Zadajte názov premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa "
+#~ "používa na uloženie adries lokalít, pre ktoré by sa vyššie uvedené "
+#~ "nastavenia proxy nemali používať.<p>Prípadne môžete kliknúť na tlačidlo "
+#~ "<b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa o automatické "
+#~ "zistenie tejto premennej.</p></qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "Zobraziť prednastavené premenné &prostredia"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "Ručne zadajte informácie o nastavení proxy serverov."
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "Použiť ručne zadanú konfiguráciu proxy:"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "Zadajte adresu proxy serveru pre HTTP."
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "Zadajte číslo portu HTTP proxy servera."
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "Použiť tento proxy server pre všetky protokoly"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "Zadajte adresu proxy serveru pre HTTPS."
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "Zadajte číslo portu HTTPS proxy servera."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "Zadajte adresu proxy serveru pre FTP."
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "Zadajte číslo portu FTP proxy servera."
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "Zadajte adresu SOCKS proxy servera."
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "Zadajte číslo portu SOCKS proxy servera."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Zadajte zoznam oddelený čiarkami hostiteľov alebo IP adries, ktoré by "
+#~ "mali byť vyňaté z používania zadaných nastavení proxy.</p>\n"
+#~ "<p>Ak chcete vylúčiť všetkých hostiteľov pre danú doménu, zadajte "
+#~ "jednoducho názov domény za bodkou. Napríklad na vylúčenie všetkých "
+#~ "hostiteľov pre <i>kde.org</i>, zadajte <i>.kde.org</i>. Znaky žolíka ako "
+#~ "'*' alebo '?' nie sú podporované a nemajú žiadny účinok.</p>\n"
+#~ "<p>Okrem toho môžete zadať aj IP adresy, napr. 127.0.0.1 a IP adresy s "
+#~ "podsieťou, napr. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Zaškrtnite ak chcete dané nastavenia proxy aplikovať iba na adresy zadané "
+#~ "v zozname <i>Výnimky</i>.</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "Použiť nastavenie proxy iba pre adresy v zozname Výnimiek"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "Tieto nastavenia sa vzťahujú len na prehliadanie siete."
+
+#~ msgid "Default user name:"
+#~ msgstr "Predvolené meno užívateľa:"
+
+#~ msgid "Default password:"
+#~ msgstr "Štandardné heslo:"
+
+#~ msgid " days"
+#~ msgstr " dní"
+
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr ""
+#~ "<para>KDE kôš je nastavený na použitie koša <b>Finder</b>.<br></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<para>Vyprázdnenie koša KDE odstráni iba KDE položky koša, zatiaľ čo "
+#~ "<br>vyprázdnenie koša cez Finder odstráni všetko.</para> <para>KDE "
+#~ "položky koša sa zobrazia v priečinku nazvanom KDE.trash, v odpadkovom "
+#~ "koši.</para>"
+
+#~ msgid "Delete files older than"
+#~ msgstr "Odstrániť súbory staršie ako"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>Zaškrtnite, ak chcete <emphasis strong='true'>automaticky "
+#~ "odstraňovať</emphasis> súbory, ktoré sú staršie ako zadaná hodnota. "
+#~ "Zakážte túto možnosť na <emphasis strong='true'>vypnutie</emphasis> "
+#~ "automatického odstránenia položiek po určitom čase</para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " deň"
+#~ msgstr[1] " dni"
+#~ msgstr[2] " dní"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr ""
+#~ "<para>Nastavte počet dní, koľko môžu ostať súbory v koši. Všetky staršie "
+#~ "súbory budú automaticky odstránené.</para>"
+
+#~ msgid "Cleanup:"
+#~ msgstr "Čistenie:"
+
+#~ msgid "Limit to"
+#~ msgstr "Obmedziť na"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>Zaškrtnite pre obmedzenie maximálnej veľkosti koša na disku zadanú "
+#~ "nižšie. Inak bude priestor neobmedzený.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr ""
+#~ "<para>Toto je maximálne percento priestoru na disku, ktorý bude použité "
+#~ "pre kôš.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr "<para>Toto je maximálna veľkosť disku určená pre kôš.</para>"
+
+#~ msgid "Show a Warning"
+#~ msgstr "Zobraziť upozornenie"
+
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "Odstrániť najstaršie súbory z koša"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "Odstrániť najväčšie súbory z koša"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>Ak sa dosiahne limit veľkosti, bude preferované odstránenie typov "
+#~ "súborov, ktoré ste zadali prvé. Ak je nastavené na varovať, budete "
+#~ "varovaný namiesto odstránenia súborov.</para>"
+
+#~ msgid "Full Trash:"
+#~ msgstr "Plný kôš:"
+
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "Názov"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "Kľúčové slová"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "Preferované"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "Začiarknite toto políčko, ak chcete vybrať zvýraznené kľúčové slovo "
+#~ "vyhľadávania na webe ako preferované.<nl/>Preferované kľúčové slová "
+#~ "vyhľadávania na webe sa používajú na miestach, kde sa môže naraz zobraziť "
+#~ "len niekoľko vybraných kľúčových slov."
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "Žiadne"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "Vyhľadávacie &filtre"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Povolenie alebo zakázanie kľúčových slov "
+#~ "vyhľadávania na webe. </p><p>Kľúčové slová vyhľadávania na webe umožňujú "
+#~ "rýchly prístup alebo vyhľadávanie informácií umiestnených online alebo na "
+#~ "pevnom disku.  </p><p>Prostredie KDE obsahuje mnoho preddefinovaných "
+#~ "kľúčových slov. Jedno z takýchto kľúčových slov možno použiť na "
+#~ "vyhľadávanie v Google (TM); stačí zadať kľúčové slovo \"gg\", za ktorým "
+#~ "nasleduje oddeľovač kľúčových slov a hľadaný výraz, napr. <span style=\" "
+#~ "font-weight:600;\">gg:KDE</span>.</p></body></html>"
+
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "Povoliť webové skratky"
+
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "Použiť iba preferované skratky"
+
+#~ msgid "Search for web search keywords"
+#~ msgstr "Hľadať kľúčové slová na webe"
+
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "Pridať nové kľúčové slovo pre vyhľadávanie na webe"
+
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "Upravte zvýraznené kľúčové slovo vyhľadávania na webe"
+
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "Odstrániť zvýraznené kľúčové slovo vyhľadávania na webe"
+
+#~ msgid "De&lete"
+#~ msgstr "Ods&trániť"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Vyberte vyhľadávací nástroj, ktorý sa má používať pre vstupné polia, "
+#~ "ktoré poskytujú automatické hľadanie pri zadaní normálnych slov a fráz "
+#~ "namiesto URL. Ak chcete túto funkciu vypnúť, použite voľbu <b>Žiadny</"
+#~ "b>.\n"
+#~ "</qt>"
+
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "Predvolené kľúčové slovo pre vyhľadávanie na webe:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Vyberte predvolené kľúčové slovo vyhľadávania na "
+#~ "webe. </p><p>To umožňuje aplikáciám automaticky konvertovať napísané "
+#~ "slovo alebo frázu na dopyty kľúčových slov vyhľadávania na webe, ak ich "
+#~ "nie je možné odfiltrovať na správnu adresu URL. </p><p>Ak chcete túto "
+#~ "funkciu zakázať, vyberte <span style=\" font-weight:600;\">Žiadne</span> "
+#~ "zo zoznamu. </p></body></html>"
+
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr ""
+#~ "Vyberte znak, ktorý oddeľuje kľúčové slová od fráz alebo slov, ktoré sa "
+#~ "majú nájsť."
+
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "O&ddeľovací znak kľúčových slov:"
+
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr ""
+#~ "Zvoľte oddeľovač na označenie kľúčového slova webového vyhľadávania."
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "Dvojbodka"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "Medzera"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "Predvolené"
+
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "Zmeniť webovú skratku"
+
+#~ msgid "New Web Shortcut"
+#~ msgstr "Nová webová skratka"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr "Skratka \"%1\" je už priradená k \"%2\". Vyberte inú skratku."
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "- %1: \"%2\""
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Nasledujúca skratka je už priradená. Vyberte inú skratku.\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "URI neobsahuje zástupný znak \\{...} pre užívateľskú žiadosť.\n"
+#~ "To znamená, že vždy bude navštevovaná tá istá stránka bez ohľadu na to, "
+#~ "čo užívateľ napíše."
+
+#~ msgid "Keep It"
+#~ msgstr "Ponechať"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr "Tu zadajte zrozumiteľný názov poskytovateľa vyhľadávania."
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "Názov sk&ratky:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Sem zadajte URI, ktoré sa má použiť pri hľadaní.<br/>Celý hľadaný text "
+#~ "môžete špecifikovať pomocou  \\{@} alebo \\{0}.<br/>\n"
+#~ "Doporučujeme používať \\{@}, pretože odstráni všetky premenné otázky "
+#~ "(meno=hodnota) z výsledného reťazca, zatiaľčo \\{0} bude nahradené "
+#~ "nezmeneným reťazcom otázky.<br/>Pomocou \\{1} ... \\{n} môžete určiť "
+#~ "jednotlivé slová z otázky a pomocou \\{meno} hodnotu zadanú pomocou časti "
+#~ "'meno=hodnota' otázky.<br/>Ďalej môžete použiť viac referencií (mená, "
+#~ "čísla a reťazce) naraz pomocou (\\{meno1,meno2,...,\"reťazec\"}).<br/"
+#~ ">Prvá odpovedajúca hodnota (zľava) sa použije ako hodnota nahradenia pre "
+#~ "výsledné URI.<br/>Reťazec v úvodzovkách sa dá použiť ako štandardná "
+#~ "hodnota v prípade, že sa nič odpovedajúce naľavo od zoznamu nenájde.\n"
+#~ "</qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "&URL skratky:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Skratky, ktoré tu zadáte, môžete neskôr použiť ako pseudo-URI schému v "
+#~ "KDE. Napríklad, skratka <b>av</b> môže byť použitá ako <b>av</b>:<b>moje "
+#~ "hľadanie</b>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Tu zadajte zrozumiteľný názov poskytovateľa "
+#~ "vyhľadávania. </p></body></html>"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "&Skratky:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr "Vyberte znakovú sadu, ktorá bude použitá pre vyhľadávanie"
+
+#~ msgid "&Charset:"
+#~ msgstr "Z&naková sada:"
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "Vložiť zástupný znak dotazu"
 
 #~ msgid "Blocked request."
 #~ msgstr "Blokovaná požiadavka."

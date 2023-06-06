@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-27 02:03+0000\n"
+"POT-Creation-Date: 2023-06-06 02:08+0000\n"
 "PO-Revision-Date: 2023-04-27 16:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "Файл вже існує"
 msgid "Already Exists as Folder"
 msgstr "Вже існує як тека"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:288
+#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "Смітник"
@@ -4059,1153 +4059,6 @@ msgstr "Не вдалося відкрити файл."
 msgid "The program \"%1\" could not be launched."
 msgstr "Не вдалося запустити програму «%1»."
 
-#: kcms/cookies/kcookiesmain.cpp:37
-#, kde-format
-msgid "&Policy"
-msgstr "&Правила"
-
-#: kcms/cookies/kcookiesmain.cpp:44
-#, kde-format
-msgid "&Management"
-msgstr "&Керування"
-
-#: kcms/cookies/kcookiesmanagement.cpp:126
-#: kcms/cookies/kcookiesmanagement.cpp:143
-#, kde-format
-msgid "D-Bus Communication Error"
-msgstr "Помилка зв'язку D-Bus"
-
-#: kcms/cookies/kcookiesmanagement.cpp:127
-#, kde-format
-msgid "Unable to delete all the cookies as requested."
-msgstr "Неможливо вилучити всі куки в запиті."
-
-#: kcms/cookies/kcookiesmanagement.cpp:144
-#, kde-format
-msgid "Unable to delete cookies as requested."
-msgstr "Неможливо вилучити куки в запиті."
-
-#: kcms/cookies/kcookiesmanagement.cpp:223
-#, kde-format
-msgid "Information Lookup Failure"
-msgstr "Помилка пошуку інформації"
-
-#: kcms/cookies/kcookiesmanagement.cpp:225
-#, kde-format
-msgid ""
-"Unable to retrieve information about the cookies stored on your computer."
-msgstr ""
-"Не вдається отримати інформацію про куки збережені у вашому комп'ютері."
-
-#: kcms/cookies/kcookiesmanagement.cpp:316
-#, kde-format
-msgid "End of session"
-msgstr "Кінець сеансу"
-
-#: kcms/cookies/kcookiesmanagement.cpp:323
-#, kde-format
-msgid "Yes"
-msgstr "Так"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, searchLineEdit)
-#: kcms/cookies/kcookiesmanagement.ui:20
-#, kde-format
-msgid "Search"
-msgstr "Пошук"
-
-#. i18n: ectx: property (toolTip), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:27
-#, kde-format
-msgid "Search interactively for domains and hosts"
-msgstr "Інтерактивний пошук доменів та вузлів"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:43
-#, kde-format
-msgid "Site"
-msgstr "Сайт"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
-#: kcms/cookies/kcookiesmanagement.ui:48
-#, kde-format
-msgid "Cookie Name"
-msgstr "Назва куки"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#. i18n: ectx: property (text), widget (QPushButton, deleteButton)
-#: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
-#, kde-format
-msgid "D&elete"
-msgstr "Ви&терти"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
-#. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
-#: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
-#, kde-format
-msgid "Delete A&ll"
-msgstr "Вит&ерти все"
-
-#. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
-#: kcms/cookies/kcookiesmanagement.ui:70
-#, kde-format
-msgid "Configure &Policy..."
-msgstr "Змінити п&равила…"
-
-#. i18n: ectx: property (text), widget (QPushButton, reloadButton)
-#: kcms/cookies/kcookiesmanagement.ui:77
-#, kde-format
-msgid "&Reload List"
-msgstr "&Перезавантажити список"
-
-#. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
-#: kcms/cookies/kcookiesmanagement.ui:97
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Подробиці"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: kcms/cookies/kcookiesmanagement.ui:106
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Назва:"
-
-#. i18n: ectx: property (text), widget (QLabel, valueLabel)
-#: kcms/cookies/kcookiesmanagement.ui:129
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Значення:"
-
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: kcms/cookies/kcookiesmanagement.ui:152
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Домен:"
-
-#. i18n: ectx: property (text), widget (QLabel, patchLabel)
-#: kcms/cookies/kcookiesmanagement.ui:175
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Шлях:"
-
-#. i18n: ectx: property (text), widget (QLabel, expiresLabel)
-#: kcms/cookies/kcookiesmanagement.ui:198
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Застаріє:"
-
-#. i18n: ectx: property (text), widget (QLabel, secureLabel)
-#: kcms/cookies/kcookiesmanagement.ui:221
-#, kde-format
-msgid "Secure:"
-msgstr "Є безпечною:"
-
-#: kcms/cookies/kcookiespolicies.cpp:154
-#, kde-format
-msgctxt "@title:window"
-msgid "Change Cookie Policy"
-msgstr "Зміна правил для кук"
-
-#: kcms/cookies/kcookiespolicies.cpp:173
-#, kde-format
-msgctxt "@title:window"
-msgid "New Cookie Policy"
-msgstr "Нові правила для кук"
-
-#: kcms/cookies/kcookiespolicies.cpp:206
-#, kde-format
-msgid ""
-"<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-"replace it?</qt>"
-msgstr ""
-"<qt>Для<center><b>%1</b></center>правила вже існують. Хочете їх замінити?</"
-"qt>"
-
-#: kcms/cookies/kcookiespolicies.cpp:210
-#, kde-format
-msgctxt "@title:window"
-msgid "Duplicate Policy"
-msgstr "Дублювання правила"
-
-#: kcms/cookies/kcookiespolicies.cpp:211 widgets/skipdialog.cpp:47
-#, kde-format
-msgid "Replace"
-msgstr "Замінити"
-
-#: kcms/cookies/kcookiespolicies.cpp:387
-#, kde-format
-msgid ""
-"Unable to communicate with the cookie handler service.\n"
-"Any changes you made will not take effect until the service is restarted."
-msgstr ""
-"Не вдається налагодити зв'язок з службою керування куками.\n"
-"Всі зроблені зміни не набудуть чинності, поки не буде перезапущено цю службу."
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enable cookie support. Normally you will want to have cookie support "
-"enabled and customize it to suit your privacy needs.</p><p>\n"
-"Please note that disabling cookie support might make many web sites "
-"unbrowsable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>За допомогою цього пункту можна вимкнути підтримку кук. Здебільшого, вам "
-"буде потрібна ввімкнена та налаштована підтримка кук, яка відповідає "
-"потребам вашої безпеки.</p><p>\n"
-"Будь ласка, зауважте, що вимикання кук може перешкодити нормальній навігації "
-"багатьма сайтами.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableCookies)
-#: kcms/cookies/kcookiespolicies.ui:23
-#, kde-format
-msgid "Enable coo&kies"
-msgstr "Дозволити &куки"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:35
-#, kde-format
-msgid ""
-"<qt>\n"
-"Reject the so called third-party cookies. These are cookies that originate "
-"from a site other than the one you are currently browsing. For example, if "
-"you visit <b>www.foobar.com</b> while this option is on, only cookies that "
-"originate from www.foobar.com will be processed per your settings. Cookies "
-"from any other site will be rejected. This reduces the chances of site "
-"operators compiling a profile about your daily browsing habits.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Відкидати куки з інших сайтів. Деякі куки надходять з сайтів, відмінних від "
-"початкового сайта. Якщо ви, наприклад, відвідуєте <b>www.foobar.com</b>, і "
-"цей пункт позначено, буде прийнято куки лише з www.foobar.com. Всі куки з "
-"інших сайтів буде відкинуто. Це перешкоджає визначенню операторами сайтів "
-"адрес, які ви відвідуєте.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
-#: kcms/cookies/kcookiespolicies.ui:38
-#, kde-format
-msgid "Only acce&pt cookies from originating server"
-msgstr "Прийма&ти куки тільки з початкового сервера"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:46
-#, kde-format
-msgid ""
-"<p>\n"
-"Automatically accept temporary cookies meant to expire at the end of the "
-"current session. Such cookies will not be stored in your computer's hard "
-"drive or storage device. Instead, they are deleted when you close all "
-"applications (e.g. your browser) that use them.</p><p><u>NOTE</u> Checking "
-"this option overrides your default as well as site specific cookie policies "
-"for session cookies.</p>"
-msgstr ""
-"<p>\n"
-"Автоматично приймати тимчасові куки (ті, що застарівають у кінці сеансу). "
-"Такі куки не зберігаються на вашому жорсткому диску або іншому пристрої для "
-"збереження інформації, вони вилучаються, коли ви закриваєте всі програми "
-"(наприклад програму для перегляду сторінок інтернету), що використовують "
-"куки.</p><p><u>ПРИМІТКА:</u> якщо позначите цей пункт разом з наступним, "
-"вони матимуть перевагу над окремою для кожного сайта поведінкою для кук "
-"протягом сеансу.</p>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
-#: kcms/cookies/kcookiespolicies.ui:49
-#, kde-format
-msgid "Automaticall&y accept session cookies"
-msgstr "Автоматичн&о приймати куки сеансів"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:68
-#, kde-format
-msgid ""
-"<qt>\n"
-"Determines how cookies received from a remote machine will be handled: \n"
-"<ul>\n"
-"<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a server "
-"wants to set a cookie.</li>\n"
-"<li><b>Accept</b> will cause cookies to be accepted without prompting you.</"
-"li>\n"
-"<li><b>Accept until end of session</b> will cause cookies to be accepted but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> will cause the cookiejar to refuse all cookies it receives."
-"</li>\n"
-"</ul><p>\n"
-"<u>NOTE:</u> Domain specific policies, which can be set below, always take "
-"precedence over the default policy.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Визначає, як оброблятимуться куки отримані з віддалених машин: \n"
-"<ul>\n"
-"<li><b>Запитувати</b> примусить KDE запитувати на ваше підтвердження кожного "
-"разу, коли сервер хоче встановити куку;</li>\n"
-"<li><b>Приймати</b> примусить KDE мовчки приймати всі куки;</li>\n"
-"<li><b>Приймати до завершення сеансу</b> накаже системі приймати куки, але "
-"вважати їх застарілими і вилучати після завершення сеансу.</li>\n"
-"<li><b>Відмовляти</b> забороняє KDE встановлювати куки.</li>\n"
-"</ul><p> <u>ПРИМІТКА:</u> правила для окремих доменів (що встановлюються "
-"нижче), мають перевагу над цими типовими правилами.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
-#: kcms/cookies/kcookiespolicies.ui:71
-#, kde-format
-msgid "Default Policy"
-msgstr "Стандартна поведінка"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
-#: kcms/cookies/kcookiespolicies.ui:77
-#, kde-format
-msgid "Accep&t all cookies"
-msgstr "Прийм&ати всі куки"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
-#: kcms/cookies/kcookiespolicies.ui:84
-#, kde-format
-msgid "Accept &until end of session"
-msgstr "Приймати &до завершення сеансу"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
-#: kcms/cookies/kcookiespolicies.ui:91
-#, kde-format
-msgid "Ask &for confirmation"
-msgstr "Запи&тувати на підтвердження"
-
-#. i18n: ectx: property (text), widget (QRadioButton, rbPolicyReject)
-#: kcms/cookies/kcookiespolicies.ui:98
-#, kde-format
-msgid "Re&ject all cookies"
-msgstr "Ві&дмовляти всім кукам"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:123
-#, kde-format
-msgid ""
-"<qt>\n"
-"To add a new policy, simply click on the <b>Add...</b> button and supply the "
-"necessary information. To change an existing policy, use the <b>Change...</"
-"b> button and choose the new policy from the policy dialog box. Clicking on "
-"the <b>Delete</b> button will remove the currently selected policy causing "
-"the default policy setting to be used for that domain, whereas <b>Delete "
-"All</b> will remove all the site specific policies.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Щоб додати нову поведінку, просто натисніть кнопку <b>Додати…</b> та вкажіть "
-"потрібну інформацію у діалоговому вікні. Щоб змінити існуючу поведінку, "
-"натисніть на кнопку <b>Змінити…</b> та виберіть нову поведінку з вікна "
-"діалогового вікна поведінки. Клацнувши на <b>Витерти</b>, ви вилучаєте "
-"вибрану поведінку, поведінку для домену буде скинуто до типової. Натискання "
-"кнопки <b>Витерти все</b>, вилучить всі встановлені правила поведінки з "
-"куками для окремих сайтів.\n"
-"</qt>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gbDomainSpecific)
-#: kcms/cookies/kcookiespolicies.ui:126
-#, kde-format
-msgid "Site Policy"
-msgstr "Правила поведінки для сайтів"
-
-#. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:135
-#, kde-format
-msgid "Search interactively for domains"
-msgstr "Інтерактивний пошук доменів"
-
-#. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
-#: kcms/cookies/kcookiespolicies.ui:138
-#, kde-format
-msgid "Search..."
-msgstr "Шукати…"
-
-#. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:147
-#, kde-format
-msgid ""
-"<qt>\n"
-"List of sites for which you have set a specific cookie policy. Specific "
-"policies override the default policy setting for these sites.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Список сайтів, для яких встановлено нетипову поведінку поводження з куками. "
-"Для цих сайтів правила цієї сторінки мають перевагу над типовою поведінкою.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:163
-#, kde-format
-msgid "Domain"
-msgstr "Домен"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
-#: kcms/cookies/kcookiespolicies.ui:168
-#, kde-format
-msgid "Policy"
-msgstr "Поведінка"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbNew)
-#: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
-#, kde-format
-msgid "&New..."
-msgstr "&Створити..."
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
-#, kde-format
-msgid "Chan&ge..."
-msgstr "З&мінити..."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:26
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:81
-#, kde-format
-msgid "Accept"
-msgstr "Прийняти"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:28
-msgid "Accept For Session"
-msgstr "Прийняти на час сеансу"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:30
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:91
-#, kde-format
-msgid "Reject"
-msgstr "Відмовити"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.h:32
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:96
-#, kde-format
-msgid "Ask"
-msgstr "Питати"
-
-#: kcms/cookies/kcookiespolicyselectiondlg.h:34
-msgid "Do Not Know"
-msgstr "Я не знаю"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:22
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the host or domain to which this policy applies, e.g. <b>www.kde.org</"
-"b> or <b>.kde.org</b>.\n"
-"</qt>"
-msgstr ""
-"Введіть назву машини або домену, до якого застосовується правила. Наприклад, "
-"<i>www.kde.org</i> або <i>.kde.org</i>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, kde-format
-msgid "Site name:"
-msgstr "Назва сайта:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:38
-#, kde-format
-msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-msgstr ""
-"Вкажіть вузол або доменну назву, наприклад e.g. .kde.org, яких стосуються ці "
-"правила."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:53
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:77
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the desired policy:\n"
-"<ul>\n"
-"<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-"<li><b>Accept until end of session</b> - Allows this site to set cookies but "
-"they will expire at the end of the session.</li>\n"
-"<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-"<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-"</ul>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Виберіть бажану поведінку:\n"
-"<ul>\n"
-"<li><b>Прийняти</b> — дозволяє сайту встановлювати куки.</li>\n"
-"<li><b>Приймати до завершення сеансу</b> — дозволяє цьому сайту "
-"встановлювати куки, але чинність таких кук триватиме лише до завершення "
-"поточного сеансу.</li>\n"
-"<li><b>Відмовити</b> — відмовити всім кукам з цього сайта.</li>\n"
-"<li><b>Запитувати</b> — запитувати користувача, коли кука надходить з цього "
-"сайта</li>\n"
-"</ul>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:56
-#, kde-format
-msgid "Policy:"
-msgstr "Правила:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
-#: kcms/cookies/kcookiespolicyselectiondlg.ui:86
-#, kde-format
-msgid "Accept until end of session"
-msgstr "Приймати до завершення сеансу"
-
-#: kcms/ksaveioconfig.cpp:212
-#, kde-format
-msgid ""
-"You have to restart the running applications for these changes to take "
-"effect."
-msgstr ""
-"Вам потрібно перезапустити всі програми, щоб скористатися зробленими змінами."
-
-#: kcms/ksaveioconfig.cpp:214 kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgctxt "@title:window"
-msgid "Update Failed"
-msgstr "Помилка поновлення"
-
-#: kcms/ksaveioconfig.cpp:225
-#, kde-format
-msgid "You have to restart KDE for these changes to take effect."
-msgstr "Вам потрібно перезапустити KDE, щоб скористатися зробленими змінами."
-
-#. i18n: ectx: label, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:10
-#, kde-format
-msgid "Disable Passive FTP"
-msgstr "Не використовувати пасивний FTP"
-
-#. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
-#: kcms/netpref/kio_ftprc.kcfg:11
-#, kde-format
-msgid ""
-"When FTP connections are passive the client connects to the server, instead "
-"of the other way round, so firewalls do not block the connection; old FTP "
-"servers may not support Passive FTP though."
-msgstr ""
-"В пасивному FTP режимі клієнтська програма з'єднується з сервером, а не "
-"навпаки (як ще відбувається в активному режимі), тому брандмауери не "
-"блокують такі з'єднання. Але старі FTP сервери можуть не підтримувати "
-"пасивний FTP режим."
-
-#. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: label, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
-#, kde-format
-msgid "Mark partially uploaded files"
-msgstr "Позначати частково вивантажені файли"
-
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
-#. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
-#: kcms/netpref/kio_ftprc.kcfg:17 kcms/netpref/kioslave.kcfg:35
-#, kde-format
-msgid ""
-"While a file is being uploaded its extension is \".part\". When fully "
-"uploaded it is renamed to its real name."
-msgstr ""
-"До завершення вивантаження файла його назва міститиме суфікс «.part». Після "
-"завершення вивантаження файла його назву буде змінено на справжню назву для "
-"цього файла."
-
-#: kcms/netpref/netpref.cpp:30
-#, kde-format
-msgid "Timeout Values"
-msgstr "Значення часу очікування"
-
-#: kcms/netpref/netpref.cpp:32
-#, kde-format
-msgid ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is 1 second."
-msgid_plural ""
-"Here you can set timeout values. You might want to tweak them if your "
-"connection is very slow. The maximum allowed value is %1 seconds."
-msgstr[0] ""
-"Тут ви можете встановити значення часу очікування. Ви також можете погратися "
-"з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — %1 секунда."
-msgstr[1] ""
-"Тут ви можете встановити значення часу очікування. Ви також можете погратися "
-"з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — %1 секунди."
-msgstr[2] ""
-"Тут ви можете встановити значення часу очікування. Ви також можете погратися "
-"з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — %1 секунд."
-msgstr[3] ""
-"Тут ви можете встановити значення часу очікування. Ви також можете погратися "
-"з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — %1 секунда."
-
-#: kcms/netpref/netpref.cpp:45 kcms/netpref/netpref.cpp:51
-#: kcms/netpref/netpref.cpp:57 kcms/netpref/netpref.cpp:63
-#, kde-format
-msgid " second"
-msgid_plural " seconds"
-msgstr[0] " секунда"
-msgstr[1] " секунди"
-msgstr[2] " секунд"
-msgstr[3] " секунда"
-
-#: kcms/netpref/netpref.cpp:47
-#, kde-format
-msgid "Soc&ket read:"
-msgstr "Зчитування со&кету:"
-
-#: kcms/netpref/netpref.cpp:53
-#, kde-format
-msgid "Pro&xy connect:"
-msgstr "З'єднання з прок&сі:"
-
-#: kcms/netpref/netpref.cpp:59
-#, kde-format
-msgid "Server co&nnect:"
-msgstr "З'єд&нання з сервером:"
-
-#: kcms/netpref/netpref.cpp:65
-#, kde-format
-msgid "&Server response:"
-msgstr "Відповідь &сервера:"
-
-#: kcms/netpref/netpref.cpp:67
-#, kde-format
-msgid "Global Options"
-msgstr "Загальні параметри"
-
-#: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
-#, kde-format
-msgid "Mark &partially uploaded files"
-msgstr "Позначати &частково вивантажені файли"
-
-#: kcms/netpref/netpref.cpp:73
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-"p><p>When this option is enabled, partially uploaded files will have a \"."
-"part\" extension. This extension will be removed once the transfer is "
-"complete.</p>"
-msgstr ""
-"<p>Позначає частково вивантажені за допомогою SMB, SFTP та інших протоколів "
-"файли.</p> <p>Якщо цей пункт буде позначено, назви частково вивантажених "
-"файлів міститимуть суфікс «.part». Цей суфікс буде вилучено після завершення "
-"отримання файла.</p>"
-
-#: kcms/netpref/netpref.cpp:90
-#, kde-format
-msgid " byte"
-msgid_plural " bytes"
-msgstr[0] " байт"
-msgstr[1] " байти"
-msgstr[2] " байтів"
-msgstr[3] " байт"
-
-#: kcms/netpref/netpref.cpp:92
-#, kde-format
-msgctxt "@label:spinbox"
-msgid ""
-"If cancelled, automatically delete partially uploaded files smaller than:"
-msgstr ""
-"Якщо скасовано, автоматично вилучати частково вивантажені файли, розмір яких "
-"є меншим за"
-
-#: kcms/netpref/netpref.cpp:94
-#, kde-format
-msgid "FTP Options"
-msgstr "Параметри FTP"
-
-#: kcms/netpref/netpref.cpp:98
-#, kde-format
-msgid "Enable passive &mode (PASV)"
-msgstr "Використовувати пасивний &режим (PASV)"
-
-#: kcms/netpref/netpref.cpp:100
-#, kde-format
-msgid ""
-"Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
-"behind firewalls."
-msgstr ""
-"Вмикає використання «пасивного» режиму. Цей режим потрібний для роботи з "
-"протоколом FTP, якщо клієнт знаходиться за брандмауером."
-
-#: kcms/netpref/netpref.cpp:108
-#, kde-format
-msgid ""
-"<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-"partially uploaded files will have a \".part\" extension. This extension "
-"will be removed once the transfer is complete.</p>"
-msgstr ""
-"<p>Частково вивантажені з FTP файли будуть позначені.</p> <p>Якщо цей пункт "
-"буде позначено, назви частково вивантажених файлів міститимуть суфікс «."
-"part». Цей суфікс буде вилучено після завершення отримання файла.</p>"
-
-#: kcms/proxy/kproxydlg.cpp:193
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"Not all applications will use this proxy setting. In particular, "
-"<application>Firefox</application> and <application>Chromium</application> "
-"or anything derived from them, or anything using <application>QtWebEngine</"
-"application>&nbsp;- which includes <application>Konqueror</application> "
-"using the <application>WebEnginePart</application>, <application>Akregator</"
-"application> and <application>Falkon</application>&nbsp;- will not use these "
-"settings. Some applications may allow the proxy to be configured in their "
-"own settings."
-msgstr ""
-"Цей параметр проксі-сервера буде використано не в усіх програмах. Зокрема, у "
-"<application>Firefox</application> і <application>Chromium</application> або "
-"будь-яких заснованих на відповідних рушіях браузерах, в усіх програмах, де "
-"використано <application>QtWebEngine</application>, зокрема у "
-"<application>Konqueror</application> з використанням "
-"<application>WebEnginePart</application>, <application>Akregator</"
-"application> та <application>Falkon</application>, цей параметр не "
-"використовуватиметься. У деяких програмах передбачено окремі механізми "
-"налаштовування параметрів проксі-сервера."
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
-#: kcms/proxy/kproxydlg.ui:20
-#, kde-format
-msgid ""
-"<qt>\n"
-"Setup proxy configuration.\n"
-"<p>\n"
-"A proxy server is an intermediate machine that sits between your computer "
-"and the Internet and provides services such as web page caching and "
-"filtering. Caching proxy servers give you faster access to web sites you "
-"have already visited by locally storing or caching those pages; filtering "
-"proxy servers usually provide the ability to block out requests for ads, "
-"spam, or anything else you want to block.\n"
-"<p>\n"
-"If you are uncertain whether or not you need to use a proxy server to "
-"connect to the Internet, consult your Internet service provider's setup "
-"guide or your system administrator.\n"
-"</qt>"
-msgstr ""
-"<qt>Налаштування проксі-сервера.<p>Проксі-сервер — це комп'ютер, який "
-"виступає у ролі посередника між вашою внутрішньою мережею та інтернетом, він "
-"запам'ятовує відвідані сторінки та фільтрує запити. Запам'ятовування "
-"відвіданих сторінок може пришвидшити доступ до сайтів, які вже було "
-"відвідано, оскільки вони вже зберігатимуться на вашому проксі-сервері. "
-"Фільтрування запитів надає змогу заблокувати доступ до рекламних оголошень "
-"(банерів), спаму та до інших даних, які вам не подобаються.<p>Якщо ви не "
-"впевнені, чи користуватись проксі сервером для з'єднання з інтернетом, будь "
-"ласка, порадьтесь з вашим провайдером або системним адміністратором.</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:26
-#, kde-format
-msgid "Connect to the Internet directly."
-msgstr "Пряме з'єднання з інтернетом."
-
-#. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:29
-#, kde-format
-msgid "No Proxy"
-msgstr "Без проксі"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:46
-#, kde-format
-msgid ""
-"<qt>\n"
-"Automatically detect and configure the proxy settings.<p>\n"
-"Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-"Protocol (WPAD)</b>.<p>\n"
-"<b>NOTE:</b> This option might not work properly or not work at all in some "
-"UNIX/Linux distributions.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Автоматично визначати та налаштовувати параметри проксі.<p>\n"
-"Автоматичне визначення виконується за <b>протоколом автоматичного пошуку "
-"проксі-сервера — WPAD</b>.<p>\n"
-"<b>ПРИМІТКА:</b> Цей варіант налаштування може неправильно працювати чи "
-"взагалі не працювати на деяких дистрибутивах UNIX/Linux.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:49
-#, kde-format
-msgid "Detect proxy configuration automatically"
-msgstr "Визначити налаштування проксі у автоматичному режимі"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:59
-#, kde-format
-msgid "Use the specified proxy script to configure the proxy settings."
-msgstr ""
-"Використовувати вказаний скрипт для налаштування параметрів використання "
-"проксі-сервера."
-
-#. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:62
-#, kde-format
-msgid "Use proxy auto configuration URL:"
-msgstr "Використовувати адресу автоматичного налаштування проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
-#: kcms/proxy/kproxydlg.ui:93
-#, kde-format
-msgid "Enter the address for the proxy configuration script."
-msgstr "Вкажіть адресу скрипту налаштування проксі."
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:117
-#, kde-format
-msgid ""
-"<qt><p>Use proxy settings defined on the system.</p>\n"
-"<p>Some platforms offer system wide proxy configuration information and "
-"selecting this option allows you to use those settings.</p>\n"
-"<p>On Mac platforms</p>\n"
-"<p>On Windows platforms</p>\n"
-"<p>On Unix and Linux platforms, such system proxy settings are usually "
-"defined through environment variables. The following environment variables "
-"are detected and used when present: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-"</qt>"
-msgstr ""
-"<qt><p>Використовувати параметри проксі, визначені на рівні операційної "
-"системи.</p>\n"
-"<p>На деяких програмних платформах можна визначати загальносистемні "
-"параметри налаштування проксі. Позначення цього пункту дозволить "
-"використання цих параметрів у KDE.</p>\n"
-"<p>На платформах Mac</p>\n"
-"<p>На платформах Windows</p>\n"
-"<p>На платформах Unix і Linux такі загальносистемні параметри проксі-сервера "
-"зазвичай визначаються за допомогою змінних середовища. Може бути виявлено і "
-"використано такі змінні середовища: <b>HTTP_PROXY</b>, <b>HTTPS_PROXY</b>, "
-"<b>FTP_PROXY</b>, <b>NO_PROXY</b></p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:120
-#, kde-format
-msgid "Use system proxy configuration:"
-msgstr "Налаштування системного проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:127
-#, kde-format
-msgid ""
-"<qt>Attempt automatic discovery of the environment variables used for "
-"setting system wide proxy information.<p> This feature works by searching "
-"for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
-"</qt>"
-msgstr ""
-"<qt>Спробувати автоматично визначити назви змінних оточення, які "
-"використовуються для налаштування проксі.<p> При автоматичному визначенні "
-"буде перевірено назви змінних середовища, які часто використовуються для "
-"визначення адреси проксі-сервера (HTTP_PROXY, FTP_PROXY та NO_PROXY).</qt>"
-
-#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
-#: kcms/proxy/kproxydlg.ui:130
-#, kde-format
-msgid "Auto D&etect"
-msgstr "А&втовизначення"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
-"store the address of the HTTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Введіть тут назву змінної середовища (наприклад <b>HTTP_PROXY</b>), e якій "
-"зберігається адреса проксі-сервера для протоколу HTTP. <p>Ви також можете "
-"скористатись кнопкою <b>«Автовизначення»</b>, і програма спробує автоматично "
-"визначити назву змінної середовища.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
-#: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, kde-format
-msgid "HTTP Proxy:"
-msgstr "HTTP-проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
-"store the address of the HTTPS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Введіть тут назву змінної середовища (наприклад <b>HTTPS_PROXY</b>), у якій "
-"зберігається адреса проксі-сервера для протоколу HTTPS. <p>Ви, також, можете "
-"скористатись кнопкою <b>«Автовизначення»</b>: програма спробує автоматично "
-"визначити назву змінної середовища.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
-#: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, kde-format
-msgid "SSL Proxy:"
-msgstr "SSL-проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
-"store the address of the FTP proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Введіть тут назву змінної середовища (наприклад <b>FTP_PROXY</b>), у якій "
-"зберігається адреса проксі-сервера для протоколу FTP. <p>Ви, також, можете "
-"скористатись кнопкою <b>«Автовизначення»</b>: програма спробує автоматично "
-"визначити назву змінної середовища.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
-#: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, kde-format
-msgid "FTP Proxy:"
-msgstr "FTP-проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
-#: kcms/proxy/kproxydlg.ui:263
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used to "
-"store the address of the SOCKS proxy server.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Вкажіть назву змінної середовища, наприклад <b>SOCKS_PROXY</b>, яку буде "
-"використано для зберігання адреси проксі-сервера SOCKS.<p>\n"
-"Крім того, ви можете натиснути кнопку <b>«Автовизначення»</b>, щоб наказати "
-"програмі автоматично виконати визначення цієї змінної.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
-#: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, kde-format
-msgid "SOCKS Proxy:"
-msgstr "SOCKS-проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:285
-#, kde-format
-msgid ""
-"<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-"used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-"can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-"automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Вкажіть назву змінної середовища, наприклад <b>SOCKS_PROXY</b>, яку буде "
-"використано для зберігання адреси проксі-сервера SOCKS.<p>Крім того, ви "
-"можете натиснути кнопку <b>«Автовизначення»</b>, щоб наказати програмі "
-"автоматично виконати визначення цієї змінної.</p></qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:295 kcms/proxy/kproxydlg.ui:599
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the proxy server should not be used.<p>\n"
-"Alternatively, you can click on the <b>\"Auto Detect\"</b> button to attempt "
-"an automatic discovery of this variable.\n"
-"</qt>"
-msgstr ""
-"<qt>Введіть назву змінної середовища (наприклад <b>NO_PROXY</b>), у якій "
-"зберігаються адреси сайтів для яких не потрібно використовувати проксі-"
-"сервер. <p>Ви, також, можете скористатись кнопкою <b>«Автовизначення»</b>: "
-"програма спробує автоматично визначити назву змінної середовища.</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
-#. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
-#: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, kde-format
-msgid "Exceptions:"
-msgstr "Винятки:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:317
-#, kde-format
-msgid ""
-"<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-"addresses of sites for which the above proxy settings should not be used."
-"<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
-"to attempt an automatic discovery of this variable.</p></qt>"
-msgstr ""
-"<qt>Введіть назву змінної середовища (наприклад <b>NO_PROXY</b>), у якій "
-"зберігаються адреси сайтів, для яких не слід використовувати проксі-сервер. "
-"<p>Ви, також, можете скористатись кнопкою <b>«Автовизначення»</b>: програма "
-"спробує автоматично визначити назву змінної середовища.</p></qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
-#: kcms/proxy/kproxydlg.ui:324
-#, kde-format
-msgid "Show the &value of the environment variables"
-msgstr "Показувати &значення змінних оточення"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:343
-#, kde-format
-msgid "Manually enter proxy server configuration information."
-msgstr "Задати налаштування проксі вручну."
-
-#. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
-#: kcms/proxy/kproxydlg.ui:346
-#, kde-format
-msgid "Use manually specified proxy configuration:"
-msgstr "Використовувати вказані налаштування проксі:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
-#: kcms/proxy/kproxydlg.ui:398
-#, kde-format
-msgid "Enter the address of the HTTP proxy server."
-msgstr "Вкажіть адресу сервера проксі HTTP."
-
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxyFtpSpinBoxLabel)
-#. i18n: ectx: property (text), widget (QLabel, manualProxySocksSpinBoxLabel)
-#: kcms/proxy/kproxydlg.ui:405 kcms/proxy/kproxydlg.ui:471
-#: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
-#, kde-format
-msgid "Port:"
-msgstr "Порт:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
-#: kcms/proxy/kproxydlg.ui:421
-#, kde-format
-msgid "Enter the port number of the HTTP proxy server."
-msgstr "Вкажіть номер порту проксі-сервера для HTTP."
-
-#. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:436
-#, kde-format
-msgid "Use this proxy server for a&ll protocols"
-msgstr "&Один проксі-сервер для всіх протоколів"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
-#: kcms/proxy/kproxydlg.ui:464
-#, kde-format
-msgid "Enter the address of the HTTPS proxy server."
-msgstr "Вкажіть адресу проксі-сервера для HTTPS."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpsSpinBox)
-#: kcms/proxy/kproxydlg.ui:481
-#, kde-format
-msgid "Enter the port number of the HTTPS proxy server."
-msgstr "Вкажіть номер порту проксі-сервера для HTTPS."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
-#: kcms/proxy/kproxydlg.ui:517
-#, kde-format
-msgid "Enter the address of the FTP proxy server."
-msgstr "Введіть адресу проксі-сервера для FTP."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyFtpSpinBox)
-#: kcms/proxy/kproxydlg.ui:534
-#, kde-format
-msgid "Enter the port number of the FTP proxy server."
-msgstr "Вкажіть номер порту проксі-сервера для FTP."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
-#: kcms/proxy/kproxydlg.ui:567
-#, kde-format
-msgid "Enter the address of the SOCKS proxy server."
-msgstr "Введіть адресу проксі-сервера для SOCKS."
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
-#: kcms/proxy/kproxydlg.ui:584
-#, kde-format
-msgid "Enter the port number of the SOCKS proxy server."
-msgstr "Вкажіть номер порту проксі-сервера для SOCKS."
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
-#: kcms/proxy/kproxydlg.ui:628
-#, kde-format
-msgid ""
-"<qt>\n"
-"<p>Enter a comma separated list of hostnames or ip addresses that should be "
-"excluded from using the above proxy settings.</p>\n"
-"<p>If you want to exclude all hosts for a given domain, then simply enter "
-"the domain name preceded by a dot. For example, to exclude all hostnames for "
-"<i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as '*' or "
-"'?' are not supported and will have no effect.</p>\n"
-"<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-"addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"<p>Вкажіть список назв вузлів або IP-адрес, які слід виключити під час "
-"використання вказаних вище параметрів проксі-сервера.</p>\n"
-"<p>Якщо вам потрібно виключити всі вузли певного домену, просто вкажіть "
-"назву домену з символом крапки як префіксом. Наприклад, щоб виключити всі "
-"назви вузлів домену <i>kde.org</i>, вкажіть <i>.kde.org</i>. Підтримки "
-"символів-замінників, зокрема «*» або «?», не передбачено, отже вони не "
-"працюватимуть як замінники.</p>\n"
-"<p>Крім того, ви можете вказати IP-адреси, наприклад 127.0.0.1, та IP-адреси "
-"з підмережею, наприклад 192.168.0.1/24.</p>\n"
-"</qt>"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:639
-#, kde-format
-msgid ""
-"<qt>\n"
-"Check this box if you want the above proxy settings to apply only to the "
-"addresses listed in the <i>Exceptions</i> list.</qt>"
-msgstr ""
-"<qt>\n"
-"Позначте цей пункт, якщо вказані вище параметри проксі слід застосовувати "
-"лише для адрес зі списку <i>Винятки</i>.</qt>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
-#: kcms/proxy/kproxydlg.ui:642
-#, kde-format
-msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr "Використовувати проксі тільки для адрес зі списку винятків"
-
-#: kcms/smb/smbrodlg.cpp:27
-#, kde-format
-msgid "These settings apply to network browsing only."
-msgstr "Ці параметри стосуються тільки навігації мережею."
-
-#: kcms/smb/smbrodlg.cpp:31
-#, kde-format
-msgid "Default user name:"
-msgstr "Типове ім'я користувача:"
-
-#: kcms/smb/smbrodlg.cpp:39
-#, kde-format
-msgid "Default password:"
-msgstr "Типовий пароль:"
-
 #: kioexec/kioexecd.cpp:85
 #, kde-format
 msgid ""
@@ -5912,6 +4765,11 @@ msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
 msgstr " [між доменами]"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
+#, kde-format
+msgid "Details"
+msgstr "Подробиці"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:99
 #, kde-format
 msgid "See or modify the cookie information"
@@ -6000,6 +4858,31 @@ msgstr ""
 msgid "Cookie Details"
 msgstr "Подробиці про куку"
 
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
+#, kde-format
+msgid "Name:"
+msgstr "Назва:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
+#, kde-format
+msgid "Value:"
+msgstr "Значення:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
+#, kde-format
+msgid "Expires:"
+msgstr "Застаріє:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
+#, kde-format
+msgid "Path:"
+msgstr "Шлях:"
+
+#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
+#, kde-format
+msgid "Domain:"
+msgstr "Домен:"
+
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:287
 #, kde-format
 msgctxt ""
@@ -6072,163 +4955,15 @@ msgstr "Подробиці"
 msgid "Network"
 msgstr "Мережа"
 
-#: kioworkers/trash/kcmtrash.cpp:132
-#, kde-format
-msgid " days"
-msgstr " днів"
-
-#: kioworkers/trash/kcmtrash.cpp:197
-#, kde-format
-msgid ""
-"<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-"para>"
-msgstr ""
-"<para>Смітник KDE налаштовано на використання загального смітника <b>Finder</"
-"b>.<br></para>"
-
-#: kioworkers/trash/kcmtrash.cpp:199
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-"while<br>emptying the Trash through the Finder will delete everything.</"
-"para><para>KDE's trash items will show up in a folder called KDE.trash, in "
-"the Trash can.</para>"
-msgstr ""
-"<para>Спорожнення смітника KDE призведе до вилучення лише об'єктів, які було "
-"вилучено у KDE,<br>спорожнення ж смітника у Finder вилучить усі вилучені "
-"будь-де об'єкти.</para><para>Об'єкти, вилучені у KDE, буде показано у теці "
-"KDE.trash загального смітника системи.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:234
-#, kde-format
-msgid "Delete files older than"
-msgstr "Вилучати файли, старіші за"
-
-#: kioworkers/trash/kcmtrash.cpp:237
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-"emphasis> of files that are older than the value specified. Leave this "
-"disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
-"items after a certain timespan</para>"
-msgstr ""
-"<para>Позначте цей пункт, щоб уможливити <emphasis strong='true'>автоматично "
-"вилучення</emphasis> файлів, вік яких перевищуватиме вказане значення. Не "
-"позначайте цей пункт, якщо ви <emphasis strong='true'>не</emphasis> бажаєте, "
-"щоб середовище автоматично вилучало всі елементи, старші за вказаний час.</"
-"para>"
-
-#: kioworkers/trash/kcmtrash.cpp:244
-#, kde-format
-msgid " day"
-msgid_plural " days"
-msgstr[0] " день"
-msgstr[1] " дні"
-msgstr[2] " днів"
-msgstr[3] " день"
-
-#: kioworkers/trash/kcmtrash.cpp:246
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Set the number of days that files can remain in the trash. Any files "
-"older than this will be automatically deleted.</para>"
-msgstr ""
-"<para>Встановіть кількість днів, які файли можуть залишатися у смітнику. Всі "
-"файли, які зберігатимуться довше за вказаний термін, буде автоматично "
-"вилучено.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:250
-#, kde-format
-msgid "Cleanup:"
-msgstr "Чищення:"
-
-#: kioworkers/trash/kcmtrash.cpp:253
-#, kde-format
-msgid "Limit to"
-msgstr "Обмежити до"
-
-#: kioworkers/trash/kcmtrash.cpp:255
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>Check this box to limit the trash to the maximum amount of disk space "
-"that you specify below. Otherwise, it will be unlimited.</para>"
-msgstr ""
-"<para>Позначте цей пункт, щоб обмежити об'єм смітника значенням, яке ви "
-"вкажете нижче. Якщо цей пункт не буде позначено, об'єм смітника не "
-"обмежуватиметься.</para>"
-
-#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: kioworkers/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:303
-#, kde-format
-msgid "Size:"
-msgstr "Розмір:"
-
-#: kioworkers/trash/kcmtrash.cpp:265
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the maximum percent of disk space that will be used for the "
-"trash.</para>"
-msgstr ""
-"<para>Це максимальний об'єм на диску у відсотках, який може бути використано "
-"смітником.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:270
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>This is the calculated amount of disk space that will be allowed for "
-"the trash, the maximum.</para>"
-msgstr ""
-"<para>Це максимальний обчислений об'єм простору на диску, яким буде обмежено "
-"місткість смітника.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:274
-#, kde-format
-msgid "Show a Warning"
-msgstr "Показувати попередження"
-
-#: kioworkers/trash/kcmtrash.cpp:275
-#, kde-format
-msgid "Delete Oldest Files From Trash"
-msgstr "Вилучати найстаріші файли зі смітника"
-
-#: kioworkers/trash/kcmtrash.cpp:276
-#, kde-format
-msgid "Delete Biggest Files From Trash"
-msgstr "Вилучати найбільші файли зі смітника"
-
-#: kioworkers/trash/kcmtrash.cpp:278
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<para>When the size limit is reached, it will prefer to delete the type of "
-"files that you specify, first. If this is set to warn you, it will do so "
-"instead of automatically deleting files.</para>"
-msgstr ""
-"<para>Коли заповнення досягне вказаного обмеження, середовище надаватиме "
-"перевагу вилученню вказаного вами типу файлів. Якщо ви вказали, що вас слід "
-"попередити про вилучення, середовище попередить вас замість автоматичного "
-"вилучення файлів.</para>"
-
-#: kioworkers/trash/kcmtrash.cpp:280
-#, kde-format
-msgid "Full Trash:"
-msgstr "Повний Смітник:"
-
-#: kioworkers/trash/kio_trash.cpp:112 kioworkers/trash/kio_trash.cpp:156
-#: kioworkers/trash/kio_trash.cpp:214 kioworkers/trash/kio_trash.cpp:377
-#: kioworkers/trash/kio_trash.cpp:409 kioworkers/trash/kio_trash.cpp:575
-#: kioworkers/trash/kio_trash.cpp:585
+#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
+#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Неправильний URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:131
+#: kioworkers/trash/kio_trash.cpp:133
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -6240,12 +4975,12 @@ msgstr ""
 "початкове місцезнаходження. Можна або створити каталог знову та спробувати "
 "відновити ще раз, або відновити елемент перетягнувши його у інше місце."
 
-#: kioworkers/trash/kio_trash.cpp:182 kioworkers/trash/kio_trash.cpp:203
+#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Некоректне поєднання протоколів."
 
-#: kioworkers/trash/kio_trash.cpp:194 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Цей файл вже знаходиться у смітнику."
@@ -6366,369 +5101,15 @@ msgstr "Доступ заборонено"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "У вас не вистачає прав для доступу до протоколу %1."
 
-#: urifilters/ikws/ikwsopts.cpp:39
-#, kde-format
-msgctxt "@title:column Name label from web search keyword column"
-msgid "Name"
-msgstr "Назва"
-
-#: urifilters/ikws/ikwsopts.cpp:41
-#, kde-format
-msgctxt "@title:column"
-msgid "Keywords"
-msgstr "Ключові слова"
-
-#: urifilters/ikws/ikwsopts.cpp:43
-#, kde-format
-msgctxt "@title:column"
-msgid "Preferred"
-msgstr "Основне"
-
-#: urifilters/ikws/ikwsopts.cpp:102
-#, kde-kuit-format
-msgctxt "@info:tooltip"
-msgid ""
-"Check this box to select the highlighted web search keyword as preferred.<nl/"
-">Preferred web search keywords are used in places where only a few select "
-"keywords can be shown at one time."
-msgstr ""
-"Позначте цей пункт, щоб вибрати позначене ключове слово пошуку в інтернеті "
-"як основне.<nl/>Основні ключові слова пошуку в інтернеті використовуються "
-"там, де можливий показ лише невеликої кількості ключових слів одночасно."
-
-#: urifilters/ikws/ikwsopts.cpp:203
-#, kde-format
-msgctxt "@item:inlistbox No default web search keyword"
-msgid "None"
-msgstr "Немає"
-
-#: urifilters/ikws/ikwsopts.cpp:247
-#, kde-format
-msgid "Search F&ilters"
-msgstr "Ф&ільтри пошуку"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:17
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-"search keywords allow you to quickly access or search for information "
-"located online or on your hard drive. </p><p>KDE comes with many predefined "
-"keywords. One such keyword can be used to perform a the Google (TM) search; "
-"to use it, you simply type the keyword 'gg' followed by the keyword "
-"delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-"KDE</span>.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Вмикання і вимикання ключових слів пошуку в інтернеті. "
-"</p><p>За допомогою ключових слів пошуку в інтернеті ви можете пришвидшити "
-"доступ до сторінки або пошук даних у інтернеті або на диску вашого "
-"комп'ютера. </p><p>У типовому наборі KDE вже визначено багато ключових слів "
-"пошуку в інтернеті. Одним з таких ключових слів є ключове слово для пошуку "
-"за допомогою рушія Google™. Щоб скористатися ним, просто введіть ключове "
-"слово «gg» (без лапок), роздільник ключового слова та рядок, який слід "
-"знайти. Приклад: <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
-"body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
-#: urifilters/ikws/ikwsopts_ui.ui:20
-#, kde-format
-msgid "&Enable Web search keywords"
-msgstr "У&вімкнути ключові слова пошуку в інтернеті"
-
-#. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
-#: urifilters/ikws/ikwsopts_ui.ui:30
-#, kde-format
-msgid "&Use preferred keywords only"
-msgstr "Ви&користовувати лише основні ключові слова"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
-#: urifilters/ikws/ikwsopts_ui.ui:37
-#, kde-format
-msgid "Search for web search keywords"
-msgstr "Пошук ключових слів пошуку в інтернеті"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
-#: urifilters/ikws/ikwsopts_ui.ui:71
-#, kde-format
-msgid "Add a new Web search keyword"
-msgstr "Додати нове ключове слово пошуку в інтернеті"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
-#: urifilters/ikws/ikwsopts_ui.ui:84
-#, kde-format
-msgid "Modify the highlighted Web search keyword"
-msgstr "Змінити позначене ключове слово пошуку в інтернеті"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:97
-#, kde-format
-msgid "Delete the highlighted Web search keyword"
-msgstr "Вилучити позначене ключове слово пошуку в інтернеті"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbDelete)
-#: urifilters/ikws/ikwsopts_ui.ui:100
-#, kde-format
-msgid "De&lete"
-msgstr "Ви&лучити"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:138
-#, kde-format
-msgid ""
-"<qt>\n"
-"Select the search engine to use for input boxes that provide automatic "
-"lookup services when you type in normal words and phrases instead of a URL. "
-"To disable this feature select <b>None</b> from the list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Виберіть механізм пошуку для використання в полях вводу, що забезпечує "
-"автоматичний пошук при набиранні слів та фраз замість URL. Щоб вимкнути цю "
-"функцію, виберіть зі списку значення <b>Жодна</b>.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:141
-#, kde-format
-msgid "Default Web &search keyword:"
-msgstr "Типове ключове слово &пошуку в інтернеті:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
-#: urifilters/ikws/ikwsopts_ui.ui:166
-#, kde-format
-msgid ""
-"<html><head/><body><p>Select a default web search keyword. </p><p>This "
-"allows applications to automatically convert the typed word or phrase to web "
-"search keyword queries when they cannot be filtered into a proper URL. </"
-"p><p>To disable this functionality select <span style=\" font-weight:600;"
-"\">None</span> from the list. </p></body></html>"
-msgstr ""
-"<html><head/><body><p>Виберіть типове ключове слово пошуку в інтернеті. </"
-"p><p>За його допомогою програми зможуть автоматично перетворювати введене "
-"слово або фразу на запити ключових слів пошуку в інтернеті, якщо "
-"користувачем буде вказано рядок, який не є належним чином форматованою "
-"адресою. </p><p>Щоб вимкнути цю функціональну можливість, виберіть у списку "
-"пункт <span style=\" font-weight:600;\">Немає</span>.</p></body></html>"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:182
-#, kde-format
-msgid ""
-"Choose the delimiter that separates the keyword from the phrase or word to "
-"be searched."
-msgstr ""
-"Виберіть розділювач, щоб буде відокремлювати ключові слова від фраз або слів "
-"для пошуку."
-
-#. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:185
-#, kde-format
-msgid "&Keyword delimiter:"
-msgstr "Розділювач &ключових слів:"
-
-#. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:204
-#, kde-format
-msgid "Choose a delimiter to mark the Web search keyword."
-msgstr ""
-"Виберіть роздільник для відокремлення ключового слова пошуку в інтернеті."
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:208
-#, kde-format
-msgctxt "Colon as keyword delimiter"
-msgid "Colon"
-msgstr "Двокрапка"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
-#: urifilters/ikws/ikwsopts_ui.ui:213
-#, kde-format
-msgctxt "Space as keyword delimiter"
-msgid "Space"
-msgstr "Пробіл"
-
-#: urifilters/ikws/kuriikwsfilter.cpp:104
+#: urifilters/ikws/kuriikwsfilter.cpp:103
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Не виявлено списку пріоритетних рушіїв пошуку."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:119
+#: urifilters/ikws/kuriikwsfilter.cpp:118
 #, kde-format
 msgid "No search providers were found."
 msgstr "Не виявлено списку рушіїв пошуку."
-
-#: urifilters/ikws/searchproviderdlg.cpp:49
-#, kde-format
-msgctxt "@item:inlistbox The default character set"
-msgid "Default"
-msgstr "Типовий"
-
-#: urifilters/ikws/searchproviderdlg.cpp:52
-#, kde-format
-msgid "Modify Web Shortcut"
-msgstr "Внесення змін до вебскорочення"
-
-#: urifilters/ikws/searchproviderdlg.cpp:60
-#, kde-format
-msgid "New Web Shortcut"
-msgstr "Нове вебскорочення"
-
-#: urifilters/ikws/searchproviderdlg.cpp:121
-#, kde-format
-msgid ""
-"The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
-"one."
-msgstr ""
-"Скорочення «%1» вже пов'язано з «%2». Будь ласка, виберіть інше скорочення."
-
-#: urifilters/ikws/searchproviderdlg.cpp:126
-#, kde-format
-msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-msgid "- %1: \"%2\""
-msgstr "— %1: «%2»"
-
-#: urifilters/ikws/searchproviderdlg.cpp:130
-#, kde-format
-msgid ""
-"The following shortcuts are already assigned. Please choose different ones.\n"
-"%1"
-msgstr ""
-"Нижче наведено перелік вже призначених скорочень. Будь ласка, виберіть інші "
-"скорочення.\n"
-"%1"
-
-#: urifilters/ikws/searchproviderdlg.cpp:143
-#, kde-format
-msgid ""
-"The Shortcut URL does not contain a \\{...} placeholder for the user query.\n"
-"This means that the same page is always going to be visited, regardless of "
-"the text typed in with the shortcut."
-msgstr ""
-"Адреса не містить шаблону заміни \\{...} для запиту користувача.\n"
-"Це означає, що завжди буде відвідуватись та сама сторінка, незалежно від "
-"тексту для пошуку, введеного користувачем."
-
-#: urifilters/ikws/searchproviderdlg.cpp:147
-#, kde-format
-msgid "Keep It"
-msgstr "Залишити"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:17
-#, kde-format
-msgid "Enter the human-readable name of the search provider here."
-msgstr "Введіть тут придатну для запам'ятовування назву рушія пошуку."
-
-#. i18n: ectx: property (text), widget (QLabel, lbName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:23
-#, kde-format
-msgid "Shortcut &name:"
-msgstr "&Назва скорочення:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:42
-#: urifilters/ikws/searchproviderdlg_ui.ui:64
-#: urifilters/ikws/searchproviderdlg_ui.ui:70
-#, kde-format
-msgid ""
-"<qt>\n"
-"Enter the URI that is used to perform a search on the search engine here.<br/"
-">The whole text to be searched for can be specified as \\{@} or \\{0}.<br/>\n"
-"Recommended is \\{@}, since it removes all query variables (name=value) from "
-"the resulting string, whereas \\{0} will be substituted with the unmodified "
-"query string.<br/>You can use \\{1} ... \\{n} to specify certain words from "
-"the query and \\{name} to specify a value given by 'name=value' in the user "
-"query.<br/>In addition it is possible to specify multiple references (names, "
-"numbers and strings) at once (\\{name1,name2,...,\"string\"}).<br/>The first "
-"matching value (from the left) will be used as the substitution value for "
-"the resulting URI.<br/>A quoted string can be used as the default value if "
-"nothing matches from the left of the reference list.\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Введіть URI рушія пошуку.<br/>Весь текст для пошуку може бути задано як "
-"\\{@} або \\{0}.<br/>\n"
-"Вираз \\{@} є рекомендованим, оскільки він вилучає всі змінні запиту "
-"(name=value) з рядка результату, а вираз \\{0} буде заміщено незмінним "
-"рядком запиту<br/> ви можете скористатися \\{1} ... \\{n}, щоб вказати "
-"окремі слова з запиту та \\{name}, щоб вказати значення, надане парою "
-"«name=value» в запиті користувача.<br/>Окрім цього, є можливість вказати "
-"декілька посилань (назви, числа та рядки) одразу (\\{name1,name2,...,\"string"
-"\"}).<br/>Перше відповідне значення (починаючи з лівого боку) буде "
-"використане для заміни значення для вихідного URI.<br/>Якщо відповідних "
-"значень у лівій частині списку посилань не знайдено, може бути використане "
-"типове значення — рядок у лапках.\n"
-"</qt>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbQuery)
-#: urifilters/ikws/searchproviderdlg_ui.ui:48
-#, kde-format
-msgid "Shortcut &URL:"
-msgstr "&Адреса скорочення:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:83
-#, kde-format
-msgid "Select the character set that will be used to encode your search query."
-msgstr "Виберіть набір символів для закодовування вашого запиту на пошук."
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:92
-#: urifilters/ikws/searchproviderdlg_ui.ui:97
-#: urifilters/ikws/searchproviderdlg_ui.ui:116
-#, kde-format
-msgid ""
-"<qt>\n"
-"The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-"example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-"b>\n"
-"</qt>"
-msgstr ""
-"<qt>\n"
-"Скорочення, які надані тут, можуть бути використані, як схеми псевдо-URI у "
-"KDE. Наприклад, скорочення <b>av</b> може бути використане, як у <b>av</b>:"
-"<b>мій пошук</b>\n"
-"</qt>"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
-#: urifilters/ikws/searchproviderdlg_ui.ui:104
-#: urifilters/ikws/searchproviderdlg_ui.ui:107
-#, kde-format
-msgid ""
-"<html><head/><body><p>Enter the human-readable name of the web shortcut here."
-"</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Вкажіть тут зручну для запам'ятовування назву "
-"вебскорочення.</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, lbShortcut)
-#: urifilters/ikws/searchproviderdlg_ui.ui:119
-#, kde-format
-msgid "&Shortcuts:"
-msgstr "С&корочення:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:132
-#, kde-format
-msgid "Select the character set that will be used to encode your search query"
-msgstr "Виберіть набір символів для закодовування вашого запиту на пошук"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCharset)
-#: urifilters/ikws/searchproviderdlg_ui.ui:135
-#, kde-format
-msgid "&Charset:"
-msgstr "&Набір символів:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
-#: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, kde-format
-msgid "Insert query placeholder"
-msgstr "Вставити замінник запиту"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -7420,6 +5801,12 @@ msgstr "Тип:"
 #, kde-format
 msgid "Location:"
 msgstr "Розташування:"
+
+#. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:303
+#, kde-format
+msgid "Size:"
+msgstr "Розмір:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:351
@@ -9034,6 +7421,11 @@ msgstr "# буде замінено на зростаючі числа, почи
 msgid "Information"
 msgstr "Інформація"
 
+#: widgets/skipdialog.cpp:47
+#, kde-format
+msgid "Replace"
+msgstr "Замінити"
+
 #: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
@@ -9259,6 +7651,1124 @@ msgstr "Це запустить програму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Якщо ви не довіряєте цій програмі, натисніть кнопку «Скасувати»."
+
+#~ msgid "&Policy"
+#~ msgstr "&Правила"
+
+#~ msgid "&Management"
+#~ msgstr "&Керування"
+
+#~ msgid "D-Bus Communication Error"
+#~ msgstr "Помилка зв'язку D-Bus"
+
+#~ msgid "Unable to delete all the cookies as requested."
+#~ msgstr "Неможливо вилучити всі куки в запиті."
+
+#~ msgid "Unable to delete cookies as requested."
+#~ msgstr "Неможливо вилучити куки в запиті."
+
+#~ msgid "Information Lookup Failure"
+#~ msgstr "Помилка пошуку інформації"
+
+#~ msgid ""
+#~ "Unable to retrieve information about the cookies stored on your computer."
+#~ msgstr ""
+#~ "Не вдається отримати інформацію про куки збережені у вашому комп'ютері."
+
+#~ msgid "End of session"
+#~ msgstr "Кінець сеансу"
+
+#~ msgid "Yes"
+#~ msgstr "Так"
+
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgid "Search interactively for domains and hosts"
+#~ msgstr "Інтерактивний пошук доменів та вузлів"
+
+#~ msgid "Site"
+#~ msgstr "Сайт"
+
+#~ msgid "Cookie Name"
+#~ msgstr "Назва куки"
+
+#~ msgid "D&elete"
+#~ msgstr "Ви&терти"
+
+#~ msgid "Delete A&ll"
+#~ msgstr "Вит&ерти все"
+
+#~ msgid "Configure &Policy..."
+#~ msgstr "Змінити п&равила…"
+
+#~ msgid "&Reload List"
+#~ msgstr "&Перезавантажити список"
+
+#~ msgid "Secure:"
+#~ msgstr "Є безпечною:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Change Cookie Policy"
+#~ msgstr "Зміна правил для кук"
+
+#~ msgctxt "@title:window"
+#~ msgid "New Cookie Policy"
+#~ msgstr "Нові правила для кук"
+
+#~ msgid ""
+#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
+#~ "replace it?</qt>"
+#~ msgstr ""
+#~ "<qt>Для<center><b>%1</b></center>правила вже існують. Хочете їх замінити?"
+#~ "</qt>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Duplicate Policy"
+#~ msgstr "Дублювання правила"
+
+#~ msgid ""
+#~ "Unable to communicate with the cookie handler service.\n"
+#~ "Any changes you made will not take effect until the service is restarted."
+#~ msgstr ""
+#~ "Не вдається налагодити зв'язок з службою керування куками.\n"
+#~ "Всі зроблені зміни не набудуть чинності, поки не буде перезапущено цю "
+#~ "службу."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enable cookie support. Normally you will want to have cookie support "
+#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
+#~ "Please note that disabling cookie support might make many web sites "
+#~ "unbrowsable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>За допомогою цього пункту можна вимкнути підтримку кук. Здебільшого, "
+#~ "вам буде потрібна ввімкнена та налаштована підтримка кук, яка відповідає "
+#~ "потребам вашої безпеки.</p><p>\n"
+#~ "Будь ласка, зауважте, що вимикання кук може перешкодити нормальній "
+#~ "навігації багатьма сайтами.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Enable coo&kies"
+#~ msgstr "Дозволити &куки"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Reject the so called third-party cookies. These are cookies that "
+#~ "originate from a site other than the one you are currently browsing. For "
+#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
+#~ "cookies that originate from www.foobar.com will be processed per your "
+#~ "settings. Cookies from any other site will be rejected. This reduces the "
+#~ "chances of site operators compiling a profile about your daily browsing "
+#~ "habits.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Відкидати куки з інших сайтів. Деякі куки надходять з сайтів, відмінних "
+#~ "від початкового сайта. Якщо ви, наприклад, відвідуєте <b>www.foobar.com</"
+#~ "b>, і цей пункт позначено, буде прийнято куки лише з www.foobar.com. Всі "
+#~ "куки з інших сайтів буде відкинуто. Це перешкоджає визначенню операторами "
+#~ "сайтів адрес, які ви відвідуєте.\n"
+#~ "</qt>"
+
+#~ msgid "Only acce&pt cookies from originating server"
+#~ msgstr "Прийма&ти куки тільки з початкового сервера"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "Automatically accept temporary cookies meant to expire at the end of the "
+#~ "current session. Such cookies will not be stored in your computer's hard "
+#~ "drive or storage device. Instead, they are deleted when you close all "
+#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
+#~ "Checking this option overrides your default as well as site specific "
+#~ "cookie policies for session cookies.</p>"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "Автоматично приймати тимчасові куки (ті, що застарівають у кінці сеансу). "
+#~ "Такі куки не зберігаються на вашому жорсткому диску або іншому пристрої "
+#~ "для збереження інформації, вони вилучаються, коли ви закриваєте всі "
+#~ "програми (наприклад програму для перегляду сторінок інтернету), що "
+#~ "використовують куки.</p><p><u>ПРИМІТКА:</u> якщо позначите цей пункт "
+#~ "разом з наступним, вони матимуть перевагу над окремою для кожного сайта "
+#~ "поведінкою для кук протягом сеансу.</p>"
+
+#~ msgid "Automaticall&y accept session cookies"
+#~ msgstr "Автоматичн&о приймати куки сеансів"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Determines how cookies received from a remote machine will be handled: \n"
+#~ "<ul>\n"
+#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
+#~ "server wants to set a cookie.</li>\n"
+#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
+#~ "</li>\n"
+#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
+#~ "receives.</li>\n"
+#~ "</ul><p>\n"
+#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
+#~ "take precedence over the default policy.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Визначає, як оброблятимуться куки отримані з віддалених машин: \n"
+#~ "<ul>\n"
+#~ "<li><b>Запитувати</b> примусить KDE запитувати на ваше підтвердження "
+#~ "кожного разу, коли сервер хоче встановити куку;</li>\n"
+#~ "<li><b>Приймати</b> примусить KDE мовчки приймати всі куки;</li>\n"
+#~ "<li><b>Приймати до завершення сеансу</b> накаже системі приймати куки, "
+#~ "але вважати їх застарілими і вилучати після завершення сеансу.</li>\n"
+#~ "<li><b>Відмовляти</b> забороняє KDE встановлювати куки.</li>\n"
+#~ "</ul><p> <u>ПРИМІТКА:</u> правила для окремих доменів (що встановлюються "
+#~ "нижче), мають перевагу над цими типовими правилами.</p>\n"
+#~ "</qt>"
+
+#~ msgid "Default Policy"
+#~ msgstr "Стандартна поведінка"
+
+#~ msgid "Accep&t all cookies"
+#~ msgstr "Прийм&ати всі куки"
+
+#~ msgid "Accept &until end of session"
+#~ msgstr "Приймати &до завершення сеансу"
+
+#~ msgid "Ask &for confirmation"
+#~ msgstr "Запи&тувати на підтвердження"
+
+#~ msgid "Re&ject all cookies"
+#~ msgstr "Ві&дмовляти всім кукам"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
+#~ "the necessary information. To change an existing policy, use the "
+#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
+#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
+#~ "selected policy causing the default policy setting to be used for that "
+#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
+#~ "policies.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Щоб додати нову поведінку, просто натисніть кнопку <b>Додати…</b> та "
+#~ "вкажіть потрібну інформацію у діалоговому вікні. Щоб змінити існуючу "
+#~ "поведінку, натисніть на кнопку <b>Змінити…</b> та виберіть нову поведінку "
+#~ "з вікна діалогового вікна поведінки. Клацнувши на <b>Витерти</b>, ви "
+#~ "вилучаєте вибрану поведінку, поведінку для домену буде скинуто до "
+#~ "типової. Натискання кнопки <b>Витерти все</b>, вилучить всі встановлені "
+#~ "правила поведінки з куками для окремих сайтів.\n"
+#~ "</qt>"
+
+#~ msgid "Site Policy"
+#~ msgstr "Правила поведінки для сайтів"
+
+#~ msgid "Search interactively for domains"
+#~ msgstr "Інтерактивний пошук доменів"
+
+#~ msgid "Search..."
+#~ msgstr "Шукати…"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "List of sites for which you have set a specific cookie policy. Specific "
+#~ "policies override the default policy setting for these sites.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Список сайтів, для яких встановлено нетипову поведінку поводження з "
+#~ "куками. Для цих сайтів правила цієї сторінки мають перевагу над типовою "
+#~ "поведінкою.\n"
+#~ "</qt>"
+
+#~ msgid "Domain"
+#~ msgstr "Домен"
+
+#~ msgid "Policy"
+#~ msgstr "Поведінка"
+
+#~ msgid "&New..."
+#~ msgstr "&Створити..."
+
+#~ msgid "Chan&ge..."
+#~ msgstr "З&мінити..."
+
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
+#~ msgid "Accept For Session"
+#~ msgstr "Прийняти на час сеансу"
+
+#~ msgid "Reject"
+#~ msgstr "Відмовити"
+
+#~ msgid "Ask"
+#~ msgstr "Питати"
+
+#~ msgid "Do Not Know"
+#~ msgstr "Я не знаю"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
+#~ "org</b> or <b>.kde.org</b>.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "Введіть назву машини або домену, до якого застосовується правила. "
+#~ "Наприклад, <i>www.kde.org</i> або <i>.kde.org</i>"
+
+#~ msgid "Site name:"
+#~ msgstr "Назва сайта:"
+
+#~ msgid ""
+#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
+#~ msgstr ""
+#~ "Вкажіть вузол або доменну назву, наприклад e.g. .kde.org, яких стосуються "
+#~ "ці правила."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the desired policy:\n"
+#~ "<ul>\n"
+#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
+#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
+#~ "but they will expire at the end of the session.</li>\n"
+#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
+#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Виберіть бажану поведінку:\n"
+#~ "<ul>\n"
+#~ "<li><b>Прийняти</b> — дозволяє сайту встановлювати куки.</li>\n"
+#~ "<li><b>Приймати до завершення сеансу</b> — дозволяє цьому сайту "
+#~ "встановлювати куки, але чинність таких кук триватиме лише до завершення "
+#~ "поточного сеансу.</li>\n"
+#~ "<li><b>Відмовити</b> — відмовити всім кукам з цього сайта.</li>\n"
+#~ "<li><b>Запитувати</b> — запитувати користувача, коли кука надходить з "
+#~ "цього сайта</li>\n"
+#~ "</ul>\n"
+#~ "</qt>"
+
+#~ msgid "Policy:"
+#~ msgstr "Правила:"
+
+#~ msgid "Accept until end of session"
+#~ msgstr "Приймати до завершення сеансу"
+
+#~ msgid ""
+#~ "You have to restart the running applications for these changes to take "
+#~ "effect."
+#~ msgstr ""
+#~ "Вам потрібно перезапустити всі програми, щоб скористатися зробленими "
+#~ "змінами."
+
+#~ msgctxt "@title:window"
+#~ msgid "Update Failed"
+#~ msgstr "Помилка поновлення"
+
+#~ msgid "You have to restart KDE for these changes to take effect."
+#~ msgstr ""
+#~ "Вам потрібно перезапустити KDE, щоб скористатися зробленими змінами."
+
+#~ msgid "Disable Passive FTP"
+#~ msgstr "Не використовувати пасивний FTP"
+
+#~ msgid ""
+#~ "When FTP connections are passive the client connects to the server, "
+#~ "instead of the other way round, so firewalls do not block the connection; "
+#~ "old FTP servers may not support Passive FTP though."
+#~ msgstr ""
+#~ "В пасивному FTP режимі клієнтська програма з'єднується з сервером, а не "
+#~ "навпаки (як ще відбувається в активному режимі), тому брандмауери не "
+#~ "блокують такі з'єднання. Але старі FTP сервери можуть не підтримувати "
+#~ "пасивний FTP режим."
+
+#~ msgid "Mark partially uploaded files"
+#~ msgstr "Позначати частково вивантажені файли"
+
+#~ msgid ""
+#~ "While a file is being uploaded its extension is \".part\". When fully "
+#~ "uploaded it is renamed to its real name."
+#~ msgstr ""
+#~ "До завершення вивантаження файла його назва міститиме суфікс «.part». "
+#~ "Після завершення вивантаження файла його назву буде змінено на справжню "
+#~ "назву для цього файла."
+
+#~ msgid "Timeout Values"
+#~ msgstr "Значення часу очікування"
+
+#~ msgid ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is 1 second."
+#~ msgid_plural ""
+#~ "Here you can set timeout values. You might want to tweak them if your "
+#~ "connection is very slow. The maximum allowed value is %1 seconds."
+#~ msgstr[0] ""
+#~ "Тут ви можете встановити значення часу очікування. Ви також можете "
+#~ "погратися з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — "
+#~ "%1 секунда."
+#~ msgstr[1] ""
+#~ "Тут ви можете встановити значення часу очікування. Ви також можете "
+#~ "погратися з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — "
+#~ "%1 секунди."
+#~ msgstr[2] ""
+#~ "Тут ви можете встановити значення часу очікування. Ви також можете "
+#~ "погратися з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — "
+#~ "%1 секунд."
+#~ msgstr[3] ""
+#~ "Тут ви можете встановити значення часу очікування. Ви також можете "
+#~ "погратися з ними, якщо ваше з'єднання дуже повільне. Найбільше значення — "
+#~ "%1 секунда."
+
+#~ msgid " second"
+#~ msgid_plural " seconds"
+#~ msgstr[0] " секунда"
+#~ msgstr[1] " секунди"
+#~ msgstr[2] " секунд"
+#~ msgstr[3] " секунда"
+
+#~ msgid "Soc&ket read:"
+#~ msgstr "Зчитування со&кету:"
+
+#~ msgid "Pro&xy connect:"
+#~ msgstr "З'єднання з прок&сі:"
+
+#~ msgid "Server co&nnect:"
+#~ msgstr "З'єд&нання з сервером:"
+
+#~ msgid "&Server response:"
+#~ msgstr "Відповідь &сервера:"
+
+#~ msgid "Global Options"
+#~ msgstr "Загальні параметри"
+
+#~ msgid "Mark &partially uploaded files"
+#~ msgstr "Позначати &частково вивантажені файли"
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
+#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
+#~ "part\" extension. This extension will be removed once the transfer is "
+#~ "complete.</p>"
+#~ msgstr ""
+#~ "<p>Позначає частково вивантажені за допомогою SMB, SFTP та інших "
+#~ "протоколів файли.</p> <p>Якщо цей пункт буде позначено, назви частково "
+#~ "вивантажених файлів міститимуть суфікс «.part». Цей суфікс буде вилучено "
+#~ "після завершення отримання файла.</p>"
+
+#~ msgid " byte"
+#~ msgid_plural " bytes"
+#~ msgstr[0] " байт"
+#~ msgstr[1] " байти"
+#~ msgstr[2] " байтів"
+#~ msgstr[3] " байт"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid ""
+#~ "If cancelled, automatically delete partially uploaded files smaller than:"
+#~ msgstr ""
+#~ "Якщо скасовано, автоматично вилучати частково вивантажені файли, розмір "
+#~ "яких є меншим за"
+
+#~ msgid "FTP Options"
+#~ msgstr "Параметри FTP"
+
+#~ msgid "Enable passive &mode (PASV)"
+#~ msgstr "Використовувати пасивний &режим (PASV)"
+
+#~ msgid ""
+#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
+#~ "from behind firewalls."
+#~ msgstr ""
+#~ "Вмикає використання «пасивного» режиму. Цей режим потрібний для роботи з "
+#~ "протоколом FTP, якщо клієнт знаходиться за брандмауером."
+
+#~ msgid ""
+#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
+#~ "partially uploaded files will have a \".part\" extension. This extension "
+#~ "will be removed once the transfer is complete.</p>"
+#~ msgstr ""
+#~ "<p>Частково вивантажені з FTP файли будуть позначені.</p> <p>Якщо цей "
+#~ "пункт буде позначено, назви частково вивантажених файлів міститимуть "
+#~ "суфікс «.part». Цей суфікс буде вилучено після завершення отримання файла."
+#~ "</p>"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Not all applications will use this proxy setting. In particular, "
+#~ "<application>Firefox</application> and <application>Chromium</"
+#~ "application> or anything derived from them, or anything using "
+#~ "<application>QtWebEngine</application>&nbsp;- which includes "
+#~ "<application>Konqueror</application> using the "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> and <application>Falkon</application>&nbsp;- will not use "
+#~ "these settings. Some applications may allow the proxy to be configured in "
+#~ "their own settings."
+#~ msgstr ""
+#~ "Цей параметр проксі-сервера буде використано не в усіх програмах. "
+#~ "Зокрема, у <application>Firefox</application> і <application>Chromium</"
+#~ "application> або будь-яких заснованих на відповідних рушіях браузерах, в "
+#~ "усіх програмах, де використано <application>QtWebEngine</application>, "
+#~ "зокрема у <application>Konqueror</application> з використанням "
+#~ "<application>WebEnginePart</application>, <application>Akregator</"
+#~ "application> та <application>Falkon</application>, цей параметр не "
+#~ "використовуватиметься. У деяких програмах передбачено окремі механізми "
+#~ "налаштовування параметрів проксі-сервера."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Setup proxy configuration.\n"
+#~ "<p>\n"
+#~ "A proxy server is an intermediate machine that sits between your computer "
+#~ "and the Internet and provides services such as web page caching and "
+#~ "filtering. Caching proxy servers give you faster access to web sites you "
+#~ "have already visited by locally storing or caching those pages; filtering "
+#~ "proxy servers usually provide the ability to block out requests for ads, "
+#~ "spam, or anything else you want to block.\n"
+#~ "<p>\n"
+#~ "If you are uncertain whether or not you need to use a proxy server to "
+#~ "connect to the Internet, consult your Internet service provider's setup "
+#~ "guide or your system administrator.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Налаштування проксі-сервера.<p>Проксі-сервер — це комп'ютер, який "
+#~ "виступає у ролі посередника між вашою внутрішньою мережею та інтернетом, "
+#~ "він запам'ятовує відвідані сторінки та фільтрує запити. Запам'ятовування "
+#~ "відвіданих сторінок може пришвидшити доступ до сайтів, які вже було "
+#~ "відвідано, оскільки вони вже зберігатимуться на вашому проксі-сервері. "
+#~ "Фільтрування запитів надає змогу заблокувати доступ до рекламних "
+#~ "оголошень (банерів), спаму та до інших даних, які вам не подобаються."
+#~ "<p>Якщо ви не впевнені, чи користуватись проксі сервером для з'єднання з "
+#~ "інтернетом, будь ласка, порадьтесь з вашим провайдером або системним "
+#~ "адміністратором.</qt>"
+
+#~ msgid "Connect to the Internet directly."
+#~ msgstr "Пряме з'єднання з інтернетом."
+
+#~ msgid "No Proxy"
+#~ msgstr "Без проксі"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Automatically detect and configure the proxy settings.<p>\n"
+#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
+#~ "Protocol (WPAD)</b>.<p>\n"
+#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
+#~ "some UNIX/Linux distributions.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Автоматично визначати та налаштовувати параметри проксі.<p>\n"
+#~ "Автоматичне визначення виконується за <b>протоколом автоматичного пошуку "
+#~ "проксі-сервера — WPAD</b>.<p>\n"
+#~ "<b>ПРИМІТКА:</b> Цей варіант налаштування може неправильно працювати чи "
+#~ "взагалі не працювати на деяких дистрибутивах UNIX/Linux.\n"
+#~ "</qt>"
+
+#~ msgid "Detect proxy configuration automatically"
+#~ msgstr "Визначити налаштування проксі у автоматичному режимі"
+
+#~ msgid "Use the specified proxy script to configure the proxy settings."
+#~ msgstr ""
+#~ "Використовувати вказаний скрипт для налаштування параметрів використання "
+#~ "проксі-сервера."
+
+#~ msgid "Use proxy auto configuration URL:"
+#~ msgstr "Використовувати адресу автоматичного налаштування проксі:"
+
+#~ msgid "Enter the address for the proxy configuration script."
+#~ msgstr "Вкажіть адресу скрипту налаштування проксі."
+
+#~ msgid ""
+#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
+#~ "<p>Some platforms offer system wide proxy configuration information and "
+#~ "selecting this option allows you to use those settings.</p>\n"
+#~ "<p>On Mac platforms</p>\n"
+#~ "<p>On Windows platforms</p>\n"
+#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
+#~ "defined through environment variables. The following environment "
+#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><p>Використовувати параметри проксі, визначені на рівні операційної "
+#~ "системи.</p>\n"
+#~ "<p>На деяких програмних платформах можна визначати загальносистемні "
+#~ "параметри налаштування проксі. Позначення цього пункту дозволить "
+#~ "використання цих параметрів у KDE.</p>\n"
+#~ "<p>На платформах Mac</p>\n"
+#~ "<p>На платформах Windows</p>\n"
+#~ "<p>На платформах Unix і Linux такі загальносистемні параметри проксі-"
+#~ "сервера зазвичай визначаються за допомогою змінних середовища. Може бути "
+#~ "виявлено і використано такі змінні середовища: <b>HTTP_PROXY</b>, "
+#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b></p>\n"
+#~ "</qt>"
+
+#~ msgid "Use system proxy configuration:"
+#~ msgstr "Налаштування системного проксі:"
+
+#~ msgid ""
+#~ "<qt>Attempt automatic discovery of the environment variables used for "
+#~ "setting system wide proxy information.<p> This feature works by searching "
+#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
+#~ "NO_PROXY.</qt>"
+#~ msgstr ""
+#~ "<qt>Спробувати автоматично визначити назви змінних оточення, які "
+#~ "використовуються для налаштування проксі.<p> При автоматичному визначенні "
+#~ "буде перевірено назви змінних середовища, які часто використовуються для "
+#~ "визначення адреси проксі-сервера (HTTP_PROXY, FTP_PROXY та NO_PROXY).</qt>"
+
+#~ msgid "Auto D&etect"
+#~ msgstr "А&втовизначення"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
+#~ "to store the address of the HTTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Введіть тут назву змінної середовища (наприклад <b>HTTP_PROXY</b>), e "
+#~ "якій зберігається адреса проксі-сервера для протоколу HTTP. <p>Ви також "
+#~ "можете скористатись кнопкою <b>«Автовизначення»</b>, і програма спробує "
+#~ "автоматично визначити назву змінної середовища.</p></qt>"
+
+#~ msgid "HTTP Proxy:"
+#~ msgstr "HTTP-проксі:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
+#~ "to store the address of the HTTPS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Введіть тут назву змінної середовища (наприклад <b>HTTPS_PROXY</b>), у "
+#~ "якій зберігається адреса проксі-сервера для протоколу HTTPS. <p>Ви, "
+#~ "також, можете скористатись кнопкою <b>«Автовизначення»</b>: програма "
+#~ "спробує автоматично визначити назву змінної середовища.</p></qt>"
+
+#~ msgid "SSL Proxy:"
+#~ msgstr "SSL-проксі:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
+#~ "to store the address of the FTP proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Введіть тут назву змінної середовища (наприклад <b>FTP_PROXY</b>), у якій "
+#~ "зберігається адреса проксі-сервера для протоколу FTP. <p>Ви, також, "
+#~ "можете скористатись кнопкою <b>«Автовизначення»</b>: програма спробує "
+#~ "автоматично визначити назву змінної середовища.</p></qt>"
+
+#~ msgid "FTP Proxy:"
+#~ msgstr "FTP-проксі:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
+#~ "to store the address of the SOCKS proxy server.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Вкажіть назву змінної середовища, наприклад <b>SOCKS_PROXY</b>, яку буде "
+#~ "використано для зберігання адреси проксі-сервера SOCKS.<p>\n"
+#~ "Крім того, ви можете натиснути кнопку <b>«Автовизначення»</b>, щоб "
+#~ "наказати програмі автоматично виконати визначення цієї змінної.</p>\n"
+#~ "</qt>"
+
+#~ msgid "SOCKS Proxy:"
+#~ msgstr "SOCKS-проксі:"
+
+#~ msgid ""
+#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
+#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
+#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
+#~ "automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Вкажіть назву змінної середовища, наприклад <b>SOCKS_PROXY</b>, яку "
+#~ "буде використано для зберігання адреси проксі-сервера SOCKS.<p>Крім того, "
+#~ "ви можете натиснути кнопку <b>«Автовизначення»</b>, щоб наказати програмі "
+#~ "автоматично виконати визначення цієї змінної.</p></qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
+#~ "addresses of sites for which the proxy server should not be used.<p>\n"
+#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
+#~ "attempt an automatic discovery of this variable.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Введіть назву змінної середовища (наприклад <b>NO_PROXY</b>), у якій "
+#~ "зберігаються адреси сайтів для яких не потрібно використовувати проксі-"
+#~ "сервер. <p>Ви, також, можете скористатись кнопкою <b>«Автовизначення»</"
+#~ "b>: програма спробує автоматично визначити назву змінної середовища.</qt>"
+
+#~ msgid "Exceptions:"
+#~ msgstr "Винятки:"
+
+#~ msgid ""
+#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
+#~ "the addresses of sites for which the above proxy settings should not be "
+#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
+#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
+#~ msgstr ""
+#~ "<qt>Введіть назву змінної середовища (наприклад <b>NO_PROXY</b>), у якій "
+#~ "зберігаються адреси сайтів, для яких не слід використовувати проксі-"
+#~ "сервер. <p>Ви, також, можете скористатись кнопкою <b>«Автовизначення»</"
+#~ "b>: програма спробує автоматично визначити назву змінної середовища.</p></"
+#~ "qt>"
+
+#~ msgid "Show the &value of the environment variables"
+#~ msgstr "Показувати &значення змінних оточення"
+
+#~ msgid "Manually enter proxy server configuration information."
+#~ msgstr "Задати налаштування проксі вручну."
+
+#~ msgid "Use manually specified proxy configuration:"
+#~ msgstr "Використовувати вказані налаштування проксі:"
+
+#~ msgid "Enter the address of the HTTP proxy server."
+#~ msgstr "Вкажіть адресу сервера проксі HTTP."
+
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#~ msgid "Enter the port number of the HTTP proxy server."
+#~ msgstr "Вкажіть номер порту проксі-сервера для HTTP."
+
+#~ msgid "Use this proxy server for a&ll protocols"
+#~ msgstr "&Один проксі-сервер для всіх протоколів"
+
+#~ msgid "Enter the address of the HTTPS proxy server."
+#~ msgstr "Вкажіть адресу проксі-сервера для HTTPS."
+
+#~ msgid "Enter the port number of the HTTPS proxy server."
+#~ msgstr "Вкажіть номер порту проксі-сервера для HTTPS."
+
+#~ msgid "Enter the address of the FTP proxy server."
+#~ msgstr "Введіть адресу проксі-сервера для FTP."
+
+#~ msgid "Enter the port number of the FTP proxy server."
+#~ msgstr "Вкажіть номер порту проксі-сервера для FTP."
+
+#~ msgid "Enter the address of the SOCKS proxy server."
+#~ msgstr "Введіть адресу проксі-сервера для SOCKS."
+
+#~ msgid "Enter the port number of the SOCKS proxy server."
+#~ msgstr "Вкажіть номер порту проксі-сервера для SOCKS."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
+#~ "be excluded from using the above proxy settings.</p>\n"
+#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
+#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
+#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
+#~ "'*' or '?' are not supported and will have no effect.</p>\n"
+#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
+#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "<p>Вкажіть список назв вузлів або IP-адрес, які слід виключити під час "
+#~ "використання вказаних вище параметрів проксі-сервера.</p>\n"
+#~ "<p>Якщо вам потрібно виключити всі вузли певного домену, просто вкажіть "
+#~ "назву домену з символом крапки як префіксом. Наприклад, щоб виключити всі "
+#~ "назви вузлів домену <i>kde.org</i>, вкажіть <i>.kde.org</i>. Підтримки "
+#~ "символів-замінників, зокрема «*» або «?», не передбачено, отже вони не "
+#~ "працюватимуть як замінники.</p>\n"
+#~ "<p>Крім того, ви можете вказати IP-адреси, наприклад 127.0.0.1, та IP-"
+#~ "адреси з підмережею, наприклад 192.168.0.1/24.</p>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Check this box if you want the above proxy settings to apply only to the "
+#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Позначте цей пункт, якщо вказані вище параметри проксі слід застосовувати "
+#~ "лише для адрес зі списку <i>Винятки</i>.</qt>"
+
+#~ msgid "Use proxy settings only for addresses in the Exceptions list"
+#~ msgstr "Використовувати проксі тільки для адрес зі списку винятків"
+
+#~ msgid "These settings apply to network browsing only."
+#~ msgstr "Ці параметри стосуються тільки навігації мережею."
+
+#~ msgid "Default user name:"
+#~ msgstr "Типове ім'я користувача:"
+
+#~ msgid "Default password:"
+#~ msgstr "Типовий пароль:"
+
+#~ msgid " days"
+#~ msgstr " днів"
+
+#~ msgid ""
+#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
+#~ "para>"
+#~ msgstr ""
+#~ "<para>Смітник KDE налаштовано на використання загального смітника "
+#~ "<b>Finder</b>.<br></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
+#~ "while<br>emptying the Trash through the Finder will delete everything.</"
+#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
+#~ "in the Trash can.</para>"
+#~ msgstr ""
+#~ "<para>Спорожнення смітника KDE призведе до вилучення лише об'єктів, які "
+#~ "було вилучено у KDE,<br>спорожнення ж смітника у Finder вилучить усі "
+#~ "вилучені будь-де об'єкти.</para><para>Об'єкти, вилучені у KDE, буде "
+#~ "показано у теці KDE.trash загального смітника системи.</para>"
+
+#~ msgid "Delete files older than"
+#~ msgstr "Вилучати файли, старіші за"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
+#~ "emphasis> of files that are older than the value specified. Leave this "
+#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
+#~ "any items after a certain timespan</para>"
+#~ msgstr ""
+#~ "<para>Позначте цей пункт, щоб уможливити <emphasis "
+#~ "strong='true'>автоматично вилучення</emphasis> файлів, вік яких "
+#~ "перевищуватиме вказане значення. Не позначайте цей пункт, якщо ви "
+#~ "<emphasis strong='true'>не</emphasis> бажаєте, щоб середовище автоматично "
+#~ "вилучало всі елементи, старші за вказаний час.</para>"
+
+#~ msgid " day"
+#~ msgid_plural " days"
+#~ msgstr[0] " день"
+#~ msgstr[1] " дні"
+#~ msgstr[2] " днів"
+#~ msgstr[3] " день"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Set the number of days that files can remain in the trash. Any "
+#~ "files older than this will be automatically deleted.</para>"
+#~ msgstr ""
+#~ "<para>Встановіть кількість днів, які файли можуть залишатися у смітнику. "
+#~ "Всі файли, які зберігатимуться довше за вказаний термін, буде автоматично "
+#~ "вилучено.</para>"
+
+#~ msgid "Cleanup:"
+#~ msgstr "Чищення:"
+
+#~ msgid "Limit to"
+#~ msgstr "Обмежити до"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>Check this box to limit the trash to the maximum amount of disk "
+#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
+#~ msgstr ""
+#~ "<para>Позначте цей пункт, щоб обмежити об'єм смітника значенням, яке ви "
+#~ "вкажете нижче. Якщо цей пункт не буде позначено, об'єм смітника не "
+#~ "обмежуватиметься.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the maximum percent of disk space that will be used for the "
+#~ "trash.</para>"
+#~ msgstr ""
+#~ "<para>Це максимальний об'єм на диску у відсотках, який може бути "
+#~ "використано смітником.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the calculated amount of disk space that will be allowed "
+#~ "for the trash, the maximum.</para>"
+#~ msgstr ""
+#~ "<para>Це максимальний обчислений об'єм простору на диску, яким буде "
+#~ "обмежено місткість смітника.</para>"
+
+#~ msgid "Show a Warning"
+#~ msgstr "Показувати попередження"
+
+#~ msgid "Delete Oldest Files From Trash"
+#~ msgstr "Вилучати найстаріші файли зі смітника"
+
+#~ msgid "Delete Biggest Files From Trash"
+#~ msgstr "Вилучати найбільші файли зі смітника"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<para>When the size limit is reached, it will prefer to delete the type "
+#~ "of files that you specify, first. If this is set to warn you, it will do "
+#~ "so instead of automatically deleting files.</para>"
+#~ msgstr ""
+#~ "<para>Коли заповнення досягне вказаного обмеження, середовище надаватиме "
+#~ "перевагу вилученню вказаного вами типу файлів. Якщо ви вказали, що вас "
+#~ "слід попередити про вилучення, середовище попередить вас замість "
+#~ "автоматичного вилучення файлів.</para>"
+
+#~ msgid "Full Trash:"
+#~ msgstr "Повний Смітник:"
+
+#~ msgctxt "@title:column Name label from web search keyword column"
+#~ msgid "Name"
+#~ msgstr "Назва"
+
+#~ msgctxt "@title:column"
+#~ msgid "Keywords"
+#~ msgstr "Ключові слова"
+
+#~ msgctxt "@title:column"
+#~ msgid "Preferred"
+#~ msgstr "Основне"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Check this box to select the highlighted web search keyword as preferred."
+#~ "<nl/>Preferred web search keywords are used in places where only a few "
+#~ "select keywords can be shown at one time."
+#~ msgstr ""
+#~ "Позначте цей пункт, щоб вибрати позначене ключове слово пошуку в "
+#~ "інтернеті як основне.<nl/>Основні ключові слова пошуку в інтернеті "
+#~ "використовуються там, де можливий показ лише невеликої кількості ключових "
+#~ "слів одночасно."
+
+#~ msgctxt "@item:inlistbox No default web search keyword"
+#~ msgid "None"
+#~ msgstr "Немає"
+
+#~ msgid "Search F&ilters"
+#~ msgstr "Ф&ільтри пошуку"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
+#~ "search keywords allow you to quickly access or search for information "
+#~ "located online or on your hard drive. </p><p>KDE comes with many "
+#~ "predefined keywords. One such keyword can be used to perform a the Google "
+#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
+#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
+#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Вмикання і вимикання ключових слів пошуку в "
+#~ "інтернеті. </p><p>За допомогою ключових слів пошуку в інтернеті ви можете "
+#~ "пришвидшити доступ до сторінки або пошук даних у інтернеті або на диску "
+#~ "вашого комп'ютера. </p><p>У типовому наборі KDE вже визначено багато "
+#~ "ключових слів пошуку в інтернеті. Одним з таких ключових слів є ключове "
+#~ "слово для пошуку за допомогою рушія Google™. Щоб скористатися ним, просто "
+#~ "введіть ключове слово «gg» (без лапок), роздільник ключового слова та "
+#~ "рядок, який слід знайти. Приклад: <span style=\" font-weight:600;\">gg:"
+#~ "KDE</span>.</p></body></html>"
+
+#~ msgid "&Enable Web search keywords"
+#~ msgstr "У&вімкнути ключові слова пошуку в інтернеті"
+
+#~ msgid "&Use preferred keywords only"
+#~ msgstr "Ви&користовувати лише основні ключові слова"
+
+#~ msgid "Search for web search keywords"
+#~ msgstr "Пошук ключових слів пошуку в інтернеті"
+
+#~ msgid "Add a new Web search keyword"
+#~ msgstr "Додати нове ключове слово пошуку в інтернеті"
+
+#~ msgid "Modify the highlighted Web search keyword"
+#~ msgstr "Змінити позначене ключове слово пошуку в інтернеті"
+
+#~ msgid "Delete the highlighted Web search keyword"
+#~ msgstr "Вилучити позначене ключове слово пошуку в інтернеті"
+
+#~ msgid "De&lete"
+#~ msgstr "Ви&лучити"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Select the search engine to use for input boxes that provide automatic "
+#~ "lookup services when you type in normal words and phrases instead of a "
+#~ "URL. To disable this feature select <b>None</b> from the list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Виберіть механізм пошуку для використання в полях вводу, що забезпечує "
+#~ "автоматичний пошук при набиранні слів та фраз замість URL. Щоб вимкнути "
+#~ "цю функцію, виберіть зі списку значення <b>Жодна</b>.\n"
+#~ "</qt>"
+
+#~ msgid "Default Web &search keyword:"
+#~ msgstr "Типове ключове слово &пошуку в інтернеті:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
+#~ "allows applications to automatically convert the typed word or phrase to "
+#~ "web search keyword queries when they cannot be filtered into a proper "
+#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
+#~ "weight:600;\">None</span> from the list. </p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Виберіть типове ключове слово пошуку в інтернеті. </"
+#~ "p><p>За його допомогою програми зможуть автоматично перетворювати введене "
+#~ "слово або фразу на запити ключових слів пошуку в інтернеті, якщо "
+#~ "користувачем буде вказано рядок, який не є належним чином форматованою "
+#~ "адресою. </p><p>Щоб вимкнути цю функціональну можливість, виберіть у "
+#~ "списку пункт <span style=\" font-weight:600;\">Немає</span>.</p></body></"
+#~ "html>"
+
+#~ msgid ""
+#~ "Choose the delimiter that separates the keyword from the phrase or word "
+#~ "to be searched."
+#~ msgstr ""
+#~ "Виберіть розділювач, щоб буде відокремлювати ключові слова від фраз або "
+#~ "слів для пошуку."
+
+#~ msgid "&Keyword delimiter:"
+#~ msgstr "Розділювач &ключових слів:"
+
+#~ msgid "Choose a delimiter to mark the Web search keyword."
+#~ msgstr ""
+#~ "Виберіть роздільник для відокремлення ключового слова пошуку в інтернеті."
+
+#~ msgctxt "Colon as keyword delimiter"
+#~ msgid "Colon"
+#~ msgstr "Двокрапка"
+
+#~ msgctxt "Space as keyword delimiter"
+#~ msgid "Space"
+#~ msgstr "Пробіл"
+
+#~ msgctxt "@item:inlistbox The default character set"
+#~ msgid "Default"
+#~ msgstr "Типовий"
+
+#~ msgid "Modify Web Shortcut"
+#~ msgstr "Внесення змін до вебскорочення"
+
+#~ msgid "New Web Shortcut"
+#~ msgstr "Нове вебскорочення"
+
+#~ msgid ""
+#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
+#~ "different one."
+#~ msgstr ""
+#~ "Скорочення «%1» вже пов'язано з «%2». Будь ласка, виберіть інше "
+#~ "скорочення."
+
+#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
+#~ msgid "- %1: \"%2\""
+#~ msgstr "— %1: «%2»"
+
+#~ msgid ""
+#~ "The following shortcuts are already assigned. Please choose different "
+#~ "ones.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Нижче наведено перелік вже призначених скорочень. Будь ласка, виберіть "
+#~ "інші скорочення.\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
+#~ "query.\n"
+#~ "This means that the same page is always going to be visited, regardless "
+#~ "of the text typed in with the shortcut."
+#~ msgstr ""
+#~ "Адреса не містить шаблону заміни \\{...} для запиту користувача.\n"
+#~ "Це означає, що завжди буде відвідуватись та сама сторінка, незалежно від "
+#~ "тексту для пошуку, введеного користувачем."
+
+#~ msgid "Keep It"
+#~ msgstr "Залишити"
+
+#~ msgid "Enter the human-readable name of the search provider here."
+#~ msgstr "Введіть тут придатну для запам'ятовування назву рушія пошуку."
+
+#~ msgid "Shortcut &name:"
+#~ msgstr "&Назва скорочення:"
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "Enter the URI that is used to perform a search on the search engine here."
+#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
+#~ "<br/>\n"
+#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
+#~ "from the resulting string, whereas \\{0} will be substituted with the "
+#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
+#~ "certain words from the query and \\{name} to specify a value given by "
+#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
+#~ "multiple references (names, numbers and strings) at once (\\{name1,"
+#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
+#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
+#~ "string can be used as the default value if nothing matches from the left "
+#~ "of the reference list.\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Введіть URI рушія пошуку.<br/>Весь текст для пошуку може бути задано як "
+#~ "\\{@} або \\{0}.<br/>\n"
+#~ "Вираз \\{@} є рекомендованим, оскільки він вилучає всі змінні запиту "
+#~ "(name=value) з рядка результату, а вираз \\{0} буде заміщено незмінним "
+#~ "рядком запиту<br/> ви можете скористатися \\{1} ... \\{n}, щоб вказати "
+#~ "окремі слова з запиту та \\{name}, щоб вказати значення, надане парою "
+#~ "«name=value» в запиті користувача.<br/>Окрім цього, є можливість вказати "
+#~ "декілька посилань (назви, числа та рядки) одразу (\\{name1,name2,...,"
+#~ "\"string\"}).<br/>Перше відповідне значення (починаючи з лівого боку) "
+#~ "буде використане для заміни значення для вихідного URI.<br/>Якщо "
+#~ "відповідних значень у лівій частині списку посилань не знайдено, може "
+#~ "бути використане типове значення — рядок у лапках.\n"
+#~ "</qt>"
+
+#~ msgid "Shortcut &URL:"
+#~ msgstr "&Адреса скорочення:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query."
+#~ msgstr "Виберіть набір символів для закодовування вашого запиту на пошук."
+
+#~ msgid ""
+#~ "<qt>\n"
+#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
+#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
+#~ "b>\n"
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>\n"
+#~ "Скорочення, які надані тут, можуть бути використані, як схеми псевдо-URI "
+#~ "у KDE. Наприклад, скорочення <b>av</b> може бути використане, як у <b>av</"
+#~ "b>:<b>мій пошук</b>\n"
+#~ "</qt>"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
+#~ "here.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Вкажіть тут зручну для запам'ятовування назву "
+#~ "вебскорочення.</p></body></html>"
+
+#~ msgid "&Shortcuts:"
+#~ msgstr "С&корочення:"
+
+#~ msgid ""
+#~ "Select the character set that will be used to encode your search query"
+#~ msgstr "Виберіть набір символів для закодовування вашого запиту на пошук"
+
+#~ msgid "&Charset:"
+#~ msgstr "&Набір символів:"
+
+#~ msgid "Insert query placeholder"
+#~ msgstr "Вставити замінник запиту"
 
 #~ msgid "Blocked request."
 #~ msgstr "Заблокований запит."
