@@ -10,6 +10,7 @@
 #ifndef KURISEARCHFILTER_H
 #define KURISEARCHFILTER_H
 
+#include <QVariant>
 #include <kurifilter.h>
 
 class KUriSearchFilter : public KUriFilterPlugin
