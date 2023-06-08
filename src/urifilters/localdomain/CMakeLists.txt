@@ -17,6 +17,3 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(localdomainurifilter KF6::KIOWidgets)
 
-if (ENABLE_PCH)
-    target_precompile_headers(localdomainurifilter REUSE_FROM KIOPchWidgets)
-endif()

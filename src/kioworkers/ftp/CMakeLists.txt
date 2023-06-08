@@ -18,7 +18,3 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kio_ftp Qt6::Network KF6::KIOCore KF6::I18n KF6::ConfigCore)
-
-if (ENABLE_PCH)
-    target_precompile_headers(kio_ftp REUSE_FROM KIOPchCore)
-endif()

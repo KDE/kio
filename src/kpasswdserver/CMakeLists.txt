@@ -49,8 +49,4 @@ target_link_libraries(kiod_kpasswdserver
    ${WALLET_LIB}
 )
 
-if (ENABLE_PCH)
-    target_precompile_headers(kiod_kpasswdserver REUSE_FROM KIOPchCore)
-endif()
-
 kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kpasswdserver ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

@@ -50,10 +50,6 @@ target_link_libraries(kio_help
    ${LIBXSLT_EXSLT_LIBRARIES}
 )
 
-if (ENABLE_PCH)
-    target_precompile_headers(kio_help REUSE_FROM KIOPchCore)
-endif()
-
 install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
 
 
@@ -81,10 +77,6 @@ if(WIN32)
     # libxml/libxslt pulls in windows.h, this breaks QDateTime
     target_compile_definitions(kio_help PRIVATE NOMINMAX)
     target_compile_definitions(kio_ghelp PRIVATE NOMINMAX)
-endif()
-
-if (ENABLE_PCH)
-    target_precompile_headers(kio_ghelp REUSE_FROM KIOPchCore)
 endif()
 
 endif()

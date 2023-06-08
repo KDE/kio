@@ -1,14 +1,3 @@
-if (ENABLE_PCH)
-    # Add Pch libraries first as these get reused in subsequently defined targets
-    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp "/*empty file*/")
-    add_library(KIOPchCore STATIC ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp)
-    add_library(KIOPchWidgets STATIC ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp)
-    target_precompile_headers(KIOPchCore PRIVATE pch_core.h)
-    target_precompile_headers(KIOPchWidgets PRIVATE pch_widgets.h)
-    target_link_libraries(KIOPchCore PRIVATE Qt6::Core Qt6::Network)
-    target_link_libraries(KIOPchWidgets PRIVATE Qt6::Core Qt6::Network Qt6::Widgets)
-endif()
-
 add_subdirectory(core)
 
 # KIOCore-only executables

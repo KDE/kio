@@ -144,10 +144,6 @@ if(ACL_FOUND)
    target_link_libraries(KF6KIOWidgets PRIVATE ${ACL_LIBS})
 endif()
 
-if (ENABLE_PCH)
-    target_precompile_headers(KF6KIOWidgets REUSE_FROM KIOPchWidgets)
-endif()
-
 # Headers not prefixed with KIO/
 ecm_generate_headers(KIOWidgets_HEADERS
   HEADER_NAMES

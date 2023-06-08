@@ -105,10 +105,6 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ConfigWidgets
 )
 
-if (ENABLE_PCH)
-    target_precompile_headers(KF6KIOFileWidgets REUSE_FROM KIOPchWidgets)
-endif()
-
 ecm_generate_headers(KIOFileWidgets_HEADERS
   HEADER_NAMES
   KAbstractViewAdapter

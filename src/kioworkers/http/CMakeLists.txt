@@ -94,7 +94,3 @@ target_link_libraries(kio_http
 if(GSSAPI_FOUND)
   target_link_libraries(kio_http PRIVATE ${GSSAPI_LIBS})
 endif()
-
-if (ENABLE_PCH)
-    target_precompile_headers(kio_http REUSE_FROM KIOPchCore)
-endif()

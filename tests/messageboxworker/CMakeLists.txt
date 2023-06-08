@@ -12,9 +12,5 @@ target_link_libraries(kiomessagebox
     KF6::KIOCore
 )
 
-if (ENABLE_PCH)
-    target_precompile_headers(kiomessagebox REUSE_FROM KIOPchCore)
-endif()
-
 # Uncomment to deploy
 # install(TARGETS kiomessagebox DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)

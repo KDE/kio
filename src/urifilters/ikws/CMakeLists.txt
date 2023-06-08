@@ -42,6 +42,3 @@ target_link_libraries(kurisearchfilter
    KF6::I18n
    Qt6::DBus
 )
-if (ENABLE_PCH)
-    target_precompile_headers(kurisearchfilter REUSE_FROM KIOPchWidgets)
-endif()

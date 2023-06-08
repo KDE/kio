@@ -63,9 +63,6 @@ if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
 
-if (ENABLE_PCH)
-    target_precompile_headers(kio_trash REUSE_FROM KIOPchCore)
-endif()
 
 add_executable(ktrash6)
 ecm_mark_nongui_executable(ktrash6)

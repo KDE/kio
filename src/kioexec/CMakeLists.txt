@@ -51,9 +51,5 @@ if (HAVE_X11)
     target_link_libraries(kioexec Qt6::GuiPrivate) # qtx11extras_p.h
 endif()
 
-if (ENABLE_PCH)
-    target_precompile_headers(kioexec REUSE_FROM KIOPchWidgets)
-endif()
-
 install(TARGETS kioexec DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF} )
 

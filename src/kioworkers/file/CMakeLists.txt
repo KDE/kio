@@ -40,7 +40,3 @@ endif()
 if (UNIX)
   add_subdirectory(kauth)
 endif()
-
-if (ENABLE_PCH)
-    target_precompile_headers(kio_file REUSE_FROM KIOPchCore)
-endif()
