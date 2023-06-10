@@ -1746,6 +1746,9 @@ bool KFileWidgetPrivate::toOverwrite(const QUrl &url)
                                                      KMessageBox::Notify | KMessageBox::Dangerous);
 
         if (ret != KMessageBox::Continue) {
+            m_locationEdit->setFocus();
+            setNonExtSelection();
+
             return false;
         }
         return true;
