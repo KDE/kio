@@ -23,7 +23,7 @@ public:
     QStringList m_arguments;
     QByteArray m_startupId;
     QPointer<KProcessRunner> m_processRunner;
-    QProcessEnvironment m_environment;
+    QProcessEnvironment m_environment{QProcessEnvironment::InheritFromParent};
     qint64 m_pid = 0;
 };
 
