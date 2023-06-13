@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-28 00:43+0000\n"
+"POT-Creation-Date: 2023-06-13 00:43+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3682,58 +3682,58 @@ msgstr "در حال حاضر پرونده »%1« موجود است. می‌خو�
 msgid "Overwrite File?"
 msgstr "پرونده جای‌نوشت شود؟"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "You can only select local files."
 msgstr "فقط می‌توانید پرونده‌های محلی را برگزینید."
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "پرونده‌های دور پذیرش نمی‌شوند"
 
-#: filewidgets/kfilewidget.cpp:2059
+#: filewidgets/kfilewidget.cpp:2062
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|تمام پوشه‌ها"
 
-#: filewidgets/kfilewidget.cpp:2061
+#: filewidgets/kfilewidget.cpp:2064
 #, kde-format
 msgid "*|All Files"
 msgstr "*| تمام پرونده‌ها"
 
-#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "&باز‌ کردن‌"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2460
+#: filewidgets/kfilewidget.cpp:2463
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "برگزیدن &پسوند نام پرونده به طور خودکار )%1(‌"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2464
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "پسوند <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "برگزیدن &پسوند نام پرونده به طور خودکار‌"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2471
 #, kde-format
 msgid "a suitable extension"
 msgstr "یک پسوند مناسب"
 
-#: filewidgets/kfilewidget.cpp:2476
+#: filewidgets/kfilewidget.cpp:2479
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3760,25 +3760,25 @@ msgstr ""
 "li></ol>اگر مطمئن نیستید، این گزینه را تا زمانی که پرونده‌هایتان را "
 "کنترل‌پذیرتر می‌سازد، فعال نگه‌ دارید."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2937
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&پالایه:‌"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2938
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2940
 #, kde-format
 msgid "&Filter:"
 msgstr "&پالایه:‌"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2942
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

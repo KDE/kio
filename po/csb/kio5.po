@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-28 00:43+0000\n"
+"POT-Creation-Date: 2023-06-13 00:43+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -3626,58 +3626,58 @@ msgstr ""
 msgid "Overwrite File?"
 msgstr "Nad&piszë wszëtczé"
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "You can only select local files."
 msgstr "Mòżesz wëbrac blós môlowé lopczi."
 
-#: filewidgets/kfilewidget.cpp:1965
+#: filewidgets/kfilewidget.cpp:1968
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Daleczé lopczi òdrzuconé"
 
-#: filewidgets/kfilewidget.cpp:2059
+#: filewidgets/kfilewidget.cpp:2062
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Wszëtczé katalodżi"
 
-#: filewidgets/kfilewidget.cpp:2061
+#: filewidgets/kfilewidget.cpp:2064
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Wszëtczé lopczi"
 
-#: filewidgets/kfilewidget.cpp:2211 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2460
+#: filewidgets/kfilewidget.cpp:2463
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Wëbierzë aùtomatno &rozszérzenié miona lopka (%1)"
 
-#: filewidgets/kfilewidget.cpp:2461
+#: filewidgets/kfilewidget.cpp:2464
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "rozszérzenié <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Wëbierzë aùtomatno &rozszérzenié miona lopka"
 
-#: filewidgets/kfilewidget.cpp:2468
+#: filewidgets/kfilewidget.cpp:2471
 #, kde-format
 msgid "a suitable extension"
 msgstr "òdpòwiadającé rozszérzenié"
 
-#: filewidgets/kfilewidget.cpp:2476
+#: filewidgets/kfilewidget.cpp:2479
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3703,25 +3703,25 @@ msgstr ""
 "(.) na kùńcu miona lopka (pùnkt bãdze aùtomatno rëmniãti).</li> </ol> Jeżlë "
 "nie jes gwës, włączë òptacëjã, na nen ôrt lopkama bãdze szłolżi sprôwiac."
 
-#: filewidgets/kfilewidget.cpp:2934
+#: filewidgets/kfilewidget.cpp:2937
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2935
+#: filewidgets/kfilewidget.cpp:2938
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2940
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2939
+#: filewidgets/kfilewidget.cpp:2942
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
