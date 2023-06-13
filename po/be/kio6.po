@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 02:08+0000\n"
+"POT-Creation-Date: 2023-06-13 02:10+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3579,58 +3579,58 @@ msgstr "Файл \"%1\" ужо існуе. Хочаце перазапісаць
 msgid "Overwrite File?"
 msgstr "Перазапісаць файл?"
 
-#: filewidgets/kfilewidget.cpp:1809
+#: filewidgets/kfilewidget.cpp:1812
 #, kde-format
 msgid "You can only select local files."
 msgstr "Вы можаце абраць толькі лакальныя файлы."
 
-#: filewidgets/kfilewidget.cpp:1809
+#: filewidgets/kfilewidget.cpp:1812
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Адлеглыя файлы не дапускаюцца"
 
-#: filewidgets/kfilewidget.cpp:1903
+#: filewidgets/kfilewidget.cpp:1906
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Усе каталогі"
 
-#: filewidgets/kfilewidget.cpp:1905
+#: filewidgets/kfilewidget.cpp:1908
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Усе файлы"
 
-#: filewidgets/kfilewidget.cpp:2055 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Адкрыць"
 
-#: filewidgets/kfilewidget.cpp:2156
+#: filewidgets/kfilewidget.cpp:2159
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Памер значка: %1 пікселяў"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Аўтаматычна абіраць п&ашырэнне (%1) для назвы файла"
 
-#: filewidgets/kfilewidget.cpp:2305
+#: filewidgets/kfilewidget.cpp:2308
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "пашырэнне <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2311
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Аўтаматычна абіраць п&ашырэнне для назвы файла"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "a suitable extension"
 msgstr "прыдатнае пашырэнне"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3657,12 +3657,12 @@ msgstr ""
 "маеце сумневы, пакіньце гэты параметр ўключаным, бо ён дапамагае палепшыць "
 "кіраванне вашымі файламі."
 
-#: filewidgets/kfilewidget.cpp:2772
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid "&File type:"
 msgstr "&Тып файла:"
 
-#: filewidgets/kfilewidget.cpp:2773
+#: filewidgets/kfilewidget.cpp:2776
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3671,12 +3671,12 @@ msgstr ""
 "<qt>Гэта сродак выбару тыпу файла. Ён выкарыстоўваецца для выбару фармату, у "
 "якім будзе захаваны файл.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2778
 #, kde-format
 msgid "&Filter:"
 msgstr "&Фільтр:"
 
-#: filewidgets/kfilewidget.cpp:2777
+#: filewidgets/kfilewidget.cpp:2780
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

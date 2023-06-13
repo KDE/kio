@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 02:08+0000\n"
+"POT-Creation-Date: 2023-06-13 02:10+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3542,58 +3542,58 @@ msgstr "הקובץ \"%1\" כבר קיים. האם ברצונך למחוק אות
 msgid "Overwrite File?"
 msgstr "לשכתב את הקובץ?"
 
-#: filewidgets/kfilewidget.cpp:1809
+#: filewidgets/kfilewidget.cpp:1812
 #, kde-format
 msgid "You can only select local files."
 msgstr "באפשרותך לבחור רק קבצים מקומיים."
 
-#: filewidgets/kfilewidget.cpp:1809
+#: filewidgets/kfilewidget.cpp:1812
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "אין אפשרות לקבל קבצים מרוחקים"
 
-#: filewidgets/kfilewidget.cpp:1903
+#: filewidgets/kfilewidget.cpp:1906
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|כל התיקיות"
 
-#: filewidgets/kfilewidget.cpp:1905
+#: filewidgets/kfilewidget.cpp:1908
 #, kde-format
 msgid "*|All Files"
 msgstr "*|כל הקבצים"
 
-#: filewidgets/kfilewidget.cpp:2055 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&פתח"
 
-#: filewidgets/kfilewidget.cpp:2156
+#: filewidgets/kfilewidget.cpp:2159
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "גודל הסמל: %1 פיקסלים"
 
-#: filewidgets/kfilewidget.cpp:2304
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "בחר &סיומת קובץ באופן אוטומטי (%1)"
 
-#: filewidgets/kfilewidget.cpp:2305
+#: filewidgets/kfilewidget.cpp:2308
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "הסיומת <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2311
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "בחר &סיומת קובץ באופן אוטומטי"
 
-#: filewidgets/kfilewidget.cpp:2312
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "a suitable extension"
 msgstr "סיומת מתאימה"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3617,25 +3617,25 @@ msgstr ""
 "נקודה (.) לסוף שם הקובץ (הנקודה תוסר באופן אוטומטי).</li></ol>אם אינך בטוח, "
 "השאר אפשרות זו פועלת מאחר שהיא מקלה על ניהול הקבצים שלך."
 
-#: filewidgets/kfilewidget.cpp:2772
+#: filewidgets/kfilewidget.cpp:2775
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&סינון:"
 
-#: filewidgets/kfilewidget.cpp:2773
+#: filewidgets/kfilewidget.cpp:2776
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2778
 #, kde-format
 msgid "&Filter:"
 msgstr "&סינון:"
 
-#: filewidgets/kfilewidget.cpp:2777
+#: filewidgets/kfilewidget.cpp:2780
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
