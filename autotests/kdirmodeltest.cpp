@@ -1023,13 +1023,14 @@ void KDirModelTest::testFilterPatterns()
     const int oldTopLevelRowCount = m_dirModel->rowCount();
     const int oldSubdirRowCount = m_dirModel->rowCount(m_dirIndex);
 
+    // matching without wildcard -> no files
     m_dirModel->dirLister()->setNameFilter(QStringLiteral("toplevel"));
     QCOMPARE(m_dirModel->rowCount(), oldTopLevelRowCount); // no change yet
     QCOMPARE(m_dirModel->rowCount(m_dirIndex), oldSubdirRowCount); // no change yet
     m_dirModel->dirLister()->emitChanges();
 
-    QCOMPARE(m_dirModel->rowCount(), 4); // 3 files, one subdir with "toplevel" in the name
-    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 2); // the files get filtered out, subsubdir and hasChildren are remaining
+    QCOMPARE(m_dirModel->rowCount(), 1); // the files get filtered out, subdir
+    QCOMPARE(m_dirModel->rowCount(m_dirIndex), 2); // the files get filtered out, subsubdir and hasChildren
 
     // Reset the filter
     m_dirModel->dirLister()->setNameFilter(QString());
