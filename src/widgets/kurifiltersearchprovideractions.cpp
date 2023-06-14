@@ -48,7 +48,7 @@ void KUriFilterSearchProviderActions::setSelectedText(const QString &selectedTex
 
 void KUriFilterSearchProviderActions::slotConfigureWebShortcuts()
 {
-    auto *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {QStringLiteral("webshortcuts")});
+    auto *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), {QStringLiteral("webshortcuts")});
     job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
 }
@@ -89,7 +89,7 @@ void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
                 actionGroup->addAction(action);
             }
 
-            if (!QStandardPaths::findExecutable(QStringLiteral("kcmshell5")).isEmpty()) {
+            if (!QStandardPaths::findExecutable(QStringLiteral("kcmshell6")).isEmpty()) {
                 webShortcutsMenu->addSeparator();
                 QAction *action = new QAction(i18n("Configure Web Shortcuts..."), webShortcutsMenu);
                 action->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
