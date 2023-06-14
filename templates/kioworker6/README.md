@@ -17,8 +17,8 @@ make install
 ```
 
 After this you can test the new protocol with:  
-`kioclient5 'ls' 'myproto:///'`  
-`kioclient5 'cat' 'myproto:///Item A'`
+`kioclient 'ls' 'myproto:///'`  
+`kioclient 'cat' 'myproto:///Item A'`
 
 You can also explore the new protocol with dolphin or konqueror:  
 `dolphin myproto:///`
