@@ -27,7 +27,7 @@ QStringList SearchProviderRegistry::directories() const
     if (!testDir.isEmpty()) {
         return {testDir};
     }
-    return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/searchproviders/"), QStandardPaths::LocateDirectory);
+    return QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kservices6/searchproviders/"), QStandardPaths::LocateDirectory);
 }
 
 void SearchProviderRegistry::reload()

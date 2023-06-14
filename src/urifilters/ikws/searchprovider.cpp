@@ -76,7 +76,7 @@ void SearchProvider::setKeys(const QStringList &keys)
         }
     }
 
-    const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/searchproviders/");
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/searchproviders/");
     bool firstRun = true;
 
     while (true) {
@@ -87,7 +87,7 @@ void SearchProvider::setKeys(const QStringList &keys)
         }
 
         const QString located =
-            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/searchproviders/") + check + QLatin1String(".desktop"));
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices6/searchproviders/") + check + QLatin1String(".desktop"));
         if (located.isEmpty()) {
             name = check;
             break;

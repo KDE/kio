@@ -222,7 +222,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
     QFETCH(bool, fullPath);
 
     const QString desktopFilePath =
-        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/non_existing_executable.desktop");
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/non_existing_executable.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
@@ -254,7 +254,7 @@ void ApplicationLauncherJobTest::shouldFailOnNonExistingExecutable()
 void ApplicationLauncherJobTest::shouldFailOnInvalidService()
 {
     const QString desktopFilePath =
-        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestService");
@@ -277,7 +277,7 @@ void ApplicationLauncherJobTest::shouldFailOnInvalidService()
 void ApplicationLauncherJobTest::shouldFailOnServiceWithNoExec()
 {
     const QString desktopFilePath =
-        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestServiceNoExec");
@@ -309,7 +309,7 @@ void ApplicationLauncherJobTest::shouldFailOnExecutableWithoutPermissions()
     // Note that it's missing executable permissions
 
     const QString desktopFilePath =
-        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/invalid_service.desktop");
+        QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/invalid_service.desktop");
     KDesktopFile file(desktopFilePath);
     KConfigGroup group = file.desktopGroup();
     group.writeEntry("Name", "KRunUnittestServiceNoPermission");
@@ -425,7 +425,7 @@ void ApplicationLauncherJobTest::writeTempServiceDesktopFile(const QString &file
 QString ApplicationLauncherJobTest::createTempService()
 {
     const QString fileName = s_tempServiceName;
-    const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices5/") + fileName;
+    const QString fakeService = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kservices6/") + fileName;
     writeTempServiceDesktopFile(fakeService);
     m_filesToRemove.append(fakeService);
     return fakeService;
