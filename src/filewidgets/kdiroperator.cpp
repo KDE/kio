@@ -2527,6 +2527,7 @@ void KDirOperatorPrivate::slotShowProgress()
 
 void KDirOperatorPrivate::slotProgress(int percent)
 {
+    m_progressBar->setFormat(i18nc("Loading bar percent value", "%p%"));
     m_progressBar->setValue(percent);
 }
 
