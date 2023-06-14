@@ -226,10 +226,12 @@ public:
 
         for (QString &qFilter : qFilters) {
             int sep = qFilter.indexOf(QLatin1Char('|'));
-            const QStringView fView(qFilter);
-            const auto globs = fView.left(sep);
-            const auto desc = fView.mid(sep + 1);
-            qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
+            if (sep != -1) {
+                const QStringView fView(qFilter);
+                const auto globs = fView.left(sep);
+                const auto desc = fView.mid(sep + 1);
+                qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
+            }
         }
 
         return qFilters;
