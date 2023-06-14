@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2007 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -13,6 +14,7 @@
 #include <KLazyLocalizedString>
 #include <KListOpenFilesJob>
 #include <KLocalizedString>
+#include <commandlauncherjob.h>
 #include <kfileitem.h>
 #include <kio/statjob.h>
 #include <kprotocolinfo.h>
@@ -22,6 +24,7 @@
 #include <KConfigGroup>
 #include <KUrlMimeData>
 
+#include <solid/block.h>
 #include <solid/devicenotifier.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>
@@ -1585,6 +1588,37 @@ void KFilePlacesModel::setSupportedSchemes(const QStringList &schemes)
 QStringList KFilePlacesModel::supportedSchemes() const
 {
     return d->supportedSchemes;
+}
+
+namespace {
+QString partitionManagerPath()
+{
+    static const QString path = QStandardPaths::findExecutable(QStringLiteral("partitionmanager"));
+    return path;
+}
+} // namespace
+
+QAction *KFilePlacesModel::partitionActionForIndex(const QModelIndex &index) const
+{
+    const auto device = deviceForIndex(index);
+    if (!device.is<Solid::Block>()) {
+        return nullptr;
+    }
+
+    // Not using kservice to find partitionmanager because we need to manually invoke it so we can pass the --device argument.
+    if (partitionManagerPath().isEmpty()) {
+        return nullptr;
+    }
+
+    auto action = new QAction(QIcon::fromTheme(QStringLiteral("partitionmanager")),
+                              i18nc("@action:inmenu", "Reformat or Edit with Partition Manager"),
+                              nullptr);
+    connect(action, &QAction::triggered, this, [device] {
+        const auto block = device.as<Solid::Block>();
+        auto job = new KIO::CommandLauncherJob(partitionManagerPath(), {QStringLiteral("--device"), block->device()});
+        job->start();
+    });
+    return action;
 }
 
 #include "moc_kfileplacesmodel.cpp"

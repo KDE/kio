@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2007 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2008 Rafael Fernández López <ereslibre@kde.org>
     SPDX-FileCopyrightText: 2022 Kai Uwe Broulik <kde@broulik.de>
+    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -1097,6 +1098,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *emptyTrash = nullptr;
     QAction *eject = nullptr;
+    QAction *partition = nullptr;
     QAction *mount = nullptr;
     QAction *teardown = nullptr;
 
@@ -1125,6 +1127,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             eject = placesModel->ejectActionForIndex(index);
             if (eject) {
                 eject->setParent(&menu);
+            }
+
+            partition = placesModel->partitionActionForIndex(index);
+            if (partition) {
+                partition->setParent(&menu);
             }
 
             teardown = placesModel->teardownActionForIndex(index);
@@ -1206,6 +1213,11 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
     addActionToMenu(mount);
     addActionToMenu(teardown);
     menu.addSeparator();
+
+    if (partition) {
+        addActionToMenu(partition);
+        menu.addSeparator();
+    }
 
     addActionToMenu(newTab);
     addActionToMenu(newWindow);

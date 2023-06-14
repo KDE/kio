@@ -2,6 +2,7 @@
     This file is part of the KDE project
     SPDX-FileCopyrightText: 2007 Kevin Ottens <ervin@kde.org>
     SPDX-FileCopyrightText: 2007 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -259,6 +260,11 @@ public:
      * @see requestEject()
      */
     Q_INVOKABLE QAction *ejectActionForIndex(const QModelIndex &index) const;
+
+    /**
+     * @return A QAction with a proper translated label that can be used to open a partitioning menu for the device. nullptr if not a device.
+     */
+    Q_INVOKABLE QAction *partitionActionForIndex(const QModelIndex &index) const;
 
     /**
      * Unmounts the place at index @p index by triggering the teardown functionality of its Solid device.
