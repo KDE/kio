@@ -29,6 +29,8 @@ private Q_SLOTS:
     void testUrlRequester();
     void testComboRequester();
     void testComboRequester_data();
+    void testNameFilters();
+    void testNameFilters_data();
 
 private:
     bool createTestFile(const QString &fileName)
@@ -191,6 +193,113 @@ void KUrlRequesterTest::testComboRequester_data()
 
     QTest::newRow("read-only") << false;
     QTest::newRow("editable") << true;
+}
+
+void KUrlRequesterTest::testNameFilters()
+{
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    QFETCH(QString, filter);
+#endif
+    QFETCH(QString, nameFilter);
+    QFETCH(QStringList, nameFilters);
+
+    KUrlRequester req;
+    req.setFileDialogModality(Qt::NonModal);
+
+    // Click the button to get the filedialog
+    req.button()->click();
+    QFileDialog *fileDialog = req.findChild<QFileDialog *>();
+    QVERIFY(fileDialog);
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    // set filter
+    req.setFilter(filter);
+
+    // check all
+    QCOMPARE(req.filter(), filter);
+    QCOMPARE(req.nameFilters(), nameFilters);
+    QCOMPARE(fileDialog->nameFilters(), nameFilters);
+#endif
+
+    // set name filter
+    req.setNameFilter(nameFilter);
+
+    // check all
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    QCOMPARE(req.filter(), filter);
+#endif
+    QCOMPARE(req.nameFilters(), nameFilters);
+    QCOMPARE(fileDialog->nameFilters(), nameFilters);
+
+    // set name filters
+    req.setNameFilters(nameFilters);
+
+    // check all
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    QCOMPARE(req.filter(), filter);
+#endif
+    QCOMPARE(req.nameFilters(), nameFilters);
+    QCOMPARE(fileDialog->nameFilters(), nameFilters);
+}
+
+void KUrlRequesterTest::testNameFilters_data()
+{
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    QTest::addColumn<QString>("filter");
+#endif
+    QTest::addColumn<QString>("nameFilter");
+    QTest::addColumn<QStringList>("nameFilters");
+
+    /* clang-format off */
+    QTest::newRow("singleglob-comment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo|Comment")
+#endif
+        << QStringLiteral("Comment (*.foo)")
+        << QStringList{QStringLiteral("Comment (*.foo)")};
+
+    QTest::newRow("singleglob-nocomment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo")
+#endif
+        << QStringLiteral("*.foo")
+        << QStringList{QStringLiteral("*.foo")};
+
+    QTest::newRow("multiglob-comment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo *.bar|Comment")
+#endif
+        << QStringLiteral("Comment (*.foo *.bar)")
+        << QStringList{QStringLiteral("Comment (*.foo *.bar)")};
+
+    QTest::newRow("multiglob-nocomment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo *.bar")
+#endif
+        << QStringLiteral("*.foo *.bar")
+        << QStringList{QStringLiteral("*.foo *.bar")};
+
+    QTest::newRow("multilines-comment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo *.bar|Comment\n*.kde|Comment2")
+#endif
+        << QStringLiteral("Comment (*.foo *.bar);;Comment2 (*.kde)")
+        << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("Comment2 (*.kde)")};
+
+    QTest::newRow("multilines-nocomment")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo *.bar\n*.kde")
+#endif
+        << QStringLiteral("*.foo *.bar;;*.kde")
+        << QStringList{QStringLiteral("*.foo *.bar"), QStringLiteral("*.kde")};
+
+    QTest::newRow("multilines-commentmixed")
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        << QStringLiteral("*.foo *.bar|Comment\n*.kde")
+#endif
+        << QStringLiteral("Comment (*.foo *.bar);;*.kde")
+        << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("*.kde")};
+    /* clang-format on */
 }
 
 QTEST_MAIN(KUrlRequesterTest)

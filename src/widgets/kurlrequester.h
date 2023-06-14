@@ -38,7 +38,7 @@ class QString;
  * which you can change by using setMode().
  *
  * The default filter is "*", i.e. show all files, which you can change by
- * using setFilter().
+ * using setNameFilters() or setMimeTypeFilters().
  *
  * By default the start directory is the current working directory, or the
  * last directory where a file has been selected previously, you can change
@@ -55,7 +55,12 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+    /// @deprecated Since 5.108, use nameFilters
     Q_PROPERTY(QString filter READ filter WRITE setFilter)
+#endif
+    /// @since 5.108
+    Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
     Q_PROPERTY(QFileDialog::AcceptMode acceptMode READ acceptMode WRITE setAcceptMode)
 #if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 0)
@@ -151,6 +156,7 @@ public:
      */
     QFileDialog::AcceptMode acceptMode() const;
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 108)
     /**
      * Sets the filters for the file dialog, separated by \\n.
      * Use "*.foo *.bar|Comment" syntax for each named filter.
@@ -158,16 +164,44 @@ public:
      * @note This filter syntax is different from the one used in
      * QFileDialog::nameFilters() and converted internally.
      * @see filter()
+     * @deprecated Since 5.108, use setNameFilters(const QStringList &) or setNameFilter(const QString &).
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 108, "Use KUrlRequester::setNameFilters(const QStringList &) or KUrlRequester::setNameFilter(const QString &)")
     void setFilter(const QString &filter);
+#endif
 
+#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 108)
     /**
      * Returns the filters for the file dialog, separated by \\n.
      * @note This filter syntax is different from the one used in
      * QFileDialog::nameFilters() and converted internally.
      * @see setFilter()
+     * @deprecated Since 5.108, use nameFilters() const.
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 108, "Use KUrlRequester::nameFilters() const")
     QString filter() const;
+#endif
+
+    /**
+     * Sets the filters for the file dialog.
+     * @see QFileDialog::setNameFilters()
+     * @since 5.108
+     */
+    void setNameFilters(const QStringList &filters);
+
+    /**
+     * Sets the filters for the file dialog.
+     * @see QFileDialog::setNameFilter()
+     * @since 5.108
+     */
+    void setNameFilter(const QString &filter);
+
+    /**
+     * Returns the filters for the file dialog.
+     * @see QFileDialog::nameFilters()
+     * @since 5.108
+     */
+    QStringList nameFilters() const;
 
     /**
      * Sets the MIME type filters for the file dialog.
