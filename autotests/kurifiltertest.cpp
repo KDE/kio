@@ -378,12 +378,12 @@ void KUriFilterTest::executables_data()
     setupColumns();
     // Executable tests - No IKWS in minicli
     addRow("cp", QStringLiteral("cp"), KUriFilterData::Executable, minicliFilters);
-    addRow("kbuildsycoca5", QStringLiteral("kbuildsycoca5"), KUriFilterData::Executable, minicliFilters);
+    addRow("kbuildsycoca6", QStringLiteral("kbuildsycoca6"), KUriFilterData::Executable, minicliFilters);
     addRow("KDE", QStringLiteral("KDE"), s_noFiltering, minicliFilters);
     addRow("does/not/exist", QStringLiteral("does/not/exist"), s_noFiltering, minicliFilters);
     addRow("/does/not/exist", QStringLiteral("/does/not/exist"), KUriFilterData::LocalFile, minicliFilters);
     addRow("/does/not/exist#a", QStringLiteral("/does/not/exist#a"), KUriFilterData::LocalFile, minicliFilters);
-    addRow("kbuildsycoca5 --help", QStringLiteral("kbuildsycoca5 --help"), KUriFilterData::Executable, minicliFilters); // the args are in argsAndOptions()
+    addRow("kbuildsycoca6 --help", QStringLiteral("kbuildsycoca6 --help"), KUriFilterData::Executable, minicliFilters); // the args are in argsAndOptions()
     addRow("/bin/sh", QStringLiteral("/bin/sh"), KUriFilterData::Executable, minicliFilters);
     addRow("/bin/sh -q -option arg1",
            QStringLiteral("/bin/sh -q -option arg1"),
