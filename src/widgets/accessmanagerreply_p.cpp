@@ -19,6 +19,8 @@
 #include <QSslConfiguration>
 #include <QtMath>
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 107)
+
 namespace KDEPrivate
 {
 AccessManagerReply::AccessManagerReply(const QNetworkAccessManager::Operation op,
@@ -490,3 +492,5 @@ void AccessManagerReply::emitFinished(bool state, Qt::ConnectionType type)
 }
 
 }
+
+#endif

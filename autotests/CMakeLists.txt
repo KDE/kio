@@ -142,6 +142,11 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
     set(jobguitest_SRC jobguitest.cpp)
 endif()
 
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.107.0)
+    set(accessmanagertest_SRC accessmanagertest.cpp)
+endif()
+
 ecm_add_tests(
  clipboardupdatertest.cpp
  dropjobtest.cpp
@@ -155,7 +160,7 @@ ecm_add_tests(
  kurlcompletiontest.cpp
  ${jobguitest_SRC}
  pastetest.cpp
- accessmanagertest.cpp
+ ${accessmanagertest_SRC}
  kurifiltersearchprovideractionstest.cpp
  NAME_PREFIX "kiowidgets-"
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test Qt${QT_MAJOR_VERSION}::DBus
@@ -181,6 +186,8 @@ ecm_add_test(kurifiltertest.cpp
 )
 target_compile_definitions(${URIFILTER_SPACE_TEST} PUBLIC "-DWEBSHORTCUT_SEPARATOR=' '")
 
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.107.0)
 # Same as accessmanagertest, but using QNetworkAccessManager, to make sure we
 # behave the same
 ecm_add_test(
@@ -190,6 +197,7 @@ ecm_add_test(
  LINK_LIBRARIES KF5::KIOCore KF5::KIOWidgets Qt${QT_MAJOR_VERSION}::Test
 )
 set_target_properties(accessmanagertest-qnam PROPERTIES COMPILE_FLAGS "-DUSE_QNAM")
+endif()
 
 # Same as kurlcompletiontest, but with immediate return, and results posted by thread later
 ecm_add_test(

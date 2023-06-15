@@ -9,7 +9,7 @@
 
 #include "accessmanager.h"
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 107)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 107)
 
 #include "accessmanagerreply_p.h"
 #include "kio_widgets_debug.h"

@@ -9,8 +9,12 @@
 #ifndef KIO_ACCESSMANAGERREPLY_P_H
 #define KIO_ACCESSMANAGERREPLY_P_H
 
+#include "kiowidgets_export.h"
+
 #include <QNetworkReply>
 #include <QPointer>
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 107)
 
 namespace KIO
 {
@@ -88,5 +92,7 @@ private:
 };
 
 }
+
+#endif
 
 #endif // KIO_ACCESSMANAGERREPLY_P_H
