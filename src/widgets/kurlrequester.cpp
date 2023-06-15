@@ -213,6 +213,7 @@ public:
         dlg->setOption(QFileDialog::ShowDirsOnly, dirsOnly);
     }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
     // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
     QStringList kToQFilters(const QString &filters) const
     {
@@ -222,14 +223,33 @@ public:
             int sep = qFilter.indexOf(QLatin1Char('|'));
             if (sep != -1) {
                 const QStringView fView(qFilter);
-                const auto globs = fView.left(sep);
-                const auto desc = fView.mid(sep + 1);
+                const auto globs = fView.left(sep).trimmed();
+                const auto desc = fView.mid(sep + 1).trimmed();
                 qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
             }
         }
 
         return qFilters;
     }
+
+    // Makes a list of filters from a normal filter string "Image Files (*.png *.jpg)"
+    static QString qToKFilter(const QStringList &filters)
+    {
+        // regular expression copied from QPlatformFileDialogHelper
+        const QRegularExpression regexp(QStringLiteral("^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$"));
+        QStringList result;
+        for (const QString &filter : filters) {
+            QRegularExpressionMatch match;
+            filter.indexOf(regexp, 0, &match);
+            if (match.hasMatch()) {
+                result.append(match.capturedView(2).trimmed() + QLatin1Char('|') + match.capturedView(1).trimmed());
+            } else {
+                result.append(filter);
+            }
+        }
+        return result.join(QLatin1Char('\n'));
+    }
+#endif
 
     QUrl getDirFromFileDialog(const QUrl &openUrl) const
     {
@@ -278,7 +298,7 @@ public:
     KComboBox *combo;
     KFile::Modes fileDialogMode;
     QFileDialog::AcceptMode fileDialogAcceptMode;
-    QString fileDialogFilter;
+    QStringList nameFilters;
     QStringList mimeTypeFilters;
     KEditListWidget::CustomEditor editor;
     KUrlDragPushButton *myButton;
@@ -530,18 +550,53 @@ QFileDialog::AcceptMode KUrlRequester::acceptMode() const
     return d->fileDialogAcceptMode;
 }
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
 void KUrlRequester::setFilter(const QString &filter)
 {
-    d->fileDialogFilter = filter;
+    d->nameFilters = d->kToQFilters(filter);
 
     if (d->myFileDialog) {
-        d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
+        d->myFileDialog->setNameFilters(d->nameFilters);
+    }
+}
+#endif
+
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
+QString KUrlRequester::filter() const
+{
+    return d->qToKFilter(d->nameFilters);
+}
+#endif
+
+QStringList KUrlRequester::nameFilters() const
+{
+    return d->nameFilters;
+}
+
+void KUrlRequester::setNameFilters(const QStringList &filters)
+{
+    d->nameFilters = filters;
+
+    if (d->myFileDialog) {
+        d->myFileDialog->setNameFilters(d->nameFilters);
     }
 }
 
-QString KUrlRequester::filter() const
+void KUrlRequester::setNameFilter(const QString &filter)
 {
-    return d->fileDialogFilter;
+    if (filter.isEmpty()) {
+        setNameFilters(QStringList());
+        return;
+    }
+
+    // by default use ";;" as separator
+    // if not present, support alternatively "\n" (matching QFileDialog behaviour)
+    // if also not present split() will simply return the string passed in
+    QString separator = QStringLiteral(";;");
+    if (!filter.contains(separator)) {
+        separator = QStringLiteral("\n");
+    }
+    setNameFilters(filter.split(separator));
 }
 
 void KUrlRequester::setMimeTypeFilters(const QStringList &mimeTypes)
@@ -573,7 +628,7 @@ QFileDialog *KUrlRequester::fileDialog() const
         if (!d->mimeTypeFilters.isEmpty()) {
             d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
         } else {
-            d->myFileDialog->setNameFilters(d->kToQFilters(d->fileDialogFilter));
+            d->myFileDialog->setNameFilters(d->nameFilters);
         }
 
         d->applyFileMode(d->myFileDialog, d->fileDialogMode, d->fileDialogAcceptMode);
