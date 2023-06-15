@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-13 02:10+0000\n"
-"PO-Revision-Date: 2023-06-12 05:22+0200\n"
+"PO-Revision-Date: 2023-06-14 05:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3778,6 +3778,8 @@ msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
 msgstr ""
+"ფაილი %1\n"
+"შეიცვალა. გნებავთ ცვლილებების ატვირთვა?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
 #, kde-format
@@ -3828,6 +3830,10 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
+"სავარაუდოდ დროებითი ფაილი\n"
+"%1\n"
+"შეიცვალა.\n"
+"ჯერ კიდევ გნებავთ, წაშალოთ ის?"
 
 #: kioexec/main.cpp:237
 #, kde-format
@@ -3856,6 +3862,7 @@ msgstr "KIOExec"
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
+"KIO Exec - ხსნის დაშორებულ ფაილებს, უყურებს ცვლილებებს, კითხვა ატვირთვისას"
 
 #: kioexec/main.cpp:288
 #, kde-format
@@ -4725,7 +4732,7 @@ msgstr ""
 #: kpac/script.cpp:674
 #, kde-format
 msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr ""
+msgstr "'FindProxyForURL' ან 'FindProxyForURLEx' აღმოჩენილი არაა"
 
 #: kpac/script.cpp:692
 #, kde-format
@@ -4853,7 +4860,7 @@ msgstr "ქალაქი:"
 #: widgets/certificateparty.ui:138
 #, kde-format
 msgid "Lakeridge Meadows"
-msgstr ""
+msgstr "Lakeridge Meadows"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/checksumswidget.ui:17
@@ -4874,7 +4881,7 @@ msgstr "სასურველი საკონტროლო ჯამი 
 #: widgets/checksumswidget.ui:36
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
-msgstr ""
+msgstr "დააწკაპუნეთ საკონტროლო ჯამის ბუფერიდან შეყვანის ველში ჩასასმელად."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
@@ -4970,7 +4977,7 @@ msgstr "ცვლილებების გაუქმება"
 #, kde-format
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
-msgstr ""
+msgstr "ამ ოპერაციის გაუქმებ root-ის უფლებებს მოითხოვს. გნებავთ, გააგრძელოთ?"
 
 #: widgets/fileundomanager.cpp:132
 #, kde-format
@@ -5524,6 +5531,8 @@ msgstr ""
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
+"<qt>აირჩიეთ პროგრამა, რომელიც გნებავთ, ფაილის გასახსნელად გამოიყენოთ<br/>%1</"
+"qt>"
 
 #: widgets/kopenwithdialog.cpp:591
 #, kde-format
@@ -5531,7 +5540,9 @@ msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
+"<qt>აირჩიეთ პროგრამა, რომელიც გნებავთ, ფაილის გასახსნელად გამოიყენოთ.</qt>"
 msgstr[1] ""
+"<qt>აირჩიეთ პროგრამა, რომელიც გნებავთ, %1 ფაილის გასახსნელად გამოიყენოთ.</qt>"
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -5587,6 +5598,8 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
+"&აპლიკაციის ასოციაციის დამახსოვრება ყველა ფაილისთვის ტიპით\n"
+"\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
 #, kde-format
@@ -5594,6 +5607,8 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
+"&აპლიკაციის ასოციაციის დამახსოვრება ყველა ფაილისთვის ტიპით\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -5635,6 +5650,7 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+"<filename>%1</filename> ვერ ვიპოვე. შეიყვანეთ სწორი ბილიკი გამშვებ ფაილამდე."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -6131,7 +6147,7 @@ msgstr "&მფლობელი:"
 #: widgets/kpropertiesdialog.cpp:1830
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr ""
+msgstr "განსაზღვრავს ქმედებებს, რომლის შესრულების უფლებაც მფლობელს გააჩნია"
 
 #: widgets/kpropertiesdialog.cpp:1832
 #, kde-format
@@ -6142,6 +6158,7 @@ msgstr "&ჯგუფი:"
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr ""
+"განსაზღვრავს ქმედებებს, რომლის შესრულებაც მოცემული ჯგუფის წევრებს შეუძლიათ."
 
 #: widgets/kpropertiesdialog.cpp:1840
 #, kde-format
@@ -6159,6 +6176,7 @@ msgstr ""
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr ""
+"საქაღალდის შემცველობის სახელის გადარქმევა და წაშლა მხოლოდ &მფლობელს შეუძლია"
 
 #: widgets/kpropertiesdialog.cpp:1851
 #, kde-format
@@ -6437,7 +6455,7 @@ msgstr "საკონტროლო ჯამი ემთხვევა."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
-msgstr ""
+msgstr "გამოთვლილი და მოსალოდნელი საკონტროლო ჯამები ემთხვევა."
 
 #: widgets/kpropertiesdialog.cpp:2982
 #, kde-format
@@ -6451,7 +6469,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
-msgstr ""
+msgstr "გამოთვლილი და მოსალოდნელი საკონტროლო ჯამები განსხვავდება."
 
 #: widgets/kpropertiesdialog.cpp:2995
 #, kde-format
@@ -6474,6 +6492,8 @@ msgstr "მისამართი:"
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
+"თვისებების შენახვა შეუძლებელია. მხარდაჭერილია მხოლოდ ლოკალურ ფაილურ "
+"სისტემებზე მდებარე ელემენტები."
 
 #: widgets/kpropertiesdialog.cpp:3233
 #, kde-format
@@ -6493,7 +6513,7 @@ msgstr "დასამატებლად აირჩიეთ ერთი 
 #: widgets/kpropertiesdialog.cpp:3531
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr ""
+msgstr "დაშვებულია მხოლოდ ლოკალურ ფაილურ სისტემაზე მდებარე გამშვები ფაილები."
 
 #: widgets/kpropertiesdialog.cpp:3545
 #, kde-format
@@ -6527,11 +6547,13 @@ msgstr "მიმდინარე კავშირი SSL-ითაა დ�
 msgid ""
 "The main part of this document is secured with SSL, but some parts are not."
 msgstr ""
+"ამ დოკუმენტის მთავარი ნაწილი დაშიფრულია SSL-ით, მაგრამ ზოგი ნაწილი არაა."
 
 #: widgets/ksslinfodialog.cpp:93
 #, kde-format
 msgid "Some of this document is secured with SSL, but the main part is not."
 msgstr ""
+"ამ დოკუმენტის ზოგიერთი ნაწილი დაშიფრულია SSL-ით, მაგრამ მთავარი ნაწილი არაა."
 
 #: widgets/ksslinfodialog.cpp:97
 #, kde-format
@@ -6875,7 +6897,7 @@ msgstr[1] "მიუთითეთ %1 მონიშნული ჩანა�
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
-msgstr ""
+msgstr "# შეიცვლება ზრდადი რიცხვით, რომელიც იწყება:"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -6911,7 +6933,7 @@ msgstr "ყველას გამოტოვება"
 #: widgets/sslinfo.ui:17
 #, kde-format
 msgid "[padlock]"
-msgstr ""
+msgstr "[padlock]"
 
 #. i18n: ectx: property (text), widget (QLabel, addressTag)
 #: widgets/sslinfo.ui:34
