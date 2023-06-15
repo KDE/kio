@@ -155,14 +155,18 @@ KIOCORE_EXPORT StatJob *stat(const QUrl &url, JobFlags flags = DefaultFlags);
  * @since 6.0
  */
 KIOCORE_EXPORT StatJob *stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(5, 240)
 /**
- * Alias for @see stat
+ * Alias for stat().
  *
  * @since 5.69
- * @deprecated since 6.0, use @see stat instead
+ * @deprecated Since 5.240, use KIO::stat(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags) instead
  */
-KIOCORE_DEPRECATED_EXPORT StatJob *
-statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
+KIOCORE_EXPORT
+KIOCORE_DEPRECATED_VERSION(5, 240, "Use KIO::stat(const QUrl &, KIO::StatJob::StatSide, KIO::StatDetails, JobFlags)")
+StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details = KIO::StatDefaultDetails, JobFlags flags = DefaultFlags);
+#endif
 
 /**
  * Tries to map a local URL for the given URL, using a KIO job. This only makes sense for

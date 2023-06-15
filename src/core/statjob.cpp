@@ -216,9 +216,11 @@ StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetail
     return job;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(5, 240)
 StatJob *KIO::statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
 {
     return stat(url, side, details, flags);
 }
+#endif
 
 #include "moc_statjob.cpp"
