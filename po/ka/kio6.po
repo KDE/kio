@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-13 02:10+0000\n"
-"PO-Revision-Date: 2023-06-14 05:51+0200\n"
+"PO-Revision-Date: 2023-06-15 09:05+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1978,6 +1978,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
+"პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
+"<strong>%1</strong>, უცნობი შეცდომა დააბრუნა: %2."
 
 #: core/job_error.cpp:1126
 #, kde-format
@@ -1990,6 +1992,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
+"პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
+"<strong>%1</strong>, უცნობი შეცდომა ან დასრულების კოდი დააბრუნა: %2."
 
 #: core/job_error.cpp:1138
 #, kde-format
@@ -2094,6 +2098,8 @@ msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr ""
+"ოპერაციის დასრულება შეუძლებელია, რადგან საწყისი და სამიზნე ფაილი ერთი და "
+"იგივეა."
 
 #: core/job_error.cpp:1213
 #, kde-format
@@ -2111,6 +2117,8 @@ msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
+"ოპერაციის დასრულება შეუძლებელია, რადგან საწყისი და სამიზნე საქაღალდე ერთი და "
+"იგივეა."
 
 #: core/job_error.cpp:1221
 #, kde-format
@@ -6147,7 +6155,7 @@ msgstr "&მფლობელი:"
 #: widgets/kpropertiesdialog.cpp:1830
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr "განსაზღვრავს ქმედებებს, რომლის შესრულების უფლებაც მფლობელს გააჩნია"
+msgstr "განსაზღვრავს ქმედებებს, რომლის შესრულების უფლებაც მფლობელს გააჩნია."
 
 #: widgets/kpropertiesdialog.cpp:1832
 #, kde-format
