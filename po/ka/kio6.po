@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 02:10+0000\n"
+"POT-Creation-Date: 2023-06-17 02:06+0000\n"
 "PO-Revision-Date: 2023-06-15 09:05+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2638,7 +2638,7 @@ msgstr "გადახედვის ჩვენება"
 msgid "Open Containing Folder"
 msgstr "შემცველი საქაღალდის გახსნა"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "პარამეტრები"
@@ -2877,152 +2877,152 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "ჭდეები"
 
-#: filewidgets/kfileplacesmodel.cpp:160
+#: filewidgets/kfileplacesmodel.cpp:163
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "ყველა ჭდე"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:285
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "სახლი"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:294
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:301
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "დოკუმენტები"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:308
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "გადმოწერები"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:313
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "ქსელი"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:318
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "ნაგავი"
 
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:379
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "მუსიკა"
 
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:386
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "სურათები"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ვიდეო"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:422
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "ბოლო ფაილები"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "ბოლო მდებარეობები"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:450
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "შეცვლილია დღეს"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:454
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "შეცვლილია გუშინ"
 
-#: filewidgets/kfileplacesmodel.cpp:1139
+#: filewidgets/kfileplacesmodel.cpp:1142
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Places პანელის დამატების შეცდომა: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1146
+#: filewidgets/kfileplacesmodel.cpp:1149
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "ადგილების პანელზე მხოლოდ საქაღალდეების დამატება შეგიძლიათ."
 
-#: filewidgets/kfileplacesmodel.cpp:1410
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "გათავისუფლება…"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&გათავისუფლება"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1419
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "უსაფრთხოდ მოცილება…"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&უსაფრთხოდ მოცილება"
 
-#: filewidgets/kfileplacesmodel.cpp:1423
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "მოხსნა…"
 
-#: filewidgets/kfileplacesmodel.cpp:1425
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&მიმაგრების მოხსნა (unmount)"
 
-#: filewidgets/kfileplacesmodel.cpp:1449
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&გამოღება"
 
-#: filewidgets/kfileplacesmodel.cpp:1496
+#: filewidgets/kfileplacesmodel.cpp:1499
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "მოწყობილობა '%1' დისკი არაა და მისი გამოღება შეუძლებელია."
 
-#: filewidgets/kfileplacesmodel.cpp:1531
+#: filewidgets/kfileplacesmodel.cpp:1534
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "შეცდომა \"%1\"-სთან წვდომისას. სისტემის პასუხია: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1533
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "შეცდომა \"%1\"-სთან წვდომისას"
 
-#: filewidgets/kfileplacesmodel.cpp:1559
+#: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "აპლიკაციას ამ მოწყობილობაზე მდებარე ერთი ან მეტი ფაილი აქვს გახსნილი."
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3033,89 +3033,95 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesmodel.cpp:1614
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reformat or Edit with Partition Manager"
+msgstr ""
+
+#: filewidgets/kfileplacesview.cpp:593
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (დამალული)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ნაგვის დაცარიელება"
 
-#: filewidgets/kfileplacesview.cpp:1139
+#: filewidgets/kfileplacesview.cpp:1146
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "მიმაგრება"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "ახალ ჩანართში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ახალ ფანჯარაში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "ელემენტის დამატება…"
 
-#: filewidgets/kfileplacesview.cpp:1163
+#: filewidgets/kfileplacesview.cpp:1170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&ჩასწორება…"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: filewidgets/kfileplacesview.cpp:1172
+#: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "სექციის დამალვა %1"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "სექციის დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&ყველა ელემენტის ჩვენება"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1200
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ხატულების ზომა"
 
-#: filewidgets/kfileplacesview.cpp:1300
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3123,25 +3129,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ზომის ავტომატური შეცვლა"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "პატარა (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "საშუალო (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "დიდი (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1341
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

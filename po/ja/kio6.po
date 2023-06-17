@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 02:10+0000\n"
+"POT-Creation-Date: 2023-06-17 02:06+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2775,7 +2775,7 @@ msgstr "プレビューを表示"
 msgid "Open Containing Folder"
 msgstr "保存フォルダを開く"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "プロパティ"
@@ -3028,94 +3028,94 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "タグ"
 
-#: filewidgets/kfileplacesmodel.cpp:160
+#: filewidgets/kfileplacesmodel.cpp:163
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "すべてのタグ"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:285
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "ホーム"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:294
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "デスクトップ"
 
 # xdg-user-dirs 0.17 の翻訳に準拠した表記です。
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:301
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "ドキュメント"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:308
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "ダウンロード"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:313
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "ネットワーク"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:318
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "ごみ箱"
 
 # xdg-user-dirs 0.17 の翻訳に準拠した表記です。
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:379
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "音楽"
 
 # xdg-user-dirs 0.17 の翻訳に準拠した表記です。
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:386
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "画像"
 
 # xdg-user-dirs 0.17 の翻訳に準拠した表記です。
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ビデオ"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:422
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "最近使用したファイル"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "最近使用した場所"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:450
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "今日更新"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:454
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "昨日更新"
 
-#: filewidgets/kfileplacesmodel.cpp:1139
+#: filewidgets/kfileplacesmodel.cpp:1142
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "場所パネルに追加できませんでした: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1146
+#: filewidgets/kfileplacesmodel.cpp:1149
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "場所パネルにはフォルダのみが追加できます。"
 
-#: filewidgets/kfileplacesmodel.cpp:1410
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3123,13 +3123,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "アンマウント(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "アンマウント(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1419
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3137,13 +3137,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "安全に取り外す(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "安全に取り外す(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1423
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3151,40 +3151,40 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "アンマウント"
 
-#: filewidgets/kfileplacesmodel.cpp:1425
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "アンマウント(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1449
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "イジェクト(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1496
+#: filewidgets/kfileplacesmodel.cpp:1499
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "デバイス “%1” はディスクではないのでイジェクトできません。"
 
-#: filewidgets/kfileplacesmodel.cpp:1531
+#: filewidgets/kfileplacesmodel.cpp:1534
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "“%1” へのアクセス中にエラーが発生しました。システムからのメッセージ: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1533
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "“%1” へのアクセス中にエラーが発生しました"
 
-#: filewidgets/kfileplacesmodel.cpp:1559
+#: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3194,89 +3194,95 @@ msgid_plural ""
 "<application>%2</application>."
 msgstr[0] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesmodel.cpp:1614
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reformat or Edit with Partition Manager"
+msgstr ""
+
+#: filewidgets/kfileplacesview.cpp:593
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (非表示)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ごみ箱を空にする"
 
-#: filewidgets/kfileplacesview.cpp:1139
+#: filewidgets/kfileplacesview.cpp:1146
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "マウント"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "新しいタブで開く"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "新しいウィンドウで開く"
 
-#: filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "エントリを追加..."
 
-#: filewidgets/kfileplacesview.cpp:1163
+#: filewidgets/kfileplacesview.cpp:1170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "編集(&E)..."
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "削除"
 
-#: filewidgets/kfileplacesview.cpp:1172
+#: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "隠す(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "セクション “%1” を隠す"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "セクションを隠す"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
 msgid "&Show All Entries"
 msgstr "すべてのエントリを表示(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1200
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "アイコンのサイズ"
 
-#: filewidgets/kfileplacesview.cpp:1300
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3284,25 +3290,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "自動サイズ変更"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "小 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "中 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "大 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1341
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 02:10+0000\n"
+"POT-Creation-Date: 2023-06-17 02:06+0000\n"
 "PO-Revision-Date: 2023-02-20 10:53+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2790,7 +2790,7 @@ msgstr "Hiện xem thử"
 msgid "Open Containing Folder"
 msgstr "Mở thư mục chứa"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "Thuộc tính"
@@ -3041,132 +3041,132 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "Thẻ gắn"
 
-#: filewidgets/kfileplacesmodel.cpp:160
+#: filewidgets/kfileplacesmodel.cpp:163
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Tất cả thẻ gắn"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:285
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Nhà"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:294
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Bàn làm việc"
 
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:301
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Tài liệu"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:308
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Tải về"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:313
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Mạng"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:318
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Thùng rác"
 
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:379
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Nhạc"
 
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:386
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Ảnh"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Phim"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:422
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Tệp gần đây"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Địa điểm gần đây"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:450
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Chỉnh sửa hôm nay"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:454
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Chỉnh sửa hôm qua"
 
-#: filewidgets/kfileplacesmodel.cpp:1139
+#: filewidgets/kfileplacesmodel.cpp:1142
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Không thêm được vào bảng địa điểm: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1146
+#: filewidgets/kfileplacesmodel.cpp:1149
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Chỉ có thể thêm thư mục vào bảng địa điểm."
 
-#: filewidgets/kfileplacesmodel.cpp:1410
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Rút…"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Rút"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1419
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Rút an toàn…"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Rút an &toàn"
 
-#: filewidgets/kfileplacesmodel.cpp:1423
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Bỏ gắn kết…"
 
-#: filewidgets/kfileplacesmodel.cpp:1425
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Bỏ gắn &kết"
 
-#: filewidgets/kfileplacesmodel.cpp:1449
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Rút"
 
-#: filewidgets/kfileplacesmodel.cpp:1496
+#: filewidgets/kfileplacesmodel.cpp:1499
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Thiết bị '%1' không phải là đĩa và không thể rút ra được."
@@ -3174,24 +3174,24 @@ msgstr "Thiết bị '%1' không phải là đĩa và không thể rút ra đư�
 # msgid ""
 # An error occurred while attempting to %1, %2. A summary of the reasons is
 # below.<ul>
-#: filewidgets/kfileplacesmodel.cpp:1531
+#: filewidgets/kfileplacesmodel.cpp:1534
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Lỗi xảy ra khi đang truy cập '%1', phản hồi từ hệ thống: %2"
 
 # msgid "An unexpected error (%1) occurred while attempting to %2."
-#: filewidgets/kfileplacesmodel.cpp:1533
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Lỗi xảy ra khi đang truy cập '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1559
+#: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Một hoặc nhiều tệp trên thiết bị này đang mở trong một ứng dụng nào đó."
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3203,89 +3203,95 @@ msgstr[0] ""
 "Một hoặc nhiều tệp trên thiết bị này đang mở trong các ứng dụng sau: "
 "<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesview.cpp:592
+#: filewidgets/kfileplacesmodel.cpp:1614
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reformat or Edit with Partition Manager"
+msgstr ""
+
+#: filewidgets/kfileplacesview.cpp:593
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ẩn)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Đổ rác"
 
-#: filewidgets/kfileplacesview.cpp:1139
+#: filewidgets/kfileplacesview.cpp:1146
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Gắn kết"
 
-#: filewidgets/kfileplacesview.cpp:1145
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Mở trong thẻ mới"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Mở trong cửa sổ mới"
 
-#: filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Thêm mục…"
 
-#: filewidgets/kfileplacesview.cpp:1163
+#: filewidgets/kfileplacesview.cpp:1170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Sửa…"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Bỏ"
 
-#: filewidgets/kfileplacesview.cpp:1172
+#: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "Ẩ&n"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ẩn khu vực '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1180
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ẩn khu vực"
 
-#: filewidgets/kfileplacesview.cpp:1188
+#: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Hiện &tất cả các mục"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1200
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Cỡ biểu tượng"
 
-#: filewidgets/kfileplacesview.cpp:1300
+#: filewidgets/kfileplacesview.cpp:1312
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3293,25 +3299,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Tự động đổi cỡ"
 
-#: filewidgets/kfileplacesview.cpp:1320
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Nhỏ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1323
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Vừa (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1326
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Lớn (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1341
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
