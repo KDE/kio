@@ -300,6 +300,7 @@ KDirOperator::KDirOperator(const QUrl &_url, QWidget *parent)
 
     d->m_progressBar = new QProgressBar(this);
     d->m_progressBar->setObjectName(QStringLiteral("d->m_progressBar"));
+    d->m_progressBar->setFormat(i18nc("Loading bar percent value", "%p%"));
     d->m_progressBar->adjustSize();
     const int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
     d->m_progressBar->move(frameWidth, height() - d->m_progressBar->height() - frameWidth);
