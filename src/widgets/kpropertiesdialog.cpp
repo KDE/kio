@@ -114,7 +114,7 @@
 #include <QStyle>
 #include <QUrl>
 #include <QVector>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 
 #include <cerrno>
 extern "C" {
