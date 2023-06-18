@@ -1029,7 +1029,7 @@ void KFileWidgetPrivate::fileSelected(const KFileItem &i)
             setLocationText(QUrl());
             return;
         }
-        setLocationText(i.url());
+        setLocationText(i.targetUrl());
     } else {
         multiSelectionChanged();
         Q_EMIT q->selectionChanged();
@@ -1058,7 +1058,7 @@ void KFileWidgetPrivate::multiSelectionChanged()
         return;
     }
 
-    setLocationText(list.urlList());
+    setLocationText(list.targetUrlList());
 }
 
 void KFileWidgetPrivate::setDummyHistoryEntry(const QString &text, const QIcon &icon, bool usePreviousPixmapIfNull)
@@ -1885,30 +1885,36 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
     qCDebug(KIO_KFILEWIDGETS_FW) << "Tokenizing:" << line;
 
     QList<QUrl> urls;
-    QUrl u(m_ops->url().adjusted(QUrl::RemoveFilename));
-    Utils::appendSlashToPath(u);
+    QUrl baseUrl(m_ops->url().adjusted(QUrl::RemoveFilename));
+    Utils::appendSlashToPath(baseUrl);
 
     // A helper that creates, validates and appends a new url based
     // on the given filename.
-    auto addUrl = [u, &urls](const QString &partial_name) {
+    auto addUrl = [baseUrl, &urls](const QString &partial_name) {
         if (partial_name.trimmed().isEmpty()) {
             return;
         }
 
-        // We have to use setPath here, so that something like "test#file"
-        // isn't interpreted to have path "test" and fragment "file".
-        QUrl partial_url;
-        partial_url.setPath(partial_name);
+        // url could be absolute
+        QUrl partial_url(partial_name);
+        if (!partial_url.isValid() || partial_url.isRelative()) {
+            // We have to use setPath here, so that something like "test#file"
+            // isn't interpreted to have path "test" and fragment "file".
+            partial_url.clear();
+            partial_url.setPath(partial_name);
+        }
 
         // This returns QUrl(partial_name) for absolute URLs.
         // Otherwise, returns the concatenated url.
-        const QUrl finalUrl = u.resolved(partial_url);
+        if (partial_url.isRelative() || baseUrl.isParentOf(partial_url)) {
+            partial_url = baseUrl.resolved(partial_url);
+        }
 
-        if (finalUrl.isValid()) {
-            urls.append(finalUrl);
+        if (partial_url.isValid()) {
+            urls.append(partial_url);
         } else {
             // This can happen in the first quote! (ex: ' "something here"')
-            qCDebug(KIO_KFILEWIDGETS_FW) << "Discarding Invalid" << finalUrl;
+            qCDebug(KIO_KFILEWIDGETS_FW) << "Discarding Invalid" << partial_url;
         }
     };
 

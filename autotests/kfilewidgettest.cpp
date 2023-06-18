@@ -672,6 +672,29 @@ void KFileWidgetTest::testTokenize_data()
     QTest::newRow("file-beginning-with-colon") << QStringList{":test2"} << QString{":test2"};
 
     QTest::newRow("multiple-files-beginning-with-colon") << QStringList{":test space", ":test2"} << QString{"\":test space\" \":test2\""};
+
+    QTemporaryDir otherTempDir;
+    otherTempDir.setAutoRemove(false);
+    const auto testFile1Path = otherTempDir.filePath("test-1");
+    createTestFile(testFile1Path);
+    const auto testFile2Path = otherTempDir.filePath("test-2");
+    createTestFile(testFile2Path);
+
+    QTest::newRow("absolute-url-not-in-dir") << QStringList{"file://" + testFile1Path} << QString{"file://" + testFile1Path};
+    QTest::newRow("absolute-urls-not-in-dir") << QStringList{"file://" + testFile1Path, "file://" + testFile2Path}
+                                              << QString{"\"file://" + testFile1Path + "\" \"file://" + testFile2Path + "\""};
+
+    auto expectedtestFile1Path = testFile1Path;
+    expectedtestFile1Path = expectedtestFile1Path.remove(0, 1);
+    auto expectedtestFile2Path = testFile2Path;
+    expectedtestFile2Path = expectedtestFile2Path.remove(0, 1);
+
+    QTest::newRow("absolute-url-not-in-dir-no-scheme") << QStringList{testFile1Path} << QString{testFile1Path};
+    QTest::newRow("absolute-urls-not-in-dir-no-scheme")
+        << QStringList{testFile1Path, testFile2Path} << QString{"\"" + testFile1Path + "\" \"" + testFile2Path + "\""};
+
+    QTest::newRow("absolute-urls-not-in-dir-scheme-mixed")
+        << QStringList{testFile1Path, "file://" + testFile2Path} << QString{"\"" + testFile1Path + "\" \"file://" + testFile2Path + "\""};
 }
 
 void KFileWidgetTest::testTokenize()
@@ -687,8 +710,11 @@ void KFileWidgetTest::testTokenize()
     const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
     QList<QUrl> fileUrls;
     for (const auto &fileName : fileNames) {
-        const QString filePath = tempDirPath + QLatin1Char('/') + fileName;
-        const QUrl localUrl = QUrl::fromLocalFile(filePath);
+        auto localUrl = QUrl(fileName);
+        if (!localUrl.path().startsWith(QLatin1Char('/'))) {
+            const QString filePath = tempDirPath + QLatin1Char('/') + fileName;
+            localUrl = QUrl::fromLocalFile(filePath);
+        }
         fileUrls.append(localUrl);
         qCDebug(KIO_KFILEWIDGETS_FW) << fileName << " => " << localUrl;
     }
@@ -711,6 +737,12 @@ void KFileWidgetTest::testTokenize()
 
     // We must have the same size as requested files
     QCOMPARE(urls.size(), fileNames.size());
+
+    for (auto &localUrl : fileUrls) {
+        if (localUrl.scheme().isEmpty()) {
+            localUrl.setScheme("file");
+        }
+    }
     QCOMPARE(urls, fileUrls);
 }
 
