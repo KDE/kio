@@ -1002,7 +1002,7 @@ void KFileWidgetPrivate::fileSelected(const KFileItem &i)
             setLocationText(QUrl());
             return;
         }
-        setLocationText(i.url());
+        setLocationText(i.targetUrl());
     } else {
         multiSelectionChanged();
         Q_EMIT q->selectionChanged();
@@ -1031,7 +1031,7 @@ void KFileWidgetPrivate::multiSelectionChanged()
         return;
     }
 
-    setLocationText(list.urlList());
+    setLocationText(list.targetUrlList());
 }
 
 void KFileWidgetPrivate::setLocationText(const QUrl &url)
@@ -1352,17 +1352,18 @@ void KFileWidgetPrivate::setLocationText(const QList<QUrl> &urlList)
     // KDirOperator's view-selection in there
     const QSignalBlocker blocker(m_locationEdit);
 
-    const QUrl currUrl = m_ops->url();
+    const QUrl baseUrl = m_ops->url();
 
     if (urlList.count() > 1) {
         QString urls;
         for (const QUrl &url : urlList) {
-            urls += QStringLiteral("\"%1\" ").arg(escapeDoubleQuotes(relativePathOrUrl(currUrl, url)));
+            urls += QStringLiteral("\"%1\" ").arg(escapeDoubleQuotes(relativePathOrUrl(baseUrl, url)));
         }
         urls.chop(1);
         m_locationEdit->setEditText(urls);
     } else if (urlList.count() == 1) {
-        m_locationEdit->setEditText(escapeDoubleQuotes(relativePathOrUrl(currUrl, urlList[0])));
+        const auto url = urlList[0];
+        m_locationEdit->setEditText(escapeDoubleQuotes(relativePathOrUrl(baseUrl, url)));
     } else if (!m_locationEdit->lineEdit()->text().isEmpty()) {
         m_locationEdit->clearEditText();
     }
@@ -1729,30 +1730,36 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
     qCDebug(KIO_KFILEWIDGETS_FW) << "Tokenizing:" << line;
 
     QList<QUrl> urls;
-    QUrl u(m_ops->url().adjusted(QUrl::RemoveFilename));
-    Utils::appendSlashToPath(u);
+    QUrl baseUrl(m_ops->url().adjusted(QUrl::RemoveFilename));
+    Utils::appendSlashToPath(baseUrl);
 
     // A helper that creates, validates and appends a new url based
     // on the given filename.
-    auto addUrl = [u, &urls](const QString &partial_name) {
+    auto addUrl = [baseUrl, &urls](const QString &partial_name) {
         if (partial_name.trimmed().isEmpty()) {
             return;
         }
 
-        // We have to use setPath here, so that something like "test#file"
-        // isn't interpreted to have path "test" and fragment "file".
-        QUrl partial_url;
-        partial_url.setPath(partial_name);
+        // url could be absolute
+        QUrl partial_url(partial_name);
+        if (!partial_url.isValid() || partial_url.isRelative()) {
+            // We have to use setPath here, so that something like "test#file"
+            // isn't interpreted to have path "test" and fragment "file".
+            partial_url.clear();
+            partial_url.setPath(partial_name);
+        }
 
         // This returns QUrl(partial_name) for absolute URLs.
         // Otherwise, returns the concatenated url.
-        const QUrl finalUrl = u.resolved(partial_url);
+        if (partial_url.isRelative() || baseUrl.isParentOf(partial_url)) {
+            partial_url = baseUrl.resolved(partial_url);
+        }
 
-        if (finalUrl.isValid()) {
-            urls.append(finalUrl);
+        if (partial_url.isValid()) {
+            urls.append(partial_url);
         } else {
             // This can happen in the first quote! (ex: ' "something here"')
-            qCDebug(KIO_KFILEWIDGETS_FW) << "Discarding Invalid" << finalUrl;
+            qCDebug(KIO_KFILEWIDGETS_FW) << "Discarding Invalid" << partial_url;
         }
     };
 
