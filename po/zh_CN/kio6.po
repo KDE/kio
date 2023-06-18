@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 02:06+0000\n"
-"PO-Revision-Date: 2023-05-22 13:58\n"
+"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"PO-Revision-Date: 2023-06-17 04:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2468,241 +2468,247 @@ msgstr "无法创建用于为协议“%1”启动 KIO 工作程序的套接字�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "无法在“%1”中找到“kioworker”可执行程序"
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:303
+#, kde-format
+msgctxt "Loading bar percent value"
+msgid "%p%"
+msgstr ""
+
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "您没有选择要删除的文件。"
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "没有要删除的文件"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "您没有选择要移动到回收站的文件。"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "没有要移动到回收站的文件"
 
-#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
+#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "指定的文件夹不存在或者无法读取。"
 
-#: filewidgets/kdiroperator.cpp:1929
+#: filewidgets/kdiroperator.cpp:1930
 #, kde-format
 msgid "Menu"
 msgstr "菜单"
 
-#: filewidgets/kdiroperator.cpp:1934
+#: filewidgets/kdiroperator.cpp:1935
 #, kde-format
 msgid "Parent Folder"
 msgstr "上级文件夹"
 
-#: filewidgets/kdiroperator.cpp:1941
+#: filewidgets/kdiroperator.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "后退"
 
-#: filewidgets/kdiroperator.cpp:1945
+#: filewidgets/kdiroperator.cpp:1946
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "前进"
 
-#: filewidgets/kdiroperator.cpp:1949
+#: filewidgets/kdiroperator.cpp:1950
 #, kde-format
 msgid "Home Folder"
 msgstr "主文件夹"
 
-#: filewidgets/kdiroperator.cpp:1953
+#: filewidgets/kdiroperator.cpp:1954
 #, kde-format
 msgid "Reload"
 msgstr "重新加载"
 
-#: filewidgets/kdiroperator.cpp:1956
+#: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
 msgstr "新建文件夹..."
 
-#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:306
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:306
 #: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
 #: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "移动到回收站"
 
-#: filewidgets/kdiroperator.cpp:1972
+#: filewidgets/kdiroperator.cpp:1973
 #, kde-format
 msgid "Delete"
 msgstr "删除"
 
-#: filewidgets/kdiroperator.cpp:1979
+#: filewidgets/kdiroperator.cpp:1980
 #, kde-format
 msgid "Sorting"
 msgstr "排序"
 
-#: filewidgets/kdiroperator.cpp:1984
+#: filewidgets/kdiroperator.cpp:1985
 #, kde-format
 msgid "Sort by Name"
 msgstr "按名称排序"
 
-#: filewidgets/kdiroperator.cpp:1990
+#: filewidgets/kdiroperator.cpp:1991
 #, kde-format
 msgid "Sort by Size"
 msgstr "按大小排序"
 
-#: filewidgets/kdiroperator.cpp:1996
+#: filewidgets/kdiroperator.cpp:1997
 #, kde-format
 msgid "Sort by Date"
 msgstr "按时间排序"
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Sort by Type"
 msgstr "按类型排序"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Ascending"
 msgstr "升序"
 
-#: filewidgets/kdiroperator.cpp:2018
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgid "Descending"
 msgstr "降序"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, kde-format
 msgid "Folders First"
 msgstr "文件夹靠前"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "隐藏文件靠后"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Icons View"
 msgstr "图标视图"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, kde-format
 msgid "Compact View"
 msgstr "紧凑视图"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Details View"
 msgstr "详情视图"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Icon Position"
 msgstr "图标位置"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
 msgstr "在文件名一侧"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Above File Name"
 msgstr "在文件名上方"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
 msgstr "图标视图"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
 msgstr "详情视图"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Tree View"
 msgstr "树状视图"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "树状详情视图"
 
-#: filewidgets/kdiroperator.cpp:2128
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "允许在详情视图中展开"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "显示隐藏文件"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "显示预览面板"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
 msgstr "显示预览"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "打开所在文件夹"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "属性"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2172
 #, kde-format
 msgid "&View Mode"
 msgstr "视图模式(&V)"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "降序排列"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "升序排列"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "最新在前"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2280
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "最旧在前"
 
-#: filewidgets/kdiroperator.cpp:2282
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "最大在前"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2284
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3134,13 +3140,13 @@ msgstr "隐藏(&H)"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
-msgstr "隐藏“%1”分段"
+msgstr "隐藏“%1”栏目"
 
 #: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
-msgstr "隐藏分段"
+msgstr "隐藏栏目"
 
 #: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
@@ -7240,1032 +7246,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "&Policy"
-#~ msgstr "策略(&P)"
-
-#~ msgid "&Management"
-#~ msgstr "管理(&M)"
-
-#~ msgid "D-Bus Communication Error"
-#~ msgstr "D-Bus 通信错误"
-
-#~ msgid "Unable to delete all the cookies as requested."
-#~ msgstr "无法按照请求删除所有 Cookies。"
-
-#~ msgid "Unable to delete cookies as requested."
-#~ msgstr "无法按照请求删除 Cookies。"
-
-#~ msgid "Information Lookup Failure"
-#~ msgstr "信息查询失败"
-
-#~ msgid ""
-#~ "Unable to retrieve information about the cookies stored on your computer."
-#~ msgstr "无法获取存储在本机系统中的 Cookies 的信息。"
-
-#~ msgid "End of session"
-#~ msgstr "会话结束"
-
-#~ msgid "Yes"
-#~ msgstr "是"
-
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgid "Search interactively for domains and hosts"
-#~ msgstr "搜索域名和主机 (交互式)"
-
-#~ msgid "Site"
-#~ msgstr "网站"
-
-#~ msgid "Cookie Name"
-#~ msgstr "Cookie 名称"
-
-#~ msgid "D&elete"
-#~ msgstr "删除(&E)"
-
-#~ msgid "Delete A&ll"
-#~ msgstr "删除所有(&L)"
-
-#~ msgid "Configure &Policy..."
-#~ msgstr "配置策略(&P)..."
-
-#~ msgid "&Reload List"
-#~ msgstr "刷新列表(&R)"
-
-#~ msgid "Secure:"
-#~ msgstr "安全："
-
-#~ msgctxt "@title:window"
-#~ msgid "Change Cookie Policy"
-#~ msgstr "更改 Cookie 策略"
-
-#~ msgctxt "@title:window"
-#~ msgid "New Cookie Policy"
-#~ msgstr "新建 Cookie 策略"
-
-#~ msgid ""
-#~ "<qt>A policy already exists for<center><b>%1</b></center>Do you want to "
-#~ "replace it?</qt>"
-#~ msgstr ""
-#~ "<qt><center><b>%1</b></center> 已存在一个策略，您想要替换它吗？</qt>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Duplicate Policy"
-#~ msgstr "重复策略"
-
-#~ msgid ""
-#~ "Unable to communicate with the cookie handler service.\n"
-#~ "Any changes you made will not take effect until the service is restarted."
-#~ msgstr ""
-#~ "无法与 Cookie 处理服务通信。\n"
-#~ "您所作的更改只有在该服务重新启动之后才能生效。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enable cookie support. Normally you will want to have cookie support "
-#~ "enabled and customize it to suit your privacy needs.</p><p>\n"
-#~ "Please note that disabling cookie support might make many web sites "
-#~ "unbrowsable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>启用 Cookie 支持。在正常情况下您可以启用 Cookie 支持，并按照您对隐私的"
-#~ "要求来自定义相关策略。</p><p>\n"
-#~ "请注意，禁用 Cookie 支持可能会导致很多网站无法浏览。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Enable coo&kies"
-#~ msgstr "启用 Coo&kies"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Reject the so called third-party cookies. These are cookies that "
-#~ "originate from a site other than the one you are currently browsing. For "
-#~ "example, if you visit <b>www.foobar.com</b> while this option is on, only "
-#~ "cookies that originate from www.foobar.com will be processed per your "
-#~ "settings. Cookies from any other site will be rejected. This reduces the "
-#~ "chances of site operators compiling a profile about your daily browsing "
-#~ "habits.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "拒绝第三方 Cookies。第三方 Cookies 来自您当前浏览网站之外的网站。例如：您"
-#~ "在勾选此项后访问了 <b>www.foobar.com</b>，那么按照此选项的设置，只有来自 "
-#~ "www.foobar.com 网站的 Cookies 才会被接受。来自其他网站的所有 Cookies 会被"
-#~ "自动拒绝。此功能可以妨碍网站对您的日常浏览习惯进行收集和汇总。\n"
-#~ "</qt>"
-
-#~ msgid "Only acce&pt cookies from originating server"
-#~ msgstr "仅接受始发服务器的 Cookie(&P)"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "Automatically accept temporary cookies meant to expire at the end of the "
-#~ "current session. Such cookies will not be stored in your computer's hard "
-#~ "drive or storage device. Instead, they are deleted when you close all "
-#~ "applications (e.g. your browser) that use them.</p><p><u>NOTE</u> "
-#~ "Checking this option overrides your default as well as site specific "
-#~ "cookie policies for session cookies.</p>"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "自动接受在本次会话结束时自动过期的临时 Cookies。这种 Cookies 不会长期保存"
-#~ "在电脑的硬盘或者其他存储设备里。在您关闭所有使用它们的程序 (例如网页浏览"
-#~ "器) 后，它们就会被删除。</p><p><u>注意：</u>勾选此项后，它的设置将覆盖您的"
-#~ "默认 Cookies 策略和指定网站的当次会话 Cookies 策略。</p>"
-
-#~ msgid "Automaticall&y accept session cookies"
-#~ msgstr "自动接受单次会话 Cookie(&Y)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Determines how cookies received from a remote machine will be handled: \n"
-#~ "<ul>\n"
-#~ "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#~ "server wants to set a cookie.</li>\n"
-#~ "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#~ "</li>\n"
-#~ "<li><b>Accept until end of session</b> will cause cookies to be accepted "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#~ "receives.</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#~ "take precedence over the default policy.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "指定从远程机器收到 Cookies 时的处理方式：\n"
-#~ "<ul>\n"
-#~ "<li><b>询问：</b>每当服务器请求建立 Cookies 时，KDE 都会征求您的同意。</"
-#~ "li>\n"
-#~ "<li><b>接受：</b> 接受 Cookiess，不提示。</li>\n"
-#~ "<li><b>接受 (当次会话)：</b> 接受 Cookies，但在当次会话结束后过期。</li>\n"
-#~ "<li><b>拒绝：</b>cookiejar 程序将拒绝所有收到的 Cookies。</li>\n"
-#~ "</ul><p>\n"
-#~ "<u>请注意：</u>您可以在下方为每个域名指定独立的策略，它们的优先权高于默认"
-#~ "策略。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Default Policy"
-#~ msgstr "默认策略"
-
-#~ msgid "Accep&t all cookies"
-#~ msgstr "接受所有 Cookies(&T)"
-
-#~ msgid "Accept &until end of session"
-#~ msgstr "接受 (当次会话)(&U)"
-
-#~ msgid "Ask &for confirmation"
-#~ msgstr "请求确认(&F)"
-
-#~ msgid "Re&ject all cookies"
-#~ msgstr "拒绝所有 Cookies(&J)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "To add a new policy, simply click on the <b>Add...</b> button and supply "
-#~ "the necessary information. To change an existing policy, use the "
-#~ "<b>Change...</b> button and choose the new policy from the policy dialog "
-#~ "box. Clicking on the <b>Delete</b> button will remove the currently "
-#~ "selected policy causing the default policy setting to be used for that "
-#~ "domain, whereas <b>Delete All</b> will remove all the site specific "
-#~ "policies.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "要添加新策略，请点击<b>添加...</b>按钮并提供所需信息。要更改已有策略，请点"
-#~ "击<b>更改...</b>按钮并在策略对话框中选择新的策略。点击<b>删除</b>按钮将移"
-#~ "除选中的策略，该域名将在此后使用默认策略；点击<b>删除所有</b>按钮将移除所"
-#~ "有的域名特定策略。\n"
-#~ "</qt>"
-
-#~ msgid "Site Policy"
-#~ msgstr "网站策略"
-
-#~ msgid "Search interactively for domains"
-#~ msgstr "搜索域名 (交互式)"
-
-#~ msgid "Search..."
-#~ msgstr "搜索..."
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "List of sites for which you have set a specific cookie policy. Specific "
-#~ "policies override the default policy setting for these sites.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "已指定了域名特定 Cookies 策略的网站列表。这些网站将使用指定给它们的策略设"
-#~ "置覆盖默认策略。\n"
-#~ "</qt>"
-
-#~ msgid "Domain"
-#~ msgstr "域名"
-
-#~ msgid "Policy"
-#~ msgstr "策略"
-
-#~ msgid "&New..."
-#~ msgstr "新建(&N)..."
-
-#~ msgid "Chan&ge..."
-#~ msgstr "更改(&G)..."
-
-#~ msgid "Accept"
-#~ msgstr "接受"
-
-#~ msgid "Accept For Session"
-#~ msgstr "接受 (当次会话)"
-
-#~ msgid "Reject"
-#~ msgstr "拒绝"
-
-#~ msgid "Ask"
-#~ msgstr "询问"
-
-#~ msgid "Do Not Know"
-#~ msgstr "我不懂"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the host or domain to which this policy applies, e.g. <b>www.kde."
-#~ "org</b> or <b>.kde.org</b>.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "输入要应用此策略的主机或者域名，例如 <b>www.kde.org</b> 或者 <b>.kde.org</"
-#~ "b>。\n"
-#~ "</qt>"
-
-#~ msgid "Site name:"
-#~ msgstr "网站名称："
-
-#~ msgid ""
-#~ "Enter the host or domain name, e.g. .kde.org, this policy applies to."
-#~ msgstr "输入要应用此策略的主机或者域名，例如 .kde.org。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the desired policy:\n"
-#~ "<ul>\n"
-#~ "<li><b>Accept</b> - Allows this site to set cookies</li>\n"
-#~ "<li><b>Accept until end of session</b> - Allows this site to set cookies "
-#~ "but they will expire at the end of the session.</li>\n"
-#~ "<li><b>Reject</b> - Refuse all cookies sent from this site</li>\n"
-#~ "<li><b>Ask</b> - Prompt when cookies are received from this site</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "选择想要使用的策略：\n"
-#~ "<ul>\n"
-#~ "<li><b>接受</b> - 允许此网站建立 Cookies</li>\n"
-#~ "<li><b>接受 (当次会话)</b> - 允许此网站建立 Cookies，但在本次会话结束之后"
-#~ "过期</li>\n"
-#~ "<li><b>拒绝</b> - 拒绝此网站的所有 Cookies</li>\n"
-#~ "<li><b>询问</b> - 收到此网站的 Cookies 时询问用户如何处理。</li>\n"
-#~ "</ul>\n"
-#~ "</qt>"
-
-#~ msgid "Policy:"
-#~ msgstr "策略："
-
-#~ msgid "Accept until end of session"
-#~ msgstr "接受 (当次会话)"
-
-#~ msgid ""
-#~ "You have to restart the running applications for these changes to take "
-#~ "effect."
-#~ msgstr "要让这些更改生效，您必须重新启动正在运行的应用程序。"
-
-#~ msgctxt "@title:window"
-#~ msgid "Update Failed"
-#~ msgstr "更新失败"
-
-#~ msgid "You have to restart KDE for these changes to take effect."
-#~ msgstr "要让这些更改生效，您必须重新启动 KDE。"
-
-#~ msgid "Disable Passive FTP"
-#~ msgstr "禁用被动 FTP"
-
-#~ msgid ""
-#~ "When FTP connections are passive the client connects to the server, "
-#~ "instead of the other way round, so firewalls do not block the connection; "
-#~ "old FTP servers may not support Passive FTP though."
-#~ msgstr ""
-#~ "FTP 连接处于被动模式时，由客户端向服务器端发起连接，而不是相反，这样可以避"
-#~ "免防火墙阻止连接；某些老旧的 FTP 服务器可能不支持被动式 FTP。"
-
-#~ msgid "Mark partially uploaded files"
-#~ msgstr "标记部分上传的文件"
-
-#~ msgid ""
-#~ "While a file is being uploaded its extension is \".part\". When fully "
-#~ "uploaded it is renamed to its real name."
-#~ msgstr ""
-#~ "文件在上传过程中的扩展名将被更改为“*.part”。文件上传完成后，它将被改回实际"
-#~ "的扩展名。"
-
-#~ msgid "Timeout Values"
-#~ msgstr "超时时间"
-
-#~ msgid ""
-#~ "Here you can set timeout values. You might want to tweak them if your "
-#~ "connection is very slow. The maximum allowed value is 1 second."
-#~ msgid_plural ""
-#~ "Here you can set timeout values. You might want to tweak them if your "
-#~ "connection is very slow. The maximum allowed value is %1 seconds."
-#~ msgstr[0] ""
-#~ "您可以在此设置超时时间。如果您的连接很慢，可以调整此值。允许设置的最大值"
-#~ "是 %1 秒。"
-
-#~ msgid " second"
-#~ msgid_plural " seconds"
-#~ msgstr[0] " 秒"
-
-#~ msgid "Soc&ket read:"
-#~ msgstr "套接字读取(&K)："
-
-#~ msgid "Pro&xy connect:"
-#~ msgstr "代理服务器连接(&X)："
-
-#~ msgid "Server co&nnect:"
-#~ msgstr "服务器连接(&N)："
-
-#~ msgid "&Server response:"
-#~ msgstr "服务器响应(&S)："
-
-#~ msgid "Global Options"
-#~ msgstr "全局选项"
-
-#~ msgid "Mark &partially uploaded files"
-#~ msgstr "标记部分上传的文件(&P)"
-
-#~ msgid ""
-#~ "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
-#~ "p><p>When this option is enabled, partially uploaded files will have a \"."
-#~ "part\" extension. This extension will be removed once the transfer is "
-#~ "complete.</p>"
-#~ msgstr ""
-#~ "<p>标记通过 SMB、SFTP 以及其他协议的部分上传文件。</p><p>勾选此项时，部分"
-#~ "上传的文件将被附加“.part”扩展名。此扩展名将在传输完成后自动去除。</p>"
-
-#~ msgid " byte"
-#~ msgid_plural " bytes"
-#~ msgstr[0] " 字节"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid ""
-#~ "If cancelled, automatically delete partially uploaded files smaller than:"
-#~ msgstr "如果传输被取消，自动删除体积小于此值的部分上传文件："
-
-#~ msgid "FTP Options"
-#~ msgstr "FTP 选项"
-
-#~ msgid "Enable passive &mode (PASV)"
-#~ msgstr "启用被动模式(PASV)(&M)"
-
-#~ msgid ""
-#~ "Enables FTP's \"passive\" mode. This is required to allow FTP to work "
-#~ "from behind firewalls."
-#~ msgstr "启用 FTP 的“被动模式”。这是在防火墙后面使用 FTP 的必须功能。"
-
-#~ msgid ""
-#~ "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-#~ "partially uploaded files will have a \".part\" extension. This extension "
-#~ "will be removed once the transfer is complete.</p>"
-#~ msgstr ""
-#~ "<p>标记 FTP 的部分上传文件。</p><p>勾选此项时，部分上传的文件将被附加“."
-#~ "part”扩展名。此扩展名将在传输完成后自动去除。</p>"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Not all applications will use this proxy setting. In particular, "
-#~ "<application>Firefox</application> and <application>Chromium</"
-#~ "application> or anything derived from them, or anything using "
-#~ "<application>QtWebEngine</application>&nbsp;- which includes "
-#~ "<application>Konqueror</application> using the "
-#~ "<application>WebEnginePart</application>, <application>Akregator</"
-#~ "application> and <application>Falkon</application>&nbsp;- will not use "
-#~ "these settings. Some applications may allow the proxy to be configured in "
-#~ "their own settings."
-#~ msgstr ""
-#~ "并不是所有应用程序都会使用此处指定的代理服务器设置。例如 "
-#~ "<application>Firefox</application>、<application>Chromium</application> 以"
-#~ "及它们的衍生应用；所有基于 <application>QtWebEngine</application> 的应用，"
-#~ "包括使用 <application>WebEnginePart</application> 的"
-#~ "<application>Konqueror</application>、<application>Akregator</"
-#~ "application> 和 <application>Falkon</application> 等应用均不会使用此处指定"
-#~ "的代理服务器设置。某些应用程序可能要在它们自己的选项中配置代理服务器。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Setup proxy configuration.\n"
-#~ "<p>\n"
-#~ "A proxy server is an intermediate machine that sits between your computer "
-#~ "and the Internet and provides services such as web page caching and "
-#~ "filtering. Caching proxy servers give you faster access to web sites you "
-#~ "have already visited by locally storing or caching those pages; filtering "
-#~ "proxy servers usually provide the ability to block out requests for ads, "
-#~ "spam, or anything else you want to block.\n"
-#~ "<p>\n"
-#~ "If you are uncertain whether or not you need to use a proxy server to "
-#~ "connect to the Internet, consult your Internet service provider's setup "
-#~ "guide or your system administrator.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "设置代理服务器配置。\n"
-#~ "<p>\n"
-#~ "代理服务器是一台位于本机和其他互联网服务器之间的中介计算机，它可以提供网页"
-#~ "缓存和内容过滤等服务。缓存代理服务器可以将已访问的页面缓存到本地，从而提高"
-#~ "您访问这些网站时的速度；内容过滤服务器通常可以拦截诸如广告、骚扰以及其他您"
-#~ "想要阻止的请求。\n"
-#~ "<p>\n"
-#~ "如果您不确定自己是否需要通过代理服务器来连接互联网，可以咨询您的互联网服务"
-#~ "提供商或者系统管理员。\n"
-#~ "</qt>"
-
-#~ msgid "Connect to the Internet directly."
-#~ msgstr "直接连接到互联网。"
-
-#~ msgid "No Proxy"
-#~ msgstr "不使用代理服务器"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Automatically detect and configure the proxy settings.<p>\n"
-#~ "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#~ "Protocol (WPAD)</b>.<p>\n"
-#~ "<b>NOTE:</b> This option might not work properly or not work at all in "
-#~ "some UNIX/Linux distributions.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "自动检测并配置代理服务器设置。<p>\n"
-#~ "自动检测功能使用 <b>Web 代理自动发现协议(WPAD)</b> 来处理相关信息。<p>\n"
-#~ "<b>注意：</b>此选项在某些 Unix/Linux 发行版中可能存在问题，甚至完全无法工"
-#~ "作。\n"
-#~ "</qt>"
-
-#~ msgid "Detect proxy configuration automatically"
-#~ msgstr "自动检测代理服务器配置"
-
-#~ msgid "Use the specified proxy script to configure the proxy settings."
-#~ msgstr "使用指定的代理服务器脚本配置代理服务器。"
-
-#~ msgid "Use proxy auto configuration URL:"
-#~ msgstr "使用代理服务器自动配置 URL："
-
-#~ msgid "Enter the address for the proxy configuration script."
-#~ msgstr "请输入代理服务器配置脚本的地址。"
-
-#~ msgid ""
-#~ "<qt><p>Use proxy settings defined on the system.</p>\n"
-#~ "<p>Some platforms offer system wide proxy configuration information and "
-#~ "selecting this option allows you to use those settings.</p>\n"
-#~ "<p>On Mac platforms</p>\n"
-#~ "<p>On Windows platforms</p>\n"
-#~ "<p>On Unix and Linux platforms, such system proxy settings are usually "
-#~ "defined through environment variables. The following environment "
-#~ "variables are detected and used when present: <b>HTTP_PROXY</b>, "
-#~ "<b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><p>使用本机系统的全局代理服务器设置。</p>\n"
-#~ "<p>某些系统平台提供了系统全局的代理配置信息，勾选此项时将使用这些设置。</"
-#~ "p>\n"
-#~ "<p>在 Mac 平台上</p>\n"
-#~ "<p>在 Windows 平台上</p>\n"
-#~ "<p>在 Unix 和 Linux 平台上，系统的全局代理服务器设置通常在环境变量中进行定"
-#~ "义。程序将检测以下环境变量，如果存在则使用它们：<b>HTTP_PROXY</b>、"
-#~ "<b>HTTPS_PROXY</b>、<b>FTP_PROXY</b>、<b>NO_PROXY</b>。</p>\n"
-#~ "</qt>"
-
-#~ msgid "Use system proxy configuration:"
-#~ msgstr "使用系统代理服务器配置："
-
-#~ msgid ""
-#~ "<qt>Attempt automatic discovery of the environment variables used for "
-#~ "setting system wide proxy information.<p> This feature works by searching "
-#~ "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and "
-#~ "NO_PROXY.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试自动检测系统全局的代理服务器环境变量。<p>此功能将搜索最常用的相关"
-#~ "环境变量名称，如 HTTP_PROXY、FTP_PROXY 和 NO_PROXY。</qt>"
-
-#~ msgid "Auto D&etect"
-#~ msgstr "自动检测(&D)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#~ "to store the address of the HTTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 HTTP 代理服务器地址的环境变量名称，例如 <b>HTTP_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "HTTP Proxy:"
-#~ msgstr "HTTP 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#~ "to store the address of the HTTPS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 HTTPS 代理服务器地址的环境变量名称，例如 <b>HTTPS_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "SSL Proxy:"
-#~ msgstr "SSL 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#~ "to store the address of the FTP proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 FTP 代理服务器地址的环境变量名称，例如 <b>FTP_PROXY</b> 。"
-#~ "<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "FTP Proxy:"
-#~ msgstr "FTP 代理："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, used "
-#~ "to store the address of the SOCKS proxy server.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 <b>SOCKS_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。</"
-#~ "p>\n"
-#~ "</qt>"
-
-#~ msgid "SOCKS Proxy:"
-#~ msgstr "SOCKS 代理："
-
-#~ msgid ""
-#~ "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#~ "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#~ "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
-#~ "automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>请输入用于存储 SOCKS 代理服务器地址的环境变量名称，例如 "
-#~ "<b>SOCKS_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动"
-#~ "检测有关的环境变量。</p></qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#~ "addresses of sites for which the proxy server should not be used.<p>\n"
-#~ "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#~ "attempt an automatic discovery of this variable.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于存储不使用代理服务器的网站的环境变量名称，例如 <b>NO_PROXY</"
-#~ "b> 。<p>\n"
-#~ "您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测有关的环境变量。\n"
-#~ "</qt>"
-
-#~ msgid "Exceptions:"
-#~ msgstr "例外："
-
-#~ msgid ""
-#~ "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#~ "the addresses of sites for which the above proxy settings should not be "
-#~ "used.<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</"
-#~ "b> button to attempt an automatic discovery of this variable.</p></qt>"
-#~ msgstr ""
-#~ "<qt>请输入用于存储不使用上述代理服务器设置的网站的环境变量名称，例如 "
-#~ "<b>NO_PROXY</b> 。<p>您也可以点击<b>“自动检测”</b>按钮，让程序尝试自动检测"
-#~ "有关的环境变量。</p></qt>"
-
-#~ msgid "Show the &value of the environment variables"
-#~ msgstr "显示环境变量的值(&V)"
-
-#~ msgid "Manually enter proxy server configuration information."
-#~ msgstr "手动输入代理服务器配置信息。"
-
-#~ msgid "Use manually specified proxy configuration:"
-#~ msgstr "使用手动指定的代理服务器配置："
-
-#~ msgid "Enter the address of the HTTP proxy server."
-#~ msgstr "请输入 HTTP 代理服务器的地址。"
-
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgid "Enter the port number of the HTTP proxy server."
-#~ msgstr "请输入 HTTP 代理服务器的端口。"
-
-#~ msgid "Use this proxy server for a&ll protocols"
-#~ msgstr "所有协议使用同一个代理服务器(&L)"
-
-#~ msgid "Enter the address of the HTTPS proxy server."
-#~ msgstr "请输入 HTTPS 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the HTTPS proxy server."
-#~ msgstr "请输入 HTTPS 代理服务器的端口。"
-
-#~ msgid "Enter the address of the FTP proxy server."
-#~ msgstr "请输入 FTP 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the FTP proxy server."
-#~ msgstr "请输入 FTP 代理服务器的端口。"
-
-#~ msgid "Enter the address of the SOCKS proxy server."
-#~ msgstr "请输入 SOCKS 代理服务器的地址。"
-
-#~ msgid "Enter the port number of the SOCKS proxy server."
-#~ msgstr "请输入 SOCKS 代理服务器的端口。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "<p>Enter a comma separated list of hostnames or ip addresses that should "
-#~ "be excluded from using the above proxy settings.</p>\n"
-#~ "<p>If you want to exclude all hosts for a given domain, then simply enter "
-#~ "the domain name preceded by a dot. For example, to exclude all hostnames "
-#~ "for <i>kde.org</i>, enter <i>.kde.org</i>. Wildcard characters such as "
-#~ "'*' or '?' are not supported and will have no effect.</p>\n"
-#~ "<p>Additionally, you can also enter IP addresses, e.g. 127.0.0.1 and IP "
-#~ "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "<p>请输入排除使用上述代理服务器设置的主机名或者 IP 地址的列表，用半角逗号"
-#~ "分隔项目。</p>\n"
-#~ "<p>如需排除某个域名的所有主机，请在该域名之前输入一个半角句点。例如，要排"
-#~ "除所有<i>kde.org</i> 的主机名，请输入 <i>.kde.org</i>。不支持“*”和“?”等通"
-#~ "配符，它们将不会生效。</p>\n"
-#~ "<p>您也可以输入 IP 地址，例如 127.0.0.1；还可以输入带子网掩码的 IP 地址，"
-#~ "例如 192.168.0.1/24。</p>\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Check this box if you want the above proxy settings to apply only to the "
-#~ "addresses listed in the <i>Exceptions</i> list.</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "如果您想要上面的代理服务器设置只应用到 <i>例外</i> 列表中的地址，请勾选此"
-#~ "项。</qt>"
-
-#~ msgid "Use proxy settings only for addresses in the Exceptions list"
-#~ msgstr "仅对排除列表中的地址应用代理服务器设置"
-
-#~ msgid "These settings apply to network browsing only."
-#~ msgstr "这些设置仅在浏览网上邻居时有效。"
-
-#~ msgid "Default user name:"
-#~ msgstr "默认用户名："
-
-#~ msgid "Default password:"
-#~ msgstr "默认密码："
-
-#~ msgid " days"
-#~ msgstr " 天"
-
-#~ msgid ""
-#~ "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
-#~ "para>"
-#~ msgstr "<para>KDE 的回收站已被配置为使用<b>访达</b>的回收站。<br></para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>Emptying KDE's wastebin will remove only KDE's trash items, "
-#~ "while<br>emptying the Trash through the Finder will delete everything.</"
-#~ "para><para>KDE's trash items will show up in a folder called KDE.trash, "
-#~ "in the Trash can.</para>"
-#~ msgstr ""
-#~ "<para>清空 KDE 的回收站将仅移除 KDE 回收站中的项目，而<br>清空访达的回收站"
-#~ "将删除所有回收站项目。</para><para>KDE 的回收站项目显示在回收站文件夹的 "
-#~ "KDE.trash 目录中。</para>"
-
-#~ msgid "Delete files older than"
-#~ msgstr "超过一定天数后删除"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>Check this box to allow <emphasis strong='true'>automatic deletion</"
-#~ "emphasis> of files that are older than the value specified. Leave this "
-#~ "disabled to <emphasis strong='true'>not</emphasis> automatically delete "
-#~ "any items after a certain timespan</para>"
-#~ msgstr ""
-#~ "<para>勾选此项后，回收站将<emphasis strong='true'>自动删除</emphasis>比指"
-#~ "定天数更旧的文件。不勾选此项时，回收站将<emphasis strong='true'>不会</"
-#~ "emphasis>自动删除任何文件</para>"
-
-#~ msgid " day"
-#~ msgid_plural " days"
-#~ msgstr[0] " 天"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>Set the number of days that files can remain in the trash. Any "
-#~ "files older than this will be automatically deleted.</para>"
-#~ msgstr ""
-#~ "<para>设定回收站保留文件的天数。所有比这个时间更旧的文件将被自动删除。</"
-#~ "para>"
-
-#~ msgid "Cleanup:"
-#~ msgstr "自动清理："
-
-#~ msgid "Limit to"
-#~ msgstr "回收站磁盘占用上限"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>Check this box to limit the trash to the maximum amount of disk "
-#~ "space that you specify below. Otherwise, it will be unlimited.</para>"
-#~ msgstr ""
-#~ "<para>勾选此项以限制回收站可使用的最大磁盘空间，不勾选此项则不作限制。</"
-#~ "para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>This is the maximum percent of disk space that will be used for the "
-#~ "trash.</para>"
-#~ msgstr "<para>回收站能够使用的最大硬盘空间比例。</para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>This is the calculated amount of disk space that will be allowed "
-#~ "for the trash, the maximum.</para>"
-#~ msgstr "<para>回收站能够使用的最大硬盘空间。</para>"
-
-#~ msgid "Show a Warning"
-#~ msgstr "显示警告"
-
-#~ msgid "Delete Oldest Files From Trash"
-#~ msgstr "删除回收站中的最旧文件"
-
-#~ msgid "Delete Biggest Files From Trash"
-#~ msgstr "删除回收站中的最大文件"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<para>When the size limit is reached, it will prefer to delete the type "
-#~ "of files that you specify, first. If this is set to warn you, it will do "
-#~ "so instead of automatically deleting files.</para>"
-#~ msgstr ""
-#~ "<para>您可以设置在回收站到达容量上限时，首先自动删除哪些文件。如果此选项被"
-#~ "设为显示警告，那么回收站将显示警告而不会自动删除文件。</para>"
-
-#~ msgid "Full Trash:"
-#~ msgstr "回收站已满时："
-
-#~ msgctxt "@title:column Name label from web search keyword column"
-#~ msgid "Name"
-#~ msgstr "名称"
-
-#~ msgctxt "@title:column"
-#~ msgid "Keywords"
-#~ msgstr "关键词"
-
-#~ msgctxt "@title:column"
-#~ msgid "Preferred"
-#~ msgstr "首选"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Check this box to select the highlighted web search keyword as preferred."
-#~ "<nl/>Preferred web search keywords are used in places where only a few "
-#~ "select keywords can be shown at one time."
-#~ msgstr ""
-#~ "勾选此项时，当前选中的网页搜索关键词将被设为首选。<nl/>\n"
-#~ "设为首选的网页搜索关键词将在只能显示少量候选关键词的场合中优先显示。"
-
-#~ msgctxt "@item:inlistbox No default web search keyword"
-#~ msgid "None"
-#~ msgstr "无"
-
-#~ msgid "Search F&ilters"
-#~ msgstr "搜索过滤(&I)"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
-#~ "search keywords allow you to quickly access or search for information "
-#~ "located online or on your hard drive. </p><p>KDE comes with many "
-#~ "predefined keywords. One such keyword can be used to perform a the Google "
-#~ "(TM) search; to use it, you simply type the keyword 'gg' followed by the "
-#~ "keyword delimiter and the search term, e.g. <span style=\" font-"
-#~ "weight:600;\">gg:KDE</span>.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>启用或者禁用网页搜索关键词功能。</p>\n"
-#~ "<p>网页搜索关键词可以帮助您快速访问、搜索本机和互联网上的信息。</p>\n"
-#~ "<p>KDE 已经预设了一些关键词，用于调用不同的搜索引擎。例如要使用 Google 搜"
-#~ "索“KDE”时，只需输入关键词“gg”、分隔符 (此例子中是半角冒号) 和搜索条件即"
-#~ "可：<span style=\" font-weight:600;\">gg:KDE</span>。</p></body></html>"
-
-#~ msgid "&Enable Web search keywords"
-#~ msgstr "启用网页搜索关键词(&E)"
-
-#~ msgid "&Use preferred keywords only"
-#~ msgstr "仅使用首选关键词(&U)"
-
-#~ msgid "Search for web search keywords"
-#~ msgstr "搜索网络搜索关键词"
-
-#~ msgid "Add a new Web search keyword"
-#~ msgstr "添加网页搜索关键词"
-
-#~ msgid "Modify the highlighted Web search keyword"
-#~ msgstr "修改选中的网页搜索关键词"
-
-#~ msgid "Delete the highlighted Web search keyword"
-#~ msgstr "删除选中的网页搜索关键词"
-
-#~ msgid "De&lete"
-#~ msgstr "删除(&L)"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Select the search engine to use for input boxes that provide automatic "
-#~ "lookup services when you type in normal words and phrases instead of a "
-#~ "URL. To disable this feature select <b>None</b> from the list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "选择一个默认的搜索引擎。支持自动搜索服务的输入框将使用此引擎来搜索那些无法"
-#~ "被识别为 URL 的输入内容。如需禁用此功能，请从列表中选择<b>无</b>。\n"
-#~ "</qt>"
-
-#~ msgid "Default Web &search keyword:"
-#~ msgstr "默认网页搜索关键词(&S)："
-
-#~ msgid ""
-#~ "<html><head/><body><p>Select a default web search keyword. </p><p>This "
-#~ "allows applications to automatically convert the typed word or phrase to "
-#~ "web search keyword queries when they cannot be filtered into a proper "
-#~ "URL. </p><p>To disable this functionality select <span style=\" font-"
-#~ "weight:600;\">None</span> from the list. </p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>选择默认的网页搜索关键词。</p>\n"
-#~ "<p>程序会把无法识别成 URL 的输入内容通过默认搜索关键词进行搜索。</p>\n"
-#~ "<p>如需禁用此功能，请从列表中选择 <span style=\" font-weight:600;\">无</"
-#~ "span>。</p></body></html>"
-
-#~ msgid ""
-#~ "Choose the delimiter that separates the keyword from the phrase or word "
-#~ "to be searched."
-#~ msgstr "选择一个分隔符，它用于分隔网页搜索关键词和搜索条件。"
-
-#~ msgid "&Keyword delimiter:"
-#~ msgstr "关键词分隔符(&K)："
-
-#~ msgid "Choose a delimiter to mark the Web search keyword."
-#~ msgstr "选择用于标识网页搜索关键词的分隔符。"
-
-#~ msgctxt "Colon as keyword delimiter"
-#~ msgid "Colon"
-#~ msgstr "半角冒号"
-
-#~ msgctxt "Space as keyword delimiter"
-#~ msgid "Space"
-#~ msgstr "半角空格"
-
-#~ msgctxt "@item:inlistbox The default character set"
-#~ msgid "Default"
-#~ msgstr "默认"
-
-#~ msgid "Modify Web Shortcut"
-#~ msgstr "修改网页搜索缩略词"
-
-#~ msgid "New Web Shortcut"
-#~ msgstr "新建网页搜索缩略词"
-
-#~ msgid ""
-#~ "The shortcut \"%1\" is already assigned to \"%2\". Please choose a "
-#~ "different one."
-#~ msgstr "缩略词“%1”已分配给了“%2”。请选择一个不同的缩略词。"
-
-#~ msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
-#~ msgid "- %1: \"%2\""
-#~ msgstr "- %1：“%2”"
-
-#~ msgid ""
-#~ "The following shortcuts are already assigned. Please choose different "
-#~ "ones.\n"
-#~ "%1"
-#~ msgstr ""
-#~ "下列网页搜索缩略词已被使用，请选择不同的缩略词。\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The Shortcut URL does not contain a \\{...} placeholder for the user "
-#~ "query.\n"
-#~ "This means that the same page is always going to be visited, regardless "
-#~ "of the text typed in with the shortcut."
-#~ msgstr ""
-#~ "此网页搜索缩略词的 URL 中不包含用于提交搜索条件的 \\{...} 占位符。\n"
-#~ "这意味着无论您使用此缩略词输入了什么内容，得到的都是同一个网页。"
-
-#~ msgid "Keep It"
-#~ msgstr "保留"
-
-#~ msgid "Enter the human-readable name of the search provider here."
-#~ msgstr "请为此搜索服务提供商输入一个易于理解的名称。"
-
-#~ msgid "Shortcut &name:"
-#~ msgstr "缩略词名称(&N)："
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "Enter the URI that is used to perform a search on the search engine here."
-#~ "<br/>The whole text to be searched for can be specified as \\{@} or \\{0}."
-#~ "<br/>\n"
-#~ "Recommended is \\{@}, since it removes all query variables (name=value) "
-#~ "from the resulting string, whereas \\{0} will be substituted with the "
-#~ "unmodified query string.<br/>You can use \\{1} ... \\{n} to specify "
-#~ "certain words from the query and \\{name} to specify a value given by "
-#~ "'name=value' in the user query.<br/>In addition it is possible to specify "
-#~ "multiple references (names, numbers and strings) at once (\\{name1,"
-#~ "name2,...,\"string\"}).<br/>The first matching value (from the left) will "
-#~ "be used as the substitution value for the resulting URI.<br/>A quoted "
-#~ "string can be used as the default value if nothing matches from the left "
-#~ "of the reference list.\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "请输入用于在该搜索引擎中进行搜索的 URI。<br/>搜索条件可以使用 \\{@} 或者 "
-#~ "\\{0} 进行指定。<br/>\n"
-#~ "推荐使用 \\{@}，因为它在被替换为查询字串时会自动剔除所有查询变量 "
-#~ "(name=value)，而 \\{0} 则会原封不动地被替换为完整的查询字串。<br/>您可以使"
-#~ "用 \\{1} ... \\{n} 来指定查询中的某个词语，使用 \\{name} 来指定查询中通"
-#~ "过“name=value”指定的值。<br/>您还可以使用 (\\{name1,name2,...,\"string"
-#~ "\"}) 来同时指定多个搜索条件 (例如名称、数字、字串等)。<br/>从左起第一个匹"
-#~ "配的值将在生成的 URI 中用作替代值。<br/>被半角引号包围的值将被视作默认值，"
-#~ "如果用户输入的条件中找不到匹配项，程序将使用该默认值进行查询。\n"
-#~ "</qt>"
-
-#~ msgid "Shortcut &URL:"
-#~ msgstr "缩略词 URL(&U)："
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query."
-#~ msgstr "请选择用于为搜索查询字串进行编码的字符集。"
-
-#~ msgid ""
-#~ "<qt>\n"
-#~ "The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For "
-#~ "example, the shortcut <b>av</b> can be used as in <b>av</b>:<b>my search</"
-#~ "b>\n"
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>\n"
-#~ "在此输入的缩略词可在 KDE 中作为伪 URI 方案使用。例如缩略词 <b>av</b> 可以"
-#~ "通过 <b>av</b>:<b>搜索条件</b> 进行调用\n"
-#~ "</qt>"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Enter the human-readable name of the web shortcut "
-#~ "here.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>请为此缩略词输入一个易于理解的名称。</p></body></"
-#~ "html>"
-
-#~ msgid "&Shortcuts:"
-#~ msgstr "缩略词(&S)："
-
-#~ msgid ""
-#~ "Select the character set that will be used to encode your search query"
-#~ msgstr "请选择用于为搜索查询字串进行编码的字符集。"
-
-#~ msgid "&Charset:"
-#~ msgstr "字符集(&C)："
-
-#~ msgid "Insert query placeholder"
-#~ msgstr "插入搜索占位符"
-
-#~ msgid "Blocked request."
-#~ msgstr "请求已被阻止。"
-
-#~ msgid "Unknown HTTP verb."
-#~ msgstr "未知 HTTP 操作。"
