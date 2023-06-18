@@ -113,7 +113,7 @@
 #include <QStandardPaths>
 #include <QStyle>
 #include <QUrl>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 
 #include <cerrno>
 extern "C" {
