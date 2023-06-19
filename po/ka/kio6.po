@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-18 03:26+0000\n"
-"PO-Revision-Date: 2023-06-15 09:05+0200\n"
+"PO-Revision-Date: 2023-06-18 06:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1446,6 +1446,7 @@ msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr ""
+"სერვერმა <strong>%1</strong> ამ კომპიუტერიდან მიერთების მცდელობა უარყო."
 
 #: core/job_error.cpp:716
 #, kde-format
@@ -1591,6 +1592,8 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
+"მოწყობილობის მოხსნის (\"unmount\") წვდომა არ გაგაჩნიათ. UNIX სისტემებზე "
+"მოწყობილობის მოსახსნელად სისტემური ადმინისტრატორის პრივილეგიებია საჭირო."
 
 #: core/job_error.cpp:803
 #, kde-format
@@ -1609,6 +1612,8 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
+"ეს ნიშნავს, რომ მიუხედავად იმისა, რომ რესურსის <strong>%1</strong> გახსნა "
+"შესაძლებელია, მისი შემცველობის წაკითხვის მცდელობა შეცდომით დასრულდა."
 
 #: core/job_error.cpp:815
 #, kde-format
@@ -1626,6 +1631,8 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr ""
+"ეს ნიშნავს, რომ მიუხედავად იმისა, რომ რესურსის <strong>%1</strong> გახსნა "
+"შესაძლებელია, მისი შემცველობის ჩაწერის მცდელობა შეცდომით დასრულდა."
 
 #: core/job_error.cpp:833
 #, kde-format
@@ -2448,7 +2455,7 @@ msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვე�
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3049,7 +3056,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "დააფორმატეთ ან ჩაასწორეთ დანაყოფების მმართველით"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -3738,6 +3745,9 @@ msgid ""
 "%1\n"
 "is of type Link but has no URL=... entry."
 msgstr ""
+".desktop ფაილს\n"
+"%1\n"
+"Link ტიპისაა, მაგრამ URL=... ჩანაწერი არ გააჩნია."
 
 #: gui/openurljob.cpp:364
 #, kde-format
