@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-18 03:26+0000\n"
-"PO-Revision-Date: 2023-06-18 09:00+0200\n"
+"PO-Revision-Date: 2023-06-19 08:52+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -477,7 +477,7 @@ msgstr "Xa existe un cartafol chamado %1."
 #: core/job_error.cpp:73
 #, kde-format
 msgid "No hostname specified."
-msgstr "Non se especificou ningún servidor."
+msgstr "Non se indicou ningún servidor."
 
 #: core/job_error.cpp:73
 #, kde-format
@@ -650,7 +650,7 @@ msgid ""
 "Unknown proxy host\n"
 "%1"
 msgstr ""
-"O servidor proxy é descoñecido\n"
+"O servidor mandatario é descoñecido\n"
 "%1"
 
 #: core/job_error.cpp:166
@@ -1038,7 +1038,7 @@ msgstr "Asegúrese de que este recurso exista, e inténteo de novo."
 #: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
-msgstr "O recurso especificado non existe."
+msgstr "O recurso indicado non existe."
 
 #: core/job_error.cpp:422
 #, kde-format
@@ -1216,9 +1216,8 @@ msgid ""
 "programming error."
 msgstr ""
 "KDE é capaz de comunicarse mediante un protocolo dentro doutro; o protocolo "
-"especificado é só para usarse nesas situacións, porén este non é un deses "
-"casos. Este é un evento raro, e probabelmente indique un erro de "
-"programación."
+"indicado é só para usarse nesas situacións, porén este non é un deses casos. "
+"Este é un evento raro, e probabelmente indique un erro de programación."
 
 #: core/job_error.cpp:525
 #, kde-format
@@ -1370,7 +1369,7 @@ msgstr "Acceso denegado"
 #: core/job_error.cpp:609
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
-msgstr "Negouse o acceso ao recurso especificado, <strong>%1</strong>."
+msgstr "Negouse o acceso ao recurso indicado, <strong>%1</strong>."
 
 #: core/job_error.cpp:613 core/job_error.cpp:889
 #, kde-format
@@ -1383,7 +1382,7 @@ msgstr ""
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
-"Poida que a súa conta non teña permisos para acceder ao recurso especificado."
+"Pode que a súa conta non teña permisos para acceder ao recurso indicado."
 
 #: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
 #, kde-format
@@ -1626,10 +1625,10 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE é capaz de comunicarse mediante un protocolo cun protocolo. Este pedido "
-"especificou que un protocolo fose usado deste xeito, porén este protocolo "
-"non é capaz de tal cousa. Este é un evento raro, e probabelmente indique un "
-"erro de programación."
+"KDE pode comunicarse mediante un protocolo dentro doutro protocolo. Esta "
+"solicitude indicou un protocolo para usar así, porén o protocolo non o "
+"permite. Isto non é habitual, e probabelmente indique un erro de "
+"programación."
 
 #: core/job_error.cpp:762
 #, kde-format
@@ -1883,17 +1882,17 @@ msgstr "Non se puido retirar o cartafol"
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
-"O intento de retirar o cartafol especificado, <strong>%1</strong>, fallou."
+"O intento de eliminar o cartafol indicado, <strong>%1</strong>, fallou."
 
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
-msgstr "Poida que non exista o cartafol especificado."
+msgstr "Pode que o cartafol indicado non exista."
 
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
-msgstr "Poida que o cartafol especificado non estea baleiro."
+msgstr "Pode que o cartafol indicado non estea baleiro."
 
 #: core/job_error.cpp:949
 #, kde-format
@@ -1912,7 +1911,7 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
-"O pedido especificado requiría que a transferencia do ficheiro <strong>%1</"
+"A solicitude indicada requiría que a transferencia do ficheiro <strong>%1</"
 "strong> fose continuada nun certo punto. Isto non era posíbel."
 
 #: core/job_error.cpp:962
@@ -1936,8 +1935,7 @@ msgstr "Non se puido cambiar de nome o recurso"
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
-"O intento de cambiar de nome o recurso especificado, <strong>%1</strong>, "
-"fallou."
+"O intento de cambiar de nome o recurso indicado, <strong>%1</strong>, fallou."
 
 #: core/job_error.cpp:983
 #, kde-format
@@ -1950,8 +1948,8 @@ msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"O intento de alterar os permisos do recurso especificado, <strong>%1</"
-"strong>, fallou."
+"O intento de alterar os permisos do recurso indicado, <strong>%1</strong>, "
+"fallou."
 
 #: core/job_error.cpp:993
 #, kde-format
@@ -1975,8 +1973,7 @@ msgstr "Non se puido eliminar o recurso"
 #: core/job_error.cpp:1005
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
-msgstr ""
-"O intento de eliminar o recurso especificado, <strong>%1</strong>, fallou."
+msgstr "O intento de eliminar o recurso indicado, <strong>%1</strong>, fallou."
 
 #: core/job_error.cpp:1013
 #, kde-format
@@ -2009,7 +2006,7 @@ msgstr ""
 #: core/job_error.cpp:1034
 #, kde-format
 msgid "Unknown Proxy Host"
-msgstr "Servidor proxy descoñecido"
+msgstr "Servidor mandatario descoñecido"
 
 #: core/job_error.cpp:1036
 #, kde-format
@@ -2019,7 +2016,7 @@ msgid ""
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
 "Atopouse un erro de Servidor Descoñecido ao obter información sobre o "
-"servidor proxy especificado, <strong>%1</strong>. O erro de servidor "
+"servidor mandatario indicado, <strong>%1</strong>. O erro de servidor "
 "descoñecido indica que non se puido atopar en Internet o nome requirido."
 
 #: core/job_error.cpp:1042
@@ -2030,7 +2027,7 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "Quizais ocorrese un problema coa súa configuración de rede, especificamente "
-"co nome do seu servidor proxy. Se accedeu recentemente a Internet sen "
+"co nome do seu servidor mandatario. Se accedeu recentemente a Internet sen "
 "problemas, isto é moi improbábel."
 
 #: core/job_error.cpp:1046
@@ -2125,9 +2122,9 @@ msgstr ""
 "dentro do tempo reservado para o pedido como segue: <ul><li>Tempo límite "
 "para estabelecer unha conexión: %1 segundos</li> <li>Tempo límite para "
 "recibir unha resposta: %2 segundos</li> <li>Tempo límite para acceder ao "
-"servidor proxy: %3 segundos</li></ul> Lembre que pode alterar estes tempos "
-"límite na «Configuración do sistema de KDE», en «Configuración da Rede → "
-"Preferencias da conexión»."
+"servidor mandatario: %3 segundos</li></ul> Lembre que pode alterar estes "
+"tempos límite na «Configuración do sistema de KDE», en «Configuración da "
+"Rede → Preferencias da conexión»."
 
 #: core/job_error.cpp:1108
 #, kde-format
@@ -2266,8 +2263,8 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Libere espazo de abondo no disco (1) eliminando ficheiros temporais non "
-"desexados; (2) arquivando ficheiros en medios de almacenaxe extraíbeis como "
-"CD-R; ou (3) obteña máis capacidade de almacenaxe."
+"desexados; (2) arquivando ficheiros en medios de almacenamento extraíbeis "
+"como CD-R; ou (3) obteña máis capacidade de almacenaxe."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2537,7 +2534,7 @@ msgstr ""
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
 msgid "Security Information"
-msgstr "Información de seguranza"
+msgstr "Información de seguridade"
 
 #: core/tcpworkerbase.cpp:285
 #, kde-format
@@ -2641,7 +2638,7 @@ msgstr "Non se pode atopar o executábel «kioworker» en «%1»."
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -2666,7 +2663,7 @@ msgstr "Non hai nada para botar no lixo"
 #: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
-msgstr "O cartafol especificado non existe ou non é lexíbel."
+msgstr "O cartafol indicado non existe ou non é lexíbel."
 
 #: filewidgets/kdiroperator.cpp:1930
 #, kde-format
@@ -2820,17 +2817,17 @@ msgstr "Permite expandir na vista detallada"
 #: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Mostrar os ficheiros agochados"
+msgstr "Amosar os ficheiros agochados"
 
 #: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Mostrar o panel de vista previa"
+msgstr "Amosar o panel de vista previa"
 
 #: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
-msgstr "Mostrar a vista previa"
+msgstr "Amosar a vista previa"
 
 #: filewidgets/kdiroperator.cpp:2156
 #, kde-format
@@ -3034,7 +3031,7 @@ msgstr "&Escoller unha icona:"
 #: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
 msgid "&Only show when using this application (%1)"
-msgstr "Mostrar só cando se use esta &aplicación (%1)"
+msgstr "Amosar só cando se use esta &aplicación (%1)"
 
 #: filewidgets/kfileplaceeditdialog.cpp:139
 #, kde-format
@@ -3043,8 +3040,8 @@ msgid ""
 "current application (%1).<br /><br />If this setting is not selected, the "
 "entry will be available in all applications.</qt>"
 msgstr ""
-"<qt>Escolla esta opción se quere que esta entrada só se mostre cando estea "
-"na aplicación actual (%1).<br /><br />Se non escolle esta opción, a entrada "
+"<qt>Escolla esta opción se quere que esta entrada só se amose cando estea na "
+"aplicación actual (%1).<br /><br />Se non escolle esta opción, a entrada "
 "estará dispoñíbel en todas as aplicacións.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:185
@@ -3330,7 +3327,7 @@ msgstr "Agochar a sección"
 #: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
 msgid "&Show All Entries"
-msgstr "&Mostrar todas as entradas"
+msgstr "&Amosar todas as entradas"
 
 #: filewidgets/kfileplacesview.cpp:1200
 #, kde-format
@@ -3484,12 +3481,12 @@ msgstr "Prema este botón para crear un cartafol novo."
 #: filewidgets/kfilewidget.cpp:1224
 #, kde-format
 msgid "Show Places Panel"
-msgstr "Mostrar o panel de lugares"
+msgstr "Amosar o panel de lugares"
 
 #: filewidgets/kfilewidget.cpp:1231
 #, kde-format
 msgid "Show Bookmarks Button"
-msgstr "Mostrar o botón de marcadores"
+msgstr "Amosar o botón de marcadores"
 
 #: filewidgets/kfilewidget.cpp:1238
 #, kde-format
@@ -3507,7 +3504,7 @@ msgid ""
 msgstr ""
 "<qt>Este é o menú de configuración do diálogo de ficheiro. Pode acceder a "
 "varias opcións incluíndo: <ul><li>como ordenar os ficheiros na lista</li> "
-"<li>tipos de vista, incluíndo iconas e lista</li><li>mostrar os ficheiros "
+"<li>tipos de vista, incluíndo iconas e lista</li><li>amosar os ficheiros "
 "agochados</li><li>o panel de lugares</li><li>vistas previas dos ficheiros</"
 "li><li>separar os cartafoles dos ficheiros</li></ul></qt>"
 
@@ -3544,7 +3541,7 @@ msgid ""
 "button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
 "qt>"
 msgstr ""
-"<qt>Mentres escribe na área de texto, poden mostrárselle posíbeis "
+"<qt>Mentres escribe na área de texto, poden amosárselle posíbeis "
 "terminacións. Esta funcionalidade pode controlarse premendo co botón "
 "secundario do rato e escollendo un modo preferido no menú <b>Completado de "
 "texto</b>.</qt>"
@@ -3691,7 +3688,7 @@ msgid ""
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
 "<qt>Este é o filtro para aplicar á lista de ficheiros. Os nomes dos "
-"ficheiros que non concorden co filtro non se mostrarán.<p>Pode escoller un "
+"ficheiros que non concorden co filtro non se amosarán.<p>Pode escoller un "
 "dos filtros predefinidos na lista despregábel, ou inserir un personalizado "
 "directamente na área de texto.</p><p>Permítense caracteres de substitución "
 "como * e ?.</p></qt>"
@@ -3750,7 +3747,7 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
-"O nome <filename>%1</filename> comeza cun espazo, o que fará que se mostre "
+"O nome <filename>%1</filename> comeza cun espazo, o que fará que se amose "
 "antes que outros elementos ao ordenar alfabeticamente, entre outros "
 "comportamentos raros."
 
@@ -3867,7 +3864,7 @@ msgstr "Navegar"
 #: filewidgets/kurlnavigator.cpp:580
 #, kde-format
 msgid "Show Full Path"
-msgstr "Mostrar a ruta completa"
+msgstr "Amosar a ruta completa"
 
 #: filewidgets/kurlnavigatorbutton.cpp:698
 #, kde-format
@@ -4413,8 +4410,8 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Debe indicar un nome de usuario e contrasinal para o servidor proxy listado "
-"en baixo antes que se lle permita acceder a ningún sitio."
+"Debe indicar un nome de usuario e contrasinal para o servidor mandatario "
+"listado en baixo antes que se lle permita acceder a ningún sitio."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
 #: kioworkers/http/http.cpp:5210
@@ -4488,7 +4485,7 @@ msgstr "descubrir os valores das propiedades"
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
-msgstr "estabelecer os valores das propiedades"
+msgstr "definir os valores das propiedades"
 
 #: kioworkers/http/http.cpp:1514
 #, kde-format
@@ -5003,8 +5000,8 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "Programa auxiliar para manexar a papeleira de KDE\n"
-"Nota: para mover ficheiros para o lixo, non empregue ktrash, senón "
-"«kioclient move \"url\" trash:/»"
+"Nota: para mover ficheiros para o lixo, non use ktrash, senón «kioclient "
+"move \"url\" trash:/»"
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
@@ -6200,7 +6197,7 @@ msgstr "Co&mentario:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr "Variábeis de ambiente:"
+msgstr "Variábeis de contorno:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -6274,7 +6271,7 @@ msgstr "&Argumentos:"
 #: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "Estabelece o directorio de traballo da aplicación."
+msgstr "Define o directorio de traballo da aplicación."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:172
@@ -6664,7 +6661,7 @@ msgid ""
 "Show\n"
 "Entries"
 msgstr ""
-"Mostrar as\n"
+"Amosar as\n"
 "entradas"
 
 #: widgets/kpropertiesdialog.cpp:2021
@@ -7019,8 +7016,8 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] "estase a empregar %1 bit"
-msgstr[1] "estanse a empregar %1 bits"
+msgstr[0] "estase a usar %1 bit"
+msgstr[1] "estanse a usar %1 bits"
 
 #: widgets/ksslinfodialog.cpp:142
 #, kde-format
@@ -7563,7 +7560,7 @@ msgstr "Non preguntar máis"
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
-msgstr "Non mostrar esta mensaxe de novo"
+msgstr "Non amosar esta mensaxe de novo"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:105
 #, kde-format
