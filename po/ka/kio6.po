@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-18 03:26+0000\n"
-"PO-Revision-Date: 2023-06-18 06:14+0200\n"
+"PO-Revision-Date: 2023-06-20 06:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3672,6 +3672,8 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
+"სერვისის %1 გაშვებადად გადაკეთება შეუძლებებელია. შესრულება შეწყდება.\n"
+"%2"
 
 #: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
@@ -3755,6 +3757,8 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
+"გამშვები ფაილი \"%1\" დაშორებულ ფაილურ სისტემაზეა მოთავსებული. უსაფრთხოების "
+"მიზნით ის არ გაეშვება."
 
 #: gui/openurljob.cpp:400
 #, kde-format
@@ -3768,7 +3772,7 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
+msgstr "პროგრამას \"%1\" გაშვებამდე შესრულებადობის წვდომა სჭირდება"
 
 #: gui/openurljob.cpp:441
 #, kde-format
