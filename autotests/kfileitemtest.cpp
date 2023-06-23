@@ -104,6 +104,7 @@ void KFileItemTest::testNull()
     null = fileItem; // ok, now 'null' isn't so null anymore
     QVERIFY(!null.isNull());
     QVERIFY(null.isReadable());
+    QVERIFY(!null.isWritable());
     QVERIFY(!null.isHidden());
 }
 
@@ -112,6 +113,7 @@ void KFileItemTest::testDoesNotExist()
     KFileItem fileItem(QUrl::fromLocalFile(QStringLiteral("/doesnotexist")), QString(), KFileItem::Unknown);
     QVERIFY(!fileItem.isNull());
     QVERIFY(!fileItem.isReadable());
+    QVERIFY(!fileItem.isWritable());
     QVERIFY(fileItem.user().isEmpty());
     QVERIFY(fileItem.group().isEmpty());
 }
@@ -785,7 +787,9 @@ void KFileItemTest::testIsReadable_data()
 
     QTest::newRow("fully-readable") << 0444 << true;
     QTest::newRow("user-readable") << 0400 << true;
-    QTest::newRow("not-readable-by-us") << 0004 << false;
+    QTest::newRow("user-readable2") << 0440 << true;
+    QTest::newRow("not-readable-by-us") << 0044 << false;
+    QTest::newRow("not-readable-by-us2") << 0004 << false;
     QTest::newRow("not-readable-at-all") << 0000 << false;
 }
 
@@ -801,6 +805,41 @@ void KFileItemTest::testIsReadable()
 
     KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
     QCOMPARE(fileItem.isReadable(), readable);
+
+    QVERIFY(file.remove());
+    // still cached thanks to the cached internal udsentry
+    QCOMPARE(fileItem.isReadable(), readable);
+}
+
+void KFileItemTest::testIsWritable_data()
+{
+    QTest::addColumn<int>("mode");
+    QTest::addColumn<bool>("writable");
+
+    QTest::newRow("fully-writable") << 0333 << true;
+    QTest::newRow("user-writable") << 0300 << true;
+    QTest::newRow("user-writable2") << 0330 << true;
+    QTest::newRow("not-writable-by-us") << 0033 << false;
+    QTest::newRow("not-writable-by-us2") << 0003 << false;
+    QTest::newRow("not-writable-at-all") << 0000 << false;
+}
+
+void KFileItemTest::testIsWritable()
+{
+    QFETCH(int, mode);
+    QFETCH(bool, writable);
+
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    int ret = fchmod(file.handle(), (mode_t)mode);
+    QCOMPARE(ret, 0);
+
+    KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
+    QCOMPARE(fileItem.isWritable(), writable);
+
+    QVERIFY(file.remove());
+    // still cached thanks to the cached internal udsentry
+    QCOMPARE(fileItem.isWritable(), writable);
 }
 
 // Restore permissions so that the QTemporaryDir cleanup can happen (taken from tst_qsavefile.cpp)

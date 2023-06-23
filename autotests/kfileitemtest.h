@@ -40,6 +40,8 @@ private Q_SLOTS:
 #ifndef Q_OS_WIN
     void testIsReadable_data();
     void testIsReadable();
+    void testIsWritable_data();
+    void testIsWritable();
 #endif
 
     void testDecodeFileName_data();

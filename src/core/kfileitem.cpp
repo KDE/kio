@@ -251,8 +251,6 @@ void KFileItemPrivate::init() const
             const auto gid = buf.st_gid;
             m_entry.replace(KIO::UDSEntry::UDS_LOCAL_USER_ID, uid);
             m_entry.replace(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, gid);
-            m_entry.replace(KIO::UDSEntry::UDS_USER, KUser(uid).loginName());
-            m_entry.replace(KIO::UDSEntry::UDS_GROUP, KUserGroup(gid).name());
 #endif
 
             // TODO: these can be removed, we can use UDS_FILE_TYPE and UDS_ACCESS everywhere
@@ -1221,6 +1219,27 @@ bool KFileItem::isReadable() const
         if ((d->m_permissions & readMask) == readMask) {
             return true;
         }
+
+#ifndef Q_OS_WIN
+        const auto uid = userId();
+        if (uid != -1) {
+            if (((uint) uid) == KUserId::currentUserId().nativeId()) {
+                return S_IRUSR & d->m_permissions;
+            }
+            const auto gid = groupId();
+            if (gid != -1) {
+                const KUser kuser = KUser(uid);
+                if (kuser.groups().contains(KUserGroup(gid))) {
+                    return S_IRGRP & d->m_permissions;
+                }
+
+                return S_IROTH & d->m_permissions;
+            }
+        }
+#else
+        // simple special case
+        return S_IRUSR & d->m_permissions;
+#endif
     }
 
     // Or if we can't read it - not network transparent
@@ -1239,19 +1258,32 @@ bool KFileItem::isWritable() const
 
     d->ensureInitialized();
 
-    /*
-      struct passwd * user = getpwuid( geteuid() );
-      bool isMyFile = (QString::fromLocal8Bit(user->pw_name) == d->m_user);
-      // This gets ugly for the group....
-      // Maybe we want a static QString for the user and a static QStringList
-      // for the groups... then we need to handle the deletion properly...
-      */
-
     if (d->m_permissions != KFileItem::Unknown) {
         // No write permission at all
-        if (!(S_IWUSR & d->m_permissions) && !(S_IWGRP & d->m_permissions) && !(S_IWOTH & d->m_permissions)) {
+        if ((d->m_permissions & (S_IWUSR | S_IWGRP | S_IWOTH)) == 0) {
             return false;
         }
+
+#ifndef Q_OS_WIN
+        const auto uid = userId();
+        if (uid != -1) {
+            if (((uint) uid) == KUserId::currentUserId().nativeId()) {
+                return S_IWUSR & d->m_permissions;
+            }
+            const auto gid = groupId();
+            if (gid != -1) {
+                const KUser kuser = KUser(uid);
+                if (kuser.groups().contains(KUserGroup(gid))) {
+                    return S_IWGRP & d->m_permissions;
+                }
+
+                return S_IWOTH & d->m_permissions;
+            }
+        }
+#else
+        // simple special case
+        return S_IWUSR & d->m_permissions;
+#endif
     }
 
     // Or if we can't write it - not network transparent
