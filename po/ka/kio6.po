@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-18 03:26+0000\n"
-"PO-Revision-Date: 2023-06-20 06:28+0200\n"
+"PO-Revision-Date: 2023-06-22 12:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3673,7 +3673,7 @@ msgid ""
 "%2."
 msgstr ""
 "სერვისის %1 გაშვებადად გადაკეთება შეუძლებებელია. შესრულება შეწყდება.\n"
-"%2"
+"%2."
 
 #: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
 #, kde-format
@@ -3772,7 +3772,7 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "პროგრამას \"%1\" გაშვებამდე შესრულებადობის წვდომა სჭირდება"
+msgstr "პროგრამას \"%1\" გაშვებამდე შესრულებადობის წვდომა სჭირდება."
 
 #: gui/openurljob.cpp:441
 #, kde-format
@@ -6007,6 +6007,8 @@ msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
+"თვისებების შენახვის შეცდომა არასაკმარისი ჩაწერის უფლებების გამო ფაილზე:<nl/"
+"><filename>%1</filename>."
 
 #: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
 #: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
@@ -6205,6 +6207,8 @@ msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr ""
+"ქმედებები, რომლებიც მომხმარებლებს, რომლებიც არც მფლობელები არიან და არც "
+"ჯგუფის წევრები, შეუძლიათ, შეასრულონ."
 
 #: widgets/kpropertiesdialog.cpp:1851
 #, kde-format
@@ -6359,6 +6363,8 @@ msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr ""
+"სპეციალური ალამი. ამ ალმის ზუსტი მნიშვნელობა შეგიძლიათ მარჯვნივ მდებარე "
+"სვეტში იხილოთ."
 
 #: widgets/kpropertiesdialog.cpp:2068
 #, kde-format
@@ -6376,6 +6382,8 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
+"თუ ეს ალამი დაყენებულია, ამ საქაღალდის მფლობელი ყველა ახალი ფაილის მფლობელიც "
+"იქნება."
 
 #: widgets/kpropertiesdialog.cpp:2087
 #, kde-format
@@ -6383,12 +6391,16 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
+"თუ ეს ფაილი გაშვებადია და ეს ალამი დაყენებულია, ის მფლობელის პრივილეგიებით "
+"გაეშვება."
 
 #: widgets/kpropertiesdialog.cpp:2094
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
+"თუ ეს ალამი დაყენებულია, ამ საქაღალდის ჯგუფი ყველა ახალი ფაილებისთვის იქნება "
+"დაყენებული."
 
 #: widgets/kpropertiesdialog.cpp:2098
 #, kde-format
@@ -6396,6 +6408,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
+"თუ ეს ფაილი გაშვებადია და ეს ალამი დაყენებულია, ის ჯგუფის პრივილეგიებით "
+"გაეშვება."
 
 #: widgets/kpropertiesdialog.cpp:2105
 #, kde-format
@@ -6410,6 +6424,8 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
+"წებოვანი ალამი ფაილზე Linux-ზე ჩვეულებრივ იგნორირდება, მაგრამ შეიძლება "
+"გამოიყენებოდეს სხვა სისტემებზე"
 
 #: widgets/kpropertiesdialog.cpp:2171
 #, kde-format
@@ -6479,6 +6495,7 @@ msgstr "საკონტროლო ჯამი არასწორია.
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
+"შეყვანილი ტექსტი სწორ MD5, SHA1 ან SHA256 საკონტროლო ჯამს არ წარმოადგენს."
 
 #: widgets/kpropertiesdialog.cpp:2967
 #, kde-format
@@ -6764,11 +6781,14 @@ msgstr "გამო&ტოვება"
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
+"ეს საქაღალდე არ დაკოპირდება და არც გადატანილი იქნება. შემდეგ ელემენტზე "
+"გადახტომა"
 
 #: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
+"ეს ფაილი არ დაკოპირდება და არც გადატანილი იქნება. შემდეგ ელემენტზე გადახტომა"
 
 #: widgets/renamedialog.cpp:258
 #, kde-format
