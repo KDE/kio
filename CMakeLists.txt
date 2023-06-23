@@ -86,6 +86,13 @@ set_package_properties(KF6KDED PROPERTIES DESCRIPTION "Daemon providing session 
                        TYPE RUNTIME
                        PURPOSE "KDED is used at runtime for proxy management and cookie storage"
                       )
+
+find_package(SwitcherooControl)
+set_package_properties(SwitcherooControl PROPERTIES
+    TYPE RUNTIME
+    PURPOSE "Hybrid GPU support"
+)
+
 endif()
 
 if (UNIX AND NOT ANDROID)

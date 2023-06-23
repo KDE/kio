@@ -37,6 +37,7 @@
 
 #include <config-kiowidgets.h>
 
+#include <gpudetection_p.h>
 #include <kacl.h>
 #include <kbuildsycocaprogressdialog.h>
 #include <kdirnotify.h>
@@ -3215,7 +3216,6 @@ public:
     QString m_origDesktopFile;
     bool m_terminalBool;
     bool m_suidBool;
-    bool m_hasDiscreteGpuBool;
     // Corresponds to "PrefersNonDefaultGPU=" (added in destop-entry-spec 1.4)
     // or to "X-KDE-RunOnDiscreteGpu=" for backwards compatibility
     bool m_runOnDiscreteGpuBool;
@@ -3250,28 +3250,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     connect(d->w->delFiletypeButton, &QAbstractButton::clicked, this, &KDesktopPropsPlugin::slotDelFiletype);
     connect(d->w->advancedButton, &QAbstractButton::clicked, this, &KDesktopPropsPlugin::slotAdvanced);
 
-    enum DiscreteGpuCheck { NotChecked, Present, Absent };
-    static DiscreteGpuCheck s_gpuCheck = NotChecked;
-
-    if (s_gpuCheck == NotChecked) {
-        // Check whether we have a discrete gpu
-        bool hasDiscreteGpu = false;
-        QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QStringLiteral("/org/kde/Solid/PowerManagement"),
-                             QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QDBusConnection::sessionBus());
-        if (iface.isValid()) {
-            QDBusReply<bool> reply = iface.call(QStringLiteral("hasDualGpu"));
-            if (reply.isValid()) {
-                hasDiscreteGpu = reply.value();
-            }
-        }
-
-        s_gpuCheck = hasDiscreteGpu ? Present : Absent;
-    }
-
-    d->m_hasDiscreteGpuBool = s_gpuCheck == Present;
-
     // now populate the page
 
     KIO::StatJob *job = KIO::mostLocalUrl(_props->url());
@@ -3303,7 +3281,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->m_terminalOptionStr = config.readEntry("TerminalOptions");
     d->m_suidBool = config.readEntry("X-KDE-SubstituteUID", false);
     d->m_suidUserStr = config.readEntry("X-KDE-Username");
-    if (d->m_hasDiscreteGpuBool) {
+    if (KIO::hasDiscreteGpu()) {
         if (config.hasKey("PrefersNonDefaultGPU")) {
             d->m_runOnDiscreteGpuBool = config.readEntry("PrefersNonDefaultGPU", false);
         } else {
@@ -3501,7 +3479,7 @@ void KDesktopPropsPlugin::applyChanges()
     config.writeEntry("TerminalOptions", d->m_terminalOptionStr);
     config.writeEntry("X-KDE-SubstituteUID", d->m_suidBool);
     config.writeEntry("X-KDE-Username", d->m_suidUserStr);
-    if (d->m_hasDiscreteGpuBool) {
+    if (KIO::hasDiscreteGpu()) {
         if (config.hasKey("PrefersNonDefaultGPU")) {
             config.writeEntry("PrefersNonDefaultGPU", d->m_runOnDiscreteGpuBool);
         } else {
@@ -3587,7 +3565,7 @@ void KDesktopPropsPlugin::slotAdvanced()
     d->m_uiAdvanced->suidEdit->setEnabled(d->m_suidBool);
     d->m_uiAdvanced->suidEditLabel->setEnabled(d->m_suidBool);
 
-    if (d->m_hasDiscreteGpuBool) {
+    if (KIO::hasDiscreteGpu()) {
         d->m_uiAdvanced->discreteGpuCheck->setChecked(d->m_runOnDiscreteGpuBool);
     } else {
         d->m_uiAdvanced->discreteGpuGroupBox->hide();
@@ -3620,7 +3598,7 @@ void KDesktopPropsPlugin::slotAdvanced()
         d->m_terminalBool = d->m_uiAdvanced->terminalCheck->isChecked();
         d->m_suidBool = d->m_uiAdvanced->suidCheck->isChecked();
         d->m_suidUserStr = d->m_uiAdvanced->suidEdit->text().trimmed();
-        if (d->m_hasDiscreteGpuBool) {
+        if (KIO::hasDiscreteGpu()) {
             d->m_runOnDiscreteGpuBool = d->m_uiAdvanced->discreteGpuCheck->isChecked();
         }
         d->m_startupBool = d->m_uiAdvanced->startupInfoCheck->isChecked();

@@ -24,6 +24,7 @@ target_sources(KF6KIOGui PRIVATE
    dbusactivationrunner.cpp
    previewjob.cpp
    thumbnailcreator.cpp
+   gpudetection.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
