@@ -22,6 +22,7 @@ target_sources(KF5KIOGui PRIVATE
    kemailclientlauncherjob.cpp
    dbusactivationrunner.cpp
    thumbnailcreator.cpp
+   gpudetection.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")

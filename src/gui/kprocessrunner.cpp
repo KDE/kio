@@ -17,6 +17,7 @@
 #include "kiogui_debug.h"
 
 #include "desktopexecparser.h"
+#include "gpudetection_p.h"
 #include "krecentdocument.h"
 #include <KDesktopFile>
 #include <KLocalizedString>
@@ -65,6 +66,16 @@ static KProcessRunner *makeInstance()
     return new ForkingProcessRunner();
 }
 
+static void modifyEnv(KProcess &process, QProcessEnvironment mod)
+{
+    QProcessEnvironment env = process.processEnvironment();
+    if (env.isEmpty()) {
+        env = QProcessEnvironment::systemEnvironment();
+    }
+    env.insert(mod);
+    process.setProcessEnvironment(env);
+}
+
 KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &serviceEntryPath,
                                                 const QList<QUrl> &urls,
@@ -109,28 +120,8 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
     *instance->m_process << args;
 
 #ifndef Q_OS_ANDROID
-    enum DiscreteGpuCheck { NotChecked, Present, Absent };
-    static DiscreteGpuCheck s_gpuCheck = NotChecked;
-
-    if (service->runOnDiscreteGpu() && s_gpuCheck == NotChecked) {
-        // Check whether we have a discrete gpu
-        bool hasDiscreteGpu = false;
-        QDBusInterface iface(QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QStringLiteral("/org/kde/Solid/PowerManagement"),
-                             QStringLiteral("org.kde.Solid.PowerManagement"),
-                             QDBusConnection::sessionBus());
-        if (iface.isValid()) {
-            QDBusReply<bool> reply = iface.call(QStringLiteral("hasDualGpu"));
-            if (reply.isValid()) {
-                hasDiscreteGpu = reply.value();
-            }
-        }
-
-        s_gpuCheck = hasDiscreteGpu ? Present : Absent;
-    }
-
-    if (service->runOnDiscreteGpu() && s_gpuCheck == Present) {
-        instance->m_process->setEnv(QStringLiteral("DRI_PRIME"), QStringLiteral("1"));
+    if (service->runOnDiscreteGpu()) {
+        modifyEnv(*instance->m_process, KIO::discreteGpuEnvironment());
     }
 #endif
 
