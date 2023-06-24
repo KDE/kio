@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -245,7 +245,7 @@ msgid "Creating directory"
 msgstr "Skep Gids"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -257,7 +257,7 @@ msgid "Deleting"
 msgstr " (Uitveeïng)"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, fuzzy, kde-format
 msgid "File"
 msgstr "Filter:"
@@ -9361,7 +9361,7 @@ msgstr "%1 B"
 msgid "Configure Web Shortcuts..."
 msgstr "Verander Beleid"
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "Maak Lêer Oop dialoog"

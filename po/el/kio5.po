@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -247,7 +247,7 @@ msgid "Creating directory"
 msgstr "Δημιουργία καταλόγου"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
 msgstr "Κατάλογος"
@@ -259,7 +259,7 @@ msgid "Deleting"
 msgstr "Διαγραφή"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, kde-format
 msgid "File"
 msgstr "Αρχείο"
@@ -9347,7 +9347,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Διαμόρφωση συντομεύσεων ιστού..."
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "Διάλογος ανοίγματος αρχείου"

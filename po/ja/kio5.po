@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -236,7 +236,7 @@ msgid "Creating directory"
 msgstr "ディレクトリを作成"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
 msgstr "ディレクトリ"
@@ -248,7 +248,7 @@ msgid "Deleting"
 msgstr "削除"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, kde-format
 msgid "File"
 msgstr "ファイル"
@@ -8923,7 +8923,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "ウェブショートカットを設定..."
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "ファイル選択ダイアログを開きます"

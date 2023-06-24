@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
 "PO-Revision-Date: 2023-02-05 09:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -253,7 +253,7 @@ msgid "Creating directory"
 msgstr "Створення теки"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
 msgstr "Тека"
@@ -265,7 +265,7 @@ msgid "Deleting"
 msgstr "Вилучення"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, kde-format
 msgid "File"
 msgstr "Файл"
@@ -9006,7 +9006,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Налаштувати вебскорочення…"
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "Діалогове вікно відкриття файлів"

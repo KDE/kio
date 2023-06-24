@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
 "PO-Revision-Date: 2023-02-06 18:28+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -262,7 +262,7 @@ msgid "Creating directory"
 msgstr "Création du dossier"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
 msgstr "Dossier"
@@ -274,7 +274,7 @@ msgid "Deleting"
 msgstr "Suppression"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, kde-format
 msgid "File"
 msgstr "Fichier"
@@ -9124,7 +9124,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Configurer les raccourcis Web..."
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "Ouvrir le sélecteur de fichiers"

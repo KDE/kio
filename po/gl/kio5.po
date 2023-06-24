@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:43+0000\n"
-"PO-Revision-Date: 2023-06-19 08:52+0200\n"
+"POT-Creation-Date: 2023-06-24 00:45+0000\n"
+"PO-Revision-Date: 2023-06-23 23:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -234,7 +234,7 @@ msgstr "Destino"
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Cambiando de nome"
+msgstr "Renomeando"
 
 #: core/job.cpp:120
 #, kde-format
@@ -246,13 +246,13 @@ msgstr "Copiando"
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "Creando un directorio"
+msgstr "Creando un cartafol"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:467
+#: widgets/kurlrequester.cpp:489
 #, kde-format
 msgid "Directory"
-msgstr "Directorio"
+msgstr "Cartafol"
 
 #: core/job.cpp:135
 #, kde-format
@@ -261,7 +261,7 @@ msgid "Deleting"
 msgstr "Estase a eliminar"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:466
+#: widgets/kurlrequester.cpp:488
 #, kde-format
 msgid "File"
 msgstr "Ficheiro"
@@ -370,14 +370,14 @@ msgstr ""
 #: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
 #, kde-format
 msgid "Rename"
-msgstr "Cambiar de nome"
+msgstr "Renomear"
 
 #: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
-"Requírense privilexios de root para completar o cambio de nome. Quere "
+"Requírense privilexios de root para completar o renomeamento. Quere "
 "continuar?"
 
 #: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
@@ -613,7 +613,7 @@ msgstr "Non se puido continuar o ficheiro %1."
 #: core/job_error.cpp:145
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "Non se puido cambiar de nome o ficheiro %1."
+msgstr "Non se puido renomear o ficheiro %1."
 
 #: core/job_error.cpp:148
 #, kde-format
@@ -727,7 +727,7 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Non se puido cambiar de nome o ficheiro orixinal %1.\n"
+"Non se puido renomear o ficheiro orixinal %1.\n"
 "Revise os permisos."
 
 #: core/job_error.cpp:204
@@ -736,7 +736,7 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Non se puido cambiar de nome o ficheiro parcial %1.\n"
+"Non se puido renomear o ficheiro parcial %1.\n"
 "Revise os permisos."
 
 #: core/job_error.cpp:207
@@ -866,7 +866,7 @@ msgstr "<b>Motivo técnico</b>: "
 #: core/job_error.cpp:303
 #, kde-format
 msgid "<b>Details of the request</b>:"
-msgstr "<b>Detalles do pedido</b>:"
+msgstr "<b>Detalles da solicitude</b>:"
 
 #: core/job_error.cpp:303
 #, kde-format
@@ -937,8 +937,8 @@ msgstr ""
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr ""
-"Poida que o ficheiro estea a usarse (e polo tanto estaría trancado) por "
-"outro usuario ou aplicación."
+"Pode que o ficheiro estea a usarse (e polo tanto estaría trancado) por outro "
+"usuario ou aplicación."
 
 #: core/job_error.cpp:385
 #, kde-format
@@ -953,12 +953,12 @@ msgstr ""
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr ""
-"Aínda que é improbábel, poida que se producise un erro de soporte físico."
+"Aínda que é improbábel, pode que se producise un erro de soporte físico."
 
 #: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
-msgstr "Poida que atopase un fallo no programa."
+msgstr "Pode que atopase un fallo no programa."
 
 #: core/job_error.cpp:392
 #, kde-format
@@ -1215,7 +1215,7 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE é capaz de comunicarse mediante un protocolo dentro doutro; o protocolo "
+"KDE pode comunicarse mediante un protocolo dentro doutro; o protocolo "
 "indicado é só para usarse nesas situacións, porén este non é un deses casos. "
 "Este é un evento raro, e probabelmente indique un erro de programación."
 
@@ -1260,7 +1260,7 @@ msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"O pedido agardaba un ficheiro, no canto atopouse o cartafol <strong>%1</"
+"A solicitude agardaba un ficheiro, no canto atopouse o cartafol <strong>%1</"
 "strong>."
 
 #: core/job_error.cpp:545
@@ -1279,7 +1279,7 @@ msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"O pedido agardaba un cartafol, no canto atopouse o ficheiro <strong>%1</"
+"A solicitude agardaba un cartafol, no canto atopouse o ficheiro <strong>%1</"
 "strong>."
 
 #: core/job_error.cpp:560
@@ -1390,7 +1390,7 @@ msgid ""
 "Retry the request and ensure your authentication details are entered "
 "correctly."
 msgstr ""
-"Intente de novo o pedido e garanta que os datos de autenticación son "
+"Intente de novo a solicitude e garanta que os datos de autenticación son "
 "inseridos correctamente."
 
 #: core/job_error.cpp:628
@@ -1438,9 +1438,9 @@ msgid ""
 "of the folder, and the KDE program supporting this protocol is unable to do "
 "so."
 msgstr ""
-"Isto significa que se fixo un pedido que require determinar os contidos do "
-"cartafol, e o programa de KDE que permite utilizar este protocolo non pode "
-"facelo."
+"Isto significa que se fixo unha solicitude que require determinar os "
+"contidos do cartafol, e o programa de KDE que permite utilizar este "
+"protocolo non pode facelo."
 
 #: core/job_error.cpp:659
 #, kde-format
@@ -1455,7 +1455,7 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"Os ambientes UNIX polo xeral permiten ligar un ficheiro ou cartafol con "
+"Os contornos UNIX polo xeral permiten ligar un ficheiro ou cartafol con "
 "outro nome e/ou lugar. KDE detectou unha ligazón ou serie de ligazóns que "
 "xeran un ciclo infinito, é dicir, o ficheiro ligouse consigo mesmo "
 "(posibelmente con outras ligazóns polo medio)."
@@ -1471,17 +1471,17 @@ msgstr ""
 #: core/job_error.cpp:676
 #, kde-format
 msgid "Request Aborted By User"
-msgstr "Pedido interrompido polo usuario"
+msgstr "Solicitude interrompida pola persoa usuaria"
 
 #: core/job_error.cpp:678 core/job_error.cpp:1067
 #, kde-format
 msgid "The request was not completed because it was aborted."
-msgstr "O pedido non se completou porque se interrompeu."
+msgstr "A solicitude non se completou porque se interrompeu."
 
 #: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
-msgstr "Intentar de novo o pedido."
+msgstr "Intentar de novo a solicutude."
 
 #: core/job_error.cpp:684
 #, kde-format
@@ -1496,7 +1496,7 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"Os ambientes UNIX polo xeral permiten ligar un ficheiro ou cartafol con "
+"Os contornos UNIX polo xeral permiten ligar un ficheiro ou cartafol con "
 "outro nome ou lugar. Durante a operación de copia que pediu, KDE detectou "
 "unha ligazón ou serie de ligazóns que xeran un ciclo infinito, é dicir, o "
 "ficheiro ligouse consigo mesmo (posibelmente con outras ligazóns no medio)."
@@ -1527,7 +1527,7 @@ msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr ""
-"Poida que a conexión de rede estea incorrectamente configurada, ou que a "
+"Pode que a conexión de rede estea incorrectamente configurada, ou que a "
 "interface de rede non estea activada."
 
 #: core/job_error.cpp:710
@@ -1551,7 +1551,7 @@ msgid ""
 "to allow requests."
 msgstr ""
 "O servidor, aínda que está conectado a Internet, pode non estar configurado "
-"para admitir pedidos."
+"para admitir solicitudes."
 
 #: core/job_error.cpp:719
 #, kde-format
@@ -1569,9 +1569,9 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
-"Pode que interviñese unha devasa (un dispositivo que restrinxe os pedidos a "
-"Internet), que protexendo a súa rede ou a rede do servidor, evitase este "
-"pedido."
+"Pode que interviñese unha devasa (un dispositivo que restrinxe as "
+"solicitudes a Internet), que protexendo a súa rede ou a rede do servidor, "
+"evitase esta solicutude."
 
 #: core/job_error.cpp:730
 #, kde-format
@@ -1658,7 +1658,7 @@ msgid ""
 msgstr ""
 "O dispositivo pode non estar preparado, por exemplo quizais non haxa disco "
 "nun dispositivo extraíbel (p.ex., unidade de CD sen CD-ROM), ou no caso dun "
-"dispositivo periférico/portátil, poida que non estea correctamente conectado."
+"dispositivo periférico/portátil, pode que non estea correctamente conectado."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1667,7 +1667,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Poida que non teña permisos para inicializar («montar») o dispositivo. En "
+"Pode que non teña permisos para inicializar («montar») o dispositivo. En "
 "sistemas UNIX, normalmente requírense privilexios de administrador para "
 "inicializar un dispositivo."
 
@@ -1707,9 +1707,9 @@ msgid ""
 "user. Even such things as having an open browser window on a location on "
 "this device may cause the device to remain in use."
 msgstr ""
-"Poida que o dispositivo estea atarefado, é dicir, en uso por outra "
-"aplicación ou usuario. Cousas como ter unha xanela de navegador aberta nun "
-"lugar deste dispositivo pode facer que o dispositivo siga a usarse."
+"Pode que o dispositivo estea atarefado, é dicir, en uso por outra aplicación "
+"ou usuario. Cousas como ter unha xanela de navegador aberta nun lugar deste "
+"dispositivo pode facer que o dispositivo siga a usarse."
 
 #: core/job_error.cpp:798
 #, kde-format
@@ -1718,7 +1718,7 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Poida que non teña permisos para desmontar o dispositivo. Nos sistemas UNIX, "
+"Pode que non teña permisos para desmontar o dispositivo. Nos sistemas UNIX, "
 "polo xeral precísanse privilexios de administrados para desmontar un "
 "dispositivo."
 
@@ -1746,7 +1746,7 @@ msgstr ""
 #: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "Poida que non teña permisos para ler no recurso."
+msgstr "Pode que non teña permisos para ler no recurso."
 
 #: core/job_error.cpp:828
 #, kde-format
@@ -1765,7 +1765,7 @@ msgstr ""
 #: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr "Poida que non teña permisos para escribir no recurso."
+msgstr "Pode que non teña permisos para escribir no recurso."
 
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
@@ -1810,7 +1810,7 @@ msgstr ""
 #: core/job_error.cpp:879
 #, kde-format
 msgid "You may not have permissions to accept the connection."
-msgstr "Poida que non teña permisos para aceptar a conexión."
+msgstr "Pode que non teña permisos para aceptar a conexión."
 
 #: core/job_error.cpp:884
 #, kde-format
@@ -1918,24 +1918,23 @@ msgstr ""
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
-"Poida que o protocolo, ou o servidor, non permitan a continuación de "
+"Pode que o protocolo, ou o servidor, non permitan a continuación de "
 "ficheiros."
 
 #: core/job_error.cpp:965
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr "Inténteo de novo sen probar a continuar a transferencia."
+msgstr "Intentar de novo a solicitude sen probar a continuar a transferencia."
 
 #: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
-msgstr "Non se puido cambiar de nome o recurso"
+msgstr "Non se puido renomear o recurso"
 
 #: core/job_error.cpp:972
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
-msgstr ""
-"O intento de cambiar de nome o recurso indicado, <strong>%1</strong>, fallou."
+msgstr "O intento de renomear o recurso indicado, <strong>%1</strong>, fallou."
 
 #: core/job_error.cpp:983
 #, kde-format
@@ -2033,7 +2032,7 @@ msgstr ""
 #: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr "Comprobe a súa configuración do proxy e inténteo de novo."
+msgstr "Comprobe a súa configuración de mandatario e inténteo de novo."
 
 #: core/job_error.cpp:1050
 #, kde-format
@@ -2063,7 +2062,7 @@ msgstr ""
 #: core/job_error.cpp:1065
 #, kde-format
 msgid "Request Aborted"
-msgstr "Pedido interrompido"
+msgstr "Interrompeuse a solicitude"
 
 #: core/job_error.cpp:1073
 #, kde-format
@@ -2119,7 +2118,7 @@ msgid ""
 "Connection Preferences."
 msgstr ""
 "Aínda que se estabeleceu contacto co servidor, non se recibiu unha resposta "
-"dentro do tempo reservado para o pedido como segue: <ul><li>Tempo límite "
+"dentro do tempo reservado para a solicitude como segue: <ul><li>Tempo límite "
 "para estabelecer unha conexión: %1 segundos</li> <li>Tempo límite para "
 "recibir unha resposta: %2 segundos</li> <li>Tempo límite para acceder ao "
 "servidor mandatario: %3 segundos</li></ul> Lembre que pode alterar estes "
@@ -2130,8 +2129,8 @@ msgstr ""
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
-"O servidor estaba ocupado de máis respondendo outros pedidos para poder "
-"responderlle ao seu."
+"O servidor estaba ocupado de máis respondendo outras solicitudes para "
+"responder á súa."
 
 #: core/job_error.cpp:1114 core/slavebase.cpp:1622
 #, kde-format
@@ -2196,7 +2195,7 @@ msgstr ""
 #: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "Non se puido cambiar de nome o ficheiro orixinal"
+msgstr "Non se puido renomear o ficheiro orixinal"
 
 #: core/job_error.cpp:1163
 #, kde-format
@@ -2204,13 +2203,13 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"A operación pedida requiría cambiar de nome o ficheiro orixinal, <strong>%1</"
-"strong>, porén non se puido cambiar de nome."
+"A operación pedida requiría renomear o ficheiro orixinal, <strong>%1</"
+"strong>, porén non se puido renomear."
 
 #: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Non se puido cambiar de nome o ficheiro temporal"
+msgstr "Non se puido renomear o ficheiro temporal"
 
 #: core/job_error.cpp:1174
 #, kde-format
@@ -2264,7 +2263,7 @@ msgid ""
 msgstr ""
 "Libere espazo de abondo no disco (1) eliminando ficheiros temporais non "
 "desexados; (2) arquivando ficheiros en medios de almacenamento extraíbeis "
-"como CD-R; ou (3) obteña máis capacidade de almacenaxe."
+"como CD-R; ou (3) obteña máis capacidade de almacenamento."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2490,12 +2489,12 @@ msgstr "Non se admite a obtención de datos de %1."
 #: core/slavebase.cpp:892
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "Non se admite a obtención de información do tipo mime desde %1."
+msgstr "Non se admite a obtención de información do tipo MIME desde %1."
 
 #: core/slavebase.cpp:894
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "Non se admite cambiar de nome nin mover ficheiros dentro de %1."
+msgstr "Non se admite renomear nin mover ficheiros dentro de %1."
 
 #: core/slavebase.cpp:896
 #, kde-format
@@ -2654,7 +2653,7 @@ msgstr "Autenticación do servidor"
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
-"Desexa aceptar este certificado para sempre sen que se lle volva preguntar?"
+"Quere aceptar este certificado para sempre sen que se lle volva preguntar?"
 
 #: filewidgets/kdiroperator.cpp:748
 #, kde-format
@@ -3594,12 +3593,12 @@ msgstr "Lugares"
 #: filewidgets/kfilewidget.cpp:1741
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "O ficheiro «%1» xa existe. Desexa sobrescribilo?"
+msgstr "O ficheiro «%1» xa existe. Quere sobrescribilo?"
 
 #: filewidgets/kfilewidget.cpp:1742
 #, kde-format
 msgid "Overwrite File?"
-msgstr "Desexa sobrescribir o ficheiro?"
+msgstr "Quere sobrescribir o ficheiro?"
 
 #: filewidgets/kfilewidget.cpp:1968
 #, kde-format
@@ -3807,7 +3806,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "Xa existe un directorio chamado <filename>%1</filename>."
+msgstr "Xa existe un cartafol chamado <filename>%1</filename>."
 
 #: filewidgets/knewfilemenu.cpp:1296
 #, kde-kuit-format
@@ -4146,17 +4145,17 @@ msgstr "Retirar o ficheiro"
 #: ioslaves/file/file_unix.cpp:113
 #, kde-format
 msgid "Remove Directory"
-msgstr "Retira o directorio"
+msgstr "Retirar o cartafol"
 
 #: ioslaves/file/file_unix.cpp:116
 #, kde-format
 msgid "Create Directory"
-msgstr "Crear un directorio"
+msgstr "Crear un cartafol"
 
 #: ioslaves/file/file_unix.cpp:117
 #, kde-format
 msgid "Directory Permissions: %1"
-msgstr "Permisos do directorio: %1"
+msgstr "Permisos do cartafol: %1"
 
 #: ioslaves/file/file_unix.cpp:120
 #, kde-format
@@ -4166,7 +4165,7 @@ msgstr "Abrir o ficheiro"
 #: ioslaves/file/file_unix.cpp:123
 #, kde-format
 msgid "Open Directory"
-msgstr "Abrir o directorio"
+msgstr "Abrir o cartafol"
 
 #: ioslaves/file/file_unix.cpp:127
 #, kde-format
@@ -4222,7 +4221,7 @@ msgstr "Non se puido obter o identificador do nome de usuario indicado, %1"
 #: ioslaves/file/file_unix.cpp:1376
 #, kde-format
 msgid "Could not get group id for given group name %1"
-msgstr "Non se puido obter a id do grupo especificado, %1"
+msgstr "Non se puido obter o identificador do grupo indicado, %1."
 
 #: ioslaves/trash/kcmtrash.cpp:132
 #, kde-format
@@ -4383,7 +4382,7 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"O directorio %1 xa non existe, así que non se pode devolver este elemento a "
+"O cartafol %1 xa non existe, así que non se pode devolver este elemento a "
 "onde estaba. Pode volver crear ese directorio de novo e usar a operación de "
 "devolución outra vez ou arrastrar o elemento a outra parte e así recuperalo."
 
@@ -5224,14 +5223,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
-"Non todas as aplicacións usarán esta configuración de proxy. Concretamente, "
-"<application>Firefox</application> e <application>Chromium</application>, "
-"así como aplicacións derivadas, ou aplicacións que usen "
+"Non todas as aplicacións usarán esta configuración de mandatario. "
+"Concretamente, <application>Firefox</application> e <application>Chromium</"
+"application>, así como aplicacións derivadas, ou aplicacións que usen "
 "<application>QtWebEngine</application> (entre elas <application>Konqueror</"
 "application> ao usar <application>WebEnginePart</application>, "
 "<application>Akregator</application> e<application>Falkon</application>) non "
 "usarán esta configuración. Algunhas aplicacións pode que permitan definir un "
-"proxy na súa propia configuración."
+"mandatario na súa propia configuración."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -5273,7 +5272,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Configuración do proxy.\n"
+"Configuración do mandatario.\n"
 "<p>\n"
 "Un servidor mandatario é unha máquina intermediaria posta entre o seu "
 "computador e Internet que fornece servizos como cacheado de páxinas e "
@@ -5313,7 +5312,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Detectar e configurar automaticamente as opcións do proxy.<p>\n"
+"Detectar e configurar automaticamente as opcións do mandatario.<p>\n"
 "A detección automática realízase usando o <b>Protocolo de descubrimento "
 "automático de Proxys Web (WPAD)</b>.<p>\n"
 "<b>NOTA:</b> Esta opción podería non funcionar axeitadamente ou non "
@@ -5324,7 +5323,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:49
 #, kde-format
 msgid "Detect proxy configuration automatically"
-msgstr "Detectar automaticamente a configuración do proxy"
+msgstr "Detectar automaticamente a configuración do mandatario"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:59
@@ -5336,13 +5335,13 @@ msgstr "Usar o guión indicado para configurar o mandatario."
 #: kcms/proxy/kproxydlg.ui:62
 #, kde-format
 msgid "Use proxy auto configuration URL:"
-msgstr "Usar un URL para configurar automaticamente o proxy:"
+msgstr "Usar un URL para configurar automaticamente o mandatario:"
 
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
 #: kcms/proxy/kproxydlg.ui:93
 #, kde-format
 msgid "Enter the address for the proxy configuration script."
-msgstr "Insira o enderezo do guión de configuración do proxy."
+msgstr "Insira o enderezo do guión de configuración do mandatario."
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:117
@@ -5359,8 +5358,8 @@ msgid ""
 "<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 msgstr ""
-"<qt><p>Usar a configuración de proxy definida no sistema.</p>\n"
-"<p>Algunhas plataformas ofrecen unha configuración de proxy para todo o "
+"<qt><p>Usar a configuración de mandatario definida no sistema.</p>\n"
+"<p>Algunhas plataformas ofrecen unha configuración de mandatario para todo o "
 "sistema e escoller esta opción permítelle usala.</p>\n"
 "<p>En plataformas Mac</p>\n"
 "<p>En plataformas Windows</p>\n"
@@ -5374,7 +5373,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:120
 #, kde-format
 msgid "Use system proxy configuration:"
-msgstr "Usar a configuración do proxy fornecida polo sistema:"
+msgstr "Usar a configuración do mandatario fornecida polo sistema:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
 #: kcms/proxy/kproxydlg.ui:127
@@ -5386,7 +5385,7 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>Intenta descubrir automaticamente as variábeis de contorno usadas para "
-"estabelecer a información do proxy para todo o sistema.<p>Esta "
+"estabelecer a información do mandatario para todo o sistema.<p>Esta "
 "característica funciona buscando os nomes de variábeis máis comúns, como "
 "HTTP_PROXY, FTP_PROXY e NO_PROXY.</qt>"
 
@@ -5574,7 +5573,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:346
 #, kde-format
 msgid "Use manually specified proxy configuration:"
-msgstr "Usar a configuración de proxy indicada manualmente:"
+msgstr "Usar a configuración de mandatario indicada manualmente:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
 #: kcms/proxy/kproxydlg.ui:398
@@ -5657,7 +5656,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "<p>Insira unha lista separada por comas de nomes de servidor ou enderezos ip "
-"que se deben excluír da configuración do proxy.</p>\n"
+"que se deben excluír da configuración do mandatario.</p>\n"
 "<p>Se quere excluír todos os servidores dun determinado dominio simplemente "
 "insira o nome do dominio precedido por un punto. Por exemplo, para excluír "
 "todos os servidores de <i>kde.org</i>, insira <i>.kde.org</i>. Non se "
@@ -5675,15 +5674,16 @@ msgid ""
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
 "<qt>\n"
-"Marque esta opción se quere que a configuración do proxy se aplique só aos "
-"enderezos que aparecen na lista <i>Excepcións</i>.</qt>"
+"Marque esta opción se quere que a configuración do mandatario se aplique só "
+"aos enderezos que aparecen na lista <i>Excepcións</i>.</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:642
 #, kde-format
 msgid "Use proxy settings only for addresses in the Exceptions list"
 msgstr ""
-"Usar a configuración do proxy só para os enderezos na lista de excepcións."
+"Usar a configuración do mandatario só para os enderezos na lista de "
+"excepcións."
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5978,13 +5978,13 @@ msgstr ""
 #: kioworkers/http/http.cpp:5307
 #, kde-format
 msgid "Proxy:"
-msgstr "Proxy:"
+msgstr "Mandatario:"
 
 #: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5176
 #: kioworkers/http/http.cpp:5322
 #, kde-format
 msgid "Proxy Authentication Failed."
-msgstr "Fallou a autenticación co proxy."
+msgstr "Fallou a autenticación co mandatario."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -6029,12 +6029,12 @@ msgstr "Non se puido atopar o nome de ficheiro %1 en %2."
 #: kioworkers/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
-msgstr "Non se especificou ningún servidor."
+msgstr "Non se indicou ningún servidor."
 
 #: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
-msgstr "Polo demais, o pedido teríase satisfeito."
+msgstr "Senón, a solicitude houbese funcionado."
 
 #: kioworkers/http/http.cpp:1560
 #, kde-format
@@ -6058,37 +6058,37 @@ msgstr "crear un cartafol pedido"
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "copiar o ficheiro ou cartafol especificado"
+msgstr "copiar o ficheiro ou cartafol indicado"
 
 #: kioworkers/http/http.cpp:1572
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "mover o ficheiro ou cartafol especificado"
+msgstr "mover o ficheiro ou cartafol indicado"
 
 #: kioworkers/http/http.cpp:1575
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
-msgstr "buscar no cartafol especificado"
+msgstr "buscar no cartafol indicado"
 
 #: kioworkers/http/http.cpp:1578
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "trancar o ficheiro ou cartafol especificado"
+msgstr "trancar o ficheiro ou cartafol indicado"
 
 #: kioworkers/http/http.cpp:1581
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "desatrancar o ficheiro ou cartafol especificado"
+msgstr "desatrancar o ficheiro ou cartafol indicado"
 
 #: kioworkers/http/http.cpp:1584
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "eliminar o ficheiro ou cartafol especificado"
+msgstr "eliminar o ficheiro ou cartafol indicado"
 
 #: kioworkers/http/http.cpp:1587
 #, kde-format
@@ -6100,13 +6100,13 @@ msgstr "preguntar as capacidades do servidor"
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "obter os contidos do ficheiro ou cartafol especificados"
+msgstr "obter os contidos do ficheiro ou cartafol indicados"
 
 #: kioworkers/http/http.cpp:1593
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "executar un informe no cartafol especificado"
+msgstr "executar un informe no cartafol indicado"
 
 #: kioworkers/http/http.cpp:1605
 #, kde-format
@@ -6168,7 +6168,7 @@ msgstr "Non se puido conceder o tranque pedido. %1"
 #: kioworkers/http/http.cpp:1713
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "O servidor non permite utilizar o tipo de corpo pedido."
+msgstr "O servidor non permite o tipo de solicitude do corpo."
 
 #: kioworkers/http/http.cpp:1718 kioworkers/http/http.cpp:1827
 #, kde-format
@@ -6243,7 +6243,7 @@ msgstr "Confirmar acceso a sitio web"
 #: kioworkers/http/http.cpp:3083
 #, kde-format
 msgid "Server processing request, please wait..."
-msgstr "O servidor está a procesar o pedido, agarde un momento…"
+msgstr "O servidor está a procesar a solicitude, agarde…"
 
 #: kioworkers/http/http.cpp:3778 kioworkers/http/http.cpp:3833
 #, kde-format
@@ -6294,7 +6294,7 @@ msgstr "Non se puido retirar %1, revise os permisos."
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
 #, kde-format
 msgid "Could not create directory %1"
-msgstr "Non se puido crear o directorio %1"
+msgstr "Non se puido crear o cartafol %1"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:45
 #, kde-format
@@ -6428,13 +6428,13 @@ msgstr "&Seguinte >>"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:294
 #, kde-format
 msgid "Show details of the next cookie"
-msgstr "Mostra os detalles da seguinte cookie"
+msgstr "Amosar detalles do seguinte rastro "
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:322
 #, kde-format
 msgctxt "@label cookie has no explicit 'Domain' value specified"
 msgid "Not specified"
-msgstr "Non especificada"
+msgstr "Non indicado"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:331
 #, kde-format
@@ -6454,7 +6454,7 @@ msgctxt ""
 "@label exposure string - the cookie may be used by https servers AND client-"
 "side javascripts"
 msgid "Secure servers, page scripts"
-msgstr "Servidores seguros, scripts da páxina"
+msgstr "Servidores seguros, guións da páxina"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:342
 #, kde-format
@@ -6468,7 +6468,7 @@ msgctxt ""
 "@label exposure string - the cookie may be used by http servers AND client-"
 "side javascripts"
 msgid "Servers, page scripts"
-msgstr "Servidores, scripts da páxina"
+msgstr "Servidores, guións da páxina"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:359
 #, kde-format
@@ -6486,7 +6486,7 @@ msgstr "Rede"
 #: kpac/discovery.cpp:96
 #, kde-format
 msgid "Could not find a usable proxy configuration script"
-msgstr "Non se puido atopar un script de configuración do proxy usábel"
+msgstr "Non se puido atopar un guión de configuración do mandatario usábel"
 
 #: kpac/downloader.cpp:77
 #, kde-format
@@ -6494,13 +6494,13 @@ msgid ""
 "Could not download the proxy configuration script:\n"
 "%1"
 msgstr ""
-"Non se puido descargar o script de configuración do proxy:\n"
+"Non se puido descargar o guión de configuración do mandatario:\n"
 "%1"
 
 #: kpac/downloader.cpp:79
 #, kde-format
 msgid "Could not download the proxy configuration script"
-msgstr "Non se puido descargar o script de configuración do proxy"
+msgstr "Non se puido descargar o guión de configuración do mandatario"
 
 #: kpac/proxyscout.cpp:270
 #, kde-format
@@ -6508,7 +6508,7 @@ msgid ""
 "The proxy configuration script is invalid:\n"
 "%1"
 msgstr ""
-"O script de configuración do proxy é incorrecto:\n"
+"O guión de configuración do mandatario é incorrecto:\n"
 "%1"
 
 #: kpac/proxyscout.cpp:384
@@ -6517,7 +6517,7 @@ msgid ""
 "The proxy configuration script returned an error:\n"
 "%1"
 msgstr ""
-"O script de configuración do proxy devolveu un erro:\n"
+"O guión de configuración do mandatario devolveu un erro:\n"
 "%1"
 
 #: kpac/script.cpp:674
@@ -6950,7 +6950,7 @@ msgstr "<qt>Non hai ningún usuario chamado <b>%1</b>.</qt>"
 #: widgets/accessmanager.cpp:198
 #, kde-format
 msgid "Blocked request."
-msgstr "Bloqueouse o pedido."
+msgstr "Bloqueouse a solicitude."
 
 #: widgets/accessmanager.cpp:269
 #, kde-format
@@ -7218,7 +7218,7 @@ msgstr "&Desfacer: Crear un ficheiro"
 #: widgets/fileundomanager.cpp:327
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "Desfacer: cambiar de nome en l&ote"
+msgstr "Desfacer: renomear en l&ote"
 
 #: widgets/fileundomanager.cpp:726
 #, kde-format
@@ -8550,8 +8550,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"Esta marca permite engadir, eliminar e cambiar de nome os ficheiros. Lembre "
-"que eliminar e cambiar de nome poden limitarse mediante a marca «Pegañento»."
+"Esta marca permite engadir, eliminar e renomear os ficheiros. Lembre que "
+"eliminar e renomear poden limitarse mediante a marca «Pegañento»."
 
 #: widgets/kpropertiesdialog.cpp:2098
 #, kde-format
@@ -8659,8 +8659,8 @@ msgid ""
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
 "Se a marca «Pegañento» está definida nun cartafol, só a persoa dona e a root "
-"poden eliminar ou cambiar de nome ficheiros. En caso contrario calquera "
-"persoa usuaria con permisos de escritura pode facelo."
+"poden eliminar ou renomear ficheiros. En caso contrario calquera persoa "
+"usuaria con permisos de escritura pode facelo."
 
 #: widgets/kpropertiesdialog.cpp:2173
 #, kde-format
@@ -8931,7 +8931,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os atallos da web…"
 
-#: widgets/kurlrequester.cpp:351
+#: widgets/kurlrequester.cpp:373
 #, kde-format
 msgid "Open file dialog"
 msgstr "Diálogo para abrir ficheiros"
@@ -9056,7 +9056,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:237
 #, kde-format
 msgid "&Rename"
-msgstr "&Cambiar de nome"
+msgstr "&Renomear"
 
 #: widgets/renamedialog.cpp:239
 #, kde-format
@@ -9205,31 +9205,31 @@ msgstr "Xa existe un elemento máis novo que «%1» co mesmo nome."
 #: widgets/renamedialog.cpp:484
 #, kde-format
 msgid "Rename:"
-msgstr "Cambiar de nome:"
+msgstr "Renomear:"
 
 #: widgets/renamefiledialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
-msgstr "Cambiar de nome o elemento"
+msgstr "Renomear o elemento"
 
 #: widgets/renamefiledialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
-msgstr "Cambiar de nome os elementos"
+msgstr "Renomear os elementos"
 
 #: widgets/renamefiledialog.cpp:72
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
-msgstr "&Cambiar de nome"
+msgstr "&Renomear"
 
 #: widgets/renamefiledialog.cpp:84
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "Cambiar de nome o elemento <filename>%1</filename> a:"
+msgstr "Renomear o elemento <filename>%1</filename> a:"
 
 #: widgets/renamefiledialog.cpp:87
 #, kde-format
@@ -9244,8 +9244,8 @@ msgstr "Novo nome #"
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
-msgstr[0] "Cambiar de nome %1 elemento seleccionado a:"
-msgstr[1] "Cambiar de nome %1 elementos seleccionados a:"
+msgstr[0] "Renomear %1 elemento seleccionado a:"
+msgstr[1] "Renomear %1 elementos seleccionados a:"
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
