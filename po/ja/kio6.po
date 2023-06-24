@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -236,7 +236,7 @@ msgid "Creating directory"
 msgstr "ディレクトリを作成"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "ディレクトリ"
@@ -248,7 +248,7 @@ msgid "Deleting"
 msgstr "削除"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "ファイル"
@@ -2348,17 +2348,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "ドキュメント化されていないエラー"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 へのシンボリックリンク)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 へのリンク)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (リンク先: %1)"
@@ -7001,7 +7001,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "ウェブショートカットを設定..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "ファイル選択ダイアログを開きます"

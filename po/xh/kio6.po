@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -241,7 +241,7 @@ msgid "Creating directory"
 msgstr "Yenza ulawulo"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -253,7 +253,7 @@ msgid "Deleting"
 msgstr " (Iyacima)"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, fuzzy, kde-format
 msgid "File"
 msgstr "&Isihluzo:"
@@ -2429,18 +2429,18 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Impazamo Engababhalwanga"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ikhonkco olunophawu"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Ikhonkco kwi %1"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -7117,7 +7117,7 @@ msgstr "%1 B"
 msgid "Configure Web Shortcuts..."
 msgstr "Tshintsha Inkqubo ye Cookie"
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, fuzzy, kde-format
 msgid "Open file dialog"
 msgstr "Vula Ifayile Yencoko yababini"

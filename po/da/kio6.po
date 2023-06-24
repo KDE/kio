@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -232,7 +232,7 @@ msgid "Creating directory"
 msgstr "Opretter mappe"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "Mappe"
@@ -244,7 +244,7 @@ msgid "Deleting"
 msgstr "Sletter"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "Fil"
@@ -2401,17 +2401,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Udokumenteret fejl"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolsk link til %1)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link til %2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(Peger på %1)"
@@ -7109,7 +7109,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Indstil webgenveje..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Åbn fildialog"

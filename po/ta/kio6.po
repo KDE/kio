@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2023-06-18 14:02+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -245,7 +245,7 @@ msgid "Creating directory"
 msgstr "அடைவை உருவாக்குதல்"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "அடைவு"
@@ -257,7 +257,7 @@ msgid "Deleting"
 msgstr "அகற்றுதல்"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "கோப்பு"
@@ -2329,17 +2329,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "தெரியாத பிழை"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 -க்கான குறியிணைப்பு)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 -க்கு இணைப்பு)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
@@ -6953,7 +6953,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "கோப்பு திறப்பு சாளரம்"

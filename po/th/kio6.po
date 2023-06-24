@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -236,7 +236,7 @@ msgid "Creating directory"
 msgstr "ทำการสร้างไดเรกทอรี"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "ไดเรกทอรี"
@@ -248,7 +248,7 @@ msgid "Deleting"
 msgstr "ทำการลบ"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "แฟ้ม"
@@ -2357,17 +2357,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "ข้อผิดพลาดที่ยังไม่มีในเอกสาร"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(เชื่อมโยงแบบสัญลักษณ์ไปยัง %1)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, เชื่อมโยงไปยัง %2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (ชี้ไปยัง %1)"
@@ -7141,7 +7141,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "เปลี่ยน&ข้อกำหนด..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "เปิดกล่องเลือกแฟ้ม"

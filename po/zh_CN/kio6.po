@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2023-06-17 04:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -233,7 +233,7 @@ msgid "Creating directory"
 msgstr "正在创建目录"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "目录"
@@ -245,7 +245,7 @@ msgid "Deleting"
 msgstr "正在删除"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "文件"
@@ -2240,17 +2240,17 @@ msgstr "请将目标驱动器重新格式化为支持此大小文件的文件系
 msgid "Undocumented Error"
 msgstr "程序文档中没有提及的错误"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(指向 %1 的符号链接)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1，链接到 %2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (指向 %1)"
@@ -6752,7 +6752,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "配置网页搜索缩略词..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "打开文件对话框"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
-"PO-Revision-Date: 2023-05-02 15:09+0200\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
+"PO-Revision-Date: 2023-06-23 11:52+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -233,7 +233,7 @@ msgid "Creating directory"
 msgstr "Vytváření složky"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "Složka"
@@ -245,7 +245,7 @@ msgid "Deleting"
 msgstr "Mazání"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "Soubor"
@@ -1121,11 +1121,11 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
-"<strong>U</strong>niversal <strong>R</strong>esource <strong>L</"
-"strong>ocator (URL), který jste zadali, není správně zformátován. Format URL "
-"je obecně dán následujícím způsobem: <blockquote><strong>protokol://"
-"uzivatel@heslo:www.priklad.cz:port/slozka/jmeno_souboru.pripona?"
-"dotaz=hodnota</strong></blockquote>"
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), který jste zadali, není správně zformátován. Format URL je obecně dán "
+"následujícím způsobem: <blockquote><strong>protokol://uzivatel@heslo:www."
+"priklad.cz:port/slozka/jmeno_souboru.pripona?dotaz=hodnota</strong></"
+"blockquote>"
 
 #: core/job_error.cpp:491
 #, kde-format
@@ -1182,8 +1182,8 @@ msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr ""
-"<strong>U</strong>niversal <strong>R</strong>esource <strong>L</"
-"strong>ocator (URL), které jste zadali neodkazuje na určitý prostředek."
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), které jste zadali neodkazuje na určitý prostředek."
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -2353,17 +2353,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentovaná chyba"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolický odkaz na %1)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, odkaz na %2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Odkazuje na: %1)"
@@ -2587,7 +2587,7 @@ msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3208,7 +3208,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Přeformátovat nebo upravit pomocí Správce diskových oddílů"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -4635,7 +4635,7 @@ msgstr "Ověření selhalo."
 #: kioworkers/http/http.cpp:5369
 #, kde-format
 msgid "Unknown Authorization method."
-msgstr "Neznámá opravňovací metoda."
+msgstr "Neznámá autorizační metoda."
 
 #: kioworkers/http/httpfilter.cpp:175
 #, kde-format
@@ -6970,7 +6970,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Nastavit webové zkratky..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Otevřít souborový dialog"

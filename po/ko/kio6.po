@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2023-04-22 00:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -232,7 +232,7 @@ msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "디렉터리"
@@ -244,7 +244,7 @@ msgid "Deleting"
 msgstr "삭제 중"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "파일"
@@ -2307,17 +2307,17 @@ msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(으)로 향한 심볼릭 링크)"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(으)로 향한 링크)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"
@@ -6898,7 +6898,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "파일 열기 대화 상자"

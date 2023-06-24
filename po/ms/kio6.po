@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -236,7 +236,7 @@ msgid "Creating directory"
 msgstr "Mencipta Folder"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr "Folder"
@@ -248,7 +248,7 @@ msgid "Deleting"
 msgstr "Memadam"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "Fail"
@@ -2396,17 +2396,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ralat Tidak Didokumentasikan"
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, fuzzy, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "Pautan Simbolik"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Pautan ke %1 (%2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, fuzzy, kde-format
 msgid " (Points to %1)"
 msgstr "Tuding ke:"
@@ -6996,7 +6996,7 @@ msgstr ""
 msgid "Configure Web Shortcuts..."
 msgstr "Ubah &Dasar..."
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Buka dialog fail"

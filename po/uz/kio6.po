@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 03:26+0000\n"
+"POT-Creation-Date: 2023-06-24 02:32+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -240,7 +240,7 @@ msgid "Creating directory"
 msgstr "Jild yaratilmoqda"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:454
+#: widgets/kurlrequester.cpp:476
 #, kde-format
 msgid "Directory"
 msgstr ""
@@ -252,7 +252,7 @@ msgid "Deleting"
 msgstr "Oʻchirilmoqda"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:453
+#: widgets/kurlrequester.cpp:475
 #, kde-format
 msgid "File"
 msgstr "Fayl"
@@ -2233,19 +2233,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Bu xato uchun koʻllanma yoʻq."
 
-#: core/kfileitem.cpp:1350
+#: core/kfileitem.cpp:1382
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ramziy bogʻ"
 
-#: core/kfileitem.cpp:1352
+#: core/kfileitem.cpp:1384
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "%1 bilan bogʻlangan (%2)"
 
-#: core/kfileitem.cpp:1355
+#: core/kfileitem.cpp:1387
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -6874,7 +6874,7 @@ msgstr "%1 B"
 msgid "Configure Web Shortcuts..."
 msgstr "Qoidani oʻ&zgartirish"
 
-#: widgets/kurlrequester.cpp:345
+#: widgets/kurlrequester.cpp:367
 #, kde-format
 msgid "Open file dialog"
 msgstr "Faylni tanlash oynasini ochish"
