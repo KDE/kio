@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-24 02:32+0000\n"
-"PO-Revision-Date: 2023-06-23 23:13+0200\n"
+"PO-Revision-Date: 2023-06-24 12:49+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -521,7 +521,7 @@ msgstr "Atopouse unha ligazón cíclica ao copiar %1."
 #: core/job_error.cpp:94
 #, kde-format
 msgid "Could not create socket for accessing %1."
-msgstr "Non se puido crear o socket para acceder a %1."
+msgstr "Non se puido crear a toma para acceder a %1."
 
 #: core/job_error.cpp:97
 #, kde-format
@@ -664,7 +664,7 @@ msgid ""
 "User canceled action\n"
 "%1"
 msgstr ""
-"O usuario cancelou a acción\n"
+"A persoa usuaria cancelou a acción\n"
 "%1"
 
 #: core/job_error.cpp:175
@@ -844,7 +844,7 @@ msgid ""
 msgstr ""
 "Código de erro %1 descoñecido\n"
 "%2\n"
-"Por favor, envíe un informe do fallo en https://bugs.kde.org."
+"Envíe un informe do fallo en https://bugs.kde.org."
 
 #: core/job_error.cpp:291
 #, kde-format
@@ -937,8 +937,8 @@ msgstr ""
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr ""
-"Pode que o ficheiro estea a usarse (e polo tanto estaría trancado) por outro "
-"usuario ou aplicación."
+"Pode que o ficheiro estea a usarse (e polo tanto estaría trancado) por outra "
+"persoa usuaria ou aplicación."
 
 #: core/job_error.cpp:385
 #, kde-format
@@ -946,8 +946,8 @@ msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
 msgstr ""
-"Comprobe que ningunha outra aplicación ou usuario estea a usar o ficheiro ou "
-"trancase o ficheiro."
+"Comprobe que ningunha outra aplicación ou persoa usuaria estea a usar o "
+"ficheiro ou trancase o ficheiro."
 
 #: core/job_error.cpp:388
 #, kde-format
@@ -966,8 +966,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
-"Isto posibelmente se deba a un fallo no programa. Por favor, intente enviar "
-"un informe do fallo completo como se describe en baixo."
+"Isto posibelmente se deba a un fallo no programa. Intente enviar un informe "
+"do fallo completo como se describe en baixo."
 
 #: core/job_error.cpp:395
 #, kde-format
@@ -1145,7 +1145,7 @@ msgid ""
 msgstr ""
 "O <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) que inseriu non estaba correctamente formatado. O "
-"formato dun URL polo xeral é:<blockquote><strong>protocolo://usuario:"
+"formato dun URL polo xeral é:<blockquote><strong>protocolo://usuaria:"
 "contrasinal@www.exemplo.org:porto/cartafol/ficheiro.extensión?pesquis=valor</"
 "strong></blockquote>"
 
@@ -1481,7 +1481,7 @@ msgstr "A solicitude non se completou porque se interrompeu."
 #: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
 #, kde-format
 msgid "Retry the request."
-msgstr "Intentar de novo a solicutude."
+msgstr "Intentar de novo a solicitude."
 
 #: core/job_error.cpp:684
 #, kde-format
@@ -1509,7 +1509,7 @@ msgstr "Non se puido crear a conexión de rede"
 #: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
-msgstr "Non se puido crear o socket"
+msgstr "Non se puido crear a toma"
 
 #: core/job_error.cpp:701
 #, kde-format
@@ -1518,7 +1518,7 @@ msgid ""
 "communications (a socket) could not be created."
 msgstr ""
 "Este é un erro bastante técnico causado porque non se puido crear un "
-"dispositivo requirido para as comunicacións pola rede (un socket)."
+"dispositivo requirido para as comunicacións pola rede (unha toma)."
 
 #: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
 #: core/job_error.cpp:877
@@ -1708,8 +1708,8 @@ msgid ""
 "this device may cause the device to remain in use."
 msgstr ""
 "Pode que o dispositivo estea atarefado, é dicir, en uso por outra aplicación "
-"ou usuario. Cousas como ter unha xanela de navegador aberta nun lugar deste "
-"dispositivo pode facer que o dispositivo siga a usarse."
+"ou persoa usuaria. Cousas como ter unha xanela de navegador aberta nun lugar "
+"deste dispositivo pode facer que o dispositivo siga a usarse."
 
 #: core/job_error.cpp:798
 #, kde-format
@@ -1785,7 +1785,7 @@ msgid ""
 "network connections."
 msgstr ""
 "Este é un erro bastante técnico causado porque non se puido facer que un "
-"dispositivo requirido para as comunicacións pola rede (un socket) escoitase "
+"dispositivo requirido para as comunicacións pola rede (unha toma) escoitase "
 "as conexións de rede entrantes."
 
 #: core/job_error.cpp:860
@@ -2084,8 +2084,8 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"Isto probabelmente o cause un fallo no programa do servidor. Por favor, "
-"envíe un informe do fallo como se detalla en baixo."
+"Isto probabelmente o cause un fallo no programa do servidor. Envíe un "
+"informe do fallo como se detalla en baixo."
 
 #: core/job_error.cpp:1085
 #, kde-format
@@ -2098,8 +2098,8 @@ msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
 msgstr ""
-"Se sabe quen son os autores do software do servidor, envíelles o informe do "
-"fallo directamente a eles."
+"Se sabe quen son as persoas autoras do software do servidor, envíelles o "
+"informe do fallo directamente a elas."
 
 #: core/job_error.cpp:1093
 #, kde-format
@@ -2625,7 +2625,7 @@ msgstr "Non se pode atopar o traballador de KIO para o protocolo «%1»."
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
-"Non se pode crear un socket para iniciar un traballador de KIO para o "
+"Non se pode crear unha toma para iniciar un traballador de KIO para o "
 "protocolo «%1»."
 
 #: core/worker.cpp:393
@@ -4323,7 +4323,8 @@ msgstr "Non hai ningún medio no dispositivo para %1"
 #: kioworkers/file/file_unix.cpp:1374
 #, kde-format
 msgid "Could not get user id for given user name %1"
-msgstr "Non se puido obter o identificador do nome de usuario indicado, %1"
+msgstr ""
+"Non se puido obter o identificador do nome de persoa usuaria indicado, %1"
 
 #: kioworkers/file/file_unix.cpp:1385
 #, kde-format
@@ -4361,7 +4362,7 @@ msgid ""
 "\n"
 msgstr ""
 "Mensaxe enviada:\n"
-"Acceso usando o nome de usuario=%1 e contrasinal=[agochada]\n"
+"Acceso usando o nome de persoa usuaria=%1 e contrasinal=[agochado]\n"
 "\n"
 "O servidor respondeu:\n"
 "%2\n"
@@ -4371,7 +4372,8 @@ msgstr ""
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
-"Debe indicar un nome de usuario e contrasinal para acceder a este sitio."
+"Debe indicar un nome de persoa usuaria e contrasinal para acceder a este "
+"sitio."
 
 #: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
 #, kde-format
@@ -4409,8 +4411,8 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Debe indicar un nome de usuario e contrasinal para o servidor mandatario "
-"listado en baixo antes que se lle permita acceder a ningún sitio."
+"Debe indicar un nome de persoa usuaria e contrasinal para o servidor "
+"mandatario listado en baixo antes que se lle permita acceder a ningún sitio."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
 #: kioworkers/http/http.cpp:5210
@@ -4668,9 +4670,9 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
-"<p>Está a piques de acceder a «%1» como nome de usuario «%2», pero ese sitio "
-"web non require de autenticación. Isto pode ser un intento de enganalo.</"
-"p><p>É «%1» o sitio que quere visitar?</p>"
+"<p>Está a piques de acceder a «%1» co nome de persoa usuaria «%2», pero ese "
+"sitio web non require de autenticación. Isto pode ser un intento de enganalo."
+"</p><p>É «%1» o sitio que quere visitar?</p>"
 
 #: kioworkers/http/http.cpp:2922
 #, kde-format
@@ -4968,7 +4970,7 @@ msgid ""
 "restore it."
 msgstr ""
 "O cartafol %1 xa non existe, así que non se pode devolver este elemento a "
-"onde estaba. Pode volver crear ese directorio de novo e usar a operación de "
+"onde estaba. Pode volver crear ese cartafol de novo e usar a operación de "
 "devolución outra vez ou arrastrar o elemento a outra parte e así recuperalo."
 
 #: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
@@ -5113,7 +5115,7 @@ msgstr "<qt><b>%1</b> non ten un cartafol persoal.</qt>"
 #: urifilters/shorturi/kshorturifilter.cpp:253
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
-msgstr "<qt>Non hai ningún usuario chamado <b>%1</b>.</qt>"
+msgstr "<qt>Non hai ningunha persoa usuaria chamada <b>%1</b>.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, commonNameTag)
 #: widgets/certificateparty.ui:28
@@ -5311,7 +5313,7 @@ msgstr "Desfacer esta operación require privilexios de root. Quere continuar?"
 #: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Creating directory"
-msgstr "Estase a crear o directorio"
+msgstr "Creando un cartafol"
 
 #: widgets/fileundomanager.cpp:141
 #, kde-format
@@ -5321,7 +5323,7 @@ msgstr "Estase a mover"
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgid "Renaming"
-msgstr "Cambiando de nome"
+msgstr "Renomeando"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -5351,7 +5353,7 @@ msgstr "&Desfacer: Mover"
 #: widgets/fileundomanager.cpp:312
 #, kde-format
 msgid "Und&o: Rename"
-msgstr "Desfacer: cambiar de n&ome"
+msgstr "Desfacer: renomear"
 
 #: widgets/fileundomanager.cpp:314
 #, kde-format
@@ -5526,7 +5528,7 @@ msgstr "Máscara"
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
-msgstr "Usuario con nome"
+msgstr "Persoa usuaria con nome"
 
 #: widgets/kacleditwidget.cpp:254
 #, kde-format
@@ -5571,7 +5573,7 @@ msgstr "Máscara"
 #: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
-msgstr "Usuario con nome"
+msgstr "Persoa usuaria con nome"
 
 #: widgets/kacleditwidget.cpp:425
 #, kde-format
@@ -5581,7 +5583,7 @@ msgstr "Grupo con nome"
 #: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
-msgstr "Usuario: "
+msgstr "Persoa usuaria: "
 
 #: widgets/kacleditwidget.cpp:457
 #, kde-format
@@ -5862,7 +5864,7 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>Escolla o programa que desexe usar para abrir <b>%1</b>. Se o programa "
+"<qt>Escolla o programa que queira usar para abrir <b>%1</b>. Se o programa "
 "non estiver na lista, insira o nome ou prema o botón de examinar.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
@@ -5946,7 +5948,7 @@ msgstr ""
 "ficheiros locais dunha vez\n"
 "%u : un único URL\n"
 "%U : unha lista de URL\n"
-"%d : o directorio do ficheiro que se vai abrir\n"
+"%d : o cartafol do ficheiro que se vai abrir\n"
 "%D : unha lista de directorios\n"
 "%i : a icona\n"
 "%m : a mini-icona\n"
@@ -6072,7 +6074,7 @@ msgctxt ""
 "@title:group Title of a group that lets the user choose which user to use "
 "when launching a program"
 msgid "User"
-msgstr "Usuario"
+msgstr "Persoa usuaria"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:93
@@ -6083,40 +6085,41 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Marque esta opción se quere executar esta aplicación co identificador doutro "
-"usuario. Cada proceso ten un identificador de usuario asociado con el. Este "
-"determina os permisos de acceso a ficheiros, entre outros. Requírese o "
-"contrasinal do usuario para usar esta opción."
+"Marque esta opción se quere executar esta aplicación co identificador doutra "
+"persoa usuaria. Cada proceso ten un identificador de persoa usuaria asociado "
+"con el. Este determina os permisos de acceso a ficheiros, entre outros. "
+"Requírese o contrasinal da persoa usuaria para usar esta opción."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
 #, kde-format
 msgid "Run as a different user"
-msgstr "Executar como outro usuario"
+msgstr "Executar como outra persoa usuaria."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:119
 #, kde-format
 msgid "Enter the user name you want to run the application as."
-msgstr "Insira o nome de usuario co que quere executar a aplicación."
+msgstr "Insira o nome de persoa usuaria co que quere executar a aplicación."
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:122
 #, kde-format
 msgid "Username:"
-msgstr "Nome de usuario:"
+msgstr "Nome de persoa usuaria:"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
 #: widgets/kpropertiesdesktopadvbase.ui:132
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
-msgstr "Insira aquí o nome de usuario co que quere executar a aplicación."
+msgstr ""
+"Insira aquí o nome de persoa usuaria co que quere executar a aplicación."
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
 #: widgets/kpropertiesdesktopadvbase.ui:142
 #, kde-format
 msgid "Discrete GPU"
-msgstr "GPU discreta"
+msgstr "Procesador gráfico discreto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:148
@@ -6270,7 +6273,7 @@ msgstr "&Argumentos:"
 #: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "Define o directorio de traballo da aplicación."
+msgstr "Define o cartafol de traballo da aplicación."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:172
@@ -6298,7 +6301,7 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>Esta lista mostra os tipos de ficheiro que pode xestionar a "
+"<qt><p>Esta lista amosa os tipos de ficheiro que pode xestionar a "
 "aplicación. Esta lista está organizada segundo os <u>tipos MIME</u>.</p>\n"
 "<p>MIME, Multipurpose, Internet (e)Mail Extension, é un protocolo estándar "
 "para identificar o tipo dos datos baseándose nas extensións do nome do "
@@ -6322,7 +6325,7 @@ msgstr "Tipos de ficheiro &admitidos:"
 #: widgets/kpropertiesdesktopbase.ui:230
 #, kde-format
 msgid "Mimetype"
-msgstr "Tipo mime"
+msgstr "Tipo MIME"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:235
@@ -6371,7 +6374,7 @@ msgid ""
 msgstr ""
 "Prema aquí para modificar o xeito en que esta aplicación se executará, "
 "indicará que se iniciou, as súas opcións de D-Bus ou para executala como "
-"outro usuario."
+"outra persoa usuaria."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:284
@@ -6435,13 +6438,13 @@ msgstr "%1:"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%1 de %2 libres (%3% empregado)"
+msgstr "%1 de %2 libres (%3% en uso)"
 
 #: widgets/kpropertiesdialog.cpp:1299
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
-msgstr "Tamaño descoñecido"
+msgstr "Tamaño descoñecido."
 
 #: widgets/kpropertiesdialog.cpp:1309
 #, kde-format
@@ -6591,7 +6594,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1851
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
-msgstr "Só a persoa dona pode cambia&r de nome e eliminar contido do cartafol"
+msgstr "Só a persoa dona pode renomear e eliminar contido do cartafol"
 
 #: widgets/kpropertiesdialog.cpp:1851
 #, kde-format
@@ -6606,9 +6609,9 @@ msgid ""
 "requires the 'Modify Content' permission."
 msgstr ""
 "Active esta opción para permitir só á persoa dona do cartafol que elimine ou "
-"cambie de nome os ficheiros e cartafoles que contén. O resto de persoas "
-"usuarias só poden engadir novos ficheiros, o que require o permiso de "
-"«Modificar o contido»."
+"renomee os ficheiros e cartafoles que contén. O resto de persoas usuarias só "
+"poden engadir novos ficheiros, o que require o permiso de «Modificar o "
+"contido»."
 
 #: widgets/kpropertiesdialog.cpp:1858
 #, kde-format
@@ -6617,7 +6620,7 @@ msgid ""
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
 "Active esta opción para pór o ficheiro como executábel. Isto só ten sentido "
-"para programas e scripts. Requírese para executalo."
+"para programas e guións. Requírese para executalos."
 
 #: widgets/kpropertiesdialog.cpp:1865
 #, kde-format
@@ -6632,7 +6635,7 @@ msgstr "Pertenza"
 #: widgets/kpropertiesdialog.cpp:1880
 #, kde-format
 msgid "User:"
-msgstr "Usuario:"
+msgstr "Persoa usuaria:"
 
 #: widgets/kpropertiesdialog.cpp:1919
 #, kde-format
@@ -6753,7 +6756,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2068
 #, kde-format
 msgid "User"
-msgstr "Usuario"
+msgstr "Persoa usuaria"
 
 #: widgets/kpropertiesdialog.cpp:2072
 #, kde-format
@@ -6775,7 +6778,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"Se o ficheiro é executábel e activa esta marca, executarase cos permisos da "
+"Se o ficheiro é executábel e define esta marca, executarase cos permisos da "
 "persoa dona."
 
 #: widgets/kpropertiesdialog.cpp:2094
@@ -6817,12 +6820,12 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2171
 #, kde-format
 msgid "Set UID"
-msgstr "Pór como UID"
+msgstr "Definir o UID"
 
 #: widgets/kpropertiesdialog.cpp:2175
 #, kde-format
 msgid "Set GID"
-msgstr "Pór como GID"
+msgstr "Definir o GID"
 
 #: widgets/kpropertiesdialog.cpp:2179
 #, kde-format
@@ -7151,8 +7154,8 @@ msgid ""
 msgstr ""
 "Ao marcar isto, o botón premido aplícase a todos os conflitos de cartafoles "
 "subseguintes durante o resto do traballo en curso.\n"
-"A non ser que prema Omitir, seguiráselle preguntando no caso de conflitos "
-"cun ficheiro existente no directorio."
+"A non ser que prema «Omitir», seguiráselle preguntando no caso de conflitos "
+"cun ficheiro existente no cartafol."
 
 #: widgets/renamedialog.cpp:231
 #, kde-format
@@ -7204,7 +7207,7 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"Os ficheiros e cartafoles copiaranse no directorio xa existente, xunto co "
+"Os ficheiros e cartafoles copiaranse no cartafol xa existente, xunto co "
 "contido que xa teña.\n"
 "Volverá preguntárselle se houbese algún conflito con algún ficheiro xa "
 "existente no directorio."
@@ -7547,19 +7550,19 @@ msgstr[1] "Seguro que quere botar estes %1 elementos no lixo?"
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
-msgstr "Non preguntar máis"
+msgstr "Non preguntar máis."
 
 #: widgets/widgetsaskuseractionhandler.cpp:390
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
-msgstr "Non preguntar máis"
+msgstr "Non preguntar máis."
 
 #: widgets/widgetsaskuseractionhandler.cpp:419
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
-msgstr "Non amosar esta mensaxe de novo"
+msgstr "Non amosar esta mensaxe de novo."
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:105
 #, kde-format

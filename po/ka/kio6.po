@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-24 02:32+0000\n"
-"PO-Revision-Date: 2023-06-22 12:26+0200\n"
+"PO-Revision-Date: 2023-06-24 17:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -974,13 +974,15 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
+"შეიძლება ქსელში პრობლემები გაქვთ. თუ ინტერნეტთან წვდომა ახლახანს გქონდათ, "
+"ალბათ ეს ასე არაა."
 
 #: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
-msgstr ""
+msgstr "შესაძლო ქსელური პრობლემა თქვენს კომპიუტერსა და სერვერს შორის."
 
 #: core/job_error.cpp:417
 #, kde-format
@@ -1042,6 +1044,8 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
+"ეს ნიშნავს, რომ ფაილის <strong>%1</strong> ჩაწერა ისე, როგორც მოთხოვნილია, "
+"შეუძლებელია, რადგან წვდომა არ გაგაჩნიათ."
 
 #: core/job_error.cpp:453
 #, kde-format
@@ -1060,6 +1064,8 @@ msgid ""
 "strong> protocol could not be found or started. This is usually due to "
 "technical reasons."
 msgstr ""
+"პროგრამა თქვენს კომპიუტერზე, რომელიც <strong>%1</strong> პროტოკოლთან წვდომას "
+"უზრუნველყოფდა, არ ეშვება. როგორც წესი, ეს ტექნიკური პრობლემების გამოა."
 
 #: core/job_error.cpp:461
 #, kde-format
@@ -1068,6 +1074,9 @@ msgid ""
 "been updated with your last update of KDE. This can cause the program to be "
 "incompatible with the current version and thus not start."
 msgstr ""
+"პროგრამა, რომელიც ამ პროტოკოლთან თავსებადობას უზრუნველყოფს, KDE-ის ბოლო "
+"განახლების შემდეგ არ განახლებულა. ამას მიმდინარე ვერსიასთან არათავსებადობა "
+"შეუძლია, გამოიწვიოს."
 
 #: core/job_error.cpp:470
 #, kde-format
@@ -1080,6 +1089,8 @@ msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
 msgstr ""
+"პროგრამამ თქვენს კომპიუტერში, რომელიც უზრუნველყოფს წვდომას პროტოკოლთან "
+"<strong>%1</strong>, შიდა შეცდომა დააბრუნა."
 
 #: core/job_error.cpp:480
 #, kde-format
@@ -1095,6 +1106,10 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), რომელიც შეიყვანეთ, არასწორი ფორმატითაა. URLის ფორმატი ჩვეულებრივ ასე "
+"გამოიყურება:<blockquote><strong>protocol://user:password@www.example.org:"
+"port/folder/filename.extension?query=value</strong></blockquote>"
 
 #: core/job_error.cpp:491
 #, kde-format
@@ -1107,6 +1122,8 @@ msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
 "currently installed on this computer."
 msgstr ""
+"პროტოკოლი <strong>%1</strong> ამ კომპიუტერზე დაყენებული KDE-ის პროგრამების "
+"მიერ მხარდაჭერილი არაა."
 
 #: core/job_error.cpp:496
 #, kde-format
@@ -1119,6 +1136,8 @@ msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
 msgstr ""
+"%1 პროტოკოლის ვერსიები, რომლებსაც ეს კომპიუტერი და სერვერი იყენებენ, "
+"შეიძლება თავსებადი არაა."
 
 #: core/job_error.cpp:502
 #, kde-format
@@ -1144,6 +1163,8 @@ msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL), რომელიც შეიყვანეთ, რესურსზე არ მიუთითებს.."
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1165,6 +1186,8 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
+"KDE-ის პროგრამას, რომელიც <strong>%1</strong> პროტოკოლის განხორციელებას "
+"წარმოადგენს, მოთხოვნილი ქმედების მხარდაჭერა არ გააჩნია."
 
 #: core/job_error.cpp:531
 #, kde-format
@@ -1173,6 +1196,8 @@ msgid ""
 "information should give you more information than is available to the KDE "
 "input/output architecture."
 msgstr ""
+"შეცდომა KDE-ის პროგრამაზეა დამოკიდებული. დამატებით ინფორმაციას შეუძლია იმაზე "
+"მეტი რამ მოგცეთ, ვიდრე ის KDE-ის შეტანა/გამოტანის არქიტექტურას გააჩნია."
 
 #: core/job_error.cpp:535
 #, kde-format
@@ -1279,6 +1304,8 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
+"უცნობი ჰოსტის შეცდომა ნიშნავს, რომ სერვერი მითითებული სახელით, <strong>%1</"
+"strong>, ინტერნეტში აღმოჩენილი არაა."
 
 #: core/job_error.cpp:599
 #, kde-format
@@ -1341,6 +1368,8 @@ msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr ""
+"ეს ნიშნავს, რომ სცადეთ შეგეყვანათ (სხვა სიტყვებით, გაგეხსნათ) საქაღალდე "
+"<strong>%1</strong, რაც უარყოფილი იყო."
 
 #: core/job_error.cpp:648
 #, kde-format
@@ -1951,6 +1980,7 @@ msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
 msgstr ""
+"თუ იცით, სერვერის პროგრამა ვისი დაწერილია, სჯობს პირდაპირ მას მისწეროთ."
 
 #: core/job_error.cpp:1093
 #, kde-format
@@ -2014,6 +2044,9 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
+"მოთხოვნილ ოპერაციას ორიგინალური ფაილის წაშლა სჭირდება, დიდი ალბათობით ფაილის "
+"გადატანის ოპერაციის დასრულებისას. ორიგინალური ფაილის <strong>%1</strong> "
+"წაშლა შეუძლებელია."
 
 #: core/job_error.cpp:1149
 #, kde-format
@@ -2027,6 +2060,8 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
+"მოთხოვნილ ფაილს დროებითი ფაილის შექმნა სჭირდება, რომელშიც ის ახალ გადმოწერილ "
+"ფაილს შეინახავს. დროებითი ფაილის <strong>%1</strong> წაშლა შეუძლებელია."
 
 #: core/job_error.cpp:1161
 #, kde-format
@@ -2039,6 +2074,8 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
+"მოთხოვნილ ოპერაციას საწყისი ფაილის <strong>%1</strong> სახელის გადარქმევა "
+"სჭირდება, რაც შეუძლებელია."
 
 #: core/job_error.cpp:1172
 #, kde-format
@@ -2051,6 +2088,8 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
+"მოთხოვილ ოპერაციას დროებითი ფაილის <strong>%1</strong> შექმნა სჭირდება, რაც "
+"შეუძლებელია."
 
 #: core/job_error.cpp:1183
 #, kde-format
@@ -3044,7 +3083,11 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"ამ მოწყობილობაზე ერთი ან მეტი ფაილი გახსნილია აპლიკაციაში <application>"
+"\"%2\"</application>."
 msgstr[1] ""
+"ამ მოწყობილობაზე ერთი ან მეტი ფაილი გახსნილია აპლიკაციებში <application>"
+"\"%2\"</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
@@ -3211,6 +3254,8 @@ msgid ""
 "folders, so it is not possible to decide which one to enter. Please select "
 "only one folder to list it."
 msgstr ""
+"არჩეულია ერთზე მეტი საქაღალდე და ამ ფანჯარას საქაღალდე არ სჭირდება, ასე რომ, "
+"იმის გადაწყვეტა, რომელი ავირჩიოთ, შეუძლებელია. აირჩიეთ მხოლოდ ერთი საქაღალდე."
 
 #: filewidgets/kfilewidget.cpp:856
 #, kde-format
@@ -3223,6 +3268,8 @@ msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
+"არჩეულია სულ ცოტა ერთი ფაილი და ერთი საქაღალდე. მონიშნული ფაილები "
+"გამოტოვებული იქნება და გამოიყენება მონიშნული საქაღალდე"
 
 #: filewidgets/kfilewidget.cpp:867
 #, kde-format
