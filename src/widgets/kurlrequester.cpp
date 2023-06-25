@@ -76,6 +76,11 @@ private:
     QList<QUrl> m_urls;
 };
 
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+// regular expression string copied from QPlatformFileDialogHelper
+static const QString filterRegExpString = QStringLiteral("^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$");
+#endif
+
 class Q_DECL_HIDDEN KUrlRequester::KUrlRequesterPrivate
 {
 public:
@@ -241,8 +246,7 @@ public:
     // Converts from "Comment (*.foo *.bar)" to "*.foo *.bar|Comment"
     static QString qToKFilter(const QStringList &filters)
     {
-        // regular expression copied from QPlatformFileDialogHelper
-        const QRegularExpression regexp(QStringLiteral("^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$"));
+        const QRegularExpression regexp(filterRegExpString);
         QStringList result;
         for (const QString &filter : filters) {
             QRegularExpressionMatch match;
@@ -254,6 +258,24 @@ public:
             }
         }
         return result.join(QLatin1Char('\n'));
+    }
+
+    // Provides work-around for older Plasma Qt Platform Theme integration versions
+    // only processing filters with explicit names (bug 470893),
+    // use the filter expressions as name as fallback if no name is given
+    // TODO: find a way to test if the current theme is a broken Plasma one, otherwise skip
+    static QStringList ensureNamedFilter(const QStringList &filters)
+    {
+        QStringList namedFilters(filters);
+        const QRegularExpression regexp(filterRegExpString);
+        for (QString &filter : namedFilters) {
+            QRegularExpressionMatch match;
+            filter.indexOf(regexp, 0, &match);
+            if (!match.hasMatch()) {
+                filter = filter + QLatin1String(" (") + filter + QLatin1Char(')');
+            }
+        }
+        return namedFilters;
     }
 #endif
 
@@ -569,7 +591,7 @@ void KUrlRequester::setFilter(const QString &filter)
     d->nameFilters = d->kToQFilters(filter);
 
     if (d->myFileDialog) {
-        d->myFileDialog->setNameFilters(d->nameFilters);
+        d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
     }
 }
 #endif
@@ -591,7 +613,11 @@ void KUrlRequester::setNameFilters(const QStringList &filters)
     d->nameFilters = filters;
 
     if (d->myFileDialog) {
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+        d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
+#else
         d->myFileDialog->setNameFilters(d->nameFilters);
+#endif
     }
 }
 
@@ -641,7 +667,11 @@ QFileDialog *KUrlRequester::fileDialog() const
         if (!d->mimeTypeFilters.isEmpty()) {
             d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
         } else {
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+            d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
+#else
             d->myFileDialog->setNameFilters(d->nameFilters);
+#endif
         }
 
         d->applyFileMode(d->myFileDialog, d->fileDialogMode, d->fileDialogAcceptMode);
