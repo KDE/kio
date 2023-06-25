@@ -23,7 +23,7 @@ Name[eo]=Guglo (Mi Sentas Bonŝanca)
 Name[es]=Google (Voy a tener suerte)
 Name[et]=Google (Ehk veab)
 Name[eu]=Google-ren 'Baietz lehenengoan'
-Name[fa]=گوگل )یا شانس و یا اقبال(
+Name[fa]=گوگل (یا شانس و یا اقبال)
 Name[fi]=Google (kokeilen onneani)
 Name[fr]=Google (J'ai de la chance)
 Name[fy]=Google (Ik doch in gok)
@@ -113,6 +113,7 @@ Query[eo]=http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8
 Query[es]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[et]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[eu]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
+Query[fa]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[fi]=https://www.google.fi/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[fr]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Query[gd]=https://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8

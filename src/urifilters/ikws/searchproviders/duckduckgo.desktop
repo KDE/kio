@@ -23,7 +23,7 @@ Name[eo]=Duck Duck Go
 Name[es]=Duck Duck Go
 Name[et]=Duck Duck Go
 Name[eu]=Duck Duck Go
-Name[fa]=Duck Duck Go
+Name[fa]=داک‌داک‌گو
 Name[fi]=Duck Duck Go
 Name[fr]=Duck Duck Go
 Name[ga]=Duck Duck Go
@@ -97,6 +97,7 @@ Query[eo]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[es]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[et]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[eu]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[fa]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[fi]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[gd]=https://duckduckgo.com/?q=\\{@}&t=kde

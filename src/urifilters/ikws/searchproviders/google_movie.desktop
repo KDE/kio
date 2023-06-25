@@ -26,7 +26,7 @@ Name[eo]=Guglo Filmoj
 Name[es]=Películas de Google
 Name[et]=Google Movies
 Name[eu]=Google Movies
-Name[fa]=فیلمهای گوگل
+Name[fa]=فیلم‌های گوگل
 Name[fi]=Googlen elokuvahaku
 Name[fr]=Vidéos « Google »
 Name[fy]=Google Films
@@ -116,6 +116,7 @@ Query[eo]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[es]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[et]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[eu]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[fa]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fi]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[fr]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[gl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

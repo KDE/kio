@@ -22,7 +22,7 @@ Name[eo]=KDE-Forumoj
 Name[es]=Foros de KDE
 Name[et]=KDE foorumid
 Name[eu]=KDEren foroak
-Name[fa]=انجمنهای کی‌دی‌ای
+Name[fa]=انجمن‌های KDE
 Name[fi]=KDE:n foorumit
 Name[fr]=Forums de KDE
 Name[ga]=Fóraim KDE
@@ -97,6 +97,7 @@ Query[eo]=http://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=
 Query[es]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[et]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[eu]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
+Query[fa]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[fi]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[fr]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search
 Query[gd]=https://forum.kde.org/search.php?keywords=\\{@}&terms=all&author=&tags=&sv=0&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&countlimit=100&t=0&submit=Search

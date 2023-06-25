@@ -20,6 +20,7 @@ Name[eo]=Qwant Butikumado
 Name[es]=Qwant Compras
 Name[et]=Qwant Shopping
 Name[eu]=Qwant Erosketak
+Name[fa]=خرید کیووانت
 Name[fi]=Qwant-tuotehaku
 Name[fr]=Magasinage « Qwant »
 Name[gd]=Qwant Shopping
@@ -79,6 +80,7 @@ Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=shopping
+Query[fa]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

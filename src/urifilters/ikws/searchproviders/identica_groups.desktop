@@ -22,7 +22,7 @@ Name[eo]=Identi.ca Grupoj
 Name[es]=Grupos Identi.ca
 Name[et]=Identi.ca grupid
 Name[eu]=Identi.ca-ren taldeak
-Name[fa]=گروههای Identi.ca
+Name[fa]=گروه‌های Identi.ca
 Name[fi]=Identi.ca-ryhmähaku
 Name[fr]=Groupes « Identi.ca »
 Name[ga]=Grúpaí Identi.ca
@@ -97,6 +97,7 @@ Query[eo]=https://identi.ca/search/group?q=\\{@}
 Query[es]=https://identi.ca/search/group?q=\\{@}
 Query[et]=https://identi.ca/search/group?q=\\{@}
 Query[eu]=https://identi.ca/search/group?q=\\{@}
+Query[fa]=https://identi.ca/search/group?q=\\{@}
 Query[fi]=https://identi.ca/search/group?q=\\{@}
 Query[fr]=https://identi.ca/search/group?q=\\{@}
 Query[gd]=https://identi.ca/search/group?q=\\{@}

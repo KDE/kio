@@ -22,7 +22,7 @@ Name[eo]=Informoj de Duck Duck Go
 Name[es]=Duck Duck Go Info
 Name[et]=Duck Duck Go Info
 Name[eu]=Duck Duck Go Info
-Name[fa]=اطلاعات Duck Duck Go
+Name[fa]=اطلاعات داک‌داک‌گو
 Name[fi]=Duck Duck Go -infohaku
 Name[fr]=Informations « Duck Duck Go »
 Name[ga]=Eolas Duck Duck Go
@@ -96,6 +96,7 @@ Query[eo]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[es]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[et]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[eu]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[fa]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[fi]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[gd]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

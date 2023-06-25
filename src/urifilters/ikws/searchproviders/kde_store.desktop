@@ -19,6 +19,7 @@ Name[eo]=KDE-Vendejo
 Name[es]=KDE Store
 Name[et]=KDE Store
 Name[eu]=KDE biltegia
+Name[fa]=فروشگاه KDE
 Name[fi]=KDE Store
 Name[fr]=Boutique de KDE
 Name[gl]=KDE Store
@@ -63,6 +64,7 @@ Query[eo]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[et]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[eu]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[fa]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

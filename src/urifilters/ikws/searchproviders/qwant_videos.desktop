@@ -20,6 +20,7 @@ Name[eo]=Qwant Videoj
 Name[es]=Qwant Vídeos
 Name[et]=Qwant Videos
 Name[eu]=Qwant Bideoak
+Name[fa]=ویدیوهای کیووانت
 Name[fi]=Qwant-videohaku
 Name[fr]=Vidéos « Qwant »
 Name[gd]=Qwant Videos
@@ -79,6 +80,7 @@ Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[eu]=https://www.qwant.com/single?q=\\{@}&client=kde&source=videos
+Query[fa]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

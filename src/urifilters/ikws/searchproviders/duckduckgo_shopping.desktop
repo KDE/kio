@@ -22,7 +22,7 @@ Name[eo]=Butikumo de Duck Duck Go
 Name[es]=Duck Duck Go Compras
 Name[et]=Duck Duck Go Shopping
 Name[eu]=Duck Duck Go Shopping
-Name[fa]=خرید Duck Duck Go
+Name[fa]=خرید داک‌داک‌گو
 Name[fi]=Duck Duck Go -tuotehaku
 Name[fr]=Boutique « Duck Duck Go »
 Name[ga]=Siopadóireacht Duck Duck Go
@@ -97,6 +97,7 @@ Query[eo]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[es]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[et]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[eu]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[fa]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[fi]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[gd]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

@@ -16,6 +16,7 @@ Name[eo]=Reddit
 Name[es]=Reddit
 Name[et]=Reddit
 Name[eu]=Reddit
+Name[fa]=ردیت
 Name[fi]=Reddit
 Name[fr]=Reddit
 Name[gl]=Reddit
@@ -62,6 +63,7 @@ Query[eo]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}
 Query[et]=https://www.reddit.com/search/?q=\\{@}
 Query[eu]=https://www.reddit.com/search/?q=\\{@}
+Query[fa]=https://www.reddit.com/search/?q=\\{@}
 Query[fi]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
 Query[gl]=https://www.reddit.com/search/?q=\\{@}

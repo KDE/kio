@@ -23,7 +23,7 @@ Name[eo]=GitHub
 Name[es]=GitHub
 Name[et]=GitHub
 Name[eu]=GitHub
-Name[fa]=GitHub
+Name[fa]=گیت‌هاب
 Name[fi]=GitHub
 Name[fr]=GitHub
 Name[ga]=GitHub
@@ -99,6 +99,7 @@ Query[eo]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[es]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[et]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[eu]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[fa]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[fi]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[fr]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[gd]=https://github.com/search?q=\\{@}&x=0&y=0

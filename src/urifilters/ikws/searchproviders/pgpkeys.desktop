@@ -24,7 +24,7 @@ Name[eo]=OpenPGP-Ŝlosilserĉo
 Name[es]=Búsqueda de clave OpenPGP
 Name[et]=OpenPGP võtme otsing
 Name[eu]=OpenPGP gako-bilatzailea
-Name[fa]=جستجوی کلید OpenPGP
+Name[fa]=جست‌وجوی کلید OpenPGP
 Name[fi]=OpenPGP-avainhaku
 Name[fr]=Recherche de clés « OpenPGP »
 Name[fy]=Sykje nei OpenPGP-Kaaien
@@ -112,6 +112,7 @@ Query[eo]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[es]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[et]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[eu]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[fa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[fi]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[fr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[gl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

@@ -25,7 +25,7 @@ Name[eo]=PHP Serĉo
 Name[es]=Búsqueda PHP
 Name[et]=PHP Search
 Name[eu]=PHP bilatzailea
-Name[fa]=جستجوی PHP
+Name[fa]=جست‌وجوی PHP
 Name[fi]=PHP-haku
 Name[fr]=Recherche sur PHP
 Name[fy]=PHP-sykaksje
@@ -113,6 +113,7 @@ Query[eo]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[es]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[et]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[eu]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[fa]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[fi]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[fr]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[gl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

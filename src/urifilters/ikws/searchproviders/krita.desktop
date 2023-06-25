@@ -17,6 +17,7 @@ Name[eo]=Krita Manlibro
 Name[es]=Manual de Krita
 Name[et]=Krita käsiraamat
 Name[eu]=Krita-ren eskuliburua
+Name[fa]=کتابچهٔ راهنمای کریتا
 Name[fi]=Kritan käyttöopas
 Name[fr]=Manuel de Krita
 Name[gl]=Manual de Krita
@@ -64,6 +65,7 @@ Query[eo]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[es]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[et]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[eu]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[fa]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[fr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[gl]=https://docs.krita.org/en/search.html?q=\\{@}

@@ -17,6 +17,7 @@ Name[eo]=Flatpak Dokumentado
 Name[es]=Documentación de Flatpak
 Name[et]=Flatpaki dokumentatsioon
 Name[eu]=Flatpak dokumentazioa
+Name[fa]=مستندات فلت‌پک
 Name[fi]=Flatpak-dokumentaatio
 Name[fr]=Documentation de Flatpak
 Name[gl]=Documentación de Flatpak
@@ -64,6 +65,7 @@ Query[eo]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[es]=https://docs.flatpak.org/es/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[et]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[eu]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[fa]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[gl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

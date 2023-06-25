@@ -17,6 +17,7 @@ Name[eo]=Lernu CPP
 Name[es]=Aprenda CPP
 Name[et]=Learn CPP
 Name[eu]=Ikasi CPP
+Name[fa]=یادگیری CPP
 Name[fi]=Learn CPP
 Name[fr]=Apprenez le « CPP »
 Name[gl]=Learn CPP
@@ -64,6 +65,7 @@ Query[eo]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[es]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[et]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[eu]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[fa]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[fr]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[gl]=https://www.learncpp.com/gsearch/?q=\\{@}

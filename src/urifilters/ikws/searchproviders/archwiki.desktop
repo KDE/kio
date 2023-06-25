@@ -20,6 +20,7 @@ Name[eo]=ArchWiki
 Name[es]=ArchWiki
 Name[et]=ArchWiki
 Name[eu]=ArchWiki
+Name[fa]=ویکی آرچ
 Name[fi]=ArchWiki
 Name[fr]=ArchWiki
 Name[gl]=ArchWiki
@@ -72,6 +73,7 @@ Query[eo]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[es]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[et]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[eu]=https://wiki.archlinux.org/index.php?search=\\{@}
+Query[fa]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[fi]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[fr]=https://wiki.archlinux.org/index.php?search=\\{@}
 Query[gl]=https://wiki.archlinux.org/index.php?search=\\{@}
