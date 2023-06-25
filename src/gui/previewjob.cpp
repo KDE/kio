@@ -176,7 +176,6 @@ public:
         for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
             pluginIds.insert(data.pluginId());
         }
-#pragma message("TODO: directory thumbnailer needs a non-desktop file solution ")
         return jsonMetaDataPlugins;
     }
 };
