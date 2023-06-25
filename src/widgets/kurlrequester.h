@@ -165,8 +165,12 @@ public:
      * QFileDialog::nameFilters() and converted internally.
      * @see filter()
      * @deprecated Since 5.108, use setNameFilters(const QStringList &) or setNameFilter(const QString &).
+     *              Note: the filter argument might need adaption, due to the different filter syntax.
      */
-    KIOWIDGETS_DEPRECATED_VERSION(5, 108, "Use KUrlRequester::setNameFilters(const QStringList &) or KUrlRequester::setNameFilter(const QString &)")
+    KIOWIDGETS_DEPRECATED_VERSION(
+        5,
+        108,
+        "Use KUrlRequester::setNameFilters(const QStringList &) or KUrlRequester::setNameFilter(const QString &). NOTE: different filter syntax.")
     void setFilter(const QString &filter);
 #endif
 
