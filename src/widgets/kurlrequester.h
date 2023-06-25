@@ -156,7 +156,7 @@ public:
     /**
      * Sets the filters for the file dialog, separated by \\n.
      * Use "*.foo *.bar|Comment" syntax for each named filter.
-     * Since 5.108 the "|Comment" can be omitted to allow unnamed filters.
+     * "*.foo *.bar" for name-less filters also is supported.
      * @note This filter syntax is different from the one used in
      * QFileDialog::nameFilters() and converted internally.
      * @see filter()
