@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:45+0000\n"
+"POT-Creation-Date: 2023-06-26 00:43+0000\n"
 "PO-Revision-Date: 2023-02-07 10:50-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -247,7 +247,7 @@ msgid "Creating directory"
 msgstr "Criando pasta"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:489
+#: widgets/kurlrequester.cpp:511
 #, kde-format
 msgid "Directory"
 msgstr "Pasta"
@@ -259,7 +259,7 @@ msgid "Deleting"
 msgstr "Excluindo"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:488
+#: widgets/kurlrequester.cpp:510
 #, kde-format
 msgid "File"
 msgstr "Arquivo"
@@ -8997,7 +8997,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os atalhos da Web..."
 
-#: widgets/kurlrequester.cpp:373
+#: widgets/kurlrequester.cpp:395
 #, kde-format
 msgid "Open file dialog"
 msgstr "Janela de abertura de arquivo"

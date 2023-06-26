@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:45+0000\n"
+"POT-Creation-Date: 2023-06-26 00:43+0000\n"
 "PO-Revision-Date: 2023-03-24 19:37+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -244,7 +244,7 @@ msgid "Creating directory"
 msgstr "Ordnererstellung"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:489
+#: widgets/kurlrequester.cpp:511
 #, kde-format
 msgid "Directory"
 msgstr "Ordner"
@@ -256,7 +256,7 @@ msgid "Deleting"
 msgstr "Löschvorgang"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:488
+#: widgets/kurlrequester.cpp:510
 #, kde-format
 msgid "File"
 msgstr "Datei"
@@ -9079,7 +9079,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Web-Kurzbefehle festlegen ..."
 
-#: widgets/kurlrequester.cpp:373
+#: widgets/kurlrequester.cpp:395
 #, kde-format
 msgid "Open file dialog"
 msgstr "Dateiauswahl"

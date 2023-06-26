@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:45+0000\n"
+"POT-Creation-Date: 2023-06-26 00:43+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -251,7 +251,7 @@ msgid "Creating directory"
 msgstr "डिरेक्ट्री बनाया जा रहा है"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:489
+#: widgets/kurlrequester.cpp:511
 #, kde-format
 msgid "Directory"
 msgstr "डिरेक्ट्री"
@@ -263,7 +263,7 @@ msgid "Deleting"
 msgstr "मिटाया जा रहा है"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:488
+#: widgets/kurlrequester.cpp:510
 #, kde-format
 msgid "File"
 msgstr "फ़ाइल"
@@ -8753,7 +8753,7 @@ msgstr ""
 msgid "Configure Web Shortcuts..."
 msgstr "पॉलिसी बदलें.... (&P)"
 
-#: widgets/kurlrequester.cpp:373
+#: widgets/kurlrequester.cpp:395
 #, kde-format
 msgid "Open file dialog"
 msgstr "फ़ाइल खोलने का संवाद"

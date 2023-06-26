@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:45+0000\n"
+"POT-Creation-Date: 2023-06-26 00:43+0000\n"
 "PO-Revision-Date: 2023-02-05 17:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -239,7 +239,7 @@ msgid "Creating directory"
 msgstr "Map wordt aangemaakt"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:489
+#: widgets/kurlrequester.cpp:511
 #, kde-format
 msgid "Directory"
 msgstr "Map"
@@ -251,7 +251,7 @@ msgid "Deleting"
 msgstr "Verwijderen"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:488
+#: widgets/kurlrequester.cpp:510
 #, kde-format
 msgid "File"
 msgstr "Bestand"
@@ -9052,7 +9052,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Websnelkoppelingen instellen..."
 
-#: widgets/kurlrequester.cpp:373
+#: widgets/kurlrequester.cpp:395
 #, kde-format
 msgid "Open file dialog"
 msgstr "Bestandsdialoog openen"
