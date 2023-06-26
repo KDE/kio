@@ -218,7 +218,7 @@ void KUrlRequesterTest::testNameFilters()
     QCOMPARE(req.filter(), filter);
 #endif
     QCOMPARE(req.nameFilters(), nameFilters);
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
     QCOMPARE(fileDialog->nameFilters(), dialogNameFilters);
 #else
     QCOMPARE(fileDialog->nameFilters(), nameFilters);
@@ -233,7 +233,7 @@ void KUrlRequesterTest::testNameFilters()
     QCOMPARE(req.filter(), filter);
 #endif
     QCOMPARE(req.nameFilters(), nameFilters);
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
     QCOMPARE(fileDialog->nameFilters(), dialogNameFilters);
 #else
     QCOMPARE(fileDialog->nameFilters(), nameFilters);

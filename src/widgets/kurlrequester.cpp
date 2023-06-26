@@ -76,7 +76,7 @@ private:
     QList<QUrl> m_urls;
 };
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
 // regular expression string copied from QPlatformFileDialogHelper
 static const QString filterRegExpString = QStringLiteral("^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$");
 #endif
@@ -600,7 +600,7 @@ void KUrlRequester::setNameFilters(const QStringList &filters)
     d->nameFilters = filters;
 
     if (d->myFileDialog) {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
         d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
 #else
         d->myFileDialog->setNameFilters(d->nameFilters);
@@ -654,7 +654,7 @@ QFileDialog *KUrlRequester::fileDialog() const
         if (!d->mimeTypeFilters.isEmpty()) {
             d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
         } else {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 108)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
             d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
 #else
             d->myFileDialog->setNameFilters(d->nameFilters);
