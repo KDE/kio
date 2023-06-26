@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 02:32+0000\n"
+"POT-Creation-Date: 2023-06-26 02:12+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -237,7 +237,7 @@ msgid "Creating directory"
 msgstr "Stworju zapisk"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:476
+#: widgets/kurlrequester.cpp:498
 #, kde-format
 msgid "Directory"
 msgstr "Zapisk"
@@ -249,7 +249,7 @@ msgid "Deleting"
 msgstr "Wumazam"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:475
+#: widgets/kurlrequester.cpp:497
 #, kde-format
 msgid "File"
 msgstr "Dataja"
@@ -7105,7 +7105,7 @@ msgstr ""
 msgid "Configure Web Shortcuts..."
 msgstr "Strate&giju změnić..."
 
-#: widgets/kurlrequester.cpp:367
+#: widgets/kurlrequester.cpp:389
 #, kde-format
 msgid "Open file dialog"
 msgstr "Dialog za wočinjenje dataje"

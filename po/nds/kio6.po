@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 02:32+0000\n"
+"POT-Creation-Date: 2023-06-26 02:12+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -239,7 +239,7 @@ msgid "Creating directory"
 msgstr "Orner warrt opstellt"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:476
+#: widgets/kurlrequester.cpp:498
 #, kde-format
 msgid "Directory"
 msgstr "Orner"
@@ -251,7 +251,7 @@ msgid "Deleting"
 msgstr "Bi't Wegdoon"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:475
+#: widgets/kurlrequester.cpp:497
 #, kde-format
 msgid "File"
 msgstr "Datei"
@@ -7283,7 +7283,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Söökafkörten"
 
-#: widgets/kurlrequester.cpp:367
+#: widgets/kurlrequester.cpp:389
 #, kde-format
 msgid "Open file dialog"
 msgstr "Dateidialoog opmaken"

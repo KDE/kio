@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 02:32+0000\n"
+"POT-Creation-Date: 2023-06-26 02:12+0000\n"
 "PO-Revision-Date: 2023-06-18 21:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -252,7 +252,7 @@ msgid "Creating directory"
 msgstr "Dizin Oluşturuluyor"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:476
+#: widgets/kurlrequester.cpp:498
 #, kde-format
 msgid "Directory"
 msgstr "Dizin"
@@ -264,7 +264,7 @@ msgid "Deleting"
 msgstr "Siliniyor"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:475
+#: widgets/kurlrequester.cpp:497
 #, kde-format
 msgid "File"
 msgstr "Dosya"
@@ -7006,7 +7006,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Web Kısayollarını Yapılandır..."
 
-#: widgets/kurlrequester.cpp:367
+#: widgets/kurlrequester.cpp:389
 #, kde-format
 msgid "Open file dialog"
 msgstr "Dosya penceresini aç"

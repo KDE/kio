@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 02:32+0000\n"
-"PO-Revision-Date: 2023-06-24 17:09+0200\n"
+"POT-Creation-Date: 2023-06-26 02:12+0000\n"
+"PO-Revision-Date: 2023-06-25 09:45+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -237,7 +237,7 @@ msgid "Creating directory"
 msgstr "საქაღალდის შექმნა"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:476
+#: widgets/kurlrequester.cpp:498
 #, kde-format
 msgid "Directory"
 msgstr "საქაღალდე"
@@ -249,7 +249,7 @@ msgid "Deleting"
 msgstr "წაშლა"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:475
+#: widgets/kurlrequester.cpp:497
 #, kde-format
 msgid "File"
 msgstr "ფაილი"
@@ -1409,6 +1409,8 @@ msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
 "loop, and try again."
 msgstr ""
+"მიმდევრობაში წაშალეთ ერთი ნაწილი, რათა უსასრულო მარყუჟი აღარ კეთდებოდეს და "
+"თავიდან სცადეთ."
 
 #: core/job_error.cpp:676
 #, kde-format
@@ -1463,6 +1465,7 @@ msgid ""
 "The network connection may be incorrectly configured, or the network "
 "interface may not be enabled."
 msgstr ""
+"ქსელური მიერთება არასწორადაა მორგებული ან ქსელის ინტერფეისი ჩართული არაა."
 
 #: core/job_error.cpp:710
 #, kde-format
@@ -1502,6 +1505,8 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
+"ბრანდმაუერი (მოწყობილობა, რომელიც ზღუდავს ინტერნეტთან წვდომას), რომელიც "
+"თქვენ ან სერვერის ქსელს იცავს, შეიძლება ჩაერია და მოთხოვნას ხელი შეუშალა."
 
 #: core/job_error.cpp:730
 #, kde-format
@@ -1514,6 +1519,8 @@ msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
 "was closed at an unexpected point in the communication."
 msgstr ""
+"იმის მიუხედავად, რომ <strong>%1</strong>-თან მიერთება დამყარებულია, კავშირი "
+"მიმოცვლის მოულოდნელ წერტილში დაიხურა."
 
 #: core/job_error.cpp:738
 #, kde-format
@@ -1521,6 +1528,8 @@ msgid ""
 "A protocol error may have occurred, causing the server to close the "
 "connection as a response to the error."
 msgstr ""
+"შეიძლება მოხდა პროტოკოლის შეცდომა, რომელმაც სერვერს პასუხად მიერთების "
+"დახურვა აიძულა."
 
 #: core/job_error.cpp:744
 #, kde-format
@@ -1565,6 +1574,8 @@ msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
 msgstr ""
+"მოთხოვნილი მოწყობილობის ინიციალიზაცია (მიმაგრება) შეუძლებელია. შეცდომა: "
+"<strong>%1</strong>"
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -6714,7 +6725,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "ვებ მალსახმობების მორგება..."
 
-#: widgets/kurlrequester.cpp:367
+#: widgets/kurlrequester.cpp:389
 #, kde-format
 msgid "Open file dialog"
 msgstr "ფაილის გახსნის დიალოგი"
