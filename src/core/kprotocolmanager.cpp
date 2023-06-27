@@ -562,7 +562,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 #ifndef KIO_ANDROID_STUB
             if (protocol.startsWith(QLatin1String("http")) || protocol.startsWith(QLatin1String("ftp"))) {
                 QDBusReply<QStringList> reply =
-                    QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"))
+                    QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/proxyscout"), QStringLiteral("org.kde.KPAC.ProxyScout"))
                         .call(QStringLiteral("proxiesForUrl"), u.toString());
                 proxyList = reply;
             }
@@ -603,7 +603,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 void KProtocolManager::badProxy(const QString &proxy)
 {
 #ifndef KIO_ANDROID_STUB
-    QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
+    QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
 #endif
 
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();

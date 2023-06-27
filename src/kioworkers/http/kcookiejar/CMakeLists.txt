@@ -63,4 +63,4 @@ target_link_libraries(kded_kcookiejar
 
 install( FILES domain_info  DESTINATION  ${KDE_INSTALL_DATADIR_KF}/kcookiejar )
 
-kdbusaddons_generate_dbus_service_file(kded5 org.kde.kcookiejar5 ${KDE_INSTALL_FULL_BINDIR})
+kdbusaddons_generate_dbus_service_file(kded6 org.kde.kcookiejar5 ${KDE_INSTALL_FULL_BINDIR})

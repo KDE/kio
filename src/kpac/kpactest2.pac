@@ -5,7 +5,7 @@
    To use this script, select "Use automatic proxy configuration URL:" in the
    KDE proxy configuration dialog and run:
 
-   qdbus org.kde.kded5 /modules/proxyscout proxyForUrl http://blah (URL doesn't matter)
+   qdbus org.kde.kded6 /modules/proxyscout proxyForUrl http://blah (URL doesn't matter)
 
    If everything succeeds, the output you get will be http://<your IP>/. If not,
    you would get http://<your IP>/<test-result> where <test-result> contains the

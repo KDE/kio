@@ -15,7 +15,7 @@
 
 static void callKded(const QString &arg1, const QString &arg2)
 {
-    QDBusInterface iface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"));
+    QDBusInterface iface(QStringLiteral("org.kde.kded6"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded6"));
     iface.call(arg1, arg2);
 }
 

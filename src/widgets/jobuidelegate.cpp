@@ -119,7 +119,7 @@ public:
             m_windowList.insert(obj, windowId);
             connect(window, &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
 #ifndef KIO_ANDROID_STUB
-            QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
+            QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded6"))
                 .call(QDBus::NoBlock, QStringLiteral("registerWindowId"), qlonglong(windowId));
 #endif
         }
@@ -139,7 +139,7 @@ public Q_SLOTS:
         disconnect(it.key(), &QObject::destroyed, this, &JobUiDelegateStatic::slotUnregisterWindow);
         m_windowList.erase(it);
 #ifndef KIO_ANDROID_STUB
-        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded5"))
+        QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/kded"), QStringLiteral("org.kde.kded6"))
             .call(QDBus::NoBlock, QStringLiteral("unregisterWindowId"), qlonglong(windowId));
 #endif
     }
