@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-26 02:12+0000\n"
-"PO-Revision-Date: 2023-02-07 10:50-0300\n"
+"PO-Revision-Date: 2023-06-26 17:13-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2638,16 +2638,15 @@ msgstr ""
 "'%1'."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Não foi possível encontrar o executável 'kioslave5' em '%1'"
+msgstr "Não foi possível encontrar o executável 'kioworker' em '%1'"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3267,7 +3266,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Reformatar ou editar com o gerenciador de partições"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -6222,11 +6221,9 @@ msgstr "Variáveis de ambiente:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Digite aqui o nome do usuário que você deseja que execute este aplicativo."
+msgstr "Digite o comando para iniciar este aplicativo aqui."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -6253,20 +6250,7 @@ msgstr "&Navegar..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -6281,10 +6265,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Digite aqui o comando para iniciar este aplicativo.\n"
+"Digite os argumentos a usar quando iniciar este aplicativo aqui.\n"
 "\n"
-"Após o comando, você pode ter vários campos que serão substituídos pelos "
-"valores reais, quando o programa for executado:\n"
+"Você pode ter vários campos que serão substituídos pelos valores reais, "
+"quando o programa for executado:\n"
 "\n"
 "%f - um único nome de arquivo\n"
 "%F - uma lista de arquivos (para aplicativos que podem abrir vários de uma "
@@ -6297,10 +6281,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumentos:"
+msgstr "&Argumentos:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
