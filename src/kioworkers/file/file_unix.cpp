@@ -164,42 +164,6 @@ bool FileProtocol::isExtendedACL(acl_t acl)
 }
 #endif
 
-static QString getUserName(KUserId uid)
-{
-    thread_local QHash<KUserId, QString> staticUserCache;
-    if (Q_UNLIKELY(!uid.isValid())) {
-        return QString();
-    }
-    auto it = staticUserCache.find(uid);
-    if (it == staticUserCache.end()) {
-        KUser user(uid);
-        QString name = user.loginName();
-        if (name.isEmpty()) {
-            name = uid.toString();
-        }
-        it = staticUserCache.insert(uid, name);
-    }
-    return *it;
-}
-
-static QString getGroupName(KGroupId gid)
-{
-    thread_local QHash<KGroupId, QString> staticGroupCache;
-    if (Q_UNLIKELY(!gid.isValid())) {
-        return QString();
-    }
-    auto it = staticGroupCache.find(gid);
-    if (it == staticGroupCache.end()) {
-        KUserGroup group(gid);
-        QString name = group.name();
-        if (name.isEmpty()) {
-            name = gid.toString();
-        }
-        it = staticGroupCache.insert(gid, name);
-    }
-    return *it;
-}
-
 #if HAVE_STATX
 // statx syscall is available
 inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
