@@ -40,7 +40,6 @@ target_sources(kurisearchfilter PRIVATE
 target_link_libraries(kurisearchfilter
    KF6::KIOWidgets     # KUriFilter
    KF6::I18n
-   Qt6::Core5Compat # QTextCodec
    Qt6::DBus
 )
 if (ENABLE_PCH)
