@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 02:12+0000\n"
+"POT-Creation-Date: 2023-06-28 02:09+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KDE protokollt: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1248
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2419,7 +2419,7 @@ msgid " (Points to %1)"
 msgstr " (Ide mutat: %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:610
+#: widgets/renamedialog.cpp:617
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4330,22 +4330,22 @@ msgstr ""
 "Forrás: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:860
+#: kioworkers/file/file_unix.cpp:824
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:1082
+#: kioworkers/file/file_unix.cpp:1046
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1374
+#: kioworkers/file/file_unix.cpp:1338
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1385
+#: kioworkers/file/file_unix.cpp:1349
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
@@ -7172,22 +7172,22 @@ msgstr "Adatformátum:"
 msgid "Filename for dropped contents:"
 msgstr "Ejtett tartalmak fájlneve:"
 
-#: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
+#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
 #, kde-format
 msgid "Date: %1"
 msgstr "Dátum: %1"
 
-#: widgets/renamedialog.cpp:70 widgets/renamedialog.cpp:425
+#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
 #, kde-format
 msgid "Size: %1"
 msgstr "Méret: %1"
 
-#: widgets/renamedialog.cpp:226
+#: widgets/renamedialog.cpp:227
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Alkalma&zás az összesre"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:228
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7200,7 +7200,7 @@ msgstr ""
 "Hacsak nem nyomja meg a Kihagyás gombot, minden konfliktusnál válaszolnia "
 "kell egy kérdésre."
 
-#: widgets/renamedialog.cpp:231
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7209,38 +7209,38 @@ msgstr ""
 "Ha be van jelölve, a megnyomott gomb kerül alkalmazásra az összes további "
 "ütközésre az aktuális feladatban."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:238
 #, kde-format
 msgid "&Rename"
 msgstr "Átneve&zés"
 
-#: widgets/renamedialog.cpp:239
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Új név a&jánlása"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:246
 #, kde-format
 msgid "&Skip"
 msgstr "Ki&hagyás"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "A mappa másolásának/mozgatásának kihagyása, ugrás a következőre"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Nem kell átmásolni/áthelyezni ezt a fájlt, ugrás a következőre"
 
-#: widgets/renamedialog.cpp:258
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "Írás &ebbe"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7251,13 +7251,13 @@ msgstr ""
 "A fájlok és mappák tartalmukkal együtt lesznek átmásolva.\n"
 "Ütköző fájlok esetén figyelmezető üzenet jelenik meg."
 
-#: widgets/renamedialog.cpp:266
+#: widgets/renamedialog.cpp:267
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Régebbi fájl&ok felülírása"
 
-#: widgets/renamedialog.cpp:270
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -7266,12 +7266,12 @@ msgstr ""
 "A forrás felül fogja írni a régebbi módosítási dátumú cálfájlt, egyébként "
 "átugorja."
 
-#: widgets/renamedialog.cpp:282
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgid "&Resume"
 msgstr "F&olytatás"
 
-#: widgets/renamedialog.cpp:291
+#: widgets/renamedialog.cpp:292
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7280,57 +7280,63 @@ msgstr ""
 "Ez a művelet felülírná a(z) '%1' fájlt saját magával.\n"
 "Adjon meg más fájlnevet:"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "C&ontinue"
 msgstr "F&olytatás"
 
-#: widgets/renamedialog.cpp:369
+#: widgets/renamedialog.cpp:370
 #, kde-format
 msgid "This action will overwrite the destination."
 msgstr "Ez a művelet felülírja a célt."
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:372
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "This action will merge the contents of '%1' into '%2'."
+msgstr "Ez a művelet felülírja a célt."
+
+#: widgets/renamedialog.cpp:381
 #, kde-format
 msgid "Source"
 msgstr "Forrás"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:383
 #, kde-format
 msgid "Destination"
 msgstr "Cél"
 
-#: widgets/renamedialog.cpp:397
+#: widgets/renamedialog.cpp:404
 #, kde-format
 msgid "Differences"
 msgstr "Különbségek"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:425
 #, kde-format
 msgid "The destination is <b>smaller by %1</b>"
 msgstr "A cél <b>kisebb ennyivel: %1</b>"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:428
 #, kde-format
 msgid "The destination is <b>bigger by %1</b>"
 msgstr "A cél <b>nagyobb ennyivel: %1</b>"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are identical."
 msgstr "A fájlok azonosak."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:445
 #, kde-format
 msgid "The files seem identical."
 msgstr "A fájlok azonosnak tűnnek."
 
-#: widgets/renamedialog.cpp:441
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The files are different."
 msgstr "A fájlok különbözőek"
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:456
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7339,22 +7345,22 @@ msgstr ""
 "A fájlok valószínűleg azonosak: a méretük egyforma, a tartalmuk pedig "
 "egyezik a fájlok elején, közepén és végén."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:474
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Már létezik egy régebbi elem: '%1'."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:476
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Már létezik egy hasonló, %1 nevű fájl."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:478
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Már létezik egy újabb elem: „%1”."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "Rename:"
 msgstr "Átnevezés:"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 02:12+0000\n"
+"POT-Creation-Date: 2023-06-28 02:09+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "IO-mooduli loomine nurjus: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1248
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2395,7 +2395,7 @@ msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:610
+#: widgets/renamedialog.cpp:617
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4281,22 +4281,22 @@ msgstr ""
 "Allikas: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:860
+#: kioworkers/file/file_unix.cpp:824
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Faili kopeerimine asukohast %1 asukohta %2 nurjus (viga: %3)."
 
-#: kioworkers/file/file_unix.cpp:1082
+#: kioworkers/file/file_unix.cpp:1046
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Andmekandja pole %1 seadmes"
 
-#: kioworkers/file/file_unix.cpp:1374
+#: kioworkers/file/file_unix.cpp:1338
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Määratud kasutajanimele %1 ei õnnestunud hankida kasutaja ID-d."
 
-#: kioworkers/file/file_unix.cpp:1385
+#: kioworkers/file/file_unix.cpp:1349
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Määratud grupi nimele %1 ei õnnestunud hankida grupi ID-d"
@@ -7088,22 +7088,22 @@ msgstr "Andmevorming:"
 msgid "Filename for dropped contents:"
 msgstr "Lohistatud sisu failinimi:"
 
-#: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
+#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
 #, kde-format
 msgid "Date: %1"
 msgstr "Kuupäev: %1"
 
-#: widgets/renamedialog.cpp:70 widgets/renamedialog.cpp:425
+#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
 #, kde-format
 msgid "Size: %1"
 msgstr "Suurus: %1"
 
-#: widgets/renamedialog.cpp:226
+#: widgets/renamedialog.cpp:227
 #, kde-format
 msgid "Appl&y to All"
 msgstr "&Rakendatakse kõigile"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:228
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7116,7 +7116,7 @@ msgstr ""
 "Kui sa ei klõpsa \"Jäta vahele\", küsitatakse sinu käest siiski uuesti, kui "
 "tekib konflikt kataloogis olemasoleva failiga."
 
-#: widgets/renamedialog.cpp:231
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -7125,38 +7125,38 @@ msgstr ""
 "Märkimisel rakendatakse vajutatud nuppu ülejäänud aktiivse töö kestel "
 "kõigile edasistele konfliktidele."
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:238
 #, kde-format
 msgid "&Rename"
 msgstr "Nimeta ümbe&r"
 
-#: widgets/renamedialog.cpp:239
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Paku uus &nimi"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:246
 #, kde-format
 msgid "&Skip"
 msgstr "&Jäta vahele"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Seda kataloogi ei kopeerita ega liigutata, vaid hüpatakse järgmisele"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Seda faili ei kopeerita ega liigutata, vaid hüpatakse järgmisele"
 
-#: widgets/renamedialog.cpp:258
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "Kir&juta kataloogi"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7169,13 +7169,13 @@ msgstr ""
 "Seda küsitatakse siiski uuesti, kui tekib konflikt kataloogis olemasoleva "
 "failiga."
 
-#: widgets/renamedialog.cpp:266
+#: widgets/renamedialog.cpp:267
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Kirjuta vanemad failid üle"
 
-#: widgets/renamedialog.cpp:270
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -7184,12 +7184,12 @@ msgstr ""
 "Sihtkohas olevad failid, mille muutmisaeg on vanem kui lähtefailidel, "
 "kirjutatakse lähtefailidega üle, muul juhul jäetakse vahele."
 
-#: widgets/renamedialog.cpp:282
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgid "&Resume"
 msgstr "Jä&tka"
 
-#: widgets/renamedialog.cpp:291
+#: widgets/renamedialog.cpp:292
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7198,57 +7198,63 @@ msgstr ""
 "See tegevus soovib %1 iseendaga üle kirjutada.\n"
 "Palun määra uus failinimi:"
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Jätka"
 
-#: widgets/renamedialog.cpp:369
+#: widgets/renamedialog.cpp:370
 #, kde-format
 msgid "This action will overwrite the destination."
 msgstr "See tegevus kirjutab sihtfaili üle."
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:372
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "This action will merge the contents of '%1' into '%2'."
+msgstr "See tegevus kirjutab sihtfaili üle."
+
+#: widgets/renamedialog.cpp:381
 #, kde-format
 msgid "Source"
 msgstr "Lähtefail"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:383
 #, kde-format
 msgid "Destination"
 msgstr "Sihtfail"
 
-#: widgets/renamedialog.cpp:397
+#: widgets/renamedialog.cpp:404
 #, kde-format
 msgid "Differences"
 msgstr "Erinevused"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:425
 #, kde-format
 msgid "The destination is <b>smaller by %1</b>"
 msgstr "Sihtfail on <b>%1 võrra väiksem</b>."
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:428
 #, kde-format
 msgid "The destination is <b>bigger by %1</b>"
 msgstr "Sihtfail on <b>%1 võrra suurem</b>."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are identical."
 msgstr "Failid on identsed."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:445
 #, kde-format
 msgid "The files seem identical."
 msgstr "Failid näivad identsed."
 
-#: widgets/renamedialog.cpp:441
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The files are different."
 msgstr "Failid on erinevad."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:456
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7257,22 +7263,22 @@ msgstr ""
 "Failid on tõenäoliselt identsed: nad on sama suured ja nende sisu on nii "
 "alguses, keskel kui ka lõpus ühesugune."
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:474
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Vanem element nimega '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:476
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Samasuguse nimega fail '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:478
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Uuem element nimega '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "Rename:"
 msgstr "Uus nimi:"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 02:12+0000\n"
-"PO-Revision-Date: 2023-06-25 09:45+0200\n"
+"POT-Creation-Date: 2023-06-28 02:09+0000\n"
+"PO-Revision-Date: 2023-06-27 09:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1284
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1248
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2291,7 +2291,7 @@ msgid " (Points to %1)"
 msgstr " (მიუთითებს %1-ზე)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:610
+#: widgets/renamedialog.cpp:617
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -3562,6 +3562,8 @@ msgid ""
 "it being shown before other items when sorting alphabetically, among other "
 "potential oddities."
 msgstr ""
+"სახელი <filename>%1</filename> გამოტოვებით იწყება, რაც სხვა უცნაურობებთან "
+"ერთად იმასაც გამოიწვევს, რომ ის სიაში ყოველთვის პირველი იქნება."
 
 #: filewidgets/knewfilemenu.cpp:1169
 #, kde-format
@@ -3590,6 +3592,8 @@ msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
+"ფაილის ან საქაღალდის სახელის ტილდით დაწყება რეკომენდებული არაა, რადგან ის "
+"დამაბნეველია და საშიშია, როცა ფაილების წასაშლელად ტერმინალს იყენებთ."
 
 #: filewidgets/knewfilemenu.cpp:1274
 #, kde-kuit-format
@@ -4116,22 +4120,22 @@ msgstr ""
 "წყარო: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:860
+#: kioworkers/file/file_unix.cpp:824
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"
 
-#: kioworkers/file/file_unix.cpp:1082
+#: kioworkers/file/file_unix.cpp:1046
 #, kde-format
 msgid "No media in device for %1"
 msgstr "მოწყობილობაში მედია არ დევს %1-თვის"
 
-#: kioworkers/file/file_unix.cpp:1374
+#: kioworkers/file/file_unix.cpp:1338
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "მომხმარებლის, %1, uid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix.cpp:1385
+#: kioworkers/file/file_unix.cpp:1349
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
@@ -4214,6 +4218,8 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
+"საიტებთან წვდომისთვის ქვემოთ მოყვანილ პროქსი სერვერისთვის მომხმარებლის "
+"სახელი და პაროლია საჭირო."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
 #: kioworkers/http/http.cpp:5210
@@ -4366,7 +4372,7 @@ msgctxt "%1: request type, %2: url"
 msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
-msgstr ""
+msgstr "შეცდომა %1-ის დროს. %2. მიზეზები იხილეთ ქვემოთ."
 
 #: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
@@ -5211,6 +5217,8 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
+"მართლა გნებავთ ამ ელემენტის ნაგვის ყუთში გადატანა?<nl/><filename>%1</"
+"filename>"
 
 #: widgets/jobuidelegate.cpp:314
 #, kde-format
@@ -5617,7 +5625,7 @@ msgstr ""
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
-msgstr ""
+msgstr "ამოირჩიეთ პროგრამა ამორჩეული ფაილების გასახსნელად."
 
 #: widgets/kopenwithdialog.cpp:589
 #, kde-format
@@ -5728,6 +5736,8 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
+"'%1'-დან გამშვები სახელის გამოღება შეუძლებელია. აკრიფეთ სწორი პროგრამის "
+"სახელი."
 
 #: widgets/kopenwithdialog.cpp:1034
 #, kde-kuit-format
@@ -6789,22 +6799,22 @@ msgstr "მონაცემების ფორმატი:"
 msgid "Filename for dropped contents:"
 msgstr "მოცილებული შემცველობის ფაილის სახელი:"
 
-#: widgets/renamedialog.cpp:63 widgets/renamedialog.cpp:406
+#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
 #, kde-format
 msgid "Date: %1"
 msgstr "თარიღი: %1"
 
-#: widgets/renamedialog.cpp:70 widgets/renamedialog.cpp:425
+#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
 #, kde-format
 msgid "Size: %1"
 msgstr "ზომა: %1"
 
-#: widgets/renamedialog.cpp:226
+#: widgets/renamedialog.cpp:227
 #, kde-format
 msgid "Appl&y to All"
 msgstr "ყველაზე &გადატარება"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:228
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6813,48 +6823,48 @@ msgid ""
 "an existing file in the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:231
+#: widgets/renamedialog.cpp:232
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 
-#: widgets/renamedialog.cpp:237
+#: widgets/renamedialog.cpp:238
 #, kde-format
 msgid "&Rename"
 msgstr "&გადარქმევა"
 
-#: widgets/renamedialog.cpp:239
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "ახალი &სახელი"
 
-#: widgets/renamedialog.cpp:245
+#: widgets/renamedialog.cpp:246
 #, kde-format
 msgid "&Skip"
 msgstr "გამო&ტოვება"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "ეს საქაღალდე არ დაკოპირდება და არც გადატანილი იქნება. შემდეგ ელემენტზე "
 "გადახტომა"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "ეს ფაილი არ დაკოპირდება და არც გადატანილი იქნება. შემდეგ ელემენტზე გადახტომა"
 
-#: widgets/renamedialog.cpp:258
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&ჩაწერა"
 
-#: widgets/renamedialog.cpp:261
+#: widgets/renamedialog.cpp:262
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6863,104 +6873,110 @@ msgid ""
 "the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:266
+#: widgets/renamedialog.cpp:267
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&ძველი ფაილების თავზე გადაწერა"
 
-#: widgets/renamedialog.cpp:270
+#: widgets/renamedialog.cpp:271
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:282
+#: widgets/renamedialog.cpp:283
 #, kde-format
 msgid "&Resume"
 msgstr "გაგრძელება"
 
-#: widgets/renamedialog.cpp:291
+#: widgets/renamedialog.cpp:292
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
 
-#: widgets/renamedialog.cpp:297
+#: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "C&ontinue"
 msgstr "გაგრ&ძელება"
 
-#: widgets/renamedialog.cpp:369
+#: widgets/renamedialog.cpp:370
 #, kde-format
 msgid "This action will overwrite the destination."
 msgstr "ეს ქმედება სამიზნეს თავზე გადააწერს."
 
-#: widgets/renamedialog.cpp:374
+#: widgets/renamedialog.cpp:372
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "This action will merge the contents of '%1' into '%2'."
+msgstr "ეს ქმედება სამიზნეს თავზე გადააწერს."
+
+#: widgets/renamedialog.cpp:381
 #, kde-format
 msgid "Source"
 msgstr "წყარო"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:383
 #, kde-format
 msgid "Destination"
 msgstr "დანიშნულება"
 
-#: widgets/renamedialog.cpp:397
+#: widgets/renamedialog.cpp:404
 #, kde-format
 msgid "Differences"
 msgstr "განსხვავებები"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:425
 #, kde-format
 msgid "The destination is <b>smaller by %1</b>"
 msgstr "სამიზნე <b>%1-ით პატარაა</b>"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:428
 #, kde-format
 msgid "The destination is <b>bigger by %1</b>"
 msgstr "სამიზნე <b>%1-ით დიდია</b>"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:442
 #, kde-format
 msgid "The files are identical."
 msgstr "ფაილები ერთნაირია."
 
-#: widgets/renamedialog.cpp:438
+#: widgets/renamedialog.cpp:445
 #, kde-format
 msgid "The files seem identical."
 msgstr "ფაილები ერთნაირია."
 
-#: widgets/renamedialog.cpp:441
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The files are different."
 msgstr "ფაილები განსხვავდება."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:456
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:467
+#: widgets/renamedialog.cpp:474
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "ძველი ჩანაწერი სახელით '%1' უკვე არსებობს."
 
-#: widgets/renamedialog.cpp:469
+#: widgets/renamedialog.cpp:476
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "მსგავსი ფაილი სახელით '%1' უკვე არსებობს."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:478
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "უფრო ახალი ჩანაწერი სახელით '%1' უკვე არსებობს."
 
-#: widgets/renamedialog.cpp:484
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "Rename:"
 msgstr "სახელის შეცვლა:"
