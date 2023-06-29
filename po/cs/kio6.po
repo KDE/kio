@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-28 02:09+0000\n"
-"PO-Revision-Date: 2023-06-23 11:52+0200\n"
+"PO-Revision-Date: 2023-06-28 14:14+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -7155,10 +7155,9 @@ msgid "This action will overwrite the destination."
 msgstr "Tato činnost by přepsala cíl."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Tato činnost by přepsala cíl."
+msgstr "Tato činnost sloučí obsah '%1' do '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format

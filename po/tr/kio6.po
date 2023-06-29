@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-28 02:09+0000\n"
-"PO-Revision-Date: 2023-06-18 21:37+0300\n"
+"PO-Revision-Date: 2023-06-28 12:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1062,7 +1062,7 @@ msgstr ""
 #: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "Dosya okumaya ya da klasörü açmaya yetkiniz yok."
+msgstr "Dosyayı okumak veya klasörü açmak için yeterli izniniz olmayabilir."
 
 #: core/job_error.cpp:442
 #, kde-format
@@ -7194,10 +7194,9 @@ msgid "This action will overwrite the destination."
 msgstr "Bu eylem, hedefin üzerine yazacak."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Bu eylem, hedefin üzerine yazacak."
+msgstr "Bu eylem, '%1' içeriğini '%2' ile birleştirecek."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format

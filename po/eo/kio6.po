@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-28 02:09+0000\n"
-"PO-Revision-Date: 2023-06-17 10:47+0100\n"
+"PO-Revision-Date: 2023-06-28 22:29+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2623,7 +2623,7 @@ msgstr "Ne povas trovi 'kioworker' ruleblan ĉe '%1'"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -7224,10 +7224,9 @@ msgid "This action will overwrite the destination."
 msgstr "Ĉi tiu ago anstataŭigos la celon."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Ĉi tiu ago anstataŭigos la celon."
+msgstr "Ĉi tiu ago kunfandos la enhavon de '%1' en '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format

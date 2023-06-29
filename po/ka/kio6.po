@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-28 02:09+0000\n"
-"PO-Revision-Date: 2023-06-27 09:09+0200\n"
+"PO-Revision-Date: 2023-06-28 05:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1146,6 +1146,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"შეგიძლიათ ინტერნეტში პროგრამული დამატებით (რომელსაც \"KIO Worker\" ქვია) "
+"მოძებნოთ, რომელსაც ამ პროტოკოლის მხარდაჭერა გააჩნია. მოსაძებნი ადგილი "
+"შეიცავს საიტს <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -1174,6 +1177,9 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
+"KDE-ს აქვს კავშირის საშუალება პროტოკოლით, რომელიც სხვა პროტოკოლშია. "
+"მითითებული პროტოკოლი მხოლოდ ამ სიტუაციისთვისაა, მაგრამ ის ახლა არ ხდება. ეს "
+"იშვიათი მოვლენაა, რომელიც ხშირად პროგრამისტის შეცდომაზე მიუთითებს."
 
 #: core/job_error.cpp:525
 #, kde-format
@@ -1388,6 +1394,9 @@ msgid ""
 "of the folder, and the KDE program supporting this protocol is unable to do "
 "so."
 msgstr ""
+"ეს ნიშნავს, რომ გაიგზავნა მოთხოვნა, რომელსაც საქაღალდის შემცველობის გარკვევა "
+"სჭირდება და KDE-ის პროგრამამ რომელიც ამ პროტოკოლის მხარდაჭერას უზრუნველყოფს, "
+"ეს ვერ შეძლო."
 
 #: core/job_error.cpp:659
 #, kde-format
@@ -1457,6 +1466,8 @@ msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr ""
+"ეს საკმაოდ ტექნიკური შეცდომაა, რომელშიც ქსელური კავშირის მოწყობილობის "
+"(სოკეტის) შექმნა შეუძლებელია."
 
 #: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
 #: core/job_error.cpp:877
@@ -1548,6 +1559,9 @@ msgid ""
 "strong>ocator (URL) that you entered did not refer to a valid mechanism of "
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
+"<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator "
+"(URL) რომელიც შეიყვანეთ, არ მიუთითებს სწორ მექანიზმზე, რომელიც მითითებულ "
+"რესურსთან, <strong>%1%2</strong> წვდომისთვისაა საჭირო."
 
 #: core/job_error.cpp:754
 #, kde-format
@@ -1557,6 +1571,10 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
+"KDE-ს აქვს საშუალება პროტოკოლის შიგნით მდებარე პროტოკოლით ურთიერთობის. ამას "
+"გამოსაყენებელი პროტოკოლის მითითება სჭირდება, მაგრამ ამ პროტოკოლს ამის "
+"საშუალება არ გააჩნა. ეს იშვიათი მოვლენაა და როგორც წესი პროგრამისტის "
+"შეცდომას ნიშნავს."
 
 #: core/job_error.cpp:762
 #, kde-format
@@ -1599,6 +1617,9 @@ msgid ""
 "Check that the device is ready; removable drives must contain media, and "
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
+"შეამოწმეთ, მზადაა თუა რა მოწყობილობა. მოხსნადი მოწყობილობები მედიას უნდა "
+"შეიცავდნენ და გადატანადი მოწყობილობები შეერთებული და ჩართული უნდა იყოს... და "
+"თავიდან სცადეთ."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -1616,6 +1637,8 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
+"მოთხოვნილი მოწყობილობის ინიციალიზაციის გაუქმება (მოხსნა) შეუძლებელია. "
+"შეცდომა: <strong>%1</strong>"
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1979,6 +2002,8 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
+"დიდი ალბათობით ეს გამოიწვია შეცდომამ პროგრამაში. გთხოვთ ატვირთოთ შეცდომის "
+"სრული ანგარიში, როგორც ქვემოთაა აღწერილი."
 
 #: core/job_error.cpp:1085
 #, kde-format
@@ -3493,6 +3518,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
+"<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
+"რომელშიც ეს ფაილი შეინახება.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2778
 #, kde-format
@@ -4425,6 +4452,8 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
+"%1 შეუძლებელია, რადგან სამიზნე სერვერი ფალის ან საქაღალდის მიღებაზე უარს "
+"აცხადებს."
 
 #: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
@@ -4432,6 +4461,8 @@ msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
+"სამიზნე რესურსს ამ მეთოდის შესრულების შემდეგ რესურსის მდგომარეობის შესანახად "
+"საკმარისი ადგილი არ გააჩნია."
 
 #: kioworkers/http/http.cpp:1738
 #, kde-format
@@ -4600,6 +4631,8 @@ msgid ""
 "Select this option to only accept or reject this cookie. You will be "
 "prompted again if you receive another cookie."
 msgstr ""
+"აირჩიეთ ეს პარამეტრი ამ ქუქის მხოლოდ მისაღებად ან უარსაყოფად. სხვა ქუქისთვის "
+"ცალკე გკითხავთ."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:167
 #, kde-format
