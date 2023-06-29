@@ -155,3 +155,5 @@ void KRecentDocumentTest::testXbelBookmarkMaxEntries()
 }
 
 QTEST_MAIN(KRecentDocumentTest)
+
+#include "moc_krecentdocumenttest.cpp"

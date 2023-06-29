@@ -89,3 +89,5 @@ void KFileCustomDialog::accept()
     d->mFileWidget->accept();
     QDialog::accept();
 }
+
+#include "moc_kfilecustomdialog.cpp"

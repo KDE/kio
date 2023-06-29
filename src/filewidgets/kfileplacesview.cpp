@@ -2070,4 +2070,5 @@ void KFilePlacesView::dataChanged(const QModelIndex &topLeft, const QModelIndex 
     }
 }
 
+#include "moc_kfileplacesview.cpp"
 #include "moc_kfileplacesview_p.cpp"

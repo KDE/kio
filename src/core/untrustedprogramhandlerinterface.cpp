@@ -114,3 +114,5 @@ bool UntrustedProgramHandlerInterface::setExecuteBit(const QString &fileName, QS
 
     return true;
 }
+
+#include "moc_untrustedprogramhandlerinterface.cpp"

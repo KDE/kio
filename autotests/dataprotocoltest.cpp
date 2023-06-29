@@ -287,3 +287,5 @@ void DataProtocolTest::runAllTests_data()
                "version%3D%221.1%22%3E%0A%20%20%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2225%22%20stroke%3D%22black"
                "%22%20stroke-width%3D%221%22%20fill%3D%22green%22%2F%3E%0A%3C%2Fsvg%3E%0A");
 }
+
+#include "moc_dataprotocoltest.cpp"

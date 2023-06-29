@@ -109,3 +109,5 @@ void KUriFilterSearchProviderActions::slotHandleWebShortcutAction(QAction *actio
         QDesktopServices::openUrl(filterData.uri());
     }
 }
+
+#include "moc_kurifiltersearchprovideractions.cpp"

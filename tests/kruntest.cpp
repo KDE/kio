@@ -165,3 +165,5 @@ int main(int argc, char **argv)
     Receiver receiver;
     return app.exec();
 }
+
+#include "moc_kruntest.cpp"

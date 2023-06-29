@@ -70,3 +70,5 @@ bool LocalDomainUriFilter::exists(const QString &host) const
 K_PLUGIN_CLASS_WITH_JSON(LocalDomainUriFilter, "localdomainurifilter.json")
 
 #include "localdomainurifilter.moc"
+
+#include "moc_localdomainurifilter.cpp"

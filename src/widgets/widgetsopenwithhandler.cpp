@@ -75,3 +75,5 @@ void KIO::WidgetsOpenWithHandler::promptUserForApplication(KJob *job, const QLis
     });
     dialog->show();
 }
+
+#include "moc_widgetsopenwithhandler.cpp"

@@ -987,3 +987,5 @@ WorkerResult FileProtocol::fileSystemFreeSpace(const QUrl &url)
 
 // needed for JSON file embedding
 #include "file.moc"
+
+#include "moc_file.cpp"

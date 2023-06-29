@@ -116,3 +116,5 @@ void PrivilegeJobTest::privileSymlink()
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
     QCOMPARE(job->queryMetaData("TestData"), QStringLiteral("PrivilegeOperationAllowed"));
 }
+
+#include "moc_privilegejobtest.cpp"

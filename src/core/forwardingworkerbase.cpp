@@ -467,3 +467,5 @@ void ForwardingWorkerBasePrivate::_k_slotCanResume(KIO::Job * /*job*/, KIO::file
 }
 
 } // namespace KIO
+
+#include "moc_forwardingworkerbase.cpp"

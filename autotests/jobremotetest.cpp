@@ -478,3 +478,5 @@ void JobRemoteTest::slotFileJob4Truncated(KIO::Job *job, KIO::filesize_t length)
         qDebug() << "Truncating file finished";
     }
 }
+
+#include "moc_jobremotetest.cpp"

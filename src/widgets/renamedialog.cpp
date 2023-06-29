@@ -815,3 +815,5 @@ QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileIte
 
     return metaDataArea;
 }
+
+#include "moc_renamedialog.cpp"

@@ -284,3 +284,5 @@ void KACLTest::testNewMask()
     QCOMPARE(int(CharlesII.maskPermissions(dummy)), 6);
     QVERIFY(dummy); // mask exists now
 }
+
+#include "moc_kacltest.cpp"

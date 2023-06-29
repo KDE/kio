@@ -179,3 +179,5 @@ ClipboardUpdater::ClipboardUpdater(Job *job, JobUiDelegateExtension::ClipboardUp
     Q_ASSERT(job);
     connect(job, &KJob::result, this, &ClipboardUpdater::slotResult);
 }
+
+#include "moc_clipboardupdater_p.cpp"

@@ -589,3 +589,5 @@ void OpenUrlJobTest::writeApplicationDesktopFile(const QString &filePath, const 
     group.writeEntry("Exec", command);
     QVERIFY(file.sync());
 }
+
+#include "moc_openurljobtest.cpp"

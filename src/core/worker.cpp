@@ -402,3 +402,5 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
 
     return worker;
 }
+
+#include "moc_worker_p.cpp"

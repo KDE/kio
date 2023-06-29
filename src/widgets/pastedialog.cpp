@@ -65,3 +65,5 @@ int KIO::PasteDialog::comboItem() const
 {
     return m_comboBox->currentIndex();
 }
+
+#include "moc_pastedialog_p.cpp"

@@ -243,3 +243,5 @@ void CommandLauncherJobTest::shouldDoNothingOnEmptyCommand()
     // Wait for KProcessRunner to be deleted
     QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
+
+#include "moc_commandlauncherjobtest.cpp"

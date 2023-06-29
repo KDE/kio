@@ -13,3 +13,5 @@ WorkerFactory::WorkerFactory(QObject *parent)
 }
 
 } // namespace KIO
+
+#include "moc_workerfactory.cpp"

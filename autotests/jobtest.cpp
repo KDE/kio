@@ -2903,3 +2903,5 @@ void JobTest::cancelCopyAndCleanDest()
     // we need to give some time to the KIO worker to finish the file cleaning
     QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
 }
+
+#include "moc_jobtest.cpp"

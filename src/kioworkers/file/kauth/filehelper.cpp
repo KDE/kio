@@ -273,3 +273,5 @@ ActionReply FileHelper::exec(const QVariantMap &args)
 }
 
 KAUTH_HELPER_MAIN("org.kde.kio.file", FileHelper)
+
+#include "moc_filehelper.cpp"

@@ -88,3 +88,5 @@ void KFileItemActionsTest::testTopLevelServiceMenuActions()
 }
 
 QTEST_MAIN(KFileItemActionsTest)
+
+#include "moc_kfileitemactionstest.cpp"

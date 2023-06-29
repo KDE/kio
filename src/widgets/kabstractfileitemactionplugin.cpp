@@ -15,3 +15,5 @@ KAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin(QObject *parent)
 KAbstractFileItemActionPlugin::~KAbstractFileItemActionPlugin()
 {
 }
+
+#include "moc_kabstractfileitemactionplugin.cpp"

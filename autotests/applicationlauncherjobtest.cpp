@@ -430,3 +430,5 @@ QString ApplicationLauncherJobTest::createTempService()
     m_filesToRemove.append(fakeService);
     return fakeService;
 }
+
+#include "moc_applicationlauncherjobtest.cpp"

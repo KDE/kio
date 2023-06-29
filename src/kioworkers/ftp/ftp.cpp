@@ -2629,3 +2629,5 @@ QDebug operator<<(QDebug dbg, const Result &r)
 
 // needed for JSON file embedding
 #include "ftp.moc"
+
+#include "moc_ftp.cpp"

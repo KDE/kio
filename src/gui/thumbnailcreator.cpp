@@ -140,3 +140,5 @@ ThumbnailCreator::ThumbnailCreator(QObject *parent, const QVariantList &args)
 
 ThumbnailCreator::~ThumbnailCreator() = default;
 };
+
+#include "moc_thumbnailcreator.cpp"

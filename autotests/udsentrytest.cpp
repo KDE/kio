@@ -310,3 +310,5 @@ void UDSEntryTest::testEquality()
 }
 
 QTEST_MAIN(UDSEntryTest)
+
+#include "moc_udsentrytest.cpp"

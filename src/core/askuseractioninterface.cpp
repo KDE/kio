@@ -23,3 +23,5 @@ KIO::AskUserActionInterface::AskUserActionInterface(QObject *parent)
 KIO::AskUserActionInterface::~AskUserActionInterface()
 {
 }
+
+#include "moc_askuseractioninterface.cpp"

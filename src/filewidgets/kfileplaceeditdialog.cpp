@@ -205,3 +205,5 @@ bool KFilePlaceEditDialog::applicationLocal() const
 
     return m_appLocal->isChecked();
 }
+
+#include "moc_kfileplaceeditdialog.cpp"

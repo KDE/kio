@@ -133,3 +133,4 @@ void KIOExecd::slotCheckDeletedFiles()
 }
 
 #include "kioexecd.moc"
+#include "moc_kioexecd.cpp"

@@ -169,3 +169,5 @@ QString KTerminalLauncherJob::fullCommand() const
 {
     return d->m_fullCommand;
 }
+
+#include "moc_kterminallauncherjob.cpp"

@@ -506,3 +506,4 @@ static void registerJobUiDelegate()
 Q_CONSTRUCTOR_FUNCTION(registerJobUiDelegate)
 
 #include "jobuidelegate.moc"
+#include "moc_jobuidelegate.cpp"

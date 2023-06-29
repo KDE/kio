@@ -146,3 +146,5 @@ void KUrlComboBoxTest::testSetMaxItems()
     // THEN
     QCOMPARE(combo.urls(), QStringList());
 }
+
+#include "moc_kurlcomboboxtest.cpp"

@@ -375,3 +375,5 @@ void WorkerInterface::slotHostInfo(const QHostInfo &info)
     stream << info.hostName() << info.addresses() << info.error() << info.errorString();
     m_connection->send(CMD_HOST_INFO, data);
 }
+
+#include "moc_workerinterface_p.cpp"

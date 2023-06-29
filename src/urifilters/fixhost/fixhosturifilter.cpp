@@ -79,3 +79,5 @@ bool FixHostUriFilter::exists(const QString &host) const
 K_PLUGIN_CLASS_WITH_JSON(FixHostUriFilter, "fixhosturifilter.json")
 
 #include "fixhosturifilter.moc"
+
+#include "moc_fixhosturifilter.cpp"

@@ -1744,3 +1744,5 @@ void KDirModelTest::testQUrlHash()
     // qDebug() << "looking up" << count << "urls into QHash using new qHash:" << dt.elapsed() << "msecs";
     // Nice results: for count=30000 I got 4296 (before) and 63 (after)
 }
+
+#include "moc_kdirmodeltest.cpp"

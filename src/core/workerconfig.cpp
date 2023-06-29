@@ -218,3 +218,5 @@ void WorkerConfig::reset()
 }
 
 }
+
+#include "moc_workerconfig.cpp"

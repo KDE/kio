@@ -186,3 +186,5 @@ KPreviewWidgetBase *KFileMetaPreview::createAudioPreview(QWidget *parent)
         return nullptr;
     }
 }
+
+#include "moc_kfilemetapreview_p.cpp"

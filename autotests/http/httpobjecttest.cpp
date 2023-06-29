@@ -38,3 +38,5 @@ void TestHTTPProtocol::testParseContentDisposition(const QString &disposition)
 {
     parseContentDisposition(disposition);
 }
+
+#include "moc_httpobjecttest.cpp"

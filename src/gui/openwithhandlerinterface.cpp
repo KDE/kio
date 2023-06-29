@@ -31,3 +31,5 @@ void OpenWithHandlerInterface::promptUserForApplication(KJob *job, const QList<Q
     Q_UNUSED(mimeType)
     Q_EMIT canceled();
 }
+
+#include "moc_openwithhandlerinterface.cpp"

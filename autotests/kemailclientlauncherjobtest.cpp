@@ -63,3 +63,5 @@ void KEMailClientLauncherJobTest::testAttachments()
     const QString expected = "mailto:?attach=" + path + "&attach=" + path;
     QCOMPARE(job.mailToUrl().toString(), expected);
 }
+
+#include "moc_kemailclientlauncherjobtest.cpp"

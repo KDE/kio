@@ -358,4 +358,5 @@ QStringList ProxyScout::handleRequest(const QUrl &url)
 }
 }
 
+#include "moc_proxyscout.cpp"
 #include "proxyscout.moc"

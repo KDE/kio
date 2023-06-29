@@ -5461,3 +5461,5 @@ KIO::WorkerResult HTTPProtocol::fileSystemFreeSpace(const QUrl &url)
 
 // needed for JSON file embedding
 #include "http.moc"
+
+#include "moc_http.cpp"

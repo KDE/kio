@@ -517,3 +517,5 @@ void KUriFilterTest::relativeGoUp()
     // Then the text isn't filtered and returned as-is
     QVERIFY(!KUriFilter::self()->filterUri(filteredData, filtersList));
 }
+
+#include "moc_kurifiltertest.cpp"

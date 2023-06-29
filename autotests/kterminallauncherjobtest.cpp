@@ -160,3 +160,5 @@ void KTerminalLauncherJobTest::startTerminal()
 }
 
 #endif
+
+#include "moc_kterminallauncherjobtest.cpp"

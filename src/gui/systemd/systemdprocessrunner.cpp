@@ -219,3 +219,5 @@ void SystemdProcessRunner::systemdError(const QString &message)
     Q_EMIT error(message);
     deleteLater();
 }
+
+#include "moc_systemdprocessrunner_p.cpp"

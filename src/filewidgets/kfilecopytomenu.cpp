@@ -255,3 +255,6 @@ void KFileCopyToDirectoryMenu::slotAboutToShow()
         addMenu(subMenu);
     }
 }
+
+#include "moc_kfilecopytomenu.cpp"
+#include "moc_kfilecopytomenu_p.cpp"

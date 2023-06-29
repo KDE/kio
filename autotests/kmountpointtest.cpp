@@ -173,3 +173,5 @@ void KMountPointTest::testPossibleMountPoints()
     QVERIFY(!rootMountPoint->probablySlow());
 #endif
 }
+
+#include "moc_kmountpointtest.cpp"

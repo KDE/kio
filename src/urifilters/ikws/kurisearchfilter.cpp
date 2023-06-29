@@ -71,3 +71,5 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
 }
 
 #include "kurisearchfilter.moc"
+
+#include "moc_kurisearchfilter.cpp"

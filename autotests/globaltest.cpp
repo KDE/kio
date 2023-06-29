@@ -61,3 +61,5 @@ void GlobalTest::testOtherPermissionConversion()
     perms = (QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
     QCOMPARE(qPermissions & perms, perms);
 }
+
+#include "moc_globaltest.cpp"

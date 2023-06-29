@@ -372,3 +372,5 @@ void KCookieWin::slotToggleDetails()
         m_detailView->show();
     }
 }
+
+#include "moc_kcookiewin.cpp"

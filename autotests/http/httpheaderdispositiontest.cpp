@@ -377,3 +377,5 @@ void HeaderDispositionTest::runAllTests()
 
     runTest(header, result);
 }
+
+#include "moc_httpheaderdispositiontest.cpp"

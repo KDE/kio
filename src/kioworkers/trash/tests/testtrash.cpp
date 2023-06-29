@@ -1380,3 +1380,5 @@ void TestTrash::testIcons()
 }
 
 QTEST_GUILESS_MAIN(TestTrash)
+
+#include "moc_testtrash.cpp"
