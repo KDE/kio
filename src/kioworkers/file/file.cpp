@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000-2002 Waldo Bastian <bastian@kde.org>
     SPDX-FileCopyrightText: 2006 Allan Sandfeld Jensen <sandfeld@kde.org>
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -557,6 +558,21 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
         return WorkerResult::pass();
     }
 
+    // Don't change permissions of the original file
+    if (bOrigExists) {
+        _mode = static_cast<int>(buff_orig.st_mode);
+        // Make sure the value fit by casting it back. mode_t is possibly larger than int
+        Q_ASSERT(static_cast<decltype(buff_orig.st_mode)>(_mode) == buff_orig.st_mode);
+    }
+#if !defined(Q_OS_WIN)
+    uid_t owner = -1;
+    gid_t group = -1;
+    if (bOrigExists) {
+        owner = buff_orig.st_uid;
+        group = buff_orig.st_gid;
+    }
+#endif
+
     int result;
     int error = 0;
     QString dest;
@@ -717,6 +733,15 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
             }
         }
     }
+
+    // set original owner and group
+#if !defined(Q_OS_WIN)
+    if (bOrigExists) {
+        if (::chown(qUtf8Printable(dest_orig), owner, group) < 0) {
+            warning(i18nc("@info", "Could not change owner and group for\n%1", dest_orig));
+        }
+    }
+#endif
 
     // set modification time
     const QString mtimeStr = metaData(QStringLiteral("modified"));
