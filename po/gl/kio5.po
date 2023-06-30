@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-26 00:43+0000\n"
-"PO-Revision-Date: 2023-06-24 12:49+0200\n"
+"PO-Revision-Date: 2023-06-29 08:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -910,13 +910,13 @@ msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr ""
-"Contacte co sistema de asistencia informática axeitado, sexa o administrador "
-"do sistema ou un grupo de asistencia técnica, para máis axuda."
+"Contacte co sistema de asistencia informática axeitado, sexa a persoa "
+"administradora do sistema ou un grupo de asistencia técnica, para máis axuda."
 
 #: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
-msgstr "Contacte co administrador do servidor para máis axuda."
+msgstr "Contacte coa persoa administradora do servidor para máis axuda."
 
 #: core/job_error.cpp:377
 #, kde-format
@@ -989,12 +989,12 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
-"Se todo o demais falla, pense en axudarlle ao equipo de KDE ou ao mantedor "
-"deste software enviándolle un bo informe do fallo. Se o software o fornece "
-"un terceiro, contacte con el directamente. Polo demais, primeiro mire a ver "
-"se outra persoa xa informou do mesmo fallo facendo unha busca na <a href="
-"\"https://bugs.kde.org/\">web de informe de fallo de KDE</a>. Senón, tome "
-"nota dos detalles indicados enriba, e inclúaos no seu informe de fallo, "
+"Se todo o demais falla, pense en axudarlle ao equipo de KDE ou á persoa "
+"mantedora deste software enviándolle un bo informe do fallo. Se o software o "
+"fornece un terceiro, contacte con el directamente. Polo demais, primeiro "
+"mire a ver se outra persoa xa informou do mesmo fallo facendo unha busca na "
+"<a href=\"https://bugs.kde.org/\">web de informe de fallo de KDE</a>. Senón, "
+"tome nota dos detalles indicados enriba, e inclúaos no seu informe de fallo, "
 "xunto co resto de detalles que considere relevantes."
 
 #: core/job_error.cpp:407
@@ -1571,7 +1571,7 @@ msgid ""
 msgstr ""
 "Pode que interviñese unha devasa (un dispositivo que restrinxe as "
 "solicitudes a Internet), que protexendo a súa rede ou a rede do servidor, "
-"evitase esta solicutude."
+"evitase esta solicitude."
 
 #: core/job_error.cpp:730
 #, kde-format
@@ -1668,7 +1668,7 @@ msgid ""
 "device."
 msgstr ""
 "Pode que non teña permisos para inicializar («montar») o dispositivo. En "
-"sistemas UNIX, normalmente requírense privilexios de administrador para "
+"sistemas UNIX, normalmente requírense privilexios de administración para "
 "inicializar un dispositivo."
 
 #: core/job_error.cpp:779
@@ -2090,7 +2090,8 @@ msgstr ""
 #: core/job_error.cpp:1085
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
-msgstr "Contacte co administrador do servidor para avisalo do problema."
+msgstr ""
+"Contacte coa persoa administradora do servidor para avisalo do problema."
 
 #: core/job_error.cpp:1088
 #, kde-format
@@ -4725,7 +4726,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "Activar as coo&kies"
+msgstr "Activar os rastros."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4753,7 +4754,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "Aceptar &só as cookies procedentes o servidor orixinario"
+msgstr "Aceptar &só as cookies procedentes o servidor orixinario."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4779,7 +4780,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr "Aceptar automat&icamente as cookies de sesión"
+msgstr "Aceptar automat&icamente as cookies de sesión."
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -5283,7 +5284,7 @@ msgstr ""
 "<p>\n"
 "Se non está seguro de se precisa ou non un servidor mandatario para "
 "conectarse a Internet, consulte a guía de configuración do seu fornecedor de "
-"servizos de Internet ou contacte co administrador do seu sistema.\n"
+"servizos de Internet ou contacte coa persoa administradora do seu sistema.\n"
 "</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
@@ -5559,7 +5560,7 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:324
 #, kde-format
 msgid "Show the &value of the environment variables"
-msgstr "Amosar o &valor das variábeis de contorno"
+msgstr "Amosar o &valor das variábeis de contorno."
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:343
@@ -5600,7 +5601,7 @@ msgstr "Insira o número de porto do servidor mandatario HTTP."
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr "&Usar este servidor mandatario para todos os protocolos"
+msgstr "&Usar este servidor mandatario para todos os protocolos."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -5844,7 +5845,7 @@ msgstr ""
 #: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
-msgstr "© 1998-2000,2003 Os desenvolvedores de KFM/Konqueror"
+msgstr "© 1998-2000, 2003 Equipo de desenvolvemento de KFM e Konqueror"
 
 #: kioexec/main.cpp:291
 #, kde-format
@@ -6648,13 +6649,13 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr "&Activar as palabras clave de busca web"
+msgstr "&Activar as palabras clave de busca web."
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr "&Usar só as palabras clave preferidas"
+msgstr "&Usar só as palabras clave preferidas."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
@@ -7813,7 +7814,7 @@ msgstr ""
 "%u : un único URL\n"
 "%U : unha lista de URL\n"
 "%d : o cartafol do ficheiro que se vai abrir\n"
-"%D : unha lista de directorios\n"
+"%D : unha lista de cartafoles\n"
 "%i : a icona\n"
 "%m : a mini-icona\n"
 "%c : o comentario"
@@ -7905,7 +7906,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:54
 #, kde-format
 msgid "Run in terminal"
-msgstr "Executar nun terminal"
+msgstr "Executar nun terminal."
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:61
@@ -7929,7 +7930,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:74
 #, kde-format
 msgid "Do not close when command exits"
-msgstr "Non pechar cando a orde saia"
+msgstr "Non pechar cando a orde saia."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2_2)
 #: widgets/kpropertiesdesktopadvbase.ui:87
@@ -7989,7 +7990,7 @@ msgstr "Procesador gráfico discreto"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Executar usando unha tarxeta gráfica dedicada"
+msgstr "Executar usando unha tarxeta gráfica dedicada."
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -8015,7 +8016,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr "Activar o aviso de inicio"
+msgstr "Activar o aviso de inicio."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -9099,7 +9100,7 @@ msgstr ""
 "Os ficheiros e cartafoles copiaranse no cartafol xa existente, xunto co "
 "contido que xa teña.\n"
 "Volverá preguntárselle se houbese algún conflito con algún ficheiro xa "
-"existente no directorio."
+"existente no cartafol."
 
 #: widgets/renamedialog.cpp:266
 #, kde-format
