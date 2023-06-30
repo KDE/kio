@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 02:09+0000\n"
-"PO-Revision-Date: 2023-06-28 05:23+0200\n"
+"POT-Creation-Date: 2023-06-30 02:08+0000\n"
+"PO-Revision-Date: 2023-06-29 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2904,6 +2904,8 @@ msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
 "on the button to select a different icon.</qt>"
 msgstr ""
+"<qt>ეს ხატულა მდებარეობების პანელში გამოჩნდება.<br /><br />სხვა ხატულის "
+"ასარჩევად ღილაკზე დააწკაპუნეთ.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
@@ -3398,7 +3400,7 @@ msgstr ""
 msgid "&Name:"
 msgstr "&სახელი:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1379
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3407,91 +3409,91 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "ეს არის შესანახი ფაილის სახელი."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1394
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ეს არის გასახსნელი ფაილის სახელი."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "ადგილები"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ფაილ %1 უკვე არსებობს. გნებავთ გადავაწეროთ?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1626
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ჩავანაცვლო ფაილი?"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "You can only select local files."
 msgstr "შეგიძლიათ მონიშნოთ მხოლოდ ადგილობრივი ფაილები."
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "დაშორებული ფაილები მიუღებელია"
 
-#: filewidgets/kfilewidget.cpp:1906
+#: filewidgets/kfilewidget.cpp:1913
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|ყველა საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:1908
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Files"
 msgstr "*|ყველა ფაილი"
 
-#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
 
-#: filewidgets/kfilewidget.cpp:2159
+#: filewidgets/kfilewidget.cpp:2166
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ხატულის ზომა: %1 პიქსელი"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ფაილის გაფართოების ავტომატური მითითება (%1)"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "გაფართოება <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ფაილის გაფართოების ავტომატური მითითება"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "a suitable extension"
 msgstr "შესატყვისი გაფართოება"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2330
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3507,12 +3509,12 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2782
 #, kde-format
 msgid "&File type:"
 msgstr "&ფაილის ტიპი:"
 
-#: filewidgets/kfilewidget.cpp:2776
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3521,12 +3523,12 @@ msgstr ""
 "<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
 "რომელშიც ეს ფაილი შეინახება.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2778
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&Filter:"
 msgstr "&ფილტრი:"
 
-#: filewidgets/kfilewidget.cpp:2780
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4494,6 +4496,9 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
+"<p>აპირებთ შეხვიდეთ საიტზე \"%1\" მომხმარებლის სახელით \"%2\", მაგრამ საიტი "
+"ავთენტიკაციას არ მოითხოვს. ამან შეიძლება დაგაბნიოთ. </p><p>არის თუ არა "
+"საიტი, რომელზეც შესვლას აპირებთ \"%1\"?</p>"
 
 #: kioworkers/http/http.cpp:2922
 #, kde-format
@@ -4572,7 +4577,9 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] ""
+"<p>მიიღეთ ქუქი <br/><b>%2%3-სგან</b><br/>მიიღებთ ამ ქუქის, თუ არა?</p>"
 msgstr[1] ""
+"<p>მიიღეთ %1 ქუქი <br/><b>%2%3-სგან</b><br/>მიიღებთ ამ ქუქიებს, თუ არა?</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:84
 #, kde-format
@@ -5202,6 +5209,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
+"მართლა გნებავთ ამ ელემენტის წაშლა?<nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
 #: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
@@ -5236,6 +5245,8 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"მართლა გნებავთ სანაგვე ყუთიდან ყველა ელემენტის სამუდამოდ წაშლა?<nl/><nl/"
+"><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
@@ -5700,6 +5711,8 @@ msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr ""
+"<qt>აირჩიეთ პროგრამა. თუ პროგრამა ჩამონათვალში არაა, შეიყვანეთ მისი სახელი "
+"და მოძებნის ღილაკს დააწექით.<qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
@@ -5707,6 +5720,8 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
+"აპლიკაციების გასაფილტრად აკრიფეთ ქვემოთ, ან ბრძანების სახელი შეიყვანეთ.\n"
+"შედეგებში ნავიგაციისთვის ქვემოთ ჩამოსვლის ისარს დააჭირეთ."
 
 #: widgets/kopenwithdialog.cpp:698
 #, kde-format
@@ -5974,7 +5989,7 @@ msgstr "პროგრამა:"
 msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
-msgstr ""
+msgstr "ფაილურ სისტემაში სასურველი გამშვები ფაილის მოსაძებნად აქ დააწკაპუნეთ."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:120
@@ -6918,6 +6933,8 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
+"სამიზნე ფილები, რომლებსაც უფრო ძველი ცვლილების დროები გააჩნიათ, თავზე იქნება "
+"გადაწერილი საწყისი ფაილებით. სხვა შემთხვევაში კი - გამოტოვებული იქნება."
 
 #: widgets/renamedialog.cpp:283
 #, kde-format
@@ -6930,6 +6947,8 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
+"ეს ქმედებ '%1'-ს თავზე საკუთარ თავს გადააწერს.\n"
+"შეიყვანეთ ახალი ფაილის სახელი:"
 
 #: widgets/renamedialog.cpp:298
 #, kde-format
@@ -6942,10 +6961,9 @@ msgid "This action will overwrite the destination."
 msgstr "ეს ქმედება სამიზნეს თავზე გადააწერს."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "ეს ქმედება სამიზნეს თავზე გადააწერს."
+msgstr "ეს ქმედებ '%1'-ის შემცველობას '%2'-ს შეერთებს."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
@@ -6993,6 +7011,8 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
+"ფაილები სავარაუდოდ იდენტურია: მათი ზომები ტოლია და მათ შემცველობა "
+"დასაწყისში, შუაში და ბოლოში ერთმანეთს ემთხვევა."
 
 #: widgets/renamedialog.cpp:474
 #, kde-format
@@ -7169,6 +7189,8 @@ msgid ""
 "The remote host did not send any SSL certificates.\n"
 "Aborting because the identity of the host cannot be established."
 msgstr ""
+"დაშორებულ ჰოსტს SSL სერტიფიკატები არ გამოუგზავნია.\n"
+"მუშაობა შეწყდება, რადგან ჰოსტის იდენტიფიკატია შეუძლებელია."
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -7178,6 +7200,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
+"მართლა გნებავთ ამ ელემენტის წაშლა??<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>ეს ქმედებ შეუქცევადია.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
@@ -7189,7 +7213,11 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
+"მართლა გნებვთ ამ %1 ელემენტის წაშლა?<nl/><nl/><emphasis strong='true'>ეს "
+"ქმედება შეუქცევადია.</emphasis>"
 msgstr[1] ""
+"მართლა გნებვთ ამ %1 ელემენტის წაშლა?<nl/><nl/><emphasis strong='true'>ეს "
+"ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:248
 #, kde-kuit-format
@@ -7199,6 +7227,9 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"ამ ფაილის ნაგვის ყუთში გადატანა შეუძლებელი, რადგან ის მეტისმეტად დიდია. "
+"წავშალო ფაილი სამუდამოდ?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
@@ -7212,7 +7243,11 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
+"ეს %1 ელემენტი სანაგვე ყუთში გადასატანად ძალიან დიდია. წავშალო ისინი "
+"სამუდამოდ?<nl/><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 msgstr[1] ""
+"ეს %1 ელემენტი სანაგვე ყუთში გადასატანად ძალიან დიდია. წავშალო ისინი "
+"სამუდამოდ?<nl/><emphasis strong='true'>ეს ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:283
 #, kde-kuit-format

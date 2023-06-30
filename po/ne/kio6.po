@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 02:09+0000\n"
+"POT-Creation-Date: 2023-06-30 02:08+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3639,7 +3639,7 @@ msgstr ""
 msgid "&Name:"
 msgstr "नाम:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1379
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3656,12 +3656,12 @@ msgstr ""
 "आकृति दायाँ माउस बटनसँग क्लिक गरेर र रुचाइएका मोड <b>पाठ समाप्ति</b> मेनुबाट चयन गरेर "
 "नियन्त्रण गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "यस रूपमा बचत गरिने फाइलको नाम यो हो ।"
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3670,81 +3670,81 @@ msgstr ""
 "यो खोलिने फाइलहरूको सूची हो । विभिन्न फाइलहरू सूची अनुरुप, खाली ठाउँद्वारा विभाजित एक "
 "भन्दा बढी फाइल निर्दिष्ट गर्न सकिनेछ ।"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1394
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "यो खोलिने फाइलको नाम हो ।"
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1407
 #, fuzzy, kde-format
 #| msgid "Places"
 msgctxt "@title:window"
 msgid "Places"
 msgstr "राख्दछ"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1626
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "सबै अधिलेखन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "You can only select local files."
 msgstr "तपाईँ स्थानीय फाइलहरू मात्र चयन गर्न सक्नुहुन्छ ।"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "टाढाको फाइल स्वीकार गरिएन"
 
-#: filewidgets/kfilewidget.cpp:1906
+#: filewidgets/kfilewidget.cpp:1913
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|सबै फोल्डर"
 
-#: filewidgets/kfilewidget.cpp:1908
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Files"
 msgstr "*|सबै फाइल"
 
-#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "खोल्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2159
+#: filewidgets/kfilewidget.cpp:2166
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "(%1) फाइलनाम विस्तार स्वचालित रूपमा चयन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "विस्तार <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "फाइलनाम विस्तार स्वचालित तरिकाले चयन गर्नुहोस्"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "a suitable extension"
 msgstr "उचित विस्तार"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2330
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3781,25 +3781,25 @@ msgstr ""
 "गरि यो थिच्न सक्नुहुन्छ (अवधि स्वत: हट्नेछ).</li></ol>यदि अनिश्चित भएमा, यो विकल्प "
 "यसको रूपमा सक्षम राख्नुहोस् तपाईँको फाइलहरू बढी व्यवस्थित पार्दछ ।"
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2782
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "फिल्टर:"
 
-#: filewidgets/kfilewidget.cpp:2776
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2778
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&Filter:"
 msgstr "फिल्टर:"
 
-#: filewidgets/kfilewidget.cpp:2780
+#: filewidgets/kfilewidget.cpp:2787
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the filter to apply to the file list. File names that do not "

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 02:09+0000\n"
+"POT-Creation-Date: 2023-06-30 02:08+0000\n"
 "PO-Revision-Date: 2023-06-28 22:29+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3516,7 +3516,7 @@ msgstr ""
 msgid "&Name:"
 msgstr "&Nomo:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1379
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3528,12 +3528,12 @@ msgstr ""
 "Ĉi tiu funkcio povas esti kontrolita klakante per la dekstra musbutono kaj "
 "elektante preferatan reĝimon el la menuo <b>Tekstokompletigo</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ĉi tiu estas la nomo por konservi la dosieron kiel."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3542,79 +3542,79 @@ msgstr ""
 "Jen la listo de dosieroj por malfermi. Pli ol unu dosiero povas esti "
 "specifita listigante plurajn dosierojn, apartigitajn per spacoj."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1394
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Jen la nomo de la dosiero por malfermi."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Lokoj"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "La dosiero \"%1\" jam ekzistas. Ĉu vi volas anstataŭigi ĝin?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1626
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Ĉu anstataŭigi dosieron?"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vi povas nur elekti lokajn dosierojn."
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Foraj Dosieroj Ne Akceptitaj"
 
-#: filewidgets/kfilewidget.cpp:1906
+#: filewidgets/kfilewidget.cpp:1913
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Ĉiuj Dosierujoj"
 
-#: filewidgets/kfilewidget.cpp:1908
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Ĉiuj dosieroj"
 
-#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Malfermi"
 
-#: filewidgets/kfilewidget.cpp:2159
+#: filewidgets/kfilewidget.cpp:2166
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Grando de piktogramoj: %1 pikseloj"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Aŭtomate elekti dosiernoman fin&aĵon (%1)"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "la etendo <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Aŭtomate elekti dosiernoman fin&aĵon"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "a suitable extension"
 msgstr "taŭga etendo"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2330
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3641,12 +3641,12 @@ msgstr ""
 "forigita).</li></ol>Se ne certas, tenu ĉi tiun opcion ebligita ĉar ĝi faras "
 "viajn dosierojn pli regeblaj."
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2782
 #, kde-format
 msgid "&File type:"
 msgstr "&Dosiertipo:"
 
-#: filewidgets/kfilewidget.cpp:2776
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3655,12 +3655,12 @@ msgstr ""
 "<qt>Ĉi tio estas la dosiertipelektilo. Ĝi estas uzata por elekti la "
 "formaton, kiel la dosiero estos konservita.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2778
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtrilo:"
 
-#: filewidgets/kfilewidget.cpp:2780
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

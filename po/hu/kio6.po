@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 02:09+0000\n"
+"POT-Creation-Date: 2023-06-30 02:08+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3546,7 +3546,7 @@ msgstr ""
 msgid "&Name:"
 msgstr "Né&v:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1379
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3559,12 +3559,12 @@ msgstr ""
 "egérgombbal a mezőre kattint és kiválaszt egy módot a <b>Szövegkiegészítés</"
 "b> menüből.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ez lesz a menteni kívánt fájl új neve."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3573,79 +3573,79 @@ msgstr ""
 "Ez a megnyitandó fájlok listája. Több fájlnév is megadható szóközökkel "
 "elválasztva."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1394
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ez a megnyitandó fájl neve."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Helyek"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Már létezik ez a fájl: %1. Felül szeretné írni?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1626
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Felülírás?"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "You can only select local files."
 msgstr "Csak helyi fájlokat lehet kiválasztani."
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Távoli fájlokat nem lehet megadni"
 
-#: filewidgets/kfilewidget.cpp:1906
+#: filewidgets/kfilewidget.cpp:1913
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Minden mappa"
 
-#: filewidgets/kfilewidget.cpp:1908
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Minden fájl"
 
-#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "Meg&nyitás"
 
-#: filewidgets/kfilewidget.cpp:2159
+#: filewidgets/kfilewidget.cpp:2166
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikonméret: %1 képpont"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "A fájlnév kiterjesztésének a&utomatikus kiválasztása (%1)"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "a(z) <b>%1</b> kiterjesztés"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "A fájlnév kiterjesztésének au&tomatikus kiválasztása"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "a suitable extension"
 msgstr "egy alkalmas fájlkiterjesztés"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2330
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3672,12 +3672,12 @@ msgstr ""
 "távolítva).</li></ol>Érdemes bekapcsolva hagyni ezt az opciót, mert "
 "megkönnyíti a fájlkezelést."
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2782
 #, kde-format
 msgid "&File type:"
 msgstr "&Fájltípus:"
 
-#: filewidgets/kfilewidget.cpp:2776
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3686,12 +3686,12 @@ msgstr ""
 "<qt>Ez egy fájltípusválasztó. A fájl mentésekor használt formátum "
 "kiválasztására használják.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2778
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&Filter:"
 msgstr "&Szűrő:"
 
-#: filewidgets/kfilewidget.cpp:2780
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

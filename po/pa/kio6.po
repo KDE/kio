@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 02:09+0000\n"
+"POT-Creation-Date: 2023-06-30 02:08+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3353,7 +3353,7 @@ msgstr ""
 msgid "&Name:"
 msgstr "ਨਾਂ(&N):"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1379
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3365,12 +3365,12 @@ msgstr ""
 "ਬਟਨ ਦਬਾ ਕੇ ਰੱਖਣ ਅਤੇ <b>ਟੈਕਸਟ ਮੁਕੰਮਲ</b> ਮੇਨ ਤੋਂ ਪਸੰਦੀਦਾ ਢੰਗ ਚੁਣ ਕੇ ਕੰਟਰੋਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1386
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "ਇਹ ਫਾਈਲ ਸੰਭਾਲਣ ਲਈ ਫਾਈਲ ਨਾਂ ਹੈ।"
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1389
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3379,79 +3379,79 @@ msgstr ""
 "ਇਹ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਫਾਈਲ ਨਾਂ ਹੈ। ਕਈ ਫਾਈਲਾਂ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਤੋਂ ਵੱਧ ਫਾਈਲਾਂ ਖਾਲੀ ਥਾਂ ਛੱਡ ਕੇ ਦਿੱਤੀਆਂ "
 "ਜਾ ਸਕਦੀਆਂ ਹਨ।"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1394
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ਇਹ ਖੋਲ੍ਹਣ ਲਈ ਫਾਈਲ ਦਾ ਨਾਂ ਹੈ।"
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1407
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "ਥਾਵਾਂ"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ਫ਼ਾਈਲ \"%1\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸ ਉੱਤੇ ਲਿਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1626
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ਫ਼ਾਈਲ ਉੱਤੇ ਲਿਖਣਾ ਹੈ?"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "You can only select local files."
 msgstr "ਤੁਸੀ ਕੇਵਲ ਲੋਕਲ ਫਾਈਲਾਂ ਹੀ ਚੁਣ ਸਕਦੇ ਹੋ।"
 
-#: filewidgets/kfilewidget.cpp:1812
+#: filewidgets/kfilewidget.cpp:1819
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "ਰਿਮੋਟ ਫਾਈਲ ਸਵੀਕਾਰ ਨਹੀਂ ਹਨ"
 
-#: filewidgets/kfilewidget.cpp:1906
+#: filewidgets/kfilewidget.cpp:1913
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|ਸਭ ਫੋਲਡਰ"
 
-#: filewidgets/kfilewidget.cpp:1908
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Files"
 msgstr "*|ਸਭ ਫਾਈਲਾਂ"
 
-#: filewidgets/kfilewidget.cpp:2058 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "ਖੋਲ੍ਹੋ(&O)"
 
-#: filewidgets/kfilewidget.cpp:2159
+#: filewidgets/kfilewidget.cpp:2166
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ਆਈਕਾਨ ਸਾਈਜ਼: %1 ਪਿਕਸਲ"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ਆਟੋਮੈਟਿਕ ਹੀ ਫਾਈਲ ਨਾਂ ਐਕਸ਼ਟੈਸ਼ਨ ਚੁਣੋ (%1)(&x)"
 
-#: filewidgets/kfilewidget.cpp:2308
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ਇਕਸਟੈਨਸ਼ਨ <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ਆਟੋਮੈਟਿਕ ਚੁਣੀ ਫਾਈਲ-ਨਾਂ ਇਕਸਟੈਨਸ਼ਨ(&x)"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "a suitable extension"
 msgstr "ਇੱਕ ਢੁੱਕਵੀਂ ਇਕਸਟੈਨਸ਼ਨ"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2330
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3467,24 +3467,24 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2775
+#: filewidgets/kfilewidget.cpp:2782
 #, kde-format
 msgid "&File type:"
 msgstr "ਫ਼ਾਈਲ ਕਿਸਮ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2776
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2778
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid "&Filter:"
 msgstr "ਫਿਲਟਰ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2780
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
