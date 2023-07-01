@@ -87,3 +87,5 @@ void SessionData::reset()
 }
 
 }
+
+#include "moc_sessiondata_p.cpp"

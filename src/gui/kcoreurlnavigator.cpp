@@ -258,3 +258,5 @@ int KCoreUrlNavigator::historyIndex() const
 {
     return d->m_historyIndex;
 }
+
+#include "moc_kcoreurlnavigator.cpp"

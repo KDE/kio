@@ -172,3 +172,5 @@ DavJob *KIO::davReport(const QUrl &url, const QString &report, const QString &de
     job->addMetaData(QStringLiteral("davDepth"), depth);
     return job;
 }
+
+#include "moc_davjob.cpp"

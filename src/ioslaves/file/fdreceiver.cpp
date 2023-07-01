@@ -71,3 +71,5 @@ int FdReceiver::fileDescriptor() const
 {
     return m_fileDes;
 }
+
+#include "moc_fdreceiver.cpp"

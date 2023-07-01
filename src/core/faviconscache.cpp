@@ -177,3 +177,5 @@ bool FavIconsCache::isFailedDownload(const QUrl &url) const
     QMutexLocker locker(&d->mutex);
     return d->failedDownloads.contains(url);
 }
+
+#include "moc_faviconscache_p.cpp"

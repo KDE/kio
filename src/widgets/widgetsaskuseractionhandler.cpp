@@ -558,3 +558,5 @@ void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
 {
     d->m_parentWidget = window;
 }
+
+#include "moc_widgetsaskuseractionhandler.cpp"

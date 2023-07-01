@@ -59,3 +59,5 @@ void KSslCertificateBox::clear()
     d->ui.state->clear();
     d->ui.city->clear();
 }
+
+#include "moc_ksslcertificatebox.cpp"

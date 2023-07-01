@@ -82,3 +82,5 @@ void Downloader::result(KJob *job)
     }
 }
 }
+
+#include "moc_downloader.cpp"

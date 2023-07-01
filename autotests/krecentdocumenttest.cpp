@@ -132,3 +132,5 @@ void KRecentDocumentTest::testXbelBookmark()
 }
 
 QTEST_MAIN(KRecentDocumentTest)
+
+#include "moc_krecentdocumenttest.cpp"

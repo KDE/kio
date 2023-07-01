@@ -450,3 +450,5 @@ QString KCookiesPolicies::quickHelp() const
         " it to accept. This enables you to receive cookies from trusted"
         " web sites without being asked every time KDE receives a cookie.</p>");
 }
+
+#include "moc_kcookiespolicies.cpp"

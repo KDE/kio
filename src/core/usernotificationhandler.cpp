@@ -129,3 +129,5 @@ void UserNotificationHandler::slotProcessRequest(int result)
         processRequest();
     }
 }
+
+#include "moc_usernotificationhandler_p.cpp"

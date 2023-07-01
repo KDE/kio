@@ -520,3 +520,5 @@ ForkingProcessRunner::ForkingProcessRunner()
     : KProcessRunner()
 {
 }
+
+#include "moc_kprocessrunner_p.cpp"

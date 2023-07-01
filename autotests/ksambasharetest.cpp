@@ -56,3 +56,5 @@ void KSambaShareTest::testOwnAcl()
         QCOMPARE(shareData.setAcl(shareData.acl()), KSambaShareData::UserShareAclOk);
     }
 }
+
+#include "moc_ksambasharetest.cpp"

@@ -1552,3 +1552,5 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
         return false;
     } // switch (event->type())
 }
+
+#include "moc_kfileitemdelegate.cpp"

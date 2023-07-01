@@ -824,3 +824,5 @@ void KFileItemTest::testNonWritableDirectory()
 }
 
 #endif // Q_OS_WIN
+
+#include "moc_kfileitemtest.cpp"

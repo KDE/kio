@@ -137,3 +137,5 @@ void MimeTypeFinderJobTest::ftpUrlWithKIO()
     QVERIFY(job->errorString() == QLatin1String("Could not connect to host localhost: Connection refused.")
             || job->errorString() == QLatin1String("Could not connect to host localhost: Network unreachable."));
 }
+
+#include "moc_mimetypefinderjobtest.cpp"

@@ -72,3 +72,5 @@ void ExecutableFileOpenDialog::openFile()
 {
     done(OpenFile);
 }
+
+#include "moc_executablefileopendialog_p.cpp"

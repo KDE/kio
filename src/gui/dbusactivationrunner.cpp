@@ -117,3 +117,5 @@ bool DBusActivationRunner::waitForStarted(int timeout)
     return false;
 #endif
 }
+
+#include "moc_dbusactivationrunner_p.cpp"

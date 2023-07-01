@@ -155,3 +155,5 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
 }
+
+#include "moc_clipboardupdatertest.cpp"

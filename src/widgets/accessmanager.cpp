@@ -552,4 +552,6 @@ void CookieJar::reparseConfiguration()
     d->isEnabled = cfg.readEntry("Cookies", true);
 }
 
+#include "moc_accessmanager.cpp"
+
 #endif

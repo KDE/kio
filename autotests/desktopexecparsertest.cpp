@@ -272,3 +272,5 @@ void DesktopExecParserTest::testKtelnetservice()
         QCOMPARE(KShell::joinArgs(parser.resultingArguments()), expected.arg(protocol));
     }
 }
+
+#include "moc_desktopexecparsertest.cpp"

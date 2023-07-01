@@ -157,4 +157,6 @@ bool IdleSlave::hasTempAuthorization() const
     return d->mHasTempAuth;
 }
 
+#include "moc_idleslave.cpp"
+
 #endif

@@ -93,3 +93,5 @@ void ConnectionServer::setNextPendingConnection(Connection *conn)
 
     conn->d->dequeue();
 }
+
+#include "moc_connectionserver.cpp"

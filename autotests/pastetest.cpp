@@ -214,3 +214,5 @@ void KIOPasteTest::testPasteJob()
         QCOMPARE(spy.at(0).at(0).value<QUrl>().toLocalFile(), destFile);
     }
 }
+
+#include "moc_pastetest.cpp"

@@ -71,3 +71,5 @@ void WorkerThread::setWorker(SlaveBase *worker)
 }
 
 } // namespace KIO
+
+#include "moc_workerthread_p.cpp"

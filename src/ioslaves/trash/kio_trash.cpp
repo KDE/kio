@@ -688,3 +688,5 @@ KIO::WorkerResult TrashProtocol::fileSystemFreeSpace(const QUrl &url)
 }
 
 #include "kio_trash.moc"
+
+#include "moc_kio_trash.cpp"

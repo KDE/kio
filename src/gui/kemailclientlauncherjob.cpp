@@ -185,3 +185,5 @@ QStringList KEMailClientLauncherJob::thunderbirdArguments() const
     }
     return resultArgs;
 }
+
+#include "moc_kemailclientlauncherjob.cpp"

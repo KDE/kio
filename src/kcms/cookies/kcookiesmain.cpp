@@ -95,3 +95,4 @@ QString KCookiesMain::quickHelp() const
 }
 
 #include "kcookiesmain.moc"
+#include "moc_kcookiesmain.cpp"

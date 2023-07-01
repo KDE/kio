@@ -286,3 +286,5 @@ void ConnectionBackend::socketReadyRead()
         }
     } while (shouldReadAnother);
 }
+
+#include "moc_connectionbackend_p.cpp"

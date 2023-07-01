@@ -283,3 +283,4 @@ void TrashConfigModule::setupGui()
 }
 
 #include "kcmtrash.moc"
+#include "moc_kcmtrash.cpp"

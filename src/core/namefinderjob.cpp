@@ -109,3 +109,5 @@ QString KIO::NameFinderJob::finalName() const
 {
     return d->m_name;
 }
+
+#include "moc_namefinderjob.cpp"

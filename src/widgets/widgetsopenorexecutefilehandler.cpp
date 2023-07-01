@@ -89,3 +89,5 @@ void KIO::WidgetsOpenOrExecuteFileHandler::setWindow(QWidget *window)
 {
     m_parentWidget = window;
 }
+
+#include "moc_widgetsopenorexecutefilehandler.cpp"

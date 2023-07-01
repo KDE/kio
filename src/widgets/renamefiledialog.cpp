@@ -222,3 +222,5 @@ void RenameFileDialog::slotResult(KJob *job)
 }
 
 } // namespace KIO
+
+#include "moc_renamefiledialog.cpp"

@@ -56,3 +56,5 @@ void KSambaSharePrivateTest::testParser_data()
                                               << "/some/path"
                                               << "Comment";
 }
+
+#include "moc_ksambashareprivatetest.cpp"

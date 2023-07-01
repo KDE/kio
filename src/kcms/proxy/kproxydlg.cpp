@@ -555,3 +555,4 @@ QString KProxyDialog::quickHelp() const
 }
 
 #include "kproxydlg.moc"
+#include "moc_kproxydlg.cpp"

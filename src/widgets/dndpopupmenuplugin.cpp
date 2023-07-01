@@ -17,3 +17,5 @@ DndPopupMenuPlugin::DndPopupMenuPlugin(QObject *parent)
 DndPopupMenuPlugin::~DndPopupMenuPlugin()
 {
 }
+
+#include "moc_dndpopupmenuplugin.cpp"

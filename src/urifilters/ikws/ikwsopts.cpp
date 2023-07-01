@@ -467,3 +467,6 @@ void FilterOptions::updateSearchProviderEditingButons()
     m_dlg.pbChange->setEnabled(enable);
     m_dlg.pbDelete->setEnabled(enable);
 }
+
+#include "moc_ikwsopts.cpp"
+#include "moc_ikwsopts_p.cpp"

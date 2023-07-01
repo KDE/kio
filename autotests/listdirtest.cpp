@@ -60,3 +60,5 @@ void ListDirTest::createEmptyTestFiles(int numOfFilesToCreate, const QString &pa
 
     QCOMPARE(QDir(path).entryList(QDir::Files).count(), numOfFilesToCreate);
 }
+
+#include "moc_listdirtest.cpp"

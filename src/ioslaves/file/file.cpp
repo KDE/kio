@@ -1025,3 +1025,5 @@ void FileProtocol::virtual_hook(int id, void *data)
 
 // needed for JSON file embedding
 #include "file.moc"
+
+#include "moc_file.cpp"

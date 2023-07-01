@@ -180,3 +180,5 @@ void HeaderTokenizeTest::testRedirectHeader()
     // Fix compiler warning
     (void)contentDispositionParser;
 }
+
+#include "moc_httpheadertokenizetest.cpp"

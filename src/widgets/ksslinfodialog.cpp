@@ -248,3 +248,5 @@ QList<QList<QSslError::SslError>> KSslInfoDialog::certificateErrorsFromString(co
     }
     return ret;
 }
+
+#include "moc_ksslinfodialog.cpp"

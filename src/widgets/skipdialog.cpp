@@ -107,3 +107,5 @@ void SkipDialog::retryPressed()
 {
     done(KIO::Result_Retry);
 }
+
+#include "moc_skipdialog.cpp"

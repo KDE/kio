@@ -212,3 +212,5 @@ bool KFilePlaceEditDialog::isIconEditable() const
     return url().scheme() != QLatin1String("trash");
 }
 #endif
+
+#include "moc_kfileplaceeditdialog.cpp"

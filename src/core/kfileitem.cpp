@@ -1783,3 +1783,5 @@ QDebug operator<<(QDebug stream, const KFileItem &item)
     }
     return stream;
 }
+
+#include "moc_kfileitem.cpp"

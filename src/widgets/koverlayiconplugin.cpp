@@ -15,3 +15,5 @@ KOverlayIconPlugin::KOverlayIconPlugin(QObject *parent)
 KOverlayIconPlugin::~KOverlayIconPlugin()
 {
 }
+
+#include "moc_koverlayiconplugin.cpp"

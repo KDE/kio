@@ -27,3 +27,5 @@ void KFileCustomDialogTest::shouldHaveDefaultValue()
     QVERIFY(mFileWidget);
     QCOMPARE(dlg.fileWidget(), mFileWidget);
 }
+
+#include "moc_kfilecustomdialogtest.cpp"

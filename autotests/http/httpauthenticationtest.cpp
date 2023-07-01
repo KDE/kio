@@ -350,3 +350,5 @@ void HTTPAuthenticationTest::testAuthenticationNTLMv2()
 
     delete authObj;
 }
+
+#include "moc_httpauthenticationtest.cpp"

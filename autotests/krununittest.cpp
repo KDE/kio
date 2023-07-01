@@ -239,3 +239,5 @@ QString KRunUnitTest::createTempService()
 }
 
 #endif
+
+#include "moc_krununittest.cpp"

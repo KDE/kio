@@ -39,3 +39,5 @@ void ScopedProcessRunner::slotProcessStarted()
         }
     });
 }
+
+#include "moc_scopedprocessrunner_p.cpp"

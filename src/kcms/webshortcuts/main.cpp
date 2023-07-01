@@ -128,3 +128,4 @@ KURIFilterModule::~KURIFilterModule()
 }
 
 #include "main.moc"
+#include "moc_main.cpp"

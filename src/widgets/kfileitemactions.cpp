@@ -1020,3 +1020,6 @@ void KFileItemActions::setParentWidget(QWidget *widget)
 {
     d->m_parentWidget = widget;
 }
+
+#include "moc_kfileitemactions.cpp"
+#include "moc_kfileitemactions_p.cpp"

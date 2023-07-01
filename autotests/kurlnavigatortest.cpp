@@ -390,3 +390,5 @@ void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
 
     QCOMPARE(buttonUrl, QUrl::fromLocalFile(QStringLiteral("/home/foo/test")));
 }
+
+#include "moc_kurlnavigatortest.cpp"

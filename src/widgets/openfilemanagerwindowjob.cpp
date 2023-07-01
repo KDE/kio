@@ -173,3 +173,5 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
 }
 
 } // namespace KIO
+
+#include "moc_openfilemanagerwindowjob.cpp"

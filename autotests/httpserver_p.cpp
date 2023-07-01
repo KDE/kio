@@ -273,3 +273,5 @@ void BlockingHttpServer::incomingConnection(qintptr socketDescriptor)
         QTcpServer::incomingConnection(socketDescriptor);
     }
 }
+
+#include "moc_httpserver_p.cpp"

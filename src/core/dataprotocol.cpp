@@ -263,3 +263,7 @@ void DataProtocol::mimetype(const QUrl &url)
 }
 
 /* --------------------------------------------------------------------- */
+
+#if !defined(TESTKIO)
+#include "moc_dataprotocol_p.cpp"
+#endif

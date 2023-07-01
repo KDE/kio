@@ -77,3 +77,5 @@ void KUriFilterSearchProviderActionsTest::shouldAddActionToMenu()
 }
 
 QTEST_MAIN(KUriFilterSearchProviderActionsTest)
+
+#include "moc_kurifiltersearchprovideractionstest.cpp"

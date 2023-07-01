@@ -148,3 +148,5 @@ void DeleteOrTrashJob::slotResult(KJob *job)
 }
 
 } // namespace KIO
+
+#include "moc_deleteortrashjob.cpp"

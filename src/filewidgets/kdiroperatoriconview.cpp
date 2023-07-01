@@ -163,3 +163,5 @@ void KDirOperatorIconView::setDecorationPosition(QStyleOptionViewItem::Position 
     decorationPosition = newDecorationPosition;
     updateLayout();
 }
+
+#include "moc_kdiroperatoriconview_p.cpp"

@@ -247,3 +247,5 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
         q->emitResult();
     });
 }
+
+#include "moc_mimetypefinderjob.cpp"

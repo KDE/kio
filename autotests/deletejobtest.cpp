@@ -92,3 +92,5 @@ void DeleteJobTest::createEmptyTestFiles(const QStringList &fileNames, const QSt
 
     QCOMPARE(QDir(path).entryList(QDir::Files).count(), fileNames.size());
 }
+
+#include "moc_deletejobtest.cpp"

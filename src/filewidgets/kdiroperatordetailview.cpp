@@ -139,3 +139,5 @@ void KDirOperatorDetailView::currentChanged(const QModelIndex &current, const QM
 {
     QTreeView::currentChanged(current, previous);
 }
+
+#include "moc_kdiroperatordetailview_p.cpp"

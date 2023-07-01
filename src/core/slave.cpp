@@ -513,3 +513,5 @@ bool Slave::checkForHeldSlave(const QUrl &)
     return false;
 }
 #endif
+
+#include "moc_slave.cpp"

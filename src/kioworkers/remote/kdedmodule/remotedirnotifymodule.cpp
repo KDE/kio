@@ -16,4 +16,5 @@ RemoteDirNotifyModule::RemoteDirNotifyModule(QObject *parent, const QList<QVaria
 {
 }
 
+#include "moc_remotedirnotifymodule.cpp"
 #include "remotedirnotifymodule.moc"

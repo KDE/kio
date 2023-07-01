@@ -84,3 +84,5 @@ QString KUriSearchFilter::configName() const
 }
 
 #include "kurisearchfilter.moc"
+
+#include "moc_kurisearchfilter.cpp"

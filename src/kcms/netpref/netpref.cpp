@@ -190,4 +190,5 @@ QString KIOPreferences::quickHelp() const
         " want to adjust these settings.");
 }
 
+#include "moc_netpref.cpp"
 #include "netpref.moc"

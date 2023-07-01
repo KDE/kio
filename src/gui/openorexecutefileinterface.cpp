@@ -26,3 +26,5 @@ void OpenOrExecuteFileInterface::promptUserOpenOrExecute(KJob *job, const QStrin
     Q_UNUSED(mimetype)
     Q_EMIT canceled();
 }
+
+#include "moc_openorexecutefileinterface.cpp"

@@ -521,3 +521,5 @@ void KShortUriFilter::configure()
 K_PLUGIN_CLASS_WITH_JSON(KShortUriFilter, "kshorturifilter.json")
 
 #include "kshorturifilter.moc"
+
+#include "moc_kshorturifilter.cpp"

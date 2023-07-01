@@ -414,3 +414,5 @@ void KCookiesManagement::deleteAll()
     reset(true);
     Q_EMIT changed(true);
 }
+
+#include "moc_kcookiesmanagement.cpp"

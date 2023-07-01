@@ -51,3 +51,5 @@ void DefaultViewAdapter::connect(Signal signal, QObject *receiver, const char *s
 }
 
 }
+
+#include "moc_defaultviewadapter_p.cpp"

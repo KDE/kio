@@ -172,3 +172,5 @@ void SearchProviderDialog::pastePlaceholder()
     m_dlg.leQuery->insert(QStringLiteral("\\{@}"));
     m_dlg.leQuery->setFocus();
 }
+
+#include "moc_searchproviderdlg.cpp"

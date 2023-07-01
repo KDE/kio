@@ -700,3 +700,5 @@ void KIO::OpenUrlJob::slotResult(KJob *job)
     }
     emitResult();
 }
+
+#include "moc_openurljob.cpp"

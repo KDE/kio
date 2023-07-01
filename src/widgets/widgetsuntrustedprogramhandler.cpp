@@ -194,4 +194,5 @@ void KIO::WidgetsUntrustedProgramHandler::setWindow(QWidget *window)
     d->m_parentWidget = window;
 }
 
+#include "moc_widgetsuntrustedprogramhandler.cpp"
 #include "widgetsuntrustedprogramhandler.moc"
