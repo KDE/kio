@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 02:08+0000\n"
-"PO-Revision-Date: 2023-04-29 10:34+0200\n"
+"PO-Revision-Date: 2023-07-01 07:50+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 ">\n"
 ">\n"
 ">\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -2608,7 +2608,7 @@ msgstr "Nie można znaleźć pliku wykonywalnego 'kioworker' w '%1'"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3230,7 +3230,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Przeformatuj lub zmień w Zarządzaniu Partycjami"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -7232,10 +7232,9 @@ msgid "This action will overwrite the destination."
 msgstr "To działanie spowoduje zastąpienie elementu docelowego."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "To działanie spowoduje zastąpienie elementu docelowego."
+msgstr "To działanie spowoduje scalenie treści '%1' w '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
