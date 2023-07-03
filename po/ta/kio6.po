@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 02:08+0000\n"
-"PO-Revision-Date: 2023-06-18 14:02+0530\n"
+"PO-Revision-Date: 2023-07-02 16:46+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -7140,10 +7140,9 @@ msgid "This action will overwrite the destination."
 msgstr "இச்செயல் சேருமிடத்தை மேலெழுதும்."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "இச்செயல் சேருமிடத்தை மேலெழுதும்."
+msgstr "இச்செயல் '%1' மற்றும் '%2' என்பவற்றின் உள்ளடக்கத்தை ஒன்றுசேர்க்கும்."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
