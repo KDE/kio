@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 02:08+0000\n"
-"PO-Revision-Date: 2023-06-17 04:09\n"
+"PO-Revision-Date: 2023-07-03 11:36\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2472,7 +2472,7 @@ msgstr "无法在“%1”中找到“kioworker”可执行程序"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3081,7 +3081,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "用分区管理器格式化或编辑"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -6930,10 +6930,9 @@ msgid "This action will overwrite the destination."
 msgstr "此操作将覆盖目标项目。"
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "此操作将覆盖目标项目。"
+msgstr "此操作将把“%1”的内容合并到“%2”中。"
 
 #: widgets/renamedialog.cpp:381
 #, kde-format

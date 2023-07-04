@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 02:08+0000\n"
-"PO-Revision-Date: 2023-06-30 05:47+0200\n"
+"PO-Revision-Date: 2023-07-03 05:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1967,6 +1967,9 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
+"მითითებული პროქსის ჰოსტის, <strong>%1</strong>, შესახებ ინფორმაციის "
+"მიღებისას უცნობი ჰოსტის შეცდომა დაფიქსირდა. უცნობი ჰოსტის შეცდომა ნიშნავს, "
+"რომ მითითებული სახელის ინტერნეტში პოვნა შეუძლებელია."
 
 #: core/job_error.cpp:1042
 #, kde-format
@@ -1996,6 +1999,10 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
+"შეიძლება თქვენი შეყვანილი ავთენტიკაციის დეტალები სწორია, მაგრამ შესვლა "
+"წარუმატებლად დასრულდა, რადგან მეთოდი, რომელსაც სერვერი იყენებს, KDE-ის "
+"პროგრამის მიერ, რომელიც %1 პროტოკოლის მხარდაჭერისთვის გამოიყენება, "
+"მხარდაჭერილი არაა."
 
 #: core/job_error.cpp:1058
 #, kde-format
@@ -2003,6 +2010,9 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
+"მოგვწერეთ შეცდომის შესახებ ბმულზე <a href=\"https://bugs.kde.org/\">https://"
+"bugs.kde.org/</a>, რათა KDE-ის გუნდს მხარდაუჭერელი ავთენტიკაციის მეთოდის "
+"შესახებ შეატყობინოთ."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -2020,6 +2030,8 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
+"პროგრამამ, რომელიც <strong>%1</strong> პროტოკოლთან წვდომას უზრუნველყოფს, "
+"შიდა შეცდომა დააბრუნა: %2."
 
 #: core/job_error.cpp:1081
 #, kde-format
@@ -2262,6 +2274,8 @@ msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
+"ოპერაციის დასრულება შეუძლებელია, რადგან სერვისთან, რომელიც პაროლებს "
+"გეკითხებათ (kpasswdserver) დაკავშირება შეუძლებელია"
 
 #: core/job_error.cpp:1243
 #, kde-format
@@ -2294,6 +2308,8 @@ msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
+"klauncherმა ვერ იპოვა ან ვერ გაუშვა დამატება, რომელიც ამ პროტოკოლის მუშაობას "
+"უზრუნველყოფს. ეს ნიშნავს, რომ დამატების ვერსია ძალიან ძველია."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2452,6 +2468,8 @@ msgid ""
 "encrypted.\n"
 "This means that a third party could observe your data in transit."
 msgstr ""
+"აპირებთ, გახვიდეთ დაცული რეჟიმიდან. მიმოცვლა დაშიფრული აღარ იქნება.\n"
+"ეს ნიშნავს, რომ მესამე პირებს გადაცემული ინფორმაციის წაკითხვა შეუძლიათ."
 
 #: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
 #, kde-format
@@ -3445,6 +3463,8 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
+"ეს გასახსნელი ფაილების სიაა. ერთზე მეტი ფაილის მითითება მათ სახელებს შორის "
+"ადგილის გამოტოვებით შეგიძლიათ."
 
 #: filewidgets/kfilewidget.cpp:1394
 #, kde-format
@@ -3911,6 +3931,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"ფაილი დაუსრულებელია და ვერ გაიხსნება.\n"
+"შეამოწმეთ ღია აპლიკაციები და საათთან რამე ამოცანა ან გადმოწერა ხომ არ "
+"მიმდინარეობს."
 
 #: gui/openurljob.cpp:639
 #, kde-format
