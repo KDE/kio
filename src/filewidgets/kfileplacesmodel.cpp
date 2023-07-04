@@ -890,8 +890,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     while (!bookmark.isNull()) {
         KFilePlacesItem *item = nullptr;
 
-        const QString udi = bookmark.metaDataItem(QStringLiteral("UDI"));
-        if (!udi.isEmpty()) {
+        if (const QString udi = bookmark.metaDataItem(QStringLiteral("UDI")); !udi.isEmpty()) {
             const QString uuid = bookmark.metaDataItem(QStringLiteral("uuid"));
             auto it = std::find_if(devices.begin(), devices.end(), [udi, uuid](const Solid::Device &device) {
                 if (!uuid.isEmpty()) {
@@ -904,26 +903,20 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
                 return device.udi() == udi;
             });
             if (it != devices.end()) {
-                devices.erase(it);
                 item = new KFilePlacesItem(bookmarkManager, bookmark.address(), it->udi(), q);
                 if (!item->hasSupportedScheme(supportedSchemes)) {
                     delete item;
                     item = nullptr;
                 }
+                devices.erase(it);
             }
-        }
-
-        const QString tag = bookmark.metaDataItem(QStringLiteral("tag"));
-        if (!tag.isEmpty()) {
+        } else if (const QString tag = bookmark.metaDataItem(QStringLiteral("tag")); !tag.isEmpty()) {
             auto it = std::find(tagsList.begin(), tagsList.end(), tag);
             if (it != tagsList.end()) {
                 tagsList.erase(it);
                 item = new KFilePlacesItem(bookmarkManager, bookmark.address(), QString(), q);
             }
-        }
-
-        const QUrl url = bookmark.url();
-        if (url.isValid()) {
+        } else if (const QUrl url = bookmark.url(); url.isValid()) {
             QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
             bool allowedHere = appName.isEmpty() || ((appName == QCoreApplication::instance()->applicationName()) || (appName == alternativeApplicationName));
             bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
