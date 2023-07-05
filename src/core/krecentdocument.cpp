@@ -10,14 +10,6 @@
 
 #include "kiocoredebug.h"
 
-#ifdef Q_OS_WIN
-#include <sys/utime.h>
-#else
-#include <utime.h>
-#endif
-
-#include <KDesktopFile>
-#include <KService>
 #include <QCoreApplication>
 #include <QDir>
 #include <QDomDocument>
@@ -26,9 +18,9 @@
 #include <QRegularExpression>
 #include <QSaveFile>
 #include <QXmlStreamWriter>
-#include <kio/global.h>
 
 #include <KConfigGroup>
+#include <KService>
 #include <KSharedConfig>
 
 static QString xbelPath()
