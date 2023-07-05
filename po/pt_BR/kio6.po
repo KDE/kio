@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 02:08+0000\n"
-"PO-Revision-Date: 2023-06-26 17:13-0300\n"
+"PO-Revision-Date: 2023-07-04 10:47-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -7282,10 +7282,9 @@ msgid "This action will overwrite the destination."
 msgstr "Esta ação irá sobrescrever o destino."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Esta ação irá sobrescrever o destino."
+msgstr "Esta ação irá mesclar os conteúdos de '%1' em '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
