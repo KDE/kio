@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-06 02:50+0000\n"
-"PO-Revision-Date: 2023-07-03 05:42+0200\n"
+"PO-Revision-Date: 2023-07-06 06:22+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2205,6 +2205,8 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
+"გაათავისუფლეთ ადგილი 1) დროებითი და არასასურველი ფაილების წაშლით 2) ფაილების "
+"დაარქივებით მოხსნად ან CD-RW დისკებზე 3) შეიძინეთ უფრო დიდი დისკი."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -2495,6 +2497,10 @@ msgid ""
 "This means that no third party will be able to easily observe your data in "
 "transit."
 msgstr ""
+"აპირებთ, უსაფრთხო რეჟიმში გადახვიდეთ. ყველა მიმოცვლა დაიშიფრება, "
+"გამონაკლისების გარდა.\n"
+"ეს ნიშნავს, რომ გადაცემისას მესამე პირებს თქვენი მონაცემების მიღება არ "
+"შეუძლიათ."
 
 #: core/tcpworkerbase.cpp:481
 #, kde-format
@@ -2916,6 +2922,9 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
+"<qt>ეს ტექსტია, რომელიც Places-ის პანელში გამოჩნდება. <br /><br />ჭდე უნდა "
+"შედგებოდეს ერთი ან ორი სიტყვისგან, რომელიც დაგეხმარებათ, რას ეხება ეს "
+"ელემენტი. თუ ჭდეს არ შეიყვანთ, ის მდებარეობის URL-დან განისაზღვრება.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
@@ -2967,6 +2976,9 @@ msgid ""
 "current application (%1).<br /><br />If this setting is not selected, the "
 "entry will be available in all applications.</qt>"
 msgstr ""
+"<qt>აირჩიეთ ეს პარამეტრი, თუ გნებავთ, ეს ელემენტი მხოლოდ მიმდინარე "
+"აპლიკაციის (%1) გამოყენებიას გამოჩნდეს.<br /><br />თუ ეს პარამეტრი ჩართული "
+"არაა, ელემენტი ხელმისაწვდომი ყველა აპლიკაციაში იქნება.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:185
 #, kde-format
@@ -3374,6 +3386,9 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
+"<qt>მშობელ საქაღალდეში შესასვლელად ამ ღილაკზე დააწკაპუნეთ.<br /><br /"
+">მაგალითად, თუ მიმდინარე მდებარეობაა file:/home/konqი, ამ ღილაკზე დაჭერა /"
+"home-ზე გადაგიყვანთ.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1217
 #, kde-format
@@ -3451,6 +3466,9 @@ msgid ""
 "button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
 "qt>"
 msgstr ""
+"<qt>ტექსტის კრეფისას ყველა შესაძლო დამთხვევას გაჩვენებთ. ამ თვისების "
+"კონტროლი <b>ტექსტის დასრულების</b> მენიუდან მარჯვენა თაგუნას ღილაკით "
+"დაწკაპუნებით და სასურველი რეჟიმის არჩევით ხდება.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1386
 #, kde-format
@@ -5752,6 +5770,8 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
+"<qt>აირჩიეთ პროგრამა ფაილის ტიპისთვის: <b>%1</b>. თუ პროგრამა ჩამონათვალში "
+"არაა, შეიყვანეთ მისი სახელი, ან მოძებნის ღილაკზე დაწკაპუნეთ.</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
