@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -4052,12 +4052,12 @@ msgstr "Bajarish uchun buyruq"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, fuzzy, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1'ga maʼlumot joʻnatilmoqda"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4066,12 +4066,21 @@ msgstr ""
 "%1\n"
 "uchun huquqlarni oʻzgartirib boʻlmadi"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change permissions for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "%1 uchun huquqlarni oʻzgartirib boʻlmadi."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "'mount' dasturini topib boʻlmadi."
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "'umount' dasturini topib boʻlmadi."

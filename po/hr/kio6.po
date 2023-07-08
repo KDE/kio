@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
 "PO-Revision-Date: 2011-07-18 11:46+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -4302,12 +4302,12 @@ msgstr "Naredba koju treba izvršiti"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(i) ili lokalna(e) datoteka(e) koje se koriste za 'naredbu'"
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Postavljanje ACL-a za %1"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4316,12 +4316,21 @@ msgstr ""
 "Ne mogu promijeniti ovlasti za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Nije moguće promijeniti vlasništvo od %1."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nije moguće pronaći program \"mount\""
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nije moguće pronaći program \"umount\""

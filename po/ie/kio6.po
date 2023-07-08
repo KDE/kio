@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3948,12 +3948,12 @@ msgstr "Comande por executer"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) o local file(s) usat por li «comande»"
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Assignante ACL por %1"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -3962,12 +3962,21 @@ msgstr ""
 "Ne successat alterar li permissiones por\n"
 "%1"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Ne successat reposseder %1."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ne successat trovar li programma «mount»"
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ne successat trovar li programma «umount»"

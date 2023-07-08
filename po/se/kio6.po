@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -4016,24 +4016,33 @@ msgstr "Gohččun maid vuodjit"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL:at dahje báikkálaš fiillat mat geavahuvvojit «gohccumin»"
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Merošteamen ACL %1:ii"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "Ii sáhttán rievdadit vuoigatvuođaid %1 várás"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Ii sáhttán rievdadit %1 fiilla oamasteaddji."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ii gávdnan prográmma «mount»"
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ii gávdnan prográmma «umount»"

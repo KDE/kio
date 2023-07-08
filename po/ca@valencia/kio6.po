@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
 "PO-Revision-Date: 2023-06-28 09:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4230,12 +4230,12 @@ msgstr "Ordre que s'ha d'executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Els URL o fitxers locals utilitzats per l'«ordre»"
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "S'està establint l'ACL per a %1"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4244,12 +4244,21 @@ msgstr ""
 "No s'han pogut canviar els permisos per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "No s'ha pogut canviar el propietari per a %1."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "No s'ha pogut trobar el programa «mount»"
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "No s'ha pogut trobar el programa «umount»"

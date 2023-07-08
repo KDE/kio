@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:50+0000\n"
-"PO-Revision-Date: 2023-07-06 06:22+0200\n"
+"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"PO-Revision-Date: 2023-07-07 06:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4105,12 +4105,12 @@ msgstr "შესასრულებელი ბრძანება"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ბრძანების URL-ები ან ადგილობრივი ფაილები"
 
-#: kioworkers/file/file.cpp:159
+#: kioworkers/file/file.cpp:160
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1-ზე ACL-ის დაყენება"
 
-#: kioworkers/file/file.cpp:715
+#: kioworkers/file/file.cpp:731
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4119,12 +4119,21 @@ msgstr ""
 "%1-ზე\n"
 "წვდომის ცვლილების შეცდომა"
 
-#: kioworkers/file/file.cpp:822
+#: kioworkers/file/file.cpp:741
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "ფაილ %1-ის მფლობელის შეცვლის შეცდომა."
+
+#: kioworkers/file/file.cpp:847
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 
-#: kioworkers/file/file.cpp:896
+#: kioworkers/file/file.cpp:921
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""
@@ -4481,6 +4490,8 @@ msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
+"დანიშნულების წერტილზე რესურსის შექმნა მანამდე, სანამ ერთი ან მეტი შუალედური "
+"კოლექცია (საქაღალდე) არ შეიქმნება, შეუძლებელია."
 
 #: kioworkers/http/http.cpp:1647
 #, kde-format
@@ -4733,6 +4744,9 @@ msgid ""
 "option will change the global cookie policy for all cookies until you "
 "manually change it from the System Settings."
 msgstr ""
+"აირჩიეთ ეს პარამეტრი, რათა ქოქიები ნებისმიერი ადგილიდან მიიღოთ/უარყოთ. ამ "
+"პარამეტრის შეცვლა შეცვლის ქუქიების გლობალურ პოლიტიკას ყველა ქუქისთვის, სანამ "
+"მათ სისტემური პარამეტრებიდან ხელით არ შეცვლით."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:246
 #, kde-format
@@ -4852,6 +4866,9 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
+"საქაღალდე %1 აღარ არსებობს, ასე რომ ამ ჩანაწერის თავდაპირველ ადგილას აღდგენა "
+"შეუძლებელია. შეგიძლიათ, საქაღალდე თავიდან შექმნათ და აღდგენის ფუნქცია "
+"თავიდან გამოიყენოთ, ან ელემენტი აღსადგენად ნებისმიერ ადგილას გადაათრიოთ."
 
 #: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
 #, kde-format
@@ -4880,6 +4897,9 @@ msgid ""
 "Note: to move files to the trash, do not use ktrash, but \"kioclient move "
 "'url' trash:/\""
 msgstr ""
+"დამხმარე პროგრამა KDE-ის ნაგვის ყუთის დასამუშავებლად\n"
+"შენიშვნა: ფაილების ნაგვის ყუთში გადასატანად ktrash-ს ნუ გამოიყენებთ. "
+"ამისთვის არსებობს \"kioclient move 'url' trash:/\""
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
@@ -5073,6 +5093,8 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
+"დააკოპირეთ და ჩასვით საკონტროლო ჯამი ქვედა ველში.<br/>საკონტროლო ჯამს "
+"ჩვეულებრივ იგივე ვებგვერდზე იპოვით, საიდანაც ეს ფაილი გადმოწერეთ."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
@@ -5302,7 +5324,11 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
+"მართლა გნებავთ ეს ელემენტი სამუდამოდ წაშალოთ?<nl/><nl/><emphasis strong="
+"\"true\">ეს ქმედება შეუქცევადია.</emphasis>"
 msgstr[1] ""
+"მართლა გნებავთ %1 ელემენტის სამუდამოდ წაშლა?<nl/><nl/><emphasis strong=\"true"
+"\">ეს ქმედება შეუქცევადია.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
@@ -5731,6 +5757,8 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
+"<qt>აირჩიეთ <b>%1</b>-ის გასახსნელი პროგრამა. თუ პროგრამა სიაში არაა, "
+"შეიყვანეთ სახელი ან მოძებნის ღილაკზე დააწკაპუნეთ. </qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -5887,6 +5915,9 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ აპლიკაცია, რომელიც გნებავთ, გაუშვათ, ტექსტური რეჟიმი "
+"აპლიკაციაა ან გჭირდებათ ინფორმაცია, რომელიც ტერმინალის ემულატორის ფანჯარაში "
+"იქნება გამოტანილი."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:54
@@ -5908,6 +5939,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ ტექსტური რეჟიმის აპლიკაცია გასვლისას შესაბამის "
+"საინტერესო ინფორმაციას გთავაზობთ. ამ ინფორმაციის სანახავად ასევე შეგიძლიათ "
+"ტერმინალის ფანჯარა ღია დატოვოთ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
@@ -5988,6 +6022,8 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ გნებავთ, ზუსტად იცოდეთ, რომ თქვენი აპლიკაცია გაეშვა. "
+"ამოცანების ზოლში შეიძლება დაკავებულობის კურსორი დაინახოთ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
@@ -6003,6 +6039,8 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
+"აკრიფეთ სახელი, რომელიც ამ აპლიკაციას გნებავთ, მიანიჭოთ. აპლიკაცია მენიუში "
+"და პანელზე ამ სახელით გამოჩნდება."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -6012,6 +6050,8 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "a dial up application (KPPP) would be \"Dial up tool\"."
 msgstr ""
+"აკრიფეთ აპლიკაციის აღწერა, მისი გამოყენებიდან გამომდინარე. მაგ: მოდემის "
+"აპლიკაცია (KPPP) უნდა იყოს \"ინტერნეტის პროგრამა\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:45
@@ -6149,6 +6189,8 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
+"დააწკაპუნეთ აქ, თუ გნებავთ დაამატოთ ფაილის ტიპი, (mimetype) რომელიც თქვენს "
+"აპლიკაციას შეუძლია, გახსნას."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -6177,6 +6219,8 @@ msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
 "Bus options or to run it as a different user."
 msgstr ""
+"დააწკაპუნეთ, თუ გნებავთ შეცვალოთ, როგორ ეშვება ეს აპლიკაცია, გაშვების "
+"უკუკავშირი, D-Bus-ის პარამეტრები ან სხვა მომხმარებლით გაუშვათ."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:284
@@ -6419,6 +6463,9 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ გნებავთ, ფაილი გაშვებადად მოინიშნოთ. ამას აზრი "
+"მხოლოდ პროგრამებისთვის და სკრიპტებისთვის აქვს და აუცილებელია, როცა მათი "
+"გაშვება გნებავთ."
 
 #: widgets/kpropertiesdialog.cpp:1865
 #, kde-format
@@ -6540,6 +6587,8 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
+"სპეციალური ალამი. მუშაობს მთელის საქაღალდისთვის. ალმის ზუსტი მნიშვნელობა "
+"მარჯვენა სვეტში შეგიძლიათ, იხილოთ."
 
 #: widgets/kpropertiesdialog.cpp:2063
 #, kde-format
@@ -6601,6 +6650,8 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
+"თუ საქაღალდეზე წებოვანი ალამი აყენია, ფაილების წაშლა მხოლოდ მფლობელს და root-"
+"ს შეუძლია. სხვაგვარად ჩაწერის უფლებები ყველას გააჩნია."
 
 #: widgets/kpropertiesdialog.cpp:2110
 #, kde-format
@@ -6699,6 +6750,9 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
+"<p>საკონტროლო ჯამები არ ემთხვევა.</p>ეს შეიძლება გადმოწერისას დაშვებული "
+"შეცდომის ბრალი იყოს. სცადეთ, ფაილი თავიდან გადმოწეროთ.<br/>თუ გადამოწმება "
+"მაინც ვერ მოხდება, ფაილის ავტორს მიწერეთ."
 
 #: widgets/kpropertiesdialog.cpp:2987
 #, kde-format
@@ -6872,6 +6926,9 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
+"ბუფერი მას შემდეგ, რაც თქვენ 'ჩასმა' გამოიყენეთ, შეიცვალა: არჩეული "
+"მონაცემების ფორმატი შესაფერისი აღარაა. კიდევ ერთხელ დააკოპირეთ ის, რისი "
+"ჩასმაც გნებავდათ."
 
 #: widgets/paste.cpp:252
 #, kde-format
