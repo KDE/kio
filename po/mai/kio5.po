@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 00:43+0000\n"
+"POT-Creation-Date: 2023-07-08 01:09+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -3507,58 +3507,58 @@ msgstr ""
 msgid "Overwrite File?"
 msgstr "फाइल केर उप्पर लिखू?"
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "You can only select local files."
 msgstr "अहाँ सिर्फ स्थानीय फाइलसभ चुनि सकैछ."
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "रिमोट फाइलसभ स्वीकार्य नहि अछि"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2068
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|सभटा फोल्डर"
 
-#: filewidgets/kfilewidget.cpp:2064
+#: filewidgets/kfilewidget.cpp:2070
 #, kde-format
 msgid "*|All Files"
 msgstr "*|सभटा फाइलसभ"
 
-#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2220 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "खोलू (&O)"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "फाइल नाम एक्सटेंशन स्वतः चुनू (%1) (&x)"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "फाइल नाम एक्सटेंशन स्वतः चुनू (&x)"
 
-#: filewidgets/kfilewidget.cpp:2471
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "a suitable extension"
 msgstr "एकटा उपयुक्त एक्सटेंशन "
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3574,25 +3574,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2943
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "फिल्टर: (&F)"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid "&Filter:"
 msgstr "फिल्टर: (&F)"
 
-#: filewidgets/kfilewidget.cpp:2942
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -3989,12 +3989,12 @@ msgstr "फाइल नहि खोलि सकल"
 msgid "The program \"%1\" could not be launched."
 msgstr "निवेदित तालाबंद देल नहि जाए सकत. %1"
 
-#: ioslaves/file/file.cpp:171
+#: ioslaves/file/file.cpp:172
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr " %1 क' लेल एसीएल सेट कएनाइ"
 
-#: ioslaves/file/file.cpp:720
+#: ioslaves/file/file.cpp:736
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4003,24 +4003,33 @@ msgstr ""
 " %1 क' लेल \n"
 "अनुमतिसभ बदएल नहि सकल."
 
-#: ioslaves/file/file.cpp:803
+#: ioslaves/file/file.cpp:746
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "%1 क' लेल मालिकाना बदएल नहि सकत."
+
+#: ioslaves/file/file.cpp:828
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "mounting is not supported by Windows CE."
 msgstr " %1 पर लिखल जएनाइ समर्थित नहि अछि."
 
-#: ioslaves/file/file.cpp:833
+#: ioslaves/file/file.cpp:858
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "प्रोग्राम \"mount\" नहि भेटल"
 
-#: ioslaves/file/file.cpp:900
+#: ioslaves/file/file.cpp:925
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "unmounting is not supported by Windows CE."
 msgstr " %1 पर लिखल जएनाइ समर्थित नहि अछि."
 
-#: ioslaves/file/file.cpp:915
+#: ioslaves/file/file.cpp:940
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "प्रोग्राम \"umount\" नहि भेटल"

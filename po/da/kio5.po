@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 00:43+0000\n"
+"POT-Creation-Date: 2023-07-08 01:09+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3620,58 +3620,58 @@ msgstr "Filen \"%1\" findes allerede. Vil du overskrive den?"
 msgid "Overwrite File?"
 msgstr "Overskriv fil?"
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "You can only select local files."
 msgstr "Du kan kun vælge lokale filer."
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Eksterne filer ikke accepteret"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2068
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|alle mapper"
 
-#: filewidgets/kfilewidget.cpp:2064
+#: filewidgets/kfilewidget.cpp:2070
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Alle filer"
 
-#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2220 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "Å&bn"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikonstørrelse: %1 pixel"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Vælg filnavnee&ndelse automatisk (%1)"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "endelsen <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Vælg filnavnee&ndelse automatisk"
 
-#: filewidgets/kfilewidget.cpp:2471
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "a suitable extension"
 msgstr "en passende endelse"
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3698,12 +3698,12 @@ msgstr ""
 "automatisk blive fjernet).</li></ol>Hvis du er usikker, så behold dette "
 "slået til da det gør dine filer nemmere at håndtere."
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2943
 #, kde-format
 msgid "&File type:"
 msgstr "&Filtype:"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3712,12 +3712,12 @@ msgstr ""
 "<qt>Dette er filtypevælgeren. Den bruges til at vælge det format, filen vil "
 "blive gemt som.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2942
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4104,12 +4104,12 @@ msgstr "Kunne ikke åbne filen."
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmet \"%1\" kunne ikke startes."
 
-#: ioslaves/file/file.cpp:171
+#: ioslaves/file/file.cpp:172
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Sætter ACL for %1"
 
-#: ioslaves/file/file.cpp:720
+#: ioslaves/file/file.cpp:736
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4118,22 +4118,31 @@ msgstr ""
 "Kunne ikke ændre rettigheder for\n"
 "%1"
 
-#: ioslaves/file/file.cpp:803
+#: ioslaves/file/file.cpp:746
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Kunne ikke ændre ejerskab for %1."
+
+#: ioslaves/file/file.cpp:828
 #, kde-format
 msgid "mounting is not supported by Windows CE."
 msgstr "montering understøttes ikke af Windows CE."
 
-#: ioslaves/file/file.cpp:833
+#: ioslaves/file/file.cpp:858
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Kunne ikke finde programmet \"mount\""
 
-#: ioslaves/file/file.cpp:900
+#: ioslaves/file/file.cpp:925
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
 msgstr "afmontering understøttes ikke af Windows CE."
 
-#: ioslaves/file/file.cpp:915
+#: ioslaves/file/file.cpp:940
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Kunne ikke finde programmet \"umount\""

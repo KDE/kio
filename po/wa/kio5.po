@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 00:43+0000\n"
+"POT-Creation-Date: 2023-07-08 01:09+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3753,58 +3753,58 @@ msgstr "Li fitchî  \"%1\" egzistêye dedja. El voloz vs sipotchî ?"
 msgid "Overwrite File?"
 msgstr "Sipotchî l' fitchî?"
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vos n' poloz tchoezi ki des fitchîs locås."
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fitchîs å lon nén acceptés"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2068
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Tos les ridants"
 
-#: filewidgets/kfilewidget.cpp:2064
+#: filewidgets/kfilewidget.cpp:2070
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Tos les fitchîs"
 
-#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2220 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "Dr&ovi"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Grandeu des imådjetes: %1 picsels"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs (%1)"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "li cawete <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Tchoezi &otomaticmint l' cawete des fitchîs"
 
-#: filewidgets/kfilewidget.cpp:2471
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "a suitable extension"
 msgstr "ene cawete ki va bén"
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3820,25 +3820,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2943
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Passete:"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid "&Filter:"
 msgstr "&Passete:"
 
-#: filewidgets/kfilewidget.cpp:2942
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4242,12 +4242,12 @@ msgstr "Dji n' sai drovi li fitchî"
 msgid "The program \"%1\" could not be launched."
 msgstr "Dji n' a savou trover l' fitchî %1"
 
-#: ioslaves/file/file.cpp:171
+#: ioslaves/file/file.cpp:172
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Dji defini l' ACL po %1"
 
-#: ioslaves/file/file.cpp:720
+#: ioslaves/file/file.cpp:736
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4256,24 +4256,33 @@ msgstr ""
 "Dji n' a seu candjî les permissions po\n"
 "%1"
 
-#: ioslaves/file/file.cpp:803
+#: ioslaves/file/file.cpp:746
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Dji n' sai candjî l' prôpietaire po %1."
+
+#: ioslaves/file/file.cpp:828
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "mounting is not supported by Windows CE."
 msgstr "Li scrijhaedje dins %1 n' est nén sopoirté."
 
-#: ioslaves/file/file.cpp:833
+#: ioslaves/file/file.cpp:858
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Dji n' a savou trover li programe «mount»"
 
-#: ioslaves/file/file.cpp:900
+#: ioslaves/file/file.cpp:925
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "unmounting is not supported by Windows CE."
 msgstr "Li scrijhaedje dins %1 n' est nén sopoirté."
 
-#: ioslaves/file/file.cpp:915
+#: ioslaves/file/file.cpp:940
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Dji n' a savou trover li programe «umount»"

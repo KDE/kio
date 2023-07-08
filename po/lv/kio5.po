@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 00:43+0000\n"
+"POT-Creation-Date: 2023-07-08 01:09+0000\n"
 "PO-Revision-Date: 2019-12-03 17:51+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3621,58 +3621,58 @@ msgstr "Datne \"%1\" jau pastāv. Vai vēlaties to pārrakstīt?"
 msgid "Overwrite File?"
 msgstr "Pārrakstīt failu?"
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "You can only select local files."
 msgstr "Jūs varat izvēlēties tikai lokālus failus."
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Attālinātie faili netiek pieņemti"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2068
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Visas mapes"
 
-#: filewidgets/kfilewidget.cpp:2064
+#: filewidgets/kfilewidget.cpp:2070
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Visi Faili"
 
-#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2220 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "&Atvērt"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikonas izmērs: %1 pikseļi"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automātiski izvēlēties faila nosaukuma &paplašinājumu (%1)"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "paplašinājums <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automātiski izvēlēties faila nosaukuma &paplašinājumu"
 
-#: filewidgets/kfilewidget.cpp:2471
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "a suitable extension"
 msgstr "piemērots paplašinājums"
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3699,24 +3699,24 @@ msgstr ""
 "no datnes nosaukuma).</li></ol>Ja neesat pārliecināts, atstājiet šo izvēli "
 "ieslēgtu, jo tā padara jūsu datnes vieglāk pārvaldāmas."
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2943
 #, kde-format
 msgid "&File type:"
 msgstr "&Datnes tips:"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtrs:"
 
-#: filewidgets/kfilewidget.cpp:2942
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4115,12 +4115,12 @@ msgstr "Neizdevās atvērt failu"
 msgid "The program \"%1\" could not be launched."
 msgstr "Neizdevās atrast failu \"%1\""
 
-#: ioslaves/file/file.cpp:171
+#: ioslaves/file/file.cpp:172
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Uzstāda ACL priekš %1"
 
-#: ioslaves/file/file.cpp:720
+#: ioslaves/file/file.cpp:736
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4129,24 +4129,33 @@ msgstr ""
 "Nevar izmainīt atļaujas priekš\n"
 "%1"
 
-#: ioslaves/file/file.cpp:803
+#: ioslaves/file/file.cpp:746
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "Nevar izmainīt īpašnieku priekš %1."
+
+#: ioslaves/file/file.cpp:828
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "mounting is not supported by Windows CE."
 msgstr "wince neatbalsta montēšanu."
 
-#: ioslaves/file/file.cpp:833
+#: ioslaves/file/file.cpp:858
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nevar atrast programmu \"mount\""
 
-#: ioslaves/file/file.cpp:900
+#: ioslaves/file/file.cpp:925
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "unmounting is not supported by Windows CE."
 msgstr "wince neatbalsta montēšanu."
 
-#: ioslaves/file/file.cpp:915
+#: ioslaves/file/file.cpp:940
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nevar atrast programmu \"umount\""

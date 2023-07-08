@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-26 00:43+0000\n"
+"POT-Creation-Date: 2023-07-08 01:09+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -3652,58 +3652,58 @@ msgstr "ھۆججەت «%1» مەۋجۇت. قاپلامسىز؟"
 msgid "Overwrite File?"
 msgstr "ھۆججەت قاپلامسىز؟"
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "You can only select local files."
 msgstr "يەرلىك ھۆججەتنىلا تاللىيالايسىز."
 
-#: filewidgets/kfilewidget.cpp:1968
+#: filewidgets/kfilewidget.cpp:1974
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "يىراقتىكى ھۆججەتنى قوبۇل قىلمايدۇ"
 
-#: filewidgets/kfilewidget.cpp:2062
+#: filewidgets/kfilewidget.cpp:2068
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|بارلىق قىسقۇچلار"
 
-#: filewidgets/kfilewidget.cpp:2064
+#: filewidgets/kfilewidget.cpp:2070
 #, kde-format
 msgid "*|All Files"
 msgstr "*|بارلىق ھۆججەتلەر"
 
-#: filewidgets/kfilewidget.cpp:2214 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2220 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:907
 #, kde-format
 msgid "&Open"
 msgstr "ئاچ(&O)"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "سىنبەلگە چوڭلۇقى: %1 پىكسېل"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2469
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ھۆججەتنىڭ كېڭەيتىلگەن ئاتىنى ئۆزلۈكىدىن تاللا(%1)(&X)"
 
-#: filewidgets/kfilewidget.cpp:2464
+#: filewidgets/kfilewidget.cpp:2470
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "كېڭەيتىلمە <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ھۆججەتنىڭ كېڭەيتىلگەن ئاتىنى ئۆزلۈكىدىن تاللا(&X)"
 
-#: filewidgets/kfilewidget.cpp:2471
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "a suitable extension"
 msgstr "مۇناسىپ كېڭەيتىلگە ئات"
 
-#: filewidgets/kfilewidget.cpp:2479
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3731,25 +3731,25 @@ msgstr ""
 "ئىناۋەتلىكلىكىنى ساقلاپ قېلىڭ، بۇنداق بولغاندا ھۆججەتلىرىڭىزنى تېخىمۇ ئاسان "
 "باشقۇرالايسىز."
 
-#: filewidgets/kfilewidget.cpp:2937
+#: filewidgets/kfilewidget.cpp:2943
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "سۈزگۈچ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2938
+#: filewidgets/kfilewidget.cpp:2944
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2940
+#: filewidgets/kfilewidget.cpp:2946
 #, kde-format
 msgid "&Filter:"
 msgstr "سۈزگۈچ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2942
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4143,12 +4143,12 @@ msgstr "ھۆججەت ئاچالمىدى"
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" ھۆججەت  تېپىلمىدى"
 
-#: ioslaves/file/file.cpp:171
+#: ioslaves/file/file.cpp:172
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1 نىڭ ACL تەڭشىكى"
 
-#: ioslaves/file/file.cpp:720
+#: ioslaves/file/file.cpp:736
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4157,24 +4157,33 @@ msgstr ""
 "تۆۋەندىكىنىڭ ھوقۇقىنى ئۆزگەرتكىلى بولمىدى\n"
 "%1"
 
-#: ioslaves/file/file.cpp:803
+#: ioslaves/file/file.cpp:746
+#, fuzzy, kde-format
+#| msgid "Could not change ownership for %1."
+msgctxt "@info"
+msgid ""
+"Could not change owner and group for\n"
+"%1"
+msgstr "%1 نىڭ ئىگىدارلىق ھوقۇقىنى ئۆزگەرتەلمىدى."
+
+#: ioslaves/file/file.cpp:828
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "mounting is not supported by Windows CE."
 msgstr "wince ئېگەرلەشنى قوللىمايدۇ."
 
-#: ioslaves/file/file.cpp:833
+#: ioslaves/file/file.cpp:858
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" پروگراممىنى تاپالمىدى"
 
-#: ioslaves/file/file.cpp:900
+#: ioslaves/file/file.cpp:925
 #, fuzzy, kde-format
 #| msgid "mounting is not supported by wince."
 msgid "unmounting is not supported by Windows CE."
 msgstr "wince ئېگەرلەشنى قوللىمايدۇ."
 
-#: ioslaves/file/file.cpp:915
+#: ioslaves/file/file.cpp:940
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" پروگراممىنى تاپالمىدى"
