@@ -8,6 +8,7 @@
 #include "widgetsuntrustedprogramhandler.h"
 
 #include <KIconLoader>
+#include <KJob>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KStandardGuiItem>

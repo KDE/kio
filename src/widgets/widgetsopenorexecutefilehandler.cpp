@@ -10,6 +10,7 @@
 #include "executablefileopendialog_p.h"
 
 #include <KConfigGroup>
+#include <KJob>
 #include <KJobWidgets>
 #include <KSharedConfig>
 
