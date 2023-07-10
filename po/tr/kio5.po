@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-08 01:09+0000\n"
-"PO-Revision-Date: 2023-06-08 12:14+0300\n"
+"PO-Revision-Date: 2023-07-08 13:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -819,8 +819,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"<filename>%1</filename> aktarılamıyor; çünkü çok büyük; hedef dosya sistemi "
-"yalnızca 4GiB'a kadar dosyaları destekliyor"
+"<filename>%1</filename> dosyası pek büyük olduğundan aktarılamıyor. Hedef "
+"dosya sistemi yalnızca 4 GiB'a kadar olan dosyaları destekliyor"
 
 #: core/job_error.cpp:254
 #, kde-format
@@ -829,8 +829,8 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Ayrıcalık yükseltmesine gerek yok; çünkü \n"
-"'%1' sahibi geçerli kullanıcıdır.\n"
+"'%1' sahibi geçerli kullanıcı olduğundan\n"
+"ayrıcalık yükseltmesine gerek yoktur.\n"
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
 #: core/job_error.cpp:257
@@ -1056,8 +1056,8 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"İstenen dosya veya klasörün (<strong>%1</strong>) içeriği alınamadı; çünkü "
-"okuma izni alınamadı."
+"Okuma izni sağlanamadığından istenen dosya veya klasörün (<strong>%1</"
+"strong>) içeriği alınamadı."
 
 #: core/job_error.cpp:435
 #, kde-format
@@ -1287,7 +1287,8 @@ msgstr "Belirtilen <strong>%1</strong> dosyası ya da klasörü yok."
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
-msgstr "İstenen dosya oluşturulamadı, çünkü bu adda bir dosya zaten var."
+msgstr ""
+"Bu adda bir dosya halihazırda var olduğundan istenen dosya oluşturulamadı."
 
 #: core/job_error.cpp:575
 #, kde-format
@@ -1309,7 +1310,9 @@ msgstr "Yeni dosya için farklı bir dosya adı seçin."
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
-msgstr "İstenilen klasör oluşturulamadı, çünkü bu adda bir klasör zaten var."
+msgstr ""
+"Bu adda bir klasör halihazırda var olduğundan istenilen klasör "
+"oluşturulamadı."
 
 #: core/job_error.cpp:586
 #, kde-format
@@ -1982,8 +1985,8 @@ msgid ""
 msgstr ""
 "Ağ yapılandırmanızda bir sorun olabilir, özellikle vekil sunucu adını "
 "yeniden denetlemenizi öneririz. Eğer son zamanlarda İnternet erişiminde "
-"herhangi bir sorun yaşamamışsanız bu gibi bir durumla karşılaşmanız bazı "
-"dahili sorunların varlığını gösterir."
+"herhangi bir sorun yaşamamışsanız bu gibi bir durumla karşılaşmanız bazı iç "
+"sorunların varlığını gösterir."
 
 #: core/job_error.cpp:1046
 #, kde-format
@@ -2003,7 +2006,7 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "Doğru yetki bilgileri sağlamış olmanıza rağmen, yetki denetimi başarısız "
-"oldu, çünkü sunucunun kullandığı yöntem, %1 protokolünü uygulayan KDE "
+"oldu; çünkü sunucunun kullandığı yöntem, %1 protokolünü uygulayan KDE "
 "programı tarafından desteklenmiyor."
 
 #: core/job_error.cpp:1058
@@ -2226,7 +2229,7 @@ msgstr "Dosya ve Hedef Dosyaları Aynı"
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
-msgstr "İşlem tamamlanamadı, çünkü hedef ve kaynak dosyaları aynı."
+msgstr "Hedef ve kaynak dosyalar aynı olduğundan işlem tamamlanamadı."
 
 #: core/job_error.cpp:1213
 #, kde-format
@@ -2243,7 +2246,7 @@ msgstr "Dosya veya Klasör kendi üzerine bırakıldı"
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
-msgstr "İşlem tamamlanamadı çünkü hedef ve kaynak dosyaları aynı."
+msgstr "Hedef ve kaynak dosyalar aynı olduğundan işlem tamamlanamadı."
 
 #: core/job_error.cpp:1221
 #, kde-format
@@ -2329,8 +2332,8 @@ msgid ""
 "The file <filename>%1</filename> cannot be transferred, because the "
 "destination filesystem does not support files that large"
 msgstr ""
-"<filename>%1</filename> dosyası aktarılamıyor; çünkü hedef dosya sistemi bu "
-"kadar büyük dosyaları desteklemiyor"
+"Hedef dosya sistemi bu kadar büyük dosyaları desteklemediğinden <filename>"
+"%1</filename> dosyası aktarılamıyor."
 
 #: core/job_error.cpp:1266
 #, kde-format
@@ -3652,7 +3655,7 @@ msgstr ""
 "<qt>Dosya listesine uygulanacak süzgeç. Süzgeç ile eşleşmeyen dosya adları "
 "görüntülenmeyecektir.<p> Açılır menüden var olan bir tanesini seçebilir veya "
 "doğrudan metin alanına süzgeç ifadenizi yazabilirsiniz.</p><p>* ve ? gibi "
-"genel arama karakterleri kullanabilirsiniz.</p></qt>"
+"genel arama karakterlerini kullanmak da olanaklıdır.</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:474
 #, kde-format
@@ -3687,8 +3690,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because it is reserved for "
 "use by the operating system."
 msgstr ""
-"<filename>%1</filename> adı kullanılamaz; çünkü işletim sisteminin kullanımı "
-"için ayrılmıştır."
+"<filename>%1</filename> adı işletim sisteminin kullanımı için ayrıldığından "
+"kullanılamıyor."
 
 #: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
@@ -4042,13 +4045,14 @@ msgstr ""
 "izinler değiştirilemiyor"
 
 #: ioslaves/file/file.cpp:746
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "%1 sahipliği değiştirilemiyor."
+msgstr ""
+"%1\n"
+"sahibi ve grubu değiştirilemiyor"
 
 #: ioslaves/file/file.cpp:828
 #, kde-format
@@ -6111,7 +6115,7 @@ msgstr "Bu istek talebini sunucu anlamadı."
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
-msgstr "%1 yapılamadı çünkü kaynak kilitli."
+msgstr "%1 yapılamadı; çünkü kaynak kilitli."
 
 #: kioworkers/http/http.cpp:1722
 #, kde-format
@@ -6125,7 +6129,7 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
-"%1 yapılamadı çünkü hedef sunucu dosya ya da klasör kabul etmeyi reddediyor."
+"%1 yapılamadı; çünkü hedef sunucu dosya ya da klasör kabul etmeyi reddediyor."
 
 #: kioworkers/http/http.cpp:1738 kioworkers/http/http.cpp:1843
 #, kde-format
@@ -6553,12 +6557,12 @@ msgid ""
 msgstr ""
 "<para>Bu modül içerisinden web arama anahtar sözcükleri özelliğini "
 "yapılandırabilirsiniz. Web arama anahtar sözcükleri, İnternet'ten kolayca "
-"arama yapmanızı ya da sözcüklerebakmanızı sağlar. Örneğin, Google kullanarak "
-"KDE projesi hakkında bilgi edinmek için basit bir şekilde <emphasis>gg:KDE</"
-"emphasis> veya <emphasis>google:KDE</emphasis> yazın.</para><para>Eğer bir "
-"öntanımlı arama motoru seçerseniz Konqueror gibi uygulamalar içerisinde "
-"normal sözcükler ve ifadeler yazıldığında, bu ögeler bir bütünleşik iç "
-"özellik desteği ile belirlenen arama motorunda aranır.</para>"
+"arama yapmanızı ya da sözcüklere bakmanızı sağlar. Örneğin, Google "
+"kullanarak KDE projesi hakkında bilgi edinmek için basit bir şekilde "
+"<emphasis>gg:KDE</emphasis> veya <emphasis>google:KDE</emphasis> yazın.</"
+"para><para>Eğer bir öntanımlı arama motoru seçerseniz Konqueror gibi "
+"uygulamalar içinde normal sözcükler ve ifadeler yazıldığında, bu ögeler bir "
+"bütünleşik iç özellik desteği ile belirlenen arama motorunda aranır.</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
