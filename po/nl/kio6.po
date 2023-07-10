@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-08 02:33+0000\n"
-"PO-Revision-Date: 2023-06-28 09:56+0200\n"
+"PO-Revision-Date: 2023-07-08 10:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4270,13 +4270,14 @@ msgstr ""
 "%1 niet wijzigen"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Kon de eigendom voor %1 niet wijzigen."
+msgstr ""
+"Kon de eigenaar en groep niet wijzigen voor\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format

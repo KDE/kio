@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-08 02:33+0000\n"
-"PO-Revision-Date: 2023-07-07 06:21+0200\n"
+"PO-Revision-Date: 2023-07-09 06:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4120,13 +4120,14 @@ msgstr ""
 "წვდომის ცვლილების შეცდომა"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "ფაილ %1-ის მფლობელის შეცვლის შეცდომა."
+msgstr ""
+"მფლობლის და ჯგუფის შეცვლა ფაილისთვის\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format

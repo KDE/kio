@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-08 02:33+0000\n"
-"PO-Revision-Date: 2023-06-29 01:08+0200\n"
+"PO-Revision-Date: 2023-07-09 12:18+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1065,8 +1065,9 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"Esto significa que los contenidos del archivo o carpeta solicitada <strong>"
-"%1</strong> no se pudieron recuperar, porque no se obtuvo acceso de lectura."
+"Esto significa que el contenido del archivo o carpeta solicitada <strong>%1</"
+"strong> no se ha podido recuperar, porque no se ha conseguido acceso de "
+"lectura."
 
 #: core/job_error.cpp:435
 #, kde-format
@@ -1468,8 +1469,8 @@ msgid ""
 msgstr ""
 "Los entornos UNIX normalmente son capaces de enlazar un archivo o una "
 "carpeta a un nombre diferente o a una ubicación. KDE ha detectado un enlace "
-"o una serie de enlaces que da lugar a un bucle infinito - es decir el "
-"archivo estaba (de modo rebuscado quizá) enlazado consigo mismo."
+"o una serie de enlaces que da lugar a un bucle infinito (es decir, el "
+"archivo estaba, tal vez de forma indirecta, enlazado consigo mismo)."
 
 #: core/job_error.cpp:666 core/job_error.cpp:692
 #, kde-format
@@ -1511,8 +1512,8 @@ msgstr ""
 "Los entornos UNIX normalmente son capaces de enlazar un archivo o una "
 "carpeta a un nombre diferente o a una ubicación. Durante la operación de "
 "copia solicitada, KDE ha detectado un enlace o una serie de enlaces que da "
-"lugar a un bucle infinito - es decir el archivo estaba (de modo rebuscado "
-"quizá) enlazado consigo mismo."
+"lugar a un bucle infinito (es decir, el archivo estaba, tal vez de forma "
+"indirecta, enlazado consigo mismo."
 
 #: core/job_error.cpp:698
 #, kde-format
@@ -2289,7 +2290,7 @@ msgid ""
 msgstr ""
 "Libere suficiente espacio en el disco 1) eliminando archivos temporales o no "
 "deseados; 2) archivando los archivos en medios de almacenamiento como discos "
-"CD-regrabables o 3) consiga más capacidad de almacenamiento."
+"CD grabables o 3) consiga más capacidad de almacenamiento."
 
 #: core/job_error.cpp:1209
 #, kde-format
@@ -4258,17 +4259,18 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"No se pudieron cambiar los permisos de\n"
+"No se han podido cambiar los permisos de\n"
 "%1"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "No ha sido posible cambiar el propietario de %1."
+msgstr ""
+"No ha sido posible cambiar el propietario ni el grupo de\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
