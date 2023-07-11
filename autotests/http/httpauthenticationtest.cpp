@@ -111,7 +111,6 @@ void HTTPAuthenticationTest::testHeaderParsing_data()
     QTest::newRow("greenbytes-unknown") << QByteArray("Newauth realm=\"newauth\"") << QByteArray() << QByteArray();
 
     // Misc. test cases
-    QTest::newRow("ntlm") << QByteArray("NTLM   ") << QByteArray("NTLM") << QByteArray();
     QTest::newRow("unterminated-quoted-value") << QByteArray("Basic realm=\"") << QByteArray("Basic") << QByteArray();
     QTest::newRow("spacing-and-tabs") << QByteArray("bAsic bar\t =\t\"baz\", realm =\t\"foo\"") << QByteArray("bAsic") << QByteArray("bar,baz,realm,foo");
     QTest::newRow("empty-fields") << QByteArray("Basic realm=foo , , ,  ,, bar=\"baz\"\t,") << QByteArray("Basic") << QByteArray("realm,foo,bar,baz");
@@ -165,14 +164,10 @@ void HTTPAuthenticationTest::testAuthenticationSelection_data()
     QTest::addColumn<QByteArray>("expectedOffer");
 
 #if HAVE_LIBGSSAPI
-    QTest::newRow("all-with-negotiate") << QByteArray("Negotiate , Digest , NTLM , Basic") << QByteArray("Negotiate") << QByteArray("Negotiate");
+    QTest::newRow("all-with-negotiate") << QByteArray("Negotiate , Digest , Basic") << QByteArray("Negotiate") << QByteArray("Negotiate");
 #endif
-    QTest::newRow("all-without-negotiate") << QByteArray("Digest , NTLM , Basic , NewAuth") << QByteArray("Digest") << QByteArray("Digest");
-    QTest::newRow("ntlm-basic-unknown") << QByteArray("NTLM , Basic , NewAuth") << QByteArray("NTLM") << QByteArray("NTLM");
+    QTest::newRow("all-without-negotiate") << QByteArray("Digest , Basic , NewAuth") << QByteArray("Digest") << QByteArray("Digest");
     QTest::newRow("basic-unknown") << QByteArray("Basic , NewAuth") << QByteArray("Basic") << QByteArray("Basic");
-    QTest::newRow("ntlm-basic+param-ntlm") << QByteArray("NTLM   , Basic realm=foo, bar = baz, NTLM") << QByteArray("NTLM") << QByteArray("NTLM");
-    QTest::newRow("ntlm-with-type{2|3}") << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=") << QByteArray("NTLM")
-                                         << QByteArray("NTLM VFlQRV8yX09SXzNfTUVTU0FHRQo=");
 
     // Unknown schemes always return blank, i.e. auth request should be ignored
     QTest::newRow("unknown-param") << QByteArray("Newauth realm=\"newauth\"") << QByteArray() << QByteArray();
@@ -221,39 +216,6 @@ void HTTPAuthenticationTest::testAuthentication_data()
         << QByteArray("http://www.nowhere.org/dir/index.html")
         << QByteArray("0a4f113b");
 
-    QTest::newRow("ntlm-negotiate-type1") << QByteArray("NTLM")
-                                          << QByteArray("NTLM TlRMTVNTUAABAAAABQIAAAAAAAAAAAAAAAAAAAAAAAA=")
-                                          << QByteArray()
-                                          << QByteArray()
-                                          << QByteArray()
-                                          << QByteArray();
-
-    QTest::newRow("ntlm-challenge-type2")
-        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray("NTLM "
-                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGkAbgBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-        << QByteArray("Ursa-Minor\\Zaphod")
-        << QByteArray("Beeblebrox")
-        << QByteArray()
-        << QByteArray();
-
-    QTest::newRow("ntlm-challenge-type2-no-domain")
-        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray("NTLM "
-                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAABQAFABwAAAADAAMAIQAAAAWABYAkAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1UAcgBzAGEALQBNAGEAagBvAHIAWgBhAHAAaABvAGQAVwBPAFIASwBTAFQAQQBUAEkATwBOAA==")
-        << QByteArray("Zaphod")
-        << QByteArray("Beeblebrox")
-        << QByteArray()
-        << QByteArray();
-
-    QTest::newRow("ntlm-challenge-type2-empty-domain")
-        << QByteArray("NTLM TlRMTVNTUAACAAAAFAAUACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAFUAcgBzAGEALQBNAGEAagBvAHIA")
-        << QByteArray("NTLM "
-                      "TlRMTVNTUAADAAAAGAAYAFgAAAAYABgAQAAAAAAAAAAAAAAADAAMAHAAAAAWABYAfAAAAAAAAAAAAAAAAYIAAODgDeMQShvyBT8Hx92oLTxImumJ4bAA062Hym3v40aFucQ8R3qMQtYAZn1okufol1oAYQBwAGgAbwBkAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=")
-        << QByteArray("\\Zaphod")
-        << QByteArray("Beeblebrox")
-        << QByteArray()
-        << QByteArray();
     /* clang-format on */
 }
 
@@ -276,78 +238,6 @@ void HTTPAuthenticationTest::testAuthentication()
     authObj->setChallenge(bestOffer, QUrl(url), "GET");
     authObj->generateResponse(QString(user), QString(pass));
     QCOMPARE(authObj->headerFragment().trimmed().constData(), expectedResponse.constData());
-    delete authObj;
-}
-
-void HTTPAuthenticationTest::testAuthenticationNTLMv2()
-{
-    /* clang-format off */
-    QByteArray input(
-        "NTLM "
-        "TlRMTVNTUAACAAAABgAGADgAAAAFAokCT0wyUnb4OSQAAAAAAAAAAMYAxgA+AAAABgGxHQAAAA9UAFMAVAACAAYAVABTAFQAAQASAEQAVgBHAFIASwBWAFEAUABEAAQAKgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwADAD4ARABWAEcAUgBLAFYAUQBQAEQALgB0AHMAdAAuAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAFACIAZABqAGsAaABxAGMAaQBoAG0AYwBvAGYAagAuAG8AcgBnAAcACABvb9jXZl7RAQAAAAA=");
-
-    QByteArray expectedResponse(
-        "TlRMTVNTUAADAAAAGAAYADYBAAD2APYAQAAAAAYABgBOAQAABgAGAFQBAAAWABYAWgEAAAAAAAAAAAAABQKJArXyhsxZPveKcfcV21viIsUBAQAAAAAAAAC8GQxfX9EBTHOi1kJbHbQAAAAAAgAGAFQAUwBUAAEAEgBEAFYARwBSAEsAVgBRAFAARAAEACoAdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcAAwA+AEQAVgBHAFIASwBWAFEAUABEAC4AdABzAHQALgBkAGoAawBoAHEAYwBpAGgAbQBjAG8AZgBqAC4AbwByAGcABQAiAGQAagBrAGgAcQBjAGkAaABtAGMAbwBmAGoALgBvAHIAZwAHAAgAb2/Y12Ze0QEAAAAAAAAAAOInN0N/15GHBtz3WXvvV159KG/2MbYk0FQAUwBUAGIAbwBiAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=");
-    /* clang-format on */
-
-    QString user("TST\\bob");
-    QString pass("cacamas");
-    QString target("TST");
-
-    QByteArray bestOffer;
-    parseAuthHeader(input, &bestOffer, nullptr, nullptr);
-    KConfig conf;
-    KConfigGroup confGroup = conf.group("test");
-    confGroup.writeEntry("EnableNTLMv2Auth", true);
-    KAbstractHttpAuthentication *authObj = KAbstractHttpAuthentication::newAuth(bestOffer, &confGroup);
-    QVERIFY(authObj);
-
-    authObj->setChallenge(bestOffer, QUrl(), "GET");
-    authObj->generateResponse(QString(user), QString(pass));
-
-    QByteArray resp(QByteArray::fromBase64(authObj->headerFragment().trimmed().mid(5)));
-    QByteArray expResp(QByteArray::fromBase64(expectedResponse));
-
-    /* Prepare responses stripped from any data that is variable. */
-    QByteArray strippedResp(resp);
-    memset(strippedResp.data() + 0x40, 0, 0x10); // NTLMv2 MAC
-    memset(strippedResp.data() + 0x58, 0, 0x10); // timestamp + client nonce
-    memset(strippedResp.data() + 0x136, 0, 0x18); // LMv2 MAC
-    QByteArray strippedExpResp(expResp);
-    memset(strippedExpResp.data() + 0x40, 0, 0x10); // NTLMv2 MAC
-    memset(strippedExpResp.data() + 0x58, 0, 0x10); // timestamp + client nonce
-    memset(strippedExpResp.data() + 0x136, 0, 0x18); // LMv2 MAC
-
-    /* Compare the stripped responses. */
-    QCOMPARE(strippedResp.toBase64(), strippedExpResp.toBase64());
-
-    /* Verify the NTLMv2 response MAC. */
-    QByteArray challenge(QByteArray::fromBase64(input.mid(5)));
-    QByteArray serverNonce(challenge.mid(0x18, 8));
-
-    QByteArray uniPass(QString2UnicodeLE(pass));
-    QByteArray ntlmHash(QCryptographicHash::hash(uniPass, QCryptographicHash::Md4));
-    int i = user.indexOf('\\');
-    QString username;
-    if (i >= 0) {
-        username = user.mid(i + 1);
-    } else {
-        username = user;
-    }
-
-    QByteArray userTarget(QString2UnicodeLE(username.toUpper() + target));
-    QByteArray ntlm2Hash(hmacMD5(userTarget, ntlmHash));
-    QByteArray hashData(serverNonce + resp.mid(0x50, 230));
-    QByteArray mac(hmacMD5(hashData, ntlm2Hash));
-
-    QCOMPARE(mac.toHex(), resp.mid(0x40, 16).toHex());
-
-    /* Verify the LMv2 response MAC. */
-    QByteArray lmHashData(serverNonce + resp.mid(0x146, 8));
-    QByteArray lmHash(hmacMD5(lmHashData, ntlm2Hash));
-
-    QCOMPARE(lmHash.toHex(), resp.mid(0x136, 16).toHex());
-
     delete authObj;
 }
 

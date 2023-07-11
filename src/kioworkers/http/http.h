@@ -45,7 +45,7 @@ public:
     enum HTTP_REV { HTTP_None, HTTP_Unknown, HTTP_10, HTTP_11, SHOUTCAST };
 
     /** Authorization method used **/
-    enum AUTH_SCHEME { AUTH_None, AUTH_Basic, AUTH_NTLM, AUTH_Digest, AUTH_Negotiate };
+    enum AUTH_SCHEME { AUTH_None, AUTH_Basic, AUTH_Digest, AUTH_Negotiate };
 
     /** DAV-specific request elements for the current connection **/
     struct DAVRequest {

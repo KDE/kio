@@ -20,7 +20,6 @@ private Q_SLOTS:
     void testAuthenticationSelection_data();
     void testAuthentication();
     void testAuthentication_data();
-    void testAuthenticationNTLMv2();
 };
 
 #endif

@@ -60,7 +60,7 @@ public:
      */
     void reset();
     /**
-     * the authentication scheme: "Negotiate", "Digest", "Basic", "NTLM"
+     * the authentication scheme: "Negotiate", "Digest", "Basic"
      */
     virtual QByteArray scheme() const = 0;
     /**
@@ -252,29 +252,6 @@ private:
 #ifdef ENABLE_HTTP_AUTH_NONCE_SETTER
     QByteArray m_nonce;
 #endif
-};
-
-class KHttpNtlmAuthentication : public KAbstractHttpAuthentication
-{
-public:
-    QByteArray scheme() const override;
-    void setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod) override;
-    void fillKioAuthInfo(KIO::AuthInfo *ai) const override;
-    void generateResponse(const QString &user, const QString &password) override;
-
-private:
-    friend class KAbstractHttpAuthentication;
-    explicit KHttpNtlmAuthentication(KConfigGroup *config = nullptr)
-        : KAbstractHttpAuthentication(config)
-        , m_stage1State(Init)
-    {
-    }
-    enum Stage1State {
-        Init = 0,
-        SentNTLMv1,
-        SentNTLMv2,
-    };
-    Stage1State m_stage1State;
 };
 
 #if HAVE_LIBGSSAPI

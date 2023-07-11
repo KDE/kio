@@ -26,7 +26,6 @@
 #include <KRandom>
 #include <QDebug>
 #include <kio/authinfo.h>
-#include <kntlm.h>
 
 #include <QCryptographicHash>
 #include <QStringDecoder>
@@ -219,7 +218,6 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
     // choose the most secure auth scheme offered
     QByteArray negotiateOffer;
     QByteArray digestOffer;
-    QByteArray ntlmOffer;
     QByteArray basicOffer;
     for (const QByteArray &offer : offers) {
         const QByteArray scheme = offer.mid(0, offer.indexOf(' ')).toLower();
@@ -230,8 +228,6 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
 #endif
             if (scheme == "digest") { // krazy:exclude=strings
             digestOffer = offer;
-        } else if (scheme == "ntlm") { // krazy:exclude=strings
-            ntlmOffer = offer;
         } else if (scheme == "basic") { // krazy:exclude=strings
             basicOffer = offer;
         }
@@ -243,10 +239,6 @@ QByteArray KAbstractHttpAuthentication::bestOffer(const QList<QByteArray> &offer
 
     if (!digestOffer.isEmpty()) {
         return digestOffer;
-    }
-
-    if (!ntlmOffer.isEmpty()) {
-        return ntlmOffer;
     }
 
     return basicOffer; // empty or not...
@@ -262,8 +254,6 @@ KAbstractHttpAuthentication *KAbstractHttpAuthentication::newAuth(const QByteArr
 #endif
         if (scheme == "digest") { // krazy:exclude=strings
         return new KHttpDigestAuthentication();
-    } else if (scheme == "ntlm") { // krazy:exclude=strings
-        return new KHttpNtlmAuthentication(config);
     } else if (scheme == "basic") { // krazy:exclude=strings
         return new KHttpBasicAuthentication();
     }
@@ -673,112 +663,6 @@ void KHttpDigestAuthentication::setDigestNonceValue(const QByteArray &nonce)
     m_nonce = nonce;
 }
 #endif
-
-QByteArray KHttpNtlmAuthentication::scheme() const
-{
-    return "NTLM";
-}
-
-void KHttpNtlmAuthentication::setChallenge(const QByteArray &c, const QUrl &resource, const QByteArray &httpMethod)
-{
-    QString oldUsername;
-    QString oldPassword;
-    if (!m_finalAuthStage && !m_username.isEmpty() && !m_password.isEmpty()) {
-        oldUsername = m_username;
-        oldPassword = m_password;
-    }
-    KAbstractHttpAuthentication::setChallenge(c, resource, httpMethod);
-    if (!oldUsername.isEmpty() && !oldPassword.isEmpty()) {
-        m_username = oldUsername;
-        m_password = oldPassword;
-    }
-    // The type 1 message we're going to send needs no credentials;
-    // they come later in the type 3 message.
-    m_needCredentials = !m_challenge.isEmpty();
-}
-
-void KHttpNtlmAuthentication::fillKioAuthInfo(KIO::AuthInfo *ai) const
-{
-    authInfoBoilerplate(ai);
-    // Every auth scheme is supposed to supply a realm according to the RFCs. Of course this doesn't
-    // prevent Microsoft from not doing it... Dummy value!
-    // we don't have the username yet which may (may!) contain a domain, so we really have no choice
-    ai->realmValue = QStringLiteral("NTLM");
-}
-
-void KHttpNtlmAuthentication::generateResponse(const QString &_user, const QString &password)
-{
-    generateResponseCommon(_user, password);
-    if (m_isError) {
-        return;
-    }
-
-    QByteArray buf;
-
-    if (m_challenge.isEmpty()) {
-        m_finalAuthStage = false;
-        // first, send type 1 message (with empty domain, workstation..., but it still works)
-        switch (m_stage1State) {
-        case Init:
-            if (!KNTLM::getNegotiate(buf)) {
-                qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 1 NTLMv1 authentication request";
-                m_isError = true;
-                return;
-            }
-            m_stage1State = SentNTLMv1;
-            break;
-        case SentNTLMv1:
-            if (!KNTLM::getNegotiate(buf,
-                                     QString(),
-                                     QString(),
-                                     KNTLM::Negotiate_NTLM2_Key | KNTLM::Negotiate_Always_Sign | KNTLM::Negotiate_Unicode | KNTLM::Request_Target
-                                         | KNTLM::Negotiate_NTLM)) {
-                qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 1 NTLMv2 authentication request";
-                m_isError = true;
-                return;
-            }
-            m_stage1State = SentNTLMv2;
-            break;
-        default:
-            qCWarning(KIO_HTTP_AUTH) << "Error - Type 1 NTLM already sent - no Type 2 response received.";
-            m_isError = true;
-            return;
-        }
-    } else {
-        m_finalAuthStage = true;
-        // we've (hopefully) received a valid type 2 message: send type 3 message as last step
-        QString user;
-        QString domain;
-        if (m_username.contains(QLatin1Char('\\'))) {
-            domain = m_username.section(QLatin1Char('\\'), 0, 0);
-            // KNTLM::getAuth relies on isEmpty/isNull to distinguish this case and the else path below
-            if (domain.isNull()) {
-                domain = QLatin1String("");
-            }
-            user = m_username.section(QLatin1Char('\\'), 1);
-        } else {
-            user = m_username;
-        }
-
-        m_forceKeepAlive = true;
-        const QByteArray challenge = QByteArray::fromBase64(m_challenge[0]);
-
-        KNTLM::AuthFlags flags = KNTLM::Add_LM;
-        if ((!m_config || !m_config->readEntry("EnableNTLMv2Auth", false)) && (m_stage1State != SentNTLMv2)) {
-            flags |= KNTLM::Force_V1;
-        }
-
-        if (!KNTLM::getAuth(buf, challenge, user, m_password, domain, QStringLiteral("WORKSTATION"), flags)) {
-            qCWarning(KIO_HTTP_AUTH) << "Error while constructing Type 3 NTLM authentication request";
-            m_isError = true;
-            return;
-        }
-    }
-
-    m_headerFragment = "NTLM " + buf.toBase64() + "\r\n";
-
-    return;
-}
 
 //////////////////////////
 #if HAVE_LIBGSSAPI

@@ -31,8 +31,6 @@ ecm_add_test(httpheaderdispositiontest.cpp
 
 ecm_add_test(
    httpauthenticationtest.cpp
-   ${kioworker-http_SOURCE_DIR}/kntlm.cpp
-   ${kioworker-http_SOURCE_DIR}/des.cpp
    TEST_NAME "httpauthenticationtest"
    NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
@@ -53,8 +51,6 @@ ecm_add_test(
    ${kioworker-http_SOURCE_DIR}/http.cpp
    ${kioworker-http_SOURCE_DIR}/httpauthentication.cpp
    ${kioworker-http_SOURCE_DIR}/httpfilter.cpp
-   ${kioworker-http_SOURCE_DIR}/kntlm.cpp
-   ${kioworker-http_SOURCE_DIR}/des.cpp
    TEST_NAME "httpobjecttest" NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
    Qt6::Test

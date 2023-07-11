@@ -60,7 +60,7 @@ static HeadersMap parseHeaders(const QByteArray &headerData)
     return headersMap;
 }
 
-enum Method { None, Basic, Plain, Login, Ntlm, CramMd5, DigestMd5 };
+enum Method { None, Basic, Plain, Login, CramMd5, DigestMd5 };
 
 static void parseAuthLine(const QString &str, Method *method, QString *headerVal)
 {
@@ -73,9 +73,6 @@ static void parseAuthLine(const QString &str, Method *method, QString *headerVal
     if (*method < Basic && str.startsWith(QLatin1String("Basic"), Qt::CaseInsensitive)) {
         *method = Basic;
         *headerVal = str.mid(6);
-    } else if (*method < Ntlm && str.startsWith(QLatin1String("NTLM"), Qt::CaseInsensitive)) {
-        *method = Ntlm;
-        *headerVal = str.mid(5);
     } else if (*method < DigestMd5 && str.startsWith(QLatin1String("Digest"), Qt::CaseInsensitive)) {
         *method = DigestMd5;
         *headerVal = str.mid(7);
