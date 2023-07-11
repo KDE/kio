@@ -23,7 +23,7 @@
  * It parses the /etc/exports file to get its information.
  * Singleton class, call instance() to get an instance.
  */
-class KIOCORE_EXPORT KNFSShare : public QObject
+class KNFSShare : public QObject
 {
     Q_OBJECT
 public:

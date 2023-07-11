@@ -307,7 +307,6 @@ ecm_generate_headers(KIOCore_HEADERS
   KFileItem
   KFileItemListProperties
   KMountPoint
-  KNFSShare
   KSambaShare
   KSambaShareData
   KPasswdServerClient
