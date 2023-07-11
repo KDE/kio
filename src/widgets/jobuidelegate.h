@@ -86,44 +86,6 @@ public:
     static void unregisterWindow(QWidget *window);
 
     /**
-     * \relates KIO::RenameDialog
-     * Construct a modal, parent-less "rename" dialog, and return
-     * a result code, as well as the new dest. Much easier to use than the
-     * class RenameDialog directly.
-     *
-     * @param title the title for the dialog box
-     * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
-     * @param dest the URL of the destination file/dir, i.e. the one that already exists
-     * @param options parameters for the dialog (which buttons to show...)
-     * @param newDestPath the new destination path, valid if R_RENAME was returned.
-     * @param sizeSrc size of source file
-     * @param sizeDest size of destination file
-     * @param ctimeSrc creation time of source file
-     * @param ctimeDest creation time of destination file
-     * @param mtimeSrc modification time of source file
-     * @param mtimeDest modification time of destination file
-     * @return the result
-     */
-    RenameDialog_Result askFileRename(KJob *job,
-                                      const QString &title,
-                                      const QUrl &src,
-                                      const QUrl &dest,
-                                      KIO::RenameDialog_Options options,
-                                      QString &newDest,
-                                      KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
-                                      KIO::filesize_t sizeDest = KIO::filesize_t(-1),
-                                      const QDateTime &ctimeSrc = QDateTime(),
-                                      const QDateTime &ctimeDest = QDateTime(),
-                                      const QDateTime &mtimeSrc = QDateTime(),
-                                      const QDateTime &mtimeDest = QDateTime()) override;
-
-    /**
-     * @internal
-     * See skipdialog.h
-     */
-    SkipDialog_Result askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override;
-
-    /**
      * Ask for confirmation before deleting/trashing @p urls.
      *
      * Note that this method is not called automatically by KIO jobs. It's the application's
@@ -136,32 +98,6 @@ public:
      * @return true if confirmed
      */
     bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) override;
-
-    /**
-     * This function allows for the delegation user prompts from the KIO workers.
-     *
-     * @param type the desired type of message box.
-     * @param text the message shown to the user.
-     * @param title the title of the message dialog box.
-     * @param primaryActionText the text for the primary action button.
-     * @param secondaryActionText the text for the secondary action button.
-     * @param primaryActionIconName the icon shown on the primary action button.
-     * @param secondaryActionIconName the icon shown on the secondary action button.
-     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-     * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
-     *
-     * @internal
-     */
-    // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, WorkerInterface, and JobUiDelegateExtension.
-    int requestMessageBox(MessageBoxType type,
-                          const QString &text,
-                          const QString &title,
-                          const QString &primaryActionText,
-                          const QString &secondaryActionText,
-                          const QString &primaryActionIconName = QString(),
-                          const QString &secondaryActionIconName = QString(),
-                          const QString &dontAskAgainName = QString(),
-                          const KIO::MetaData &metaData = KIO::MetaData()) override;
 
     /**
      * Creates a clipboard updater

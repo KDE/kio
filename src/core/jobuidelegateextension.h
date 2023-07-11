@@ -125,10 +125,7 @@ typedef RenameDialog_Result SkipDialog_Result;
  * @class KIO::JobUiDelegateExtension jobuidelegateextension.h <KIO/JobUiDelegateExtension>
  *
  * An abstract class defining interaction with users from KIO jobs:
- * \li asking what to do in case of a conflict while copying/moving files or directories
- * \li asking what to do in case of an error while copying/moving files or directories
  * \li asking for confirmation before deleting files or directories
- * \li popping up message boxes when the worker requests it
  * @since 5.0
  */
 class KIOCORE_EXPORT JobUiDelegateExtension
@@ -145,44 +142,6 @@ protected:
     virtual ~JobUiDelegateExtension();
 
 public:
-    /**
-     * \relates KIO::RenameDialog
-     * Construct a modal, parent-less "rename" dialog, and return
-     * a result code, as well as the new dest. Much easier to use than the
-     * class RenameDialog directly.
-     *
-     * @param title the title for the dialog box
-     * @param src the URL of the file/dir we're trying to copy, as it's part of the text message
-     * @param dest the URL of the destination file/dir, i.e. the one that already exists
-     * @param options parameters for the dialog (which buttons to show...)
-     * @param newDest the new destination path, valid if R_RENAME was returned.
-     * @param sizeSrc size of source file
-     * @param sizeDest size of destination file
-     * @param ctimeSrc creation time of source file
-     * @param ctimeDest creation time of destination file
-     * @param mtimeSrc modification time of source file
-     * @param mtimeDest modification time of destination file
-     * @return the result
-     */
-    virtual KIO::RenameDialog_Result askFileRename(KJob *job,
-                                                   const QString &title,
-                                                   const QUrl &src,
-                                                   const QUrl &dest,
-                                                   KIO::RenameDialog_Options options,
-                                                   QString &newDest,
-                                                   KIO::filesize_t sizeSrc = KIO::filesize_t(-1),
-                                                   KIO::filesize_t sizeDest = KIO::filesize_t(-1),
-                                                   const QDateTime &ctimeSrc = QDateTime(),
-                                                   const QDateTime &ctimeDest = QDateTime(),
-                                                   const QDateTime &mtimeSrc = QDateTime(),
-                                                   const QDateTime &mtimeDest = QDateTime()) = 0;
-
-    /**
-     * @internal
-     * See skipdialog.h
-     */
-    virtual KIO::SkipDialog_Result askSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) = 0;
-
     /**
      * The type of deletion: real deletion, moving the files to the trash
      * or emptying the trash
@@ -209,47 +168,6 @@ public:
      * @return true if confirmed
      */
     virtual bool askDeleteConfirmation(const QList<QUrl> &urls, DeletionType deletionType, ConfirmationType confirmationType) = 0;
-
-    /**
-     * Message box types.
-     *
-     * Should be kept in sync with WorkerBase::MessageBoxType.
-     *
-     */
-    enum MessageBoxType {
-        QuestionTwoActions = 1, ///< @since 5.100
-        WarningTwoActions = 2, ///< @since 5.100
-        WarningContinueCancel = 3,
-        WarningTwoActionsCancel = 4, ///< @since 5.100
-        Information = 5,
-        SSLMessageBox = 6,
-        // In KMessageBox::DialogType; <unused> = 7, Error = 8,
-        // QuestionTwoActionsCancel = 9
-        WarningContinueCancelDetailed = 10,
-    };
-
-    /**
-     * This function allows for the delegation user prompts from the KIO workers.
-     *
-     * @param type the desired type of message box.
-     * @param text the message shown to the user.
-     * @param title the title of the message dialog box.
-     * @param primaryActionText the text for the primary action.
-     * @param secondaryActionText the text for the secondary action.
-     * @param primaryActionIconName the icon shown on the primary action.
-     * @param secondaryActionIconName the icon shown on the secondary action.
-     * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
-     * @param sslMetaData SSL information used by the SSLMessageBox.
-     */
-    virtual int requestMessageBox(MessageBoxType type,
-                                  const QString &text,
-                                  const QString &title,
-                                  const QString &primaryActionText,
-                                  const QString &secondaryActionText,
-                                  const QString &primaryActionIconName = QString(),
-                                  const QString &secondaryActionIconName = QString(),
-                                  const QString &dontAskAgainName = QString(),
-                                  const KIO::MetaData &sslMetaData = KIO::MetaData()) = 0;
 
     enum ClipboardUpdaterMode {
         UpdateContent,
