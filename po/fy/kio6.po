@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"POT-Creation-Date: 2023-07-11 02:02+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -8016,20 +8016,20 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:105
+#: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, fuzzy, kde-format
 #| msgid "Examining"
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Warskôging"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:121
+#: widgets/widgetsuntrustedprogramhandler.cpp:122
 #, fuzzy, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "KDE test programma"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:131
+#: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"POT-Creation-Date: 2023-07-11 02:02+0000\n"
 "PO-Revision-Date: 2023-06-16 19:24+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -7632,19 +7632,19 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Jangan tampilkan pesan ini lagi"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:105
+#: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Awas"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:121
+#: widgets/widgetsuntrustedprogramhandler.cpp:122
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "Ini akan menjalankan program:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:131
+#: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jika Anda tidak percaya program ini, klik Batal"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"POT-Creation-Date: 2023-07-11 02:02+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -7243,19 +7243,19 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "o pana sin ala e toki ni"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:105
+#: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "o lukin"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:121
+#: widgets/widgetsuntrustedprogramhandler.cpp:122
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "ni li open e ilo:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:131
+#: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "sina pilin ike tan ilo ni la o pilin lon \"pini\""

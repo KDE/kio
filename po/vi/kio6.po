@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"POT-Creation-Date: 2023-07-11 02:02+0000\n"
 "PO-Revision-Date: 2023-02-20 10:53+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -7503,19 +7503,19 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Đừng hiện lại thông điệp này"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:105
+#: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "Cảnh báo"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:121
+#: widgets/widgetsuntrustedprogramhandler.cpp:122
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "Việc này sẽ khởi động chương trình đó:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:131
+#: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 02:33+0000\n"
+"POT-Creation-Date: 2023-07-11 02:02+0000\n"
 "PO-Revision-Date: 2023-07-09 06:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -7401,19 +7401,19 @@ msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "მეტჯერ აღარ აჩვენო ეს გაფრთხილება"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:105
+#: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, kde-format
 msgctxt "Warning about executing unknown program"
 msgid "Warning"
 msgstr "გაფრთხილება"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:121
+#: widgets/widgetsuntrustedprogramhandler.cpp:122
 #, kde-format
 msgctxt "program name follows in a line edit below"
 msgid "This will start the program:"
 msgstr "ეს გაუშვებს პროგრამას:"
 
-#: widgets/widgetsuntrustedprogramhandler.cpp:131
+#: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "თუ ამ პროგრამას არ ენდობით, გაუქმებას დააწექით"
