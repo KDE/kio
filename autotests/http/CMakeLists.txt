@@ -51,6 +51,8 @@ ecm_add_test(
    ${kioworker-http_SOURCE_DIR}/http.cpp
    ${kioworker-http_SOURCE_DIR}/httpauthentication.cpp
    ${kioworker-http_SOURCE_DIR}/httpfilter.cpp
+   ${kioworker-http_SOURCE_DIR}/tcpworkerbase.cpp
+   ${kioworker-http_SOURCE_DIR}/ksslsettings.cpp
    TEST_NAME "httpobjecttest" NAME_PREFIX "kioworker-"
    LINK_LIBRARIES
    Qt6::Test

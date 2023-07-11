@@ -51,6 +51,8 @@ target_sources(kio_http PRIVATE
    http.cpp
    httpauthentication.cpp
    httpfilter.cpp
+   tcpworkerbase.cpp
+   ksslsettings.cpp
    )
 
 ecm_qt_export_logging_category(

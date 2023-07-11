@@ -20,7 +20,7 @@
 #include <QUrl>
 
 #include "httpmethod_p.h"
-#include "kio/tcpworkerbase.h"
+#include "tcpworkerbase.h"
 
 class QDomNodeList;
 class QFile;

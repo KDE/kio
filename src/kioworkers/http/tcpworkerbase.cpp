@@ -12,20 +12,22 @@
 */
 
 #include "tcpworkerbase.h"
-#include "kiocoredebug.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <ksslcertificatemanager.h>
 #include <ksslsettings.h>
 
+#include <QDBusConnection>
+#include <QLoggingCategory>
 #include <QSslCipher>
 #include <QSslSocket>
 
-#include <QDBusConnection>
-
 using namespace KIO;
 // using namespace KNetwork;
+
+Q_DECLARE_LOGGING_CATEGORY(KIO_HTTP_TCPWORKERBASE)
+Q_LOGGING_CATEGORY(KIO_HTTP_TCPWORKERBASE, "kf.kio.workers.http.tcpworkerbase", QtWarningMsg) // disable debug by default
 
 namespace KIO
 {
@@ -556,7 +558,7 @@ TCPWorkerBase::SslResult TCPWorkerBase::verifyServerCertificate()
         case WorkerBase::Cancel:
             return ResultFailed;
         default:
-            qCWarning(KIO_CORE) << "Unexpected MessageBox response received:" << msgResult;
+            qCWarning(KIO_HTTP_TCPWORKERBASE) << "Unexpected MessageBox response received:" << msgResult;
             return ResultFailed;
         }
     } while (msgResult == WorkerBase::PrimaryAction);
@@ -588,7 +590,7 @@ bool TCPWorkerBase::waitForResponse(int t)
 void TCPWorkerBase::setBlocking(bool b)
 {
     if (!b) {
-        qCWarning(KIO_CORE) << "Caller requested non-blocking mode, but that doesn't work";
+        qCWarning(KIO_HTTP_TCPWORKERBASE) << "Caller requested non-blocking mode, but that doesn't work";
         return;
     }
     d->isBlocking = b;

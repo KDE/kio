@@ -25,14 +25,7 @@ class QSslSocket;
 
 namespace KIO
 {
-/**
- * @class KIO::TCPWorkerBase tcpworkerbase.h <KIO/TCPWorkerBase>
- *
- * A WorkerBase with convenience methods for TCP-connected storages.
- *
- * @since 5.99
- */
-class KIOCORE_EXPORT TCPWorkerBase : public WorkerBase
+class TCPWorkerBase : public WorkerBase
 {
 public:
     /**

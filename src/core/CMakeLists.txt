@@ -87,7 +87,6 @@ target_sources(KF6KIOCore PRIVATE
 
 if (NOT ANDROID)
 target_sources(KF6KIOCore PRIVATE
-  tcpworkerbase.cpp
   kpasswdserverloop.cpp
   kpasswdserverclient.cpp
   kdirnotify.cpp
@@ -95,7 +94,6 @@ target_sources(KF6KIOCore PRIVATE
 
   ksslcertificatemanager.cpp
   ksslerroruidata.cpp
-  kssl/ksslsettings.cpp
 )
 endif()
 
@@ -230,7 +228,6 @@ endif()
 ecm_generate_headers(KIOCore_CamelCase_HEADERS
   HEADER_NAMES
   ConnectionServer
-  TCPWorkerBase
   DirectorySizeJob
   Job #     ### should forward to job_base.h, not job.h...
   JobTracker
