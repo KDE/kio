@@ -314,7 +314,6 @@ ecm_generate_headers(KIOCore_HEADERS
   KProtocolManager
   KRecentDocument
   KRecentDirs
-  KSslCertificateManager
   KSslErrorUiData
   KFileFilter
   KOverlayIconPlugin
@@ -325,7 +324,6 @@ ecm_generate_headers(KIOCore_HEADERS
 install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
-  ksslcertificatemanager_p.h
   ${KIOCore_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
