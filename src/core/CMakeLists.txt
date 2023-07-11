@@ -4,18 +4,6 @@ configure_file(config-kiocore.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kiocore
 
 configure_file(config-kmountpoint.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kmountpoint.h)
 
-# KSSL_HAVE_SSL only used in kssl/ksslsettings.cpp, but currently ifdefed out
-#find_package(OpenSSL)
-#set_package_properties(OpenSSL PROPERTIES DESCRIPTION "Support for secure network communications (SSL and TLS)"
-#                       URL "https://www.openssl.org/"
-#                       TYPE RECOMMENDED
-#                       PURPOSE "KDE uses OpenSSL for the bulk of secure communications, including secure web browsing via HTTPS"
-#                      )
-#if(OPENSSL_FOUND)
-#   set(KSSL_HAVE_SSL 1)
-#   include_directories(${OPENSSL_INCLUDE_DIR})
-#endif()
-
 add_library(KF6KIOCore)
 add_library(KF6::KIOCore ALIAS KF6KIOCore)
 
