@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-08 01:09+0000\n"
+"POT-Creation-Date: 2023-07-13 00:43+0000\n"
 "PO-Revision-Date: 2023-03-01 02:06+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3809,7 +3809,7 @@ msgstr "위치를 탐색하려면 클릭하십시오"
 msgid "Click to Edit Location"
 msgstr "주소를 편집하려면 클릭하십시오"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:238
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "이 파일을 실행할 권한이 없습니다."
@@ -3861,7 +3861,7 @@ msgstr "아이콘 파일이 너무 커서 다운로드 중단함"
 msgid "No mail client found"
 msgstr "메일 클라이언트를 찾을 수 없음"
 
-#: gui/kprocessrunner.cpp:94
+#: gui/kprocessrunner.cpp:105
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3872,12 +3872,12 @@ msgstr ""
 "데스크톱 항목 파일이\n"
 "잘못되었습니다."
 
-#: gui/kprocessrunner.cpp:262
+#: gui/kprocessrunner.cpp:253
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 실행 중"
 
-#: gui/kprocessrunner.cpp:475
+#: gui/kprocessrunner.cpp:466
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -7201,7 +7201,7 @@ msgstr "소유자"
 msgid "Owning Group"
 msgstr "소유하는 그룹"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2139
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2140
 #, kde-format
 msgid "Others"
 msgstr "다른 사람"
@@ -8026,7 +8026,7 @@ msgstr ""
 msgid "Ad&vanced Options"
 msgstr "고급 옵션(&V)"
 
-#: widgets/kpropertiesdialog.cpp:176
+#: widgets/kpropertiesdialog.cpp:177
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8036,60 +8036,60 @@ msgstr ""
 "다음에 쓸 충분한 권한이 없어서 속성을 저장할 수 없습니다:<nl/><filename>%1</"
 "filename>."
 
-#: widgets/kpropertiesdialog.cpp:233 widgets/kpropertiesdialog.cpp:248
-#: widgets/kpropertiesdialog.cpp:260 widgets/kpropertiesdialog.cpp:278
-#: widgets/kpropertiesdialog.cpp:296 widgets/kpropertiesdialog.cpp:320
+#: widgets/kpropertiesdialog.cpp:234 widgets/kpropertiesdialog.cpp:249
+#: widgets/kpropertiesdialog.cpp:261 widgets/kpropertiesdialog.cpp:279
+#: widgets/kpropertiesdialog.cpp:297 widgets/kpropertiesdialog.cpp:321
 #, kde-format
 msgid "Properties for %1"
 msgstr "%1 속성"
 
-#: widgets/kpropertiesdialog.cpp:258 widgets/kpropertiesdialog.cpp:294
+#: widgets/kpropertiesdialog.cpp:259 widgets/kpropertiesdialog.cpp:295
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
 msgstr[0] "선택한 항목 %1개의 속성"
 
-#: widgets/kpropertiesdialog.cpp:450
+#: widgets/kpropertiesdialog.cpp:451
 #, kde-format
 msgctxt "@title:tab"
 msgid "Share"
 msgstr "공유"
 
-#: widgets/kpropertiesdialog.cpp:919
+#: widgets/kpropertiesdialog.cpp:920
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "일반(&G)"
 
-#: widgets/kpropertiesdialog.cpp:1119
+#: widgets/kpropertiesdialog.cpp:1120
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "%1에서 탐색"
 
-#: widgets/kpropertiesdialog.cpp:1130 widgets/kpropertiesdialog.cpp:1395
+#: widgets/kpropertiesdialog.cpp:1131 widgets/kpropertiesdialog.cpp:1396
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: widgets/kpropertiesdialog.cpp:1245
+#: widgets/kpropertiesdialog.cpp:1246
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialog.cpp:1355
+#: widgets/kpropertiesdialog.cpp:1356
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2 중 %1 남음(%3% 사용함)"
 
-#: widgets/kpropertiesdialog.cpp:1362
+#: widgets/kpropertiesdialog.cpp:1363
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: widgets/kpropertiesdialog.cpp:1372
+#: widgets/kpropertiesdialog.cpp:1373
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -8098,148 +8098,148 @@ msgstr ""
 "계산 중... %1(%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialog.cpp:1375 widgets/kpropertiesdialog.cpp:1390
+#: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "파일 %1개"
 
-#: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
+#: widgets/kpropertiesdialog.cpp:1377 widgets/kpropertiesdialog.cpp:1392
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "하위 폴더 %1개"
 
-#: widgets/kpropertiesdialog.cpp:1404
+#: widgets/kpropertiesdialog.cpp:1405
 #, kde-format
 msgid "Calculating...\n"
 msgstr "계산 중...\n"
 
-#: widgets/kpropertiesdialog.cpp:1427
+#: widgets/kpropertiesdialog.cpp:1428
 #, kde-format
 msgid "At least %1\n"
 msgstr "최소한 %1\n"
 
-#: widgets/kpropertiesdialog.cpp:1473
+#: widgets/kpropertiesdialog.cpp:1474
 #, kde-format
 msgid "The new file name is empty."
 msgstr "새 파일 이름이 비어 있습니다."
 
-#: widgets/kpropertiesdialog.cpp:1671
+#: widgets/kpropertiesdialog.cpp:1672
 #, kde-format
 msgid "No registered file type"
 msgstr "등록된 파일 형식 없음"
 
-#: widgets/kpropertiesdialog.cpp:1673
+#: widgets/kpropertiesdialog.cpp:1674
 #, kde-format
 msgid "No associated application"
 msgstr "연결된 프로그램 없음"
 
-#: widgets/kpropertiesdialog.cpp:1679
+#: widgets/kpropertiesdialog.cpp:1680
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "만들기…"
 
-#: widgets/kpropertiesdialog.cpp:1682
+#: widgets/kpropertiesdialog.cpp:1683
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "변경…"
 
-#: widgets/kpropertiesdialog.cpp:1758 widgets/kpropertiesdialog.cpp:1759
-#: widgets/kpropertiesdialog.cpp:1761
+#: widgets/kpropertiesdialog.cpp:1759 widgets/kpropertiesdialog.cpp:1760
+#: widgets/kpropertiesdialog.cpp:1762
 msgid "No Access"
 msgstr "접근 권한 없음"
 
-#: widgets/kpropertiesdialog.cpp:1758
+#: widgets/kpropertiesdialog.cpp:1759
 msgid "Can Only View"
 msgstr "보기만 가능"
 
-#: widgets/kpropertiesdialog.cpp:1758
+#: widgets/kpropertiesdialog.cpp:1759
 msgid "Can View & Modify"
 msgstr "보기 및 수정 가능"
 
-#: widgets/kpropertiesdialog.cpp:1759
+#: widgets/kpropertiesdialog.cpp:1760
 msgid "Can Only View Content"
 msgstr "내용 보기만 가능"
 
-#: widgets/kpropertiesdialog.cpp:1759
+#: widgets/kpropertiesdialog.cpp:1760
 msgid "Can View & Modify Content"
 msgstr "내용 보기 및 수정 가능"
 
-#: widgets/kpropertiesdialog.cpp:1761
+#: widgets/kpropertiesdialog.cpp:1762
 msgid "Can Only View/Read Content"
 msgstr "내용 보기/읽기만 가능"
 
-#: widgets/kpropertiesdialog.cpp:1761
+#: widgets/kpropertiesdialog.cpp:1762
 msgid "Can View/Read & Modify/Write"
 msgstr "내용 보고 읽고 쓰기"
 
-#: widgets/kpropertiesdialog.cpp:1860
+#: widgets/kpropertiesdialog.cpp:1861
 #, kde-format
 msgid "&Permissions"
 msgstr "권한(&P)"
 
-#: widgets/kpropertiesdialog.cpp:1872 widgets/kpropertiesdialog.cpp:2068
+#: widgets/kpropertiesdialog.cpp:1873 widgets/kpropertiesdialog.cpp:2069
 #, kde-format
 msgid "Access Permissions"
 msgstr "접근 권한"
 
-#: widgets/kpropertiesdialog.cpp:1881
+#: widgets/kpropertiesdialog.cpp:1882
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "모든 파일은 링크이므로 권한을 가지지 않습니다."
 
-#: widgets/kpropertiesdialog.cpp:1883
+#: widgets/kpropertiesdialog.cpp:1884
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "소유자만 권한을 변경할 수 있습니다."
 
-#: widgets/kpropertiesdialog.cpp:1887
+#: widgets/kpropertiesdialog.cpp:1888
 #, kde-format
 msgid "O&wner:"
 msgstr "소유자(&W):"
 
-#: widgets/kpropertiesdialog.cpp:1893
+#: widgets/kpropertiesdialog.cpp:1894
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "소유자의 권한을 지정합니다."
 
-#: widgets/kpropertiesdialog.cpp:1895
+#: widgets/kpropertiesdialog.cpp:1896
 #, kde-format
 msgid "Gro&up:"
 msgstr "그룹(&U):"
 
-#: widgets/kpropertiesdialog.cpp:1901
+#: widgets/kpropertiesdialog.cpp:1902
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "그룹 구성원의 권한을 지정합니다."
 
-#: widgets/kpropertiesdialog.cpp:1903
+#: widgets/kpropertiesdialog.cpp:1904
 #, kde-format
 msgid "O&thers:"
 msgstr "기타(&T):"
 
-#: widgets/kpropertiesdialog.cpp:1910
+#: widgets/kpropertiesdialog.cpp:1911
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "파일의 소유자 또는 그룹에 속하지 않은 모든 사용자의 권한을 지정합니다."
 
-#: widgets/kpropertiesdialog.cpp:1914
+#: widgets/kpropertiesdialog.cpp:1915
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "소유자만 폴더 내용 이름 변경 및 삭제 가능(&E)"
 
-#: widgets/kpropertiesdialog.cpp:1914
+#: widgets/kpropertiesdialog.cpp:1915
 #, kde-format
 msgid "Is &executable"
 msgstr "실행 가능(&E)"
 
-#: widgets/kpropertiesdialog.cpp:1917
+#: widgets/kpropertiesdialog.cpp:1918
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -8250,7 +8250,7 @@ msgstr ""
 "을 바꿀 수 있도록 합니다. 기타 사용자는 새 파일만 추가할 수 있으므로 '내용 수"
 "정' 권한이 필요합니다."
 
-#: widgets/kpropertiesdialog.cpp:1921
+#: widgets/kpropertiesdialog.cpp:1922
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -8259,42 +8259,42 @@ msgstr ""
 "파일을 실행 파일로 표시하려면 이 옵션을 사용하십시오. 프로그램과 스크립트에"
 "만 적합합니다. 이를 실행하려는 경우 필요합니다."
 
-#: widgets/kpropertiesdialog.cpp:1928
+#: widgets/kpropertiesdialog.cpp:1929
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "고급 권한(&D)"
 
-#: widgets/kpropertiesdialog.cpp:1936
+#: widgets/kpropertiesdialog.cpp:1937
 #, kde-format
 msgid "Ownership"
 msgstr "소유권"
 
-#: widgets/kpropertiesdialog.cpp:1943
+#: widgets/kpropertiesdialog.cpp:1944
 #, kde-format
 msgid "User:"
 msgstr "사용자:"
 
-#: widgets/kpropertiesdialog.cpp:1982
+#: widgets/kpropertiesdialog.cpp:1983
 #, kde-format
 msgid "Group:"
 msgstr "그룹:"
 
-#: widgets/kpropertiesdialog.cpp:2017
+#: widgets/kpropertiesdialog.cpp:2018
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "모든 하위 폴더 및 해당 폴더의 내용에도 변경 사항 적용"
 
-#: widgets/kpropertiesdialog.cpp:2059
+#: widgets/kpropertiesdialog.cpp:2060
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "고급 권한"
 
-#: widgets/kpropertiesdialog.cpp:2076
+#: widgets/kpropertiesdialog.cpp:2077
 #, kde-format
 msgid "Class"
 msgstr "단위"
 
-#: widgets/kpropertiesdialog.cpp:2083
+#: widgets/kpropertiesdialog.cpp:2084
 #, kde-format
 msgid ""
 "Show\n"
@@ -8303,22 +8303,22 @@ msgstr ""
 "항목\n"
 "보기"
 
-#: widgets/kpropertiesdialog.cpp:2084
+#: widgets/kpropertiesdialog.cpp:2085
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "이 플래그는 폴더의 내용물을 보는 것을 허용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2086
+#: widgets/kpropertiesdialog.cpp:2087
 #, kde-format
 msgid "Read"
 msgstr "읽기"
 
-#: widgets/kpropertiesdialog.cpp:2087
+#: widgets/kpropertiesdialog.cpp:2088
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "읽기 플래그는 파일의 내용을 읽는 것을 허용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2093
+#: widgets/kpropertiesdialog.cpp:2094
 #, kde-format
 msgid ""
 "Write\n"
@@ -8327,7 +8327,7 @@ msgstr ""
 "항목\n"
 "쓰기"
 
-#: widgets/kpropertiesdialog.cpp:2095
+#: widgets/kpropertiesdialog.cpp:2096
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -8336,43 +8336,43 @@ msgstr ""
 "이 플래그를 사용하면 파일 추가, 이름 변경 및 삭제를 허용합니다. 스티키 플래그"
 "를 사용하여 삭제 및 이름 변경을 제한할 수 있습니다."
 
-#: widgets/kpropertiesdialog.cpp:2098
+#: widgets/kpropertiesdialog.cpp:2099
 #, kde-format
 msgid "Write"
 msgstr "쓰기"
 
-#: widgets/kpropertiesdialog.cpp:2099
+#: widgets/kpropertiesdialog.cpp:2100
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "쓰기 플래그는 파일의 내용을 수정하는 것을 허용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2105
+#: widgets/kpropertiesdialog.cpp:2106
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "입력"
 
-#: widgets/kpropertiesdialog.cpp:2106
+#: widgets/kpropertiesdialog.cpp:2107
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "폴더에 들어가는 것을 허용하려면 이 플래그를 활성화하십시오."
 
-#: widgets/kpropertiesdialog.cpp:2108
+#: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
 msgid "Exec"
 msgstr "실행"
 
-#: widgets/kpropertiesdialog.cpp:2109
+#: widgets/kpropertiesdialog.cpp:2110
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "파일을 프로그램으로 실행시키려면 이 플래그를 활성화하십시오."
 
-#: widgets/kpropertiesdialog.cpp:2117
+#: widgets/kpropertiesdialog.cpp:2118
 #, kde-format
 msgid "Special"
 msgstr "특수"
 
-#: widgets/kpropertiesdialog.cpp:2122
+#: widgets/kpropertiesdialog.cpp:2123
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -8381,24 +8381,24 @@ msgstr ""
 "특수 플래그. 전체 폴더에 사용합니다. 플래그의 정확한 의미는 오른쪽에 표시됩니"
 "다."
 
-#: widgets/kpropertiesdialog.cpp:2126
+#: widgets/kpropertiesdialog.cpp:2127
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "특수 플래그. 플래그의 정확한 의미는 오른쪽에 표시됩니다."
 
-#: widgets/kpropertiesdialog.cpp:2131
+#: widgets/kpropertiesdialog.cpp:2132
 #, kde-format
 msgid "User"
 msgstr "사용자"
 
-#: widgets/kpropertiesdialog.cpp:2135
+#: widgets/kpropertiesdialog.cpp:2136
 #, kde-format
 msgid "Group"
 msgstr "그룹"
 
-#: widgets/kpropertiesdialog.cpp:2146
+#: widgets/kpropertiesdialog.cpp:2147
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -8407,7 +8407,7 @@ msgstr ""
 "이 플래그가 설정되어 있으면 이 폴더의 소유자는 새로 만들어지는 모든 파일의 소"
 "유자가 됩니다."
 
-#: widgets/kpropertiesdialog.cpp:2150
+#: widgets/kpropertiesdialog.cpp:2151
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -8416,7 +8416,7 @@ msgstr ""
 "이 파일이 실행 파일이고 이 플래그가 설정되어 있으면 소유자의 권한으로 실행됩"
 "니다."
 
-#: widgets/kpropertiesdialog.cpp:2157
+#: widgets/kpropertiesdialog.cpp:2158
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -8424,7 +8424,7 @@ msgstr ""
 "이 플래그가 설정되어 있으면 이 폴더의 그룹은 새로 만들어지는 모든 파일의 그룹"
 "이 됩니다."
 
-#: widgets/kpropertiesdialog.cpp:2161
+#: widgets/kpropertiesdialog.cpp:2162
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -8433,7 +8433,7 @@ msgstr ""
 "이 파일이 실행 파일이고 이 플래그가 설정되어 있으면 그룹의 권한으로 실행됩니"
 "다."
 
-#: widgets/kpropertiesdialog.cpp:2168
+#: widgets/kpropertiesdialog.cpp:2169
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -8443,7 +8443,7 @@ msgstr ""
 "수 있습니다. 그렇지 않으면 쓰기 권한을 가지고 있는 모든 사람이 이 동작을 수행"
 "할 수 있습니다."
 
-#: widgets/kpropertiesdialog.cpp:2173
+#: widgets/kpropertiesdialog.cpp:2174
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -8452,85 +8452,85 @@ msgstr ""
 "파일에 붙은 스티키 플래그는 리눅스에서 무시되지만, 몇몇 시스템에서 사용할 수 "
 "있습니다"
 
-#: widgets/kpropertiesdialog.cpp:2234
+#: widgets/kpropertiesdialog.cpp:2235
 #, kde-format
 msgid "Set UID"
 msgstr "UID 설정"
 
-#: widgets/kpropertiesdialog.cpp:2238
+#: widgets/kpropertiesdialog.cpp:2239
 #, kde-format
 msgid "Set GID"
 msgstr "GID 설정"
 
-#: widgets/kpropertiesdialog.cpp:2242
+#: widgets/kpropertiesdialog.cpp:2243
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "스티키"
 
-#: widgets/kpropertiesdialog.cpp:2349
+#: widgets/kpropertiesdialog.cpp:2350
 #, kde-format
 msgid "Link"
 msgstr "링크"
 
-#: widgets/kpropertiesdialog.cpp:2369
+#: widgets/kpropertiesdialog.cpp:2370
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "가변(변경 없음)"
 
-#: widgets/kpropertiesdialog.cpp:2480
+#: widgets/kpropertiesdialog.cpp:2481
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "이 파일은 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2502
+#: widgets/kpropertiesdialog.cpp:2503
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "이 폴더는 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2516
+#: widgets/kpropertiesdialog.cpp:2517
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "이 파일은 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialog.cpp:2762
+#: widgets/kpropertiesdialog.cpp:2763
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "체크섬(&H)"
 
-#: widgets/kpropertiesdialog.cpp:2827 widgets/kpropertiesdialog.cpp:2838
-#: widgets/kpropertiesdialog.cpp:2849 widgets/kpropertiesdialog.cpp:2860
+#: widgets/kpropertiesdialog.cpp:2828 widgets/kpropertiesdialog.cpp:2839
+#: widgets/kpropertiesdialog.cpp:2850 widgets/kpropertiesdialog.cpp:2861
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "계산 중..."
 
-#: widgets/kpropertiesdialog.cpp:3016
+#: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
 msgid "Invalid checksum."
 msgstr "체크섬이 잘못되었습니다."
 
-#: widgets/kpropertiesdialog.cpp:3019
+#: widgets/kpropertiesdialog.cpp:3020
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "입력한 값이 올바른 MD5, SHA1, SHA256 체크섬이 아닙니다."
 
-#: widgets/kpropertiesdialog.cpp:3030
+#: widgets/kpropertiesdialog.cpp:3031
 #, kde-format
 msgid "Checksums match."
 msgstr "체크섬이 일치합니다."
 
-#: widgets/kpropertiesdialog.cpp:3033
+#: widgets/kpropertiesdialog.cpp:3034
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "계산한 체크섬과 입력한 체크섬이 일치합니다."
 
-#: widgets/kpropertiesdialog.cpp:3045
+#: widgets/kpropertiesdialog.cpp:3046
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -8541,29 +8541,29 @@ msgstr ""
 "을 다시 다운로드해 보십시오.<br/>체크섬 계산이 계속 실패하면 파일을 업로드한 "
 "사람에게 문의해 보십시오."
 
-#: widgets/kpropertiesdialog.cpp:3050
+#: widgets/kpropertiesdialog.cpp:3051
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "계산한 체크섬과 입력한 체크섬이 일치하지 않습니다."
 
-#: widgets/kpropertiesdialog.cpp:3058
+#: widgets/kpropertiesdialog.cpp:3059
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
 msgstr "체크섬 검사 중..."
 
-#: widgets/kpropertiesdialog.cpp:3147
+#: widgets/kpropertiesdialog.cpp:3148
 #, kde-format
 msgid "U&RL"
 msgstr "URL(&R)"
 
-#: widgets/kpropertiesdialog.cpp:3154
+#: widgets/kpropertiesdialog.cpp:3155
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3223 widgets/kpropertiesdialog.cpp:3511
+#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3489
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8574,22 +8574,22 @@ msgstr "속성을 저장할 수 없습니다. 로컬 파일 시스템의 항목�
 msgid "&Application"
 msgstr "프로그램(&A)"
 
-#: widgets/kpropertiesdialog.cpp:3451
+#: widgets/kpropertiesdialog.cpp:3429
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1의 파일 형식 추가"
 
-#: widgets/kpropertiesdialog.cpp:3452
+#: widgets/kpropertiesdialog.cpp:3430
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "하나 이상의 추가할 파일 형식 선택:"
 
-#: widgets/kpropertiesdialog.cpp:3594
+#: widgets/kpropertiesdialog.cpp:3572
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "로컬 파일 시스템의 실행 파일만 지원합니다."
 
-#: widgets/kpropertiesdialog.cpp:3608
+#: widgets/kpropertiesdialog.cpp:3586
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1의 고급 옵션"
