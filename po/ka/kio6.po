@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-12 02:01+0000\n"
-"PO-Revision-Date: 2023-07-11 06:24+0200\n"
+"PO-Revision-Date: 2023-07-12 06:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3455,6 +3455,10 @@ msgid ""
 "bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
 "otherwise operate like bookmarks elsewhere in KDE.</qt>"
 msgstr ""
+"<qt>ეს ღილაკი მითითებული მდებარეობების სანიშნებში ჩამატების საშუალებას "
+"გაძლევთ. ამ ღილაკზე დაწკაპუნება სანიშნების მენიუს გაგიხსნის, სადაც მათი "
+"ჩამატება, ჩასწორება და წაშლა შეგეძლებათ.<br /><br />ეს სანიშნები მხოლოდ "
+"ფაილის ფანჯარას ეკუთვნის, სხვა მხრივ კი KDE-ის სხვა სანიშნესავით იქცევა.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1303 widgets/kpropertiesdesktopbase.ui:25
@@ -6963,7 +6967,7 @@ msgstr[1] "%1 ჩანაწერის ჩასმა"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "მიმოცვლის ბაფერის შემცველობის ჩასმა..."
+msgstr "ბაფერის ჩასმა..."
 
 #: widgets/paste.cpp:260
 #, kde-format
