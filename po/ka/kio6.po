@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-12 02:01+0000\n"
-"PO-Revision-Date: 2023-07-12 06:28+0200\n"
+"PO-Revision-Date: 2023-07-14 05:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4744,6 +4744,9 @@ msgid ""
 "This policy will be permanent until you manually change it from the System "
 "Settings."
 msgstr ""
+"აირჩიეთ ეს პარამეტრი ამ საიტიდან ყველა ქუქის მისაღებად ან ასაკრძალად. ამ "
+"პარამეტრის არჩევა დაამატებს ახალ პოლიტიკას საიტისთვის, საიდანაც ქუქ მოვიდა. "
+"პოლიტიკა სამუდამოა, სანამ სისტემის მორგების ფანჯრიდან მას ხელით არ შეცვლით."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:176
 #, kde-format
@@ -5980,6 +5983,10 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
+"ჩართეთ, თუ ეს აპლიკაცია სხვა მომხმარებლის ID-ით გნებავთ, გაუშვათ. ყველა "
+"პროცესს თავისი მომხმარებლის ID აქვს მიბმული. ეს ID-ის კოდი განსაზღვრავს, "
+"რომელ ფაილებთან აქვს ამ პროცესს წვდომა. ამ პარამეტრის გამოსაყენებლად სამიზნე "
+"მომხმარებლის პაროლის ცოდნა აუცილებელია."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
@@ -6218,6 +6225,8 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
+"თუ გნებავთ, წაშალოთ ფაილის ტიპი (mimetype), რომლის მხარდაჭერაც თქვენს "
+"აპლიკაციას არ შეუძლია, მონიშნეთ ის ზემო სიაში და ამ ღილაკს დააწექით."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:258
@@ -6469,6 +6478,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ გნებავთ, საქაღალდეში არსებული ფაილებისა და "
+"საქაღალდეების წაშლა მხოლოდ მის მფლობელს შეეძლოთ. სხვა მომხმარებლებს ახალი "
+"ფაილების მხოლოდ დამატება შეუძლიათ, რასაც 'შემცველობის ჩასწორების' წვდომა "
+"სჭირდება."
 
 #: widgets/kpropertiesdialog.cpp:1859
 #, kde-format
@@ -7058,6 +7071,9 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
+"ფაილები და საქაღალდეები არსებულ საქაღალდეში მის არსებულ შემცველობასთან ერთად "
+"დაკოპირდება.\n"
+"თუ არსებულ ფაილთან კონფლიქტი კიდევ დაფიქსირდება, ამის შესახებ კიდევ გკითხავთ."
 
 #: widgets/renamedialog.cpp:267
 #, kde-format
