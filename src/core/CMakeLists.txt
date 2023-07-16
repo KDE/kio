@@ -171,7 +171,6 @@ ecm_generate_export_header(KF6KIOCore
 
 target_include_directories(KF6KIOCore PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/..>" # kio_version.h
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/kssl>"
 )
 
 target_include_directories(KF6KIOCore INTERFACE
