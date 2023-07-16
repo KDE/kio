@@ -11,7 +11,7 @@
 #include "kacl.h"
 
 #if HAVE_POSIX_ACL
-#include "../../aclhelpers_p.h"
+#include "../aclhelpers_p.h"
 #endif
 
 #include <QDataStream>
