@@ -26,6 +26,7 @@
 #include <QFile>
 #include <QList>
 #include <QMap>
+#include <QSsl>
 #include <QtGlobal>
 
 #include <KConfig>
@@ -1021,7 +1022,20 @@ int SlaveBase::messageBox(const QString &text,
         QDataStream stream(data);
         int answer;
         stream >> answer;
-        // qDebug() << "got messagebox answer" << answer;
+        return answer;
+    } else {
+        return 0; // communication failure
+    }
+}
+
+int SlaveBase::sslError(const QVariantMap &sslData)
+{
+    KIO_DATA << sslData;
+    send(INF_SSLERROR, data);
+    if (waitForAnswer(CMD_SSLERRORANSWER, 0, data) != -1) {
+        QDataStream stream(data);
+        int answer;
+        stream >> answer;
         return answer;
     } else {
         return 0; // communication failure

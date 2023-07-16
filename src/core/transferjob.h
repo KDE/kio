@@ -209,7 +209,6 @@ KIOCORE_EXPORT TransferJob *put(const QUrl &url, int permissions, JobFlags flags
  * \code
  *    job = KIO::http_post( url, postData, KIO::HideProgressInfo );
  *    job->addMetaData("content-type", contentType );
- *    job->addMetaData("referrer", referrerURL);
  * \endcode
  *
  * @p postData is the data that you want to send and

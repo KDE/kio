@@ -14,6 +14,8 @@
 #include <QObject>
 #include <QUrl>
 
+#include <QSsl>
+
 #include <memory>
 
 class KJob;
@@ -162,7 +164,6 @@ public:
         WarningTwoActions = 3, ///< @since 5.100
         WarningTwoActionsCancel = 4, ///< @since 5.100
         WarningContinueCancel = 5,
-        SSLMessageBox = 6,
         Information = 7,
         Error = 9,
     };
@@ -180,7 +181,6 @@ public:
      * @param dontAskAgainName the config key name used to store the result from
      *                     'Do not ask again' checkbox
      * @param details more details about the message shown to the user
-     * @param sslMetaData SSL information primarily used by the SSLMessageBox dialog
      * @param parent the parent widget of the dialog
      */
     virtual void requestUserMessageBox(MessageDialogType type,
@@ -192,8 +192,9 @@ public:
                                        const QString &secondatyActionIconName = {},
                                        const QString &dontAskAgainName = {},
                                        const QString &details = {},
-                                       const KIO::MetaData &sslMetaData = {},
                                        QWidget *parent = nullptr) = 0; // TODO KF6: replace QWidget* with QObject*, document "widget or window"
+
+    virtual void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) = 0;
 
 Q_SIGNALS:
     /**
@@ -239,6 +240,8 @@ Q_SIGNALS:
      * @param result the exit code of the dialog, one of KIO::WorkerBase::ButtonCode enum
      */
     void messageBoxResult(int result); // TODO KF6: add a QObject* to identify requests? Or return an int from the request method and pass it back here?
+
+    void askIgnoreSslErrorsResult(int result);
 
 private:
     std::unique_ptr<AskUserActionInterfacePrivate> d;

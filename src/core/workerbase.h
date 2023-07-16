@@ -221,7 +221,6 @@ public:
         WarningContinueCancel = 3,
         WarningTwoActionsCancel = 4, ///< @since 5.100
         Information = 5,
-        SSLMessageBox = 6,
         // In KMessageBox::DialogType; <unused> = 7, Error = 8,
         // QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
@@ -244,10 +243,10 @@ public:
      * @param text Message string. May contain newlines.
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
-     *                          Ignored for @p type Information & SSLMessageBox.
+     *                          Ignored for @p type Information.
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
-     *                            Information & SSLMessageBox.
+     *                            Information.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
     int messageBox(MessageBoxType type,
@@ -262,10 +261,10 @@ public:
      * @param type type of message box
      * @param title Message box title.
      * @param primaryActionText the text for the first button.
-     *                          Ignored for @p type Information & SSLMessageBox.
+     *                          Ignored for @p type Information.
      * @param secondaryActionText the text for the second button.
      *                            Ignored for @p type WarningContinueCancel, WarningContinueCancelDetailed,
-     *                            Information & SSLMessageBox.
+     *                            Information.
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @return a button code, as defined in ButtonCode, or 0 on communication error.
      */
@@ -275,6 +274,8 @@ public:
                    const QString &primaryActionText = QString(),
                    const QString &secondaryActionText = QString(),
                    const QString &dontAskAgainName = QString());
+
+    int sslError(const QVariantMap &sslData);
 
     /**
      * Sets meta-data to be send to the application before the first

@@ -87,8 +87,6 @@ void UserNotificationHandler::processRequest()
                         return AskUserActionInterface::WarningTwoActionsCancel;
                     case WorkerBase::Information:
                         return AskUserActionInterface::Information;
-                    case WorkerBase::SSLMessageBox:
-                        return AskUserActionInterface::SSLMessageBox;
                     default:
                         Q_UNREACHABLE();
                         return AskUserActionInterface::MessageDialogType{};
@@ -103,8 +101,7 @@ void UserNotificationHandler::processRequest()
                                                     r->data.value(MSG_PRIMARYACTION_ICON).toString(),
                                                     r->data.value(MSG_SECONDARYACTION_ICON).toString(),
                                                     r->data.value(MSG_DONT_ASK_AGAIN).toString(),
-                                                    r->data.value(MSG_DETAILS).toString(),
-                                                    r->data.value(MSG_META_DATA).toMap());
+                                                    r->data.value(MSG_DETAILS).toString());
                 return;
             }
         }
@@ -130,4 +127,17 @@ void UserNotificationHandler::slotProcessRequest(int result)
     }
 }
 
+void UserNotificationHandler::sslError(WorkerInterface *iface, const QVariantMap &sslErrorData)
+{
+    KIO::SimpleJob *job = qobject_cast<KIO::Worker *>(iface)->job();
+    AskUserActionInterface *askUserIface = job ? KIO::delegateExtension<KIO::AskUserActionInterface *>(job) : nullptr;
+
+    if (askUserIface) {
+        askUserIface->askIgnoreSslErrors(sslErrorData, nullptr);
+
+        connect(askUserIface, &AskUserActionInterface::askIgnoreSslErrorsResult, this, [iface](int result) {
+            iface->sendSslErrorAnswer(result);
+        });
+    }
+}
 #include "moc_usernotificationhandler_p.cpp"

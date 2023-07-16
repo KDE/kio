@@ -14,6 +14,7 @@
 
 #include <QByteArray>
 #include <QHostInfo>
+#include <QSsl>
 
 #include <memory>
 
@@ -259,7 +260,6 @@ public:
         WarningContinueCancel = 3,
         WarningTwoActionsCancel = 4, ///< @since 5.100
         Information = 5,
-        SSLMessageBox = 6,
         // In KMessageBox::DialogType; <unused> = 7, Error = 8, QuestionTwoActionsCancel = 9
         WarningContinueCancelDetailed = 10,
     };
@@ -292,6 +292,8 @@ public:
                    const QString &title = QString(),
                    const QString &primaryActionText = QString(),
                    const QString &secondaryActionText = QString());
+
+    int sslError(const QVariantMap &sslData);
 
     /**
      * Call this to show a message box from the slave

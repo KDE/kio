@@ -43,6 +43,7 @@ enum Info {
     INF_MESSAGEBOX,
     INF_POSITION,
     INF_TRUNCATED,
+    INF_SSLERROR,
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
@@ -96,6 +97,8 @@ public:
      *
      */
     void sendMessageBoxAnswer(int result);
+
+    void sendSslErrorAnswer(int result);
 
     void setOffset(KIO::filesize_t offset);
     KIO::filesize_t offset() const;

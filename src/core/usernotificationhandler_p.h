@@ -50,6 +50,8 @@ public:
 
     void requestMessageBox(WorkerInterface *iface, int type, const QHash<MessageBoxDataType, QVariant> &data);
 
+    void sslError(WorkerInterface *iface, const QVariantMap &sslErrorData);
+
 private Q_SLOTS:
     void processRequest();
     void slotProcessRequest(int result);

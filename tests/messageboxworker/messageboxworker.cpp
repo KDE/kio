@@ -159,7 +159,6 @@ static const QMap<int, QString> typeNames = {
     {KIO::WorkerBase::WarningContinueCancel, QStringLiteral("WarningContinueCancel")},
     {KIO::WorkerBase::WarningTwoActionsCancel, QStringLiteral("WarningTwoActionsCancel")},
     {KIO::WorkerBase::Information, QStringLiteral("Information")},
-    {KIO::WorkerBase::SSLMessageBox, QStringLiteral("SSLMessageBox")},
     {KIO::WorkerBase::WarningContinueCancelDetailed, QStringLiteral("WarningContinueCancelDetailed")},
 };
 
@@ -282,30 +281,16 @@ KIO::WorkerResult MessageBoxWorker::listDir(const QUrl &url)
     }
 
     // trigger the respective messagebox, then redirect to root dir
-    if (type == SSLMessageBox) {
-        // kde.org data in October 2022 as example
-        setMetaData(QStringLiteral("ssl_in_use"), QStringLiteral("TRUE"));
-        setMetaData(QStringLiteral("ssl_peer_chain"), kdeOrgCertChain);
-        setMetaData(QStringLiteral("ssl_peer_ip"), QStringLiteral("136.243.103.182"));
-        setMetaData(QStringLiteral("ssl_protocol_version"), QStringLiteral("TLSv1.3"));
-        setMetaData(QStringLiteral("ssl_cipher"), QStringLiteral("TLS_AES_256_GCM_SHA384"));
-        setMetaData(QStringLiteral("ssl_cipher_used_bits"), QStringLiteral("256"));
-        setMetaData(QStringLiteral("ssl_cipher_bits"), QStringLiteral("256"));
+    if (type == WarningContinueCancelDetailed) {
+        setMetaData(QStringLiteral("privilege_conf_details"), QStringLiteral("Some details"));
         sendMetaData();
-
-        messageBox(static_cast<MessageBoxType>(type), QStringLiteral("kde.org"));
-    } else {
-        if (type == WarningContinueCancelDetailed) {
-            setMetaData(QStringLiteral("privilege_conf_details"), QStringLiteral("Some details"));
-            sendMetaData();
-        }
-        const int reply = messageBox(QStringLiteral("Message in a box."),
-                                     static_cast<MessageBoxType>(type),
-                                     typeNames.value(type),
-                                     QStringLiteral("Primary"),
-                                     QStringLiteral("Secondary"));
-        qDebug() << "MESSAGEBOX REPLY" << buttonCodeToDisplayString(reply);
     }
+    const int reply = messageBox(QStringLiteral("Message in a box."),
+                                 static_cast<MessageBoxType>(type),
+                                 typeNames.value(type),
+                                 QStringLiteral("Primary"),
+                                 QStringLiteral("Secondary"));
+    qDebug() << "MESSAGEBOX REPLY" << buttonCodeToDisplayString(reply);
 
     redirection(QUrl(QStringLiteral("messagebox:")));
     return KIO::WorkerResult::pass();

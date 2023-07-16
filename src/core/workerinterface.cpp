@@ -253,21 +253,16 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT infoMessage(msg);
         break;
     }
+    case INF_SSLERROR: {
+        QVariantMap sslErrorData;
+        stream >> sslErrorData;
+        globalUserNotificationHandler->sslError(this, sslErrorData);
+        break;
+    }
     case INF_META_DATA: {
         MetaData m;
         stream >> m;
-        if (m.contains(QLatin1String("ssl_in_use"))) {
-            const QLatin1String ssl_("ssl_");
-            const MetaData &constM = m;
-            for (MetaData::ConstIterator it = constM.lowerBound(ssl_); it != constM.constEnd(); ++it) {
-                if (it.key().startsWith(ssl_)) {
-                    m_sslMetaData.insert(it.key(), it.value());
-                } else {
-                    // we're past the ssl_* entries; remember that QMap is ordered.
-                    break;
-                }
-            }
-        } else if (auto it = m.constFind(QStringLiteral("privilege_conf_details")); it != m.cend()) {
+        if (auto it = m.constFind(QStringLiteral("privilege_conf_details")); it != m.cend()) {
             // see WORKER_MESSAGEBOX_DETAILS_HACK
             m_messageBoxDetails = it.value();
         }
@@ -322,6 +317,22 @@ void WorkerInterface::sendMessageBoxAnswer(int result)
     // qDebug() << "message box answer" << result;
 }
 
+void WorkerInterface::sendSslErrorAnswer(int result)
+{
+    if (!m_connection) {
+        return;
+    }
+
+    if (m_connection->suspended()) {
+        m_connection->resume();
+    }
+    QByteArray packedArgs;
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
+    stream << result;
+    m_connection->sendnow(CMD_SSLERRORANSWER, packedArgs);
+    // qDebug() << "message box answer" << result;
+}
+
 void WorkerInterface::messageBox(int type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText)
 {
     messageBox(type, text, title, primaryActionText, secondaryActionText, QString());
@@ -359,9 +370,7 @@ void WorkerInterface::messageBox(int type,
         data.insert(UserNotificationHandler::MSG_SECONDARYACTION_ICON, QLatin1String("chronometer"));
     }
 
-    if (type == KIO::WorkerBase::SSLMessageBox) {
-        data.insert(UserNotificationHandler::MSG_META_DATA, m_sslMetaData.toVariant());
-    } else if (type == KIO::WorkerBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
+    if (type == KIO::WorkerBase::WarningContinueCancelDetailed) { // see WORKER_MESSAGEBOX_DETAILS_HACK
         data.insert(UserNotificationHandler::MSG_DETAILS, m_messageBoxDetails);
     }
 

@@ -100,7 +100,6 @@ public:
                                const QString &secondaryActionIconName = QString(),
                                const QString &dontAskAgainName = QString(),
                                const QString &details = QString(),
-                               const KIO::MetaData &metaData = KIO::MetaData(),
                                QWidget *parent = nullptr) override
     {
         Q_UNUSED(type)
@@ -112,8 +111,11 @@ public:
         Q_UNUSED(secondaryActionIconName)
         Q_UNUSED(dontAskAgainName)
         Q_UNUSED(details)
-        Q_UNUSED(metaData)
         Q_UNUSED(parent)
+    }
+
+    void askIgnoreSslErrors(const QVariantMap & /*sslErrorData*/, QWidget * /*parent*/) override
+    {
     }
 
     void clear()

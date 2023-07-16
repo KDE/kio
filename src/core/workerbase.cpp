@@ -344,6 +344,11 @@ int WorkerBase::messageBox(const QString &text,
     return d->bridge.messageBox(text, static_cast<SlaveBase::MessageBoxType>(type), title, primaryActionText, secondaryActionText, dontAskAgainName);
 }
 
+int WorkerBase::sslError(const QVariantMap &sslData)
+{
+    return d->bridge.sslError(sslData);
+}
+
 bool WorkerBase::canResume(KIO::filesize_t offset)
 {
     return d->bridge.canResume(offset);

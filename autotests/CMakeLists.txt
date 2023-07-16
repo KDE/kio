@@ -3,13 +3,11 @@ remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 include(ECMAddTests)
 
-if(NOT ANDROID)
-    add_subdirectory(http)
-endif()
-
 find_package(Qt6Widgets REQUIRED)
 
 ########### unittests ###############
+
+add_subdirectory(http)
 
 find_package(Qt6Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
@@ -46,14 +44,6 @@ ecm_add_tests(
 target_link_libraries(threadtest Qt6::Concurrent)
 
 target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
-
-ecm_add_test(
-    http_jobtest.cpp
-    httpserver_p.cpp
-    TEST_NAME http_jobtest
-    NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
-)
 
 # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)

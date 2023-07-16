@@ -78,12 +78,14 @@ public:
                                const QString &secondaryActionIconName = {},
                                const QString &dontAskAgainName = {},
                                const QString &details = {},
-                               const KIO::MetaData &metaData = {},
                                QWidget *parent = nullptr) override;
+
+    void askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent) override;
 
     void setWindow(QWidget *window);
 
 private:
+    void showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget);
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
 };
 

@@ -113,13 +113,6 @@ endif()
 
 find_package(Qt6Core5Compat ${REQUIRED_QT_VERSION} REQUIRED) # QTextCodec
 
-find_package(GSSAPI)
-set_package_properties(GSSAPI PROPERTIES DESCRIPTION "Allows KIO to make use of certain HTTP authentication services"
-                       URL "https://web.mit.edu/kerberos/www/"
-                       TYPE OPTIONAL
-                       PURPOSE "A MIT or HEIMDAL flavor of GSSAPI can be used"
-                      )
-
 if (NOT APPLE AND NOT WIN32 AND NOT ANDROID)
     option(WITH_X11 "Build with X11 integration" ON)
     set(HAVE_X11 ${WITH_X11})

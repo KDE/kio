@@ -366,7 +366,6 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
                                                              const QString &secondaryActionIconName,
                                                              const QString &dontAskAgainName,
                                                              const QString &details,
-                                                             const KIO::MetaData &metaData,
                                                              QWidget *parent)
 {
     if (d->gotPersistentUserReply(type, KSharedConfig::openConfig(QStringLiteral("kioslaverc"))->group("Notification Messages"), dontAskAgainName)) {
@@ -411,9 +410,6 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         dlgType = KMessageDialog::WarningContinueCancel;
         hasCancelButton = true;
         break;
-    case AskUserActionInterface::SSLMessageBox:
-        d->sslMessageBox(text, metaData, parentWidget);
-        return;
     case AskUserActionInterface::Information:
         dlgType = KMessageDialog::Information;
         dontAskAgainText = i18nc("@option:check", "Do not show this message again");
@@ -477,19 +473,54 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
     });
 }
 
-void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
+void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
+{
+    d->m_parentWidget = window;
+}
+
+void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent)
 {
     QWidget *parentWidget = parent;
 
     if (!parentWidget) {
-        parentWidget = m_parentWidget;
+        parentWidget = d->m_parentWidget;
     }
 
     if (!parentWidget) {
         parentWidget = qApp->activeWindow();
     }
 
-    const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), Qt::SkipEmptyParts);
+    QString message = i18n("The server failed the authenticity check (%1).\n\n", sslErrorData[QLatin1String("hostname")].toString());
+
+    message += sslErrorData[QLatin1String("sslError")].toString();
+
+    auto *dialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel, message, parentWidget);
+
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setCaption(i18n("Server Authentication"));
+    dialog->setIcon(QIcon{});
+    dialog->setButtons(KGuiItem{i18n("&Details"), QStringLiteral("documentinfo")}, KStandardGuiItem::cont(), KStandardGuiItem::cancel());
+
+    connect(dialog, &KMessageDialog::finished, this, [this, parentWidget, sslErrorData](int result) {
+        if (result == KMessageDialog::PrimaryAction) {
+            showSslDetails(sslErrorData, parentWidget);
+        } else if (result == KMessageDialog::SecondaryAction) {
+            // continue();
+            Q_EMIT askIgnoreSslErrorsResult(1);
+        } else if (result == KMessageDialog::Cancel) {
+            // cancel();
+            Q_EMIT askIgnoreSslErrorsResult(0);
+        } else {
+            Q_UNREACHABLE();
+        }
+    });
+
+    dialog->show();
+}
+
+void KIO::WidgetsAskUserActionHandler::showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget)
+{
+    const QStringList sslList = sslErrorData[QLatin1String("peerCertChain")].toStringList();
 
     QList<QSslCertificate> certChain;
     bool decodedOk = true;
@@ -504,20 +535,21 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
     QMetaObject::invokeMethod(qGuiApp, [=] {
         if (decodedOk) { // Use KSslInfoDialog
             KSslInfoDialog *ksslDlg = new KSslInfoDialog(parentWidget);
-            ksslDlg->setSslInfo(certChain,
-                                metaData.value(QStringLiteral("ssl_peer_ip")),
-                                text, // The URL
-                                metaData.value(QStringLiteral("ssl_protocol_version")),
-                                metaData.value(QStringLiteral("ssl_cipher")),
-                                metaData.value(QStringLiteral("ssl_cipher_used_bits")).toInt(),
-                                metaData.value(QStringLiteral("ssl_cipher_bits")).toInt(),
-                                KSslInfoDialog::certificateErrorsFromString(metaData.value(QStringLiteral("ssl_cert_errors"))));
+            ksslDlg->setSslInfo(
+                certChain,
+                QString(),
+                sslErrorData[QLatin1String("hostname")].toString(),
+                sslErrorData[QLatin1String("protocol")].toString(),
+                sslErrorData[QLatin1String("cipher")].toString(),
+                sslErrorData[QLatin1String("usedBits")].toInt(),
+                sslErrorData[QLatin1String("bits")].toInt(),
+                KSslInfoDialog::certificateErrorsFromString(sslErrorData[QLatin1String("certificateErrors")].toStringList().join(QLatin1Char('\n'))));
 
             // KSslInfoDialog deletes itself by setting Qt::WA_DeleteOnClose
 
-            QObject::connect(ksslDlg, &QDialog::finished, q, [this]() {
+            QObject::connect(ksslDlg, &QDialog::finished, this, [this, sslErrorData, parentWidget]() {
                 // KSslInfoDialog only has one button, QDialogButtonBox::Close
-                Q_EMIT q->messageBoxResult(KIO::WorkerBase::Cancel);
+                askIgnoreSslErrors(sslErrorData, parentWidget);
             });
 
             ksslDlg->show();
@@ -529,21 +561,14 @@ void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text,
 
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         dialog->setCaption(i18n("SSL"));
-        // KMessageDialog will set a proper icon
-        dialog->setIcon(QIcon{});
         dialog->setButtons(KStandardGuiItem::ok());
 
-        QObject::connect(dialog, &QDialog::finished, q, [this](const int result) {
-            Q_EMIT q->messageBoxResult(result == KMessageDialog::Ok ? KIO::WorkerBase::Ok : KIO::WorkerBase::Cancel);
+        QObject::connect(dialog, &QDialog::finished, this, [this](const int result) {
+            Q_EMIT askIgnoreSslErrorsResult(result == KMessageDialog::Ok ? 1 : 0);
         });
 
         dialog->show();
     });
-}
-
-void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
-{
-    d->m_parentWidget = window;
 }
 
 #include "moc_widgetsaskuseractionhandler.cpp"
