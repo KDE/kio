@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2535,96 +2535,6 @@ msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Rydych ar fin gadael modd diogel. Ni fydd trosglwyddiadau yn cael eu "
-"amgryptio. \n"
-"Golygir hwn y gallai trydydd blaid wylio eich data ar y daith."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "Gwybodaeth Ddiogelwch"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "Dal i Lwyth&o"
-
-#: core/tcpworkerbase.cpp:338
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: Methodd ymdrafodiad SSL"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Rydych ar fin mynd i mewn i modd diogel. Bydd pob trosglwyddiad yn cael ei "
-"amgriptio onibai i chi glywed yn wahanol. \n"
-"Golygir hyn na allai trydydd blaid wylio eich data yn hawdd ar y daith."
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Dangos &Gwybodaeth SSL"
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "C&ysylltu"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Methodd y tystysgrif gweinydd y prawf dilysiant (%1).\n"
-"\n"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Dilysiant Gweinydd"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&Manylion"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "Par&hau"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Liciwch chi dderbyn y tystysgrif yma am byth heb gofweini arnoch?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&Am Byth"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, kde-format
-msgid "&Current Session only"
-msgstr "&Sesiynau Cyfredol yn Unig"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2647,6 +2557,30 @@ msgstr "Methu creu pill ar gyfer lansio gwas-io am brotocol '%1'."
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Methu canfod gweithredadwyolyn 'kioslave5' am '%1'"
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&Manylion"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&Am Byth"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "Par&hau"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, kde-format
+msgid "&Current Session only"
+msgstr "&Sesiynau Cyfredol yn Unig"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -4969,6 +4903,76 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "Manylion"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Rydych ar fin gadael modd diogel. Ni fydd trosglwyddiadau yn cael eu "
+"amgryptio. \n"
+"Golygir hwn y gallai trydydd blaid wylio eich data ar y daith."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "Gwybodaeth Ddiogelwch"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "Dal i Lwyth&o"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: Methodd ymdrafodiad SSL"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Rydych ar fin mynd i mewn i modd diogel. Bydd pob trosglwyddiad yn cael ei "
+"amgriptio onibai i chi glywed yn wahanol. \n"
+"Golygir hyn na allai trydydd blaid wylio eich data yn hawdd ar y daith."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "Dangos &Gwybodaeth SSL"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "C&ysylltu"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Methodd y tystysgrif gweinydd y prawf dilysiant (%1).\n"
+"\n"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "Dilysiant Gweinydd"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Liciwch chi dderbyn y tystysgrif yma am byth heb gofweini arnoch?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

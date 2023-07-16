@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2461,94 +2461,6 @@ msgstr "ការ​បើក​ឯកសារ​គឺ​មិនត្រូ
 msgid "Protocol %1 does not support action %2."
 msgstr "ពិធីការ %1 មិន​គាំទ្រ​អំពើ %2 ទេ ។"
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"អ្នក​រៀប​នឹង​ចាកចេញ​ពី​របៀប​សុវត្ថិភាព ។ ការ​បញ្ជូន​នឹង​មិន​ត្រូវ​បាន​អ៊ិនគ្រីប​តទៅ​ទៀត​ទេ ។\n"
-"មាន​ន័យ​ថា ភាគីទីបី​អាច​នឹង​ឃ្លាំ​មើល​ទិន្នន័យរបស់​អ្នក​នៅ​ពេល​ឆ្លងកាត់ ។"
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "ព័ត៌មាន​សុវត្ថិភាព"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "បន្ត​ផ្ទុក "
-
-#: core/tcpworkerbase.cpp:338
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1 ៖ ការ​ចរចា SSL បាន​បរាជ័យ"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"អ្នក​ទំនង​ជា​ចូល​ជា​របៀប​សុវត្ថិភាព ។ ការ​បញ្ជូន​ទាំងអស់​នឹង​ត្រូវ​បាន​អ៊ិនគ្រីប លុះត្រាតែ​បាន​ចំណាំ ។\n"
-"មាន​ន័យ​ថាភាគី​ទី ៣ មិន​អាច​ឃ្លាំមើល​ទិន្នន័យ​របស់​ក្នុង​ពេលបញ្ជូន​​បាន​ងាយស្រួល​ឡើយ ។​"
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "បង្ហាញ​ព័ត៌មាន SSL "
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "តភ្ជាប់"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"ម៉ាស៊ីន​បម្រើ​បានបរាជ័យ​ក្នុងការ​ពិនិត្យ (%1) តាម​យថា​ភាព ។\n"
-"\n"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "ការផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​ម៉ាស៊ីន​បម្រើ"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "សេចក្ដី​លម្អិត "
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "បន្ត "
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "តើ​អ្នក​ចង់​ទទួល​យក​វិញ្ញាបនបត្រ​នេះ​ជា​រៀង​រហូត ដោយ​មិន​ចាំបាច់​មាន​ការ​សួរ​បញ្ជាក់​ឬ ?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "ជា​រៀង​រហូត "
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, kde-format
-msgid "&Current Session only"
-msgstr "តែ​សម័យ​បច្ចុប្បន្ន​"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2571,6 +2483,30 @@ msgstr "មិន​អាច​រកឃើញ io-slave សម្រាប់�
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "មិន​អាច​រកឃើញ io-slave សម្រាប់​ពិធីការ '%1' ទេ ។"
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "សេចក្ដី​លម្អិត "
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "ជា​រៀង​រហូត "
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "បន្ត "
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, kde-format
+msgid "&Current Session only"
+msgstr "តែ​សម័យ​បច្ចុប្បន្ន​"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -4964,6 +4900,74 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "លម្អិត"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"អ្នក​រៀប​នឹង​ចាកចេញ​ពី​របៀប​សុវត្ថិភាព ។ ការ​បញ្ជូន​នឹង​មិន​ត្រូវ​បាន​អ៊ិនគ្រីប​តទៅ​ទៀត​ទេ ។\n"
+"មាន​ន័យ​ថា ភាគីទីបី​អាច​នឹង​ឃ្លាំ​មើល​ទិន្នន័យរបស់​អ្នក​នៅ​ពេល​ឆ្លងកាត់ ។"
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "ព័ត៌មាន​សុវត្ថិភាព"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "បន្ត​ផ្ទុក "
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1 ៖ ការ​ចរចា SSL បាន​បរាជ័យ"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"អ្នក​ទំនង​ជា​ចូល​ជា​របៀប​សុវត្ថិភាព ។ ការ​បញ្ជូន​ទាំងអស់​នឹង​ត្រូវ​បាន​អ៊ិនគ្រីប លុះត្រាតែ​បាន​ចំណាំ ។\n"
+"មាន​ន័យ​ថាភាគី​ទី ៣ មិន​អាច​ឃ្លាំមើល​ទិន្នន័យ​របស់​ក្នុង​ពេលបញ្ជូន​​បាន​ងាយស្រួល​ឡើយ ។​"
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "បង្ហាញ​ព័ត៌មាន SSL "
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "តភ្ជាប់"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"ម៉ាស៊ីន​បម្រើ​បានបរាជ័យ​ក្នុងការ​ពិនិត្យ (%1) តាម​យថា​ភាព ។\n"
+"\n"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "ការផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​ម៉ាស៊ីន​បម្រើ"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "តើ​អ្នក​ចង់​ទទួល​យក​វិញ្ញាបនបត្រ​នេះ​ជា​រៀង​រហូត ដោយ​មិន​ចាំបាច់​មាន​ការ​សួរ​បញ្ជាក់​ឬ ?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

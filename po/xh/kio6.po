@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2552,96 +2552,6 @@ msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Umalunga nokulayisha indlela ekhuselekileyo. Uthumelo alusokuze lufihlwe.\n"
-"Oku kuthetha ukuba umntu wesithathu unokubona i data ethunyelwayo."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "Iinkcukacha Zokhuseleko"
-
-#: core/tcpworkerbase.cpp:285
-#, fuzzy, kde-format
-msgid "C&ontinue Loading"
-msgstr "Qhubekeka Nolayisho"
-
-#: core/tcpworkerbase.cpp:338
-#, fuzzy, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "Ububhali Abuphumelelanga!"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Umalunga nokungena indlela ekhuselekileyo. Lonke uthumelo aluzukolulisiswa "
-"ngaphandle kokuba luqwalaselwe ngenye indlela.\n"
-"Oku kuthethe ukuba akukho mntu wesithathu oyakubandakanyeka ozakuyibona "
-"ngokulula idata ethunyelweyo."
-
-#: core/tcpworkerbase.cpp:481
-#, fuzzy, kde-format
-msgid "Display SSL &Information"
-msgstr "Ulwazi Lomboniso we SSL"
-
-#: core/tcpworkerbase.cpp:482
-#, fuzzy, kde-format
-msgid "C&onnect"
-msgstr "&Qhubekeka"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, fuzzy, kde-format
-#| msgid "The server certificate failed the authenticity test (%1)."
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr "Isiqinisekiso somncedisi asiluphumelelanga uvavanyo lobubhali (%1)"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Ububhali Bomncedisi"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&Iinkcukacha"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "Qhu&bekeka"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Ungathanda ukusamkela esi siqinisekiso okokoko singathunyelwanga?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&Okokoko"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, fuzzy, kde-format
-#| msgid "&Current Sessions Only"
-msgid "&Current Session only"
-msgstr "&Iintlanganiso Zangoku Kuphela"
-
 #: core/worker.cpp:334
 #, fuzzy, kde-format
 msgid "Unknown protocol '%1'."
@@ -2664,6 +2574,31 @@ msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&Iinkcukacha"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&Okokoko"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "Qhu&bekeka"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, fuzzy, kde-format
+#| msgid "&Current Sessions Only"
+msgid "&Current Session only"
+msgstr "&Iintlanganiso Zangoku Kuphela"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -5072,6 +5007,75 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "Iinkcukacha ze Cookie"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Umalunga nokulayisha indlela ekhuselekileyo. Uthumelo alusokuze lufihlwe.\n"
+"Oku kuthetha ukuba umntu wesithathu unokubona i data ethunyelwayo."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "Iinkcukacha Zokhuseleko"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, fuzzy, kde-format
+msgid "C&ontinue Loading"
+msgstr "Qhubekeka Nolayisho"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, fuzzy, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "Ububhali Abuphumelelanga!"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Umalunga nokungena indlela ekhuselekileyo. Lonke uthumelo aluzukolulisiswa "
+"ngaphandle kokuba luqwalaselwe ngenye indlela.\n"
+"Oku kuthethe ukuba akukho mntu wesithathu oyakubandakanyeka ozakuyibona "
+"ngokulula idata ethunyelweyo."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, fuzzy, kde-format
+msgid "Display SSL &Information"
+msgstr "Ulwazi Lomboniso we SSL"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, fuzzy, kde-format
+msgid "C&onnect"
+msgstr "&Qhubekeka"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, fuzzy, kde-format
+#| msgid "The server certificate failed the authenticity test (%1)."
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr "Isiqinisekiso somncedisi asiluphumelelanga uvavanyo lobubhali (%1)"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "Ububhali Bomncedisi"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Ungathanda ukusamkela esi siqinisekiso okokoko singathunyelwanga?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

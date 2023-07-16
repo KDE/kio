@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2533,98 +2533,6 @@ msgstr "Att öppna filer stöds inte med protokollet %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokollet %1 stöder inte åtgärden %2."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Du är på väg att lämna det säkra läget. Överföringar kommer inte längre att "
-"krypteras.\n"
-"Det innebär att en tredje part kan läsa dina data under överföringen."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "Säkerhetsinformation"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&Fortsätt laddning"
-
-#: core/tcpworkerbase.cpp:338
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL-förhandling misslyckades"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Du är på väg att gå in i det säkra läget. Överföringar kommer att krypteras "
-"såvida inget annat meddelas.\n"
-"Det innebär att det blir svårt för en tredje part att läsa dina data under "
-"överföringen."
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "&Visa SSL-information"
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "&Anslut"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Behörighetkontrollen misslyckades för servern (%1).\n"
-"\n"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Serverbehörighetskontroll"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&Detaljer"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "Forts&ätt"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr ""
-"Vill du acceptera det här certifikatet för alltid utan att bli tillfrågad?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&För alltid"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, kde-format
-msgid "&Current Session only"
-msgstr "&Endast aktuell session"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2647,6 +2555,30 @@ msgstr "Kan inte skapa uttag för att starta I/O-slav för protokollet '%1'."
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Kan inte hitta det körbara programmet 'kioslave5' i '%1'"
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&Detaljer"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&För alltid"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "Forts&ätt"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, kde-format
+msgid "&Current Session only"
+msgstr "&Endast aktuell session"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -4970,6 +4902,78 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "Detaljinformation"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Du är på väg att lämna det säkra läget. Överföringar kommer inte längre att "
+"krypteras.\n"
+"Det innebär att en tredje part kan läsa dina data under överföringen."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "Säkerhetsinformation"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "&Fortsätt laddning"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: SSL-förhandling misslyckades"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Du är på väg att gå in i det säkra läget. Överföringar kommer att krypteras "
+"såvida inget annat meddelas.\n"
+"Det innebär att det blir svårt för en tredje part att läsa dina data under "
+"överföringen."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "&Visa SSL-information"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "&Anslut"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Behörighetkontrollen misslyckades för servern (%1).\n"
+"\n"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "Serverbehörighetskontroll"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Vill du acceptera det här certifikatet för alltid utan att bli tillfrågad?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format

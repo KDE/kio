@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
 "PO-Revision-Date: 2007-09-02 13:06+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2534,95 +2534,6 @@ msgstr "باز کردن پرونده‌ها به وسیله قرارداد %1پ�
 msgid "Protocol %1 does not support action %2."
 msgstr "قرارداد %1 از کنش %2پشتیبانی نمی‌کند."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"درصدد رها کردن حالت امن هستید. انتقالها دیگر رمزبندی نمی‌شوند.\n"
-"این بدین معناست که سومین گروه می‌تواند داده در حال گذر شما را مشاهده کند."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "اطلاعات امنیتی"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&ادامه بارگذاری‌"
-
-#: core/tcpworkerbase.cpp:338
-#, fuzzy, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "خرابی در احراز هویت."
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"می‌خواهید حالت امن را وارد کنید. تمام انتقالها رمزی نوشته می‌شوند، مگر این که "
-"طور دیگری ثبت شود.\n"
-"این بدین معناست که هیچ گروه سومی به سادگی قادر به مشاهده داده در گذر شما "
-"نیست."
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "نمایش &اطلاعات SSL‌"
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "&اتصال‌"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, fuzzy, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr "گواهی‌نامه کارساز، آزمون تأیید )%1( را خراب کرد."
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "تأیید کارساز"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&جزئیات‌"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "&ادامه‌"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "مایل هستید این گواهی‌نامه را برای همیشه و بدون اعلان بپذیرید؟"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&برای همیشه‌"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, fuzzy, kde-format
-#| msgid "&Current Sessions Only"
-msgid "&Current Session only"
-msgstr "فقط نشستهای &جاری‌"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2645,6 +2556,31 @@ msgstr "نمی‌توان io-slave را برای قرارداد »%1« یافت.
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "نمی‌توان io-slave را برای قرارداد »%1« یافت."
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&جزئیات‌"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&برای همیشه‌"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "&ادامه‌"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, fuzzy, kde-format
+#| msgid "&Current Sessions Only"
+msgid "&Current Session only"
+msgstr "فقط نشستهای &جاری‌"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -5088,6 +5024,74 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "جزئیات"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"درصدد رها کردن حالت امن هستید. انتقالها دیگر رمزبندی نمی‌شوند.\n"
+"این بدین معناست که سومین گروه می‌تواند داده در حال گذر شما را مشاهده کند."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "اطلاعات امنیتی"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "&ادامه بارگذاری‌"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, fuzzy, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "خرابی در احراز هویت."
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"می‌خواهید حالت امن را وارد کنید. تمام انتقالها رمزی نوشته می‌شوند، مگر این که "
+"طور دیگری ثبت شود.\n"
+"این بدین معناست که هیچ گروه سومی به سادگی قادر به مشاهده داده در گذر شما "
+"نیست."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "نمایش &اطلاعات SSL‌"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "&اتصال‌"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, fuzzy, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr "گواهی‌نامه کارساز، آزمون تأیید )%1( را خراب کرد."
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "تأیید کارساز"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "مایل هستید این گواهی‌نامه را برای همیشه و بدون اعلان بپذیرید؟"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format

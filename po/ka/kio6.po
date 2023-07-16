@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
-"PO-Revision-Date: 2023-07-14 05:54+0200\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
+"PO-Revision-Date: 2023-07-15 06:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2463,96 +2463,6 @@ msgstr "ფაილების გახსნა მხარდაუჭე�
 msgid "Protocol %1 does not support action %2."
 msgstr "პროტოკოლს %1 ქმედების (%2) მხარდაჭერა არ გააჩნია."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"აპირებთ, გახვიდეთ დაცული რეჟიმიდან. მიმოცვლა დაშიფრული აღარ იქნება.\n"
-"ეს ნიშნავს, რომ მესამე პირებს გადაცემული ინფორმაციის წაკითხვა შეუძლიათ."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "უსაფრთხოების ინფორმაცია"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "ჩატვირთვის გაგრძელება"
-
-#: core/tcpworkerbase.cpp:338
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL მიმოცვლის შეცდომა"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"აპირებთ, უსაფრთხო რეჟიმში გადახვიდეთ. ყველა მიმოცვლა დაიშიფრება, "
-"გამონაკლისების გარდა.\n"
-"ეს ნიშნავს, რომ გადაცემისას მესამე პირებს თქვენი მონაცემების მიღება არ "
-"შეუძლიათ."
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "SSL-ის &ინფორმაციის გამოტანა"
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "&მიერთება"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"სერვერის სინამდვილის შემოწმების შეცდომა (%1).\n"
-"\n"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "სერვერის ავთენტიკაცია"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&დეტალები"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "&გაგრძელება"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "გნებავთ სერტიფიკატთან სამუდამო წვდომა კითხვის გარეშე?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&სამუდამოდ"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, kde-format
-msgid "&Current Session only"
-msgstr "&მხოლოდ მიმდინარე სესიაში"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2574,6 +2484,30 @@ msgstr ""
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვერ ვიპოვე."
+
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&დეტალები"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&სამუდამოდ"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "&გაგრძელება"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, kde-format
+msgid "&Current Session only"
+msgstr "&მხოლოდ მიმდინარე სესიაში"
 
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
@@ -4861,6 +4795,76 @@ msgctxt ""
 msgid "Details"
 msgstr "დეტალები"
 
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"აპირებთ, გახვიდეთ დაცული რეჟიმიდან. მიმოცვლა დაშიფრული აღარ იქნება.\n"
+"ეს ნიშნავს, რომ მესამე პირებს გადაცემული ინფორმაციის წაკითხვა შეუძლიათ."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "უსაფრთხოების ინფორმაცია"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "ჩატვირთვის გაგრძელება"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: SSL მიმოცვლის შეცდომა"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"აპირებთ, უსაფრთხო რეჟიმში გადახვიდეთ. ყველა მიმოცვლა დაიშიფრება, "
+"გამონაკლისების გარდა.\n"
+"ეს ნიშნავს, რომ გადაცემისას მესამე პირებს თქვენი მონაცემების მიღება არ "
+"შეუძლიათ."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "SSL-ის &ინფორმაციის გამოტანა"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "&მიერთება"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"სერვერის სინამდვილის შემოწმების შეცდომა (%1).\n"
+"\n"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "სერვერის ავთენტიკაცია"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "გნებავთ სერტიფიკატთან სამუდამო წვდომა კითხვის გარეშე?"
+
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
 msgid "Network"
@@ -5299,6 +5303,9 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
+"ფაილი %1 დაკოპირდა %2-დან, მაგრამ მას შემდეგ, როგორც ჩანს, %3-ში შეიცვალა.\n"
+"კოპირების გაუქმება წაშლის ფაილს და მისი ცვლილებები დაიკარგება.\n"
+"მართლა გნებავთ %4-ის წაშლა?"
 
 #: widgets/fileundomanager.cpp:731
 #, kde-format
@@ -7021,6 +7028,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"როცა ეს ჩართულია, ღილაკი, რომელსაც დააჭერთ, მიმდინარე დავალების შესრულებისას "
+"ყველა დანარჩენი საქაღალდეების კოპირებისას წარმოქმნილ კონფლიქტებზე იქნება "
+"დამოკიდებული.\n"
+"თუ დააწვებით გამოტოვებას, საქაღალდეში ფაილების კონფლიქტისას მაინც გკითხავთ."
 
 #: widgets/renamedialog.cpp:232
 #, kde-format
@@ -7028,6 +7039,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
+"თუ ეს ჩართულია, ღილაკის მნიშვნელობა, რომელსაც დააწვებით, მიმდინარე "
+"დავალებაში წარმოქმნილ ყველა კონფლიქტზე იქნება გამოყენებული."
 
 #: widgets/renamedialog.cpp:238
 #, kde-format

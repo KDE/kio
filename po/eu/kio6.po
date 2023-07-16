@@ -1,4 +1,4 @@
-# Translation for kio5.po to Euskara/Basque (eu).
+# Translation for kio6.po to Euskara/Basque (eu).
 # Copyright (C) 2003-2023 This file is copyright:
 # This file is distributed under the same license as the kio package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-12 02:01+0000\n"
-"PO-Revision-Date: 2023-04-27 22:54+0200\n"
+"POT-Creation-Date: 2023-07-16 02:11+0000\n"
+"PO-Revision-Date: 2023-07-15 19:33+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2511,97 +2511,6 @@ msgstr "%1 protokoloak ez du fitxategiak irekitzea onartzen. "
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokoloak ez du %2 ekintza onartzen."
 
-#: core/tcpworkerbase.cpp:278
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Modu segurutik ateratzear zaude. Hemendik aurrera transmisioak ez dira "
-"zifratuko.\n"
-"Horrek esan nahi du hirugarren batek datuak iragan bitartean beha litzakeela."
-
-#: core/tcpworkerbase.cpp:284 core/tcpworkerbase.cpp:480
-#, kde-format
-msgid "Security Information"
-msgstr "Segurtasun-datuak"
-
-#: core/tcpworkerbase.cpp:285
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&Jarraitu kargatzen"
-
-#: core/tcpworkerbase.cpp:338
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL negoziazioak huts egin du"
-
-#: core/tcpworkerbase.cpp:474
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Modu seguruan sartzear zaude. Transmisio guztiak enkriptatuko dira besterik "
-"adierazi ezean.\n"
-"Honek zera esan nahi du: beste inork ez dituela zure datuak hara eta hona "
-"dabiltzan bitartean errez ikusiko."
-
-#: core/tcpworkerbase.cpp:481
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Erakutsi SSL &informazioa"
-
-#: core/tcpworkerbase.cpp:482
-#, kde-format
-msgid "C&onnect"
-msgstr "K&onektatu"
-
-#: core/tcpworkerbase.cpp:521 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Zerbitzariaren ziurtagiriak ez du autentifikazio-proba gainditu (%1).\n"
-"\n"
-
-#: core/tcpworkerbase.cpp:530 core/tcpworkerbase.cpp:542 widgets/sslui.cpp:60
-#: widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Zerbitzariaren autentifikazioa"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:350 widgets/sslui.cpp:61
-#, kde-format
-msgid "&Details"
-msgstr "&Xehetasunak"
-
-#: core/tcpworkerbase.cpp:530 core/workerinterface.cpp:356 widgets/sslui.cpp:62
-#, kde-format
-msgid "Co&ntinue"
-msgstr "&Jarraitu"
-
-#: core/tcpworkerbase.cpp:539 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Ziurtagiria betirako onartu nahi duzu berriz galdetua izan gabe?"
-
-#: core/tcpworkerbase.cpp:543 core/workerinterface.cpp:352 widgets/sslui.cpp:97
-#, kde-format
-msgid "&Forever"
-msgstr "&Betirako"
-
-#: core/tcpworkerbase.cpp:544 core/workerinterface.cpp:358 widgets/sslui.cpp:98
-#, kde-format
-msgid "&Current Session only"
-msgstr "&Uneko saiorako soilik"
-
 #: core/worker.cpp:334
 #, kde-format
 msgid "Unknown protocol '%1'."
@@ -2623,11 +2532,35 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ezin da 'kioworker' exekutagarria aurkitu '%1'(e)n"
 
+#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:61
+#, kde-format
+msgid "&Details"
+msgstr "&Xehetasunak"
+
+#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
+#: widgets/sslui.cpp:97
+#, kde-format
+msgid "&Forever"
+msgstr "&Betirako"
+
+#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
+#: widgets/sslui.cpp:62
+#, kde-format
+msgid "Co&ntinue"
+msgstr "&Jarraitu"
+
+#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
+#: widgets/sslui.cpp:98
+#, kde-format
+msgid "&Current Session only"
+msgstr "&Uneko saiorako soilik"
+
 #: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%%p"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3246,7 +3179,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Formatua berriz eman edo editatu Partizio Kudeatzailearekin"
 
 #: filewidgets/kfileplacesview.cpp:593
 #, kde-format
@@ -4211,13 +4144,14 @@ msgstr ""
 "%1(r)en baimenak"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Ezin izan du %1(r)en jabetza aldatu."
+msgstr ""
+"Ezin izan du ondokoaren jabea eta taldea aldatu\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
@@ -4950,6 +4884,77 @@ msgctxt ""
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
 msgid "Details"
 msgstr "Xehetasunak"
+
+#: kioworkers/http/tcpworkerbase.cpp:280
+#, kde-format
+msgid ""
+"You are about to leave secure mode. Transmissions will no longer be "
+"encrypted.\n"
+"This means that a third party could observe your data in transit."
+msgstr ""
+"Modu segurutik ateratzear zaude. Hemendik aurrera transmisioak ez dira "
+"zifratuko.\n"
+"Horrek esan nahi du hirugarren batek datuak iragan bitartean beha litzakeela."
+
+#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
+#, kde-format
+msgid "Security Information"
+msgstr "Segurtasun-datuak"
+
+#: kioworkers/http/tcpworkerbase.cpp:287
+#, kde-format
+msgid "C&ontinue Loading"
+msgstr "&Jarraitu kargatzen"
+
+#: kioworkers/http/tcpworkerbase.cpp:340
+#, kde-format
+msgctxt "%1 is a host name"
+msgid "%1: SSL negotiation failed"
+msgstr "%1: SSL negoziazioak huts egin du"
+
+#: kioworkers/http/tcpworkerbase.cpp:476
+#, kde-format
+msgid ""
+"You are about to enter secure mode. All transmissions will be encrypted "
+"unless otherwise noted.\n"
+"This means that no third party will be able to easily observe your data in "
+"transit."
+msgstr ""
+"Modu seguruan sartzear zaude. Transmisio guztiak enkriptatuko dira besterik "
+"adierazi ezean.\n"
+"Honek zera esan nahi du: beste inork ez dituela zure datuak hara eta hona "
+"dabiltzan bitartean errez ikusiko."
+
+#: kioworkers/http/tcpworkerbase.cpp:483
+#, kde-format
+msgid "Display SSL &Information"
+msgstr "Erakutsi SSL &informazioa"
+
+#: kioworkers/http/tcpworkerbase.cpp:484
+#, kde-format
+msgid "C&onnect"
+msgstr "K&onektatu"
+
+#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Zerbitzariaren ziurtagiriak ez du autentifikazio-proba gainditu (%1).\n"
+"\n"
+
+#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#, kde-format
+msgid "Server Authentication"
+msgstr "Zerbitzariaren autentifikazioa"
+
+#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Ziurtagiria betirako onartu nahi duzu berriz galdetua izan gabe?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -7251,10 +7256,9 @@ msgid "This action will overwrite the destination."
 msgstr "Ekintza honek helburua gainidatziko du."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Ekintza honek helburua gainidatziko du."
+msgstr "Ekintza honek '%1'(r)en edukia '%2' barruan bateratuko du."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
