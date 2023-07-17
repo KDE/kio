@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-16 02:11+0000\n"
-"PO-Revision-Date: 2023-07-02 16:46+0530\n"
+"PO-Revision-Date: 2023-07-16 13:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4064,13 +4064,12 @@ msgstr ""
 "என்பதற்கு அனுமதிகளை மாற்ற முடியவில்லை"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "%1-இன் உரிமையாளரை மாற்ற முடியவில்லை."
+msgstr "%1 என்பதற்கான உரிமையாளரையும் குழுவையும் மாற்ற முடியவில்லை."
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
