@@ -253,7 +253,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_pathBox->setAutoDeleteCompletionObject(true);
 
     // TODO KF6: remove this QOverload, only KUrlComboBox::returnPressed(const QString &) will remain
-    q->connect(m_pathBox, qOverload<const QString &>(&KUrlComboBox::returnPressed), q, [this]() {
+    q->connect(m_pathBox, &KUrlComboBox::returnPressed, q, [this]() {
         slotReturnPressed();
     });
     q->connect(m_pathBox, &KUrlComboBox::urlActivated, q, &KUrlNavigator::setLocationUrl);

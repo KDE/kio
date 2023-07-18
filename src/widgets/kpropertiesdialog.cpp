@@ -1827,7 +1827,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->ownerPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 1, 1);
-    connect(d->ownerPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->ownerPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the owner is allowed to do."));
 
     lbl = new QLabel(i18n("Gro&up:"), gb);
@@ -1835,7 +1835,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->groupPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 2, 1);
-    connect(d->groupPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->groupPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(i18n("Specifies the actions that the members of the group are allowed to do."));
 
     lbl = new QLabel(i18n("O&thers:"), gb);
@@ -1843,7 +1843,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
     l = d->othersPermCombo = new QComboBox(gb);
     lbl->setBuddy(l);
     gl->addWidget(l, 3, 1);
-    connect(d->othersPermCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+    connect(d->othersPermCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     l->setWhatsThis(
         i18n("Specifies the actions that all users, who are neither "
              "owner nor in the group, are allowed to do."));
@@ -1942,7 +1942,7 @@ KFilePermissionsPropsPlugin::KFilePermissionsPropsPlugin(KPropertiesDialog *_pro
         d->grpCombo->addItems(groupList);
         d->grpCombo->setCurrentIndex(groupList.indexOf(d->strGroup));
         gl->addWidget(d->grpCombo, 2, 1);
-        connect(d->grpCombo, qOverload<int>(&QComboBox::activated), this, &KPropertiesDialogPlugin::changed);
+        connect(d->grpCombo, &QComboBox::activated, this, &KPropertiesDialogPlugin::changed);
     } else {
         l = new QLabel(d->strGroup, gb);
         gl->addWidget(l, 2, 1);

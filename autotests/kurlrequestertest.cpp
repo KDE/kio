@@ -135,7 +135,7 @@ void KUrlRequesterTest::testComboRequester()
     QSignalSpy textSpy(&req, &KUrlComboRequester::textChanged);
     QSignalSpy editSpy(&req, &KUrlComboRequester::textEdited);
 
-    QSignalSpy returnWithTextSpy(&req, qOverload<const QString &>(&KUrlComboRequester::returnPressed));
+    QSignalSpy returnWithTextSpy(&req, &KUrlComboRequester::returnPressed);
 
     QVERIFY(!req.comboBox()->isEditable());
     if (editable) {

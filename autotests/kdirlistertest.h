@@ -36,7 +36,7 @@ public:
         , spyCanceled(this, qOverload<>(&KCoreDirLister::canceled))
         , spyCompletedQUrl(this, &KCoreDirLister::listingDirCompleted)
         , spyCanceledQUrl(this, &KCoreDirLister::listingDirCanceled)
-        , spyRedirection(this, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection))
+        , spyRedirection(this, &KCoreDirLister::redirection)
         , spyJobError(this, &KCoreDirLister::jobError)
     {
     }

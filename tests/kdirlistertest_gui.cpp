@@ -45,7 +45,7 @@ KDirListerTest::KDirListerTest(QWidget *parent, const QUrl &initialUrl)
     connect(lister, &KCoreDirLister::listingDirCompleted, debug, &PrintSignals::listingDirCompleted);
     connect(lister, qOverload<>(&KDirLister::canceled), debug, &PrintSignals::canceled);
     connect(lister, &KCoreDirLister::listingDirCanceled, debug, &PrintSignals::listingDirCanceled);
-    connect(lister, qOverload<const QUrl &, const QUrl &>(&KDirLister::redirection), debug, &PrintSignals::redirection);
+    connect(lister, &KDirLister::redirection, debug, &PrintSignals::redirection);
     connect(lister, qOverload<>(&KDirLister::clear), debug, &PrintSignals::clear);
     connect(lister, &KCoreDirLister::newItems, debug, &PrintSignals::newItems);
     connect(lister, &KCoreDirLister::itemsDeleted, debug, &PrintSignals::itemsDeleted);

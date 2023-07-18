@@ -430,7 +430,7 @@ EditACLEntryDialog::EditACLEntryDialog(KACLListView *listView,
 
     mainLayout->addWidget(gb);
 
-    connect(m_buttonGroup, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &EditACLEntryDialog::slotSelectionChanged);
+    connect(m_buttonGroup, &QButtonGroup::buttonClicked, this, &EditACLEntryDialog::slotSelectionChanged);
 
     m_widgetStack = new QStackedWidget(this);
     mainLayout->addWidget(m_widgetStack);

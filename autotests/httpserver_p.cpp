@@ -254,7 +254,7 @@ void BlockingHttpServer::incomingConnection(qintptr socketDescriptor)
         QSslSocket *serverSocket = new QSslSocket;
         serverSocket->setParent(this);
         serverSocket->setSocketDescriptor(socketDescriptor);
-        connect(serverSocket, qOverload<const QList<QSslError> &>(&QSslSocket::sslErrors), this, &BlockingHttpServer::slotSslErrors);
+        connect(serverSocket, &QSslSocket::sslErrors, this, &BlockingHttpServer::slotSslErrors);
         // TODO setupSslServer(serverSocket);
         // qDebug() << "Created QSslSocket, starting server encryption";
         serverSocket->startServerEncryption();

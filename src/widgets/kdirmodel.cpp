@@ -449,7 +449,7 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     connect(d->m_dirLister, qOverload<>(&KCoreDirLister::clear), this, [this]() {
         d->_k_slotClear();
     });
-    connect(d->m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &oldUrl, const QUrl &newUrl) {
+    connect(d->m_dirLister, &KCoreDirLister::redirection, this, [this](const QUrl &oldUrl, const QUrl &newUrl) {
         d->_k_slotRedirection(oldUrl, newUrl);
     });
 }

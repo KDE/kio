@@ -1066,7 +1066,7 @@ void KDirListerTest::testRenameCurrentDir() // #294445
     const QString newPath = tempPath() + "newsubdir-2";
     QVERIFY(QDir().rename(path, newPath));
     org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(path), QUrl::fromLocalFile(newPath));
-    QSignalSpy spyRedirection(&secondDirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection));
+    QSignalSpy spyRedirection(&secondDirLister, &KCoreDirLister::redirection);
     QVERIFY(spyRedirection.wait(1000));
 
     // Check that the URL of the root item got updated
@@ -1104,7 +1104,7 @@ void KDirListerTest::testRenameCurrentDirOpenUrl()
 
     // Connect the redirection to openURL, so that on a rename the new location is opened.
     // This matches usage in gwenview, and crashes
-    connect(&m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
+    connect(&m_dirLister, &KCoreDirLister::redirection, this, [this](const QUrl &, const QUrl &newUrl) {
         slotOpenUrlOnRename(newUrl);
     });
 
@@ -1409,7 +1409,7 @@ void KDirListerTest::testRenameDirectory() // #401552
     QString currDir = dirW;
     KIO::SimpleJob *job = nullptr;
     // Connect the redirection to openURL, so that on a rename the new location is opened.
-    connect(&m_dirLister, qOverload<const QUrl &, const QUrl &>(&KCoreDirLister::redirection), this, [this](const QUrl &, const QUrl &newUrl) {
+    connect(&m_dirLister, &KCoreDirLister::redirection, this, [this](const QUrl &, const QUrl &newUrl) {
         slotOpenUrlOnRename(newUrl);
     });
 

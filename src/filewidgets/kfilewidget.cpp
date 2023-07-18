@@ -1318,7 +1318,7 @@ void KFileWidgetPrivate::initLocationWidget()
     m_locationEdit->setCompletionObject(fileCompletionObj);
     m_locationEdit->setAutoDeleteCompletionObject(true);
 
-    q->connect(m_locationEdit, qOverload<const QString &>(&KUrlComboBox::returnPressed), q, [this](const QString &text) {
+    q->connect(m_locationEdit, &KUrlComboBox::returnPressed, q, [this](const QString &text) {
         locationAccepted(text);
     });
 }

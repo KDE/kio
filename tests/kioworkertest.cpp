@@ -76,7 +76,7 @@ KioWorkerTest::KioWorkerTest(QString src, QString dest, uint op, uint pr)
     opButtons = new QButtonGroup(main_widget);
     QGroupBox *box = new QGroupBox(QStringLiteral("Operation"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(opButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioWorkerTest::changeOperation);
+    connect(opButtons, &QButtonGroup::buttonClicked, this, &KioWorkerTest::changeOperation);
 
     QBoxLayout *hbLayout = new QHBoxLayout(box);
 
@@ -128,7 +128,7 @@ KioWorkerTest::KioWorkerTest(QString src, QString dest, uint op, uint pr)
     progressButtons = new QButtonGroup(main_widget);
     box = new QGroupBox(QStringLiteral("Progress dialog mode"), main_widget);
     topLayout->addWidget(box, 10);
-    connect(progressButtons, qOverload<QAbstractButton *>(&QButtonGroup::buttonClicked), this, &KioWorkerTest::changeProgressMode);
+    connect(progressButtons, &QButtonGroup::buttonClicked, this, &KioWorkerTest::changeProgressMode);
 
     hbLayout = new QHBoxLayout(box);
 

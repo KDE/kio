@@ -127,7 +127,7 @@ public:
             connect(combo, &QComboBox::currentTextChanged, receiver, &KUrlRequester::textChanged);
             connect(combo, &QComboBox::editTextChanged, receiver, &KUrlRequester::textEdited);
 
-            connect(combo, qOverload<const QString &>(&KComboBox::returnPressed), receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
+            connect(combo, &KComboBox::returnPressed, receiver, &KUrlRequester::returnPressed);
         } else if (edit) {
             connect(edit, &QLineEdit::textChanged, receiver, &KUrlRequester::textChanged);
             connect(edit, &QLineEdit::textEdited, receiver, &KUrlRequester::textEdited);
@@ -137,7 +137,7 @@ public:
             });
 
             if (auto kline = qobject_cast<KLineEdit *>(edit)) {
-                connect(kline, &KLineEdit::returnKeyPressed, receiver, qOverload<const QString &>(&KUrlRequester::returnPressed));
+                connect(kline, &KLineEdit::returnKeyPressed, receiver, &KUrlRequester::returnPressed);
             }
         }
     }
