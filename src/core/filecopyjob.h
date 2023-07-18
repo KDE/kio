@@ -110,7 +110,6 @@ KIOCORE_EXPORT FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, int per
 /**
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
- * @since 4.5
  */
 FileCopyJob *file_copy(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 
@@ -136,7 +135,6 @@ KIOCORE_EXPORT FileCopyJob *file_move(const QUrl &src, const QUrl &dest, int per
 /**
  * Overload for catching code mistakes. Do NOT call this method (it is not implemented),
  * insert a value for permissions (-1 by default) before the JobFlags.
- * @since 4.3
  */
 FileCopyJob *file_move(const QUrl &src, const QUrl &dest, JobFlags flags) Q_DECL_EQ_DELETE; // not implemented - on purpose.
 

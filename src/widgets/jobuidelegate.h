@@ -150,8 +150,6 @@ public:
      * @param dontAskAgainName the name used to store result from 'Do not ask again' checkbox.
      * @param metaData SSL information used by the SSLMessageBox. Since 5.66 this is also used for privilege operation details.
      *
-     * @since 4.11
-     *
      * @internal
      */
     // KF6 TODO Add a QString parameter for "details" and keep in sync with API in SlaveBase, WorkerInterface, and JobUiDelegateExtension.

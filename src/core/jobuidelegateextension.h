@@ -215,7 +215,6 @@ public:
      *
      * Should be kept in sync with WorkerBase::MessageBoxType.
      *
-     * @since 4.11
      */
     enum MessageBoxType {
         QuestionTwoActions = 1, ///< @since 5.100

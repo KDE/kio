@@ -34,7 +34,6 @@ class QHostInfo;
  *
  * Class that holds information about a search provider.
  *
- * @since 4.6
  */
 class KIOWIDGETS_EXPORT KUriFilterSearchProvider
 {
@@ -190,7 +189,6 @@ public:
      * @see setSearchFilteringOptions
      * @see KUriFilter::filterSearchUri
      * @see SearchFilterOptions
-     * @since 4.6
      */
     enum SearchFilterOption {
         SearchFilterOptionNone = 0x0,
@@ -321,7 +319,6 @@ public:
      * function returns an empty string.
      *
      * @see typedString
-     * @since 4.5
      */
     QString searchTerm() const;
 
@@ -333,7 +330,6 @@ public:
      * function returns a null character.
      *
      * @see typedString
-     * @since 4.5
      */
     QChar searchTermSeparator() const;
 
@@ -344,7 +340,6 @@ public:
      * function returns an empty string.
      *
      * @see typedString
-     * @since 4.5
      */
     QString searchProvider() const;
 
@@ -370,7 +365,6 @@ public:
      * @see setAlternateDefaultSearchProvider
      * @see setSearchFilteringOption
      * @see queryForPreferredServiceProvider
-     * @since 4.5
      */
     QStringList preferredSearchProviders() const;
 
@@ -382,7 +376,6 @@ public:
      *
      * @see preferredSearchProviders
      * @see KUriFilterSearchProvider
-     * @since 4.6
      */
     KUriFilterSearchProvider queryForSearchProvider(const QString &provider) const;
 
@@ -397,7 +390,6 @@ public:
      * valid url.
      *
      * @see preferredSearchProviders
-     * @since 4.5
      */
     QString queryForPreferredSearchProvider(const QString &provider) const;
 
@@ -411,7 +403,6 @@ public:
      * a query for each and every web shortcut.
      *
      * @see queryForPreferredSearchProvider
-     * @since 4.6
      */
     QStringList allQueriesForSearchProvider(const QString &provider) const;
 
@@ -422,7 +413,6 @@ public:
      * preferred search providers returned by @ref preferredSearchProviders.
      *
      * @see preferredSearchProviders
-     * @since 4.5
      */
     QString iconNameForPreferredSearchProvider(const QString &provider) const;
 
@@ -436,7 +426,6 @@ public:
      *
      * @see setAlternatteSearchProviders
      * @see preferredSearchProviders
-     * @since 4.5
      */
     QStringList alternateSearchProviders() const;
 
@@ -448,7 +437,6 @@ public:
      * chosen by the user through the search configuration module.
      *
      * @see setAlternateDefaultSearchProvider
-     * @since 4.5
      */
     QString alternateDefaultSearchProvider() const;
 
@@ -458,7 +446,6 @@ public:
      * By default this function will return an empty string.
      *
      * @see setDefaultUrlScheme
-     * @since 4.6
      */
     QString defaultUrlScheme() const;
 
@@ -468,7 +455,6 @@ public:
      * By default this function returns @ref SearchFilterOptionNone.
      *
      * @see setSearchFilteringOptions
-     * @since 4.6
      */
     SearchFilterOptions searchFilteringOptions() const;
 
@@ -537,7 +523,6 @@ public:
      *
      * @see alternateSearchProviders
      * @see preferredSearchProviders
-     * @since 4.5
      */
     void setAlternateSearchProviders(const QStringList &providers);
 
@@ -551,7 +536,6 @@ public:
      *
      * @see alternateDefaultSearchProvider
      * @see preferredSearchProviders
-     * @since 4.5
      */
     void setAlternateDefaultSearchProvider(const QString &provider);
 
@@ -567,7 +551,6 @@ public:
      * will be filtered to "ftp://kde.org".
      *
      * @see defaultUrlScheme
-     * @since 4.6
      */
     void setDefaultUrlScheme(const QString &);
 
@@ -584,7 +567,6 @@ public:
      * a successful response.
      *
      * @see searchFilteringOptions
-     * @since 4.6
      */
     void setSearchFilteringOptions(SearchFilterOptions options);
 
@@ -677,21 +659,18 @@ protected:
      * Sets the name of the search provider, the search term and keyword/term
      * separator in @p data.
      *
-     * @since 4.5
      */
     void setSearchProvider(KUriFilterData &data, const QString &provider, const QString &term, const QChar &separator) const;
 
     /**
      * Sets the information about the search @p providers in @p data.
      *
-     * @since 4.6
      */
     void setSearchProviders(KUriFilterData &data, const QList<KUriFilterSearchProvider *> &providers) const;
 
     /**
      * Returns the icon name for the given @p url and URI @p type.
      *
-     * @since 4.5
      */
     QString iconNameFor(const QUrl &url, KUriFilterData::UriTypes type) const;
 
@@ -709,7 +688,6 @@ protected:
      * @param timeout    the amount of time in msecs to wait for the lookup.
      * @return the result of the host name lookup.
      *
-     * @since 4.7
      */
     QHostInfo resolveName(const QString &hostname, unsigned long timeout) const;
 
@@ -928,7 +906,6 @@ public:
      * @return true if the specified @p data was successfully filtered.
      *
      * @see KUriFilterData::setSearchFilteringOptions
-     * @since 4.6
      */
     bool filterSearchUri(KUriFilterData &data, SearchFilterTypes types);
 

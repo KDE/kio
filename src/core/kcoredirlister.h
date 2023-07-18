@@ -425,7 +425,6 @@ public:
      *
      * If you really need a KFileItem for this URL in all cases, then use KIO::stat() instead.
      *
-     * @since 4.2
      */
     static KFileItem cachedItemForUrl(const QUrl &url);
 
@@ -532,7 +531,6 @@ Q_SIGNALS:
      * but itemsAdded also passes the url of the parent directory.
      *
      * @param items a list of new items
-     * @since 4.2
      */
     void itemsAdded(const QUrl &directoryUrl, const KFileItemList &items);
 

@@ -34,7 +34,6 @@ class KFileItemList;
  * This class is implicitly shared, which means it can be used as a value and
  * copied around at almost no cost.
  *
- * @since 4.3
  */
 class KIOCORE_EXPORT KFileItemListProperties
 {

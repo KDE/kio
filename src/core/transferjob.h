@@ -246,7 +246,6 @@ KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, const QByteArray &postDat
  * @param flags Can be HideProgressInfo here
  * @return the job handling the operation.
  *
- * @since 4.7
  */
 KIOCORE_EXPORT TransferJob *http_post(const QUrl &url, QIODevice *device, qint64 size = -1, JobFlags flags = DefaultFlags);
 

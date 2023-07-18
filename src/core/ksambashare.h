@@ -56,7 +56,6 @@ public:
      *
      * @return whether the given name is already being used or not.
      *
-     * @since 4.7
      */
     bool isShareNameAvailable(const QString &name) const;
 
@@ -66,7 +65,6 @@ public:
      * @return @c a QStringList containing the user shares names.
      * @return @c an empty list if there aren't user shared directories.
      *
-     * @since 4.7
      */
     QStringList shareNames() const;
 
@@ -78,7 +76,6 @@ public:
      * @return @c the KSambaShareData object that matches the name.
      * @return @c an empty KSambaShareData object if there isn't match for the name.
      *
-     * @since 4.7
      */
     KSambaShareData getShareByName(const QString &name) const;
 
@@ -90,7 +87,6 @@ public:
      * @return @c the QList of KSambaShareData objects that matches the path.
      * @return @c an empty QList if there aren't matches for the given path.
      *
-     * @since 4.7
      */
     QList<KSambaShareData> getSharesByPath(const QString &path) const;
 

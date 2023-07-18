@@ -322,7 +322,6 @@ public:
      * Checks whether the file is a readable local .desktop file,
      * i.e.\ a file whose path can be given to KDesktopFile
      * @return true if the file is a desktop file.
-     * @since 4.1
      */
     bool isDesktopFile() const;
 
@@ -336,7 +335,6 @@ public:
      * Returns the target url of the file, which is the same as url()
      * in cases where the worker doesn't specify UDS_TARGET_URL
      * @return the target url.
-     * @since 4.1
      */
     QUrl targetUrl() const;
 
@@ -469,7 +467,6 @@ public:
      * A comment which can contain anything - even rich text. It will
      * simply be displayed to the user as is.
      *
-     * @since 4.6
      */
     QString comment() const;
 
@@ -490,7 +487,6 @@ public:
     /**
      * Return true if this item is a regular file,
      * false otherwise (directory, link, character/block device, fifo, socket)
-     * @since 4.3
      */
     bool isRegularFile() const;
 
@@ -554,7 +550,6 @@ public:
      * }
      * @endcode
      *
-     * @since 4.6
      */
     QUrl mostLocalUrl(bool *local = nullptr) const;
 

@@ -99,7 +99,6 @@ public:
 
     /**
      * @returns the current start dir
-     * @since 4.3
      */
     QUrl startDir() const;
 
@@ -109,7 +108,6 @@ public:
      * for cases where KUrlRequester is used to enter URL-or-something-else,
      * like KOpenWithDialog where you can type a full command with arguments.
      *
-     * @since 4.2
      */
     QString text() const;
 
@@ -285,7 +283,6 @@ public:
 
     /**
      * @returns the window modality of the file dialog set with setFileDialogModality
-     * @since 4.4
      */
     Qt::WindowModality fileDialogModality() const;
 
@@ -295,7 +292,6 @@ public:
      *
      * The default is Qt::ApplicationModal.
      *
-     * @since 4.4
      */
     void setFileDialogModality(Qt::WindowModality modality);
 
@@ -308,7 +304,6 @@ public Q_SLOTS:
     /**
      * Sets the start dir @p startDir.
      * The start dir is only used when the URL isn't set.
-     * @since 4.3
      */
     void setStartDir(const QUrl &startDir);
 
@@ -319,7 +314,6 @@ public Q_SLOTS:
      * can type a full command with arguments.
      *
      * @see text
-     * @since 4.3
      */
     void setText(const QString &text);
 

@@ -179,7 +179,6 @@ StatJob *statDetails(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDeta
  *
  * @param url The URL we are stat'ing.
  *
- * @since 4.4
  *
  * Sample usage:
  *

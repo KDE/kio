@@ -118,7 +118,6 @@ class KIOWIDGETS_EXPORT KFileItemDelegate : public QAbstractItemDelegate
     /**
      * This property determines if there are KIO jobs on a destination URL visible, then
      * they will have a small animation overlay displayed on them.
-     * @since 4.5
      */
     Q_PROPERTY(bool jobTransfersVisible READ jobTransfersVisible WRITE setJobTransfersVisible)
 
@@ -320,7 +319,6 @@ public:
      * Sets the maximum size for KFileItemDelegate::sizeHint().
      *
      * @see maximumSize()
-     * @since 4.1
      */
     void setMaximumSize(const QSize &size);
 
@@ -328,7 +326,6 @@ public:
      * Returns the maximum size for KFileItemDelegate::sizeHint().
      *
      * @see setMaximumSize()
-     * @since 4.1
      */
     QSize maximumSize() const;
 
@@ -340,7 +337,6 @@ public:
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
      * @see showToolTipWhenElided()
-     * @since 4.2
      */
     void setShowToolTipWhenElided(bool showToolTip);
 
@@ -352,14 +348,12 @@ public:
      *       from Qt::DisplayRole, or if they match, showToolTipWhenElided
      *       flag is set and the display role information is elided.
      * @see setShowToolTipWhenElided()
-     * @since 4.2
      */
     bool showToolTipWhenElided() const;
 
     /**
      * Returns the rectangle of the icon that is aligned inside the decoration
      * rectangle.
-     * @since 4.4
      */
     QRect iconRect(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
@@ -367,7 +361,6 @@ public:
      * When the contents text needs to be wrapped, @p wrapMode strategy
      * will be followed.
      *
-     * @since 4.4
      */
     void setWrapMode(QTextOption::WrapMode wrapMode);
 
@@ -375,7 +368,6 @@ public:
      * Returns the wrapping strategy followed to show text when it needs
      * wrapping.
      *
-     * @since 4.4
      */
     QTextOption::WrapMode wrapMode() const;
 
@@ -392,15 +384,12 @@ public:
      *
      * Note: The model (KDirModel) needs to have it's method called with the same
      * value, when you make the call to this method.
-     *
-     * @since 4.5
      */
     void setJobTransfersVisible(bool jobTransfersVisible);
 
     /**
      * Returns whether or not the displaying of job transfers is enabled.
      * @see setJobTransfersVisible()
-     * @since 4.5
      */
     bool jobTransfersVisible() const;
 

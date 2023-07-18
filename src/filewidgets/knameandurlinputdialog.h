@@ -21,7 +21,6 @@ class QUrl;
  *
  * Dialog to ask for a name (e.g.\ filename) and a URL
  * Basically a merge of KLineEditDlg and KUrlRequesterDlg ;)
- * @since 4.5
  * @author David Faure <faure@kde.org>
  */
 class KIOFILEWIDGETS_EXPORT KNameAndUrlInputDialog : public QDialog

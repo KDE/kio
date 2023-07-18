@@ -70,7 +70,6 @@ public:
     /**
      * Returns true when redirections are handled internally, the default.
      *
-     * @since 4.4
      */
     bool isRedirectionHandlingEnabled() const;
 
@@ -80,7 +79,6 @@ public:
      * When this flag is set, redirection requests are simply forwarded to the
      * caller instead of being handled internally.
      *
-     * @since 4.4
      */
     void setRedirectionHandlingEnabled(bool handle);
 

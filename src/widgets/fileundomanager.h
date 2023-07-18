@@ -192,7 +192,6 @@ Q_SIGNALS:
      * Emitted when a job recording has been started by FileUndoManager::recordJob()
      * or FileUndoManager::recordCopyJob(). After the job recording has been finished,
      * the signal jobRecordingFinished() will be emitted.
-     * @since 4.2
      */
     void jobRecordingStarted(CommandType op);
 
@@ -200,7 +199,6 @@ Q_SIGNALS:
      * Emitted when a job that has been recorded by FileUndoManager::recordJob()
      * or FileUndoManager::recordCopyJob has been finished. The command
      * is now available for an undo-operation.
-     * @since 4.2
      */
     void jobRecordingFinished(FileUndoManager::CommandType op);
 

@@ -67,7 +67,6 @@ public:
 
     /**
      * Destructor
-     * @since 4.1
      */
     ~AuthInfo();
 
@@ -224,7 +223,6 @@ public:
 
     /**
      * Flags for extra fields
-     * @since 4.1
      */
     enum FieldFlags {
         ExtraFieldNoFlags = 0,
@@ -239,26 +237,22 @@ public:
      *    "anonymous" (bool)
      * Setting it to an invalid QVariant() will disable the field.
      * Extra Fields are disabled by default.
-     * @since 4.1
      */
     void setExtraField(const QString &fieldName, const QVariant &value);
 
     /**
      * Set Extra Field Flags
-     * @since 4.1
      */
     void setExtraFieldFlags(const QString &fieldName, const FieldFlags flags);
 
     /**
      * Get Extra Field Value
      * Check QVariant::isValid() to find out if the field exists.
-     * @since 4.1
      */
     QVariant getExtraField(const QString &fieldName) const;
 
     /**
      * Get Extra Field Flags
-     * @since 4.1
      */
     AuthInfo::FieldFlags getExtraFieldFlags(const QString &fieldName) const;
 
@@ -266,7 +260,6 @@ public:
      * Register the meta-types for AuthInfo. This is called from
      * AuthInfo's constructor but needed by daemons on the D-Bus such
      * as kpasswdserver.
-     * @since 4.3
      */
     static void registerMetaTypes();
 

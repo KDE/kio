@@ -109,7 +109,6 @@ public:
      * urlNavigator->saveLocationState(state);
      * \endcode
      *
-     * @since 4.5
      */
     void saveLocationState(const QByteArray &state);
 
@@ -164,7 +163,6 @@ public:
     /**
      * Sets the home URL used by KUrlNavigator::goHome(). If no
      * home URL is set, the default home path of the user is used.
-     * @since 4.5
      */
     // KDE5: Remove the home-property. It is sufficient to invoke
     // KUrlNavigator::setLocationUrl(homeUrl) on application-side.
@@ -194,7 +192,6 @@ public:
      * in the breadcrumb view, if showing the full path is turned off. If
      * showing the full path is turned on, the URL is shown
      * as [/] > [home] > [Pictures] > [2008].
-     * @since 4.2
      */
     void setShowFullPath(bool show);
 
@@ -320,7 +317,6 @@ public Q_SLOTS:
      * The signals KUrlNavigator::urlAboutToBeChanged(), KUrlNavigator::urlChanged()
      * and KUrlNavigator::historyChanged() are emitted. Use
      * KUrlNavigator::locationUrl() to read the location.
-     * @since 4.5
      */
     void setLocationUrl(const QUrl &url);
 
@@ -356,7 +352,6 @@ Q_SIGNALS:
      * The signal KUrlNavigator::urlChanged() will be emitted after the change
      * has been done. Connecting to this signal is useful to save the state
      * of a view with KUrlNavigator::saveLocationState().
-     * @since 4.5
      */
     void urlAboutToBeChanged(const QUrl &newUrl);
 
@@ -376,7 +371,6 @@ Q_SIGNALS:
      * Is emitted if a dropping has been done above the destination
      * \a destination. The receiver must accept the drop event if
      * the dropped data can be handled.
-     * @since 4.2
      */
     void urlsDropped(const QUrl &destination, QDropEvent *event);
 
@@ -389,7 +383,6 @@ Q_SIGNALS:
      * Is emitted if the URL \a url should be opened in a new inactive tab because
      * the user clicked on a breadcrumb with the middle mouse button or
      * left-clicked with the ctrl modifier pressed.
-     * @since 4.5
      */
     void tabRequested(const QUrl &url);
 

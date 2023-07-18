@@ -324,7 +324,6 @@ KIOCORE_EXPORT QString favIconForUrl(const QUrl &url);
  * @param permissions KIO file permissions.
  *
  * @return -1 if @p permissions is -1, otherwise its OR'ed QFile::Permission equivalent.
- * @since 4.12
  */
 KIOCORE_EXPORT QFile::Permissions convertPermissions(int permissions);
 

@@ -38,7 +38,6 @@ class KFilePreviewGeneratorPrivate;
  *   resumed. Also in this case the previews for the visible items
  *   are generated first.
  *
- * @since 4.2
  */
 class KIOFILEWIDGETS_EXPORT KFilePreviewGenerator : public QObject
 {
@@ -96,7 +95,6 @@ public Q_SLOTS:
      * has been changed by QAbstractItemView::setIconSize(). Note that this method
      * should also be invoked if previews have been turned off, as the icons for
      * cut items must be updated when the icon size has changed.
-     * @since 4.3
      */
     void updateIcons();
 

@@ -45,7 +45,6 @@ class KFileItemActionsPrivate;
  * since 5.82; those menu entries were hidden long before that, since the FSDevice
  * .desktop template file hadn't been installed for quite a while.
  *
- * @since 4.3
  */
 class KIOWIDGETS_EXPORT KFileItemActions : public QObject
 {

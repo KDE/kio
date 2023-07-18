@@ -153,7 +153,6 @@ public:
      * Asks for overwrite confirmation using a KMessageBox and returns
      * true if the user accepts.
      *
-     * @since 4.2
      */
     bool toOverwrite(const QUrl &);
 

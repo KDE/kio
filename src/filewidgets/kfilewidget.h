@@ -394,7 +394,6 @@ public:
      *         KDirSelectDialog).
      *
      * @see KFileWidget::KFileWidget()
-     * @since 4.3
      */
     static QUrl getStartUrl(const QUrl &startDir, QString &recentDirClass, QString &fileName);
 
@@ -431,7 +430,6 @@ public:
      * when an overwrite might occur.
      *
      * @param enable Set this to true to enable checking.
-     * @since 4.2
      */
     void setConfirmOverwrite(bool enable);
 
@@ -439,7 +437,6 @@ public:
      * Forces the inline previews to be shown or hidden, depending on @p show.
      *
      * @param show Whether to show inline previews or not.
-     * @since 4.2
      */
     void setInlinePreviewShown(bool show);
 
@@ -548,14 +545,12 @@ Q_SIGNALS:
 public:
     /**
      * @returns the KDirOperator used to navigate the filesystem
-     * @since 4.3
      */
     KDirOperator *dirOperator();
 
     /**
      * reads the configuration for this widget from the given config group
      * @param group the KConfigGroup to read from
-     * @since 4.4
      */
     void readConfig(KConfigGroup &group);
 

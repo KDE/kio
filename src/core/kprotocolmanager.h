@@ -88,7 +88,6 @@ public:
      * @param extraInfo a list of elements that will be appended to the string as extra information
      * @return the application's user-agent string
      *
-     * @since 4.1
      */
     static QString userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo = QStringList());
 
@@ -114,8 +113,6 @@ public:
      * @param machine machine type
 
      * @return true if system name, version and machine type has been provided
-     *
-     * @since 4.1
      */
     static bool getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine);
 
@@ -255,7 +252,6 @@ public:
      * must be denied. For a direct connection, this function will return a single
      * entry of "DIRECT".
      *
-     * @since 4.7
      *
      * @param url the URL whose proxy info is needed
      * @returns the proxy server address if one is available, otherwise an empty list .
@@ -625,7 +621,6 @@ public:
      *
      * @param mimeType the MIME type to check
      * @return the protocol that can handle this archive MIME type, for instance "zip".
-     * @since 4.1
      */
     static QString protocolForArchiveMimetype(const QString &mimeType);
 
@@ -668,7 +663,6 @@ public:
     /**
      * Returns the charset to use for the specified @ref url.
      *
-     * @since 4.10
      */
     static QString charsetFor(const QUrl &url);
 

@@ -94,7 +94,6 @@ public:
     /**
      * Sends our answer for the INF_MESSAGEBOX request.
      *
-     * @since 4.11
      */
     void sendMessageBoxAnswer(int result);
 

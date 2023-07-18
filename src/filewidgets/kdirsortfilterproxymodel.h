@@ -64,13 +64,11 @@ public:
 
     /**
      * Choose if files and folders are sorted separately (with folders first) or not.
-     * @since 4.3
      */
     void setSortFoldersFirst(bool foldersFirst);
 
     /**
      * Returns if files and folders are sorted separately (with folders first) or not.
-     * @since 4.3
      */
     bool sortFoldersFirst() const;
 

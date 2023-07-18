@@ -48,7 +48,6 @@ public:
     KSslErrorUiData &operator=(const KSslErrorUiData &);
     /**
      * Destructor
-     * @since 4.7
      */
     ~KSslErrorUiData();
 

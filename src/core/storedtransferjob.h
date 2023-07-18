@@ -108,7 +108,6 @@ KIOCORE_EXPORT StoredTransferJob *storedPut(const QByteArray &arr, const QUrl &u
  * @param url Where to write data.
  * @param flags Can be HideProgressInfo here.
  * @return the job handling the operation.
- * @since 4.2
  */
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QUrl &url, JobFlags flags = DefaultFlags);
 /**
@@ -121,7 +120,6 @@ KIOCORE_EXPORT StoredTransferJob *storedHttpPost(const QByteArray &arr, const QU
  * @param flags Can be HideProgressInfo here.
  * @return the job handling the operation.
  *
- * @since 4.7
  */
 KIOCORE_EXPORT StoredTransferJob *storedHttpPost(QIODevice *device, const QUrl &url, qint64 size = -1, JobFlags flags = DefaultFlags);
 

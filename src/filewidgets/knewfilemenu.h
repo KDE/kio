@@ -42,7 +42,6 @@ class KNewFileMenuPrivate;
  * @author David Faure <faure@kde.org>
  * Ideas and code for the new template handling mechanism ('link' desktop files)
  * from Christoph Pickart <pickart@iam.uni-bonn.de>
- * @since 4.5
  */
 class KIOFILEWIDGETS_EXPORT KNewFileMenu : public KActionMenu
 {

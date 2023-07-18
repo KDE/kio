@@ -104,7 +104,6 @@ KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QS
  * @param depth the depth of the request. Can be "0", "1" or "infinity"
  * @param flags We support HideProgressInfo here
  * @return the new DavJob
- * @since 4.4
  */
 KIOCORE_EXPORT DavJob *davReport(const QUrl &url, const QString &report, const QString &depth, JobFlags flags = DefaultFlags);
 

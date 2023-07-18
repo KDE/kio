@@ -35,7 +35,6 @@ public:
      * Specifies the type of scaling that is applied to the generated preview.
      * For HiDPI, pixel density scaling, @see setDevicePixelRatio
      *
-     * @since 4.7
      */
     enum ScaleType {
         /**
@@ -63,7 +62,6 @@ public:
      *                       are considered for generating the preview. If
      *                       enabledPlugins is zero the plugins specified in the
      *                       KConfigGroup "PreviewSettings" are used.
-     * @since 4.7
      */
     PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 
@@ -73,14 +71,12 @@ public:
      * Sets the scale type for the generated preview. Per default
      * PreviewJob::ScaledAndCached is set.
      * @see PreviewJob::ScaleType
-     * @since 4.7
      */
     void setScaleType(ScaleType type);
 
     /**
      * @return The scale type for the generated preview.
      * @see PreviewJob::ScaleType
-     * @since 4.7
      */
     ScaleType scaleType() const;
 
@@ -104,14 +100,12 @@ public:
      * icons for the same item. For example it may allow iterating through
      * the items of a directory, or the frames of a video.
      *
-     * @since 4.3
      **/
     void setSequenceIndex(int index);
 
     /**
      * Returns the currently set sequence index
      *
-     * @since 4.3
      **/
     int sequenceIndex() const;
 
@@ -214,7 +208,6 @@ public:
  *                       are considered for generating the preview. If
  *                       enabledPlugins is zero the plugins specified in the
  *                       KConfigGroup "PreviewSettings" are used.
- * @since 4.7
  */
 KIOGUI_EXPORT PreviewJob *filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins = nullptr);
 }

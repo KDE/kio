@@ -76,7 +76,6 @@ public:
 
     /**
      * @return an automatically renamed destination
-     * @since 4.5
      * valid always
      */
     QUrl autoDestUrl() const;

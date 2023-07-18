@@ -304,13 +304,11 @@ public:
      *
      * @see KNewFileMenu::setSupportedMimeTypes
      * @see newFileMenuSupportedMimeTypes
-     * @since 4.5
      */
     void setNewFileMenuSupportedMimeTypes(const QStringList &mime);
 
     /**
      * @returns the current Supported Mimes Types.
-     * @since 4.5
      */
     QStringList newFileMenuSupportedMimeTypes() const;
 
@@ -357,14 +355,12 @@ public:
     /**
      * Clears the current selection and attempts to set @p urls
      * the current url files.
-     * @since 4.2
      */
     void setCurrentItems(const QList<QUrl> &urls);
 
     /**
      * Clears the current selection and attempts to set @p items
      * as the current items.
-     * @since 4.2
      */
     void setCurrentItems(const KFileItemList &items);
 
@@ -678,7 +674,6 @@ public:
 
     /**
      * Returns the preview generator for the current view.
-     * @since 4.2
      */
     KFilePreviewGenerator *previewGenerator() const;
 
@@ -686,7 +681,6 @@ public:
      * Forces the inline previews to be shown or hidden, depending on @p show.
      *
      * @param show Whether to show inline previews or not.
-     * @since 4.2
      */
     void setInlinePreviewShown(bool show);
 
@@ -706,7 +700,6 @@ public:
 
     /**
      * Returns whether the inline previews are shown or not.
-     * @since 4.2
      */
     bool isInlinePreviewShown() const;
 
@@ -722,14 +715,12 @@ public:
      * If the system is set up to trigger items on single click, if @p isSaving
      * is true, we will force to double click to accept.
      * @note this is false by default
-     * @since 4.2
      */
     void setIsSaving(bool isSaving);
 
     /**
      * Returns whether KDirOperator will force a double click to accept.
      * @note this is false by default
-     * @since 4.2
      */
     bool isSaving() const;
 
@@ -1023,7 +1014,6 @@ Q_SIGNALS:
      *
      * @param item the file on which the context menu was invoked
      * @param menu the context menu, pre-populated with the file-management actions
-     * @since 4.2
      */
     void contextMenuAboutToShow(const KFileItem &item, QMenu *menu);
 
@@ -1031,7 +1021,6 @@ Q_SIGNALS:
      * Will notify that the icon size has changed. Since we save the icon size depending
      * on the view type (list view or a different kind of view), a call to setView() can
      * trigger this signal to be emitted.
-     * @since 4.2
      */
     void currentIconSizeChanged(int size);
 

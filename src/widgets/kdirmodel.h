@@ -224,7 +224,6 @@ public:
      * "home/foo/b/b.txt", this method will return the list "/home/foo/a", "/home/foo/b/b.txt".
      *
      * @return the list @p urls without parented urls inside.
-     * @since 4.2
      */
     static QList<QUrl> simplifiedUrlList(const QList<QUrl> &urls);
 
@@ -237,7 +236,6 @@ public:
      * @param index Index of the item that should get another icon
      * @param sequenceIndex Index in the sequence. If it is zero, the standard icon will be assigned.
      *                                        For higher indices, arbitrary different meaningful icons will be generated.
-     * @since 4.3
      */
     void requestSequenceIcon(const QModelIndex &index, int sequenceIndex);
 
@@ -254,14 +252,11 @@ public:
      *
      * Note: KFileItemDelegate needs to have it's method called with the same
      * value, when you make the call to this method.
-     *
-     * @since 4.5
      */
     void setJobTransfersVisible(bool show);
 
     /**
      * Returns whether or not displaying job transfers has been enabled.
-     * @since 4.5
      */
     bool jobTransfersVisible() const;
 
@@ -282,7 +277,6 @@ Q_SIGNALS:
      *                                        For higher indices, arbitrary different meaningful icons should be generated.
      *                                        This is usually slowly counted up while the user hovers the icon.
      *                                        If no meaningful alternative icons can be generated, this should be ignored.
-     * @since 4.3
      */
     void needSequenceIcon(const QModelIndex &index, int sequenceIndex);
 
