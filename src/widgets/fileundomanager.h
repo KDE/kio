@@ -202,8 +202,7 @@ Q_SIGNALS:
      * is now available for an undo-operation.
      * @since 4.2
      */
-    // TODO KF6 signal arg should be fully-qualified
-    void jobRecordingFinished(CommandType op); // clazy:exclude=fully-qualified-moc-types
+    void jobRecordingFinished(FileUndoManager::CommandType op);
 
 private:
     KIOWIDGETS_NO_EXPORT FileUndoManager();

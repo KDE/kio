@@ -46,8 +46,7 @@ private:
 
 Q_SIGNALS:
     void disconnected();
-    // TODO KF6: fix clazy warning by using fully-qualified signal argument
-    void commandReceived(const Task &task); // clazy:exclude=fully-qualified-moc-types
+    void commandReceived(const KIO::Task &task);
     void newConnection();
 
 public:
