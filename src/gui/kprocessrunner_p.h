@@ -44,7 +44,7 @@ public:
         SystemdAsScope,
         SystemdAsService,
     };
-    Q_ENUM(LaunchMode);
+    Q_ENUM(LaunchMode)
 
     /**
      * Run a KService (application desktop file) to open @p urls.
