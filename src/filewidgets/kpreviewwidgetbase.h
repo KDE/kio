@@ -47,6 +47,8 @@ public:
     explicit KPreviewWidgetBase(QWidget *parent);
     ~KPreviewWidgetBase() override;
 
+    QStringList supportedMimeTypes() const;
+
 public Q_SLOTS:
     /**
      * This slot is called every time the user selects another file in the
@@ -62,9 +64,6 @@ public Q_SLOTS:
      * is changed.
      */
     virtual void clearPreview() = 0;
-
-    // TODO KF6: make it a public method, it's not a slot
-    QStringList supportedMimeTypes() const; // clazy:exclude=const-signal-or-slot
 
 protected:
     void setSupportedMimeTypes(const QStringList &mimeTypes);
