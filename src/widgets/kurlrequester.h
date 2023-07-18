@@ -347,7 +347,7 @@ Q_SIGNALS:
      * Emitted when return or enter was pressed in the lineedit.
      * The parameter contains the contents of the lineedit.
      */
-    void returnPressed(const QString &text); // clazy:exclude=overloaded-signal
+    void returnPressed(const QString &text);
 
     /**
      * Emitted before the filedialog is going to open. Connect

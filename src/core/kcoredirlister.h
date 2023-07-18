@@ -467,7 +467,7 @@ Q_SIGNALS:
     /**
      * Tell the view that listing is finished. There are no jobs running anymore.
      */
-    void completed(); // clazy:exclude=overloaded-signal
+    void completed();
 
     /**
      * Tell the view that the listing of the directory @p dirUrl is finished.
@@ -482,7 +482,7 @@ Q_SIGNALS:
     /**
      * Tell the view that the user canceled the listing. No running jobs are left.
      */
-    void canceled(); // clazy:exclude=overloaded-signal
+    void canceled();
 
     /**
      * Tell the view that the listing of the directory @p dirUrl was canceled.
@@ -500,13 +500,13 @@ Q_SIGNALS:
      * @param oldUrl the original URL
      * @param newUrl the new URL
      */
-    void redirection(const QUrl &oldUrl, const QUrl &newUrl); // clazy:exclude=overloaded-signal
+    void redirection(const QUrl &oldUrl, const QUrl &newUrl);
 
     /**
      * Signals to the view to remove all items (when e.g.\ going from dirA to dirB).
      * Make sure to connect to this signal to avoid having duplicate items in the view.
      */
-    void clear(); // clazy:exclude=overloaded-signal
+    void clear();
 
     /**
      * Signals to the view to clear all items from directory @p dirUrl.

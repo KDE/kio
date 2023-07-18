@@ -180,7 +180,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /// Emitted when the value of isUndoAvailable() changes
-    void undoAvailable(bool avail); // clazy:exclude=overloaded-signal
+    void undoAvailable(bool avail);
 
     /// Emitted when the value of undoText() changes
     void undoTextChanged(const QString &text);
