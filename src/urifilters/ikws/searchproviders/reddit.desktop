@@ -11,6 +11,7 @@ Name[ca@valencia]=Reddit
 Name[cs]=Reddit
 Name[cy]=Reddit
 Name[de]=Reddit
+Name[el]=Reddit
 Name[en_GB]=Reddit
 Name[eo]=Reddit
 Name[es]=Reddit
@@ -58,6 +59,7 @@ Query[ca@valencia]=https://www.reddit.com/search/?q=\\{@}
 Query[cs]=https://www.reddit.com/search/?q=\\{@}
 Query[cy]=https://www.reddit.com/search/?q=\\{@}
 Query[de]=https://www.reddit.com/search/?q=\\{@}
+Query[el]=https://www.reddit.com/search/?q=\\{@}
 Query[en_GB]=https://www.reddit.com/search/?q=\\{@}
 Query[eo]=https://www.reddit.com/search/?q=\\{@}
 Query[es]=https://www.reddit.com/search/?q=\\{@}

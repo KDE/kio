@@ -11,6 +11,7 @@ Name[ca@valencia]=Referència de CPP
 Name[cs]=CPP Reference
 Name[cy]=Cyfeirdeb CPP
 Name[de]=CPP-Reference
+Name[el]=Αναφορά CPP
 Name[en_GB]=CPP Reference
 Name[eo]=CPP-Referenco
 Name[es]=Referencia de CPP
@@ -59,6 +60,7 @@ Query[ca@valencia]=https://cppreference.com/w/?search=\\{@}
 Query[cs]=https://cppreference.com/w/?search=\\{@}
 Query[cy]=https://cppreference.com/w/?search=\\{@}
 Query[de]=https://cppreference.com/w/?search=\\{@}
+Query[el]=https://cppreference.com/w/?search=\\{@}
 Query[en_GB]=https://cppreference.com/w/?search=\\{@}
 Query[eo]=https://cppreference.com/w/?search=\\{@}
 Query[es]=https://cppreference.com/w/?search=\\{@}

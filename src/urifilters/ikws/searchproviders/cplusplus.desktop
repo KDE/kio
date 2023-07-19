@@ -12,6 +12,7 @@ Name[ca@valencia]=CPlusPlus
 Name[cs]=CPlusPlus
 Name[cy]=CPlusPlus
 Name[de]=CPlusPlus
+Name[el]=CPlusPlus
 Name[en_GB]=CPlusPlus
 Name[eo]=CPlusPlus
 Name[es]=CPlusPlus
@@ -60,6 +61,7 @@ Query[ca@valencia]=http://cplusplus.com/search.do?q=\\{@}
 Query[cs]=http://cplusplus.com/search.do?q=\\{@}
 Query[cy]=http://cplusplus.com/search.do?q=\\{@}
 Query[de]=http://cplusplus.com/search.do?q=\\{@}
+Query[el]=http://cplusplus.com/search.do?q=\\{@}
 Query[en_GB]=http://cplusplus.com/search.do?q=\\{@}
 Query[eo]=http://cplusplus.com/search.do?q=\\{@}
 Query[es]=http://cplusplus.com/search.do?q=\\{@}
