@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-16 02:11+0000\n"
+"POT-Creation-Date: 2023-07-19 03:23+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2859,18 +2859,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Kõik failid"
 
-#: filewidgets/kfilefiltercombo.cpp:204
+#: filewidgets/kfilefiltercombo.cpp:203
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:238
+#: filewidgets/kfilefiltercombo.cpp:237
 #, kde-format
 msgid "All Supported Files"
 msgstr "Kõik toetatud failid"
 
-#: filewidgets/kfilefiltercombo.cpp:248 filewidgets/kfilefiltercombo.cpp:249
+#: filewidgets/kfilefiltercombo.cpp:247 filewidgets/kfilefiltercombo.cpp:248
 #, kde-format
 msgid "All Files"
 msgstr "Kõik failid"
@@ -3273,27 +3273,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Hiiglaslik (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:654
+#: filewidgets/kfilewidget.cpp:653
 #, kde-format
 msgid "You can only select one file"
 msgstr "Valida saab ainult ühe faili"
 
-#: filewidgets/kfilewidget.cpp:654
+#: filewidgets/kfilewidget.cpp:653
 #, kde-format
 msgid "More than one file provided"
 msgstr "Valiti rohkem kui üks fail"
 
-#: filewidgets/kfilewidget.cpp:825
+#: filewidgets/kfilewidget.cpp:824
 #, kde-format
 msgid "You can only select local files"
 msgstr "Valida saab ainult kohalike failide seast"
 
-#: filewidgets/kfilewidget.cpp:825
+#: filewidgets/kfilewidget.cpp:824
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:832
+#: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3307,12 +3307,12 @@ msgstr[1] ""
 "Valitud URL kasutab toetamata skeemi. Palun kasuta üht järgmistest "
 "skeemidest: %2"
 
-#: filewidgets/kfilewidget.cpp:838
+#: filewidgets/kfilewidget.cpp:837
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Toetamata URL-i skeem"
 
-#: filewidgets/kfilewidget.cpp:854
+#: filewidgets/kfilewidget.cpp:853
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3323,12 +3323,12 @@ msgstr ""
 "mistõttu ei saa otsustada, millisesse kataloogi siseneda. Palun vali ainult "
 "üks kataloog."
 
-#: filewidgets/kfilewidget.cpp:856
+#: filewidgets/kfilewidget.cpp:855
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Valiti rohkem kui üks kataloog"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3337,22 +3337,22 @@ msgstr ""
 "Valitud on vähemalt üks kataloog ja üks fail. Valitud faile eiratakse ning "
 "sisenetakse valitud kataloogi"
 
-#: filewidgets/kfilewidget.cpp:867
+#: filewidgets/kfilewidget.cpp:866
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Valitud on failid ja kataloogid"
 
-#: filewidgets/kfilewidget.cpp:885
+#: filewidgets/kfilewidget.cpp:884
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Faili \"%1\" ei leitud"
 
-#: filewidgets/kfilewidget.cpp:885
+#: filewidgets/kfilewidget.cpp:884
 #, kde-format
 msgid "Cannot open file"
 msgstr "Faili avamine nurjus"
 
-#: filewidgets/kfilewidget.cpp:1213
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3363,44 +3363,44 @@ msgstr ""
 "aktiivseks asukohaks on nt. file:/home/konqi, siis sellel nupul klõpsamine "
 "viib sind kataloogi file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra tagasi."
 
-#: filewidgets/kfilewidget.cpp:1218
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Sellel nupul klõpsamine viib sind lehitsemise ajaloos ühe sammu võrra edasi."
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Sellel nupul klõpsamine laadib aktiivse asukoha sisu uuesti."
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Uue kataloogi loomiseks klõpsa sellel nupul."
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Asukohtade paneeli näitamine"
 
-#: filewidgets/kfilewidget.cpp:1231
+#: filewidgets/kfilewidget.cpp:1230
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Järjehoidjate nupu näitamine"
 
-#: filewidgets/kfilewidget.cpp:1238
+#: filewidgets/kfilewidget.cpp:1237
 #, kde-format
 msgid "Options"
 msgstr "Valikud"
 
-#: filewidgets/kfilewidget.cpp:1241
+#: filewidgets/kfilewidget.cpp:1240
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3415,12 +3415,12 @@ msgstr ""
 "paneeli,</li> <li>failide eelvaatlusi,</li> <li>eraldi katalooge</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1260
+#: filewidgets/kfilewidget.cpp:1259
 #, kde-format
 msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
-#: filewidgets/kfilewidget.cpp:1264
+#: filewidgets/kfilewidget.cpp:1263
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3434,12 +3434,12 @@ msgstr ""
 "kuid kõiges muus on nad samasugused kui muud KDE järjehoidjad.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1303 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1302 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
 
-#: filewidgets/kfilewidget.cpp:1379
+#: filewidgets/kfilewidget.cpp:1378
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3452,12 +3452,12 @@ msgstr ""
 "nupuga ning valides menüüst <b>Teksti lõpetamine</b> sulle sobiva variandi.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1386
+#: filewidgets/kfilewidget.cpp:1385
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "See on salvestatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1389
+#: filewidgets/kfilewidget.cpp:1388
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3466,79 +3466,79 @@ msgstr ""
 "See on avatavate failide nimekiri. Tühikut eraldajana kasutades saab "
 "sisestada ka rohkem kui ühe faili."
 
-#: filewidgets/kfilewidget.cpp:1394
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "See on avatava faili nimi."
 
-#: filewidgets/kfilewidget.cpp:1407
+#: filewidgets/kfilewidget.cpp:1406
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Asukohad"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fail \"%1\" on juba olemas. Kas kirjutada see üle?"
 
-#: filewidgets/kfilewidget.cpp:1626
+#: filewidgets/kfilewidget.cpp:1625
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Kas kirjutada fail üle?"
 
-#: filewidgets/kfilewidget.cpp:1819
+#: filewidgets/kfilewidget.cpp:1818
 #, kde-format
 msgid "You can only select local files."
 msgstr "Valida saab ainult kohalike failide seast."
 
-#: filewidgets/kfilewidget.cpp:1819
+#: filewidgets/kfilewidget.cpp:1818
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Võrgus asuvaid faile ei aktsepteerita"
 
-#: filewidgets/kfilewidget.cpp:1913
+#: filewidgets/kfilewidget.cpp:1912
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Kõik kataloogid"
 
-#: filewidgets/kfilewidget.cpp:1915
+#: filewidgets/kfilewidget.cpp:1914
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Kõik failid"
 
-#: filewidgets/kfilewidget.cpp:2065 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2064 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Ava"
 
-#: filewidgets/kfilewidget.cpp:2166
+#: filewidgets/kfilewidget.cpp:2165
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ikooni suurus: %1 pikslit"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2313
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&Failinime laiend valitakse automaatselt (%1)"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2314
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "laiend <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2321
+#: filewidgets/kfilewidget.cpp:2320
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&Failinime laiend valitakse automaatselt"
 
-#: filewidgets/kfilewidget.cpp:2322
+#: filewidgets/kfilewidget.cpp:2321
 #, kde-format
 msgid "a suitable extension"
 msgstr "sobiv laiend"
 
-#: filewidgets/kfilewidget.cpp:2330
+#: filewidgets/kfilewidget.cpp:2329
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3565,12 +3565,12 @@ msgstr ""
 "ei ole kindel, mida teha, jäta see võimalus sisselülitatuks, sest igatahes "
 "võimaldab see mugavamalt faile hallata."
 
-#: filewidgets/kfilewidget.cpp:2782
+#: filewidgets/kfilewidget.cpp:2781
 #, kde-format
 msgid "&File type:"
 msgstr "&Failitüüp:"
 
-#: filewidgets/kfilewidget.cpp:2783
+#: filewidgets/kfilewidget.cpp:2782
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3579,12 +3579,12 @@ msgstr ""
 "<qt>See on failitüübi valija. Selle abil saab valida vormingu, millesse fail "
 "salvestatakse.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2787
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
