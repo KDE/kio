@@ -161,9 +161,7 @@ The shortcuts entered here can be used as a pseudo-URI scheme in KDE. For exampl
       <string/>
      </property>
      <property name="icon">
-      <iconset theme="edit-paste">
-       <normaloff/>
-      </iconset>
+      <iconset theme="edit-paste"/>
      </property>
     </widget>
    </item>
