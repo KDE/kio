@@ -27,8 +27,7 @@
           <string>Calculate</string>
          </property>
          <property name="icon">
-          <iconset theme="view-refresh">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="view-refresh"/>
          </property>
         </widget>
        </item>
@@ -38,8 +37,7 @@
           <string>Stop</string>
          </property>
          <property name="icon">
-          <iconset theme="dialog-cancel">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="dialog-cancel"/>
          </property>
         </widget>
        </item>
@@ -49,8 +47,7 @@
           <string>Explore in Filelight</string>
          </property>
          <property name="icon">
-          <iconset theme="filelight">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="filelight"/>
          </property>
         </widget>
        </item>
@@ -232,8 +229,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset theme="go-jump">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="go-jump"/>
          </property>
         </widget>
        </item>
@@ -336,8 +332,7 @@
           <string>Change...</string>
          </property>
          <property name="icon">
-          <iconset theme="configure">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="configure"/>
          </property>
         </widget>
        </item>

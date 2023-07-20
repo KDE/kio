@@ -39,8 +39,7 @@
         <string>Paste</string>
        </property>
        <property name="icon">
-        <iconset theme="edit-paste">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="edit-paste"/>
        </property>
       </widget>
      </item>
@@ -118,8 +117,7 @@
            <string>Copy</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
@@ -156,8 +154,7 @@
            <string>Copy</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
@@ -194,8 +191,7 @@
            <string>Copy</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
@@ -232,8 +228,7 @@
            <string>Copy</string>
           </property>
           <property name="icon">
-           <iconset theme="edit-copy">
-            <normaloff>.</normaloff>.</iconset>
+           <iconset theme="edit-copy"/>
           </property>
          </widget>
         </item>
