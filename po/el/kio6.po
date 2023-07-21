@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 03:23+0000\n"
+"POT-Creation-Date: 2023-07-21 02:20+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2686,9 +2686,9 @@ msgstr "Επαναφόρτωση"
 msgid "New Folder..."
 msgstr "Νέος φάκελος..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:306
-#: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Μετακίνηση στα απορρίμματα"
@@ -3872,8 +3872,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
-#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
-#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
+#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
 msgid "Copy"
 msgstr "Αντιγραφή"
@@ -5383,28 +5383,28 @@ msgstr ""
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:65
+#: widgets/checksumswidget.ui:64
 #, kde-format
 msgid "MD5:"
 msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:72
+#: widgets/checksumswidget.ui:71
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:79
+#: widgets/checksumswidget.ui:78
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:86
+#: widgets/checksumswidget.ui:85
 #, kde-format
 msgid "SHA512:"
 msgstr ""
@@ -5414,8 +5414,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
-#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
+#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
 #: widgets/kfilepropspluginwidget.ui:42
 #, kde-format
 msgid "Calculate"
@@ -5425,8 +5425,8 @@ msgstr "Υπολογισμός"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
+#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Κλικ για αντιγραφή του αθροίσματος ελέγχου στο πρόχειρο."
@@ -5568,7 +5568,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Επιβεβαίωση αναίρεσης αντιγραφής αρχείου"
 
-#: widgets/jobuidelegate.cpp:265
+#: widgets/jobuidelegate.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5583,14 +5583,14 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Διαγραφή καταχώρησης"
 
-#: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
+#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:241
 #: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-format
@@ -5599,7 +5599,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Διαγραφή καταχώρησης"
 
-#: widgets/jobuidelegate.cpp:278
+#: widgets/jobuidelegate.cpp:242
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5619,7 +5619,7 @@ msgstr[1] ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5633,13 +5633,13 @@ msgstr ""
 "Επιθυμείτε την οριστική διαγραφή όλων των αντικειμένων στα απορρίμματα; Αυτή "
 "η ενέργεια δεν μπορεί να αναιρεθεί."
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Άδειασμα απορριμμάτων"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -5649,7 +5649,7 @@ msgid ""
 "filename>"
 msgstr "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 
-#: widgets/jobuidelegate.cpp:314
+#: widgets/jobuidelegate.cpp:278
 #, fuzzy, kde-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -5659,18 +5659,6 @@ msgstr[0] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
 msgstr[1] ""
 "Επιθυμείτε πραγματικά τη μετακίνηση του αντικειμένου στα απορρίμματα;"
-
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
-#, kde-format
-msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr ""
-"Η ακολουθία πιστοποιητικού SSL του υπολογιστή φαίνεται να είναι "
-"κατεστραμμένη."
-
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
-#, kde-format
-msgid "SSL"
-msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
 #, fuzzy, kde-format
@@ -5952,26 +5940,26 @@ msgid "Unknown"
 msgstr "Άγνωστο"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:53
+#: widgets/kfilepropspluginwidget.ui:52
 #, kde-format
 msgid "Stop"
 msgstr "Σταμάτημα"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:64
+#: widgets/kfilepropspluginwidget.ui:62
 #, kde-format
 msgid "Explore in Filelight"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:149
+#: widgets/kfilepropspluginwidget.ui:146
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted From:"
 msgstr "Προσαρτημένο στο:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:222
+#: widgets/kfilepropspluginwidget.ui:219
 #, fuzzy, kde-format
 #| msgctxt "Space as keyword delimiter"
 #| msgid "Space"
@@ -5979,64 +5967,64 @@ msgid "Free Space:"
 msgstr "Διάστημα"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:260
+#: widgets/kfilepropspluginwidget.ui:256
 #, kde-format
 msgid "Type:"
 msgstr "Τύπος:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:283 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:279 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Τοποθεσία:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:303
+#: widgets/kfilepropspluginwidget.ui:299
 #, kde-format
 msgid "Size:"
 msgstr "Μέγεθος:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:351
+#: widgets/kfilepropspluginwidget.ui:347
 #, fuzzy, kde-format
 #| msgid "C&hange..."
 msgid "Change..."
 msgstr "Αλ&λαγή..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:364
+#: widgets/kfilepropspluginwidget.ui:359
 #, fuzzy, kde-format
 #| msgid "Contents:"
 msgid "Content:"
 msgstr "Περιεχόμενα:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:382
 #, kde-format
 msgid "Points to:"
 msgstr "Δείχνει στο:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:392
 #, kde-format
 msgid "Modified:"
 msgstr "Τροποποιήθηκε:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:407
+#: widgets/kfilepropspluginwidget.ui:402
 #, kde-format
 msgid "Created:"
 msgstr "Δημιουργήθηκε:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:417
+#: widgets/kfilepropspluginwidget.ui:412
 #, fuzzy, kde-format
 #| msgid "File system:"
 msgid "File System:"
 msgstr "Σύστημα αρχείων:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:447
+#: widgets/kfilepropspluginwidget.ui:442
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Unknown size"
@@ -6044,20 +6032,20 @@ msgid "Unknown size"
 msgstr "Άγνωστο μέγεθος"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:465
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted On:"
 msgstr "Προσαρτημένο στο:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:490
+#: widgets/kfilepropspluginwidget.ui:485
 #, kde-format
 msgid "Accessed:"
 msgstr "Προσπελάστηκε:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:500
+#: widgets/kfilepropspluginwidget.ui:495
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open With:"
@@ -7876,6 +7864,18 @@ msgstr "Να μην ξαναγίνει η ερώτηση"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
+
+#: widgets/widgetsaskuseractionhandler.cpp:528
+#, kde-format
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr ""
+"Η ακολουθία πιστοποιητικού SSL του υπολογιστή φαίνεται να είναι "
+"κατεστραμμένη."
+
+#: widgets/widgetsaskuseractionhandler.cpp:531
+#, kde-format
+msgid "SSL"
+msgstr "SSL"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, fuzzy, kde-format

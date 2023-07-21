@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 03:23+0000\n"
+"POT-Creation-Date: 2023-07-21 02:20+0000\n"
 "PO-Revision-Date: 2021-08-27 01:43+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2630,9 +2630,9 @@ msgstr "Įkelti iš naujo"
 msgid "New Folder..."
 msgstr "Naujas aplankas..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:306
-#: widgets/jobuidelegate.cpp:307 widgets/jobuidelegate.cpp:316
-#: widgets/jobuidelegate.cpp:317 widgets/widgetsaskuseractionhandler.cpp:285
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Perkelti į šiukšlinę"
@@ -3769,8 +3769,8 @@ msgstr "Sukurti naują aplanką ties %1:"
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:521 kioworkers/file/file_unix.cpp:136
-#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
-#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
+#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
 msgid "Copy"
 msgstr "Kopijuoti"
@@ -5266,28 +5266,28 @@ msgstr "Spauskite, jei norite įterpti kontrolinę sumą iš iškarpinės."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:65
+#: widgets/checksumswidget.ui:64
 #, kde-format
 msgid "MD5:"
 msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:72
+#: widgets/checksumswidget.ui:71
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:79
+#: widgets/checksumswidget.ui:78
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:86
+#: widgets/checksumswidget.ui:85
 #, kde-format
 msgid "SHA512:"
 msgstr ""
@@ -5297,8 +5297,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
-#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
+#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
 #: widgets/kfilepropspluginwidget.ui:42
 #, kde-format
 msgid "Calculate"
@@ -5308,8 +5308,8 @@ msgstr "Skaičiuoti"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
+#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Spauskite, jei norite kontrolinę sumą nukopijuoti į iškarpinę."
@@ -5445,7 +5445,7 @@ msgstr ""
 msgid "Undo File Copy Confirmation"
 msgstr "Atšaukti failo kopijavimo patvirtinimą"
 
-#: widgets/jobuidelegate.cpp:265
+#: widgets/jobuidelegate.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5457,13 +5457,13 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</"
 "emphasis>"
 
-#: widgets/jobuidelegate.cpp:268 widgets/jobuidelegate.cpp:282
-#: widgets/jobuidelegate.cpp:294 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Ištrinti negrįžtamai"
 
-#: widgets/jobuidelegate.cpp:269 widgets/jobuidelegate.cpp:283
+#: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/widgetsaskuseractionhandler.cpp:241
 #: widgets/widgetsaskuseractionhandler.cpp:263
 #, fuzzy, kde-format
@@ -5472,7 +5472,7 @@ msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Ištrinti negrįžtamai"
 
-#: widgets/jobuidelegate.cpp:278
+#: widgets/jobuidelegate.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5494,7 +5494,7 @@ msgstr[3] ""
 "Ar tikrai norite negrįžtamai ištrinti %1 objektą?<nl/><nl/><emphasis "
 "strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/jobuidelegate.cpp:293 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5504,13 +5504,13 @@ msgstr ""
 "Ar tikrai norite negrįžtamai ištrinti visą šiukšlinės turinį?<nl/><nl/"
 "><emphasis strong='true'>Šio veiksmo negalėsite atšaukti!</emphasis>"
 
-#: widgets/jobuidelegate.cpp:295 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Ištuštinti šiukšlinę"
 
-#: widgets/jobuidelegate.cpp:305 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5519,7 +5519,7 @@ msgid ""
 msgstr ""
 "Ar tikrai norite perkelti šį objektą į šiukšlinę?<nl/><filename>%1</filename>"
 
-#: widgets/jobuidelegate.cpp:314
+#: widgets/jobuidelegate.cpp:278
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
@@ -5527,16 +5527,6 @@ msgstr[0] "Ar tikrai norite perkelti šį objektą į šiukšlinę?"
 msgstr[1] "Ar tikrai norite perkelti %1 objektus į šiukšlinę?"
 msgstr[2] "Ar tikrai norite perkelti %1 objektų į šiukšlinę?"
 msgstr[3] "Ar tikrai norite perkelti %1 objektą į šiukšlinę?"
-
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:528
-#, kde-format
-msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr "Atrodo, kad kito kompiuterio SSL liudijimo grandinė yra sugadinta."
-
-#: widgets/jobuidelegate.cpp:419 widgets/widgetsaskuseractionhandler.cpp:531
-#, kde-format
-msgid "SSL"
-msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
 #, fuzzy, kde-format
@@ -5818,26 +5808,26 @@ msgid "Unknown"
 msgstr "Nežinoma"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:53
+#: widgets/kfilepropspluginwidget.ui:52
 #, kde-format
 msgid "Stop"
 msgstr "Stabdyti"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:64
+#: widgets/kfilepropspluginwidget.ui:62
 #, kde-format
 msgid "Explore in Filelight"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:149
+#: widgets/kfilepropspluginwidget.ui:146
 #, fuzzy, kde-format
 #| msgid "Mounted from:"
 msgid "Mounted From:"
 msgstr "Kas prijungta:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:222
+#: widgets/kfilepropspluginwidget.ui:219
 #, fuzzy, kde-format
 #| msgctxt "Amount of used and available space on this device or partition"
 #| msgid "Free space:"
@@ -5845,82 +5835,82 @@ msgid "Free Space:"
 msgstr "Laisva vieta:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:260
+#: widgets/kfilepropspluginwidget.ui:256
 #, kde-format
 msgid "Type:"
 msgstr "Tipas:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:283 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:279 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Vieta:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:303
+#: widgets/kfilepropspluginwidget.ui:299
 #, kde-format
 msgid "Size:"
 msgstr "Dydis:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:351
+#: widgets/kfilepropspluginwidget.ui:347
 #, fuzzy, kde-format
 #| msgid "Chan&ge..."
 msgid "Change..."
 msgstr "&Keisti..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:364
+#: widgets/kfilepropspluginwidget.ui:359
 #, fuzzy, kde-format
 #| msgid "Contents:"
 msgid "Content:"
 msgstr "Turinys:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:382
 #, kde-format
 msgid "Points to:"
 msgstr "Veda į:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:392
 #, kde-format
 msgid "Modified:"
 msgstr "Keista:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:407
+#: widgets/kfilepropspluginwidget.ui:402
 #, kde-format
 msgid "Created:"
 msgstr "Sukurta:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:417
+#: widgets/kfilepropspluginwidget.ui:412
 #, kde-format
 msgid "File System:"
 msgstr "Failų sistema:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:447
+#: widgets/kfilepropspluginwidget.ui:442
 #, kde-format
 msgid "Unknown size"
 msgstr "Nežinomas dydis"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:465
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted On:"
 msgstr "Prijungimo vieta:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:490
+#: widgets/kfilepropspluginwidget.ui:485
 #, kde-format
 msgid "Accessed:"
 msgstr "Naudota:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:500
+#: widgets/kfilepropspluginwidget.ui:495
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open With:"
@@ -7714,6 +7704,16 @@ msgstr "Daugiau nebeklausti"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Daugiau neberodyti šio pranešimo"
+
+#: widgets/widgetsaskuseractionhandler.cpp:528
+#, kde-format
+msgid "The peer SSL certificate chain appears to be corrupt."
+msgstr "Atrodo, kad kito kompiuterio SSL liudijimo grandinė yra sugadinta."
+
+#: widgets/widgetsaskuseractionhandler.cpp:531
+#, kde-format
+msgid "SSL"
+msgstr "SSL"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:106
 #, kde-format
