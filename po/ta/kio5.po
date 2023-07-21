@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-13 00:43+0000\n"
+"POT-Creation-Date: 2023-07-21 00:44+0000\n"
 "PO-Revision-Date: 2023-07-16 14:53+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3767,8 +3767,8 @@ msgstr "மேசைக்கணினி இணைபற்று உள்ள�
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
-#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
-#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
+#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
 msgid "Copy"
 msgstr "நகலெடு"
@@ -4230,7 +4230,7 @@ msgstr ""
 "குறிக்கவும். இல்லையென்றால், வரம்பற்று இருக்கும்.</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:288
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
 #, kde-format
 msgid "Size:"
 msgstr "அளவு:"
@@ -6938,28 +6938,28 @@ msgstr "சரிகாண்தொகையை பிடிப்புப்�
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:65
+#: widgets/checksumswidget.ui:64
 #, kde-format
 msgid "MD5:"
 msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:72
+#: widgets/checksumswidget.ui:71
 #, kde-format
 msgid "SHA1:"
 msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:79
+#: widgets/checksumswidget.ui:78
 #, kde-format
 msgid "SHA256:"
 msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:86
+#: widgets/checksumswidget.ui:85
 #, kde-format
 msgid "SHA512:"
 msgstr "SHA512:"
@@ -6969,8 +6969,8 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
-#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
+#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
 #: widgets/kfilepropspluginwidget.ui:27
 #, kde-format
 msgid "Calculate"
@@ -6980,8 +6980,8 @@ msgstr "கணி"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
+#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "சரிகாண்தொகையை பிடிப்புப்பலகைக்கு நகலெடுக்க அழுத்தவும்."
@@ -7503,97 +7503,97 @@ msgid "Unknown"
 msgstr "தெரியாதது"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:38
+#: widgets/kfilepropspluginwidget.ui:37
 #, kde-format
 msgid "Stop"
 msgstr "நிறுத்து"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:49
+#: widgets/kfilepropspluginwidget.ui:47
 #, kde-format
 msgid "Explore in Filelight"
 msgstr "ஃபைல்-லைட்டில் காட்டு"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:134
+#: widgets/kfilepropspluginwidget.ui:131
 #, kde-format
 msgid "Mounted From:"
 msgstr "இங்கிருந்து ஏற்றப்பட்டுள்ளது:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:207
+#: widgets/kfilepropspluginwidget.ui:204
 #, kde-format
 msgid "Free Space:"
 msgstr "காலி இடம்:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:245
+#: widgets/kfilepropspluginwidget.ui:241
 #, kde-format
 msgid "Type:"
 msgstr "வகை:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:268 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "இடம்:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:336
+#: widgets/kfilepropspluginwidget.ui:332
 #, kde-format
 msgid "Change..."
 msgstr "மாற்று…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:349
+#: widgets/kfilepropspluginwidget.ui:344
 #, kde-format
 msgid "Content:"
 msgstr "உள்ளடக்கம்:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:372
+#: widgets/kfilepropspluginwidget.ui:367
 #, kde-format
 msgid "Points to:"
 msgstr "சுட்டுகின்ற இடம்:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:382
+#: widgets/kfilepropspluginwidget.ui:377
 #, kde-format
 msgid "Modified:"
 msgstr "மாற்றியது:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:392
+#: widgets/kfilepropspluginwidget.ui:387
 #, kde-format
 msgid "Created:"
 msgstr "உருவாக்கியது:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:402
+#: widgets/kfilepropspluginwidget.ui:397
 #, kde-format
 msgid "File System:"
 msgstr "கோப்பு முறைமை:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:432
+#: widgets/kfilepropspluginwidget.ui:427
 #, kde-format
 msgid "Unknown size"
 msgstr "தெரியாத அளவு"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:455
+#: widgets/kfilepropspluginwidget.ui:450
 #, kde-format
 msgid "Mounted On:"
 msgstr "இங்கு ஏற்றப்பட்டுள்ளது:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:475
+#: widgets/kfilepropspluginwidget.ui:470
 #, kde-format
 msgid "Accessed:"
 msgstr "அணுகியது:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:485
+#: widgets/kfilepropspluginwidget.ui:480
 #, kde-format
 msgid "Open With:"
 msgstr "இதனால் திற:"

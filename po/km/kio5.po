@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-13 00:43+0000\n"
+"POT-Creation-Date: 2023-07-21 00:44+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3834,8 +3834,8 @@ msgstr "ផ្ទៃតុ​គឺ​ក្រៅ​បណ្ដាញ"
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
 #: filewidgets/kurlnavigator.cpp:523 ioslaves/file/file_unix.cpp:137
-#: widgets/checksumswidget.ui:118 widgets/checksumswidget.ui:156
-#: widgets/checksumswidget.ui:194 widgets/checksumswidget.ui:232
+#: widgets/checksumswidget.ui:117 widgets/checksumswidget.ui:154
+#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:228
 #, kde-format
 msgid "Copy"
 msgstr "​ចម្លង"
@@ -4312,7 +4312,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:288
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
 #, kde-format
 msgid "Size:"
 msgstr "ទំហំ ៖"
@@ -7108,28 +7108,28 @@ msgstr ""
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
-#: widgets/checksumswidget.ui:65
+#: widgets/checksumswidget.ui:64
 #, kde-format
 msgid "MD5:"
 msgstr ""
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
-#: widgets/checksumswidget.ui:72
+#: widgets/checksumswidget.ui:71
 #, kde-format
 msgid "SHA1:"
 msgstr ""
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
-#: widgets/checksumswidget.ui:79
+#: widgets/checksumswidget.ui:78
 #, kde-format
 msgid "SHA256:"
 msgstr ""
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
-#: widgets/checksumswidget.ui:86
+#: widgets/checksumswidget.ui:85
 #, kde-format
 msgid "SHA512:"
 msgstr ""
@@ -7139,8 +7139,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha256Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha512Button)
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
-#: widgets/checksumswidget.ui:95 widgets/checksumswidget.ui:133
-#: widgets/checksumswidget.ui:171 widgets/checksumswidget.ui:209
+#: widgets/checksumswidget.ui:94 widgets/checksumswidget.ui:131
+#: widgets/checksumswidget.ui:168 widgets/checksumswidget.ui:205
 #: widgets/kfilepropspluginwidget.ui:27
 #, kde-format
 msgid "Calculate"
@@ -7150,8 +7150,8 @@ msgstr "គណនា"
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha512CopyButton)
-#: widgets/checksumswidget.ui:115 widgets/checksumswidget.ui:153
-#: widgets/checksumswidget.ui:191 widgets/checksumswidget.ui:229
+#: widgets/checksumswidget.ui:114 widgets/checksumswidget.ui:151
+#: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
@@ -7699,104 +7699,104 @@ msgid "Unknown"
 msgstr "មិន​ស្គាល់"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:38
+#: widgets/kfilepropspluginwidget.ui:37
 #, kde-format
 msgid "Stop"
 msgstr "បញ្ឈប់"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:49
+#: widgets/kfilepropspluginwidget.ui:47
 #, kde-format
 msgid "Explore in Filelight"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:134
+#: widgets/kfilepropspluginwidget.ui:131
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted From:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:207
+#: widgets/kfilepropspluginwidget.ui:204
 #, kde-format
 msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:245
+#: widgets/kfilepropspluginwidget.ui:241
 #, kde-format
 msgid "Type:"
 msgstr "ប្រភេទ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:268 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "ទីតាំង ៖"
 
 #  i18n: file kcookiespoliciesdlg_ui.ui line 192
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:336
+#: widgets/kfilepropspluginwidget.ui:332
 #, fuzzy, kde-format
 #| msgid "Chan&ge..."
 msgid "Change..."
 msgstr "ផ្លាស់ប្តូរ..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:349
+#: widgets/kfilepropspluginwidget.ui:344
 #, fuzzy, kde-format
 #| msgid "Contents:"
 msgid "Content:"
 msgstr "មាតិកា ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:372
+#: widgets/kfilepropspluginwidget.ui:367
 #, kde-format
 msgid "Points to:"
 msgstr "ចង្អុល​ទៅ​កាន់ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:382
+#: widgets/kfilepropspluginwidget.ui:377
 #, kde-format
 msgid "Modified:"
 msgstr "បាន​កែប្រែ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:392
+#: widgets/kfilepropspluginwidget.ui:387
 #, kde-format
 msgid "Created:"
 msgstr "បាន​បង្កើត ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:402
+#: widgets/kfilepropspluginwidget.ui:397
 #, fuzzy, kde-format
 #| msgid "File system:"
 msgid "File System:"
 msgstr "ប្រព័ន្ធ​ឯកសារ ៖"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:432
+#: widgets/kfilepropspluginwidget.ui:427
 #, fuzzy, kde-format
 #| msgid "Unknown Host"
 msgid "Unknown size"
 msgstr "មិន​ស្គាល់​ម៉ាស៊ីន"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:455
+#: widgets/kfilepropspluginwidget.ui:450
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted On:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:475
+#: widgets/kfilepropspluginwidget.ui:470
 #, kde-format
 msgid "Accessed:"
 msgstr "បាន​ដំណើរការ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:485
+#: widgets/kfilepropspluginwidget.ui:480
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open With:"
