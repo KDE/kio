@@ -38,6 +38,8 @@ public:
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         return job;
     }
+    KIO::filesize_t size = -1;
+    KIO::filesize_t availableSize = -1;
 };
 
 FileSystemFreeSpaceJob::FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd)
@@ -48,6 +50,16 @@ FileSystemFreeSpaceJob::FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd
 FileSystemFreeSpaceJob::~FileSystemFreeSpaceJob()
 {
 }
+KIO::filesize_t FileSystemFreeSpaceJob::size() const
+{
+    Q_D(const FileSystemFreeSpaceJob);
+    return d->size;
+}
+KIO::filesize_t FileSystemFreeSpaceJob::availableSize() const
+{
+    Q_D(const FileSystemFreeSpaceJob);
+    return d->availableSize;
+}
 
 void FileSystemFreeSpaceJobPrivate::start(Worker *worker)
 {
@@ -56,15 +68,15 @@ void FileSystemFreeSpaceJobPrivate::start(Worker *worker)
 
 void FileSystemFreeSpaceJob::slotFinished()
 {
+    Q_D(FileSystemFreeSpaceJob);
     const QString totalStr = queryMetaData(QStringLiteral("total"));
     const QString availableStr = queryMetaData(QStringLiteral("available"));
 
     if (availableStr.isEmpty()) { // CopyJob only cares for available. "total" is optional
         setError(KIO::ERR_UNSUPPORTED_ACTION);
     }
-    const KIO::filesize_t total = totalStr.toULongLong();
-    const KIO::filesize_t available = availableStr.toULongLong();
-    Q_EMIT result(this, total, available);
+    d->size = totalStr.toULongLong();
+    d->availableSize = availableStr.toULongLong();
 
     // Return worker to the scheduler
     SimpleJob::slotFinished();

@@ -1148,7 +1148,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
         }
 
         KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(url);
-        connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
+        connect(job, &KJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
     } else {
         d->m_ui->fsSeparator->hide();
         d->m_ui->freespaceLabel->hide();
@@ -1283,9 +1283,13 @@ void KFilePropsPlugin::determineRelativePath(const QString &path)
     d->m_sRelativePath = relativeAppsLocation(path);
 }
 
-void KFilePropsPlugin::slotFreeSpaceResult(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available)
+void KFilePropsPlugin::slotFreeSpaceResult(KJob *_job)
 {
+    const auto job = qobject_cast<KIO::FileSystemFreeSpaceJob *>(_job);
+    Q_ASSERT(job);
     if (!job->error()) {
+        const qint64 size = job->size();
+        const qint64 available = job->availableSize();
         const quint64 used = size - available;
         const int percentUsed = qRound(100.0 * qreal(used) / qreal(size));
 
@@ -1354,7 +1358,7 @@ void KFilePropsPlugin::slotSizeDetermine()
     if (!d->m_ui->capacityBar->isHidden()) {
         const KFileItem item = properties->item();
         KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(item.url());
-        connect(job, &KIO::FileSystemFreeSpaceJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
+        connect(job, &KJob::result, this, &KFilePropsPlugin::slotFreeSpaceResult);
     }
 }
 

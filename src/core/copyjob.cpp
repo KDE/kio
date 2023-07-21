@@ -597,18 +597,15 @@ void CopyJobPrivate::slotResultStating(KJob *job)
         // might confuse FileSystemFreeSpaceJob.
         const QUrl existingDest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
         KIO::FileSystemFreeSpaceJob *spaceJob = KIO::fileSystemFreeSpace(existingDest);
-        q->connect(spaceJob,
-                   &KIO::FileSystemFreeSpaceJob::result,
-                   q,
-                   [this, existingDest](KIO::Job *spaceJob, KIO::filesize_t /*size*/, KIO::filesize_t available) {
-                       if (!spaceJob->error()) {
-                           m_freeSpace = available;
-                       } else {
-                           qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
-                       }
-                       // After knowing what the dest is, we can start stat'ing the first src.
-                       statCurrentSrc();
-                   });
+        q->connect(spaceJob, &KJob::result, q, [this, existingDest, spaceJob]() {
+            if (!spaceJob->error()) {
+                m_freeSpace = spaceJob->availableSize();
+            } else {
+                qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
+            }
+            // After knowing what the dest is, we can start stat'ing the first src.
+            statCurrentSrc();
+        });
         return;
     } else {
         sourceStated(entry, static_cast<SimpleJob *>(job)->url());

@@ -29,22 +29,23 @@ class KIOCORE_EXPORT FileSystemFreeSpaceJob : public SimpleJob
 public:
     ~FileSystemFreeSpaceJob() override;
 
-Q_SIGNALS:
     /**
-     * Signals the result
-     * @param job the job that is redirected
-     * @param size total amount of space
-     * @param available amount of free space
+     * Get total amount of space
+     * @since 6.0
      */
-    void result(KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available);
+    KIO::filesize_t size() const;
 
-protected Q_SLOTS:
-    void slotFinished() override;
+    /**
+     * Get available amount of space
+     * @since 6.0
+     */
+    KIO::filesize_t availableSize() const;
 
 public:
     KIOCORE_NO_EXPORT explicit FileSystemFreeSpaceJob(FileSystemFreeSpaceJobPrivate &dd);
 
 private:
+    void slotFinished() override;
     Q_DECLARE_PRIVATE(FileSystemFreeSpaceJob)
 };
 

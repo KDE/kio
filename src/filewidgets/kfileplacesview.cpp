@@ -515,25 +515,23 @@ void KFilePlacesViewDelegate::checkFreeSpace(const QModelIndex &index) const
     info.timeout.setRemainingTime(s_pollFreeSpaceInterval - 100ms);
 
     info.job = KIO::fileSystemFreeSpace(url);
-    QObject::connect(info.job,
-                     &KIO::FileSystemFreeSpaceJob::result,
-                     this,
-                     [this, persistentIndex](KIO::Job *job, KIO::filesize_t size, KIO::filesize_t available) {
-                         if (!persistentIndex.isValid()) {
-                             return;
-                         }
+    QObject::connect(info.job, &KJob::result, this, [this, info, persistentIndex]() {
+        if (!persistentIndex.isValid()) {
+            return;
+        }
 
-                         if (job->error()) {
-                             return;
-                         }
+        const auto job = info.job;
+        if (job->error()) {
+            return;
+        }
 
-                         PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
+        PlaceFreeSpaceInfo &info = m_freeSpaceInfo[persistentIndex];
 
-                         info.size = size;
-                         info.used = size - available;
+        info.size = job->size();
+        info.used = job->size() - job->availableSize();
 
-                         m_view->update(persistentIndex);
-                     });
+        m_view->update(persistentIndex);
+    });
 
     startPollingFreeSpace();
 }
