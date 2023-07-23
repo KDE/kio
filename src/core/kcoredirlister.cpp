@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2000 Carsten Pfeiffer <pfeiffer@kde.org>
     SPDX-FileCopyrightText: 2003-2005 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2001-2006 Michael Brade <brade@kde.org>
+    SPDX-FileCopyrightText: 2023 Alexander Lohnau <alexander.lohnau@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -26,6 +27,7 @@
 #include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QTextStream>
+#include <QThreadStorage>
 
 #include <list>
 
@@ -41,7 +43,7 @@ Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.core.dirlister", QtWarningMsg)
 #undef DEBUG_CACHE
 #endif
 
-Q_GLOBAL_STATIC(KCoreDirListerCache, kDirListerCache)
+QThreadStorage<KCoreDirListerCache> s_kDirListerCache;
 
 KCoreDirListerCache::KCoreDirListerCache()
     : itemsCached(10)
@@ -286,14 +288,14 @@ void KCoreDirListerPrivate::CachedItemsJob::done()
     if (!m_lister) { // job was already killed, but waiting deletion due to deleteLater
         return;
     }
-    kDirListerCache()->emitItemsFromCache(this, m_lister, m_url, m_reload, m_emitCompleted);
+    s_kDirListerCache.localData().emitItemsFromCache(this, m_lister, m_url, m_reload, m_emitCompleted);
     emitResult();
 }
 
 bool KCoreDirListerPrivate::CachedItemsJob::doKill()
 {
     qCDebug(KIO_CORE_DIRLISTER) << this;
-    kDirListerCache()->forgetCachedItemsJob(this, m_lister, m_url);
+    s_kDirListerCache.localData().forgetCachedItemsJob(this, m_lister, m_url);
     if (!property("_kdlc_silent").toBool()) {
         Q_EMIT m_lister->listingDirCanceled(m_url);
 
@@ -311,7 +313,7 @@ void KCoreDirListerCache::emitItemsFromCache(KCoreDirListerPrivate::CachedItemsJ
 {
     lister->d->complete = false;
 
-    DirItem *itemU = kDirListerCache()->itemsInUse.value(_url);
+    DirItem *itemU = s_kDirListerCache.localData().itemsInUse.value(_url);
     if (!itemU) {
         qCWarning(KIO_CORE) << "Can't find item for directory" << _url << "anymore";
     } else {
@@ -2084,9 +2086,9 @@ KCoreDirLister::~KCoreDirLister()
     qCDebug(KIO_CORE_DIRLISTER) << "~KCoreDirLister" << this;
 
     // Stop all running jobs, remove lister from lists
-    if (!kDirListerCache.isDestroyed()) {
+    if (!qApp->closingDown()) {
         stop();
-        kDirListerCache()->forgetDirs(this);
+        s_kDirListerCache.localData().forgetDirs(this);
     }
 }
 
@@ -2100,22 +2102,22 @@ bool KCoreDirLister::openUrl(const QUrl &_url, OpenUrlFlags _flags)
 
     d->hasPendingChanges = false;
 
-    return kDirListerCache()->listDir(this, _url, _flags & Keep, _flags & Reload);
+    return s_kDirListerCache.localData().listDir(this, _url, _flags & Keep, _flags & Reload);
 }
 
 void KCoreDirLister::stop()
 {
-    kDirListerCache()->stop(this);
+    s_kDirListerCache.localData().stop(this);
 }
 
 void KCoreDirLister::stop(const QUrl &_url)
 {
-    kDirListerCache()->stopListingUrl(this, _url);
+    s_kDirListerCache.localData().stopListingUrl(this, _url);
 }
 
 void KCoreDirLister::forgetDirs(const QUrl &_url)
 {
-    kDirListerCache()->forgetDirs(this, _url, true);
+    s_kDirListerCache.localData().forgetDirs(this, _url, true);
 }
 
 bool KCoreDirLister::autoUpdate() const
@@ -2130,7 +2132,7 @@ void KCoreDirLister::setAutoUpdate(bool enable)
     }
 
     d->autoUpdate = enable;
-    kDirListerCache()->setAutoUpdate(this, enable);
+    s_kDirListerCache.localData().setAutoUpdate(this, enable);
 }
 
 bool KCoreDirLister::showHiddenFiles() const
@@ -2179,7 +2181,7 @@ void KCoreDirLister::setRequestMimeTypeWhileListing(bool request)
         // Changing from request off to on, clear any cached items associated
         // with this lister so we re-request them and get the mimetype as well.
         // If we do not, we risk caching items that have no mime type.
-        kDirListerCache()->forgetDirs(this);
+        s_kDirListerCache.localData().forgetDirs(this);
     }
 }
 
@@ -2214,7 +2216,7 @@ void KCoreDirListerPrivate::emitChanges()
     // Fill hash with all items that are currently visible
     std::set<QString> oldVisibleItems;
     for (const QUrl &dir : std::as_const(lstDirs)) {
-        const QList<KFileItem> *itemList = kDirListerCache()->itemsForDir(dir);
+        const QList<KFileItem> *itemList = s_kDirListerCache.localData().itemsForDir(dir);
         if (!itemList) {
             continue;
         }
@@ -2232,7 +2234,7 @@ void KCoreDirListerPrivate::emitChanges()
     for (const QUrl &dir : dirs) {
         KFileItemList deletedItems;
 
-        const QList<KFileItem> *itemList = kDirListerCache()->itemsForDir(dir);
+        const QList<KFileItem> *itemList = s_kDirListerCache.localData().itemsForDir(dir);
         if (!itemList) {
             continue;
         }
@@ -2260,7 +2262,7 @@ void KCoreDirListerPrivate::emitChanges()
 
 void KCoreDirLister::updateDirectory(const QUrl &dirUrl)
 {
-    kDirListerCache()->updateDirectory(dirUrl);
+    s_kDirListerCache.localData().updateDirectory(dirUrl);
 }
 
 bool KCoreDirLister::isFinished() const
@@ -2275,12 +2277,12 @@ KFileItem KCoreDirLister::rootItem() const
 
 KFileItem KCoreDirLister::findByUrl(const QUrl &url) const
 {
-    return kDirListerCache()->findByUrl(this, url);
+    return s_kDirListerCache.localData().findByUrl(this, url);
 }
 
 KFileItem KCoreDirLister::findByName(const QString &name) const
 {
-    return kDirListerCache()->findByName(this, name);
+    return s_kDirListerCache.localData().findByName(this, name);
 }
 
 // ================ public filter methods ================ //
@@ -2630,7 +2632,7 @@ KFileItemList KCoreDirLister::items(WhichItems which) const
 
 KFileItemList KCoreDirLister::itemsForDir(const QUrl &dir, WhichItems which) const
 {
-    QList<KFileItem> *allItems = kDirListerCache()->itemsForDir(dir);
+    QList<KFileItem> *allItems = s_kDirListerCache.localData().itemsForDir(dir);
     KFileItemList result;
     if (!allItems) {
         return result;
@@ -2714,8 +2716,8 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
 
 KFileItem KCoreDirLister::cachedItemForUrl(const QUrl &url)
 {
-    if (kDirListerCache.exists()) {
-        return kDirListerCache()->itemForUrl(url);
+    if (s_kDirListerCache.hasLocalData()) {
+        return s_kDirListerCache.localData().itemForUrl(url);
     } else {
         return {};
     }

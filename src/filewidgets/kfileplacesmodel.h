@@ -32,6 +32,7 @@ class QAction;
  * This class is a list view model. Each entry represents a "place"
  * where user can access files. Only relevant when
  * used with QListView or QTableView.
+ * @note This class is since 6.0 re-entrant
  */
 class KIOFILEWIDGETS_EXPORT KFilePlacesModel : public QAbstractItemModel
 {
