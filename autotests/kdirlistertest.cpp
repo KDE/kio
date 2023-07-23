@@ -276,6 +276,8 @@ void KDirListerTest::testNewItems()
 
 void KDirListerTest::benchFindByUrl()
 {
+    // We don't want to run benchmarks as part of the normal tests. This test depends on things being set up, which makes moving it to it's own file hard
+    QSKIP("Skipped by default");
     // The time used should be in the order of O(100*log2(100))
     const QString path = tempPath();
     QBENCHMARK {
