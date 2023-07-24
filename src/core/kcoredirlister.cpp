@@ -592,9 +592,15 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
 {
     qCDebug(KIO_CORE_DIRLISTER) << _dir;
 
-    const QUrl dir = _dir.adjusted(QUrl::StripTrailingSlash);
+    QUrl dir = _dir.adjusted(QUrl::StripTrailingSlash);
     if (!checkUpdate(dir)) {
-        return;
+        auto parentDir = dir.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        if (checkUpdate(parentDir)) {
+            // if the parent is in use, update it instead
+            dir = parentDir;
+        } else {
+            return;
+        }
     }
 
     // A job can be running to

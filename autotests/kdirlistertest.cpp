@@ -325,6 +325,38 @@ void KDirListerTest::testNewItemByCopy()
     QCOMPARE(itemForUrl.entry().stringValue(KIO::UDSEntry::UDS_NAME), fileName);
 }
 
+void KDirListerTest::testNewItemByCopyInSubDir() // #440712
+{
+    // Test that copying a file to a directory whose parent is listed
+    // triggers refreshItems for the directory
+    const int origItemCount = m_items.count();
+    const QString path = tempPath();
+    connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
+    connect(&m_dirLister, &KDirLister::refreshItems, this, &KDirListerTest::slotRefreshItems);
+    QSignalSpy refreshItemSpy(this, &KDirListerTest::refreshItemsReceived);
+
+    const QUrl subDirUrl = QUrl::fromLocalFile(path + "subdir");
+    KFileItem itemForUrl = KDirLister::cachedItemForUrl(subDirUrl);
+    auto origModificationDate = itemForUrl.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+
+    const QString fileName = path + "subdir/toplevelfile_copy";
+    const QUrl itemUrl = QUrl::fromLocalFile(fileName);
+    KIO::CopyJob *job = KIO::copyAs(QUrl::fromLocalFile(path + "toplevelfile_3"), itemUrl, KIO::HideProgressInfo);
+    QVERIFY(job->exec());
+
+    QTRY_COMPARE(m_items.count(), origItemCount);
+
+    // Give some time to KDirNotify
+    QVERIFY(refreshItemSpy.wait(100));
+
+    itemForUrl = KDirLister::cachedItemForUrl(subDirUrl);
+    QVERIFY(itemForUrl.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) > origModificationDate);
+
+    // clean leftover file
+    QVERIFY(QFile(fileName).remove());
+    m_refreshedItems.clear();
+}
+
 void KDirListerTest::testNewItemsInSymlink() // #213799
 {
     const int origItemCount = m_items.count();

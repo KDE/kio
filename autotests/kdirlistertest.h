@@ -80,6 +80,7 @@ private Q_SLOTS:
     void testNewItems();
     void benchFindByUrl();
     void testNewItemByCopy();
+    void testNewItemByCopyInSubDir();
     void testNewItemsInSymlink();
     void testRefreshItems();
     void testRefreshRootItem();
