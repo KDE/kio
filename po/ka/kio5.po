@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:44+0000\n"
-"PO-Revision-Date: 2023-07-12 06:26+0200\n"
+"PO-Revision-Date: 2023-07-22 06:22+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6177,6 +6177,9 @@ msgid ""
 "This policy will be permanent until you manually change it from the System "
 "Settings."
 msgstr ""
+"აირჩიეთ ეს პარამეტრი ამ საიტიდან ყველა ქუქის მისაღებად ან ასაკრძალად. ამ "
+"პარამეტრის არჩევა დაამატებს ახალ პოლიტიკას საიტისთვის, საიდანაც ქუქ მოვიდა. "
+"პოლიტიკა სამუდამოა, სანამ სისტემის მორგების ფანჯრიდან მას ხელით არ შეცვლით."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:170
 #, kde-format
@@ -6993,6 +6996,9 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
+"ფაილი %1 დაკოპირდა %2-დან, მაგრამ მას შემდეგ, როგორც ჩანს, %3-ში შეიცვალა.\n"
+"კოპირების გაუქმება წაშლის ფაილს და მისი ცვლილებები დაიკარგება.\n"
+"მართლა გნებავთ %4-ის წაშლა?"
 
 #: widgets/fileundomanager.cpp:736
 #, kde-format
@@ -7697,6 +7703,10 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
+"ჩართეთ, თუ ეს აპლიკაცია სხვა მომხმარებლის ID-ით გნებავთ, გაუშვათ. ყველა "
+"პროცესს თავისი მომხმარებლის ID აქვს მიბმული. ეს ID-ის კოდი განსაზღვრავს, "
+"რომელ ფაილებთან აქვს ამ პროცესს წვდომა. ამ პარამეტრის გამოსაყენებლად სამიზნე "
+"მომხმარებლის პაროლის ცოდნა აუცილებელია."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
@@ -7928,6 +7938,8 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
+"თუ გნებავთ, წაშალოთ ფაილის ტიპი (mimetype), რომლის მხარდაჭერაც თქვენს "
+"აპლიკაციას არ შეუძლია, მონიშნეთ ის ზემო სიაში და ამ ღილაკს დააწექით."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -8179,6 +8191,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ გნებავთ, საქაღალდეში არსებული ფაილებისა და "
+"საქაღალდეების წაშლა მხოლოდ მის მფლობელს შეეძლოთ. სხვა მომხმარებლებს ახალი "
+"ფაილების მხოლოდ დამატება შეუძლიათ, რასაც 'შემცველობის ჩასწორების' წვდომა "
+"სჭირდება."
 
 #: widgets/kpropertiesdialog.cpp:1922
 #, kde-format
@@ -8749,6 +8765,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"როცა ეს ჩართულია, ღილაკი, რომელსაც დააჭერთ, მიმდინარე დავალების შესრულებისას "
+"ყველა დანარჩენი საქაღალდეების კოპირებისას წარმოქმნილ კონფლიქტებზე იქნება "
+"დამოკიდებული.\n"
+"თუ დააწვებით გამოტოვებას, საქაღალდეში ფაილების კონფლიქტისას მაინც გკითხავთ."
 
 #: widgets/renamedialog.cpp:231
 #, kde-format
@@ -8756,6 +8776,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
+"თუ ეს ჩართულია, ღილაკის მნიშვნელობა, რომელსაც დააწვებით, მიმდინარე "
+"დავალებაში წარმოქმნილ ყველა კონფლიქტზე იქნება გამოყენებული."
 
 #: widgets/renamedialog.cpp:237
 #, kde-format
@@ -8799,6 +8821,9 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
+"ფაილები და საქაღალდეები არსებულ საქაღალდეში მის არსებულ შემცველობასთან ერთად "
+"დაკოპირდება.\n"
+"თუ არსებულ ფაილთან კონფლიქტი კიდევ დაფიქსირდება, ამის შესახებ კიდევ გკითხავთ."
 
 #: widgets/renamedialog.cpp:266
 #, kde-format
