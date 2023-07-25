@@ -15,13 +15,12 @@
 
 template<typename T>
 class QList;
-class KTcpSocket;
 class QNetworkReply;
 class QSslError;
 class QSslSocket;
 
 /**
- * This class can hold all the necessary data from a KTcpSocket to ask the user
+ * This class can hold all the necessary data from a QSslSocket or QNetworkReply to ask the user
  * to continue connecting in the face of SSL errors.
  * It can be used to carry the data for the UI over time or over thread boundaries.
  *

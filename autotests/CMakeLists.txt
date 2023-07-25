@@ -28,7 +28,6 @@ ecm_add_tests(
  jobremotetest.cpp
  kfileitemtest.cpp
  kprotocolinfotest.cpp
- ${ktcpsockettest_SRC}
  globaltest.cpp
  mimetypefinderjobtest.cpp
  mkpathjobtest.cpp
