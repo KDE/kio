@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:44+0000\n"
-"PO-Revision-Date: 2023-07-23 00:53+0200\n"
+"PO-Revision-Date: 2023-07-25 21:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -805,7 +805,7 @@ msgstr ""
 #: core/job_error.cpp:257
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr "파일을 휴지통에 버리기에 너무 큽니다."
+msgstr "파일이 휴지통에 버리기에 너무 큽니다."
 
 #: core/job_error.cpp:260
 #, kde-format
