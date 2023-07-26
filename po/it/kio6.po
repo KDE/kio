@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 09:32+0000\n"
-"PO-Revision-Date: 2023-06-28 16:16+0200\n"
+"PO-Revision-Date: 2023-07-10 23:10+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -4195,13 +4195,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Impossibile cambiare il proprietario di %1."
+msgstr ""
+"Impossibile cambiare proprietario e gruppo per\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
