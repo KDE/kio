@@ -600,7 +600,7 @@ private:
 };
 
 Q_DECLARE_METATYPE(KFileItem)
-Q_DECLARE_TYPEINFO(KFileItem, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(KFileItem, Q_RELOCATABLE_TYPE);
 
 inline uint qHash(const KFileItem &item)
 {

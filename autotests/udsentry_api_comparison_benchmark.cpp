@@ -596,7 +596,7 @@ public:
         return defaultValue;
     }
 };
-Q_DECLARE_TYPEINFO(AnotherUDSEntry, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AnotherUDSEntry, Q_RELOCATABLE_TYPE);
 
 void UdsEntryBenchmark::testAnotherSlaveFill()
 {
@@ -707,7 +707,7 @@ public:
         return defaultValue;
     }
 };
-Q_DECLARE_TYPEINFO(AnotherV2UDSEntry, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AnotherV2UDSEntry, Q_RELOCATABLE_TYPE);
 
 void UdsEntryBenchmark::testAnotherV2SlaveFill()
 {
