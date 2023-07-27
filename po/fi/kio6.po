@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 09:32+0000\n"
-"PO-Revision-Date: 2023-05-29 21:12+0300\n"
+"PO-Revision-Date: 2023-07-25 14:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-POT-Import-Date: 2013-01-13 20:43:21+0000\n"
 
 #, kde-format
@@ -2541,7 +2541,7 @@ msgstr "&Vain nykyisen istunnon ajaksi"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p %"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3161,7 +3161,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Alusta tai muokkaa osionhallinnassa"
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -4125,13 +4125,14 @@ msgstr ""
 "voitu muuttaa"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Tiedoston %1 omistajaa ei voitu muuttaa."
+msgstr ""
+"Tiedoston %1\n"
+"omistajaa ja ryhmää ei voitu muuttaa"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
@@ -7208,10 +7209,9 @@ msgid "This action will overwrite the destination."
 msgstr "Tämä toiminta korvaa kohteen."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Tämä toiminta korvaa kohteen."
+msgstr "Tämä toiminta yhdistää kohteiden ”%1” ja ”%2” sisällöt jälkimmäiseen."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
