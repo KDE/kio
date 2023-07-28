@@ -11,7 +11,7 @@
 
 #define NOMINMAX
 
-#include <kio/slavebase.h>
+#include <kio/workerbase.h>
 
 #include <windows.h> // Must be included before shallapi.h, otherwise it fails to build on windows
 
@@ -25,39 +25,39 @@ namespace KIO
 class Job;
 }
 
-class TrashProtocol : public QObject, public KIO::SlaveBase
+class TrashProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
 public:
     TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app);
     virtual ~TrashProtocol();
-    virtual void stat(const QUrl &url);
-    virtual void listDir(const QUrl &url);
-    virtual void get(const QUrl &url);
-    virtual void put(const QUrl &url, int, KIO::JobFlags flags);
-    virtual void rename(const QUrl &, const QUrl &, KIO::JobFlags);
-    virtual void copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags);
+    KIO::WorkerResult stat(const QUrl &url) override;
+    KIO::WorkerResult listDir(const QUrl &url) override;
+    KIO::WorkerResult get(const QUrl &url) override;
+    KIO::WorkerResult put(const QUrl &url, int, KIO::JobFlags flags) override;
+    KIO::WorkerResult rename(const QUrl &, const QUrl &, KIO::JobFlags) override;
+    KIO::WorkerResult copy(const QUrl &src, const QUrl &dest, int permissions, KIO::JobFlags flags) override;
     // TODO (maybe) chmod( const QUrl& url, int permissions );
-    virtual void del(const QUrl &url, bool isfile);
+    KIO::WorkerResult del(const QUrl &url, bool isfile) override;
     /**
      * Special actions: (first int in the byte array)
      * 1 : empty trash
      * 2 : migrate old (pre-kde-3.4) trash contents
      * 3 : restore a file to its original location. Args: QUrl trashURL.
      */
-    virtual void special(const QByteArray &data);
+    KIO::WorkerResult special(const QByteArray &data) override;
 
     void updateRecycleBin();
 
 private:
     typedef enum { Copy, Move } CopyOrMove;
-    void copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
-    void listRoot();
-    void restore(const QUrl &trashURL, const QUrl &destURL);
-    void clearTrash();
+    [[nodiscard]] KIO::WorkerResult copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
+    [[nodiscard]] KIO::WorkerResult listRoot();
+    [[nodiscard]] KIO::WorkerResult restore(const QUrl &trashURL, const QUrl &destURL);
+    [[nodiscard]] KIO::WorkerResult clearTrash();
 
-    bool doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
-    bool translateError(HRESULT retValue);
+    [[nodiscard]] KIO::WorkerResult doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
+    [[nodiscard]] KIO::WorkerResult translateError(HRESULT retValue);
 
     KConfig m_config;
     HWND m_notificationWindow;

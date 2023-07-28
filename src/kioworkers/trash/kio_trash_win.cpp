@@ -74,7 +74,7 @@ LRESULT CALLBACK trash_internal_proc(HWND hwnd, UINT message, WPARAM wp, LPARAM 
 }
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
-    : SlaveBase(protocol, pool, app)
+    : WorkerBase(protocol, pool, app)
     , m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
     // create a hidden window to receive notifications through window messages
@@ -146,7 +146,7 @@ TrashProtocol::~TrashProtocol()
     }
 }
 
-void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
+KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
 {
     LPITEMIDLIST pidl = NULL;
     LPCONTEXTMENU pCtxMenu = NULL;
@@ -154,23 +154,20 @@ void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
     const QString path = trashURL.path().mid(1).replace(QLatin1Char('/'), QLatin1Char('\\'));
     LPWSTR lpFile = (LPWSTR)path.utf16();
     HRESULT res = m_isfTrashFolder->ParseDisplayName(0, 0, lpFile, 0, &pidl, 0);
-    bool bOk = translateError(res);
-    if (!bOk) {
-        return;
+    if (auto result = translateError(res); !result.success()) {
+        return result;
     }
 
     res = m_isfTrashFolder->GetUIObjectOf(0, 1, (LPCITEMIDLIST *)&pidl, IID_IContextMenu, NULL, (LPVOID *)&pCtxMenu);
-    bOk = translateError(res);
-    if (!bOk) {
-        return;
+    if (auto result = translateError(res); !result.success()) {
+        return result;
     }
 
     // this looks hacky but it's the only solution I found so far...
     HMENU hmenuCtx = CreatePopupMenu();
     res = pCtxMenu->QueryContextMenu(hmenuCtx, 0, 1, 0x00007FFF, CMF_NORMAL);
-    bOk = translateError(res);
-    if (!bOk) {
-        return;
+    if (auto result = translateError(res); !result.success()) {
+        return result;
     }
 
     UINT uiCommand = ~0U;
@@ -190,6 +187,9 @@ void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
             break;
         }
     }
+
+    KIO::WorkerResult result = KIO::WorkerResult::pass();
+
     if (uiCommand != ~0U) {
         CMINVOKECOMMANDINFO cmi;
 
@@ -199,69 +199,64 @@ void TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
         cmi.fMask = CMIC_MASK_FLAG_NO_UI;
         res = pCtxMenu->InvokeCommand((CMINVOKECOMMANDINFO *)&cmi);
 
-        bOk = translateError(res);
-        if (bOk) {
-            finished();
-        }
+        result = translateError(res);
     }
     DestroyMenu(hmenuCtx);
     pCtxMenu->Release();
     ILFree(pidl);
+
+    return result;
 }
 
-void TrashProtocol::clearTrash()
+KIO::WorkerResult TrashProtocol::clearTrash()
 {
-    translateError(SHEmptyRecycleBin(0, 0, 0));
-    finished();
+    return translateError(SHEmptyRecycleBin(0, 0, 0));
 }
 
-void TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
+KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::rename(): old=" << oldURL << " new=" << newURL << " overwrite=" << (flags & KIO::Overwrite);
 
     if (oldURL.scheme() == QLatin1String("trash") && newURL.scheme() == QLatin1String("trash")) {
-        error(KIO::ERR_CANNOT_RENAME, oldURL.toDisplayString());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toDisplayString());
     }
 
-    copyOrMove(oldURL, newURL, (flags & KIO::Overwrite), Move);
+    return copyOrMove(oldURL, newURL, (flags & KIO::Overwrite), Move);
 }
 
-void TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
+KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::copy(): " << src << " " << dest;
 
     if (src.scheme() == QLatin1String("trash") && dest.scheme() == QLatin1String("trash")) {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
     }
 
-    copyOrMove(src, dest, (flags & KIO::Overwrite), Copy);
+    return copyOrMove(src, dest, (flags & KIO::Overwrite), Copy);
 }
 
-void TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
+KIO::WorkerResult TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
 {
     if (src.scheme() == QLatin1String("trash") && dest.isLocalFile()) {
         if (action == Move) {
-            restore(src, dest);
+            return restore(src, dest);
         } else {
-            error(KIO::ERR_UNSUPPORTED_ACTION, i18n("not supported"));
+            return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("not supported"));
         }
-        // Extracting (e.g. via dnd). Ignore original location stored in info file.
-        return;
     } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
         UINT op = (action == Move) ? FO_DELETE : FO_COPY;
-        if (!doFileOp(src, FO_DELETE, FOF_ALLOWUNDO)) {
-            return;
+        if (auto result = doFileOp(src, FO_DELETE, FOF_ALLOWUNDO); !result.success()) {
+            return result;
         }
-        finished();
-        return;
+        return KIO::WorkerResult::pass();
     } else {
-        error(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copyOrMove, should never happen"));
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copyOrMove, should never happen"));
     }
+
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::stat(const QUrl &url)
+KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
 {
     KIO::UDSEntry entry;
     if (url.path() == QLatin1String("/")) {
@@ -285,30 +280,30 @@ void TrashProtocol::stat(const QUrl &url)
         // TODO: when does this happen?
     }
     statEntry(entry);
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::del(const QUrl &url, bool /*isfile*/)
+KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
-    if (!doFileOp(url, FO_DELETE, 0)) {
-        return;
+    if (auto result = doFileOp(url, FO_DELETE, 0); !result.success()) {
+        return result;
     }
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::listDir(const QUrl &url)
+KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::listDir(): " << url;
     // There are no subfolders in Windows Trash
-    listRoot();
+    return listRoot();
 }
 
-void TrashProtocol::listRoot()
+KIO::WorkerResult TrashProtocol::listRoot()
 {
     IEnumIDList *l;
     HRESULT res = m_isfTrashFolder->EnumObjects(0, SHCONTF_FOLDERS | SHCONTF_NONFOLDERS | SHCONTF_INCLUDEHIDDEN, &l);
     if (res != S_OK) {
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, QStringLiteral("fixme!"));
     }
 
     STRRET strret;
@@ -348,10 +343,10 @@ void TrashProtocol::listRoot()
         ILFree(i);
     }
     l->Release();
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void TrashProtocol::special(const QByteArray &data)
+KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
 {
     QDataStream stream(data);
     int cmd;
@@ -360,23 +355,22 @@ void TrashProtocol::special(const QByteArray &data)
     switch (cmd) {
     case 1:
         // empty trash folder
-        clearTrash();
-        break;
+        return clearTrash();
     case 2:
         // convert old trash folder (non-windows only)
-        finished();
-        break;
+        return KIO::WorkerResult::pass();
     case 3: {
         QUrl url;
         stream >> url;
-        restore(url, QUrl());
-        break;
+        return restore(url, QUrl());
     }
     default:
         qCWarning(KIO_TRASH) << "Unknown command in special(): " << cmd;
-        error(KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd));
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString::number(cmd));
         break;
     }
+
+    return KIO::WorkerResult::pass();
 }
 
 void TrashProtocol::updateRecycleBin()
@@ -399,20 +393,21 @@ void TrashProtocol::updateRecycleBin()
     l->Release();
 }
 
-void TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
+KIO::WorkerResult TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
 {
     qCDebug(KIO_TRASH) << "put: " << url;
     // create deleted file. We need to get the mtime and original location from metadata...
     // Maybe we can find the info file for url.fileName(), in case ::rename() was called first, and failed...
-    error(KIO::ERR_ACCESS_DENIED, url.toDisplayString());
+    return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, url.toDisplayString());
 }
 
-void TrashProtocol::get(const QUrl &url)
+KIO::WorkerResult TrashProtocol::get(const QUrl &url)
 {
     // TODO
+    return KIO::WorkerResult::pass();
 }
 
-bool TrashProtocol::doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags)
+KIO::WorkerResult TrashProtocol::doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags)
 {
     const QString path = url.path().replace(QLatin1Char('/'), QLatin1Char('\\'));
     // must be double-null terminated.
@@ -427,14 +422,13 @@ bool TrashProtocol::doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags)
     return translateError(SHFileOperationW(&op));
 }
 
-bool TrashProtocol::translateError(HRESULT hRes)
+KIO::WorkerResult TrashProtocol::translateError(HRESULT hRes)
 {
     // TODO!
     if (FAILED(hRes)) {
-        error(KIO::ERR_DOES_NOT_EXIST, QLatin1String("fixme!"));
-        return false;
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, QLatin1String("fixme!"));
     }
-    return true;
+    return KIO::WorkerResult::pass();
 }
 
 #include "kio_trash_win.moc"
