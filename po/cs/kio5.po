@@ -4027,13 +4027,12 @@ msgstr ""
 "k %1"
 
 #: ioslaves/file/file.cpp:746
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nelze změnit vlastníka %1."
+msgstr ""
 
 #: ioslaves/file/file.cpp:828
 #, kde-format
