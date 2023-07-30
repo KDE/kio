@@ -166,11 +166,6 @@ public:
         finalize(base->special(data));
     }
 
-    void multiGet(const QByteArray &data) final
-    {
-        finalize(base->multiGet(data));
-    }
-
     void slave_status() final
     {
         base->worker_status(); // this only requests an update and isn't able to error or finish whatsoever

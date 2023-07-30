@@ -309,11 +309,6 @@ WorkerResult WorkerBase::chown(QUrl const &, const QString &, const QString &)
     return WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(d->protocolName(), CMD_CHOWN));
 }
 
-WorkerResult WorkerBase::multiGet(const QByteArray &)
-{
-    return WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(d->protocolName(), CMD_MULTI_GET));
-}
-
 WorkerResult WorkerBase::fileSystemFreeSpace(const QUrl &)
 {
     return WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(d->protocolName(), CMD_FILESYSTEMFREESPACE));

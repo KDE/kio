@@ -886,7 +886,7 @@ Worker *SchedulerPrivate::heldWorkerForJob(SimpleJob *job)
     if (m_workerOnHold) {
         // Make sure that the job wants to do a GET or a POST, and with no offset
         const int cmd = jobPriv->m_command;
-        bool canJobReuse = (cmd == CMD_GET || cmd == CMD_MULTI_GET);
+        bool canJobReuse = (cmd == CMD_GET);
 
         if (KIO::TransferJob *tJob = qobject_cast<KIO::TransferJob *>(job)) {
             canJobReuse = (canJobReuse || cmd == CMD_SPECIAL);

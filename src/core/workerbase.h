@@ -611,15 +611,6 @@ public:
     Q_REQUIRED_RESULT virtual WorkerResult special(const QByteArray &data);
 
     /**
-     * Used for multiple get. Currently only used for HTTP pipelining
-     * support.
-     *
-     * @param data packed data; Contains number of URLs to fetch, and for
-     * each URL the URL itself and its associated MetaData.
-     */
-    Q_REQUIRED_RESULT virtual WorkerResult multiGet(const QByteArray &data);
-
-    /**
      * Get a filesystem's total and available space.
      *
      * @param url Url to the filesystem

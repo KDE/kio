@@ -700,8 +700,7 @@ static bool isSubCommand(int cmd)
     return cmd == CMD_REPARSECONFIGURATION
         || cmd == CMD_META_DATA
         || cmd == CMD_CONFIG
-        || cmd == CMD_WORKER_STATUS
-        || cmd == CMD_MULTI_GET;
+        || cmd == CMD_WORKER_STATUS;
     /* clang-format on */
 }
 
@@ -860,8 +859,6 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
         return i18n("Changing the attributes of files is not supported with protocol %1.", protocol);
     case CMD_CHOWN:
         return i18n("Changing the ownership of files is not supported with protocol %1.", protocol);
-    case CMD_MULTI_GET:
-        return i18n("Multiple get is not supported with protocol %1.", protocol);
     case CMD_OPEN:
         return i18n("Opening files is not supported with protocol %1.", protocol);
     default:
@@ -955,10 +952,6 @@ void SlaveBase::setModificationTime(QUrl const &, const QDateTime &)
 void SlaveBase::chown(QUrl const &, const QString &, const QString &)
 {
     error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_CHOWN));
-}
-void SlaveBase::multiGet(const QByteArray &)
-{
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_MULTI_GET));
 }
 
 void SlaveBase::slave_status()
@@ -1314,13 +1307,6 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     }
     case CMD_NONE: {
         qCWarning(KIO_CORE) << "Got unexpected CMD_NONE!";
-        break;
-    }
-    case CMD_MULTI_GET: {
-        d->m_state = d->InsideMethod;
-        multiGet(data);
-        d->verifyState("multiGet()");
-        d->m_state = d->Idle;
         break;
     }
     case CMD_FILESYSTEMFREESPACE: {

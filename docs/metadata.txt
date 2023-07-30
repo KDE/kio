@@ -67,8 +67,6 @@ Languages       string          Language(s) send in the "Accept-Language:" HTTP 
 content-disposition-type        string Type of Content-Disposition from a HTTP Header Response.
 content-disposition-*           any other valid value sent in a Content-Disposition header (e.g. filename)
 
-request-id	number              Sequence number to identify requests in a MultiGet command.
-
 expire-date	number              Date on which a cache entry needs validation.
 
 cache-creation-date  number     Date on which a cache entry has been created.

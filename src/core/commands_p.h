@@ -42,7 +42,7 @@ enum Command {
     CMD_MESSAGEBOXANSWER = 'S', // 83
     CMD_RESUMEANSWER = 'T', // 84
     CMD_CONFIG = 'U', // 85
-    CMD_MULTI_GET = 'V', // 86
+    // unused 'V', // 86
     CMD_SETLINKDEST = 'W', // 87
     CMD_OPEN = 'X', // 88
     CMD_CHOWN = 'Y', // 89

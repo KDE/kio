@@ -258,7 +258,6 @@ public:
     void closeConnection() override;
 
     Q_REQUIRED_RESULT KIO::WorkerResult post(const QUrl &url, qint64 size = -1);
-    KIO::WorkerResult multiGet(const QByteArray &data) override;
     Q_REQUIRED_RESULT KIO::WorkerResult maybeSetRequestUrl(const QUrl &);
 
     /**
@@ -499,7 +498,6 @@ protected:
 
     HTTPServerState m_server;
     HTTPRequest m_request;
-    QList<HTTPRequest> m_requestQueue;
 
     // Processing related
     KIO::filesize_t m_iSize; ///< Expected size of message
@@ -510,7 +508,6 @@ protected:
     bool m_dataInternal; ///< Data is for internal consumption
     bool m_isChunked; ///< Chunked transfer encoding
 
-    bool m_isBusy; ///< Busy handling request queue.
     bool m_isEOF;
     bool m_isEOD;
 

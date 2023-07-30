@@ -315,7 +315,6 @@ HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, c
     : TCPWorkerBase(protocol, pool, app, isEncryptedHttpVariety(protocol))
     , m_iSize(NO_SIZE)
     , m_iPostDataSize(NO_SIZE)
-    , m_isBusy(false)
     , m_POSTbuf(nullptr)
     , m_maxCacheAge(DEFAULT_MAX_CACHE_AGE)
     , m_maxCacheSize(DEFAULT_MAX_CACHE_SIZE)
@@ -1858,93 +1857,6 @@ bool HTTPProtocol::isOffline()
         qCWarning(KIO_HTTP) << "Couldn't find a working backend for QNetworkInformation";
         return false;
     }
-}
-
-KIO::WorkerResult HTTPProtocol::multiGet(const QByteArray &data)
-{
-    QDataStream stream(data);
-    quint32 n;
-    stream >> n;
-
-    qCDebug(KIO_HTTP) << n;
-
-    HTTPRequest saveRequest;
-    if (m_isBusy) {
-        saveRequest = m_request;
-    }
-
-    resetSessionSettings();
-
-    for (unsigned i = 0; i < n; ++i) {
-        QUrl url;
-        MetaData incomingMetadata;
-        stream >> url >> incomingMetadata;
-        setIncomingMetaData(incomingMetadata);
-
-        if (const auto result = maybeSetRequestUrl(url); !result.success()) {
-            return result;
-        }
-
-        // ### should maybe call resetSessionSettings() if the server/domain is
-        //     different from the last request!
-
-        qCDebug(KIO_HTTP) << url;
-
-        m_request.method = HTTP_GET;
-        m_request.isKeepAlive = true; // readResponseHeader clears it if necessary
-
-        QString tmp = metaData(QStringLiteral("cache"));
-        if (!tmp.isEmpty()) {
-            m_request.cacheTag.policy = parseCacheControl(tmp);
-        } else {
-            m_request.cacheTag.policy = DEFAULT_CACHE_CONTROL;
-        }
-
-        m_requestQueue.append(m_request);
-    }
-
-    if (m_isBusy) {
-        m_request = saveRequest;
-    }
-    if (!m_isBusy) {
-        m_isBusy = true;
-        QMutableListIterator<HTTPRequest> it(m_requestQueue);
-        // send the requests
-        while (it.hasNext()) {
-            m_request = it.next();
-            (void)/* handling result via result codes */ sendQuery();
-            // save the request state so we can pick it up again in the collection phase
-            it.setValue(m_request);
-            qCDebug(KIO_HTTP) << "check one: isKeepAlive =" << m_request.isKeepAlive;
-            if (m_request.cacheTag.ioMode != ReadFromCache) {
-                m_server.initFrom(m_request);
-            }
-        }
-        // collect the responses
-        // ### for the moment we use a hack: instead of saving and restoring request-id
-        //    we just count up like ParallelGetJobs does.
-        int requestId = 0;
-        for (const HTTPRequest &r : std::as_const(m_requestQueue)) {
-            m_request = r;
-            qCDebug(KIO_HTTP) << "check two: isKeepAlive =" << m_request.isKeepAlive;
-            setMetaData(QStringLiteral("request-id"), QString::number(requestId++));
-            sendAndKeepMetaData();
-            if (const auto result = readResponseHeader(); !result.success()) {
-                return result;
-            }
-            if (const auto result = readBody(); !result.success()) {
-                return result;
-            }
-            // the "next job" signal for ParallelGetJob is data of size zero which
-            // readBody() sends without our intervention.
-            qCDebug(KIO_HTTP) << "check three: isKeepAlive =" << m_request.isKeepAlive;
-            httpClose(m_request.isKeepAlive); // actually keep-alive is mandatory for pipelining
-        }
-
-        m_requestQueue.clear();
-        m_isBusy = false;
-    }
-    return WorkerResult::pass();
 }
 
 ssize_t HTTPProtocol::write(const void *_buf, size_t nbytes)
