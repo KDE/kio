@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:44+0000\n"
-"PO-Revision-Date: 2023-06-29 08:27+0200\n"
+"PO-Revision-Date: 2023-07-29 09:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -214,7 +214,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
-msgstr "Estase a mover"
+msgstr "Movendo"
 
 #: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:137
@@ -258,7 +258,7 @@ msgstr "Cartafol"
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
-msgstr "Estase a eliminar"
+msgstr "Eliminando"
 
 #: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:510
@@ -270,19 +270,19 @@ msgstr "Ficheiro"
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
-msgstr "Estase a examinar"
+msgstr "Examinando"
 
 #: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
-msgstr "Estase a transferir"
+msgstr "Transferindo"
 
 #: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
-msgstr "Estase a montar"
+msgstr "Montando"
 
 #: core/job.cpp:156
 #, kde-format
@@ -298,7 +298,7 @@ msgstr "Punto de montaxe"
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
-msgstr "Estase a desmontar"
+msgstr "Desmontando"
 
 #: core/job.cpp:271
 #, kde-format
@@ -3998,7 +3998,7 @@ msgstr ""
 #: gui/kprocessrunner.cpp:253
 #, kde-format
 msgid "Launching %1"
-msgstr "Estase a iniciar %1"
+msgstr "Iniciando %1"
 
 #: gui/kprocessrunner.cpp:466
 #, kde-kuit-format
@@ -4099,13 +4099,14 @@ msgstr ""
 "%1"
 
 #: ioslaves/file/file.cpp:746
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Non se puido cambiar a pertenza de %1."
+msgstr ""
+"Non se puido cambiar a persoa dona e o grupo de\n"
+"%1"
 
 #: ioslaves/file/file.cpp:828
 #, kde-format
@@ -5904,7 +5905,7 @@ msgstr "Os URL ou ficheiros locais usados para a «orde»"
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
 msgid "Opening connection to host %1"
-msgstr "Estase a abrir unha conexión co servidor %1"
+msgstr "Abrindo unha conexión co servidor %1"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
@@ -6004,12 +6005,12 @@ msgstr "Non hai ningunha documentación dispoñíbel para %1."
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "Estase a buscar o ficheiro correcto"
+msgstr "Buscando o ficheiro correcto"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
 msgid "Preparing document"
-msgstr "Estase a preparar o documento"
+msgstr "Preparando o documento"
 
 #: kioworkers/help/kio_help.cpp:213 kioworkers/help/kio_help.cpp:259
 #, kde-format
@@ -6019,17 +6020,17 @@ msgstr "Non se puido procesar o ficheiro de axuda que pediu:<br/>%1"
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
 msgid "Saving to cache"
-msgstr "Estase a gardar na caché"
+msgstr "Gardando na caché"
 
 #: kioworkers/help/kio_help.cpp:253
 #, kde-format
 msgid "Using cached version"
-msgstr "Estase a usar a versión na caché"
+msgstr "Usando a versión na caché"
 
 #: kioworkers/help/kio_help.cpp:314
 #, kde-format
 msgid "Looking up section"
-msgstr "Estase a buscar a sección"
+msgstr "Buscando a sección"
 
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
@@ -6263,7 +6264,7 @@ msgstr "Estanse enviar os datos para %1"
 #: kioworkers/http/http.cpp:4278
 #, kde-format
 msgid "Retrieving %1 from %2..."
-msgstr "Estase a obter %1 de %2…"
+msgstr "Obtendo %1 de %2…"
 
 #: kioworkers/http/http.cpp:5174 kioworkers/http/http.cpp:5411
 #, kde-format
@@ -7169,7 +7170,7 @@ msgstr "Creando un cartafol"
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgid "Moving"
-msgstr "Estase a mover"
+msgstr "Movendo"
 
 #: widgets/fileundomanager.cpp:141
 #, kde-format
@@ -7179,7 +7180,7 @@ msgstr "Renomeando"
 #: widgets/fileundomanager.cpp:148
 #, kde-format
 msgid "Deleting"
-msgstr "Estase a eliminar"
+msgstr "Eliminando"
 
 #: widgets/fileundomanager.cpp:305
 #, kde-format
@@ -7477,12 +7478,12 @@ msgstr "Efectivo"
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating System Configuration"
-msgstr "Estase a actualizar o sistema de configuración"
+msgstr "Actualizando o sistema de configuración"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating system configuration."
-msgstr "Estase a actualizar o sistema de configuración."
+msgstr "Actualizando o sistema de configuración."
 
 #: widgets/kdesktopfileactions.cpp:77
 #, kde-format
@@ -8318,7 +8319,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Estase a calcular… %1 (%2)\n"
+"Calculando… %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
@@ -8707,7 +8708,7 @@ msgstr "Ligazón"
 #: widgets/kpropertiesdialog.cpp:2370
 #, kde-format
 msgid "Varying (No Change)"
-msgstr "Estase a variar (sen cambios)"
+msgstr "Variábel (sen cambios)"
 
 #: widgets/kpropertiesdialog.cpp:2481
 #, kde-format
@@ -8898,8 +8899,8 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] "estase a usar %1 bit"
-msgstr[1] "estanse a usar %1 bits"
+msgstr[0] "usando %1 bit"
+msgstr[1] "usando %1 bits"
 
 #: widgets/ksslinfodialog.cpp:169
 #, kde-format
