@@ -1,1 +1,3 @@
-add_subdirectory( telnet )
+if(NOT KIOCORE_ONLY)
+    add_subdirectory( telnet )
+endif()
