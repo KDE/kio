@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 09:32+0000\n"
+"POT-Creation-Date: 2023-07-31 02:37+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2070,7 +2070,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ម៉ាស៊ីន​បម្រើ​មមាញឹក​ក្នុង​ការ​ឆ្លើយតប​ទៅកាន់​សំណើ​ផ្សេងទៀត​ដែលត្រូវ​ឆ្លើយតប ។"
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1511
+#: core/job_error.cpp:1114 core/slavebase.cpp:1497
 #, kde-format
 msgid "Unknown Error"
 msgstr "កំហុស​មិន​ស្គាល់"
@@ -2371,92 +2371,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "ការ​បើក​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "ការ​បិទ​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ការ​ចូល​ដំណើរការ​ឯកសារ​គឺ​មិន​ត្រូវបាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ។"
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "ការ​សរសេរ​ទៅកាន់ %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ទេ ។"
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "មិន​មាន​អំពើ​ពិសេស​សម្រាប់​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "ការ​រាយ​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​សម្រាប់​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ទិន្នន័យ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ព័ត៌មាន​ប្រភេទ mime ពី %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ការ​ប្ដូរ​ឈ្មោះ ឬ​ផ្លាស់ទី​ឯកសារ​នៅ​ក្នុង %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ការ​បង្កើត symlinks មិន​បាន​គាំទ្រ​ដោយ​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "ការ​ចម្លង​ឯកសារ​ក្នុង %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "ការ​លុប​ឯកសារ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ការ​បង្កើត​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​គុណលក្ខណៈ​ឯកសារ​គឺ​មិន​ត្រូវ​បាន​គាំទ្រ​ជា​មួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​ភាព​ជាម្ចាស់​នៃ​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:864
-#, kde-format
-msgid "Multiple get is not supported with protocol %1."
-msgstr "ការ​យកច្រើន គឺ​មិនត្រូវបាន​អនុញ្ញាត​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
-
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ការ​បើក​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​​ជាមួយ​នឹ​ងពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "ពិធីការ %1 មិន​គាំទ្រ​អំពើ %2 ទេ ។"
@@ -4310,12 +4305,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់​មួយ ដើម្បី​ចូល​ដំណើរការ​តំបន់​បណ្ដាញ​នេះ ។"
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "Site:"
 msgstr "តំបន់បណ្ដាញ ៖"
@@ -4343,8 +4338,8 @@ msgid ""
 "The server said: \"%1\""
 msgstr "បើក %1"
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
-#: kioworkers/http/http.cpp:5207
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
+#: kioworkers/http/http.cpp:5119
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4353,14 +4348,14 @@ msgstr ""
 "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់ ឲ្យ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ដែល​បាន​រាយ​ខាងក្រោម មុន​ពេល​អ្នក​អាច​ចូល​"
 "ដំណើរការ​តំបន់បណ្ដាញ​ណាមួយ ។"
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
-#: kioworkers/http/http.cpp:5210
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
+#: kioworkers/http/http.cpp:5122
 #, kde-format
 msgid "Proxy:"
 msgstr "ប្រូកស៊ី ៖"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ការផ្ទៀងផ្ទាត់ភាព​ត្រឹមត្រូវ​ប្រូកស៊ី​បាន​បរាជ័យ ។"
@@ -4408,100 +4403,100 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "មិន​អាច​អាន​ឯកសារ %1 បាន​ឡើយ ។"
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:540
 #, kde-format
 msgid "No host specified."
 msgstr "គ្មាន​ម៉ាស៊ីន​ដែលបាន​បញ្ជាក់​ឡើយ ។"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1503
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ផ្សេង​ពី​នេះ ការ​ស្នើ​សុំ​នឹង​បាន​ជោគជ័យ ។"
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1507
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ទៅ​យក​តម្លៃ​ដែល​សមរម្យ"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "កំណត់​តម្លៃ​លក្ខណៈ​សម្បត្តិ"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1513
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "បង្កើត​ថត​ដែល​បាន​ស្នើ"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1516
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ចម្លង​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ផ្លាស់ទី​ឯកសារ ឬ​ថត​ដែល​បានបញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1522
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ស្វែងរក​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ចាក់​សោ​ឯកសារ ឬ​ថត​ដែលបាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1528
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ដោះសោ​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1531
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "លុប​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "សួរ​សមត្ថភាព​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ទាញយក​មាតិកា​របស់​ឯកសារ ឬ​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "រត់​​របាយការណ៍​នៅ​ក្នុង​ថត​ដែល​បាន​បញ្ជាក់"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1552
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "កំហុស​ដែល​មិន​រំពឹង​ទុក​ (%1) បាន​កើតឡើង​ខណៈពេល​ប៉ុនប៉ង​ទៅ​កាន់ %2 ។"
 
-#: kioworkers/http/http.cpp:1562
+#: kioworkers/http/http.cpp:1561
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "ម៉ាស៊ីន​បម្រើ​មិន​គាំទ្រ​ពិធីការ WebDAV ទេ ។"
 
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4509,13 +4504,13 @@ msgid ""
 "below."
 msgstr "កំហុស​មួយ​បានកើតឡើង ខណៈ​ប៉ុនប៉ង %1 %2 ។ សេចក្ដី​សង្ខេប​នៃ​មូលហេតុ​គឺ​នៅ​ខាងក្រោម ។"
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "ការចូលដំណើរការ​ត្រូវ​បាន​បដិសេធ ខណៈពេល​កំពុង​ប៉ុន​ប៉ង %1 ។"
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4523,7 +4518,7 @@ msgid ""
 msgstr ""
 "មិនអាច​បង្កើត​​ធនធាន​នៅ​ទិសដៅ​បានឡើយ គឺ​រហូតដល់​ការប្រមូលផ្តុំ (ថត) មធ្យម​មួយ ឬ​ច្រើន​ត្រូវ​បាន​បង្កើត ។"
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1646
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4540,28 +4535,28 @@ msgstr ""
 "បានទេ ឬ​អ្នក​បាន​ប៉ុនប៉ង​សរសេរ​ជាន់​លើ​ឯកសារ​មួយ ខណៈពេល​កំពុង​ស្នើ​ថា ឯកសារ​មិន​ត្រូវ​បាន​សរសេរ​ជាន់​សលើ ។ "
 "%1​"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1654
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "មិនអាច​បង្កើត​ការ​ចាក់សោ​ដែលបាន​ស្នើ​បាន​ឡើយ ។ %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1660
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "ម៉ាស៊ីន​បម្រើ​មិន​គាំទ្រ​សំណើ​ប្រភេទ​តួ​បានទេ ។"
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "មិ​នអាច​តភ្ជាប់​ទៅ %1 បានទេ ពីព្រោះ​ធនធាន​ជាប់​សោ ។"
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1669
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "អំពើ​នេះ​ត្រូវ​បាន​រារាំង​ដោយ​កំហុស​មួយ​ផ្សេង​ទៀត ។"
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4569,7 +4564,7 @@ msgid ""
 "folder."
 msgstr "មិន​អាច​​បានទេ %1 ពីព្រោះ​ម៉ាស៊ីន​បម្រើ​ទិសដៅ​បដិសេធ​ការ​ទទួល​យក​ឯកសារ ឬ​ថត ។"
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4577,29 +4572,29 @@ msgid ""
 msgstr ""
 "ធនធាន​ទិសដៅ​មិន​មាន​ទំហំ​គ្រប់គ្រាន់ ដើម្បី​កត់​ត្រា​សភាព​របស់​ធនធាន បន្ទាប់ពី​ការ​ប្រតិបត្តិ​វិធីសាស្ត្រ​នេះ​ទេ ។"
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1737
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ធនធាន​មិន​អាច​ត្រូ​វបានលុប​ទេ ។"
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1750
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ផ្ទុក %1 ឡើង"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1801
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "កំហុស​ដែល​មិន​រំពឹង (%1) បាន​កើត​ឡើង ខណៈពេល​ប៉ុនប៉ង %2 ។"
 
-#: kioworkers/http/http.cpp:2589
+#: kioworkers/http/http.cpp:2501
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 ត្រូវ​បាន​ទាក់ទង ។ កំពុង​រង់ចាំ​ការ​ឆ្លើយ​តប..."
 
-#: kioworkers/http/http.cpp:2915
+#: kioworkers/http/http.cpp:2827
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4611,43 +4606,43 @@ msgstr ""
 "ការ​ផ្ទៀងផ្ទាត់​ឡើយ ។ វា​អាច​ជា​ការ​ការ​ប៉ុនប៉ង​បញ្ឆោត​អ្នក ។</p><p> \"%1\" ជា​តំបន់​បណ្ដាញ​ដែល​អ្នក​ចង់​"
 "មើល​ឬ ?</p>"
 
-#: kioworkers/http/http.cpp:2922
+#: kioworkers/http/http.cpp:2834
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "បញ្ជាក់​ការ​ចូល​ដំណើរការ​តំបន់​បណ្ដាញ"
 
-#: kioworkers/http/http.cpp:3013
+#: kioworkers/http/http.cpp:2925
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "ម៉ាស៊ីន​បម្រើ​កំពុង​ដំណើរការ​សំណើ សូម​រង់ចាំ..."
 
-#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
+#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
 #, kde-format
 msgid "Sending data to %1"
 msgstr "ផ្ញើ​ទិន្នន័យ​ទៅ %1"
 
-#: kioworkers/http/http.cpp:4201
+#: kioworkers/http/http.cpp:4113
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "កំពុង​ទាញយក %1 ពី %2..."
 
-#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
+#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> នៅ <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Authentication Failed."
 msgstr "ការ​ផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​បាន​បរាជ័យ ។"
 
-#: kioworkers/http/http.cpp:5352
+#: kioworkers/http/http.cpp:5264
 #, kde-format
 msgid "Authorization failed."
 msgstr "ការ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ​បានបរាជ័យ ។​"
 
-#: kioworkers/http/http.cpp:5369
+#: kioworkers/http/http.cpp:5281
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "មិន​ស្គាល់​វិធីសាស្ត្រ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ ។​"
@@ -4999,20 +4994,20 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
 #, fuzzy, kde-format
 #| msgid "This file is a link and does not have permissions."
 #| msgid_plural "All files are links and do not have permissions."
 msgid "This file is already in the trash bin."
 msgstr "ឯកសារ​​គឺ​តំណ និង​មិន​មាន​សិទ្ធិ​ទេ ។"
 
-#: kioworkers/trash/kio_trash_win.cpp:248
+#: kioworkers/trash/kio_trash_win.cpp:244
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "not supported"
 msgstr "ការ​សរសេរ​ទៅកាន់ %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ទេ ។"
 
-#: kioworkers/trash/kio_trash_win.cpp:260
+#: kioworkers/trash/kio_trash_win.cpp:253
 #, fuzzy, kde-format
 #| msgid ""
 #| "Internal error in server\n"
@@ -7664,6 +7659,9 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
+
+#~ msgid "Multiple get is not supported with protocol %1."
+#~ msgstr "ការ​យកច្រើន គឺ​មិនត្រូវបាន​អនុញ្ញាត​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
 #~ msgid "&Policy"
 #~ msgstr "គោលការណ៍"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 09:32+0000\n"
+"POT-Creation-Date: 2023-07-31 02:37+0000\n"
 "PO-Revision-Date: 2023-03-22 08:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2105,7 +2105,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Þjónninn var of upptekinn við að svara öðrum beiðnum."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1511
+#: core/job_error.cpp:1114 core/slavebase.cpp:1497
 #, kde-format
 msgid "Unknown Error"
 msgstr "Óþekkt villa"
@@ -2405,92 +2405,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Ekki tókst að ákvarða skrárgerð fyrir %1"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Opnun tenginga er ekki studd með samskiptareglunni %1."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Lokun tenginga er ekki studd með samskiptareglunni %1."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Opnun skráa er ekki studd með samskiptareglunni %1. "
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ekki er stuðningur við að skrifa í %1."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Það eru engar séraðgerðir til fyrir samskiptaregluna %1."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Birting innihalds í möppum er ekki studd með samskiptareglunni  %1."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ekki er hægt að sækja gögn frá %1."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Það er ekki hægt að sækja MIME-gerð frá %1."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ekki hægt að endurnefna eða færa skrár innan %1."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ekki hægt að búa til tákntengla með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ekki er hægt að afrita skrár innan %1."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ekki er hægt að eyða skrám úr %1."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ekki er hægt að búa til nýjar möppur með samskiptareglunni %1."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ekki hægt að breyta eiginleikum skráa með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ekki er hægt að breyta eiganda skráa með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:864
-#, kde-format
-msgid "Multiple get is not supported with protocol %1."
-msgstr "Ekki er hægt sækja margar skrár í einu með samskiptareglunni %1."
-
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ekki er hægt að opna skrár með samskiptareglunni %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Samskiptareglan %1 styður ekki aðgerð %2."
@@ -4283,13 +4278,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð til að komast á vefsvæðið."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "Site:"
 msgstr "Vefsvæði:"
@@ -4318,8 +4313,8 @@ msgstr ""
 "\n"
 "Þjónninn svaraði: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
-#: kioworkers/http/http.cpp:5207
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
+#: kioworkers/http/http.cpp:5119
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4328,14 +4323,14 @@ msgstr ""
 "Þú þarft að gefa upp notandanafn og lykilorð fyrir milliþjóninn hér fyrir "
 "neðan til að komast inn á vefsvæði."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
-#: kioworkers/http/http.cpp:5210
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
+#: kioworkers/http/http.cpp:5122
 #, kde-format
 msgid "Proxy:"
 msgstr "Milliþjónn (proxy):"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Auðkenning við milliþjón brást."
@@ -4380,100 +4375,100 @@ msgstr "Fletti upp hluta"
 msgid "Could not find filename %1 in %2."
 msgstr "Tókst ekki að finna skrána %1 í %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:540
 #, kde-format
 msgid "No host specified."
 msgstr "Enginn þjónn skilgreindur."
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1503
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars hefði beiðnin tekist."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1507
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "sækja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "velja eiginleikagildi"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1513
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "búa til umbeðna möppu"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1516
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "afrita umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "færa umbeðna skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1522
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "leita í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "læsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1528
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "aflæsa umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1531
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "eyða umbeðinni skrá eða möppu"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "spyrja um getu þjónsins"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "sækja innihald umbeðinnar skrár eða möppu"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "keyra skýrslu í umbeðinni möppu"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1552
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að framkvæma %2."
 
-#: kioworkers/http/http.cpp:1562
+#: kioworkers/http/http.cpp:1561
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "Netþjónninn styður ekki WebDAV samskiptaregluna."
 
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4483,13 +4478,13 @@ msgstr ""
 "Villa kom upp þegar reynt var að %1, %2. Yfirlit yfir ástæður er hér fyrir "
 "neðan."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Aðgangi var hafnað þegar reynt var að %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4498,7 +4493,7 @@ msgstr ""
 "Ekki er hægt að búa til tilfang á áfangastaðnum fyrr en búið er að búa til "
 "eitt eða fleiri söfn (möppur) á slóðinni."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1646
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4512,28 +4507,28 @@ msgstr ""
 "að skrifa yfir skrá á meðan þú baðst um að ekki væri\n"
 "skrifað yfir skrár. %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1654
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ekki tókst að að útvega umbeðna læsingu. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1660
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Þjónninn styður ekki gerð beiðninnar."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 gengur ekki vegna þess að tilfang er læst."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1669
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Þessi aðgerð var stöðvuð vegna annarrar villu."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4542,7 +4537,7 @@ msgid ""
 msgstr ""
 "%1 gengur ekki því viðtakandinn neitar að taka við skránni eða möppunni."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4551,29 +4546,29 @@ msgstr ""
 "Viðtökutilfangið hefur ekki nægjanlegt pláss til að skrá ástand tilfangsins "
 "eftir keyrslu þessarar aðgerðar."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1737
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ekki er hægt að eyða þessu tilfangi."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1750
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "hleð upp %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1801
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Óvænt villa (%1) kom upp þegar reynt var að %2."
 
-#: kioworkers/http/http.cpp:2589
+#: kioworkers/http/http.cpp:2501
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "Náði sambandi við %1. Bíð eftir svari..."
 
-#: kioworkers/http/http.cpp:2915
+#: kioworkers/http/http.cpp:2827
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4585,43 +4580,43 @@ msgstr ""
 "vefsvæðið krefst ekki auðkenningar. Þetta gæti verið tilraun til að gabba "
 "þig.</p><p>Er \"%1\" vefsvæðið sem þú vilt heimsækja?</p>"
 
-#: kioworkers/http/http.cpp:2922
+#: kioworkers/http/http.cpp:2834
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "Staðfesta aðgang að vefsvæði"
 
-#: kioworkers/http/http.cpp:3013
+#: kioworkers/http/http.cpp:2925
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "Þjónn vinnur úr beiðni, vinsamlegast bíðið..."
 
-#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
+#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Sendi gögn til %1"
 
-#: kioworkers/http/http.cpp:4201
+#: kioworkers/http/http.cpp:4113
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Sæki %1 frá %2..."
 
-#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
+#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> á <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Auðkenning brást."
 
-#: kioworkers/http/http.cpp:5352
+#: kioworkers/http/http.cpp:5264
 #, kde-format
 msgid "Authorization failed."
 msgstr "Auðkenning brást."
 
-#: kioworkers/http/http.cpp:5369
+#: kioworkers/http/http.cpp:5281
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "Óþekkt auðkenningaraðferð."
@@ -4961,17 +4956,17 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr "Ógild samsetning samskiptareglna."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Þessi skrá er þegar í ruslinu."
 
-#: kioworkers/trash/kio_trash_win.cpp:248
+#: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
 msgid "not supported"
 msgstr "ekki stutt"
 
-#: kioworkers/trash/kio_trash_win.cpp:260
+#: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
 msgstr "Innri villa í afritun eða færslu, ætti aldrei að gerast"
@@ -7562,6 +7557,9 @@ msgstr "Þetta mun ræsa forritið:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
+
+#~ msgid "Multiple get is not supported with protocol %1."
+#~ msgstr "Ekki er hægt sækja margar skrár í einu með samskiptareglunni %1."
 
 #~ msgid "&Policy"
 #~ msgstr "&Regla"

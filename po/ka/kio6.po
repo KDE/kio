@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 09:32+0000\n"
+"POT-Creation-Date: 2023-07-31 02:37+0000\n"
 "PO-Revision-Date: 2023-07-15 06:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2077,7 +2077,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "სერვერს საპასუხოდ არ სცალია."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1511
+#: core/job_error.cpp:1114 core/slavebase.cpp:1497
 #, kde-format
 msgid "Unknown Error"
 msgstr "უცნობი შეცდომა"
@@ -2373,92 +2373,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1-ის ფაილის ტიპის გამოცნობა შეუძლებელია"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "შეერთებების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "შეერთებების დახურვა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ფაილებთან წვდომა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1-ში ჩაწერა მხარდაუჭერელია."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "პროტოკოლისთვის %1 სპეციალური ქმედებები ხელმიუწვდომელია."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "საქაღალდეების სიის მღება პროტოკოლისთვის %1 მხარდაუჭერელია."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1-დან მონაცემების მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1-დან mime ტიპის ინფორმაციის მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1-ში ფაილების გადაადგილება ან სახელის გადარქმევა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "პროტოკოლით %1 სიმბმულების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1-ში ფაილების კოპირება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1-დან ფაილების წაშლა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "პროტოკოლით %1 საქაღალდეების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ფაილების ატრიბუტების შეცვლა მხარდაუჭერელია პროტოკოლისთვის %1."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ფაილების მფლობელის შეცვლა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:864
-#, kde-format
-msgid "Multiple get is not supported with protocol %1."
-msgstr "მრავალი მიღება მხარდაუჭერელია პროტოკოლით %1."
-
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ფაილების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "პროტოკოლს %1 ქმედების (%2) მხარდაჭერა არ გააჩნია."
@@ -4228,12 +4223,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "ამ ადგილის სანახავად საჭიროა მომხმარებლისა და პაროლის მითითება."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "Site:"
 msgstr "საიტი:"
@@ -4262,8 +4257,8 @@ msgstr ""
 "\n"
 "სერვერმა სთქო: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
-#: kioworkers/http/http.cpp:5207
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
+#: kioworkers/http/http.cpp:5119
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4272,14 +4267,14 @@ msgstr ""
 "საიტებთან წვდომისთვის ქვემოთ მოყვანილ პროქსი სერვერისთვის მომხმარებლის "
 "სახელი და პაროლია საჭირო."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
-#: kioworkers/http/http.cpp:5210
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
+#: kioworkers/http/http.cpp:5122
 #, kde-format
 msgid "Proxy:"
 msgstr "პროქსი:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "პროქსის ავთენტიკაციის შეცდომა."
@@ -4324,100 +4319,100 @@ msgstr "სექციის მოძებნა"
 msgid "Could not find filename %1 in %2."
 msgstr "%2-ში ფაილი %1 ვერ ვიპოვე."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:540
 #, kde-format
 msgid "No host specified."
 msgstr "ჰოსტი მითითებული არაა."
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1503
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "არადა მოთხოვნა წარმატებული იქნებოდა."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1507
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "თვისების მნიშვნელობების მიღება"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "თვისების მნიშვნელობების დაყენება"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1513
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "მოთხოვილი საქაღალდის შექმნა"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1516
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის კოპირება"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის გადატანა"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1522
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის მოძებნა"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის ჩაკეტვა"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1528
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის განბლოკვა"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1531
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის წაშლა"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "სერვერის შესაძლებლობების გადამოწმება"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის შიგთავსის მიღება"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "მოთხოვილი საქაღალდის ან ფაილის ანგარიშის შექმნა"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1552
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "უცნობი შეცდომა(%1) %2-ის მცდელობის დროს."
 
-#: kioworkers/http/http.cpp:1562
+#: kioworkers/http/http.cpp:1561
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "სერვერს არ აქვს WebDAV პროტოკოლის მხარდაჭერა."
 
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4425,13 +4420,13 @@ msgid ""
 "below."
 msgstr "შეცდომა %1-ის დროს. %2. მიზეზები იხილეთ ქვემოთ."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1-ის მცდელობისას წვდომა აკრძალულია."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4440,7 +4435,7 @@ msgstr ""
 "დანიშნულების წერტილზე რესურსის შექმნა მანამდე, სანამ ერთი ან მეტი შუალედური "
 "კოლექცია (საქაღალდე) არ შეიქმნება, შეუძლებელია."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1646
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4450,28 +4445,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1654
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "მოთხოვნილი ბლოკის მიღების შეცდომა. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1660
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "სერვერს სხეულის ტიპის მოთხოვნის მხარდაჭერა არ გააჩნია."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1-ის შეცდომა. რესურსი დაბლოკილია."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1669
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ქმედება გაუქმებულია სხვა შეცდომის მიერ."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4481,7 +4476,7 @@ msgstr ""
 "%1 შეუძლებელია, რადგან სამიზნე სერვერი ფალის ან საქაღალდის მიღებაზე უარს "
 "აცხადებს."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4490,29 +4485,29 @@ msgstr ""
 "სამიზნე რესურსს ამ მეთოდის შესრულების შემდეგ რესურსის მდგომარეობის შესანახად "
 "საკმარისი ადგილი არ გააჩნია."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1737
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "რესურსის წაშლა შეუძლებელია."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1750
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1-ის ატვირთვა"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1801
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "უცნობი შეცდომა(%1) %2-ის მცდელობის დროს."
 
-#: kioworkers/http/http.cpp:2589
+#: kioworkers/http/http.cpp:2501
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "დავუკავშირდით %1-ს. ველოდები პასუხს..."
 
-#: kioworkers/http/http.cpp:2915
+#: kioworkers/http/http.cpp:2827
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4524,43 +4519,43 @@ msgstr ""
 "ავთენტიკაციას არ მოითხოვს. ამან შეიძლება დაგაბნიოთ. </p><p>არის თუ არა "
 "საიტი, რომელზეც შესვლას აპირებთ \"%1\"?</p>"
 
-#: kioworkers/http/http.cpp:2922
+#: kioworkers/http/http.cpp:2834
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "დაადასტურეთ ვებგვერდთან წვდომა"
 
-#: kioworkers/http/http.cpp:3013
+#: kioworkers/http/http.cpp:2925
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "სერვერი ამუშავებს მოთხოვნას. გთხოვთ მოითმიმოთ..."
 
-#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
+#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1-თვის მონაცემებს გაგზავნა"
 
-#: kioworkers/http/http.cpp:4201
+#: kioworkers/http/http.cpp:4113
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2-დან %1-ის მიღება..."
 
-#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
+#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Authentication Failed."
 msgstr "ავთენტიკაციის შეცდომა."
 
-#: kioworkers/http/http.cpp:5352
+#: kioworkers/http/http.cpp:5264
 #, kde-format
 msgid "Authorization failed."
 msgstr "ავტორიზაციის შეცდომა."
 
-#: kioworkers/http/http.cpp:5369
+#: kioworkers/http/http.cpp:5281
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "ავტორიზაციის უცნობი მეთოდი."
@@ -4895,17 +4890,17 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr "პროტოკოლების არასწორი კომბინაცია."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "ეს ფაილი უკვე სანაგვეშია."
 
-#: kioworkers/trash/kio_trash_win.cpp:248
+#: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
 msgid "not supported"
 msgstr "მხარდაუჭერელია"
 
-#: kioworkers/trash/kio_trash_win.cpp:260
+#: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
 msgstr "შიდა შეცდომა copyOrMove-ში. არ უნდა მოხდეს"
@@ -7458,6 +7453,9 @@ msgstr "ეს გაუშვებს პროგრამას:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "თუ ამ პროგრამას არ ენდობით, გაუქმებას დააწექით"
+
+#~ msgid "Multiple get is not supported with protocol %1."
+#~ msgstr "მრავალი მიღება მხარდაუჭერელია პროტოკოლით %1."
 
 #~ msgid "&Policy"
 #~ msgstr "&წესები"

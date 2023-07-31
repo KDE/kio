@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 09:32+0000\n"
+"POT-Creation-Date: 2023-07-31 02:37+0000\n"
 "PO-Revision-Date: 2023-07-16 13:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -2066,7 +2066,7 @@ msgstr ""
 "சேவையகம் வேறு கோரிக்கைகளுக்கு பதிலளித்துக் கோண்டிருந்ததால், உங்கள் கோரிக்கைக்கு "
 "பதிலளிக்கவில்லை."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1511
+#: core/job_error.cpp:1114 core/slavebase.cpp:1497
 #, kde-format
 msgid "Unknown Error"
 msgstr "தெரியாத தவறு"
@@ -2359,92 +2359,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 எந்த வகையான கோப்பு என்பதை தீர்மானிக்க முடியவில்லை"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை தொடங்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை முடக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை அணுகுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:840
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr " %1 -க்கு எழுதுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:842
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 நெறிமுறைக்கு சிறப்பு செயற்பாடுகள் ஏதுமில்லை."
 
-#: core/slavebase.cpp:844
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை பட்டியலிடுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:846
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 -இலிருந்து தரவை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:848
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 -இலிருந்து மைம் வகை விவரங்களை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:850
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளின் பெயர்களை மாற்றுதல் அல்லது அவற்றை நகர்த்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:852
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு குறியிணைப்புகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:854
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளை நகலெடுத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:856
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 -இலிருந்து கோப்புகளை நீக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:858
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:860
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் பண்புகளை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:862
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் உரிமையாளரை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:864
-#, kde-format
-msgid "Multiple get is not supported with protocol %1."
-msgstr "%1 நெறிமுறையைக் கொண்டு பலவற்றை பெறுதல் ஆதரிக்கப்படாது."
-
-#: core/slavebase.cpp:866
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை திறத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:868
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆதரிக்காது."
@@ -4224,12 +4219,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5192
+#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு பயனர் பெயரையும், கடவுச்சொல்லையும் வழங்க வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5194
+#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "Site:"
 msgstr "தளம்:"
@@ -4258,8 +4253,8 @@ msgstr ""
 "\n"
 "சேவையகம் கூறியது: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:5072
-#: kioworkers/http/http.cpp:5207
+#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
+#: kioworkers/http/http.cpp:5119
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4268,14 +4263,14 @@ msgstr ""
 "எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
 "கடவுச்சொல்லையும் தர வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5076
-#: kioworkers/http/http.cpp:5210
+#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
+#: kioworkers/http/http.cpp:5122
 #, kde-format
 msgid "Proxy:"
 msgstr "பதிலி:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:5079
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"
@@ -4320,100 +4315,100 @@ msgstr "சரியான பிரிவு கண்டறியப்பட�
 msgid "Could not find filename %1 in %2."
 msgstr "%2 -இல் %1 என்ற கோப்பை கண்டுபிடிக்க முடியவில்லை."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:540
 #, kde-format
 msgid "No host specified."
 msgstr "புரவன் எதுவும் குறிப்பிடப்படவில்லை."
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1503
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "இல்லையெனில், கோரிக்கை நிறைவேறியிருக்கும்."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1507
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "பண்பு மதிப்புகளை மீட்க"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "பண்பு மதிப்புகளை அமைக்க"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1513
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "கோரப்பட்ட அடைவினை உருவாக்க"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1516
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகலெடுக்க"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை நகர்த்த"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1522
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "குறிப்பிட்ட அடைவினுள் தேட"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை பூட்ட"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1528
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் பூட்டகற்ற"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1531
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவை அகற்ற"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "சேவையகத்தின் இயலுமைகளைக் கோர"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "குறிப்பிட்ட கோப்பு அல்லது அடைவின் உள்ளடக்கத்தை மீட்க"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1540
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "குறிப்பிட்ட அடைவினுள் report-ஐ இயக்க"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1552
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
 
-#: kioworkers/http/http.cpp:1562
+#: kioworkers/http/http.cpp:1561
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "சேவையகம் WebDAV நெறிமுறையை ஆதரிக்கவில்லை"
 
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1605
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4421,13 +4416,13 @@ msgid ""
 "below."
 msgstr "%2 -இல் %1 முயற்சிக்கையில் பிழை ஏற்பட்டது. காரணங்களின் தொகுப்பு கீழுள்ளது."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 முயற்சிக்கையில் அணுகல் மறுக்கப்பட்டது."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4436,7 +4431,7 @@ msgstr ""
 "ஒரு அல்லது ஒன்றுக்கு மேற்பட்ட இடைநிலை திரட்டுகள் (அடைவுகள்) உருவாக்கப்படும் வரை "
 "குறிப்பிட்ட இடத்தில் எதையும் உருவாக்க முடியாது."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1646
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4451,28 +4446,28 @@ msgstr ""
 "முயற்சித்தீர்கள்.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1654
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "கோரிய பூட்டை வழங்க முடியவில்லை: %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1660
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "உடல் பகுதியில் உள்ள கோரிக்கை வகையை சேவையகம் ஆதரிக்கவில்லை."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "இது பூட்டியிருப்பதால் %1 இயலவில்லை."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1669
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "இச்செயல் வேறொரு சிக்கலால் தடுக்கப்பட்டது."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4480,7 +4475,7 @@ msgid ""
 "folder."
 msgstr "இலக்கு சேவையகம் கோப்பு அல்லது அடைவினை பெற மறுப்பதால் %1 இயலவில்லை."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4488,29 +4483,29 @@ msgid ""
 msgstr ""
 "இந்த முறைமையை இயக்கிய பிறகு இதன் நிலையைக் குறிக்க தேவையான இடம், சேருமிடத்தில் இல்லை"
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1737
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "இதை நீக்க முடியாது."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1750
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1-ஐ பதிவேற்ற"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1801
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 முயற்சிக்கையில் எதிர்பாராத சிக்கல் (%1) நேர்ந்தது."
 
-#: kioworkers/http/http.cpp:2589
+#: kioworkers/http/http.cpp:2501
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1-உடன் தொடர்பு ஏற்பட்டது. பதிலுக்கு காத்திருக்கிறது..."
 
-#: kioworkers/http/http.cpp:2915
+#: kioworkers/http/http.cpp:2827
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4522,43 +4517,43 @@ msgstr ""
 "ஆனால் அந்த இணையதளத்துக்கு உறுதிப்பாடு தேவை இல்லை. இது உங்களை ஏமாற்ற ஒரு முயற்சியாக "
 "இருக்கலாம்.</p> <p>நீங்கள் அணுக விரும்பும் இணையதளம் \"%1\" தானா?</p>"
 
-#: kioworkers/http/http.cpp:2922
+#: kioworkers/http/http.cpp:2834
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "இணையதள அணுகலை உறுதி செய்தல்"
 
-#: kioworkers/http/http.cpp:3013
+#: kioworkers/http/http.cpp:2925
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "சேவையகம் கோரிக்கையைப் பரிசீலிக்கிறது. தயவு செய்து காத்திருக்கவும்..."
 
-#: kioworkers/http/http.cpp:3701 kioworkers/http/http.cpp:3756
+#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1-க்குத் தரவு அனுப்பப்படுகிறது"
 
-#: kioworkers/http/http.cpp:4201
+#: kioworkers/http/http.cpp:4113
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2 -இலிருந்து %1 மீட்கப்படுகிறது..."
 
-#: kioworkers/http/http.cpp:5077 kioworkers/http/http.cpp:5314
+#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> -இல் <b>%1</b>"
 
-#: kioworkers/http/http.cpp:5225
+#: kioworkers/http/http.cpp:5137
 #, kde-format
 msgid "Authentication Failed."
 msgstr "உறுதிப்பாடு தோல்வியடைந்தது."
 
-#: kioworkers/http/http.cpp:5352
+#: kioworkers/http/http.cpp:5264
 #, kde-format
 msgid "Authorization failed."
 msgstr "உரிமை வழங்குதல் தோல்வியடைந்தது."
 
-#: kioworkers/http/http.cpp:5369
+#: kioworkers/http/http.cpp:5281
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "தெரியாத உரிமை வழங்கும் முறை"
@@ -4896,17 +4891,17 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr "நெறிமுறைகளின் முறையற்ற சேர்க்கை."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:235
+#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "இந்த கோப்பு ஏற்கனவே அகற்றிடத்தில் உள்ளது."
 
-#: kioworkers/trash/kio_trash_win.cpp:248
+#: kioworkers/trash/kio_trash_win.cpp:244
 #, kde-format
 msgid "not supported"
 msgstr "ஆதரவு இல்லை"
 
-#: kioworkers/trash/kio_trash_win.cpp:260
+#: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
 msgstr "copyOrMove-இல் உள்ளக பிழை, இது நடக்கவே கூடாது"
@@ -7485,6 +7480,9 @@ msgstr "இது கீழ்கண்ட நிரலை இயக்கும
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "இந்த நிரல் நம்பகமானது இல்லையெனில் ரத்து செய்யுங்கள்"
+
+#~ msgid "Multiple get is not supported with protocol %1."
+#~ msgstr "%1 நெறிமுறையைக் கொண்டு பலவற்றை பெறுதல் ஆதரிக்கப்படாது."
 
 #~ msgid "&Policy"
 #~ msgstr "&கொள்கை"
