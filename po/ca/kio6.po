@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-31 02:37+0000\n"
-"PO-Revision-Date: 2023-07-08 10:11+0200\n"
+"PO-Revision-Date: 2023-07-31 13:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6886,7 +6886,7 @@ msgstr "Variant (Sense canvis)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Aquest fitxer usa permisos avançats."
+msgstr[0] "Aquest fitxer usa permisos avançats"
 msgstr[1] "Aquests fitxers usen permisos avançats."
 
 #: widgets/kpropertiesdialog.cpp:2444

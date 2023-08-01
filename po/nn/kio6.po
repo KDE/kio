@@ -7524,6 +7524,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "Multiple get is not supported with protocol %1."
-#~ msgstr "Du kan ikkje bruka fleire get-kommandoar med protokollen %1."
