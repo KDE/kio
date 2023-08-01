@@ -1,4 +1,4 @@
-maintainer: dfaure
+maintainer:
 description: Resource and network access abstraction
 tier: 3
 type: solution
