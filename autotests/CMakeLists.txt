@@ -6,7 +6,6 @@ include(ECMAddTests)
 if(NOT ANDROID)
     add_subdirectory(http)
 endif()
-add_subdirectory(kcookiejar)
 
 find_package(Qt6Widgets REQUIRED)
 

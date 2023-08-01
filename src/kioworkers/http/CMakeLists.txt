@@ -20,10 +20,6 @@ endif()
 
 configure_file(config-gssapi.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-gssapi.h )
 
-if (NOT KIOCORE_ONLY)
-add_subdirectory( kcookiejar )
-endif()
-
 ########### next target ###############
 
 add_executable(kio_http_cache_cleaner)
