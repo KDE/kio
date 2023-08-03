@@ -12,9 +12,7 @@
 
 #include <QMenu>
 
-#include <KBookmarkDomBuilder>
 #include <QStandardPaths>
-#include <kbookmarkimporter.h>
 #include <kio/global.h>
 
 #include "kfilewidget.h"
