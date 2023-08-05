@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-31 02:37+0000\n"
-"PO-Revision-Date: 2023-07-15 06:19+0200\n"
+"PO-Revision-Date: 2023-08-04 18:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -962,6 +962,13 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
+"როცა ყველა იმედს გადაწურავთ, იფიქრეთ, დაეხმაროთ KDE-ის გუნდს ან მესამე პირის "
+"პროგრამისტებს მათთვის მაღალი ხარისხის ანაგარიშის გადაცემით. თუ პროგრამა "
+"მესამე პირმა მოგაწოდათ, მათ დაუკავშირდით. სხვა შემთხვევაში ჯერ შეხედეთ <a "
+"href=\"https://bugs.kde.org/\">KDE-ის შეცდომების ვებგვერდზე</a>, ამ შეცდომის "
+"შესახებ სხვამაც ხომ არ მოიწერა. თუ არა, ჩაიწერეთ ზემოთ მოხსენიებული დეტალები "
+"და დაურთეთ ისინი თქვენს ანგარიშს შეცდომის შესახებ იმ ყველაფერთან ერთად, "
+"რასაც ფიქრობთ, რომ სასარგებლო იქნება."
 
 #: core/job_error.cpp:407
 #, kde-format
@@ -2071,6 +2078,12 @@ msgid ""
 "settings in the KDE System Settings, by selecting Network Settings -> "
 "Connection Preferences."
 msgstr ""
+"მიუხედავად იმისა, რომ სერვერს დავუკავშირდით, დაკავშირებისთვის გამოყოფილ "
+"დროში ეს ვერ მოხერხდა შემდეგი მოთხოვნისთვის:<ul><li>კავშირის დამყარების "
+"ვადა: %1 წამი</li><li>პასუხის მიღების ვადა: %2 წამი</li><li>პროქსი სერვერთან "
+"მიერთების ვადა: %3 წამი</li></ul>დაიმახსოვრეთ, რომ ამ ვადების შეცვლა KDE-ის "
+"სისტემური პარამეტრებიდან შეგიძლიათ, მენუში ქსელის მორგება -> კავშირის "
+"გამართვა."
 
 #: core/job_error.cpp:1108
 #, kde-format
@@ -3370,6 +3383,11 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
+"<qt>ეს ფაილის გახსნის დიალოგის პარამეტრების მენიუა. ამ მენიუში ბევრი რამ "
+"შეგიძლიათ, იპოვოთ. მაგ: <ul><li>სიაში ფაილები რის მიხედვით ლაგდება</"
+"li><li>ხედის ტიპით, ხატულისა და სიის ჩათვლით</li><li>დამალული ფაილების "
+"ჩვენება</li><li>ადგილების პანელი</li><li>ფაილების მინიატურები</"
+"li><li>ფაილებისა და საქაღალდეების გაცალკევება</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1259
 #, kde-format
