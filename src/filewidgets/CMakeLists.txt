@@ -103,6 +103,7 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::I18n
     KF6::ConfigGui
     KF6::ConfigWidgets
+    KF6::BookmarksWidgets
 )
 
 ecm_generate_headers(KIOFileWidgets_HEADERS
