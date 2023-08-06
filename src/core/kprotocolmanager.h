@@ -189,14 +189,6 @@ public:
     static ProxyType proxyType();
 
     /**
-     * Returns the strings for hosts that should contacted
-     * DIRECTLY, bypassing any proxy settings.
-     * @return a list of (comma-separated) hostnames or partial host
-     *         names
-     */
-    static QString noProxyFor();
-
-    /**
      * Returns the proxy server address for a given
      * protocol.
      *

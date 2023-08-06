@@ -377,13 +377,6 @@ int KProtocolManager::maxCacheSize()
     return http_config().readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
 }
 
-QString KProtocolManager::noProxyFor()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return d->readNoProxyFor();
-}
-
 static QString adjustProtocol(const QString &scheme)
 {
     if (scheme.compare(QLatin1String("webdav"), Qt::CaseInsensitive) == 0) {
