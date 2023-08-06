@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 02:37+0000\n"
+"POT-Creation-Date: 2023-08-06 02:03+0000\n"
 "PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -5625,7 +5625,7 @@ msgstr "Dono"
 msgid "Owning Group"
 msgstr "Grupo Pertencente"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2081
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2075
 #, kde-format
 msgid "Others"
 msgstr "Outros"
@@ -6464,7 +6464,7 @@ msgstr ""
 msgid "Ad&vanced Options"
 msgstr "Opções A&vançadas"
 
-#: widgets/kpropertiesdialog.cpp:172
+#: widgets/kpropertiesdialog.cpp:171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6474,61 +6474,61 @@ msgstr ""
 "Não foi possível gravar as propriedades. Não tem acesso de escrita a:<nl/"
 "><filename>%1</filename>."
 
-#: widgets/kpropertiesdialog.cpp:229 widgets/kpropertiesdialog.cpp:244
-#: widgets/kpropertiesdialog.cpp:256 widgets/kpropertiesdialog.cpp:274
-#: widgets/kpropertiesdialog.cpp:292 widgets/kpropertiesdialog.cpp:316
+#: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
+#: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
+#: widgets/kpropertiesdialog.cpp:291 widgets/kpropertiesdialog.cpp:315
 #, kde-format
 msgid "Properties for %1"
 msgstr "Propriedades de %1"
 
-#: widgets/kpropertiesdialog.cpp:254 widgets/kpropertiesdialog.cpp:290
+#: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
 #, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
 msgstr[0] "Propriedades de um item"
 msgstr[1] "Propriedades de %1 itens"
 
-#: widgets/kpropertiesdialog.cpp:435
+#: widgets/kpropertiesdialog.cpp:431
 #, kde-format
 msgctxt "@title:tab"
 msgid "Share"
 msgstr "Partilhar"
 
-#: widgets/kpropertiesdialog.cpp:860
+#: widgets/kpropertiesdialog.cpp:854
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Geral"
 
-#: widgets/kpropertiesdialog.cpp:1057
+#: widgets/kpropertiesdialog.cpp:1051
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Explorar no %1"
 
-#: widgets/kpropertiesdialog.cpp:1068 widgets/kpropertiesdialog.cpp:1337
+#: widgets/kpropertiesdialog.cpp:1062 widgets/kpropertiesdialog.cpp:1331
 #, kde-format
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: widgets/kpropertiesdialog.cpp:1183
+#: widgets/kpropertiesdialog.cpp:1177
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialog.cpp:1297
+#: widgets/kpropertiesdialog.cpp:1291
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 livres em %2 (%3% utilizado)"
 
-#: widgets/kpropertiesdialog.cpp:1304
+#: widgets/kpropertiesdialog.cpp:1298
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: widgets/kpropertiesdialog.cpp:1314
+#: widgets/kpropertiesdialog.cpp:1308
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6537,134 +6537,134 @@ msgstr ""
 "A calcular... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialog.cpp:1317 widgets/kpropertiesdialog.cpp:1332
+#: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 ficheiro"
 msgstr[1] "%1 ficheiros"
 
-#: widgets/kpropertiesdialog.cpp:1318 widgets/kpropertiesdialog.cpp:1333
+#: widgets/kpropertiesdialog.cpp:1312 widgets/kpropertiesdialog.cpp:1327
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 sub-pasta"
 msgstr[1] "%1 sub-pastas"
 
-#: widgets/kpropertiesdialog.cpp:1346
+#: widgets/kpropertiesdialog.cpp:1340
 #, kde-format
 msgid "Calculating...\n"
 msgstr "A calcular...\n"
 
-#: widgets/kpropertiesdialog.cpp:1369
+#: widgets/kpropertiesdialog.cpp:1363
 #, kde-format
 msgid "At least %1\n"
 msgstr "Pelo menos %1\n"
 
-#: widgets/kpropertiesdialog.cpp:1415
+#: widgets/kpropertiesdialog.cpp:1409
 #, kde-format
 msgid "The new file name is empty."
 msgstr "O nome do novo ficheiro está em branco."
 
-#: widgets/kpropertiesdialog.cpp:1613
+#: widgets/kpropertiesdialog.cpp:1607
 #, kde-format
 msgid "No registered file type"
 msgstr "Nenhum tipo de ficheiros registado"
 
-#: widgets/kpropertiesdialog.cpp:1615
+#: widgets/kpropertiesdialog.cpp:1609
 #, kde-format
 msgid "No associated application"
 msgstr "Sem aplicação associada"
 
-#: widgets/kpropertiesdialog.cpp:1621
+#: widgets/kpropertiesdialog.cpp:1615
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Criar…"
 
-#: widgets/kpropertiesdialog.cpp:1624
+#: widgets/kpropertiesdialog.cpp:1618
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Modificar…"
 
-#: widgets/kpropertiesdialog.cpp:1700 widgets/kpropertiesdialog.cpp:1701
-#: widgets/kpropertiesdialog.cpp:1703
+#: widgets/kpropertiesdialog.cpp:1694 widgets/kpropertiesdialog.cpp:1695
+#: widgets/kpropertiesdialog.cpp:1697
 msgid "No Access"
 msgstr "Sem Acesso"
 
-#: widgets/kpropertiesdialog.cpp:1700
+#: widgets/kpropertiesdialog.cpp:1694
 msgid "Can Only View"
 msgstr "Só Pode Ver"
 
-#: widgets/kpropertiesdialog.cpp:1700
+#: widgets/kpropertiesdialog.cpp:1694
 msgid "Can View & Modify"
 msgstr "Pode Ver & Modificar"
 
-#: widgets/kpropertiesdialog.cpp:1701
+#: widgets/kpropertiesdialog.cpp:1695
 msgid "Can Only View Content"
 msgstr "Só Pode Ver o Conteúdo"
 
-#: widgets/kpropertiesdialog.cpp:1701
+#: widgets/kpropertiesdialog.cpp:1695
 msgid "Can View & Modify Content"
 msgstr "Pode Ver e Modificar o Conteúdo"
 
-#: widgets/kpropertiesdialog.cpp:1703
+#: widgets/kpropertiesdialog.cpp:1697
 msgid "Can Only View/Read Content"
 msgstr "Só Pode Ver/Ler o Conteúdo"
 
-#: widgets/kpropertiesdialog.cpp:1703
+#: widgets/kpropertiesdialog.cpp:1697
 msgid "Can View/Read & Modify/Write"
 msgstr "Pode Ver/Ler e Modificar/Escrever"
 
-#: widgets/kpropertiesdialog.cpp:1802
+#: widgets/kpropertiesdialog.cpp:1796
 #, kde-format
 msgid "&Permissions"
 msgstr "&Permissões"
 
-#: widgets/kpropertiesdialog.cpp:1814 widgets/kpropertiesdialog.cpp:2010
+#: widgets/kpropertiesdialog.cpp:1808 widgets/kpropertiesdialog.cpp:2004
 #, kde-format
 msgid "Access Permissions"
 msgstr "Permissões de Acesso"
 
-#: widgets/kpropertiesdialog.cpp:1823
+#: widgets/kpropertiesdialog.cpp:1817
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Este ficheiro é uma ligação e não tem permissões."
 msgstr[1] "Todos os ficheiros são ligações e não têm permissões."
 
-#: widgets/kpropertiesdialog.cpp:1825
+#: widgets/kpropertiesdialog.cpp:1819
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Só o dono pode alterar as permissões."
 
-#: widgets/kpropertiesdialog.cpp:1829
+#: widgets/kpropertiesdialog.cpp:1823
 #, kde-format
 msgid "O&wner:"
 msgstr "Do&no:"
 
-#: widgets/kpropertiesdialog.cpp:1835
+#: widgets/kpropertiesdialog.cpp:1829
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Indica as acções que o dono tem a possibilidade de fazer."
 
-#: widgets/kpropertiesdialog.cpp:1837
+#: widgets/kpropertiesdialog.cpp:1831
 #, kde-format
 msgid "Gro&up:"
 msgstr "Gr&upo:"
 
-#: widgets/kpropertiesdialog.cpp:1843
+#: widgets/kpropertiesdialog.cpp:1837
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Indica as acções que os membros do grupo têm a possibilidade de fazer."
 
-#: widgets/kpropertiesdialog.cpp:1845
+#: widgets/kpropertiesdialog.cpp:1839
 #, kde-format
 msgid "O&thers:"
 msgstr "Ou&tros:"
 
-#: widgets/kpropertiesdialog.cpp:1852
+#: widgets/kpropertiesdialog.cpp:1846
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6673,17 +6673,17 @@ msgstr ""
 "Indica as acções que todos os utilizadores, que não sejam o dono ou membros "
 "do grupo, têm a possibilidade de fazer."
 
-#: widgets/kpropertiesdialog.cpp:1856
+#: widgets/kpropertiesdialog.cpp:1850
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "Só o dono pod&e mudar o nome e remover o conteúdo da pasta"
 
-#: widgets/kpropertiesdialog.cpp:1856
+#: widgets/kpropertiesdialog.cpp:1850
 #, kde-format
 msgid "Is &executable"
 msgstr "É &executável"
 
-#: widgets/kpropertiesdialog.cpp:1859
+#: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6695,7 +6695,7 @@ msgstr ""
 "poderão adicionar ficheiros novos, o que necessita da permissão de "
 "'Modificar o Conteúdo'."
 
-#: widgets/kpropertiesdialog.cpp:1863
+#: widgets/kpropertiesdialog.cpp:1857
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6705,42 +6705,42 @@ msgstr ""
 "sentido para os programas e 'scripts'. É obrigatório quando os quiser "
 "executar."
 
-#: widgets/kpropertiesdialog.cpp:1870
+#: widgets/kpropertiesdialog.cpp:1864
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Permissões Avança&das"
 
-#: widgets/kpropertiesdialog.cpp:1878
+#: widgets/kpropertiesdialog.cpp:1872
 #, kde-format
 msgid "Ownership"
 msgstr "Dono"
 
-#: widgets/kpropertiesdialog.cpp:1885
+#: widgets/kpropertiesdialog.cpp:1879
 #, kde-format
 msgid "User:"
 msgstr "Utilizador:"
 
-#: widgets/kpropertiesdialog.cpp:1924
+#: widgets/kpropertiesdialog.cpp:1918
 #, kde-format
 msgid "Group:"
 msgstr "Grupo:"
 
-#: widgets/kpropertiesdialog.cpp:1959
+#: widgets/kpropertiesdialog.cpp:1953
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Aplicar as alterações a todas as subpastas e ao seu conteúdo"
 
-#: widgets/kpropertiesdialog.cpp:2001
+#: widgets/kpropertiesdialog.cpp:1995
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Permissões Avançadas"
 
-#: widgets/kpropertiesdialog.cpp:2018
+#: widgets/kpropertiesdialog.cpp:2012
 #, kde-format
 msgid "Class"
 msgstr "Classe"
 
-#: widgets/kpropertiesdialog.cpp:2025
+#: widgets/kpropertiesdialog.cpp:2019
 #, kde-format
 msgid ""
 "Show\n"
@@ -6749,22 +6749,22 @@ msgstr ""
 "Mostrar os\n"
 "Itens"
 
-#: widgets/kpropertiesdialog.cpp:2026
+#: widgets/kpropertiesdialog.cpp:2020
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Esta opção permite a visualização do conteúdo da pasta."
 
-#: widgets/kpropertiesdialog.cpp:2028
+#: widgets/kpropertiesdialog.cpp:2022
 #, kde-format
 msgid "Read"
 msgstr "Leitura"
 
-#: widgets/kpropertiesdialog.cpp:2029
+#: widgets/kpropertiesdialog.cpp:2023
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "A opção de Leitura permite a visualização do conteúdo do ficheiro."
 
-#: widgets/kpropertiesdialog.cpp:2035
+#: widgets/kpropertiesdialog.cpp:2029
 #, kde-format
 msgid ""
 "Write\n"
@@ -6773,7 +6773,7 @@ msgstr ""
 "Escrever os\n"
 "Itens"
 
-#: widgets/kpropertiesdialog.cpp:2037
+#: widgets/kpropertiesdialog.cpp:2031
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6782,44 +6782,44 @@ msgstr ""
 "Esta opção permite a adição, mudança de nome e remoção dos ficheiros. Lembre-"
 "se que a remoção e a mudança de nome podem ser limitadas com a opção Fixo."
 
-#: widgets/kpropertiesdialog.cpp:2040
+#: widgets/kpropertiesdialog.cpp:2034
 #, kde-format
 msgid "Write"
 msgstr "Escrita"
 
-#: widgets/kpropertiesdialog.cpp:2041
+#: widgets/kpropertiesdialog.cpp:2035
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "A opção de Escrita permite a modificação do conteúdo do ficheiro."
 
-#: widgets/kpropertiesdialog.cpp:2047
+#: widgets/kpropertiesdialog.cpp:2041
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Entrar"
 
-#: widgets/kpropertiesdialog.cpp:2048
+#: widgets/kpropertiesdialog.cpp:2042
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Active esta opção para permitir o acesso à pasta."
 
-#: widgets/kpropertiesdialog.cpp:2050
+#: widgets/kpropertiesdialog.cpp:2044
 #, kde-format
 msgid "Exec"
 msgstr "Exec"
 
-#: widgets/kpropertiesdialog.cpp:2051
+#: widgets/kpropertiesdialog.cpp:2045
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Active esta opção para permitir a execução do ficheiro como um programa."
 
-#: widgets/kpropertiesdialog.cpp:2059
+#: widgets/kpropertiesdialog.cpp:2053
 #, kde-format
 msgid "Special"
 msgstr "Especial"
 
-#: widgets/kpropertiesdialog.cpp:2064
+#: widgets/kpropertiesdialog.cpp:2058
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6828,7 +6828,7 @@ msgstr ""
 "A opção Especial é válida para toda a pasta; o significado exacto da opção "
 "pode ser visto na coluna do lado direito."
 
-#: widgets/kpropertiesdialog.cpp:2068
+#: widgets/kpropertiesdialog.cpp:2062
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6837,17 +6837,17 @@ msgstr ""
 "O significado exacto da opção Especial pode ser visto na coluna do lado "
 "direito."
 
-#: widgets/kpropertiesdialog.cpp:2073
+#: widgets/kpropertiesdialog.cpp:2067
 #, kde-format
 msgid "User"
 msgstr "Utilizador"
 
-#: widgets/kpropertiesdialog.cpp:2077
+#: widgets/kpropertiesdialog.cpp:2071
 #, kde-format
 msgid "Group"
 msgstr "Grupo"
 
-#: widgets/kpropertiesdialog.cpp:2088
+#: widgets/kpropertiesdialog.cpp:2082
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6856,7 +6856,7 @@ msgstr ""
 "Se esta opção estiver assinalada, o dono desta pasta será o dono de todos os "
 "ficheiros novos."
 
-#: widgets/kpropertiesdialog.cpp:2092
+#: widgets/kpropertiesdialog.cpp:2086
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6865,7 +6865,7 @@ msgstr ""
 "Se este ficheiro for um executável e a opção estiver assinalada, será "
 "executado  com permissões iguais às do dono."
 
-#: widgets/kpropertiesdialog.cpp:2099
+#: widgets/kpropertiesdialog.cpp:2093
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6873,7 +6873,7 @@ msgstr ""
 "Se esta opção estiver assinalada, o grupo desta pasta será alterado para "
 "todos os ficheiros novos."
 
-#: widgets/kpropertiesdialog.cpp:2103
+#: widgets/kpropertiesdialog.cpp:2097
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6882,7 +6882,7 @@ msgstr ""
 "Se este ficheiro for um executável e a opção estiver assinalada, o mesmo "
 "será executado com as permissões do grupo."
 
-#: widgets/kpropertiesdialog.cpp:2110
+#: widgets/kpropertiesdialog.cpp:2104
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6892,7 +6892,7 @@ msgstr ""
 "poderão remover ou mudar o nome dos ficheiros. Caso contrário, todos os "
 "utilizadores com permissões de escrita poderão fazer isso."
 
-#: widgets/kpropertiesdialog.cpp:2115
+#: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6901,70 +6901,70 @@ msgstr ""
 "A opção Fixo num ficheiro é ignorada no Linux, mas poderá fazer sentido em "
 "alguns sistemas"
 
-#: widgets/kpropertiesdialog.cpp:2176
+#: widgets/kpropertiesdialog.cpp:2170
 #, kde-format
 msgid "Set UID"
 msgstr "Mudar o UID"
 
-#: widgets/kpropertiesdialog.cpp:2180
+#: widgets/kpropertiesdialog.cpp:2174
 #, kde-format
 msgid "Set GID"
 msgstr "Mudar o GID"
 
-#: widgets/kpropertiesdialog.cpp:2184
+#: widgets/kpropertiesdialog.cpp:2178
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Fixo"
 
-#: widgets/kpropertiesdialog.cpp:2291
+#: widgets/kpropertiesdialog.cpp:2285
 #, kde-format
 msgid "Link"
 msgstr "Ligação"
 
-#: widgets/kpropertiesdialog.cpp:2311
+#: widgets/kpropertiesdialog.cpp:2305
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Variante (Sem Alteração)"
 
-#: widgets/kpropertiesdialog.cpp:2422
+#: widgets/kpropertiesdialog.cpp:2416
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Este ficheiro usa permissões avançadas"
 msgstr[1] "Estes ficheiros usam permissões avançadas."
 
-#: widgets/kpropertiesdialog.cpp:2444
+#: widgets/kpropertiesdialog.cpp:2438
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Esta pasta usa permissões avançadas."
 msgstr[1] "Estas pastas usam permissões avançadas."
 
-#: widgets/kpropertiesdialog.cpp:2458
+#: widgets/kpropertiesdialog.cpp:2452
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Estes ficheiros usam permissões avançadas."
 
-#: widgets/kpropertiesdialog.cpp:2704
+#: widgets/kpropertiesdialog.cpp:2698
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Códigos de Validação"
 
-#: widgets/kpropertiesdialog.cpp:2769 widgets/kpropertiesdialog.cpp:2780
-#: widgets/kpropertiesdialog.cpp:2791 widgets/kpropertiesdialog.cpp:2802
+#: widgets/kpropertiesdialog.cpp:2763 widgets/kpropertiesdialog.cpp:2774
+#: widgets/kpropertiesdialog.cpp:2785 widgets/kpropertiesdialog.cpp:2796
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "A calcular..."
 
-#: widgets/kpropertiesdialog.cpp:2958
+#: widgets/kpropertiesdialog.cpp:2952
 #, kde-format
 msgid "Invalid checksum."
 msgstr "O código de validação é inválido."
 
-#: widgets/kpropertiesdialog.cpp:2961
+#: widgets/kpropertiesdialog.cpp:2955
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
@@ -6972,18 +6972,18 @@ msgstr ""
 "Os dados indicados não são um código de validação MD5, SHA1 ou SHA256 "
 "correcto."
 
-#: widgets/kpropertiesdialog.cpp:2972
+#: widgets/kpropertiesdialog.cpp:2966
 #, kde-format
 msgid "Checksums match."
 msgstr "Os códigos de validação correspondem."
 
-#: widgets/kpropertiesdialog.cpp:2975
+#: widgets/kpropertiesdialog.cpp:2969
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "O código de validação calculado e o esperado correspondem."
 
-#: widgets/kpropertiesdialog.cpp:2987
+#: widgets/kpropertiesdialog.cpp:2981
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6994,29 +6994,29 @@ msgstr ""
 "transferência com problemas. Tente transferir de novo o ficheiro.<br/>Se a "
 "verificação continuar a falhar, contacte a origem do ficheiro."
 
-#: widgets/kpropertiesdialog.cpp:2992
+#: widgets/kpropertiesdialog.cpp:2986
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "O código de validação calculado e o esperado são diferentes."
 
-#: widgets/kpropertiesdialog.cpp:3000
+#: widgets/kpropertiesdialog.cpp:2994
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
 msgstr "A verificar o código de validação..."
 
-#: widgets/kpropertiesdialog.cpp:3089
+#: widgets/kpropertiesdialog.cpp:3083
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialog.cpp:3096
+#: widgets/kpropertiesdialog.cpp:3090
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3165 widgets/kpropertiesdialog.cpp:3430
+#: widgets/kpropertiesdialog.cpp:3159 widgets/kpropertiesdialog.cpp:3424
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -7024,27 +7024,27 @@ msgstr ""
 "Não foi possível gravar as propriedades. Apenas são suportados os elementos "
 "dos sistemas de ficheiros locais."
 
-#: widgets/kpropertiesdialog.cpp:3237
+#: widgets/kpropertiesdialog.cpp:3231
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicação"
 
-#: widgets/kpropertiesdialog.cpp:3370
+#: widgets/kpropertiesdialog.cpp:3364
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Adicionar o Tipo de Ficheiro para o %1"
 
-#: widgets/kpropertiesdialog.cpp:3371
+#: widgets/kpropertiesdialog.cpp:3365
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleccione um ou mais tipos de ficheiro a adicionar:"
 
-#: widgets/kpropertiesdialog.cpp:3513
+#: widgets/kpropertiesdialog.cpp:3507
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Apenas são suportados os executáveis dos sistemas de ficheiros locais."
 
-#: widgets/kpropertiesdialog.cpp:3527
+#: widgets/kpropertiesdialog.cpp:3521
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opções Avançadas do %1"
