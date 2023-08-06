@@ -644,13 +644,6 @@ public:
      *
      * @since 5.101
      */
-    static QString workerProtocol(const QUrl &url, QString &proxy);
-
-    /**
-     * Overloaded function that returns a list of all available proxy servers.
-     *
-     * @since 5.101
-     */
     static QString workerProtocol(const QUrl &url, QStringList &proxy);
 
     /**

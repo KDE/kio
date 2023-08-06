@@ -79,7 +79,7 @@ void KProtocolInfoTest::testShowFilePreview()
 
 void KProtocolInfoTest::testWorkerProtocol()
 {
-    QString proxy;
+    QStringList proxy;
     QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(!KProtocolManager::useProxy());
@@ -109,7 +109,7 @@ void KProtocolInfoTest::testProxySettings()
     cfg.writeEntry("ProxyType", proxyType);
     cfg.sync();
     KProtocolManager::reparseConfiguration();
-    QString proxy;
+    QStringList proxy;
     QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(KProtocolManager::useProxy());

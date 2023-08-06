@@ -614,16 +614,6 @@ void KProtocolManager::badProxy(const QString &proxy)
     }
 }
 
-QString KProtocolManager::workerProtocol(const QUrl &url, QString &proxy)
-{
-    QStringList proxyList;
-    const QString protocol = KProtocolManager::workerProtocol(url, proxyList);
-    if (!proxyList.isEmpty()) {
-        proxy = proxyList.first();
-    }
-    return protocol;
-}
-
 // Generates proxy cache key from request given url.
 static QString extractProxyCacheKeyFromUrl(const QUrl &u)
 {
@@ -967,7 +957,7 @@ static KProtocolInfoPrivate *findProtocol(const QUrl &url)
     }
     QString protocol = url.scheme();
     if (!KProtocolInfo::proxiedBy(protocol).isEmpty()) {
-        QString dummy;
+        QStringList dummy;
         protocol = KProtocolManager::workerProtocol(url, dummy);
     }
 
