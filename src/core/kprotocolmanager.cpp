@@ -529,20 +529,6 @@ QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
     return proxyList;
 }
 
-void KProtocolManager::badProxy(const QString &proxy)
-{
-#ifndef KIO_ANDROID_STUB
-    QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/proxyscout")).asyncCall(QStringLiteral("blackListProxy"), proxy);
-#endif
-
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    const QStringList keys(d->cachedProxyData.keys());
-    for (const QString &key : keys) {
-        d->cachedProxyData[key]->removeAddress(proxy);
-    }
-}
-
 // Generates proxy cache key from request given url.
 static QString extractProxyCacheKeyFromUrl(const QUrl &u)
 {

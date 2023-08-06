@@ -199,13 +199,6 @@ public:
     static QString proxyFor(const QString &protocol);
 
     /**
-     * Marks this proxy as bad (down). It will not be used for the
-     * next 30 minutes. (The script may supply an alternate proxy)
-     * @param proxy the proxy to mark as bad (as URL)
-     */
-    static void badProxy(const QString &proxy);
-
-    /**
      * Returns the URL of the script for automatic proxy configuration.
      * @return the proxy configuration script
      */
