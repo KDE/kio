@@ -81,6 +81,23 @@ public:
      *
      */
     static QString workerProtocol(const QUrl &url, QStringList &proxy);
+
+    /**
+     * Returns all the possible proxy server addresses for @p url.
+     *
+     * If the selected proxy type is @ref PACProxy or @ref WPADProxy, then a
+     * helper kded module, proxyscout, is used to determine the proxy information.
+     * Otherwise, @ref proxyFor is used to find the proxy to use for the given url.
+     *
+     * If this function returns empty list, then the request is to a proxy server
+     * must be denied. For a direct connection, this function will return a single
+     * entry of "DIRECT".
+     *
+     *
+     * @param url the URL whose proxy info is needed
+     * @returns the proxy server address if one is available, otherwise an empty list .
+     */
+    static QStringList proxiesForUrl(const QUrl &url);
 };
 
 #endif

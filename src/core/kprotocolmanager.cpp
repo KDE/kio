@@ -474,7 +474,7 @@ QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
     return proxies;
 }
 
-QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
+QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
 {
     QStringList proxyList;
 
@@ -482,8 +482,8 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
     QMutexLocker lock(&d->mutex);
     if (!d->shouldIgnoreProxyFor(url)) {
         switch (d->proxyType()) {
-        case PACProxy:
-        case WPADProxy: {
+        case KProtocolManager::PACProxy:
+        case KProtocolManager::WPADProxy: {
             QUrl u(url);
             const QString protocol = adjustProtocol(u.scheme());
             u.setScheme(protocol);
@@ -498,10 +498,10 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
 #endif
             break;
         }
-        case EnvVarProxy:
+        case KProtocolManager::EnvVarProxy:
             proxyList = d->getSystemProxyFor(url);
             break;
-        case ManualProxy: {
+        case KProtocolManager::ManualProxy: {
             QString proxy(d->proxyFor(url.scheme()));
             if (!proxy.isEmpty()) {
                 proxyList << proxy;
@@ -517,7 +517,7 @@ QStringList KProtocolManager::proxiesForUrl(const QUrl &url)
             }
             break;
         }
-        case NoProxy:
+        case KProtocolManager::NoProxy:
             break;
         }
     }
@@ -579,7 +579,7 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
     }
     lock.unlock();
 
-    const QStringList proxies = KProtocolManager::proxiesForUrl(url);
+    const QStringList proxies = KProtocolManagerPrivate::proxiesForUrl(url);
     const int count = proxies.count();
 
     if (count > 0 && !(count == 1 && proxies.first() == QLatin1String("DIRECT"))) {
