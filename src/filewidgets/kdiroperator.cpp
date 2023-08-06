@@ -73,8 +73,7 @@ public:
     explicit KDirOperatorPrivate(KDirOperator *qq)
         : q(qq)
     {
-        KConfigGroup cg(KSharedConfig::openConfig(), "SmallIcons");
-        m_iconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeSmall));
+        m_iconSize = static_cast<int>(KIconLoader::SizeSmall);
     }
 
     ~KDirOperatorPrivate();
@@ -2845,8 +2844,7 @@ KDirOperatorPrivate::ZoomSettingsForView KDirOperatorPrivate::zoomSettingsForVie
         }
     }
 
-    KConfigGroup cg(config, "SmallIcons");
-    const int smallIconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeSmall));
+    const int smallIconSize = static_cast<int>(KIconLoader::SizeSmall);
     if (KFile::isTreeView(fv)) {
         return {QStringLiteral("treeViewIconSize"), smallIconSize};
     } else {
