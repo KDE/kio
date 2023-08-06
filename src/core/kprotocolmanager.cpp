@@ -419,17 +419,6 @@ QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
     return proxyStr;
 }
 
-QString KProtocolManager::proxyForUrl(const QUrl &url)
-{
-    const QStringList proxies = proxiesForUrl(url);
-
-    if (proxies.isEmpty()) {
-        return QString();
-    }
-
-    return proxies.first();
-}
-
 QStringList KProtocolManagerPrivate::getSystemProxyFor(const QUrl &url)
 {
     QStringList proxies;

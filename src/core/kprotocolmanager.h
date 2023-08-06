@@ -199,22 +199,6 @@ public:
     static QString proxyFor(const QString &protocol);
 
     /**
-     * Returns the Proxy server address for a given URL.
-     *
-     * If the selected proxy type is @ref PACProxy or @ref WPADProxy, then a
-     * helper kded module, proxyscout, is used to determine the proxy information.
-     * Otherwise, @ref proxyFor is used to find the proxy to use for the given url.
-     *
-     * If this function returns an empty string, then the request to a proxy server
-     * must be denied. For a direct connection, without the use of a proxy, this
-     * function will return "DIRECT".
-     *
-     * @param url the URL whose proxy info is needed
-     * @returns the proxy server address if one is available, otherwise a QString().
-     */
-    static QString proxyForUrl(const QUrl &url);
-
-    /**
      * Returns all the possible proxy server addresses for @p url.
      *
      * If the selected proxy type is @ref PACProxy or @ref WPADProxy, then a
