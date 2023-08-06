@@ -1170,7 +1170,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
                 KBookmark bookmark = placesModel->bookmarkForIndex(index);
                 const bool isSystemItem = bookmark.metaDataItem(QStringLiteral("isSystemItem")) == QLatin1String("true");
                 if (!isSystemItem) {
-                    remove = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action:inmenu", "Remove"), &menu);
+                    remove = new QAction(QIcon::fromTheme(QStringLiteral("bookmark-remove-symbolic")), i18nc("@action:inmenu", "Remove from Places"), &menu);
                 }
             }
 
