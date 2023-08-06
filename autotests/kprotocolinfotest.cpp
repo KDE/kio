@@ -15,6 +15,7 @@
 #include <QUrl>
 #include <algorithm>
 #include <kprotocolmanager.h>
+#include <kprotocolmanager_p.h>
 
 // Tests both KProtocolInfo and KProtocolManager
 
@@ -80,13 +81,13 @@ void KProtocolInfoTest::testShowFilePreview()
 void KProtocolInfoTest::testWorkerProtocol()
 {
     QStringList proxy;
-    QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    QString protocol = KProtocolManagerPrivate::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
-    protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    protocol = KProtocolManagerPrivate::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
 }
 
@@ -110,7 +111,7 @@ void KProtocolInfoTest::testProxySettings()
     cfg.sync();
     KProtocolManager::reparseConfiguration();
     QStringList proxy;
-    QString protocol = KProtocolManager::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
+    QString protocol = KProtocolManagerPrivate::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
     QVERIFY(KProtocolManager::useProxy());
 

@@ -12,6 +12,7 @@
 
 #include "connection_p.h"
 #include "job_p.h"
+#include "kprotocolmanager_p.h"
 #include "sessiondata_p.h"
 #include "worker_p.h"
 #include "workerconfig.h"
@@ -690,7 +691,7 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     // qDebug() << job;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     jobPriv->m_proxyList.clear();
-    jobPriv->m_protocol = KProtocolManager::workerProtocol(job->url(), jobPriv->m_proxyList);
+    jobPriv->m_protocol = KProtocolManagerPrivate::workerProtocol(job->url(), jobPriv->m_proxyList);
 
     ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
     proto->queueJob(job);

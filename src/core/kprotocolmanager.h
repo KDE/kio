@@ -633,20 +633,6 @@ public:
     static void reparseConfiguration();
 
     /**
-     * Return the protocol to use in order to handle the given @p url
-     * It's usually the same, except that FTP, when handled by a proxy,
-     * needs an HTTP KIO worker.
-     *
-     * When a proxy is to be used, proxy contains the URL for the proxy.
-     * @param url the url to check
-     * @param proxy the URL of the proxy to use
-     * @return the worker protocol (e.g. 'http'), can be null if unknown
-     *
-     * @since 5.101
-     */
-    static QString workerProtocol(const QUrl &url, QStringList &proxy);
-
-    /**
      * Return Accept-Languages header built up according to user's desktop
      * language settings.
      * @return Accept-Languages header string

@@ -11,6 +11,7 @@
 
 #include "kprotocolmanager.h"
 #include "kprotocolinfo_p.h"
+#include "kprotocolmanager_p.h"
 
 #include "hostinfo.h"
 
@@ -54,8 +55,6 @@
 #include "http_worker_defaults.h"
 #include "ioworker_defaults.h"
 #include "workerconfig.h"
-
-using SubnetPair = QPair<QHostAddress, int>;
 
 /*
     Domain suffix match. E.g. return true if host is "cuzco.inka.de" and
@@ -103,50 +102,6 @@ static bool revmatch(const char *host, const char *nplist)
 
     return false;
 }
-
-class KProxyData : public QObject
-{
-    Q_OBJECT
-public:
-    KProxyData(const QString &workerProtocol, const QStringList &proxyAddresses)
-        : protocol(workerProtocol)
-        , proxyList(proxyAddresses)
-    {
-    }
-
-    void removeAddress(const QString &address)
-    {
-        proxyList.removeAll(address);
-    }
-
-    QString protocol;
-    QStringList proxyList;
-};
-
-class KProtocolManagerPrivate
-{
-public:
-    KProtocolManagerPrivate();
-    ~KProtocolManagerPrivate();
-    bool shouldIgnoreProxyFor(const QUrl &url);
-    void sync();
-    KProtocolManager::ProxyType proxyType();
-    bool useReverseProxy();
-    QString readNoProxyFor();
-    QString proxyFor(const QString &protocol);
-    QStringList getSystemProxyFor(const QUrl &url);
-
-    QMutex mutex; // protects all member vars
-    KSharedConfig::Ptr configPtr;
-    KSharedConfig::Ptr http_config;
-    QString modifiers;
-    QString useragent;
-    QString noProxyFor;
-    QList<SubnetPair> noProxySubnets;
-    QCache<QString, KProxyData> cachedProxyData;
-
-    QMap<QString /*mimetype*/, QString /*protocol*/> protocolForArchiveMimetypes;
-};
 
 Q_GLOBAL_STATIC(KProtocolManagerPrivate, kProtocolManagerPrivate)
 
@@ -626,7 +581,7 @@ static QString extractProxyCacheKeyFromUrl(const QUrl &u)
     return key;
 }
 
-QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList)
+QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &proxyList)
 {
     proxyList.clear();
 
@@ -650,7 +605,7 @@ QString KProtocolManager::workerProtocol(const QUrl &url, QStringList &proxyList
     }
     lock.unlock();
 
-    const QStringList proxies = proxiesForUrl(url);
+    const QStringList proxies = KProtocolManager::proxiesForUrl(url);
     const int count = proxies.count();
 
     if (count > 0 && !(count == 1 && proxies.first() == QLatin1String("DIRECT"))) {
@@ -958,7 +913,7 @@ static KProtocolInfoPrivate *findProtocol(const QUrl &url)
     QString protocol = url.scheme();
     if (!KProtocolInfo::proxiedBy(protocol).isEmpty()) {
         QStringList dummy;
-        protocol = KProtocolManager::workerProtocol(url, dummy);
+        protocol = KProtocolManagerPrivate::workerProtocol(url, dummy);
     }
 
     return KProtocolInfoFactory::self()->findProtocol(protocol);
