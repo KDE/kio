@@ -189,25 +189,6 @@ public:
     static ProxyType proxyType();
 
     /**
-     * Proxy authorization modes.
-     *
-     * @li Prompt     - Ask for authorization as needed
-     * @li Automatic  - Use auto login as defined in kionetrc files.
-     */
-    enum ProxyAuthMode {
-        Prompt,
-        Automatic,
-    };
-
-    /**
-     * Returns the way proxy authorization should be handled.
-     *
-     * @return the proxy authorization mode
-     * @see ProxyAuthMode
-     */
-    static ProxyAuthMode proxyAuthMode();
-
-    /**
      * Returns the strings for hosts that should contacted
      * DIRECTLY, bypassing any proxy settings.
      * @return a list of (comma-separated) hostnames or partial host

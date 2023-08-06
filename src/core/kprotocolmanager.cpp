@@ -336,14 +336,6 @@ KProtocolManager::ProxyType KProtocolManager::proxyType()
     return d->proxyType();
 }
 
-KProtocolManager::ProxyAuthMode KProtocolManager::proxyAuthMode()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    KConfigGroup cg(config(), "Proxy Settings");
-    return static_cast<ProxyAuthMode>(cg.readEntry("AuthMode", 0));
-}
-
 /*========================== CACHING =====================================*/
 
 bool KProtocolManager::useCache()
