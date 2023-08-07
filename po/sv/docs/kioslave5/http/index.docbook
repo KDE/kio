@@ -43,10 +43,10 @@
 >rotocol, hypertextöverföringsprotokoll.</para>
 
 <para
->I/O-slaven http används av alla &kde;-program för att hantera anslutningar till &HTTP;-servrar, dvs. webbservrar. Den vanligaste användningen är att titta på webbsidor i webbläsaren &konqueror;.</para>
+>I/O-arbetaren http används av alla &kde;-program för att hantera anslutningar till &HTTP;-servrar, dvs. webbservrar. Den vanligaste användningen är att titta på webbsidor i webbläsaren &konqueror;.</para>
 
 <para
->Du kan använda I/O-slaven https i &konqueror; genom att ge den en webbadress, <userinput
+>Du kan använda I/O-arbetaren https i &konqueror; genom att ge den en webbadress, <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput
