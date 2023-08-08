@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -3398,7 +3398,7 @@ msgstr "Bewurkje"
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "Fuortsmite"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -8032,6 +8032,12 @@ msgstr "KDE test programma"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Fuortsmite"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Multiple get wordt niet ondersteund door protocol %1."

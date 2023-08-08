@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3322,7 +3322,7 @@ msgstr "सम्पादन गर्नुहोस्"
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "हटाउनुहोस्"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -7878,6 +7878,12 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "हटाउनुहोस्"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "%1 प्रोटोकलसँग बहुविध प्राप्ति समर्थित छैन ।"

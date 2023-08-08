@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2022-12-28 20:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -3256,10 +3256,11 @@ msgid "&Edit…"
 msgstr "&Modifică…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Elimină"
+msgid "Remove from Places"
+msgstr "Elimină fișier"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7710,6 +7711,10 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Elimină"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Nu sunt suportate transferuri multiple cu protocolul „%1”."

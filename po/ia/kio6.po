@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2023-07-09 21:20+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3243,10 +3243,11 @@ msgid "&Edit…"
 msgstr "&Edita…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Remove"
+msgid "Remove from Places"
+msgstr "Remove file"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7614,6 +7615,10 @@ msgstr "Isto startara le programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si tu non ha fide in iste programma, tu pulsa Cancella"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Remove"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Multiple get non es supportate con protocollo %1."

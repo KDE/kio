@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2023-04-29 09:55+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -3294,10 +3294,11 @@ msgid "&Edit…"
 msgstr "&Modifier..."
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Supprimer"
+msgid "Remove from Places"
+msgstr "Supprimer un fichier"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7719,6 +7720,10 @@ msgstr "Ceci va démarrer le programme :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Supprimer"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Le protocole %1 ne gère pas les téléchargements multiples."

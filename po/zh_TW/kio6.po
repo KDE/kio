@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
-"PO-Revision-Date: 2023-05-17 04:35+0900\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"PO-Revision-Date: 2023-08-07 19:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -522,7 +522,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"無法裝載裝置。\n"
+"無法掛載裝置。\n"
 "回應的錯誤為：\n"
 "%1"
 
@@ -1542,7 +1542,7 @@ msgstr "無法初始化輸入/輸出裝置"
 #: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
-msgstr "無法裝載裝置"
+msgstr "無法掛載裝置"
 
 #: core/job_error.cpp:765
 #, kde-format
@@ -1568,7 +1568,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"您可能沒有權限初始化 (裝載, mount) 該裝置。在 UNIX 系統上，通常需要系統管理員"
+"您可能沒有權限初始化 (掛載, mount) 該裝置。在 UNIX 系統上，通常需要系統管理員"
 "的權限，才能初始化裝置。"
 
 #: core/job_error.cpp:779
@@ -2415,7 +2415,7 @@ msgstr "只用於目前的工作階段(&C)"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3026,7 +3026,7 @@ msgstr "、"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "用分割區管理員進行重新格式化或編輯"
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -3070,10 +3070,11 @@ msgid "&Edit…"
 msgstr "編輯(&E)…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "移除"
+msgid "Remove from Places"
+msgstr "移除檔案"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -3949,13 +3950,12 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "無法變更 %1 的權限。"
+msgstr "無法變更以下檔案的擁有者及群組%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
@@ -4320,13 +4320,7 @@ msgid ""
 msgstr "資源無法在目標被建立，直到一個或多個中間集合(資料夾)已經被建立之後。"
 
 #: kioworkers/http/http.cpp:1646
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element\n"
-#| " or you attempted to overwrite a file while requesting that files are not "
-#| "overwritten.\n"
-#| " %1"
+#, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
 "properties listed in the propertybehavior XML element\n"
@@ -4334,9 +4328,10 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"伺服器無法維護列表在在屬性行為的 XML 元素中的屬性的生存或是您試圖在不被覆寫"
-"的\n"
-"檔案裡覆寫一個檔案。 %1"
+"伺服器無法維護在 propertybehavior（屬性行為）XML 元素\n"
+"中列舉的屬性的活性狀態，或是您要求檔案不被覆寫的同時\n"
+"仍然試圖覆寫檔案。\n"
+" %1"
 
 #: kioworkers/http/http.cpp:1654
 #, kde-format
@@ -5533,10 +5528,9 @@ msgstr "在 Filelight 瀏覽"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Mounted from:"
+#, kde-format
 msgid "Mounted From:"
-msgstr "掛載於："
+msgstr "掛載來源："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:219
@@ -6953,10 +6947,9 @@ msgid "This action will overwrite the destination."
 msgstr "此動作將覆寫目的地。"
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "此動作將覆寫目的地。"
+msgstr "此動作將會把「%1」的內容合併到「%2」中。"
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
@@ -7287,6 +7280,10 @@ msgstr "這會啟動此程式："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "若您不信任此程式，請點擊「取消」"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "移除"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "%1 通訊協定不支援多重擷取。"

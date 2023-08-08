@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3324,7 +3324,7 @@ msgstr "Επεξεργασία"
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "Αφαίρεση"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -7890,6 +7890,12 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Αφαίρεση"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Το πολλαπλό get δεν υποστηρίζεται με το πρωτόκολλο %1."

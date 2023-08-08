@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -3090,7 +3090,7 @@ msgstr ""
 #: filewidgets/kfileplacesview.cpp:1173
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr ""
 
 #: filewidgets/kfileplacesview.cpp:1177

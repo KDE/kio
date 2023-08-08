@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2017-05-16 06:50-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -3199,7 +3199,7 @@ msgstr "ערוך"
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "הסר"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -7586,6 +7586,12 @@ msgstr "זה יפעיל את התוכנה: "
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם אינך סומך על התוכנה הזאת, לחץ על בטל."
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "הסר"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "הורדה מרובה אינה נתמכת בפרוטוקול %1."

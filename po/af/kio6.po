@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3374,7 +3374,7 @@ msgstr "Redigeer..."
 #: filewidgets/kfileplacesview.cpp:1173
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "Verwyder Inskrywing"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -7973,6 +7973,11 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Verwyder Inskrywing"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Veelvoudige 'gets' word nie deur protokol %1 ondersteun nie."

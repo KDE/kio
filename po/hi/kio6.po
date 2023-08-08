@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -3168,7 +3168,7 @@ msgstr "संपादन"
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
-msgid "Remove"
+msgid "Remove from Places"
 msgstr "हटाएँ"
 
 #: filewidgets/kfileplacesview.cpp:1177
@@ -7574,6 +7574,12 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "हटाएँ"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "प्रोटोकॉल %1 के साथ मल्टीपल गेट समर्थित नहीं है."

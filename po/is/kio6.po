@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2023-03-22 08:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -3202,10 +3202,11 @@ msgid "&Edit…"
 msgstr "Br&eyta…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Fjarlægja"
+msgid "Remove from Places"
+msgstr "Fjarlægja skrá"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7557,6 +7558,10 @@ msgstr "Þetta mun ræsa forritið:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Fjarlægja"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Ekki er hægt sækja margar skrár í einu með samskiptareglunni %1."

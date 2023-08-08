@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -3245,10 +3245,10 @@ msgstr "Editëjë"
 
 #: filewidgets/kfileplacesview.cpp:1173
 #, fuzzy, kde-format
-#| msgid "&Remove"
+#| msgid "Delete Files"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "&Rëmôj"
+msgid "Remove from Places"
+msgstr "Rëmôj lopczi"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7540,6 +7540,12 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid "&Remove"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "&Rëmôj"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Ladowanié wielu lopków nie je òbsłëgiwóné przez protokół %1."

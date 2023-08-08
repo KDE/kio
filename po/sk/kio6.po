@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:03+0000\n"
+"POT-Creation-Date: 2023-08-08 02:04+0000\n"
 "PO-Revision-Date: 2023-06-03 21:00+0200\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
@@ -3186,10 +3186,11 @@ msgid "&Edit…"
 msgstr "&Upraviť..."
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove File"
 msgctxt "@action:inmenu"
-msgid "Remove"
-msgstr "Odstrániť"
+msgid "Remove from Places"
+msgstr "Odstrániť súbor"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7557,6 +7558,10 @@ msgstr "Spustí sa program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Remove"
+#~ msgstr "Odstrániť"
 
 #~ msgid "Multiple get is not supported with protocol %1."
 #~ msgstr "Viacnásobné získanie súborov nie je protokolom %1 podporované."
