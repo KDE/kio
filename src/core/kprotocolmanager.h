@@ -77,34 +77,6 @@ public:
     static QString defaultUserAgent(const QString &keys);
 
     /**
-     * Returns the application's user-agent string.
-     * Example string is "KMail/1.9.50 (Windows/6.0; KDE/3.97.1; i686; svn-762186; 2008-01-15)",
-     * where "KMail" is the @p appName parameter, "1.9.50" is the @p appVersion parameter,
-     * "Windows/6.0; KDE/3.97.1; i686" part is added automatically and "svn-762186; 2008-01-15"
-     * is provided by @p extraInfo list.
-     *
-     * @param appName name of the application
-     * @param appVersion name of the application
-     * @param extraInfo a list of elements that will be appended to the string as extra information
-     * @return the application's user-agent string
-     *
-     */
-    static QString userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo = QStringList());
-
-    /**
-     * Returns the user-agent string configured for the
-     * specified host.
-     *
-     * If hostname is not found or is empty (i.e. "" or
-     * QString()) this function will return the default
-     * user agent.
-     *
-     * @param hostname name of the host
-     * @return specified user-agent string
-     */
-    static QString userAgentForHost(const QString &hostname);
-
-    /**
      * Returns system name, version and machine type, for example "Windows", "5.1", "i686".
      * This information can be used for constructing custom user-agent strings.
      *

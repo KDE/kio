@@ -605,24 +605,6 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
 
 /*================================= USER-AGENT SETTINGS =====================*/
 
-QString KProtocolManager::userAgentForHost(const QString &hostname)
-{
-    const QString sendUserAgent = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("SendUserAgent")).toLower();
-    if (sendUserAgent == QLatin1String("false")) {
-        return QString();
-    }
-
-    const QString useragent = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), hostname.toLower(), QStringLiteral("UserAgent"));
-
-    // Return the default user-agent if none is specified
-    // for the requested host.
-    if (useragent.isEmpty()) {
-        return defaultUserAgent();
-    }
-
-    return useragent;
-}
-
 QString KProtocolManager::defaultUserAgent()
 {
     const QString modifiers = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
@@ -698,28 +680,6 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
 
     // qDebug() << "USERAGENT STRING:" << d->useragent;
     return d->useragent;
-}
-
-QString KProtocolManager::userAgentForApplication(const QString &appName, const QString &appVersion, const QStringList &extraInfo)
-{
-    QString systemName;
-    QString systemVersion;
-    QString machine;
-    QString info;
-
-    if (getSystemNameVersionAndMachine(systemName, systemVersion, machine)) {
-        info += systemName + QLatin1Char('/') + systemVersion + QLatin1String("; ");
-    }
-
-    info += QLatin1String("KDE/") + QStringLiteral(KIO_VERSION_STRING);
-
-    if (!machine.isEmpty()) {
-        info += QLatin1String("; ") + machine;
-    }
-
-    info += QLatin1String("; ") + extraInfo.join(QLatin1String("; "));
-
-    return (appName + QLatin1Char('/') + appVersion + QStringLiteral(" (") + info + QLatin1Char(')'));
 }
 
 bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
