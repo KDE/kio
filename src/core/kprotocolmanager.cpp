@@ -608,7 +608,7 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
 QString KProtocolManager::defaultUserAgent()
 {
     const QString modifiers = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
-    return defaultUserAgent(modifiers);
+    return KProtocolManagerPrivate::defaultUserAgent(modifiers);
 }
 
 // This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
@@ -625,7 +625,7 @@ static QString platform()
 #endif
 }
 
-QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
+QString KProtocolManagerPrivate::defaultUserAgent(const QString &_modifiers)
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
@@ -644,7 +644,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
     QString systemVersion;
     QString machine;
     QString supp;
-    const bool sysInfoFound = getSystemNameVersionAndMachine(systemName, systemVersion, machine);
+    const bool sysInfoFound = KProtocolManagerPrivate::getSystemNameVersionAndMachine(systemName, systemVersion, machine);
 
     supp += platform();
 
@@ -682,7 +682,7 @@ QString KProtocolManager::defaultUserAgent(const QString &_modifiers)
     return d->useragent;
 }
 
-bool KProtocolManager::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
+bool KProtocolManagerPrivate::getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine)
 {
 #if defined(Q_OS_WIN)
     // we do not use unameBuf.sysname information constructed in kdewin32

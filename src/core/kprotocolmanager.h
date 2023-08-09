@@ -62,32 +62,6 @@ public:
      */
     static QString defaultUserAgent();
 
-    /**
-     * Returns the default user-agent value used for web browsing, for example
-     * "Mozilla/5.0 (compatible; Konqueror/4.0; Linux; X11; i686; en_US) KHTML/4.0.1 (like Gecko)"
-     *
-     * @param keys can be any of the following:
-     * @li 'o'    Show OS
-     * @li 'v'    Show OS Version
-     * @li 'p'    Show platform (only for X11)
-     * @li 'm'    Show machine architecture
-     * @li 'l'    Show language
-     * @return the default user-agent value with the given @p keys
-     */
-    static QString defaultUserAgent(const QString &keys);
-
-    /**
-     * Returns system name, version and machine type, for example "Windows", "5.1", "i686".
-     * This information can be used for constructing custom user-agent strings.
-     *
-     * @param systemName system name
-     * @param systemVersion system version
-     * @param machine machine type
-
-     * @return true if system name, version and machine type has been provided
-     */
-    static bool getSystemNameVersionAndMachine(QString &systemName, QString &systemVersion, QString &machine);
-
     /*=========================== TIMEOUT CONFIG ================================*/
 
     /**
