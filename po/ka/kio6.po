@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-08 02:04+0000\n"
-"PO-Revision-Date: 2023-08-04 18:46+0200\n"
+"PO-Revision-Date: 2023-08-09 06:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3182,11 +3182,10 @@ msgid "&Edit…"
 msgstr "&ჩასწორება…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "ფაილის წაშლა"
+msgstr "ადგილებიდან წაშლა"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -4463,6 +4462,11 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
+"სერვერმა 'propertybehavior' XML ელემენტში ჩამოთვლილი\n"
+"თვისებების ცოცხლობა ვერ უზრუნველყო, ან თქვენ\n"
+"სცადეთ გადაგეწერათ ფაილი, რომელიც\n"
+"არ უნდა შეცვლილიყო.\n"
+"%1"
 
 #: kioworkers/http/http.cpp:1654
 #, kde-format
@@ -5862,6 +5866,18 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
+"ბრძანების შემდეგ გექნებათ რამდენიმე ცვლადი, რომელიც, როცა პროგრამა "
+"გაშვებულია, მიმდინარე მნიშვნელობებით ჩანაცვლდება:\n"
+"%f - ერთი ფაილის სახელი\n"
+"%F - ფაილების სია. გამოიყენება აპლიკაციებისთვის, რომლებსაც ერთდროულად "
+"რამდენიმე ფაილის გახსნა შეუძლიათ.\n"
+"%u - ერთი ბმული\n"
+"%U - ბმულების სია\n"
+"%d - გასახსნელი ფაილის საქაღალდე\n"
+"%D - საქაღალდეების სია\n"
+"%i - ხატულა\n"
+"%m - მინიხატულა\n"
+"%c - კომენტარი"
 
 #: widgets/kopenwithdialog.cpp:741
 #, kde-format
@@ -6154,6 +6170,20 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
+"აქ აკრიფეთ არგუმენტები, რომელიც ამ აპლიკაციის გაშვებისას გნებავთ, "
+"გამოიყენოთ.\n"
+"\n"
+"შეგიძლიათ გამოიყენოთ რამდენიმე ადგილმჭერი, რომელიც პროგრამის გაშვებისას "
+"ნამდვილი მნიშვნელობებით ჩანაცვლდება:\n"
+"\n"
+"%f - ერთი ფაილი სახელი\n"
+"%F - ფაილების სია (აპლიკაციებისთვის, რომლებსაც ერთდროულად ერთზე მეტი ფაილის "
+"გახსნა შეუძლიათ)\n"
+"%u - ერთი ბმული\n"
+"%U - ბმულების სია\n"
+"%i - .desktop ფაილის ხატულა\n"
+"%c - .desktop ფაილის სახელი\n"
+"%k - .desktop ფაილის მდებარეობა"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
