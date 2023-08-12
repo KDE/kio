@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-08 02:04+0000\n"
-"PO-Revision-Date: 2023-03-22 08:09+0000\n"
+"PO-Revision-Date: 2023-08-11 13:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -2540,7 +2540,7 @@ msgstr "Aðeins í &þessari setu"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
@@ -3158,7 +3158,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Endursníða eða breyta með disksneiðaumsýslu"
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -3202,11 +3202,10 @@ msgid "&Edit…"
 msgstr "Br&eyta…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Fjarlægja skrá"
+msgstr "Fjarlægja úr Staðir"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -4118,13 +4117,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Ekki tókst að breyta eiganda %1."
+msgstr ""
+"Ekki tókst að breyta eiganda og hóp fyrir\n"
+"%1"
 
 #: kioworkers/file/file.cpp:847
 #, kde-format
@@ -6165,10 +6165,9 @@ msgstr "Umhverfisbreytur:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr "Sláðu hér inn notandanafn þess sem þú vilt keyra forritið sem."
+msgstr "Skrifaðu hér skipun til að ræsa þetta forrit hér."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -6236,10 +6235,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Breytur:"
+msgstr "&Viðföng:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7215,10 +7213,9 @@ msgid "This action will overwrite the destination."
 msgstr "Þessi aðgerð myndi skrifa yfir áfangastaðinn."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Þessi aðgerð myndi skrifa yfir áfangastaðinn."
+msgstr "Þessi aðgerð mun sameina innihald '%1' inn í '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
