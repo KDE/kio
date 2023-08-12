@@ -470,22 +470,6 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
 
     // 2 - Look for "servicemenus" bindings (user-defined services)
 
-    // first check the .directory if this is a directory
-    if (m_props.isDirectory() && isSingleLocal) {
-        const QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append(QLatin1String("/.directory"));
-        if (QFile::exists(dotDirectoryFile)) {
-            const KDesktopFile desktopFile(dotDirectoryFile);
-            const KConfigGroup cfg = desktopFile.desktopGroup();
-
-            if (KIOSKAuthorizedAction(cfg)) {
-                const QString priority = cfg.readEntry("X-KDE-Priority");
-                const QString submenuName = cfg.readEntry("X-KDE-Submenu");
-                ServiceList &list = s.selectList(priority, submenuName);
-                list += KDesktopFileActions::userDefinedServices(KService(dotDirectoryFile), true);
-            }
-        }
-    }
-
     const KConfigGroup showGroup = m_config.group("Show");
 
     const QMimeDatabase db;
