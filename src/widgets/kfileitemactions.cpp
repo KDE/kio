@@ -7,6 +7,7 @@
 */
 
 #include "kfileitemactions.h"
+#include "desktopexecparser.h"
 #include "kfileitemactions_p.h"
 #include <KAbstractFileItemActionPlugin>
 #include <KApplicationTrader>
@@ -15,6 +16,7 @@
 #include <KDesktopFile>
 #include <KFileUtils>
 #include <KIO/ApplicationLauncherJob>
+#include <KIO/CommandLauncherJob>
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -200,9 +202,17 @@ void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     const KServiceAction serviceAction = act->data().value<KServiceAction>();
     if (KAuthorized::authorizeAction(serviceAction.name())) {
-        auto *job = new KIO::ApplicationLauncherJob(serviceAction);
-        job->setUrls(m_props.urlList());
+        Q_ASSERT(serviceAction.service());
+        const KService fakeService(serviceAction.name(), serviceAction.exec(), serviceAction.icon());
+        KIO::DesktopExecParser parser(fakeService, m_props.urlList());
+        QStringList args = parser.resultingArguments();
+        if (args.isEmpty()) {
+            qWarning() << "Error when parsing arguments" << parser.errorMessage();
+            return;
+        }
+        auto *job = new KIO::CommandLauncherJob(args.takeFirst(), args);
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_parentWidget));
+        job->setDesktopName(serviceAction.service()->desktopEntryName());
         job->start();
     }
 }
@@ -426,6 +436,9 @@ bool KFileItemActionsPrivate::shouldDisplayServiceMenu(const KConfigGroup &cfg, 
             return false;
         }
     }
+    if (const QString tryExec = cfg.readEntry("TryExec"); !tryExec.isEmpty() && QStandardPaths::findExecutable(tryExec).isEmpty()) {
+        return false; // We don't use KService to read the file and thus have to check this manually
+    }
     return true;
 }
 
@@ -485,7 +498,8 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
             continue;
         }
 
-        if (cfg.hasKey("Actions") || cfg.hasKey("X-KDE-GetActionMenu")) {
+        const QStringList actionKeys = cfg.readXdgListEntry("Actions");
+        if (!actionKeys.isEmpty()) {
             if (!checkTypesMatch(cfg)) {
                 continue;
             }
@@ -494,10 +508,18 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KDesktopFileActions::userDefinedServices(KService(file), isLocal, urlList);
-            std::copy_if(userServices.cbegin(), userServices.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KServiceAction &srvAction) {
-                return showGroup.readEntry(srvAction.name(), true) && !excludeList.contains(srvAction.name());
-            });
+            for (const QString &key : actionKeys) {
+                KConfigGroup grp = desktopFile.group(QLatin1String("Desktop Action ") + key);
+                const QString exec = grp.readEntry("Exec");
+                const QString name = grp.readEntry("Name");
+                const QString icon = grp.readEntry("Icon");
+                if (isLocal || exec.contains(QLatin1String("%U")) || exec.contains(QLatin1String("%u"))) {
+                    if (showGroup.readEntry(name, true) && !excludeList.contains(name)) {
+                        KServiceAction action(key, name, icon, exec, false, KServicePtr(new KService(desktopFile.fileName())));
+                        list.append(action);
+                    }
+                }
+            }
         }
     }
 
