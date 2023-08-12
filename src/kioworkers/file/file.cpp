@@ -53,10 +53,23 @@
 
 Q_LOGGING_CATEGORY(KIO_FILE, "kf.kio.workers.file")
 
-class KIOPluginForMetada : public QObject
+class KIOPluginFactory : public KIO::RealWorkerFactory
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kde.kio.worker.file" FILE "file.json")
+
+public:
+    std::unique_ptr<KIO::SlaveBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        Q_UNUSED(pool)
+        Q_UNUSED(app)
+        return {};
+    }
+
+    std::unique_ptr<KIO::WorkerBase> createRealWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        return std::make_unique<FileProtocol>(pool, app);
+    }
 };
 
 using namespace KIO;
