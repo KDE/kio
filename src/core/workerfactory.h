@@ -14,7 +14,6 @@
 namespace KIO
 {
 
-class SlaveBase;
 class WorkerBase;
 
 class KIOCORE_EXPORT WorkerFactory : public QObject
@@ -23,15 +22,7 @@ class KIOCORE_EXPORT WorkerFactory : public QObject
 public:
     explicit WorkerFactory(QObject *parent = nullptr);
 
-    virtual std::unique_ptr<SlaveBase> createWorker(const QByteArray &pool, const QByteArray &app) = 0;
-};
-
-class KIOCORE_EXPORT RealWorkerFactory : public WorkerFactory
-{
-    Q_OBJECT
-public:
-    using WorkerFactory::WorkerFactory;
-    virtual std::unique_ptr<WorkerBase> createRealWorker(const QByteArray &pool, const QByteArray &app) = 0;
+    virtual std::unique_ptr<WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) = 0;
 };
 
 } // namespace KIO

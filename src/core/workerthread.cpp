@@ -34,27 +34,12 @@ void WorkerThread::abort()
     }
 }
 
-std::variant<std::unique_ptr<KIO::SlaveBase>, std::unique_ptr<KIO::WorkerBase>> makeWorker(const QByteArray &appSocket, WorkerFactory *factory)
-{
-    if (auto workerFactory = qobject_cast<RealWorkerFactory *>(factory)) {
-        return workerFactory->createRealWorker({}, appSocket);
-    }
-    return factory->createWorker({}, appSocket);
-}
-
 void WorkerThread::run()
 {
     qCDebug(KIO_CORE) << QThread::currentThreadId() << "Creating threaded worker";
 
-    auto slaveOrWorker = makeWorker(m_appSocket, m_factory);
-    SlaveBase *base = nullptr;
-    if (std::holds_alternative<std::unique_ptr<KIO::WorkerBase>>(slaveOrWorker)) {
-        auto &worker = std::get<std::unique_ptr<KIO::WorkerBase>>(slaveOrWorker);
-        base = &(worker->d->bridge);
-    } else {
-        Q_ASSERT(std::holds_alternative<std::unique_ptr<KIO::SlaveBase>>(slaveOrWorker));
-        base = std::get<std::unique_ptr<KIO::SlaveBase>>(slaveOrWorker).get();
-    }
+    auto worker = m_factory->createWorker({}, m_appSocket);
+    SlaveBase *base = &(worker->d->bridge);
 
     base->setRunInThread(true);
     setWorker(base);
