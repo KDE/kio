@@ -24,7 +24,6 @@
 #include <KSandbox>
 #include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
-#include <kdesktopfileactions.h>
 #include <kdirnotify.h>
 #include <kurlauthorized.h>
 
@@ -463,8 +462,6 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     const KFileItem &firstItem = items.first();
     const QString protocol = firstItem.url().scheme(); // assumed to be the same for all items
     const bool isLocal = !firstItem.localPath().isEmpty();
-    const bool isSingleLocal = items.count() == 1 && isLocal;
-    const QList<QUrl> urlList = m_props.urlList();
 
     KIO::PopupServices s;
 
@@ -782,11 +779,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
     if (m_props.mimeType() == QLatin1String("application/x-desktop")) {
         const QString path = firstItem.localPath();
-        const KDesktopFile desktopFile(path);
-        const KConfigGroup cfg = desktopFile.desktopGroup();
-
-        const ServiceList services = KDesktopFileActions::userDefinedServices(KService(path), true /*isLocal*/);
-
+        const ServiceList services = KService(path).actions();
         for (const KServiceAction &serviceAction : services) {
             QAction *action = new QAction(this);
             action->setText(serviceAction.text());

@@ -26,7 +26,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kurlcombobox.cpp
   kfileitemactions.cpp
   imagefilter.cpp
-  kdesktopfileactions.cpp
   kopenwithdialog.cpp
   kfile.cpp
   pastedialog.cpp
@@ -51,7 +50,7 @@ target_sources(KF6KIOWidgets PRIVATE
 )
 
 if(NOT ANDROID)
-target_sources(KF6KIOWidgets PRIVATE
+    target_sources(KF6KIOWidgets PRIVATE
   ${kiowidgets_dbus_SRCS}
   deleteortrashjob.cpp
   fileundomanager.cpp
@@ -141,7 +140,7 @@ if (TARGET Qt6::DBus)
 endif()
 
 if(ACL_FOUND)
-   target_link_libraries(KF6KIOWidgets PRIVATE ${ACL_LIBS})
+    target_link_libraries(KF6KIOWidgets PRIVATE ${ACL_LIBS})
 endif()
 
 # Headers not prefixed with KIO/
@@ -152,7 +151,6 @@ ecm_generate_headers(KIOWidgets_HEADERS
   KUrlComboBox
   KFileItemActions
   KFileItemDelegate
-  KDesktopFileActions
   KOpenWithDialog
   KAbstractFileItemActionPlugin
   KBuildSycocaProgressDialog
