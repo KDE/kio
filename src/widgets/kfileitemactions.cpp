@@ -22,7 +22,6 @@
 #include <KSandbox>
 #include <jobuidelegatefactory.h>
 #include <kapplicationtrader.h>
-#include <kdesktopfileactions.h>
 #include <kdirnotify.h>
 #include <kurlauthorized.h>
 
@@ -450,14 +449,13 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     const KFileItem &firstItem = items.first();
     const QString protocol = firstItem.url().scheme(); // assumed to be the same for all items
     const bool isLocal = !firstItem.localPath().isEmpty();
-    const bool isSingleLocal = items.count() == 1 && isLocal;
-    const QList<QUrl> urlList = m_props.urlList();
 
     KIO::PopupServices s;
 
     // 2 - Look for "servicemenus" bindings (user-defined services)
 
     // first check the .directory if this is a directory
+    const bool isSingleLocal = items.count() == 1 && isLocal;
     if (m_props.isDirectory() && isSingleLocal) {
         const QString dotDirectoryFile = QUrl::fromLocalFile(firstItem.localPath()).path().append(QLatin1String("/.directory"));
         if (QFile::exists(dotDirectoryFile)) {
@@ -468,7 +466,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
                 const QString priority = cfg.readEntry("X-KDE-Priority");
                 const QString submenuName = cfg.readEntry("X-KDE-Submenu");
                 ServiceList &list = s.selectList(priority, submenuName);
-                list += KDesktopFileActions::userDefinedServices(KService(dotDirectoryFile), true);
+                list += KService(dotDirectoryFile).actions();
             }
         }
     }
@@ -494,7 +492,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KDesktopFileActions::userDefinedServices(KService(file), isLocal, urlList);
+            const ServiceList userServices = KService(file).actions();
             std::copy_if(userServices.cbegin(), userServices.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KServiceAction &srvAction) {
                 return showGroup.readEntry(srvAction.name(), true) && !excludeList.contains(srvAction.name());
             });
@@ -776,11 +774,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
     if (m_props.mimeType() == QLatin1String("application/x-desktop")) {
         const QString path = firstItem.localPath();
-        const KDesktopFile desktopFile(path);
-        const KConfigGroup cfg = desktopFile.desktopGroup();
-
-        const ServiceList services = KDesktopFileActions::userDefinedServices(KService(path), true /*isLocal*/);
-
+        const ServiceList services = KService(path).actions();
         for (const KServiceAction &serviceAction : services) {
             QAction *action = new QAction(this);
             action->setText(serviceAction.text());
