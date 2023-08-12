@@ -1674,8 +1674,6 @@ void KDirModelTest::testDeleteCurrentDirectory()
 
     QSignalSpy spyRowsRemoved(m_dirModel, &QAbstractItemModel::rowsRemoved);
 
-    KDirWatch::self()->statistics();
-
     KIO::DeleteJob *job = KIO::del(url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
