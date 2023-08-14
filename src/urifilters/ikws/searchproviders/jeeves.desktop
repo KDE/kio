@@ -18,7 +18,7 @@ Name[cs]=Ask Jeeves
 Name[csb]=Ask Jeeves - spëtôj ò cos
 Name[cy]=Ask Jeeves
 Name[da]=Ask Jeeves
-Name[de]=Frag Jeeves
+Name[de]=Ask Jeeves
 Name[el]=Ask Jeeves
 Name[en_GB]=Ask Jeeves
 Name[eo]=Demandu Jeeves
@@ -95,3 +95,11 @@ Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
 Query=https://www.ask.com/web?q=\\{@}
+Query[ca]=https://www.ask.com/web?q=\\{@}
+Query[de]=https://www.ask.com/web?q=\\{@}
+Query[nl]=https://www.ask.com/web?q=\\{@}
+Query[sl]=https://www.ask.com/web?q=\\{@}
+Query[sv]=https://www.ask.com/web?q=\\{@}
+Query[tr]=https://www.ask.com/web?q=\\{@}
+Query[uk]=https://www.ask.com/web?q=\\{@}
+Query[x-test]=xxhttps://www.ask.com/web?q=\\{@}xx
