@@ -124,7 +124,7 @@ void KFilePlacesModelTest::initTestCase()
 
 void KFilePlacesModelTest::createPlacesModels()
 {
-    KBookmarkManager *mgr = KBookmarkManager::managerForExternalFile(bookmarksFile());
+    KBookmarkManager *mgr = KBookmarkManager::managerForFile(bookmarksFile());
     QSignalSpy spy(mgr, &KBookmarkManager::changed);
     m_places = new KFilePlacesModel();
     m_places2 = new KFilePlacesModel();
@@ -299,7 +299,7 @@ void KFilePlacesModelTest::testAddingInLaterVersion()
     delete m_places2;
     QCoreApplication::processEvents();
 
-    KBookmarkManager *mgr = KBookmarkManager::managerForExternalFile(bookmarksFile());
+    KBookmarkManager *mgr = KBookmarkManager::managerForFile(bookmarksFile());
 
     auto cleanupFunc = [this, mgr]() {
         QFile::remove(bookmarksFile());
@@ -352,7 +352,7 @@ void KFilePlacesModelTest::testReparse()
     CHECK_PLACES_URLS(urls);
 
     // reparse the bookmark file
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     bookmarkManager->notifyCompleteChange(QString());
 
     // check if they are the same
@@ -367,7 +367,7 @@ void KFilePlacesModelTest::testReparse()
 
 void KFilePlacesModelTest::testInternalBookmarksHaveIds()
 {
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
 
     // Verify every entry has an id or an udi
@@ -477,7 +477,7 @@ void KFilePlacesModelTest::testMove()
     QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
     QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
 
     KBookmark system_home = m_places->bookmarkForIndex(m_places->index(0, 0));
@@ -606,7 +606,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(args.at(2).toInt(), 2);
     QCOMPARE(spy_removed.count(), 0);
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(0, 0));
     KBookmark foo = m_places->bookmarkForIndex(m_places->index(2, 0));
@@ -720,7 +720,7 @@ void KFilePlacesModelTest::testDevicePlugging()
 
     // Move the device in the list, and check that it memorizes the position across plug/unplug
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark before_floppy;
 
@@ -889,7 +889,7 @@ void KFilePlacesModelTest::testRemoteUrls()
 
 void KFilePlacesModelTest::testRefresh()
 {
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
     KBookmark homePlace = root.first();
     const QModelIndex homePlaceIndex = m_places->index(0, 0);
@@ -1276,7 +1276,7 @@ void KFilePlacesModelTest::testFilterWithAlternativeApplicationName()
     const QStringList urls = initialListOfUrls();
     const QString alternativeApplicationName = QStringLiteral("kfile_places_model_test");
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile(), QStringLiteral("kfilePlaces"));
+    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
     KBookmarkGroup root = bookmarkManager->root();
 
     // create a new entry with alternative application name

@@ -245,7 +245,7 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     , d(new KFilePlacesModelPrivate(this))
 {
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/user-places.xbel");
-    d->bookmarkManager = KBookmarkManager::managerForExternalFile(file);
+    d->bookmarkManager = KBookmarkManager::managerForFile(file);
     d->alternativeApplicationName = alternativeApplicationName;
 
     // Let's put some places in there if it's empty.
