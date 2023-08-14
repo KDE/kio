@@ -6,7 +6,6 @@
 */
 
 #include "openfilemanagerwindowjob.h"
-#include "openfilemanagerwindowjob_p.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -19,6 +18,7 @@
 
 #include <KIO/JobUiDelegate>
 #include <KIO/JobUiDelegateFactory>
+#include <KIO/OpenFileManagerJob>
 #include <KIO/OpenUrlJob>
 
 namespace KIO
@@ -26,86 +26,68 @@ namespace KIO
 class OpenFileManagerWindowJobPrivate
 {
 public:
-    OpenFileManagerWindowJobPrivate(OpenFileManagerWindowJob *qq)
-        : q(qq)
-        , strategy(nullptr)
+    OpenFileManagerWindowJobPrivate(OpenFileManagerJob *job)
+        : underlying(job)
     {
     }
 
     ~OpenFileManagerWindowJobPrivate()
     {
-        delete strategy;
     }
 
-    AbstractOpenFileManagerWindowStrategy *createDBusStrategy()
-    {
-        delete strategy;
-        strategy = new OpenFileManagerWindowDBusStrategy(q);
-        return strategy;
-    }
-
-    AbstractOpenFileManagerWindowStrategy *createKRunStrategy()
-    {
-        delete strategy;
-        strategy = new OpenFileManagerWindowKRunStrategy(q);
-        return strategy;
-    }
-
-    OpenFileManagerWindowJob *const q;
-    QList<QUrl> highlightUrls;
-    QByteArray startupId;
-
-    AbstractOpenFileManagerWindowStrategy *strategy;
+    OpenFileManagerJob *const underlying;
 };
 
 OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
     : KJob(parent)
-    , d(new OpenFileManagerWindowJobPrivate(this))
+    , d(new OpenFileManagerWindowJobPrivate(new OpenFileManagerJob(this)))
 {
-#ifdef Q_OS_LINUX
-    d->createDBusStrategy();
-#else
-    d->createKRunStrategy();
-#endif
 }
 
 OpenFileManagerWindowJob::~OpenFileManagerWindowJob() = default;
 
 QList<QUrl> OpenFileManagerWindowJob::highlightUrls() const
 {
-    return d->highlightUrls;
+    return d->underlying->highlightUrls();
 }
 
 void OpenFileManagerWindowJob::setHighlightUrls(const QList<QUrl> &highlightUrls)
 {
-    d->highlightUrls = highlightUrls;
+    d->underlying->setHighlightUrls(highlightUrls);
 }
 
 QByteArray OpenFileManagerWindowJob::startupId() const
 {
-    return d->startupId;
+    return d->underlying->startupId();
 }
 
 void OpenFileManagerWindowJob::setStartupId(const QByteArray &startupId)
 {
-    d->startupId = startupId;
+    d->underlying->setStartupId(startupId);
 }
 
 void OpenFileManagerWindowJob::start()
 {
-    if (d->highlightUrls.isEmpty()) {
-        setError(NoValidUrlsError);
+    connect(d->underlying, &KJob::result, this, [this](KJob *job) {
+        if (job->error()) {
+            this->setError(job->error());
+            this->setErrorText(job->errorText());
+        }
         emitResult();
-        return;
-    }
+    });
+    connect(d->underlying, &KJob::infoMessage, this, &OpenFileManagerWindowJob::infoMessage);
 
-    d->strategy->start(d->highlightUrls, d->startupId);
+    d->underlying->start();
 }
 
 OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const QByteArray &asn)
 {
+    // because the OpenFileManagerJob's highlightInFileManager starts the job
+    // we can't just call it from here. We kind of need to duplicate the logic
+    // Luckily, by deprecating this function in here, it is only temporary
     auto *job = new OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, KJobWidgets::window(job)));
 
     if (asn.isNull()) {
         auto window = qGuiApp->focusWindow();
@@ -127,49 +109,6 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
     }
 
     return job;
-}
-
-void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
-{
-    // see the spec at: https://www.freedesktop.org/wiki/Specifications/file-manager-interface/
-
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.FileManager1"),
-                                                      QStringLiteral("/org/freedesktop/FileManager1"),
-                                                      QStringLiteral("org.freedesktop.FileManager1"),
-                                                      QStringLiteral("ShowItems"));
-
-    msg << QUrl::toStringList(urls) << QString::fromUtf8(asn);
-
-    QDBusPendingReply<void> reply = QDBusConnection::sessionBus().asyncCall(msg);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, m_job);
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<void> reply = *watcher;
-        watcher->deleteLater();
-
-        if (reply.isError()) {
-            // Try the KRun strategy as fallback, also calls emitResult inside
-            AbstractOpenFileManagerWindowStrategy *kRunStrategy = m_job->d->createKRunStrategy();
-            kRunStrategy->start(urls, asn);
-            return;
-        }
-
-        emitResultProxy();
-    });
-}
-
-void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
-{
-    KIO::OpenUrlJob *urlJob = new KIO::OpenUrlJob(urls.at(0).adjusted(QUrl::RemoveFilename), QStringLiteral("inode/directory"));
-    urlJob->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, KJobWidgets::window(m_job)));
-    urlJob->setStartupId(asn);
-    QObject::connect(urlJob, &KJob::result, m_job, [this](KJob *urlJob) {
-        if (urlJob->error()) {
-            emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
-        } else {
-            emitResultProxy();
-        }
-    });
-    urlJob->start();
 }
 
 } // namespace KIO

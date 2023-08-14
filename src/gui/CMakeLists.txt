@@ -15,6 +15,7 @@ target_sources(KF5KIOGui PRIVATE
    faviconrequestjob.cpp
    kcoreurlnavigator.cpp
    openurljob.cpp
+   openfilemanagerjob.cpp
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
    kprocessrunner.cpp
@@ -97,6 +98,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   FavIconRequestJob
   OpenUrlJob
   OpenWithHandlerInterface
+  OpenFileManagerJob
   ThumbnailCreator
 
   PREFIX KIO

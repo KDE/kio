@@ -5,10 +5,10 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef OPENFILEMANAGERWINDOWJOB_H
-#define OPENFILEMANAGERWINDOWJOB_H
+#ifndef OPENFILEMANAGERJOB_H
+#define OPENFILEMANAGERJOB_H
 
-#include "kiowidgets_export.h"
+#include "kiogui_export.h"
 
 #include <KJob>
 
@@ -19,8 +19,7 @@
 
 namespace KIO
 {
-class OpenFileManagerWindowJobPrivate;
-class OpenFileManagerJob;
+class OpenFileManagerJobPrivate;
 
 /**
  * @class KIO::OpenFileManagerWindowJob openfilemanagerwindowjob.h <KIO/OpenFileManagerWindowJob>
@@ -43,9 +42,9 @@ class OpenFileManagerJob;
  *
  * If you just want to open a folder, use OpenUrlJob instead.
  *
- * @since 5.24
+ * @since 5.110
  */
-class KIOWIDGETS_EXPORT OpenFileManagerWindowJob : public KJob
+class KIOGUI_EXPORT OpenFileManagerJob : public KJob
 {
     Q_OBJECT
 
@@ -53,12 +52,12 @@ public:
     /**
      * Creates an OpenFileManagerWindowJob
      */
-    explicit OpenFileManagerWindowJob(QObject *parent = nullptr);
+    explicit OpenFileManagerJob(QObject *parent = nullptr);
 
     /**
      * Destroys the OpenFileManagerWindowJob
      */
-    ~OpenFileManagerWindowJob() override;
+    ~OpenFileManagerJob() override;
 
     /**
      * Errors the job may emit
@@ -97,11 +96,11 @@ public:
     void start() override;
 
 private:
-    friend class AbstractOpenFileManagerWindowStrategy;
-    friend class OpenFileManagerWindowDBusStrategy;
-    friend class OpenFileManagerWindowKRunStrategy;
+    friend class AbstractOpenFileManagerJobStrategy;
+    friend class OpenFileManagerDBusStrategy;
+    friend class OpenFileManagerKRunStrategy;
 
-    std::unique_ptr<OpenFileManagerWindowJobPrivate> const d;
+    std::unique_ptr<OpenFileManagerJobPrivate> const d;
 };
 
 /**
@@ -109,10 +108,10 @@ private:
  *
  * It will create a job for a given URL(s) and automatically start it.
  *
- * @since 5.24
+ * @since 5.110
  */
-KIOWIDGETS_EXPORT OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const QByteArray &asn = QByteArray());
+KIOGUI_EXPORT OpenFileManagerJob *highlightInFileManager(const QList<QUrl> &urls, const QByteArray &asn = QByteArray(), KJobUiDelegate *delegate = nullptr);
 
 } // namespace KIO
 
-#endif // OPENFILEMANAGERWINDOWJOB_H
+#endif // OPENFILEMANAGERJOB_H

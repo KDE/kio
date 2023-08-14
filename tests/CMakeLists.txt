@@ -49,6 +49,9 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     kurlrequestertest_gui
     listjobtest
     openfilemanagerwindowtest
+    openfilemanagerwindowtest2
+    openfilemanagertest
+    openfilemanagertest2
     previewtest
     ${runapplication_EXE}
 )
