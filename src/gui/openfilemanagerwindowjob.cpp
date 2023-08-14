@@ -8,10 +8,12 @@
 #include "openfilemanagerwindowjob.h"
 #include "openfilemanagerwindowjob_p.h"
 
+#ifdef Q_OS_LINUX
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
+#endif
 #include <QGuiApplication>
 
 #include <KWindowSystem>
@@ -34,12 +36,14 @@ public:
         delete strategy;
     }
 
+#ifdef Q_OS_LINUX
     AbstractOpenFileManagerWindowStrategy *createDBusStrategy()
     {
         delete strategy;
         strategy = new OpenFileManagerWindowDBusStrategy(q);
         return strategy;
     }
+#endif
 
     AbstractOpenFileManagerWindowStrategy *createKRunStrategy()
     {
@@ -125,6 +129,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
     return job;
 }
 
+#ifdef Q_OS_LINUX
 void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
 {
     // see the spec at: https://www.freedesktop.org/wiki/Specifications/file-manager-interface/
@@ -152,6 +157,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
         emitResultProxy();
     });
 }
+#endif
 
 void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
 {

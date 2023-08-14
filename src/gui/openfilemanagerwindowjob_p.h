@@ -37,6 +37,7 @@ protected:
     OpenFileManagerWindowJob *m_job;
 };
 
+#ifdef Q_OS_LINUX
 class OpenFileManagerWindowDBusStrategy : public AbstractOpenFileManagerWindowStrategy
 {
 public:
@@ -46,6 +47,7 @@ public:
     }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
 };
+#endif
 
 class OpenFileManagerWindowKRunStrategy : public AbstractOpenFileManagerWindowStrategy
 {
