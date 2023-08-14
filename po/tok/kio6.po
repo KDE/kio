@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2373,249 +2373,249 @@ msgstr "o a&wen"
 msgid "&Current Session only"
 msgstr "tenpo &ni taso"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "sina toki ala e lipu tawa weka."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "ijo ala li ken kama weka"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "sina toki ala e lipu pi wile sina tawa poki jaki."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "ijo ala li ken tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "poki wile li lon ala anu ken lukin ala."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "ilo mute"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "poki mama"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "o tawa tenpo pini"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "o tawa tenpo kama"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "poki pi tomo sina"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "o sin e ni"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "poki lipu sin..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "o weka e ni tawa poki jaki"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "o weka"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "nasin pana"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "o nasin tan nimi"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "o nasin tan suli"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "o nasin tan tenpo"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "o nasin tan kule"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "tan lili tawa suli"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "tan suli tawa lili"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "poki o lon open"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "lukin pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "lukin pi lipu lili"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "lukin pi lipu suli"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "poka pi sitelen lili"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "lon poka pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "lon sewi pi nimi lipu"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "lukin pi toki mute"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "lukin pi kasi lukin"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "lukin pi kasin lukin suli"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "o ken e open poki lon lipu wan lon lukin pi sona mute"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "o ken e lipu len tawa lukin"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "o sitelen e ilo lukin lili"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "o sitelen e lukin lipu"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "o open e poki pi jo lipu ni"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "ijo lipu"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&lukin"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "W-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-W"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "sin li nanpa wan"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "sin li lon pini"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "suli li nanpa wa"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4403,233 +4403,6 @@ msgstr "mi sona ala e nasin pana lawa ni."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "mi kama jo e sona pakala."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "mi ken ala awen e sona lili"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "mi ken ala weka e ijo %1. o lukin e lawa"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "ilo li ken ala pali e poki %1"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "kalama pi sona awen lili"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
-">sina wile ala wile e ni?</p>"
-msgstr[1] ""
-"<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
-">sina wile ala wile e ni?</p>"
-msgstr[2] ""
-"<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
-">sina wile ala wile e ni?</p>"
-msgstr[3] ""
-"<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
-">sina wile ala wile e ni?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [ona li tawa tomo ilo ante]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "sona namako"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "o lukin anu ante e sona lili awen ilo"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "tenpo ni taso la, pona"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "o awen lon tenpo pali o weka lon pini pi tenpo pali"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&pona"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&ala"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "wile ni o tawa"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "sona lili ni &taso"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "sona lili ni &taso"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"sina wile ala wile e sona lili ni? o pana e wile sina tawa ona taso. sona "
-"lili ante la, sina o pana e wile sin."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "sona lili ale tan &ma lipu ni"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "s&uwi linluwi ale"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "insa pi sona lili wan"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "nimi:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "insa:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "tenpo pini:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "nasin:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "nimi linluwi:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "ken lukin:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&kama >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "o sitelen e insa pi sona awen sin"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "ala"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "pini pi tenpo ni"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "ilo weka pi nasin HTTPS"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "ilo weka pi nasin HTTPS en ilo sina"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "ilo weka"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "ilo weka en ilo sina"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "sona namako"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7259,6 +7032,150 @@ msgstr "ni li open e ilo:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "sina pilin ike tan ilo ni la o pilin lon \"pini\""
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "mi ken ala awen e sona lili"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "mi ken ala weka e ijo %1. o lukin e lawa"
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "ilo li ken ala pali e poki %1"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "kalama pi sona awen lili"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
+#~ ">sina wile ala wile e ni?</p>"
+#~ msgstr[1] ""
+#~ "<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
+#~ ">sina wile ala wile e ni?</p>"
+#~ msgstr[2] ""
+#~ "<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
+#~ ">sina wile ala wile e ni?</p>"
+#~ msgstr[3] ""
+#~ "<p>lipu ni li wile awen e sona lili %1 lon ilo sina:<br/><b>%2%3</b><br/"
+#~ ">sina wile ala wile e ni?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [ona li tawa tomo ilo ante]"
+
+#~ msgid "Details"
+#~ msgstr "sona namako"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "o lukin anu ante e sona lili awen ilo"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "tenpo ni taso la, pona"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "o awen lon tenpo pali o weka lon pini pi tenpo pali"
+
+#~ msgid "&Accept"
+#~ msgstr "&pona"
+
+#~ msgid "&Reject"
+#~ msgstr "&ala"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "wile ni o tawa"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "sona lili ni &taso"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "sona lili ni &taso"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "sina wile ala wile e sona lili ni? o pana e wile sina tawa ona taso. sona "
+#~ "lili ante la, sina o pana e wile sin."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "sona lili ale tan &ma lipu ni"
+
+#~ msgid "All &cookies"
+#~ msgstr "s&uwi linluwi ale"
+
+#~ msgid "Cookie Details"
+#~ msgstr "insa pi sona lili wan"
+
+#~ msgid "Name:"
+#~ msgstr "nimi:"
+
+#~ msgid "Value:"
+#~ msgstr "insa:"
+
+#~ msgid "Expires:"
+#~ msgstr "tenpo pini:"
+
+#~ msgid "Path:"
+#~ msgstr "nasin:"
+
+#~ msgid "Domain:"
+#~ msgstr "nimi linluwi:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "ken lukin:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&kama >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "o sitelen e insa pi sona awen sin"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "ala"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "pini pi tenpo ni"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "ilo weka pi nasin HTTPS"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "ilo weka pi nasin HTTPS en ilo sina"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "ilo weka"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "ilo weka en ilo sina"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "sona namako"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

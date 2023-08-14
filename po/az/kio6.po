@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2536,247 +2536,247 @@ msgstr "Da&vam et"
 msgid "&Current Session only"
 msgstr "&Yalnız Cari Sessiya"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Siz silmək üçün fayl seçmədiniz."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Silməyə bir şey yoxdur"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Siz səbətə atmaq üçün fayl seçmədiniz."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Səbətə atmağa heç nə yoxdur"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Göstərilən qovluq ya mövcud deyol ya da oxuna bilmir."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Menyu"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Ana Qovluq"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Geriyə"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "İrəli"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Ev Qovluğu"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Yenilə"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Yeni Qovluq..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Səbətə Daşı"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Sil"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ada görə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ölçüyə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "Tarixə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "Növünə ğörə çeşidlə"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "Artan"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "Azalan"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "Öncə Qovluqlar"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Gizli fayllar sonda"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "İkonları Göstər"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "Yığcam Baxış"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "Ətraflı Baxış"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "İkon Mövqeyi"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "Fayl Adının Yanında"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "Fayl Adının Üstündə"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Qısa Baxış"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Ətraflı Baxış"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "Budaqlanan"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Ətraflı Budaqlanan"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Ətraflı Baxışda Genişləndirməyə icazə verin"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Gizli Faylları Göstər"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Oncədən Baxış Panelini Göstərin"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Öncədən Baxışı Göstər"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Bu tərkibli qovluğu açın"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Xüsusiyyətlər"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, kde-format
 msgid "&View Mode"
 msgstr "&Baxış rejimi"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Öncə Ən Yeniləri"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Öncə Ən Köhnələri"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Ən Böyük Fayllar"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4630,233 +4630,6 @@ msgstr "Naməlum Giriş İcazəsi metodu."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Korlanmış məlumatların qəbulu."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Kukilər Saxlanmadı"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "%1 silinə bilmir, icazələri yoxlayın"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "%1 qovluğu yaradıla bilmir"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Kuki xəbərdarlığı"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Siz<br/><b>%2%3</b><br/>-dan kukiləri qəbul etdiniz.Bu kukiləri qəbul "
-"etmək yoxsa rədd etmək istəyirsiniz?</p>"
-msgstr[1] ""
-"<p>Siz<br/><b>%2%3</b><br/>-dan %1 kuki qəbul etdiniz. qəbul etmək yoxsarədd "
-"etmək istəyirsiniz?<br/>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Xidmətlər Arası]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Təfərrüatlar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Kuki məlumatlarına bax və onları dəyişdir"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Bu &sessiya üçün qəbul et"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Cari sessiyanın sonuna kimi kukiləri qəbul et"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Qəbul et"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Ləğv et"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Seçimi Buna Uyğun Et"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Ancaq bu kuki"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&Ancaq bu kukilər"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Yalnız bu kukiləri qəbul etmək və ya ləğv etmək üçün bu seçimi seçin. Əgər "
-"başqa bir kuki qəbul etsəniz sizə yenidən belə bir təklif olunacaq."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Bu do&menin bütün kukiləri"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Bu saytdan bütün kukiləri qəbul etmək və ya ləğv etmək seçimini edin. Bu "
-"seçimi edərkən bu kukiləri yaradan sayt üçün yeni qaydalar əlavə "
-"ediləcəkdir. Bu qayda siz Sistem ayarlarından onu dəyişənədk qüvvədə qalacaq."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Bütün &Kukilər"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Hər yerdən kukiləri qəbul/ləğv etmək üçün bu seçimi edin. Bu seçimi etsəniz "
-"siz Sistem ayarlarından tənzimləyənədək qlobal kuki qaydaları bütün kukilər "
-"üçün dəyişəcək."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Kuki Təfərrüatları"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Ad:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Miqdar:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Bitmə vaxtı:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Yol:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domen:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "İstifadə Müddəti:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Növbəti >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Növbəti kuki üçün detalları göstər"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Göstərilməyib"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Sessiyanın Sonu"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Yalnız təhlükəsiz severlər"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Təhlükəsiz serverlər, səhifə skriptləri"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Serverlər"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Serverlər, səhifə skriptləri"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Təfərrüatlar"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7562,6 +7335,164 @@ msgstr "Bu proqramı başladacaq:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Bu proqrama etibar etmirsinizsə, \"Ləğv et\" vurun"
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Kukilər Saxlanmadı"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "%1 silinə bilmir, icazələri yoxlayın"
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "%1 qovluğu yaradıla bilmir"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Kuki xəbərdarlığı"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Siz<br/><b>%2%3</b><br/>-dan kukiləri qəbul etdiniz.Bu kukiləri qəbul "
+#~ "etmək yoxsa rədd etmək istəyirsiniz?</p>"
+#~ msgstr[1] ""
+#~ "<p>Siz<br/><b>%2%3</b><br/>-dan %1 kuki qəbul etdiniz. qəbul etmək "
+#~ "yoxsarədd etmək istəyirsiniz?<br/>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [Xidmətlər Arası]"
+
+#~ msgid "Details"
+#~ msgstr "Təfərrüatlar"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Kuki məlumatlarına bax və onları dəyişdir"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Bu &sessiya üçün qəbul et"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Cari sessiyanın sonuna kimi kukiləri qəbul et"
+
+#~ msgid "&Accept"
+#~ msgstr "&Qəbul et"
+
+#~ msgid "&Reject"
+#~ msgstr "&Ləğv et"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Seçimi Buna Uyğun Et"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "&Ancaq bu kuki"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "&Ancaq bu kukilər"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Yalnız bu kukiləri qəbul etmək və ya ləğv etmək üçün bu seçimi seçin. "
+#~ "Əgər başqa bir kuki qəbul etsəniz sizə yenidən belə bir təklif olunacaq."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Bu do&menin bütün kukiləri"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Bu saytdan bütün kukiləri qəbul etmək və ya ləğv etmək seçimini edin. Bu "
+#~ "seçimi edərkən bu kukiləri yaradan sayt üçün yeni qaydalar əlavə "
+#~ "ediləcəkdir. Bu qayda siz Sistem ayarlarından onu dəyişənədk qüvvədə "
+#~ "qalacaq."
+
+#~ msgid "All &cookies"
+#~ msgstr "Bütün &Kukilər"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Hər yerdən kukiləri qəbul/ləğv etmək üçün bu seçimi edin. Bu seçimi "
+#~ "etsəniz siz Sistem ayarlarından tənzimləyənədək qlobal kuki qaydaları "
+#~ "bütün kukilər üçün dəyişəcək."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Kuki Təfərrüatları"
+
+#~ msgid "Name:"
+#~ msgstr "Ad:"
+
+#~ msgid "Value:"
+#~ msgstr "Miqdar:"
+
+#~ msgid "Expires:"
+#~ msgstr "Bitmə vaxtı:"
+
+#~ msgid "Path:"
+#~ msgstr "Yol:"
+
+#~ msgid "Domain:"
+#~ msgstr "Domen:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "İstifadə Müddəti:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Növbəti >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Növbəti kuki üçün detalları göstər"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Göstərilməyib"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Sessiyanın Sonu"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Yalnız təhlükəsiz severlər"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Təhlükəsiz serverlər, səhifə skriptləri"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Serverlər"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Serverlər, səhifə skriptləri"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Təfərrüatlar"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

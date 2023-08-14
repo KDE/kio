@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2023-08-11 23:52-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2571,247 +2571,247 @@ msgstr "Co&ntinuar"
 msgid "&Current Session only"
 msgstr "S&omente nesta sessão"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Você não selecionou um arquivo para excluir."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Nada para excluir"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Você não selecionou um arquivo para excluir."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Nada para excluir"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "A pasta especificada não existe ou não pôde ser lida."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Pasta pai"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Voltar"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Avançar"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Pasta Pessoal"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Recarregar"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Nova pasta..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Mover para a Lixeira"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Excluir"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Ordenação"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordenar por nome"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ordenar por tamanho"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordenar por data"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "Ordenar por tipo"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "Crescente"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "Decrescente"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "Primeiro as pastas"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Arquivos ocultos por último"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "Visão em ícones"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "Visão compacta"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "Visão detalhada"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "Posição do ícone"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "Ao lado do nome do arquivo"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "Acima do nome do arquivo"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Visão abreviada"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Visão detalhada"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "Visão em árvore"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Visão em árvore detalhada"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Permitir expansão na visão detalhada"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Mostrar arquivos ocultos"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Mostrar painel de visualização"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Mostrar visualização"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Abrir pasta recipiente"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Propriedades"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, kde-format
 msgid "&View Mode"
 msgstr "Modo de e&xibição"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Primeiro os mais novos"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Primeiro os mais antigos"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Primeiro os maiores"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4673,234 +4673,6 @@ msgstr "Método de autorização desconhecido."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Recebendo dados corrompidos."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Não foi possível salvar os cookies"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "Não foi possível o %1, verifique as permissões"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Não foi possível criar a pasta %1"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Alerta de cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Você recebeu um cookie de<br/><b>%2%3</b><br/>Deseja aceitar ou rejeitar "
-"este cookie?</p>"
-msgstr[1] ""
-"<p>Você recebeu %1 cookies de<br/><b>%2%3</b><br/>Deseja aceitar ou rejeitar "
-"estes cookies?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Domínio cruzado]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Detalhes"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Ver ou modificar as informações do cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Aceitar para esta &sessão"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Aceitar cookie(s) até o fim desta sessão"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Aceitar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Rejeitar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Aplicar escolha a"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Somente este cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&Somente estes cookies"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Escolha esta opção para aceitar ou rejeitar somente este cookie. Você será "
-"avisado se outro cookie for recebido."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Todos os cookies deste &domínio"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Selecione esta opção para aceitar ou rejeitar todos os cookies desta página. "
-"Escolher esta opção adicionará uma nova política para a página de onde o "
-"cookie é originário. Esta política será permanente até que você a mude "
-"manualmente nas Configurações do Sistema."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Todos os &cookies"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Selecione esta opção para aceitar/rejeitar todos os cookies. Escolher esta "
-"opção modificará a política global de cookies para todos os cookies até que "
-"você a altere manualmente nas Configurações do Sistema."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Detalhes do cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Nome:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Valor:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Expira em:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Caminho:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domínio:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Exposição:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Próximo >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Mostrar detalhes do próximo cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Não especificado"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Fim da sessão"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Somente servidores seguros"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Servidores seguros, scripts de página"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Servidores"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Servidores, scripts de página"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Detalhes"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7625,6 +7397,164 @@ msgstr "Isto iniciará o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se você não confia neste programa, clique em Cancelar"
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Não foi possível salvar os cookies"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "Não foi possível o %1, verifique as permissões"
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "Não foi possível criar a pasta %1"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Alerta de cookie"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Você recebeu um cookie de<br/><b>%2%3</b><br/>Deseja aceitar ou "
+#~ "rejeitar este cookie?</p>"
+#~ msgstr[1] ""
+#~ "<p>Você recebeu %1 cookies de<br/><b>%2%3</b><br/>Deseja aceitar ou "
+#~ "rejeitar estes cookies?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [Domínio cruzado]"
+
+#~ msgid "Details"
+#~ msgstr "Detalhes"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Ver ou modificar as informações do cookie"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Aceitar para esta &sessão"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Aceitar cookie(s) até o fim desta sessão"
+
+#~ msgid "&Accept"
+#~ msgstr "&Aceitar"
+
+#~ msgid "&Reject"
+#~ msgstr "&Rejeitar"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Aplicar escolha a"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "&Somente este cookie"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "&Somente estes cookies"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Escolha esta opção para aceitar ou rejeitar somente este cookie. Você "
+#~ "será avisado se outro cookie for recebido."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Todos os cookies deste &domínio"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Selecione esta opção para aceitar ou rejeitar todos os cookies desta "
+#~ "página. Escolher esta opção adicionará uma nova política para a página de "
+#~ "onde o cookie é originário. Esta política será permanente até que você a "
+#~ "mude manualmente nas Configurações do Sistema."
+
+#~ msgid "All &cookies"
+#~ msgstr "Todos os &cookies"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Selecione esta opção para aceitar/rejeitar todos os cookies. Escolher "
+#~ "esta opção modificará a política global de cookies para todos os cookies "
+#~ "até que você a altere manualmente nas Configurações do Sistema."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Detalhes do cookie"
+
+#~ msgid "Name:"
+#~ msgstr "Nome:"
+
+#~ msgid "Value:"
+#~ msgstr "Valor:"
+
+#~ msgid "Expires:"
+#~ msgstr "Expira em:"
+
+#~ msgid "Path:"
+#~ msgstr "Caminho:"
+
+#~ msgid "Domain:"
+#~ msgstr "Domínio:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Exposição:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Próximo >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Mostrar detalhes do próximo cookie"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Não especificado"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Fim da sessão"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Somente servidores seguros"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Servidores seguros, scripts de página"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Servidores"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Servidores, scripts de página"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Detalhes"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

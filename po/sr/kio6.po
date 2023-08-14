@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2583,264 +2583,264 @@ msgstr "Нас&тави"
 msgid "&Current Session only"
 msgstr "Само за &текућу сесију"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Нисте изабрали фајл за брисање."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Ничег за брисање"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Нисте изабрали фајл за бацање у смеће."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Ничег за смеће"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Наведена фасцикла не постоји или се не може читати."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Мени"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Родитељска фасцикла"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Домаћа фасцикла"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Учитај поново"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Нова фасцикла..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Премести у смеће"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Обриши"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Ређање"
 
 # >> @title:column Site Specific Identification
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "име сајта"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Сажети приказ"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "по датуму"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "Тип ставке"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "опадајуће"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "опадајуће"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "прво фасцикле"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Скривени фајлови"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Сажети приказ"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Сажети приказ"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Детаљан приказ"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "Положај иконица"
 
 # @item:inmenu Icon Position
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "поред имена фајла|/|$[својства списковно 'иконице поред имена фајла']"
 
 # @item:inmenu Icon Position
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "изнад имена фајла|/|$[својства списковно 'иконице изнад имена фајла']"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Сажети приказ"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Детаљан приказ"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "Приказ стабла"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Детаљни приказ стабла"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Скривени фајлови"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Преглед"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Преглед"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Својства"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Приказ"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "прво фасцикле"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "прво фасцикле"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "прво фасцикле"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -4809,248 +4809,6 @@ msgstr "Непознат метод аутентификације."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Примљени искварени подаци."
-
-# >> @title:window
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Колачићи не могу да се сачувају"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "Не могу да уклоним %1, проверите дозволе."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Не могу да направим фасциклу %1."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Упозорење на колачић"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Примљен %1 колачић са<br/><b>%2%3</b><br/>Прихватате ли или одбијате ове "
-"колачиће?</p>"
-msgstr[1] ""
-"<p>Примљена %1 колачића са<br/><b>%2%3</b><br/>Прихватате ли или одбијате "
-"ове колачиће?</p>"
-msgstr[2] ""
-"<p>Примљено %1 колачића са<br/><b>%2%3</b><br/>Прихватате ли или одбијате "
-"ове колачиће?</p>"
-msgstr[3] ""
-"<p>Примљен колачић са<br/><b>%2%3</b><br/>Прихватате ли или одбијате овај "
-"колачић?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [прекодоменски]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Детаљи"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Погледајте или измените податке у колачићу"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Прихвати за ову &сесију"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Прихвати колачиће до краја текуће сесије"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Прихвати"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Одбаци"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Примени избор на"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Само овај колачић"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&Само ове колачиће"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Изаберите ову опцију да бисте прихватили или одбили само овај колачић. "
-"Бићете поново питани кад примите наредни колачић."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Све колачиће са овог &домена"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Изаберите ову опцију да бисте прихватили или одбили све колачиће са овог "
-"сајта. Додаће се нова смерница за сајт са кога колачић потиче, која ће бити "
-"трајна док је ручно не измените у Системским поставкама."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Све &колачиће"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Изаберите ову опцију да бисте прихватили или одбили све колачиће, одакле год "
-"да потичу. Овим мењате глобалну смерницу за колачиће, све док је поново "
-"ручно не промените у Системским поставкама."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Детаљи о колачићу"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Име:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Вредност:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Истиче:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Путања:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Домен:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Изложеност:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Следећи >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Прикажи детаље о следећем колачићу"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Није наведен"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Крај сесије"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Само безбедни сервери"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Безбедни сервери, скрипте на страницама"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Сервери"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Сервери, скрипте на страницама"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Детаљи"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7923,6 +7681,186 @@ msgstr "Ово ће покренути програм:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не верујете програму, кликните на „Одустани“."
+
+# >> @title:window
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Колачићи не могу да се сачувају"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "Не могу да уклоним %1, проверите дозволе."
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "Не могу да направим фасциклу %1."
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Упозорење на колачић"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Примљен %1 колачић са<br/><b>%2%3</b><br/>Прихватате ли или одбијате "
+#~ "ове колачиће?</p>"
+#~ msgstr[1] ""
+#~ "<p>Примљена %1 колачића са<br/><b>%2%3</b><br/>Прихватате ли или одбијате "
+#~ "ове колачиће?</p>"
+#~ msgstr[2] ""
+#~ "<p>Примљено %1 колачића са<br/><b>%2%3</b><br/>Прихватате ли или одбијате "
+#~ "ове колачиће?</p>"
+#~ msgstr[3] ""
+#~ "<p>Примљен колачић са<br/><b>%2%3</b><br/>Прихватате ли или одбијате овај "
+#~ "колачић?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [прекодоменски]"
+
+#~ msgid "Details"
+#~ msgstr "Детаљи"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Погледајте или измените податке у колачићу"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Прихвати за ову &сесију"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Прихвати колачиће до краја текуће сесије"
+
+#~ msgid "&Accept"
+#~ msgstr "&Прихвати"
+
+#~ msgid "&Reject"
+#~ msgstr "&Одбаци"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Примени избор на"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "&Само овај колачић"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "&Само ове колачиће"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Изаберите ову опцију да бисте прихватили или одбили само овај колачић. "
+#~ "Бићете поново питани кад примите наредни колачић."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Све колачиће са овог &домена"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Изаберите ову опцију да бисте прихватили или одбили све колачиће са овог "
+#~ "сајта. Додаће се нова смерница за сајт са кога колачић потиче, која ће "
+#~ "бити трајна док је ручно не измените у Системским поставкама."
+
+#~ msgid "All &cookies"
+#~ msgstr "Све &колачиће"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Изаберите ову опцију да бисте прихватили или одбили све колачиће, одакле "
+#~ "год да потичу. Овим мењате глобалну смерницу за колачиће, све док је "
+#~ "поново ручно не промените у Системским поставкама."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Детаљи о колачићу"
+
+#~ msgid "Name:"
+#~ msgstr "Име:"
+
+#~ msgid "Value:"
+#~ msgstr "Вредност:"
+
+#~ msgid "Expires:"
+#~ msgstr "Истиче:"
+
+#~ msgid "Path:"
+#~ msgstr "Путања:"
+
+#~ msgid "Domain:"
+#~ msgstr "Домен:"
+
+#, fuzzy
+#~| msgid "Exposure:"
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Изложеност:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Следећи >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Прикажи детаље о следећем колачићу"
+
+#, fuzzy
+#~| msgid "Not specified"
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Није наведен"
+
+#, fuzzy
+#~| msgid "End of Session"
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Крај сесије"
+
+#, fuzzy
+#~| msgid "Secure servers only"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Само безбедни сервери"
+
+#, fuzzy
+#~| msgid "Secure servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Безбедни сервери, скрипте на страницама"
+
+#, fuzzy
+#~| msgid "Servers"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Сервери"
+
+#, fuzzy
+#~| msgid "Servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Сервери, скрипте на страницама"
+
+#, fuzzy
+#~| msgid "Details"
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Детаљи"
 
 #, fuzzy
 #~| msgid "Remove"

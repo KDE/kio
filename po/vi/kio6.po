@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2023-02-20 10:53+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2522,247 +2522,247 @@ msgstr "&Tiếp tục"
 msgid "&Current Session only"
 msgstr "Chỉ &phiên hiện tại"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Bạn chưa chọn tệp nào để xoá."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Không có gì để xoá"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Bạn chưa chọn tệp nào để đổ rác."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Không có gì để vứt"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Thư mục được chỉ định không tồn tại hoặc không đọc được."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Trình đơn"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Thư mục cha"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Đi lùi"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Đi tiến"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Thư mục Nhà"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Tải lại"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Thư mục mới..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Chuyển vào thùng rác"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Xoá"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Sắp xếp"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sắp xếp theo tên"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sắp xếp theo kích thước"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sắp xếp theo ngày"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sắp xếp theo kiểu"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "Tăng dần"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "Giảm dần"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "Thư mục lên đầu"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Tệp ẩn ở cuối"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "Khung xem biểu tượng"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "Khung xem gọn"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "Khung xem chi tiết"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "Vị trí biểu tượng"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "Cạnh tên tệp"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "Trên tên tệp"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Khung xem ngắn"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Khung xem chi tiết"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "Khung xem cây"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Khung xem cây chi tiết"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Cho phép mở rộng trong khung xem chi tiết"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Hiện tệp ẩn"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Hiện bảng xem thử"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Hiện xem thử"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Mở thư mục chứa"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Thuộc tính"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, kde-format
 msgid "&View Mode"
 msgstr "Chế độ &xem"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Mới nhất trước"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Cũ nhất trước"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Lớn nhất trước"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4602,231 +4602,6 @@ msgstr "Phương thức uỷ quyền không rõ."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Đang nhận dữ liệu hỏng."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Không thể lưu bánh quy"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "Không xoá được %1, kiểm tra quyền truy cập"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Không tạo được thư mục %1"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Báo động bánh quy"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Bạn đã nhận được %1 miếng bánh quy từ<br/><b>%2%3</b><br/>Bạn muốn chấp "
-"nhận hay từ chối những miếng bánh quy này?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Liên miền]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Chi tiết"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Xem hoặc chỉnh sửa thông tin bánh quy"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Chấp nhận cho &phiên này"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Chấp nhận bánh quy cho đến hết phiên hiện tại"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Chấp nhận"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Từ chối"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Áp dụng lựa chọn cho"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "C&hỉ miếng bánh quy này"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "C&hỉ những miếng bánh quy này"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Chọn lựa chọn này để chấp nhận hoặc từ chối chỉ miếng bánh quy này thôi. Bạn "
-"sẽ được hỏi lại nếu bạn nhận được một miếng bánh quy khác."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Tất cả bánh quy từ &miền này"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Chọn lựa chọn này để chấp nhận hoặc từ chối tất cả bánh quy từ địa điểm này. "
-"Việc chọn này sẽ thêm một chính sách cho địa điểm khởi nguồn của miếng bánh "
-"quy này. Chính sách này sẽ cố định cho đến khi bạn thay đổi nó trong Thiết "
-"lập hệ thống một cách thủ công."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Tất cả &bánh quy"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Chọn lựa chọn này để chấp nhận/từ chối tất cả bánh quy từ bất kì đâu. Việc "
-"chọn này sẽ thay đổi chính sách bánh quy toàn cục cho tất cả bánh quy cho "
-"đến khi bạn thay đổi nó trong Thiết lập hệ thống một cách thủ công."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Chi tiết bánh quy"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Tên:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Giá trị:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Hết hạn:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Đường dẫn:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Miền:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Độ mở:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Tiếp >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Hiện chi tiết của miếng bánh quy tiếp theo"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Không xác định"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Hết phiên"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Chỉ máy chủ an toàn"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Máy chủ an toàn, kịch bản trang"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Máy chủ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Máy chủ, kịch bản trang"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Chi tiết"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7518,6 +7293,162 @@ msgstr "Việc này sẽ khởi động chương trình đó:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Không thể lưu bánh quy"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "Không xoá được %1, kiểm tra quyền truy cập"
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "Không tạo được thư mục %1"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Báo động bánh quy"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Bạn đã nhận được %1 miếng bánh quy từ<br/><b>%2%3</b><br/>Bạn muốn "
+#~ "chấp nhận hay từ chối những miếng bánh quy này?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [Liên miền]"
+
+#~ msgid "Details"
+#~ msgstr "Chi tiết"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Xem hoặc chỉnh sửa thông tin bánh quy"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Chấp nhận cho &phiên này"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Chấp nhận bánh quy cho đến hết phiên hiện tại"
+
+#~ msgid "&Accept"
+#~ msgstr "&Chấp nhận"
+
+#~ msgid "&Reject"
+#~ msgstr "&Từ chối"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Áp dụng lựa chọn cho"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "C&hỉ miếng bánh quy này"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "C&hỉ những miếng bánh quy này"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Chọn lựa chọn này để chấp nhận hoặc từ chối chỉ miếng bánh quy này thôi. "
+#~ "Bạn sẽ được hỏi lại nếu bạn nhận được một miếng bánh quy khác."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Tất cả bánh quy từ &miền này"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Chọn lựa chọn này để chấp nhận hoặc từ chối tất cả bánh quy từ địa điểm "
+#~ "này. Việc chọn này sẽ thêm một chính sách cho địa điểm khởi nguồn của "
+#~ "miếng bánh quy này. Chính sách này sẽ cố định cho đến khi bạn thay đổi nó "
+#~ "trong Thiết lập hệ thống một cách thủ công."
+
+#~ msgid "All &cookies"
+#~ msgstr "Tất cả &bánh quy"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Chọn lựa chọn này để chấp nhận/từ chối tất cả bánh quy từ bất kì đâu. "
+#~ "Việc chọn này sẽ thay đổi chính sách bánh quy toàn cục cho tất cả bánh "
+#~ "quy cho đến khi bạn thay đổi nó trong Thiết lập hệ thống một cách thủ "
+#~ "công."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Chi tiết bánh quy"
+
+#~ msgid "Name:"
+#~ msgstr "Tên:"
+
+#~ msgid "Value:"
+#~ msgstr "Giá trị:"
+
+#~ msgid "Expires:"
+#~ msgstr "Hết hạn:"
+
+#~ msgid "Path:"
+#~ msgstr "Đường dẫn:"
+
+#~ msgid "Domain:"
+#~ msgstr "Miền:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Độ mở:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Tiếp >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Hiện chi tiết của miếng bánh quy tiếp theo"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Không xác định"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Hết phiên"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Chỉ máy chủ an toàn"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Máy chủ an toàn, kịch bản trang"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Máy chủ"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Máy chủ, kịch bản trang"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Chi tiết"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

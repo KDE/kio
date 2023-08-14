@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2023-08-11 13:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2536,247 +2536,247 @@ msgstr "Á&fram"
 msgid "&Current Session only"
 msgstr "Aðeins í &þessari setu"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Þú hefur ekki valið skrá til að eyða."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Ekkert til að eyða"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Þú hefur ekki valið skrá til að setja í ruslið."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Ekkert til að setja í ruslið"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Mappan er ekki til eða er ekki læsileg."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Valmynd"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Yfirmappa"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Fara til baka"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Fara áfram"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Heimamappa"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Endurhlaða"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Ný mappa..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Setja í ruslið"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Eyða"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Röðun"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "Raða eftir nafni"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "Raða eftir stærð"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "Raða eftir dagsetningu"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "Raða eftir gerð"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "Hækkandi"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "Lækkandi"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "Möppur fremst"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Faldar skrár aftast"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "Tákn"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "Þjappað"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "Ítarlegt"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "Staðsetning tákns"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "Við hlið skrárheitis"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "Fyrir ofan skrárheiti"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Stutt"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Ítarlegt"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "Tré"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Ítarlegt tré"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Leyfa stækkun í ítarlegum lista"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Sýna faldar skrár"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Birta forskoðunarsvæði"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Sýna forskoðun"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Opna umlykjandi möppu"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Eiginleikar"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, kde-format
 msgid "&View Mode"
 msgstr "&Yfirlitssnið"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Ö-A"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Ö"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Nýjast fyrst"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Elsta fyrst"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Stærsta fyrst"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4626,233 +4626,6 @@ msgstr "Óþekkt auðkenningaraðferð."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Móttek skemmd gögn."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Get ekki vistað vefkökur"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "Ekki tókst að fjarlægja %1, gáðu að aðgangsheimildum."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Tókst ekki að búa til möppuna %1"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Vefkökuviðvörun"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Þú tókst við vefköku frá<br/><b>%2%3</b><br/>Viltu samþykkja hana eða "
-"hafna henni?</p>"
-msgstr[1] ""
-"<p>Þú tókst við %1 vefkökum frá<br/><b>%2%3</b><br/>Viltu samþykkja þær eða "
-"hafna þeim?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Milli léna]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Nánar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Sjá eða breyta upplýsingum um vefkökuna"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Samþykkja fyrir þessa &setu"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Samþykkja vefköku(r) þar til þessari setu lýkur"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Samþykkja"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Hafna"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Gildir um"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "Þessa &einu vefköku"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "Bara þ&essar vefkökur"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Veldu þennan valkost til að samþykkja eða hafna þessari einu vefköku. Það "
-"verður spurt aftur ef þér berst önnur vefkaka."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Allar vefkökur frá þessu &léni"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Veldu þetta til að samþykkja eða hafna öllum vefkökum frá þessu vefsvæði. Þá "
-"verður sett ný regla fyrir vefsvæðið þaðan sem vefkakan er uprunnin. Þessi "
-"regla gildir þá þar til henni er breytt í kerfisstillingunum."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Allar vef&kökur"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Veldu þetta til að samþykkja eða hafna öllum vefkökum alls staðar. Breyting "
-"á þessu mun breyta altæku vefkökureglunni fyrir allar vefkökur þar til þú "
-"breytir henni handvirkt í kerfisstillingunum."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Upplýsingar um vefköku"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Heiti:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Gildi:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Rennur út:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Slóð:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Lén:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Berskjöldun:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Næsta >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Sýna ítarlegri upplýsingar um næstu vefköku"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Ekki skilgreint"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Enda setu"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Einungis öruggir þjónar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Öruggir þjónar, síðuskriftur"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Þjónar"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Þjónar, síðuskriftur"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Nánar"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7555,6 +7328,163 @@ msgstr "Þetta mun ræsa forritið:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Smelltu á 'Hætta við' ef þú treystir ekki forritinu"
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Get ekki vistað vefkökur"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "Ekki tókst að fjarlægja %1, gáðu að aðgangsheimildum."
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "Tókst ekki að búa til möppuna %1"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Vefkökuviðvörun"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Þú tókst við vefköku frá<br/><b>%2%3</b><br/>Viltu samþykkja hana eða "
+#~ "hafna henni?</p>"
+#~ msgstr[1] ""
+#~ "<p>Þú tókst við %1 vefkökum frá<br/><b>%2%3</b><br/>Viltu samþykkja þær "
+#~ "eða hafna þeim?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [Milli léna]"
+
+#~ msgid "Details"
+#~ msgstr "Nánar"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Sjá eða breyta upplýsingum um vefkökuna"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Samþykkja fyrir þessa &setu"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Samþykkja vefköku(r) þar til þessari setu lýkur"
+
+#~ msgid "&Accept"
+#~ msgstr "&Samþykkja"
+
+#~ msgid "&Reject"
+#~ msgstr "&Hafna"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Gildir um"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "Þessa &einu vefköku"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "Bara þ&essar vefkökur"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Veldu þennan valkost til að samþykkja eða hafna þessari einu vefköku. Það "
+#~ "verður spurt aftur ef þér berst önnur vefkaka."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Allar vefkökur frá þessu &léni"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Veldu þetta til að samþykkja eða hafna öllum vefkökum frá þessu vefsvæði. "
+#~ "Þá verður sett ný regla fyrir vefsvæðið þaðan sem vefkakan er uprunnin. "
+#~ "Þessi regla gildir þá þar til henni er breytt í kerfisstillingunum."
+
+#~ msgid "All &cookies"
+#~ msgstr "Allar vef&kökur"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Veldu þetta til að samþykkja eða hafna öllum vefkökum alls staðar. "
+#~ "Breyting á þessu mun breyta altæku vefkökureglunni fyrir allar vefkökur "
+#~ "þar til þú breytir henni handvirkt í kerfisstillingunum."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Upplýsingar um vefköku"
+
+#~ msgid "Name:"
+#~ msgstr "Heiti:"
+
+#~ msgid "Value:"
+#~ msgstr "Gildi:"
+
+#~ msgid "Expires:"
+#~ msgstr "Rennur út:"
+
+#~ msgid "Path:"
+#~ msgstr "Slóð:"
+
+#~ msgid "Domain:"
+#~ msgstr "Lén:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Berskjöldun:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Næsta >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Sýna ítarlegri upplýsingar um næstu vefköku"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Ekki skilgreint"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Enda setu"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Einungis öruggir þjónar"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Öruggir þjónar, síðuskriftur"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Þjónar"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Þjónar, síðuskriftur"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Nánar"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

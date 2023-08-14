@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2642,265 +2642,265 @@ msgstr "Trochgea&n"
 msgid "&Current Session only"
 msgstr "&Allinne dizze sitting"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Jo hawwe net in triem selekteare om te wiskjen."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Neat te wiskjen"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Jo hawwe net in triem selektearre foar it jiskefet."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Neat foar it Jiskefet"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "De opjûne map bestiet net of is net te lêzen."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Menu"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Haadmap"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Thúsmap"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, fuzzy, kde-format
 #| msgid "Read"
 msgid "Reload"
 msgstr "Op 'e nij lade"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Nije map..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Nei it Jiskefet"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Delete"
 msgstr "Delete"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Sortearje "
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "Side namme"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "Neffens datum"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "Itemtype"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Ascending"
 msgstr "Ofrinnend"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, fuzzy, kde-format
 #| msgid "Deleting"
 msgid "Descending"
 msgstr "Ofrinnend"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "Detaillearre werjefte"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, fuzzy, kde-format
 msgid "Icon Position"
 msgstr "Neffens &posysje"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, fuzzy, kde-format
 msgid "Next to File Name"
 msgstr "Dit is de namme fan de te iepenjen triem."
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, fuzzy, kde-format
 #| msgid "Local Filename"
 msgid "Above File Name"
 msgstr "Namme fan it konfiguraasjetriem"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Beheinde werjefte"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Detaillearre werjefte"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Tree View"
 msgstr "It ferskil besjen"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Detailed Tree View"
 msgstr "HTML útfier besjen"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Ferburgen triemen sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "Foarbyld sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Foarbyld sjen litte"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, fuzzy, kde-format
 #| msgid "Properties for %1"
 msgid "Properties"
 msgstr "Eigenskippen"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, fuzzy, kde-format
 #| msgid "&Preview"
 msgid "&View Mode"
 msgstr "Byl&d"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4921,263 +4921,6 @@ msgstr "Autorisaasje"
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Kin de triem %1 net iepenje."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"De symb. keppeling %1 koe net makke wurde.\n"
-"Kontrolearje de tagongsrjochten."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr "Koe net nei %1 skriuwe."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Cookie-melding"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, fuzzy, kde-format
-#| msgid "Do you want to accept or reject?"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] "Wolle jo it goedkarre of ôfkarre?"
-msgstr[1] "Wolle jo it goedkarre of ôfkarre?"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain!]</b>"
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr "Domein [Groep]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Details"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Lit de koekje ynformaasje sjen of pas dizze oan"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "Goedk&arre"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "Ofka&rre"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Kar tapasse op"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "Allinne dit k&oekje"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "Allinne dizze k&oekjes"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the Control Center)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Selektearje dizze opsje at jo allinne dit koekje goedkarre/ôfkarre wolle. Jo "
-"wurde op'e nij freege sa gau't in nij koekje binnenkomt. <em>(Sjoch yn it "
-"Ynstellingssintrum by Websneupe/Koekjes)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Alle koekjes fan dit do&mein"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Selektearje dizze opsje at jo alle koekjes fan dizze webside goedkarre/"
-"ôfkarre wolle. Dizze opsje makket in nij koekjebelied oan foar de webside "
-"wêr't dit koekje wei komt. Dit belied is bliuwend oant jo it mei de hân "
-"oanpasse yn it Konfiguraasjesintrum. <em>(Sjoch yn it Konfiguraasjesintrum "
-"by Websneupe/Koekjes)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Alle &koekjes"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Selektearje dizze opsje at jo alle koekjes fan alle websiden goedkarre/"
-"ôfkarre wolle. Dizze opsje feroaret it folsleine koekjebelied yn it "
-"Ynstellingssintrum foar alle koekjes. <em>(Sjoch yn it Ynstellingssintrum by "
-"Websneupe/Koekjes)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Koekje details"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Namme:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Wearde:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Ferrint op:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Paad:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Domein:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Bleatstelling:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Fierder >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Lit de details foar de neikommende koekje sjen"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Net oantsjutte"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Ein fan 'e sesje"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Allinne befeilige tsjinners"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Feilige tsjinners, sideskripts"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Tsjinners"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Tsjinners, sideskripts"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Details"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -8032,6 +7775,204 @@ msgstr "KDE test programma"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Kin de triem %1 net iepenje."
+
+#, fuzzy
+#~| msgid ""
+#~| "Could not create symlink %1.\n"
+#~| "Please check permissions."
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr ""
+#~ "De symb. keppeling %1 koe net makke wurde.\n"
+#~ "Kontrolearje de tagongsrjochten."
+
+#, fuzzy
+#~| msgid "Could not write to %1."
+#~ msgid "Could not create directory %1"
+#~ msgstr "Koe net nei %1 skriuwe."
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Cookie-melding"
+
+#, fuzzy
+#~| msgid "Do you want to accept or reject?"
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] "Wolle jo it goedkarre of ôfkarre?"
+#~ msgstr[1] "Wolle jo it goedkarre of ôfkarre?"
+
+#, fuzzy
+#~| msgid " <b>[Cross Domain!]</b>"
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr "Domein [Groep]"
+
+#~ msgid "Details"
+#~ msgstr "Details"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Lit de koekje ynformaasje sjen of pas dizze oan"
+
+#~ msgid "&Accept"
+#~ msgstr "Goedk&arre"
+
+#~ msgid "&Reject"
+#~ msgstr "Ofka&rre"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Kar tapasse op"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "Allinne dit k&oekje"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "Allinne dizze k&oekjes"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject only this cookie. You will be "
+#~| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#~| "the Control Center)</em>."
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Selektearje dizze opsje at jo allinne dit koekje goedkarre/ôfkarre wolle. "
+#~ "Jo wurde op'e nij freege sa gau't in nij koekje binnenkomt. <em>(Sjoch yn "
+#~ "it Ynstellingssintrum by Websneupe/Koekjes)</em>."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Alle koekjes fan dit do&mein"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject all cookies from this site. Choosing "
+#~| "this option will add a new policy for the site this cookie originated "
+#~| "from. This policy will be permanent until you manually change it from "
+#~| "the Control Center <em>(see WebBrowsing/Cookies in the Control Center)</"
+#~| "em>."
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Selektearje dizze opsje at jo alle koekjes fan dizze webside goedkarre/"
+#~ "ôfkarre wolle. Dizze opsje makket in nij koekjebelied oan foar de webside "
+#~ "wêr't dit koekje wei komt. Dit belied is bliuwend oant jo it mei de hân "
+#~ "oanpasse yn it Konfiguraasjesintrum. <em>(Sjoch yn it "
+#~ "Konfiguraasjesintrum by Websneupe/Koekjes)</em>."
+
+#~ msgid "All &cookies"
+#~ msgstr "Alle &koekjes"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~| "this option will change the global cookie policy set in the Control "
+#~| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
+#~| "Center)</em>."
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Selektearje dizze opsje at jo alle koekjes fan alle websiden goedkarre/"
+#~ "ôfkarre wolle. Dizze opsje feroaret it folsleine koekjebelied yn it "
+#~ "Ynstellingssintrum foar alle koekjes. <em>(Sjoch yn it Ynstellingssintrum "
+#~ "by Websneupe/Koekjes)</em>."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Koekje details"
+
+#~ msgid "Name:"
+#~ msgstr "Namme:"
+
+#~ msgid "Value:"
+#~ msgstr "Wearde:"
+
+#~ msgid "Expires:"
+#~ msgstr "Ferrint op:"
+
+#~ msgid "Path:"
+#~ msgstr "Paad:"
+
+#~ msgid "Domain:"
+#~ msgstr "Domein:"
+
+#, fuzzy
+#~| msgid "Exposure:"
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Bleatstelling:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Fierder >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Lit de details foar de neikommende koekje sjen"
+
+#, fuzzy
+#~| msgid "Not specified"
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Net oantsjutte"
+
+#, fuzzy
+#~| msgid "End of Session"
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Ein fan 'e sesje"
+
+#, fuzzy
+#~| msgid "Secure servers only"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Allinne befeilige tsjinners"
+
+#, fuzzy
+#~| msgid "Secure servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Feilige tsjinners, sideskripts"
+
+#, fuzzy
+#~| msgid "Servers"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Tsjinners"
+
+#, fuzzy
+#~| msgid "Servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Tsjinners, sideskripts"
+
+#, fuzzy
+#~| msgid "Details"
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Details"
 
 #, fuzzy
 #~| msgid "Remove"

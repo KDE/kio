@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2021-09-17 20:07+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -2454,260 +2454,260 @@ msgstr "जारी रहें (&n)"
 msgid "&Current Session only"
 msgstr "सिर्फ मौज़ूदा सत्र (&C)"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "मिटाने के लिए आपने फ़ाइल चुना नहीं है"
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "मिटाने के लिए कुछ नहीं "
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "मिटाने के लिए आपने फ़ाइल चुना नहीं है"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "मिटाने के लिए कुछ नहीं "
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "उल्लेखित फ़ाइल या फोल्ड उपलब्ध नहीं है या पढ़ने लायक नहीं है."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "पेरेन्ट फ़ोल्डर "
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "घर फ़ोल्डर"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "री-लोड"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "नया फ़ोल्डर..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "कूडे में डालें"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "क्रमबद्ध करने में"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "साइट नाम"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "छोटा दृश्य"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "तारीख़ से"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "प्रविष्टि क़िस्म"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "घटते क्रम में"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "घटते क्रम में"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "छुपी फ़ाइलें दिखाएँ"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "छोटा दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "छोटा दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "विस्तृत दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "छोटा दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "विस्तृत दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Tree View"
 msgstr "विस्तृत दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Detailed Tree View"
 msgstr "विस्तृत दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "छुपी फ़ाइलें दिखाएँ"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "पूर्वावलोकन दिखाएँ"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "पूर्वावलोकन दिखाएँ"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "गुण"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "देखें (&V)"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4589,259 +4589,6 @@ msgstr "अनुमोदन संवाद "
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"सिमलिंक %1 बना नहीं सकता.\n"
-"कृपया अनुमतियाँ जाँचें."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr " %1 पर लिख नहीं सका."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "कुकी चेतावनी"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, fuzzy, kde-format
-#| msgid "Do you want to accept or reject?"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] "क्या आप स्वीकृत या अस्वीकृत करना चाहते हैं?"
-msgstr[1] "क्या आप स्वीकृत या अस्वीकृत करना चाहते हैं?"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain]</b>"
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " <b>[क्रास डोमेन]</b>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "विवरण"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "कुकी जानकारी पढ़ें या बदलें "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "स्वीकारें (&A)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "अस्वीकृत (&R)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "चयन लागू करें यहाँ..."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "सिर्फ यही कुकी (&O)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "सिर्फ ये कुकीज़ (&O)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the Control Center)</em>."
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"इस विकल्प को सिर्फ इस कुकी के स्वीकार / अस्वीकार करने के लिए चुनें. जब आपको अन्य कुकी "
-"मिलेगा तो सूचित किया जाएगा. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र में)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "इस डोमेन से सभी कुकीज़ (&m)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"इस विकल्प को सभी कुकीज़ के स्वीकार / अस्वीकार करने के लिए चुनें. इस ऑप्शन को चुनने पर साइट "
-"से आने वाली कुकी के लिए नई नीति जोड़ दी जाएगी. यह नीति स्थायी होगी जब तक कि आप "
-"नियंत्रण केंद्र में हाथों से बदल नहीं देते. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र में)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "सभी कुकीज़ (&c)"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"इस विकल्प को कहीं से भी सभी कुकी के स्वीकार / अस्वीकार करने के लिए चुनें. इस ऑप्शन को चुनने "
-"पर ग्लोबल कुकी नीति, नियंत्रण केंद्र में सभी कुकी के लिए नियत कर दी जाएगी. <em>(देखें वेब-"
-"ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र में)</em>."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "कुकी विवरण"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "नाम:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "मूल्यः"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "ख़त्म होगाः"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "पथः"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "डोमेनः"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "एक्सपोज़रः"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "अगला (&N) >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "अगले कुकी का विवरण दिखाएँ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "उल्लेखित नहीं"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "सत्र का अंत"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "सिर्फ सुरक्षित सर्वर"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "सुरक्षित सर्वर्स, पेज स्क्रिप्ट"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "सर्वर्स"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "सर्वर्स, पेज स्क्रिप्ट"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "विवरण"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7574,6 +7321,197 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Could not create symlink %1.\n"
+#~| "Please check permissions."
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr ""
+#~ "सिमलिंक %1 बना नहीं सकता.\n"
+#~ "कृपया अनुमतियाँ जाँचें."
+
+#, fuzzy
+#~| msgid "Could not write to %1."
+#~ msgid "Could not create directory %1"
+#~ msgstr " %1 पर लिख नहीं सका."
+
+#~ msgid "Cookie Alert"
+#~ msgstr "कुकी चेतावनी"
+
+#, fuzzy
+#~| msgid "Do you want to accept or reject?"
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] "क्या आप स्वीकृत या अस्वीकृत करना चाहते हैं?"
+#~ msgstr[1] "क्या आप स्वीकृत या अस्वीकृत करना चाहते हैं?"
+
+#, fuzzy
+#~| msgid " <b>[Cross Domain]</b>"
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " <b>[क्रास डोमेन]</b>"
+
+#~ msgid "Details"
+#~ msgstr "विवरण"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "कुकी जानकारी पढ़ें या बदलें "
+
+#~ msgid "&Accept"
+#~ msgstr "स्वीकारें (&A)"
+
+#~ msgid "&Reject"
+#~ msgstr "अस्वीकृत (&R)"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "चयन लागू करें यहाँ..."
+
+#~ msgid "&Only this cookie"
+#~ msgstr "सिर्फ यही कुकी (&O)"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "सिर्फ ये कुकीज़ (&O)"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject only this cookie. You will be "
+#~| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
+#~| "the Control Center)</em>."
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "इस विकल्प को सिर्फ इस कुकी के स्वीकार / अस्वीकार करने के लिए चुनें. जब आपको अन्य कुकी "
+#~ "मिलेगा तो सूचित किया जाएगा. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र में)</em>."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "इस डोमेन से सभी कुकीज़ (&m)"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject all cookies from this site. Choosing "
+#~| "this option will add a new policy for the site this cookie originated "
+#~| "from. This policy will be permanent until you manually change it from "
+#~| "the Control Center <em>(see WebBrowsing/Cookies in the Control Center)</"
+#~| "em>."
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "इस विकल्प को सभी कुकीज़ के स्वीकार / अस्वीकार करने के लिए चुनें. इस ऑप्शन को चुनने पर "
+#~ "साइट से आने वाली कुकी के लिए नई नीति जोड़ दी जाएगी. यह नीति स्थायी होगी जब तक "
+#~ "कि आप नियंत्रण केंद्र में हाथों से बदल नहीं देते. <em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र "
+#~ "में)</em>."
+
+#~ msgid "All &cookies"
+#~ msgstr "सभी कुकीज़ (&c)"
+
+#, fuzzy
+#~| msgid ""
+#~| "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~| "this option will change the global cookie policy set in the Control "
+#~| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
+#~| "Center)</em>."
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "इस विकल्प को कहीं से भी सभी कुकी के स्वीकार / अस्वीकार करने के लिए चुनें. इस ऑप्शन को "
+#~ "चुनने पर ग्लोबल कुकी नीति, नियंत्रण केंद्र में सभी कुकी के लिए नियत कर दी जाएगी. "
+#~ "<em>(देखें वेब-ब्राउज़िंग/कुकीज़ नियंत्रण केंद्र में)</em>."
+
+#~ msgid "Cookie Details"
+#~ msgstr "कुकी विवरण"
+
+#~ msgid "Name:"
+#~ msgstr "नाम:"
+
+#~ msgid "Value:"
+#~ msgstr "मूल्यः"
+
+#~ msgid "Expires:"
+#~ msgstr "ख़त्म होगाः"
+
+#~ msgid "Path:"
+#~ msgstr "पथः"
+
+#~ msgid "Domain:"
+#~ msgstr "डोमेनः"
+
+#, fuzzy
+#~| msgid "Exposure:"
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "एक्सपोज़रः"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "अगला (&N) >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "अगले कुकी का विवरण दिखाएँ"
+
+#, fuzzy
+#~| msgid "Not specified"
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "उल्लेखित नहीं"
+
+#, fuzzy
+#~| msgid "End of Session"
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "सत्र का अंत"
+
+#, fuzzy
+#~| msgid "Secure servers only"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "सिर्फ सुरक्षित सर्वर"
+
+#, fuzzy
+#~| msgid "Secure servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "सुरक्षित सर्वर्स, पेज स्क्रिप्ट"
+
+#, fuzzy
+#~| msgid "Servers"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "सर्वर्स"
+
+#, fuzzy
+#~| msgid "Servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "सर्वर्स, पेज स्क्रिप्ट"
+
+#, fuzzy
+#~| msgid "Details"
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "विवरण"
 
 #, fuzzy
 #~| msgid "Remove"

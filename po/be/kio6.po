@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2558,247 +2558,247 @@ msgstr "Пр&ацягнуць"
 msgid "&Current Session only"
 msgstr "Т&олькі бягучы сеанс"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Вы не абралі файл для выдалення."
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Няма чаго выдаляць"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Вы не абралі файл для перамяшчэння ў сметніцу."
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Няма чаго перамяшчаць у сметніцу"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Вызначаны каталог не існуе або яго немагчыма прачытаць."
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "Меню"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "Бацькоўскі каталог"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Назад"
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Наперад"
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "Хатні каталог"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "Перазагрузіць"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "Новы каталог..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "Перамясціць у сметніцу"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "Выдаліць"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "Сартаванне"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, kde-format
 msgid "Sort by Name"
 msgstr "Сартаваць па назве"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, kde-format
 msgid "Sort by Size"
 msgstr "Сартаваць па памеры"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, kde-format
 msgid "Sort by Date"
 msgstr "Сартаваць па даце"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, kde-format
 msgid "Sort by Type"
 msgstr "Сартаваць па тыпу"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, kde-format
 msgid "Ascending"
 msgstr "Па павелічэнні"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "Па памяншэнні"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "Спачатку каталогі"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Схаваныя файлы ў канцы"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, kde-format
 msgid "Icons View"
 msgstr "Значкі"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, kde-format
 msgid "Compact View"
 msgstr "Кампактны выгляд"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, kde-format
 msgid "Details View"
 msgstr "Падрабязны выгляд"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "Пазіцыя значкоў"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "Пасля назвы файла"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "Над назвай файла"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "Сціслы выгляд"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "Падрабязны выгляд"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "У выглядзе дрэва"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Падрабязны ў выглядзе дрэва"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Дазволіць разгортванне ў падрабязным выглядзе"
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Паказваць схаваныя файлы"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Паказваць панэль папярэдняга прагляду"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "Паказваць мініяцюры"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Адкрыць каталог змесціва"
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "Уласцівасці"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, kde-format
 msgid "&View Mode"
 msgstr "&Выгляд"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Я-А"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "А-Я"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Спачатку навейшыя"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Спачатку старэйшыя"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Спачатку большыя"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4666,247 +4666,6 @@ msgstr "Невядомы метад аўтарызацыі."
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr "Атрыманне пашкоджаных даных."
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Cannot Save Cookies"
-msgstr "Не ўдалося захаваць cookie"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, kde-format
-msgid "Could not remove %1, check permissions"
-msgstr "Не ўдалося выдаліць %1, праверце правы доступу"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, kde-format
-msgid "Could not create directory %1"
-msgstr "Не ўдалося ствараць каталог %1"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "Папярэджанне cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, fuzzy, kde-format
-#| msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#| msgid ""
-#| "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#| "or reject this cookie?</p>"
-#| msgid_plural ""
-#| "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#| "or reject these cookies?</p>"
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>Вы атрымалі файл cookie ад<br/><b>%2%3</b><br/>Вы хочаце ўхваліць або "
-"адхіліць гэты файл cookie?</p>"
-msgstr[1] ""
-"<p>Вы атрымалі %1 файлы cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць або "
-"адхіліць гэтыя файлы cookie?</p>"
-msgstr[2] ""
-"<p>Вы атрымалі %1 файлаў cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць або "
-"адхіліць гэтыя файлы cookie?</p>"
-msgstr[3] ""
-"<p>Вы атрымалі %1 файлы cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць або "
-"адхіліць гэтыя файлы cookie?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [Міждаменны]"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "Падрабязнасці"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "Прагляд або змена звестак cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "Ухваліць для ўсіх &сеансаў"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "Ухваліць cookie да сканчэння бягучага сеанса"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "&Ухваліць"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "&Адхіліць"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "Ужыць выбар для"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "&Толькі для гэтага cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "&Толькі для гэтых cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"Абярыце гэты параметр, каб ухваліць або адхіліць толькі гэты файл cookie. "
-"Пытанне з'явіцца зноў, калі вы атрымаеце іншы файл cookie."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "Усе cookie з гэтага да&мена"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"Абярыце гэты параметр, каб ухваліць або адхіліць усе файлы cookie з гэтага "
-"сайта. Калі абраць гэты параметр, то для сайта, з якога быў атрыманы гэты "
-"файл cookie, будзе створана новая палітыка. Яна будзе дзейнічаць, пакуль вы "
-"не зменіце яе ў наладах сістэмы."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "Усе &cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"Абярыце гэты параметр, каб прымаць/адхіляць усе файлы cookie з любога месца. "
-"Калі абраць гэты параметр, то зменіцца глабальная палітыка для файлаў "
-"cookie. Яна будзе дзейнічаць, пакуль вы не зменіце яе ў наладах сістэмы."
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "Падрабязнасці cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "Назва:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "Значэнне:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "Тэрмін дзеяння:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "Шлях:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "Дамен:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, kde-format
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "Экспазіцыя:"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "&Далей >>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "Паказаць падрабязную інфармацыю пра наступны cookie"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, kde-format
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "Не вызначана"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, kde-format
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "Канец сеанса"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "Толькі абароненыя серверы"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "Бяспечныя серверы, скрыпты старонак"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, kde-format
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "Серверы"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, kde-format
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "Серверы, скрыпты старонак"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, kde-format
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "Падрабязнасці"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7697,6 +7456,179 @@ msgstr "Гэта запусціць праграму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Калі вы не давяраеце гэтай праграме, націсніце \"Скасаваць\""
+
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "Не ўдалося захаваць cookie"
+
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr "Не ўдалося выдаліць %1, праверце правы доступу"
+
+#~ msgid "Could not create directory %1"
+#~ msgstr "Не ўдалося ствараць каталог %1"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "Папярэджанне cookie"
+
+#, fuzzy
+#~| msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~| msgid ""
+#~| "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~| "or reject this cookie?</p>"
+#~| msgid_plural ""
+#~| "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to "
+#~| "accept or reject these cookies?</p>"
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>Вы атрымалі файл cookie ад<br/><b>%2%3</b><br/>Вы хочаце ўхваліць або "
+#~ "адхіліць гэты файл cookie?</p>"
+#~ msgstr[1] ""
+#~ "<p>Вы атрымалі %1 файлы cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць або "
+#~ "адхіліць гэтыя файлы cookie?</p>"
+#~ msgstr[2] ""
+#~ "<p>Вы атрымалі %1 файлаў cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць "
+#~ "або адхіліць гэтыя файлы cookie?</p>"
+#~ msgstr[3] ""
+#~ "<p>Вы атрымалі %1 файлы cookie ад<br/><b>%2%3</b><br/>Хочаце ўхваліць або "
+#~ "адхіліць гэтыя файлы cookie?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [Міждаменны]"
+
+#~ msgid "Details"
+#~ msgstr "Падрабязнасці"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "Прагляд або змена звестак cookie"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "Ухваліць для ўсіх &сеансаў"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "Ухваліць cookie да сканчэння бягучага сеанса"
+
+#~ msgid "&Accept"
+#~ msgstr "&Ухваліць"
+
+#~ msgid "&Reject"
+#~ msgstr "&Адхіліць"
+
+#~ msgid "Apply Choice To"
+#~ msgstr "Ужыць выбар для"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "&Толькі для гэтага cookie"
+
+#~ msgid "&Only these cookies"
+#~ msgstr "&Толькі для гэтых cookie"
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "Абярыце гэты параметр, каб ухваліць або адхіліць толькі гэты файл cookie. "
+#~ "Пытанне з'явіцца зноў, калі вы атрымаеце іншы файл cookie."
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "Усе cookie з гэтага да&мена"
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "Абярыце гэты параметр, каб ухваліць або адхіліць усе файлы cookie з "
+#~ "гэтага сайта. Калі абраць гэты параметр, то для сайта, з якога быў "
+#~ "атрыманы гэты файл cookie, будзе створана новая палітыка. Яна будзе "
+#~ "дзейнічаць, пакуль вы не зменіце яе ў наладах сістэмы."
+
+#~ msgid "All &cookies"
+#~ msgstr "Усе &cookie"
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "Абярыце гэты параметр, каб прымаць/адхіляць усе файлы cookie з любога "
+#~ "месца. Калі абраць гэты параметр, то зменіцца глабальная палітыка для "
+#~ "файлаў cookie. Яна будзе дзейнічаць, пакуль вы не зменіце яе ў наладах "
+#~ "сістэмы."
+
+#~ msgid "Cookie Details"
+#~ msgstr "Падрабязнасці cookie"
+
+#~ msgid "Name:"
+#~ msgstr "Назва:"
+
+#~ msgid "Value:"
+#~ msgstr "Значэнне:"
+
+#~ msgid "Expires:"
+#~ msgstr "Тэрмін дзеяння:"
+
+#~ msgid "Path:"
+#~ msgstr "Шлях:"
+
+#~ msgid "Domain:"
+#~ msgstr "Дамен:"
+
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "Экспазіцыя:"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "&Далей >>"
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "Паказаць падрабязную інфармацыю пра наступны cookie"
+
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "Не вызначана"
+
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "Канец сеанса"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "Толькі абароненыя серверы"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "Бяспечныя серверы, скрыпты старонак"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "Серверы"
+
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "Серверы, скрыпты старонак"
+
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "Падрабязнасці"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Remove"

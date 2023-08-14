@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 02:04+0000\n"
+"POT-Creation-Date: 2023-08-14 01:58+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2503,261 +2503,261 @@ msgstr "បន្ត "
 msgid "&Current Session only"
 msgstr "តែ​សម័យ​បច្ចុប្បន្ន​"
 
-#: filewidgets/kdiroperator.cpp:303
+#: filewidgets/kdiroperator.cpp:302
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "អ្នក​មិន​បាន​ជ្រើស​ឯកសារ​ដែល​ត្រូវ​លុប​ទេ ។"
 
-#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
+#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "គ្មាន​អ្វី​ដែល​ត្រូវ​លុប"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "អ្នកមិនបាន​ជ្រើស​ឯកសារ​ដែលត្រូវ​ចោល​ទេ ។"
 
-#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
+#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "គ្មានអ្វី​ដែល​ត្រូវ​ចោល"
 
-#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
+#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "មិនមាន​ថត​ដែលបាន​បញ្ជាក់​ទេ ឬ​មិនអាច​អានបាន ។"
 
-#: filewidgets/kdiroperator.cpp:1930
+#: filewidgets/kdiroperator.cpp:1929
 #, kde-format
 msgid "Menu"
 msgstr "ម៉ឺនុយ"
 
-#: filewidgets/kdiroperator.cpp:1935
+#: filewidgets/kdiroperator.cpp:1934
 #, kde-format
 msgid "Parent Folder"
 msgstr "ថត​មេ"
 
-#: filewidgets/kdiroperator.cpp:1942
+#: filewidgets/kdiroperator.cpp:1941
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1946
+#: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1950
+#: filewidgets/kdiroperator.cpp:1949
 #, kde-format
 msgid "Home Folder"
 msgstr "ថត​ផ្ទះ"
 
-#: filewidgets/kdiroperator.cpp:1954
+#: filewidgets/kdiroperator.cpp:1953
 #, kde-format
 msgid "Reload"
 msgstr "ផ្ទុក​ឡើងវិញ"
 
-#: filewidgets/kdiroperator.cpp:1957
+#: filewidgets/kdiroperator.cpp:1956
 #, kde-format
 msgid "New Folder..."
 msgstr "ថត​ថ្មី..."
 
-#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
 #, kde-format
 msgid "Move to Trash"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
 
-#: filewidgets/kdiroperator.cpp:1973
+#: filewidgets/kdiroperator.cpp:1972
 #, kde-format
 msgid "Delete"
 msgstr "លុប"
 
-#: filewidgets/kdiroperator.cpp:1980
+#: filewidgets/kdiroperator.cpp:1979
 #, kde-format
 msgid "Sorting"
 msgstr "តម្រៀប"
 
-#: filewidgets/kdiroperator.cpp:1985
+#: filewidgets/kdiroperator.cpp:1984
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "ឈ្មោះ​តំបន់​បណ្តាញ​"
 
-#: filewidgets/kdiroperator.cpp:1991
+#: filewidgets/kdiroperator.cpp:1990
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:1997
+#: filewidgets/kdiroperator.cpp:1996
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "តាម​កាលបរិច្ឆេទ"
 
-#: filewidgets/kdiroperator.cpp:2003
+#: filewidgets/kdiroperator.cpp:2002
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "ប្រភេទធាតុ"
 
-#: filewidgets/kdiroperator.cpp:2012
+#: filewidgets/kdiroperator.cpp:2011
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "លំដាប់​ចុះ"
 
-#: filewidgets/kdiroperator.cpp:2019
+#: filewidgets/kdiroperator.cpp:2018
 #, kde-format
 msgid "Descending"
 msgstr "លំដាប់​ចុះ"
 
-#: filewidgets/kdiroperator.cpp:2026
+#: filewidgets/kdiroperator.cpp:2025
 #, kde-format
 msgid "Folders First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2032
+#: filewidgets/kdiroperator.cpp:2031
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "បង្ហាញ​ឯកសារ​ដែល​លាក់"
 
-#: filewidgets/kdiroperator.cpp:2039
+#: filewidgets/kdiroperator.cpp:2038
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2045
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2052
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "ទិដ្ឋភាព​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2072
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgid "Icon Position"
 msgstr "ទីតាំង​រូបតំណាង"
 
-#: filewidgets/kdiroperator.cpp:2075
+#: filewidgets/kdiroperator.cpp:2074
 #, kde-format
 msgid "Next to File Name"
 msgstr "ជាប់​នឹង​ឈ្មោះ​ឯកសារ"
 
-#: filewidgets/kdiroperator.cpp:2081
+#: filewidgets/kdiroperator.cpp:2080
 #, kde-format
 msgid "Above File Name"
 msgstr "ខាង​លើ​ឈ្មោះ​ឯកសារ"
 
-#: filewidgets/kdiroperator.cpp:2095
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Short View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2101
 #, kde-format
 msgid "Detailed View"
 msgstr "ទិដ្ឋភាព​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2109
+#: filewidgets/kdiroperator.cpp:2108
 #, kde-format
 msgid "Tree View"
 msgstr "ទិដ្ឋភាព​មែកធាង"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2115
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "ទិដ្ឋភាព​មែកធាង​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2129
+#: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2135
+#: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "បង្ហាញ​ឯកសារ​ដែល​លាក់"
 
-#: filewidgets/kdiroperator.cpp:2142
+#: filewidgets/kdiroperator.cpp:2141
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "បង្ហាញ​ការ​មើល​ជាមុន"
 
-#: filewidgets/kdiroperator.cpp:2149
+#: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
 msgstr "បង្ហាញ​ការ​មើល​ជាមុន"
 
-#: filewidgets/kdiroperator.cpp:2156
+#: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
 #, kde-format
 msgid "Properties"
 msgstr "លក្ខណៈ​សម្បត្តិ"
 
-#: filewidgets/kdiroperator.cpp:2172
+#: filewidgets/kdiroperator.cpp:2171
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "ទិដ្ឋភាព "
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2278
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2280
+#: filewidgets/kdiroperator.cpp:2279
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2282
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2284
+#: filewidgets/kdiroperator.cpp:2283
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -4651,250 +4651,6 @@ msgstr "មិន​ស្គាល់​វិធីសាស្ត្រ​ផ
 #, kde-format
 msgid "Receiving corrupt data."
 msgstr ""
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Cannot open file"
-msgid "Cannot Save Cookies"
-msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
-msgid "Could not remove %1, check permissions"
-msgstr ""
-"មិន​អាច​បង្កើត​តំណ​និមិត្ត​សញ្ញា %1 បានឡើយ ។\n"
-"សូម​ពិនិត្យ​មើល​សិទ្ធិ ។"
-
-#: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
-msgid "Could not create directory %1"
-msgstr "មិន​អាច​សរសេរ​ទៅ​កាន់ %1 បានឡើយ ។"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:49
-#, kde-format
-msgid "Cookie Alert"
-msgstr "ការជូនដំណឹង​អំពី​ខូគី"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:76
-#, kde-format
-msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-msgid ""
-"<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject this cookie?</p>"
-msgid_plural ""
-"<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
-"reject these cookies?</p>"
-msgstr[0] ""
-"<p>អ្នក​បាន​ទទួលខូគី %1 ពី<br/><b>%2%3</b><br/>តើ​អ្នក​ចង់​ព្រមទទួល ឬ​ច្រាន​ចោល​ខូគី ?</p>"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:84
-#, kde-format
-msgctxt "@item:intext cross domain cookie"
-msgid " [Cross Domain]"
-msgstr " [ឆ្លងដែន]"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 181
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:96
-#, kde-format
-msgid "Details"
-msgstr "លម្អិត"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:99
-#, kde-format
-msgid "See or modify the cookie information"
-msgstr "មើល ឬ​កែប្រែ​ព័ត៌មាន​ខូគី"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:104
-#, kde-format
-msgid "Accept for this &session"
-msgstr "ព្រម​ទទួល​សម្រាប់​សម័យ​ថ្មី​នេះ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:107
-#, kde-format
-msgid "Accept cookie(s) until the end of the current session"
-msgstr "ព្រម​ទទួល​យក​ខូគី​រហូត​ដល់​សម័យ​បច្ចុប្បន្ន"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:117
-#, kde-format
-msgid "&Accept"
-msgstr "ព្រម​ទទួល "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:120
-#, kde-format
-msgid "&Reject"
-msgstr "បដិសេធ "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:156
-#, kde-format
-msgid "Apply Choice To"
-msgstr "អនុវត្ត​ជម្រើស​ទៅ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only this cookie"
-msgstr "តែ​ខូគី​នេះ​ប៉ុណ្ណោះ "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:159
-#, kde-format
-msgid "&Only these cookies"
-msgstr "តែ​ខូគី​ទាំងនេះ​ប៉ុណ្ណោះ "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:164
-#, kde-format
-msgid ""
-"Select this option to only accept or reject this cookie. You will be "
-"prompted again if you receive another cookie."
-msgstr ""
-"ជ្រើស​ជម្រើស​នេះ​ដើម្បី​ទទួលយក/បដិសេធ​តែ​ខូគី​នេះ​តែ​ប៉ុណ្ណោះ ។ អ្នក​នឹង​ត្រូវ​បាន​សួរ​ ប្រសិនបើ​ខូគី​​ផ្សេង​ត្រូវ​បាន​"
-"ទទួល ។"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:167
-#, kde-format
-msgid "All cookies from this do&main"
-msgstr "ខូគី​ទាំងអស់​ពី​ដែន​នេះ "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:171
-#, kde-format
-msgid ""
-"Select this option to accept or reject all cookies from this site. Choosing "
-"this option will add a new policy for the site this cookie originated from. "
-"This policy will be permanent until you manually change it from the System "
-"Settings."
-msgstr ""
-"ជ្រើស​ជម្រើស​នេះ​ដើម្បី​ទទួលយក​/បដិសេធ​ខូគី​ទាំងអស់​ពី​តំបន់​បណ្ដាញ​នេះ ។ ជ្រើស​ជម្រើស​នេះ​នឹង​បន្ថែម​គោលនយោបាយ​"
-"សម្រាប់​តំបន់​បណ្ដាញ​ដែល​ខូគី​​នេះ​​បាន​មក​ពី ។ គោលនយោបាយ​នេះ​នឹង​ក្លាយ​ជា​អចិន្ត្រៃយ៍​រហូត​ដល់​អ្នក​ផ្លាស់ប្ដូរ​ដោយ​ដៃ​"
-"ពី​ការ​កំណត់​ប្រព័ន្ធ ។"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:176
-#, kde-format
-msgid "All &cookies"
-msgstr "ខូគី​ទាំងអស់ "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:180
-#, kde-format
-msgid ""
-"Select this option to accept/reject all cookies from anywhere. Choosing this "
-"option will change the global cookie policy for all cookies until you "
-"manually change it from the System Settings."
-msgstr ""
-"ជ្រើស​ជម្រើស​នេះ ដើម្បី​ទទួល​យក/បដិសេធ​ខូគី​ទាំងអស់​ពី​កន្លែង​ផ្សេង ។ ជ្រើស​ជម្រើស​នេះ នឹង​ផ្លាស់ប្ដូរ​"
-"គោលនយោបាយ​ខូឃី​សកល​ដែល​បាន​កំណត់​នៅ​ក្នុង​ការ​កំណត់​ប្រព័ន្ធ​ ។"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:246
-#, kde-format
-msgid "Cookie Details"
-msgstr "សេចក្តី​លម្អិត​អំពី​ខូគី"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 216
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:251
-#, kde-format
-msgid "Name:"
-msgstr "ឈ្មោះ ៖"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 227
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:259
-#, kde-format
-msgid "Value:"
-msgstr "តម្លៃ ៖"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 260
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:266
-#, kde-format
-msgid "Expires:"
-msgstr "ផុត​កំណត់ ៖"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 249
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:273
-#, kde-format
-msgid "Path:"
-msgstr "ផ្លូវ ៖"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 238
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:280
-#, kde-format
-msgid "Domain:"
-msgstr "ដែន ៖"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:287
-#, fuzzy, kde-format
-#| msgid "Exposure:"
-msgctxt ""
-"@label a description string of how 'accessible' the cookie is (e.g. see "
-"exposure string in this file)"
-msgid "Exposure:"
-msgstr "ការ​បង្ហាញ ៖"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:295
-#, kde-format
-msgctxt "Next cookie"
-msgid "&Next >>"
-msgstr "បន្ទាប់ >> "
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:300
-#, kde-format
-msgid "Show details of the next cookie"
-msgstr "បង្ហាញ​សេចក្ដី​លម្អិត​អំពី​ខូគី​បន្ទាប់"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:328
-#, fuzzy, kde-format
-#| msgid "Not specified"
-msgctxt "@label cookie has no explicit 'Domain' value specified"
-msgid "Not specified"
-msgstr "មិន​បាន​បញ្ជាក់"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:337
-#, fuzzy, kde-format
-#| msgid "End of Session"
-msgctxt "@label the cookie expires when the browser session ends"
-msgid "End of Session"
-msgstr "បញ្ចប់​សម័យ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
-msgctxt "@label exposure string - the cookie may only be used by https servers"
-msgid "Secure servers only"
-msgstr "ការ​ពារ​សុវត្ថិភាព​តែ​ប៉ុណ្ណោះ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by https servers AND client-"
-"side javascripts"
-msgid "Secure servers, page scripts"
-msgstr "ការពារ​សុវត្ថិភាព​ម៉ាស៊ីន​បម្រើ ស្គ្រីប​ទំព័រ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:348
-#, fuzzy, kde-format
-#| msgid "Servers"
-msgctxt "@label exposure string - the cookie may only be used by http servers"
-msgid "Servers"
-msgstr "ម៉ាស៊ីន​បម្រើ"
-
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:350
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
-msgctxt ""
-"@label exposure string - the cookie may be used by http servers AND client-"
-"side javascripts"
-msgid "Servers, page scripts"
-msgstr "ម៉ាស៊ីន​បម្រើ ស្គ្រីប​ទំព័រ"
-
-#  i18n: file kcookiesmanagementdlg_ui.ui line 181
-#: kioworkers/http/kcookiejar/kcookiewin.cpp:365
-#, fuzzy, kde-format
-#| msgid "Details"
-msgctxt ""
-"@action:button show details about a cookie that needs approval. This string "
-"gets >> and << appended, to visualize if the dialog expands or compacts!"
-msgid "Details"
-msgstr "លម្អិត"
 
 #: kioworkers/http/tcpworkerbase.cpp:280
 #, kde-format
@@ -7659,6 +7415,191 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
+
+#, fuzzy
+#~| msgid "Cannot open file"
+#~ msgid "Cannot Save Cookies"
+#~ msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Could not create symlink %1.\n"
+#~| "Please check permissions."
+#~ msgid "Could not remove %1, check permissions"
+#~ msgstr ""
+#~ "មិន​អាច​បង្កើត​តំណ​និមិត្ត​សញ្ញា %1 បានឡើយ ។\n"
+#~ "សូម​ពិនិត្យ​មើល​សិទ្ធិ ។"
+
+#, fuzzy
+#~| msgid "Could not write to %1."
+#~ msgid "Could not create directory %1"
+#~ msgstr "មិន​អាច​សរសេរ​ទៅ​កាន់ %1 បានឡើយ ។"
+
+#~ msgid "Cookie Alert"
+#~ msgstr "ការជូនដំណឹង​អំពី​ខូគី"
+
+#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
+#~ msgid ""
+#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject this cookie?</p>"
+#~ msgid_plural ""
+#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
+#~ "or reject these cookies?</p>"
+#~ msgstr[0] ""
+#~ "<p>អ្នក​បាន​ទទួលខូគី %1 ពី<br/><b>%2%3</b><br/>តើ​អ្នក​ចង់​ព្រមទទួល ឬ​ច្រាន​ចោល​ខូគី ?</p>"
+
+#~ msgctxt "@item:intext cross domain cookie"
+#~ msgid " [Cross Domain]"
+#~ msgstr " [ឆ្លងដែន]"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 181
+#~ msgid "Details"
+#~ msgstr "លម្អិត"
+
+#~ msgid "See or modify the cookie information"
+#~ msgstr "មើល ឬ​កែប្រែ​ព័ត៌មាន​ខូគី"
+
+#~ msgid "Accept for this &session"
+#~ msgstr "ព្រម​ទទួល​សម្រាប់​សម័យ​ថ្មី​នេះ"
+
+#~ msgid "Accept cookie(s) until the end of the current session"
+#~ msgstr "ព្រម​ទទួល​យក​ខូគី​រហូត​ដល់​សម័យ​បច្ចុប្បន្ន"
+
+#~ msgid "&Accept"
+#~ msgstr "ព្រម​ទទួល "
+
+#~ msgid "&Reject"
+#~ msgstr "បដិសេធ "
+
+#~ msgid "Apply Choice To"
+#~ msgstr "អនុវត្ត​ជម្រើស​ទៅ"
+
+#~ msgid "&Only this cookie"
+#~ msgstr "តែ​ខូគី​នេះ​ប៉ុណ្ណោះ "
+
+#~ msgid "&Only these cookies"
+#~ msgstr "តែ​ខូគី​ទាំងនេះ​ប៉ុណ្ណោះ "
+
+#~ msgid ""
+#~ "Select this option to only accept or reject this cookie. You will be "
+#~ "prompted again if you receive another cookie."
+#~ msgstr ""
+#~ "ជ្រើស​ជម្រើស​នេះ​ដើម្បី​ទទួលយក/បដិសេធ​តែ​ខូគី​នេះ​តែ​ប៉ុណ្ណោះ ។ អ្នក​នឹង​ត្រូវ​បាន​សួរ​ ប្រសិនបើ​ខូគី​​ផ្សេង​ត្រូវ​"
+#~ "បាន​ទទួល ។"
+
+#~ msgid "All cookies from this do&main"
+#~ msgstr "ខូគី​ទាំងអស់​ពី​ដែន​នេះ "
+
+#~ msgid ""
+#~ "Select this option to accept or reject all cookies from this site. "
+#~ "Choosing this option will add a new policy for the site this cookie "
+#~ "originated from. This policy will be permanent until you manually change "
+#~ "it from the System Settings."
+#~ msgstr ""
+#~ "ជ្រើស​ជម្រើស​នេះ​ដើម្បី​ទទួលយក​/បដិសេធ​ខូគី​ទាំងអស់​ពី​តំបន់​បណ្ដាញ​នេះ ។ ជ្រើស​ជម្រើស​នេះ​នឹង​បន្ថែម​"
+#~ "គោលនយោបាយ​សម្រាប់​តំបន់​បណ្ដាញ​ដែល​ខូគី​​នេះ​​បាន​មក​ពី ។ គោលនយោបាយ​នេះ​នឹង​ក្លាយ​ជា​អចិន្ត្រៃយ៍​រហូត​ដល់​អ្នក​"
+#~ "ផ្លាស់ប្ដូរ​ដោយ​ដៃ​ពី​ការ​កំណត់​ប្រព័ន្ធ ។"
+
+#~ msgid "All &cookies"
+#~ msgstr "ខូគី​ទាំងអស់ "
+
+#~ msgid ""
+#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
+#~ "this option will change the global cookie policy for all cookies until "
+#~ "you manually change it from the System Settings."
+#~ msgstr ""
+#~ "ជ្រើស​ជម្រើស​នេះ ដើម្បី​ទទួល​យក/បដិសេធ​ខូគី​ទាំងអស់​ពី​កន្លែង​ផ្សេង ។ ជ្រើស​ជម្រើស​នេះ នឹង​ផ្លាស់ប្ដូរ​"
+#~ "គោលនយោបាយ​ខូឃី​សកល​ដែល​បាន​កំណត់​នៅ​ក្នុង​ការ​កំណត់​ប្រព័ន្ធ​ ។"
+
+#~ msgid "Cookie Details"
+#~ msgstr "សេចក្តី​លម្អិត​អំពី​ខូគី"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 216
+#~ msgid "Name:"
+#~ msgstr "ឈ្មោះ ៖"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 227
+#~ msgid "Value:"
+#~ msgstr "តម្លៃ ៖"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 260
+#~ msgid "Expires:"
+#~ msgstr "ផុត​កំណត់ ៖"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 249
+#~ msgid "Path:"
+#~ msgstr "ផ្លូវ ៖"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 238
+#~ msgid "Domain:"
+#~ msgstr "ដែន ៖"
+
+#, fuzzy
+#~| msgid "Exposure:"
+#~ msgctxt ""
+#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
+#~ "exposure string in this file)"
+#~ msgid "Exposure:"
+#~ msgstr "ការ​បង្ហាញ ៖"
+
+#~ msgctxt "Next cookie"
+#~ msgid "&Next >>"
+#~ msgstr "បន្ទាប់ >> "
+
+#~ msgid "Show details of the next cookie"
+#~ msgstr "បង្ហាញ​សេចក្ដី​លម្អិត​អំពី​ខូគី​បន្ទាប់"
+
+#, fuzzy
+#~| msgid "Not specified"
+#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
+#~ msgid "Not specified"
+#~ msgstr "មិន​បាន​បញ្ជាក់"
+
+#, fuzzy
+#~| msgid "End of Session"
+#~ msgctxt "@label the cookie expires when the browser session ends"
+#~ msgid "End of Session"
+#~ msgstr "បញ្ចប់​សម័យ"
+
+#, fuzzy
+#~| msgid "Secure servers only"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by https servers"
+#~ msgid "Secure servers only"
+#~ msgstr "ការ​ពារ​សុវត្ថិភាព​តែ​ប៉ុណ្ណោះ"
+
+#, fuzzy
+#~| msgid "Secure servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by https servers AND "
+#~ "client-side javascripts"
+#~ msgid "Secure servers, page scripts"
+#~ msgstr "ការពារ​សុវត្ថិភាព​ម៉ាស៊ីន​បម្រើ ស្គ្រីប​ទំព័រ"
+
+#, fuzzy
+#~| msgid "Servers"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may only be used by http servers"
+#~ msgid "Servers"
+#~ msgstr "ម៉ាស៊ីន​បម្រើ"
+
+#, fuzzy
+#~| msgid "Servers, page scripts"
+#~ msgctxt ""
+#~ "@label exposure string - the cookie may be used by http servers AND "
+#~ "client-side javascripts"
+#~ msgid "Servers, page scripts"
+#~ msgstr "ម៉ាស៊ីន​បម្រើ ស្គ្រីប​ទំព័រ"
+
+#  i18n: file kcookiesmanagementdlg_ui.ui line 181
+#, fuzzy
+#~| msgid "Details"
+#~ msgctxt ""
+#~ "@action:button show details about a cookie that needs approval. This "
+#~ "string gets >> and << appended, to visualize if the dialog expands or "
+#~ "compacts!"
+#~ msgid "Details"
+#~ msgstr "លម្អិត"
 
 #, fuzzy
 #~| msgid "Remove"
