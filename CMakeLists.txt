@@ -38,6 +38,7 @@ ecm_setup_version(
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 option(KIOCORE_ONLY "Only compile KIOCore, not KIOWidgets or anything that depends on it. This will disable support for cookies and passwordhandling (prompting and storing)." OFF)
+option(BUILD_RUNTIME_COMPONENTS "Build runtime components like kiod, kpasswdserver, or kioexec. Disable this if you are building two major versions for co-installability in the older variant." ON)
 
 # Enable state assertion by default on Jenkins and from-git builds.
 # This option should eventually be dropped and always be enabled.
