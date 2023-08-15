@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:44+0000\n"
-"PO-Revision-Date: 2023-07-22 06:22+0200\n"
+"PO-Revision-Date: 2023-08-14 06:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -962,6 +962,13 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
+"როცა ყველა იმედს გადაწურავთ, იფიქრეთ, დაეხმაროთ KDE-ის გუნდს ან მესამე პირის "
+"პროგრამისტებს მათთვის მაღალი ხარისხის ანაგარიშის გადაცემით. თუ პროგრამა "
+"მესამე პირმა მოგაწოდათ, მათ დაუკავშირდით. სხვა შემთხვევაში ჯერ შეხედეთ <a "
+"href=\"https://bugs.kde.org/\">KDE-ის შეცდომების ვებგვერდზე</a>, ამ შეცდომის "
+"შესახებ სხვამაც ხომ არ მოიწერა. თუ არა, ჩაიწერეთ ზემოთ მოხსენიებული დეტალები "
+"და დაურთეთ ისინი თქვენს ანგარიშს შეცდომის შესახებ იმ ყველაფერთან ერთად, "
+"რასაც ფიქრობთ, რომ სასარგებლო იქნება."
 
 #: core/job_error.cpp:407
 #, kde-format
@@ -2039,6 +2046,8 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
+"დიდი ალბათობით ეს გამოიწვია შეცდომამ პროგრამაში. გთხოვთ ატვირთოთ შეცდომის "
+"სრული ანგარიში, როგორც ქვემოთაა აღწერილი."
 
 #: core/job_error.cpp:1085
 #, kde-format
@@ -2069,6 +2078,12 @@ msgid ""
 "settings in the KDE System Settings, by selecting Network Settings -> "
 "Connection Preferences."
 msgstr ""
+"მიუხედავად იმისა, რომ სერვერს დავუკავშირდით, დაკავშირებისთვის გამოყოფილ "
+"დროში ეს ვერ მოხერხდა შემდეგი მოთხოვნისთვის:<ul><li>კავშირის დამყარების "
+"ვადა: %1 წამი</li><li>პასუხის მიღების ვადა: %2 წამი</li><li>პროქსი სერვერთან "
+"მიერთების ვადა: %3 წამი</li></ul>დაიმახსოვრეთ, რომ ამ ვადების შეცვლა KDE-ის "
+"სისტემური პარამეტრებიდან შეგიძლიათ, მენუში ქსელის მორგება -> კავშირის "
+"გამართვა."
 
 #: core/job_error.cpp:1108
 #, kde-format
@@ -3459,6 +3474,11 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
+"<qt>ეს ფაილის გახსნის დიალოგის პარამეტრების მენიუა. ამ მენიუში ბევრი რამ "
+"შეგიძლიათ, იპოვოთ. მაგ: <ul><li>სიაში ფაილები რის მიხედვით ლაგდება</"
+"li><li>ხედის ტიპით, ხატულისა და სიის ჩათვლით</li><li>დამალული ფაილების "
+"ჩვენება</li><li>ადგილების პანელი</li><li>ფაილების მინიატურები</"
+"li><li>ფაილებისა და საქაღალდეების გაცალკევება</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1373
 #, kde-format
@@ -5091,6 +5111,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"ამ პროქსის პარამეტრს ყველა აპლიკაცია არ იყენებს. უფრო ზუსტად, "
+"<application>Firefoox</application> და <application>Chromium</application> "
+"ან ყველაფერი, რაც <application>QtWebEngine</application>-ზეა დაწერილი, "
+"რომელიც შეიცავს <application>Konqueror</application>-ს, რომელიც "
+"<application>WebEnginePart</application>-ს იყენებს, <application>Akregator</"
+"application> და <application>Falkon</application> - არ გამოიყენებენ ამ "
+"პარამეტრებს. ზოგიერთ აპლიკაციას კი პროქსის საკუთარი პარამეტრები შეიძლება, "
+"ჰქონდეს."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -5123,6 +5151,19 @@ msgid ""
 "guide or your system administrator.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"პროქსის კონფიგურაციის მორგება.\n"
+"<p>\n"
+"პროქსი სერვერი შუალედური მანქანაა თქვენსა და ინტერნეტს შორის, რომელიც "
+"ვებგვერდების გაფილტვრითა და კეშირებითაა დაკავებული. კეშირების პროქსი "
+"ვებსაიტებთან სწრაფად წვდომის საშუალებას გაძლევთ წინა ვიზიტის შემდეგ საიტის "
+"შემცველობის ლოკალურად შენახვის ხარჯზე. მფილტრავი პროქსი კი ბლოკავს ისეთ "
+"მოთხოვნებს, როგორიცაა რეკლამა, სპამი და დანარჩენი ყველაფერი, რისი დაბლოკვაც "
+"გსურთ.\n"
+"<p>\n"
+"თუ იმაში, უნდა გამოიყენოთ პროქსი, თუ არა, დარწმუნებული არ ბრძანდებით, იხილეთ "
+"პროვაიდერის დოკუმენტაცია ან დაუკავშირდით თქვენს სისტემურ ადმინისტრატორს.\n"
+"</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:26
@@ -5343,6 +5384,10 @@ msgid ""
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
+"<qt>შეიყვანეთ გარემოს ცვლადის სახელი, მაგალითად, <b>SOCKS_PROXY</b>, რომელიც "
+"SOCKS პროქსის სერვერის მისამართის შესანახად გამოიყენება.<p> გარდა ამისა, "
+"თქვენ შეგიძლიათ დააჭიროთ ღილაკს <b>&quot;ავტომატური აღმოჩენა&quot;</b> , "
+"რათა ამ ცვლადის ავტომატური აღმოჩენა სცადოთ.</p> </qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5953,6 +5998,11 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
+"სერვერმა 'propertybehavior' XML ელემენტში ჩამოთვლილი\n"
+"თვისებების ცოცხლობა ვერ უზრუნველყო, ან თქვენ\n"
+"სცადეთ გადაგეწერათ ფაილი, რომელიც\n"
+"არ უნდა შეცვლილიყო.\n"
+"%1"
 
 #: kioworkers/http/http.cpp:1707
 #, kde-format
@@ -7248,6 +7298,9 @@ msgid ""
 "%1\n"
 "is unknown."
 msgstr ""
+"სამუშაო მაგიდის ჩანაწერი\n"
+"%1\n"
+"უცნობია."
 
 #: widgets/kdesktopfileactions.cpp:95 widgets/kdesktopfileactions.cpp:170
 #: widgets/kdesktopfileactions.cpp:285
@@ -7257,6 +7310,9 @@ msgid ""
 "%1\n"
 "is of type FSDevice but has no Dev=... entry."
 msgstr ""
+".desktop ფაილი\n"
+"%1\n"
+"ტიპი FSDevice-ია, მაგრამ Dev= ჩანაწერი არ გააჩნია."
 
 #: widgets/kdesktopfileactions.cpp:184
 #, kde-format
@@ -7571,6 +7627,18 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
+"ბრძანების შემდეგ გექნებათ რამდენიმე ცვლადი, რომელიც, როცა პროგრამა "
+"გაშვებულია, მიმდინარე მნიშვნელობებით ჩანაცვლდება:\n"
+"%f - ერთი ფაილის სახელი\n"
+"%F - ფაილების სია. გამოიყენება აპლიკაციებისთვის, რომლებსაც ერთდროულად "
+"რამდენიმე ფაილის გახსნა შეუძლიათ.\n"
+"%u - ერთი ბმული\n"
+"%U - ბმულების სია\n"
+"%d - გასახსნელი ფაილის საქაღალდე\n"
+"%D - საქაღალდეების სია\n"
+"%i - ხატულა\n"
+"%m - მინიხატულა\n"
+"%c - კომენტარი"
 
 #: widgets/kopenwithdialog.cpp:741
 #, kde-format
@@ -8554,11 +8622,13 @@ msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
 "not exist.</qt>"
 msgstr ""
+"<qt>მითითებული ბრძანების გაშვება შეუძლებელია. ფაილი ან საქაღალდე <b>%1</b> "
+"არ არსებობს.</qt>"
 
 #: widgets/krun.cpp:492
 #, kde-format
 msgid "Could not find any application or handler for %1"
-msgstr ""
+msgstr "%1-სთვის აპლიკაცია ან დამმუშავებელი აღმოჩენილი არაა"
 
 #: widgets/ksslinfodialog.cpp:39
 #, kde-format

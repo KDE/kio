@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:44+0000\n"
-"PO-Revision-Date: 2023-03-24 19:37+0100\n"
+"PO-Revision-Date: 2023-08-14 21:31+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -9117,15 +9117,15 @@ msgstr ""
 #, kde-format
 msgid "&Paste File"
 msgid_plural "&Paste %1 Files"
-msgstr[0] "Datei &einfügen"
-msgstr[1] "%1 Dateien &einfügen"
+msgstr[0] "&Einfügen (1 Datei)"
+msgstr[1] "&Einfügen (%1 Dateien)"
 
 #: widgets/paste.cpp:293
 #, kde-format
 msgid "&Paste URL"
 msgid_plural "&Paste %1 URLs"
-msgstr[0] "Adresse (URL) &einfügen"
-msgstr[1] "%1 Adressen (URLs) &einfügen"
+msgstr[0] "&Einfügen (1 Adresse)"
+msgstr[1] "&Einfügen (%1 Adressen)"
 
 #: widgets/paste.cpp:296
 #, kde-format
@@ -9136,21 +9136,21 @@ msgstr "&Inhalt der Zwischenablage einfügen"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "Einen Ordner einfügen"
+msgstr "Einfügen (Ordner)"
 
 #: widgets/paste.cpp:331
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "Eine Datei einfügen"
+msgstr "Einfügen (Datei)"
 
 #: widgets/paste.cpp:333
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
-msgstr[0] "Ein Element einfügen"
-msgstr[1] "%1 Elemente einfügen"
+msgstr[0] "Einfügen (1 Element)"
+msgstr[1] "Einfügen (%1 Elemente)"
 
 #: widgets/paste.cpp:335
 #, kde-format
