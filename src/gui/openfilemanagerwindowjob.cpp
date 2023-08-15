@@ -100,24 +100,8 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
 {
     auto *job = new OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
-
-    if (asn.isNull()) {
-        auto window = qGuiApp->focusWindow();
-        if (!window && !qGuiApp->allWindows().isEmpty()) {
-            window = qGuiApp->allWindows().constFirst();
-        }
-        const int launchedSerial = KWindowSystem::lastInputSerial(window);
-        QObject::connect(KWindowSystem::self(), &KWindowSystem::xdgActivationTokenArrived, job, [launchedSerial, job](int serial, const QString &token) {
-            if (serial == launchedSerial) {
-                job->setStartupId(token.toLatin1());
-                job->start();
-            }
-        }, Qt::SingleShotConnection);
-        KWindowSystem::requestXdgActivationToken(window, launchedSerial, {});
-    } else {
-        job->setStartupId(asn);
-        job->start();
-    }
+    job->setStartupId(asn);
+    job->start();
 
     return job;
 }
@@ -127,28 +111,51 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 {
     // see the spec at: https://www.freedesktop.org/wiki/Specifications/file-manager-interface/
 
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.FileManager1"),
-                                                      QStringLiteral("/org/freedesktop/FileManager1"),
-                                                      QStringLiteral("org.freedesktop.FileManager1"),
-                                                      QStringLiteral("ShowItems"));
+    auto runWithToken = [this, urls](const QByteArray &asn) {
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.FileManager1"),
+                                                          QStringLiteral("/org/freedesktop/FileManager1"),
+                                                          QStringLiteral("org.freedesktop.FileManager1"),
+                                                          QStringLiteral("ShowItems"));
 
-    msg << QUrl::toStringList(urls) << QString::fromUtf8(asn);
+        msg << QUrl::toStringList(urls) << QString::fromUtf8(asn);
 
-    QDBusPendingReply<void> reply = QDBusConnection::sessionBus().asyncCall(msg);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, m_job);
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<void> reply = *watcher;
-        watcher->deleteLater();
+        QDBusPendingReply<void> reply = QDBusConnection::sessionBus().asyncCall(msg);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, m_job);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, m_job, [=](QDBusPendingCallWatcher *watcher) {
+            QDBusPendingReply<void> reply = *watcher;
+            watcher->deleteLater();
 
-        if (reply.isError()) {
-            // Try the KRun strategy as fallback, also calls emitResult inside
-            m_job->d->createKRunStrategy();
-            m_job->d->strategy->start(urls, asn);
-            return;
+            if (reply.isError()) {
+                // Try the KRun strategy as fallback, also calls emitResult inside
+                m_job->d->createKRunStrategy();
+                m_job->d->strategy->start(urls, asn);
+                return;
+            }
+
+            emitResultProxy();
+        });
+    };
+
+    if (asn.isEmpty()) {
+        auto window = qGuiApp->focusWindow();
+        if (!window && !qGuiApp->allWindows().isEmpty()) {
+            window = qGuiApp->allWindows().constFirst();
         }
-
-        emitResultProxy();
-    });
+        const int launchedSerial = KWindowSystem::lastInputSerial(window);
+        QObject::connect(
+            KWindowSystem::self(),
+            &KWindowSystem::xdgActivationTokenArrived,
+            m_job,
+            [launchedSerial, runWithToken](int serial, const QString &token) {
+                if (serial == launchedSerial) {
+                    runWithToken(token.toUtf8());
+                }
+            },
+            Qt::SingleShotConnection);
+        KWindowSystem::requestXdgActivationToken(window, launchedSerial, {});
+    } else {
+        runWithToken(asn);
+    }
 }
 #endif
 
