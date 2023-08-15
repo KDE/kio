@@ -31,32 +31,25 @@ public:
     {
     }
 
-    ~OpenFileManagerWindowJobPrivate()
-    {
-        delete strategy;
-    }
+    ~OpenFileManagerWindowJobPrivate() = default;
 
 #ifdef Q_OS_LINUX
-    AbstractOpenFileManagerWindowStrategy *createDBusStrategy()
+    void createDBusStrategy()
     {
-        delete strategy;
-        strategy = new OpenFileManagerWindowDBusStrategy(q);
-        return strategy;
+        strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>(q);
     }
 #endif
 
-    AbstractOpenFileManagerWindowStrategy *createKRunStrategy()
+    void createKRunStrategy()
     {
-        delete strategy;
-        strategy = new OpenFileManagerWindowKRunStrategy(q);
-        return strategy;
+        strategy = std::make_unique<OpenFileManagerWindowKRunStrategy>(q);
     }
 
     OpenFileManagerWindowJob *const q;
     QList<QUrl> highlightUrls;
     QByteArray startupId;
 
-    AbstractOpenFileManagerWindowStrategy *strategy;
+    std::unique_ptr<AbstractOpenFileManagerWindowStrategy> strategy;
 };
 
 OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
@@ -149,8 +142,8 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 
         if (reply.isError()) {
             // Try the KRun strategy as fallback, also calls emitResult inside
-            AbstractOpenFileManagerWindowStrategy *kRunStrategy = m_job->d->createKRunStrategy();
-            kRunStrategy->start(urls, asn);
+            m_job->d->createKRunStrategy();
+            m_job->d->strategy->start(urls, asn);
             return;
         }
 
