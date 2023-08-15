@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2023-07-16 13:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -4045,12 +4045,12 @@ msgstr "இயக்க வேண்டிய கட்டளை"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "கட்டளைக்கு பயன்படும் முகவரி(கள்) அல்லது உள்ளமை கோப்பு(கள்)"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1 -க்கு ACL அமைத்தல்"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4059,7 +4059,7 @@ msgstr ""
 "%1\n"
 "என்பதற்கு அனுமதிகளை மாற்ற முடியவில்லை"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4067,12 +4067,12 @@ msgid ""
 "%1"
 msgstr "%1 என்பதற்கான உரிமையாளரையும் குழுவையும் மாற்ற முடியவில்லை."
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" நிரலை கண்டுபிடிக்க முடியவில்லை"

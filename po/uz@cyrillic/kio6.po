@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3971,12 +3971,12 @@ msgstr "Бажариш учун буйруқ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, fuzzy, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1'га маълумот жўнатилмоқда"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -3985,7 +3985,7 @@ msgstr ""
 "%1\n"
 "учун ҳуқуқларни ўзгартириб бўлмади"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, fuzzy, kde-format
 #| msgid "Could not change permissions for %1."
 msgctxt "@info"
@@ -3994,12 +3994,12 @@ msgid ""
 "%1"
 msgstr "%1 учун ҳуқуқларни ўзгартириб бўлмади."
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "'mount' дастурини топиб бўлмади."
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "'umount' дастурини топиб бўлмади."

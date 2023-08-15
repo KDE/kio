@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2021-08-27 01:43+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -4140,19 +4140,19 @@ msgstr "Komanda vykdymui"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL ar vietinis(iai) failas(ai), naudojami su „command“"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Nustatomas ACL skirtas %1"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "Nepavyksta pakeisti %1 leidimų"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4161,12 +4161,12 @@ msgid ""
 "%1"
 msgstr "Nepavyko pakeisti nuosavybės %1."
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nepavyksta rasti programos „mount“"
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nepavyksta rasti programos „umount“"

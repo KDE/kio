@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2023-07-25 21:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -4008,12 +4008,12 @@ msgstr "실행할 명령"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1의 ACL을 설정하는 중"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4022,7 +4022,7 @@ msgstr ""
 "%1\n"
 "의 권한을 바꿀 수 없습니다"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4032,12 +4032,12 @@ msgstr ""
 "%1\n"
 "의 소유자와 그룹을 변경할 수 없습니다"
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"

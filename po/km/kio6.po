@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4117,12 +4117,12 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "កំណត់ ACL សម្រាប់ %1"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4131,7 +4131,7 @@ msgstr ""
 "មិន​អាច​ផ្លាស់ប្តូរ​សិទ្ធិ​ឲ្យ\n"
 "%1 បានទេ"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4140,12 +4140,12 @@ msgid ""
 "%1"
 msgstr "មិនអាច​ប្ដូរ​ភាព​ជា​ម្ចាស់​សម្រាប់ %1 បានឡើយ ។"
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"ម៉ោន\""
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"អាន់ម៉ោន\""

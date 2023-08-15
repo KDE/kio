@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2023-08-11 23:52-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -4144,12 +4144,12 @@ msgstr "Comando a executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) ou arquivo(s) local(is) usado(s) por 'comando'"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Configurando ACL para %1"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4158,7 +4158,7 @@ msgstr ""
 "Não foi possível modificar as permissões de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4168,12 +4168,12 @@ msgstr ""
 "Não foi possível alterar o proprietário e grupo para\n"
 "%1"
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Não foi possível encontrar o programa \"mount\""
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Não foi possível encontrar o programa \"umount\""

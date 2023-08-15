@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2023-07-25 14:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -4106,12 +4106,12 @@ msgstr "Suoritettava komento"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL tai paikallinen tiedosto, jota käytetään komennolle 'command'"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "Asetetaan ACL %1"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4120,7 +4120,7 @@ msgstr ""
 "Tiedoston %1 oikeuksia ei\n"
 "voitu muuttaa"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4130,12 +4130,12 @@ msgstr ""
 "Tiedoston %1\n"
 "omistajaa ja ryhmää ei voitu muuttaa"
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ohjelmaa ”mount” ei löytynyt"
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ohjelmaa ”umount” ei löytynyt"

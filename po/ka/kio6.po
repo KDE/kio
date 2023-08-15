@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:58+0000\n"
+"POT-Creation-Date: 2023-08-15 01:59+0000\n"
 "PO-Revision-Date: 2023-08-09 06:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -4064,12 +4064,12 @@ msgstr "შესასრულებელი ბრძანება"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ბრძანების URL-ები ან ადგილობრივი ფაილები"
 
-#: kioworkers/file/file.cpp:160
+#: kioworkers/file/file.cpp:166
 #, kde-format
 msgid "Setting ACL for %1"
 msgstr "%1-ზე ACL-ის დაყენება"
 
-#: kioworkers/file/file.cpp:731
+#: kioworkers/file/file.cpp:737
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4078,7 +4078,7 @@ msgstr ""
 "%1-ზე\n"
 "წვდომის ცვლილების შეცდომა"
 
-#: kioworkers/file/file.cpp:741
+#: kioworkers/file/file.cpp:747
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4088,12 +4088,12 @@ msgstr ""
 "მფლობლის და ჯგუფის შეცვლა ფაილისთვის\n"
 "%1"
 
-#: kioworkers/file/file.cpp:847
+#: kioworkers/file/file.cpp:853
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 
-#: kioworkers/file/file.cpp:921
+#: kioworkers/file/file.cpp:927
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""
