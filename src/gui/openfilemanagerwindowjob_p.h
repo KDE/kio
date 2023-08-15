@@ -49,6 +49,7 @@ public:
 };
 #endif
 
+#ifndef Q_OS_WINDOWS
 class OpenFileManagerWindowKRunStrategy : public AbstractOpenFileManagerWindowStrategy
 {
 public:
@@ -58,7 +59,19 @@ public:
     }
     void start(const QList<QUrl> &urls, const QByteArray &asn) override;
 };
+#endif
 
+#ifdef Q_OS_WINDOWS
+class OpenFileManagerWindowShellExecuteStrategy : public AbstractOpenFileManagerWindowStrategy
+{
+public:
+    explicit OpenFileManagerWindowKRunStrategy(OpenFileManagerWindowJob *job)
+        : AbstractOpenFileManagerWindowStrategy(job)
+    {
+    }
+    void start(const QList<QUrl> &urls, const QByteArray &asn) override;
+};
+#endif
 }
 
 #endif // OPENFILEMANAGERWINDOWJOB_P_H

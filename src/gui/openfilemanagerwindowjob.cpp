@@ -14,6 +14,10 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #endif
+#ifdef Q_OS_WINDOWS
+#include <Shellapi.h>
+#endif
+
 #include <QGuiApplication>
 
 #include <KWindowSystem>
@@ -40,10 +44,19 @@ public:
     }
 #endif
 
+#ifndef Q_OS_WINDOWS
     void createKRunStrategy()
     {
         strategy = std::make_unique<OpenFileManagerWindowKRunStrategy>(q);
     }
+#endif
+
+#ifdef Q_OS_WINDOWS
+    void createShellExecuteStrategy()
+    {
+        strategy = std::make_unique<OpenFileManagerWindowShellExecuteStrategy>(q);
+    }
+#endif
 
     OpenFileManagerWindowJob *const q;
     QList<QUrl> highlightUrls;
@@ -58,6 +71,8 @@ OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
 {
 #ifdef Q_OS_LINUX
     d->createDBusStrategy();
+#elif Q_OS_WINDOWS
+    d->createShellExecuteStrategy();
 #else
     d->createKRunStrategy();
 #endif
@@ -101,6 +116,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
     auto *job = new OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
 
+#ifndef Q_OS_WINDOWS
     if (asn.isNull()) {
         auto window = qGuiApp->focusWindow();
         if (!window && !qGuiApp->allWindows().isEmpty()) {
@@ -118,6 +134,10 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
         job->setStartupId(asn);
         job->start();
     }
+#else
+    job->setStartupId(asn);
+    job->start();
+#endif
 
     return job;
 }
@@ -152,6 +172,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
 }
 #endif
 
+#ifndef Q_OS_WINDOWS
 void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
 {
     KIO::OpenUrlJob *urlJob = new KIO::OpenUrlJob(urls.at(0).adjusted(QUrl::RemoveFilename), QStringLiteral("inode/directory"));
@@ -166,6 +187,19 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
     });
     urlJob->start();
 }
+#endif
+
+#ifdef Q_OS_WINDOWS
+void OpenFileManagerWindowShellExecuteStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
+{
+    auto result = ShellExecuteW(NULL, L"explore", urls.at(0).adjusted(QUrl::RemoveFilename).toLocalFile().toStdWString().data(), NULL, NULL, SW_SHOWDEFAULT);
+    if (result > 32) {
+        emitResultProxy();
+    } else {
+        emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
+    }
+}
+#endif // Q_OS_WINDOWS
 
 } // namespace KIO
 

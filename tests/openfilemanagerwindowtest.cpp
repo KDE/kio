@@ -17,7 +17,11 @@ int main(int argc, char **argv)
     QApplication::setApplicationName(QStringLiteral("openfilemanagerwindowtest"));
     QApplication app(argc, argv);
 
+#ifdef Q_OS_WINDOWS
+    const QList<QUrl> urls{QUrl(QStringLiteral("file:///c:/Windows/win.ini")), QUrl(QStringLiteral("file:///etc/passwd"))};
+#else
     const QList<QUrl> urls{QUrl(QStringLiteral("file:///etc/fstab")), QUrl(QStringLiteral("file:///etc/passwd"))};
+#endif
 
     auto *job = new KIO::OpenFileManagerWindowJob();
     job->setHighlightUrls(urls);
