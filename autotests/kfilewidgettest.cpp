@@ -673,6 +673,10 @@ void KFileWidgetTest::testTokenize_data()
 
     QTest::newRow("multiple-files-beginning-with-colon") << QStringList{":test space", ":test2"} << QString{"\":test space\" \":test2\""};
 
+    // # 473228
+    QTest::newRow("file-beginning-with-something-that-looks-like-a-url-scheme") << QStringList{"Hello: foo.txt"} << QString{"Hello: foo.txt"};
+    QTest::newRow("file-beginning-with-something-that-looks-like-a-file-url-scheme") << QStringList{"file: /foo.txt"} << QString{"file: /foo.txt"};
+
     QTemporaryDir otherTempDir;
     otherTempDir.setAutoRemove(false);
     const auto testFile1Path = otherTempDir.filePath("test-1");

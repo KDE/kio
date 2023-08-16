@@ -1897,7 +1897,10 @@ QList<QUrl> KFileWidgetPrivate::tokenize(const QString &line) const
 
         // url could be absolute
         QUrl partial_url(partial_name);
-        if (!partial_url.isValid() || partial_url.isRelative()) {
+        if (!partial_url.isValid()
+            || partial_url.isRelative()
+            // the text might look like a url scheme but not be a real one
+            || (!partial_url.scheme().isEmpty() && (!partial_name.contains(QStringLiteral("://")) || !KProtocolInfo::isKnownProtocol(partial_url.scheme())))) {
             // We have to use setPath here, so that something like "test#file"
             // isn't interpreted to have path "test" and fragment "file".
             partial_url.clear();
