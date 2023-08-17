@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 01:59+0000\n"
-"PO-Revision-Date: 2023-07-14 05:11+0700\n"
+"PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -2543,10 +2543,9 @@ msgstr ""
 "Tidak dapat membuat soket untuk meluncurkan pekerja KIO untuk protokol '%1'."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Tidak bisa menemukan 'pekerja KIO' yang dapat dieksekusi di '%1'"
+msgstr "Tidak bisa menemukan eksekutabel 'kioworker' di '%1'"
 
 #: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
 #: widgets/sslui.cpp:61
@@ -2576,7 +2575,7 @@ msgstr "Ses&i Saat Ini saja"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -3196,7 +3195,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Format Ulang atau Edit pakai Partition Manager"
 
 #: filewidgets/kfileplacesview.cpp:591
 #, kde-format
@@ -3240,11 +3239,10 @@ msgid "&Edit…"
 msgstr "&Sunting…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Buang berkas"
+msgstr "Buang dari Tempat"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -4165,13 +4163,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Tidak bisa mengubah kepemilikan terhadap %1."
+msgstr ""
+"Tidak bisa mengubah pemilik dan grup untuk\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -6002,12 +6001,9 @@ msgstr "Variabel Environment:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Masukkan nama pengguna yang Anda inginkan untuk menjalankan sebagai aplikasi "
-"di sini."
+msgstr "Ketiklah perintah untuk memulai aplikasi ini di sini."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -6034,20 +6030,7 @@ msgstr "&Telusuri..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -6062,25 +6045,24 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Ketikkan perintah untuk memulai aplikasi di sini.\n"
+"Ketiklah argumen untuk digunakan ketika memulai aplikasi ini di sini.\n"
 "\n"
-"Perintah berikut ini, Anda bisa memiliki beberapa placeholder yang akan "
-"diganti dengan nilai sesungguhnya ketika program yang sesungguhnya "
-"dijalankan:\n"
+"Anda bisa memiliki beberapa placeholder yang akan digantikan dengan nilai "
+"sesungguhnya ketika program yang sesungguhnya berjalan:\n"
 "%f - nama berkas tunggal\n"
-"%F - daftar berkas (untuk aplikasi yang bisa membuka beberapa berkas)\n"
+"%F - daftar berkas (untuk aplikasi yang bisa membuka beberapa berkas "
+"sekaligus)\n"
 "%u - URL tunggal\n"
 "%U - daftar URL\n"
-"%i - ikon dari berkas desktop\n"
-"%c - nama dari berkas desktop\n"
-"%k - lokasi berkas desktop berada"
+"%i - ikon dari berkas .desktop\n"
+"%c - nama dari berkas .desktop\n"
+"%k - lokasi berkas .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Arguments:"
+#, kde-format
 msgid "&Arguments:"
-msgstr "Argumen:"
+msgstr "&Argumen:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
@@ -7073,10 +7055,9 @@ msgid "This action will overwrite the destination."
 msgstr "Tindakan ini akan menimpa tujuan."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Tindakan ini akan menimpa tujuan."
+msgstr "Tindakan ini akan menggabungkan konten '%1' ke dalam '%2'"
 
 #: widgets/renamedialog.cpp:381
 #, kde-format
