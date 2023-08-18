@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 01:59+0000\n"
+"POT-Creation-Date: 2023-08-18 01:56+0000\n"
 "PO-Revision-Date: 2023-08-08 09:50+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3555,58 +3555,58 @@ msgstr "Het bestand \"%1\" bestaat al. Wilt u het overschrijven?"
 msgid "Overwrite File?"
 msgstr "Bestand overschrijven?"
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "You can only select local files."
 msgstr "U kunt alleen lokale bestanden selecteren."
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Niet lokale bestanden worden niet geaccepteerd"
 
-#: filewidgets/kfilewidget.cpp:1912
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Alle mappen"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1917
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Alle bestanden"
 
-#: filewidgets/kfilewidget.cpp:2064 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Openen"
 
-#: filewidgets/kfilewidget.cpp:2165
+#: filewidgets/kfilewidget.cpp:2168
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Pictogramgrootte: %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatisch bestandsnaame&xtensie selecteren (%1)"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2317
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "De extensie <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatisch bestandsnaame&xtensie selecteren"
 
-#: filewidgets/kfilewidget.cpp:2321
+#: filewidgets/kfilewidget.cpp:2324
 #, kde-format
 msgid "a suitable extension"
 msgstr "een geschikte extensie"
 
-#: filewidgets/kfilewidget.cpp:2329
+#: filewidgets/kfilewidget.cpp:2332
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3634,12 +3634,12 @@ msgstr ""
 "zal automatisch worden verwijderd).</li></ol>Indien onzeker, laat deze optie "
 "ingeschakeld. Dit maakt het beheren van uw bestanden eenvoudiger."
 
-#: filewidgets/kfilewidget.cpp:2781
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid "&File type:"
 msgstr "&Bestandstype:"
 
-#: filewidgets/kfilewidget.cpp:2782
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3648,12 +3648,12 @@ msgstr ""
 "<qt>Dit is de selector van het bestandstype. Het wordt gebruikt om het "
 "formaat te selecteren waarmee het bestand zal worden opgeslagen.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

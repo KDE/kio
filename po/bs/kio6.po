@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 01:59+0000\n"
+"POT-Creation-Date: 2023-08-18 01:56+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3545,59 +3545,59 @@ msgstr ""
 msgid "Overwrite File?"
 msgstr "Prebrisati datoteku?"
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "You can only select local files."
 msgstr "MoÅ¾ete birati samo lokalne datoteke."
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Udaljene datoteke se ne prihvataju"
 
-#: filewidgets/kfilewidget.cpp:1912
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Svi direktoriji"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1917
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Sve datoteke"
 
-#: filewidgets/kfilewidget.cpp:2064 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Otvori"
 
 # >! Needs plurals.
-#: filewidgets/kfilewidget.cpp:2165
+#: filewidgets/kfilewidget.cpp:2168
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "VeliÄina ikona: %1 piksela"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatski izaberi &nastavak imena datoteke (%1)"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2317
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "nastavak <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatski izaberi &nastavak imena datoteke"
 
-#: filewidgets/kfilewidget.cpp:2321
+#: filewidgets/kfilewidget.cpp:2324
 #, kde-format
 msgid "a suitable extension"
 msgstr "prikladan nastavak"
 
-#: filewidgets/kfilewidget.cpp:2329
+#: filewidgets/kfilewidget.cpp:2332
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3624,12 +3624,12 @@ msgstr ""
 "niste sigurni, ostavite ovu opciju ukljuÄenom jer je tako lakÅ¡e rukovati "
 "datotekama.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2781
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid "&File type:"
 msgstr "&Tip fajla:"
 
-#: filewidgets/kfilewidget.cpp:2782
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3638,12 +3638,12 @@ msgstr ""
 "<qt>Ovo je birač tipa datoteke. Koristi se za odabir formata koji ćedatoteka "
 "će biti sačuvana kao.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

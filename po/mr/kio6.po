@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 01:59+0000\n"
+"POT-Creation-Date: 2023-08-18 01:56+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -3223,58 +3223,58 @@ msgstr "\"%1\" फाईल आधीपासूनच अस्तित्व
 msgid "Overwrite File?"
 msgstr "फाईल खोडून पुन्हा लिहायची का?"
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "You can only select local files."
 msgstr "तुम्ही फक्त स्थानिक फाईल्स निवडू शकता."
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "दूरस्थ फाईल्स स्वीकारल्या जाणार नाहीत"
 
-#: filewidgets/kfilewidget.cpp:1912
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|सर्व संचयीका"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1917
 #, kde-format
 msgid "*|All Files"
 msgstr "*|सर्व फाईल्स"
 
-#: filewidgets/kfilewidget.cpp:2064 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "उघडा (&O)"
 
-#: filewidgets/kfilewidget.cpp:2165
+#: filewidgets/kfilewidget.cpp:2168
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "चिन्ह आकार : %1 पिक्सेल्स"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "स्वयंचलितरित्या फाईलनाव विस्तारण निवडा (%1) (&X)"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2317
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "विस्तारण <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "स्वयंचलितरित्या फाईलनाव विस्तारण निवडा (&X)"
 
-#: filewidgets/kfilewidget.cpp:2321
+#: filewidgets/kfilewidget.cpp:2324
 #, kde-format
 msgid "a suitable extension"
 msgstr "एक अनुकूल विस्तारण"
 
-#: filewidgets/kfilewidget.cpp:2329
+#: filewidgets/kfilewidget.cpp:2332
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3290,25 +3290,25 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2781
+#: filewidgets/kfilewidget.cpp:2784
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "गाळणी (&F):"
 
-#: filewidgets/kfilewidget.cpp:2782
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid "&Filter:"
 msgstr "गाळणी (&F):"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

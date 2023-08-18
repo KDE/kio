@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 01:59+0000\n"
-"PO-Revision-Date: 2023-08-09 06:37+0200\n"
+"POT-Creation-Date: 2023-08-18 01:56+0000\n"
+"PO-Revision-Date: 2023-08-17 06:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3460,58 +3460,58 @@ msgstr "ფაილ %1 უკვე არსებობს. გნება�
 msgid "Overwrite File?"
 msgstr "ჩავანაცვლო ფაილი?"
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "You can only select local files."
 msgstr "შეგიძლიათ მონიშნოთ მხოლოდ ადგილობრივი ფაილები."
 
-#: filewidgets/kfilewidget.cpp:1818
+#: filewidgets/kfilewidget.cpp:1821
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "დაშორებული ფაილები მიუღებელია"
 
-#: filewidgets/kfilewidget.cpp:1912
+#: filewidgets/kfilewidget.cpp:1915
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|ყველა საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1917
 #, kde-format
 msgid "*|All Files"
 msgstr "*|ყველა ფაილი"
 
-#: filewidgets/kfilewidget.cpp:2064 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
 
-#: filewidgets/kfilewidget.cpp:2165
+#: filewidgets/kfilewidget.cpp:2168
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ხატულის ზომა: %1 პიქსელი"
 
-#: filewidgets/kfilewidget.cpp:2313
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ფაილის გაფართოების ავტომატური მითითება (%1)"
 
-#: filewidgets/kfilewidget.cpp:2314
+#: filewidgets/kfilewidget.cpp:2317
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "გაფართოება <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2320
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ფაილის გაფართოების ავტომატური მითითება"
 
-#: filewidgets/kfilewidget.cpp:2321
+#: filewidgets/kfilewidget.cpp:2324
 #, kde-format
 msgid "a suitable extension"
 msgstr "შესატყვისი გაფართოება"
 
-#: filewidgets/kfilewidget.cpp:2329
+#: filewidgets/kfilewidget.cpp:2332
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3526,13 +3526,24 @@ msgid ""
 "period will be automatically removed).</li></ol>If unsure, keep this option "
 "enabled as it makes your files more manageable."
 msgstr ""
+"ეს პარამეტრი რთავს ზოგიერთ საჭირო თვისებას გაფართოებების მქონე ფაილების "
+"შესანახად:<br /><ol><li>ნებისმიერი გაფართოება, რომელიც <b>%1</b>-ის ტექსტის "
+"ველში აკრეფთ, განახლდება, თუ შეცვლით ფაილის ტიპს, რომელშიც ინახავთ..<br /"
+"><br /></li><li>თუ <b>%2</b>-ის ტექსტის ველში <b>შენახვაზე</b> დაჭერისას "
+"გაფართოება მითითებული არაა, %3 ფაილის სახელის ბოლოში (თუ ფაილის სახელი უკვე "
+"არ არსებობს), თვითონ მიეწერება. ეს გაფართოება ეყრდნობა ფაილის ტიპს, რომელშიც "
+"შენახვა გნებავთ.<br /><br /> თუ ამ ფუნქციის გამოყენება არ გნებავთ, "
+"შეგიძლიათ, ეს პარამეტრი გამორთოთ ან შეგიძლიათ გაფართოების მაგიერ წერტილი (.) "
+"მიუთითოთ. (ეს წერტილი ავტომატურად წაიშლება).</li></ol> თუ დარწმუნებული არ "
+"ბრძანდებით, რა ქნათ, დატოვეთ ჩართული, რადგან ის ფაილების მართვაში "
+"დაგეხმარებათ."
 
-#: filewidgets/kfilewidget.cpp:2781
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid "&File type:"
 msgstr "&ფაილის ტიპი:"
 
-#: filewidgets/kfilewidget.cpp:2782
+#: filewidgets/kfilewidget.cpp:2785
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3541,12 +3552,12 @@ msgstr ""
 "<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
 "რომელშიც ეს ფაილი შეინახება.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2787
 #, kde-format
 msgid "&Filter:"
 msgstr "&ფილტრი:"
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2789
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
