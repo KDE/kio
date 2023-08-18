@@ -95,6 +95,7 @@ Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
 Query=https://www.ask.com/web?q=\\{@}
+Query[bg]=https://www.ask.com/web?q=\\{@}
 Query[ca]=https://www.ask.com/web?q=\\{@}
 Query[ca@valencia]=https://www.ask.com/web?q=\\{@}
 Query[de]=https://www.ask.com/web?q=\\{@}
