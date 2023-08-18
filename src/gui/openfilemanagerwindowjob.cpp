@@ -1,6 +1,8 @@
 /*
     This file is part of the KDE libraries
     SPDX-FileCopyrightText: 2016 Kai Uwe Broulik <kde@privat.broulik.de>
+    SPDX-FileCopyrightText: 2023 g10 Code GmbH
+    SPDX-FileContributor: Sune Stolborg Vuorela <sune@vuorela.dk>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -13,6 +15,11 @@
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
+#endif
+#if defined(Q_OS_WINDOWS)
+#include <QDir>
+#include <shlobj.h>
+#include <vector>
 #endif
 #include <QGuiApplication>
 
@@ -39,6 +46,12 @@ public:
         strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>(q);
     }
 #endif
+#if defined(Q_OS_WINDOWS)
+    void createWindowsShellStrategy()
+    {
+        strategy = std::make_unique<OpenFileManagerWindowWindowsShellStrategy>(q);
+    }
+#endif
 
     void createKRunStrategy()
     {
@@ -58,6 +71,8 @@ OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
 {
 #if USE_DBUS
     d->createDBusStrategy();
+#elif defined(Q_OS_WINDOWS)
+    d->createWindowsShellStrategy();
 #else
     d->createKRunStrategy();
 #endif
@@ -174,6 +189,30 @@ void OpenFileManagerWindowKRunStrategy::start(const QList<QUrl> &urls, const QBy
     urlJob->start();
 }
 
+#if defined(Q_OS_WINDOWS)
+void OpenFileManagerWindowWindowsShellStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
+{
+    Q_UNUSED(asn);
+    LPITEMIDLIST dir = ILCreateFromPathW(QDir::toNativeSeparators(urls.at(0).adjusted(QUrl::RemoveFilename).toLocalFile()).toStdWString().data());
+
+    std::vector<LPCITEMIDLIST> items;
+    for (const auto &url : urls) {
+        LPITEMIDLIST item = ILCreateFromPathW(QDir::toNativeSeparators(url.toLocalFile()).toStdWString().data());
+        items.push_back(item);
+    }
+
+    auto result = SHOpenFolderAndSelectItems(dir, items.size(), items.data(), 0);
+    if (SUCCEEDED(result)) {
+        emitResultProxy();
+    } else {
+        emitResultProxy(OpenFileManagerWindowJob::LaunchFailedError);
+    }
+    ILFree(dir);
+    for (auto &item : items) {
+        ILFree(const_cast<LPITEMIDLIST>(item));
+    }
+}
+#endif
 } // namespace KIO
 
 #include "moc_openfilemanagerwindowjob.cpp"
