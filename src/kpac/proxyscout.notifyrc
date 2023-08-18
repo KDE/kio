@@ -130,7 +130,7 @@ Name[uk]=Некоректний скрипт проксі
 Name[vi]=Kịch bản uỷ nhiệm không hợp lệ
 Name[x-test]=xxInvalid Proxy Scriptxx
 Name[zh_CN]=无效的代理脚本
-Name[zh_TW]=不合法的代理文稿
+Name[zh_TW]=無效的代理文稿
 Comment=The downloaded proxy configuration script is invalid
 Comment[ar]=سكرِبت ضبط الوسيط المُنزّل غير صالح
 Comment[az]=Yüklənmiş proksi konfiqurasiya skripti etibarsızdır
@@ -196,7 +196,7 @@ Comment[vi]=Kịch bản cấu hình uỷ nhiệm đã tải về không hợp l
 Comment[x-test]=xxThe downloaded proxy configuration script is invalidxx
 Comment[zh_CN]=下载的代理配置脚本无效
 Comment[zh_HK]=剛下載的代理伺服器組態 script 語法有誤
-Comment[zh_TW]=下載的代理組態文稿不合法
+Comment[zh_TW]=下載的代理組態文稿是無效的
 Action=Popup
 
 [Event/download-error]
