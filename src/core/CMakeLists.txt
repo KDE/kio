@@ -239,7 +239,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   MkdirJob
   MkpathJob
   SlaveBase
-  HostInfo
   MetaData
   UDSEntry
   JobUiDelegateExtension

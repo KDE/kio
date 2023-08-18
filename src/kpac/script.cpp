@@ -19,8 +19,8 @@
 #include <QJSValue>
 #include <QJSValueIterator>
 
+#include "hostinfo.h"
 #include <KLocalizedString>
-#include <kio/hostinfo.h>
 
 namespace
 {

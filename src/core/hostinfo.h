@@ -20,6 +20,11 @@ namespace KIO
  * WARNING: this could disappear at some point in time.
  * DO NOT USE outside KDE Frameworks
  */
+/*
+ * TODO KF6: This header is intenionally not installed in KF6, and we should look into unexporting
+ * and removing most of these functions; they are only used internally in very few places where
+ * they might even be inlined to.
+ */
 namespace HostInfo
 {
 /// @internal
