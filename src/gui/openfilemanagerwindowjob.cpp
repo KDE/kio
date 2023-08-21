@@ -8,7 +8,7 @@
 #include "openfilemanagerwindowjob.h"
 #include "openfilemanagerwindowjob_p.h"
 
-#ifdef Q_OS_LINUX
+#if USE_DBUS
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
@@ -33,7 +33,7 @@ public:
 
     ~OpenFileManagerWindowJobPrivate() = default;
 
-#ifdef Q_OS_LINUX
+#if USE_DBUS
     void createDBusStrategy()
     {
         strategy = std::make_unique<OpenFileManagerWindowDBusStrategy>(q);
@@ -56,7 +56,7 @@ OpenFileManagerWindowJob::OpenFileManagerWindowJob(QObject *parent)
     : KJob(parent)
     , d(new OpenFileManagerWindowJobPrivate(this))
 {
-#ifdef Q_OS_LINUX
+#if USE_DBUS
     d->createDBusStrategy();
 #else
     d->createKRunStrategy();
@@ -106,7 +106,7 @@ OpenFileManagerWindowJob *highlightInFileManager(const QList<QUrl> &urls, const 
     return job;
 }
 
-#ifdef Q_OS_LINUX
+#if USE_DBUS
 void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QByteArray &asn)
 {
     // see the spec at: https://www.freedesktop.org/wiki/Specifications/file-manager-interface/
