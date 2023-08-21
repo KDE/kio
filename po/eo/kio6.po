@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-18 01:56+0000\n"
-"PO-Revision-Date: 2023-07-11 08:16+0100\n"
+"PO-Revision-Date: 2023-08-20 19:52+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3214,11 +3214,10 @@ msgid "&Edit…"
 msgstr "R&edakti…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Forigi Dosieron"
+msgstr "Forigi el Lokoj"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7339,168 +7338,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgid "Cannot Save Cookies"
-#~ msgstr "Ne Povas Konservi Kuketojn"
-
-#~ msgid "Could not remove %1, check permissions"
-#~ msgstr "Ne eblis forigi %1, kontrolu permesojn"
-
-#~ msgid "Could not create directory %1"
-#~ msgstr "Ne eblis krei dosierujon %1"
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Kuketo-Averto"
-
-#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#~ msgid ""
-#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject this cookie?</p>"
-#~ msgid_plural ""
-#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject these cookies?</p>"
-#~ msgstr[0] ""
-#~ "<p>Vi ricevis kuketon de<br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
-#~ "malakcepti ĉi tiun kuketon?</p>"
-#~ msgstr[1] ""
-#~ "<p>Vi ricevis %1 kuketojn de<br/><b>%2%3</b><br/>Ĉu vi volas akcepti aŭ "
-#~ "malakcepti ĉi tiujn kuketojn?</p>"
-
-#~ msgctxt "@item:intext cross domain cookie"
-#~ msgid " [Cross Domain]"
-#~ msgstr "[Transdomajno]"
-
-#~ msgid "Details"
-#~ msgstr "Detaloj"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "Vidu aŭ modifi la informojn pri kuketo"
-
-#~ msgid "Accept for this &session"
-#~ msgstr "Akcepti por ĉi tiu &seanco"
-
-#~ msgid "Accept cookie(s) until the end of the current session"
-#~ msgstr "Akceptu kuketon(j)n ĝis la fino de la nuna sesio"
-
-#~ msgid "&Accept"
-#~ msgstr "&Akcepti"
-
-#~ msgid "&Reject"
-#~ msgstr "&Malakcepti"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "Apliki Elekton Al"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "Nur ĉi tiu kuket&o"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "Nur ĉi tiuj kuket&oj"
-
-#~ msgid ""
-#~ "Select this option to only accept or reject this cookie. You will be "
-#~ "prompted again if you receive another cookie."
-#~ msgstr ""
-#~ "Elektu ĉi tiun opcion por nur akcepti aŭ malakcepti ĉi tiun kuketon. Vi "
-#~ "estos petita denove se vi ricevas alian kuketon."
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "Ĉiuj kuketoj de ĉi tiu do&majno"
-
-#~ msgid ""
-#~ "Select this option to accept or reject all cookies from this site. "
-#~ "Choosing this option will add a new policy for the site this cookie "
-#~ "originated from. This policy will be permanent until you manually change "
-#~ "it from the System Settings."
-#~ msgstr ""
-#~ "Elektu ĉi tiun opcion por akcepti aŭ malakcepti ĉiujn kuketojn de ĉi tiu "
-#~ "retejo. Elektante ĉi tiun opcion aldonos novan politikon por la retejo, "
-#~ "el kiu originis ĉi tiu kuketo. Ĉi tiu politiko estos konstanta ĝis vi "
-#~ "mane ŝanĝos ĝin de la Sistemaj Agordoj."
-
-#~ msgid "All &cookies"
-#~ msgstr "Ĉiuj &kuketoj"
-
-#~ msgid ""
-#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
-#~ "this option will change the global cookie policy for all cookies until "
-#~ "you manually change it from the System Settings."
-#~ msgstr ""
-#~ "Elektu ĉi tiun opcion por akcepti/malakcepti ĉiujn kuketojn de ie ajn. "
-#~ "Elektante ĉi tiun opcion ŝanĝos la ĉiean politikon pri kuketoj por ĉiuj "
-#~ "kuketoj ĝis vi mane ŝanĝos ĝin de la Sistema Agordoj."
-
-#~ msgid "Cookie Details"
-#~ msgstr "Detaloj pri Kuketoj"
-
-#~ msgid "Name:"
-#~ msgstr "Nomo:"
-
-#~ msgid "Value:"
-#~ msgstr "Valoro:"
-
-#~ msgid "Expires:"
-#~ msgstr "Eksvalidiĝas:"
-
-#~ msgid "Path:"
-#~ msgstr "Vojo:"
-
-#~ msgid "Domain:"
-#~ msgstr "Domajno:"
-
-#~ msgctxt ""
-#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
-#~ "exposure string in this file)"
-#~ msgid "Exposure:"
-#~ msgstr "Elmeto:"
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "&Sekva >>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "Montru detalojn de la sekva kuketo"
-
-#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
-#~ msgid "Not specified"
-#~ msgstr "Ne specifita"
-
-#~ msgctxt "@label the cookie expires when the browser session ends"
-#~ msgid "End of Session"
-#~ msgstr "Fino de Sesio"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by https servers"
-#~ msgid "Secure servers only"
-#~ msgstr "Sekuraj serviloj nur"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by https servers AND "
-#~ "client-side javascripts"
-#~ msgid "Secure servers, page scripts"
-#~ msgstr "Sekuraj serviloj, paĝaj skriptoj"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by http servers"
-#~ msgid "Servers"
-#~ msgstr "Serviloj"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by http servers AND "
-#~ "client-side javascripts"
-#~ msgid "Servers, page scripts"
-#~ msgstr "Serviloj, paĝaj skriptoj"
-
-#~ msgctxt ""
-#~ "@action:button show details about a cookie that needs approval. This "
-#~ "string gets >> and << appended, to visualize if the dialog expands or "
-#~ "compacts!"
-#~ msgid "Details"
-#~ msgstr "Detaloj"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Remove"
-#~ msgstr "Forigi"
-
-#~ msgid "Multiple get is not supported with protocol %1."
-#~ msgstr "Multoblaj get ne estas subtenataj kun protokolo %1."
