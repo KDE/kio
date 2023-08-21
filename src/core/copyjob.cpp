@@ -814,7 +814,7 @@ void CopyJobPrivate::slotSubError(ListJob *job, ListJob *subJob)
 
     Q_Q(CopyJob);
 
-    Q_EMIT q->warning(job, subJob->errorString(), QString());
+    Q_EMIT q->warning(job, subJob->errorString());
     skip(url, true);
 }
 
