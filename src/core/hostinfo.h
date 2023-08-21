@@ -28,21 +28,13 @@ namespace KIO
 namespace HostInfo
 {
 /// @internal
-KIOCORE_EXPORT void lookupHost(const QString &hostName, QObject *receiver, const char *member);
+void lookupHost(const QString &hostName, QObject *receiver, const char *member);
 /// @internal
 KIOCORE_EXPORT QHostInfo lookupHost(const QString &hostName, unsigned long timeout);
 /// @internal
 KIOCORE_EXPORT QHostInfo lookupCachedHostInfoFor(const QString &hostName);
 /// @internal
 KIOCORE_EXPORT void cacheLookup(const QHostInfo &info);
-
-// used by khtml's DNS prefetching feature
-/// @internal
-KIOCORE_EXPORT void prefetchHost(const QString &hostName);
-/// @internal
-KIOCORE_EXPORT void setCacheSize(int s);
-/// @internal
-KIOCORE_EXPORT void setTTL(int ttl);
 }
 }
 

@@ -47,14 +47,6 @@ public:
     void lookupHost(const QString &hostName, QObject *receiver, const char *member);
     QHostInfo lookupCachedHostInfoFor(const QString &hostName);
     void cacheLookup(const QHostInfo &);
-    void setCacheSize(int s)
-    {
-        dnsCache.setMaxCost(s);
-    }
-    void setTTL(int _ttl)
-    {
-        ttl = _ttl;
-    }
 private Q_SLOTS:
     void queryFinished(const QHostInfo &info, Query *sender);
 
@@ -68,7 +60,6 @@ private:
     };
     QCache<QString, HostCacheInfo> dnsCache;
     QDateTime resolvConfMTime;
-    int ttl;
 };
 
 class HostInfoAgentPrivate::Result : public QObject
@@ -301,25 +292,9 @@ void HostInfo::cacheLookup(const QHostInfo &info)
     hostInfoAgentPrivate()->cacheLookup(info);
 }
 
-void HostInfo::prefetchHost(const QString &hostName)
-{
-    hostInfoAgentPrivate()->lookupHost(hostName, nullptr, nullptr);
-}
-
-void HostInfo::setCacheSize(int s)
-{
-    hostInfoAgentPrivate()->setCacheSize(s);
-}
-
-void HostInfo::setTTL(int ttl)
-{
-    hostInfoAgentPrivate()->setTTL(ttl);
-}
-
 HostInfoAgentPrivate::HostInfoAgentPrivate(int cacheSize)
     : openQueries()
     , dnsCache(cacheSize)
-    , ttl(TTL)
 {
     qRegisterMetaType<QHostInfo>();
 }
@@ -338,7 +313,7 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver
 #endif
 
     if (HostCacheInfo *info = dnsCache.object(hostName)) {
-        if (QTime::currentTime() <= info->time.addSecs(ttl)) {
+        if (QTime::currentTime() <= info->time.addSecs(TTL)) {
             Result result;
             if (receiver) {
                 QObject::connect(&result, SIGNAL(result(QHostInfo)), receiver, member);
@@ -370,7 +345,7 @@ void HostInfoAgentPrivate::lookupHost(const QString &hostName, QObject *receiver
 QHostInfo HostInfoAgentPrivate::lookupCachedHostInfoFor(const QString &hostName)
 {
     HostCacheInfo *info = dnsCache.object(hostName);
-    if (info && info->time.addSecs(ttl) >= QTime::currentTime()) {
+    if (info && info->time.addSecs(TTL) >= QTime::currentTime()) {
         return info->hostInfo;
     }
 
