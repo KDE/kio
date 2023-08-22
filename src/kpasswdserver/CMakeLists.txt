@@ -49,4 +49,4 @@ target_link_libraries(kiod_kpasswdserver
    ${WALLET_LIB}
 )
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kpasswdserver ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
+kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kpasswdserver6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

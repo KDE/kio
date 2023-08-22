@@ -1,13 +1,13 @@
 include(ECMMarkNonGuiExecutable)
 
-add_executable(kiod5)
+add_executable(kiod6)
 
-target_sources(kiod5 PRIVATE
+target_sources(kiod6 PRIVATE
     kiod_main.cpp
 )
 
 if (APPLE)
-    target_sources(kiod5 PRIVATE
+    target_sources(kiod6 PRIVATE
         kiod_agent.mm
     )
 endif()
@@ -20,7 +20,7 @@ ecm_qt_export_logging_category(
     EXPORT KIO
 )
 
-target_link_libraries(kiod5
+target_link_libraries(kiod6
    KF6::KIOCore     # ksslcertificatemanager
    KF6::DBusAddons  # kdedmodule
    KF6::CoreAddons  # kpluginfactory
@@ -30,13 +30,13 @@ target_link_libraries(kiod5
 )
 
 if (APPLE)
-    target_link_libraries(kiod5 "-framework AppKit -framework CoreFoundation")
+    target_link_libraries(kiod6 "-framework AppKit -framework CoreFoundation")
 
     # Mark it as non-gui so we won't create an app bundle on Mac OS X
-    ecm_mark_nongui_executable(kiod5)
+    ecm_mark_nongui_executable(kiod6)
 endif ()
 
-install(TARGETS kiod5 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
+install(TARGETS kiod6 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kiod5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
+kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kiod6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
 

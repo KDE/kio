@@ -147,7 +147,7 @@ void KIOExec::slotResult(KJob *job)
             // Tell kioexecd to watch the file for changes.
             const QString dest = copyJob->srcUrl().toString();
             qDebug() << "Telling kioexecd to watch path" << path << "dest" << dest;
-            OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
+            OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd6"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
             kioexecd.watch(path, dest);
             mUseDaemon = !kioexecd.lastError().isValid();
             if (!mUseDaemon) {

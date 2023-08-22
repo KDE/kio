@@ -156,7 +156,7 @@ static QList<QSslCertificate> deduplicate(const QList<QSslCertificate> &certs)
 
 KSslCertificateManagerPrivate::KSslCertificateManagerPrivate()
     : config(QStringLiteral("ksslcertificatemanager"), KConfig::SimpleConfig)
-    , iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld5"), QStringLiteral("/modules/kssld"), QDBusConnection::sessionBus()))
+    , iface(new org::kde::KSSLDInterface(QStringLiteral("org.kde.kssld6"), QStringLiteral("/modules/kssld"), QDBusConnection::sessionBus()))
     , isCertListLoaded(false)
     , userCertDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/kssl/userCaCertificates/"))
 {

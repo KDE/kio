@@ -20,4 +20,4 @@ PRIVATE
    Qt6::DBus
 )
 
-kdbusaddons_generate_dbus_service_file(kiod5 org.kde.kssld5 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
+kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kssld6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})

@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
     qunsetenv("SESSION_MANAGER"); // disable session management
 
     QApplication app(argc, argv); // GUI needed for kpasswdserver's dialogs
-    app.setApplicationName(QStringLiteral("kiod5"));
+    app.setApplicationName(QStringLiteral("kiod6"));
     app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setQuitOnLastWindowClosed(false);
     KDBusService service(KDBusService::Unique);
@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
     qDBusAddSpyHook(messageFilter);
 
 #ifdef Q_OS_MACOS
-    // In the case of kiod5 we need to confirm the agent nature,
+    // In the case of kiod6 we need to confirm the agent nature,
     // possibly because of how things have been set up after creating
     // the QApplication instance. Failure to do this will disable
     // text input into dialogs we may post.
