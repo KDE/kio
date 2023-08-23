@@ -46,6 +46,7 @@
 #include <QFileInfo>
 #include <QPointer>
 #include <QTemporaryFile>
+#include <QTimeZone>
 #include <QTimer>
 
 #include <sys/stat.h> // mode_t
@@ -824,9 +825,9 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
     info.permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
     const auto timeVal = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
     if (timeVal != -1) {
-        info.mtime = QDateTime::fromSecsSinceEpoch(timeVal, Qt::UTC);
+        info.mtime = QDateTime::fromSecsSinceEpoch(timeVal, QTimeZone::UTC);
     }
-    info.ctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+    info.ctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
     info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
     const bool isDir = entry.isDir();
 
@@ -1313,8 +1314,8 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
             options |= RenameDialog_OverwriteItself;
         } else {
             options |= RenameDialog_Overwrite;
-            destmtime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), Qt::UTC);
-            destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+            destmtime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), QTimeZone::UTC);
+            destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
         }
     }
 
@@ -1690,8 +1691,8 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                     }
                 } else {
                     // These timestamps are used only when RenameDialog_Overwrite is set.
-                    destmtime = QDateTime::fromSecsSinceEpoch(destMTimeStamp, Qt::UTC);
-                    destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), Qt::UTC);
+                    destmtime = QDateTime::fromSecsSinceEpoch(destMTimeStamp, QTimeZone::UTC);
+                    destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
 
                     options = RenameDialog_Overwrite;
                 }
