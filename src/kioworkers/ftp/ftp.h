@@ -12,6 +12,7 @@
 #include <qplatformdefs.h>
 
 #include <QDateTime>
+#include <QUrl>
 
 #include <workerbase.h>
 

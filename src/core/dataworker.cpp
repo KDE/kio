@@ -9,7 +9,7 @@
 #include "commands_p.h"
 #include "dataprotocol_p.h"
 #include "dataworker_p.h"
-#include "slavebase.h"
+#include "workerbase.h"
 
 #include <KLocalizedString>
 

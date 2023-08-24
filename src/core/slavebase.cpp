@@ -37,6 +37,7 @@
 #include <KCrash>
 #endif
 
+#include "authinfo.h"
 #include "kremoteencoding.h"
 
 #include "commands_p.h"
@@ -826,7 +827,12 @@ void SlaveBase::setHost(QString const &, quint16, QString const &, QString const
 {
 }
 
-KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol, int cmd)
+// TODO: move unsupportedActionErrorString() to workerbase.cpp
+// once SlaveBase is dissolved and folded into WorkerBase
+// forward declaration is already in workerbase.h
+namespace KIO
+{
+KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd)
 {
     switch (cmd) {
     case CMD_CONNECT:
@@ -864,6 +870,7 @@ KIOCORE_EXPORT QString KIO::unsupportedActionErrorString(const QString &protocol
     default:
         return i18n("Protocol %1 does not support action %2.", protocol, cmd);
     } /*end switch*/
+}
 }
 
 void SlaveBase::openConnection()

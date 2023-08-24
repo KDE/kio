@@ -34,7 +34,7 @@
 #include <kprotocolinfo.h>
 
 #include "kiocoredebug.h"
-#include "slavebase.h"
+#include "workerbase.h"
 #include "workerfactory.h"
 #include "workerthread_p.h"
 

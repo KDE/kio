@@ -47,6 +47,7 @@
 #include <QSslSocket>
 #include <kremoteencoding.h>
 
+#include <authinfo.h>
 #include <http_worker_defaults.h>
 #include <ioworker_defaults.h>
 

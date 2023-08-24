@@ -12,6 +12,7 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QMap>
+#include <QUrl>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject

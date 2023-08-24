@@ -22,6 +22,7 @@
 
 class QIODevice;
 class QSslSocket;
+class QAbstractSocket;
 
 namespace KIO
 {

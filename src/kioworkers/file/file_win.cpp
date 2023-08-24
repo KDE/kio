@@ -16,6 +16,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QUrl>
 
 #include <KConfigGroup>
 #include <QDebug>

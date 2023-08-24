@@ -7,12 +7,24 @@
 #ifndef WORKERBASE_H
 #define WORKERBASE_H
 
+// lib
+#include "global.h"
+#include "job_base.h" // for KIO::JobFlags
+#include "udsentry.h"
+// Qt
+#include <QByteArray>
+// Std
 #include <memory>
 
-#include "slavebase.h" // for KIO::JobFlags
+class KConfigGroup;
+class KRemoteEncoding;
+
+class QHostInfo;
 
 namespace KIO
 {
+class AuthInfo;
+
 class WorkerBasePrivate;
 class WorkerResultPrivate;
 
@@ -877,6 +889,30 @@ private:
     friend class WorkerSlaveBaseBridge;
     friend class WorkerThread;
 };
+
+} // namespace KIO
+
+#endif
+
+// HACK while SlaveBase is still around:
+// Separate include/declaration guard matching the one in slavebase.h
+// around the same declaration of unsupportedActionErrorString()
+// Avoids consumers to need to include slavebase.h, while implementation
+// is still in slavebase.cpp for dependency reasons
+#ifndef KIO_UNSUPPORTEDACTIONERRORSTRING
+#define KIO_UNSUPPORTEDACTIONERRORSTRING
+
+namespace KIO
+{
+
+/**
+ * Returns an appropriate error message if the given command @p cmd
+ * is an unsupported action (ERR_UNSUPPORTED_ACTION).
+ * @param protocol name of the protocol
+ * @param cmd given command
+ * @see enum Command
+ */
+KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int cmd);
 
 } // namespace KIO
 

@@ -44,6 +44,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <QDebug>
+#include <authinfo.h>
 #include <ioworker_defaults.h>
 #include <kremoteencoding.h>
 

@@ -964,6 +964,16 @@ private:
     friend class WorkerBasePrivate;
     friend class WorkerSlaveBaseBridge;
 };
+}
+
+#endif
+
+// HACK see comments in workerbase.h for same include/declaration guard
+#ifndef KIO_UNSUPPORTEDACTIONERRORSTRING
+#define KIO_UNSUPPORTEDACTIONERRORSTRING
+
+namespace KIO
+{
 
 /**
  * Returns an appropriate error message if the given command @p cmd
