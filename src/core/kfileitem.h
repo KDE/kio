@@ -583,6 +583,12 @@ public:
      */
     bool isNull() const;
 
+    /**
+     * Return true if the file has executable permission
+     * @since 6.0
+     */
+    bool isExecutable() const;
+
 private:
     QSharedDataPointer<KFileItemPrivate> d;
 

@@ -42,6 +42,8 @@ private Q_SLOTS:
     void testIsReadable();
     void testIsWritable_data();
     void testIsWritable();
+    void testIsExecutable_data();
+    void testIsExecutable();
 #endif
 
     void testDecodeFileName_data();

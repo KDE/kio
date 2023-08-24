@@ -844,6 +844,37 @@ void KFileItemTest::testIsWritable()
     QCOMPARE(fileItem.isWritable(), writable);
 }
 
+void KFileItemTest::testIsExecutable_data()
+{
+    QTest::addColumn<int>("mode");
+    QTest::addColumn<bool>("executable");
+
+    QTest::newRow("fully-executable") << 0111 << true;
+    QTest::newRow("user-executable") << 0100 << true;
+    QTest::newRow("user-executable2") << 0110 << true;
+    QTest::newRow("not-executable-by-us") << 0011 << false;
+    QTest::newRow("not-executable-by-us2") << 0001 << false;
+    QTest::newRow("not-executable-at-all") << 0000 << false;
+}
+
+void KFileItemTest::testIsExecutable()
+{
+    QFETCH(int, mode);
+    QFETCH(bool, executable);
+
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    int ret = fchmod(file.handle(), (mode_t)mode);
+    QCOMPARE(ret, 0);
+
+    KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
+    QCOMPARE(fileItem.isExecutable(), executable);
+
+    QVERIFY(file.remove());
+    // still cached thanks to the cached internal udsentry
+    QCOMPARE(fileItem.isExecutable(), executable);
+}
+
 // Restore permissions so that the QTemporaryDir cleanup can happen (taken from tst_qsavefile.cpp)
 class PermissionRestorer
 {

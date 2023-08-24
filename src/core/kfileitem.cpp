@@ -1696,6 +1696,46 @@ bool KFileItem::isNull() const
     return d == nullptr;
 }
 
+bool KFileItem::isExecutable() const
+{
+    if (!d) {
+        return false;
+    }
+
+    d->ensureInitialized();
+
+    if (d->m_permissions == KFileItem::Unknown) {
+        return false;
+    }
+
+    const mode_t executableMask = S_IXGRP | S_IXUSR | S_IXOTH;
+    if ((d->m_permissions & executableMask) == 0) {
+        return false;
+    }
+
+#ifndef Q_OS_WIN
+    const auto uid = userId();
+    if (uid != -1) {
+        if (((uint)uid) == KUserId::currentUserId().nativeId()) {
+            return S_IXUSR & d->m_permissions;
+        }
+        const auto gid = groupId();
+        if (gid != -1) {
+            const KUser kuser = KUser(uid);
+            if (kuser.groups().contains(KUserGroup(gid))) {
+                return S_IXGRP & d->m_permissions;
+            }
+
+            return S_IXOTH & d->m_permissions;
+        }
+    }
+    return false;
+#else
+    // simple special case
+    return S_IXUSR & d->m_permissions;
+#endif
+}
+
 KFileItemList::KFileItemList()
 {
 }
