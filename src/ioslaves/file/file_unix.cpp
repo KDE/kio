@@ -325,6 +325,12 @@ inline static time_t stat_mtime(const QT_STATBUF &buf)
 }
 #endif
 
+static bool isOnCifsMount(const QString &filePath)
+{
+    const auto mount = KMountPoint::currentMountPoints().findByPath(filePath);
+    return mount->mountType() == QStringLiteral("cifs") || mount->mountType() == QStringLiteral("smb3");
+}
+
 static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QString &fullPath)
 {
     assert(entry.count() == 0); // by contract :-)
@@ -734,7 +740,7 @@ void FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mode, JobF
                         return;
                     }
                 }
-            } else if (S_ISREG(buffDest.st_mode)) {
+            } else if (S_ISREG(buffDest.st_mode) && !isOnCifsMount(dest)) {
                 _destBackup = _dest;
                 dest.append(QStringLiteral(".part"));
                 _dest = QFile::encodeName(dest);
