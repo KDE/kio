@@ -198,7 +198,32 @@ void JobTest::put()
     QFileInfo fileInfo(filePath);
     QVERIFY(fileInfo.exists());
     QCOMPARE(fileInfo.size(), 30LL); // "This is a test for KIO::put()\n"
-    QCOMPARE((int)fileInfo.permissions(), (int)(QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser));
+    QCOMPARE(fileInfo.permissions(), QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser);
+    QCOMPARE(fileInfo.lastModified(), mtime);
+}
+
+void JobTest::putPermissionKept()
+{
+    const QString filePath = homeTmpDir() + "fileFromHome";
+    QVERIFY2(::chmod(filePath.toUtf8(), 0644) == 0, strerror(errno));
+
+    QUrl u = QUrl::fromLocalFile(filePath);
+    KIO::TransferJob *job = KIO::put(u, -1, KIO::Overwrite | KIO::HideProgressInfo);
+    quint64 secsSinceEpoch = QDateTime::currentSecsSinceEpoch(); // Use second granularity, supported on all filesystems
+    QDateTime mtime = QDateTime::fromSecsSinceEpoch(secsSinceEpoch - 30); // 30 seconds ago
+    job->setModificationTime(mtime);
+    job->setUiDelegate(nullptr);
+    connect(job, &KJob::result, this, &JobTest::slotResult);
+    connect(job, &KIO::TransferJob::dataReq, this, &JobTest::slotDataReq);
+    m_result = -1;
+    m_dataReqCount = 0;
+    enterLoop();
+    QVERIFY(m_result == 0); // no error
+
+    QFileInfo fileInfo(filePath);
+    QVERIFY(fileInfo.exists());
+    QCOMPARE(fileInfo.size(), 30LL); // "This is a test for KIO::put()\n"
+    QCOMPARE(fileInfo.permissions(), QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser | QFile::ReadGroup | QFile::ReadOther /* 644 */);
     QCOMPARE(fileInfo.lastModified(), mtime);
 }
 

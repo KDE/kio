@@ -565,7 +565,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
     }
 
     // Don't change permissions of the original file
-    if (bOrigExists) {
+    if (bOrigExists && _mode == -1) {
         _mode = static_cast<int>(buff_orig.st_mode);
         // Make sure the value fit by casting it back. mode_t is possibly larger than int
         Q_ASSERT(static_cast<decltype(buff_orig.st_mode)>(_mode) == buff_orig.st_mode);

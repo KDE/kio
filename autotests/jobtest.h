@@ -37,6 +37,7 @@ private Q_SLOTS:
     // Local tests (kio_file only)
     void storedGet();
     void put();
+    void putPermissionKept();
     void storedPut();
     void storedPutIODevice();
     void storedPutIODeviceFile();
