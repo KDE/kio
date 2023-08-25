@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:41+0000\n"
+"POT-Creation-Date: 2023-08-25 00:42+0000\n"
 "PO-Revision-Date: 2023-07-25 18:08+0300\n"
 "Last-Translator: Theofilos Intzoglou <int.teo@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Αδύνατη η δημιουργία εργάτη KIO: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1285
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4263,22 +4263,22 @@ msgstr ""
 "Πηγή: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:844
+#: ioslaves/file/file_unix.cpp:850
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Αδύνατη η αντιγραφή του αρχείου από το %1 στο %2. (Αρ. σφάλματος: %3)"
 
-#: ioslaves/file/file_unix.cpp:1071
+#: ioslaves/file/file_unix.cpp:1077
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Δεν υπάρχει μέσο στη συσκευή για το %1"
 
-#: ioslaves/file/file_unix.cpp:1364
+#: ioslaves/file/file_unix.cpp:1370
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Αδύνατη η ανάκτηση του id χρήστη για το δοσμένο όνομα χρήστη %1"
 
-#: ioslaves/file/file_unix.cpp:1376
+#: ioslaves/file/file_unix.cpp:1382
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Αδύνατη η ανάκτηση του id ομάδας για το δοσμένο όνομα ομάδας %1"

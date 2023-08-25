@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:41+0000\n"
+"POT-Creation-Date: 2023-08-25 00:42+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ne mogu da napravim U/I zahvat: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1279
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1285
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4256,22 +4256,22 @@ msgstr ""
 "Izvor: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:844
+#: ioslaves/file/file_unix.cpp:850
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ne mogu da kopiram datoteku iz %1 u %2. (br.greÅ¡ke: %3)"
 
-#: ioslaves/file/file_unix.cpp:1071
+#: ioslaves/file/file_unix.cpp:1077
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nema medijuma u ureÄ‘aju za %1"
 
-#: ioslaves/file/file_unix.cpp:1364
+#: ioslaves/file/file_unix.cpp:1370
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ne mogu da dobavim korisniÄki ID za dato ime korisnika %1."
 
-#: ioslaves/file/file_unix.cpp:1376
+#: ioslaves/file/file_unix.cpp:1382
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ne mogu da dobavim grupni ID za dato ime grupe %1"
