@@ -47,10 +47,12 @@ void KFileItemTest::testPermissionsString()
     QCOMPARE(fileItem.getStatusBarInfo(), QStringLiteral("afile (empty document, 0 B)"));
 
     // Folder
-    QVERIFY(QDir(tempDir.path()).mkdir(QStringLiteral("afolder")));
+    QVERIFY(QDir(tempDir.path())
+                .mkdir(QStringLiteral("afolder"),
+                       QFile::ReadOwner | QFile::WriteOwner | QFile::ExeUser | QFile::ReadGroup | QFile::ExeGroup | QFile::ReadOther | QFile::ExeOther));
     QFile folderFile(tempDir.path() + "/afolder");
     KFileItem folderItem(QUrl::fromLocalFile(folderFile.fileName()), QString(), KFileItem::Unknown);
-    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxrwxr-x"));
+    QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxr-xr-x")); // 655
     QVERIFY(folderItem.isReadable());
     QCOMPARE(folderItem.getStatusBarInfo(), QStringLiteral("afolder (folder)"));
 
