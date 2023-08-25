@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 01:56+0000\n"
+"POT-Creation-Date: 2023-08-25 01:59+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Net by steat io-slave '%1' oan te meitsjen."
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1248
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4486,23 +4486,23 @@ msgid ""
 "%3"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:824
+#: kioworkers/file/file_unix.cpp:830
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Triem kin net fan %1 nei %2 kopiearre wurde. (flaterkoade: %3)"
 
-#: kioworkers/file/file_unix.cpp:1046
+#: kioworkers/file/file_unix.cpp:1052
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Gjin media yn apparaat foar %1"
 
-#: kioworkers/file/file_unix.cpp:1338
+#: kioworkers/file/file_unix.cpp:1344
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Koe net yn map %1 komme."
 
-#: kioworkers/file/file_unix.cpp:1349
+#: kioworkers/file/file_unix.cpp:1355
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

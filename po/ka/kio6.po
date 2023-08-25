@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 01:56+0000\n"
-"PO-Revision-Date: 2023-08-17 06:12+0200\n"
+"POT-Creation-Date: 2023-08-25 01:59+0000\n"
+"PO-Revision-Date: 2023-08-24 05:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1248
+#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4195,22 +4195,22 @@ msgstr ""
 "წყარო: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:824
+#: kioworkers/file/file_unix.cpp:830
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"
 
-#: kioworkers/file/file_unix.cpp:1046
+#: kioworkers/file/file_unix.cpp:1052
 #, kde-format
 msgid "No media in device for %1"
 msgstr "მოწყობილობაში მედია არ დევს %1-თვის"
 
-#: kioworkers/file/file_unix.cpp:1338
+#: kioworkers/file/file_unix.cpp:1344
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "მომხმარებლის, %1, uid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix.cpp:1349
+#: kioworkers/file/file_unix.cpp:1355
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
@@ -6010,6 +6010,19 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
+"<qt><p>ეს სია უნდა აჩვენებდეს ფაილის ტიპებს, რომლის დამუშავებაც თქვენს "
+"აპლიკაციას შეუძლია. ეს სია ორგანიზებულია <u>mimetypes</u>-ის მიერ.</p>\n"
+"<p>MIME - მრავალფუნქციური ინტერნეტ-ელფოსტის გაფართოება, სტანდარტული "
+"პროტოკოლია ფაილის ტიპის იდენტიფიკაციისთვის გაფართოებაზე ან შესაბამის "
+"<u>mimetype</u>-ზე დაყრდნობით. მაგ: თუ ნაწილი 'bmp' ფაილის სახელში 'flower."
+"bmp' წერტილის შემდეგ მოსდევს, ეს ნიშნავს, რომ ფაილი შესაბამისი ფაილის ტიპია: "
+"<u>image/x-bmp</u>. იმისათვის, რომ გაიგოთ, რომელი აპლიკაცია რომელი ტიპის "
+"ფაილს ხსნის, სისტემამ თითოეული აპლიკაციის შესაძლებლობები უნდა იცოდეს. MIME "
+"ტიპების და გაფართოებების დამუშავება მხოლოდ ამის შემდეგაა შესაძლებელი. </p>\n"
+"<p>თუ გნებავთ, აპლიკაცია ერთ ან მეტ mimetype-ს მიაბათ, რომლებიც სიაში არაა, "
+"დაწკაპუნეთ ღილაკზე <b>დამატება</b> ქვემოთ. თუ არსებობს ერთი ან მეტი ფაილის "
+"ტიპი, რომლის დამუშავებაც ამ აპლიკაციას არ შეუძლია, მათი წაშლა სიიდან ქვემოთ "
+"<b>წაშლის</b> ღილაკის დაწკაპუნებით შეგძლიათ. </p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:199
