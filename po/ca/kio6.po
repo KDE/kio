@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 01:59+0000\n"
+"POT-Creation-Date: 2023-08-26 01:59+0000\n"
 "PO-Revision-Date: 2023-08-08 10:25+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2150,7 +2150,7 @@ msgstr ""
 "El servidor estava massa ocupat per a respondre, responent a altres "
 "peticions."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1497
+#: core/job_error.cpp:1114 core/slavebase.cpp:1504
 #, kde-format
 msgid "Unknown Error"
 msgstr "Error desconegut"
@@ -2449,87 +2449,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "No s'ha pogut determinar el tipus de fitxer per a %1"
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "No s'accepta l'obertura de connexions amb el protocol %1."
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "No s'accepta el tancament de connexions amb el protocol %1."
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "No s'accepta l'accés a fitxers amb el protocol %1."
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "No s'accepta l'escriptura a %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "No hi ha accions especials disponibles per al protocol %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "No s'accepta el llistat de carpetes per al protocol %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "No s'accepta la recuperació de dades des de %1."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "No s'accepta la recuperació d'informació del tipus MIME des de %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "No s'accepta el canvi de nom o el moviment de fitxers dins de %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "El protocol %1 no accepta la creació d'enllaços simbòlics."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "No s'accepta la còpia de fitxers dins de %1."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "No s'accepta la supressió de fitxers des de %1."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "No s'accepta la creació de carpetes amb el protocol %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "No s'accepta el canvi dels atributs als fitxers amb el protocol %1."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "No s'accepta el canvi del propietari als fitxers amb el protocol %1."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "No s'accepta l'obertura de fitxers amb el protocol %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "El protocol %1 no accepta l'acció %2."
@@ -4294,27 +4294,27 @@ msgstr "No s'ha pogut obtenir l'ID de l'usuari per al nom d'usuari donat %1"
 msgid "Could not get group id for given group name %1"
 msgstr "No s'ha pogut obtenir l'ID del grup per al nom de grup donat %1"
 
-#: kioworkers/ftp/ftp.cpp:339
+#: kioworkers/ftp/ftp.cpp:340
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "S'està obrint la connexió amb l'ordinador %1"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:355
 #, kde-format
 msgid "Connected to host %1"
 msgstr "S'ha connectat amb l'ordinador %1"
 
-#: kioworkers/ftp/ftp.cpp:462
+#: kioworkers/ftp/ftp.cpp:463
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (Error %2)"
 
-#: kioworkers/ftp/ftp.cpp:492
+#: kioworkers/ftp/ftp.cpp:493
 #, kde-format
 msgid "Sending login information"
 msgstr "S'està enviant la informació per a l'inici de la sessió"
 
-#: kioworkers/ftp/ftp.cpp:550
+#: kioworkers/ftp/ftp.cpp:551
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4331,33 +4331,33 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Heu de donar un nom d'usuari i una contrasenya per a accedir a aquest lloc."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
 #, kde-format
 msgid "Site:"
 msgstr "Lloc:"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
+#: kioworkers/ftp/ftp.cpp:565 kioworkers/ftp/ftp.cpp:2515
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:648
+#: kioworkers/ftp/ftp.cpp:649
 #, kde-format
 msgid "Login OK"
 msgstr "S'ha fet la connexió"
 
-#: kioworkers/ftp/ftp.cpp:677
+#: kioworkers/ftp/ftp.cpp:678
 #, kde-format
 msgid "Could not login to %1."
 msgstr "No s'ha pogut connectar a %1."
 
-#: kioworkers/ftp/ftp.cpp:1054
+#: kioworkers/ftp/ftp.cpp:1055
 #, kde-format
 msgid ""
 "\n"
@@ -4366,8 +4366,8 @@ msgstr ""
 "\n"
 "El servidor ha indicat: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
-#: kioworkers/http/http.cpp:5119
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
+#: kioworkers/http/http.cpp:5120
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4376,14 +4376,14 @@ msgstr ""
 "Heu de donar un nom d'usuari i una contrasenya per al servidor intermediari "
 "llistat a sota abans que se us permeti accedir a altres llocs."
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
-#: kioworkers/http/http.cpp:5122
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
+#: kioworkers/http/http.cpp:5123
 #, kde-format
 msgid "Proxy:"
 msgstr "Servidor intermediari:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Ha fallat en l'autenticació de l'intermediari."
@@ -4428,100 +4428,100 @@ msgstr "S'està cercant la secció"
 msgid "Could not find filename %1 in %2."
 msgstr "No s'ha pogut trobar el nom de fitxer %1 a %2."
 
-#: kioworkers/http/http.cpp:540
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr "No s'ha especificat cap ordinador."
 
-#: kioworkers/http/http.cpp:1503
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Altrament, la petició hauria tingut èxit."
 
-#: kioworkers/http/http.cpp:1507
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recuperar els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "establir els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1513
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea la carpeta demanada"
 
-#: kioworkers/http/http.cpp:1516
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia el fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "mou el fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1522
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cerca dins la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloqueja el fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1528
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "desbloqueja el fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1531
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "suprimeix el fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "consultar les capacitats del servidor"
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera el contingut del fitxer o la carpeta especificat"
 
-#: kioworkers/http/http.cpp:1540
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un informe a la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Hi ha hagut un error inesperat (%1) en intentar %2."
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "El servidor no accepta el protocol WebDAV."
 
-#: kioworkers/http/http.cpp:1605
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4530,13 +4530,13 @@ msgid ""
 msgstr ""
 "Hi ha hagut un error en intentar %1, %2. A sota hi ha un resum dels motius."
 
-#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "S'ha denegat l'accés en intentar %1."
 
-#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4545,7 +4545,7 @@ msgstr ""
 "No es pot crear un recurs a la destinació fins que s'hagin creat una o més "
 "col·leccions intermèdies (carpetes)."
 
-#: kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1647
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4560,28 +4560,28 @@ msgstr ""
 "no se sobreescrivissin.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "No s'ha pogut atorgar el bloqueig sol·licitat. %1"
 
-#: kioworkers/http/http.cpp:1660
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "El servidor no accepta el tipus de petició del cos."
 
-#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "No s'ha pogut %1 perquè el recurs està bloquejat."
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Aquesta acció ha estat evitada per un altre error."
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4591,7 +4591,7 @@ msgstr ""
 "No s'ha pogut %1 perquè el servidor de destinació refusa acceptar el fitxer "
 "o la carpeta."
 
-#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4600,29 +4600,29 @@ msgstr ""
 "El recurs de destinació no té espai suficient per a gravar l'estat del "
 "recurs després de l'execució d'aquest mètode."
 
-#: kioworkers/http/http.cpp:1737
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "El recurs no s'ha pogut suprimir."
 
-#: kioworkers/http/http.cpp:1750
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "puja %1"
 
-#: kioworkers/http/http.cpp:1801
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Hi ha hagut un error inesperat (%1) en intentar %2."
 
-#: kioworkers/http/http.cpp:2501
+#: kioworkers/http/http.cpp:2502
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "S'ha contactat amb %1. S'està esperant la resposta..."
 
-#: kioworkers/http/http.cpp:2827
+#: kioworkers/http/http.cpp:2828
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4634,43 +4634,43 @@ msgstr ""
 "però el lloc web no requereix autenticació. Això pot ser un intent "
 "d'enganyar-vos.</p><p>«%1» és el lloc que voleu visitar?</p>"
 
-#: kioworkers/http/http.cpp:2834
+#: kioworkers/http/http.cpp:2835
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "Confirmació d'accés al lloc web"
 
-#: kioworkers/http/http.cpp:2925
+#: kioworkers/http/http.cpp:2926
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "El servidor està processant la petició, espereu..."
 
-#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
+#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
 #, kde-format
 msgid "Sending data to %1"
 msgstr "S'estan enviant les dades a %1"
 
-#: kioworkers/http/http.cpp:4113
+#: kioworkers/http/http.cpp:4114
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "S'està recuperant %1 des de %2..."
 
-#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
+#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> a <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Ha fallat en l'autenticació."
 
-#: kioworkers/http/http.cpp:5264
+#: kioworkers/http/http.cpp:5265
 #, kde-format
 msgid "Authorization failed."
 msgstr "Ha fallat l'autorització."
 
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/http/http.cpp:5282
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "Mètode d'autorització desconegut."

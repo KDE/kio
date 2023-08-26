@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 01:59+0000\n"
+"POT-Creation-Date: 2023-08-26 01:59+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2051,7 +2051,7 @@ msgstr ""
 "Bhí an freastalaí gafa le hiarratais eile agus ní raibh sé in ann freagra a "
 "thabhairt."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1497
+#: core/job_error.cpp:1114 core/slavebase.cpp:1504
 #, kde-format
 msgid "Unknown Error"
 msgstr "Earráid Anaithnid"
@@ -2338,87 +2338,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ní thacaítear le hoscailt ceangal le prótacal %1."
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ní thacaítear le dúnadh ceangal le prótacal %1."
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ní thacaítear le rochtain comhad le prótacal %1."
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ní thacaítear le scríobh chuig %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Níl aon ghníomhartha speisialta ar fáil le haghaidh phrótacal %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ní thacaítear le taispeáint fillteán le prótacal %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ní féidir sonraí a fháil ó %1."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ní féidir faisnéis faoi chineálacha MIME a fháil ó %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ní thacaítear le hathainmniú nó bogadh comhad i %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ní féidir naisc shiombalacha a chruthú le prótacal %1."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ní féidir comhaid a oscailt i %1."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ní féidir comhaid a scriosadh ó %1."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ní féidir fillteáin a chruthú le prótacal %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ní féidir tréithe comhad a athrú le prótacal %1."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ní féidir úinéir comhaid a athrú le prótacal %1."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ní féidir comhaid a oscailt le prótacal %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."
@@ -4230,28 +4230,28 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:339
+#: kioworkers/ftp/ftp.cpp:340
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "Ag dul i dteagmháil le hóstríomhaire %1"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:355
 #, kde-format
 msgid "Connected to host %1"
 msgstr "Ceangailte le hóstríomhaire %1"
 
-#: kioworkers/ftp/ftp.cpp:462
+#: kioworkers/ftp/ftp.cpp:463
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgid "%1 (Error %2)"
 msgstr "%1 (%2)"
 
-#: kioworkers/ftp/ftp.cpp:492
+#: kioworkers/ftp/ftp.cpp:493
 #, kde-format
 msgid "Sending login information"
 msgstr "Eolas logála isteach á sheoladh"
 
-#: kioworkers/ftp/ftp.cpp:550
+#: kioworkers/ftp/ftp.cpp:551
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4262,34 +4262,34 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Is gá ainm úsáideora agus focal faire a sholáthar chun an suíomh seo a "
 "rochtain."
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
 #, kde-format
 msgid "Site:"
 msgstr "Suíomh:"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
+#: kioworkers/ftp/ftp.cpp:565 kioworkers/ftp/ftp.cpp:2515
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:648
+#: kioworkers/ftp/ftp.cpp:649
 #, kde-format
 msgid "Login OK"
 msgstr "Logáil Isteach OK"
 
-#: kioworkers/ftp/ftp.cpp:677
+#: kioworkers/ftp/ftp.cpp:678
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Níorbh fhéidir logáil ann go %1"
 
-#: kioworkers/ftp/ftp.cpp:1054
+#: kioworkers/ftp/ftp.cpp:1055
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgid ""
@@ -4297,22 +4297,22 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 á thosú"
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
-#: kioworkers/http/http.cpp:5119
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
+#: kioworkers/http/http.cpp:5120
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
-#: kioworkers/http/http.cpp:5122
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
+#: kioworkers/http/http.cpp:5123
 #, kde-format
 msgid "Proxy:"
 msgstr "Seachfhreastalaí:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr ""
@@ -4360,18 +4360,18 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "Níorbh fhéidir comhad %1 a léamh."
 
-#: kioworkers/http/http.cpp:540
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1503
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr ""
 
 # SEE BELOW - all "attempting to...", or "unable to..."
-#: kioworkers/http/http.cpp:1507
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
@@ -4381,7 +4381,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
@@ -4391,7 +4391,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a shocrú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1513
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
@@ -4401,7 +4401,7 @@ msgstr ""
 "             unable-to 'an fillteán iarrtha a chruthú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1516
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
@@ -4411,7 +4411,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chóipeáil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
@@ -4421,7 +4421,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a bhogadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1522
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
@@ -4431,7 +4431,7 @@ msgstr ""
 "             unable-to 'an fillteán sonraithe a chuardach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
@@ -4441,7 +4441,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chur faoi ghlas'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1528
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
@@ -4452,7 +4452,7 @@ msgstr ""
 "oscailt'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1531
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
@@ -4462,7 +4462,7 @@ msgstr ""
 "             unable-to 'an comhad nó an fillteán sonraithe a scriosadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
@@ -4472,7 +4472,7 @@ msgstr ""
 "             unable-to 'cumas an fhreastalaí a fháil amach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
@@ -4482,13 +4482,13 @@ msgstr ""
 "             unable-to 'inneachar an comhad nó fillteán sonraithe a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1540
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4496,12 +4496,12 @@ msgstr ""
 "Tharla earráid gan súil léi (%1) nuair a bhíothas ag iarraidh %2.|/|Tharla "
 "earráid gan súil léi (%1) agus $[attempting-to %2]."
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "Ní thacaíonn an freastalaí leis an bprótacal WebDAV."
 
-#: kioworkers/http/http.cpp:1605
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4511,7 +4511,7 @@ msgstr ""
 "Tharla earráid nuair a bhíothas ag iarraidh %1, %2.  Achoimre thíos.|/|"
 "Tharla earráid agus $[attempting-to %1], %2.  Achoimre thíos."
 
-#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
@@ -4519,14 +4519,14 @@ msgstr ""
 "Rochtain diúltaithe nuair a bhíothas ag iarraidh %1.|/|Rochtain diúltaithe "
 "agus $[attempting-to %1]."
 
-#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1647
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4536,17 +4536,17 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1660
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
@@ -4554,12 +4554,12 @@ msgstr ""
 "Ní féidir %1 toisc go bhfuil an acmhainn faoi ghlas.|/|Ní féidir $[unable-to "
 "%1] toisc go bhfuil an acmhainn faoi ghlas."
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4570,19 +4570,19 @@ msgstr ""
 "leis an bhfillteán.|/|Ní féidir $[unable-to %1] toisc nach nglacann an "
 "freastalaí sprice leis an gcomhad nó leis an bhfillteán."
 
-#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1737
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ní féidir an acmhainn a scriosadh."
 
-#: kioworkers/http/http.cpp:1750
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
@@ -4591,7 +4591,7 @@ msgstr ""
 "             unable-to %1' a uasluchtú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1801
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4599,12 +4599,12 @@ msgstr ""
 "Tharla earráid gan súil léi (%1) nuair a bhíothas ag iarraidh %2.|/|Tharla "
 "earráid gan súil léi (%1) agus $[attempting-to %2]."
 
-#: kioworkers/http/http.cpp:2501
+#: kioworkers/http/http.cpp:2502
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr ""
 
-#: kioworkers/http/http.cpp:2827
+#: kioworkers/http/http.cpp:2828
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4613,43 +4613,43 @@ msgid ""
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
 
-#: kioworkers/http/http.cpp:2834
+#: kioworkers/http/http.cpp:2835
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr ""
 
-#: kioworkers/http/http.cpp:2925
+#: kioworkers/http/http.cpp:2926
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr ""
 
-#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
+#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Sonraí á seoladh chuig %1"
 
-#: kioworkers/http/http.cpp:4113
+#: kioworkers/http/http.cpp:4114
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%1 á fháil ó %2..."
 
-#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
+#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> ag <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Theip ar Fhíordheimhniú."
 
-#: kioworkers/http/http.cpp:5264
+#: kioworkers/http/http.cpp:5265
 #, kde-format
 msgid "Authorization failed."
 msgstr "Theip ar údarú."
 
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/http/http.cpp:5282
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "Modh anaithnid údaraithe."

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 01:59+0000\n"
+"POT-Creation-Date: 2023-08-26 01:59+0000\n"
 "PO-Revision-Date: 2023-08-17 19:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2001,7 +2001,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "伺服器太忙碌回應其他請求，所以暫時未能回應您的請求。"
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1497
+#: core/job_error.cpp:1114 core/slavebase.cpp:1504
 #, kde-format
 msgid "Unknown Error"
 msgstr "不明的錯誤"
@@ -2282,87 +2282,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "無法決定 %1 的檔案類型"
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 通訊協定不支援開啟連線。"
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 通訊協定不支援關閉連線。"
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 通訊協定不支援存取檔案。"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "不支援寫入 %1。"
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:847
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 通訊協定沒有可用的特殊的動作。"
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:849
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 通訊協定不支援列出資料夾內容。"
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:851
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "不支援從 %1 取回資料。"
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:853
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "不支援從 %1 取回 mime 類型資訊。"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:855
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "不支援在 %1 裡重新命名或移動檔案。"
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:857
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 通訊協定不支援建立符號連結。"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:859
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "不支援在 %1 裡複製檔案。"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:861
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "不支援由 %1 刪除檔案。"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:863
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 通訊協定不支援建立資料夾。"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:865
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 通訊協定不支援變更檔案屬性。"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:867
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 通訊協定不支援變更檔案屬性。"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:869
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 通訊協定不支援開啟檔案。"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:871
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "通訊協定 %1 不支援動作 %2。"
@@ -4072,27 +4072,27 @@ msgstr "無法取得使用者 %1 的代碼。"
 msgid "Could not get group id for given group name %1"
 msgstr "無法取得群組 %1 的代碼。"
 
-#: kioworkers/ftp/ftp.cpp:339
+#: kioworkers/ftp/ftp.cpp:340
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "開啟連線到主機 %1"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:355
 #, kde-format
 msgid "Connected to host %1"
 msgstr "連線到主機 %1"
 
-#: kioworkers/ftp/ftp.cpp:462
+#: kioworkers/ftp/ftp.cpp:463
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (錯誤 %2)"
 
-#: kioworkers/ftp/ftp.cpp:492
+#: kioworkers/ftp/ftp.cpp:493
 #, kde-format
 msgid "Sending login information"
 msgstr "送出登入資訊"
 
-#: kioworkers/ftp/ftp.cpp:550
+#: kioworkers/ftp/ftp.cpp:551
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4109,32 +4109,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:561 kioworkers/http/http.cpp:5104
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "您必須提供一組使用者名稱和密碼來存取這個網站。"
 
-#: kioworkers/ftp/ftp.cpp:563 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
 #, kde-format
 msgid "Site:"
 msgstr "網站:"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/ftp/ftp.cpp:2514
+#: kioworkers/ftp/ftp.cpp:565 kioworkers/ftp/ftp.cpp:2515
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:648
+#: kioworkers/ftp/ftp.cpp:649
 #, kde-format
 msgid "Login OK"
 msgstr "登入成功"
 
-#: kioworkers/ftp/ftp.cpp:677
+#: kioworkers/ftp/ftp.cpp:678
 #, kde-format
 msgid "Could not login to %1."
 msgstr "無法登入 %1。"
 
-#: kioworkers/ftp/ftp.cpp:1054
+#: kioworkers/ftp/ftp.cpp:1055
 #, kde-format
 msgid ""
 "\n"
@@ -4143,8 +4143,8 @@ msgstr ""
 "\n"
 "伺服器回傳：「%1」"
 
-#: kioworkers/ftp/ftp.cpp:2509 kioworkers/http/http.cpp:4984
-#: kioworkers/http/http.cpp:5119
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
+#: kioworkers/http/http.cpp:5120
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4152,14 +4152,14 @@ msgid ""
 msgstr ""
 "您必須為下列的代理伺服器提供一組使用者名稱和密碼，才能夠取得存取網站的權限。"
 
-#: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:4988
-#: kioworkers/http/http.cpp:5122
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
+#: kioworkers/http/http.cpp:5123
 #, kde-format
 msgid "Proxy:"
 msgstr "代理伺服器:"
 
-#: kioworkers/ftp/ftp.cpp:2516 kioworkers/http/http.cpp:4991
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "代理伺服器認證失敗。"
@@ -4204,100 +4204,100 @@ msgstr "正在找尋段落"
 msgid "Could not find filename %1 in %2."
 msgstr "在%2當中找不到名稱為 %1 的檔案。"
 
-#: kioworkers/http/http.cpp:540
+#: kioworkers/http/http.cpp:541
 #, kde-format
 msgid "No host specified."
 msgstr "沒有指定主機。"
 
-#: kioworkers/http/http.cpp:1503
+#: kioworkers/http/http.cpp:1504
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "否則，該請求就已經成功了。"
 
-#: kioworkers/http/http.cpp:1507
+#: kioworkers/http/http.cpp:1508
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "接收屬性數值"
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "設定屬性數值"
 
-#: kioworkers/http/http.cpp:1513
+#: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "建立所請求的資料夾"
 
-#: kioworkers/http/http.cpp:1516
+#: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "複製指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "搬移指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1522
+#: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "在指定的資料夾搜尋"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "鎖住指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1528
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "解除鎖定指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1531
+#: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "刪除指定的檔案或資料夾"
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "查詢伺服器的性能"
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "接收所指定的檔案或資料夾的內容"
 
-#: kioworkers/http/http.cpp:1540
+#: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "在指定的資料夾執行報告"
 
-#: kioworkers/http/http.cpp:1552
+#: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "在連線到 %2 發生了非預期的錯誤 (%1)。"
 
-#: kioworkers/http/http.cpp:1561
+#: kioworkers/http/http.cpp:1562
 #, kde-format
 msgid "The server does not support the WebDAV protocol."
 msgstr "對方伺服器並不支援 WebDAV 通訊協定。"
 
-#: kioworkers/http/http.cpp:1605
+#: kioworkers/http/http.cpp:1606
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4305,20 +4305,20 @@ msgid ""
 "below."
 msgstr "在連線到 %2 要求 %1 時發生錯誤。錯誤原因如下。"
 
-#: kioworkers/http/http.cpp:1623 kioworkers/http/http.cpp:1759
+#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "連線到 %1 被拒絕，存取失敗。"
 
-#: kioworkers/http/http.cpp:1637 kioworkers/http/http.cpp:1766
+#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr "資源無法在目標被建立，直到一個或多個中間集合(資料夾)已經被建立之後。"
 
-#: kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1647
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4332,28 +4332,28 @@ msgstr ""
 "仍然試圖覆寫檔案。\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "發出的鎖定請求無法被許可。%1"
 
-#: kioworkers/http/http.cpp:1660
+#: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "伺服器並不支援請求內容的類型。"
 
-#: kioworkers/http/http.cpp:1665 kioworkers/http/http.cpp:1774
+#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "無法連線到 %1，因為資源被鎖定，所以無法進行。"
 
-#: kioworkers/http/http.cpp:1669
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "該動作被另外一個錯誤所阻止。"
 
-#: kioworkers/http/http.cpp:1676 kioworkers/http/http.cpp:1781
+#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4361,36 +4361,36 @@ msgid ""
 "folder."
 msgstr "無法連線到 %1，因為對方伺服器拒絕接收該檔案或資料夾。"
 
-#: kioworkers/http/http.cpp:1685 kioworkers/http/http.cpp:1790
+#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "目標資源需的空間並不足以紀錄在執行這個方式之後的資源狀態"
 
-#: kioworkers/http/http.cpp:1737
+#: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "資源無法被刪除。"
 
-#: kioworkers/http/http.cpp:1750
+#: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "上傳 %1"
 
-#: kioworkers/http/http.cpp:1801
+#: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "在連線到 %2 發生了無預期的錯誤 (%1)。"
 
-#: kioworkers/http/http.cpp:2501
+#: kioworkers/http/http.cpp:2502
 #, kde-format
 msgid "%1 contacted. Waiting for reply..."
 msgstr "%1 已聯繫上。等待回應中..."
 
-#: kioworkers/http/http.cpp:2827
+#: kioworkers/http/http.cpp:2828
 #, kde-format
 msgctxt "@info Security check on url being accessed"
 msgid ""
@@ -4401,43 +4401,43 @@ msgstr ""
 "<p>您準備使用帳號 %2 登入站台 %1，但是該站台不需要認證。這可能是騙人的網站。"
 "</p><p>您確定您要造訪的站台是 %1 嗎？</p>"
 
-#: kioworkers/http/http.cpp:2834
+#: kioworkers/http/http.cpp:2835
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Website Access"
 msgstr "確認網站存取"
 
-#: kioworkers/http/http.cpp:2925
+#: kioworkers/http/http.cpp:2926
 #, kde-format
 msgid "Server processing request, please wait..."
 msgstr "伺服器產生請求中，請稍後..."
 
-#: kioworkers/http/http.cpp:3613 kioworkers/http/http.cpp:3668
+#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
 #, kde-format
 msgid "Sending data to %1"
 msgstr "送出資料至 %1"
 
-#: kioworkers/http/http.cpp:4113
+#: kioworkers/http/http.cpp:4114
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "從 %2 接收 %1 資料..."
 
-#: kioworkers/http/http.cpp:4989 kioworkers/http/http.cpp:5226
+#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> 在 <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5137
+#: kioworkers/http/http.cpp:5138
 #, kde-format
 msgid "Authentication Failed."
 msgstr "認證失敗。"
 
-#: kioworkers/http/http.cpp:5264
+#: kioworkers/http/http.cpp:5265
 #, kde-format
 msgid "Authorization failed."
 msgstr "授權失敗。"
 
-#: kioworkers/http/http.cpp:5281
+#: kioworkers/http/http.cpp:5282
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "未知的授權方法。"
