@@ -86,6 +86,8 @@ private Q_SLOTS:
     void testCreateNestedNewFolders();
     void testTokenize_data();
     void testTokenize();
+    void testTokenizeForSave_data();
+    void testTokenizeForSave();
 };
 
 void KFileWidgetTest::initTestCase()
@@ -748,6 +750,112 @@ void KFileWidgetTest::testTokenize()
         }
     }
     QCOMPARE(urls, fileUrls);
+}
+
+void KFileWidgetTest::testTokenizeForSave_data()
+{
+    // Real filename (as in how they are stored in the fs)
+    QTest::addColumn<QString>("fileName");
+    // Escaped value of the text-box in the dialog
+    // Escaped cwd: Because setSelectedUrl is called in this
+    // test, it actually sets the CWD to the dirname and only
+    // keeps the filename displayed in the test
+    QTest::addColumn<QString>("expectedSubFolder");
+    QTest::addColumn<QString>("expectedCurrentText");
+
+    QTest::newRow("save-simple") << QString{"test2"} << QString() << QString("test2");
+
+    // When a single file with space is selected, it is _not_ quoted ...
+    QTest::newRow("save-space") << QString{"test space"} << QString() << QString("test space");
+
+    // All quotes in names should be escaped, however since this is a single
+    // file, the whole name will not be escaped.
+    QTest::newRow("save-quote") << QString{"test\"quote"} << QString() << QString("test\\\"quote");
+
+    // Ok, enough with quotes... lets do some backslashes
+    // Backslash literals in file names - Unix only case
+    QTest::newRow("save-backslash") << QString{"test\\backslash"} << QString() << QString("test\\\\backslash");
+
+    QTest::newRow("save-double-backslash") << QString{"test\\\\back\\slash"} << QString() << QString("test\\\\\\\\back\\\\slash");
+
+    QTest::newRow("save-double-backslash-end") << QString{"test\\\\"} << QString() << QString("test\\\\\\\\");
+
+    QTest::newRow("save-single-backslash-end") << QString{"test\\"} << QString() << QString("test\\\\");
+
+    QTest::newRow("save-sharp") << QString{"some#thing"} << QString() << QString("some#thing");
+
+    // Filenames beginning with ':'; QDir::isAbsolutePath() always returns true
+    // in that case, #322837
+    QTest::newRow("save-file-beginning-with-colon") << QString{":test2"} << QString() << QString{":test2"};
+
+    // # 473228
+    QTest::newRow("save-save-file-beginning-with-something-that-looks-like-a-url-scheme")
+        << QString{"Hello: foo.txt"} << QString() << QString{"Hello: foo.txt"};
+
+    QTemporaryDir otherTempDir;
+    otherTempDir.setAutoRemove(false);
+    const auto testFile1Path = otherTempDir.filePath("test-1");
+    createTestFile(testFile1Path);
+
+    QTest::newRow("save-absolute-url-not-in-dir") << QString{"file://" + testFile1Path} << otherTempDir.path() << QString{"test-1"};
+
+    auto expectedtestFile1Path = testFile1Path;
+    expectedtestFile1Path = expectedtestFile1Path.remove(0, 1);
+
+    QTest::newRow("save-absolute-url-not-in-dir-no-scheme") << QString{testFile1Path} << otherTempDir.path() << QString{"test-1"};
+}
+
+void KFileWidgetTest::testTokenizeForSave()
+{
+    // We will use setSelectedUrls([QUrl]) here in order to check correct
+    // filename escaping. Afterwards we will accept() the dialog to confirm
+    // correct result
+
+    // This test is similar to testTokenize but focuses on single-file
+    // "save" operation. This follows a different code-path internally
+    // and calls setSelectedUrl instead of setSelectedUrls.
+
+    QFETCH(QString, fileName);
+    QFETCH(QString, expectedSubFolder);
+    QFETCH(QString, expectedCurrentText);
+
+    QTemporaryDir tempDir;
+    const QString tempDirPath = tempDir.path();
+    const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
+    auto fileUrl = QUrl(fileName);
+    if (!fileUrl.path().startsWith(QLatin1Char('/'))) {
+        const QString filePath = tempDirPath + QLatin1Char('/') + fileName;
+        fileUrl = QUrl::fromLocalFile(filePath);
+    }
+    if (fileUrl.scheme().isEmpty()) {
+        fileUrl.setScheme("file");
+    }
+    qCDebug(KIO_KFILEWIDGETS_FW) << fileName << " => " << fileUrl;
+
+    KFileWidget fw(tempDirUrl);
+    fw.setOperationMode(KFileWidget::Saving);
+    fw.setMode(KFile::File);
+    fw.setSelectedUrl(fileUrl);
+
+    // Verify the expected populated name.
+    if (expectedSubFolder != "") {
+        const QUrl expectedBaseUrl = tempDirUrl.resolved(QUrl::fromLocalFile(expectedSubFolder));
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), expectedBaseUrl);
+    } else {
+        QCOMPARE(fw.baseUrl().adjusted(QUrl::StripTrailingSlash), tempDirUrl);
+    }
+    QCOMPARE(fw.locationEdit()->currentText(), expectedCurrentText);
+
+    // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
+    // which calls KFileWidget::selectedUrls().
+    // Accept the filename to ensure that a filename is selected.
+    connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
+    QTest::keyClick(fw.locationEdit(), Qt::Key_Return);
+    const QList<QUrl> urls = fw.selectedUrls();
+
+    // We always only have one URL here
+    QCOMPARE(urls.size(), 1);
+    QCOMPARE(urls[0], fileUrl);
 }
 
 QTEST_MAIN(KFileWidgetTest)

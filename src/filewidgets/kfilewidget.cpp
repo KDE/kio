@@ -1136,7 +1136,7 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
         }
 
         const QIcon mimeTypeIcon = QIcon::fromTheme(KIO::iconNameForUrl(url), QIcon::fromTheme(QStringLiteral("application-octet-stream")));
-        setDummyHistoryEntry(url.fileName(), mimeTypeIcon);
+        setDummyHistoryEntry(escapeDoubleQuotes(url.fileName()), mimeTypeIcon);
     } else {
         removeDummyHistoryEntry();
     }
