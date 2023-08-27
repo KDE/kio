@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-25 00:42+0000\n"
-"PO-Revision-Date: 2023-07-29 09:15+0200\n"
+"PO-Revision-Date: 2023-08-26 04:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -6632,8 +6632,8 @@ msgstr ""
 "KDE mediante Google, simplemente escriba <emphasis>gg:KDE</emphasis> ou "
 "<emphasis>google:KDE</emphasis>.</para><para>Se escolle un motor "
 "predeterminado poderá buscar palabras ou frases simplemente escribíndoas no "
-"trebello axeitado das aplicacións que permitan de serie utilizar esta "
-"funcionalidade, como Konqueror.</para>"
+"trebello axeitado das aplicacións que inclúan esta funcionalidade, como "
+"Konqueror.</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -8861,7 +8861,7 @@ msgstr "Asunto"
 #, kde-format
 msgctxt "The authority that issued the SSL certificate"
 msgid "Issuer"
-msgstr "Emisor"
+msgstr "Expedidor"
 
 #: widgets/ksslinfodialog.cpp:83
 #, kde-format
