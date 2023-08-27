@@ -1049,8 +1049,7 @@ void KFileWidgetPrivate::setLocationText(const QUrl &url)
                 q->setUrl(url, false);
             }
         }
-
-        m_locationEdit->setEditText(url.fileName());
+        m_locationEdit->setEditText(escapeDoubleQuotes(url.fileName()));
     } else if (!m_locationEdit->lineEdit()->text().isEmpty()) {
         m_locationEdit->clearEditText();
     }
