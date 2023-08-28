@@ -115,6 +115,8 @@ void KFileWidgetTest::testFilterCombo()
     // select 2nd duplicate XML filter (see bug 407642)
     fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
     QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
+    // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
+    QTest::qWait(350);
     QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
 
     // keep filter after file change with same extension
@@ -150,6 +152,8 @@ void KFileWidgetTest::testFilterCombo()
     // select 2nd XML filter
     fw.filterWidget()->setCurrentFilter("*.xml *.b|DocBook (.xml)");
     QCOMPARE(fw.currentFilter(), QStringLiteral("*.xml *.b"));
+    // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
+    QTest::qWait(350);
     QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
 }
 
@@ -478,6 +482,8 @@ void KFileWidgetTest::testFilterChange()
 
     // Select type with an existing file.
     fw.filterWidget()->setCurrentFilter("*.c|C");
+    // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
+    QTest::qWait(350);
     QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.c"));
     QCOMPARE(fw.filterWidget()->currentFilter(), QStringLiteral("*.c"));
 
