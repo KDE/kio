@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-26 01:59+0000\n"
-"PO-Revision-Date: 2023-07-29 09:15+0200\n"
+"PO-Revision-Date: 2023-08-26 04:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -3228,11 +3228,10 @@ msgid "&Edit…"
 msgstr "&Editar…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Retirar o ficheiro"
+msgstr "Retirar dos lugares"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -6753,7 +6752,7 @@ msgstr "Asunto"
 #, kde-format
 msgctxt "The authority that issued the SSL certificate"
 msgid "Issuer"
-msgstr "Emisor"
+msgstr "Expedidor"
 
 #: widgets/ksslinfodialog.cpp:82
 #, kde-format

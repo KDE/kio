@@ -4002,7 +4002,6 @@ msgstr ""
 
 #: kioworkers/file/file.cpp:747
 #, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
@@ -6825,7 +6824,6 @@ msgstr "Denne operasjonen vil skrive over målet."
 
 #: widgets/renamedialog.cpp:372
 #, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
 msgid "This action will merge the contents of '%1' into '%2'."
 msgstr "Denne operasjonen vil skrive over målet."
 

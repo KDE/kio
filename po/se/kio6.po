@@ -3961,7 +3961,6 @@ msgstr "Ii sáhttán rievdadit vuoigatvuođaid %1 várás"
 
 #: kioworkers/file/file.cpp:747
 #, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
@@ -7089,62 +7088,3 @@ msgstr "Dát álggaha prográmma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jus it luohtte dán prográmma, coahkkal Gaskkalduhte"
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Diehtočoahkováruhus"
-
-#, fuzzy
-#~ msgid "Details"
-#~ msgstr "Bienat"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "Čájet dahje rievdat dieđuid diehtočoahku birra"
-
-#~ msgid "&Accept"
-#~ msgstr "&Dohkket"
-
-#~ msgid "&Reject"
-#~ msgstr "&Hilggo"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "Geavat dan dása"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "&Dušše dán diehtočoahku"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "D&ušše dáid diehtočoahkuid"
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "Buot čoahkuid dán do&menas"
-
-#~ msgid "All &cookies"
-#~ msgstr "Buot &diehtočoahkuid"
-
-#~ msgid "Cookie Details"
-#~ msgstr "Bienat diehtočoahku birra"
-
-#~ msgid "Name:"
-#~ msgstr "Namma:"
-
-#~ msgid "Value:"
-#~ msgstr "Árvu:"
-
-#~ msgid "Expires:"
-#~ msgstr "Boarásmuvvá:"
-
-#~ msgid "Path:"
-#~ msgstr "Bálggis:"
-
-#~ msgid "Domain:"
-#~ msgstr "Domena:"
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "&Boahtte >>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "Čájet dieđuid boahtte diehtočoahku birra"
-
-#~ msgid "Multiple get is not supported with protocol %1."
-#~ msgstr "It sáhte geavahit máŋga get-gohččumiid %1-protokollain"

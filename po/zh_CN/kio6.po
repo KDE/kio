@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-26 01:59+0000\n"
-"PO-Revision-Date: 2023-08-02 12:38\n"
+"PO-Revision-Date: 2023-08-27 03:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3056,11 +3056,10 @@ msgid "&Edit…"
 msgstr "编辑(&E)…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "移除文件"
+msgstr "从常用位置中移除"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -7039,160 +7038,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "Cannot Save Cookies"
-#~ msgstr "无法保存 Cookies"
-
-#~ msgid "Could not remove %1, check permissions"
-#~ msgstr "无法移除 %1，请检查权限是否足够"
-
-#~ msgid "Could not create directory %1"
-#~ msgstr "无法创建目录 %1"
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Cookie 警报"
-
-#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#~ msgid ""
-#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject this cookie?</p>"
-#~ msgid_plural ""
-#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject these cookies?</p>"
-#~ msgstr[0] ""
-#~ "<p>您收到了 %1 个 Cookies，来自<br/><b>%2%3</b><br/>您想要接受还是拒绝这"
-#~ "些 Cookies？</p>"
-
-#~ msgctxt "@item:intext cross domain cookie"
-#~ msgid " [Cross Domain]"
-#~ msgstr "[跨域]"
-
-#~ msgid "Details"
-#~ msgstr "详情"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "查看或者修改 Cookie 信息"
-
-#~ msgid "Accept for this &session"
-#~ msgstr "接受 (当次会话)(&S)"
-
-#~ msgid "Accept cookie(s) until the end of the current session"
-#~ msgstr "接受 Cookies (本次会话结束后过期)"
-
-#~ msgid "&Accept"
-#~ msgstr "接受(&A)"
-
-#~ msgid "&Reject"
-#~ msgstr "拒绝(&R)"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "应用此选择到"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "仅这个 Cookie(&O)"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "仅这些 Cookies(&O)"
-
-#~ msgid ""
-#~ "Select this option to only accept or reject this cookie. You will be "
-#~ "prompted again if you receive another cookie."
-#~ msgstr ""
-#~ "选择此项将仅接受或者拒绝这个 Cookie。收到另外一个 Cookie 时，程序将再次提"
-#~ "示。"
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "所有来自此域名的 Cookies(&M)"
-
-#~ msgid ""
-#~ "Select this option to accept or reject all cookies from this site. "
-#~ "Choosing this option will add a new policy for the site this cookie "
-#~ "originated from. This policy will be permanent until you manually change "
-#~ "it from the System Settings."
-#~ msgstr ""
-#~ "选择此项将接受或者拒绝来自这个网站的所有 Cookies。程序将为这个 Cookie 的来"
-#~ "源站点添加一个新策略。该策略将在系统中长期保持，除非您在系统设置中对它进行"
-#~ "手动修改。"
-
-#~ msgid "All &cookies"
-#~ msgstr "所有 &Cookies"
-
-#~ msgid ""
-#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
-#~ "this option will change the global cookie policy for all cookies until "
-#~ "you manually change it from the System Settings."
-#~ msgstr ""
-#~ "选择此项将接受或者拒绝来自所有网站的 Cookies。这将修改所有 Cookies 的全局"
-#~ "策略。该策略将在系统中长期保持，除非您在系统设置中对它进行手动修改。"
-
-#~ msgid "Cookie Details"
-#~ msgstr "Cookie 详情"
-
-#~ msgid "Name:"
-#~ msgstr "名称："
-
-#~ msgid "Value:"
-#~ msgstr "值："
-
-#~ msgid "Expires:"
-#~ msgstr "过期时间："
-
-#~ msgid "Path:"
-#~ msgstr "路径："
-
-#~ msgid "Domain:"
-#~ msgstr "域名："
-
-#~ msgctxt ""
-#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
-#~ "exposure string in this file)"
-#~ msgid "Exposure:"
-#~ msgstr "有效范围："
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "下一个(&N) >>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "显示下一个 Cookie 的详情"
-
-#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
-#~ msgid "Not specified"
-#~ msgstr "未指定"
-
-#~ msgctxt "@label the cookie expires when the browser session ends"
-#~ msgid "End of Session"
-#~ msgstr "当次会话"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by https servers"
-#~ msgid "Secure servers only"
-#~ msgstr " HTTPS 服务器"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by https servers AND "
-#~ "client-side javascripts"
-#~ msgid "Secure servers, page scripts"
-#~ msgstr "HTTPS 服务器、页面脚本"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by http servers"
-#~ msgid "Servers"
-#~ msgstr "HTTP 服务器"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by http servers AND "
-#~ "client-side javascripts"
-#~ msgid "Servers, page scripts"
-#~ msgstr "HTTP 服务器，页面脚本"
-
-#~ msgctxt ""
-#~ "@action:button show details about a cookie that needs approval. This "
-#~ "string gets >> and << appended, to visualize if the dialog expands or "
-#~ "compacts!"
-#~ msgid "Details"
-#~ msgstr "详情"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Remove"
-#~ msgstr "移除"
