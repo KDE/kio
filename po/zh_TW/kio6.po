@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 01:59+0000\n"
+"POT-Creation-Date: 2023-08-30 01:57+0000\n"
 "PO-Revision-Date: 2023-08-17 19:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "無法建立 KIO worker： %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -70,7 +70,7 @@ msgstr ""
 "無法建立符號連結「%1」。\n"
 "目標檔案系統 (%2) 不支援符號連結。"
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -83,7 +83,7 @@ msgstr ""
 "目標檔案系統 (%2) 不允許資料夾名稱使用以下字元：%3\n"
 "選取「取代」將會把目的資料夾名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -96,23 +96,23 @@ msgstr ""
 "目標檔案系統 (%2) 不允許檔案名稱使用以下字元：%3\n"
 "選取「取代」將會把目的檔案名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:1384 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "資料夾已存在"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "檔案已存在"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1862 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"

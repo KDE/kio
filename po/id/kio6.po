@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 01:59+0000\n"
+"POT-Creation-Date: 2023-08-30 01:57+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Tidak dapat membuat pekerja KIO: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -61,7 +61,7 @@ msgstr ""
 "Tidak bisa membuat tautan simbolis \"%1\".\n"
 "Sistem berkas tujuan (%2) belum mendukung tautan simbolis symlinks."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -75,7 +75,7 @@ msgstr ""
 "Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama folder "
 "tujuan) dengan garis bawah \"_\"."
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -89,23 +89,23 @@ msgstr ""
 "Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama file "
 "tujuan) dengan garis bawah \"_\"."
 
-#: core/copyjob.cpp:1384 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Folder Sudah Ada"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "berkas Sudah Ada"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Sudah Ada sebagai Folder"
 
-#: core/copyjob.cpp:1862 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "Tong Sampah"

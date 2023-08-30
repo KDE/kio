@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 01:59+0000\n"
+"POT-Creation-Date: 2023-08-30 01:57+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "mi ken ala lon e ilo pi pali lipu: %1"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "mi ken ala lon e nimi nanpa tu \"%1\".\n"
 "poki poki (%2) li ken ala jo e nimi mute tawa ijo wan."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "poki poki (%2) li wile ala e nimi lili ni: %3\n"
 "sina kepeken \"ante\" li weka e nimi pi wile ala li lon e nimi \"_\"."
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,23 +85,23 @@ msgstr ""
 "poki poki (%2) li wile ala e nimi lili ni: %3\n"
 "sina kepeken \"ante\" li weka e nimi pi wile ala li lon e nimi \"_\"."
 
-#: core/copyjob.cpp:1384 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "poki li lon awen"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ijo li lon awen"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ona li lon li poki"
 
-#: core/copyjob.cpp:1862 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
 #, kde-format
 msgid "Trash"
 msgstr "ilo wile ala"

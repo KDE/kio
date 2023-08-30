@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 01:59+0000\n"
+"POT-Creation-Date: 2023-08-30 01:57+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KCH-sleyvni (%1) yaratib boʻlmadi"
 
-#: core/copyjob.cpp:165 kioworkers/file/file_unix.cpp:1254
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1254
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -66,7 +66,7 @@ msgstr ""
 "Ramziy bogʻni (%1) yaratib boʻlmadi.\n"
 "Iltimos huquqlarni tekshiring."
 
-#: core/copyjob.cpp:177
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -76,7 +76,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:185
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -86,23 +86,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1384 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Jild allaqachon mavjud"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392 core/filecopyjob.cpp:373
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fayl allaqachon mavjud"
 
-#: core/copyjob.cpp:1708 core/copyjob.cpp:2392
+#: core/copyjob.cpp:1709 core/copyjob.cpp:2393
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jild sifatida allaqachon mavjud"
 
-#: core/copyjob.cpp:1862 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
