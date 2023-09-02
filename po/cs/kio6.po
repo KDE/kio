@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-30 01:57+0000\n"
-"PO-Revision-Date: 2023-06-28 14:14+0200\n"
+"PO-Revision-Date: 2023-08-10 14:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3181,11 +3181,10 @@ msgid "&Edit…"
 msgstr "&Upravit…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Odstranit soubor"
+msgstr "Odstranit z míst"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
@@ -4074,13 +4073,14 @@ msgstr ""
 "k %1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nelze změnit vlastníka %1."
+msgstr ""
+"Nelze změnit vlastníka a skupinu pro\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -7274,171 +7274,3 @@ msgstr "Tímto spustíte program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Pokud tomuto programu nedůvěřujete, klikněte na Zrušit"
-
-#~ msgid "Cannot Save Cookies"
-#~ msgstr "Cookies nelze uložit"
-
-#~ msgid "Could not remove %1, check permissions"
-#~ msgstr "%1 nelze odstranit. Prosím zkontrolujte svá přístupová práva."
-
-#~ msgid "Could not create directory %1"
-#~ msgstr "Nelze vytvořit adresář %1."
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Cookie výstraha"
-
-#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#~ msgid ""
-#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject this cookie?</p>"
-#~ msgid_plural ""
-#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject these cookies?</p>"
-#~ msgstr[0] ""
-#~ "<p>Přišla vám cookie z<br/><b>%2%3</b><br/>Přejete si přijmout nebo "
-#~ "odmítnout tuto cookie?</p>"
-#~ msgstr[1] ""
-#~ "<p>Přišly vám %1 cookies z<br/><b>%2%3</b><br/>Přejete si přijmout nebo "
-#~ "odmítnout tyto cookies?</p>"
-#~ msgstr[2] ""
-#~ "<p>Přišlo vám %1 cookies z<br/><b>%2%3</b><br/>Přejete si přijmout nebo "
-#~ "odmítnout tyto cookies?</p>"
-
-#~ msgctxt "@item:intext cross domain cookie"
-#~ msgid " [Cross Domain]"
-#~ msgstr " [Mezidoménové]"
-
-#~ msgid "Details"
-#~ msgstr "Podrobnosti"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "Zobrazení/změna informací o cookie"
-
-#~ msgid "Accept for this &session"
-#~ msgstr "Přijmout pro toto &sezení"
-
-#~ msgid "Accept cookie(s) until the end of the current session"
-#~ msgstr "Přijmout cookies do konce aktuálního sezení"
-
-#~ msgid "&Accept"
-#~ msgstr "&Přijmout"
-
-#~ msgid "&Reject"
-#~ msgstr "&Odmítnout"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "Použít výběr na"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "P&ouze toto cookie"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "P&ouze tyto cookie"
-
-#~ msgid ""
-#~ "Select this option to only accept or reject this cookie. You will be "
-#~ "prompted again if you receive another cookie."
-#~ msgstr ""
-#~ "Vyberte tuto volbu, přejete-li si přijmout/odmítnout pouze toto cookie. "
-#~ "Budete dotázáni, jakmile přijde další."
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "Všechna cookie z této do&mény"
-
-#~ msgid ""
-#~ "Select this option to accept or reject all cookies from this site. "
-#~ "Choosing this option will add a new policy for the site this cookie "
-#~ "originated from. This policy will be permanent until you manually change "
-#~ "it from the System Settings."
-#~ msgstr ""
-#~ "Vyberte si tuto volbu, přejete-li si přijmout/odmítnout všechny cookies z "
-#~ "tohoto serveru. Toto přidá nové chování pro server, odkud cookie přišlo. "
-#~ "Toto chování bude permanentní, dokud jej ručně nezměníte v Nastavení "
-#~ "systému."
-
-#~ msgid "All &cookies"
-#~ msgstr "Všechna &cookie"
-
-#~ msgid ""
-#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
-#~ "this option will change the global cookie policy for all cookies until "
-#~ "you manually change it from the System Settings."
-#~ msgstr ""
-#~ "Vyberte si tuto volbu, přejete-li si přijmout/odmítnout všechny cookies "
-#~ "odkudkoliv. Toto změní globální chování pro všechny cookies. <em>(viz. "
-#~ "Prohlížení Internetu/Cookies v Nastavení systému)</em>"
-
-#~ msgid "Cookie Details"
-#~ msgstr "Podrobnosti cookie"
-
-#~ msgid "Name:"
-#~ msgstr "Název:"
-
-#~ msgid "Value:"
-#~ msgstr "Hodnota:"
-
-#~ msgid "Expires:"
-#~ msgstr "Vyprší:"
-
-#~ msgid "Path:"
-#~ msgstr "Cesta:"
-
-#~ msgid "Domain:"
-#~ msgstr "Doména:"
-
-#~ msgctxt ""
-#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
-#~ "exposure string in this file)"
-#~ msgid "Exposure:"
-#~ msgstr "Expozice:"
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "&Následující >>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "Zobrazení podrobností o následující cookie"
-
-#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
-#~ msgid "Not specified"
-#~ msgstr "Neurčeno"
-
-#~ msgctxt "@label the cookie expires when the browser session ends"
-#~ msgid "End of Session"
-#~ msgstr "Konec sezení"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by https servers"
-#~ msgid "Secure servers only"
-#~ msgstr "Pouze bezpečné servery"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by https servers AND "
-#~ "client-side javascripts"
-#~ msgid "Secure servers, page scripts"
-#~ msgstr "Bezpečné servery, skripty na stránkách"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by http servers"
-#~ msgid "Servers"
-#~ msgstr "Servery"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by http servers AND "
-#~ "client-side javascripts"
-#~ msgid "Servers, page scripts"
-#~ msgstr "Servery, skripty na stránkách"
-
-#~ msgctxt ""
-#~ "@action:button show details about a cookie that needs approval. This "
-#~ "string gets >> and << appended, to visualize if the dialog expands or "
-#~ "compacts!"
-#~ msgid "Details"
-#~ msgstr "Podrobnosti"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Remove"
-#~ msgstr "Odstranit"
-
-#~ msgid "Multiple get is not supported with protocol %1."
-#~ msgstr "Vícenásobný příjem (get) není protokolem %1 podporován."
