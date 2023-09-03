@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:57+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3385,7 +3385,7 @@ msgstr "berkas \"%1\" tidak dapat ditemukan"
 msgid "Cannot open file"
 msgstr "Tak bisa membuka berkas"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1211
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3396,45 +3396,45 @@ msgstr ""
 "lokasi saat ini adalah berkas:/home/konqi, mengeklik tombol ini akan membawa "
 "Anda ke berkas:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Klik tombol ini untuk pindah mundur satu langkah di dalam histori "
 "penelusuran."
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Klik tombol ini untuk pindah maju satu langkah di dalam histori penelusuran."
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Klik tombol ini untuk memuat ulang konten pada lokasi saat ini."
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klik tombol ini untuk menciptakan sebuah folder baru."
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Tampilkan Panel Tempat"
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Tampilkan Panel Markah"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1236
 #, kde-format
 msgid "Options"
 msgstr "Opsi"
 
-#: filewidgets/kfilewidget.cpp:1240
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3449,12 +3449,12 @@ msgstr ""
 "li><li>menampilkan atau menyembunyikan berkas</li><li>panel Tempat</"
 "li><li>pratinjau berkas</li><li>memisahkan folder dari berkas</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1259
+#: filewidgets/kfilewidget.cpp:1258
 #, kde-format
 msgid "Bookmarks"
 msgstr "Markah"
 
-#: filewidgets/kfilewidget.cpp:1263
+#: filewidgets/kfilewidget.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3469,12 +3469,12 @@ msgstr ""
 "di tempat lain dalam KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1302 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1301 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nama:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1377
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3486,12 +3486,12 @@ msgstr ""
 "yang cocok. Fitur ini bisa dikendalikan dengan mengeklik tombol mouse kanan "
 "dan memilih mode yang disukai dari menu <b>Penyelesaian Teks</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1384
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ini adalah nama untuk menyimpan berkas sebagai apa."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3500,79 +3500,79 @@ msgstr ""
 "Ini adalah daftar berkas yang dibuka. Lebih dari satu berkas yang bisa "
 "ditentukan dengan mencantumkan beberapa berkas, dipisahkan oleh spasi."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ini adalah nama dari berkas yang dibuka."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Tempat"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1623
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "berkas \"%1\" sudah ada. Apakah Anda ingin menimpanya?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Timpa berkas?"
 
-#: filewidgets/kfilewidget.cpp:1821
+#: filewidgets/kfilewidget.cpp:1820
 #, kde-format
 msgid "You can only select local files."
 msgstr "Anda hanya bisa memilih berkas lokal."
 
-#: filewidgets/kfilewidget.cpp:1821
+#: filewidgets/kfilewidget.cpp:1820
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Berkas Jarak Jauh Tidak Disetujui"
 
-#: filewidgets/kfilewidget.cpp:1915
+#: filewidgets/kfilewidget.cpp:1914
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Semua Folder"
 
-#: filewidgets/kfilewidget.cpp:1917
+#: filewidgets/kfilewidget.cpp:1916
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Semua berkas"
 
-#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "Buka"
 
-#: filewidgets/kfilewidget.cpp:2168
+#: filewidgets/kfilewidget.cpp:2167
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ukuran ikon: %1 pixel"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Pilih secara otomatis e&kstensi nama berkas (%1)"
 
-#: filewidgets/kfilewidget.cpp:2317
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ekstensi <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Pilih secara otomatis e&kstensi nama-berkas"
 
-#: filewidgets/kfilewidget.cpp:2324
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "a suitable extension"
 msgstr "sebuah ekstensi yang sesuai"
 
-#: filewidgets/kfilewidget.cpp:2332
+#: filewidgets/kfilewidget.cpp:2331
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3600,12 +3600,12 @@ msgstr ""
 "li></ol>Jika tidak yakin, pertahankan opsi ini tetap difungsikan oleh "
 "karenanya membuat berkas-file Anda lebih dapat dikelola."
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid "&File type:"
 msgstr "Tipe &berkas:"
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3614,12 +3614,12 @@ msgstr ""
 "<qt>Ini adalah pemilih tipe berkas. Ini digunakan untuk memilih format si "
 "berkas yang akan disimpan sebagai apa.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2787
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filter:"
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2788
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "

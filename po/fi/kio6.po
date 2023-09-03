@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:57+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2023-07-25 14:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3345,7 +3345,7 @@ msgstr "Tiedostoa ”%1” ei löytynyt"
 msgid "Cannot open file"
 msgstr "Tiedostoa ei voida avata"
 
-#: filewidgets/kfilewidget.cpp:1212
+#: filewidgets/kfilewidget.cpp:1211
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3356,45 +3356,45 @@ msgstr ""
 "esimerkiksi sijaintisi on file:/home/konqi, painiketta napsauttamalla "
 "siirryt kansioon file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1215
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Napsauta tätä painiketta siirtyäksesi askeleen taaksepäin selaushistoriassa."
 
-#: filewidgets/kfilewidget.cpp:1217
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Napsauta tätä painiketta siirtyäksesi askeleen eteenpäin selaushistoriassa."
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1218
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Napsauta tätä painiketta ladataksesi nykyisen sijainnin sisällön uudelleen."
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Napsauta tätä painiketta luodaksesi kansion."
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1222
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Näytä sijaintipaneeli"
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1229
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Näytä kirjanmerkkipainike"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1236
 #, kde-format
 msgid "Options"
 msgstr "Asetukset"
 
-#: filewidgets/kfilewidget.cpp:1240
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3410,12 +3410,12 @@ msgstr ""
 "li><li>näytetäänkö tiedostojen esikatselu</li><li>erotetaanko kansiot "
 "tiedostoista</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1259
+#: filewidgets/kfilewidget.cpp:1258
 #, kde-format
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: filewidgets/kfilewidget.cpp:1263
+#: filewidgets/kfilewidget.cpp:1262
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3429,12 +3429,12 @@ msgstr ""
 "tiedostoikkunaa, mutta toimivat kuten kirjanmerkit KDE:ssä yleensä.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1302 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1301 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Nimi:"
 
-#: filewidgets/kfilewidget.cpp:1378
+#: filewidgets/kfilewidget.cpp:1377
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3447,12 +3447,12 @@ msgstr ""
 "hiiren oikealla painikkeella ja valitsemalla vaihtoehto kohdasta <b>Tekstin "
 "täydennys</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1385
+#: filewidgets/kfilewidget.cpp:1384
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Tämä on tallennettavan tiedoston nimi."
 
-#: filewidgets/kfilewidget.cpp:1388
+#: filewidgets/kfilewidget.cpp:1387
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3461,79 +3461,79 @@ msgstr ""
 "Tämä on avattavien tiedostojen luettelo. Useampi kuin yksi tiedosto voidaan "
 "määrittää erottamalla tiedostonimet välilyönnein."
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Tämä on avattavan tiedoston nimi."
 
-#: filewidgets/kfilewidget.cpp:1406
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Sijainnit"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1623
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Tiedosto ”%1” on jo olemassa. Haluatko varmasti korvata sen?"
 
-#: filewidgets/kfilewidget.cpp:1625
+#: filewidgets/kfilewidget.cpp:1624
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Korvataanko tiedosto?"
 
-#: filewidgets/kfilewidget.cpp:1821
+#: filewidgets/kfilewidget.cpp:1820
 #, kde-format
 msgid "You can only select local files."
 msgstr "Voit valita vain paikallisia tiedostoja."
 
-#: filewidgets/kfilewidget.cpp:1821
+#: filewidgets/kfilewidget.cpp:1820
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Etätiedostoja ei hyväksytä"
 
-#: filewidgets/kfilewidget.cpp:1915
+#: filewidgets/kfilewidget.cpp:1914
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Kaikki kansiot"
 
-#: filewidgets/kfilewidget.cpp:1917
+#: filewidgets/kfilewidget.cpp:1916
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Kaikki tiedostot"
 
-#: filewidgets/kfilewidget.cpp:2067 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:731
 #, kde-format
 msgid "&Open"
 msgstr "&Avaa"
 
-#: filewidgets/kfilewidget.cpp:2168
+#: filewidgets/kfilewidget.cpp:2167
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Kuvakekoko: %1 kuvapistettä"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Valitse &tiedostopääte automaattisesti (%1)"
 
-#: filewidgets/kfilewidget.cpp:2317
+#: filewidgets/kfilewidget.cpp:2316
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pääte <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2322
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Valitse tiedostopääte &automaattisesti"
 
-#: filewidgets/kfilewidget.cpp:2324
+#: filewidgets/kfilewidget.cpp:2323
 #, kde-format
 msgid "a suitable extension"
 msgstr "sopiva tiedostopääte"
 
-#: filewidgets/kfilewidget.cpp:2332
+#: filewidgets/kfilewidget.cpp:2331
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3560,12 +3560,12 @@ msgstr ""
 "li></ol>Asetus kannattaa pitää käytössä, koska se helpottaa tiedostojen "
 "käsittelyä."
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2783
 #, kde-format
 msgid "&File type:"
 msgstr "Tiedostot&yyppi:"
 
-#: filewidgets/kfilewidget.cpp:2785
+#: filewidgets/kfilewidget.cpp:2784
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3574,12 +3574,12 @@ msgstr ""
 "<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan muoto, jossa "
 "tiedosto tallennetaan.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2787
+#: filewidgets/kfilewidget.cpp:2786
 #, kde-format
 msgid "&Filter:"
 msgstr "S&uodatin:"
 
-#: filewidgets/kfilewidget.cpp:2789
+#: filewidgets/kfilewidget.cpp:2788
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
