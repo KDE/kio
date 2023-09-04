@@ -9,7 +9,7 @@
 # Pablo de Vicente <p.devicente@wanadoo.es>, 2004.
 # Juan Manuel Garcia Molina <juanma@superiodico.net>, 2005.
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>, 2010, 2011, 2013.
 # arklad, 2011.
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-08-13 01:00+0200\n"
+"PO-Revision-Date: 2023-09-03 22:40+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr ""
 "com>\n"
 "com>\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -1369,8 +1369,8 @@ msgstr ""
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
-"El nombre que usted introdujo, %1, puede que no exista: puede que haya sido "
-"incorrectamente escrito."
+"Es posible que el nombre que ha escrito, %1, no exista: es posible que lo "
+"haya escrito incorrectamente."
 
 #: core/job_error.cpp:607
 #, kde-format
@@ -3620,12 +3620,11 @@ msgstr ""
 "><br /></li><li>Si no se especifica una extensión en el área de texto <b>%2</"
 "b> cuando pulse <b>Guardar</b>, se añadirá %3 al final del nombre del "
 "archivo (si el nombre no existe ya). Esta extensión está basada en el tipo "
-"de archivo que usted haya elegido para guardar.<br /><br />Si no desea que "
-"KDE proporcione una extensión de nombre de archivo, puede desactivar esta "
-"opción o puede suprimirla añadiendo un punto (.) al final del nombre del "
-"archivo (el punto será borrado automáticamente).</li></ol>Si no está seguro "
-"de cómo usar esta opción, manténgala habilitada para gestionar los archivos "
-"más fácilmente."
+"de archivo que haya elegido para guardar.<br /><br />Si no desea que KDE "
+"proporcione una extensión de nombre de archivo, puede desactivar esta opción "
+"o puede suprimirla añadiendo un punto (.) al final del nombre del archivo "
+"(el punto se borrará automáticamente).</li></ol>Si no está seguro de cómo "
+"usar esta opción, déjela activada para gestionar los archivos más fácilmente."
 
 #: filewidgets/kfilewidget.cpp:2783
 #, kde-format
@@ -4739,10 +4738,10 @@ msgid ""
 "This means that no third party will be able to easily observe your data in "
 "transit."
 msgstr ""
-"Usted está a punto de entrar en modo seguro. Todas las transmisiones serán "
-"cifradas a menos que se indique lo contrario.\n"
-"Esto significa que una tercera persona no podrá observar fácilmente sus "
-"datos durante la transferencia."
+"Está a punto de entrar en modo seguro. Todas las transmisiones se cifrarán a "
+"menos que se indique lo contrario.\n"
+"Esto significa que una tercera persona no podrá observar sus datos con "
+"facilidad durante la transferencia."
 
 #: kioworkers/http/tcpworkerbase.cpp:483
 #, kde-format
@@ -5767,8 +5766,8 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
-"A continuación de la orden, usted puede añadir varias variables que serán "
-"reemplazadas por sus valores reales cuando se ejecute la orden:\n"
+"A continuación de la orden, puede añadir varias variables que se sustituirán "
+"por sus valores reales cuando se ejecute la orden:\n"
 "%f - un nombre único de archivo\n"
 "%F - una lista de archivos, a usar por aquellas aplicaciones que pueden "
 "abrir varios archivos locales simultáneamente\n"
