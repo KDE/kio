@@ -1304,46 +1304,57 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
 #endif
-    TrashSizeCache trashSize(trashPath);
     DiscSpaceUtil util(trashPath + QLatin1String("/files/"));
-    if (util.usage(trashSize.calculateSize() + additionalSize) >= percent) {
-        // before we start to remove any files from the trash,
-        // check whether the new file will fit into the trash
-        // at all...
-        const qint64 partitionSize = util.size();
+    auto cache = TrashSizeCache(trashPath);
+    auto trashSize = cache.calculateSize();
 
-        if (((static_cast<double>(additionalSize) / static_cast<double>(partitionSize)) * 100) >= percent) {
-            m_lastErrorCode = KIO::ERR_TRASH_FILE_TOO_LARGE;
-            m_lastErrorMessage = KIO::buildErrorString(m_lastErrorCode, {});
-            return false;
+    if (util.usage(trashSize + additionalSize) < percent) {
+        return true;
+    }
+
+    // before we start to remove any files from the trash,
+    // check whether the new file will fit into the trash
+    // at all...
+    const qint64 partitionSize = util.size();
+
+    if ((util.usage(partitionSize + additionalSize)) >= percent) {
+        m_lastErrorCode = KIO::ERR_TRASH_FILE_TOO_LARGE;
+        m_lastErrorMessage = KIO::buildErrorString(m_lastErrorCode, {});
+        return false;
+    }
+
+    if (actionType == 0) { // warn the user only
+        m_lastErrorCode = KIO::ERR_WORKER_DEFINED;
+        m_lastErrorMessage = i18n("The trash is full. Empty it or remove items manually.");
+        return false;
+    }
+
+    // Start removing some other files from the trash
+
+    QDir::SortFlags sortFlags;
+    if (actionType == 1) {
+        sortFlags = QDir::Time | QDir::Reversed; // Delete oldest files first
+    } else if (actionType == 2) {
+        sortFlags = QDir::Size; // Delete biggest files first
+    } else {
+        qWarning() << "Called with actionType" << actionType << ", which theoretically should never happen!";
+        return false; // Bail out
+    }
+
+    const auto dirCache = cache.readDirCache();
+    constexpr QDir::Filters dirFilters = QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot;
+    const QFileInfoList infoList = QDir(trashPath + QLatin1String("/files")).entryInfoList(dirFilters, sortFlags);
+    for (const auto &info : infoList) {
+        auto fileSizeFreed = info.size();
+        if (info.isDir()) {
+            fileSizeFreed = dirCache.constFind(info.path().toUtf8())->size;
         }
 
-        if (actionType == 0) { // warn the user only
-            m_lastErrorCode = KIO::ERR_WORKER_DEFINED;
-            m_lastErrorMessage = i18n("The trash is full. Empty it or remove items manually.");
-            return false;
-        }
+        del(trashId, info.fileName()); // delete trashed file
+        trashSize -= fileSizeFreed;
 
-        // Start removing some other files from the trash
-
-        QDir::SortFlags sortFlags;
-        if (actionType == 1) {
-            sortFlags = QDir::Time | QDir::Reversed; // Delete oldest files first
-        } else if (actionType == 2) {
-            sortFlags = QDir::Size; // Delete biggest files first
-        } else {
-            qWarning() << "Called with actionType" << actionType << ", which theoretically should never happen!";
-            return false; // Bail out
-        }
-
-        constexpr QDir::Filters dirFilters = QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot;
-        const QFileInfoList infoList = QDir(trashPath + QLatin1String("/files")).entryInfoList(dirFilters, sortFlags);
-        for (const auto &info : infoList) {
-            del(trashId, info.fileName()); // delete trashed file
-
-            if (util.usage(TrashSizeCache(trashPath).calculateSize() + additionalSize) < percent) { // check whether we have enough space now
-                return true;
-            }
+        if (util.usage(trashSize + additionalSize) < percent) { // check whether we have enough space now
+            return true;
         }
     }
 

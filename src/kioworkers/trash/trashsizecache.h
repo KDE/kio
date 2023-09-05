@@ -69,8 +69,12 @@ public:
      */
     SizeAndModTime calculateSizeAndLatestModDate();
 
-private:
+    /**
+     * Returns the space occupied by directories in trash
+     */
     QHash<QByteArray, TrashSizeCache::SizeAndModTime> readDirCache();
+
+private:
 
     QString mTrashSizeCachePath;
     QString mTrashPath;
