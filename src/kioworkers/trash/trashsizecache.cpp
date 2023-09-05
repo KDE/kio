@@ -102,14 +102,10 @@ void TrashSizeCache::clear()
     QFile::remove(mTrashSizeCachePath);
 }
 
-qint64 TrashSizeCache::calculateSize()
-{
-    return this->calculateSizeAndLatestModDate().size;
-}
-
 QFileInfo TrashSizeCache::getTrashFileInfo(const QString &fileName)
 {
     const QString fileInfoPath = mTrashPath + QLatin1String("/info/") + fileName + QLatin1String(".trashinfo");
+    Q_ASSERT(QFile::exists(fileInfoPath));
     return QFileInfo(fileInfoPath);
 }
 
@@ -134,14 +130,23 @@ QHash<QByteArray, TrashSizeCache::SizeAndModTime> TrashSizeCache::readDirCache()
     return dirCache;
 }
 
+qint64 TrashSizeCache::calculateSize()
+{
+    return scanFilesInTrash(ScanFilesInTrashOption::DonTcheckModificationTime).size;
+}
+
 TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
+{
+    return scanFilesInTrash(ScanFilesInTrashOption::CheckModificationTime);
+}
+
+TrashSizeCache::SizeAndModTime TrashSizeCache::scanFilesInTrash(ScanFilesInTrashOption checkDateTime)
 {
     const QHash<QByteArray, SizeAndModTime> dirCache = readDirCache();
 
     // Iterate over the actual trashed files.
     // Orphan items (no .fileinfo) still take space.
-    QDirIterator it(mTrashPath + QLatin1String("/files/"), QDirIterator::NoIteratorFlags);
-
+    QDirIterator it(mTrashPath + QLatin1String("/files/"), QDir::NoDotAndDotDot);
     qint64 sum = 0;
     qint64 max_mtime = 0;
     const auto checkMaxTime = [&max_mtime](const qint64 lastModTime) {
@@ -159,20 +164,21 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
     while (it.hasNext()) {
         it.next();
         const QString fileName = it.fileName();
-        if (fileName == QLatin1Char('.') || fileName == QLatin1String("..")) {
-            continue;
-        }
         const QFileInfo fileInfo = it.fileInfo();
         if (fileInfo.isSymLink()) {
             // QFileInfo::size does not return the actual size of a symlink. #253776
             QT_STATBUF buff;
             if (QT_LSTAT(QFile::encodeName(fileInfo.absoluteFilePath()).constData(), &buff) == 0) {
                 sum += static_cast<unsigned long long>(buff.st_size);
-                checkLastModTime(fileName);
+                if (checkDateTime == ScanFilesInTrashOption::CheckModificationTime) {
+                    checkLastModTime(fileName);
+                }
             }
         } else if (fileInfo.isFile()) {
             sum += static_cast<unsigned long long>(fileInfo.size());
-            checkLastModTime(fileName);
+            if (checkDateTime == ScanFilesInTrashOption::CheckModificationTime) {
+                checkLastModTime(fileName);
+            }
         } else {
             // directories
             bool usableCache = false;
@@ -183,15 +189,19 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::calculateSizeAndLatestModDate()
                 if (trashFileInfo.exists() && trashFileInfo.lastModified().toMSecsSinceEpoch() == data.mtime) {
                     sum += data.size;
                     usableCache = true;
-                    checkMaxTime(data.mtime);
+                    if (checkDateTime == ScanFilesInTrashOption::CheckModificationTime) {
+                        checkMaxTime(data.mtime);
+                    }
                 }
             }
             if (!usableCache) {
                 // directories with no cache data (or outdated)
                 const qint64 size = DiscSpaceUtil::sizeOfPath(fileInfo.absoluteFilePath());
                 sum += size;
-                // NOTE: this does not take into account the directory content modification date
-                checkMaxTime(QFileInfo(fileInfo.absolutePath()).lastModified().toMSecsSinceEpoch());
+                if (checkDateTime == ScanFilesInTrashOption::CheckModificationTime) {
+                    // NOTE: this does not take into account the directory content modification date
+                    checkMaxTime(QFileInfo(fileInfo.absolutePath()).lastModified().toMSecsSinceEpoch());
+                }
                 add(fileName, size);
             }
         }
