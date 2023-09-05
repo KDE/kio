@@ -70,11 +70,13 @@ public:
     SizeAndModTime calculateSizeAndLatestModDate();
 
     /**
-     * Returns the space occupied by directories in trash
+     * Returns the space occupied by directories in trash and their latest modification dates
      */
     QHash<QByteArray, TrashSizeCache::SizeAndModTime> readDirCache();
 
 private:
+    enum ScanFilesInTrashOption { CheckModificationTime, DonTcheckModificationTime };
+    TrashSizeCache::SizeAndModTime scanFilesInTrash(ScanFilesInTrashOption checkDateTime = CheckModificationTime);
 
     QString mTrashSizeCachePath;
     QString mTrashPath;
