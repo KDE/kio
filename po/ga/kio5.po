@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-06 00:42+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -4269,7 +4269,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
 #, kde-format
 msgid "Size:"
 msgstr "Méid:"
@@ -7698,84 +7698,84 @@ msgid "Mounted From:"
 msgstr "Feistithe ar:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:204
+#: widgets/kfilepropspluginwidget.ui:207
 #, kde-format
 msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:241
+#: widgets/kfilepropspluginwidget.ui:244
 #, kde-format
 msgid "Type:"
 msgstr "Cineál:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:267 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Suíomh:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:332
+#: widgets/kfilepropspluginwidget.ui:335
 #, fuzzy, kde-format
 #| msgid "C&hange..."
 msgid "Change..."
 msgstr "A&thraigh..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:344
+#: widgets/kfilepropspluginwidget.ui:347
 #, fuzzy, kde-format
 #| msgid "Contents:"
 msgid "Content:"
 msgstr "Inneachar:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:367
+#: widgets/kfilepropspluginwidget.ui:370
 #, kde-format
 msgid "Points to:"
 msgstr "Dírithe ar:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:377
+#: widgets/kfilepropspluginwidget.ui:380
 #, kde-format
 msgid "Modified:"
 msgstr "Athraithe:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:390
 #, kde-format
 msgid "Created:"
 msgstr "Cruthaithe:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:400
 #, fuzzy, kde-format
 #| msgid "File system:"
 msgid "File System:"
 msgstr "Córas comhaid:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:427
+#: widgets/kfilepropspluginwidget.ui:430
 #, fuzzy, kde-format
 #| msgid "Unknown Host"
 msgid "Unknown size"
 msgstr "Óstríomhaire anaithnid"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:450
+#: widgets/kfilepropspluginwidget.ui:453
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted On:"
 msgstr "Feistithe ar:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:473
 #, kde-format
 msgid "Accessed:"
 msgstr "Rochtain:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:480
+#: widgets/kfilepropspluginwidget.ui:483
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open With:"

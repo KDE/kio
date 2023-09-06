@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-06 00:42+0000\n"
 "PO-Revision-Date: 2023-07-25 14:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -4293,7 +4293,7 @@ msgstr ""
 "arvoon. Muulloin roskakorin koko on rajoitukseton.</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
 #, kde-format
 msgid "Size:"
 msgstr "Koko:"
@@ -7604,80 +7604,80 @@ msgid "Mounted From:"
 msgstr "Liitoslähde:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:204
+#: widgets/kfilepropspluginwidget.ui:207
 #, kde-format
 msgid "Free Space:"
 msgstr "Tilaa vapaana:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:241
+#: widgets/kfilepropspluginwidget.ui:244
 #, kde-format
 msgid "Type:"
 msgstr "Tyyppi:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:267 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Sijainti:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:332
+#: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
 msgstr "Muuta…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:344
+#: widgets/kfilepropspluginwidget.ui:347
 #, kde-format
 msgid "Content:"
 msgstr "Sisältö:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:367
+#: widgets/kfilepropspluginwidget.ui:370
 #, kde-format
 msgid "Points to:"
 msgstr "Osoittaa:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:377
+#: widgets/kfilepropspluginwidget.ui:380
 #, kde-format
 msgid "Modified:"
 msgstr "Muutettu:"
 
 # Luontiaika, eikä se, joka on luonut.
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:390
 #, kde-format
 msgid "Created:"
 msgstr "Luotu:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:400
 #, kde-format
 msgid "File System:"
 msgstr "Tiedostojärjestelmä:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:427
+#: widgets/kfilepropspluginwidget.ui:430
 #, kde-format
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:450
+#: widgets/kfilepropspluginwidget.ui:453
 #, kde-format
 msgid "Mounted On:"
 msgstr "Liitospiste:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:473
 #, kde-format
 msgid "Accessed:"
 msgstr "Avattu:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:480
+#: widgets/kfilepropspluginwidget.ui:483
 #, kde-format
 msgid "Open With:"
 msgstr "Avaa ohjelmalla:"

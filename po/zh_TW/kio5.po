@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-06 00:42+0000\n"
 "PO-Revision-Date: 2023-06-15 04:19+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -4114,7 +4114,7 @@ msgstr ""
 "制。</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
 #, kde-format
 msgid "Size:"
 msgstr "大小："
@@ -7345,79 +7345,79 @@ msgid "Mounted From:"
 msgstr "掛載於："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:204
+#: widgets/kfilepropspluginwidget.ui:207
 #, kde-format
 msgid "Free Space:"
 msgstr "剩餘空間："
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:241
+#: widgets/kfilepropspluginwidget.ui:244
 #, kde-format
 msgid "Type:"
 msgstr "類型："
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:267 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "位置："
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:332
+#: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
 msgstr "變更…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:344
+#: widgets/kfilepropspluginwidget.ui:347
 #, kde-format
 msgid "Content:"
 msgstr "內容："
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:367
+#: widgets/kfilepropspluginwidget.ui:370
 #, kde-format
 msgid "Points to:"
 msgstr "指向："
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:377
+#: widgets/kfilepropspluginwidget.ui:380
 #, kde-format
 msgid "Modified:"
 msgstr "修改時間："
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:390
 #, kde-format
 msgid "Created:"
 msgstr "建立時間："
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:400
 #, kde-format
 msgid "File System:"
 msgstr "檔案系統："
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:427
+#: widgets/kfilepropspluginwidget.ui:430
 #, kde-format
 msgid "Unknown size"
 msgstr "未知的大小"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:450
+#: widgets/kfilepropspluginwidget.ui:453
 #, kde-format
 msgid "Mounted On:"
 msgstr "掛載點："
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:473
 #, kde-format
 msgid "Accessed:"
 msgstr "存取時間："
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:480
+#: widgets/kfilepropspluginwidget.ui:483
 #, kde-format
 msgid "Open With:"
 msgstr "開啟方式："
