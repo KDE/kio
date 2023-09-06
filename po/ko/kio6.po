@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 02:37+0000\n"
+"POT-Creation-Date: 2023-09-06 01:55+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -5396,85 +5396,85 @@ msgid "Mounted From:"
 msgstr "마운트한 원본:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:219
+#: widgets/kfilepropspluginwidget.ui:222
 #, kde-format
 msgid "Free Space:"
 msgstr "남은 공간:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:256
+#: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Type:"
 msgstr "형식:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:279 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "위치:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:299
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Size:"
 msgstr "크기:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:347
+#: widgets/kfilepropspluginwidget.ui:350
 #, kde-format
 msgid "Change..."
 msgstr "변경..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:359
+#: widgets/kfilepropspluginwidget.ui:362
 #, kde-format
 msgid "Content:"
 msgstr "내용:"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:382
+#: widgets/kfilepropspluginwidget.ui:385
 #, kde-format
 msgid "Points to:"
 msgstr "가리키는 곳:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:392
+#: widgets/kfilepropspluginwidget.ui:395
 #, kde-format
 msgid "Modified:"
 msgstr "수정한 날짜:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:402
+#: widgets/kfilepropspluginwidget.ui:405
 #, kde-format
 msgid "Created:"
 msgstr "만든 날짜:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:412
+#: widgets/kfilepropspluginwidget.ui:415
 #, kde-format
 msgid "File System:"
 msgstr "파일 시스템:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:442
+#: widgets/kfilepropspluginwidget.ui:445
 #, kde-format
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:465
+#: widgets/kfilepropspluginwidget.ui:468
 #, kde-format
 msgid "Mounted On:"
 msgstr "마운트 위치:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:485
+#: widgets/kfilepropspluginwidget.ui:488
 #, kde-format
 msgid "Accessed:"
 msgstr "접근한 날짜:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:495
+#: widgets/kfilepropspluginwidget.ui:498
 #, kde-format
 msgid "Open With:"
 msgstr "다음으로 열기:"

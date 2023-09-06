@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 02:37+0000\n"
+"POT-Creation-Date: 2023-09-06 01:55+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -5564,91 +5564,91 @@ msgid "Mounted From:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:219
+#: widgets/kfilepropspluginwidget.ui:222
 #, kde-format
 msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:256
+#: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Type:"
 msgstr "ប្រភេទ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:279 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "ទីតាំង ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: widgets/kfilepropspluginwidget.ui:299
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Size:"
 msgstr "ទំហំ ៖"
 
 #  i18n: file kcookiespoliciesdlg_ui.ui line 192
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:347
+#: widgets/kfilepropspluginwidget.ui:350
 #, fuzzy, kde-format
 #| msgid "Chan&ge..."
 msgid "Change..."
 msgstr "ផ្លាស់ប្តូរ..."
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:359
+#: widgets/kfilepropspluginwidget.ui:362
 #, fuzzy, kde-format
 #| msgid "Contents:"
 msgid "Content:"
 msgstr "មាតិកា ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:382
+#: widgets/kfilepropspluginwidget.ui:385
 #, kde-format
 msgid "Points to:"
 msgstr "ចង្អុល​ទៅ​កាន់ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:392
+#: widgets/kfilepropspluginwidget.ui:395
 #, kde-format
 msgid "Modified:"
 msgstr "បាន​កែប្រែ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:402
+#: widgets/kfilepropspluginwidget.ui:405
 #, kde-format
 msgid "Created:"
 msgstr "បាន​បង្កើត ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:412
+#: widgets/kfilepropspluginwidget.ui:415
 #, fuzzy, kde-format
 #| msgid "File system:"
 msgid "File System:"
 msgstr "ប្រព័ន្ធ​ឯកសារ ៖"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:442
+#: widgets/kfilepropspluginwidget.ui:445
 #, fuzzy, kde-format
 #| msgid "Unknown Host"
 msgid "Unknown size"
 msgstr "មិន​ស្គាល់​ម៉ាស៊ីន"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:465
+#: widgets/kfilepropspluginwidget.ui:468
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
 msgid "Mounted On:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:485
+#: widgets/kfilepropspluginwidget.ui:488
 #, kde-format
 msgid "Accessed:"
 msgstr "បាន​ដំណើរការ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:495
+#: widgets/kfilepropspluginwidget.ui:498
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open With:"
