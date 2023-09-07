@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-06 00:42+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -4168,7 +4168,7 @@ msgstr ""
 "oppgir nedenfor. Ellers blir den ubegrenset.</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
-#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:284
+#: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
 #, kde-format
 msgid "Size:"
 msgstr "Størrelse:"
@@ -7366,79 +7366,79 @@ msgid "Mounted From:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:204
+#: widgets/kfilepropspluginwidget.ui:207
 #, kde-format
 msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
-#: widgets/kfilepropspluginwidget.ui:241
+#: widgets/kfilepropspluginwidget.ui:244
 #, kde-format
 msgid "Type:"
 msgstr "Type:"
 
 #. i18n: ectx: property (text), widget (QLabel, locationLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:264 widgets/kurlrequesterdialog.cpp:44
+#: widgets/kfilepropspluginwidget.ui:267 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
 msgstr "Adresse:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
-#: widgets/kfilepropspluginwidget.ui:332
+#: widgets/kfilepropspluginwidget.ui:335
 #, kde-format
 msgid "Change..."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
-#: widgets/kfilepropspluginwidget.ui:344
+#: widgets/kfilepropspluginwidget.ui:347
 #, kde-format
 msgid "Content:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:367
+#: widgets/kfilepropspluginwidget.ui:370
 #, kde-format
 msgid "Points to:"
 msgstr "Peker til:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:377
+#: widgets/kfilepropspluginwidget.ui:380
 #, kde-format
 msgid "Modified:"
 msgstr "Endret:"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:387
+#: widgets/kfilepropspluginwidget.ui:390
 #, kde-format
 msgid "Created:"
 msgstr "Laget:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:397
+#: widgets/kfilepropspluginwidget.ui:400
 #, kde-format
 msgid "File System:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:427
+#: widgets/kfilepropspluginwidget.ui:430
 #, kde-format
 msgid "Unknown size"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:450
+#: widgets/kfilepropspluginwidget.ui:453
 #, kde-format
 msgid "Mounted On:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:470
+#: widgets/kfilepropspluginwidget.ui:473
 #, kde-format
 msgid "Accessed:"
 msgstr "Brukt:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:480
+#: widgets/kfilepropspluginwidget.ui:483
 #, kde-format
 msgid "Open With:"
 msgstr ""
