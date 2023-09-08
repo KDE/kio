@@ -1,8 +1,7 @@
 {
     "KDE-KIO-Protocols": {
         "myproto": {
-            "ExtraNames": [
-            ],
+            "ExtraNames": [],
             "input": "none",
             "listing": [
                 "Name",
