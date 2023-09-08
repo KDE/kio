@@ -1,13 +1,13 @@
 {
     "KDE-KIO-Protocols": {
         "help": {
-            "Class": ":local", 
-            "Icon": "help-browser", 
+            "Class": ":local",
+            "Icon": "help-browser",
             "X-DocPath": "kioworker6/help/index.html",
-            "defaultMimetype": "text/html", 
-            "input": "none", 
-            "output": "filesystem", 
-            "protocol": "help", 
+            "defaultMimetype": "text/html",
+            "input": "none",
+            "output": "filesystem",
+            "protocol": "help",
             "reading": true
         }
     }
