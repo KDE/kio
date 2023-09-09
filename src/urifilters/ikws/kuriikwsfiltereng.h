@@ -16,15 +16,16 @@
 #include "kuriikwsfiltereng_common_export.h"
 #include "searchproviderregistry.h"
 #include <QMap>
+#include <QObject>
 #include <QStringList>
 #include <QUrl>
 
 class QStringEncoder;
-
 class SearchProvider;
 
-class KURIIKWSFILTERENG_COMMON_EXPORT KURISearchFilterEngine
+class KURIIKWSFILTERENG_COMMON_EXPORT KURISearchFilterEngine : public QObject
 {
+    Q_OBJECT
 public:
     typedef QMap<QString, QString> SubstMap;
 
@@ -42,14 +43,13 @@ public:
     SearchProviderRegistry *registry();
 
     static KURISearchFilterEngine *self();
-    void loadConfig();
-
     static QStringList defaultSearchProviders();
 
 protected:
     QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;
 
 private:
+    Q_SLOT void configure();
     Q_DISABLE_COPY_MOVE(KURISearchFilterEngine);
 
     QStringList modifySubstitutionMap(SubstMap &map, const QString &query) const;

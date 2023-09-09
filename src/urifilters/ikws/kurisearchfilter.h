@@ -18,13 +18,10 @@ class KUriSearchFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KUriSearchFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+    explicit KUriSearchFilter(QObject *parent);
     ~KUriSearchFilter() override;
 
     bool filterUri(KUriFilterData &) const override;
-
-public Q_SLOTS:
-    void configure(); // maybe move to KUriFilterPlugin?
 };
 
 #endif

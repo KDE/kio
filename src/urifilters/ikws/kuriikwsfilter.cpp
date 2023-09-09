@@ -29,21 +29,13 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 
 K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 
-KAutoWebSearch::KAutoWebSearch(QObject *parent, const QVariantList &)
+KAutoWebSearch::KAutoWebSearch(QObject *parent)
     : KUriFilterPlugin(QStringLiteral("kuriikwsfilter"), parent)
 {
-    QDBusConnection::sessionBus()
-        .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KAutoWebSearch::~KAutoWebSearch()
 {
-}
-
-void KAutoWebSearch::configure()
-{
-    qCDebug(category) << "Config reload requested...";
-    KURISearchFilterEngine::self()->loadConfig();
 }
 
 void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider *> &searchProviders, const KUriFilterData &data, bool allproviders) const

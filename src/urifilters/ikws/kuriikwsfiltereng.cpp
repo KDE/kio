@@ -17,6 +17,7 @@
 #include <KConfigGroup>
 #include <kprotocolinfo.h>
 
+#include <QDBusConnection>
 #include <QLoggingCategory>
 #include <QRegularExpression>
 #include <QStringEncoder>
@@ -38,10 +39,12 @@ static void kuriikws_debug(const QString &n, const QString &v)
 
 KURISearchFilterEngine::KURISearchFilterEngine()
 {
-    loadConfig();
+    configure();
     // Only after initial load, we would want to reparse the files on config changes.
     // When the registry is constructed, it automatically loads the searchproviders
     m_reloadRegistry = true;
+    QDBusConnection::sessionBus()
+        .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KURISearchFilterEngine::~KURISearchFilterEngine() = default;
@@ -425,7 +428,7 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url,
     return QUrl(newurl, QUrl::StrictMode);
 }
 
-void KURISearchFilterEngine::loadConfig()
+void KURISearchFilterEngine::configure()
 {
     qCDebug(category) << "Keywords Engine: Loading config...";
 
@@ -461,3 +464,5 @@ SearchProviderRegistry *KURISearchFilterEngine::registry()
 {
     return &m_registry;
 }
+
+#include "moc_kuriikwsfiltereng.cpp"

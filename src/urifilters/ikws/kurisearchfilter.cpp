@@ -28,21 +28,13 @@ namespace
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
-KUriSearchFilter::KUriSearchFilter(QObject *parent, const QVariantList &)
+KUriSearchFilter::KUriSearchFilter(QObject *parent)
     : KUriFilterPlugin(QStringLiteral("kurisearchfilter"), parent)
 {
-    QDBusConnection::sessionBus()
-        .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));
 }
 
 KUriSearchFilter::~KUriSearchFilter()
 {
-}
-
-void KUriSearchFilter::configure()
-{
-    qCDebug(category) << "Config reload requested...";
-    KURISearchFilterEngine::self()->loadConfig();
 }
 
 bool KUriSearchFilter::filterUri(KUriFilterData &data) const
