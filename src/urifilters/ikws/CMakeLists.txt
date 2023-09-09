@@ -2,16 +2,11 @@ add_subdirectory(searchproviders)
 
 ####
 
-kcoreaddons_add_plugin(kuriikwsfilter
-    INSTALL_NAMESPACE "kf6/urifilters"
-)
+add_library(kuriikwsfiltereng_common kuriikwsfiltereng.cpp searchprovider.cpp searchproviderregistry.cpp)
+generate_export_header(kuriikwsfiltereng_common)
+target_link_libraries(kuriikwsfiltereng_common PUBLIC KF6::KIOGui)
 
-target_sources(kuriikwsfilter PRIVATE
-   kuriikwsfiltereng.cpp
-   kuriikwsfilter.cpp
-   searchprovider.cpp
-   searchproviderregistry.cpp
-)
+kcoreaddons_add_plugin(kuriikwsfilter SOURCES kuriikwsfilter.cpp INSTALL_NAMESPACE "kf6/urifilters")
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
@@ -23,22 +18,15 @@ ecm_qt_export_logging_category(
 )
 
 target_link_libraries(kuriikwsfilter
-    KF6::KIOGui     # KUriFilter
     KF6::I18n
     Qt6::DBus
+    kuriikwsfiltereng_common
 )
 
-kcoreaddons_add_plugin(kurisearchfilter INSTALL_NAMESPACE "kf6/urifilters")
-
-target_sources(kurisearchfilter PRIVATE
-   kurisearchfilter.cpp
-   kuriikwsfiltereng.cpp
-   searchprovider.cpp
-   searchproviderregistry.cpp
-)
+kcoreaddons_add_plugin(kurisearchfilter SOURCES kurisearchfilter.cpp INSTALL_NAMESPACE "kf6/urifilters")
 
 target_link_libraries(kurisearchfilter
-   KF6::KIOWidgets     # KUriFilter
-   KF6::I18n
    Qt6::DBus
+   kuriikwsfiltereng_common
 )
+install(TARGETS kuriikwsfiltereng_common ${KF_INSTALL_TARGETS_DEFAULT_ARGS})

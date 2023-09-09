@@ -8,6 +8,7 @@
 #ifndef SEARCHPROVIDERREGISTRY_H
 #define SEARCHPROVIDERREGISTRY_H
 
+#include "kuriikwsfiltereng_common_export.h"
 #include <QList>
 #include <QMap>
 
@@ -16,7 +17,7 @@ class SearchProvider;
 /**
  * Memory cache for search provider desktop files
  */
-class SearchProviderRegistry
+class KURIIKWSFILTERENG_COMMON_EXPORT SearchProviderRegistry
 {
 public:
     /**

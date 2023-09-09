@@ -11,7 +11,6 @@
 #include "kuriikwsfiltereng.h"
 #include "searchprovider.h"
 
-#include <KLocalizedString>
 #include <KPluginFactory>
 
 #include <QDBusConnection>

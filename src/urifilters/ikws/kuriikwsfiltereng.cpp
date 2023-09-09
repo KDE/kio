@@ -39,11 +39,12 @@ static void kuriikws_debug(const QString &n, const QString &v)
 KURISearchFilterEngine::KURISearchFilterEngine()
 {
     loadConfig();
+    // Only after initial load, we would want to reparse the files on config changes.
+    // When the registry is constructed, it automatically loads the searchproviders
+    m_reloadRegistry = true;
 }
 
-KURISearchFilterEngine::~KURISearchFilterEngine()
-{
-}
+KURISearchFilterEngine::~KURISearchFilterEngine() = default;
 
 // static
 QStringList KURISearchFilterEngine::defaultSearchProviders()
@@ -451,7 +452,9 @@ void KURISearchFilterEngine::loadConfig()
     qCDebug(category) << "Web Shortcuts Enabled: " << m_bWebShortcutsEnabled;
     qCDebug(category) << "Default Shortcut: " << m_defaultWebShortcut;
     qCDebug(category) << "Keyword Delimiter: " << m_cKeywordDelimiter;
-    m_registry.reload();
+    if (m_reloadRegistry) {
+        m_registry.reload();
+    }
 }
 
 SearchProviderRegistry *KURISearchFilterEngine::registry()

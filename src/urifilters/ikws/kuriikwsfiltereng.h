@@ -13,6 +13,7 @@
 #ifndef KURIIKWSFILTERENG_H
 #define KURIIKWSFILTERENG_H
 
+#include "kuriikwsfiltereng_common_export.h"
 #include "searchproviderregistry.h"
 #include <QMap>
 #include <QStringList>
@@ -22,7 +23,7 @@ class QStringEncoder;
 
 class SearchProvider;
 
-class KURISearchFilterEngine
+class KURIIKWSFILTERENG_COMMON_EXPORT KURISearchFilterEngine
 {
 public:
     typedef QMap<QString, QString> SubstMap;
@@ -49,8 +50,7 @@ protected:
     QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;
 
 private:
-    KURISearchFilterEngine(const KURISearchFilterEngine &) = delete;
-    KURISearchFilterEngine &operator=(const KURISearchFilterEngine &) = delete;
+    Q_DISABLE_COPY_MOVE(KURISearchFilterEngine);
 
     QStringList modifySubstitutionMap(SubstMap &map, const QString &query) const;
     QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QStringEncoder &codec) const;
@@ -61,6 +61,7 @@ private:
     bool m_bWebShortcutsEnabled;
     bool m_bUseOnlyPreferredWebShortcuts;
     char m_cKeywordDelimiter;
+    bool m_reloadRegistry = false; // We would load it twice otherwise
 };
 
 #endif // KURIIKWSFILTERENG_H
