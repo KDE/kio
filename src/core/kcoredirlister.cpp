@@ -1781,13 +1781,27 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         FileItemHash::iterator fiit = fileItems.find(item.name());
         if (fiit != fileItems.end()) {
             const KFileItem tmp = fiit.value();
-            auto pru_it = pendingRemoteUpdates.find(tmp);
-            const bool inPendingRemoteUpdates = pru_it != pendingRemoteUpdates.end();
+
+            bool inPendingUpdates = false;
+            bool inPendingRemoteUpdates = false;
+
+            std::set<QString>::iterator pu_it;
+            std::set<KFileItem>::iterator pru_it;
+            if (tmp.url().isLocalFile()) {
+                pu_it = pendingUpdates.find(tmp.url().toLocalFile());
+                inPendingUpdates = pu_it != pendingUpdates.end();
+            } else {
+                pru_it = pendingRemoteUpdates.find(tmp);
+                inPendingRemoteUpdates = pru_it != pendingRemoteUpdates.end();
+            }
 
             // check if something changed for this file, using KFileItem::cmp()
-            if (!tmp.cmp(item) || inPendingRemoteUpdates) {
+            if (inPendingRemoteUpdates || inPendingUpdates || !tmp.cmp(item)) {
                 if (inPendingRemoteUpdates) {
                     pendingRemoteUpdates.erase(pru_it);
+                }
+                if (inPendingUpdates) {
+                    pendingUpdates.erase(pu_it);
                 }
 
                 qCDebug(KIO_CORE_DIRLISTER) << "file changed:" << tmp.name();
