@@ -6,8 +6,8 @@
 #include "kurifilterplugin_p.h"
 
 #include "kurifilterdata_p.h"
-#include <KIO/HostInfo>
 #include <QHostInfo>
+#include <hostinfo.h>
 
 KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
     : QObject(parent)
