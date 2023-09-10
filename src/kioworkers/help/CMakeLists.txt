@@ -16,10 +16,6 @@ set_package_properties(LibXml2 PROPERTIES
                        PURPOSE "Required by the KDE help system to process DocBook XML"
                       )
 
-if(NOT LIBXML2_XMLLINT_EXECUTABLE)
-  message(FATAL_ERROR "xmllint is required by the KDE help system to process DocBook XML")
-endif()
-
 include_directories(${LIBXML2_INCLUDE_DIR} ${LIBXSLT_INCLUDE_DIR})
 
 include(ConfigureChecks.cmake)
