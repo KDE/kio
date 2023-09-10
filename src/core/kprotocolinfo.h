@@ -56,7 +56,7 @@ public:
      * Same as above except you can supply just the protocol instead of
      * the whole URL.
      */
-    static bool isKnownProtocol(const QString &protocol);
+    static bool isKnownProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
     /**
      * Returns the library / executable to open for the protocol @p protocol

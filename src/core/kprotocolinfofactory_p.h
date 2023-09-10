@@ -39,9 +39,10 @@ public:
      *
      * Does not take proxy settings into account.
      * @param protocol the protocol to search for
+     * @param updateCacheIfNotfound Flag for revalidating the cache. This will cause all plugins to be reloaded
      * @return the pointer to the KProtocolInfo, or @c nullptr if not found
      */
-    KProtocolInfoPrivate *findProtocol(const QString &protocol);
+    KProtocolInfoPrivate *findProtocol(const QString &protocol, bool updateCacheIfNotfound = true);
 
     /**
      * Loads all protocols. Slow, obviously, but fills the cache once and for all.

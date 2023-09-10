@@ -66,7 +66,7 @@ SearchProvider *KURISearchFilterEngine::webShortcutQuery(const QString &typedStr
         SearchProvider *provider = nullptr;
         // If the key contains a : an assertion in the isKnownProtocol method would fail. This can be
         // the case if the delimiter is switched to space, see kiowidgets_space_separator_test
-        if (!key.isEmpty() && (key.contains(QLatin1Char(':')) || !KProtocolInfo::isKnownProtocol(key))) {
+        if (!key.isEmpty() && (key.contains(QLatin1Char(':')) || !KProtocolInfo::isKnownProtocol(key, false))) {
             provider = m_registry.findByKey(key);
             if (provider) {
                 if (!m_bUseOnlyPreferredWebShortcuts || m_preferredWebShortcuts.contains(provider->desktopEntryName())) {
@@ -127,7 +127,7 @@ SearchProvider *KURISearchFilterEngine::autoWebSearchQuery(const QString &typedS
         // Make sure we ignore supported protocols, e.g. "smb:", "http:"
         const int pos = typedString.indexOf(QLatin1Char(':'));
 
-        if (pos == -1 || !KProtocolInfo::isKnownProtocol(typedString.left(pos))) {
+        if (pos == -1 || !KProtocolInfo::isKnownProtocol(typedString.left(pos), false)) {
             provider = m_registry.findByDesktopName(defaultSearchProvider);
         }
     }

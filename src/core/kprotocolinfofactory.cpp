@@ -35,7 +35,6 @@ KProtocolInfoFactory::~KProtocolInfoFactory()
     QMutexLocker locker(&m_mutex);
     qDeleteAll(m_cache);
     m_cache.clear();
-    m_cacheDirty = true;
 }
 
 QStringList KProtocolInfoFactory::protocols()
@@ -56,7 +55,7 @@ QList<KProtocolInfoPrivate *> KProtocolInfoFactory::allProtocols()
     return m_cache.values();
 }
 
-KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol)
+KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol, bool updateCacheIfNotfound)
 {
     Q_ASSERT(!protocol.isEmpty());
     Q_ASSERT(!protocol.contains(QLatin1Char(':')));
@@ -66,7 +65,7 @@ KProtocolInfoPrivate *KProtocolInfoFactory::findProtocol(const QString &protocol
     const bool filled = fillCache();
 
     KProtocolInfoPrivate *info = m_cache.value(protocol);
-    if (!info && !filled) {
+    if (!info && !filled && updateCacheIfNotfound) {
         // Unknown protocol! Maybe it just got installed and our cache is out of date?
         qCDebug(KIO_CORE) << "Refilling KProtocolInfoFactory cache in the hope to find" << protocol;
         m_cacheDirty = true;
