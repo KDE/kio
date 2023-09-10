@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 01:55+0000\n"
+"POT-Creation-Date: 2023-09-10 01:56+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -4531,7 +4531,7 @@ msgstr "o weka e insa pi poki jaki"
 msgid "Restore a trashed file to its original location"
 msgstr "o pana sin e lipu lon poki jaki tawa tan ona"
 
-#: kioworkers/trash/trashimpl.cpp:1323
+#: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "poki jaki li ken ala jo e ijo sin. o weka e insa ona."

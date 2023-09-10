@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 01:55+0000\n"
+"POT-Creation-Date: 2023-09-10 01:56+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4892,7 +4892,7 @@ msgstr "Ačyščennie smietnicy"
 msgid "Restore a trashed file to its original location"
 msgstr "Adnaŭliennie fajla ŭ zychodnaje miesca"
 
-#: kioworkers/trash/trashimpl.cpp:1323
+#: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Smietnica poŭnaja. Ačyscicie jaje abo vydalicie eliemienty ŭručnuju."

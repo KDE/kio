@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 01:55+0000\n"
+"POT-Creation-Date: 2023-09-10 01:56+0000\n"
 "PO-Revision-Date: 2023-07-08 07:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -4769,7 +4769,7 @@ msgstr "Opróżnij zawartość kosza"
 msgid "Restore a trashed file to its original location"
 msgstr "Przywróć plik z kosza do jego pierwotnej lokalizacji"
 
-#: kioworkers/trash/trashimpl.cpp:1323
+#: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Kosz jest pełen. Opróżnij go lub ręcznie usuń z niego rzeczy."
