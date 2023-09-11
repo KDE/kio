@@ -536,7 +536,12 @@ void OpenUrlJobTest::httpUrlWithKIO()
     // Then the service should be executed (which writes to "dest")
     const QString dest = m_tempDir.path() + "/dest";
     QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
-    QCOMPARE(readFile(dest), url.toString());
+    QVERIFY(QFile::exists(dest));
+    auto resultfile = readFile(dest);
+    QVERIFY(QFile::exists(resultfile));
+    auto result = readFile(resultfile);
+    QVERIFY(result.startsWith(QStringLiteral("<!doctype html>")));
+    QVERIFY(result.endsWith(QStringLiteral("</html>")));
 }
 
 void OpenUrlJobTest::ftpUrlWithKIO()
