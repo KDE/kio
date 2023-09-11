@@ -13,8 +13,7 @@
 #include <KService>
 #include <QUrl>
 
-class KRun; // KF6 REMOVE
-class ApplicationLauncherJobTest; // KF6 REMOVE
+class ApplicationLauncherJobTest;
 class KDesktopFileAction;
 
 namespace KIO
@@ -159,10 +158,9 @@ public:
     QList<qint64> pids() const;
 
 private:
-    friend class ::KRun; // KF6 REMOVE
-    friend class ::ApplicationLauncherJobTest; // KF6 REMOVE
+    friend class ::ApplicationLauncherJobTest;
     /**
-     * Blocks until the process has started. Only exists for KRun, will disappear in KF6.
+     * Blocks until the process has started.
      */
     bool waitForStarted();
     KIOGUI_NO_EXPORT void emitUnauthorizedError();
