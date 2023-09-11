@@ -678,7 +678,7 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
 
     // Check that itemsDeleted was emitted -- preferably BEFORE refreshItems,
     // but we can't easily check that with QSignalSpy...
-    QCOMPARE(m_dirLister.spyItemsDeleted.count(), 1);
+    QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 1);
 
     QCOMPARE(m_refreshedItems.count(), 1);
     QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
