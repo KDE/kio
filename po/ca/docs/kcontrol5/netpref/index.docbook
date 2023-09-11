@@ -63,7 +63,7 @@
 <para
 >Algunes aplicacions utilitzen els <firstterm
 >sòcols</firstterm
-> per a comunicar-se. Podeu pensar en un sòcol com en una aixeta d'aigua; quan està oberta, l'aigua (o en el nostre cas, les dades) surt, sense interacció. Si quelcom atura aquest flux de dades, l'aplicació esperarà que n'hi hagi més per a sortir. Aquesta demora pot correspondre's a un interval molt llarg de temps, però amb aquesta opció podeu definir un temps màxim d'espera per a una aplicació.</para>
+> per a comunicar-se. Podeu pensar en un sòcol com en una aixeta d'aigua; quan està oberta, l'aigua (o en el nostre cas, les dades) surt, sense interacció. Si alguna cosa atura aquest flux de dades, l'aplicació esperarà que n'hi hagi més per a sortir. Aquesta demora pot correspondre's a un interval molt llarg de temps, però amb aquesta opció podeu definir un temps màxim d'espera per a una aplicació.</para>
 <para
 >De moment, aquesta opció de configuració tan sols és aplicable a aplicacions &kde;.</para>
 </listitem>
