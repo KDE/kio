@@ -103,6 +103,7 @@ Query[de]=https://www.ask.com/web?q=\\{@}
 Query[eo]=https://www.ask.com/web?q=\\{@}
 Query[es]=https://www.ask.com/web?q=\\{@}
 Query[eu]=https://www.ask.com/web?q=\\{@}
+Query[fr]=https://www.ask.com/web?q=\\{@}
 Query[gl]=https://www.ask.com/web?q=\\{@}
 Query[ia]=https://www.ask.com/web?q=\\{@}
 Query[it]=https://www.ask.com/web?q=\\{@}
@@ -117,3 +118,4 @@ Query[tr]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}
 Query[x-test]=xxhttps://www.ask.com/web?q=\\{@}xx
 Query[zh_CN]=https://www.ask.com/web?q=\\{@}
+Query[zh_TW]=https://www.ask.com/web?q=\\{@}
