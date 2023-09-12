@@ -10,20 +10,20 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-06 00:42+0000\n"
-"PO-Revision-Date: 2023-06-15 04:19+0900\n"
+"PO-Revision-Date: 2023-09-12 02:07+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -3903,13 +3903,14 @@ msgstr ""
 "%1"
 
 #: ioslaves/file/file.cpp:746
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "無法變更 %1 的權限。"
+msgstr ""
+"無法為以下變更擁有者與群組\n"
+"%1"
 
 #: ioslaves/file/file.cpp:828
 #, kde-format
@@ -4990,6 +4991,13 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"不是所有應用程式都會使用這裡的代理伺服器設定。具體來說，"
+"<application>Firefox</application>、<application>Chromium</application> 和任"
+"何基於它們的應用程式，以及任何基於 <application>QtWebEngine</application> 的"
+"應用程式&nbsp;—— 這包含了使用 <application>WebEnginePart</application> 的 "
+"<application>Konqueror</application>、<application>Akregator</application> "
+"及 <application>Falkon</application>&nbsp;——都不會使用這裡的設定。某些應用程"
+"式可能有在它們自己的設定裡提供代理伺服器的選項。"
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -5053,16 +5061,7 @@ msgstr "沒有代理伺服器"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5075,9 +5074,8 @@ msgstr ""
 "<qt>\n"
 "自動偵測並設定代理伺服器設定值。<p>\n"
 "自動偵測是使用 <b>網頁代理伺服器自動發現協定 (WPAD)</b> 進行的。<p>\n"
-"<b>注意：</b>這個選項在某些 UNIX/Linux 散布版可能無法正常運作或者完全無法運"
-"作。如果您在使用這個選項時遇到問題，請查閱在 https://konqueror.org 的 FAQ 章"
-"節。\n"
+"<b>注意：</b>這個選項在某些 UNIX/Linux 發行版可能無法正常運作或者完全無法運"
+"作。\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5254,12 +5252,7 @@ msgstr "SOCKS 代理伺服器："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#| "can click on the <b>\"Auto Detect\"</b> button to attempt an automatic "
-#| "discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
@@ -5299,12 +5292,7 @@ msgstr "例外："
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#| "the addresses of sites for which the above proxy settings should not be "
-#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
-#| "to attempt an automatic discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
@@ -6757,10 +6745,9 @@ msgstr ""
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: widgets/checksumswidget.ui:29
-#, fuzzy, kde-format
-#| msgid "Expected checksum (MD5, SHA1 or SHA256)..."
+#, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "預期中的總和檢查碼 (MD5、SHA1 或 SHA256)..."
+msgstr "預期的總和檢查碼 (MD5、SHA1、SHA256 或 SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -7569,7 +7556,7 @@ msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
+msgstr "<filename>%1</filename> 看起來不是一個可執行的程式。"
 
 #: widgets/kopenwithdialog.cpp:1035
 #, kde-kuit-format
@@ -7577,7 +7564,7 @@ msgctxt "@info"
 msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
-msgstr ""
+msgstr "<filename>%1</filename> 找不到；請輸入指向一個可執行程式的有效路徑。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:29
@@ -8024,10 +8011,9 @@ msgid "The new file name is empty."
 msgstr "新的檔案名稱是空的。"
 
 #: widgets/kpropertiesdialog.cpp:1672
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "支援的檔案類型(&S):"
+msgstr "沒有定義檔案類型"
 
 #: widgets/kpropertiesdialog.cpp:1674
 #, kde-format
