@@ -846,30 +846,30 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     /* clang-format on */
 
     QImage thumb;
-#if WITH_SHM
-    if (shmaddr) {
-        // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
-        QDataStream str(data);
-        int width;
-        int height;
-        quint8 iFormat;
-        int imgDevicePixelRatio = 1;
-        // TODO KF6: add a version number as first parameter
-        str >> width >> height >> iFormat;
-        if (iFormat & 0x80) {
-            // HACK to deduce if imgDevicePixelRatio is present
-            iFormat &= 0x7f;
-            str >> imgDevicePixelRatio;
-        }
-        QImage::Format format = static_cast<QImage::Format>(iFormat);
-        thumb = QImage(shmaddr, width, height, format).copy();
-        thumb.setDevicePixelRatio(imgDevicePixelRatio);
-    } else {
-        thumb.loadFromData(data);
+    // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
+    QDataStream str(data);
+    int width;
+    int height;
+    quint8 iFormat;
+    int imgDevicePixelRatio = 1;
+    // TODO KF6: add a version number as first parameter
+    str >> width >> height >> iFormat;
+    if (iFormat & 0x80) {
+        // HACK to deduce if imgDevicePixelRatio is present
+        iFormat &= 0x7f;
+        str >> imgDevicePixelRatio;
     }
-#else
-    thumb.loadFromData(data);
+    QImage::Format format = static_cast<QImage::Format>(iFormat);
+#if WITH_SHM
+    if (shmaddr != nullptr) {
+        thumb = QImage(shmaddr, width, height, format).copy();
+    } else {
 #endif
+        str >> thumb;
+#if WITH_SHM
+    }
+#endif
+    thumb.setDevicePixelRatio(imgDevicePixelRatio);
 
     if (thumb.isNull()) {
         QDataStream s(data);
