@@ -1465,7 +1465,7 @@ msgid ""
 msgstr ""
 "Els entorns Unix són capaços d'enllaçar un fitxer o una carpeta amb un nom o "
 "ubicació separats. KDE ha detectat un enllaç o una sèrie d'enllaços que "
-"donen com a resultat un bucle infinit -p. ex. el fitxer està enllaçat a si "
+"donen com a resultat un bucle infinit -p. ex., el fitxer està enllaçat a si "
 "mateix (potser fent un cercle)-."
 
 #: core/job_error.cpp:666 core/job_error.cpp:692
@@ -1508,7 +1508,7 @@ msgstr ""
 "Els entorns Unix són capaços d'enllaçar un fitxer o una carpeta amb un nom o "
 "ubicació separats. Durant l'operació de còpia sol·licitada, KDE ha detectat "
 "un enllaç o una sèrie d'enllaços que donen com a resultat un bucle infinit -"
-"p. ex. el fitxer està enllaçat a si mateix (potser fent un cercle)-."
+"p. ex., el fitxer està enllaçat a si mateix (potser fent un cercle)-."
 
 #: core/job_error.cpp:698
 #, kde-format
@@ -1666,9 +1666,9 @@ msgid ""
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
 "El dispositiu pot no estar preparat, per exemple, pot no haver-hi res al "
-"dispositiu de suports extraïbles (p. ex. no hi ha cap CD-ROM en la unitat de "
-"CD), o, en el cas d'un dispositiu perifèric o portàtil, potser el dispositiu "
-"no està correctament connectat."
+"dispositiu de suports extraïbles (p. ex., no hi ha cap CD-ROM en la unitat "
+"de CD), o, en el cas d'un dispositiu perifèric o portàtil, potser el "
+"dispositiu no està correctament connectat."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -7410,161 +7410,3 @@ msgstr "Iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
-
-#~ msgid "Cannot Save Cookies"
-#~ msgstr "No es poden guardar les galetes"
-
-#~ msgid "Could not remove %1, check permissions"
-#~ msgstr "No s'ha pogut eliminar %1. Comproveu els permisos"
-
-#~ msgid "Could not create directory %1"
-#~ msgstr "No s'ha pogut crear el directori %1"
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Avís de galeta"
-
-#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#~ msgid ""
-#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject this cookie?</p>"
-#~ msgid_plural ""
-#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject these cookies?</p>"
-#~ msgstr[0] ""
-#~ "<p>Heu rebut una galeta des de<br/><b>%2%3</b><br/>Voleu acceptar o "
-#~ "rebutjar esta galeta?</p>"
-#~ msgstr[1] ""
-#~ "<p>Heu rebut %1 galetes des de<br/><b>%2%3</b><br/>Voleu acceptar o "
-#~ "rebutjar estes galetes?</p>"
-
-#~ msgctxt "@item:intext cross domain cookie"
-#~ msgid " [Cross Domain]"
-#~ msgstr " [Domini creuat]"
-
-#~ msgid "Details"
-#~ msgstr "Detalls"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "Veure o modificar la informació de les galetes"
-
-#~ msgid "Accept for this &session"
-#~ msgstr "Accepta per a esta &sessió"
-
-#~ msgid "Accept cookie(s) until the end of the current session"
-#~ msgstr "Accepta les galetes fins al final de la sessió actual"
-
-#~ msgid "&Accept"
-#~ msgstr "&Accepta"
-
-#~ msgid "&Reject"
-#~ msgstr "&Rebutja"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "Aplica la tria a"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "Només es&ta galeta"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "Només es&tes galetes"
-
-#~ msgid ""
-#~ "Select this option to only accept or reject this cookie. You will be "
-#~ "prompted again if you receive another cookie."
-#~ msgstr ""
-#~ "Seleccioneu esta opció per a acceptar/rebutjar només esta galeta. Se vos "
-#~ "preguntarà en rebre una altra galeta."
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "Totes les galetes d'este &domini"
-
-#~ msgid ""
-#~ "Select this option to accept or reject all cookies from this site. "
-#~ "Choosing this option will add a new policy for the site this cookie "
-#~ "originated from. This policy will be permanent until you manually change "
-#~ "it from the System Settings."
-#~ msgstr ""
-#~ "Seleccioneu esta opció per a acceptar/rebutjar totes les galetes d'este "
-#~ "lloc. En triar esta opció s'afegirà una política nova per al lloc des "
-#~ "d'on s'ha originat esta galeta. Esta política serà permanent fins que la "
-#~ "canvieu manualment des de Configuració del sistema."
-
-#~ msgid "All &cookies"
-#~ msgstr "Totes les &galetes"
-
-#~ msgid ""
-#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
-#~ "this option will change the global cookie policy for all cookies until "
-#~ "you manually change it from the System Settings."
-#~ msgstr ""
-#~ "Seleccioneu esta opció per a acceptar/rebutjar totes les galetes de tot "
-#~ "arreu. En triar esta opció es canviarà la política global de les galetes "
-#~ "establida a Configuració del sistema per a totes les galetes."
-
-#~ msgid "Cookie Details"
-#~ msgstr "Detalls de la galeta"
-
-#~ msgid "Name:"
-#~ msgstr "Nom:"
-
-#~ msgid "Value:"
-#~ msgstr "Valor:"
-
-#~ msgid "Expires:"
-#~ msgstr "Caduca:"
-
-#~ msgid "Path:"
-#~ msgstr "Camí:"
-
-#~ msgid "Domain:"
-#~ msgstr "Domini:"
-
-#~ msgctxt ""
-#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
-#~ "exposure string in this file)"
-#~ msgid "Exposure:"
-#~ msgstr "Exposició:"
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "&Següent>>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "Mostra els detalls de la galeta següent"
-
-#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
-#~ msgid "Not specified"
-#~ msgstr "Sense especificar"
-
-#~ msgctxt "@label the cookie expires when the browser session ends"
-#~ msgid "End of Session"
-#~ msgstr "Final de la sessió"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by https servers"
-#~ msgid "Secure servers only"
-#~ msgstr "Només servidors segurs"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by https servers AND "
-#~ "client-side javascripts"
-#~ msgid "Secure servers, page scripts"
-#~ msgstr "Servidors segurs, scripts de pàgina"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by http servers"
-#~ msgid "Servers"
-#~ msgstr "Servidors"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by http servers AND "
-#~ "client-side javascripts"
-#~ msgid "Servers, page scripts"
-#~ msgstr "Servidors, scripts de pàgina"
-
-#~ msgctxt ""
-#~ "@action:button show details about a cookie that needs approval. This "
-#~ "string gets >> and << appended, to visualize if the dialog expands or "
-#~ "compacts!"
-#~ msgid "Details"
-#~ msgstr "Detalls"
