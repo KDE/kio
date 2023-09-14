@@ -29,12 +29,10 @@
 >rotocol (protocole de transfert hypertexte).</para>
 
 <para
->Le module d'entrées-sorties « https » est utilisé par toutes les applications de &kde; pour gérer les connexions vers les serveurs &HTTP;, c'est-à-dire les serveurs Internet. L'usage le plus courant est l'affichage des pages Internet dans le navigateur &konqueror;.</para>
+>Le module d'entrées-sorties « http » est utilisé par toutes les applications de &kde; pour gérer les connexions vers les serveurs &HTTP;, c'est-à-dire les serveurs Internet. L'usage le plus courant est l'affichage des pages Internet dans le navigateur &konqueror;.</para>
 
 <para
->Vous pouvez utiliser le module d'entrées-sorties « https » dans &konqueror; en lui donnant une <acronym
->URL</acronym
->. <userinput
+>Vous pouvez utiliser le module d'entrées-sorties « https » dans &konqueror; en lui donnant une &URL; comme <userinput
 >https://<replaceable
 >www.kde.org</replaceable
 ></userinput
