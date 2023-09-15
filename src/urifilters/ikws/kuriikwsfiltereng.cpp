@@ -168,7 +168,7 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
 
     // Do some pre-encoding, before we can start the work:
     {
-        const QRegularExpression qsexpr(QStringLiteral("\\\"[^\\\"]*\\\""));
+        const static QRegularExpression qsexpr(QStringLiteral("\\\"[^\\\"]*\\\""));
         // Temporarily substitute spaces in quoted strings (" " -> "%20")
         // Needed to split user query into StringList correctly.
         int start = 0;
@@ -250,7 +250,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
     qCDebug(category) << "Substitute references:\n";
     // Substitute references (\{ref1,ref2,...}) with values from user query:
     {
-        const QRegularExpression reflistRe(QStringLiteral("\\\\\\{([^\\}]+)\\}"));
+        const static QRegularExpression reflistRe(QStringLiteral("\\\\\\{([^\\}]+)\\}"));
         // Substitute reflists (\{ref1,ref2,...}):
         int start = 0;
         QRegularExpressionMatch match;
@@ -276,7 +276,7 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     break;
                 }
 
-                const QRegularExpression rangeRe(QStringLiteral("([0-9]*)\\-([0-9]*)"));
+                const static QRegularExpression rangeRe(QStringLiteral("([0-9]*)\\-([0-9]*)"));
                 const QRegularExpressionMatch rangeMatch = rangeRe.match(rlitem);
                 // Substitute a range of keywords
                 if (rangeMatch.hasMatch()) {
