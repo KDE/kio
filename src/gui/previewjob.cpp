@@ -876,6 +876,12 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
         s >> thumb;
     }
 
+    if (thumb.isNull()) {
+        // let succeeded in false state
+        // failed will get called in determineNextFile()
+        return;
+    }
+
     if (save) {
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(origName));
         thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(tOrig.toSecsSinceEpoch()));
