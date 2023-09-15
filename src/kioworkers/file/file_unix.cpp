@@ -291,6 +291,9 @@ inline static time_t stat_mtime(const QT_STATBUF &buf)
 static bool isOnCifsMount(const QString &filePath)
 {
     const auto mount = KMountPoint::currentMountPoints().findByPath(filePath);
+    if (!mount) {
+        return false;
+    }
     return mount->mountType() == QStringLiteral("cifs") || mount->mountType() == QStringLiteral("smb3");
 }
 
