@@ -29,9 +29,6 @@ class KURIIKWSFILTERENG_COMMON_EXPORT KURISearchFilterEngine : public QObject
 public:
     typedef QMap<QString, QString> SubstMap;
 
-    KURISearchFilterEngine();
-    ~KURISearchFilterEngine();
-
     QByteArray name() const;
     char keywordDelimiter() const;
     QString defaultSearchEngine() const;
@@ -49,6 +46,9 @@ protected:
     QUrl formatResult(const QString &url, const QString &cset1, const QString &cset2, const QString &query, bool isMalformed, SubstMap &map) const;
 
 private:
+    KURISearchFilterEngine();
+    ~KURISearchFilterEngine();
+
     Q_SLOT void configure();
     Q_DISABLE_COPY_MOVE(KURISearchFilterEngine);
 

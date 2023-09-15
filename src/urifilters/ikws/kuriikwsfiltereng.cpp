@@ -155,11 +155,10 @@ QStringList KURISearchFilterEngine::favoriteEngineList() const
     return m_preferredWebShortcuts;
 }
 
-Q_GLOBAL_STATIC(KURISearchFilterEngine, sSelfPtr)
-
 KURISearchFilterEngine *KURISearchFilterEngine::self()
 {
-    return sSelfPtr;
+    static KURISearchFilterEngine self;
+    return &self;
 }
 
 QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const QString &query) const
