@@ -22,15 +22,7 @@
 #include <QRegularExpression>
 #include <QStringEncoder>
 
-namespace
-{
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
-}
-
-static void kuriikws_debug(const QString &n, const QString &v)
-{
-    qCDebug(category) << n << " = '" << v << "'";
-}
 
 /**
  * IMPORTANT: If you change anything here, make sure kiowidgets-kurifiltertest-{colon,space}-separator
@@ -193,7 +185,6 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
     for (int i = 0; i <= l.count(); i++) {
         int pos = 0;
         QString v;
-        QString nr = QString::number(i);
 
         // Add whole user query (\{0}) to substitution map:
         if (i == 0) {
@@ -206,7 +197,6 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
 
         // Insert partial queries (referenced by \1 ... \n) to map:
         map.insert(QString::number(i), v);
-        kuriikws_debug(QLatin1String("  map['") + nr + QLatin1String("']"), map[nr]);
 
         // Insert named references (referenced by \name) to map:
         if ((i > 0) && (pos = v.indexOf(QLatin1Char('='))) > 0) {
@@ -216,7 +206,6 @@ QStringList KURISearchFilterEngine::modifySubstitutionMap(SubstMap &map, const Q
             // Back-substitute references contained in references (e.g. '\refname' substitutes to 'thisquery=\0')
             s.replace(QLatin1String("%5C"), QLatin1String("\\"));
             map.insert(k, s);
-            kuriikws_debug(QLatin1String("  map['") + k + QLatin1String("']"), map[k]);
         }
     }
 
@@ -260,7 +249,6 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
             // bool rest = false;
             QString v;
             const QString rlstring = match.captured(1);
-            kuriikws_debug(QStringLiteral("  reference list"), rlstring);
 
             // \{@} gets a special treatment later
             if (rlstring == QLatin1String("@")) {
@@ -302,19 +290,15 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                         found = true;
                     }
 
-                    kuriikws_debug(QStringLiteral("    range"),
-                                   QString::number(first) + QLatin1Char('-') + QString::number(last) + QLatin1String(" => '") + v + QLatin1Char('\''));
                     v = encodeString(v, codec);
                 } else if (rlitem.startsWith(QLatin1Char('\"')) && rlitem.endsWith(QLatin1Char('\"'))) {
                     // Use default string from query definition:
                     found = true;
                     QString s = rlitem.mid(1, rlitem.length() - 2);
                     v = encodeString(s, codec);
-                    kuriikws_debug(QStringLiteral("    default"), s);
                 } else if (map.contains(rlitem)) {
                     // Use value from substitution map:
                     found = true;
-                    kuriikws_debug(QLatin1String("    map['") + rlitem + QLatin1String("']"), map[rlitem]);
                     v = encodeString(map[rlitem], codec);
 
                     // Remove used value from ql (needed for \{@}):
@@ -343,7 +327,6 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
                     v.replace(QLatin1Char('+'), QLatin1String("%2B"));
                 } else if (rlitem == QLatin1String("@")) {
                     v = QStringLiteral("\\@");
-                    kuriikws_debug(QStringLiteral("    v"), v);
                 }
             }
 
@@ -353,11 +336,8 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
 
         // Special handling for \{@};
         {
-            kuriikws_debug(QStringLiteral("  newurl"), newurl);
             // Generate list of unmatched strings:
             QString v = ql.join(QLatin1Char(' ')).simplified();
-
-            kuriikws_debug(QStringLiteral("    rest"), v);
             v = encodeString(v, codec);
 
             // Substitute \{@} with list of unmatched query strings
@@ -387,14 +367,6 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url,
         return QUrl();
     }
 
-    // Debug info of map:
-    if (!map.isEmpty()) {
-        qCDebug(category) << "Got non-empty substitution map:\n";
-        for (SubstMap::Iterator it = map.begin(); it != map.end(); ++it) {
-            kuriikws_debug(QLatin1String("    map['") + it.key() + QLatin1String("']"), it.value());
-        }
-    }
-
     // Create a codec for the desired encoding so that we can transcode the user's "url".
     QString cseta = cset1;
     if (cseta.isEmpty()) {
@@ -407,9 +379,6 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url,
         csetacodec = QStringEncoder(QStringEncoder::Utf8);
     }
 
-    kuriikws_debug(QStringLiteral("user query"), userquery);
-    kuriikws_debug(QStringLiteral("query definition"), url);
-
     // Add charset indicator for the query to substitution map:
     map.insert(QStringLiteral("ikw_charset"), cseta);
 
@@ -421,8 +390,6 @@ QUrl KURISearchFilterEngine::formatResult(const QString &url,
     map.insert(QStringLiteral("wsc_charset"), csetb);
 
     QString newurl = substituteQuery(url, map, userquery, csetacodec);
-
-    kuriikws_debug(QStringLiteral("substituted query"), newurl);
 
     return QUrl(newurl, QUrl::StrictMode);
 }
