@@ -21,12 +21,12 @@ SearchProvider::SearchProvider(const QString &servicePath)
     KDesktopFile parser(servicePath);
     setName(parser.readName());
     KConfigGroup group(parser.desktopGroup());
-    setKeys(group.readEntry(QStringLiteral("Keys"), QStringList()));
+    setKeys(group.readEntry("Keys", QStringList()));
 
-    m_query = group.readEntry(QStringLiteral("Query"));
-    m_charset = group.readEntry(QStringLiteral("Charset"));
-    m_iconName = group.readEntry(QStringLiteral("Icon"));
-    m_isHidden = group.readEntry(QStringLiteral("Hidden"), false);
+    m_query = group.readEntry("Query");
+    m_charset = group.readEntry("Charset");
+    m_iconName = group.readEntry("Icon");
+    m_isHidden = group.readEntry("Hidden", false);
 }
 
 SearchProvider::~SearchProvider()

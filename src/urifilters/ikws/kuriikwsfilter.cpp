@@ -135,5 +135,4 @@ bool KAutoWebSearch::filterUri(KUriFilterData &data) const
 }
 
 #include "kuriikwsfilter.moc"
-
 #include "moc_kuriikwsfilter.cpp"

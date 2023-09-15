@@ -435,7 +435,7 @@ void KURISearchFilterEngine::configure()
     KConfig config(QString::fromUtf8(name()) + QLatin1String("rc"), KConfig::NoGlobals);
     KConfigGroup group = config.group("General");
 
-    m_cKeywordDelimiter = QString(group.readEntry("KeywordDelimiter", ":")).at(0).toLatin1();
+    m_cKeywordDelimiter = group.readEntry("KeywordDelimiter", ":").at(0).toLatin1();
     m_bWebShortcutsEnabled = group.readEntry("EnableWebShortcuts", true);
     m_defaultWebShortcut = group.readEntry("DefaultWebShortcut", "duckduckgo");
     m_bUseOnlyPreferredWebShortcuts = group.readEntry("UsePreferredWebShortcutsOnly", false);
