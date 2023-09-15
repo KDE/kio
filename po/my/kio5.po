@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:42+0000\n"
+"POT-Creation-Date: 2023-09-15 00:42+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -4284,7 +4284,7 @@ msgstr "အမှိုက်ပုံးရှင်း"
 msgid "Restore a trashed file to its original location"
 msgstr "အမှိုက်ပုံးသို့ ပို့ထားသောာ ဖိုင်လ်အား ၎င်း၏နဂိုနေရာသို့ ပြန်ပို့မည်"
 
-#: ioslaves/trash/trashimpl.cpp:1329
+#: ioslaves/trash/trashimpl.cpp:1334
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "အမှိုက်ပုံးပြည့်သွားပါပြီ။ အကုန်ရှင်းပစ်ပါ သို့မဟုတ် တစ်ခုချင်းဆီရှင်းပါ။"

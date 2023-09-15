@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:42+0000\n"
+"POT-Creation-Date: 2023-09-15 00:42+0000\n"
 "PO-Revision-Date: 2023-02-26 19:54+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -4410,7 +4410,7 @@ msgstr "Empty the contents of the wastebin"
 msgid "Restore a trashed file to its original location"
 msgstr "Restore a file from the wastebin to its original location"
 
-#: ioslaves/trash/trashimpl.cpp:1329
+#: ioslaves/trash/trashimpl.cpp:1334
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "The wastebin is full. Empty it or remove items manually."

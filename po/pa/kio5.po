@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:42+0000\n"
+"POT-Creation-Date: 2023-09-15 00:42+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -4199,7 +4199,7 @@ msgstr "ਰੱਦੀ 'ਚ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਨੂੰ ਖਾ
 msgid "Restore a trashed file to its original location"
 msgstr "ਰੱਦੀ ਵਿਚਲੀ ਫਾਇਲ ਨੂੰ ਅਸਲੀ ਟਿਕਾਣੇ ਉੱਤੇ ਬਹਾਲ ਕਰੋ"
 
-#: ioslaves/trash/trashimpl.cpp:1329
+#: ioslaves/trash/trashimpl.cpp:1334
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "ਰੱਦੀ ਭਰੀ ਹੋਈ ਹੈ। ਇਸ ਨੂੰ ਖਾਲੀ ਕਰੋ ਜਾਂ ਚੀਜ਼ਾਂ ਨੂੰ ਖੁਦ ਹਟਾਓ।"
