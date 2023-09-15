@@ -845,16 +845,10 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     QDataStream str(data);
     int width;
     int height;
-    quint8 iFormat;
-    int imgDevicePixelRatio = 1;
+    QImage::Format format;
+    int imgDevicePixelRatio;
     // TODO KF6: add a version number as first parameter
-    str >> width >> height >> iFormat;
-    if (iFormat & 0x80) {
-        // HACK to deduce if imgDevicePixelRatio is present
-        iFormat &= 0x7f;
-        str >> imgDevicePixelRatio;
-    }
-    QImage::Format format = static_cast<QImage::Format>(iFormat);
+    str >> width >> height >> format >> imgDevicePixelRatio;
 #if WITH_SHM
     if (shmaddr != nullptr) {
         thumb = QImage(shmaddr, width, height, format).copy();
