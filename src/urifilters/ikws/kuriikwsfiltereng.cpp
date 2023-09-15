@@ -225,18 +225,6 @@ QString KURISearchFilterEngine::substituteQuery(const QString &url, SubstMap &ma
     QStringList ql = modifySubstitutionMap(map, userquery);
     const int count = ql.count();
 
-    // Check, if old style '\1' is found and replace it with \{@} (compatibility mode):
-    {
-        int pos = -1;
-        if ((pos = newurl.indexOf(QLatin1String("\\1"))) >= 0) {
-            qCWarning(category) << "WARNING: Using compatibility mode for newurl='" << newurl
-                                << "'. Please replace old style '\\1' with new style '\\{0}' "
-                                   "in the query definition.\n";
-            newurl.replace(pos, 2, QStringLiteral("\\{@}"));
-        }
-    }
-
-    qCDebug(category) << "Substitute references:\n";
     // Substitute references (\{ref1,ref2,...}) with values from user query:
     {
         const static QRegularExpression reflistRe(QStringLiteral("\\\\\\{([^\\}]+)\\}"));
