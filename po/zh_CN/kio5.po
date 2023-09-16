@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 00:42+0000\n"
+"POT-Creation-Date: 2023-09-16 00:42+0000\n"
 "PO-Revision-Date: 2023-09-02 02:57\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "无法创建 KIO 工作程序：%1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1285
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1288
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4002,22 +4002,22 @@ msgstr ""
 "来源：%2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:850
+#: ioslaves/file/file_unix.cpp:853
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
-#: ioslaves/file/file_unix.cpp:1077
+#: ioslaves/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 设备中没有媒体"
 
-#: ioslaves/file/file_unix.cpp:1370
+#: ioslaves/file/file_unix.cpp:1373
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "无法获取给定的用户名 %1 的用户 ID"
 
-#: ioslaves/file/file_unix.cpp:1382
+#: ioslaves/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "无法获取给定的用户组名 %1 的用户组 ID"

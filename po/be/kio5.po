@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 00:42+0000\n"
+"POT-Creation-Date: 2023-09-16 00:42+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не ўдалося стварыць KIO worker: %1"
 
-#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1285
+#: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1288
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4223,24 +4223,24 @@ msgstr ""
 "Крыніца: %2\n"
 "%3"
 
-#: ioslaves/file/file_unix.cpp:850
+#: ioslaves/file/file_unix.cpp:853
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не ўдалося скапіяваць файл з %1 у %2. (Код памылкі: %3)"
 
-#: ioslaves/file/file_unix.cpp:1077
+#: ioslaves/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носьбіта ў прыладзе %1"
 
-#: ioslaves/file/file_unix.cpp:1370
+#: ioslaves/file/file_unix.cpp:1373
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Не ўдалося атрымаць ідэнтыфікатар карыстальніка для пададзенага імя "
 "карыстальніка %1"
 
-#: ioslaves/file/file_unix.cpp:1382
+#: ioslaves/file/file_unix.cpp:1385
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не ўдалося атрымаць ідэнтыфікатар групы для пададзенай групы %1"
