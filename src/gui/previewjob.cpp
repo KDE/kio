@@ -149,6 +149,8 @@ public:
     // Device ID for each file. Stored while in STATE_DEVICE_INFO state, used later on.
     QMap<QString, int> deviceIdMap;
     enum CachePolicy { Prevent, Allow, Unknown } currentDeviceCachePolicy = Unknown;
+    // The mimeType of the data returned by the thumbnail job
+    QString mimeTypeThumb;
 
     void getOrCreateThumbnail();
     bool statResultThumbnail();
@@ -783,6 +785,9 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
     KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
     q->addSubjob(job);
+    q->connect(job, &KIO::TransferJob::mimeTypeFound, q, [this](KIO::Job * /* job */, const QString &mimeType) {
+        mimeTypeThumb = mimeType;
+    });
     q->connect(job, &KIO::TransferJob::data, q, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
@@ -835,6 +840,11 @@ void PreviewJobPrivate::createThumbnail(const QString &pixPath)
 
 void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
 {
+    if (mimeTypeThumb.isEmpty()) {
+        qCWarning(KIO_GUI) << "Missing mimeType metadata for " << currentItem.item.url();
+        return;
+    }
+
     thumbnailWorkerMetaData = job->metaData();
     /* clang-format off */
     const bool save = bSave
@@ -846,34 +856,41 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     /* clang-format on */
 
     QImage thumb;
-    // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
-    QDataStream str(data);
-    int width;
-    int height;
-    quint8 iFormat;
-    int imgDevicePixelRatio = 1;
-    // TODO KF6: add a version number as first parameter
-    str >> width >> height >> iFormat;
-    if (iFormat & 0x80) {
-        // HACK to deduce if imgDevicePixelRatio is present
-        iFormat &= 0x7f;
-        str >> imgDevicePixelRatio;
-    }
-    QImage::Format format = static_cast<QImage::Format>(iFormat);
-#if WITH_SHM
-    if (shmaddr != nullptr) {
-        thumb = QImage(shmaddr, width, height, format).copy();
-    } else {
-#endif
-        str >> thumb;
-#if WITH_SHM
-    }
-#endif
-    thumb.setDevicePixelRatio(imgDevicePixelRatio);
 
-    if (thumb.isNull()) {
-        QDataStream s(data);
-        s >> thumb;
+    if (mimeTypeThumb == QLatin1String("application/octet-stream")) {
+        // Keep this in sync with kio-extras|thumbnail/thumbnail.cpp
+        QDataStream str(data);
+        int width;
+        int height;
+        quint8 iFormat;
+        int imgDevicePixelRatio = 1;
+        // TODO KF6: add a version number as first parameter
+        str >> width >> height >> iFormat;
+        if (iFormat & 0x80) {
+            // HACK to deduce if imgDevicePixelRatio is present
+            iFormat &= 0x7f;
+            str >> imgDevicePixelRatio;
+        }
+        QImage::Format format = static_cast<QImage::Format>(iFormat);
+#if WITH_SHM
+        if (shmaddr != nullptr) {
+            thumb = QImage(shmaddr, width, height, format).copy();
+        } else {
+#endif
+            str >> thumb;
+#if WITH_SHM
+        }
+#endif
+        thumb.setDevicePixelRatio(imgDevicePixelRatio);
+    }
+
+    if (mimeTypeThumb == QLatin1String("image/png")) {
+        thumb.loadFromData(data, "PNG");
+        bool ok;
+        int imgDevicePixelRatio = thumbnailWorkerMetaData.value(QStringLiteral("imgDevicePixelRatio")).toInt(&ok);
+        if (ok) {
+            thumb.setDevicePixelRatio(imgDevicePixelRatio);
+        }
     }
 
     if (thumb.isNull()) {
