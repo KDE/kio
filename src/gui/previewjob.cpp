@@ -168,13 +168,8 @@ public:
     static QList<KPluginMetaData> loadAvailablePlugins()
     {
         static QList<KPluginMetaData> jsonMetaDataPlugins;
-        if (!jsonMetaDataPlugins.isEmpty()) {
-            return jsonMetaDataPlugins;
-        }
-        jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
-        std::set<QString> pluginIds;
-        for (const KPluginMetaData &data : std::as_const(jsonMetaDataPlugins)) {
-            pluginIds.insert(data.pluginId());
+        if (jsonMetaDataPlugins.isEmpty()) {
+            jsonMetaDataPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/thumbcreator"));
         }
         return jsonMetaDataPlugins;
     }
