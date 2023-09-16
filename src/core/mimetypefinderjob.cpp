@@ -193,7 +193,8 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
     if (!KProtocolManager::supportsReading(m_url)) {
         qCDebug(KIO_CORE) << "No support for reading from" << m_url.scheme();
         q->setError(KIO::ERR_CANNOT_READ);
-        q->setErrorText(m_url.toDisplayString());
+        // We're a KJob, not a KIO::Job, so build the error string here
+        q->setErrorText(KIO::buildErrorString(q->error(), m_url.toDisplayString()));
         q->emitResult();
         return;
     }
@@ -212,7 +213,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
             // actions need to be taken.
             if (errCode != KIO::ERR_NO_CONTENT) {
                 q->setError(errCode);
-                q->setErrorText(job->errorText());
+                q->setErrorText(job->errorString());
             }
             q->emitResult();
         }
