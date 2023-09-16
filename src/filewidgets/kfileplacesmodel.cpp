@@ -495,11 +495,6 @@ KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QO
     });
 }
 
-KFilePlacesModel::KFilePlacesModel(QObject *parent)
-    : KFilePlacesModel({}, parent)
-{
-}
-
 KFilePlacesModel::~KFilePlacesModel() = default;
 
 QUrl KFilePlacesModel::url(const QModelIndex &index) const
