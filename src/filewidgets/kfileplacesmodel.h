@@ -127,6 +127,12 @@ public:
     enum DeviceAccessibility { SetupNeeded, SetupInProgress, Accessible, TeardownInProgress };
     Q_ENUM(DeviceAccessibility)
 
+    enum FilterPlaces {
+        FilterHidden,
+        NoFilter
+    };
+    Q_ENUM(FilterPlaces)
+
     explicit KFilePlacesModel(QObject *parent = nullptr);
     /**
      * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
@@ -396,8 +402,8 @@ public:
      * The closest item is defined as item which is equal to
      * the URL or at least is a parent URL. If there are more than
      * one possible parent URL candidates, the item which covers
-     * the bigger range of the URL is returned. Hidden entries are
-     * returned if includeHidden is true and skipped otherwise.
+     * the bigger range of the URL is returned. The filter parameter
+     * indicates whether to skip hidden entries.
      *
      * Example: the url is '/home/peter/Documents/Music'.
      * Available items are:
@@ -406,7 +412,7 @@ public:
      *
      * The returned item will the one for '/home/peter/Documents'.
      */
-    QModelIndex closestItem(const QUrl &url, bool includeHidden) const;
+    QModelIndex closestItem(const QUrl &url, FilterPlaces filter) const;
 
     Qt::DropActions supportedDropActions() const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;

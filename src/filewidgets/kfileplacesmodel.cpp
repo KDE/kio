@@ -721,10 +721,10 @@ int KFilePlacesModel::columnCount(const QModelIndex &parent) const
 
 QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
 {
-    return closestItem(url, true);
+    return closestItem(url, FilterPlaces::FilterHidden);
 }
 
-QModelIndex KFilePlacesModel::closestItem(const QUrl &url, bool includeHidden) const
+QModelIndex KFilePlacesModel::closestItem(const QUrl &url, FilterPlaces filter) const
 {
     int foundRow = -1;
     int maxLength = 0;
@@ -735,7 +735,8 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url, bool includeHidden) c
     for (int row = 0; row < d->items.size(); ++row) {
         KFilePlacesItem *item = d->items[row];
 
-        if (!includeHidden && (item->isHidden() || isGroupHidden(item->groupType()))) {
+        if (filter == FilterPlaces::FilterHidden
+            && (item->isHidden() || isGroupHidden(item->groupType()))) {
             continue;
         }
 
