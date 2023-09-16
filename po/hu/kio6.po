@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-10 01:56+0000\n"
+"POT-Creation-Date: 2023-09-16 01:55+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KDE protokollt: %1"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1254
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:1257
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4266,22 +4266,22 @@ msgstr ""
 "Forrás: %2\n"
 "%3"
 
-#: kioworkers/file/file_unix.cpp:830
+#: kioworkers/file/file_unix.cpp:833
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nem másolható egy fájl: %1 -> %2. (Hibakód: %3)"
 
-#: kioworkers/file/file_unix.cpp:1052
+#: kioworkers/file/file_unix.cpp:1055
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:1344
+#: kioworkers/file/file_unix.cpp:1347
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:1355
+#: kioworkers/file/file_unix.cpp:1358
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
