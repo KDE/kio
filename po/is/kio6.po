@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"POT-Creation-Date: 2023-09-17 02:28+0000\n"
 "PO-Revision-Date: 2023-08-11 13:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2400,7 +2400,7 @@ msgstr ""
 "Gölluð slóð\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Ekki tókst að ákvarða skrárgerð fyrir %1"

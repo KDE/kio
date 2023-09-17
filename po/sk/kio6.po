@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"POT-Creation-Date: 2023-09-17 02:28+0000\n"
 "PO-Revision-Date: 2023-06-03 21:00+0200\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
@@ -2382,7 +2382,7 @@ msgstr ""
 "Neplatné URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Nie je možné rozpoznať typ súboru %1"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"POT-Creation-Date: 2023-09-17 02:28+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2484,7 +2484,7 @@ msgstr ""
 "Pamylkovy URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Nie ŭdalosia vyznačyć typ fajla %1"

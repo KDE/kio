@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"POT-Creation-Date: 2023-09-17 02:28+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2399,7 +2399,7 @@ msgstr ""
 "Səhv URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 faylının növünü müəyyən etmək mümkün olmadı"

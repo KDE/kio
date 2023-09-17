@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"POT-Creation-Date: 2023-09-17 02:28+0000\n"
 "PO-Revision-Date: 2023-08-27 21:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -829,14 +829,14 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"'%1' sahibi geçerli kullanıcı olduğundan\n"
+"'%1' sahibi geçerli kullanıcı olduğundan \n"
 "ayrıcalık yükseltmesine gerek yoktur.\n"
 "İzinleri değiştirdikten sonra yeniden deneyin."
 
 #: core/job_error.cpp:257
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr "Dosya çöp kutusuna taşınmak için çok büyük."
+msgstr "Dosya çöp kutusuna taşınmak için pek büyük."
 
 #: core/job_error.cpp:260
 #, kde-format
@@ -922,7 +922,7 @@ msgstr "Yardım için sistem yöneticisine başvurun."
 #: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "Bu kaynak üzerindeki erişim düzeyinizi denetleyin."
+msgstr "Bu özkaynak üzerindeki erişim düzeyinizi denetleyin."
 
 #: core/job_error.cpp:379
 #, kde-format
@@ -1018,7 +1018,7 @@ msgstr ""
 #: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr "Şimdi, ya da daha sonra yeniden deneyin."
+msgstr "Şimdi veya daha sonra yeniden deneyin."
 
 #: core/job_error.cpp:418
 #, kde-format
@@ -1028,12 +1028,12 @@ msgstr "Bir protokol hatası ya da uyumsuzluğu oluşmuş olabilir."
 #: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
-msgstr "Kaynağın olduğuna emin olduktan sonra yeniden deneyin."
+msgstr "Kaynağın var olduğuna emin olduktan sonra yeniden deneyin."
 
 #: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
-msgstr "Belirtilen kaynak bulunmayabilir."
+msgstr "Belirtilen özkaynak var olmayabilir."
 
 #: core/job_error.cpp:422
 #, kde-format
@@ -1043,12 +1043,12 @@ msgstr "Lütfen doğru konumu girdiğinizi denetleyerek yeniden deneyin."
 #: core/job_error.cpp:424
 #, kde-format
 msgid "Check your network connection status."
-msgstr "Ağ bağlantı durumunu yeniden denetleyin."
+msgstr "Ağ bağlantısı durumunuzu denetleyin."
 
 #: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
-msgstr "Kaynak, Okuma İçin Açılamadı"
+msgstr "Özkaynak, Okumak için Açılamıyor"
 
 #: core/job_error.cpp:430
 #, kde-format
@@ -1067,7 +1067,7 @@ msgstr "Dosyayı okumak veya klasörü açmak için yeterli izniniz olmayabilir.
 #: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
-msgstr "Kaynak, Yazma İçin Açılamadı"
+msgstr "Özkaynak, Yazmak için Açılamıyor"
 
 #: core/job_error.cpp:444
 #, kde-format
@@ -1696,7 +1696,7 @@ msgstr ""
 #: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
-msgstr "Kaynaktan Okunamadı"
+msgstr "Özkaynaktan Okunamıyor"
 
 #: core/job_error.cpp:811
 #, kde-format
@@ -1704,18 +1704,18 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
-"Bu, <strong>%1</strong> kaynağı her ne kadar açılabilmiş olsa da, "
+"Bu, <strong>%1</strong> özkaynağı her ne kadar açılabilmiş olsa da, "
 "içindekiler okunurken bir hata oluştuğu anlamına gelir."
 
 #: core/job_error.cpp:815
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr "Bu kaynaktan okuma izniniz olmayabilir."
+msgstr "Bu özkaynaktan okuma izniniz olmayabilir."
 
 #: core/job_error.cpp:828
 #, kde-format
 msgid "Cannot Write to Resource"
-msgstr "Kaynağa Yazılamadı"
+msgstr "Özkaynağa Yazılamadı"
 
 #: core/job_error.cpp:830
 #, kde-format
@@ -1723,13 +1723,13 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr ""
-"<strong>%1</strong> kaynağı açılmış olmasına rağmen bu kaynağa yazdırılma "
+"<strong>%1</strong> özkaynağı açılmış olmasına rağmen bu kaynağa yazdırılma "
 "sırasında bir hata alınmıştır."
 
 #: core/job_error.cpp:833
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr "Kaynağa yazma izniniz olmayabilir."
+msgstr "Özkaynağa yazma izniniz olmayabilir."
 
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
@@ -1779,7 +1779,7 @@ msgstr "Bağlantıyı kabul etmek için yeterli izniniz olmayabilir."
 #: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
-msgstr "Oturum Açılamadı: %1"
+msgstr "Oturum açılamadı: %1"
 
 #: core/job_error.cpp:886
 #, kde-format
@@ -1791,12 +1791,12 @@ msgstr ""
 #: core/job_error.cpp:902
 #, kde-format
 msgid "Could Not Determine Resource Status"
-msgstr "Kaynağın Durumu Belirlenemedi"
+msgstr "Özkaynak Durumu Belirlenemedi"
 
 #: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
-msgstr "Kaynağa Erişilemiyor"
+msgstr "Özkaynağa Erişilemiyor"
 
 #: core/job_error.cpp:905
 #, kde-format
@@ -1810,7 +1810,7 @@ msgstr ""
 #: core/job_error.cpp:910
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
-msgstr "Belirtilen kaynak var olmayabilir ya da erişilebilir değildir."
+msgstr "Belirtilen özkaynak var olmayabilir veya erişilebilir değildir."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
 #: core/job_error.cpp:921
@@ -1923,12 +1923,12 @@ msgstr "Kaynağın İzinleri Değiştirilemedi"
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
-msgstr "Belirtilen kaynağın <strong>%1</strong> izinleri değiştirilemedi."
+msgstr "Belirtilen özkaynağın <strong>%1</strong> izinleri değiştirilemedi."
 
 #: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
-msgstr "Kaynak Silinemedi"
+msgstr "Özkaynak Silinemedi"
 
 #: core/job_error.cpp:1005
 #, kde-format
@@ -2334,7 +2334,7 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 "Hedef dosya sistemi bu kadar büyük dosyaları desteklemediğinden <filename>"
-"%1</filename> dosyası aktarılamıyor."
+"%1</filename> dosyası aktarılamıyor"
 
 #: core/job_error.cpp:1266
 #, kde-format
@@ -2375,7 +2375,7 @@ msgstr ""
 "Bozuk URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 dosyasının türü algılanamıyor"
@@ -2844,12 +2844,12 @@ msgstr "Tüm Dosyalar"
 #: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
 msgid "Add Places Entry"
-msgstr "Konum Girdisi Ekle"
+msgstr "Yerler Girdisi Ekle"
 
 #: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Edit Places Entry"
-msgstr "Konum Girdisini Düzenle"
+msgstr "Yerler Girdisini Düzenle"
 
 #: filewidgets/kfileplaceeditdialog.cpp:78
 #, kde-format
@@ -2904,7 +2904,7 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
 msgid "Choose an &icon:"
-msgstr "B&ir simge seçin:"
+msgstr "B&ir simge seç:"
 
 #: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
@@ -3439,7 +3439,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1392
 #, kde-format
 msgid "This is the name of the file to open."
-msgstr "Bu açılacak dosyanın adıdır"
+msgstr "Bu, açılacak dosyanın adıdır"
 
 #: filewidgets/kfilewidget.cpp:1405
 #, kde-format
@@ -3788,7 +3788,7 @@ msgstr "Bu dosyayı yürütmek için gerekli yetkilere sahip değilsiniz."
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
-msgstr "%1 Başlatılıyor"
+msgstr "Başlatılıyor: %1"
 
 #: gui/applicationlauncherjob.cpp:159
 #, kde-format
@@ -3810,7 +3810,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
-msgstr "Dahili hata: kullanıcıya hangi uygulamanın başlatılacağını soramadı"
+msgstr "İçsel hata: Kullanıcıya hangi uygulamanın başlatılacağı sorulamadı"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3846,7 +3846,7 @@ msgstr ""
 #: gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "Launching %1"
-msgstr "%1 Başlatılıyor"
+msgstr "Başlatılıyor: %1"
 
 #: gui/kprocessrunner.cpp:456
 #, kde-kuit-format
@@ -3932,7 +3932,7 @@ msgstr "Dosya açılamadı."
 #: gui/openurljob.cpp:673
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "\"%1\" programı çalıştırılamadı."
+msgstr "\"%1\" programı başlatılamadı."
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
@@ -3951,12 +3951,12 @@ msgstr "Dosya Değiştirildi"
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
 #, kde-format
 msgid "Upload"
-msgstr "Gönder"
+msgstr "Karşıya Yükle"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
 #, kde-format
 msgid "Do Not Upload"
-msgstr "Gönderme"
+msgstr "Karşıya Yükleme"
 
 #: kioexec/main.cpp:55
 #, kde-format
@@ -3974,8 +3974,8 @@ msgid ""
 "The URL %1\n"
 "is malformed"
 msgstr ""
-"%1 URL'si\n"
-"bozuk"
+"%1\n"
+"URL'si bozuk"
 
 #: kioexec/main.cpp:80
 #, kde-format
@@ -3996,8 +3996,8 @@ msgid ""
 msgstr ""
 "Geçici\n"
 "%1\n"
-"dosyası düzenlenmiş.\n"
-"Hala silmek istiyor musunuz?"
+"dosyası değiştirildi.\n"
+"Hâlâ silmek istiyor musunuz?"
 
 #: kioexec/main.cpp:237
 #, kde-format
@@ -4014,7 +4014,8 @@ msgid ""
 msgstr ""
 "%1\n"
 "dosyası değiştirildi.\n"
-"Değişiklikleri karşıya yüklemek istiyor musunuz?"
+"Değişiklikleri karşıya\n"
+"yüklemek istiyor musunuz?"
 
 #: kioexec/main.cpp:284
 #, kde-format
@@ -4365,79 +4366,79 @@ msgstr "Belirtilseydi istek başarılı olacaktı."
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
-msgstr "özellik değerlerini al"
+msgstr "Özellik değerlerini alma"
 
 #: kioworkers/http/http.cpp:1511
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
-msgstr "özellik değerlerini ayarla"
+msgstr "Özellik değerlerini ayarlama"
 
 #: kioworkers/http/http.cpp:1514
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
-msgstr "istenilen klasörü oluştur"
+msgstr "İstenilen klasörü oluşturma"
 
 #: kioworkers/http/http.cpp:1517
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı kopyala"
+msgstr "Belirtilen klasör veya dosyayı kopyalama"
 
 #: kioworkers/http/http.cpp:1520
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı taşı"
+msgstr "Belirtilen klasörü veya dosyayı taşıma"
 
 #: kioworkers/http/http.cpp:1523
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
-msgstr "belirtilen klasör içerisinde ara"
+msgstr "Belirtilen klasör içinde arama"
 
 #: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı kilitle"
+msgstr "Belirtilen klasörü veya dosyayı kilitleme"
 
 #: kioworkers/http/http.cpp:1529
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "belirtilen klasör ya da dosyanın kilidini aç"
+msgstr "Belirtilen klasörün veya dosyanın kilidini açma"
 
 #: kioworkers/http/http.cpp:1532
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "belirtilen klasör ya da dosyayı sil"
+msgstr "Belirtilen klasörü veya dosyayı silme"
 
 #: kioworkers/http/http.cpp:1535
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
-msgstr "sunucunun özelliklerini sorgula"
+msgstr "Sunucunun yeteneklerini sorgulama"
 
 #: kioworkers/http/http.cpp:1538
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
-msgstr "belirtilen klasör ya da dosyanın içeriğini al"
+msgstr "Belirtilen klasörün veya dosyanın içeriğini alma"
 
 #: kioworkers/http/http.cpp:1541
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "belirtilen klasör içerisinde bir rapor çalıştır"
+msgstr "Belirtilen klasör içinde bir rapor çalıştırma"
 
 #: kioworkers/http/http.cpp:1553
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
+msgstr "%2 yapılmaya çalışılırken beklenmedik bir hata oluştu (%1)."
 
 #: kioworkers/http/http.cpp:1562
 #, kde-format
@@ -4458,7 +4459,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
-msgstr "%1 işlem yapılırken erişim engellendi."
+msgstr "%1 yapılmaya çalışılırken erişim engellendi."
 
 #: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
 #, kde-format
@@ -4467,7 +4468,7 @@ msgid ""
 "intermediate collections (folders) have been created."
 msgstr ""
 "Bir veya daha fazla ara koleksiyon (klasör) oluşturulmadan, hedefte bu "
-"kaynak oluşturulamaz."
+"özkaynak oluşturulamaz."
 
 #: kioworkers/http/http.cpp:1647
 #, kde-format
@@ -4478,26 +4479,27 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"Sunucu, XML propertybehavior ögesindeki canlılığı\n"
-"koruyamadı veya dosyaların üzerine yazılmasın derken\n"
-"bir dosyanın üzerine yazmaya çalıştınız.\n"
+"Sunucu, propertybehavior XML öğesinde listelenen\n"
+"özelliklerin canlılığını koruyamadı veya dosyaların\n"
+"üzerine yazılmamasını isterken bir dosyanın üzerine\n"
+"yazmaya çalıştınız.\n"
 " %1"
 
 #: kioworkers/http/http.cpp:1655
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr "İstenen kilit tamamlanamadı: %1"
+msgstr "İstenen kilit verilemedi: %1"
 
 #: kioworkers/http/http.cpp:1661
 #, kde-format
 msgid "The server does not support the request type of the body."
-msgstr "Bu istek talebini sunucu anlamadı."
+msgstr "Sunucu, gövdenin istek türünü desteklemiyor."
 
 #: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
-msgstr "Kaynak kilitli olduğundan %1 yapılamıyor"
+msgstr "%1, özkaynak kilitli olduğundan yapılamıyor."
 
 #: kioworkers/http/http.cpp:1670
 #, kde-format
@@ -4511,7 +4513,8 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
-"Hedef sunucu dosyayı veya klasörü kabul etmeyi reddettiğinden %1 yapılamıyor."
+"%1, hedef sunucu dosyayı veya klasörü kabul etmeyi reddettiğinden "
+"yapılamıyor."
 
 #: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
 #, kde-format
@@ -4525,19 +4528,19 @@ msgstr ""
 #: kioworkers/http/http.cpp:1738
 #, kde-format
 msgid "The resource cannot be deleted."
-msgstr "Kaynak silinemedi."
+msgstr "Özkaynak silinemiyor."
 
 #: kioworkers/http/http.cpp:1751
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "%1 karşıya yükle"
+msgstr "%1 karşıya yüklemesi"
 
 #: kioworkers/http/http.cpp:1802
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr "%2 uygulanırken beklenmedik bir hata oluştu (%1)."
+msgstr "%2 yapılmaya çalışılırken beklenmedik bir hata oluştu (%1)."
 
 #: kioworkers/http/http.cpp:2502
 #, kde-format
@@ -5471,19 +5474,19 @@ msgstr "Durdur"
 #: widgets/kfilepropspluginwidget.ui:62
 #, kde-format
 msgid "Explore in Filelight"
-msgstr "Dosya Feneri İçinde Araştır"
+msgstr "Dosya Feneri'nde Araştır"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:146
 #, kde-format
 msgid "Mounted From:"
-msgstr "Bağlanma Noktası:"
+msgstr "Şuradan bağlandı:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:222
 #, kde-format
 msgid "Free Space:"
-msgstr "Boş Alan:"
+msgstr "Boş alan:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
 #: widgets/kfilepropspluginwidget.ui:259
@@ -5549,7 +5552,7 @@ msgstr "Bilinmeyen boyut"
 #: widgets/kfilepropspluginwidget.ui:468
 #, kde-format
 msgid "Mounted On:"
-msgstr "Bağlanma Yeri:"
+msgstr "Şuraya bağlandı:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:488
@@ -5609,7 +5612,7 @@ msgstr "Uygulama Seç"
 #: widgets/kopenwithdialog.cpp:611
 #, kde-format
 msgid "Choose Application for %1"
-msgstr "%1 İçin Uygulama Seç"
+msgstr "%1 için Uygulama Seç"
 
 #: widgets/kopenwithdialog.cpp:613
 #, kde-format
@@ -6135,7 +6138,7 @@ msgstr "&Genel"
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
-msgstr "%1 İçinde Araştır"
+msgstr "Şurada Araştır: %1"
 
 #: widgets/kpropertiesdialog.cpp:1062 widgets/kpropertiesdialog.cpp:1331
 #, kde-format
@@ -6664,7 +6667,7 @@ msgstr "&Uygulama"
 #: widgets/kpropertiesdialog.cpp:3364
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "%1 İçin Dosya Türü Ekle"
+msgstr "%1 için Dosya Türü Ekle"
 
 #: widgets/kpropertiesdialog.cpp:3365
 #, kde-format
@@ -6679,7 +6682,7 @@ msgstr "Yalnızca yerel dosya sistemindeki yürütülebilirler desteklenir."
 #: widgets/kpropertiesdialog.cpp:3521
 #, kde-format
 msgid "Advanced Options for %1"
-msgstr "%1 İçin Gelişmiş Seçenekler"
+msgstr "%1 için Gelişmiş Seçenekler"
 
 #: widgets/ksslinfodialog.cpp:38
 #, kde-format
@@ -7310,168 +7313,3 @@ msgstr "Bu, uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal düğmesine tıklayın"
-
-#~ msgid "Cannot Save Cookies"
-#~ msgstr "Çerezler Kaydedilemiyor"
-
-#~ msgid "Could not remove %1, check permissions"
-#~ msgstr "%1 kaldırılamadı, izinleri denetleyin"
-
-#~ msgid "Could not create directory %1"
-#~ msgstr "%1 dizini oluşturulamadı"
-
-#~ msgid "Cookie Alert"
-#~ msgstr "Çerez Uyarısı"
-
-#~ msgctxt "%2 hostname, %3 optional cross domain suffix (translated below)"
-#~ msgid ""
-#~ "<p>You received a cookie from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject this cookie?</p>"
-#~ msgid_plural ""
-#~ "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept "
-#~ "or reject these cookies?</p>"
-#~ msgstr[0] ""
-#~ "<p><br/><b>%2%3</b> içinden bir çerez aldınız<br/>Bu çerezi kabul mü red "
-#~ "mi etmek istersiniz?</p>"
-#~ msgstr[1] ""
-#~ "<p><br/><b>%2%3</b> içinden %1 çerez aldınız<br/>Bu çerezleri kabul mü "
-#~ "red mi etmek istersiniz?</p>"
-
-#~ msgctxt "@item:intext cross domain cookie"
-#~ msgid " [Cross Domain]"
-#~ msgstr " [Çapraz Alan Adı]"
-
-#~ msgid "Details"
-#~ msgstr "Ayrıntılar"
-
-#~ msgid "See or modify the cookie information"
-#~ msgstr "Ayrıntılı çerez bilgisini gör/değiştir"
-
-#~ msgid "Accept for this &session"
-#~ msgstr "&Bu oturum için kabul et"
-
-#~ msgid "Accept cookie(s) until the end of the current session"
-#~ msgstr "Çerez(ler)i güncen oturumun sonuna kadar kabul et"
-
-#~ msgid "&Accept"
-#~ msgstr "&Kabul Et"
-
-#~ msgid "&Reject"
-#~ msgstr "&Reddet"
-
-#~ msgid "Apply Choice To"
-#~ msgstr "Seçimi Buna Uygula"
-
-#~ msgid "&Only this cookie"
-#~ msgstr "&Yalnızca bu çerez"
-
-#~ msgid "&Only these cookies"
-#~ msgstr "Y&alnızca bu çerezler"
-
-#~ msgid ""
-#~ "Select this option to only accept or reject this cookie. You will be "
-#~ "prompted again if you receive another cookie."
-#~ msgstr ""
-#~ "Yalnızca bu çerezi kabul etmek veya reddetmek için bu seçeneğe tıklayın. "
-#~ "Başka bir çerez alındığında ne yapılacağı size sorulacak."
-
-#~ msgid "All cookies from this do&main"
-#~ msgstr "Bu a&lan adından gelen tüm çerezler"
-
-#~ msgid ""
-#~ "Select this option to accept or reject all cookies from this site. "
-#~ "Choosing this option will add a new policy for the site this cookie "
-#~ "originated from. This policy will be permanent until you manually change "
-#~ "it from the System Settings."
-#~ msgstr ""
-#~ "Bu adresten gelen tüm çerezleri kabul etmek veya reddetmek için bu "
-#~ "seçeneği işaretleyin. Bu seçeneği işaretlemek, çerezin geldiği site için "
-#~ "yeni bir politika belirlenmesini sağlar. Bu politika, siz Sistem "
-#~ "Ayarları'ndan değiştirene kadar kalıcı niteliktedir."
-
-#~ msgid "All &cookies"
-#~ msgstr "Tüm ç&erezler"
-
-#~ msgid ""
-#~ "Select this option to accept/reject all cookies from anywhere. Choosing "
-#~ "this option will change the global cookie policy for all cookies until "
-#~ "you manually change it from the System Settings."
-#~ msgstr ""
-#~ "Herhangi bir yerden tüm çerezleri kabul etmek veya reddetmek için bu  "
-#~ "seçeneği işaretleyin. Bu seçeneği işaretlemek Ayarlardaki genel çerez "
-#~ "politikasını değiştirir."
-
-#~ msgid "Cookie Details"
-#~ msgstr "Çerez Ayrıntıları"
-
-#~ msgid "Name:"
-#~ msgstr "Ad:"
-
-#~ msgid "Value:"
-#~ msgstr "Değer:"
-
-#~ msgid "Expires:"
-#~ msgstr "Sonlanma tarihi:"
-
-#~ msgid "Path:"
-#~ msgstr "Yol:"
-
-#~ msgid "Domain:"
-#~ msgstr "Alan:"
-
-#~ msgctxt ""
-#~ "@label a description string of how 'accessible' the cookie is (e.g. see "
-#~ "exposure string in this file)"
-#~ msgid "Exposure:"
-#~ msgstr "Sergileme:"
-
-#~ msgctxt "Next cookie"
-#~ msgid "&Next >>"
-#~ msgstr "&İleri >>"
-
-#~ msgid "Show details of the next cookie"
-#~ msgstr "Sonraki çerez bilgilerini göster"
-
-#~ msgctxt "@label cookie has no explicit 'Domain' value specified"
-#~ msgid "Not specified"
-#~ msgstr "Belirtilmemiş"
-
-#~ msgctxt "@label the cookie expires when the browser session ends"
-#~ msgid "End of Session"
-#~ msgstr "Oturum Sonu"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by https servers"
-#~ msgid "Secure servers only"
-#~ msgstr "Yalnızca güvenli sunucular"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by https servers AND "
-#~ "client-side javascripts"
-#~ msgid "Secure servers, page scripts"
-#~ msgstr "Güvenli sunucular, sayfa betikleri"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may only be used by http servers"
-#~ msgid "Servers"
-#~ msgstr "Sunucular"
-
-#~ msgctxt ""
-#~ "@label exposure string - the cookie may be used by http servers AND "
-#~ "client-side javascripts"
-#~ msgid "Servers, page scripts"
-#~ msgstr "Sunucular, sayfa betikleri"
-
-#~ msgctxt ""
-#~ "@action:button show details about a cookie that needs approval. This "
-#~ "string gets >> and << appended, to visualize if the dialog expands or "
-#~ "compacts!"
-#~ msgid "Details"
-#~ msgstr "Ayrıntılar"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Remove"
-#~ msgstr "Kaldır"
-
-#~ msgid "Multiple get is not supported with protocol %1."
-#~ msgstr "%1 protokolü yardımıyla çoklu alma işlemi desteklenmiyor."
