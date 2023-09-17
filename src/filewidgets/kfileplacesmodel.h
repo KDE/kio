@@ -403,7 +403,7 @@ public:
      *
      * The returned item will the one for '/home/peter/Documents'.
      */
-    QModelIndex closestItem(const QUrl &url, FilterPlaces includeHidden = FilterPlaces::FilterHidden) const;
+    QModelIndex closestItem(const QUrl &url, FilterPlaces filter = FilterPlaces::FilterHidden) const;
 
     Qt::DropActions supportedDropActions() const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
