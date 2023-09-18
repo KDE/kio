@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-17 00:41+0000\n"
-"PO-Revision-Date: 2023-09-10 20:19+0200\n"
+"PO-Revision-Date: 2023-09-16 18:30+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -4358,7 +4358,7 @@ msgstr ""
 #: ioslaves/trash/kcmtrash.cpp:234
 #, kde-format
 msgid "Delete files older than"
-msgstr "Supprimer les fichiers antérieurs au"
+msgstr "Supprimer les fichiers antérieurs à"
 
 #: ioslaves/trash/kcmtrash.cpp:237
 #, kde-kuit-format
@@ -5281,8 +5281,8 @@ msgstr ""
 #, kde-format
 msgid " byte"
 msgid_plural " bytes"
-msgstr[0] "octet"
-msgstr[1] "octets"
+msgstr[0] " octet"
+msgstr[1] " octets"
 
 #: kcms/netpref/netpref.cpp:92
 #, kde-format
@@ -5290,8 +5290,8 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
-"Si annulé, supprimer automatiquement les fichiers téléchargés, plus petits "
-"que :"
+"En cas d'annulation, supprimer automatiquement les fichiers partiellement "
+"envoyés de taille inférieure à :"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format

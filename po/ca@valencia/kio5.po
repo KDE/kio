@@ -5806,9 +5806,9 @@ msgstr ""
 "busca en la web</h2> Les paraules clau de busca en la web són una manera "
 "ràpida d'utilitzar els motors de busca web. Per exemple, escriviu "
 "«duckduckgo:frobozz» o «dd:frobozz» i el navegador web farà una busca a "
-"DuckDuckGo de «frobozz». Encara més fàcil: senzillament premeu Alt+F2 (si no "
-"heu canviat esta drecera de teclat) i introduïu la drecera web en el diàleg "
-"per a executar ordres de KDE."
+"DuckDuckGo de «frobozz». Encara més fàcil: senzillament premeu «Alt+F2» (si "
+"no heu canviat esta drecera de teclat) i introduïu la drecera web en el "
+"diàleg per a executar ordres de KDE."
 
 #: kioexec/kioexecd.cpp:85
 #, kde-format
