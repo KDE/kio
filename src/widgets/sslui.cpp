@@ -15,6 +15,10 @@
 
 bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage storedRules)
 {
+    // Short circuit to stop this 
+    if (getenv("KIO_SKIP_SSLAUTHERR"))
+        return true;
+    
     const KSslErrorUiData::Private *ud = KSslErrorUiData::Private::get(&uiData);
     if (ud->sslErrors.isEmpty()) {
         return true;
@@ -85,7 +89,7 @@ bool KIO::SslUi::askIgnoreSslErrors(const KSslErrorUiData &uiData, RulesStorage 
         }
         // fall through on KMessageBox::SecondaryAction
     } while (msgResult == KMessageBox::PrimaryAction);
-
+    
     if (storedRules & StoreRules) {
         // Save the user's choice to ignore the SSL errors.
 
