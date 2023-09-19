@@ -5,12 +5,13 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
-#include "searchproviderregistry.h"
 #include "searchprovider.h"
+#include "searchproviderregistry_p.h"
 
 #include <QDir>
 #include <QStandardPaths>
 
+using namespace KIO;
 SearchProviderRegistry::SearchProviderRegistry()
 {
     reload();

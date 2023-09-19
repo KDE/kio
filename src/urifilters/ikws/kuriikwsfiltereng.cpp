@@ -10,7 +10,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "kuriikwsfiltereng.h"
+#include "kuriikwsfiltereng_p.h"
 #include "searchprovider.h"
 
 #include <KConfig>
@@ -23,6 +23,7 @@
 #include <QStringEncoder>
 
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
+using namespace KIO;
 
 /**
  * IMPORTANT: If you change anything here, make sure kiowidgets-kurifiltertest-{colon,space}-separator
@@ -419,4 +420,4 @@ SearchProviderRegistry *KURISearchFilterEngine::registry()
     return &m_registry;
 }
 
-#include "moc_kuriikwsfiltereng.cpp"
+#include "moc_kuriikwsfiltereng_p.cpp"

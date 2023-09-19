@@ -8,7 +8,7 @@
 */
 
 #include "kurisearchfilter.h"
-#include "kuriikwsfiltereng.h"
+#include "kuriikwsfiltereng_p.h"
 #include "searchprovider.h"
 
 #include <KPluginFactory>
@@ -48,7 +48,7 @@ bool KUriSearchFilter::filterUri(KUriFilterData &data) const
     }
 
     QString searchTerm;
-    KURISearchFilterEngine *filter = KURISearchFilterEngine::self();
+    auto filter = KIO::KURISearchFilterEngine::self();
     SearchProvider *provider(filter->webShortcutQuery(data.typedString(), searchTerm));
     if (!provider) {
         return false;

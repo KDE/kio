@@ -8,16 +8,19 @@
 #ifndef SEARCHPROVIDERREGISTRY_H
 #define SEARCHPROVIDERREGISTRY_H
 
-#include "kuriikwsfiltereng_common_export.h"
+#include "kuriikwsfiltereng_private_export.h"
 #include <QList>
 #include <QMap>
 
 class SearchProvider;
 
+namespace KIO
+{
+
 /**
  * Memory cache for search provider desktop files
  */
-class KURIIKWSFILTERENG_COMMON_EXPORT SearchProviderRegistry
+class KURIIKWSFILTERENG_PRIVATE_EXPORT SearchProviderRegistry
 {
 public:
     /**
@@ -48,5 +51,6 @@ private:
     QMap<QString, SearchProvider *> m_searchProvidersByKey;
     QMap<QString, SearchProvider *> m_searchProvidersByDesktopName;
 };
+}
 
 #endif // SEARCHPROVIDERREGISTRY_H

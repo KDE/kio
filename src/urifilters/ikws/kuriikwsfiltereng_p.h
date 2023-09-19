@@ -13,8 +13,8 @@
 #ifndef KURIIKWSFILTERENG_H
 #define KURIIKWSFILTERENG_H
 
-#include "kuriikwsfiltereng_common_export.h"
-#include "searchproviderregistry.h"
+#include "kuriikwsfiltereng_private_export.h"
+#include "searchproviderregistry_p.h"
 #include <QMap>
 #include <QObject>
 #include <QStringList>
@@ -23,7 +23,9 @@
 class QStringEncoder;
 class SearchProvider;
 
-class KURIIKWSFILTERENG_COMMON_EXPORT KURISearchFilterEngine : public QObject
+namespace KIO
+{
+class KURIIKWSFILTERENG_PRIVATE_EXPORT KURISearchFilterEngine : public QObject
 {
     Q_OBJECT
 public:
@@ -63,5 +65,6 @@ private:
     char m_cKeywordDelimiter;
     bool m_reloadRegistry = false; // We would load it twice otherwise
 };
+}
 
 #endif // KURIIKWSFILTERENG_H

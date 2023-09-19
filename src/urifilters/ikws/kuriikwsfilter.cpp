@@ -8,7 +8,7 @@
 */
 
 #include "kuriikwsfilter.h"
-#include "kuriikwsfiltereng.h"
+#include "kuriikwsfiltereng_p.h"
 #include "searchprovider.h"
 
 #include <KLocalizedString>
@@ -17,6 +17,7 @@
 #include <QDBusConnection>
 #include <QLoggingCategory>
 
+using namespace KIO;
 namespace
 {
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
