@@ -273,6 +273,9 @@ void ConnectionBackend::socketReadyRead()
 
         // If we're dead, better don't try anything.
         if (that.isNull()) {
+            if (len != -1) {
+                qCWarning(KIO_CORE) << "ConnectionBackend: stopping socketReadyRead while not fully read";
+            }
             return;
         }
 
