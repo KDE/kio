@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:28+0000\n"
+"POT-Creation-Date: 2023-09-21 01:56+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -4846,12 +4846,12 @@ msgstr "Juurdepääs keelatud"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Sul puuduvad õigused kasutada protokolli %1."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:103
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Ühtegi eelistatud otsingupakkujat ei leitud."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:118
+#: urifilters/ikws/kuriikwsfilter.cpp:111
 #, kde-format
 msgid "No search providers were found."
 msgstr "Ühtegi otsingupakkujat ei leitud."

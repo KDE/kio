@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:28+0000\n"
+"POT-Creation-Date: 2023-09-21 01:56+0000\n"
 "PO-Revision-Date: 2023-08-09 17:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -4873,12 +4873,12 @@ msgstr "Sarbidea ukatu da"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Ez duzu %1 protokolora sartzeko baimenik."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:103
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Ez da bilaketa hornitzaile hobetsirik aurkitu."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:118
+#: urifilters/ikws/kuriikwsfilter.cpp:111
 #, kde-format
 msgid "No search providers were found."
 msgstr "Ez da bilaketa hornitzailerik aurkitu."

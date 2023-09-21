@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:28+0000\n"
+"POT-Creation-Date: 2023-09-21 01:56+0000\n"
 "PO-Revision-Date: 2023-08-26 04:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -4879,12 +4879,12 @@ msgstr "Acceso denegado"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Non ten permisos para acceder ao protocolo %1."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:103
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Non se atopou un fornecedor de buscas predeterminado."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:118
+#: urifilters/ikws/kuriikwsfilter.cpp:111
 #, kde-format
 msgid "No search providers were found."
 msgstr "Non se atopou ningún fornecedor de buscas."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:28+0000\n"
+"POT-Creation-Date: 2023-09-21 01:56+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -4886,12 +4886,12 @@ msgstr "Cead Rochtana Diúltaithe"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Níl cead agat prótacal %1 a rochtain."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:103
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:118
+#: urifilters/ikws/kuriikwsfilter.cpp:111
 #, kde-format
 msgid "No search providers were found."
 msgstr ""

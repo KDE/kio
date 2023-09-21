@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:28+0000\n"
+"POT-Creation-Date: 2023-09-21 01:56+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -4665,12 +4665,12 @@ msgstr ""
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Dus ii leat vuoigatvuohta beassat %1-protokollii."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:103
+#: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:118
+#: urifilters/ikws/kuriikwsfilter.cpp:111
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
