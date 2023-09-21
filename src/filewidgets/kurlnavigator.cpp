@@ -38,6 +38,7 @@
 #include <QMetaMethod>
 #include <QMimeData>
 #include <QMimeDatabase>
+#include <QSignalBlocker>
 #include <QTimer>
 #include <QUrlQuery>
 
@@ -479,7 +480,11 @@ void KUrlNavigatorPrivate::switchView(bool editable)
 {
     m_toggleEditableMode->setFocus();
     m_editable = editable;
-    m_toggleEditableMode->setChecked(m_editable);
+    {
+        // Avoid slotToggleEditableButtonToggled triggering, applying the URL again immediately.
+        QSignalBlocker blocker(m_toggleEditableMode);
+        m_toggleEditableMode->setChecked(m_editable);
+    }
     updateContent();
     if (q->isUrlEditable()) {
         m_pathBox->setFocus();
