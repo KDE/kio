@@ -47,6 +47,7 @@ Name[pt]=Freecode
 Name[pt_BR]=Freecode
 Name[ro]=Freecode
 Name[ru]=Freecode
+Name[sa]=Freecode
 Name[sk]=Freecode
 Name[sl]=Freecode
 Name[sr]=Фрикод
@@ -111,6 +112,7 @@ Query[pt]=http://freecode.com/search?q=\\{@}
 Query[pt_BR]=http://freecode.com/search?q=\\{@}
 Query[ro]=http://freecode.com/search?q=\\{@}
 Query[ru]=http://freecode.com/search?q=\\{@}
+Query[sa]=http://freecode.com/search?q=\\{@}
 Query[sk]=http://freecode.com/search?q=\\{@}
 Query[sl]=http://freecode.com/search?q=\\{@}
 Query[sr]=http://freecode.com/search?q=\\{@}

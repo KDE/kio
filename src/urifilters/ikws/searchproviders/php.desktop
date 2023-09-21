@@ -70,6 +70,7 @@ Name[pt]=Pesquisa de PHP
 Name[pt_BR]=Pesquisa PHP
 Name[ro]=Căutare PHP
 Name[ru]=Документация по PHP
+Name[sa]=PHP Search
 Name[se]=PHP-ohcan
 Name[si]=PHP සෙවුම
 Name[sk]=Hľadanie PHP
@@ -134,6 +135,7 @@ Query[pt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[pt_BR]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ro]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ru]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sa]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sk]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sv]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

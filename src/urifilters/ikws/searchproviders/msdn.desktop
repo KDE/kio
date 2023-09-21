@@ -69,6 +69,7 @@ Name[pt]=Pesquisa na Microsoft Developer Network
 Name[pt_BR]=Pesquisa no Microsoft Developer Network
 Name[ro]=Căutare în Microsoft Developer Network
 Name[ru]=Поиск в Microsoft Developer Network
+Name[sa]=Microsoft Developer Network Search
 Name[se]=Oza Microsoft Developer Network báikkis
 Name[si]=Microsoft සංවර්ධක ජාල සෙවුම
 Name[sk]=Hľadanie v Microsoft Developer Network
@@ -140,6 +141,7 @@ Query[pt]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[pt_BR]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ro]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ru]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[sa]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sk]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sl]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[sr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

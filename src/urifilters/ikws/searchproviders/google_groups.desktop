@@ -71,6 +71,7 @@ Name[pt]=Grupos do Google
 Name[pt_BR]=Grupos do Google
 Name[ro]=Grupuri Google
 Name[ru]=Группы Google
+Name[sa]=Google Groups
 Name[se]=Google Groups
 Name[si]=ගූගල් සමූහ
 Name[sk]=Diskusné skupiny Google
@@ -143,6 +144,7 @@ Query[pt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[pt_BR]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ro]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ru]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[sa]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sk]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[sr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

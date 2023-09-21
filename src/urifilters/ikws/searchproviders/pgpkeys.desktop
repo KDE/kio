@@ -69,6 +69,7 @@ Name[pt]=Pesquisa de Chaves do OpenPGP
 Name[pt_BR]=Pesquisa de chaves OpenPGP
 Name[ro]=Căutare chei OpenPGP
 Name[ru]=Поиск ключей OpenPGP
+Name[sa]=OpenPGP Key Search
 Name[se]=Oza OpenPGP-čoavdagiid
 Name[si]=OpenPGP යතුරු සෙවුම
 Name[sk]=Hľadanie kľúčov OpenPGP
@@ -133,6 +134,7 @@ Query[pt]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[pt_BR]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ro]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ru]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

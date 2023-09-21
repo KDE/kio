@@ -60,6 +60,7 @@ Name[pt]=Facebook
 Name[pt_BR]=Facebook
 Name[ro]=Facebook
 Name[ru]=Facebook
+Name[sa]=Facebook
 Name[si]=Facebook
 Name[sk]=Facebook
 Name[sl]=Facebook
@@ -125,6 +126,7 @@ Query[pt]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[pt_BR]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ro]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ru]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[sa]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sl]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[sr]=https://www.facebook.com/search/?q=\\{@}&init=quick

@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Holandês e Russo
 Name[pt_BR]=Multitran - Traduzir de holandês para russo
 Name[ro]=Multitran - Traduce între daneză și rusă
 Name[ru]=Multitran: голландско-русский перевод
+Name[sa]=Multitran - Translate Between Dutch and Russian
 Name[si]=Multitran - ඕලන්ද හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi holandčinou a ruštinou
 Name[sl]=Multitran - Prevod med nizozemščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

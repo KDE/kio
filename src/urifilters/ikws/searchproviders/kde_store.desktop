@@ -38,6 +38,7 @@ Name[pt]=Loja do KDE
 Name[pt_BR]=KDE Store
 Name[ro]=Magazin KDE
 Name[ru]=Магазин приложений KDE
+Name[sa]=KDE Store
 Name[sk]=Obchod KDE
 Name[sl]=Trgovina KDE
 Name[sv]=KDE-butik
@@ -83,6 +84,7 @@ Query[pt]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[pt_BR]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ro]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ru]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sa]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

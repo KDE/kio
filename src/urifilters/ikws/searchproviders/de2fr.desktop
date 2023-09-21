@@ -68,6 +68,7 @@ Name[pt]=LEO - Traduzir Entre Alemão e Francês
 Name[pt_BR]=LEO - Traduzir de alemão para francês
 Name[ro]=LEO - Traduce între germană și franceză
 Name[ru]=LEO: немецко-французский перевод
+Name[sa]=LEO - Translate Between German and French
 Name[se]=LEO – Jorgal duiskka- ja fránskkagiela gaskkas
 Name[si]=LEO - Translate Between German and French
 Name[sk]=LEO - Preklad medzi nemčinou a francúzštinou
@@ -132,6 +133,7 @@ Query[pt]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[pt_BR]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ro]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ru]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sa]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}

@@ -46,6 +46,7 @@ Name[pt]=Qwant Social
 Name[pt_BR]=Qwant Social
 Name[ro]=Qwant Social
 Name[ru]=Qwant: Блоги
+Name[sa]=Qwant Social
 Name[sk]=Qwant sociálne
 Name[sl]=Qwant - družabno
 Name[sr]=Квант-дружење
@@ -101,6 +102,7 @@ Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

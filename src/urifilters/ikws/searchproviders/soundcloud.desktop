@@ -41,6 +41,7 @@ Name[pt]=Soundcloud
 Name[pt_BR]=Soundcloud
 Name[ro]=Soundcloud
 Name[ru]=Soundcloud
+Name[sa]=Soundcloud
 Name[sk]=Soundcloud
 Name[sl]=Soundcloud
 Name[sr]=Саундклауд
@@ -97,6 +98,7 @@ Query[pt]=https://soundcloud.com/search?q=\\{@}
 Query[pt_BR]=https://soundcloud.com/search?q=\\{@}
 Query[ro]=https://soundcloud.com/search?q=\\{@}
 Query[ru]=https://soundcloud.com/search?q=\\{@}
+Query[sa]=https://soundcloud.com/search?q=\\{@}
 Query[sk]=https://soundcloud.com/search?q=\\{@}
 Query[sl]=https://soundcloud.com/search?q=\\{@}
 Query[sr]=https://soundcloud.com/search?q=\\{@}

@@ -71,6 +71,7 @@ Name[pt]=Feedster
 Name[pt_BR]=Feedster
 Name[ro]=Feedster
 Name[ru]=Feedster
+Name[sa]=Feedster
 Name[se]=Feedster
 Name[si]=Feedster
 Name[sk]=Feedster
@@ -135,6 +136,7 @@ Query[pt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[pt_BR]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ro]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[ru]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[sa]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[sv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

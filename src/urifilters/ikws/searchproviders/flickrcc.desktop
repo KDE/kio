@@ -59,6 +59,7 @@ Name[pt]=Flickr Creative Commons
 Name[pt_BR]=Flickr Creative Commons
 Name[ro]=Flickr Creative Commons
 Name[ru]=Flickr: лицензия Creative Commons
+Name[sa]=Flickr Creative Commons
 Name[si]=Flickr Creative Commons
 Name[sk]=Flickr Creative Commons
 Name[sl]=Flickr Creative Commons
@@ -123,6 +124,7 @@ Query[pt]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[pt_BR]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ro]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ru]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[sa]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sk]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sl]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[sr]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

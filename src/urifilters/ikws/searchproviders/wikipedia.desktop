@@ -72,6 +72,7 @@ Name[pt]=Wikipedia - A Enciclopédia Livre
 Name[pt_BR]=Wikipédia - a enciclopédia livre
 Name[ro]=Wikipedia - Enciclopedia liberă
 Name[ru]=Свободная энциклопедия Wikipedia (на русском)
+Name[sa]=Wikipedia - The Free Encyclopedia
 Name[se]=Wikipedia – fridja leksikona
 Name[si]=Wikipedia - නිදහස් විශ්ව කෝෂය
 Name[sk]=Wikipédia - voľne dostupná encyklopédia
@@ -143,6 +144,7 @@ Query[pt]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pt_BR]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ro]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ru]=https://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[sa]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sl]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

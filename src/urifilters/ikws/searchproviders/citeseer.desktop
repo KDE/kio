@@ -70,6 +70,7 @@ Name[pt]=CiteSeer: Biblioteca Digital de Literatura Científica
 Name[pt_BR]=CiteSeer: Biblioteca Digital de Literatura Científica
 Name[ro]=CiteSeer: Biblioteca digitală de literatură științifică
 Name[ru]=CiteSeer: цифровая библиотека научной литературы
+Name[sa]=CiteSeer: Scientific Literature Digital Library
 Name[se]=CiteSeer:Digitálalaš bibliotehka mas lea dieđálaš litteratuvra
 Name[si]=CiteSeer: විද්‍යාත්මක සාහිත්‍ය අංකිත පුස්තකාලය
 Name[sk]=CiteSeer: Digitálna knižnica vedeckej literatúry
@@ -133,6 +134,7 @@ Query[pt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[pt_BR]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ro]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ru]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[sa]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sk]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[sv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

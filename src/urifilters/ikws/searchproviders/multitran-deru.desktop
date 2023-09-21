@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Alemão e Russo
 Name[pt_BR]=Multitran - Traduzir de alemão para russo
 Name[ro]=Multitran - Traduce între germană și rusă
 Name[ru]=Multitran: немецко-русский перевод
+Name[sa]=Multitran - Translate Between German and Russian
 Name[si]=Multitran - ජර්මන් හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi nemčinou a ruštinou
 Name[sl]=Multitran - Prevod med nemščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

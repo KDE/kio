@@ -60,6 +60,7 @@ Name[pt]=7Digital
 Name[pt_BR]=7Digital
 Name[ro]=7Digital
 Name[ru]=7Digital
+Name[sa]=7Digital
 Name[si]=අංකිත7
 Name[sk]=7Digital
 Name[sl]=7Digital
@@ -119,6 +120,7 @@ Query[pt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[pt_BR]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ro]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ru]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sa]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

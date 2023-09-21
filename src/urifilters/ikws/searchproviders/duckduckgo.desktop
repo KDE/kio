@@ -59,6 +59,7 @@ Name[pt]=Duck Duck Go
 Name[pt_BR]=Duck Duck Go
 Name[ro]=Duck Duck Go
 Name[ru]=Поиск Duck Duck Go
+Name[sa]=Duck Duck Go
 Name[si]=Duck Duck Go
 Name[sk]=Duck Duck Go
 Name[sl]=Duck Duck Go
@@ -124,6 +125,7 @@ Query[pt]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[pt_BR]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ro]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ru]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[sa]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[sk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[sl]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[sr]=https://duckduckgo.com/?q=\\{@}&t=kde

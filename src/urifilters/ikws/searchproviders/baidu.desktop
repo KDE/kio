@@ -58,6 +58,7 @@ Name[pt]=Baidu
 Name[pt_BR]=Baidu
 Name[ro]=Baidu
 Name[ru]=Baidu
+Name[sa]=Baidu
 Name[si]=Baidu
 Name[sk]=Baidu
 Name[sl]=Baidu
@@ -118,6 +119,7 @@ Query[pt]=https://www.baidu.com/s?wd=\\{@}
 Query[pt_BR]=https://www.baidu.com/s?wd=\\{@}
 Query[ro]=https://www.baidu.com/s?wd=\\{@}
 Query[ru]=https://www.baidu.com/s?wd=\\{@}
+Query[sa]=https://www.baidu.com/s?wd=\\{@}
 Query[sk]=https://www.baidu.com/s?wd=\\{@}
 Query[sl]=https://www.baidu.com/s?wd=\\{@}
 Query[sv]=https://www.baidu.com/s?wd=\\{@}

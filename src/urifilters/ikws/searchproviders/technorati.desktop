@@ -71,6 +71,7 @@ Name[pt]=Technorati
 Name[pt_BR]=Technorati
 Name[ro]=Technorati
 Name[ru]=Technorati
+Name[sa]=Technorati
 Name[se]=Technorati
 Name[si]=Technorati
 Name[sk]=Technorati
@@ -135,6 +136,7 @@ Query[pt]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[pt_BR]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ro]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ru]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[sa]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

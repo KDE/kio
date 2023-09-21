@@ -57,6 +57,7 @@ Name[pt]=Motor de busca Ecosia
 Name[pt_BR]=Mecanismo de pesquisa Ecosia
 Name[ro]=Motor de căutare Ecosia
 Name[ru]=Поиск Ecosia
+Name[sa]=Ecosia search engine
 Name[si]=Ecosia සෙවුම් එන්ජිම
 Name[sk]=Vyhľadávací nástroj Ecosia
 Name[sl]=Iskalnik Ecosia
@@ -118,6 +119,7 @@ Query[pt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[pt_BR]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ro]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ru]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sa]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal

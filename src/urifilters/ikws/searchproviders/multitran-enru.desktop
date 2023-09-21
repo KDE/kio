@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Inglês e Russo
 Name[pt_BR]=Multitran - Traduzir de inglês para russo
 Name[ro]=Multitran - Traduce între engleză și rusă
 Name[ru]=Multitran: англо-русский перевод
+Name[sa]=Multitran - Translate Between English and Russian
 Name[si]=Multitran - ඉංග්‍රීසි හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi angličtinou a ruštinou
 Name[sl]=Multitran - Prevod med angleščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

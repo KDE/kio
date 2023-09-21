@@ -46,6 +46,7 @@ Name[pt]=Qwant
 Name[pt_BR]=Qwant
 Name[ro]=Qwant
 Name[ru]=Qwant
+Name[sa]=Qwant
 Name[sk]=Qwant
 Name[sl]=Qwant
 Name[sr]=Квант
@@ -101,6 +102,7 @@ Query[pt]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[pt_BR]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ro]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ru]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

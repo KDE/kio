@@ -71,6 +71,7 @@ Name[pt]=Dicionário Inglês WordReference.com
 Name[pt_BR]=Dicionário de inglês WordReference.com
 Name[ro]=Dicționarul englez WordReference.com
 Name[ru]=Английский словарь WordReference.com
+Name[sa]=WordReference.com English Dictionary
 Name[se]=WordReference.com eŋgelaš sátnegirji
 Name[si]=WordReference.com ඉංග්‍රීසි ශබ්දකෝශය
 Name[sk]=Anglický slovník WordReference.com
@@ -135,6 +136,7 @@ Query[pt]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[pt_BR]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ro]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ru]=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[sa]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sk]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sl]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[sv]=https://www.wordreference.com/english/definition.asp?en=\\{@}

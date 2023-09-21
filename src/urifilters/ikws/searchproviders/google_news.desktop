@@ -72,6 +72,7 @@ Name[pt]=Notícias Google
 Name[pt_BR]=Google News
 Name[ro]=Știri Google
 Name[ru]=Новости Google
+Name[sa]=Google News
 Name[se]=Google ođđasat
 Name[si]=Google ප්‍රවෘත්ති
 Name[sk]=Google správy
@@ -143,6 +144,7 @@ Query[pt]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[pt_BR]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ro]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ru]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[sa]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sl]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sr]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

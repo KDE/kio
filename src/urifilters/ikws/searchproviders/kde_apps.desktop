@@ -69,6 +69,7 @@ Name[pt]=Pesquisa de Aplicações do KDE
 Name[pt_BR]=Pesquisa por aplicativos do KDE
 Name[ro]=Căutare aplicații KDE
 Name[ru]=Поиск приложений KDE
+Name[sa]=KDE App Search
 Name[se]=KDE prográmmaohci
 Name[si]=KDE යෙදුම් සෙවුම
 Name[sk]=Hľadanie aplikácií KDE
@@ -135,6 +136,7 @@ Query[pt]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[pt_BR]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ro]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ru]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[sa]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sk]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

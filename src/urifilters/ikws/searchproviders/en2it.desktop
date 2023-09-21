@@ -70,6 +70,7 @@ Name[pt]=Tradução do WordReference.com: Inglês para Italiano
 Name[pt_BR]=WordReference.com - Tradução: inglês para italiano
 Name[ro]=Traducere WordReference.com: engleză la italiană
 Name[ru]=Переводчик WordReference.com: англо-итальянский
+Name[sa]=WordReference.com Translation: English to Italian
 Name[se]=WordReference.com – jorgaleapmi: eŋgelasgielas italialašgillii
 Name[si]=WordReference.com පරිවර්ථනය: ඉංග්‍රීසි සිට ඉතාලි බසට
 Name[sk]=WordReference.com preklad z angličtiny do taliančiny
@@ -133,6 +134,7 @@ Query[pt]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[pt_BR]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ro]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ru]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[sa]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sk]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sl]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[sv]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

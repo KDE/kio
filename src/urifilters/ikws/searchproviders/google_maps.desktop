@@ -57,6 +57,7 @@ Name[pt]=Google Maps
 Name[pt_BR]=Google Maps
 Name[ro]=Hărți Google
 Name[ru]=Карты Google
+Name[sa]=Google Maps
 Name[si]=ගූගල් සිතියම්
 Name[sk]=Google mapy
 Name[sl]=Google zemljevidi
@@ -124,6 +125,7 @@ Query[pt]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[pt_BR]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ro]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ru]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[sa]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sl]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[sr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

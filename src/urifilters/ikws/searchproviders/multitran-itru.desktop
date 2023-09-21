@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Italiano e Russo
 Name[pt_BR]=Multitran - Traduzir de italiano para russo
 Name[ro]=Multitran - Traduce între italiană și rusă
 Name[ru]=Multitran: итальянско-русский перевод
+Name[sa]=Multitran - Translate Between Italian and Russian
 Name[si]=Multitran - ඉතාලි හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi taliančinou a ruštinou
 Name[sl]=Multitran - Prevod med italijanščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=23&s=\\{@}

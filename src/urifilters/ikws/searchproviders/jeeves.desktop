@@ -69,6 +69,7 @@ Name[pt]=Ask Jeeves
 Name[pt_BR]=Ask Jeeves
 Name[ro]=Ask Jeeves
 Name[ru]=Ask Jeeves
+Name[sa]=Ask Jeeves
 Name[se]=Ask Jeeves
 Name[si]=Ask Jeeves
 Name[sk]=Ask Jeeves
@@ -111,6 +112,7 @@ Query[ko]=https://www.ask.com/web?q=\\{@}
 Query[nl]=https://www.ask.com/web?q=\\{@}
 Query[nn]=https://www.ask.com/web?q=\\{@}
 Query[pt_BR]=https://www.ask.com/web?q=\\{@}
+Query[sa]=https://www.ask.com/web?q=\\{@}
 Query[sl]=https://www.ask.com/web?q=\\{@}
 Query[tr]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}

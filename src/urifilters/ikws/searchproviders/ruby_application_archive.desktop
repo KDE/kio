@@ -70,6 +70,7 @@ Name[pt]=Arquivo de Aplicações Ruby
 Name[pt_BR]=Arquivo de aplicativos Ruby
 Name[ro]=Arhiva de aplicații Ruby
 Name[ru]=Архив приложений Ruby
+Name[sa]=Ruby Application Archive
 Name[se]=Ruby-prográmmavuorká
 Name[si]=Ruby භාවිතයෙදවුම් සංරක්‍ෂකය
 Name[sk]=Archív aplikácií Ruby
@@ -135,6 +136,7 @@ Query[pt]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[pt_BR]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ro]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[ru]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sa]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

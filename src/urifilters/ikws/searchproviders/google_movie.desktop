@@ -72,6 +72,7 @@ Name[pt]=Filmes do Google
 Name[pt_BR]=Google Movies
 Name[ro]=Filme Google
 Name[ru]=Киноафиша Google
+Name[sa]=Google Movies
 Name[se]=Google filmmat
 Name[si]=Google සිනමා
 Name[sk]=Google filmy
@@ -137,6 +138,7 @@ Query[pt]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[pt_BR]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ro]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ru]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[sa]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sk]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[sv]=https://www.google.se/search?q=\\{@}&ie=UTF-8&oe=UTF-8

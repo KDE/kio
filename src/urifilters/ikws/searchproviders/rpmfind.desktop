@@ -70,6 +70,7 @@ Name[pt]=RPM-Find
 Name[pt_BR]=RPM-Find
 Name[ro]=RPM-Find
 Name[ru]=Поиск RPM
+Name[sa]=RPM-Find
 Name[se]=RPM-Find
 Name[si]=RPM-සෙවුම
 Name[sk]=RPM-Find
@@ -135,6 +136,7 @@ Query[pt]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[pt_BR]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ro]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ru]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[sa]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

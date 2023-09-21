@@ -59,6 +59,7 @@ Name[pt]=YouTube
 Name[pt_BR]=YouTube
 Name[ro]=YouTube
 Name[ru]=YouTube
+Name[sa]=YouTube
 Name[si]=YouTube
 Name[sk]=YouTube
 Name[sl]=YouTube
@@ -125,6 +126,7 @@ Query[pt]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[pt_BR]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ro]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ru]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[sa]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[sk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[sl]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[sr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

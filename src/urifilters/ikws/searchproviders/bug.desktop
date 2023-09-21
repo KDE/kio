@@ -41,6 +41,7 @@ Name[pt]=Erros do KDE
 Name[pt_BR]=Erros do KDE
 Name[ro]=KDE Bugs
 Name[ru]=Система отслеживания ошибок KDE
+Name[sa]=KDE Bugs
 Name[sk]=KDE Chyby
 Name[sl]=KDE Bugs
 Name[sv]=KDE Bugs
@@ -98,6 +99,7 @@ Query[pt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[pt_BR]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ro]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ru]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[sa]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sk]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[sr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

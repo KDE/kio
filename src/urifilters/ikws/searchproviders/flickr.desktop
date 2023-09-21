@@ -60,6 +60,7 @@ Name[pt]=Flickr
 Name[pt_BR]=Flickr
 Name[ro]=Flickr
 Name[ru]=Flickr
+Name[sa]=Flickr
 Name[si]=Flickr
 Name[sk]=Flickr
 Name[sl]=Flickr
@@ -120,6 +121,7 @@ Query[pt]=https://www.flickr.com/search/?q=\\{@}
 Query[pt_BR]=https://www.flickr.com/search/?q=\\{@}
 Query[ro]=https://www.flickr.com/search/?q=\\{@}
 Query[ru]=https://www.flickr.com/search/?q=\\{@}
+Query[sa]=https://www.flickr.com/search/?q=\\{@}
 Query[sk]=https://www.flickr.com/search/?q=\\{@}
 Query[sl]=https://www.flickr.com/search/?q=\\{@}
 Query[sv]=https://www.flickr.com/search/?q=\\{@}

@@ -71,6 +71,7 @@ Name[pt]=MetaCrawler
 Name[pt_BR]=MetaCrawler
 Name[ro]=MetaCrawler
 Name[ru]=MetaCrawler
+Name[sa]=MetaCrawler
 Name[se]=MetaCrawler
 Name[si]=MetaCrawler
 Name[sk]=MetaCrawler
@@ -136,6 +137,7 @@ Query[pt]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[pt_BR]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ro]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ru]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sa]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sv]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

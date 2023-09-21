@@ -60,6 +60,7 @@ Name[pt]=GitHub
 Name[pt_BR]=GitHub
 Name[ro]=GitHub
 Name[ru]=GitHub
+Name[sa]=GitHub
 Name[si]=GitHub
 Name[sk]=GitHub
 Name[sl]=GitHub
@@ -126,6 +127,7 @@ Query[pt]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[pt_BR]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ro]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ru]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[sa]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sl]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[sr]=https://github.com/search?q=\\{@}&x=0&y=0

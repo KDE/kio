@@ -47,6 +47,7 @@ Name[pt]=Compras do Google
 Name[pt_BR]=Google Shopping
 Name[ro]=Cumpărături Google
 Name[ru]=Google: Покупки
+Name[sa]=Google Shopping
 Name[sk]=Google nakupovanie
 Name[sl]=Google Shopping
 Name[sr]=Гугл‑шопинг
@@ -111,6 +112,7 @@ Query[pt]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[pt_BR]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ro]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ru]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[sa]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[sr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

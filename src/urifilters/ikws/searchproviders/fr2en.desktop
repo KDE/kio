@@ -70,6 +70,7 @@ Name[pt]=Tradução do WordReference.com: Francês para Inglês
 Name[pt_BR]=WordReference.com - Tradução: francês para inglês
 Name[ro]=Traducere WordReference.com: franceză la engleză
 Name[ru]=Переводчик WordReference.com: французско-английский
+Name[sa]=WordReference.com Translation: French to English
 Name[se]=WordReference.com – jorgaleapmi: fránskkagielas eŋgelasgillii
 Name[si]=WordReference.com පරිවර්ථනය: ප්‍රංශ සිට ඉංග්‍රීසි බසට
 Name[sk]=WordReference.com preklad z francúzštiny do angličtiny
@@ -133,6 +134,7 @@ Query[pt]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[pt_BR]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ro]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[ru]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
+Query[sa]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sk]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sl]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}
 Query[sv]=https://www.wordreference.com/fr/en/translation.asp?fren=\\{@}

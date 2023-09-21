@@ -59,6 +59,7 @@ Name[pt]=KDE UserBase
 Name[pt_BR]=KDE UserBase
 Name[ro]=KDE UserBase
 Name[ru]=KDE UserBase
+Name[sa]=KDE UserBase
 Name[si]=KDE පරිශීලක පාදම
 Name[sk]=KDE UserBase
 Name[sl]=KDE UserBase
@@ -118,6 +119,7 @@ Query[pt]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[pt_BR]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ro]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ru]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sa]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sk]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sl]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

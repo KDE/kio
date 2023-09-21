@@ -71,6 +71,7 @@ Name[pt]=Pesquisa de Imagens do Google
 Name[pt_BR]=Pesquisa de imagens do Google
 Name[ro]=Căutare de imagini Google
 Name[ru]=Картинки Google
+Name[sa]=Google Image Search
 Name[se]=Oza govaid Google báikkis
 Name[si]=Google පිංතූර සෙවුම
 Name[sk]=Hľadanie obrázkov Google
@@ -143,6 +144,7 @@ Query[pt]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[pt_BR]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ro]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ru]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[sa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sl]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[sr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

@@ -71,6 +71,7 @@ Name[pt]=FreeDB
 Name[pt_BR]=FreeDB
 Name[ro]=FreeDB
 Name[ru]=FreeDB
+Name[sa]=FreeDB
 Name[se]=FreeDB
 Name[si]=FreeDB
 Name[sk]=FreeDB
@@ -165,6 +166,7 @@ Query[pt]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[pt_BR]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ro]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ru]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[sa]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[se]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[si]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[sk]=http://www.freedb.org/freedb_search.php?words=\\{@}

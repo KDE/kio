@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Francês e Russo
 Name[pt_BR]=Multitran - Traduzir de francês para russo
 Name[ro]=Multitran - Traduce între franceză și rusă
 Name[ru]=Multitran: французско-русский перевод
+Name[sa]=Multitran - Translate Between French and Russian
 Name[si]=Multitran - ප්‍රංශ හා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi francúzštinou a ruštinou
 Name[sl]=Multitran - Prevod med francoščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=4&s=\\{@}

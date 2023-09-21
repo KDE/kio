@@ -70,6 +70,7 @@ Name[pt]=Tradução do dict.cc: Inglês para Alemão
 Name[pt_BR]=dict.cc - Tradução: inglês para alemão
 Name[ro]=Traducere dict.cc: engleză la germană
 Name[ru]=Переводчик dict.cc: англо-немецкий
+Name[sa]=dict.cc Translation: English to German
 Name[se]=dict.cc Jorgaleapmi: Eŋgelasgielas duiskkagillii
 Name[si]=dict.cc පරිවර්ථනය: ඉංග්‍රීසි සිට ජර්මන් භාශාවට
 Name[sk]=dict.cc Preklad z angličtiny do nemčiny
@@ -134,6 +135,7 @@ Query[pt]=https://www.dict.cc/?s=\\{@}
 Query[pt_BR]=https://www.dict.cc/?s=\\{@}
 Query[ro]=https://www.dict.cc/?s=\\{@}
 Query[ru]=https://www.dict.cc/?s=\\{@}
+Query[sa]=https://www.dict.cc/?s=\\{@}
 Query[sk]=https://www.dict.cc/?s=\\{@}
 Query[sl]=https://www.dict.cc/?s=\\{@}
 Query[sv]=https://www.dict.cc/?s=\\{@}

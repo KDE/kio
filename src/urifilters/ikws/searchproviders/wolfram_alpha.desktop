@@ -60,6 +60,7 @@ Name[pt]=Wolfram Alpha
 Name[pt_BR]=Wolfram Alpha
 Name[ro]=Wolfram Alpha
 Name[ru]=Wolfram Alpha
+Name[sa]=Wolfram Alpha
 Name[si]=Wolfram Alpha
 Name[sk]=Wolfram Alpha
 Name[sl]=Wolfram Alpha
@@ -126,6 +127,7 @@ Query[pt]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[pt_BR]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ro]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ru]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[sa]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sl]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[sr]=https://www.wolframalpha.com/input/?i=\\{@}

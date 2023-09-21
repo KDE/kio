@@ -69,6 +69,7 @@ Name[pt]=CPAN - Comprehensive Perl Archive Network
 Name[pt_BR]=CPAN - Rede Compreensiva de Arquivos de Perl
 Name[ro]=CPAN - Arhiva completă de programe Perl
 Name[ru]=CPAN — архив скриптов Perl
+Name[sa]=CPAN - Comprehensive Perl Archive Network
 Name[se]=CPAN – Perl-vuorká: «Comprehensive Perl Archive Network»
 Name[si]=CPAN - විචක්‍ෂණ Perl සංරක්‍ෂක ජාලය
 Name[sk]=CPAN - Comprehensive Perl Archive Network
@@ -133,6 +134,7 @@ Query[pt]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[pt_BR]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ro]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ru]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[sa]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sk]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sl]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[sv]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}

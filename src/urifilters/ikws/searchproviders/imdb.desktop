@@ -70,6 +70,7 @@ Name[pt]=Internet Movie Database
 Name[pt_BR]=Banco de dados de filmes na Internet
 Name[ro]=Bază de date Internet de filme
 Name[ru]=Интернет-база кинофильмов (IMDb)
+Name[sa]=Internet Movie Database
 Name[se]=Internet Movie Database
 Name[si]=අන්තර්ජාල සිනමා දත්තගබඩාව
 Name[sk]=Internetová databáza filmov IMDb
@@ -134,6 +135,7 @@ Query[pt]=https://imdb.com/find?s=all&q=\\{@}
 Query[pt_BR]=https://imdb.com/find?s=all&q=\\{@}
 Query[ro]=https://imdb.com/find?s=all&q=\\{@}
 Query[ru]=https://imdb.com/find?s=all&q=\\{@}
+Query[sa]=https://imdb.com/find?s=all&q=\\{@}
 Query[sk]=https://imdb.com/find?s=all&q=\\{@}
 Query[sl]=https://imdb.com/find?s=all&q=\\{@}
 Query[sv]=https://imdb.com/find?s=all&q=\\{@}

@@ -60,6 +60,7 @@ Name[pt]=Magnatune
 Name[pt_BR]=Magnatune
 Name[ro]=Magnatune
 Name[ru]=Magnatune
+Name[sa]=Magnatune
 Name[si]=Magnatune
 Name[sk]=Magnatune
 Name[sl]=Magnatune
@@ -120,6 +121,7 @@ Query[pt]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[pt_BR]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ro]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ru]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[sa]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[sk]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[sl]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[sv]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

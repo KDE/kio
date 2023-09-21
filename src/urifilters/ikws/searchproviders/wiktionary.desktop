@@ -70,6 +70,7 @@ Name[pt]=Wiktionary - O Dicionário Livre
 Name[pt_BR]=Wikcionário - o dicionário livre
 Name[ro]=Wiktionary - Dictionarul liber
 Name[ru]=Свободный словарь Wiktionary
+Name[sa]=Wiktionary - The Free Dictionary
 Name[se]=Wiktinary – fridja sátnegirji
 Name[si]=Wiktionary - නිදහස් ශබ්ද කෝශය
 Name[sk]=Wiktionary - voľne dostupný slovník
@@ -141,6 +142,7 @@ Query[pt]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[pt_BR]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ro]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ru]=https://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[sa]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sk]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sl]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[sr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

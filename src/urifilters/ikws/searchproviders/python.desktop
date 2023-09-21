@@ -71,6 +71,7 @@ Name[pt]=Manual de Referência do Python
 Name[pt_BR]=Manual de referência do Python
 Name[ro]=Manualul de referință Python
 Name[ru]=Справочник по Python
+Name[sa]=Python Reference Manual
 Name[se]=Python-referánsagiehtagirji
 Name[si]=Python යොමු අත්පොත
 Name[sk]=Manuál jazyka Python
@@ -141,6 +142,7 @@ Query[pt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[pt_BR]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ro]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ru]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[sa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[sr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

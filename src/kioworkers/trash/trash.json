@@ -176,6 +176,10 @@
                 "Исходный путь",
                 "Дата удаления"
             ],
+            "ExtraNames[sa]": [
+                "मूलमार्गः ",
+                " विलोपनतिथिः"
+            ],
             "ExtraNames[sk]": [
                 "Pôvodné umiestnenie",
                 "Dátum vymazania"

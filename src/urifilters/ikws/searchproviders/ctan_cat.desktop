@@ -70,6 +70,7 @@ Name[pt]=Catálogo do CTAN
 Name[pt_BR]=Catálogo CTAN
 Name[ro]=Catalog CTAN
 Name[ru]=Каталог CTAN
+Name[sa]=CTAN Catalog
 Name[se]=CTAN-kataloga
 Name[si]=CTAN Catalog
 Name[sk]=Katalóg CTAN
@@ -158,6 +159,7 @@ Query[pt]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSea
 Query[pt_BR]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[ro]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@} &metadataSearchSubmit=Search
 Query[ru]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
+Query[sa]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[si]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[sk]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search
 Query[sl]=http://tug.ctan.org/cgi-bin/search.py?metadataSearch=\\{@}&metadataSearchSubmit=Search

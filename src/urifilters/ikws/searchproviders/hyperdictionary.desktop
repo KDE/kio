@@ -71,6 +71,7 @@ Name[pt]=HyperDictionary.com
 Name[pt_BR]=HyperDictionary.com
 Name[ro]=HyperDictionary.com
 Name[ru]=HyperDictionary.com
+Name[sa]=HyperDictionary.com
 Name[se]=HyperDictionary.com
 Name[si]=HyperDictionary.com
 Name[sk]=HyperDictionary.com
@@ -165,6 +166,7 @@ Query[pt]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[pt_BR]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ro]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ru]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[sa]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[se]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[si]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[sk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

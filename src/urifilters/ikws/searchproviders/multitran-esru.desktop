@@ -68,6 +68,7 @@ Name[pt]=Multitran - Traduzir Entre Espanhol e Russo
 Name[pt_BR]=Multitran - Traduzir de espanhol para russo
 Name[ro]=Multitran - Traduce între spaniolă și rusă
 Name[ru]=Multitran: испанско-русский перевод
+Name[sa]=Multitran - Translate Between Spanish and Russian
 Name[si]=Multitran - ස්පාඤ්ඤහා රුසියානු බස අතර පරිවර්ථනය කරයි
 Name[sk]=Multitran - Preklad medzi španielčinou a ruštinou
 Name[sl]=Multitran - Prevod med španščino in ruščino
@@ -131,6 +132,7 @@ Query[pt]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[pt_BR]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ro]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ru]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[sa]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[sk]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[sl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[sv]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

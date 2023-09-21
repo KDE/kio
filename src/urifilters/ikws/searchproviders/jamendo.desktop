@@ -60,6 +60,7 @@ Name[pt]=Jamendo
 Name[pt_BR]=Jamendo
 Name[ro]=Jamendo
 Name[ru]=Jamendo
+Name[sa]=Jamendo
 Name[se]=Gávppašeaddji
 Name[si]=Jamendo
 Name[sk]=Jamendo
@@ -121,6 +122,7 @@ Query[pt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[pt_BR]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ro]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ru]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sa]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sk]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}

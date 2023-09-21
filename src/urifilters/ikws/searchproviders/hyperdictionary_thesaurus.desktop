@@ -70,6 +70,7 @@ Name[pt]=Gramática do HyperDictionary.com
 Name[pt_BR]=HyperDictionary.com Thesaurus
 Name[ro]=Dicționarul HyperDictionary.com
 Name[ru]=Тезаурус HyperDictionary.com
+Name[sa]=HyperDictionary.com Thesaurus
 Name[se]=HyperDictionary.com Thesaurus
 Name[si]=HyperDictionary.com Thesaurus
 Name[sk]=HyperDictionary.com - slovník synoným
@@ -164,6 +165,7 @@ Query[pt]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[pt_BR]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ro]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ru]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[sa]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[se]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[si]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[sk]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
