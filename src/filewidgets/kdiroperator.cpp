@@ -663,7 +663,7 @@ void KDirOperatorPrivate::slotCompactView()
     writeIconZoomSettingsIfNeeded();
 
     // Put the icons on the side
-    q->action(KDirOperator::DecorationAtTop)->setChecked(true);
+    q->action(KDirOperator::DecorationAtLeft)->setChecked(true);
     m_decorationPosition = QStyleOptionViewItem::Left;
 
     // Switch to simple view
