@@ -554,6 +554,7 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
         }
         setMetaData(QStringLiteral("TRASH_DIRECTORIES"), QString::fromLocal8Bit(QJsonDocument(json).toJson()));
         sendMetaData();
+        break;
     }
     default:
         qCWarning(KIO_TRASH) << "Unknown command in special(): " << cmd;
