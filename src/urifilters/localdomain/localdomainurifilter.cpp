@@ -25,7 +25,7 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
  * regression test (this should be included as part of "make test").
  */
-LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent, const QVariantList & /*args*/)
+LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent)
     : KUriFilterPlugin(QStringLiteral("localdomainurifilter"), parent)
 {
     static const char16_t pattern[] = uR"--([a-zA-Z0-9][a-zA-Z0-9+-]*(?:\:[0-9]{1,5})?(?:/[\w:@&=+$,-.!~*'()]*)*)--";

@@ -36,14 +36,7 @@ public:
      * @param parent the parent of this class.
      * @param name the internal name for this object.
      */
-    explicit KShortUriFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList());
-
-    /**
-     * Destructor
-     */
-    ~KShortUriFilter() override
-    {
-    }
+    explicit KShortUriFilter(QObject *parent);
 
     /**
      * Converts short URIs into fully qualified valid URIs

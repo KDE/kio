@@ -92,7 +92,7 @@ static bool isKnownProtocol(const QString &protocol)
     return service;
 }
 
-KShortUriFilter::KShortUriFilter(QObject *parent, const QVariantList & /*args*/)
+KShortUriFilter::KShortUriFilter(QObject *parent)
     : KUriFilterPlugin(QStringLiteral("kshorturifilter"), parent)
 {
     QDBusConnection::sessionBus()
