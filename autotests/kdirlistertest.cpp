@@ -413,22 +413,32 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
         qDebug() << "Deleting" << (path + fileName);
         QTest::qWait(1000); // for timestamp difference
         QFile::remove(path + fileName);
-        QTRY_COMPARE(dirLister2.spyItemsDeleted.count(), 1);
-        QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 1);
+        QTRY_COMPARE_WITH_TIMEOUT(dirLister2.spyItemsDeleted.count(), 1, 1000);
+        QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
         const KFileItem item = dirLister2.spyItemsDeleted[0][0].value<KFileItemList>().at(0);
         QCOMPARE(item.url().toLocalFile(), QString(symPath + '/' + fileName));
+
+        dirLister2.spyItemsDeleted.clear();
+        m_dirLister.spyItemsDeleted.clear();
     }
     // Test file deletion in symlink dir #469254
     {
         qDebug() << "Deleting" << (symPath + "/" + fileName2);
         QTest::qWait(1000); // for timestamp difference
         QFile::remove(symPath + "/" + fileName2);
-        QTRY_COMPARE(dirLister2.spyItemsDeleted.count(), 2);
-        QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 2);
-        const KFileItem item = dirLister2.spyItemsDeleted[1][0].value<KFileItemList>().at(0);
-        QCOMPARE(item.url().toLocalFile(), QString(symPath + '/' + fileName2));
+
+        QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
+        const KFileItem item = m_dirLister.spyItemsDeleted[0][0].value<KFileItemList>().at(0);
+        QCOMPARE(item.url().toLocalFile(), QString(path + fileName2));
+
+        QTRY_COMPARE_WITH_TIMEOUT(dirLister2.spyItemsDeleted.count(), 1, 1000);
+        const KFileItem item2 = dirLister2.spyItemsDeleted[0][0].value<KFileItemList>().at(0);
+        QCOMPARE(item2.url().toLocalFile(), QString(symPath + '/' + fileName2));
     }
     QFile::remove(symPath);
+
+    m_dirLister.spyItemsDeleted.clear();
+    dirLister2.spyItemsDeleted.clear();
 }
 
 // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
@@ -1446,16 +1456,20 @@ void KDirListerTest::testRenameDirectory() // #401552
         slotOpenUrlOnRename(newUrl);
     });
 
-    for (int i = 0; i < dirs.size(); i++) {
+    for (const auto &newDir : dirs) {
         // Wait for the listener to get all files
         QTRY_VERIFY(m_dirLister.isFinished());
         // Do the rename
-        QString newDir = dirs.at(i);
         job = KIO::rename(QUrl::fromLocalFile(currDir), QUrl::fromLocalFile(newDir), KIO::HideProgressInfo);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QTest::qWait(500); // Without the delay the crash doesn't happen
         currDir = newDir;
     }
+
+    // cleanup
+    const auto delJob = KIO::del(QUrl::fromLocalFile(dirs.last()));
+    QVERIFY(delJob->exec());
+
     disconnect(&m_dirLister, nullptr, this, nullptr);
 }
 
@@ -1539,8 +1553,7 @@ void KDirListerTest::testMimeFilter()
     lister.setMimeFilter(mimeTypes);
     lister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
 
-    QSignalSpy spyCompleted(&lister, qOverload<>(&KCoreDirLister::completed));
-    QVERIFY(spyCompleted.wait(1000));
+    QVERIFY(lister.spyCompleted.wait(1000));
 
     QCOMPARE(lister.items().size(), filteredFiles.size());
 
@@ -1554,6 +1567,9 @@ void KDirListerTest::testDeleteCurrentDir()
 {
     // ensure m_dirLister holds the items.
     m_dirLister.openUrl(QUrl::fromLocalFile(tempPath()), KDirLister::NoFlags);
+
+    QVERIFY(m_dirLister.spyCompleted.wait(1000));
+
     m_dirLister.clearSpies();
     KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempPath()), KIO::HideProgressInfo);
     bool ok = job->exec();
@@ -1562,14 +1578,11 @@ void KDirListerTest::testDeleteCurrentDir()
 
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
-    QList<QUrl> deletedUrls;
-    for (int i = 0; i < m_dirLister.spyItemsDeleted.count(); ++i) {
-        deletedUrls += m_dirLister.spyItemsDeleted[i][0].value<KFileItemList>().urlList();
-    }
-    // qDebug() << deletedUrls;
+    QCOMPARE(m_dirLister.spyItemsDeleted.count(), 1);
+    const KFileItem deletedItem = m_dirLister.spyItemsDeleted.at(0).at(0).value<KFileItemList>().at(0);
+
     QUrl currentDirUrl = QUrl::fromLocalFile(tempPath()).adjusted(QUrl::StripTrailingSlash);
-    // Sometimes I get ("current/subdir", "current") here, but that seems ok.
-    QVERIFY(deletedUrls.contains(currentDirUrl));
+    QCOMPARE(currentDirUrl, deletedItem.url());
 }
 
 void KDirListerTest::testForgetDir()
