@@ -89,13 +89,13 @@ public:
      * This slot is connected to the clicked signal of the navigation bar button. It calls switchView().
      * Moreover, if switching from "editable" mode to the breadcrumb view, it calls applyUncommittedUrl().
      */
-    void slotToggleEditableButtonToggled(bool editable);
+    void slotToggleEditableButtonPressed();
 
     /**
      * Switches the navigation bar between the breadcrumb view and the
      * traditional view (see setUrlEditable()).
      */
-    void switchView(bool editable);
+    void switchView();
 
     /** Emits the signal urlsDropped(). */
     void dropUrls(const QUrl &destination, QDropEvent *event, KUrlNavigatorButton *dropButton);
@@ -266,8 +266,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_toggleEditableMode = new KUrlNavigatorToggleButton(q);
     m_toggleEditableMode->installEventFilter(q);
     m_toggleEditableMode->setMinimumWidth(20);
-    q->connect(m_toggleEditableMode, &KUrlNavigatorToggleButton::toggled, q, [this](bool editable) {
-        slotToggleEditableButtonToggled(editable);
+    q->connect(m_toggleEditableMode, &KUrlNavigatorToggleButton::clicked, q, [this]() {
+        slotToggleEditableButtonPressed();
     });
 
     if (m_placesSelector != nullptr) {
@@ -466,19 +466,19 @@ void KUrlNavigatorPrivate::openPathSelectorMenu()
     }
 }
 
-void KUrlNavigatorPrivate::slotToggleEditableButtonToggled(bool editable)
+void KUrlNavigatorPrivate::slotToggleEditableButtonPressed()
 {
     if (m_editable) {
         applyUncommittedUrl();
     }
 
-    switchView(editable);
+    switchView();
 }
 
-void KUrlNavigatorPrivate::switchView(bool editable)
+void KUrlNavigatorPrivate::switchView()
 {
     m_toggleEditableMode->setFocus();
-    m_editable = editable;
+    m_editable = !m_editable;
     m_toggleEditableMode->setChecked(m_editable);
     updateContent();
     if (q->isUrlEditable()) {
@@ -982,7 +982,7 @@ QUrl KUrlNavigator::homeUrl() const
 void KUrlNavigator::setUrlEditable(bool editable)
 {
     if (d->m_editable != editable) {
-        d->switchView(editable);
+        d->switchView();
     }
 }
 
