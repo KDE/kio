@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 01:56+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -4902,8 +4902,8 @@ msgstr "Rantoele"
 
 #: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
 #: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
+#: kioworkers/trash/kio_trash.cpp:597
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"

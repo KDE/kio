@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 01:56+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -4475,8 +4475,8 @@ msgstr "kulupu ilo"
 
 #: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
 #: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
+#: kioworkers/trash/kio_trash.cpp:597
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "nimi \"URL\" li ike %1"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 01:56+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2023-08-20 16:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -4640,8 +4640,8 @@ msgstr "பிணையம்"
 
 #: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
 #: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
+#: kioworkers/trash/kio_trash.cpp:597
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "முறையற்ற முகவரி %1"

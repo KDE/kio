@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 01:56+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -4890,8 +4890,8 @@ msgstr "Мрежа"
 
 #: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
 #: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:586
-#: kioworkers/trash/kio_trash.cpp:596
+#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
+#: kioworkers/trash/kio_trash.cpp:597
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Неисправан УРЛ %1"
