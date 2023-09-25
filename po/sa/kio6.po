@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 01:43+0000\n"
-"PO-Revision-Date: 2023-09-19 10:26+0530\n"
+"PO-Revision-Date: 2023-09-21 23:22+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -24,10 +24,10 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "श्रीकान्त् कलवार्"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr "skkalwar999@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -2544,9 +2544,11 @@ msgid "Reload"
 msgstr "पुनः सम्प्रेषयति"
 
 #: filewidgets/kdiroperator.cpp:1956
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Default name for a new folder"
+#| msgid "New Folder"
 msgid "New Folder..."
-msgstr "नूतनं पुटम्..."
+msgstr "नूतनं पुटम्"
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
@@ -2770,10 +2772,12 @@ msgid "Root Folder"
 msgstr "मूलपुटम्"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu in Copy To or Move To submenu"
+#| msgid "Browse…"
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "अन्वेषय..."
+msgstr "अन्वेषय…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -2842,7 +2846,7 @@ msgid "Enter descriptive label here"
 msgstr "अत्र वर्णनात्मकं नामपत्रम् लिखत"
 
 #: filewidgets/kfileplaceeditdialog.cpp:91
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
 "used. For example:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde."
@@ -2852,7 +2856,7 @@ msgstr ""
 "<qt>एतत् निवेशेन सह सम्बद्धं स्थानम् अस्ति । यत्किमपि वैधं URL उपयोक्तुं शक्यते । यथा :<br /"
 "><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/kde/स्थिर<br /"
 "><br />पाठसम्पादनपेटिकायाः पार्श्वे स्थितं गण्ड नुत्वा भवान् समुचितं URL अन्वेषय कर्तुं शक्नोति "
-"।</qt>"
+"।.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3015,12 +3019,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "स्थानफलके इत्यत्र केवलं पुटं योजयितुं शक्यते ।."
 
 #: filewidgets/kfileplacesmodel.cpp:1406
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Releasing..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "विमोचयन्..."
+msgstr "विमोचयन्…"
 
 #: filewidgets/kfileplacesmodel.cpp:1408
 #, kde-format
@@ -3029,12 +3031,10 @@ msgid "&Release"
 msgstr "&विमोचनम्"
 
 #: filewidgets/kfileplacesmodel.cpp:1412
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Safely Removing..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "सुरक्षितरूपेण निष्कासयन्..."
+msgstr "सुरक्षितरूपेण निष्कासयन्…"
 
 #: filewidgets/kfileplacesmodel.cpp:1414
 #, kde-format
@@ -3043,12 +3043,10 @@ msgid "&Safely Remove"
 msgstr "&सुरक्षितरूपेण निष्कासयन्तु"
 
 #: filewidgets/kfileplacesmodel.cpp:1419
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "असंचाद्यते"
+msgstr "असंचाद्यते…"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
@@ -3139,19 +3137,16 @@ msgid "Open in New Window"
 msgstr "नूतनगवाक्ष मध्ये उद्घाटयन्तु"
 
 #: filewidgets/kfileplacesview.cpp:1162
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add Entry..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "प्रविष्टि योजयतु..."
+msgstr "प्रविष्टि योजयतु…"
 
 #: filewidgets/kfileplacesview.cpp:1168
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
-msgstr "सम्पादयतु"
+msgstr "&सम्पादयतु…"
 
 #: filewidgets/kfileplacesview.cpp:1173
 #, kde-format
@@ -3828,7 +3823,11 @@ msgid "Failed to open %1"
 msgstr "%1 उद्घाटयितुं असफलम्"
 
 #: gui/openurljob.cpp:296
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The desktop entry file\n"
+#| "%1\n"
+#| "is of type Link but has no URL=… entry."
 msgid ""
 "The desktop entry file\n"
 "%1\n"
@@ -3836,7 +3835,7 @@ msgid ""
 msgstr ""
 "कार्यमुख प्रविष्टिसञ्चिका\n"
 "%1\n"
-"Link प्रकारस्य अस्ति किन्तु URL=... निवेशः नास्ति ।."
+"Link प्रकारस्य अस्ति किन्तु URL=… निवेशः नास्ति ।."
 
 #: gui/openurljob.cpp:364
 #, kde-format
@@ -3870,9 +3869,10 @@ msgstr ""
 "%2."
 
 #: gui/openurljob.cpp:527
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The desktop entry file %1 has no Type=… entry."
 msgid "The desktop entry file %1 has no Type=... entry."
-msgstr "कार्यमुख प्रविष्टिसञ्चिका %1 इत्यस्य Type=... प्रविष्टिः नास्ति ।."
+msgstr "कार्यमुख प्रविष्टिसञ्चिका %1 इत्यस्य Type=… प्रविष्टिः नास्ति ।."
 
 #: gui/openurljob.cpp:613
 #, kde-format
@@ -4493,9 +4493,10 @@ msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 इत्यस्य प्रयासे अप्रत्याशितम् त्रुटिः (%1) अभवत् ।."
 
 #: kioworkers/http/http.cpp:2502
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 contacted. Waiting for reply…"
 msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 सम्पर्कं कृतवान् । उत्तरस्य प्रतीक्षायां..."
+msgstr "%1 सम्पर्कं कृतवान् । उत्तरस्य प्रतीक्षायां…"
 
 #: kioworkers/http/http.cpp:2828
 #, kde-format
@@ -4516,9 +4517,10 @@ msgid "Confirm Website Access"
 msgstr "जालस्थलस्य अभिगमनस्य पुष्टिं कुर्वन्तु"
 
 #: kioworkers/http/http.cpp:2926
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server processing request, please wait…"
 msgid "Server processing request, please wait..."
-msgstr "वितारक प्रसंस्करण अनुरोधः, कृपया प्रतीक्ष्यताम्..."
+msgstr "वितारक प्रसंस्करण अनुरोधः, कृपया प्रतीक्ष्यताम्…"
 
 #: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
 #, kde-format
@@ -4526,9 +4528,10 @@ msgid "Sending data to %1"
 msgstr "%1 - मध्ये दत्तांशं प्रेषयति"
 
 #: kioworkers/http/http.cpp:4114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Retrieving %1 from %2…"
 msgid "Retrieving %1 from %2..."
-msgstr "%2 तः %1 पुनः प्राप्तम्..."
+msgstr "%2 तः %1 पुनः प्राप्तम्…"
 
 #: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
 #, kde-format
@@ -4880,9 +4883,10 @@ msgstr ""
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: widgets/checksumswidget.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)…"
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "अपेक्षितं चेकसम (checksum) (MD5, SHA1, SHA256 or SHA512)..."
+msgstr "अपेक्षितं चेकसम (checksum) (MD5, SHA1, SHA256 or SHA512)…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
@@ -5153,13 +5157,14 @@ msgstr[1] "किं भवान् वास्तवमेव एतानि
 #, kde-format
 msgctxt "@action:button"
 msgid "Add..."
-msgstr "संयोजयति..."
+msgstr ""
 
 #: widgets/kacleditwidget.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "सम्पादयतु..."
+msgstr "सम्पादयतु"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5360,16 +5365,20 @@ msgid "&Actions"
 msgstr "&क्रियाः"
 
 #: widgets/kfileitemactions.cpp:682
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&एतेन सह पुटं उद्घाटयन्तु..."
+msgstr "&एतेन सह पुटं उद्घाटयन्तु"
 
 #: widgets/kfileitemactions.cpp:682
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open With"
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&एतेन उद्घाटयन्तु..."
+msgstr "&एतेन उद्घाटयन्तु"
 
 #: widgets/kfileitemactions.cpp:720
 #, kde-format
@@ -5394,10 +5403,12 @@ msgid "&Open With"
 msgstr "&एतेन उद्घाटयन्तु"
 
 #: widgets/kfileitemactions.cpp:764
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Open With"
+#| msgid "&Other Application…"
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&अन्य अनुप्रयोग..."
+msgstr "&अन्य अनुप्रयोग…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -5457,9 +5468,10 @@ msgstr "आकृति:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:350
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change…"
 msgid "Change..."
-msgstr "परिवर्तयतु..."
+msgstr "परिवर्तयतु…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:362
@@ -5526,13 +5538,13 @@ msgid "Open With"
 msgstr "एतेन उद्घाटयन्तु"
 
 #: widgets/kopenwithdialog.cpp:561
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt><b>%1</b> उद्घाटयितुं यस्य कार्यक्रमस्य उपयोगः करणीयः तत् चिनोतु. यदि कार्यक्रमः "
-"सूचीकृतः नास्ति तर्हि नाम प्रविष्टं कुर्वन्तु अथवा अन्वेषय गण्ड नुदन्तु ।</qt>"
+"सूचीकृतः नास्ति तर्हि नाम प्रविष्टं कुर्वन्तु अथवा अन्वेषय गण्ड नुदन्तु ।.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -5880,9 +5892,10 @@ msgstr "इष्टं कार्यान्वयनीयं अन्व�
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Browse…"
 msgid "&Browse..."
-msgstr "&अन्वेषय..."
+msgstr "&अन्वेषय…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -6000,7 +6013,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
-msgstr "संयोजयति..."
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:255
@@ -6098,12 +6111,15 @@ msgid "Unknown size"
 msgstr "अज्ञात आकारः"
 
 #: widgets/kpropertiesdialog.cpp:1308
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Calculating… %1 (%2)\n"
+#| "%3, %4"
 msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"गणनां कुर्वन्... %1 (%2)\n"
+"गणनां कुर्वन्… %1 (%2)\n"
 "%3 %4"
 
 #: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
@@ -6121,9 +6137,10 @@ msgstr[0] "१ उपपुटम्"
 msgstr[1] "%1 उपपुटाः"
 
 #: widgets/kpropertiesdialog.cpp:1340
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Calculating…\n"
 msgid "Calculating...\n"
-msgstr "गणनां कुर्वन्...\n"
+msgstr "गणनां कुर्वन्…\n"
 
 #: widgets/kpropertiesdialog.cpp:1363
 #, kde-format
@@ -6146,18 +6163,16 @@ msgid "No associated application"
 msgstr "कोऽपि सम्बद्धः अनुप्रयोगः नास्ति"
 
 #: widgets/kpropertiesdialog.cpp:1615
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "सृष्टा:"
+msgstr "सृष्टा…"
 
 #: widgets/kpropertiesdialog.cpp:1618
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "परिवर्तयतु..."
+msgstr "परिवर्तयतु…"
 
 #: widgets/kpropertiesdialog.cpp:1694 widgets/kpropertiesdialog.cpp:1695
 #: widgets/kpropertiesdialog.cpp:1697
@@ -6516,10 +6531,12 @@ msgstr "C&hecksums"
 
 #: widgets/kpropertiesdialog.cpp:2763 widgets/kpropertiesdialog.cpp:2774
 #: widgets/kpropertiesdialog.cpp:2785 widgets/kpropertiesdialog.cpp:2796
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Calculating…"
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "गणनां कुर्वन्..."
+msgstr "गणनां कुर्वन्…"
 
 #: widgets/kpropertiesdialog.cpp:2952
 #, kde-format
@@ -6561,10 +6578,12 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "गणितं चेकसमं (checksum) अपेक्षितं चेकसमं (checksum) च भिन्नं भवति ।."
 
 #: widgets/kpropertiesdialog.cpp:2994
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "notify the user about a computation in the background"
+#| msgid "Verifying checksum…"
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Checksum सत्यापनम्..."
+msgstr "Checksum सत्यापनम्…"
 
 #: widgets/kpropertiesdialog.cpp:3083
 #, kde-format
@@ -6697,9 +6716,10 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts…"
 msgid "Configure Web Shortcuts..."
-msgstr "जालसंक्षिप्तमार्गः विन्यस्तं कुर्वन्तु..."
+msgstr "जालसंक्षिप्तमार्गः विन्यस्तं कुर्वन्तु…"
 
 #: widgets/kurlrequester.cpp:389
 #, kde-format
@@ -6746,10 +6766,12 @@ msgstr[0] "एकं द्रव्यं संस्थापयतु"
 msgstr[1] "%1 द्रव्यं संस्थापयन्तु"
 
 #: widgets/paste.cpp:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु..."
+msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु…"
 
 #: widgets/paste.cpp:260
 #, kde-format
@@ -7231,25 +7253,24 @@ msgstr "एतेन कार्यक्रमः आरभ्यते :"
 msgid "If you do not trust this program, click Cancel"
 msgstr "यदि भवान् अस्मिन् कार्यक्रमे विश्वासं न करोति तर्हि रद्द (Cancel) नुदतु"
 
-#~ msgctxt "@action:inmenu"
-#~ msgid "Unmounting..."
-#~ msgstr "असंचाद्यते..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "&Edit..."
-#~ msgstr "&सम्पादयतु..."
-
-#~ msgctxt "@action:button Create new file type"
-#~ msgid "Create..."
-#~ msgstr "नूतनं सृजतु..."
+#~ msgid "New Folder…"
+#~ msgstr "नूतनं पुटम्…"
 
 #~ msgctxt "@action:button"
-#~ msgid "Change..."
-#~ msgstr "परिवर्तयतु..."
+#~ msgid "Add…"
+#~ msgstr "संयोजयति…"
 
-#, fuzzy
-#~| msgctxt "@title job"
-#~| msgid "Unmounting"
-#~ msgctxt "@action:inmenu"
-#~ msgid "Unmountingâ€¦"
-#~ msgstr "असंचाद्यते"
+#~ msgctxt "@action:button"
+#~ msgid "Edit…"
+#~ msgstr "सम्पादयतु…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open Folder With…"
+#~ msgstr "&एतेन सह पुटं उद्घाटयन्तु…"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Open With…"
+#~ msgstr "&एतेन उद्घाटयन्तु…"
+
+#~ msgid "Add…"
+#~ msgstr "संयोजयति…"
