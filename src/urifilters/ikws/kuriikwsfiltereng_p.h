@@ -52,7 +52,7 @@ private:
     ~KURISearchFilterEngine();
 
     Q_SLOT void configure();
-    Q_DISABLE_COPY_MOVE(KURISearchFilterEngine);
+    Q_DISABLE_COPY_MOVE(KURISearchFilterEngine)
 
     QStringList modifySubstitutionMap(SubstMap &map, const QString &query) const;
     QString substituteQuery(const QString &url, SubstMap &map, const QString &userquery, QStringEncoder &codec) const;
