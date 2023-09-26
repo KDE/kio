@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-24 01:43+0000\n"
-"PO-Revision-Date: 2023-07-25 14:05+0300\n"
+"PO-Revision-Date: 2023-09-04 15:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -3200,11 +3200,10 @@ msgid "&Edit…"
 msgstr "&Muokkaa…"
 
 #: filewidgets/kfileplacesview.cpp:1173
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Poista tiedosto"
+msgstr "Poista sijainneista"
 
 #: filewidgets/kfileplacesview.cpp:1177
 #, kde-format
