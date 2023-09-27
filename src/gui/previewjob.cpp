@@ -326,7 +326,7 @@ void PreviewJobPrivate::startPreview()
             item.plugin = plugin;
             items.push_back(item);
             if (!bNeedCache && bSave && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-                const QUrl url = fileItem.url();
+                const QUrl url = fileItem.targetUrl();
                 if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot)) {
                     bNeedCache = true;
                 }
@@ -466,7 +466,7 @@ void PreviewJobPrivate::determineNextFile()
         currentItem = items.front();
         items.pop_front();
         succeeded = false;
-        KIO::Job *job = KIO::stat(currentItem.item.url(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
+        KIO::Job *job = KIO::stat(currentItem.item.targetUrl(), StatJob::SourceSide, KIO::StatDefaultDetails | KIO::StatInode, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
         q->addSubjob(job);
@@ -580,7 +580,7 @@ bool PreviewJobPrivate::statResultThumbnail()
         }
     } else {
         // Don't include the password if any
-        origName = url.toEncoded(QUrl::RemovePassword);
+        origName = currentItem.item.targetUrl().toEncoded(QUrl::RemovePassword);
     }
 
     QCryptographicHash md5(QCryptographicHash::Md5);
@@ -647,41 +647,42 @@ void PreviewJobPrivate::getOrCreateThumbnail()
     const QString localPath = item.localPath();
     if (!localPath.isEmpty()) {
         createThumbnail(localPath);
-    } else {
-        const QUrl fileUrl = item.url();
-        // heuristics for remote URL support
-        bool supportsProtocol = false;
-        if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
-            // There's a plugin supporting this protocol and MIME type
-            supportsProtocol = true;
-        } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
-            // Assume KIO understands any URL, ThumbCreator workers who have
-            // X-KDE-Protocols=KIO will get fed the remote URL directly.
-            supportsProtocol = true;
-        }
-
-        if (supportsProtocol) {
-            createThumbnail(fileUrl.toString());
-            return;
-        }
-        if (item.isDir()) {
-            // Skip remote dirs (bug 208625)
-            cleanupTempFile();
-            determineNextFile();
-            return;
-        }
-        // No plugin support access to this remote content, copy the file
-        // to the local machine, then create the thumbnail
-        state = PreviewJobPrivate::STATE_GETORIG;
-        QTemporaryFile localFile;
-        localFile.setAutoRemove(false);
-        localFile.open();
-        tempName = localFile.fileName();
-        const QUrl currentURL = item.mostLocalUrl();
-        KIO::Job *job = KIO::file_copy(currentURL, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
-        job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
-        q->addSubjob(job);
+        return;
     }
+
+    // heuristics for remote URL support
+    const QUrl fileUrl = item.targetUrl();
+    bool supportsProtocol = false;
+    if (m_remoteProtocolPlugins.value(fileUrl.scheme()).contains(item.mimetype())) {
+        // There's a plugin supporting this protocol and MIME type
+        supportsProtocol = true;
+    } else if (m_remoteProtocolPlugins.value(QStringLiteral("KIO")).contains(item.mimetype())) {
+        // Assume KIO understands any URL, ThumbCreator workers who have
+        // X-KDE-Protocols=KIO will get fed the remote URL directly.
+        supportsProtocol = true;
+    }
+
+    if (supportsProtocol) {
+        createThumbnail(fileUrl.toString());
+        return;
+    }
+    if (item.isDir()) {
+        // Skip remote dirs (bug 208625)
+        cleanupTempFile();
+        determineNextFile();
+        return;
+    }
+    // No plugin support access to this remote content, copy the file
+    // to the local machine, then create the thumbnail
+    state = PreviewJobPrivate::STATE_GETORIG;
+    QTemporaryFile localFile;
+    localFile.setAutoRemove(false);
+    localFile.open();
+    tempName = localFile.fileName();
+    const QUrl currentURL = item.mostLocalUrl();
+    KIO::Job *job = KIO::file_copy(currentURL, QUrl::fromLocalFile(tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+    job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+    q->addSubjob(job);
 }
 
 PreviewJobPrivate::CachePolicy PreviewJobPrivate::canBeCached(const QString &path)
@@ -835,8 +836,8 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
                       && !sequenceIndex
                       && currentDeviceCachePolicy == CachePolicy::Allow
                       && currentItem.plugin.value(QStringLiteral("CacheThumbnail"), true)
-                      && (!currentItem.item.url().isLocalFile()
-                          || !currentItem.item.url().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
+                      && (!currentItem.item.targetUrl().isLocalFile()
+                          || !currentItem.item.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(thumbRoot));
     /* clang-format on */
 
     QImage thumb;
