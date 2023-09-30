@@ -200,8 +200,6 @@ public:
 
     const bool fileIndexingEnabled;
 
-    QString alternativeApplicationName;
-
     void reloadAndSignal();
     QList<KFilePlacesItem *> loadBookmarkList();
     int findNearestPosition(int source, int target);
@@ -240,13 +238,12 @@ static inline QString versionKey()
     return QStringLiteral("kde_places_version");
 }
 
-KFilePlacesModel::KFilePlacesModel(const QString &alternativeApplicationName, QObject *parent)
+KFilePlacesModel::KFilePlacesModel(QObject *parent)
     : QAbstractItemModel(parent)
     , d(new KFilePlacesModelPrivate(this))
 {
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/user-places.xbel");
     d->bookmarkManager = KBookmarkManager::managerForFile(file);
-    d->alternativeApplicationName = alternativeApplicationName;
 
     // Let's put some places in there if it's empty.
     KBookmarkGroup root = d->bookmarkManager->root();
@@ -913,7 +910,7 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
             }
         } else if (const QUrl url = bookmark.url(); url.isValid()) {
             QString appName = bookmark.metaDataItem(QStringLiteral("OnlyInApp"));
-            bool allowedHere = appName.isEmpty() || ((appName == QCoreApplication::instance()->applicationName()) || (appName == alternativeApplicationName));
+            bool allowedHere = appName.isEmpty() || appName == QCoreApplication::instance()->applicationName();
             bool isSupportedUrl = isBalooUrl(url) ? fileIndexingEnabled : true;
             bool isSupportedScheme = supportedSchemes.isEmpty() || supportedSchemes.contains(url.scheme());
 

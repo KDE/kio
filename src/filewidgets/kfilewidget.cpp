@@ -1090,7 +1090,7 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_opsWidgetLayout->setContentsMargins(0, 0, 0, 0);
     m_opsWidgetLayout->setSpacing(0);
 
-    m_model = new KFilePlacesModel({}, q);
+    m_model = new KFilePlacesModel(q);
 
     // Don't pass "startDir" (KFileWidget constructor 1st arg) to the
     // KUrlNavigator at this stage: it may also contain a file name which

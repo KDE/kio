@@ -129,13 +129,7 @@ public:
     enum DeviceAccessibility { SetupNeeded, SetupInProgress, Accessible, TeardownInProgress };
     Q_ENUM(DeviceAccessibility)
 
-    /**
-     * @brief Construct a new KFilePlacesModel with an alternativeApplicationName
-     * @param alternativeApplicationName This value will be used to filter bookmarks in addition to the actual application name
-     * @param parent Parent object
-     * @since 5.43
-     */
-    explicit KFilePlacesModel(const QString &alternativeApplicationName = QString(), QObject *parent = nullptr);
+    explicit KFilePlacesModel(QObject *parent = nullptr);
     ~KFilePlacesModel() override;
 
     /**
