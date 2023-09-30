@@ -462,12 +462,10 @@ bool KIOGuiPrivate::checkStartupNotify(const KService *service, bool *silent_arg
 {
     bool silent = false;
     QByteArray wmclass;
-    if (service && service->property(QStringLiteral("StartupNotify")).isValid()) {
-        silent = !service->property(QStringLiteral("StartupNotify")).toBool();
+
+    if (service && service->startupNotify().has_value()) {
+        silent = !service->startupNotify().value();
         wmclass = service->property(QStringLiteral("StartupWMClass")).toString().toLatin1();
-    } else if (service && service->property(QStringLiteral("X-KDE-StartupNotify")).isValid()) {
-        silent = !service->property(QStringLiteral("X-KDE-StartupNotify")).toBool();
-        wmclass = service->property(QStringLiteral("X-KDE-WMClass")).toString().toLatin1();
     } else { // non-compliant app
         if (service) {
             if (service->isApplication()) { // doesn't have .desktop entries needed, start as non-compliant
