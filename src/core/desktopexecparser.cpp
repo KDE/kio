@@ -191,7 +191,7 @@ QStringList KIO::DesktopExecParser::supportedProtocols(const KService &service)
     } else {
         if (supportedProtocols.isEmpty()) {
             // compat mode: assume KIO if not set and it's a KDE app (or a KDE service)
-            const QStringList categories = service.property(QStringLiteral("Categories")).toStringList();
+            const QStringList categories = service.property<QStringList>(QStringLiteral("Categories"));
             if (categories.contains(QLatin1String("KDE")) || !service.isApplication() || service.entryPath().isEmpty() /*temp service*/) {
                 supportedProtocols.append(QStringLiteral("KIO"));
             } else { // if no KDE app, be a bit over-generic
@@ -377,7 +377,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // FIXME: the current way of invoking kioexec disables term and su use
 
     // Check if we need "tempexec" (kioexec in fact)
-    appHasTempFileOption = d->tempFiles && d->service.property(QStringLiteral("X-KDE-HasTempFileOption")).toBool();
+    appHasTempFileOption = d->tempFiles && d->service.property<bool>(QStringLiteral("X-KDE-HasTempFileOption"));
     if (d->tempFiles && !appHasTempFileOption && d->urls.size()) {
         result << kioexecPath() << QStringLiteral("--tempfiles") << exec;
         if (!d->suggestedFileName.isEmpty()) {
@@ -390,7 +390,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // Return true for non-KIO desktop files with explicit X-KDE-Protocols list, like vlc, for the special case below
     auto isNonKIO = [this]() {
-        const QStringList protocols = d->service.property(QStringLiteral("X-KDE-Protocols")).toStringList();
+        const QStringList protocols = d->service.property<QStringList>(QStringLiteral("X-KDE-Protocols"));
         return !protocols.isEmpty() && !protocols.contains(QLatin1String("KIO"));
     };
 
