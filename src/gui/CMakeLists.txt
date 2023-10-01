@@ -139,6 +139,3 @@ install(FILES
 # make available to ecm_add_qch in parent folder
 set(KIOGui_QCH_SOURCES ${KIOGui_HEADERS} ${KIO_namespaced_gui_HEADERS} PARENT_SCOPE)
 
-include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOGui LIB_NAME KF6KIOGui DEPS "KIOCore" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui)
-install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

@@ -202,6 +202,3 @@ install(FILES
 # make available to ecm_add_qch in parent folder
 set(KIOWidgets_QCH_SOURCES ${KIOWidgets_HEADERS} ${KIO_namespaced_widgets_HEADERS} PARENT_SCOPE)
 
-include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KIOWidgets LIB_NAME KF6KIOWidgets DEPS "KIOGui KIOCore KBookmarks Solid" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets)
-install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
