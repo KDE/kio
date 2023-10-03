@@ -316,8 +316,9 @@ void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
     }
 }
 
-KIO::JobUiDelegate::JobUiDelegate(Version version, KJobUiDelegate::Flags /*flags*/, QWidget *window, const QList<QObject *> &ifaces)
-    : d(new JobUiDelegatePrivate(this, ifaces))
+KIO::JobUiDelegate::JobUiDelegate(Version version, KJobUiDelegate::Flags flags, QWidget *window, const QList<QObject *> &ifaces)
+    : KDialogJobUiDelegate(flags, window)
+    , d(new JobUiDelegatePrivate(this, ifaces))
 {
     // TODO KF6: drop the version argument and replace the deprecated constructor
     // TODO KF6: change the API to accept QWindows rather than QWidgets (this also carries through to the Interfaces)
