@@ -15,12 +15,9 @@ framework-dependencies:
     # kio calls org.kde.kded5 via dbus
     - KDED
 libraries:
- - qmake: KIOCore
-   cmake: "KF6::KIOCore"
- - qmake: KIOFileWidgets
-   cmake: "KF6::KIOFileWidgets"
- - qmake: KIOWidgets
-   cmake: "KF6::KIOWidgets"
+ - cmake: "KF6::KIOCore"
+ - cmake: "KF6::KIOFileWidgets"
+ - cmake: "KF6::KIOWidgets"
 cmakename: KF6KIO
 
 public_lib: true
