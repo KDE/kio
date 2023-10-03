@@ -1030,7 +1030,17 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     // Location:
     if (!directory.isEmpty()) {
-        d->m_ui->locationLabel->setText(directory);
+        QString locationUrl = directory;
+        // if (isLocal && protocol != QLatin1String("file")) {
+        //     locationUrl.prepend(QLatin1String("file:///"));
+        // }
+        locationUrl.prepend(QLatin1String("file:///"));
+        QString locationLabelText = QLatin1String("<a href=\"") + locationUrl + QLatin1String("\">") + directory + QLatin1String("</a>");
+        d->m_ui->locationLabel->setText(locationLabelText);
+
+        connect(d->m_ui->locationLabel, &QLabel::linkActivated, this, [](const QString &link) {
+            KIO::highlightInFileManager({QUrl(link)});
+        });
 
         // Layout direction for this label is always LTR; but if we are in RTL mode,
         // align the text to the right, otherwise the text is on the wrong side of the dialog

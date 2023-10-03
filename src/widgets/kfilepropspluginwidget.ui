@@ -161,7 +161,7 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="KSqueezedTextLabel" name="locationLabel">
+      <widget class="QLabel" name="locationLabel">
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
        </property>
@@ -169,10 +169,10 @@
         <string/>
        </property>
        <property name="textFormat">
-        <enum>Qt::PlainText</enum>
+        <enum>Qt::RichText</enum>
        </property>
        <property name="textInteractionFlags">
-        <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+        <set>Qt::TextBrowserInteraction</set>
        </property>
       </widget>
      </item>
