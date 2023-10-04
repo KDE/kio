@@ -87,6 +87,9 @@ if(UNIX)
     NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test Qt6::Network
   )
+    if(ACL_FOUND)
+        target_link_libraries(jobtest ${ACL_LIBS})
+    endif()
 endif()
 
 if (TARGET KF6::KIOGui)

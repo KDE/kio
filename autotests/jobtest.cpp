@@ -7,6 +7,7 @@
 
 #include "jobtest.h"
 #include "mockcoredelegateextensions.h"
+#include "config-kiocore.h"
 
 #include "kio/job.h"
 #include "kiotesthelper.h" // createTestFile etc.
@@ -40,6 +41,11 @@
 #include <QTimer>
 #include <QUrl>
 #include <QVariant>
+
+#ifdef HAVE_POSIX_ACL
+#include <sys/types.h>
+#include <sys/acl.h>
+#endif
 
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
@@ -788,6 +794,51 @@ void JobTest::copyFileToSamePartition()
     }
     copyLocalFile(filePath, dest);
 }
+
+#if HAVE_POSIX_ACL
+void JobTest::copyFileToSamePartitionWithAcl()
+{
+    const QString homeDir = homeTmpDir();
+    const QString filePath = homeDir + "fileFromHome";
+    const QString dest = homeDir + "fileFromHome_copied";
+    createTestFile(filePath);
+    QFile::remove(dest); // clean dest
+    auto path = filePath.toLatin1();
+
+    std::string new_acl_string = R"(user::rw-
+group::r--
+other::---)";
+    acl_t new_acl = acl_from_text(new_acl_string.c_str());
+    QVERIFY2(new_acl != nullptr, strerror(errno));
+    QVERIFY2(acl_valid(new_acl) == 0, strerrorname_np(errno));
+
+    // change the source acl
+    QVERIFY2(acl_set_file(path, ACL_TYPE_ACCESS, new_acl) == 0, strerrorname_np(errno));
+    auto src_acl = acl_get_file(path, ACL_TYPE_ACCESS);
+    QCOMPARE(acl_to_text(src_acl, NULL), acl_to_text(new_acl, NULL));
+    acl_free(src_acl);
+
+    auto *copyjob = KIO::copy(QUrl::fromLocalFile(filePath), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    QSignalSpy spyCopyingDone(copyjob, &KIO::CopyJob::copyingDone);
+    copyjob->setUiDelegate(nullptr);
+    copyjob->setUiDelegateExtension(nullptr);
+    QVERIFY2(copyjob->exec(), qPrintable(copyjob->errorString()));
+    QCOMPARE(spyCopyingDone.count(), 1);
+    QVERIFY(QFile::exists(dest));
+    QVERIFY(QFile::exists(filePath)); // still there
+
+    acl_t dest_acl = acl_get_file(dest.toLatin1(), ACL_TYPE_ACCESS);
+    QVERIFY(dest_acl != nullptr);
+
+    // main assert
+    QCOMPARE(acl_to_text(dest_acl, NULL), acl_to_text(new_acl, NULL));
+
+    // clean up
+    acl_free(dest_acl);
+    acl_free(new_acl);
+    QFile::remove(dest);
+}
+#endif
 
 void JobTest::copyDirectoryToSamePartition()
 {
