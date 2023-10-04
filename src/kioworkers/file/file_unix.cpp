@@ -617,6 +617,21 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     }
 #endif
 
+#if HAVE_POSIX_ACL
+    // If no special mode is given, preserve the ACL attributes from the source file if it has any
+    if (_mode == -1) {
+        // Copy Acl
+        acl_t acl = acl_get_fd(srcFile.handle());
+        if (acl == nullptr) {
+            qCWarning(KIO_FILE) << "Could not read ACL permissions for" << src << strerror(errno);
+        } else if (!isExtendedACL(acl)) {
+            // if the src file has no specific acl permissions, ignore, and use default umask
+        } else if (acl_set_fd(destFile.handle(), acl) != 0) {
+            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest << strerror(errno);
+        }
+    }
+#endif
+
     srcFile.close();
 
     destFile.flush(); // so the write() happens before futimes()
@@ -661,16 +676,6 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
         return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest);
     }
-
-#if HAVE_POSIX_ACL
-    // If no special mode is given, preserve the ACL attributes from the source file
-    if (_mode == -1) {
-        acl_t acl = acl_get_fd(srcFile.handle());
-        if (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0) {
-            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
-        }
-    }
-#endif
 
     // preserve ownership
     if (_mode != -1) {

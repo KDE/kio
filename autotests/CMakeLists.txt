@@ -89,6 +89,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     )
 endif()
 
+if(UNIX)
+  if(ACL_FOUND)
+      target_link_libraries(jobtest ${ACL_LIBS})
+  endif()
+endif()
+
 if (TARGET KF6::KIOGui)
   ecm_add_tests(
     favicontest.cpp

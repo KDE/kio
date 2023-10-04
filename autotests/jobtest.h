@@ -107,6 +107,7 @@ private Q_SLOTS:
     void moveFileDestAlreadyExists();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
+    void copyFileToSamePartitionWithAcl();
     void moveDestAlreadyExistsAutoRename_data();
     void moveDestAlreadyExistsAutoRename();
 
