@@ -46,6 +46,7 @@ target_sources(KF6KIOWidgets PRIVATE
   widgetsopenwithhandler.cpp
   widgetsopenorexecutefilehandler.cpp
   widgetsaskuseractionhandler.cpp
+  widgetsbuildsycocahandler.cpp
 )
 
 if(NOT ANDROID)

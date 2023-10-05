@@ -83,6 +83,8 @@ target_sources(KF6KIOCore PRIVATE
   workerthread.cpp
   kfilefilter.cpp
   koverlayiconplugin.cpp
+  buildsycocajob.cpp
+  buildsycocainterface.cpp
 )
 
 if (NOT ANDROID)
@@ -262,6 +264,8 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   WorkerFactory
   ForwardingWorkerBase
   UntrustedProgramHandlerInterface
+  BuildSycocaJob
+  BuildSycocaInterface
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_HEADERS

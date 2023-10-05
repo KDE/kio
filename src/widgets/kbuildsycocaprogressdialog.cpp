@@ -7,45 +7,33 @@
 #include "kbuildsycocaprogressdialog.h"
 #include "kio_widgets_debug.h"
 
+#include <KJobWidgets>
 #include <KLocalizedString>
-#include <KSycoca>
 
-#include <QDBusConnection>
-#include <QDBusInterface>
 #include <QDialogButtonBox>
-#include <QProcess>
-#include <QStandardPaths>
+#include <QEventLoop>
+
+#include "buildsycocajob.h"
+#include "jobuidelegatefactory.h"
 
 class KBuildSycocaProgressDialogPrivate
 {
-public:
-    explicit KBuildSycocaProgressDialogPrivate(KBuildSycocaProgressDialog *parent)
-        : m_parent(parent)
-    {
-    }
-
-    KBuildSycocaProgressDialog *const m_parent;
 };
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
-    KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration."));
-
-    const QString exec = QStandardPaths::findExecutable(QStringLiteral(KBUILDSYCOCA_EXENAME));
-    if (exec.isEmpty()) {
-        qCWarning(KIO_WIDGETS) << "Could not find kbuildsycoca executable:" << KBUILDSYCOCA_EXENAME;
-        return;
-    }
-    QProcess *proc = new QProcess(&dlg);
-    proc->start(exec, QStringList());
-    QObject::connect(proc, &QProcess::finished, &dlg, &QWidget::close);
-
-    dlg.exec();
+    KIO::BuildSycocaJob job;
+    KJobWidgets::setWindow(&job, parent);
+    job.setUiDelegate(KIO::createDefaultJobUiDelegate());
+    QEventLoop loop;
+    connect(&job, &KJob::result, &loop, &QEventLoop::quit);
+    job.start();
+    loop.exec();
 }
 
 KBuildSycocaProgressDialog::KBuildSycocaProgressDialog(QWidget *_parent, const QString &title, const QString &text)
     : QProgressDialog(_parent)
-    , d(new KBuildSycocaProgressDialogPrivate(this))
+    , d(new KBuildSycocaProgressDialogPrivate)
 {
     setWindowTitle(title);
     setModal(true);

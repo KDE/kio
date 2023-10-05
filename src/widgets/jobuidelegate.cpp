@@ -13,6 +13,7 @@
 #include "kio_widgets_debug.h"
 #include "kiogui_export.h"
 #include "widgetsaskuseractionhandler.h"
+#include "widgetsbuildsycocahandler.h"
 #include "widgetsopenorexecutefilehandler.h"
 #include "widgetsopenwithhandler.h"
 #include "widgetsuntrustedprogramhandler.h"
@@ -52,6 +53,8 @@ public:
                 m_openOrExecuteFileHandler = obj;
             } else if (auto obj = qobject_cast<AskUserActionInterface *>(iface)) {
                 m_askUserActionHandler = obj;
+            } else if (auto obj = qobject_cast<BuildSycocaInterface *>(iface)) {
+                m_buildSycocaHandler = obj;
             }
         }
 
@@ -67,12 +70,16 @@ public:
         if (!m_askUserActionHandler) {
             m_askUserActionHandler = new WidgetsAskUserActionHandler(qq);
         }
+        if (!m_buildSycocaHandler) {
+            m_buildSycocaHandler = new WidgetsBuildSycocaHandler(qq);
+        }
     }
 
     UntrustedProgramHandlerInterface *m_untrustedProgramHandler = nullptr;
     OpenWithHandlerInterface *m_openWithHandler = nullptr;
     OpenOrExecuteFileInterface *m_openOrExecuteFileHandler = nullptr;
     AskUserActionInterface *m_askUserActionHandler = nullptr;
+    BuildSycocaInterface *m_buildSycocaHandler = nullptr;
 };
 
 KIO::JobUiDelegate::~JobUiDelegate() = default;
@@ -164,6 +171,9 @@ void KIO::JobUiDelegate::setWindow(QWidget *window)
         obj->setWindow(window);
     }
     if (auto obj = qobject_cast<WidgetsAskUserActionHandler *>(d->m_askUserActionHandler)) {
+        obj->setWindow(window);
+    }
+    if (auto obj = qobject_cast<WidgetsBuildSycocaHandler *>(d->m_buildSycocaHandler)) {
         obj->setWindow(window);
     }
 

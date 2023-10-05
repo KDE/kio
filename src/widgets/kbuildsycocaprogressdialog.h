@@ -14,6 +14,11 @@
 
 #include <memory>
 
+namespace KIO
+{
+class WidgetsBuildSycocaHandler;
+} // namespace KIO
+
 class KBuildSycocaProgressDialogPrivate;
 /**
  * @class KBuildSycocaProgressDialog kbuildsycocaprogressdialog.h <KBuildSycocaProgressDialog>
@@ -24,14 +29,17 @@ class KBuildSycocaProgressDialogPrivate;
 class KIOWIDGETS_EXPORT KBuildSycocaProgressDialog : public QProgressDialog
 {
     Q_OBJECT
+    friend class KIO::WidgetsBuildSycocaHandler;
+
 public:
     /**
      * Rebuild KSycoca and show a progress dialog while doing so.
      * @param parent Parent widget for the progress dialog
      */
+    KIOWIDGETS_DEPRECATED_VERSION(5, 240, "Use KIO::BuildSycocaJob (don't forget KJobWidgets::setWindow(&job, parent) if you want a UI with parent)")
     static void rebuildKSycoca(QWidget *parent);
 
-private:
+protected:
     KIOWIDGETS_NO_EXPORT KBuildSycocaProgressDialog(QWidget *parent, const QString &title, const QString &text);
     KIOWIDGETS_NO_EXPORT ~KBuildSycocaProgressDialog() override;
 
