@@ -25,6 +25,10 @@ bool DBusActivationRunner::activationPossible(const KService::Ptr service, KIO::
         return false;
     }
     if (service->property(QStringLiteral("DBusActivatable"), QMetaType::Bool).toBool()) {
+        if (service->menuId().count(QLatin1Char('.')) < 3) {
+            qCWarning(KIO_GUI) << "Cannot activate" << service->menuId() << "doesn't have enough '.' for a well-formed service name";
+            return false;
+        }
         if (!suggestedFileName.isEmpty()) {
             qCDebug(KIO_GUI) << "Cannot activate" << service->desktopEntryName() << "because suggestedFileName is set";
             return false;
