@@ -832,8 +832,6 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
 #ifndef Q_OS_MACOS
     dlg->setAttribute(Qt::WA_NativeWindow, true);
     KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
-#else
-    KWindowSystem::forceActiveWindow(dlg->winId(), 0);
 #endif
 
     qCDebug(category) << "Showing password dialog" << dlg << ", window-id=" << request->windowId;
