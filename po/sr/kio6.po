@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 01:43+0000\n"
+"POT-Creation-Date: 2023-10-06 01:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3070,74 +3070,74 @@ msgstr ""
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Домаће"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:301
+#: filewidgets/kfileplacesmodel.cpp:298
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Документи"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:305
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Мрежа"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Смеће"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:376
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:383
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Видео"
 
 # >> @title:window
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:419
 #, fuzzy
 #| msgid "Delete Files"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Брисање фајлова"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:424
 #, fuzzy
 #| msgid "Location:"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Локација:"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:447
 #, fuzzy
 #| msgid "Modified:"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Измена:"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:451
 #, fuzzy
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Yesterday"
@@ -3145,48 +3145,48 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Јуче"
 
-#: filewidgets/kfileplacesmodel.cpp:1135
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Не могу да нађем програм „%1“."
 
-#: filewidgets/kfileplacesmodel.cpp:1142
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, fuzzy, kde-format
 #| msgid "A folder cannot be moved into itself"
 msgid "Only folders can be added to the Places panel."
 msgstr "Фасцикла не може да се премести сама у себе."
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr ""
 
 # >> Release a removable device, so that it can be unplugged.
-#: filewidgets/kfileplacesmodel.cpp:1408
+#: filewidgets/kfileplacesmodel.cpp:1400
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Ослободи „%1“|/|&Ослободи „$[аку %1]“"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1404
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Безбедно уклони „%1“|/|&Безбедно уклони „$[аку %1]“"
 
-#: filewidgets/kfileplacesmodel.cpp:1414
+#: filewidgets/kfileplacesmodel.cpp:1406
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Безбедно уклони „%1“|/|&Безбедно уклони „$[аку %1]“"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1411
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3194,43 +3194,43 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Демонтирање"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Демонтирај"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1437
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Избаци"
 
-#: filewidgets/kfileplacesmodel.cpp:1492
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Уређај „%1“ није диск и не може се избацити."
 
-#: filewidgets/kfileplacesmodel.cpp:1527
+#: filewidgets/kfileplacesmodel.cpp:1519
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Грешка при приступу „%1“, систем јавља: %2|/|Грешка при приступу „$[дат "
 "%1]“, систем јавља: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Грешка при приступу „%1“|/|Грешка при приступу „$[дат %1]“"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1547
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1558
+#: filewidgets/kfileplacesmodel.cpp:1550
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3243,13 +3243,13 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1561
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1607
+#: filewidgets/kfileplacesmodel.cpp:1599
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

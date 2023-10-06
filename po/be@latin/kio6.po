@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 01:43+0000\n"
+"POT-Creation-Date: 2023-10-06 01:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3087,83 +3087,83 @@ msgstr "Usie paznaki"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Chatni kataloh"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Pracoŭny stol"
 
-#: filewidgets/kfileplacesmodel.cpp:301
+#: filewidgets/kfileplacesmodel.cpp:298
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Dakumienty"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:305
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Spampoŭvanni"
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Sietka"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Smietnica"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:376
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Muzyka"
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:383
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Maliunki"
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videa"
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Niadaŭnija fajly"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Niadaŭnija razmiaščenni"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:447
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Zmieniena sionnia"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:451
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Zmieniena ŭčora"
 
-#: filewidgets/kfileplacesmodel.cpp:1135
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Nie ŭdalosia dadać paneĺ razmiaščenniaŭ: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1142
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Na paneĺ razmiaščenniaŭ možna dadavać toĺki katalohi."
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3171,13 +3171,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1408
+#: filewidgets/kfileplacesmodel.cpp:1400
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1404
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3185,13 +3185,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1414
+#: filewidgets/kfileplacesmodel.cpp:1406
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1411
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3199,43 +3199,43 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Admantavannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Admantavać"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1437
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Vyniać"
 
-#: filewidgets/kfileplacesmodel.cpp:1492
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, fuzzy, kde-format
 #| msgid "The device %1 is not a disk and cannot be ejected."
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Prylada \"%1\" - nie dysk, tamu nieĺha vykanać vymannie."
 
-#: filewidgets/kfileplacesmodel.cpp:1527
+#: filewidgets/kfileplacesmodel.cpp:1519
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1, the system responded: %2"
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka. Adkaz sistemy: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1"
 msgid "An error occurred while accessing '%1'"
 msgstr "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1547
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1558
+#: filewidgets/kfileplacesmodel.cpp:1550
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3248,13 +3248,13 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1561
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1607
+#: filewidgets/kfileplacesmodel.cpp:1599
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

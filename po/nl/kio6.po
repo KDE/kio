@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 01:43+0000\n"
+"POT-Creation-Date: 2023-10-06 01:39+0000\n"
 "PO-Revision-Date: 2023-08-08 09:50+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3062,147 +3062,147 @@ msgstr "Alle tags"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Home"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Bureaublad"
 
-#: filewidgets/kfileplacesmodel.cpp:301
+#: filewidgets/kfileplacesmodel.cpp:298
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Documenten"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:305
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Netwerk"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Prullenbak"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:376
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Muziek"
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:383
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Afbeeldingen"
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Video's"
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Recente bestanden"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Recente locaties"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:447
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Vandaag gewijzigd"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:451
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Gisteren gewijzigd"
 
-#: filewidgets/kfileplacesmodel.cpp:1135
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Kon paneel Plaatsen '%1' niet toevoegen"
 
-#: filewidgets/kfileplacesmodel.cpp:1142
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Alleen mappen kunnen toegevoegd worden aan het paneel Plaatsen."
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Vrijgeven…"
 
-#: filewidgets/kfileplacesmodel.cpp:1408
+#: filewidgets/kfileplacesmodel.cpp:1400
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Uitgave"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1404
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Veilig verwijderen…"
 
-#: filewidgets/kfileplacesmodel.cpp:1414
+#: filewidgets/kfileplacesmodel.cpp:1406
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Veilig verwijderen"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1411
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Afkoppelen…"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "A&fkoppelen"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1437
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Uitwerpen"
 
-#: filewidgets/kfileplacesmodel.cpp:1492
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Het apparaat '%1' is geen schijf en kan niet worden uitgeworpen."
 
-#: filewidgets/kfileplacesmodel.cpp:1527
+#: filewidgets/kfileplacesmodel.cpp:1519
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Er is een fout opgetreden bij het aanspreken van '%1', het systeem geeft de "
 "volgende melding: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Er is een fout opgetreden bij het aanspreken van '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1547
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "Een of meer bestanden op dit apparaat zijn in een toepassing geopend"
 
-#: filewidgets/kfileplacesmodel.cpp:1558
+#: filewidgets/kfileplacesmodel.cpp:1550
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3217,13 +3217,13 @@ msgstr[1] ""
 "Een of meer bestanden op dit apparaat zijn geopend in de volgende "
 "toepassingen: %2."
 
-#: filewidgets/kfileplacesmodel.cpp:1561
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1607
+#: filewidgets/kfileplacesmodel.cpp:1599
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

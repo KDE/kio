@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 01:43+0000\n"
+"POT-Creation-Date: 2023-10-06 01:39+0000\n"
 "PO-Revision-Date: 2004-12-14 15:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2959,121 +2959,121 @@ msgstr ""
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Baile"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:301
+#: filewidgets/kfileplacesmodel.cpp:298
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "FIXME: Doiciméadaigh é seo"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:305
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Líonra"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Bruscar"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:376
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:383
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:419
 #, fuzzy
 #| msgid "Delete Files"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Scrios Comhaid"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:424
 #, fuzzy
 #| msgid "Location:"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Suíomh:"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:447
 #, fuzzy
 #| msgid "Modified:"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Athraithe:"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:451
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1135
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Níorbh fhéidir clár '%1' a aimsiú"
 
-#: filewidgets/kfileplacesmodel.cpp:1142
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid "Only folders can be added to the Places panel."
 msgstr "Níl comhad nó comhadlann %1 ann."
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, fuzzy, kde-format
 #| msgid "&Reload List"
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Athluchtaigh Liosta"
 
-#: filewidgets/kfileplacesmodel.cpp:1408
+#: filewidgets/kfileplacesmodel.cpp:1400
 #, fuzzy, kde-format
 #| msgid "&Reload List"
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Athluchtaigh Liosta"
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1404
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Bain '%1' go &sábháilte"
 
-#: filewidgets/kfileplacesmodel.cpp:1414
+#: filewidgets/kfileplacesmodel.cpp:1406
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Bain '%1' go &sábháilte"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1411
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3081,41 +3081,41 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Dífheistiú"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Dífheistigh"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1437
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Díchuir"
 
-#: filewidgets/kfileplacesmodel.cpp:1492
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Ní diosca é an gléas '%1' agus ní féidir é a dhíchur."
 
-#: filewidgets/kfileplacesmodel.cpp:1527
+#: filewidgets/kfileplacesmodel.cpp:1519
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Tharla earráid agus '%1' á rochtain; dúirt an córas: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Tharla earráid agus '%1' á rochtain"
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1547
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1558
+#: filewidgets/kfileplacesmodel.cpp:1550
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3129,13 +3129,13 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1561
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1607
+#: filewidgets/kfileplacesmodel.cpp:1599
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"

@@ -14,19 +14,20 @@
 # Netanel_h <netanel@gmx.com>, 2009.
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-24 01:43+0000\n"
-"PO-Revision-Date: 2017-05-16 06:50-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"PO-Revision-Date: 2023-10-05 07:55+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -1495,7 +1496,7 @@ msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr ""
-"זוהי שגיאה טכנית למדיי בה אין אפשרות ליצור התקן הדרוש לתקשורת ברשת (שקע)."
+"זוהי שגיאה טכנית למדי בה אין אפשרות ליצור התקן הדרוש לתקשורת ברשת (שקע)."
 
 #: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
 #: core/job_error.cpp:877
@@ -1623,7 +1624,7 @@ msgid ""
 msgstr ""
 "ייתכן שההתקן אינו מוכן. לדוגמה, יכול להיות שאין מדיה בהתקן המדיה הנשלפת "
 "(למשל, אין תקליטור בכונן התקליטורים), או שבמקרה של התקן היקפי/נייד, יכול "
-"להיות שההתקן אינו מחובר כהלכה."
+"להיות שההתקן אינו מחובר כראוי."
 
 #: core/job_error.cpp:774
 #, kde-format
@@ -1641,8 +1642,8 @@ msgid ""
 "Check that the device is ready; removable drives must contain media, and "
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
-"בדוק שההתקן מוכן ונסה שנית. כוננים נשלפים חייבים להכיל מדיה; התקנים ניידים "
-"חייבים להיות מחוברים ודלוקים."
+"נא לבדוק שההתקן מוכן ולנסות שנית. כוננים נתיקים חייבים להכיל מדיה, התקנים "
+"ניידים חייבים להיות מחוברים ופועלים."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -1744,7 +1745,7 @@ msgid ""
 "communications (a socket) could not be established to listen for incoming "
 "network connections."
 msgstr ""
-"זוהי שגיאה טכנית למדיי, בה אין אפשרות ליצור התקן הדרוש לתקשורת ברשת (שקע) "
+"זוהי שגיאה טכנית למדי, בה אין אפשרות ליצור התקן הדרוש לתקשורת ברשת (שקע) "
 "לצורך האזנה לחיבורים נכנסים ברשת."
 
 #: core/job_error.cpp:860
@@ -1763,7 +1764,7 @@ msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr ""
-"זוהי שגיאה טכנית למדיי, בה מתרחשת שגיאה במהלך ניסיון לקבל חיבור נכנס ברשת."
+"זוהי שגיאה טכנית למדי, בה מתרחשת שגיאה במהלך ניסיון לקבל חיבור נכנס ברשת."
 
 #: core/job_error.cpp:879
 #, kde-format
@@ -2076,7 +2077,7 @@ msgstr ""
 #: core/job_error.cpp:1108
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
-msgstr "השרת היה עסוק מדיי במענה לבקשות אחרות מכדי להגיב."
+msgstr "השרת היה עסוק מדי במענה לבקשות אחרות מכדי להגיב."
 
 #: core/job_error.cpp:1114 core/slavebase.cpp:1504
 #, kde-format
@@ -2205,7 +2206,7 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"פנה מספיק מקום בדיסק על ידי 1) מחיקה של קבצים זמניים וקבצים שאינם רצויים; 2) "
+"פנה מספיק מקום בדיסק על ידי 1) מחיקה של קבצים זמניים וקבצים שאינם רצוים; 2) "
 "אחסון קבצים במדיה נשלפת כגון תקליטורים לצריבה; 3) הוספת קיבולת אחסון נוספת."
 
 #: core/job_error.cpp:1209
@@ -2971,121 +2972,121 @@ msgstr ""
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:285
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "ספריית הבית"
 
-#: filewidgets/kfileplacesmodel.cpp:294
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:301
+#: filewidgets/kfileplacesmodel.cpp:298
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "תקן אותי: תעד זאת"
 
-#: filewidgets/kfileplacesmodel.cpp:308
+#: filewidgets/kfileplacesmodel.cpp:305
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:313
+#: filewidgets/kfileplacesmodel.cpp:310
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "רשת"
 
-#: filewidgets/kfileplacesmodel.cpp:318
+#: filewidgets/kfileplacesmodel.cpp:315
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "אשפה"
 
-#: filewidgets/kfileplacesmodel.cpp:379
+#: filewidgets/kfileplacesmodel.cpp:376
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:386
+#: filewidgets/kfileplacesmodel.cpp:383
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:422
+#: filewidgets/kfileplacesmodel.cpp:419
 #, fuzzy
 #| msgid "Delete Files"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "מחיקת קבצים"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:424
 #, fuzzy
 #| msgid "Location:"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "מיקום:"
 
-#: filewidgets/kfileplacesmodel.cpp:450
+#: filewidgets/kfileplacesmodel.cpp:447
 #, fuzzy
 #| msgid "Modified:"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "שונה:"
 
-#: filewidgets/kfileplacesmodel.cpp:454
+#: filewidgets/kfileplacesmodel.cpp:451
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1135
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "אין אפשרות למצוא את התוכנית \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1142
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, fuzzy, kde-format
 #| msgid "A folder cannot be moved into itself"
 msgid "Only folders can be added to the Places panel."
 msgstr "אי אפשר לשים תיקיה בתוך עצמה"
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1398
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&שחרר \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1408
+#: filewidgets/kfileplacesmodel.cpp:1400
 #, fuzzy, kde-format
 #| msgid "&Release '%1'"
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&שחרר \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1412
+#: filewidgets/kfileplacesmodel.cpp:1404
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&שלוף בבטחה את \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1414
+#: filewidgets/kfileplacesmodel.cpp:1406
 #, fuzzy, kde-format
 #| msgid "&Safely Remove '%1'"
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&שלוף בבטחה את \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1411
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3093,41 +3094,41 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "מנתק"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "נתק"
 
-#: filewidgets/kfileplacesmodel.cpp:1445
+#: filewidgets/kfileplacesmodel.cpp:1437
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "הוצא"
 
-#: filewidgets/kfileplacesmodel.cpp:1492
+#: filewidgets/kfileplacesmodel.cpp:1484
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "ההתקן \"%1\" הוא לא תקליטור ולכן אין אפשרות לשלוף אותו."
 
-#: filewidgets/kfileplacesmodel.cpp:1527
+#: filewidgets/kfileplacesmodel.cpp:1519
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "אירעה שגיאה במהלך הניסיון לגשת אל \"%1\". תגובת המערכת: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "אירעה שגיאה במהלך הגישה אל \"%1\""
 
-#: filewidgets/kfileplacesmodel.cpp:1555
+#: filewidgets/kfileplacesmodel.cpp:1547
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1558
+#: filewidgets/kfileplacesmodel.cpp:1550
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3138,13 +3139,13 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1561
+#: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1607
+#: filewidgets/kfileplacesmodel.cpp:1599
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -4885,7 +4886,7 @@ msgstr "המחלקה להונאות"
 #: widgets/certificateparty.ui:88
 #, kde-format
 msgid "Country:"
-msgstr "מדינה:"
+msgstr "ארץ:"
 
 #. i18n: ectx: property (text), widget (QLabel, country)
 #: widgets/certificateparty.ui:98
