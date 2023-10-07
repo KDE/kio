@@ -47,10 +47,7 @@ private:
     KFileWidget *m_widget;
     QMenu *m_menu;
     KBookmarkMenu *m_bookmarkMenu;
-
-private:
-    class KFileBookmarkHandlerPrivate;
-    KFileBookmarkHandlerPrivate *d;
+    KBookmarkManager *m_bookmarkManager;
 };
 
 #endif // KFILEBOOKMARKHANDLER_H

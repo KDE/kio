@@ -123,8 +123,8 @@ void KFilePlacesModelTest::initTestCase()
 
 void KFilePlacesModelTest::createPlacesModels()
 {
-    KBookmarkManager *mgr = KBookmarkManager::managerForFile(bookmarksFile());
-    QSignalSpy spy(mgr, &KBookmarkManager::changed);
+    KBookmarkManager mgr(bookmarksFile());
+    QSignalSpy spy(&mgr, &KBookmarkManager::changed);
     m_places = new KFilePlacesModel();
     m_places2 = new KFilePlacesModel();
 
@@ -298,12 +298,12 @@ void KFilePlacesModelTest::testAddingInLaterVersion()
     delete m_places2;
     QCoreApplication::processEvents();
 
-    KBookmarkManager *mgr = KBookmarkManager::managerForFile(bookmarksFile());
+    KBookmarkManager mgr(bookmarksFile());
 
-    auto cleanupFunc = [this, mgr]() {
+    auto cleanupFunc = [this, &mgr]() {
         QFile::remove(bookmarksFile());
         // let KDirWatch process the deletion
-        QTRY_VERIFY(mgr->root().first().isNull());
+        QTRY_VERIFY(mgr.root().first().isNull());
         createPlacesModels();
         testInitialList();
     };
@@ -320,7 +320,7 @@ void KFilePlacesModelTest::testAddingInLaterVersion()
     } cleanup(cleanupFunc);
 
     QTest::qWait(1000); // for KDirWatch
-    QSignalSpy spy(mgr, &KBookmarkManager::changed);
+    QSignalSpy spy(&mgr, &KBookmarkManager::changed);
 
     // WHEN
     QFile file(bookmarksFile());
@@ -351,8 +351,8 @@ void KFilePlacesModelTest::testReparse()
     CHECK_PLACES_URLS(urls);
 
     // reparse the bookmark file
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    bookmarkManager->notifyCompleteChange(QString());
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    bookmarkManager.notifyCompleteChange(QString());
 
     // check if they are the same
     CHECK_PLACES_URLS(urls);
@@ -366,8 +366,8 @@ void KFilePlacesModelTest::testReparse()
 
 void KFilePlacesModelTest::testInternalBookmarksHaveIds()
 {
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    KBookmarkGroup root = bookmarkManager->root();
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    KBookmarkGroup root = bookmarkManager.root();
 
     // Verify every entry has an id or an udi
     KBookmark bookmark = root.first();
@@ -388,7 +388,7 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
     KBookmark foo = root.addBookmark(QStringLiteral("Foo"), QUrl(QStringLiteral("file:/foo")), QStringLiteral("red-folder"));
     QCOMPARE(foo.text(), QStringLiteral("Foo"));
     QVERIFY(foo.metaDataItem(QStringLiteral("ID")).isEmpty());
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
     QCOMPARE(foo.text(), QStringLiteral("Foo"));
     QVERIFY(!foo.metaDataItem(QStringLiteral("ID")).isEmpty());
 
@@ -417,7 +417,7 @@ void KFilePlacesModelTest::testInternalBookmarksHaveIds()
 
     // Cleanup foo
     root.deleteBookmark(foo);
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
 }
 
 void KFilePlacesModelTest::testHiding()
@@ -476,8 +476,8 @@ void KFilePlacesModelTest::testMove()
     QSignalSpy spy_inserted(m_places, &QAbstractItemModel::rowsInserted);
     QSignalSpy spy_removed(m_places, &QAbstractItemModel::rowsRemoved);
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    KBookmarkGroup root = bookmarkManager->root();
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    KBookmarkGroup root = bookmarkManager.root();
 
     KBookmark system_home = m_places->bookmarkForIndex(m_places->index(0, 0));
 
@@ -488,7 +488,7 @@ void KFilePlacesModelTest::testMove()
         last = root.next(last);
     }
     root.moveBookmark(system_home, last);
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
 
     QStringList urls;
     urls << QStringLiteral("trash:/") << QDir::homePath() << initialListOfShared() << initialListOfRecent() << initialListOfDevices()
@@ -508,7 +508,7 @@ void KFilePlacesModelTest::testMove()
 
     // Move home at the beginning of the list (at its original place)
     root.moveBookmark(system_home, KBookmark());
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
     urls.clear();
     urls << initialListOfPlaces() << initialListOfShared() << initialListOfRecent() << initialListOfDevices() << initialListOfRemovableDevices();
     CHECK_PLACES_URLS(urls);
@@ -605,13 +605,13 @@ void KFilePlacesModelTest::testPlacesLifecycle()
     QCOMPARE(args.at(2).toInt(), 2);
     QCOMPARE(spy_removed.count(), 0);
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    KBookmarkGroup root = bookmarkManager->root();
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    KBookmarkGroup root = bookmarkManager.root();
     KBookmark before_trash = m_places->bookmarkForIndex(m_places->index(0, 0));
     KBookmark foo = m_places->bookmarkForIndex(m_places->index(2, 0));
 
     root.moveBookmark(foo, before_trash);
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/home/foo") << QStringLiteral("trash:/") << initialListOfShared() << initialListOfRecent()
@@ -643,7 +643,7 @@ void KFilePlacesModelTest::testPlacesLifecycle()
 
     foo = m_places->bookmarkForIndex(m_places->index(1, 0));
     foo.setFullText(QStringLiteral("Bar"));
-    bookmarkManager->notifyCompleteChange(QString());
+    bookmarkManager.notifyCompleteChange(QString());
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/") << initialListOfShared() << initialListOfRecent()
@@ -719,8 +719,8 @@ void KFilePlacesModelTest::testDevicePlugging()
 
     // Move the device in the list, and check that it memorizes the position across plug/unplug
 
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    KBookmarkGroup root = bookmarkManager->root();
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    KBookmarkGroup root = bookmarkManager.root();
     KBookmark before_floppy;
 
     KBookmark device = root.first(); // The device we'll move is the 6th bookmark
@@ -735,7 +735,7 @@ void KFilePlacesModelTest::testDevicePlugging()
     }
 
     root.moveBookmark(device, before_floppy);
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
 
     urls.clear();
     urls << initialListOfPlaces() << initialListOfShared() << initialListOfRecent() << initialListOfDevices() << QStringLiteral("/media/XO-Y4")
@@ -783,7 +783,7 @@ void KFilePlacesModelTest::testDevicePlugging()
         seventh = root.next(seventh);
     }
     root.moveBookmark(device, seventh);
-    bookmarkManager->emitChanged(root);
+    bookmarkManager.emitChanged(root);
 
     urls.clear();
     urls << initialListOfPlaces() << initialListOfShared() << initialListOfRecent() << initialListOfDevices() << initialListOfRemovableDevices();
@@ -888,8 +888,8 @@ void KFilePlacesModelTest::testRemoteUrls()
 
 void KFilePlacesModelTest::testRefresh()
 {
-    KBookmarkManager *bookmarkManager = KBookmarkManager::managerForFile(bookmarksFile());
-    KBookmarkGroup root = bookmarkManager->root();
+    KBookmarkManager bookmarkManager(bookmarksFile());
+    KBookmarkGroup root = bookmarkManager.root();
     KBookmark homePlace = root.first();
     const QModelIndex homePlaceIndex = m_places->index(0, 0);
 

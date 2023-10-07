@@ -31,10 +31,10 @@ KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
         file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kfile/bookmarks.xml");
     }
 
-    KBookmarkManager *manager = KBookmarkManager::managerForFile(file);
-    manager->setUpdate(true);
+    m_bookmarkManager = new KBookmarkManager(file, this);
+    m_bookmarkManager->setUpdate(true);
 
-    m_bookmarkMenu = new KBookmarkMenu(manager, this, m_menu);
+    m_bookmarkMenu = new KBookmarkMenu(m_bookmarkManager, this, m_menu);
 }
 
 KFileBookmarkHandler::~KFileBookmarkHandler()

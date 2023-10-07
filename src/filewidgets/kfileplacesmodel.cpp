@@ -243,7 +243,7 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
     , d(new KFilePlacesModelPrivate(this))
 {
     const QString file = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/user-places.xbel");
-    d->bookmarkManager = KBookmarkManager::managerForFile(file);
+    d->bookmarkManager = new KBookmarkManager(file, this);
 
     // Let's put some places in there if it's empty.
     KBookmarkGroup root = d->bookmarkManager->root();

@@ -10,6 +10,7 @@
 
 #include "kfileplacesmodel.h"
 #include <KBookmark>
+#include <KBookmarkManager>
 #include <QObject>
 #include <QPointer>
 #include <QStringList>
