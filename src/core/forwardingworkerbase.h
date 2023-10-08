@@ -134,6 +134,7 @@ protected:
     QUrl requestedUrl() const;
 
 private:
+    Q_PRIVATE_SLOT(d, void _k_slotRedirection(KIO::Job *, QUrl))
     friend class ForwardingWorkerBasePrivate;
     std::unique_ptr<ForwardingWorkerBasePrivate> const d;
 };
