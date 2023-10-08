@@ -22,6 +22,7 @@
 #include <memory>
 
 class KFilePlacesModelPrivate;
+class KBookmarkManager;
 
 class QMimeData;
 class QAction;
