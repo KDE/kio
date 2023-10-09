@@ -9459,18 +9459,3 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
-
-#~ msgid "None"
-#~ msgstr "なし"
-
-#~ msgid "Multiple Instances"
-#~ msgstr "複数インスタンス"
-
-#~ msgid "Single Instance"
-#~ msgstr "単一インスタンス"
-
-#~ msgid "Run Until Finished"
-#~ msgstr "完了するまで実行"
-
-#~ msgid "D-Bus registration:"
-#~ msgstr "D-Bus 登録:"
