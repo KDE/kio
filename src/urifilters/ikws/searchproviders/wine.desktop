@@ -17,6 +17,7 @@ Name[eo]=WineHQ-Datumbazo
 Name[es]=Base de datos de WineHQ
 Name[et]=WineHQ andmebaas
 Name[eu]=WineHQ datu-basea
+Name[fa]=پایگاه دادهٔ واین‌اچ‌کیو
 Name[fi]=WineHQ-tietokanta
 Name[fr]=Base de données de WineHQ
 Name[gl]=Base de datos de WineHQ
@@ -66,6 +67,7 @@ Query[eo]=https://www.winehq.org/search?q=\\{@}
 Query[es]=https://www.winehq.org/search?q=\\{@}
 Query[et]=https://www.winehq.org/search?q=\\{@}
 Query[eu]=https://www.winehq.org/search?q=\\{@}
+Query[fa]=https://www.winehq.org/search?q=\\{@}
 Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}

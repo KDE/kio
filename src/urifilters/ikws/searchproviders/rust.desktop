@@ -15,6 +15,7 @@ Name[eo]=Rust STD Dokumentado
 Name[es]=Documentación de Rust STD
 Name[et]=Rust STD dokumentatsioon
 Name[eu]=Rust STD-ren dokumentazioa
+Name[fa]=مستندات STR راست
 Name[fi]=Rust STD -ohjeistus
 Name[fr]=Documentation de Rust STD
 Name[gl]=Documentación estándar de Rust
@@ -63,6 +64,7 @@ Query[eo]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[es]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[et]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[eu]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[fa]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}

@@ -23,7 +23,7 @@ Name[eo]=Lokaloj de Jahuo
 Name[es]=Yahoo Local
 Name[et]=Yahoo Local
 Name[eu]=Yahoo Local
-Name[fa]=Yahoo محلی
+Name[fa]=محلی یاهو
 Name[fi]=Yahoon paikallishaku
 Name[fr]=Yahoo Local
 Name[ga]=Yahoo Logánta
@@ -99,6 +99,7 @@ Query[eo]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[es]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[et]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[eu]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[fa]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[fi]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[fr]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[gl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

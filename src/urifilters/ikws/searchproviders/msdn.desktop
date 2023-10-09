@@ -24,7 +24,7 @@ Name[eo]=Reta serĉo por programistoj de Mikrosofto (MDNS)
 Name[es]=Red de búsqueda del desarrollador de Microsoft
 Name[et]=Microsoft Developer Network otsing
 Name[eu]=Microsoft Developer Network-eko bilaketa
-Name[fa]=جستجوی شبکه توسعه‌دهنده مایکروسافت
+Name[fa]=جست‌وجوی شبکه توسعه‌دهنده مایکروسافت
 Name[fi]=Microsoft Developer Network -haku
 Name[fr]=Recherche sur le réseau des développeurs Microsoft
 Name[fy]=Microsoft Developer Network Search 
@@ -114,6 +114,7 @@ Query[eo]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[es]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[et]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[eu]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[fa]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[fi]=https://social.msdn.microsoft.com/Search/fi-FI?query=\\{@}
 Query[fr]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[gd]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

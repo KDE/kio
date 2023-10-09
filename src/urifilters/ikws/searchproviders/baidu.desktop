@@ -21,7 +21,7 @@ Name[eo]=Baiduo
 Name[es]=Baidu
 Name[et]=Baidu
 Name[eu]=Baidu
-Name[fa]=Baidu
+Name[fa]=بایدو
 Name[fi]=Baidu
 Name[fr]=Baidu
 Name[ga]=Baidu
@@ -98,6 +98,7 @@ Query[eo]=https://www.baidu.com/s?wd=\\{@}
 Query[es]=https://www.baidu.com/s?wd=\\{@}
 Query[et]=https://www.baidu.com/s?wd=\\{@}
 Query[eu]=https://www.baidu.com/s?wd=\\{@}
+Query[fa]=https://www.baidu.com/s?wd=\\{@}
 Query[fi]=https://www.baidu.com/s?wd=\\{@}
 Query[fr]=https://www.baidu.com/s?wd=\\{@}
 Query[gl]=https://www.baidu.com/s?wd=\\{@}

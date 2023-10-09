@@ -22,6 +22,7 @@ Name[eo]=GitLab
 Name[es]=GitLab
 Name[et]=GitLab
 Name[eu]=GitLab
+Name[fa]=گیت‌لب
 Name[fi]=GitLab
 Name[fr]=GitLab
 Name[gl]=GitLab
@@ -76,6 +77,7 @@ Query[eo]=https://gitlab.com/search?search=\\{@}
 Query[es]=https://gitlab.com/search?search=\\{@}
 Query[et]=https://gitlab.com/search?search=\\{@}
 Query[eu]=https://gitlab.com/search?search=\\{@}
+Query[fa]=https://gitlab.com/search?search=\\{@}
 Query[fi]=https://gitlab.com/search?search=\\{@}
 Query[fr]=https://gitlab.com/search?search=\\{@}
 Query[gl]=https://gitlab.com/search?search=\\{@}

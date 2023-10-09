@@ -19,6 +19,7 @@ Name[eo]=Qt6 Reta Dokumentaro
 Name[es]=Documentación Qt6 en línea
 Name[et]=Qt6 dokumentatsioon võrgus
 Name[eu]=Qt6-ren lerroko dokumentazioa
+Name[fa]=مستندات برخط کیوت۶
 Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
 Name[gl]=Documentación en liña de Qt6
@@ -65,6 +66,7 @@ Query[eo]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[es]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[et]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[eu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[fa]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

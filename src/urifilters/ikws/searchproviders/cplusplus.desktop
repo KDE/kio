@@ -17,6 +17,7 @@ Name[eo]=CPlusPlus
 Name[es]=CPlusPlus
 Name[et]=CPlusPlus
 Name[eu]=CPlusPlus
+Name[fa]=سی‌پلاس‌پلاس
 Name[fi]=CPlusPlus
 Name[fr]=CPlusPlus
 Name[gl]=CPlusPlus
@@ -66,6 +67,7 @@ Query[eo]=http://cplusplus.com/search.do?q=\\{@}
 Query[es]=http://cplusplus.com/search.do?q=\\{@}
 Query[et]=http://cplusplus.com/search.do?q=\\{@}
 Query[eu]=http://cplusplus.com/search.do?q=\\{@}
+Query[fa]=http://cplusplus.com/search.do?q=\\{@}
 Query[fi]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}
 Query[gl]=http://cplusplus.com/search.do?q=\\{@}

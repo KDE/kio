@@ -22,7 +22,7 @@ Name[eo]=Jutubo
 Name[es]=YouTube
 Name[et]=YouTube
 Name[eu]=YouTube
-Name[fa]=YouTube
+Name[fa]=یوتیوب
 Name[fi]=YouTube
 Name[fr]=YouTube
 Name[ga]=YouTube
@@ -99,6 +99,7 @@ Query[eo]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[es]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[et]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[eu]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[fa]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[fi]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[fr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[gd]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

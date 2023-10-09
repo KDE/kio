@@ -25,7 +25,7 @@ Name[eo]=Bildoserĉo de Guglo
 Name[es]=Búsqueda de imágenes de Google
 Name[et]=Google'i pildiotsing
 Name[eu]=Google-ren irudi-bilaketa
-Name[fa]=جستجوی تصویر گوگل
+Name[fa]=جست‌وجوی تصویر گوگل
 Name[fi]=Googlen kuvahaku
 Name[fr]=Recherche d'images avec Google
 Name[fy]=Google printsjesykjen
@@ -117,6 +117,7 @@ Query[eo]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[es]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[et]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[eu]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[fa]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[fi]=https://www.google.fi/search?site=imghp&tbm=isch&q=\\{@}
 Query[fr]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[gd]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

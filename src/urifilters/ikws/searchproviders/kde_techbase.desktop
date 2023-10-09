@@ -22,7 +22,7 @@ Name[eo]=KDE TechBase
 Name[es]=KDE TechBase
 Name[et]=KDE TechBase
 Name[eu]=KDE TechBase
-Name[fa]=اخبار KDE
+Name[fa]=پایگاه خبر KDE
 Name[fi]=KDE:n TechBase
 Name[fr]=Centre technique de KDE
 Name[ga]=KDE TechBase
@@ -98,6 +98,7 @@ Query[eo]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[es]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[et]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[eu]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[fa]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[fi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[fr]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[gl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

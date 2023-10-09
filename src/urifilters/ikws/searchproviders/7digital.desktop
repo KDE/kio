@@ -23,7 +23,7 @@ Name[eo]=7Digital
 Name[es]=7Digital
 Name[et]=7Digital
 Name[eu]=7Digital
-Name[fa]=Directory Watcher
+Name[fa]=✅Directory Watcher
 Name[fi]=7Digital
 Name[fr]=7Digital
 Name[ga]=7Digital
@@ -99,6 +99,7 @@ Query[eo]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[es]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[et]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[eu]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[fa]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[fi]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[fr]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[gl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

@@ -23,7 +23,7 @@ Name[eo]=Google Kodo
 Name[es]=Google Code
 Name[et]=Google Code
 Name[eu]=Google Code
-Name[fa]=گوگل کد
+Name[fa]=کد گوگل
 Name[fi]=Google Code
 Name[fr]=Code « Google »
 Name[ga]=Cód Google
@@ -98,6 +98,7 @@ Query[eo]=https://code.google.com/query/#q=\\{%2520}
 Query[es]=https://code.google.com/query/#q=\\{%2520}
 Query[et]=https://code.google.com/query/#q=\\{%2520}
 Query[eu]=https://code.google.com/query/#q=\\{%2520}
+Query[fa]=https://code.google.com/query/#q=\\{%2520}
 Query[fi]=https://code.google.com/query/#q=\\{%2520}
 Query[fr]=https://code.google.com/query/#q=\\{%2520}
 Query[gd]=https://code.google.com/query/#q=\\{%2520}

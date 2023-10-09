@@ -20,7 +20,7 @@ Name[eo]=Serĉilo Ecosia
 Name[es]=Motor de búsqueda Ecosia
 Name[et]=Ecosia otsingumootor
 Name[eu]=Ecosia bilaketa-motorra
-Name[fa]=موتور جستجوی Ecosia
+Name[fa]=موتور جست‌وجوی اکوزیا
 Name[fi]=Ecosia-hakukone
 Name[fr]=Moteur de recherche « Ecosia »
 Name[ga]=Inneall cuardaigh Ecosia
@@ -98,6 +98,7 @@ Query[eo]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[es]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[et]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[eu]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[fa]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[fi]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[fr]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[gl]=https://ecosia.org/search.php?q=\\{@}&meta=normal

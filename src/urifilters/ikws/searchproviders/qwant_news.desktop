@@ -20,6 +20,7 @@ Name[eo]=Qwant Novaĵoj
 Name[es]=Qwant Noticias
 Name[et]=Qwant News
 Name[eu]=Qwant Berriak
+Name[fa]=اخبار کیووانت
 Name[fi]=Qwant-uutiset
 Name[fr]=Actualités « Qwant »
 Name[gd]=Qwant News
@@ -81,6 +82,7 @@ Query[eo]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[es]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[et]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[eu]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
+Query[fa]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=news

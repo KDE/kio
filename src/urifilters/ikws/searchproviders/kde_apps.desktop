@@ -24,7 +24,7 @@ Name[eo]=KDE-Aplika Serĉo
 Name[es]=Búsqueda de aplicaciones de KDE
 Name[et]=KDE rakenduste otsing
 Name[eu]=KDEren aplikazio-bilaketa
-Name[fa]=جستجوی کاربرد KDE
+Name[fa]=جست‌وجوی کاربرد KDE
 Name[fi]=KDE App -haku
 Name[fr]=Chercher dans les applications de KDE
 Name[fy]=Programma's sykje
@@ -115,6 +115,7 @@ Query[eo]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[es]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[et]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[eu]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[fa]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[fi]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

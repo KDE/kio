@@ -22,7 +22,7 @@ Name[eo]=Serĉprovizanto de Telefonlibro
 Name[es]=Proveedor de búsqueda de teléfonos
 Name[et]=Hollandi telefoniraamatu otsingumootor
 Name[eu]=Detelefoongids telefono-bilatzailea
-Name[fa]=فراهم‌کننده جستجوی دفتر تلفن
+Name[fa]=فراهم‌کننده جست‌وجوی دفتر تلفن
 Name[fi]=Puhelinluettelohaku
 Name[fr]=Moteur de recherche « Telephonebook »
 Name[fy]=Tillefoanboek-sykmasine
@@ -111,6 +111,7 @@ Query[eo]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[es]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[et]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[eu]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[fa]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[fi]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[fr]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[gl]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
