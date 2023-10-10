@@ -179,4 +179,28 @@ KFileFilter KFileFilter::fromMimeType(const QString &mimeType)
     return filter;
 }
 
+QList<KFileFilter> KFileFilter::fromMimeTypes(const QStringList &mimeTypes)
+{
+    QList<KFileFilter> ret;
+    ret.reserve(mimeTypes.size());
+    for (const QString &type : mimeTypes) {
+        ret << KFileFilter::fromMimeType(type);
+    }
+    return ret;
+}
+
+QDebug operator<<(QDebug dbg, const KFileFilter &filter)
+{
+    dbg << "KFileFilter(";
+
+    dbg << "MIME patterns: " << filter.mimePatterns();
+    dbg << " ";
+    dbg << "File patterns: " << filter.filePatterns();
+    dbg << " ";
+    dbg << "label: " << filter.label();
+
+    dbg << ")";
+    return dbg;
+}
+
 Q_DECLARE_METATYPE(KFileFilter);

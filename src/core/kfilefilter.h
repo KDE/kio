@@ -79,6 +79,14 @@ public:
      */
     static KFileFilter fromMimeType(const QString &mimeType);
 
+    /**
+     * Creates filters from a list of MIME types.
+     * The user-facing label is automatically determined from the MIME type.
+     *
+     * @since 6.0
+     */
+    static QList<KFileFilter> fromMimeTypes(const QStringList &mimeTypes);
+
 private:
     /**
      * Convert a filter string understood by KFileWidget to a list of KFileFilters.
@@ -86,8 +94,16 @@ private:
     static QList<KFileFilter> fromFilterString(const QString &filterString);
     friend class KFileFilterCombo;
     friend class KFileFilterTest;
+    friend class KFileFilterComboPrivate;
+    friend class KFileWidgetTest;
+    friend class KFileFilterComboTest;
+    friend class KDEPlatformFileDialog;
+    friend class KDEPlatformFileDialogHelper;
+    friend class KEncodingFileDialog;
 
     QSharedDataPointer<KFileFilterPrivate> d;
 };
+
+KIOCORE_EXPORT QDebug operator<<(QDebug dbg, const KFileFilter &filter);
 
 #endif

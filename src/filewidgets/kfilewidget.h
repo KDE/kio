@@ -19,6 +19,8 @@
 #include "kiofilewidgets_export.h"
 #include <QWidget>
 
+#include <KFileFilter>
+
 #include <memory>
 
 class QUrl;
@@ -201,40 +203,18 @@ public:
     bool keepsLocation() const;
 
     /**
-     * Sets the filter to be used to @p filter.
+     * Set the filters to be used.
      *
-     * You can set more
-     * filters for the user to select separated by '\n'. Every
-     * filter entry is defined through namefilter|text to display.
-     * If no | is found in the expression, just the namefilter is
-     * shown. Examples:
+     * Each item of the list corresponds to a selectable filter.
      *
-     * \code
-     * kfile->setFilter("*.cpp|C++ Source Files\n*.h|Header files");
-     * kfile->setFilter("*.cpp");
-     * kfile->setFilter("*.cpp|Sources (*.cpp)");
-     * kfile->setFilter("*.cpp|" + i18n("Sources (*.cpp)"));
-     * kfile->setFilter("*.cpp *.cc *.C|C++ Source Files\n*.h *.H|Header files");
-     * \endcode
+     * Only one filter is active at a time.
      *
-     * Note: The text to display is not parsed in any way. So, if you
-     * want to show the suffix to select by a specific filter, you must
-     * repeat it.
+     * @param activeFilter the initially active filter
      *
-     * If the filter contains an unescaped '/', a MIME type filter is assumed.
-     * If you would like a '/' visible in your filter it can be escaped with
-     * a '\'. You can specify multiple MIME types like this (separated with
-     * space):
+     * @since 6.0
      *
-     * \code
-     * kfile->setFilter( "image/png text/html text/plain" );
-     * kfile->setFilter( "*.cue|CUE\\/BIN Files (*.cue)" );
-     * \endcode
-     *
-     * @see filterChanged
-     * @see setMimeFilter
      */
-    void setFilter(const QString &filter);
+    void setFilters(const QList<KFileFilter> &filters, const KFileFilter &activeFilter = KFileFilter());
 
     /**
      * Returns the current filter as entered by the user or one of the
@@ -242,41 +222,10 @@ public:
      *
      * @see setFilter()
      * @see filterChanged()
+     *
+     * @since 6.0
      */
-    QString currentFilter() const;
-
-    /**
-     * Returns the MIME type for the desired output format.
-     *
-     * This is only valid if setFilterMimeType() has been called
-     * previously.
-     *
-     * @see setFilterMimeType()
-     */
-    QMimeType currentFilterMimeType();
-
-    /**
-     * Sets the filter up to specify the output type.
-     *
-     * @param types a list of MIME types that can be used as output format
-     * @param defaultType the default MIME type to use as output format, if any.
-     * If @p defaultType is set, it will be set as the current item.
-     * Otherwise, a first item showing all the MIME types will be created.
-     * Typically, @p defaultType should be empty for loading and set for saving.
-     *
-     * Do not use in conjunction with setFilter()
-     */
-    void setMimeFilter(const QStringList &types, const QString &defaultType = QString());
-
-    /**
-     * The MIME type for the desired output format.
-     *
-     * This is only valid if setMimeFilter() has been called
-     * previously.
-     *
-     * @see setMimeFilter()
-     */
-    QString currentMimeFilter() const;
+    KFileFilter currentFilter() const;
 
     /**
      *  Clears any MIME type or name filter. Does not reload the directory.
@@ -533,8 +482,10 @@ Q_SIGNALS:
      *
      * @see setFilter()
      * @see currentFilter()
+     *
+     * @since 6.0
      */
-    void filterChanged(const QString &filter);
+    void filterChanged(const KFileFilter &filter);
 
     /**
      * Emitted by slotOk() (directly or asynchronously) once everything has

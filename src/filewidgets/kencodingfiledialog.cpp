@@ -46,7 +46,7 @@ KEncodingFileDialog::KEncodingFileDialog(const QUrl &startDir,
     , d(new KEncodingFileDialogPrivate)
 {
     d->w = new KFileWidget(startDir, this);
-    d->w->setFilter(filter);
+    d->w->setFilters(KFileFilter::fromFilterString(filter));
     if (type == QFileDialog::AcceptOpen) {
         d->w->setOperationMode(KFileWidget::Opening);
     } else {
