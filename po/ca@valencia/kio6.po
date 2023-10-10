@@ -1559,8 +1559,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
 msgstr ""
-"El servidor, encara que estiga connectat a Internet, pot no estar configurat "
-"per a admetre peticions."
+"El servidor, encara que estiga connectat amb Internet, pot no estar "
+"configurat per a admetre peticions."
 
 #: core/job_error.cpp:719
 #, kde-format
@@ -1568,8 +1568,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be running "
 "the requested service (%1)."
 msgstr ""
-"El servidor, encara que estiga connectat a Internet, pot no estar executant "
-"el servei sol·licitat (%1)."
+"El servidor, encara que estiga connectat amb Internet, pot no estar "
+"executant el servei sol·licitat (%1)."
 
 #: core/job_error.cpp:723
 #, kde-format
