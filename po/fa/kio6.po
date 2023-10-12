@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
@@ -146,28 +146,28 @@ msgid "Syntax error in command %1 while trying to run %2"
 msgstr "خطای نحو در فرمان %1 هنگام تلاش برای اجرای %2"
 
 #: core/global.cpp:81
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
 msgstr[0] "%1 روز %2"
 msgstr[1] "۱ روز %2"
 
 #: core/global.cpp:90 core/global.cpp:106
-#, kde-format
+#, fuzzy, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
 msgstr[0] "%1 بخش"
 msgstr[1] "%1 بخش"
 
 #: core/global.cpp:94
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
 msgstr[0] "%1 پوشه"
 msgstr[1] "%1 پوشه"
 
 #: core/global.cpp:95
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
 msgstr[0] "%1 پرونده"
@@ -5170,7 +5170,7 @@ msgid "Delete Permanently"
 msgstr "حذف همیشگی"
 
 #: widgets/jobuidelegate.cpp:242
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
@@ -5212,7 +5212,7 @@ msgstr ""
 "%1</filename>"
 
 #: widgets/jobuidelegate.cpp:278
-#, kde-format
+#, fuzzy, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "واقعاً می‌خواهید این %1 مورد را به زباله‌دان انتقال دهید؟"
@@ -5469,7 +5469,7 @@ msgid "&Other Application..."
 msgstr "&برنامه‌های دیگر…"
 
 #: widgets/kfileitemdelegate.cpp:209
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
@@ -5617,7 +5617,7 @@ msgstr ""
 "qt>"
 
 #: widgets/kopenwithdialog.cpp:591
-#, kde-format
+#, fuzzy, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
@@ -6144,7 +6144,7 @@ msgid "Properties for %1"
 msgstr "ویژگیها برای %1"
 
 #: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
-#, kde-format
+#, fuzzy, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
 msgstr[0] "ویژگیها برای %1 مورد برگزیده"
@@ -6200,14 +6200,14 @@ msgstr ""
 "%3، %4"
 
 #: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 پرونده"
 msgstr[1] "۱ پرونده"
 
 #: widgets/kpropertiesdialog.cpp:1312 widgets/kpropertiesdialog.cpp:1327
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 زیرپوشه"
@@ -6290,7 +6290,7 @@ msgid "Access Permissions"
 msgstr "دستیابی به مجوزها"
 
 #: widgets/kpropertiesdialog.cpp:1817
-#, kde-format
+#, fuzzy, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "همهٔ پرونده‌ها پیوند هستند و پروانه دسترسی ندارند."
@@ -6584,14 +6584,14 @@ msgid "Varying (No Change)"
 msgstr "در حال تغییر (بدون تغییر)"
 
 #: widgets/kpropertiesdialog.cpp:2416
-#, kde-format
+#, fuzzy, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "این پرونده‌ها از اجازه‌های پیشرفته استفاده می‌کنند"
 msgstr[1] "این پرونده از اجازه‌های پیشرفته استفاده می‌کند."
 
 #: widgets/kpropertiesdialog.cpp:2438
-#, kde-format
+#, fuzzy, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "این پوشه‌ها از اجازه‌های پیشرفته استفاده می‌کنند."
@@ -6750,7 +6750,7 @@ msgid "%1, %2 %3"
 msgstr "%1، %2 %3"
 
 #: widgets/ksslinfodialog.cpp:141
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
@@ -6758,7 +6758,7 @@ msgstr[0] "%1 بیت"
 msgstr[1] "%1 بیت"
 
 #: widgets/ksslinfodialog.cpp:142
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
@@ -6837,7 +6837,7 @@ msgid "Paste One File"
 msgstr "جایگذاری یک پرونده"
 
 #: widgets/paste.cpp:254
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
@@ -7080,7 +7080,7 @@ msgid "New name #"
 msgstr "نام جدید #"
 
 #: widgets/renamefiledialog.cpp:88
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
@@ -7221,7 +7221,7 @@ msgstr ""
 "emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:235
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this %1 item?<nl/><nl/><emphasis "
@@ -7279,7 +7279,7 @@ msgstr[1] ""
 "strong='true'>این عمل برگشت‌ناپذیر است.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:283
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
