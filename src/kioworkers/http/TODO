@@ -20,7 +20,7 @@ features such as locking.
 This might involve an external program to parse the labels, and something to
 configure access accordingly.  There is only some basic things that need to be
 added to kio_http to support this.  The majority of the work has to be done at the
-application level.  A khtml plugin in kdeaddons to do this might be a nice idea.
+application level.
 
 - P3P support:
 This can also be implemented as a plugin to konqueror and does

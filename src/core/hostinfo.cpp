@@ -251,7 +251,7 @@ QHostInfo HostInfo::lookupHost(const QString &hostName, unsigned long timeout)
         return hostInfo;
     }
 
-    // Look up the name in the KIO/KHTML DNS cache...
+    // Look up the name in the KIO DNS cache...
     hostInfo = HostInfo::lookupCachedHostInfoFor(hostName);
     if (!hostInfo.hostName().isEmpty() && hostInfo.error() == QHostInfo::NoError) {
         return hostInfo;
