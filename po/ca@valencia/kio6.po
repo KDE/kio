@@ -752,7 +752,7 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"No s'han pogut crear els enllaços simbòlics a %1.\n"
+"No s'han pogut crear els enllaços simbòlics cap a %1.\n"
 "El sistema de fitxers de destinació no els admet."
 
 #: core/job_error.cpp:216
@@ -2423,17 +2423,17 @@ msgstr "Error sense documentar"
 #: core/kfileitem.cpp:1382
 #, kde-format
 msgid "(Symbolic Link to %1)"
-msgstr "(Enllaç simbòlic a %1)"
+msgstr "(Enllaç simbòlic cap a %1)"
 
 #: core/kfileitem.cpp:1384
 #, kde-format
 msgid "(%1, Link to %2)"
-msgstr "(%1, enllaç a %2)"
+msgstr "(%1, enllaç cap a %2)"
 
 #: core/kfileitem.cpp:1387
 #, kde-format
 msgid " (Points to %1)"
-msgstr " (Apunta a %1)"
+msgstr " (Apunta cap a %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
 #: widgets/renamedialog.cpp:617
@@ -2857,7 +2857,7 @@ msgstr "Copia a"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move To"
-msgstr "Mou a"
+msgstr "Mou cap a"
 
 #: filewidgets/kfilecopytomenu.cpp:102
 #, kde-format
@@ -2955,7 +2955,7 @@ msgstr ""
 "<qt>Esta és la ubicació associada amb l'entrada. Es pot utilitzar qualsevol "
 "URL vàlid. Per exemple:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp."
 "kde.org/pub/kde/stable<br /><br />Clicant en el botó a la vora del quadro "
-"d'edició de text podeu navegar a un URL apropiat.</qt>"
+"d'edició de text podeu navegar cap a un URL apropiat.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
@@ -3847,7 +3847,7 @@ msgstr "Mode d'edició"
 #: filewidgets/kurlnavigatortogglebutton.cpp:85
 #, kde-format
 msgid "Click for Location Navigation"
-msgstr "Cliqueu per a navegar a una ubicació"
+msgstr "Cliqueu per a navegaar fins a una ubicació"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:87
 #, kde-format
@@ -5610,7 +5610,7 @@ msgstr "Contingut:"
 #: widgets/kfilepropspluginwidget.ui:385
 #, kde-format
 msgid "Points to:"
-msgstr "Apunta a:"
+msgstr "Apunta cap a:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:395
@@ -7000,13 +7000,13 @@ msgstr "&Omet"
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
-"No copies o mogues esta carpeta, en lloc d'açò salta a l'element següent"
+"No copies o mogues esta carpeta, en lloc d'açò salta fins a l'element següent"
 
 #: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
-"No copies o mogues este fitxer, en lloc d'açò salta a l'element següent"
+"No copies o mogues este fitxer, en lloc d'açò salta fins a l'element següent"
 
 #: widgets/renamedialog.cpp:259
 #, kde-format
