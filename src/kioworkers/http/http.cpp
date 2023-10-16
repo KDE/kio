@@ -756,7 +756,7 @@ KIO::WorkerResult HTTPProtocol::davStatList(const QUrl &url, bool stat)
     }
 
     QDomDocument multiResponse;
-    multiResponse.setContent(m_webDavDataBuf, true);
+    multiResponse.setContent(m_webDavDataBuf, QDomDocument::ParseOption::UseNamespaceProcessing);
 
     bool hasResponse = false;
 
@@ -1437,7 +1437,7 @@ KIO::WorkerResult HTTPProtocol::davLock(const QUrl &url, const QString &scope, c
     if (m_request.responseCode == 200) {
         // success
         QDomDocument multiResponse;
-        multiResponse.setContent(m_webDavDataBuf, true);
+        multiResponse.setContent(m_webDavDataBuf, QDomDocument::ParseOption::UseNamespaceProcessing);
 
         QDomElement prop = multiResponse.documentElement().namedItem(QStringLiteral("prop")).toElement();
 
@@ -1576,7 +1576,7 @@ KIO::WorkerResult HTTPProtocol::davError(QString &errorMsg, int code /* = -1 */,
             QStringList errors;
             QDomDocument multiResponse;
 
-            multiResponse.setContent(m_webDavDataBuf, true);
+            multiResponse.setContent(m_webDavDataBuf, QDomDocument::ParseOption::UseNamespaceProcessing);
 
             QDomElement multistatus = multiResponse.documentElement().namedItem(QStringLiteral("multistatus")).toElement();
 
@@ -3194,7 +3194,8 @@ endParsing:
         if (tIt.hasNext()) {
             // Now we have to check to see what is offered for the upgrade
             QString offered = toQString(tIt.next());
-            upgradeOffers = offered.split(QRegularExpression(QStringLiteral("[ \n,\r\t]")), Qt::SkipEmptyParts);
+            const static auto regex = QRegularExpression(QStringLiteral("[ \n,\r\t]"));
+            upgradeOffers = offered.split(regex, Qt::SkipEmptyParts);
         }
         for (const QString &opt : std::as_const(upgradeOffers)) {
             if (opt == QLatin1String("TLS/1.0")) {

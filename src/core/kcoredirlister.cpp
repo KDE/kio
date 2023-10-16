@@ -828,10 +828,10 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
                 continue;
             }
 
-            auto dirItemIt = std::find_if(dirItem->lstItems.begin(), dirItem->lstItems.end(), [&url](const KFileItem &fitem) {
+            const auto dirItemIt = std::find_if(dirItem->lstItems.cbegin(), dirItem->lstItems.cend(), [&url](const KFileItem &fitem) {
                 return fitem.name() == url.fileName();
             });
-            if (dirItemIt != dirItem->lstItems.end()) {
+            if (dirItemIt != dirItem->lstItems.cend()) {
                 const KFileItem fileitem = *dirItemIt;
                 removedItemsByDir[dir].append(fileitem);
                 // If we found a fileitem, we can test if it's a dir. If not, we'll go to deleteDir just in case.
