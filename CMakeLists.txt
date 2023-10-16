@@ -171,7 +171,6 @@ if(BUILD_TESTING)
     endif()
 endif()
 
-add_subdirectory(kconf_update)
 add_subdirectory(templates)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
