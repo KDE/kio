@@ -584,6 +584,13 @@ public:
     bool isNull() const;
 
     /**
+     * returns whether the KFileItem exists on-disk
+     * Call only after initialization (i.e `KIO::stat` or `refresh()` for local files)
+     * @since 6.0
+     */
+    bool exists() const;
+
+    /**
      * Return true if the file has executable permission
      * @since 6.0
      */

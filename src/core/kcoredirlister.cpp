@@ -15,7 +15,6 @@
 #include "../utils_p.h"
 #include "kiocoredebug.h"
 #include "kmountpoint.h"
-#include "kprotocolmanager.h"
 #include <kio/listjob.h>
 
 #include <KJobUiDelegate>
@@ -1983,6 +1982,7 @@ void KCoreDirListerCache::deleteDir(const QUrl &_dirUrl)
 void KCoreDirListerCache::processPendingUpdates()
 {
     std::set<KCoreDirLister *> listers;
+    QList<QUrl> removedUrls;
     for (const QString &file : pendingUpdates) { // always a local path
         qCDebug(KIO_CORE_DIRLISTER) << file;
         QUrl u = QUrl::fromLocalFile(file);
@@ -1993,7 +1993,11 @@ void KCoreDirListerCache::processPendingUpdates()
             item.refresh();
 
             if (!oldItem.cmp(item)) {
-                reinsert(item, oldItem.url());
+                if (!item.exists()) {
+                    removedUrls.append(oldItem.url());
+                } else {
+                    reinsert(item, oldItem.url());
+                }
                 listers.merge(emitRefreshItem(oldItem, item));
             }
         }
@@ -2001,6 +2005,11 @@ void KCoreDirListerCache::processPendingUpdates()
     pendingUpdates.clear();
     for (KCoreDirLister *kdl : listers) {
         kdl->d->emitItems();
+    }
+
+    // clean orphan KFileItem, after events were emitted
+    for (const auto &removedUrl : removedUrls) {
+        remove(removedUrl);
     }
 
     // Directories in need of updating
@@ -2461,7 +2470,7 @@ void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFile
     }
 
     const bool refreshItemWasFiltered = !isItemVisible(oldItem) || !q->matchesMimeFilter(oldItem);
-    if (isItemVisible(item) && q->matchesMimeFilter(item)) {
+    if (item.exists() && isItemVisible(item) && q->matchesMimeFilter(item)) {
         if (refreshItemWasFiltered) {
             Q_ASSERT(!item.isNull());
             lstNewItems[directoryUrl].append(item);

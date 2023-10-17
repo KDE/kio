@@ -266,6 +266,12 @@ void KFileItemPrivate::init() const
                 appendACLAtoms(pathBA, m_entry, type);
             }
 #endif
+        } else {
+            if (errno != ENOENT) {
+                // another error
+                qCDebug(KIO_CORE) << QStringLiteral("KFileItem: error %1: %2").arg(errno).arg(QString::fromLatin1(strerror(errno))) << "when refreshing"
+                                  << m_url;
+            }
         }
     }
 
@@ -1694,6 +1700,18 @@ KIO::UDSEntry KFileItem::entry() const
 bool KFileItem::isNull() const
 {
     return d == nullptr;
+}
+
+bool KFileItem::exists() const
+{
+    if (!d) {
+        return false;
+    }
+    if (!d->m_bInitCalled) {
+        qCWarning(KIO_CORE) << "KFileItem: exists called when not initialised" << d->m_url;
+        return false;
+    }
+    return d->m_fileMode != KFileItem::Unknown;
 }
 
 bool KFileItem::isExecutable() const

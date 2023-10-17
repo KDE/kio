@@ -501,6 +501,32 @@ void KFileItemTest::testRefresh()
     QVERIFY(symlinkToDirItem.isLink());
 }
 
+void KFileItemTest::testExists()
+{
+    QTest::failOnWarning(QRegularExpression(".?"));
+
+    KFileItem dummy;
+    QVERIFY(!dummy.exists());
+
+    QTemporaryFile f;
+    QVERIFY(f.open());
+    f.close();
+    const auto fileName = f.fileName();
+    dummy = KFileItem(QUrl::fromLocalFile(fileName));
+    dummy.refresh();
+    QVERIFY(dummy.exists());
+
+    QVERIFY(QFile::remove(fileName));
+    QVERIFY(dummy.exists());
+    dummy.refresh();
+    QVERIFY(!dummy.exists());
+
+    dummy = KFileItem(QUrl::fromLocalFile(fileName));
+    // this should trigger a warning
+    QTest::ignoreMessage(QtMsgType::QtWarningMsg, QRegularExpression("^KFileItem: exists called when not initialised QUrl"));
+    QVERIFY(!dummy.exists());
+}
+
 void KFileItemTest::testDotDirectory()
 {
     QTemporaryDir tempDir;

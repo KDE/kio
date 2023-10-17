@@ -295,6 +295,17 @@ private:
         }
     }
 
+    void remove(const QUrl &oldUrl)
+    {
+        const QUrl parentDir = oldUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        DirItem *dirItem = dirItemForUrl(parentDir);
+        if (dirItem) {
+            auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
+            Q_ASSERT(it != dirItem->lstItems.end());
+            dirItem->lstItems.erase(it);
+        }
+    }
+
     /**
      * When KDirWatch tells us that something changed in "dir", we need to
      * also notify the dirlisters that are listing a symlink to "dir" (#213799)
