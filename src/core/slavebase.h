@@ -51,7 +51,7 @@ class SlaveBasePrivate;
  *
  * @deprecated Since 5.96, use WorkerBase.
  */
-class KIOCORE_EXPORT SlaveBase
+class SlaveBase
 {
 public:
     KIOCORE_DEPRECATED_VERSION_BELATED(5, 101, 5, 96, "Use WorkerBase")
