@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4532,14 +4532,14 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Jy mout 'n gebruikernaam en wagwoord verskaf om toegang te verkry tot "
 "hierdie tuiste."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
 #, kde-format
 msgid "Site:"
 msgstr "Tuiste:"
@@ -4567,8 +4567,8 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Besig om te %1 begin"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
-#: kioworkers/http/http.cpp:5120
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
+#: kioworkers/http/http.cpp:5121
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4577,14 +4577,14 @@ msgstr ""
 "Jy moet 'n gebruikernaam en wagwoord vir die volmag bediener wat hier onder "
 "vertoon word verskaf voordat toegang na die tuistes verleen sal word."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
-#: kioworkers/http/http.cpp:5123
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
+#: kioworkers/http/http.cpp:5124
 #, kde-format
 msgid "Proxy:"
 msgstr "Volmag:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Volmag Geldigheidsverklaring Gevaal."
@@ -4873,33 +4873,33 @@ msgstr ""
 msgid "Server processing request, please wait..."
 msgstr "Bediener verwerk versoek, wag asseblief..."
 
-#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
+#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Stuur data na %1"
 
-#: kioworkers/http/http.cpp:4114
+#: kioworkers/http/http.cpp:4115
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Onttrek %1 van %2..."
 
-#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
+#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Geldigheidsverklaring Gevaal."
 
-#: kioworkers/http/http.cpp:5265
+#: kioworkers/http/http.cpp:5266
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authorization failed."
 msgstr "Geldigheidstoets Dialoog"
 
-#: kioworkers/http/http.cpp:5282
+#: kioworkers/http/http.cpp:5283
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Unknown Authorization method."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2023-10-10 14:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4098,12 +4098,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "您需要提供用户名和密码来访问此网站。"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
 #, kde-format
 msgid "Site:"
 msgstr "网站："
@@ -4132,22 +4132,22 @@ msgstr ""
 "\n"
 "服务器消息：“%1”"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
-#: kioworkers/http/http.cpp:5120
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
+#: kioworkers/http/http.cpp:5121
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr "您需要为下面列出的代理服务器提供用户名和密码才能够访问网站。"
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
-#: kioworkers/http/http.cpp:5123
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
+#: kioworkers/http/http.cpp:5124
 #, kde-format
 msgid "Proxy:"
 msgstr "代理服务器："
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "代理服务器身份验证失败。"
@@ -4401,32 +4401,32 @@ msgstr "确认访问该网站"
 msgid "Server processing request, please wait..."
 msgstr "服务器正在处理请求，请稍候..."
 
-#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
+#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
 #, kde-format
 msgid "Sending data to %1"
 msgstr "正在发送数据到 %1"
 
-#: kioworkers/http/http.cpp:4114
+#: kioworkers/http/http.cpp:4115
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "正在从 %2 获取 %1..."
 
-#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
+#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> 的 <b>%1</b>"
 
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Authentication Failed."
 msgstr "身份验证失败。"
 
-#: kioworkers/http/http.cpp:5265
+#: kioworkers/http/http.cpp:5266
 #, kde-format
 msgid "Authorization failed."
 msgstr "授权失败。"
 
-#: kioworkers/http/http.cpp:5282
+#: kioworkers/http/http.cpp:5283
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "未知的授权方法。"

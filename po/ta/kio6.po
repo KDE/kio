@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2023-08-20 16:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -4219,12 +4219,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு பயனர் பெயரையும், கடவுச்சொல்லையும் வழங்க வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
 #, kde-format
 msgid "Site:"
 msgstr "தளம்:"
@@ -4253,8 +4253,8 @@ msgstr ""
 "\n"
 "சேவையகம் கூறியது: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
-#: kioworkers/http/http.cpp:5120
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
+#: kioworkers/http/http.cpp:5121
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4263,14 +4263,14 @@ msgstr ""
 "எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
 "கடவுச்சொல்லையும் தர வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
-#: kioworkers/http/http.cpp:5123
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
+#: kioworkers/http/http.cpp:5124
 #, kde-format
 msgid "Proxy:"
 msgstr "பதிலி:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"
@@ -4528,32 +4528,32 @@ msgstr "இணையதள அணுகலை உறுதி செய்தல
 msgid "Server processing request, please wait..."
 msgstr "சேவையகம் கோரிக்கையைப் பரிசீலிக்கிறது. தயவு செய்து காத்திருக்கவும்..."
 
-#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
+#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
 #, kde-format
 msgid "Sending data to %1"
 msgstr "%1-க்குத் தரவு அனுப்பப்படுகிறது"
 
-#: kioworkers/http/http.cpp:4114
+#: kioworkers/http/http.cpp:4115
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "%2 -இலிருந்து %1 மீட்கப்படுகிறது..."
 
-#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
+#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> -இல் <b>%1</b>"
 
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Authentication Failed."
 msgstr "உறுதிப்பாடு தோல்வியடைந்தது."
 
-#: kioworkers/http/http.cpp:5265
+#: kioworkers/http/http.cpp:5266
 #, kde-format
 msgid "Authorization failed."
 msgstr "உரிமை வழங்குதல் தோல்வியடைந்தது."
 
-#: kioworkers/http/http.cpp:5282
+#: kioworkers/http/http.cpp:5283
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "தெரியாத உரிமை வழங்கும் முறை"

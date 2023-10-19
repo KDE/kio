@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4545,13 +4545,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Jo moatte in brûkersnamme en in wachtwurd opjaan om dizze webside te besjen."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
 #, kde-format
 msgid "Site:"
 msgstr "Webside:"
@@ -4579,8 +4579,8 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Opstarte fan %1"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
-#: kioworkers/http/http.cpp:5120
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
+#: kioworkers/http/http.cpp:5121
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4589,14 +4589,14 @@ msgstr ""
 "Jo moatte in brûkersnamme en in wachtwurd opjaan foar de neikommende "
 "proksytsjinners, foardat jo tagong krije kinne ta hokker webside ek mar."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
-#: kioworkers/http/http.cpp:5123
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
+#: kioworkers/http/http.cpp:5124
 #, kde-format
 msgid "Proxy:"
 msgstr "Proksy:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Proksy-authentikaasje mislearre."
@@ -4885,33 +4885,33 @@ msgstr ""
 msgid "Server processing request, please wait..."
 msgstr "Tsjinner ferwurket de oanfraach, in amerijke..."
 
-#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
+#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Dwaande data te ferstjoeren nei %1"
 
-#: kioworkers/http/http.cpp:4114
+#: kioworkers/http/http.cpp:4115
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Dwaande %1 te ûntfangen fan %2..."
 
-#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
+#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> by <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Authentikaasje mislearre."
 
-#: kioworkers/http/http.cpp:5265
+#: kioworkers/http/http.cpp:5266
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authorization failed."
 msgstr "Autorisaasje"
 
-#: kioworkers/http/http.cpp:5282
+#: kioworkers/http/http.cpp:5283
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Unknown Authorization method."

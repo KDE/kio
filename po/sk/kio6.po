@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:39+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2023-06-03 21:00+0200\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
@@ -4263,12 +4263,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5105
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Musíte zadať užívateľské meno a heslo pre prístup k tomuto serveru."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5107
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
 #, kde-format
 msgid "Site:"
 msgstr "Server:"
@@ -4297,8 +4297,8 @@ msgstr ""
 "\n"
 "Server hlási: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4985
-#: kioworkers/http/http.cpp:5120
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
+#: kioworkers/http/http.cpp:5121
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4307,14 +4307,14 @@ msgstr ""
 "Musíte zadať užívateľské meno a heslo pre proxy server predtým, ako získate "
 "prístup k akémukoľvek serveru."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4989
-#: kioworkers/http/http.cpp:5123
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
+#: kioworkers/http/http.cpp:5124
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4992
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Overenie proxy zlyhalo."
@@ -4574,32 +4574,32 @@ msgstr "Potvrdenie prístupu k webovej stránke"
 msgid "Server processing request, please wait..."
 msgstr "Server spracováva požiadavku, prosím čakajte..."
 
-#: kioworkers/http/http.cpp:3614 kioworkers/http/http.cpp:3669
+#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
 #, kde-format
 msgid "Sending data to %1"
 msgstr "Posielanie dát na %1"
 
-#: kioworkers/http/http.cpp:4114
+#: kioworkers/http/http.cpp:4115
 #, kde-format
 msgid "Retrieving %1 from %2..."
 msgstr "Získavanie %1 z %2..."
 
-#: kioworkers/http/http.cpp:4990 kioworkers/http/http.cpp:5227
+#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:5138
+#: kioworkers/http/http.cpp:5139
 #, kde-format
 msgid "Authentication Failed."
 msgstr "Overenie zlyhalo."
 
-#: kioworkers/http/http.cpp:5265
+#: kioworkers/http/http.cpp:5266
 #, kde-format
 msgid "Authorization failed."
 msgstr "Overenie zlyhalo."
 
-#: kioworkers/http/http.cpp:5282
+#: kioworkers/http/http.cpp:5283
 #, kde-format
 msgid "Unknown Authorization method."
 msgstr "Neznáma metóda overenia."
