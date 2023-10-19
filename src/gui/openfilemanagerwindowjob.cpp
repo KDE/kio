@@ -151,12 +151,12 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
         });
     };
 
-    if (asn.isEmpty()) {
+    if (asn.isEmpty() && KWindowSystem::isPlatformWayland()) {
         auto window = qGuiApp->focusWindow();
         if (!window && !qGuiApp->allWindows().isEmpty()) {
             window = qGuiApp->allWindows().constFirst();
         }
-        const int launchedSerial = KWindowSystem::lastInputSerial(window);
+        const int launchedSerial = qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>()->lastInputSerial();
         QObject::connect(
             KWindowSystem::self(),
             &KWindowSystem::xdgActivationTokenArrived,

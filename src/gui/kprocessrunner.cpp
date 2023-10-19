@@ -277,7 +277,7 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
                     window = qGuiApp->allWindows().constFirst();
                 }
                 if (window) {
-                    const int launchedSerial = KWindowSystem::lastInputSerial(window);
+                    const int launchedSerial = qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>()->lastInputSerial();
                     m_waitingForXdgToken = true;
                     connect(
                         KWindowSystem::self(),
