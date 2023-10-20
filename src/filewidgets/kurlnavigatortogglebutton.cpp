@@ -64,8 +64,9 @@ void KUrlNavigatorToggleButton::paintEvent(QPaintEvent *event)
     if (isChecked()) {
         drawHoverBackground(&painter);
 
-        if (m_pixmap.isNull()) {
-            m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(QSize(s_iconSize, s_iconSize).expandedTo(iconSize()));
+        if (m_pixmap.isNull() || m_pixmap.devicePixelRatioF() != devicePixelRatioF()) {
+            const QSize tickIconSize = QSize(s_iconSize, s_iconSize).expandedTo(iconSize());
+            m_pixmap = QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(tickIconSize, devicePixelRatioF());
         }
         style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter, m_pixmap);
     } else if (isDisplayHintEnabled(EnteredHint)) {
