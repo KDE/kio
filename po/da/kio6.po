@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3843,17 +3843,17 @@ msgstr "Andet"
 msgid "Edit mode"
 msgstr "Redigeringstilstand"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "Klik for placeringsnavigation"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "Klik for redigérbar placering"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du er ikke godkendt til at køre denne fil."
@@ -3907,7 +3907,7 @@ msgstr "Ikonfilen er for stor, download afbrudt"
 msgid "No mail client found"
 msgstr "Ingen terminalemulator fundet"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3918,12 +3918,12 @@ msgstr ""
 "%1\n"
 "er ikke gyldig."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "Starter %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

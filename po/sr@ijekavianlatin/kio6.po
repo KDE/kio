@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -3921,17 +3921,17 @@ msgstr "Drugo"
 msgid "Edit mode"
 msgstr "Režim uređivanja"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "Kliknite za kretanje kroz lokacije"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "Kliknite za uređivanje lokacije"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Niste ovlašćeni da izvršite ovaj fajl."
@@ -3983,7 +3983,7 @@ msgstr "Fajl ikonice prevelik, preuzimanje obustavljeno"
 msgid "No mail client found"
 msgstr "Nema favikonice za %1"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3994,12 +3994,12 @@ msgstr ""
 "%1\n"
 "nije dobar."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "Pokrećem %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

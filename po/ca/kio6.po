@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2023-09-20 20:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3842,17 +3842,17 @@ msgstr "Altres"
 msgid "Edit mode"
 msgstr "Mode d'edició"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "Cliqueu per a navegar a una ubicació"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "Cliqueu per a editar una ubicació"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "No esteu autoritzat a executar aquest fitxer."
@@ -3905,7 +3905,7 @@ msgstr "El fitxer d'icona és massa gran, s'interromp la baixada"
 msgid "No mail client found"
 msgstr "No s'ha trobat cap client de correu"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3916,12 +3916,12 @@ msgstr ""
 "%1\n"
 "no és vàlid."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "S'està llançant %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

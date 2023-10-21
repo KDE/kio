@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -3832,17 +3832,17 @@ msgstr "Övriga"
 msgid "Edit mode"
 msgstr "Redigeringsläge"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "Klicka för platsnavigering"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "Klicka för att redigera plats"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Du har inte behörighet att köra den här filen."
@@ -3895,7 +3895,7 @@ msgstr "Ikonfilen är för stor, nerladdning avbruten"
 msgid "No mail client found"
 msgstr "Ingen e-postklient hittades"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3906,12 +3906,12 @@ msgstr ""
 "%1\n"
 "är inte giltig."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "Startar %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"

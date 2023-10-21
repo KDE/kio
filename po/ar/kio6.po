@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2023-07-06 10:30+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3745,17 +3745,17 @@ msgstr "أخرى"
 msgid "Edit mode"
 msgstr "وضع التّحرير"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "انقر لتصفح الموقع "
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "انقر لتحرير المكان"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ليس مصّرحًا لك تنفيذ هذا الملفّ."
@@ -3806,7 +3806,7 @@ msgstr "ملفّ الأيقونة كبير جدًّا، أُجهض التّنز�
 msgid "No mail client found"
 msgstr "لم يعثر على عميل بريد"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3817,12 +3817,12 @@ msgstr ""
 "%1\n"
 "غير صالحة."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "يُطلق %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."

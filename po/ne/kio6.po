@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3961,17 +3961,17 @@ msgstr "अन्य"
 msgid "Edit mode"
 msgstr "सम्पादन गर्नुहोस्"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "स्थान नेभिगेसनका लागि क्लिक गर्नुहोस्"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "स्थान सम्पादन गर्न क्लिक गर्नुहोस्"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "तपाईँ यो फाइल कार्यान्वयन गर्न आधिकारिक हुनुहुन्न ।"
@@ -4023,7 +4023,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 का लागि यन्त्रमा मिडिया छैन"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4038,12 +4038,12 @@ msgstr ""
 "%1\n"
 "प्रकार अज्ञात छ ।"
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 सुरु गर्दै"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"

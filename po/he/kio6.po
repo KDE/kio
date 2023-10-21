@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2023-10-05 07:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -28,7 +28,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 23.08.1\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -159,32 +160,40 @@ msgid "Syntax error in command %1 while trying to run %2"
 msgstr ""
 
 #: core/global.cpp:81
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 day %2"
 msgid_plural "%1 days %2"
 msgstr[0] "יום אחד %2"
 msgstr[1] "%1 ימים %2"
+msgstr[2] ""
+msgstr[3] ""
 
 #: core/global.cpp:90 core/global.cpp:106
-#, kde-format
+#, fuzzy, kde-format
 msgid "%1 Item"
 msgid_plural "%1 Items"
 msgstr[0] "פריט %1"
 msgstr[1] "%1 פריטים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: core/global.cpp:94
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
 msgstr[0] "תיקייה אחת"
 msgstr[1] "%1 תיקיות"
+msgstr[2] ""
+msgstr[3] ""
 
 #: core/global.cpp:95
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 File"
 msgid_plural "%1 Files"
 msgstr[0] "קובץ אחד"
 msgstr[1] "%1 קבצים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: core/global.cpp:97
 #, kde-format
@@ -3138,6 +3147,8 @@ msgid_plural ""
 "<application>%2</application>."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: filewidgets/kfileplacesmodel.cpp:1553
 #, kde-format
@@ -3299,6 +3310,8 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: filewidgets/kfilewidget.cpp:837
 #, kde-format
@@ -3794,17 +3807,17 @@ msgstr "אחר"
 msgid "Edit mode"
 msgstr "מצב עריכה"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, kde-format
 msgid "Click for Location Navigation"
 msgstr "לחץ כדי לנווט בין מיקומים"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, kde-format
 msgid "Click to Edit Location"
 msgstr "לחץ כדי לערוך את המיקום"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "אינך מורשה להפעיל קובץ זה."
@@ -3856,7 +3869,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "לא נמצא סמלון ל־%1"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, fuzzy, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3867,12 +3880,12 @@ msgstr ""
 "%1\n"
 "אינה מוכרת."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "מפעיל את %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
@@ -5171,6 +5184,8 @@ msgstr[0] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
 msgstr[1] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
 #, fuzzy, kde-kuit-format
@@ -5209,6 +5224,8 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
 msgstr[1] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kacleditwidget.cpp:71
 #, fuzzy, kde-format
@@ -5476,12 +5493,14 @@ msgid "&Other Application..."
 msgstr "תו&כנית"
 
 #: widgets/kfileitemdelegate.cpp:209
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
 msgstr[0] "פריט אחד"
 msgstr[1] "%1 פריטים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kfileitemdelegate.cpp:264 widgets/kfileitemdelegate.cpp:268
 #, kde-format
@@ -5633,6 +5652,8 @@ msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
@@ -6148,11 +6169,13 @@ msgid "Properties for %1"
 msgstr "מאפייני %1"
 
 #: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
-#, kde-format
+#, fuzzy, kde-format
 msgid "Properties for 1 item"
 msgid_plural "Properties for %1 Selected Items"
 msgstr[0] "מאפיינים עבור פריט אחד"
 msgstr[1] "מאפייני עבור %1 פריטים נבחרים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:431
 #, kde-format
@@ -6206,18 +6229,22 @@ msgstr ""
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "קובץ אחד"
 msgstr[1] "%1 קבצים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:1312 widgets/kpropertiesdialog.cpp:1327
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "תת־תיקייה אחת"
 msgstr[1] "%1 תת־תיקיות"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:1340
 #, fuzzy, kde-format
@@ -6310,11 +6337,13 @@ msgid "Access Permissions"
 msgstr "הרשאות גישה"
 
 #: widgets/kpropertiesdialog.cpp:1817
-#, kde-format
+#, fuzzy, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "קובץ זה הוא קישור ואין לו הרשאות."
 msgstr[1] "כל הקבצים הם קישורים ואין להם הרשאות."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:1819
 #, kde-format
@@ -6595,18 +6624,22 @@ msgid "Varying (No Change)"
 msgstr "משתנה (ללא שינוי)"
 
 #: widgets/kpropertiesdialog.cpp:2416
-#, kde-format
+#, fuzzy, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "קובץ זה משתמש בהרשאות מתקדמות."
 msgstr[1] "קבצים אלה משתמשים בהרשאות מתקדמות."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:2438
-#, kde-format
+#, fuzzy, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "תיקייה זו משתמשת בהרשאות מתקדמות."
 msgstr[1] "תיקיות אלה משתמשות בהרשאות מתקדמות."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kpropertiesdialog.cpp:2452
 #, kde-format
@@ -6755,20 +6788,24 @@ msgid "%1, %2 %3"
 msgstr "%1, %2 (%3)"
 
 #: widgets/ksslinfodialog.cpp:141
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
 msgstr[0] "משתמש בסיבית %1"
 msgstr[1] "משתמש ב־%1 סיביות"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/ksslinfodialog.cpp:142
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "of a %1 bit key"
 msgid_plural "of a %1 bit key"
 msgstr[0] "מתוך מפתח של %1 סיביות"
 msgstr[1] "משתמש ב־%1 סיביות"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/ksslinfodialog.cpp:157
 #, kde-format
@@ -6841,12 +6878,14 @@ msgid "Paste One File"
 msgstr "הדבק קובץ אחד"
 
 #: widgets/paste.cpp:254
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "הדבק פריט אחד"
 msgstr[1] "הדבק %1 פריטים"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/paste.cpp:256
 #, kde-format
@@ -7108,6 +7147,8 @@ msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "שינוי הזיהוי הנבחר."
 msgstr[1] "שינוי הזיהוי הנבחר."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/renamefiledialog.cpp:131
 #, kde-format
@@ -7260,6 +7301,8 @@ msgstr[0] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
 msgstr[1] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:248
 #, fuzzy, kde-kuit-format
@@ -7294,6 +7337,8 @@ msgstr[0] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
 msgstr[1] ""
 "האם ברצונך למחוק את הפרטים הללו לצמיתות מהאשפה? אין אפשרות לבטל פעולה זו."
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:283
 #, fuzzy, kde-kuit-format
@@ -7304,6 +7349,8 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
 msgstr[1] "האם אתה בטוח שברצונך להעביר פריט זה אל פח האשפה?"
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:338
 #, fuzzy, kde-format

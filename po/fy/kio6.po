@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:37+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4047,17 +4047,17 @@ msgstr "Oaren"
 msgid "Edit mode"
 msgstr "Bewurkje"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:85
+#: filewidgets/kurlnavigatortogglebutton.cpp:86
 #, fuzzy, kde-format
 msgid "Click for Location Navigation"
 msgstr "Klik foar in menu mei beskikbere fangsten"
 
-#: filewidgets/kurlnavigatortogglebutton.cpp:87
+#: filewidgets/kurlnavigatortogglebutton.cpp:88
 #, fuzzy, kde-format
 msgid "Click to Edit Location"
 msgstr "Keppeling nei lokaasje (URL-adres)..."
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:223
+#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Jo binne net autorisearre om dizze triem út te fieren."
@@ -4110,7 +4110,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Gjin media yn apparaat foar %1"
 
-#: gui/kprocessrunner.cpp:106
+#: gui/kprocessrunner.cpp:110
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4125,12 +4125,12 @@ msgstr ""
 "%1\n"
 "is ûnbekend."
 
-#: gui/kprocessrunner.cpp:247
+#: gui/kprocessrunner.cpp:251
 #, kde-format
 msgid "Launching %1"
 msgstr "Opstarte fan %1"
 
-#: gui/kprocessrunner.cpp:456
+#: gui/kprocessrunner.cpp:462
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"
