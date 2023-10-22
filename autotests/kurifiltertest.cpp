@@ -185,15 +185,6 @@ void KUriFilterTest::initTestCase()
         cfg.sync();
     }
 
-    // Copy kshorturifilterrc from the src dir so we don't depend on make install / env vars.
-    {
-        const QString rcFile = QFINDTESTDATA("../src/urifilters/shorturi/kshorturifilterrc");
-        QVERIFY(!rcFile.isEmpty());
-        const QString localFile = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/kshorturifilterrc";
-        QFile::remove(localFile);
-        QVERIFY(QFile(rcFile).copy(localFile));
-    }
-
     QDir().mkpath(datahome + QStringLiteral("/urifilter"));
 }
 

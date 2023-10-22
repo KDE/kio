@@ -17,5 +17,3 @@ ecm_qt_export_logging_category(
 
 target_link_libraries(kshorturifilter KF6::I18n KF6::KIOGui Qt6::DBus)
 
-install( FILES kshorturifilterrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
-
