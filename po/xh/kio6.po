@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:37+0000\n"
+"POT-Creation-Date: 2023-10-22 02:04+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -3635,7 +3635,7 @@ msgid "*|All Files"
 msgstr "*|Zonke Iifayile"
 
 #: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:729
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Vula"
@@ -5540,67 +5540,67 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Udidi"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:371
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "Vula nge:"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:373
 #, fuzzy, kde-format
 #| msgid "%1 B"
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1 B"
 
-#: widgets/kfileitemactions.cpp:508
+#: widgets/kfileitemactions.cpp:506
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Iintshukumo"
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Vula nge:"
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Vula nge:"
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Vula Nge"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:762
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

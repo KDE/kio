@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:37+0000\n"
+"POT-Creation-Date: 2023-10-22 02:04+0000\n"
 "PO-Revision-Date: 2023-08-20 16:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3452,7 +3452,7 @@ msgid "*|All Files"
 msgstr "*|எல்லாக் கோப்புகள்"
 
 #: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
 msgstr "&திற"
@@ -5349,58 +5349,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "வகை"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:371
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 -&ஆல் திற"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:373
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:508
+#: widgets/kfileitemactions.cpp:506
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&செயல்கள்"
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&அடைவை இதனால் திற..."
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&இதனால் திற..."
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1 -ஆல் அடைவை &திற"
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 -ஆல் &திற"
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&அடைவை இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&இதனால் திற"
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:762
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:37+0000\n"
+"POT-Creation-Date: 2023-10-22 02:04+0000\n"
 "PO-Revision-Date: 2009-08-18 12:07+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -3218,7 +3218,7 @@ msgid "*|All Files"
 msgstr ""
 
 #: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:731
+#: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
 msgstr ""
@@ -5035,62 +5035,62 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipi"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:371
 #, kde-format
 msgid "Open &with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:373
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:508
+#: widgets/kfileitemactions.cpp:506
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Hape me:"
 
-#: widgets/kfileitemactions.cpp:682
+#: widgets/kfileitemactions.cpp:680
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "New Folder"
 msgid "&Open folder with %1"
 msgstr "Dosje e Re"
 
-#: widgets/kfileitemactions.cpp:720
+#: widgets/kfileitemactions.cpp:718
 #, kde-format
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Hape me:"
 
-#: widgets/kfileitemactions.cpp:753
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:764
+#: widgets/kfileitemactions.cpp:762
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
