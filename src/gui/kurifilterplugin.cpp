@@ -66,3 +66,5 @@ QHostInfo KUriFilterPlugin::resolveName(const QString &hostname, unsigned long t
 {
     return KIO::HostInfo::lookupHost(hostname, timeout);
 }
+
+#include "moc_kurifilterplugin_p.cpp"
