@@ -1,10 +1,4 @@
-kcoreaddons_add_plugin(localdomainurifilter
-    INSTALL_NAMESPACE "kf6/urifilters"
-)
-
-target_sources(localdomainurifilter PRIVATE
-    localdomainurifilter.cpp
-)
+kcoreaddons_add_plugin(localdomainurifilter SOURCES localdomainurifilter.cpp INSTALL_NAMESPACE "kf6/urifilters")
 
 ecm_qt_export_logging_category(
     IDENTIFIER category

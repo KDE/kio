@@ -1,10 +1,4 @@
-kcoreaddons_add_plugin(kshorturifilter
-    INSTALL_NAMESPACE "kf6/urifilters"
-)
-
-target_sources(kshorturifilter PRIVATE
-    kshorturifilter.cpp
-)
+kcoreaddons_add_plugin(kshorturifilter SOURCES kshorturifilter.cpp INSTALL_NAMESPACE "kf6/urifilters")
 
 ecm_qt_export_logging_category(
     IDENTIFIER category
