@@ -92,8 +92,8 @@ static bool isKnownProtocol(const QString &protocol)
     return service;
 }
 
-KShortUriFilter::KShortUriFilter(QObject *parent, const QVariantList & /*args*/)
-    : KUriFilterPlugin(QStringLiteral("kshorturifilter"), parent)
+KShortUriFilter::KShortUriFilter(QObject *parent, const KPluginMetaData &data)
+    : KUriFilterPlugin(parent, data)
 {
     QDBusConnection::sessionBus()
         .connect(QString(), QStringLiteral("/"), QStringLiteral("org.kde.KUriFilterPlugin"), QStringLiteral("configure"), this, SLOT(configure()));

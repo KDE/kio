@@ -19,11 +19,6 @@
  * regression test (this should be included as part of "make test").
  */
 
-FixHostUriFilter::FixHostUriFilter(QObject *parent, const QVariantList & /*args*/)
-    : KUriFilterPlugin(QStringLiteral("fixhosturifilter"), parent)
-{
-}
-
 static bool isHttpUrl(const QString &scheme)
 {
     /* clang-format off */

@@ -28,11 +28,6 @@ namespace
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
-KUriSearchFilter::KUriSearchFilter(QObject *parent)
-    : KUriFilterPlugin(QStringLiteral("kurisearchfilter"), parent)
-{
-}
-
 KUriSearchFilter::~KUriSearchFilter()
 {
 }

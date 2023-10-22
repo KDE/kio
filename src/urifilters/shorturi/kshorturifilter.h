@@ -30,13 +30,7 @@ class KShortUriFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    /**
-     * Creates a Short URI filter object
-     *
-     * @param parent the parent of this class.
-     * @param name the internal name for this object.
-     */
-    explicit KShortUriFilter(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+    explicit KShortUriFilter(QObject *parent, const KPluginMetaData &data);
 
     /**
      * Destructor

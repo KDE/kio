@@ -25,11 +25,6 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.localdomain", QtWarningMsg)
  * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
  * regression test (this should be included as part of "make test").
  */
-LocalDomainUriFilter::LocalDomainUriFilter(QObject *parent, const QVariantList & /*args*/)
-    : KUriFilterPlugin(QStringLiteral("localdomainurifilter"), parent)
-{
-}
-
 bool LocalDomainUriFilter::filterUri(KUriFilterData &data) const
 {
     const QUrl url = data.uri();

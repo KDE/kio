@@ -29,7 +29,7 @@ class LocalDomainUriFilter : public KUriFilterPlugin
     Q_OBJECT
 
 public:
-    LocalDomainUriFilter(QObject *parent, const QVariantList &args);
+    using KUriFilterPlugin::KUriFilterPlugin;
     bool filterUri(KUriFilterData &data) const override;
 
 private:

@@ -9,11 +9,11 @@
 #include <QHostInfo>
 #include <hostinfo.h>
 
-KUriFilterPlugin::KUriFilterPlugin(const QString &name, QObject *parent)
+KUriFilterPlugin::KUriFilterPlugin(QObject *parent, const KPluginMetaData &data)
     : QObject(parent)
     , d(nullptr)
 {
-    setObjectName(name);
+    setObjectName(data.pluginId());
 }
 
 KUriFilterPlugin::~KUriFilterPlugin() = default;

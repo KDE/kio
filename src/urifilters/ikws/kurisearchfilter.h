@@ -10,15 +10,15 @@
 #ifndef KURISEARCHFILTER_H
 #define KURISEARCHFILTER_H
 
-#include <QVariant>
 #include "kurifilterplugin_p.h"
+#include <QVariant>
 #include <kurifilter.h>
 
 class KUriSearchFilter : public KUriFilterPlugin
 {
     Q_OBJECT
 public:
-    explicit KUriSearchFilter(QObject *parent);
+    using KUriFilterPlugin::KUriFilterPlugin;
     ~KUriSearchFilter() override;
 
     bool filterUri(KUriFilterData &) const override;

@@ -6,6 +6,8 @@
 #include "kiogui_export.h"
 #include "kurifilter.h"
 
+#include <KPluginMetaData>
+
 /**
  * @class KUriFilterPlugin kurifilter.h <KUriFilter>
  *
@@ -31,7 +33,7 @@ public:
      * @param parent the parent object, or @c nullptr for no parent
      * @param name the name of the plugin, mandatory
      */
-    explicit KUriFilterPlugin(const QString &name, QObject *parent = nullptr);
+    explicit KUriFilterPlugin(QObject *parent, const KPluginMetaData &data);
 
     ~KUriFilterPlugin() override;
 
