@@ -11,12 +11,7 @@
 #define LOCALDOMAINURIFILTER_H
 
 #include "kurifilterplugin_p.h"
-#include <KUriFilter>
-
 #include <QRegularExpression>
-
-class QHostInfo;
-class QEventLoop;
 
 /**
  This filter takes care of hostnames in the local search domain.

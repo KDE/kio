@@ -13,9 +13,6 @@
 #include "kurifilterplugin_p.h"
 #include <KUriFilter>
 
-class QHostInfo;
-class QEventLoop;
-
 /**
  This filter tries to automatically prepend www. to http URLs that need it.
 */

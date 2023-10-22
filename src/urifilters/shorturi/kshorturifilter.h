@@ -13,7 +13,6 @@
 
 #include <QList>
 #include <QRegularExpression>
-#include <QVariant>
 
 #include "kurifilterplugin_p.h"
 #include <kurifilter.h>
