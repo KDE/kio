@@ -33,13 +33,6 @@ public:
     explicit KShortUriFilter(QObject *parent, const KPluginMetaData &data);
 
     /**
-     * Destructor
-     */
-    ~KShortUriFilter() override
-    {
-    }
-
-    /**
      * Converts short URIs into fully qualified valid URIs
      * whenever possible.
      *

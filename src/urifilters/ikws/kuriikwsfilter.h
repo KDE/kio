@@ -19,7 +19,6 @@ class KAutoWebSearch : public KUriFilterPlugin
     Q_OBJECT
 public:
     using KUriFilterPlugin::KUriFilterPlugin;
-    ~KAutoWebSearch() override;
     bool filterUri(KUriFilterData &) const override;
 
 private:

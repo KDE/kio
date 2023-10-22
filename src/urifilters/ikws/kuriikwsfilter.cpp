@@ -30,10 +30,6 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 
 K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 
-KAutoWebSearch::~KAutoWebSearch()
-{
-}
-
 void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider *> &searchProviders, const KUriFilterData &data, bool allproviders) const
 {
     QList<SearchProvider *> providers;
