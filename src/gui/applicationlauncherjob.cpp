@@ -17,6 +17,7 @@
 
 #include <KAuthorized>
 #include <KDesktopFile>
+#include <KDesktopFileAction>
 #include <KLocalizedString>
 
 #include <QFileInfo>
@@ -71,6 +72,13 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &servic
     Q_ASSERT(d->m_service);
     d->m_service.detach();
     d->m_service->setExec(serviceAction.exec());
+}
+KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KDesktopFileAction &desktopFileAction, QObject *parent)
+    : ApplicationLauncherJob(KService::serviceByDesktopPath(desktopFileAction.desktopFilePath()), parent)
+{
+    Q_ASSERT(d->m_service);
+    d->m_service.detach();
+    d->m_service->setExec(desktopFileAction.exec());
 }
 
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(QObject *parent)

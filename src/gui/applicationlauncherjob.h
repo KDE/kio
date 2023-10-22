@@ -15,6 +15,7 @@
 
 class KRun; // KF6 REMOVE
 class ApplicationLauncherJobTest; // KF6 REMOVE
+class KDesktopFileAction;
 
 namespace KIO
 {
@@ -67,6 +68,12 @@ public:
      * @param parent the parent QObject
      */
     explicit ApplicationLauncherJob(const KServiceAction &serviceAction, QObject *parent = nullptr);
+
+    /**
+     * @overload
+     * @since 6.0
+     */
+    explicit ApplicationLauncherJob(const KDesktopFileAction &desktopFileAction, QObject *parent = nullptr);
 
     /**
      * Creates an ApplicationLauncherJob which will prompt the user for which application to use
