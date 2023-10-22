@@ -13,6 +13,7 @@
 #include <KAuthorized>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KDesktopFileAction>
 #include <KFileUtils>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
@@ -162,11 +163,11 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
 int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin)
 {
     ServiceList sortedList = list;
-    std::sort(sortedList.begin(), sortedList.end(), [](const KServiceAction &a1, const KServiceAction &a2) {
+    std::sort(sortedList.begin(), sortedList.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
         return a1.name() < a2.name();
     });
     int count = 0;
-    for (const KServiceAction &serviceAction : std::as_const(sortedList)) {
+    for (const KDesktopFileAction &serviceAction : std::as_const(sortedList)) {
         if (serviceAction.isSeparator()) {
             const QList<QAction *> actions = menu->actions();
             if (!actions.isEmpty() && !actions.last()->isSeparator()) {
@@ -175,10 +176,10 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
             continue;
         }
 
-        if (isBuiltin || !serviceAction.noDisplay()) {
+        if (isBuiltin) {
             QAction *act = new QAction(q);
             act->setObjectName(QStringLiteral("menuaction")); // for the unittest
-            QString text = serviceAction.text();
+            QString text = serviceAction.name();
             text.replace(QLatin1Char('&'), QLatin1String("&&"));
             act->setText(text);
             if (!serviceAction.icon().isEmpty()) {
@@ -197,7 +198,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
 
 void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
-    const KServiceAction serviceAction = act->data().value<KServiceAction>();
+    const KDesktopFileAction serviceAction = act->data().value<KDesktopFileAction>();
     if (KAuthorized::authorizeAction(serviceAction.name())) {
         auto *job = new KIO::ApplicationLauncherJob(serviceAction);
         job->setUrls(m_props.urlList());
@@ -466,7 +467,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
                 const QString priority = cfg.readEntry("X-KDE-Priority");
                 const QString submenuName = cfg.readEntry("X-KDE-Submenu");
                 ServiceList &list = s.selectList(priority, submenuName);
-                list += KService(dotDirectoryFile).actions();
+                list += desktopFile.actions();
             }
         }
     }
@@ -478,12 +479,12 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     for (const QString &file : files) {
         const KDesktopFile desktopFile(file);
         const KConfigGroup cfg = desktopFile.desktopGroup();
-
         if (!shouldDisplayServiceMenu(cfg, protocol)) {
             continue;
         }
 
-        if (cfg.hasKey("Actions") || cfg.hasKey("X-KDE-GetActionMenu")) {
+        const QList<KDesktopFileAction> actions = desktopFile.actions();
+        if (!actions.isEmpty()) {
             if (!checkTypesMatch(cfg)) {
                 continue;
             }
@@ -492,8 +493,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
             const QString submenuName = cfg.readEntry("X-KDE-Submenu");
 
             ServiceList &list = s.selectList(priority, submenuName);
-            const ServiceList userServices = KService(file).actions();
-            std::copy_if(userServices.cbegin(), userServices.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KServiceAction &srvAction) {
+            std::copy_if(actions.cbegin(), actions.cend(), std::back_inserter(list), [&excludeList, &showGroup](const KDesktopFileAction &srvAction) {
                 return showGroup.readEntry(srvAction.name(), true) && !excludeList.contains(srvAction.name());
             });
         }
@@ -774,10 +774,10 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before,
 
     if (m_props.mimeType() == QLatin1String("application/x-desktop")) {
         const QString path = firstItem.localPath();
-        const ServiceList services = KService(path).actions();
-        for (const KServiceAction &serviceAction : services) {
+        const ServiceList services = KDesktopFile(path).actions();
+        for (const KDesktopFileAction &serviceAction : services) {
             QAction *action = new QAction(this);
-            action->setText(serviceAction.text());
+            action->setText(serviceAction.name());
             action->setIcon(QIcon::fromTheme(serviceAction.icon()));
 
             connect(action, &QAction::triggered, this, [serviceAction] {

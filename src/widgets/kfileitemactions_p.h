@@ -10,8 +10,8 @@
 
 #include "kabstractfileitemactionplugin.h"
 #include <KConfig>
+#include <KDesktopFileAction>
 #include <KService>
-#include <KServiceAction>
 #include <kfileitem.h>
 #include <kfileitemlistproperties.h>
 
@@ -20,7 +20,7 @@
 
 class KFileItemActions;
 
-typedef QList<KServiceAction> ServiceList;
+typedef QList<KDesktopFileAction> ServiceList;
 
 class KFileItemActionsPrivate : public QObject
 {
