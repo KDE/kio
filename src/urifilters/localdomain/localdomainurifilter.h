@@ -35,7 +35,9 @@ public:
 private:
     bool exists(const QString &) const;
 
-    QRegularExpression m_hostPortPattern;
+    const QRegularExpression m_hostPortPattern{
+        QRegularExpression::anchoredPattern(uR"--([a-zA-Z0-9][a-zA-Z0-9+-]*(?:\:[0-9]{1,5})?(?:/[\w:@&=+$,-.!~*'()]*)*)--"),
+    };
 };
 
 #endif
