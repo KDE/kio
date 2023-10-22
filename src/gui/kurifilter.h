@@ -820,17 +820,9 @@ protected:
     /**
      * Constructor.
      *
-     * Creates a KUriFilter object and calls @ref loadPlugins to load all
-     * available URI filter plugins.
+     * Creates a KUriFilter object and calls loads all available URI filter plugins.
      */
     KUriFilter();
-
-    /**
-     * Loads all allowed plugins.
-     *
-     * This function only loads URI filter plugins that have not been disabled.
-     */
-    void loadPlugins();
 
 private:
     std::unique_ptr<KUriFilterPrivate> const d;

@@ -403,7 +403,18 @@ KUriFilter *KUriFilter::self()
 KUriFilter::KUriFilter()
     : d(new KUriFilterPrivate())
 {
-    loadPlugins();
+    QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
+    const QString prefKey = QStringLiteral("X-KDE-InitialPreference");
+    // Sort the plugins by order of priority
+    std::sort(plugins.begin(), plugins.end(), [prefKey](const KPluginMetaData &a, const KPluginMetaData &b) {
+        return a.value(prefKey, 0) > b.value(prefKey, 0);
+    });
+
+    for (const KPluginMetaData &pluginMetaData : std::as_const(plugins)) {
+        if (auto plugin = KPluginFactory::instantiatePlugin<KUriFilterPlugin>(pluginMetaData).plugin) {
+            d->pluginList << plugin;
+        }
+    }
 }
 
 KUriFilter::~KUriFilter() = default;
@@ -482,22 +493,6 @@ QStringList KUriFilter::pluginNames() const
         return plugin->objectName();
     });
     return res;
-}
-
-void KUriFilter::loadPlugins()
-{
-    QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/urifilters"));
-    const QString prefKey = QStringLiteral("X-KDE-InitialPreference");
-    // Sort the plugins by order of priority
-    std::sort(plugins.begin(), plugins.end(), [prefKey](const KPluginMetaData &a, const KPluginMetaData &b) {
-        return a.value(prefKey, 0) > b.value(prefKey, 0);
-    });
-
-    for (const KPluginMetaData &pluginMetaData : std::as_const(plugins)) {
-        if (auto plugin = KPluginFactory::instantiatePlugin<KUriFilterPlugin>(pluginMetaData).plugin) {
-            d->pluginList << plugin;
-        }
-    }
 }
 
 #include "moc_kurifilter.cpp"
