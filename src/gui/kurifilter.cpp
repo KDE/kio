@@ -493,16 +493,9 @@ void KUriFilter::loadPlugins()
         return a.value(prefKey, 0) > b.value(prefKey, 0);
     });
 
-    QStringList pluginNames;
-    pluginNames.reserve(plugins.count());
-
     for (const KPluginMetaData &pluginMetaData : std::as_const(plugins)) {
-        const QString fileName = pluginMetaData.fileName().section(QLatin1Char('/'), -1);
-        if (!pluginNames.contains(fileName)) {
-            pluginNames << fileName;
-            if (auto plugin = KPluginFactory::instantiatePlugin<KUriFilterPlugin>(pluginMetaData).plugin) {
-                d->pluginList << plugin;
-            }
+        if (auto plugin = KPluginFactory::instantiatePlugin<KUriFilterPlugin>(pluginMetaData).plugin) {
+            d->pluginList << plugin;
         }
     }
 }
