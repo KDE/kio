@@ -1229,7 +1229,7 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
     if (static_cast<const KDirModelDirNode *>(parentNode)->isPopulated()) {
         return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
     }
-    if (parentItem.isLocalFile()) {
+    if (parentItem.isLocalFile() && !parentItem.isSlow()) {
         QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
 
         if (d->m_dirLister->dirOnlyMode()) {
@@ -1308,7 +1308,8 @@ bool KDirModel::canFetchMore(const QModelIndex &parent) const
 
     KDirModelNode *node = static_cast<KDirModelNode *>(parent.internalPointer());
     const KFileItem &item = node->item();
-    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isPopulated() && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
+    return item.isDir() && !item.isSlow() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
+        && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
 }
 
 void KDirModel::fetchMore(const QModelIndex &parent)
