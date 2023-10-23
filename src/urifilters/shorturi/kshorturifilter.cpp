@@ -39,8 +39,6 @@ Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.shorturi", QtWarningMsg)
  * covered.
  */
 
-typedef QMap<QString, QString> EntryMap;
-
 static bool isPotentialShortURL(const QString &cmd)
 {
     // Host names and IPv4 address...
@@ -488,11 +486,11 @@ void KShortUriFilter::configure()
     KConfigGroup cg(config.group(""));
 
     m_strDefaultUrlScheme = cg.readEntry("DefaultProtocol", QStringLiteral("https://"));
-    const EntryMap patterns = config.entryMap(QStringLiteral("Pattern"));
-    const EntryMap protocols = config.entryMap(QStringLiteral("Protocol"));
+    const QMap<QString, QString> patterns = config.entryMap(QStringLiteral("Pattern"));
+    const QMap<QString, QString> protocols = config.entryMap(QStringLiteral("Protocol"));
     KConfigGroup typeGroup(&config, "Type");
 
-    for (EntryMap::ConstIterator it = patterns.begin(); it != patterns.end(); ++it) {
+    for (auto it = patterns.begin(); it != patterns.end(); ++it) {
         QString protocol = protocols[it.key()];
         if (!protocol.isEmpty()) {
             int type = typeGroup.readEntry(it.key(), -1);
