@@ -31,14 +31,6 @@ namespace
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.shorturi", QtWarningMsg)
 }
 
-/**
- * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
- * regression test (this should be included as part of "make test").
- *
- * If you add anything, make sure to extend kurifiltertest to make sure it is
- * covered.
- */
-
 static bool isPotentialShortURL(const QString &cmd)
 {
     // Host names and IPv4 address...

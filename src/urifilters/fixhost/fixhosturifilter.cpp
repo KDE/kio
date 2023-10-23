@@ -14,11 +14,6 @@
 
 #include <KPluginFactory>
 
-/**
- * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
- * regression test (this should be included as part of "make test").
- */
-
 static bool isHttpUrl(const QString &scheme)
 {
     /* clang-format off */

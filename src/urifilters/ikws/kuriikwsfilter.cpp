@@ -23,11 +23,6 @@ namespace
 Q_LOGGING_CATEGORY(category, "kf.kio.urifilters.ikws", QtWarningMsg)
 }
 
-/**
- * IMPORTANT: If you change anything here, make sure you run the kurifiltertest
- * regression test (this should be included as part of "make test").
- */
-
 K_PLUGIN_CLASS_WITH_JSON(KAutoWebSearch, "kuriikwsfilter.json")
 
 void KAutoWebSearch::populateProvidersList(QList<KUriFilterSearchProvider *> &searchProviders, const KUriFilterData &data, bool allproviders) const
