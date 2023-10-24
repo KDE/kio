@@ -8,6 +8,9 @@
 #ifndef KPROPERTIESDIALOGPLUGIN_H
 #define KPROPERTIESDIALOGPLUGIN_H
 
+#include "kiowidgets_export.h"
+#include <QObject>
+
 class KPropertiesDialog;
 class KPropertiesDialogPluginPrivate;
 /**

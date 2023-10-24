@@ -23,6 +23,11 @@
 
 class QComboBox;
 class QLabel;
+class KJob;
+namespace KIO
+{
+class Job;
+}
 
 namespace KDEPrivate
 {

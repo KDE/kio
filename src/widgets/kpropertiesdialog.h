@@ -24,12 +24,6 @@
 class KPropertiesDialogPrivate;
 class KPropertiesDialogPlugin;
 
-class KJob;
-namespace KIO
-{
-class Job;
-}
-
 /**
  * @class KPropertiesDialog kpropertiesdialog.h <KPropertiesDialog>
  *
