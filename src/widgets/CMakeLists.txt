@@ -54,6 +54,7 @@ target_sources(KF6KIOWidgets PRIVATE
   deleteortrashjob.cpp
   fileundomanager.cpp
   kpropertiesdialog.cpp
+  kpropertiesdialogplugin.cpp
   delegateanimationhandler.cpp
   kfileitemdelegate.cpp
   paste.cpp
@@ -146,6 +147,7 @@ endif()
 ecm_generate_headers(KIOWidgets_HEADERS
   HEADER_NAMES
   KPropertiesDialog
+  KPropertiesDialogPlugin
   KUrlRequesterDialog
   KUrlComboBox
   KFileItemActions

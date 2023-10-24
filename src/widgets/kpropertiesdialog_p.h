@@ -17,6 +17,7 @@
 #define KPROPERTIESDIALOGP_H
 
 #include "kpropertiesdialog.h"
+#include "kpropertiesdialogplugin.h"
 
 #include <QCryptographicHash>
 
