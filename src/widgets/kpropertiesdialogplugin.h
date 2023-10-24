@@ -29,13 +29,14 @@ class KPropertiesDialogPluginPrivate;
    {
        "KPlugin": {
            "MimeTypes": ["text/html", "application/x-mymimetype"]
-       }
+       },
+       "X-KDE-Protocols": ["file"]
    }
    @endverbatim
  * If the MIME types are empty or not specified, the plugin will be created for all MIME types.
  *
- * You can also include X-KDE-Protocol=file if you want that plugin
- * to be loaded only for local files, for instance.
+ * You can also include "X-KDE-Protocols" if you want that plugin for instance
+ * to be loaded only for local files.
  */
 class KIOWIDGETS_EXPORT KPropertiesDialogPlugin : public QObject
 {

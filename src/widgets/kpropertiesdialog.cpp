@@ -632,11 +632,6 @@ void KPropertiesDialogPrivate::insertPages()
 
     QStringList addedPlugins;
     const auto filter = [mimetype, scheme](const KPluginMetaData &metaData) {
-        const auto supportedProtocol = metaData.value(QStringLiteral("X-KDE-Protocol"), QString());
-        if (!supportedProtocol.isEmpty() && supportedProtocol != scheme) {
-            return false;
-        }
-
         const auto supportedProtocols = metaData.value(QStringLiteral("X-KDE-Protocols"), QStringList());
         if (!supportedProtocols.isEmpty()) {
             const auto none = std::none_of(supportedProtocols.cbegin(), supportedProtocols.cend(), [scheme](const auto &protocol) {
