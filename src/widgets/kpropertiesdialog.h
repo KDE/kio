@@ -332,8 +332,8 @@ Q_SIGNALS:
      * This signal is emitted when the properties changes are aborted (for
      * example, with the Cancel button)
      */
-
     void canceled();
+
     /**
      * Emitted before changes to @p oldUrl are saved as @p newUrl.
      * The receiver may change @p newUrl to point to an alternative

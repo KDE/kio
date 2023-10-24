@@ -71,7 +71,7 @@ protected:
     /**
      * Pointer to the dialog
      */
-    KPropertiesDialog *properties;
+    KPropertiesDialog *const properties;
 
     /**
      * Returns the font height.
@@ -79,6 +79,6 @@ protected:
     int fontHeight() const;
 
 private:
-    std::unique_ptr<KPropertiesDialogPluginPrivate> d;
+    const std::unique_ptr<KPropertiesDialogPluginPrivate> d;
 };
 #endif
