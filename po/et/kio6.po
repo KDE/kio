@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-22 02:04+0000\n"
+"POT-Creation-Date: 2023-10-24 01:40+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2379,17 +2379,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumenteerimata viga"
 
-#: core/kfileitem.cpp:1382
+#: core/kfileitem.cpp:1388
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Nimeviit asukohale %1)"
 
-#: core/kfileitem.cpp:1384
+#: core/kfileitem.cpp:1390
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, viit asukohale %2)"
 
-#: core/kfileitem.cpp:1387
+#: core/kfileitem.cpp:1393
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"

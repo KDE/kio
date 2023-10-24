@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-22 02:04+0000\n"
+"POT-Creation-Date: 2023-10-24 01:40+0000\n"
 "PO-Revision-Date: 2023-08-09 12:49+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2426,17 +2426,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Errore non documentato"
 
-#: core/kfileitem.cpp:1382
+#: core/kfileitem.cpp:1388
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Collegamento simbolico a %1)"
 
-#: core/kfileitem.cpp:1384
+#: core/kfileitem.cpp:1390
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, collegamento a %2)"
 
-#: core/kfileitem.cpp:1387
+#: core/kfileitem.cpp:1393
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Punta a %1)"
