@@ -17,11 +17,9 @@ class KPropertiesDialogPluginPrivate;
  * A plugin in itself is just a library containing code, not a dialog's page.
  * It's up to the plugin to insert pages into the parent dialog.
  *
- * To make a plugin available, ensure it has embedded json metadata (look for
- * K_PLUGIN_CLASS_WITH_JSON) and install the plugin in "\<plugins_dir>/kf5/propertiesdialog/".
- * (By default KDE uses the same plugins dir as Qt, you can find the @c plugins_dir path on
- * your system by running <tt>qtpaths --plugin-dir</tt> or <tt>qmake QT_INSTALL_PLUGINS</tt>
- * in terminal).
+ * To make a plugin available, ensure it has embedded json metadata using
+ * K_PLUGIN_CLASS_WITH_JSON and install the plugin in the KDE_INSTALL_PLUGINDIR/kf6/propertiesdialog
+ * folder from the KDEInstallDirs CMake module.
  *
  * The metadata can contain the MIME types for which the plugin should be created.
  * For instance:
