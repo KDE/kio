@@ -448,7 +448,9 @@ KPropertiesDialog::~KPropertiesDialog()
 
 void KPropertiesDialog::insertPlugin(KPropertiesDialogPlugin *plugin)
 {
-    connect(plugin, &KPropertiesDialogPlugin::changed, plugin, qOverload<>(&KPropertiesDialogPlugin::setDirty));
+    connect(plugin, &KPropertiesDialogPlugin::changed, plugin, [plugin]() {
+        plugin->setDirty();
+    });
 
     d->m_pages.push_back(plugin);
 }
@@ -728,11 +730,6 @@ KPropertiesDialogPlugin::~KPropertiesDialogPlugin() = default;
 void KPropertiesDialogPlugin::setDirty(bool b)
 {
     d->m_bDirty = b;
-}
-
-void KPropertiesDialogPlugin::setDirty()
-{
-    d->m_bDirty = true;
 }
 
 bool KPropertiesDialogPlugin::isDirty() const
@@ -1069,7 +1066,9 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // Symlink widgets
     if (!d->bMultiple && firstItem.isLink()) {
         d->m_ui->symlinkTargetEdit->setText(firstItem.linkDest());
-        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, qOverload<>(&KFilePropsPlugin::setDirty));
+        connect(d->m_ui->symlinkTargetEdit, &QLineEdit::textChanged, this, [this]() {
+            setDirty();
+        });
 
         connect(d->m_ui->symlinkTargetOpenDir, &QPushButton::clicked, this, [this] {
             const QUrl resolvedTargetLocation = properties->item().url().resolved(QUrl(d->m_ui->symlinkTargetEdit->text()));

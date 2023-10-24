@@ -394,11 +394,8 @@ public:
      */
     virtual void applyChanges();
 
-    void setDirty(bool b);
+    void setDirty(bool b = true);
     bool isDirty() const;
-
-public Q_SLOTS:
-    void setDirty(); // same as setDirty( true ). TODO KDE5: void setDirty(bool dirty=true);
 
 Q_SIGNALS:
     /**
