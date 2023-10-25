@@ -13,8 +13,7 @@
  * display a properties dialog.
  */
 
-#ifndef KPROPERTIESDIALOGP_H
-#define KPROPERTIESDIALOGP_H
+#pragma once
 
 #include "kpropertiesdialog.h"
 #include "kpropertiesdialogplugin.h"
@@ -259,5 +258,3 @@ private:
 };
 
 }
-
-#endif

@@ -55,6 +55,7 @@ target_sources(KF6KIOWidgets PRIVATE
   fileundomanager.cpp
   kpropertiesdialog.cpp
   kpropertiesdialogplugin.cpp
+  kpropertiesdialogbuiltin_p.cpp
   delegateanimationhandler.cpp
   kfileitemdelegate.cpp
   paste.cpp
