@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kio package.
 #
-# enolp <enolp@softastur.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 enolp <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-24 01:40+0000\n"
-"PO-Revision-Date: 2023-05-22 22:36+0200\n"
+"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"PO-Revision-Date: 2023-10-24 23:40+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3461,30 +3461,30 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:159
+#: gui/applicationlauncherjob.cpp:167
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:282
+#: gui/applicationlauncherjob.cpp:290
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3739,13 +3739,14 @@ msgid ""
 msgstr ""
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not modify the ownership of file %1"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nun se pudo modificar el propietariu del ficheru «%1»"
+msgstr ""
+"Nun se pudo camudar el propietariu ya'l grupu de\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -4424,22 +4425,22 @@ msgstr ""
 msgid "You do not have permission to access the %1 protocol."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:111
+#: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:251
+#: urifilters/shorturi/kshorturifilter.cpp:241
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:253
+#: urifilters/shorturi/kshorturifilter.cpp:243
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr ""
@@ -4523,6 +4524,9 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
+"Copia ya apiega'l una suma de comprobación nel campu d'abaxo.<br/"
+">Normalmente, el sitiu web dende'l que baxesti esti ficheru forne una suma "
+"de comprobación."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
@@ -4575,7 +4579,7 @@ msgstr "SHA512:"
 #: widgets/kfilepropspluginwidget.ui:42
 #, kde-format
 msgid "Calculate"
-msgstr ""
+msgstr "Calcular"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (toolTip), widget (QPushButton, sha1CopyButton)
@@ -4974,12 +4978,12 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipu"
 
-#: widgets/kfileitemactions.cpp:371
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:373
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
@@ -5049,7 +5053,7 @@ msgstr ""
 #: widgets/kfilepropspluginwidget.ui:52
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Parar"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:62
@@ -5079,7 +5083,7 @@ msgstr "Tipu:"
 #: widgets/kfilepropspluginwidget.ui:282 widgets/kurlrequesterdialog.cpp:44
 #, kde-format
 msgid "Location:"
-msgstr ""
+msgstr "Llugar:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5091,7 +5095,7 @@ msgstr "Tamañu:"
 #: widgets/kfilepropspluginwidget.ui:350
 #, kde-format
 msgid "Change..."
-msgstr ""
+msgstr "Camudar…"
 
 #. i18n: ectx: property (text), widget (QLabel, contentLabel)
 #: widgets/kfilepropspluginwidget.ui:362
@@ -5145,7 +5149,7 @@ msgstr ""
 #: widgets/kfilepropspluginwidget.ui:498
 #, kde-format
 msgid "Open With:"
-msgstr ""
+msgstr "Ábrese con:"
 
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
@@ -5610,7 +5614,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:291 widgets/kpropertiesdialog.cpp:315
 #, kde-format
 msgid "Properties for %1"
-msgstr ""
+msgstr "Propiedaes de: %1"
 
 #: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
 #, kde-format
@@ -5629,7 +5633,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
-msgstr ""
+msgstr "&Xeneral"
 
 #: widgets/kpropertiesdialog.cpp:1051
 #, kde-format
@@ -5808,7 +5812,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1850
 #, kde-format
 msgid "Is &executable"
-msgstr ""
+msgstr "Ye &executable"
 
 #: widgets/kpropertiesdialog.cpp:1853
 #, kde-format
@@ -5828,7 +5832,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1864
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr ""
+msgstr "Permisos a&vanzaos"
 
 #: widgets/kpropertiesdialog.cpp:1872
 #, kde-format
@@ -6046,7 +6050,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
-msgstr ""
+msgstr "Su&mes de comprobación"
 
 #: widgets/kpropertiesdialog.cpp:2763 widgets/kpropertiesdialog.cpp:2774
 #: widgets/kpropertiesdialog.cpp:2785 widgets/kpropertiesdialog.cpp:2796
@@ -6058,7 +6062,7 @@ msgstr "Calculando…"
 #: widgets/kpropertiesdialog.cpp:2952
 #, kde-format
 msgid "Invalid checksum."
-msgstr ""
+msgstr "La suma de comprobación ye inválida."
 
 #: widgets/kpropertiesdialog.cpp:2955
 #, kde-format

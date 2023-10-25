@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-24 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:48+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3821,19 +3821,19 @@ msgstr "ចុច​ដើម្បី​បង្ហាញ​ការ​រុ
 msgid "Click to Edit Location"
 msgstr "ចុច​ដើម្បី​កែសម្រួល​ទីតាំង"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "អ្នក​មិន​ត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​ប្រតិបត្តិ​ឯកសារ​នេះ​ឡើយ ។"
 
-#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "បើក %1"
 
-#: gui/applicationlauncherjob.cpp:159
+#: gui/applicationlauncherjob.cpp:167
 #, fuzzy, kde-format
 #| msgid "Unable to make the service %1 executable, aborting execution"
 msgid ""
@@ -3841,12 +3841,12 @@ msgid ""
 "%2."
 msgstr "មិនអាច​ធ្វើ​ឲ្យ​សេវា %1 ប្រតិបត្តិបាន​បានទេ បោះបង់បង់​កា​រប្រតិបត្តិ"
 
-#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "អ្នក​មិនត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​បើក​កម្មវិធី​ដើម្បី​បើក​ឯកសារ​នេះ​ឡើយ ។"
 
-#: gui/applicationlauncherjob.cpp:282
+#: gui/applicationlauncherjob.cpp:290
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -4880,23 +4880,23 @@ msgstr "ការ​ចូល​ដំណើរការ​ត្រូវ​ប
 msgid "You do not have permission to access the %1 protocol."
 msgstr "អ្នក​មិន​មាន​សិទ្ធិ​ចូល​ដំណើរការពិធីការ %1 ឡើយ ។"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:111
+#: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
 
-#: urifilters/shorturi/kshorturifilter.cpp:251
+#: urifilters/shorturi/kshorturifilter.cpp:241
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:253
+#: urifilters/shorturi/kshorturifilter.cpp:243
 #, fuzzy, kde-format
 #| msgid "<qt>You do not have permission to run <b>%1</b>.</qt>"
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
@@ -5468,12 +5468,12 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ប្រភេទ"
 
-#: widgets/kfileitemactions.cpp:371
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "បើក​ជាមួយ %1"
 
-#: widgets/kfileitemactions.cpp:373
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

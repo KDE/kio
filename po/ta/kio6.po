@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-24 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:48+0000\n"
 "PO-Revision-Date: 2023-08-20 16:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -3749,18 +3749,18 @@ msgstr "இட உலாவலுக்கு க்ளிக் செய்ய
 msgid "Click to Edit Location"
 msgstr "இடத்தைத் திருத்த க்ளிக் செய்யவும்"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "இந்த கோப்பை இயக்க உங்களுக்கு அதிகாரம் இல்லை."
 
-#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 தொடங்குகிறது"
 
-#: gui/applicationlauncherjob.cpp:159
+#: gui/applicationlauncherjob.cpp:167
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3769,12 +3769,12 @@ msgstr ""
 "%1 என்கிற சேவையை இயக்கவல்லதாக்க முடியவில்லை. இயக்குதல் கைவிடப்படுகிறது.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "இக்கோப்பினைத் திறப்பதற்கான செயலியை தேர்வு செய்ய உங்களுக்கு அனுமதி இல்லை."
 
-#: gui/applicationlauncherjob.cpp:282
+#: gui/applicationlauncherjob.cpp:290
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -4783,22 +4783,22 @@ msgstr "அணுகல் மறுக்கப்பட்டது"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 நெறிமுறையை அணுக உங்களுக்கு அனுமதி இல்லை."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "எந்த முதன்மையான தேடுதல் சேவைகளும் கண்டுபிடிக்கப்படவில்லை."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:111
+#: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
 msgid "No search providers were found."
 msgstr "எந்த தேடுதல் சேவைகளும் கண்டுபிடிக்கப்படவில்லை."
 
-#: urifilters/shorturi/kshorturifilter.cpp:251
+#: urifilters/shorturi/kshorturifilter.cpp:241
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b> -க்கு முகப்பு அடைவு இல்லை.</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:253
+#: urifilters/shorturi/kshorturifilter.cpp:243
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt><b>%1</b> என்று பயனர் இல்லை.</qt>"
@@ -5349,12 +5349,12 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "வகை"
 
-#: widgets/kfileitemactions.cpp:371
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 -&ஆல் திற"
 
-#: widgets/kfileitemactions.cpp:373
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

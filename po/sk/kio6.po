@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-24 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:48+0000\n"
 "PO-Revision-Date: 2023-06-03 21:00+0200\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
@@ -3789,18 +3789,18 @@ msgstr "Kliknite pre navigáciu k umiestneniu"
 msgid "Click to Edit Location"
 msgstr "Kliknite pre úpravu umiestnenia"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nemáte práva na spustenie tohto súboru."
 
-#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Spúšťa sa %1"
 
-#: gui/applicationlauncherjob.cpp:159
+#: gui/applicationlauncherjob.cpp:167
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3809,12 +3809,12 @@ msgstr ""
 "Nie je možné nastaviť službu %1 ako spustiteľnú, prerušuje sa spustenie.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nemáte práva pre výber aplikácie na otvorenie tohto súboru."
 
-#: gui/applicationlauncherjob.cpp:282
+#: gui/applicationlauncherjob.cpp:290
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -4827,22 +4827,22 @@ msgstr "Prístup odmietnutý"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Nemáte práva pre prístup k protokolu %1."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Neboli nájdení žiadny preferovaní poskytovatelia vyhľadávania."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:111
+#: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
 msgid "No search providers were found."
 msgstr "Neboli nájdení žiadny poskytovatelia."
 
-#: urifilters/shorturi/kshorturifilter.cpp:251
+#: urifilters/shorturi/kshorturifilter.cpp:241
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b> nemá domovský priečinok.</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:253
+#: urifilters/shorturi/kshorturifilter.cpp:243
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>Neexistuje užívateľ <b>%1</b>.</qt>"
@@ -5396,12 +5396,12 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Typ"
 
-#: widgets/kfileitemactions.cpp:371
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "&Otvoriť pomocou %1"
 
-#: widgets/kfileitemactions.cpp:373
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

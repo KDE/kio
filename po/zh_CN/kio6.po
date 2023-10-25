@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-24 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:48+0000\n"
 "PO-Revision-Date: 2023-10-21 13:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3629,18 +3629,18 @@ msgstr "点击以切换到位置导航模式"
 msgid "Click to Edit Location"
 msgstr "点击以编辑位置"
 
-#: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:227
+#: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "您没有此文件的执行权限。"
 
-#: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:109
+#: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "正在启动 %1"
 
-#: gui/applicationlauncherjob.cpp:159
+#: gui/applicationlauncherjob.cpp:167
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3649,12 +3649,12 @@ msgstr ""
 "无法将 %1 服务设置为可执行，放弃执行操作。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您没有选择此文件的打开程序的权限。"
 
-#: gui/applicationlauncherjob.cpp:282
+#: gui/applicationlauncherjob.cpp:290
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -4652,22 +4652,22 @@ msgstr "拒绝访问"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "您没有访问 %1 协议的权限。"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:82
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "找不到首选的搜索服务提供商。"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:111
+#: urifilters/ikws/kuriikwsfilter.cpp:97
 #, kde-format
 msgid "No search providers were found."
 msgstr "找不到搜索服务提供商。"
 
-#: urifilters/shorturi/kshorturifilter.cpp:251
+#: urifilters/shorturi/kshorturifilter.cpp:241
 #, kde-format
 msgid "<qt><b>%1</b> does not have a home folder.</qt>"
 msgstr "<qt><b>%1</b> 没有主文件夹。</qt>"
 
-#: urifilters/shorturi/kshorturifilter.cpp:253
+#: urifilters/shorturi/kshorturifilter.cpp:243
 #, kde-format
 msgid "<qt>There is no user called <b>%1</b>.</qt>"
 msgstr "<qt>没有名为 <b>%1</b> 的用户。</qt>"
@@ -5210,12 +5210,12 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "类型"
 
-#: widgets/kfileitemactions.cpp:371
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgid "Open &with %1"
 msgstr "使用 %1 打开(&W)"
 
-#: widgets/kfileitemactions.cpp:373
+#: widgets/kfileitemactions.cpp:374
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
