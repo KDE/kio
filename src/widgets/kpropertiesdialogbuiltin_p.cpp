@@ -1004,13 +1004,6 @@ void KFilePropsPlugin::postApplyChanges()
 class KFilePermissionsPropsPlugin::KFilePermissionsPropsPluginPrivate
 {
 public:
-    KFilePermissionsPropsPluginPrivate()
-    {
-    }
-    ~KFilePermissionsPropsPluginPrivate()
-    {
-    }
-
     QFrame *m_frame = nullptr;
     QCheckBox *cbRecursive = nullptr;
     QLabel *explanationLabel = nullptr;
@@ -2036,14 +2029,6 @@ void KFilePermissionsPropsPlugin::applyChanges()
 class KChecksumsPlugin::KChecksumsPluginPrivate
 {
 public:
-    KChecksumsPluginPrivate()
-    {
-    }
-
-    ~KChecksumsPluginPrivate()
-    {
-    }
-
     QWidget m_widget;
     Ui::ChecksumsWidget m_ui;
 
@@ -2426,13 +2411,6 @@ void KChecksumsPlugin::cacheChecksum(const QString &checksum, QCryptographicHash
 class KUrlPropsPlugin::KUrlPropsPluginPrivate
 {
 public:
-    KUrlPropsPluginPrivate()
-    {
-    }
-    ~KUrlPropsPluginPrivate()
-    {
-    }
-
     QFrame *m_frame;
     KUrlRequester *URLEdit;
     QString URLStr;
