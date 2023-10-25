@@ -73,9 +73,11 @@
 
 using namespace KDEPrivate;
 
-constexpr mode_t KFilePermissionsPropsPlugin::fperm[3][4] = {{S_IRUSR, S_IWUSR, S_IXUSR, S_ISUID},
-                                                             {S_IRGRP, S_IWGRP, S_IXGRP, S_ISGID},
-                                                             {S_IROTH, S_IWOTH, S_IXOTH, S_ISVTX}};
+constexpr mode_t KFilePermissionsPropsPlugin::fperm[3][4] = {
+    {S_IRUSR, S_IWUSR, S_IXUSR, S_ISUID},
+    {S_IRGRP, S_IWGRP, S_IXGRP, S_ISGID},
+    {S_IROTH, S_IWOTH, S_IXOTH, S_ISVTX},
+};
 
 class KPropertiesDialogPrivate
 {
