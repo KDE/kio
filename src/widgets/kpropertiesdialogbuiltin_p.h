@@ -39,9 +39,6 @@ class KFilePropsPlugin : public KPropertiesDialogPlugin
 {
     Q_OBJECT
 public:
-    /**
-     * Constructor
-     */
     explicit KFilePropsPlugin(KPropertiesDialog *_props);
     ~KFilePropsPlugin() override;
 
@@ -115,9 +112,6 @@ public:
         PermissionsOthers = 2,
     };
 
-    /**
-     * Constructor
-     */
     explicit KFilePermissionsPropsPlugin(KPropertiesDialog *_props);
     ~KFilePermissionsPropsPlugin() override;
 
@@ -204,9 +198,6 @@ class KUrlPropsPlugin : public KPropertiesDialogPlugin
 {
     Q_OBJECT
 public:
-    /**
-     * Constructor
-     */
     explicit KUrlPropsPlugin(KPropertiesDialog *_props);
     ~KUrlPropsPlugin() override;
 
@@ -233,9 +224,6 @@ class KDesktopPropsPlugin : public KPropertiesDialogPlugin
 {
     Q_OBJECT
 public:
-    /**
-     * Constructor
-     */
     explicit KDesktopPropsPlugin(KPropertiesDialog *_props);
     ~KDesktopPropsPlugin() override;
 
