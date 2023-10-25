@@ -21,11 +21,12 @@ public:
     int fontHeight;
 };
 
-KPropertiesDialogPlugin::KPropertiesDialogPlugin(KPropertiesDialog *_props)
+KPropertiesDialogPlugin::KPropertiesDialogPlugin(QObject *_props)
     : QObject(_props)
-    , properties(_props)
+    , properties(qobject_cast<KPropertiesDialog *>(_props))
     , d(new KPropertiesDialogPluginPrivate)
 {
+    Q_ASSERT(properties);
     d->fontHeight = 2 * properties->fontMetrics().height();
     d->m_bDirty = false;
 }
