@@ -72,7 +72,7 @@ public:
         return m_item;
     }
 
-    void setItem(const KFileItem &item)
+    virtual void setItem(const KFileItem &item)
     {
         m_item = item;
     }
@@ -115,13 +115,24 @@ public:
         : KDirModelNode(parent, item)
         , m_childCount(KDirModel::ChildCountUnknown)
         , m_populated(false)
+        , m_slow(SlowUnknown)
     {
+        // If the parent node is slow, all children are slow. Not true for Fast.
+        if (parent && parent->isSlow()) {
+            m_slow = Slow;
+        }
     }
     ~KDirModelDirNode() override
     {
         qDeleteAll(m_childNodes);
     }
     QList<KDirModelNode *> m_childNodes; // owns the nodes
+
+    void setItem(const KFileItem &item) override
+    {
+        KDirModelNode::setItem(item);
+        m_slow = SlowUnknown;
+    }
 
     // If we listed the directory, the child count is known. Otherwise it can be set via setChildCount.
     int childCount() const
@@ -146,7 +157,10 @@ public:
 
     bool isSlow() const
     {
-        return item().isSlow();
+        if (!item().isNull() && m_slow == SlowUnknown) {
+            m_slow = item().isSlow() ? Slow : Fast;
+        }
+        return m_slow == Slow;
     }
 
     // For removing all child urls from the global hash.
@@ -167,6 +181,8 @@ public:
 private:
     int m_childCount : 31;
     bool m_populated : 1;
+    // Slow? (nfs/smb/ssh)
+    mutable enum { SlowUnknown, Fast, Slow } m_slow : 3;
 };
 
 int KDirModelNode::rowNumber() const
@@ -746,14 +762,17 @@ void KDirModelPrivate::_k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl
 void KDirModelPrivate::_k_slotClear()
 {
     const int numRows = m_rootNode->m_childNodes.count();
+    const auto url = m_dirLister->url();
     if (numRows > 0) {
         q->beginRemoveRows(QModelIndex(), 0, numRows - 1);
         m_nodeHash.clear();
         clear();
+        m_rootNode->setItem(KFileItem(url));
         q->endRemoveRows();
     } else {
         m_nodeHash.clear();
         clear();
+        m_rootNode->setItem(KFileItem(url));
     }
 }
 
@@ -873,7 +892,12 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                     icon = QIcon::fromTheme(iconName, fallbackIcon);
                 }
 
-                return KIconUtils::addOverlays(icon, item.overlays());
+                const auto parentNode = node->parent();
+                if (parentNode->isSlow()) {
+                    return icon;
+                } else {
+                    return KIconUtils::addOverlays(icon, item.overlays());
+                }
             }
             break;
         case Qt::TextAlignmentRole:
@@ -893,7 +917,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             } else {
                 KDirModelDirNode *dirNode = static_cast<KDirModelDirNode *>(node);
                 int count = dirNode->childCount();
-                if (count == ChildCountUnknown && item.isReadable() && !dirNode->isSlow()) {
+                if (count == ChildCountUnknown && !dirNode->isSlow() && item.isReadable()) {
                     const QString path = item.localPath();
                     if (!path.isEmpty()) {
 //                        slow
@@ -1238,7 +1262,7 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
     if (static_cast<const KDirModelDirNode *>(parentNode)->isPopulated()) {
         return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
     }
-    if (parentItem.isLocalFile() && !parentItem.isSlow()) {
+    if (parentItem.isLocalFile() && !static_cast<const KDirModelDirNode *>(parentNode)->isSlow()) {
         QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
 
         if (d->m_dirLister->dirOnlyMode()) {
@@ -1317,7 +1341,7 @@ bool KDirModel::canFetchMore(const QModelIndex &parent) const
 
     KDirModelNode *node = static_cast<KDirModelNode *>(parent.internalPointer());
     const KFileItem &item = node->item();
-    return item.isDir() && !item.isSlow() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
+    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isSlow() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
         && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
 }
 
