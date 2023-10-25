@@ -96,6 +96,7 @@ Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
 Query=https://www.ask.com/web?q=\\{@}
+Query[ast]=https://www.ask.com/web?q=\\{@}
 Query[bg]=https://www.ask.com/web?q=\\{@}
 Query[ca]=https://www.ask.com/web?q=\\{@}
 Query[ca@valencia]=https://www.ask.com/web?q=\\{@}
@@ -118,6 +119,7 @@ Query[sa]=https://www.ask.com/web?q=\\{@}
 Query[sl]=https://www.ask.com/web?q=\\{@}
 Query[tr]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}
+Query[vi]=https://www.ask.com/web?q=\\{@}
 Query[x-test]=xxhttps://www.ask.com/web?q=\\{@}xx
 Query[zh_CN]=https://www.ask.com/web?q=\\{@}
 Query[zh_TW]=https://www.ask.com/web?q=\\{@}
