@@ -101,6 +101,14 @@ public:
      */
     void insertPages();
 
+    void insertPlugin(KPropertiesDialogPlugin *plugin)
+    {
+        q->connect(plugin, &KPropertiesDialogPlugin::changed, plugin, [plugin]() {
+            plugin->setDirty();
+        });
+        m_pages.push_back(plugin);
+    }
+
     KPropertiesDialog *const q;
     bool m_aborted = false;
     KPageWidgetItem *fileSharePageItem = nullptr;
@@ -354,15 +362,6 @@ KPropertiesDialog::~KPropertiesDialog()
 {
 }
 
-void KPropertiesDialog::insertPlugin(KPropertiesDialogPlugin *plugin)
-{
-    connect(plugin, &KPropertiesDialogPlugin::changed, plugin, [plugin]() {
-        plugin->setDirty();
-    });
-
-    d->m_pages.push_back(plugin);
-}
-
 QUrl KPropertiesDialog::url() const
 {
     return d->m_singleUrl;
@@ -502,27 +501,27 @@ void KPropertiesDialogPrivate::insertPages()
 
     if (KFilePropsPlugin::supports(m_items)) {
         m_filePropsPlugin = new KFilePropsPlugin(q);
-        q->insertPlugin(m_filePropsPlugin);
+        insertPlugin(m_filePropsPlugin);
     }
 
     if (KFilePermissionsPropsPlugin::supports(m_items)) {
         m_permissionsPropsPlugin = new KFilePermissionsPropsPlugin(q);
-        q->insertPlugin(m_permissionsPropsPlugin);
+        insertPlugin(m_permissionsPropsPlugin);
     }
 
     if (KChecksumsPlugin::supports(m_items)) {
         KPropertiesDialogPlugin *p = new KChecksumsPlugin(q);
-        q->insertPlugin(p);
+        insertPlugin(p);
     }
 
     if (KDesktopPropsPlugin::supports(m_items)) {
         m_desktopPropsPlugin = new KDesktopPropsPlugin(q);
-        q->insertPlugin(m_desktopPropsPlugin);
+        insertPlugin(m_desktopPropsPlugin);
     }
 
     if (KUrlPropsPlugin::supports(m_items)) {
         m_urlPropsPlugin = new KUrlPropsPlugin(q);
-        q->insertPlugin(m_urlPropsPlugin);
+        insertPlugin(m_urlPropsPlugin);
     }
 
     if (m_items.count() != 1) {
@@ -555,7 +554,7 @@ void KPropertiesDialogPrivate::insertPages()
     const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/propertiesdialog"), filter);
     for (const auto &jsonMetadata : jsonPlugins) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KPropertiesDialogPlugin>(jsonMetadata, q).plugin) {
-            q->insertPlugin(plugin);
+            insertPlugin(plugin);
             addedPlugins.append(jsonMetadata.pluginId());
         }
     }

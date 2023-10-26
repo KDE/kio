@@ -22,7 +22,6 @@
 #include <memory>
 
 class KPropertiesDialogPrivate;
-class KPropertiesDialogPlugin;
 
 /**
  * @class KPropertiesDialog kpropertiesdialog.h <KPropertiesDialog>
@@ -192,21 +191,6 @@ public:
      * @since 5.10
      */
     static bool showDialog(const QList<QUrl> &urls, QWidget *parent = nullptr, bool modal = true);
-
-    /**
-     * Adds a "3rd party" properties plugin to the dialog.  Useful
-     * for extending the properties mechanism.
-     *
-     * To create a new plugin type, inherit from the base class KPropertiesDialogPlugin
-     * and implement all the methods. If you define a service .desktop file
-     * for your plugin, you do not need to call insertPlugin().
-     *
-     * @param plugin is a pointer to the KPropertiesDialogPlugin. The Properties
-     *        dialog will do destruction for you. The KPropertiesDialogPlugin \b must
-     *        have been created with the KPropertiesDialog as its parent.
-     * @see KPropertiesDialogPlugin
-     */
-    void insertPlugin(KPropertiesDialogPlugin *plugin);
 
     /**
      * The URL of the file that has its properties being displayed.
