@@ -531,7 +531,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         commonMimeType = QStringLiteral("application/octet-stream");
     }
 
-    QStringList addedPlugins;
     int itemCount = 0;
 
     const KConfigGroup showGroup = m_config.group(QStringLiteral("Show"));
@@ -567,7 +566,6 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             } else {
                 mainMenu->addActions(actions);
             }
-            addedPlugins.append(jsonMetadata.pluginId());
         }
     }
 

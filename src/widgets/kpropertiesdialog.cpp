@@ -536,8 +536,6 @@ void KPropertiesDialogPrivate::insertPages()
     }
 
     const auto scheme = item.url().scheme();
-
-    QStringList addedPlugins;
     const auto filter = [mimetype, scheme](const KPluginMetaData &metaData) {
         const auto supportedProtocols = metaData.value(QStringLiteral("X-KDE-Protocols"), QStringList());
         if (!supportedProtocols.isEmpty()) {
@@ -555,7 +553,6 @@ void KPropertiesDialogPrivate::insertPages()
     for (const auto &jsonMetadata : jsonPlugins) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KPropertiesDialogPlugin>(jsonMetadata, q).plugin) {
             insertPlugin(plugin);
-            addedPlugins.append(jsonMetadata.pluginId());
         }
     }
 }
