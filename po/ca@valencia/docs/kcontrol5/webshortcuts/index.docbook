@@ -148,7 +148,7 @@
 >Els quadros de text no tan sols s'utilitzen per a mostrar informació sobre un element en la llista de dreceres web, sinó també per a modificar o afegir elements nous.</para>
 
 <para
->Podeu canviar els continguts dels quadros de text <guilabel
+>Podeu canviar el contingut dels quadros de text <guilabel
 >URL de la drecera:</guilabel
 > o <guilabel
 >Dreceres</guilabel
@@ -196,7 +196,7 @@
 > és el mateix que introduir l'&URI; complet. Cal tindre present que no hi ha res després dels dos punts en escriure la drecera, però els dos punts són necessaris perquè la drecera siga reconeguda com a tal.</para>
 
 <para
->Ara ja haureu comprés que encara que estes dreceres s'anomenen dreceres web, en realitat són dreceres a &URI; amb paràmetres, els quals poden apuntar no tan sols a llocs web sinó a qualsevol adreça a la qual es puga apuntar amb un &URI;. Les dreceres web són una característica molt potent de la navegació en &kde;.</para>
+>Ara ja haureu comprés que encara que estes dreceres s'anomenen dreceres web, en realitat són dreceres cap a &URI; amb paràmetres, les quals poden apuntar no tan sols a llocs web sinó a qualsevol adreça a la qual es puga apuntar amb un &URI;. Les dreceres web són una característica molt potent de la navegació en &kde;.</para>
 
 </sect2>
 

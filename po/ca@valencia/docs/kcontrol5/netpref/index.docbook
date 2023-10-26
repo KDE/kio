@@ -87,7 +87,7 @@
 ></term>
 <listitem>
 <para
->Establix quant de temps esperar una connexió amb un servidor remot. </para>
+>Establix quant de temps s'ha d'esperar una connexió amb un servidor remot. </para>
 </listitem>
 </varlistentry>
 
@@ -98,7 +98,7 @@
 ></term>
 <listitem>
 <para
->Establix el temps d'espera per a una resposta d'un servidor remot. </para>
+>Establix quant de temps s'ha d'esperar per a una resposta d'un servidor remot. </para>
 </listitem>
 </varlistentry>
 

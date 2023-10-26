@@ -43,10 +43,10 @@
 >Introducció</title>
 
 <para
->Els intermediaris són programes executant-se en una màquina que actua de servidor en la xarxa a la qual esteu connectat (bé per mòdem o per altres mitjans). Estos programes reben peticions &HTTP; i &FTP;, baixant els fitxers apropiats des de la Internet i els passen a l'ordinador client que va fer la petició.</para>
+>Els intermediaris són programes executant-se en una màquina que actua de servidor en la xarxa a la qual esteu connectat (bé per mòdem o per altres mitjans). Estos programes reben peticions &HTTP; i &FTP;, baixant els fitxers apropiats des de la Internet i els passen a la màquina client que va fer la petició.</para>
 
 <para
->Quan s'ha configurat un intermediari, &HTTP; i/o &HTTP; les peticions són redirigides a través de l'ordinador que està fent de servidor intermediari. Encara que, també podeu seleccionar amfitrions específics que haurien de connectar-se directament, en comptes de fer-ho a través d'un servidor intermediari. Si per exemple esteu en una xarxa d'àrea local, l'accés als amfitrions locals probablement no necessitarà produir-se a través del servidor intermediari.</para>
+>Quan s'ha configurat un intermediari, &HTTP; i/o &HTTP; les peticions són redirigides a través de la màquina que està fent de servidor intermediari. Encara que, també podeu seleccionar amfitrions específics que haurien de connectar-se directament, en comptes de fer-ho a través d'un servidor intermediari. Si per exemple esteu en una xarxa d'àrea local, l'accés als amfitrions locals probablement no necessitarà produir-se a través del servidor intermediari.</para>
 
 <para
 >Tan sols hauríeu de necessitar configurar un servidor intermediari si l'administrador de la vostra xarxa vos ho demana (si sou un usuari de la línia telefònica, este seria el vostre proveïdor de serveis d'Internet o <acronym
@@ -77,7 +77,7 @@
 <para
 >Seleccioneu esta opció si <emphasis
 >no</emphasis
-> voleu utilitzar un servidor intermediari i connectar a Internet directament.</para>
+> voleu utilitzar un servidor intermediari i connectar amb Internet directament.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -170,7 +170,7 @@ How to enable Auto Detect button?
 ></term>
 <listitem>
 <para
->Escriviu una llista separada per comes de noms d'amfitrió o adreces IP que s'han d'excloure en utilitzar la configuració del servidor intermediari anterior. Si voleu excloure tots els amfitrions d'un determinat domini, llavors poseu el nom de domini precedit per un punt. Per exemple, per a excloure tots els noms per a kde.org, escriviu <userinput
+>Escriviu una llista separada per comes de noms d'amfitrió o adreces IP que s'han d'excloure en utilitzar la configuració del servidor intermediari anterior. Si voleu excloure tots els amfitrions d'un determinat domini, llavors poseu el nom de domini precedit per un punt. Per exemple, per a excloure tots els noms d'amfitrió per a kde.org, escriviu <userinput
 >.kde.org</userinput
 >. Els caràcters de comodí com <userinput
 >*</userinput

@@ -29,12 +29,12 @@
 >rotocol.</para>
 
 <para
->El procés de treball «http» és utilitzat per totes les aplicacions &kde; per a gestionar les connexions amb servidors &HTTP;, és a dir, amb servidors web. L'ús més comú és visualitzar pàgines web en el navegador web &konqueror;.</para>
+>El procés de treball KIO «http» és utilitzat per totes les aplicacions &kde; per a gestionar les connexions amb servidors &HTTP;, és a dir, amb servidors web. L'ús més habitual és visualitzar pàgines web en el navegador web &konqueror;.</para>
 
 <para
->Podeu utilitzar el procés de treball «https» en &konqueror; introduint un &URL;. <userinput
+>Podeu utilitzar el procés de treball KIO «https» en &konqueror; introduint un &URL;. <userinput
 >https://<replaceable
->www.kde.org</replaceable
+>kde.org/ca-va/</replaceable
 ></userinput
 >.</para>
 

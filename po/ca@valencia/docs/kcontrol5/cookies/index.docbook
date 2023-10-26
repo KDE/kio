@@ -104,7 +104,7 @@
 <para
 >Els llocs web poden utilitzar esta informació per a diverses coses. El més habitual és per a evitar que hàgeu d'accedir a certes pàgines repetidament. Per exemple, en un servidor de correu web, sense cap mena d'<acronym
 >ID</acronym
-> de sessió, d'altra manera haureu d'introduir la vostra contrasenya cada vegada que voleu llegir un missatge de correu. Hi ha d'altres maneres d'aconseguir-ho, però les galetes són un dels mitjans més senzills i habituals.</para>
+> de sessió, d'altra manera haureu d'introduir la vostra contrasenya cada vegada que voleu llegir un missatge de correu. Hi ha d'altres maneres d'aconseguir-ho, però les galetes són un dels mitjans més simples i habituals.</para>
 
 <para
 >Habilitar esta opció significa que les galetes de sessió sempre seran acceptades, fins i tot si no les accepteu d'un altre tipus i si heu decidit rebutjar les galetes des d'un lloc en particular, les galetes de sessió seran acceptades.</para>
@@ -115,7 +115,7 @@
 <para
 >La secció <guilabel
 >Política predeterminada</guilabel
-> establix algunes opcions més que són mútuament excloents i tan sols podreu escollir una d'estes opcions com a predeterminada, però sou lliure de configurar una opció diferent per a qualsevol servidor web específic.</para>
+> establix algunes opcions més que són mútuament excloents i tan sols podreu escollir una d'estes opcions com a predeterminada, però sou lliure d'establir una opció diferent per a qualsevol servidor web específic.</para>
 <note
 ><para
 >Les polítiques específiques sempre tenen prioritat sobre la política predeterminada.</para
@@ -165,7 +165,7 @@
 </variablelist>
 
 <para
->A més de la política predeterminada per a gestionar les galetes, la qual es pot establir seleccionant una de les tres opcions descrites anteriorment, també podeu establir polítiques per a dominis d'amfitrions específics emprant els controls en el grup <guilabel
+>A més de la política predeterminada per a gestionar les galetes, la qual es pot establir seleccionant una de les tres opcions descrites anteriorment, també podeu establir polítiques per a dominis d'amfitrions emprant els controls en el grup <guilabel
 >Política de lloc</guilabel
 >.</para>
 
@@ -174,10 +174,10 @@
 >Nova...</guibutton
 >, el qual vos mostrarà un diàleg. En este diàleg, podreu introduir el nom del tipus de domini (precedit per un punt) i després aplicar la política que voleu per a este domini. Cal tindre present que les entrades poden ser afegides mentre es navega, si la política general és la de demanar confirmació i escolliu una política general per a un cert amfitrió (per exemple, seleccionant <guilabel
 >Rebutja</guilabel
-> quan vos demane de confirmar una galeta).</para>
+> quan vos demane confirmar una galeta).</para>
 
 <para
->També podeu seleccionar un domini d'amfitrió específic des de la llista i fer clic damunt del botó <guibutton
+>També podeu seleccionar un domini específic des de la llista i fer clic damunt del botó <guibutton
 >Canvia...</guibutton
 > per a escollir una política diferent per a este domini.</para>
 
@@ -200,7 +200,7 @@
 <para
 >En la part superior d'este diàleg veureu una llista de dominis, mostrats en forma d'arbre. Feu clic damunt de la xicoteta icona <guiicon
 >&gt;</guiicon
-> al costat d'un domini per a veure totes les galetes que s'han acceptat per a este domini de destinació en particular. Si seleccioneu una d'estes galetes, advertireu que els seus continguts es mostraran en el marc inferior <guilabel
+> al costat d'un domini per a veure totes les galetes que s'han acceptat per a este domini de destinació en particular. Si seleccioneu una d'estes galetes, advertireu que el seu contingut es mostrarà en el marc inferior <guilabel
 >Detalls</guilabel
 >.</para>
 
