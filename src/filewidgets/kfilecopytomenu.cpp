@@ -87,7 +87,7 @@ KFileCopyToMainMenu::KFileCopyToMainMenu(QMenu *parent, KFileCopyToMenuPrivate *
     , m_menuType(menuType)
     , m_actionGroup(static_cast<QWidget *>(nullptr))
     , d(_d)
-    , m_recentDirsGroup(KSharedConfig::openConfig(), m_menuType == Copy ? "kuick-copy" : "kuick-move")
+    , m_recentDirsGroup(KSharedConfig::openConfig(), m_menuType == Copy ? QStringLiteral("kuick-copy") : QStringLiteral("kuick-move"))
 {
     connect(this, &KFileCopyToMainMenu::aboutToShow, this, &KFileCopyToMainMenu::slotAboutToShow);
     connect(&m_actionGroup, &QActionGroup::triggered, this, &KFileCopyToMainMenu::slotTriggered);

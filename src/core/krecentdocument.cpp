@@ -510,7 +510,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
     }
 
     // qDebug() << "KRecentDocument::add for " << openStr;
-    KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
+    KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("RecentDocuments"));
     bool useRecent = config.readEntry(QStringLiteral("UseRecent"), true);
     int maxEntries = config.readEntry(QStringLiteral("MaxEntries"), 300);
     bool ignoreHidden = config.readEntry(QStringLiteral("IgnoreHidden"), true);

@@ -84,7 +84,7 @@ void KTerminalLauncherJob::emitDelayedResult()
 // always not null!)
 static KServicePtr serviceFromConfig(bool fallbackToKonsoleService)
 {
-    const KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    const KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     const QString terminalExec = confGroup.readEntry("TerminalApplication");
     const QString terminalService = confGroup.readEntry("TerminalService");
     KServicePtr service;

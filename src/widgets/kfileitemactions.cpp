@@ -472,7 +472,7 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
         }
     }
 
-    const KConfigGroup showGroup = m_config.group("Show");
+    const KConfigGroup showGroup = m_config.group(QStringLiteral("Show"));
 
     const QMimeDatabase db;
     const QStringList files = serviceMenuFilePaths();
@@ -534,7 +534,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
     QStringList addedPlugins;
     int itemCount = 0;
 
-    const KConfigGroup showGroup = m_config.group("Show");
+    const KConfigGroup showGroup = m_config.group(QStringLiteral("Show"));
 
     const QMimeDatabase db;
     const auto jsonPlugins = KPluginMetaData::findPlugins(QStringLiteral("kf6/kfileitemaction"), [&db, commonMimeType](const KPluginMetaData &metaData) {

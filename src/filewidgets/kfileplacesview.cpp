@@ -1118,7 +1118,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         if (placeUrl.scheme() == QLatin1String("trash")) {
             emptyTrash = new QAction(QIcon::fromTheme(QStringLiteral("trash-empty")), i18nc("@action:inmenu", "Empty Trash"), &menu);
             KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-            emptyTrash->setEnabled(!trashConfig.group("Status").readEntry("Empty", true));
+            emptyTrash->setEnabled(!trashConfig.group(QStringLiteral("Status")).readEntry("Empty", true));
         }
 
         if (placesModel->isDevice(index)) {

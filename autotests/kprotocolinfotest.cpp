@@ -106,7 +106,7 @@ void KProtocolInfoTest::testProxySettings()
 {
     QFETCH(int, proxyType);
     KConfig config(QStringLiteral("kioslaverc"), KConfig::NoGlobals);
-    KConfigGroup cfg(&config, "Proxy Settings");
+    KConfigGroup cfg(&config, QStringLiteral("Proxy Settings"));
     cfg.writeEntry("ProxyType", proxyType);
     cfg.sync();
     KProtocolManager::reparseConfiguration();

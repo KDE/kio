@@ -175,7 +175,7 @@ void KSslCertificateManagerPrivate::loadDefaultCaCertificates()
     QList<QSslCertificate> certs = deduplicate(QSslConfiguration::systemCaCertificates());
 
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
-    KConfigGroup group = config.group("Blacklist of CA Certificates");
+    KConfigGroup group = config.group(QStringLiteral("Blacklist of CA Certificates"));
 
     certs.append(QSslCertificate::fromPath(userCertDir + QLatin1Char('*'), QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard));
 
@@ -339,7 +339,7 @@ QList<KSslCaCertificate> KSslCertificateManagerPrivate::allCertificates() const
     }
 
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
-    KConfigGroup group = config.group("Blacklist of CA Certificates");
+    KConfigGroup group = config.group(QStringLiteral("Blacklist of CA Certificates"));
     for (KSslCaCertificate &cert : ret) {
         if (group.hasKey(cert.certHash.constData())) {
             cert.isBlacklisted = true;
@@ -359,7 +359,7 @@ bool KSslCertificateManagerPrivate::setCertificateBlacklisted(const QByteArray &
 {
     // qDebug() << Q_FUNC_INFO << isBlacklisted;
     KConfig config(QStringLiteral("ksslcablacklist"), KConfig::SimpleConfig);
-    KConfigGroup group = config.group("Blacklist of CA Certificates");
+    KConfigGroup group = config.group(QStringLiteral("Blacklist of CA Certificates"));
     if (isBlacklisted) {
         // TODO check against certificate list ?
         group.writeEntry(certHash.constData(), QString());

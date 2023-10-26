@@ -71,7 +71,7 @@ QString stateNameForGroupType(KFilePlacesModel::GroupType type)
 static bool isFileIndexingEnabled()
 {
     KConfig config(QStringLiteral("baloofilerc"));
-    KConfigGroup basicSettings = config.group("Basic Settings");
+    KConfigGroup basicSettings = config.group(QStringLiteral("Basic Settings"));
     return basicSettings.readEntry("Indexing-Enabled", true);
 }
 

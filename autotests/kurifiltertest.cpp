@@ -179,7 +179,7 @@ void KUriFilterTest::initTestCase()
     // There is no default search engine by default (since it was annoying when making typos),
     // so the user has to set it up, which we do here.
     {
-        KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kuriikwsfilterrc"), KConfig::SimpleConfig), "General");
+        KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kuriikwsfilterrc"), KConfig::SimpleConfig), QStringLiteral("General"));
         cfg.writeEntry("DefaultWebShortcut", "google");
         cfg.writeEntry("KeywordDelimiter", QString(s_delimiter));
         cfg.sync();

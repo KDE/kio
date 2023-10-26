@@ -127,7 +127,7 @@ void KRecentDocumentTest::testXbelBookmark()
 
 void KRecentDocumentTest::testXbelBookmarkMaxEntries()
 {
-    KConfigGroup config = KSharedConfig::openConfig()->group(QByteArray("RecentDocuments"));
+    KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("RecentDocuments"));
     config.writeEntry(QStringLiteral("UseRecent"), true);
     config.writeEntry(QStringLiteral("MaxEntries"), 3);
 

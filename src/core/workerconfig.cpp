@@ -98,7 +98,7 @@ void WorkerConfigPrivate::readConfigProtocolHost(const QString &, WorkerConfigPr
 
     if (!domain.contains(QLatin1Char('.'))) {
         // Host without domain.
-        if (scp->configFile->hasGroup("<local>")) {
+        if (scp->configFile->hasGroup(QStringLiteral("<local>"))) {
             readConfig(scp->configFile, QStringLiteral("<local>"), &metaData);
             scp->host.insert(host, metaData);
         }

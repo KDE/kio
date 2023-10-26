@@ -933,10 +933,10 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
     KSharedConfig::Ptr profile = KSharedConfig::openConfig(QStringLiteral("mimeapps.list"), KConfig::NoGlobals, QStandardPaths::GenericConfigLocation);
 
     // Save the default application according to mime-apps-spec 1.0
-    KConfigGroup defaultApp(profile, "Default Applications");
+    KConfigGroup defaultApp(profile, QStringLiteral("Default Applications"));
     defaultApp.writeXdgListEntry(qMimeType, QStringList(serviceId));
 
-    KConfigGroup addedApps(profile, "Added Associations");
+    KConfigGroup addedApps(profile, QStringLiteral("Added Associations"));
     QStringList apps = addedApps.readXdgListEntry(qMimeType);
     apps.removeAll(serviceId);
     apps.prepend(serviceId); // make it the preferred app
@@ -946,7 +946,7 @@ void KOpenWithDialogPrivate::addToMimeAppsList(const QString &serviceId /*menu i
 
     // Also make sure the "auto embed" setting for this MIME type is off
     KSharedConfig::Ptr fileTypesConfig = KSharedConfig::openConfig(QStringLiteral("filetypesrc"), KConfig::NoGlobals);
-    fileTypesConfig->group("EmbedSettings").writeEntry(QStringLiteral("embed-") + qMimeType, false);
+    fileTypesConfig->group(QStringLiteral("EmbedSettings")).writeEntry(QStringLiteral("embed-") + qMimeType, false);
     fileTypesConfig->sync();
 
     // qDebug() << "rebuilding ksycoca...";

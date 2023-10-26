@@ -49,7 +49,7 @@ void KFilePlacesViewTest::initTestCase()
     cleanupTestCase();
 
     KConfig config(QStringLiteral("baloofilerc"));
-    KConfigGroup basicSettings = config.group("Basic Settings");
+    KConfigGroup basicSettings = config.group(QStringLiteral("Basic Settings"));
     basicSettings.writeEntry("Indexing-Enabled", true);
     config.sync();
 

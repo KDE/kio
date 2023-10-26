@@ -389,7 +389,7 @@ void KURISearchFilterEngine::configure()
 
     // Load the config.
     KConfig config(QString::fromUtf8(name()) + QLatin1String("rc"), KConfig::NoGlobals);
-    KConfigGroup group = config.group("General");
+    KConfigGroup group = config.group(QStringLiteral("General"));
 
     m_cKeywordDelimiter = group.readEntry("KeywordDelimiter", ":").at(0).toLatin1();
     m_bWebShortcutsEnabled = group.readEntry("EnableWebShortcuts", true);

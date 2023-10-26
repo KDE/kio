@@ -555,8 +555,8 @@ void FileUndoManagerTest::testTrashFiles()
     // check trash?
     // Let's just check that it's not empty. kio_trash has its own unit tests anyway.
     KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-    QVERIFY(cfg.hasGroup("Status"));
-    QCOMPARE(cfg.group("Status").readEntry("Empty", true), false);
+    QVERIFY(cfg.hasGroup(QStringLiteral("Status")));
+    QCOMPARE(cfg.group(QStringLiteral("Status")).readEntry("Empty", true), false);
 
     doUndo();
 

@@ -241,19 +241,19 @@ static KSharedConfig::Ptr config()
 
 KProtocolManager::ProxyType KProtocolManagerPrivate::proxyType()
 {
-    KConfigGroup cg(config(), "Proxy Settings");
+    KConfigGroup cg(config(), QStringLiteral("Proxy Settings"));
     return static_cast<KProtocolManager::ProxyType>(cg.readEntry("ProxyType", 0));
 }
 
 bool KProtocolManagerPrivate::useReverseProxy()
 {
-    KConfigGroup cg(config(), "Proxy Settings");
+    KConfigGroup cg(config(), QStringLiteral("Proxy Settings"));
     return cg.readEntry("ReversedException", false);
 }
 
 QString KProtocolManagerPrivate::readNoProxyFor()
 {
-    QString noProxy = config()->group("Proxy Settings").readEntry("NoProxyFor");
+    QString noProxy = config()->group(QStringLiteral("Proxy Settings")).readEntry("NoProxyFor");
     if (proxyType() == KProtocolManager::EnvVarProxy) {
         noProxy = QString::fromLocal8Bit(qgetenv(noProxy.toLocal8Bit().constData()));
     }
@@ -359,7 +359,7 @@ QString KProtocolManager::proxyFor(const QString &protocol)
 QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
 {
     const QString key = adjustProtocol(protocol) + QLatin1String("Proxy");
-    QString proxyStr(config()->group("Proxy Settings").readEntry(key));
+    QString proxyStr(config()->group(QStringLiteral("Proxy Settings")).readEntry(key));
     const int index = proxyStr.lastIndexOf(QLatin1Char(' '));
 
     if (index > -1) {
@@ -698,7 +698,7 @@ QString KProtocolManager::acceptLanguagesHeader()
     // Some languages may have web codes different from locale codes,
     // read them from the config and insert in proper order.
     KConfig acclangConf(QStringLiteral("accept-languages.codes"), KConfig::NoGlobals);
-    KConfigGroup replacementCodes(&acclangConf, "ReplacementCodes");
+    KConfigGroup replacementCodes(&acclangConf, QStringLiteral("ReplacementCodes"));
     QStringList languageListFinal;
     for (const QString &lang : std::as_const(languageList)) {
         const QStringList langs = replacementCodes.readEntry(lang, QStringList());
@@ -743,29 +743,29 @@ bool KProtocolManager::markPartial()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    return config()->group(QByteArray()).readEntry("MarkPartial", true);
+    return config()->group(QString()).readEntry("MarkPartial", true);
 }
 
 int KProtocolManager::minimumKeepSize()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    return config()->group(QByteArray()).readEntry("MinimumKeepSize",
-                                                   DEFAULT_MINIMUM_KEEP_SIZE); // 5000 byte
+    return config()->group(QString()).readEntry("MinimumKeepSize",
+                                                DEFAULT_MINIMUM_KEEP_SIZE); // 5000 byte
 }
 
 bool KProtocolManager::autoResume()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    return config()->group(QByteArray()).readEntry("AutoResume", false);
+    return config()->group(QString()).readEntry("AutoResume", false);
 }
 
 QString KProtocolManager::proxyConfigScript()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    return config()->group("Proxy Settings").readEntry("Proxy Config Script");
+    return config()->group(QStringLiteral("Proxy Settings")).readEntry("Proxy Config Script");
 }
 
 /* =========================== PROTOCOL CAPABILITIES ============== */

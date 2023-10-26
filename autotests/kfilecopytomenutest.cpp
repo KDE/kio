@@ -40,7 +40,7 @@ private Q_SLOTS:
         KIO::setDefaultJobUiDelegateFactory(nullptr); // no "skip" dialogs
 
         // Set a recent dir
-        KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), "kuick-copy");
+        KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), QStringLiteral("kuick-copy"));
         m_recentDirs << m_destDir + QStringLiteral("/nonexistentsubdir") // will be action number count-3
                      << m_nonWritableTempDir.path() // will be action number count-2
                      << m_destDir; // will be action number count-1
@@ -146,7 +146,7 @@ private Q_SLOTS:
         if (actionNumber == 1) { // This part only makes sense if the copy is going to work
             QFile::remove(m_destDir + QStringLiteral("/srcfile"));
             // Remove the recent dirs entry for m_destDir from the config
-            KConfigGroup group(KSharedConfig::openConfig(), "kuick-copy");
+            KConfigGroup group(KSharedConfig::openConfig(), QStringLiteral("kuick-copy"));
             auto list = group.readEntry("Paths", QStringList{});
             list.removeOne(m_destDir);
             group.writeEntry("Paths", list);

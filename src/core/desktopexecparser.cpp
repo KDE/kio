@@ -487,7 +487,7 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     */
 
     if (d->service.terminal()) {
-        KConfigGroup cg(KSharedConfig::openConfig(), "General");
+        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("General"));
         QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
         const bool isKonsole = (terminal == QLatin1String("konsole"));

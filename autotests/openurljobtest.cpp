@@ -61,7 +61,7 @@ void OpenUrlJobTest::initTestCase()
 
     // Ensure our service is the preferred one
     KConfig mimeAppsCfg(mimeApps);
-    KConfigGroup grp = mimeAppsCfg.group("Default Applications");
+    KConfigGroup grp = mimeAppsCfg.group(QStringLiteral("Default Applications"));
     grp.writeEntry("text/plain", s_tempServiceName);
     grp.writeEntry("text/html", s_tempServiceName);
     grp.sync();
@@ -242,7 +242,7 @@ KCONFIGCORE_EXPORT void loadUrlActionRestrictions(const KConfigGroup &cg);
 
 void OpenUrlJobTest::notAuthorized()
 {
-    KConfigGroup cg(KSharedConfig::openConfig(), "KDE URL Restrictions");
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("KDE URL Restrictions"));
     cg.writeEntry("rule_count", 1);
     cg.writeEntry("rule_1", QStringList{"open", {}, {}, {}, "file", "", "", "false"});
     cg.sync();
@@ -491,7 +491,7 @@ void OpenUrlJobTest::launchExternalBrowser()
     QUrl remoteImage("http://example.org/image.jpg");
     if (useBrowserApp) {
         openurljob_force_use_browserapp_kdeglobals = true;
-        KConfigGroup(KSharedConfig::openConfig(), "General").writeEntry("BrowserApplication", QString(QLatin1Char('!') + scriptFile));
+        KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).writeEntry("BrowserApplication", QString(QLatin1Char('!') + scriptFile));
     } else if (useSchemeHandler) {
         openurljob_force_use_browserapp_kdeglobals = false;
         remoteImage.setScheme("scheme");
@@ -512,7 +512,7 @@ void OpenUrlJobTest::launchExternalBrowser()
     QCOMPARE(readFile(dest), remoteImage.toString());
 
     // Restore settings
-    KConfigGroup(KSharedConfig::openConfig(), "General").deleteEntry("BrowserApplication");
+    KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).deleteEntry("BrowserApplication");
 #endif
 }
 

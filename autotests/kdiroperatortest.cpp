@@ -48,7 +48,7 @@ private Q_SLOTS:
         KDirOperator *dirOp = new KDirOperator;
         dirOp->setViewMode(KFile::DetailTree);
         dirOp->setShowHiddenFiles(true);
-        KConfigGroup cg(KSharedConfig::openConfig(), "diroperator");
+        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("diroperator"));
         dirOp->writeConfig(cg);
         delete dirOp;
 

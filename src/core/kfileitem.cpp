@@ -1053,7 +1053,7 @@ static QString iconFromDesktopFile(const QString &path)
                 // We need to find if the trash is empty, preferably without using a KIO job.
                 // So instead kio_trash leaves an entry in its config file for us.
                 KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-                if (trashConfig.group("Status").readEntry("Empty", true)) {
+                if (trashConfig.group(QStringLiteral("Status")).readEntry("Empty", true)) {
                     return emptyIcon;
                 }
             }

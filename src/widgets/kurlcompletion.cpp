@@ -106,7 +106,7 @@ public:
         , mode(m)
     {
         // Read settings
-        KConfigGroup cg(KSharedConfig::openConfig(), "URLCompletion");
+        KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("URLCompletion"));
         url_auto_completion = cg.readEntry("alwaysAutoComplete", true);
         popup_append_slash = cg.readEntry("popupAppendSlash", true);
         onlyLocalProto = cg.readEntry("LocalProtocolsOnly", false);

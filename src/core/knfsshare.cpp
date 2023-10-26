@@ -52,7 +52,7 @@ KNFSShare::KNFSSharePrivate::KNFSSharePrivate(KNFSShare *parent)
 bool KNFSShare::KNFSSharePrivate::findExportsFile()
 {
     KConfig knfsshare(QStringLiteral("knfsshare"));
-    KConfigGroup config(&knfsshare, "General");
+    KConfigGroup config(&knfsshare, QStringLiteral("General"));
     exportsFile = config.readPathEntry("exportsFile", QString());
 
     if (!exportsFile.isEmpty() && QFileInfo::exists(exportsFile)) {

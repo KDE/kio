@@ -28,7 +28,7 @@ PreviewTest::PreviewTest()
     connect(btn, &QAbstractButton::clicked, this, &PreviewTest::slotGenerate);
     layout->addWidget(btn, 0, 1);
 
-    const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
+    const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     const QStringList enabledPlugins =
         globalConfig.readEntry("Plugins",
                                QStringList() << QStringLiteral("directorythumbnail") << QStringLiteral("imagethumbnail") << QStringLiteral("jpegthumbnail"));

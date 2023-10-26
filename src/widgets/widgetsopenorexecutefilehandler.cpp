@@ -39,7 +39,7 @@ static ExecutableFileOpenDialog::Mode promptMode(const QMimeType &mime)
 
 void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, const QString &mimetype)
 {
-    KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
+    KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), QStringLiteral("Executable scripts"));
     const QString value = cfgGroup.readEntry("behaviourOnLaunch", "alwaysAsk");
 
     if (value != QLatin1String("alwaysAsk")) {
@@ -78,7 +78,7 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
         Q_EMIT executeFile(isExecute);
 
         if (dialog->isDontAskAgainChecked()) {
-            KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), "Executable scripts");
+            KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), QStringLiteral("Executable scripts"));
             cfgGroup.writeEntry("behaviourOnLaunch", isExecute ? "execute" : "open");
         }
     });

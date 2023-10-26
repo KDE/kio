@@ -49,7 +49,7 @@ void KTerminalLauncherJobTest::startKonsole()
     QFETCH(QString, workdir);
     QFETCH(QString, expectedCommand);
 
-    KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     confGroup.writeEntry("TerminalApplication", "konsole");
 
     // When
@@ -64,7 +64,7 @@ void KTerminalLauncherJobTest::startKonsole()
 void KTerminalLauncherJobTest::startXterm()
 {
     // Given
-    KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     confGroup.writeEntry("TerminalApplication", "xterm");
 
     const QString command = "play golf";
@@ -81,7 +81,7 @@ void KTerminalLauncherJobTest::startXterm()
 void KTerminalLauncherJobTest::startFallbackToPath()
 {
     // Given
-    KConfigGroup confGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     confGroup.writeEntry("TerminalApplication", "");
     confGroup.writeEntry("TerminalService", "");
 

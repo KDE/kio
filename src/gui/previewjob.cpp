@@ -188,7 +188,7 @@ PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStr
     if (enabledPlugins) {
         d->enabledPlugins = *enabledPlugins;
     } else {
-        const KConfigGroup globalConfig(KSharedConfig::openConfig(), "PreviewSettings");
+        const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
         d->enabledPlugins =
             globalConfig.readEntry("Plugins",
                                    QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
@@ -337,7 +337,7 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
-    KConfigGroup cg(KSharedConfig::openConfig(), "PreviewSettings");
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
     maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
 

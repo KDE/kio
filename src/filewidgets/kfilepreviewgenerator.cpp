@@ -460,7 +460,7 @@ KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator
         delayedIconUpdate();
     });
 
-    KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), "PreviewSettings");
+    KConfigGroup globalConfig(KSharedConfig::openConfig(QStringLiteral("dolphinrc")), QStringLiteral("PreviewSettings"));
     m_enabledPlugins =
         globalConfig.readEntry("Plugins", QStringList{QStringLiteral("directorythumbnail"), QStringLiteral("imagethumbnail"), QStringLiteral("jpegthumbnail")});
 

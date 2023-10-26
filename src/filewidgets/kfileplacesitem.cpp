@@ -54,7 +54,7 @@ KFilePlacesItem::KFilePlacesItem(KBookmarkManager *manager, const QString &addre
     } else if (udi.isEmpty()) {
         if (isTrash(m_bookmark)) {
             KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-            const KConfigGroup group = cfg.group("Status");
+            const KConfigGroup group = cfg.group(QStringLiteral("Status"));
             m_folderIsEmpty = group.readEntry("Empty", true);
         }
     }

@@ -200,7 +200,7 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
             break;
         }
 
-        ask = kioConfig->group("Confirmations").readEntry(keyName, defaultValue);
+        ask = kioConfig->group(QStringLiteral("Confirmations")).readEntry(keyName, defaultValue);
     }
     if (ask) {
         QStringList prettyList;
@@ -287,13 +287,13 @@ bool KIO::JobUiDelegate::askDeleteConfirmation(const QList<QUrl> &urls, Deletion
         if (!keyName.isEmpty()) {
             // Check kmessagebox setting... erase & copy to konquerorrc.
             KSharedConfig::Ptr config = KSharedConfig::openConfig();
-            KConfigGroup notificationGroup(config, "Notification Messages");
+            KConfigGroup notificationGroup(config, QStringLiteral("Notification Messages"));
             if (!notificationGroup.readEntry(keyName, true)) {
                 notificationGroup.writeEntry(keyName, true);
                 notificationGroup.sync();
 
                 KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
-                kioConfig->group("Confirmations").writeEntry(keyName, false);
+                kioConfig->group(QStringLiteral("Confirmations")).writeEntry(keyName, false);
             }
         }
         return (result == KMessageBox::Continue);

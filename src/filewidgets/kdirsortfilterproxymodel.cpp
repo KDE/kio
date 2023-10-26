@@ -64,7 +64,7 @@ int KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::compare(const QSt
 
 void KDirSortFilterProxyModel::KDirSortFilterProxyModelPrivate::slotNaturalSortingChanged()
 {
-    KConfigGroup g(KSharedConfig::openConfig(), "KDE");
+    KConfigGroup g(KSharedConfig::openConfig(), QStringLiteral("KDE"));
     m_naturalSorting = g.readEntry("NaturalSorting", true);
     m_collator.setNumericMode(m_naturalSorting);
 }

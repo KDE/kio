@@ -29,7 +29,7 @@ void DesktopExecParserTest::initTestCase()
     qputenv("PATH", QByteArray(qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath())));
 
     // testProcessDesktopExec works only if your terminal application is set to "xterm"
-    KConfigGroup cg(KSharedConfig::openConfig(), "General");
+    KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("General"));
     cg.writeEntry("TerminalApplication", "true --test");
 
     // We just want to test if the command is properly constructed

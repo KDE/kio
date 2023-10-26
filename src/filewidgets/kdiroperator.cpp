@@ -2833,7 +2833,7 @@ KDirOperatorPrivate::ZoomSettingsForView KDirOperatorPrivate::zoomSettingsForVie
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     if (KFile::isSimpleView(fv)) {
-        KConfigGroup cg(config, "DesktopIcons");
+        KConfigGroup cg(config, QStringLiteral("DesktopIcons"));
         const int desktopIconSize = cg.readEntry("Size", static_cast<int>(KIconLoader::SizeHuge));
         if (m_decorationPosition == QStyleOptionViewItem::Top) {
             // Simple view decoration above, aka Icons View

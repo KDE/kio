@@ -317,7 +317,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
         }
 
         KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
-        ask = kioConfig->group("Confirmations").readEntry(keyName, defaultValue);
+        ask = kioConfig->group(QStringLiteral("Confirmations")).readEntry(keyName, defaultValue);
     }
 
     if (!ask) {
@@ -346,7 +346,7 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
 
             if (isDelete) {
                 KSharedConfigPtr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
-                KConfigGroup cg = kioConfig->group("Confirmations");
+                KConfigGroup cg = kioConfig->group(QStringLiteral("Confirmations"));
                 cg.writeEntry(keyName, !dlg->isDontAskAgainChecked());
                 cg.sync();
             }
@@ -368,7 +368,9 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
                                                              const QString &details,
                                                              QWidget *parent)
 {
-    if (d->gotPersistentUserReply(type, KSharedConfig::openConfig(QStringLiteral("kioslaverc"))->group("Notification Messages"), dontAskAgainName)) {
+    if (d->gotPersistentUserReply(type,
+                                  KSharedConfig::openConfig(QStringLiteral("kioslaverc"))->group(QStringLiteral("Notification Messages")),
+                                  dontAskAgainName)) {
         return;
     }
 
@@ -464,7 +466,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
             if ((result != KMessageDialog::Cancel) && dialog->isDontAskAgainChecked()) {
                 KSharedConfigPtr reqMsgConfig = KSharedConfig::openConfig(QStringLiteral("kioslaverc"));
-                KConfigGroup cg = reqMsgConfig->group("Notification Messages");
+                KConfigGroup cg = reqMsgConfig->group(QStringLiteral("Notification Messages"));
                 d->savePersistentUserReply(type, cg, dontAskAgainName, result);
             }
         });

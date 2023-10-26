@@ -27,7 +27,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(KFormat::BinaryUnitDialect, _k_defaultBinaryDialect, (
 
 KFormat::BinaryUnitDialect _k_loadBinaryDialect()
 {
-    KConfigGroup mainGroup(KSharedConfig::openConfig(), "Locale");
+    KConfigGroup mainGroup(KSharedConfig::openConfig(), QStringLiteral("Locale"));
 
     KFormat::BinaryUnitDialect dialect(KFormat::BinaryUnitDialect(mainGroup.readEntry("BinaryUnitDialect", int(KFormat::DefaultBinaryDialect))));
     dialect = static_cast<KFormat::BinaryUnitDialect>(mainGroup.readEntry("BinaryUnitDialect", int(dialect)));
@@ -216,7 +216,8 @@ QString KIO::iconNameForUrl(const QUrl &url)
         else if (url.scheme() == QLatin1String("trash")) {
             if (url.path().length() <= 1) { // trash:/ itself
                 KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-                iconName = trashConfig.group("Status").readEntry("Empty", true) ? QStringLiteral("user-trash") : QStringLiteral("user-trash-full");
+                iconName =
+                    trashConfig.group(QStringLiteral("Status")).readEntry("Empty", true) ? QStringLiteral("user-trash") : QStringLiteral("user-trash-full");
             } else { // url.path().length() > 1, it's a file/folder under trash:/
                 iconName = mt.iconName();
             }

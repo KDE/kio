@@ -106,7 +106,7 @@ void KFilePlacesModelTest::initTestCase()
 
     // disable baloo by default
     KConfig config(QStringLiteral("baloofilerc"));
-    KConfigGroup basicSettings = config.group("Basic Settings");
+    KConfigGroup basicSettings = config.group(QStringLiteral("Basic Settings"));
     basicSettings.writeEntry("Indexing-Enabled", false);
     config.sync();
 
@@ -823,7 +823,7 @@ void KFilePlacesModelTest::testDeviceSetupTeardown()
 void KFilePlacesModelTest::testEnableBaloo()
 {
     KConfig config(QStringLiteral("baloofilerc"));
-    KConfigGroup basicSettings = config.group("Basic Settings");
+    KConfigGroup basicSettings = config.group(QStringLiteral("Basic Settings"));
     basicSettings.writeEntry("Indexing-Enabled", true);
     config.sync();
 

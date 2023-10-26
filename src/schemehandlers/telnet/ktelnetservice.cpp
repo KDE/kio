@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     }
 
     KConfig config(QStringLiteral("kdeglobals"));
-    KConfigGroup cg(&config, "General");
+    KConfigGroup cg(&config, QStringLiteral("General"));
     QString terminal = cg.readPathEntry("TerminalApplication", QStringLiteral("konsole"));
 
     QUrl url(QString::fromLocal8Bit(argv[1]));

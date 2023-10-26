@@ -82,7 +82,7 @@ void KSSLD::setRule(const KSslCertificateRule &rule)
     if (rule.hostName().isEmpty()) {
         return;
     }
-    KConfigGroup group = d->config.group(rule.certificate().digest().toHex());
+    KConfigGroup group = d->config.group(QString::fromLatin1(rule.certificate().digest().toHex()));
 
     QStringList sl;
 
@@ -118,7 +118,7 @@ void KSSLD::clearRule(const KSslCertificateRule &rule)
 
 void KSSLD::clearRule(const QSslCertificate &cert, const QString &hostName)
 {
-    KConfigGroup group = d->config.group(cert.digest().toHex());
+    KConfigGroup group = d->config.group(QString::fromLatin1(cert.digest().toHex()));
     group.deleteEntry(hostName);
     if (group.keyList().size() < 2) {
         group.deleteGroup();
@@ -176,7 +176,7 @@ static QString normalizeSubdomains(const QString &hostName, int *namePartsCount)
 KSslCertificateRule KSSLD::rule(const QSslCertificate &cert, const QString &hostName) const
 {
     const QByteArray certDigest = cert.digest().toHex();
-    KConfigGroup group = d->config.group(certDigest);
+    KConfigGroup group = d->config.group(QString::fromLatin1(certDigest));
 
     KSslCertificateRule ret(cert, hostName);
     bool foundHostName = false;

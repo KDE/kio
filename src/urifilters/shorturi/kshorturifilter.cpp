@@ -475,12 +475,12 @@ bool KShortUriFilter::filterUri(KUriFilterData &data) const
 void KShortUriFilter::configure()
 {
     KConfig config(objectName() + QStringLiteral("rc"), KConfig::NoGlobals);
-    KConfigGroup cg(config.group(""));
+    KConfigGroup cg(config.group(QString()));
 
     m_strDefaultUrlScheme = cg.readEntry("DefaultProtocol", QStringLiteral("https://"));
     const QMap<QString, QString> patterns = config.entryMap(QStringLiteral("Pattern"));
     const QMap<QString, QString> protocols = config.entryMap(QStringLiteral("Protocol"));
-    KConfigGroup typeGroup(&config, "Type");
+    KConfigGroup typeGroup(&config, QStringLiteral("Type"));
 
     for (auto it = patterns.begin(); it != patterns.end(); ++it) {
         QString protocol = protocols[it.key()];

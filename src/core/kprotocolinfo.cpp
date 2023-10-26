@@ -262,7 +262,7 @@ bool KProtocolInfo::showFilePreview(const QString &_protocol)
     KProtocolInfoPrivate *prot = KProtocolInfoFactory::self()->findProtocol(_protocol);
     const bool defaultSetting = prot ? prot->m_showPreviews : false;
 
-    KConfigGroup group(KSharedConfig::openConfig(), "PreviewSettings");
+    KConfigGroup group(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     return group.readEntry(_protocol, defaultSetting);
 }
 

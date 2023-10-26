@@ -192,7 +192,7 @@ void TrashImpl::migrateOldTrash()
 {
     qCDebug(KIO_TRASH);
 
-    KConfigGroup g(KSharedConfig::openConfig(), "Paths");
+    KConfigGroup g(KSharedConfig::openConfig(), QStringLiteral("Paths"));
     const QString oldTrashDir = g.readPathEntry("Trash", QString());
 
     if (oldTrashDir.isEmpty()) {
@@ -769,11 +769,11 @@ bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
 bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int trashId)
 {
     KConfig cfg(infoPath, KConfig::SimpleConfig);
-    if (!cfg.hasGroup("Trash Info")) {
+    if (!cfg.hasGroup(QStringLiteral("Trash Info"))) {
         error(KIO::ERR_CANNOT_OPEN_FOR_READING, infoPath);
         return false;
     }
-    const KConfigGroup group = cfg.group("Trash Info");
+    const KConfigGroup group = cfg.group(QStringLiteral("Trash Info"));
     info.origPath = QUrl::fromPercentEncoding(group.readEntry("Path").toLatin1());
     if (info.origPath.isEmpty()) {
         return false; // path is mandatory...
@@ -838,7 +838,7 @@ bool TrashImpl::isEmpty() const
 void TrashImpl::fileAdded()
 {
     m_config.reparseConfiguration();
-    KConfigGroup group = m_config.group("Status");
+    KConfigGroup group = m_config.group(QStringLiteral("Status"));
     if (group.readEntry("Empty", true) == true) {
         group.writeEntry("Empty", false);
         m_config.sync();
@@ -852,7 +852,7 @@ void TrashImpl::fileRemoved()
 {
     if (isEmpty()) {
         deleteEmptyTrashInfrastructure();
-        KConfigGroup group = m_config.group("Status");
+        KConfigGroup group = m_config.group(QStringLiteral("Status"));
         group.writeEntry("Empty", true);
         m_config.sync();
         org::kde::KDirNotify::emitFilesChanged({QUrl::fromEncoded("trash:/")});
@@ -925,7 +925,7 @@ int TrashImpl::idForDevice(const Solid::Device &device) const
             }
 
             m_config.reparseConfiguration();
-            KConfigGroup group = m_config.group("NetworkShares");
+            KConfigGroup group = m_config.group(QStringLiteral("NetworkShares"));
             int id = group.readEntry(url, -1);
 
             if (id == -1) {

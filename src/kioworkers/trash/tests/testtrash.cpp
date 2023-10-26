@@ -270,7 +270,7 @@ static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
     QVERIFY2(info.exists(), qPrintable(infoPath));
     QVERIFY(info.isFile());
     KConfig infoFile(info.absoluteFilePath());
-    KConfigGroup group = infoFile.group("Trash Info");
+    KConfigGroup group = infoFile.group(QStringLiteral("Trash Info"));
     if (!group.exists()) {
         qFatal("no Trash Info group in %s", qPrintable(info.absoluteFilePath()));
     }
@@ -379,7 +379,7 @@ void TestTrash::trashUmlautFileFromHome()
 void TestTrash::testTrashNotEmpty()
 {
     KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-    const KConfigGroup group = cfg.group("Status");
+    const KConfigGroup group = cfg.group(QStringLiteral("Status"));
     QVERIFY(group.exists());
     QCOMPARE(group.readEntry("Empty", true), false);
 }
@@ -1344,7 +1344,7 @@ void TestTrash::emptyTrash()
 static bool isTrashEmpty()
 {
     KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
-    const KConfigGroup group = cfg.group("Status");
+    const KConfigGroup group = cfg.group(QStringLiteral("Status"));
     return group.readEntry("Empty", true);
 }
 

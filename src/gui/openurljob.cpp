@@ -234,7 +234,7 @@ QString KIO::OpenUrlJobPrivate::externalBrowser() const
         }
     }
 
-    const QString browserApp = KConfigGroup(KSharedConfig::openConfig(), "General").readEntry("BrowserApplication");
+    const QString browserApp = KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).readEntry("BrowserApplication");
     return browserApp;
 }
 
