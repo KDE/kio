@@ -756,7 +756,7 @@ class KFilePropsPlugin::KFilePropsPluginPrivate
 {
 public:
     KFilePropsPluginPrivate()
-        : m_ui(new Ui_KFilePropsPluginWidget())
+        : m_ui(std::make_unique<Ui_KFilePropsPluginWidget>())
     {
         m_ui->setupUi(&m_mainWidget);
     }
@@ -781,7 +781,7 @@ public:
     }
 
     QWidget m_mainWidget;
-    Ui_KFilePropsPluginWidget *m_ui = nullptr;
+    std::unique_ptr<Ui_KFilePropsPluginWidget> m_ui;
     KIO::DirectorySizeJob *dirSizeJob = nullptr;
     QTimer *dirSizeUpdateTimer = nullptr;
     bool bMultiple;
