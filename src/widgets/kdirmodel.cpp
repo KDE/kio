@@ -115,11 +115,11 @@ public:
         : KDirModelNode(parent, item)
         , m_childCount(KDirModel::ChildCountUnknown)
         , m_populated(false)
-        , m_slow(SlowUnknown)
+        , m_fsType(FsTypeUnknown)
     {
-        // If the parent node is slow, all children are slow. Not true for Fast.
-        if (parent && parent->isSlow()) {
-            m_slow = Slow;
+        // If the parent node is on the network, all children are too. Opposite is not always true.
+        if (parent && parent->isOnNetwork()) {
+            m_fsType = NetworkFs;
         }
     }
     ~KDirModelDirNode() override
@@ -131,7 +131,7 @@ public:
     void setItem(const KFileItem &item) override
     {
         KDirModelNode::setItem(item);
-        m_slow = SlowUnknown;
+        m_fsType = FsTypeUnknown;
     }
 
     // If we listed the directory, the child count is known. Otherwise it can be set via setChildCount.
@@ -155,12 +155,12 @@ public:
         m_populated = populated;
     }
 
-    bool isSlow() const
+    bool isOnNetwork() const
     {
-        if (!item().isNull() && m_slow == SlowUnknown) {
-            m_slow = item().isSlow() ? Slow : Fast;
+        if (!item().isNull() && m_fsType == FsTypeUnknown) {
+            m_fsType = item().isSlow() ? NetworkFs : LocalFs;
         }
-        return m_slow == Slow;
+        return m_fsType == NetworkFs;
     }
 
     // For removing all child urls from the global hash.
@@ -181,8 +181,8 @@ public:
 private:
     int m_childCount : 31;
     bool m_populated : 1;
-    // Slow? (nfs/smb/ssh)
-    mutable enum { SlowUnknown, Fast, Slow } m_slow : 3;
+    // Network file system? (nfs/smb/ssh)
+    mutable enum { FsTypeUnknown, LocalFs, NetworkFs } m_fsType : 3;
 };
 
 int KDirModelNode::rowNumber() const
@@ -893,7 +893,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 }
 
                 const auto parentNode = node->parent();
-                if (parentNode->isSlow()) {
+                if (parentNode->isOnNetwork()) {
                     return icon;
                 } else {
                     return KIconUtils::addOverlays(icon, item.overlays());
@@ -917,7 +917,7 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             } else {
                 KDirModelDirNode *dirNode = static_cast<KDirModelDirNode *>(node);
                 int count = dirNode->childCount();
-                if (count == ChildCountUnknown && !dirNode->isSlow() && item.isReadable()) {
+                if (count == ChildCountUnknown && !dirNode->isOnNetwork() && item.isReadable()) {
                     const QString path = item.localPath();
                     if (!path.isEmpty()) {
 //                        slow
@@ -1262,7 +1262,7 @@ bool KDirModel::hasChildren(const QModelIndex &parent) const
     if (static_cast<const KDirModelDirNode *>(parentNode)->isPopulated()) {
         return !static_cast<const KDirModelDirNode *>(parentNode)->m_childNodes.isEmpty();
     }
-    if (parentItem.isLocalFile() && !static_cast<const KDirModelDirNode *>(parentNode)->isSlow()) {
+    if (parentItem.isLocalFile() && !static_cast<const KDirModelDirNode *>(parentNode)->isOnNetwork()) {
         QDir::Filters filters = QDir::Dirs | QDir::NoDotAndDotDot;
 
         if (d->m_dirLister->dirOnlyMode()) {
@@ -1341,7 +1341,7 @@ bool KDirModel::canFetchMore(const QModelIndex &parent) const
 
     KDirModelNode *node = static_cast<KDirModelNode *>(parent.internalPointer());
     const KFileItem &item = node->item();
-    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isSlow() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
+    return item.isDir() && !static_cast<KDirModelDirNode *>(node)->isOnNetwork() && !static_cast<KDirModelDirNode *>(node)->isPopulated()
         && static_cast<KDirModelDirNode *>(node)->m_childNodes.isEmpty();
 }
 
