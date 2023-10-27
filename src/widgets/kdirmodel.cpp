@@ -221,6 +221,7 @@ public:
         delete m_rootNode;
         m_rootNode = new KDirModelDirNode(nullptr, KFileItem());
         m_showNodeForListedUrl = false;
+        m_rootNode->setItem(KFileItem(m_dirLister->url()));
     }
 
     // Emit expand for each parent and then return the
@@ -762,17 +763,13 @@ void KDirModelPrivate::_k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl
 void KDirModelPrivate::_k_slotClear()
 {
     const int numRows = m_rootNode->m_childNodes.count();
-    const auto url = m_dirLister->url();
     if (numRows > 0) {
         q->beginRemoveRows(QModelIndex(), 0, numRows - 1);
-        m_nodeHash.clear();
-        clear();
-        m_rootNode->setItem(KFileItem(url));
+    }
+    m_nodeHash.clear();
+    clear();
+    if (numRows > 0) {
         q->endRemoveRows();
-    } else {
-        m_nodeHash.clear();
-        clear();
-        m_rootNode->setItem(KFileItem(url));
     }
 }
 
