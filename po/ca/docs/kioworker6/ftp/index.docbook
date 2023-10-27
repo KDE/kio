@@ -26,11 +26,7 @@
 > per a contactar amb un programa servidor d'&FTP; en l'ordinador remot. Cada vegada que un usuari sol·licita una transferència de fitxers, els programes client i servidor cooperen per a enviar una còpia de dades a través de la Internet.</para>
 
 <para
->Els servidors &FTP; que accepten <quote
->&FTP; anònim</quote
-> permeten que qualsevol usuari, no només usuaris amb comptes en la màquina, naveguin pels arxius <quote
->ftp</quote
-> i els descarreguin. Alguns servidors &FTP; també estan configurats per a permetre que els usuaris hi pugin fitxers.</para>
+>Els servidors &FTP; que accepten «&FTP; anònim» permeten que qualsevol usuari, no només usuaris amb comptes en la màquina, naveguin pels arxius «ftp» i els descarreguin. Alguns servidors &FTP; també estan configurats per a permetre que els usuaris hi pugin fitxers.</para>
 
 <para
 >L'&FTP; és habitualment emprat per a recuperar informació i obtenir programari emmagatzemat en fitxers als llocs d'arxiu &FTP; per tot el món. </para>

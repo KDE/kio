@@ -47,26 +47,18 @@
 <para
 >L'últim exemple ofereix un document de text. Per a documents &HTML; s'haurà d'especificar el tipus &MIME; <literal
 >text/html</literal
->: <quote
-><userinput
+>: «<userinput
 >data:text/html,&lt;title&gt;Testcase&lt;/title&gt;&lt;p&gt;Aquest és un cas de prova&lt;/p&gt;</userinput
-></quote
->. Presentarà exactament la mateixa sortida que si el contingut fos carregat des d'un document separat. </para>
+>». Presentarà exactament la mateixa sortida que si el contingut fos carregat des d'un document separat. </para>
 
 <para
->També és possible especificar un joc de caràcters diferent. Cal tenir en compte que els caràcters de 8 bits s'han de representar per un signe de percentatge i dos dígits en codi hexadecimal: <quote
-><userinput
+>També és possible especificar un joc de caràcters diferent. Cal tenir en compte que els caràcters de 8 bits s'han de representar per un signe de percentatge i dos dígits en codi hexadecimal: «<userinput
 >data:;charset=iso-8859-1,Ens indica qu%E8 %E9s el que ha de menester un ping%FC%ED</userinput
-></quote
->, el qual donarà com a resultat <quote
-><literal
+>», el qual donarà com a resultat «<literal
 >Ens indica qu&egrave; &eacute;s el que ha de menester un ping&uuml;&iacute;</literal
-></quote
->, mentre que ometre l'atribut del joc de caràcters ens durà a quelcom com <quote
-><literal
+>», mentre que ometre l'atribut del joc de caràcters ens durà a quelcom com «<literal
 >Ens indica qu? ?s el que ha de menester un ping??</literal
-></quote
->. </para>
+>». </para>
 
 <para
 >L'<ulink url="https://www.ietf.org/rfc/rfc2397.txt"
