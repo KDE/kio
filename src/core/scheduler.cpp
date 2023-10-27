@@ -24,9 +24,11 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #endif
+#include <QFutureWatcher>
 #include <QHash>
 #include <QThread>
 #include <QThreadStorage>
+#include <QtConcurrentRun>
 
 // Workers may be idle for a certain time (3 minutes) before they are killed.
 static const int s_idleWorkerLifetime = 3 * 60;
@@ -690,10 +692,27 @@ void SchedulerPrivate::doJob(SimpleJob *job)
     // qDebug() << job;
     KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
     jobPriv->m_proxyList.clear();
-    jobPriv->m_protocol = KProtocolManagerPrivate::workerProtocol(job->url(), jobPriv->m_proxyList);
 
-    ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
-    proto->queueJob(job);
+    QFuture<std::pair<QString, QStringList>> protocolFuture = QtConcurrent::run(
+        [](const QUrl &url) -> std::pair<QString, QStringList> {
+            QStringList proxyList;
+            const QString protocol = KProtocolManagerPrivate::workerProtocol(url, proxyList);
+            return {protocol, proxyList};
+        },
+        job->url());
+    auto fw = new QFutureWatcher<std::pair<QString, QStringList>>();
+    QObject::connect(fw, &QFutureWatcher<std::pair<QString, QStringList>>::finished, job, [this, protocolFuture, fw, job] {
+        KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
+
+        fw->deleteLater();
+        std::pair<QString, QStringList> value = protocolFuture.result();
+        jobPriv->m_protocol = value.first;
+        jobPriv->m_proxyList = value.second;
+
+        ProtoQueue *proto = protoQ(jobPriv->m_protocol, job->url().host());
+        proto->queueJob(job);
+    });
+    fw->setFuture(protocolFuture);
 }
 
 void SchedulerPrivate::setJobPriority(SimpleJob *job, int priority)
