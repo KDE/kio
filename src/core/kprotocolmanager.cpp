@@ -558,8 +558,8 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     // Look for cached proxy information to avoid more work.
-    if (d->cachedProxyData.contains(proxyCacheKey)) {
-        KProxyData *data = d->cachedProxyData.object(proxyCacheKey);
+    KProxyData *data = d->cachedProxyData.object(proxyCacheKey);
+    if (data) {
         proxyList = data->proxyList;
         return data->protocol;
     }
