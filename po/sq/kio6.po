@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
 "PO-Revision-Date: 2009-08-18 12:07+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -4993,43 +4993,43 @@ msgstr "Duke Përditësuar Konfigurimin e Sistemit"
 msgid "Updating system configuration."
 msgstr "Duke Përditësuar Konfigurimin e Sistemit."
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Emri"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Përmasa"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Lejet"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Poseduesi"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupi"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

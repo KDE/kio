@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -5424,43 +5424,43 @@ msgstr "A rendszerbeállítások frissítése"
 msgid "Updating system configuration."
 msgstr "A rendszerbeállítások frissítése."
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Név"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Méret"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dátum"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Hozzáférési jogok"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Csoport"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

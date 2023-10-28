@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
 "PO-Revision-Date: 2023-08-20 19:52+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -5380,43 +5380,43 @@ msgstr "Ĝisdatigo de Sistema Agordo"
 msgid "Updating system configuration."
 msgstr "Ĝisdatigante sisteman agordon."
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nomo"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Grandeco"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dato"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permesoj"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Posedanto"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupo"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -5132,43 +5132,43 @@ msgstr "mi sin e lawa ilo"
 msgid "Updating system configuration."
 msgstr "mi sin e lawa ilo."
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "nimi"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "suli"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "tenpo"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "lawa wile"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "jan lawa"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "kulupu"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

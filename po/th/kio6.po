@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -5446,43 +5446,43 @@ msgstr "ทำการปรับปรุงค่าปรับแต่ง
 msgid "Updating system configuration."
 msgstr "ทำการปรับปรุงค่าปรับแต่งระบบ"
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ชื่อ"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ขนาด"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "วันที่"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "สิทธิ์ที่อนุญาต"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "เจ้าของ"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "กลุ่ม"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

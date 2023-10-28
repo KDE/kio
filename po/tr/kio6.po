@@ -14,13 +14,13 @@
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # obsoleteman <tulliana@gmail.com>, 2010,2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:48+0000\n"
-"PO-Revision-Date: 2023-08-27 21:55+0300\n"
+"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"PO-Revision-Date: 2023-10-28 02:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -864,7 +864,7 @@ msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 #: core/job_error.cpp:301
 #, kde-format
 msgid "<b>Technical reason</b>: "
-msgstr "<b>Teknik neden</b>: "
+msgstr "<b>Teknik gerekçe</b>: "
 
 #: core/job_error.cpp:303
 #, kde-format
@@ -1217,7 +1217,7 @@ msgstr ""
 #: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr "Desteklenmeyen Eylem: %1"
+msgstr "Desteklenmeyen eylem: %1"
 
 #: core/job_error.cpp:527
 #, kde-format
@@ -1346,7 +1346,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
-msgstr "Girilen ad (%1) mevcut olmayabilir: Hatalı yazılmış olabilir."
+msgstr "Girilen ad (%1) var olmayabilir: Hatalı yazılmış olabilir."
 
 #: core/job_error.cpp:607
 #, kde-format
@@ -1613,7 +1613,7 @@ msgstr "Aygıt Bağlanamadı"
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
-msgstr "İstenen aygıt bağlanamadı. Verilen hata iletisi: <strong>%1</strong>"
+msgstr "İstenen aygıt bağlanamadı. Bildirilen hata şuydu: <strong>%1</strong>"
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -1664,7 +1664,7 @@ msgid ""
 "reported error was: <strong>%1</strong>"
 msgstr ""
 "İstenen işlem (aygıtın bağlantısının kesilmesi) başarılı olamadı. Bildirilen "
-"hata: <strong>%1</strong>"
+"hata şuydu: <strong>%1</strong>"
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1997,7 +1997,7 @@ msgstr "Vekil sunucu ayarlarınızı denetleyerek yeniden deneyin."
 #: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Kimlik Doğrulama Başarısız: %1 Yöntemi Desteklenmiyor"
+msgstr "Kimlik doğrulama başarısız: %1 yöntemi desteklenmiyor"
 
 #: core/job_error.cpp:1052
 #, kde-format
@@ -2403,7 +2403,7 @@ msgstr "%1'e yazmak henüz desteklenmiyor."
 #: core/slavebase.cpp:847
 #, kde-format
 msgid "There are no special actions available for protocol %1."
-msgstr "%1 protokolü için özel işlemler mevcut değil."
+msgstr "%1 protokolü için kullanılabilir özel işlemler yok."
 
 #: core/slavebase.cpp:849
 #, kde-format
@@ -3575,7 +3575,7 @@ msgstr "Üzgünüm"
 #: filewidgets/knewfilemenu.cpp:478
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt><b>%1</b> şablon dosyası mevcut değil.</qt>"
+msgstr "<qt><b>%1</b> şablon dosyası yok.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:622 filewidgets/knewfilemenu.cpp:687
 #, kde-format
@@ -4121,7 +4121,7 @@ msgstr "Dosya İzinlerini Değiştir"
 #: kioworkers/file/file_unix.cpp:102
 #, kde-format
 msgid "New Permissions: %1"
-msgstr "Yeni İzinler: %1"
+msgstr "Yeni izinler: %1"
 
 #: kioworkers/file/file_unix.cpp:105
 #, kde-format
@@ -4131,7 +4131,7 @@ msgstr "Dosya Sahibini Değiştir"
 #: kioworkers/file/file_unix.cpp:106
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
-msgstr "Yeni Sahip: UID=%1, GID=%2"
+msgstr "Yeni sahip: UID=%1, GID=%2"
 
 #: kioworkers/file/file_unix.cpp:109
 #, kde-format
@@ -4151,7 +4151,7 @@ msgstr "Dizin oluştur"
 #: kioworkers/file/file_unix.cpp:116
 #, kde-format
 msgid "Directory Permissions: %1"
-msgstr "Dizin İzinleri: %1"
+msgstr "Dizin izinleri: %1"
 
 #: kioworkers/file/file_unix.cpp:119
 #, kde-format
@@ -4166,7 +4166,7 @@ msgstr "Dizin Aç"
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
 msgid "New Filename: %1"
-msgstr "Yeni Dosya Adı: %1"
+msgstr "Yeni dosya adı: %1"
 
 #: kioworkers/file/file_unix.cpp:130
 #, kde-format
@@ -5351,43 +5351,43 @@ msgstr "Sistem Yapılandırması Güncelleniyor"
 msgid "Updating system configuration."
 msgstr "Sistem yapılandırması güncelleniyor."
 
-#: widgets/kdirmodel.cpp:1198
+#: widgets/kdirmodel.cpp:1219
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ad"
 
-#: widgets/kdirmodel.cpp:1200
+#: widgets/kdirmodel.cpp:1221
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Boyut"
 
-#: widgets/kdirmodel.cpp:1202
+#: widgets/kdirmodel.cpp:1223
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarih"
 
-#: widgets/kdirmodel.cpp:1204
+#: widgets/kdirmodel.cpp:1225
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "İzinler"
 
-#: widgets/kdirmodel.cpp:1206
+#: widgets/kdirmodel.cpp:1227
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Sahip"
 
-#: widgets/kdirmodel.cpp:1208
+#: widgets/kdirmodel.cpp:1229
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grup"
 
-#: widgets/kdirmodel.cpp:1210
+#: widgets/kdirmodel.cpp:1231
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -6724,7 +6724,7 @@ msgstr ""
 #: widgets/ksslinfodialog.cpp:97
 #, kde-format
 msgid "Current connection is not secured with SSL."
-msgstr "Mevcut bağlantı SSL ile güvenli hale getirilmemiştir."
+msgstr "Geçerli bağlantı SSL ile güvenli hale getirilmemiştir."
 
 #: widgets/ksslinfodialog.cpp:139
 #, kde-format
@@ -6862,7 +6862,7 @@ msgstr "Boyut: %1"
 #: widgets/renamedialog.cpp:227
 #, kde-format
 msgid "Appl&y to All"
-msgstr "&Tümüne Uygula"
+msgstr "&Tümüne uygula"
 
 #: widgets/renamedialog.cpp:228
 #, kde-format
@@ -6872,10 +6872,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"İşaretlendiğinde, basılan düğme mevcut görevde, kalan tüm klasör "
-"çakışmalarına uygulanacak.\n"
-"Atla düğmesine basmadığınız sürece, dizinde var olan bir dosya ile çakışma "
-"olduğunda yapılacak eylem size sorulacaktır."
+"Bu işaretlendiğinde, basılan düğme geçerli işin geri kalanındaki tüm sonraki "
+"klasör çakışmalarına uygulanacaktır.\n"
+"Atla'ya basmadığınız sürece, dizindeki var olan bir dosyayla çakışma olması "
+"durumunda yine de uyarılacaksınız."
 
 #: widgets/renamedialog.cpp:232
 #, kde-format
@@ -6883,8 +6883,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"İşaretlendiğinde, basılan düğme mevcut görevin kalan tüm çakışmalarına "
-"uygulanacak."
+"Bu işaretlendiğinde, basılan düğme geçerli işin geri kalanındaki tüm sonraki "
+"klasör çakışmalarına uygulanacaktır."
 
 #: widgets/renamedialog.cpp:238
 #, kde-format
@@ -7036,7 +7036,7 @@ msgstr "'%1' adlı bir dosya zaten var."
 #: widgets/renamedialog.cpp:478
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "'%1' adında daha yeni bir öge mevcut."
+msgstr "'%1' adlı daha yeni bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
@@ -7312,4 +7312,4 @@ msgstr "Bu, uygulamayı başlatır:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:132
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal düğmesine tıklayın"
+msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal'e tıklayın"
