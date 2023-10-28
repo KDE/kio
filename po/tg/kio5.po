@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 00:41+0000\n"
+"POT-Creation-Date: 2023-10-28 00:40+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -7202,43 +7202,43 @@ msgstr "Васл кардан"
 msgid "Unmount"
 msgstr "Ғайрифаъол"
 
-#: widgets/kdirmodel.cpp:1207
+#: widgets/kdirmodel.cpp:1228
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ном"
 
-#: widgets/kdirmodel.cpp:1209
+#: widgets/kdirmodel.cpp:1230
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Андоза"
 
-#: widgets/kdirmodel.cpp:1211
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Сана"
 
-#: widgets/kdirmodel.cpp:1213
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr ""
 
-#: widgets/kdirmodel.cpp:1215
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Соҳиб"
 
-#: widgets/kdirmodel.cpp:1217
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Гурӯҳ"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

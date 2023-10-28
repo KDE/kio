@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 00:41+0000\n"
+"POT-Creation-Date: 2023-10-28 00:40+0000\n"
 "PO-Revision-Date: 2023-07-08 08:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -7562,43 +7562,43 @@ msgstr "Змонтувати"
 msgid "Unmount"
 msgstr "Демонтувати"
 
-#: widgets/kdirmodel.cpp:1207
+#: widgets/kdirmodel.cpp:1228
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Назва"
 
-#: widgets/kdirmodel.cpp:1209
+#: widgets/kdirmodel.cpp:1230
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Розмір"
 
-#: widgets/kdirmodel.cpp:1211
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Дата"
 
-#: widgets/kdirmodel.cpp:1213
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Права доступу"
 
-#: widgets/kdirmodel.cpp:1215
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Власник"
 
-#: widgets/kdirmodel.cpp:1217
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Група"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

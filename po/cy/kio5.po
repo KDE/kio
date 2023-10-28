@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 00:41+0000\n"
+"POT-Creation-Date: 2023-10-28 00:40+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -7573,43 +7573,43 @@ msgstr "Gosod"
 msgid "Unmount"
 msgstr "Datosod"
 
-#: widgets/kdirmodel.cpp:1207
+#: widgets/kdirmodel.cpp:1228
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Enw"
 
-#: widgets/kdirmodel.cpp:1209
+#: widgets/kdirmodel.cpp:1230
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Maint"
 
-#: widgets/kdirmodel.cpp:1211
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dyddiad"
 
-#: widgets/kdirmodel.cpp:1213
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Caniatadau"
 
-#: widgets/kdirmodel.cpp:1215
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Perchennog"
 
-#: widgets/kdirmodel.cpp:1217
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grŵp"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 00:41+0000\n"
+"POT-Creation-Date: 2023-10-28 00:40+0000\n"
 "PO-Revision-Date: 2023-07-25 21:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -7308,43 +7308,43 @@ msgstr "마운트"
 msgid "Unmount"
 msgstr "마운트 해제"
 
-#: widgets/kdirmodel.cpp:1207
+#: widgets/kdirmodel.cpp:1228
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "이름"
 
-#: widgets/kdirmodel.cpp:1209
+#: widgets/kdirmodel.cpp:1230
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "크기"
 
-#: widgets/kdirmodel.cpp:1211
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "날짜"
 
-#: widgets/kdirmodel.cpp:1213
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "권한"
 
-#: widgets/kdirmodel.cpp:1215
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "소유자"
 
-#: widgets/kdirmodel.cpp:1217
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "그룹"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

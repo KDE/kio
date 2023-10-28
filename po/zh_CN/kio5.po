@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 00:41+0000\n"
+"POT-Creation-Date: 2023-10-28 00:40+0000\n"
 "PO-Revision-Date: 2023-10-21 13:54\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -7172,43 +7172,43 @@ msgstr "挂载"
 msgid "Unmount"
 msgstr "卸载"
 
-#: widgets/kdirmodel.cpp:1207
+#: widgets/kdirmodel.cpp:1228
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "名称"
 
-#: widgets/kdirmodel.cpp:1209
+#: widgets/kdirmodel.cpp:1230
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "大小"
 
-#: widgets/kdirmodel.cpp:1211
+#: widgets/kdirmodel.cpp:1232
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "日期"
 
-#: widgets/kdirmodel.cpp:1213
+#: widgets/kdirmodel.cpp:1234
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "权限"
 
-#: widgets/kdirmodel.cpp:1215
+#: widgets/kdirmodel.cpp:1236
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "所有者"
 
-#: widgets/kdirmodel.cpp:1217
+#: widgets/kdirmodel.cpp:1238
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "所有组"
 
-#: widgets/kdirmodel.cpp:1219
+#: widgets/kdirmodel.cpp:1240
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
