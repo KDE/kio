@@ -494,5 +494,3 @@ QStringList KUriFilter::pluginNames() const
     });
     return res;
 }
-
-#include "moc_kurifilter.cpp"
