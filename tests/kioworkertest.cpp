@@ -542,7 +542,7 @@ int main(int argc, char **argv)
     test->show();
     test->resize(test->sizeHint());
 
-    app.exec();
+    return app.exec();
 }
 
 #include "moc_kioworkertest.cpp"
