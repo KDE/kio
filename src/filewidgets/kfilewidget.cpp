@@ -57,6 +57,7 @@
 #include <QCheckBox>
 #include <QDebug>
 #include <QDockWidget>
+#include <QFormLayout>
 #include <QHelpEvent>
 #include <QIcon>
 #include <QLabel>
@@ -111,7 +112,6 @@ public:
     void updateAutoSelectExtension();
     void initPlacesPanel();
     void setPlacesViewSplitterSizes();
-    void setLafBoxColumnWidth();
     void initGUI();
     void readViewConfig();
     void writeViewConfig();
@@ -204,8 +204,7 @@ public:
     // now following all kind of widgets, that I need to rebuild
     // the geometry management
     QBoxLayout *m_boxLayout = nullptr;
-    QGridLayout *m_lafBox = nullptr;
-    QVBoxLayout *m_vbox = nullptr;
+    QFormLayout *m_lafBox = nullptr;
 
     QLabel *m_locationLabel = nullptr;
     QWidget *m_opsWidget = nullptr;
@@ -1101,9 +1100,17 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_urlNavigator = new KUrlNavigator(m_model, QUrl(), m_opsWidget); // d->m_toolbar);
     m_urlNavigator->setPlacesSelectorVisible(false);
 
+    m_urlNavigator->setContentsMargins(q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                       0,
+                                       q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                       q->style()->pixelMetric(QStyle::PM_LayoutBottomMargin) - 2);
+
     m_messageWidget = new KMessageWidget(q);
     m_messageWidget->setMessageType(KMessageWidget::Error);
     m_messageWidget->hide();
+
+    auto topSeparator = new QFrame(q);
+    topSeparator->setFrameStyle(QFrame::HLine);
 
     m_ops = new KDirOperator(QUrl(), m_opsWidget);
     m_ops->installEventFilter(q);
@@ -1111,6 +1118,10 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_ops->setIsSaving(m_operationMode == KFileWidget::Saving);
     m_ops->setNewFileMenuSelectDirWhenAlreadyExist(true);
     m_ops->showOpenWithActions(true);
+    m_ops->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    auto bottomSparator = new QFrame(q);
+    bottomSparator->setFrameStyle(QFrame::HLine);
 
     q->connect(m_ops, &KDirOperator::urlEntered, q, [this](const QUrl &url) {
         urlEntered(url);
@@ -1132,6 +1143,10 @@ void KFileWidgetPrivate::initDirOpWidgets()
         q->setSelectedUrls(urls);
     });
 
+    q->connect(m_ops, &KDirOperator::viewChanged, q, [](QAbstractItemView *newView) {
+        newView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge | Qt::BottomEdge}));
+    });
+
     m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
     q->connect(m_ops->dirLister(), &KDirLister::jobError, q, [this](KIO::Job *job) {
         m_messageWidget->setText(job->errorString());
@@ -1145,7 +1160,9 @@ void KFileWidgetPrivate::initDirOpWidgets()
     m_opsWidgetLayout->addWidget(m_toolbar);
     m_opsWidgetLayout->addWidget(m_urlNavigator);
     m_opsWidgetLayout->addWidget(m_messageWidget);
+    m_opsWidgetLayout->addWidget(topSeparator);
     m_opsWidgetLayout->addWidget(m_ops);
+    m_opsWidgetLayout->addWidget(bottomSparator);
 }
 
 void KFileWidgetPrivate::initZoomWidget()
@@ -1325,6 +1342,7 @@ void KFileWidgetPrivate::initFilterWidget()
 {
     m_filterLabel = new QLabel(q);
     m_filterWidget = new KFileFilterCombo(q);
+    m_filterWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     updateFilterText();
     // Properly let the dialog be resized (to smaller). Otherwise we could have
     // huge dialogs that can't be resized to smaller (it would be as big as the longest
@@ -1450,15 +1468,6 @@ void KFileWidgetPrivate::setPlacesViewSplitterSizes()
     }
 }
 
-void KFileWidgetPrivate::setLafBoxColumnWidth()
-{
-    // In order to perfectly align the filename widget with KDirOperator's icon view
-    // - m_placesViewWidth needs to account for the size of the splitter handle
-    // - the m_lafBox grid layout spacing should only affect the label, but not the line edit
-    const int adjustment = m_placesViewSplitter->handleWidth() - m_lafBox->horizontalSpacing();
-    m_lafBox->setColumnMinimumWidth(0, m_placesViewWidth + adjustment);
-}
-
 void KFileWidgetPrivate::initGUI()
 {
     delete m_boxLayout; // deletes all sub layouts
@@ -1476,28 +1485,32 @@ void KFileWidgetPrivate::initGUI()
     });
     m_placesViewSplitter->insertWidget(0, m_opsWidget);
 
-    m_vbox = new QVBoxLayout();
-    m_vbox->setContentsMargins(0, 0, 0, 0);
-    m_boxLayout->addLayout(m_vbox);
+    m_lafBox = new QFormLayout();
+    m_lafBox->setSpacing(q->style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
+    m_lafBox->setContentsMargins(q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                 q->style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                                 q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                 0);
 
-    m_lafBox = new QGridLayout();
-
-    m_lafBox->addWidget(m_locationLabel, 0, 0, Qt::AlignVCenter | Qt::AlignRight);
-    m_lafBox->addWidget(m_locationEdit, 0, 1, Qt::AlignVCenter);
-    m_lafBox->addWidget(m_okButton, 0, 2, Qt::AlignVCenter);
-
-    m_lafBox->addWidget(m_filterLabel, 1, 0, Qt::AlignVCenter | Qt::AlignRight);
-    m_lafBox->addWidget(m_filterWidget, 1, 1, Qt::AlignVCenter);
-    m_lafBox->addWidget(m_cancelButton, 1, 2, Qt::AlignVCenter);
-
-    m_lafBox->setColumnStretch(1, 4);
-
-    m_vbox->addLayout(m_lafBox);
-
+    m_lafBox->addRow(m_locationLabel, m_locationEdit);
+    m_lafBox->addRow(m_filterLabel, m_filterWidget);
     // Add the "Automatically Select Extension" checkbox
-    const int spacingHint = q->style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
-    m_vbox->addSpacing(spacingHint);
-    m_vbox->addWidget(m_autoSelectExtCheckBox);
+    m_lafBox->addWidget(m_autoSelectExtCheckBox);
+
+    m_opsWidgetLayout->addLayout(m_lafBox);
+
+    auto hbox = new QHBoxLayout();
+    hbox->setSpacing(q->style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
+    hbox->setContentsMargins(q->style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                             q->style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                             q->style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                             q->style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
+    hbox->addStretch(2);
+    hbox->addWidget(m_okButton);
+    hbox->addWidget(m_cancelButton);
+
+    m_opsWidgetLayout->addLayout(hbox);
 
     q->setTabOrder(m_ops, m_autoSelectExtCheckBox);
     q->setTabOrder(m_autoSelectExtCheckBox, m_locationEdit);
@@ -2109,7 +2122,6 @@ void KFileWidgetPrivate::placesViewSplitterMoved(int pos, int index)
     if (m_placesDock && index == 1) {
         m_placesViewWidth = pos;
         //         qDebug() << "setting m_lafBox minwidth to" << m_placesViewWidth;
-        setLafBoxColumnWidth();
     }
 }
 
@@ -2595,7 +2607,6 @@ void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
     if (show) {
         initPlacesPanel();
         m_placesDock->show();
-        setLafBoxColumnWidth();
 
         // check to see if they have a home item defined, if not show the home button
         QUrl homeURL;
@@ -2626,9 +2637,6 @@ void KFileWidgetPrivate::togglePlacesPanel(bool show, QObject *sender)
         if (!m_toolbar->actions().contains(homeAction)) {
             m_toolbar->insertAction(reloadAction, homeAction);
         }
-
-        // reset the lafbox to not follow the width of the splitter
-        m_lafBox->setColumnMinimumWidth(0, 0);
     }
 
     m_togglePlacesPanelAction->setChecked(show);
@@ -2812,8 +2820,7 @@ void KFileWidget::setCustomWidget(QWidget *widget)
     // Change the parent so that this widget is a child of the main widget
     d->m_bottomCustomWidget->setParent(this);
 
-    d->m_vbox->addWidget(d->m_bottomCustomWidget);
-    // d->m_vbox->addSpacing(3); // can't do this every time...
+    d->m_opsWidgetLayout->addWidget(d->m_bottomCustomWidget);
 
     // FIXME: This should adjust the tab orders so that the custom widget
     // comes after the Cancel button. The code appears to do this, but the result
@@ -2831,8 +2838,7 @@ void KFileWidget::setCustomWidget(const QString &text, QWidget *widget)
 
     QLabel *label = new QLabel(text, this);
     label->setAlignment(Qt::AlignRight);
-    d->m_lafBox->addWidget(label, 2, 0, Qt::AlignVCenter);
-    d->m_lafBox->addWidget(widget, 2, 1, Qt::AlignVCenter);
+    d->m_lafBox->addRow(label, widget);
 }
 
 KDirOperator *KFileWidget::dirOperator()
