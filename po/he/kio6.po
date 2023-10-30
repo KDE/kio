@@ -20,16 +20,16 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 01:44+0000\n"
-"PO-Revision-Date: 2023-10-05 07:55+0300\n"
+"PO-Revision-Date: 2023-10-29 21:10+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,7 +44,7 @@ msgstr "kde-l10n-he@kde.org"
 #: core/chmodjob.cpp:201
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "אין אפשרות לשנות את הבעלות על %1"
+msgstr "אי אפשר לשנות את הבעלות על הקובץ %1"
 
 #: core/chmodjob.cpp:235
 #, fuzzy, kde-kuit-format
@@ -131,7 +131,7 @@ msgstr "אירעה שגיאה בעת עיבוד סעיף \"Exec\" בתוך %1"
 #: core/desktopexecparser.cpp:353
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "אין אפשרות למצוא את התוכנית \"%1\""
+msgstr "לא ניתן למצוא את התוכנית „%1”"
 
 #: core/desktopexecparser.cpp:356
 #, kde-format
@@ -223,7 +223,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
-msgstr "מעביר"
+msgstr "העברה"
 
 #: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
 #: widgets/fileundomanager.cpp:137
@@ -250,25 +250,25 @@ msgstr "&שנה שם"
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
-msgstr "מעתיק"
+msgstr "העתקה"
 
 #: core/job.cpp:121
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "יוצר ספרייה"
+msgstr "תיקייה נוצרת"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:498
 #, kde-format
 msgid "Directory"
-msgstr "ספרייה"
+msgstr "תיקייה"
 
 #: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
-msgstr "מוחק"
+msgstr "מחיקה"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
 #: widgets/kurlrequester.cpp:497
@@ -280,19 +280,19 @@ msgstr "קובץ"
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
-msgstr "בודק"
+msgstr "בדיקה"
 
 #: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
-msgstr "מעביר"
+msgstr "העברה"
 
 #: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
-msgstr "מעגן"
+msgstr "עיגון"
 
 #: core/job.cpp:149
 #, kde-format
@@ -308,7 +308,7 @@ msgstr "נקודת עגינה"
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
-msgstr "מנתק"
+msgstr "ניתוק"
 
 #: core/job.cpp:264
 #, kde-format
@@ -388,7 +388,7 @@ msgstr ""
 #: kioworkers/file/file_unix.cpp:129
 #, kde-format
 msgid "Create Symlink"
-msgstr "צור קישור הסמלי"
+msgstr "יצירת הקישור הסמלי"
 
 #: core/job.cpp:302
 #, kde-format
@@ -413,17 +413,17 @@ msgstr ""
 #: core/job_error.cpp:33
 #, kde-format
 msgid "Could not read %1."
-msgstr "אין אפשרות לקרוא את %1."
+msgstr "אי אפשר לקרוא את %1."
 
 #: core/job_error.cpp:36
 #, kde-format
 msgid "Could not write to %1."
-msgstr "אין אפשרות לכתוב אל %1."
+msgstr "אי אפשר לכתוב אל %1."
 
 #: core/job_error.cpp:39
 #, kde-format
 msgid "Could not start process %1."
-msgstr "אין אפשרות להפעיל את התהליך %1."
+msgstr "אי אפשר להפעיל את התהליך %1."
 
 #: core/job_error.cpp:42
 #, fuzzy, kde-format
@@ -443,7 +443,7 @@ msgstr ""
 #: core/job_error.cpp:45
 #, kde-format
 msgid "Malformed URL %1."
-msgstr "כתובת שגויה %1."
+msgstr "הכתובת %1 שגויה."
 
 #: core/job_error.cpp:48
 #, kde-format
@@ -453,22 +453,22 @@ msgstr "הפרוטוקול %1 אינו נתמך."
 #: core/job_error.cpp:51
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
-msgstr "הפרוטוקול %1 הינו פרוטוקול סינון בלבד."
+msgstr "הפרוטוקול %1 הוא פרוטוקול סינון בלבד."
 
 #: core/job_error.cpp:58
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1 היא תיקייה, אך ציפיתי לקובץ."
+msgstr "%1 היא תיקייה, אך אמור היה להיות קובץ."
 
 #: core/job_error.cpp:61
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1 הוא קובץ, אך ציפיתי לתיקייה."
+msgstr "%1 הוא קובץ, אך אך אמורה הייתה להיות לתיקייה."
 
 #: core/job_error.cpp:64
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "הקובץ או תיקייה %1 אינם קיימים."
+msgstr "הקובץ או התיקייה %1 אינם קיימים."
 
 #: core/job_error.cpp:67
 #, kde-format
@@ -483,12 +483,12 @@ msgstr "כבר קיימת תיקייה בשם %1."
 #: core/job_error.cpp:73
 #, kde-format
 msgid "No hostname specified."
-msgstr "לא הוגדר שרת מארח."
+msgstr "לא הוגדר שם מארח."
 
 #: core/job_error.cpp:73
 #, kde-format
 msgid "Unknown host %1"
-msgstr "שרת מארח לא מוכר %1"
+msgstr "שם המארח %1 לא מוכר"
 
 #: core/job_error.cpp:76
 #, kde-format
@@ -501,13 +501,13 @@ msgid ""
 "Access denied.\n"
 "Could not write to %1."
 msgstr ""
-"הגישה נדחית\n"
-"אין אפשרות לכתוב אל %1."
+"הגישה נדחתה.\n"
+"אי אפשר לכתוב אל %1."
 
 #: core/job_error.cpp:82
 #, kde-format
 msgid "Could not enter folder %1."
-msgstr "אין אפשרות להיכנס לתיקייה %1."
+msgstr "אי אפשר להיכנס לתיקייה %1."
 
 #: core/job_error.cpp:85
 #, kde-format
@@ -517,7 +517,7 @@ msgstr "הפרוטוקול %1 לא מממש שירות תיקיות."
 #: core/job_error.cpp:88
 #, kde-format
 msgid "Found a cyclic link in %1."
-msgstr "נמצא קישור מחזורי ב־%1."
+msgstr "נמצא קישור מעגלי ב־%1."
 
 #: core/job_error.cpp:91
 #, kde-format
@@ -532,12 +532,12 @@ msgstr "אין אפשרות ליצור שקע לגישה אל %1."
 #: core/job_error.cpp:97
 #, kde-format
 msgid "Could not connect to host %1."
-msgstr "אין אפשרות להתחבר אל השרת המארח %1."
+msgstr "אי אפשר להתחבר למארח %1."
 
 #: core/job_error.cpp:100
 #, kde-format
 msgid "Connection to host %1 is broken."
-msgstr "החיבור לשרת מארח %1 אינו תקין."
+msgstr "החיבור למארח %1 פגום."
 
 #: core/job_error.cpp:103
 #, kde-format
@@ -551,8 +551,8 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"אין אפשרות לעגן את ההתקן.\n"
-"השגיאה שהתקבלה היא:\n"
+"אי אפשר לעגן את ההתקן.\n"
+"השגיאה שדווחה היא:\n"
 "%1"
 
 #: core/job_error.cpp:109
@@ -562,84 +562,84 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"אין אפשרות לנתק את ההתקן.\n"
-"השגיאה שהתקבלה היא:\n"
+"אי אפשר לנתק את ההתקן.\n"
+"השגיאה שדווחה היא:\n"
 "%1"
 
 #: core/job_error.cpp:112
 #, kde-format
 msgid "Could not read file %1."
-msgstr "אין אפשרות לקרוא את הקובץ %1."
+msgstr "אי אפשר לקרוא את הקובץ %1."
 
 #: core/job_error.cpp:115
 #, kde-format
 msgid "Could not write to file %1."
-msgstr "אין אפשרות לכתוב לקובץ %1."
+msgstr "אי אפשר לכתוב לקובץ %1."
 
 #: core/job_error.cpp:118
 #, kde-format
 msgid "Could not bind %1."
-msgstr "אין אפשרות לקשר את %1."
+msgstr "אי אפשר לקשר את %1."
 
 #: core/job_error.cpp:121
 #, kde-format
 msgid "Could not listen %1."
-msgstr "אין אפשרות להאזין אל %1."
+msgstr "אי אפשר להאזין אל %1."
 
 #: core/job_error.cpp:124
 #, kde-format
 msgid "Could not accept %1."
-msgstr "אין אפשרות לקבל את %1."
+msgstr "אי אפשר לקבל את %1."
 
 #: core/job_error.cpp:130
 #, kde-format
 msgid "Could not access %1."
-msgstr "אין אפשרות לגשת אל %1."
+msgstr "אי אפשר לגשת אל %1."
 
 #: core/job_error.cpp:133
 #, kde-format
 msgid "Could not terminate listing %1."
-msgstr "אין אפשרות לסיים את הרשימה של %1."
+msgstr "אי אפשר לסיים את ההצגה של %1."
 
 #: core/job_error.cpp:136
 #, kde-format
 msgid "Could not make folder %1."
-msgstr "אין אפשרות ליצור את התיקייה %1."
+msgstr "אי אפשר ליצור את התיקייה %1."
 
 #: core/job_error.cpp:139
 #, kde-format
 msgid "Could not remove folder %1."
-msgstr "אין אפשרות להסיר את התיקייה %1."
+msgstr "אי אפשר להסיר את התיקייה %1."
 
 #: core/job_error.cpp:142
 #, kde-format
 msgid "Could not resume file %1."
-msgstr "אין אפשרות לחדש את העברת הקובץ %1."
+msgstr "אי אפשר לחדש את העברת הקובץ %1."
 
 #: core/job_error.cpp:145
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "אין אפשרות לשנות את שם הקובץ %1."
+msgstr "אי אפשר לשנות את שם הקובץ %1."
 
 #: core/job_error.cpp:148
 #, kde-format
 msgid "Could not change permissions for %1."
-msgstr "אין אפשרות לשנות את ההרשאות של %1."
+msgstr "אי אפשר לשנות את ההרשאות של %1."
 
 #: core/job_error.cpp:151
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "אין אפשרות לשנות את הבעלות על %1."
+msgstr "אי אפשר לשנות את הבעלות על %1."
 
 #: core/job_error.cpp:154
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "אין אפשרות למחוק את הקובץ %1."
+msgstr "אי אפשר למחוק את הקובץ %1."
 
 #: core/job_error.cpp:157
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
-msgstr "התהליך של הפרוטוקול %1 הסתיים באורח בלתי צפוי."
+msgstr "התהליך של הפרוטוקול %1 הסתיים במפתיע."
 
 #: core/job_error.cpp:160
 #, kde-format
@@ -662,7 +662,7 @@ msgstr ""
 #: core/job_error.cpp:166
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "האימות נכשל, אימות %1 אינו נתמך"
+msgstr "האישור נכשל, אין תמיכה באימות %1"
 
 #: core/job_error.cpp:172
 #, kde-format
@@ -715,8 +715,8 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"אין אפשרות למחוק את הקובץ המקורי %1.\n"
-"בדוק את ההרשאות."
+"אי אפשר למחוק את הקובץ המקורי %1.\n"
+"נא לבדוק את ההרשאות."
 
 #: core/job_error.cpp:198
 #, kde-format
@@ -724,8 +724,8 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"אין אפשרות למחוק את הקובץ החלקי %1.\n"
-"בדוק את ההרשאות."
+"אי אפשר למחוק את הקובץ החלקי %1.\n"
+"נא לבדוק את ההרשאות."
 
 #: core/job_error.cpp:201
 #, kde-format
@@ -733,8 +733,8 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"אין אפשרות לשנות את שם הקובץ המקורי %1.\n"
-"בדוק את ההרשאות."
+"אי אפשר לשנות את שם הקובץ המקורי %1.\n"
+"נא לבדוק את ההרשאות."
 
 #: core/job_error.cpp:204
 #, kde-format
@@ -742,8 +742,8 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"אין אפשרות לשנות את שם הקובץ החלקי %1.\n"
-"בדוק את ההרשאות."
+"אי אפשר לשנות את שם הקובץ החלקי %1.\n"
+"נא לבדוק את ההרשאות."
 
 #: core/job_error.cpp:207
 #, kde-format
@@ -751,8 +751,8 @@ msgid ""
 "Could not create symlink %1.\n"
 "Please check permissions."
 msgstr ""
-"אין אפשרות ליצור את הקישור הסמלי %1.\n"
-"בדוק את ההרשאות."
+"אי אפשר ליצור את הקישור הסמלי %1.\n"
+"נא לבדוק את ההרשאות."
 
 #: core/job_error.cpp:210
 #, fuzzy, kde-format
@@ -788,23 +788,23 @@ msgstr "%1 נדרש על ידי השרת, אך אינו זמין."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "הגישה אל יציאה מוגבלת ב־POST נדחתה."
+msgstr "הגישה לפתחה מוגבלת ב־POST נדחתה."
 
 #: core/job_error.cpp:233
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
-msgstr "מידע אודות גודל התוכן הנדרש לא סופק בפעולת POST."
+msgstr "מידע על גודל התוכן הנדרש לא סופק בפעולת POST."
 
 #: core/job_error.cpp:236
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
-msgstr "אי אפשר לשים קובץ או תיקיה בתוך עצמם"
+msgstr "אי אפשר לשים קובץ או תיקייה בתוך עצמם"
 
 #: core/job_error.cpp:239
 #, kde-format
 msgid "A folder cannot be moved into itself"
-msgstr "אי אפשר לשים תיקיה בתוך עצמה"
+msgstr "אי אפשר לשים תיקייה בתוך עצמה"
 
 #: core/job_error.cpp:242
 #, kde-format
@@ -908,7 +908,7 @@ msgstr "<b>פתרונות אפשריים</b>:"
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
-msgstr "(לא מוכר)"
+msgstr "(לא ידוע)"
 
 #: core/job_error.cpp:370
 #, kde-format
@@ -916,18 +916,18 @@ msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr ""
-"לסיוע נוסף, צור קשר עם מערך התמיכה שלך בנושאי מחשבים, בין אם מנהל המערכת או "
-"צוות התמיכה הטכנית."
+"נא ליצור קשר עם מערך התמיכה הממוחשבת המתאים, בין אם הנהלת מערכת או קבצת "
+"תמיכה טכנית לקבל סיוע נוסף."
 
 #: core/job_error.cpp:374
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
-msgstr "צור קשר עם מנהל השרת לסיוע נוסף."
+msgstr "נא ליצור קשר עם הנהלת השרת לסיוע נוסף."
 
 #: core/job_error.cpp:377
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "בדוק את הרשאות הגישה שלך למשאב זה."
+msgstr "נא לבדוק את הרשאות הגישה שלך למשאב זה."
 
 #: core/job_error.cpp:379
 #, kde-format
@@ -949,7 +949,7 @@ msgstr ""
 msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
-msgstr "ודא שאף תוכנית או משתמש אחרים לא משתמשים בקובץ ולא נעלו אותו."
+msgstr "כדאי לוודא שאף תוכנית או משתמש אחרים לא משתמשים בקובץ ולא נעלו אותו."
 
 #: core/job_error.cpp:388
 #, kde-format
@@ -959,7 +959,7 @@ msgstr "למרות שהדבר אינו סביר, יכול להיות שאירע�
 #: core/job_error.cpp:390
 #, kde-format
 msgid "You may have encountered a bug in the program."
-msgstr "יכול להיות שנתקלת בבאג בתוכנית."
+msgstr "יכול להיות שנתקלת בתקלה בתוכנית."
 
 #: core/job_error.cpp:392
 #, kde-format
@@ -967,7 +967,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
-"סביר כי דבר זה נגרם עקב באג בתוכנית. שקול לשלוח דיווח מלא על באג כמפורט להלן."
+"יכול להיות שזה נגרם עקב תקלה בתוכנית. כדאי לשקול לשלוח דיווח מלא על התקלה "
+"כמפורט להלן."
 
 #: core/job_error.cpp:395
 #, kde-format
@@ -975,8 +976,8 @@ msgid ""
 "Update your software to the latest version. Your distribution should provide "
 "tools to update your software."
 msgstr ""
-"עדכן את התוכנה שלך לגרסתה העדכנית ביותר. ההפצה שלך אמורה לספק כלים לעדכון "
-"התוכנה שלך."
+"יש לעדכן את התוכנה שלך לגרסתה העדכנית ביותר. ההפצה שלך אמורה לספק כלים "
+"לעדכון התוכנה שלך."
 
 #: core/job_error.cpp:398
 #, fuzzy, kde-format
@@ -1016,8 +1017,8 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
-"יכול להיות שיש בעיה עם הגדרות הרשת שלך. אם עלה בידך לגשת לאחרונה לאינטרנט "
-"ללא כל בעיה, הדבר אינו סביר."
+"יכול להיות שיש בעיה עם הגדרות הרשת שלך. אם ניגשת לאינטרנט לאחרונה ללא כל "
+"בעיה, הסבירות נמוכה."
 
 #: core/job_error.cpp:415
 #, kde-format
@@ -1030,7 +1031,7 @@ msgstr ""
 #: core/job_error.cpp:417
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr "נסה שנית, בין אם עכשיו ובין אם מאוחר יותר."
+msgstr "כדאי לנסות שנית, עכשיו או מאוחר יותר."
 
 #: core/job_error.cpp:418
 #, kde-format
@@ -1040,27 +1041,27 @@ msgstr "ייתכן שאירעה שגיאת פרוטוקול או אי־תאימ�
 #: core/job_error.cpp:419
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
-msgstr "ודא שהמשאב קיים ונסה שנית."
+msgstr "נא לוודא שהמשאב קיים ולנסות שנית."
 
 #: core/job_error.cpp:420
 #, kde-format
 msgid "The specified resource may not exist."
-msgstr "ייתכן והמשאב המצוין לא קיים."
+msgstr "ייתכן שהמשאב שצוין לא קיים."
 
 #: core/job_error.cpp:422
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
-msgstr "בדוק שהזנת את המיקום הנכון ונסה שנית."
+msgstr "נא לוודא שמילאת את המיקום הנכון ולנסות שנית."
 
 #: core/job_error.cpp:424
 #, kde-format
 msgid "Check your network connection status."
-msgstr "בדוק את מצב החיבור שלך לרשת."
+msgstr "נא לבדוק את מצב החיבור שלך לרשת."
 
 #: core/job_error.cpp:428
 #, kde-format
 msgid "Cannot Open Resource For Reading"
-msgstr "אין אפשרות לפתוח את המשאב לקריאה"
+msgstr "אי אפשר לפתוח את המשאב לקריאה"
 
 #: core/job_error.cpp:430
 #, kde-format
@@ -1068,18 +1069,18 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"דבר זה אומר שאין אפשרות לאחזר את תוכן הקובץ או התיקייה המבוקשים <strong>%1</"
+"משמעות הדבר היא שאי אפשר לאחזר את תוכן הקובץ או התיקייה המבוקשים <strong>%1</"
 "strong>, וזאת מכיוון שאין אפשרות להשיג גישת קריאה."
 
 #: core/job_error.cpp:435
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr "ייתכן ואין לך הרשאות לקרוא את הקובץ או לפתוח את התיקייה."
+msgstr "כנראה שאין לך הרשאות לקרוא את הקובץ או לפתוח את התיקייה."
 
 #: core/job_error.cpp:442
 #, kde-format
 msgid "Cannot Open Resource For Writing"
-msgstr "אין אפשרות לפתוח את המשאב לכתיבה"
+msgstr "אי אפשר לפתוח את המשאב לכתיבה"
 
 #: core/job_error.cpp:444
 #, kde-format
@@ -1087,8 +1088,8 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"דבר זה אומר שאין אפשרות לכתוב אל הקובץ <strong>%1</strong> כמבוקש, וזאת "
-"מכיוון שאין אפשרות להשיג גישה עם הרשאת כתיבה."
+"דבר זה אומר שאין אפשרות לכתוב לקובץ <strong>%1</strong> כמבוקש, וזאת מכיוון "
+"שאי אפשר לקבל הרשת לגישת כתיבה."
 
 #: core/job_error.cpp:453
 #, fuzzy, kde-format
@@ -1098,7 +1099,7 @@ msgstr "אין אפשרות לאתחל את הפרוטוקול %1"
 #: core/job_error.cpp:454
 #, kde-format
 msgid "Unable to Launch Process"
-msgstr "אין אפשרות להפעיל את התהליך"
+msgstr "אי אפשר להפעיל את התהליך"
 
 #: core/job_error.cpp:456
 #, fuzzy, kde-format
@@ -1118,8 +1119,8 @@ msgid ""
 "incompatible with the current version and thus not start."
 msgstr ""
 "ייתכן שהתוכנית שמספקת תאימות עם פרוטוקול זה לא עודכנה במהלך העדכון האחרון של "
-"KDE. דבר זה עלול לגרום לכך שהתוכנית לא תהיה תואמת עם הגרסה הנוכחית, ועל כן "
-"היא עלולה שלא לפעול."
+"KDE. דבר זה עלול לגרום לכך שהתוכנית לא תהיה תואמת לגרסה הנוכחית, ועל כן היא "
+"עלולה שלא לפעול."
 
 #: core/job_error.cpp:470
 #, kde-format
@@ -4063,7 +4064,7 @@ msgstr ""
 #: kioexec/main.cpp:290
 #, kde-format
 msgid "Stephan Kulow"
-msgstr "Stephan Kulow"
+msgstr "סטפן קולו"
 
 #: kioexec/main.cpp:291
 #, kde-format
@@ -5856,7 +5857,7 @@ msgstr "הפעל ב&תור משתמש אחר"
 #: widgets/kpropertiesdesktopadvbase.ui:119
 #, kde-format
 msgid "Enter the user name you want to run the application as."
-msgstr "הזן את שם המשתמש תחתיו ברצונך להפעיל את התוכנית."
+msgstr "נא למלא תחת איזה שם משתמש להריץ את היישום."
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:122
@@ -5868,7 +5869,7 @@ msgstr "שם משתמש:"
 #: widgets/kpropertiesdesktopadvbase.ui:132
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
-msgstr "הזן כאן את שם המשתמש תחתיו ברצונך להפעיל את התוכנית."
+msgstr "נא למלא כאן תחת איזה שם משתמש להריץ את היישום."
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
 #: widgets/kpropertiesdesktopadvbase.ui:142
@@ -5898,8 +5899,8 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"בחר באפשרות זו אם ברצונך לוודא שהתוכנית שלך אכן הופעלה. המשוב החזותי לכך "
-"עשוי להופיע כמצביע עכבר עסוק או בשורת המשימות."
+"יש לסמן אפשרות זו כדי להצהיר בבירור שהיישום שלך התחיל. המשוב החזותי הזה עשוי "
+"להיות סמן עסוק או בשורת המשימות."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
@@ -5915,7 +5916,7 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
-"הזן כאן את השם שברצונך לתת לתוכנית. התוכנית תופיע בשם זה בתפריט התוכניות "
+"נא למלא כאן את שם היישום הזה. היישום הזה יופיע תחת השם הזה בתפריט היישומים "
 "ובלוח."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
@@ -5926,8 +5927,8 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "a dial up application (KPPP) would be \"Dial up tool\"."
 msgstr ""
-"הזן כאן את תיאור התוכנית, בהתאם לשימושים שלה. לדוגמה, תוכנית חיוג לאינטרנט "
-"(KPPP) תתואר למשל כ\"כלי חיוג לאינטרנט\"."
+"נא למלא כאן את תיאור היישום, לפי אופן השימוש בו. למשל: יישום חייגן (KPPP) "
+"יהיה „כלי חיוג”."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:45
@@ -5940,7 +5941,7 @@ msgstr "&תיאור:"
 #: widgets/kpropertiesdesktopbase.ui:62 widgets/kpropertiesdesktopbase.ui:75
 #, kde-format
 msgid "Type any comment you think is useful here."
-msgstr "הזן כאן כל הערה שהיא שנראית לך שימושית."
+msgstr "כאן יש להקליד כל הערה שהיא שימושית לדעתך."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:65
@@ -5974,13 +5975,13 @@ msgstr ""
 msgid ""
 "Click here to browse your file system in order to find the desired "
 "executable."
-msgstr "לחץ כאן כדי לעיין במערכת קבצים שלך ולמצוא את קובץ התוכנית המבוקש."
+msgstr "כאן אפשר ללחוץ כדי לעיין במערכת שלך ולמצוא את קובץ ההפעלה הנחוץ."
 
 #. i18n: ectx: property (text), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:120
 #, kde-format
 msgid "&Browse..."
-msgstr "ע&יון..."
+msgstr "ע&יון…"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
@@ -6042,7 +6043,7 @@ msgstr "תקן אותי: תעד זאת"
 #: widgets/kpropertiesdesktopbase.ui:169 widgets/kpropertiesdesktopbase.ui:182
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "הגדרת ספריית העבודה עבור התוכנית שלך."
+msgstr "הגדרת תיקיית העבודה עבור התוכנית שלך."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:172
@@ -6053,7 +6054,7 @@ msgstr "&נתיב עבודה:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:196 widgets/kpropertiesdesktopbase.ui:217
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "<qt><p>This list should show the types of file that your application can "
 "handle. This list is organized by <u>mimetypes</u>.</p>\n"
@@ -6086,7 +6087,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:199
 #, kde-format
 msgid "&Supported file types:"
-msgstr "סוגי קבצי &נתמכים:"
+msgstr "סוגי קבצים &נתמכים:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, filetypeList)
 #: widgets/kpropertiesdesktopbase.ui:230
@@ -6107,14 +6108,14 @@ msgid ""
 "Click on this button if you want to add a type of file (mimetype) that your "
 "application can handle."
 msgstr ""
-"לחץ על כפתור זה אם ברצונך להוסיף סוג קובץ (טיפוס Mime) שהתוכנית שלך יודעת "
-"לטפל בו."
+"כדי להוסיף סוג קובץ (טיפוס Mime) שהתוכנית שלך יודעת לטפל בו יש ללחוץ על "
+"הכפתור הזה."
 
 #. i18n: ectx: property (text), widget (QPushButton, addFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
 #, kde-format
 msgid "Add..."
-msgstr "הוסף..."
+msgstr "הוספה…"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:255
@@ -6123,14 +6124,14 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"אם ברצונך להסיר סוג קובץ (טיפוס Mime) שהתוכנית שלך לא יודעת לטפל בו, בחר את "
-"הטיפוס מהרשימה לעיל ולחץ על כפתור זה."
+"להסרת סוג קובץ (טיפוס Mime) שהתוכנית שלך לא יודעת לטפל בו, נא לבחור את "
+"הטיפוס מהרשימה לעיל וללחוץ על כפתור זה."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:258
 #, kde-format
 msgid "Remove"
-msgstr "הסר"
+msgstr "הסרה"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:281
@@ -6139,14 +6140,14 @@ msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
 "Bus options or to run it as a different user."
 msgstr ""
-"לחץ כאן כדי לשנות את הדרך שבה התוכנית תפעל, משוב לגבי הפעלה, אפשרויות D-BUS "
-"או כדי להפעיל אותה תחת משתמש אחר."
+"נא ללחוץ כאן כדי לשנות את הדרך בה היישום הזה יפעל, ישיק משוב, אפשרויות D-Bus "
+"או להריץ אותו כמשתמש אחר."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:284
 #, kde-format
 msgid "Ad&vanced Options"
-msgstr "אפשרויות &מתקדמות"
+msgstr "אפשרויות מ&תקדמות"
 
 #: widgets/kpropertiesdialog.cpp:171
 #, fuzzy, kde-kuit-format
@@ -6198,7 +6199,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:1062 widgets/kpropertiesdialog.cpp:1331
 #, kde-format
 msgid "Refresh"
-msgstr "רענן"
+msgstr "רענון"
 
 #: widgets/kpropertiesdialog.cpp:1177
 #, fuzzy, kde-format
@@ -6211,7 +6212,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%1 מתוך %2 (%3% בשימוש)"
+msgstr "%1 פנויים מתוך %2 (%3% בשימוש)"
 
 #: widgets/kpropertiesdialog.cpp:1298
 #, fuzzy, kde-format
@@ -6225,7 +6226,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"מחשב... %1 (%2)\n"
+"מחuשב… %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
@@ -6314,7 +6315,7 @@ msgstr "יכול להציג את התוכן"
 
 #: widgets/kpropertiesdialog.cpp:1695
 msgid "Can View & Modify Content"
-msgstr "יכול להציג את התוכן ולשנותו"
+msgstr "אפשר להציג את התוכן ולשנותו"
 
 #: widgets/kpropertiesdialog.cpp:1697
 #, fuzzy
@@ -6324,12 +6325,12 @@ msgstr "יכול להציג את התוכן"
 
 #: widgets/kpropertiesdialog.cpp:1697
 msgid "Can View/Read & Modify/Write"
-msgstr "יכול להציג/לקרוא ולשנות/לכתוב"
+msgstr "אפשר להציג/לקרוא ולשנות/לכתוב"
 
 #: widgets/kpropertiesdialog.cpp:1796
 #, kde-format
 msgid "&Permissions"
-msgstr "&הרשאות"
+msgstr "ה&רשאות"
 
 #: widgets/kpropertiesdialog.cpp:1808 widgets/kpropertiesdialog.cpp:2004
 #, kde-format
@@ -6348,7 +6349,7 @@ msgstr[3] ""
 #: widgets/kpropertiesdialog.cpp:1819
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "רק הבעלים יכול לשנות הרשאות."
+msgstr "רק הבעלים יכולים לשנות הרשאות."
 
 #: widgets/kpropertiesdialog.cpp:1823
 #, kde-format
@@ -6358,7 +6359,7 @@ msgstr "בע&לים:"
 #: widgets/kpropertiesdialog.cpp:1829
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr "ציון הפעולות שהבעלים רשאי לבצע."
+msgstr "ציון הפעולות שהבעלים רשאים לבצע."
 
 #: widgets/kpropertiesdialog.cpp:1831
 #, kde-format
@@ -6399,9 +6400,9 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"בחר באפשרות זו כדי לאפשר רק לבעלים של התיקייה להסיר או לשנות את שמות הקבצים "
-"והתיקיות המוכלים בה. משתמשים אחרים יוכלו רק להוסיף קבצים חדשים, מה שדורש את "
-"ההרשאה ל\"שינוי תוכן\"."
+"בחירה באפשרות זו תאפשר רק לבעלים של התיקייה להסיר או לשנות את שמות הקבצים "
+"והתיקיות שבה. משתמשים אחרים יוכלו רק להוסיף קבצים חדשים, מה שדורש את ההרשאה "
+"ל‚שינוי תוכן’."
 
 #: widgets/kpropertiesdialog.cpp:1857
 #, kde-format
@@ -6409,13 +6410,13 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"בחר באפשרות זו כדי לסמן את הקובץ כניתן להפעלה. אפשרות זו הגיונית רק עבור "
-"תוכניות ותסריטים, והיא דרושה כאשר ברצונך להפעיל אותם."
+"בחירה באפשרות זו תסמן את הקובץ כניתן להפעלה. אפשרות זו הגיונית רק עבור "
+"תוכניות וסקריפטים, והיא נחוצה להפעלתם."
 
 #: widgets/kpropertiesdialog.cpp:1864
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr "הרשאות &מתקדמות"
+msgstr "הרשאות מת&קדמות"
 
 #: widgets/kpropertiesdialog.cpp:1872
 #, kde-format
@@ -6435,7 +6436,7 @@ msgstr "קבוצה:"
 #: widgets/kpropertiesdialog.cpp:1953
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
-msgstr "החל את השינויים על כל תיקיות המשנה ותכולתן"
+msgstr "החלת השינויים על כל תיקיות המשנה ותכולתן"
 
 #: widgets/kpropertiesdialog.cpp:1995
 #, kde-format
@@ -6454,7 +6455,7 @@ msgid ""
 "Entries"
 msgstr ""
 "הצגת\n"
-"פריטים"
+"רשומות"
 
 #: widgets/kpropertiesdialog.cpp:2020
 #, kde-format
@@ -6478,7 +6479,7 @@ msgid ""
 "Entries"
 msgstr ""
 "כתיבת\n"
-"פריטים"
+"רשומות"
 
 #: widgets/kpropertiesdialog.cpp:2031
 #, kde-format
@@ -6486,8 +6487,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
-"דגל זה מאפשר להוסיף, לשנות שמות ולמחוק קבצים. שים לב שניתן להגביל מחיקות "
-"ושינויי שמות באמצעות הדגל \"דביק\"."
+"דגל זה מאפשר להוסיף, לשנות שמות ולמחוק קבצים. ראוי לשים לב שניתן להגביל "
+"מחיקות ושינויי שמות באמצעות הדגל „דביק”."
 
 #: widgets/kpropertiesdialog.cpp:2034
 #, kde-format
@@ -6508,7 +6509,7 @@ msgstr "כניסה"
 #: widgets/kpropertiesdialog.cpp:2042
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
-msgstr "בחר בדגל זה כדי לאפשר כניסה לתיקייה."
+msgstr "הפעלת דגל זה תאפשר כניסה לתיקייה."
 
 #: widgets/kpropertiesdialog.cpp:2044
 #, kde-format
@@ -6518,7 +6519,7 @@ msgstr "הפעלה"
 #: widgets/kpropertiesdialog.cpp:2045
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "בחר בדגל זה כדי לאפשר להפעיל את הקובץ בתור תוכנית."
+msgstr "יש להפעיל דגל זה כדי לאפשר הפעלת קובץ כתוכנית."
 
 #: widgets/kpropertiesdialog.cpp:2053
 #, kde-format
@@ -6531,15 +6532,15 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
-"דגל מיוחד. דגל זה חל על התיקייה כולה. ניתן לברר את המשמעות המדוייקת של הדגל "
-"בטור השמאלי."
+"דגל מיוחד. דגל זה חל על התיקייה כולה. ניתן לברר את המשמעות המדויקת של הדגל "
+"בעמודה השמאלית."
 
 #: widgets/kpropertiesdialog.cpp:2062
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
-msgstr "דגל מיוחד. ניתן לברר את המשמעות המדוייקת של הדגל בטור השמאלי."
+msgstr "דגל מיוחד. ניתן לברר את המשמעות המדויקת של הדגל בעמודה השמאלית."
 
 #: widgets/kpropertiesdialog.cpp:2067
 #, kde-format
@@ -6557,14 +6558,14 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
-"אם דגל זה נבחר, הבעלים של תיקייה זו יהיה הבעלים של כל הקבצים החדשים שייווצרו."
+"אם דגל זה נבחר, הבעלים של תיקייה זו יהיו הבעלים של כל הקבצים החדשים שייווצרו."
 
 #: widgets/kpropertiesdialog.cpp:2086
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
-msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם הרשאות של הבעלים."
+msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם ההרשאות של הבעלים."
 
 #: widgets/kpropertiesdialog.cpp:2093
 #, kde-format
@@ -6577,7 +6578,7 @@ msgstr "אם דגל זה נבחר, הקבוצה של תיקייה זו תוגד�
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
-msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם הרשאות של הקבוצה."
+msgstr "אם קובץ זה ניתן להפעלה ודגל זה נבחר, הוא יופעל עם ההרשאות של הקבוצה."
 
 #: widgets/kpropertiesdialog.cpp:2104
 #, kde-format
@@ -6585,8 +6586,8 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"אם הדגל \"דביק\" נבחר עבור תיקייה, רק הבעלים ו־root יוכלו למחוק או לשנות "
-"שמות קבצים. אחרת כל מי שיש לו הרשאת כתיבה יוכל לעשות זאת."
+"אם הדגל „דביק” הוגדר על תיקייה, רק הבעלים ומשתמש העל יכולים למחוק או לשנות "
+"שמות של קבצים. אחרת כל בעלי הרשאות הכתיבה יכולים לעשות זאת."
 
 #: widgets/kpropertiesdialog.cpp:2109
 #, kde-format
@@ -6600,12 +6601,12 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2170
 #, kde-format
 msgid "Set UID"
-msgstr "הגדר משתמש"
+msgstr "הגדרת מזהה משתמש"
 
 #: widgets/kpropertiesdialog.cpp:2174
 #, kde-format
 msgid "Set GID"
-msgstr "הגדר קבוצה"
+msgstr "הגדרת מזהה קבוצה"
 
 #: widgets/kpropertiesdialog.cpp:2178
 #, kde-format
@@ -6720,22 +6721,22 @@ msgstr "רק תוכניות במערכת הקבצים המקומית נתמכו�
 #: widgets/kpropertiesdialog.cpp:3231
 #, kde-format
 msgid "&Application"
-msgstr "תו&כנית"
+msgstr "יי&שום"
 
 #: widgets/kpropertiesdialog.cpp:3364
 #, kde-format
 msgid "Add File Type for %1"
-msgstr "הוסף סוג קובץ עבור %1"
+msgstr "הוספת סוג קובץ עבור %1"
 
 #: widgets/kpropertiesdialog.cpp:3365
 #, kde-format
 msgid "Select one or more file types to add:"
-msgstr "בחר סוג קובץ אחד או יותר להוספה:"
+msgstr "נא לבחור סוג קובץ אחד או יותר להוספה:"
 
 #: widgets/kpropertiesdialog.cpp:3507
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "רק תוכניות במערכת הקבצים המקומית נתמכות."
+msgstr "יש תמיכה רק בקובצי ההפעלה במערכת המקומית."
 
 #: widgets/kpropertiesdialog.cpp:3521
 #, kde-format
@@ -6745,7 +6746,7 @@ msgstr "אפשרויות מתקדמות עבור %1"
 #: widgets/ksslinfodialog.cpp:38
 #, kde-format
 msgid "KDE SSL Information"
-msgstr "מידע SSL של KDE"
+msgstr "פרטי SSL של KDE"
 
 #: widgets/ksslinfodialog.cpp:49
 #, kde-format
@@ -6762,24 +6763,23 @@ msgstr "מנפיק"
 #: widgets/ksslinfodialog.cpp:82
 #, kde-format
 msgid "Current connection is secured with SSL."
-msgstr "החיבור הנוכחי מאובטח על ידי SSL."
+msgstr "החיבור הנוכחי מאובטח ב־SSL."
 
 #: widgets/ksslinfodialog.cpp:86
 #, kde-format
 msgid ""
 "The main part of this document is secured with SSL, but some parts are not."
-msgstr ""
-"חלקו הארי של מסמך זה מאובטח באמצעות SSL, אולם ישנם גם חלקים שאינם מאובטחים."
+msgstr "חלקו הארי של מסמך זה מאובטח ב־SSL, אולם ישנם גם חלקים מפוקפקים."
 
 #: widgets/ksslinfodialog.cpp:93
 #, kde-format
 msgid "Some of this document is secured with SSL, but the main part is not."
-msgstr "חלק ממסמך זה מאובטח באמצעות SSL, אולם חלקו הארי אינו מאובטח."
+msgstr "חלק ממסמך זה מאובטח ב־SSL, אולם חלקו הארי מפוקפק."
 
 #: widgets/ksslinfodialog.cpp:97
 #, kde-format
 msgid "Current connection is not secured with SSL."
-msgstr "החיבור הנוכחי אינו מאובטח על ידי SSL."
+msgstr "החיבור הנוכחי אינו מאובטח ב־SSL."
 
 #: widgets/ksslinfodialog.cpp:139
 #, kde-format
@@ -6844,12 +6844,12 @@ msgstr "שינוי &מדיניות ..."
 #: widgets/kurlrequester.cpp:389
 #, kde-format
 msgid "Open file dialog"
-msgstr "פתח דו־שיח קבצים"
+msgstr "פתיחת חלונית קבצים"
 
 #: widgets/paste.cpp:69 widgets/paste.cpp:118 widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
-msgstr "שם קובץ עבור תכולת לוח העריכה:"
+msgstr "שם קובץ תכולת לוח הגזירים:"
 
 #: widgets/paste.cpp:110
 #, kde-format
@@ -6862,20 +6862,20 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
-"תכולת לוח העריכה השתנתה מאז שהשתמשת ב\"הדבקה\": תבנית הנתונים הנבחרת אינה "
-"ישימה עוד. העתק שוב את התוכן שברצונך להדביק."
+"תכולת לוח הגזירים השתנתה מאז שהשתמשת ב„הדבקה”: תבנית הנתונים הנבחרת אינה "
+"ישימה עוד. נא להעתיק שוב את התוכן שמיועד להדבקה."
 
 #: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
-msgstr "הדבק תיקיה אחת"
+msgstr "הדבקת תיקייה אחת"
 
 #: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
-msgstr "הדבק קובץ אחד"
+msgstr "הדבקת קובץ אחד"
 
 #: widgets/paste.cpp:254
 #, fuzzy, kde-format
@@ -6897,7 +6897,7 @@ msgstr "הדבק תוכן לוח העתקה"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr "הדבק"
+msgstr "הדבקה"
 
 #: widgets/pastedialog.cpp:43
 #, kde-format
@@ -6922,7 +6922,7 @@ msgstr "גודל: %1"
 #: widgets/renamedialog.cpp:227
 #, kde-format
 msgid "Appl&y to All"
-msgstr "ה&חל על כולם"
+msgstr "ה&חלה על הכול"
 
 #: widgets/renamedialog.cpp:228
 #, kde-format
@@ -6932,10 +6932,9 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"כאשר אפשרות זו מופעלת הכפתור הנלחץ יוחל על כל ההתנגשויות של תיקיות עבור "
-"המשימה הנוכחית.\n"
-"אם לא תלחץ על דלג המערכת תשאל אותך בכל פעם מחדש במקרה של התנגשות עם קובץ "
-"בספרייה."
+"כשאפשרות זו מסומנת לחיצה על הכפתור תחול על כל סתירות התיקיות הבאות למשך "
+"שארית זמן ריצת המשימה.\n"
+"אם לא לחצת על דילוג עדיין תופענה בקשות במקרה של סתירה עם קובץ קיים בתיקייה."
 
 #: widgets/renamedialog.cpp:232
 #, kde-format
@@ -6943,39 +6942,39 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"כאשר אפשרות זו מופעלת הכפתור הנלחץ יוחל על כל ההתנגשויות של תיקיות עבור "
-"המשימה הנוכחית."
+"כשאפשרות זו מסומנת לחיצה על הכפתור תחול על כל הסתירות הבאות למשך שארית זמן "
+"ריצת המשימה."
 
 #: widgets/renamedialog.cpp:238
 #, kde-format
 msgid "&Rename"
-msgstr "&שנה שם"
+msgstr "&שינוי שם"
 
 #: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "Suggest New &Name"
-msgstr "הצע שם &חדש"
+msgstr "הצעת שם &חדש"
 
 #: widgets/renamedialog.cpp:246
 #, kde-format
 msgid "&Skip"
-msgstr "&דלג"
+msgstr "&דילוג"
 
 #: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
-msgstr "אל תעביר או תעתיק תיקייה זו, דלג לפריט הבא במקום"
+msgstr "לא להעביר או להעתיק תיקייה זו, לדלג לפריט הבא במקום"
 
 #: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
-msgstr "אל תעביר או תעתיק קובץ זה, דלג לפריט הבא במקום"
+msgstr "לא להעביר או להעתיק קובץ זה, לדלג לפריט הבא במקום"
 
 #: widgets/renamedialog.cpp:259
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
-msgstr "&כתוב אל"
+msgstr "&כתיבה אל"
 
 #: widgets/renamedialog.cpp:262
 #, kde-format
@@ -6985,7 +6984,7 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"קבצים ותיקיות יועתקו אל הספרייה הקיימת לצד התוכן הקיים. \n"
+"קבצים ותיקיות יועתקו לתיקייה הקיימת לצד התוכן הקיים. \n"
 "המערכת תשאל אותך במקרה של התנגשות עם קובץ קיים במערכת."
 
 #: widgets/renamedialog.cpp:267
@@ -7005,7 +7004,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:283
 #, kde-format
 msgid "&Resume"
-msgstr "&המשך"
+msgstr "&חידוש"
 
 #: widgets/renamedialog.cpp:292
 #, kde-format
@@ -7013,13 +7012,13 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"פעולה זו תשכתב את \"%1\" על גבי עצמו.\n"
-"הזן שם קובץ חדש:"
+"פעולה זו תשכתב את ‚%1’ על גבי עצמו.\n"
+"נא למלא שם חדש לקובץ:"
 
 #: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "C&ontinue"
-msgstr "&המשך"
+msgstr "המ&שך"
 
 #: widgets/renamedialog.cpp:370
 #, kde-format
@@ -7086,22 +7085,22 @@ msgstr ""
 #: widgets/renamedialog.cpp:474
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "כבר קיים פריט ישן יותר בשם \"%1\"."
+msgstr "כבר קיים פריט קודם בשם ‚%1’."
 
 #: widgets/renamedialog.cpp:476
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "כבר קיים קובץ דומה בשם \"%1\"."
+msgstr "כבר קיים קובץ דומה בשם ‚%1’."
 
 #: widgets/renamedialog.cpp:478
 #, kde-format
 msgid "A more recent item named '%1' already exists."
-msgstr "כבר קיים פריט חדש יותר בשם \"%1\"."
+msgstr "כבר קיים פריט עדכני יותר בשם ‚%1’."
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "Rename:"
-msgstr "שנה שם:"
+msgstr "שינוי שם:"
 
 #: widgets/renamefiledialog.cpp:61
 #, fuzzy, kde-format
@@ -7164,7 +7163,7 @@ msgstr "מידע"
 #: widgets/skipdialog.cpp:47
 #, kde-format
 msgid "Replace"
-msgstr "החלף"
+msgstr "החלפה"
 
 #: widgets/skipdialog.cpp:53
 #, kde-format
@@ -7180,7 +7179,7 @@ msgstr "החלף"
 #: widgets/skipdialog.cpp:67
 #, kde-format
 msgid "Skip"
-msgstr "דלג"
+msgstr "דילוג"
 
 #: widgets/skipdialog.cpp:71
 #, fuzzy, kde-format
@@ -7229,19 +7228,19 @@ msgstr "גרסת SSL:"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "שרשרת תעודה:"
+msgstr "שרשרת אישורים:"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163
 #, kde-format
 msgid "Trusted:"
-msgstr "בטוח:"
+msgstr "מהימן:"
 
 #. i18n: ectx: property (text), widget (QLabel, validityPeriodTag)
 #: widgets/sslinfo.ui:183
 #, kde-format
 msgid "Validity period:"
-msgstr "בתוקף מ:"
+msgstr "תקופת תוקף:"
 
 #. i18n: ectx: property (text), widget (QLabel, serialTag)
 #: widgets/sslinfo.ui:203
@@ -7268,7 +7267,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 "השרת המרוחק לא שלח תעודות SSL.\n"
-"מבטל כיוון שאין אפשרות לאמת את זהות השרת."
+"מבוטל כיוון שאי אפשר לאמת את זהות השרת."
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
