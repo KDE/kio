@@ -1,0 +1,7 @@
+[Desktop Entry]
+Charset=
+Hidden=false
+Keys=pypi
+Name=PyPI
+Query=https://pypi.org/search/?q=\\{@}
+Type=Service
