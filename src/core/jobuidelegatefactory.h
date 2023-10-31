@@ -44,19 +44,14 @@ protected:
 public:
     virtual KJobUiDelegate *createDelegate() const = 0;
 
+    /**
+     * @since 6.0
+     */
+    virtual KJobUiDelegate *createDelegate(KJobUiDelegate::Flags flags, QWidget *window) const = 0;
+
 private:
     class Private;
     Private *const d;
-};
-
-class KIOCORE_EXPORT JobUiDelegateFactoryV2 : public JobUiDelegateFactory
-{
-protected:
-    using JobUiDelegateFactory::JobUiDelegateFactory;
-
-public:
-    KJobUiDelegate *createDelegate() const override = 0;
-    virtual KJobUiDelegate *createDelegate(KJobUiDelegate::Flags flags, QWidget *window) const = 0;
 };
 
 /**
@@ -74,16 +69,16 @@ KIOCORE_EXPORT KJobUiDelegate *createDefaultJobUiDelegate(KJobUiDelegate::Flags 
 /**
  * Returns the default job UI delegate factory to be used by all KIO jobs (in which HideProgressInfo is not set)
  * Can return nullptr, if no kio GUI library is loaded.
- * @since 5.98
+ * @since 6.0
  */
-KIOCORE_EXPORT JobUiDelegateFactoryV2 *defaultJobUiDelegateFactoryV2();
+KIOCORE_EXPORT JobUiDelegateFactory *defaultJobUiDelegateFactory();
 
 /**
  * Internal. Allows the KIO widgets library to register its widget-based job UI delegate factory
  * automatically.
- * @since 5.98
+ * @since 6.0
  */
-KIOCORE_EXPORT void setDefaultJobUiDelegateFactoryV2(JobUiDelegateFactoryV2 *factory);
+KIOCORE_EXPORT void setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory);
 
 /**
  * Returns the child of the job's uiDelegate() that implements the given extension,

@@ -18,7 +18,6 @@ JobUiDelegateFactory::JobUiDelegateFactory()
 JobUiDelegateFactory::~JobUiDelegateFactory() = default;
 
 static JobUiDelegateFactory *s_factory = nullptr;
-static JobUiDelegateFactoryV2 *s_factoryV2 = nullptr;
 
 KJobUiDelegate *KIO::createDefaultJobUiDelegate()
 {
@@ -27,16 +26,15 @@ KJobUiDelegate *KIO::createDefaultJobUiDelegate()
 
 KJobUiDelegate *KIO::createDefaultJobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window)
 {
-    return s_factoryV2 ? s_factoryV2->createDelegate(flags, window) : nullptr;
+    return s_factory ? s_factory->createDelegate(flags, window) : nullptr;
 }
 
-JobUiDelegateFactoryV2 *KIO::defaultJobUiDelegateFactoryV2()
+JobUiDelegateFactory *KIO::defaultJobUiDelegateFactory()
 {
-    return s_factoryV2;
+    return s_factory;
 }
 
-void KIO::setDefaultJobUiDelegateFactoryV2(JobUiDelegateFactoryV2 *factory)
+void KIO::setDefaultJobUiDelegateFactory(JobUiDelegateFactory *factory)
 {
-    s_factoryV2 = factory;
     s_factory = factory;
 }

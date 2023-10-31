@@ -83,7 +83,7 @@ private Q_SLOTS:
         QStandardPaths::setTestModeEnabled(true);
         qputenv("KIOWORKER_ENABLE_TESTMODE", "1"); // ensure the KIO workers call QStandardPaths::setTestModeEnabled too
 
-        KIO::setDefaultJobUiDelegateFactoryV2(nullptr);
+        KIO::setDefaultJobUiDelegateFactory(nullptr);
         KIO::setDefaultJobUiDelegateExtension(nullptr);
 
         m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");

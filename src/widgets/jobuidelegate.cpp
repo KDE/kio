@@ -316,41 +316,38 @@ void KIO::JobUiDelegate::updateUrlInClipboard(const QUrl &src, const QUrl &dest)
     }
 }
 
-KIO::JobUiDelegate::JobUiDelegate(Version version, KJobUiDelegate::Flags flags, QWidget *window, const QList<QObject *> &ifaces)
+KIO::JobUiDelegate::JobUiDelegate(KJobUiDelegate::Flags flags, QWidget *window, const QList<QObject *> &ifaces)
     : KDialogJobUiDelegate(flags, window)
     , d(new JobUiDelegatePrivate(this, ifaces))
 {
-    // TODO KF6: drop the version argument and replace the deprecated constructor
     // TODO KF6: change the API to accept QWindows rather than QWidgets (this also carries through to the Interfaces)
     if (window) {
         s_static()->registerWindow(window);
         setWindow(window);
     }
-
-    Q_UNUSED(version); // only serves to disambiguate constructors
 }
 
-class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactoryV2
+class KIOWidgetJobUiDelegateFactory : public KIO::JobUiDelegateFactory
 {
 public:
-    using KIO::JobUiDelegateFactoryV2::JobUiDelegateFactoryV2;
+    using KIO::JobUiDelegateFactory::JobUiDelegateFactory;
 
     KJobUiDelegate *createDelegate() const override
     {
-        return new KIO::JobUiDelegate(KIO::JobUiDelegate::Version::V2);
+        return new KIO::JobUiDelegate;
     }
 
     KJobUiDelegate *createDelegate(KJobUiDelegate::Flags flags, QWidget *window) const override
     {
-        return new KIO::JobUiDelegate(KIO::JobUiDelegate::Version::V2, flags, window);
+        return new KIO::JobUiDelegate(flags, window);
     }
 
     static void registerJobUiDelegate()
     {
         static KIOWidgetJobUiDelegateFactory factory;
-        KIO::setDefaultJobUiDelegateFactoryV2(&factory);
+        KIO::setDefaultJobUiDelegateFactory(&factory);
 
-        static KIO::JobUiDelegate delegate(KIO::JobUiDelegate::Version::V2);
+        static KIO::JobUiDelegate delegate;
         KIO::setDefaultJobUiDelegateExtension(&delegate);
     }
 };

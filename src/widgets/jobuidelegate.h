@@ -47,19 +47,14 @@ class KIOWIDGETS_EXPORT JobUiDelegate : public KDialogJobUiDelegate, public JobU
 protected:
     friend class ::KDirOperator;
 
-    enum class Version {
-        V2,
-    };
-
     /**
      * Constructs a new KIO Job UI delegate.
-     * @param version does nothing purely here to disambiguate this constructor from the deprecated older constructors.
      * @param flags allows to enable automatic error/warning handling
      * @param window the window associated with this delegate, see setWindow.
      * @param ifaces Interface instances such as OpenWithHandlerInterface to replace the default interfaces
      * @since 5.98
      */
-    explicit JobUiDelegate(Version version, KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
+    explicit JobUiDelegate(KJobUiDelegate::Flags flags = AutoHandlingDisabled, QWidget *window = nullptr, const QList<QObject *> &ifaces = {});
 
 public:
     /**

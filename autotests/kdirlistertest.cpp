@@ -48,7 +48,7 @@ void KDirListerTest::initTestCase()
 
     // No message dialogs
     KIO::setDefaultJobUiDelegateExtension(nullptr);
-    KIO::setDefaultJobUiDelegateFactoryV2(nullptr);
+    KIO::setDefaultJobUiDelegateFactory(nullptr);
 
     m_exitCount = 1;
 
