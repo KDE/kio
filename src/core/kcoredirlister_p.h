@@ -67,8 +67,6 @@ public:
     void addRefreshItem(const QUrl &directoryUrl, const KFileItem &oldItem, const KFileItem &item);
     void emitItems();
     void emitItemsDeleted(const KFileItemList &items);
-    bool matchesFilter(const QString &name) const;
-    bool matchesMimeFilter(const QString &mimeType) const;
 
     /*
      * Called for every new item before emitting newItems().
