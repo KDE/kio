@@ -2237,7 +2237,7 @@ void KCoreDirListerPrivate::emitChanges()
         }
 
         for (const KFileItem &item : *itemList) {
-            if (isItemVisible(item) && q->matchesMimeFilter(item)) {
+            if (isItemVisible(item) && matchesMimeFilter(item)) {
                 oldVisibleItems.insert(item.name());
             }
         }
@@ -2260,7 +2260,7 @@ void KCoreDirListerPrivate::emitChanges()
                 continue;
             }
             const bool wasVisible = oldVisibleItems.find(item.name()) != oldVisibleItems.cend();
-            const bool mimeFiltered = q->matchesMimeFilter(item);
+            const bool mimeFiltered = matchesMimeFilter(item);
             const bool nowVisible = isItemVisible(item) && mimeFiltered;
             if (nowVisible && !wasVisible) {
                 addNewItem(dir, item); // takes care of emitting newItem or itemsFilteredByMime
@@ -2373,12 +2373,12 @@ bool KCoreDirListerPrivate::matchesFilter(const QString &name) const
 
 bool KCoreDirListerPrivate::matchesMimeFilter(const QString &mime) const
 {
-    return q->doMimeFilter(mime, settings.mimeFilter) && doMimeExcludeFilter(mime, settings.mimeExcludeFilter);
+    return doMimeFilter(mime, settings.mimeFilter) && doMimeExcludeFilter(mime, settings.mimeExcludeFilter);
 }
 
 // ================ protected methods ================ //
 
-bool KCoreDirLister::matchesFilter(const KFileItem &item) const
+bool KCoreDirListerPrivate::matchesFilter(const KFileItem &item) const
 {
     Q_ASSERT(!item.isNull());
 
@@ -2386,28 +2386,28 @@ bool KCoreDirLister::matchesFilter(const KFileItem &item) const
         return false;
     }
 
-    if (!d->settings.isShowingDotFiles && item.isHidden()) {
+    if (!settings.isShowingDotFiles && item.isHidden()) {
         return false;
     }
 
-    if (item.isDir() || d->settings.lstFilters.isEmpty()) {
+    if (item.isDir() || settings.lstFilters.isEmpty()) {
         return true;
     }
 
-    return d->matchesFilter(item.text());
+    return matchesFilter(item.text());
 }
 
-bool KCoreDirLister::matchesMimeFilter(const KFileItem &item) const
+bool KCoreDirListerPrivate::matchesMimeFilter(const KFileItem &item) const
 {
     Q_ASSERT(!item.isNull());
     // Don't lose time determining the MIME type if there is no filter
-    if (d->settings.mimeFilter.isEmpty() && d->settings.mimeExcludeFilter.isEmpty()) {
+    if (settings.mimeFilter.isEmpty() && settings.mimeExcludeFilter.isEmpty()) {
         return true;
     }
-    return d->matchesMimeFilter(item.mimetype());
+    return matchesMimeFilter(item.mimetype());
 }
 
-bool KCoreDirLister::doMimeFilter(const QString &mime, const QStringList &filters) const
+bool KCoreDirListerPrivate::doMimeFilter(const QString &mime, const QStringList &filters) const
 {
     if (filters.isEmpty()) {
         return true;
@@ -2442,7 +2442,7 @@ void KCoreDirListerPrivate::addNewItem(const QUrl &directoryUrl, const KFileItem
 
     qCDebug(KIO_CORE_DIRLISTER) << "in" << directoryUrl << "item:" << item.url();
 
-    if (q->matchesMimeFilter(item)) {
+    if (matchesMimeFilter(item)) {
         Q_ASSERT(!item.isNull());
         lstNewItems[directoryUrl].append(item); // items not filtered
     } else {
@@ -2469,8 +2469,8 @@ void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFile
         return;
     }
 
-    const bool refreshItemWasFiltered = !isItemVisible(oldItem) || !q->matchesMimeFilter(oldItem);
-    if (item.exists() && isItemVisible(item) && q->matchesMimeFilter(item)) {
+    const bool refreshItemWasFiltered = !isItemVisible(oldItem) || !matchesMimeFilter(oldItem);
+    if (item.exists() && isItemVisible(item) && matchesMimeFilter(item)) {
         if (refreshItemWasFiltered) {
             Q_ASSERT(!item.isNull());
             lstNewItems[directoryUrl].append(item);
@@ -2519,14 +2519,14 @@ bool KCoreDirListerPrivate::isItemVisible(const KFileItem &item) const
     // Note that this doesn't include MIME type filters, because
     // of the itemsFilteredByMime signal. Filtered-by-MIME-type items are
     // considered "visible", they are just visible via a different signal...
-    return (!settings.dirOnlyMode || item.isDir()) && q->matchesFilter(item);
+    return (!settings.dirOnlyMode || item.isDir()) && matchesFilter(item);
 }
 
 void KCoreDirListerPrivate::emitItemsDeleted(const KFileItemList &itemsList)
 {
     KFileItemList items;
     std::copy_if(itemsList.cbegin(), itemsList.cend(), std::back_inserter(items), [this](const KFileItem &item) {
-        return isItemVisible(item) || q->matchesMimeFilter(item);
+        return isItemVisible(item) || matchesMimeFilter(item);
     });
     if (!items.isEmpty()) {
         Q_EMIT q->itemsDeleted(items);
@@ -2672,7 +2672,7 @@ KFileItemList KCoreDirLister::itemsForDir(const QUrl &dir, WhichItems which) con
         return KFileItemList(*allItems);
     } else { // only items passing the filters
         std::copy_if(allItems->cbegin(), allItems->cend(), std::back_inserter(result), [this](const KFileItem &item) {
-            return d->isItemVisible(item) && matchesMimeFilter(item);
+            return d->isItemVisible(item) && d->matchesMimeFilter(item);
         });
     }
     return result;

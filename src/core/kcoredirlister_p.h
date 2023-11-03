@@ -50,6 +50,14 @@ public:
     void slotProcessedSize(KJob *, qulonglong);
     void slotSpeed(KJob *, unsigned long);
 
+    /*
+     * Called by the public matchesMimeFilter() to do the
+     * actual filtering. Those methods may be reimplemented to customize
+     * filtering.
+     * @param mimeType the MIME type to filter
+     * @param filters the list of MIME types to filter
+     */
+    bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
     bool doMimeExcludeFilter(const QString &mimeExclude, const QStringList &filters) const;
     void connectJob(KIO::ListJob *);
     void jobDone(KIO::ListJob *);
@@ -61,6 +69,34 @@ public:
     void emitItemsDeleted(const KFileItemList &items);
     bool matchesFilter(const QString &name) const;
     bool matchesMimeFilter(const QString &mimeType) const;
+
+    /*
+     * Called for every new item before emitting newItems().
+     * You may reimplement this method in a subclass to implement your own
+     * filtering.
+     * The default implementation filters out ".." and everything not matching
+     * the name filter(s)
+     * @return @c true if the item is "ok".
+     *         @c false if the item shall not be shown in a view, e.g.
+     * files not matching a pattern *.cpp ( KFileItem::isHidden())
+     * @see matchesFilter
+     * @see setNameFilter
+     */
+    bool matchesFilter(const KFileItem &) const;
+
+    /*
+     * Called for every new item before emitting newItems().
+     * You may reimplement this method in a subclass to implement your own
+     * filtering.
+     * The default implementation filters out everything not matching
+     * the mime filter(s)
+     * @return @c true if the item is "ok".
+     *         @c false if the item shall not be shown in a view, e.g.
+     * files not matching the mime filter
+     * @see matchesMimeFilter
+     * @see setMimeFilter
+     */
+    bool matchesMimeFilter(const KFileItem &) const;
 
     /**
      * Redirect this dirlister from oldUrl to newUrl.

@@ -620,44 +620,6 @@ Q_SIGNALS:
 
 protected:
     /**
-     * Called for every new item before emitting newItems().
-     * You may reimplement this method in a subclass to implement your own
-     * filtering.
-     * The default implementation filters out ".." and everything not matching
-     * the name filter(s)
-     * @return @c true if the item is "ok".
-     *         @c false if the item shall not be shown in a view, e.g.
-     * files not matching a pattern *.cpp ( KFileItem::isHidden())
-     * @see matchesFilter
-     * @see setNameFilter
-     */
-    virtual bool matchesFilter(const KFileItem &) const;
-
-    /**
-     * Called for every new item before emitting newItems().
-     * You may reimplement this method in a subclass to implement your own
-     * filtering.
-     * The default implementation filters out everything not matching
-     * the mime filter(s)
-     * @return @c true if the item is "ok".
-     *         @c false if the item shall not be shown in a view, e.g.
-     * files not matching the mime filter
-     * @see matchesMimeFilter
-     * @see setMimeFilter
-     */
-    virtual bool matchesMimeFilter(const KFileItem &) const;
-
-    /**
-     * Called by the public matchesMimeFilter() to do the
-     * actual filtering. Those methods may be reimplemented to customize
-     * filtering.
-     * @param mimeType the MIME type to filter
-     * @param filters the list of MIME types to filter
-     */
-    // TODO KF6 remove
-    virtual bool doMimeFilter(const QString &mimeType, const QStringList &filters) const;
-
-    /**
      * Reimplemented by KDirLister to associate windows with jobs
      * @since 5.0
      */
