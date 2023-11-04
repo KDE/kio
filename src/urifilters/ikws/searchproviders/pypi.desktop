@@ -12,6 +12,7 @@ Name[he]=PyPI
 Name[ia]=PyPI
 Name[ka]=PyPI
 Name[nl]=PyPI
+Name[pl]=PyPI
 Name[sl]=PyPI
 Name[tr]=PyPI
 Name[uk]=PyPI
@@ -26,6 +27,7 @@ Query[he]=https://pypi.org/search/?q=\\{@}
 Query[ia]=https://pypi.org/search/?q=\\{@}
 Query[ka]=https://pypi.org/search/?q=\\{@}
 Query[nl]=https://pypi.org/search/?q=\\{@}
+Query[pl]=https://pypi.org/search/?q=\\{@}
 Query[sl]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}
 Query[uk]=https://pypi.org/search/?q=\\{@}
