@@ -336,47 +336,6 @@ KProtocolManager::ProxyType KProtocolManager::proxyType()
     return d->proxyType();
 }
 
-/*========================== CACHING =====================================*/
-
-bool KProtocolManager::useCache()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return http_config().readEntry("UseCache", true);
-}
-
-KIO::CacheControl KProtocolManager::cacheControl()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    QString tmp = http_config().readEntry("cache");
-    if (tmp.isEmpty()) {
-        return DEFAULT_CACHE_CONTROL;
-    }
-    return KIO::parseCacheControl(tmp);
-}
-
-QString KProtocolManager::cacheDir()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return http_config().readPathEntry("CacheDir", QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/kio_http"));
-}
-
-int KProtocolManager::maxCacheAge()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return http_config().readEntry("MaxCacheAge", DEFAULT_MAX_CACHE_AGE);
-}
-
-int KProtocolManager::maxCacheSize()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return http_config().readEntry("MaxCacheSize", DEFAULT_MAX_CACHE_SIZE);
-}
-
 static QString adjustProtocol(const QString &scheme)
 {
     if (scheme.compare(QLatin1String("webdav"), Qt::CaseInsensitive) == 0) {
@@ -800,20 +759,6 @@ bool KProtocolManager::autoResume()
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QByteArray()).readEntry("AutoResume", false);
-}
-
-bool KProtocolManager::persistentConnections()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return config()->group(QByteArray()).readEntry("PersistentConnections", true);
-}
-
-bool KProtocolManager::persistentProxyConnection()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return config()->group(QByteArray()).readEntry("PersistentProxyConnection", false);
 }
 
 QString KProtocolManager::proxyConfigScript()

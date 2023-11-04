@@ -150,48 +150,6 @@ public:
      */
     static QString proxyConfigScript();
 
-    /*========================== CACHE CONFIG ===================================*/
-
-    /**
-     * Returns true/false to indicate whether a cache
-     * should be used
-     *
-     * @return true to use the cache, false otherwisea
-     */
-    static bool useCache();
-
-    /**
-     * Returns the maximum age in seconds cached files should be
-     * kept before they are deleted as necessary.
-     *
-     * @return the maximum cache age in seconds
-     */
-    static int maxCacheAge();
-
-    /**
-     * Returns the maximum size that can be used for caching.
-     *
-     * By default this function returns the DEFAULT_MAX_CACHE_SIZE
-     * value as defined in http_worker_defaults.h.  Not that the
-     * value returned is in bytes, hence a value of 5120 would mean
-     * 5 Kb.
-     *
-     * @return the maximum cache size in bytes
-     */
-    static int maxCacheSize(); // Maximum cache size in Kb.
-
-    /**
-     * The directory which contains the cache files.
-     * @return the directory that contains the cache files
-     */
-    static QString cacheDir();
-
-    /**
-     * Returns the Cache control directive to be used.
-     * @return the cache control value
-     */
-    static KIO::CacheControl cacheControl();
-
     /*============================ DOWNLOAD CONFIG ==============================*/
 
     /**
@@ -219,19 +177,6 @@ public:
      * @return the minimum keep size for aborted downloads in bytes
      */
     static int minimumKeepSize();
-
-    /*============================ NETWORK CONNECTIONS ==========================*/
-    /**
-     * Returns true if proxy connections should be persistent.
-     * @return true if proxy connections should be persistent
-     */
-    static bool persistentProxyConnection();
-
-    /**
-     * Returns true if connections should be persistent
-     * @return true if the connections should be persistent
-     */
-    static bool persistentConnections();
 
     /*===================== PROTOCOL CAPABILITIES ===============================*/
 
