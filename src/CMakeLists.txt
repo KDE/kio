@@ -19,11 +19,6 @@ if (NOT ANDROID)
     add_subdirectory(urifilters)
 endif()
 
-if(NOT WIN32 AND NOT ANDROID)
-  # arpa/nameser.h
-  add_subdirectory(kpac)
-endif()
-
 set(NON_KIOCORE_LINK_QCHS
     Qt6Widgets_QCH
     Qt6Network_QCH

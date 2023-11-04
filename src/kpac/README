@@ -1,9 +1,0 @@
-Proxy Auto Configuration is a means to use a JavaScript function to
-determine the proxy to use based on the requested URL.
-It is described in detail here:
-http://home.netscape.com/eng/mozilla/2.0/relnotes/demo/proxy-live.html
-
-Also implemented by this library are parts of the now expired Internet Draft
-at http://www.wrec.org/Drafts/draft-cooper-webi-wpad-00.txt about WPAD
-(Web Proxy Automatic Discovery). The discovery implemented discovery methods
-are DHCP and DNS "Well known Aliases".
