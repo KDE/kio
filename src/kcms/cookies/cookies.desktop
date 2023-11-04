@@ -69,7 +69,6 @@ Name[tok]=sona lili awen pi ilo lipu
 Name[tr]=Çerezler
 Name[uk]=Куки
 Name[vi]=Bánh quy
-Name[x-test]=xxCookiesxx
 Name[zh_CN]=Cookies
 Name[zh_TW]=Cookies
 
@@ -163,7 +162,6 @@ Comment[uz@cyrillic]=Кукилар ишлашини мослаш
 Comment[vi]=Cấu hình cách bánh quy hoạt động
 Comment[wa]=Apontyî l' dujhance des coûkes
 Comment[xh]=Qwalasela indlela ezisebenza ngayo i cookies
-Comment[x-test]=xxConfigure the way cookies workxx
 Comment[zh_CN]=配置 Cookies 的工作方式
 Comment[zh_TW]=設定 cookies 運作方式
 
@@ -224,6 +222,5 @@ X-KDE-Keywords[tok]=suwi linluwi, alasa linluwi, linluwi, ma WWW, kulupu ilo, la
 X-KDE-Keywords[tr]=Çerezler,Tarama,İnternet,WWW,Ağ,Politika,Alan Adları
 X-KDE-Keywords[uk]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,кука,куки,перегляд,інтернет,мережа,правило,правила,домен,домени
 X-KDE-Keywords[vi]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,Bánh quy,Duyệt,Liên Mạng,WWW,Mạng,Chính sách,Miền
-X-KDE-Keywords[x-test]=xxCookiesxx,xxBrowsingxx,xxInternetxx,xxWWWxx,xxNetworkxx,xxPolicyxx,xxDomainsxx
 X-KDE-Keywords[zh_CN]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains,浏览,互联网,万维网,网络,策略,域名
 X-KDE-Keywords[zh_TW]=Cookies,Browsing,Internet,WWW,Network,Policy,Domains

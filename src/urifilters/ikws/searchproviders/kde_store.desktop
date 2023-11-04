@@ -45,7 +45,6 @@ Name[sv]=KDE-butik
 Name[tr]=KDE Mağaza
 Name[uk]=Крамниця KDE
 Name[vi]=Cửa hàng KDE
-Name[x-test]=xxKDE Storexx
 Name[zh_CN]=KDE 商店
 Name[zh_TW]=KDE Store
 Query=https://store.kde.org/content/search.php?search=Search&name=\\{@}
@@ -91,7 +90,6 @@ Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[tr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
-Query[x-test]=xxhttps://store.kde.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Type=Service

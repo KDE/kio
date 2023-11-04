@@ -42,7 +42,6 @@ Name[sv]=C++ referens
 Name[tr]=CPP Başvuru
 Name[uk]=Довідник з C++
 Name[vi]=CPP Reference
-Name[x-test]=xxCPP Referencexx
 Name[zh_CN]=CPP 参考
 Name[zh_TW]=CPP Reference
 Type=Service
@@ -91,6 +90,5 @@ Query[sv]=https://cppreference.com/w/?search=\\{@}
 Query[tr]=https://cppreference.com/w/?search=\\{@}
 Query[uk]=https://cppreference.com/w/?search=\\{@}
 Query[vi]=https://cppreference.com/w/?search=\\{@}
-Query[x-test]=xxhttps://cppreference.com/w/?search=\\{@}xx
 Query[zh_CN]=https://cppreference.com/w/?search=\\{@}
 Query[zh_TW]=https://cppreference.com/w/?search=\\{@}

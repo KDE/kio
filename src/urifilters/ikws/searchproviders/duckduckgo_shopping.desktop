@@ -75,7 +75,6 @@ Name[ug]=Duck Duck Go ئېلىم-سېتىم
 Name[uk]=Duck Duck Go Shopping
 Name[vi]=Duck Duck Go Mua sắm
 Name[wa]=Duck Duck Go Botikes
-Name[x-test]=xxDuck Duck Go Shoppingxx
 Name[zh_CN]=Duck Duck Go 购物
 Name[zh_TW]=Duck Duck Go Shopping
 Query=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
@@ -139,7 +138,6 @@ Query[ug]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[vi]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
-Query[x-test]=xxhttps://duckduckgo.com/?q=\\{@}&v=s&t=kdexx
 Query[zh_CN]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[zh_TW]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Type=Service

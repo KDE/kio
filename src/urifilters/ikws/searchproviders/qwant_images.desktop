@@ -58,7 +58,6 @@ Name[tok]=ilo pi alasa sitelen Qwant
 Name[tr]=Qwant Resimleri
 Name[uk]=Зображення Qwant
 Name[vi]=Qwant Ảnh
-Name[x-test]=xxQwant Imagesxx
 Name[zh_CN]=Qwant 图像
 Name[zh_TW]=Qwant Images
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=images
@@ -110,7 +109,6 @@ Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
-Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=imagesxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Type=Service

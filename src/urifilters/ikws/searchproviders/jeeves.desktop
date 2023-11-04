@@ -90,7 +90,6 @@ Name[uz@cyrillic]=Ask Jeeves
 Name[vi]=Hỏi Jeeves
 Name[wa]=Ask Jeeves
 Name[xh]=Ask Jeeves
-Name[x-test]=xxAsk Jeevesxx
 Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
@@ -120,6 +119,5 @@ Query[sl]=https://www.ask.com/web?q=\\{@}
 Query[sv]=https://www.ask.com/web?q=\\{@}
 Query[tr]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}
-Query[x-test]=xxhttps://www.ask.com/web?q=\\{@}xx
 Query[zh_CN]=https://www.ask.com/web?q=\\{@}
 Query[zh_TW]=https://www.ask.com/web?q=\\{@}

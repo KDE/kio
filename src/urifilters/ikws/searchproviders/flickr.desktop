@@ -76,7 +76,6 @@ Name[ug]=Flickr
 Name[uk]=Flickr
 Name[vi]=Flickr
 Name[wa]=Flickr
-Name[x-test]=xxFlickrxx
 Name[zh_CN]=Flickr
 Name[zh_TW]=Flickr
 Query=https://www.flickr.com/search/?q=\\{@}
@@ -129,7 +128,6 @@ Query[tok]=https://www.flickr.com/search/?q=\\{@}
 Query[tr]=https://www.flickr.com/search/?q=\\{@}
 Query[uk]=https://www.flickr.com/search/?q=\\{@}
 Query[vi]=https://www.flickr.com/search/?q=\\{@}
-Query[x-test]=xxhttps://www.flickr.com/search/?q=\\{@}xx
 Query[zh_CN]=https://www.flickr.com/search/?q=\\{@}
 Query[zh_TW]=https://www.flickr.com/search/?q=\\{@}
 Type=Service

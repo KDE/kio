@@ -57,7 +57,6 @@
         "Description[tr]": "Ağ çerezlerini depolar",
         "Description[uk]": "Зберігання кук мережі",
         "Description[vi]": "Lưu bánh quy mạng",
-        "Description[x-test]": "xxStores network cookiesxx",
         "Description[zh_CN]": "存储网络 Cookie",
         "Description[zh_TW]": "儲存網路 cookies",
         "Name": "Cookie Jar",
@@ -117,7 +116,6 @@
         "Name[tr]": "Çerez Kavanozu",
         "Name[uk]": "Глечик з куками",
         "Name[vi]": "Hũ bánh quy",
-        "Name[x-test]": "xxCookie Jarxx",
         "Name[zh_CN]": "Cookie Jar",
         "Name[zh_TW]": "Cookie Jar"
     },

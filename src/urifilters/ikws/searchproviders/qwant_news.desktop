@@ -59,7 +59,6 @@ Name[tok]=ilo pi alasa sin Qwant
 Name[tr]=Qwant Haberleri
 Name[uk]=Новини Qwant
 Name[vi]=Qwant Tin tức
-Name[x-test]=xxQwant Newsxx
 Name[zh_CN]=Qwant 新闻
 Name[zh_TW]=Qwant News
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=news
@@ -111,7 +110,6 @@ Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
-Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=newsxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=news
 Type=Service

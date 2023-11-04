@@ -43,7 +43,6 @@ Name[sv]=Lär dig C++
 Name[tr]=CPP Öğren
 Name[uk]=Learn CPP
 Name[vi]=Learn CPP
-Name[x-test]=xxLearn CPPxx
 Name[zh_CN]=Learn CPP
 Name[zh_TW]=Learn CPP
 Type=Service
@@ -92,6 +91,5 @@ Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[tr]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[vi]=https://www.learncpp.com/gsearch/?q=\\{@}
-Query[x-test]=xxhttps://www.learncpp.com/gsearch/?q=\\{@}xx
 Query[zh_CN]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[zh_TW]=https://www.learncpp.com/gsearch/?q=\\{@}

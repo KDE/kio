@@ -87,7 +87,6 @@ Name[uz]=Multitran - Nemischadan Ruschaga tarjima
 Name[uz@cyrillic]=Multitran - Немисчадан Русчага таржима
 Name[vi]=Multitran - Dịch giữa tiếng Đức và tiếng Nga
 Name[wa]=Multitran - Ratoûne inte l' Almand eyet l' Russe
-Name[x-test]=xxMultitran - Translate Between German and Russianxx
 Name[zh_CN]=Multitran - 在德语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯德語和俄語
 Keys=mt,mtde
@@ -140,6 +139,5 @@ Query[tok]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[tr]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[uk]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[vi]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
-Query[x-test]=xxhttps://multitran.ru/c/m.exe?l1=3&s=\\{@}xx
 Query[zh_CN]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}
 Query[zh_TW]=https://multitran.ru/c/m.exe?l1=3&s=\\{@}

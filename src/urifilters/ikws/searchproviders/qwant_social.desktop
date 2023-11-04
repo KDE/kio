@@ -59,7 +59,6 @@ Name[tok]=ilo toki Qwant
 Name[tr]=Qwant Sosyal
 Name[uk]=Соціальне Qwant
 Name[vi]=Qwant Xã hội
-Name[x-test]=xxQwant Socialxx
 Name[zh_CN]=Qwant 社交
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
@@ -111,7 +110,6 @@ Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
-Query[x-test]=xxhttps://www.qwant.com/?q=\\{@}&client=kde&t=socialxx
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[zh_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Type=Service
