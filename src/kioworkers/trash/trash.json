@@ -102,6 +102,9 @@
                 "Ruta orixinal",
                 "Data de eliminación"
             ],
+            "ExtraNames[he]": [
+                "נתיב מקורי,תאריך מחיקה"
+            ],
             "ExtraNames[hu]": [
                 "Eredeti elérési út",
                 "Törlési dátum"

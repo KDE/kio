@@ -29,7 +29,7 @@ Name[ga]=Siopadóireacht Duck Duck Go
 Name[gd]=Duck Duck Go Shopping
 Name[gl]=Compras en Duck Duck Go
 Name[gu]=ડક ડક ગો ખરીદી
-Name[he]=Duck Duck Go Shopping
+Name[he]=Duck Duck Go קניות
 Name[hi]=बतख़ जा जा खरीदारी
 Name[hr]=Duck Duck Go Shopping
 Name[hu]=Duck Duck Go Shopping
@@ -103,6 +103,7 @@ Query[fi]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[gd]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[gl]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[he]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde&kl=he
 Query[hi]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ia]=http://duckduckgo.com/?q=\\{@}&v=s&t=kde

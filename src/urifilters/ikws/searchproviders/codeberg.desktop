@@ -7,6 +7,8 @@ Name[ca]=Codeberg
 Name[eo]=Codeberg
 Name[es]=Codeberg
 Name[eu]=Codeberg
+Name[fr]=Codeberg
+Name[he]=Codeberg
 Name[ia]=Codeberg
 Name[ka]=Codeberg
 Name[nl]=Codeberg
@@ -19,6 +21,8 @@ Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[eo]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[es]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[eu]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[fr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[he]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ia]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ka]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[nl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true

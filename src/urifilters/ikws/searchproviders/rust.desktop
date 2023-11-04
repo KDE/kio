@@ -19,6 +19,7 @@ Name[fa]=مستندات STR راست
 Name[fi]=Rust STD -ohjeistus
 Name[fr]=Documentation de Rust STD
 Name[gl]=Documentación estándar de Rust
+Name[he]=התיעוד התקני (STD) של Rust
 Name[ia]=Documentation STD de Rust
 Name[id]=Dokumentasi Rust STD
 Name[ie]=Rust STD Documentation
@@ -68,6 +69,7 @@ Query[fa]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[he]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ia]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[id]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ie]=https://doc.rust-lang.org/std/index.html?search=\\{@}

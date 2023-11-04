@@ -25,6 +25,7 @@ Name[fi]=Google Shopping
 Name[fr]=Boutique « Google »
 Name[gd]=Google Shopping
 Name[gl]=Compras en Google
+Name[he]=קניות Google
 Name[hi]=गूगल खरीदारी
 Name[hu]=Google vásárlás
 Name[ia]=Google Shopping
@@ -91,6 +92,7 @@ Query[fi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[fr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gd]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[he]=https://www.google.com/search?hl=he&tbm=shop&q=\\{@}
 Query[hi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[hu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ia]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

@@ -29,7 +29,7 @@ Name[ga]=Eolas Duck Duck Go
 Name[gd]=Fiosrachadh Duck Duck Go
 Name[gl]=Información en Duck Duck Go
 Name[gu]=ડક ડક ગો માહિતી
-Name[he]=Duck Duck Go Info
+Name[he]=Duck Duck Go מידע
 Name[hi]=बतख़ जा जा जानकारी
 Name[hr]=Duck Duck Go Info
 Name[hu]=Duck Duck Go Info
@@ -102,6 +102,7 @@ Query[fi]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[fr]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[gd]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[gl]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[he]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde&kl=he
 Query[hi]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[hu]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ia]=http://duckduckgo.com/?q=\\{@}&v=r&t=kde

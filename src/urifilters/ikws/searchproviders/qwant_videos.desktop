@@ -25,6 +25,7 @@ Name[fi]=Qwant-videohaku
 Name[fr]=Vidéos « Qwant »
 Name[gd]=Qwant Videos
 Name[gl]=Vídeos en Qwant
+Name[he]=סרטונים ב־Qwant
 Name[hu]=Qwant videók
 Name[ia]=Qwant Videos
 Name[id]=Qwant Video
@@ -85,6 +86,7 @@ Query[fa]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ia]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

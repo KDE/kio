@@ -21,6 +21,7 @@ Name[fa]=مسائل اختراع KDE
 Name[fi]=KDE Inventin ongelmat
 Name[fr]=Problèmes de KDE Invent
 Name[gl]=Tíckets de KDE Invent
+Name[he]=תקלות ב־KDE Invent
 Name[ia]=Questiones de KDE Invent
 Name[id]=Masalah KDE Invent
 Name[ie]=Problemas del KDE Invent
@@ -69,6 +70,7 @@ Query[fa]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fi]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[fr]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[gl]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[he]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ia]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[id]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ie]=https://invent.kde.org/search?scope=issues&search=\\{@}

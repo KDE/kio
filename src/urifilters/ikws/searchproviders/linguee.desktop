@@ -21,6 +21,7 @@ Name[fa]=لینگو
 Name[fi]=Linguee
 Name[fr]=Linguee
 Name[gl]=Linguee
+Name[he]=Linguee
 Name[ia]=Linguee
 Name[id]=Linguee
 Name[ie]=Linguee
@@ -71,6 +72,7 @@ Query[fa]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fi]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[fr]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[gl]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[he]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ia]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[id]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[ie]=https://www.linguee.com/search?source=auto&query=\\{@}

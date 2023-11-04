@@ -26,6 +26,7 @@ Name[fa]=گیت‌لب
 Name[fi]=GitLab
 Name[fr]=GitLab
 Name[gl]=GitLab
+Name[he]=GitLab
 Name[hu]=GitLab
 Name[ia]=GitLab
 Name[id]=GitLab
@@ -81,6 +82,7 @@ Query[fa]=https://gitlab.com/search?search=\\{@}
 Query[fi]=https://gitlab.com/search?search=\\{@}
 Query[fr]=https://gitlab.com/search?search=\\{@}
 Query[gl]=https://gitlab.com/search?search=\\{@}
+Query[he]=https://gitlab.com/search?search=\\{@}
 Query[hu]=https://gitlab.com/search?search=\\{@}
 Query[ia]=https://gitlab.com/search?search=\\{@}
 Query[id]=https://gitlab.com/search?search=\\{@}

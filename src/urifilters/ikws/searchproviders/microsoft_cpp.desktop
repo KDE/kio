@@ -20,6 +20,7 @@ Name[fa]=مستندات سی++ مایکروسافت
 Name[fi]=Microsoft C++ -ohjeistus
 Name[fr]=Documentation de Microsoft C++
 Name[gl]=Documentación de C++ de Microsoft
+Name[he]=התיעוד של C++‎ מאת Microsoft
 Name[ia]=Documentation de Microsoft C++
 Name[id]=Dokumentasi Microsoft C++
 Name[ie]=Microsoft C++ Documentation
@@ -69,6 +70,7 @@ Query[fa]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[gl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[he]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ia]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[id]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ie]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
