@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2023-08-09 08:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -2107,7 +2107,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Сървърът е претоварен и затова не може да отговори на заявката."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Неизвестна грешка"
@@ -2406,87 +2406,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Не може да се определи типът на файла за %1"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа отваряне на връзка."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа затваряне на връзка."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Протоколът %1 не поддържа достъп до файлове."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Протоколът %1 не поддържа запис."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Няма налично действие за протокола %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Протоколът \"%1\" не поддържа показване на съдържанието на директории."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на данни."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Протоколът %1 не поддържа получаване на информация за типа MIME."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа преименуване и преместване на файлове."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа създаване на символна връзка."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Протоколът %1 не поддържа копиране на файлове."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Протоколът %1 не поддържа изтриване на файлове."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Протоколът \"%1\" не поддържа създаване на директории."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Протоколът %1 не поддържа променянето атрибутите на файловете."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Протоколът \"%1\" не поддържа създаване на директории."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколът %1 не поддържа операцията %2."
@@ -2512,26 +2512,23 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не може да се намери изпълним 'kioworker' на '%1'"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "По&дробности"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Завинаги"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Про&дължение"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "&Само за текущата сесия"
@@ -4292,12 +4289,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Трябва да предоставите потребителско име и парола за достъп до сайта."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Сайт:"
@@ -4326,8 +4323,7 @@ msgstr ""
 "\n"
 "Сървърът каза: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4336,14 +4332,12 @@ msgstr ""
 "Трябва да въведете потребителско име и парола за прокси сървъра показан по-"
 "долу. В противен случай няма да имате достъп до Интернет."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Прокси:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Проксито отхвърли идентификацията."
@@ -4388,100 +4382,96 @@ msgstr "Търси се секция"
 msgid "Could not find filename %1 in %2."
 msgstr "Неуспешно намиране на име на файл %1 в %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Не е посочен хост."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> на <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Иначе заявката можеше да е успешна."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "извличане на параметрите"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "установяване на параметрите"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "създаване на заявената директория"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "копиране на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "преместване на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "търсене в зададена директория"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "заключване на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "отключване на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "изтриване на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "установяване услугите предлагани от сървъра"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "извличане на съдържанието на заявения файл или директория"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "стартиране на отчет в посочената папка"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Възникна неочаквана грешка (%1) при опит за %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Сървърът не поддържа протокола WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4489,13 +4479,13 @@ msgid ""
 "below."
 msgstr "Възникна грешка при %1, %2. Обобщение на причините е дадено по-долу."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Отказан достъп при изпълнение на операцията %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4504,7 +4494,7 @@ msgstr ""
 "Ресурсът не може да бъде създаден, докато не се създадат междинните "
 "директории."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4519,28 +4509,28 @@ msgstr ""
 "се презаписват. \n"
 " %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Заявената операция по заключване на може да се осъществи. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сървърът не поддържа заявения тип на главната част на заявката."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Невъзможно изпълнение на %1, защото ресурсът е заключен."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Операцията бе прекратена поради друга грешка."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4550,7 +4540,7 @@ msgstr ""
 "Невъзможно изпълнение на %1, защото сървърът отказва да приеме файла или "
 "директорията."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4559,158 +4549,22 @@ msgstr ""
 "Сървърът няма достатъчно място за да запише състоянието на ресурса след "
 "изпълнението на метода."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Посоченият ресурс не може да бъде изтриван."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "качване %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Възникна неочаквана грешка (%1) при опит за %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "Установена е връзка с %1. Очакване на отговор..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Предстои да влезете в сайта \"%1\" с потребителското име \"%2\", но "
-"уебсайтът не изисква удостоверяване. Това може да е опит за измама.</p><p>"
-"\"%1\" ли е сайтът, който искате да посетите?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Потвърдете достъпа до уебсайт"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Сървърът обработва заявката, моля, изчакайте..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Изпращане на данни до %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Извличане на %1 от %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> на <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Идентификацията се провали."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "Достъпът отказан."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Неизвестен метод за упълномощаване."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Получаване на повредени данни."
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"На път сте да излезете от защитен режим. Трансферът на данни повече няма да "
-"бъде шифрован.\n"
-"Данните, които прехвърляте ще могат да бъдат прочетени от някой друг без "
-"големи затруднения."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Защитена информация"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&Продължение на зареждането"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL се провали"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Вие сте на път да влезете в защитен режим. Трансферът на данни ще бъде "
-"шифрован.\n"
-"Данните които прехвърляте няма да могат да бъдат прочетени от някой друг."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Показване на &информация за протокола SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "Вр&ъзка"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Удостоверението на сървъра не може да бъде идентифицирано (%1)\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Сървър за идентификация"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr ""
-"Искате ли да приемете това удостоверение за валидно без повече да се показва "
-"това съобщение?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4783,53 +4637,6 @@ msgstr "Възстановяване на изтрития файл в първ�
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Кошчето е пълно. Изпразнете го или изтрийте елементите ръчно."
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Не може да бъде намерен използваем конфигурационен скрипт на проксито"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Конфигурационният скрипт на проксито не може да бъде изтеглен:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Конфигурационният скрипт на проксито не може да бъде изтеглен"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Конфигурационният скрипт на проксито е невалиден:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Конфигурационният скрипт на проксито върна грешка:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "Неуспешно намиране на \"FindProxyForURL\" или \"FindProxyForURLEx\""
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Получихте невалиден отговор при извикване на %1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7235,6 +7042,29 @@ msgstr ""
 "Отдалеченият хост не е изпратил никакви SSL сертификати. \n"
 "Прекъсване, защото самоличността на хоста не може да бъде установена."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Удостоверението на сървъра не може да бъде идентифицирано (%1)\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Сървър за идентификация"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Искате ли да приемете това удостоверение за валидно без повече да се показва "
+"това съобщение?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
@@ -7308,24 +7138,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Изключване на въпроса"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Изключване на въпроса"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Изключване на предупреждението"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "SSL удостоверението изглежда е повредено."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7346,6 +7176,120 @@ msgstr "Това ще стартира програмата:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако нямате доверие на тази програма, щракнете върху Отказ"
+
+#~ msgid "No host specified."
+#~ msgstr "Не е посочен хост."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Сървърът не поддържа протокола WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "Установена е връзка с %1. Очакване на отговор..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>Предстои да влезете в сайта \"%1\" с потребителското име \"%2\", но "
+#~ "уебсайтът не изисква удостоверяване. Това може да е опит за измама.</p><p>"
+#~ "\"%1\" ли е сайтът, който искате да посетите?</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "Потвърдете достъпа до уебсайт"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Сървърът обработва заявката, моля, изчакайте..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Изпращане на данни до %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Извличане на %1 от %2..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Идентификацията се провали."
+
+#~ msgid "Authorization failed."
+#~ msgstr "Достъпът отказан."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Неизвестен метод за упълномощаване."
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "Получаване на повредени данни."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "На път сте да излезете от защитен режим. Трансферът на данни повече няма "
+#~ "да бъде шифрован.\n"
+#~ "Данните, които прехвърляте ще могат да бъдат прочетени от някой друг без "
+#~ "големи затруднения."
+
+#~ msgid "Security Information"
+#~ msgstr "Защитена информация"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "&Продължение на зареждането"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: SSL се провали"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Вие сте на път да влезете в защитен режим. Трансферът на данни ще бъде "
+#~ "шифрован.\n"
+#~ "Данните които прехвърляте няма да могат да бъдат прочетени от някой друг."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "Показване на &информация за протокола SSL"
+
+#~ msgid "C&onnect"
+#~ msgstr "Вр&ъзка"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr ""
+#~ "Не може да бъде намерен използваем конфигурационен скрипт на проксито"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Конфигурационният скрипт на проксито не може да бъде изтеглен:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Конфигурационният скрипт на проксито не може да бъде изтеглен"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Конфигурационният скрипт на проксито е невалиден:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Конфигурационният скрипт на проксито върна грешка:\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "Неуспешно намиране на \"FindProxyForURL\" или \"FindProxyForURLEx\""
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "Получихте невалиден отговор при извикване на %1 -> %2"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "Бисквитките не могат да бъдат запазени"

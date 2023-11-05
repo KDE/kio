@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2179,7 +2179,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Ο εξυπηρετητής ήταν πολύ απασχολημένος με άλλες αιτήσεις, για να απαντήσει."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Άγνωστο σφάλμα"
@@ -2478,88 +2478,88 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Το άνοιγμα συνδέσεων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Το κλείσιμο συνδέσεων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Η πρόσβαση σε αρχεία δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Η εγγραφή στο %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Δεν υπάρχουν ειδικές ενέργειες διαθέσιμες για το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Η προβολή φακέλων δεν υποστηρίζεται για το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Η ανάκτηση δεδομένων από το %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Η ανάκτηση πληροφοριών τύπου mime από το %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Η μετονομασία ή μετακίνηση αρχείων στο %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Η δημιουργία συμβολικών δεσμών δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Η αντιγραφή αρχείων στο %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Η διαγραφή αρχείων από το %1 δεν υποστηρίζεται."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Η δημιουργία φακέλων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Η αλλαγή ιδιοτήτων των αρχείων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Η αλλαγή ιδιοκτησίας των αρχείων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Το άνοιγμα αρχείων δεν υποστηρίζεται με το πρωτόκολλο %1."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Το πρωτόκολλο %1 δεν υποστηρίζει την ενέργεια %2."
@@ -2589,26 +2589,23 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Αδυναμία εύρεσης του εκτελέσιμου 'kioslave' στο '%1'"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Λεπτομέρειες"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Για πάντα"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Συ&νέχεια"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "Μόνο για την &τρέχουσα συνεδρία"
@@ -4442,14 +4439,14 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Πρέπει να δώσετε όνομα χρήστη και κωδικό πρόσβασης για πρόσβαση σε αυτόν τον "
 "δικτυακό τόπο."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Δικτυακός τόπος:"
@@ -4477,8 +4474,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Εκκίνηση %1"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4487,14 +4483,12 @@ msgstr ""
 "Πρέπει να δώσετε όνομα χρήστη και κωδικό πρόσβασης για τον παρακάτω "
 "διαμεσολαβητή προτού σας δοθεί πρόσβαση σε κάποιο διαδικτυακό τόπο."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Διαμεσολαβητής:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Η ταυτοποίηση διαμεσολαβητή απέτυχε."
@@ -4539,100 +4533,96 @@ msgstr "Αναζήτηση τμήματος"
 msgid "Could not find filename %1 in %2."
 msgstr "Ήταν αδύνατη η εύρεση του αρχείου %1 στο %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Δεν καθορίστηκε υπολογιστής."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> στο <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Αλλιώς, η αίτηση θα είχε πετύχει."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ανάκτηση τιμών ιδιοτήτων"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "καθορισμός τιμών ιδιοτήτων"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "δημιουργία του ζητούμενου φακέλου"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "αντιγραφή του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "μετακίνηση του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "αναζήτηση στον καθορισμένο φάκελο"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "κλείδωμα του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ξεκλείδωμα του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "διαγραφή του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "ερώτηση των δυνατοτήτων του εξυπηρετητή"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ανάκτηση των περιεχομένων του καθορισμένου αρχείου ή φακέλου"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "εκτέλεση μίας αναφοράς στον καθορισμένο φάκελο"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Προέκυψε ένα μη αναμενόμενο σφάλμα (%1) κατά την προσπάθεια %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Ο εξυπηρετητής δεν υποστηρίζει το πρωτόκολλο WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4642,13 +4632,13 @@ msgstr ""
 "Προέκυψε σφάλμα κατά την προσπάθεια για %1, %2. Παρακάτω βρίσκεται μια "
 "περίληψη των λόγων."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Δε δόθηκε πρόσβαση κατά την προσπάθεια για %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4657,7 +4647,7 @@ msgstr ""
 "Είναι αδύνατο να δημιουργηθεί ένας πόρος στον προορισμό, αν δεν έχουν πρώτα "
 "δημιουργηθεί μία ή παραπάνω ενδιάμεσες συλλογές (φάκελοι)."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4675,28 +4665,28 @@ msgstr ""
 "αντικαταστήσετε ένα αρχείο ενώ ζητούσατε να μην είναι δυνατή η αντικατάσταση "
 "των αρχείων. %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Το ζητούμενο κλείδωμα δεν μπόρεσε να ικανοποιηθεί. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Ο εξυπηρετητής δεν υποστηρίζει τον τύπο αίτησης του σώματος."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Αδυναμία για %1 επειδή ο πόρος είναι κλειδωμένος."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Αυτή η ενέργεια αποτράπηκε από ένα άλλο σφάλμα."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4706,7 +4696,7 @@ msgstr ""
 "Αδυναμία για %1 γιατί ο εξυπηρετητής προορισμού αρνείται να δεχθεί το αρχείο "
 "ή το φάκελο."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4715,158 +4705,22 @@ msgstr ""
 "Ο πόρος προορισμού δεν έχει αρκετό χώρο για να καταγράψει την κατάσταση του "
 "πόρου μετά την εκτέλεση αυτής της μεθόδου."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ο πόρος δεν μπορεί να διαγραφεί."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "αποστολή του %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Προέκυψε ένα μη αναμενόμενο σφάλμα (%1) κατά την προσπάθεια για: %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "Το %1 ειδοποιήθηκε. Αναμονή για απάντηση..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Πρόκειται να συνδεθείτε στον ιστοχώρο «%1» με όνομα χρήστη «%2», αλλά ο "
-"ιστότοπος δεν απαιτεί ταυτοποίηση. Αυτό είναι ένδειξη προσπάθειας να σας "
-"παραπλανήσουν.</p><p>Είναι στα αλήθεια το «%1» ο ιστοχώρος που επιθυμείτε να "
-"επισκεφτείτε;</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Επιβεβαίωση πρόσβασης στον ιστότοπο"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Ο εξυπηρετητής επεξεργάζεται την αίτηση, παρακαλώ περιμένετε..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Αποστολή δεδομένων προς %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Ανάκτηση %1 από %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> στο <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Η ταυτοποίηση απέτυχε."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "Αποτυχία εξουσιοδότησης."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Άγνωστη μέθοδο εξουσιοδότησης"
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Λήψη κατεστραμμένων δεδομένων"
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Πρόκειται να βγείτε από την ασφαλή λειτουργία. Οι μεταδόσεις δε θα "
-"κρυπτογραφούνται πλέον.\n"
-"Αυτό σημαίνει ότι τα μεταφερόμενα δεδομένα σας θα μπορούν να "
-"παρακολουθούνται από τρίτους."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Πληροφορίες ασφαλείας"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "Συνέχεια φόρτ&ωσης"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: Η διαπραγμάτευση SSL απέτυχε"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Πρόκειται να μπείτε σε ασφαλή λειτουργία. Όλες οι μεταδόσεις θα "
-"κρυπτογραφούνται, εκτός αν σημειώνεται διαφορετικά.\n"
-"Αυτό σημαίνει ότι τα μεταφερόμενα δεδομένα σας δε θα μπορούν να "
-"παρακολουθούνται εύκολα από τρίτους."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Εμφάνιση πληροφορ&ιών SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "Σύν&δεση"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Ο εξυπηρετητής απέτυχε στον έλεγχο ταυτοποίησης (%1)\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Ταυτοποίηση εξυπηρετητή"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Θέλετε να δέχεστε αυτό το πιστοποιητικό για πάντα χωρίς προτροπή;"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format
@@ -4941,54 +4795,6 @@ msgstr "Αποκατάσταση ενός διαγραμμένου αρχείο�
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Αδύνατο να βρεθεί ένα χρήσιμο σενάριο ρυθμίσεων διαμεσολαβητή"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Αδύνατη η λήψη του σεναρίου ρυθμίσεων διαμεσολαβητή:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Αδύνατη η λήψη του σεναρίου ρυθμίσεων διαμεσολαβητή"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Το σενάριο ρύθμισης διαμεσολαβητή δεν είναι έγκυρο:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Το σενάριο ρύθμισης διαμεσολαβητή επέστρεψε ένα σφάλμα:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "Αδύνατη η εύρεση του «FindProxyForURL» ή «FindProxyForURLEx»"
-
-#: kpac/script.cpp:692
-#, fuzzy, kde-format
-#| msgid "Got an invalid reply when calling %1"
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Λήψη μη έγκυρης απάντησης κατά την κλήση του %1"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7519,6 +7325,27 @@ msgstr ""
 "Ο απομακρυσμένος υπολογιστής δεν έστειλε πιστοποιητικά SSL.\n"
 "Εγκατάλειψη καθώς η ταυτότητα του υπολογιστή δεν μπορεί να επαληθευτεί."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Ο εξυπηρετητής απέτυχε στον έλεγχο ταυτοποίησης (%1)\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Ταυτοποίηση εξυπηρετητή"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Θέλετε να δέχεστε αυτό το πιστοποιητικό για πάντα χωρίς προτροπή;"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
@@ -7610,28 +7437,28 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "Η ακολουθία πιστοποιητικού SSL του υπολογιστή φαίνεται να είναι "
 "κατεστραμμένη."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7654,6 +7481,123 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#~ msgid "No host specified."
+#~ msgstr "Δεν καθορίστηκε υπολογιστής."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Ο εξυπηρετητής δεν υποστηρίζει το πρωτόκολλο WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "Το %1 ειδοποιήθηκε. Αναμονή για απάντηση..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>Πρόκειται να συνδεθείτε στον ιστοχώρο «%1» με όνομα χρήστη «%2», αλλά "
+#~ "ο ιστότοπος δεν απαιτεί ταυτοποίηση. Αυτό είναι ένδειξη προσπάθειας να "
+#~ "σας παραπλανήσουν.</p><p>Είναι στα αλήθεια το «%1» ο ιστοχώρος που "
+#~ "επιθυμείτε να επισκεφτείτε;</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "Επιβεβαίωση πρόσβασης στον ιστότοπο"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Ο εξυπηρετητής επεξεργάζεται την αίτηση, παρακαλώ περιμένετε..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Αποστολή δεδομένων προς %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Ανάκτηση %1 από %2..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Η ταυτοποίηση απέτυχε."
+
+#~ msgid "Authorization failed."
+#~ msgstr "Αποτυχία εξουσιοδότησης."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Άγνωστη μέθοδο εξουσιοδότησης"
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "Λήψη κατεστραμμένων δεδομένων"
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Πρόκειται να βγείτε από την ασφαλή λειτουργία. Οι μεταδόσεις δε θα "
+#~ "κρυπτογραφούνται πλέον.\n"
+#~ "Αυτό σημαίνει ότι τα μεταφερόμενα δεδομένα σας θα μπορούν να "
+#~ "παρακολουθούνται από τρίτους."
+
+#~ msgid "Security Information"
+#~ msgstr "Πληροφορίες ασφαλείας"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "Συνέχεια φόρτ&ωσης"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: Η διαπραγμάτευση SSL απέτυχε"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Πρόκειται να μπείτε σε ασφαλή λειτουργία. Όλες οι μεταδόσεις θα "
+#~ "κρυπτογραφούνται, εκτός αν σημειώνεται διαφορετικά.\n"
+#~ "Αυτό σημαίνει ότι τα μεταφερόμενα δεδομένα σας δε θα μπορούν να "
+#~ "παρακολουθούνται εύκολα από τρίτους."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "Εμφάνιση πληροφορ&ιών SSL"
+
+#~ msgid "C&onnect"
+#~ msgstr "Σύν&δεση"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Αδύνατο να βρεθεί ένα χρήσιμο σενάριο ρυθμίσεων διαμεσολαβητή"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Αδύνατη η λήψη του σεναρίου ρυθμίσεων διαμεσολαβητή:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Αδύνατη η λήψη του σεναρίου ρυθμίσεων διαμεσολαβητή"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Το σενάριο ρύθμισης διαμεσολαβητή δεν είναι έγκυρο:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Το σενάριο ρύθμισης διαμεσολαβητή επέστρεψε ένα σφάλμα:\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "Αδύνατη η εύρεση του «FindProxyForURL» ή «FindProxyForURLEx»"
+
+#, fuzzy
+#~| msgid "Got an invalid reply when calling %1"
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "Λήψη μη έγκυρης απάντησης κατά την κλήση του %1"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "Αδυναμία αποθήκευσης cookies"

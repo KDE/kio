@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -2112,7 +2112,7 @@ msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Серверге сұраныстар көп болып, басқаларға жауап берумен айналысып, бос емес."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Беймәлім қате"
@@ -2414,87 +2414,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 протоколы қосылымдарды ашуды қолдамайды."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 протоколы қосылымдарды жабуды қолдамайды."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 протоколы файлдарға қатынауды қолдамайды."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 дегенге жазу қолданылмайды."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 протоколында арнайы әрекеттер жоқ."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Қапшықтарды тізімдеуін %1 протоколы қолдамайды."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 дегеннен деректерді алуы қолданылмайды."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 дегеннен MIME түрі мәліметінің алуы қолданылмайды."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 дегенде файлдарды қайта атау немесе жылжыту қолданылмайды."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 протоколы символдық сілтемені жасауды қолдамайды."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 дегенде файлдарды көшіруі қолданылмайды."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 дегеннен файлдарды өшіру қолданылмайды."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 протоколы қапшықтарды жасауды қолдамайды."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 протоколы файл атрибуттарын өзгертуді қолдамайды."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 протоколы файл иелігін өзгертуді қолдамайды."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 протоколы файлдарды ашуды қолдамайды."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 протоколы %2 әрекетін қолдамайды."
@@ -2522,26 +2522,23 @@ msgstr "'%1'деген протоколы үшін io-slave процесі та�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'деген протоколы үшін io-slave процесі табылмады."
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Егжей-тегжейі"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Үнемі"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Жалғастыру"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "Тек &осы сеанс үшін"
@@ -4355,12 +4352,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Бұл сайтқа қатынау үшін атауы мен пароль талап етіледі."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Сайт:"
@@ -4388,8 +4385,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 дегенді жегу"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4398,14 +4394,12 @@ msgstr ""
 "Осы прокси-сервер арқылы басқа сайттарға  қатынау үшін пайдаланушының атауы "
 "мен паролі қажет."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Прокси:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Прокси аутентификациясы өтпеді."
@@ -4453,100 +4447,96 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "%1 деген файл оқылмады."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Хост келтірілмеген."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> / <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Әйтпесе, талап сәтті орындалар еді."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "қасиет мәндерін алу"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "қасиет мәндерін орнату"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "талап етілген қапшықты құру"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "келтірілген файлды не қапшықты көшірмелеу"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "келтірілген файлды не қапшықты жылжыту"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "келтірілген қапшықта іздеу"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "келтірілген файлды не қапшықты бұғаттау"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "келтірілген файл не қапшықтың бұғатын шешу"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "келтірілген файлды не қапшықты кетіру"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "сервердің мүмкіндіктерін сұрау"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "келтірілген файл не қапшықтың мазмұнын оқу"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "келтірілген қапшықта есеп беру"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Күтпеген қате (%1) %2 әрекеті кезінде пайда болды."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Сервер WebDAV протоколын танымайды."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4555,13 +4545,13 @@ msgid ""
 msgstr ""
 "%1 (%2) сұраныс кезінде қате пайда болды. Себептері төменде қорытылған."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 сұранысы кезінде қатынауға рұқсат жоқ екені анықталған."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4569,7 +4559,7 @@ msgid ""
 msgstr ""
 "Бір немесе бірнеше аралық жинақ (қапшық) құрылмайынша, ресурс та құрылмайды."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4585,28 +4575,28 @@ msgstr ""
 "Сервер XML қасиеттер элементіндегі қасиеттер тізімін қолдамайды немесе "
 "файлды қайта жазуға әрекет жасағанда, файлдар жазылмады. %1 "
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Талап етілген бұғаттау қабылданбаған. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер сұралған \"body\" элементінің түрін танымайды."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 орындалмады, себебі ресурс бұғатталған."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Басқа қатенің себебінен әрекет орындалмады."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4615,7 +4605,7 @@ msgid ""
 msgstr ""
 "%1 орындалмады, себебі мақсаттаған сервер файлды не қапшықты қабылдамады."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4624,154 +4614,22 @@ msgstr ""
 "Осы әдісті орындағаннан кейін мақсатталған ресурсының күйін жазу үшін "
 "жеткілікті орын жоқ."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Бұл ресурс өшірілмейді."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 дегенді жүктеп беру"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Күтпеген қате (%1) %2 сұранысы кезінде пайда болды."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 дегенмен байланыс орнатылды. Жауапты күту..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Сіз \"%1\" сайтына \"%2\" деген пайдаланушы ретінде кірмексіз, алайда, "
-"вебсайт аутентификацияны талап етпейді. Алданып қалмаңыз</p><p>Сіз қалаған "
-"\"%1\" деген сайт па?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Сайтқа қатынауды құптау"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Сервер сұрауды өңдеуде, күте тұрыңыз..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1 дегенге деректер жіберуде"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2 дегеннен %1 алу..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> / <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Аутентификация өтпеді."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "Авторизация өтпеді."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Беймәлім авторизация әдісі."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Сіз қауіпсіз режімінен шығудасыз. Деректер бұдан былай шифрланбайды.\n"
-"Демек жолдағы деректеріңізді бөтендер оқуы мүмкін."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Қауіпсіздік мәліметтер"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "Жүктеуді ж&алғастыру"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL мәлімет алмасу жаңылысы"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Сіз қауіпсіз режіміне кірудесіз. Әдейі шифрсыз қылмасаңыз, бүкіл деректер "
-"шифрланып беріледі.\n"
-"Демек жолдағы деректеріңізді бөтендерге оқуы оңайға түспейді."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "SSL &мәліметтері көрсетілсін"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "Қ&осылу"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Сервер шындылық тексеруден өткен жоқ (%1).\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Сервер аутентификациясы"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Куәлік келешекте қосымша сұрақсыз үнемі қабылдансын ба?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format
@@ -4848,54 +4706,6 @@ msgstr ""
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Лайық прксиді баптау скрипті табылмады"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Проксиді баптау скрипті жүктелінбеді:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Проксиді баптау скрипті жүктелінбеді"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Проксиді баптау скрипті жарамсыз:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Проксиді баптау скрипті қайтарған қатесі:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "'FindProxyForURL' не 'FindProxyForURLEx' табылмады"
-
-#: kpac/script.cpp:692
-#, fuzzy, kde-format
-#| msgid "Got an invalid reply when calling %1"
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "%1 дегенді шақырғанда дұрыс емес жауап келген"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, fuzzy, kde-format
@@ -7380,6 +7190,27 @@ msgstr ""
 "Қашықтағы хост бірде-бір SSL куәлікті жібермеді.\n"
 "Хост шындылығы тексеруге келмеген соң доғарылды."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Сервер шындылық тексеруден өткен жоқ (%1).\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Сервер аутентификациясы"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Куәлік келешекте қосымша сұрақсыз үнемі қабылдансын ба?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
@@ -7458,26 +7289,26 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ендігәрі сұралмасын"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ендігәрі сұралмасын"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Ендігәрі сұралмасын"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Қарсы хосттың SSL куәлік тізбегі бүлінген сияқты."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7500,6 +7331,116 @@ msgstr "Жегілетін бағдарлама:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Бағдарлама күдікті десеңіз 'Қайту' дегенді басыңыз"
+
+#~ msgid "No host specified."
+#~ msgstr "Хост келтірілмеген."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Сервер WebDAV протоколын танымайды."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1 дегенмен байланыс орнатылды. Жауапты күту..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>Сіз \"%1\" сайтына \"%2\" деген пайдаланушы ретінде кірмексіз, алайда, "
+#~ "вебсайт аутентификацияны талап етпейді. Алданып қалмаңыз</p><p>Сіз "
+#~ "қалаған \"%1\" деген сайт па?</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "Сайтқа қатынауды құптау"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Сервер сұрауды өңдеуде, күте тұрыңыз..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "%1 дегенге деректер жіберуде"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "%2 дегеннен %1 алу..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Аутентификация өтпеді."
+
+#~ msgid "Authorization failed."
+#~ msgstr "Авторизация өтпеді."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Беймәлім авторизация әдісі."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Сіз қауіпсіз режімінен шығудасыз. Деректер бұдан былай шифрланбайды.\n"
+#~ "Демек жолдағы деректеріңізді бөтендер оқуы мүмкін."
+
+#~ msgid "Security Information"
+#~ msgstr "Қауіпсіздік мәліметтер"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "Жүктеуді ж&алғастыру"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: SSL мәлімет алмасу жаңылысы"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Сіз қауіпсіз режіміне кірудесіз. Әдейі шифрсыз қылмасаңыз, бүкіл деректер "
+#~ "шифрланып беріледі.\n"
+#~ "Демек жолдағы деректеріңізді бөтендерге оқуы оңайға түспейді."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "SSL &мәліметтері көрсетілсін"
+
+#~ msgid "C&onnect"
+#~ msgstr "Қ&осылу"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Лайық прксиді баптау скрипті табылмады"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Проксиді баптау скрипті жүктелінбеді:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Проксиді баптау скрипті жүктелінбеді"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Проксиді баптау скрипті жарамсыз:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Проксиді баптау скрипті қайтарған қатесі:\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "'FindProxyForURL' не 'FindProxyForURLEx' табылмады"
+
+#, fuzzy
+#~| msgid "Got an invalid reply when calling %1"
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "%1 дегенді шақырғанда дұрыс емес жауап келген"
 
 #, fuzzy
 #~| msgid "Cannot open file"

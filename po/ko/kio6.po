@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2052,7 +2052,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "서버가 요청을 응답한다고 매우 바빴습니다."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "알 수 없는 오류"
@@ -2337,87 +2337,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1의 파일 형식을 결정할 수 없음"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 여는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 닫는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 파일 접근이 지원되지 않습니다."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1에 쓰는 것은 지원되지 않습니다."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 프로토콜에 사용할 특별한 작업이 없습니다."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 프로토콜에는 폴더 목록 가져오기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1에서 데이터 검색은 지원되지 않습니다."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1에서 MIME 형식 정보 가져오기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1에서 파일 이름을 바꾸거나 이동하기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 프로토콜에서 심볼릭 링크를 만들기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 프로토콜에서 파일 복사가 지원되지 않습니다."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 프로토콜에서 파일 삭제가 지원되지 않습니다."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 프로토콜에서 폴더 만들기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 속성 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 소유권 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
@@ -2442,26 +2442,23 @@ msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "자세히(&D)"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "영원히(&F)"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "계속(&N)"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "현재 세션만(&C)"
@@ -4184,12 +4181,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "이 사이트에 연결하려면 사용자 이름과 암호가 필요합니다."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "사이트:"
@@ -4218,8 +4215,7 @@ msgstr ""
 "\n"
 "서버 응답: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4228,14 +4224,12 @@ msgstr ""
 "모든 사이트에 접근하려면 아래에 나열된 프록시 서버에 대한 사용자 이름과 암호"
 "를 입력해야 합니다."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "프록시:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "프록시 인증이 실패했습니다."
@@ -4280,100 +4274,96 @@ msgstr "장과 절 찾는 중"
 msgid "Could not find filename %1 in %2."
 msgstr "%2에서 %1 파일 이름을 찾을 수 없습니다."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "호스트를 지정하지 않았습니다."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%2</b>의 <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "그렇지 않다면 요청이 성공했을 수도 있습니다."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "속성 값 가져오기"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "속성 값 설정"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "요청한 폴더 만들기"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 복사"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 이동"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "지정한 폴더에서 검색"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠그기"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠금 풀기"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "지정한 파일이나 폴더 지우기"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "서버의 기능 조회"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "지정한 파일이나 폴더의 내용 가져오기"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "지정한 폴더에서 보고서 실행"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "서버가 WebDAV 프로토콜을 지원하지 않습니다."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4383,13 +4373,13 @@ msgstr ""
 "%1, %2을(를) 시도하는 동안 오류가 발생했습니다. 이유에 대한 요약은 다음과 같"
 "습니다."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1에 접근하려는 시도가 거부되었습니다."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4398,7 +4388,7 @@ msgstr ""
 "하나 이상의 중간 모음집(폴더)이 생성될 때까지 대상에 리소스를 생성할 수 없습"
 "니다."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4413,28 +4403,28 @@ msgstr ""
 "겹쳐 쓰려고 했습니다.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "요청한 잠금이 허가되지 않았습니다. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "서버가 본문의 요청 형식을 지원하지 않습니다."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "리소스가 잠겨 %1을(를) 사용할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "이 작업은 다른 오류로 인해 차단되었습니다."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4442,7 +4432,7 @@ msgid ""
 "folder."
 msgstr "대상 서버가 파일이나 폴더를 받아들일 수 없기 때문에 %1할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4450,154 +4440,22 @@ msgid ""
 msgstr ""
 "대상 리소스에 이 방법을 실행한 후, 리소스 상태를 기록할 공간이 부족합니다."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "리소스를 삭제할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 업로드"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1에 연결됨. 응답 기다리는 중..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>\"%1\" 사이트에 사용자 이름 \"%2\"(으)로 로그인하려고 하고 있지만, 웹사이"
-"트에서 인증이 필요하지 않습니다. 사용자를 속이려는 시도일 수 있습니다.</p><p>"
-"\"%1\" 사이트를 방문하시겠습니까?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "웹사이트 접근 확인"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "서버에서 요청 처리 중, 잠시 기다려 주십시오..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1(으)로 데이터 보내는 중"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2에서 %1 가져오는 중..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%2</b>의 <b>%1</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "인증이 실패했습니다."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "인증이 실패했습니다."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "알 수 없는 인증 방식."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "잘못된 데이터를 받았습니다."
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"안전한 상태에서 빠져나왔습니다. 이제부터 주고 받는 자료는 암호화되지 않습니"
-"다.\n"
-"여러분이 주고 받는 정보를 다른 사람이 볼 수도 있습니다."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "보안 정보"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "계속 불러오기(&O)"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL 협상 실패"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"안전한 상태로 들어갔습니다. 따로 알리지 않는 한 모든 통신은 암호화됩니다.\n"
-"여러분이 주고 받는 정보를 다른 사람이 쉽게 볼 수 없습니다."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "SSL 정보 표시(&I)"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "연결(&O)"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"서버가 무결성 검사(%1)에 실패했습니다.\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "서버 인증"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "이 인증서를 확인하지 않고 계속 받아들이시겠습니까?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4669,53 +4527,6 @@ msgstr "휴지통에 버린 파일을 원래 위치로 복원"
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "휴지통이 꽉 찼습니다. 비우거나 수동으로 항목을 삭제하십시오."
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "사용 가능한 프록시 설정 스크립트를 찾을 수 없음"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"프록시 설정 스크립트를 다운로드할 수 없음:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "프록시 설정 스크립트를 다운로드할 수 없음"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"프록시 설정 스크립트가 잘못됨:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"프록시 설정 스크립트에서 오류를 반환함:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "'FindProxyForURL'이나 'FindProxyForURLEx'를 찾을 수 없음"
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "%1 -> %2을(를) 호출할 때 잘못된 응답을 받음"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7074,6 +6885,27 @@ msgstr ""
 "원격 호스트에서 SSL 인증서를 보내지 않았습니다.\n"
 "호스트의 정체를 확인할 수 없으므로 중단합니다."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"서버가 무결성 검사(%1)에 실패했습니다.\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "서버 인증"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "이 인증서를 확인하지 않고 계속 받아들이시겠습니까?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
@@ -7139,24 +6971,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "다시 묻지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "다시 묻지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "이 메시지를 다시 표시하지 않기"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "동료 SSL 인증서 체인이 잘못된 것 같습니다."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7177,6 +7009,118 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid "No host specified."
+#~ msgstr "호스트를 지정하지 않았습니다."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "서버가 WebDAV 프로토콜을 지원하지 않습니다."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1에 연결됨. 응답 기다리는 중..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>\"%1\" 사이트에 사용자 이름 \"%2\"(으)로 로그인하려고 하고 있지만, 웹사"
+#~ "이트에서 인증이 필요하지 않습니다. 사용자를 속이려는 시도일 수 있습니다.</"
+#~ "p><p>\"%1\" 사이트를 방문하시겠습니까?</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "웹사이트 접근 확인"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "서버에서 요청 처리 중, 잠시 기다려 주십시오..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "%1(으)로 데이터 보내는 중"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "%2에서 %1 가져오는 중..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "인증이 실패했습니다."
+
+#~ msgid "Authorization failed."
+#~ msgstr "인증이 실패했습니다."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "알 수 없는 인증 방식."
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "잘못된 데이터를 받았습니다."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "안전한 상태에서 빠져나왔습니다. 이제부터 주고 받는 자료는 암호화되지 않습"
+#~ "니다.\n"
+#~ "여러분이 주고 받는 정보를 다른 사람이 볼 수도 있습니다."
+
+#~ msgid "Security Information"
+#~ msgstr "보안 정보"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "계속 불러오기(&O)"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: SSL 협상 실패"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "안전한 상태로 들어갔습니다. 따로 알리지 않는 한 모든 통신은 암호화됩니"
+#~ "다.\n"
+#~ "여러분이 주고 받는 정보를 다른 사람이 쉽게 볼 수 없습니다."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "SSL 정보 표시(&I)"
+
+#~ msgid "C&onnect"
+#~ msgstr "연결(&O)"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "사용 가능한 프록시 설정 스크립트를 찾을 수 없음"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "프록시 설정 스크립트를 다운로드할 수 없음:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "프록시 설정 스크립트를 다운로드할 수 없음"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "프록시 설정 스크립트가 잘못됨:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "프록시 설정 스크립트에서 오류를 반환함:\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "'FindProxyForURL'이나 'FindProxyForURLEx'를 찾을 수 없음"
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "%1 -> %2을(를) 호출할 때 잘못된 응답을 받음"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "쿠키를 저장할 수 없음"

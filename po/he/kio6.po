@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2023-11-02 11:06+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2046,7 +2046,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "השרת היה עסוק מדי במענה לבקשות אחרות מכדי להגיב."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "שגיאה לא מוכרת"
@@ -2334,87 +2334,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "לא ניתן לאתר את סוג הקובץ של %1"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "אין תמיכה בפתיחת חיבורים בפרוטוקול %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "אין תמיכה בסגירת חיבורים בפרוטוקול %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "אין תמיכה בגישה לקבצים בפרוטוקול %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "אין תמיכה בכתיבה אל %1."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "אין פעולות מיוחדות שזמינות עבור הפרוטוקול %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "אין תמיכה בהצגת תיקיות בפרוטוקול %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "אין תמיכה במשיכת נתונים מ־%1."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "אין תמיכה במשיכת מידע על טיפוסי Mime מ־%1."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "אין תמיכה בשינוי שמות קבצים או העברתם ב־%1."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "אין תמיכה ביצירת קישורים סמליים עם הפרוטוקול %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "אין תמיכה בהעתקת קבצים ב־%1."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "אין תמיכה במחיקת קבצים מ־%1."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "אין תמיכה ביצירת תיקיות בפרוטוקול %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "אין תמיכה בשינוי מאפייני קבצים בפרוטוקול %1."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "אין תמיכה בשינוי בעלות על קבצים בפרוטוקול %1."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "אין תמיכה בפתיחת קבצים בפרוטוקול %1."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "הפרוטוקול %1 לא תומך בפעולה %2."
@@ -2439,26 +2439,23 @@ msgstr "אי אפשר ליצור שקע להפעלת סוכן הפעלה של KI
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "אי אפשר למצוא את קובץ ההפעלה ‚kioworker’ תחת ‚%1’"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&פרטים"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "ל&תמיד"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "המ&שך"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "להפעלה ה&נוכחית בלבד"
@@ -4184,12 +4181,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "יש לספק שם משתמש וסיסמה כדי לגשת לאתר זה."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "אתר:"
@@ -4218,8 +4215,7 @@ msgstr ""
 "\n"
 "השרת מסר: „%1”"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4228,14 +4224,12 @@ msgstr ""
 "יש לספק שם משתמש וסיסמה לשרת המתווך שמופיע להלן בטרם תתאפשר גישה לאתרים "
 "כלשהם."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "מתווך:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "אישור המתווך נכשל."
@@ -4280,100 +4274,96 @@ msgstr "מתבצע חיפוש אחר סעיף"
 msgid "Could not find filename %1 in %2."
 msgstr "אי אפשר למצוא את שם הקובץ %1 בתוך %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "לא צוין מארח."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> ב־<b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "אחרת, הבקשה הייתה מצליחה."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "למשוך את ערכי המאפיינים"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "להגדיר את ערכי המאפיינים"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ליצור את התיקייה המבוקשת"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "להעתיק את הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "להעביר את הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "לחפש בתיקייה שצוינה"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "לנעול את הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "לבטל את נעילת הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "למחוק את הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "לתשאל את יכולות השרת"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "לקבל את תוכן הקובץ או התיקייה שצוינו"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "להכין דוח על התיקייה שצוינה"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון לבצע %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "השרת לא תומך בפרוטוקול WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4381,13 +4371,13 @@ msgid ""
 "below."
 msgstr "אירעה שגיאה במהלך הניסיון לבצע %1,‏ %2. להלן תקציר הסיבות."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "הגישה נדחתה במהלך הניסיון לבצע %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4395,7 +4385,7 @@ msgid ""
 msgstr ""
 "אי אפשר ליצור את המשאב ביעד עד שלא ייווצר אוסף ביניים (תיקיות) אחד או יותר."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4409,28 +4399,28 @@ msgstr ""
 "לשכתב קובץ תוך שביקשת שקבצים לא ישוכתבו.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "אי אפשר להעניק את הנעילה המבוקשת. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "השרת לא תומך בסוג הבקשה של הגוף."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "אי אפשר לבצע %1 מכיוון שהמשאב נעול."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "פעולה זו נמנעה עקב שגיאה אחרת."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4438,159 +4428,29 @@ msgid ""
 "folder."
 msgstr "אי אפשר לבצע %1 מכיוון ששרת היעד מסרב לקבל את הקובץ או התיקייה."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "במשאב היעד אין די מקום כדי לתעד את מצב המשאב לאחר הפעלת שירות זה."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "אי אפשר למחוק את המשאב."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 נשלח"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון לבצע %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "נוצר קשר עם %1. בהמתנה לתשובה…"
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>ביקשת להיכנס לאתר „%1” עם שם המשתמש „%2”, אך האתר לא דורש פרטי גישה. "
-"כנראה שזה ניסיון להוליך אותך שולל.</p><p>האם „%1” הוא האתר שרצית לבקר בו?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "אישור גישה לאתר"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "השרת מעבד את הבקשה. נא להמתין…"
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "נתונים נשלחים אל %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%1 מתקבלים מ־%2…"
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> ב־<b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "האימות נכשל."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "מתן ההרשאה נכשל."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "שיטת אימות לא מוכרת."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "מתקבל מידע פגום."
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"אתה עומד לצאת ממצב מאובטח. התקשורת לא תהיה עוד מוצפנת.\n"
-"דבר זה אומר שצד שלישי יוכל להתבונן בנתונים הנשלחים על ידך."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "פרטי אבטחה"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "ל&המשיך בטעינה"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: משא ומתן על SLL נכשל"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"אתה עומד להיכנס למצב מאובטח. כל התקשורת תוצפן אלא אם כן יצוין אחרת.\n"
-"דבר זה אומר שאף צד שלישי לא יוכל להתבונן בקלות בנתונים הנשלחים על ידך."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "הצגת מי&דע על SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "ה&תחברות"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"השרת נכשל בבדיקת האימות (%1).\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "אימות שרת"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "לקבל אישור זה לעד ללא בקשות אישור?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4662,53 +4522,6 @@ msgstr "שחזור קובץ מהאשפה למקומו המקורי"
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "האשפה מלאה. יש לפנות אותה או להסיר את הפריטים ידנית."
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "אי אפשר למצוא סקריפט הגדרות מתווך שימושי"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"אי אפשר להוריד את סקריפט הגדרות המתווך:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "אי אפשר להוריד את סקריפט הגדרות המתווך"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"סקריפט הגדרות המתווך שגוי:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"סקריפט הגדרות המתווך החזיר שגיאה:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "אי אפשר למצוא ‚FindProxyForURL’ או ‚FindProxyForURLEx’"
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "התקבלה תגובה שגויה בקריאה ל־%1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7096,6 +6909,27 @@ msgstr ""
 "השרת המרוחק לא שלח תעודות SSL.\n"
 "מבוטל כיוון שאי אפשר לאמת את זהות השרת."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"השרת נכשל בבדיקת האימות (%1).\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "אימות שרת"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "לקבל אישור זה לעד ללא בקשות אישור?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
@@ -7181,24 +7015,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "לא לשאול שוב"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "לא לשאול שוב"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "לא להציג את ההודעה הזאת שוב"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "נראה שתעודת ה־SSL המרוחקת פגומה."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7219,6 +7053,116 @@ msgstr "יפעיל את התוכנית:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "אם זאת אינה תוכנית מהימנה, ללחוץ על ביטול"
+
+#~ msgid "No host specified."
+#~ msgstr "לא צוין מארח."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "השרת לא תומך בפרוטוקול WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "נוצר קשר עם %1. בהמתנה לתשובה…"
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>ביקשת להיכנס לאתר „%1” עם שם המשתמש „%2”, אך האתר לא דורש פרטי גישה. "
+#~ "כנראה שזה ניסיון להוליך אותך שולל.</p><p>האם „%1” הוא האתר שרצית לבקר בו?"
+#~ "</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "אישור גישה לאתר"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "השרת מעבד את הבקשה. נא להמתין…"
+
+#~ msgid "Sending data to %1"
+#~ msgstr "נתונים נשלחים אל %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "%1 מתקבלים מ־%2…"
+
+#~ msgid "Authentication Failed."
+#~ msgstr "האימות נכשל."
+
+#~ msgid "Authorization failed."
+#~ msgstr "מתן ההרשאה נכשל."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "שיטת אימות לא מוכרת."
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "מתקבל מידע פגום."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "אתה עומד לצאת ממצב מאובטח. התקשורת לא תהיה עוד מוצפנת.\n"
+#~ "דבר זה אומר שצד שלישי יוכל להתבונן בנתונים הנשלחים על ידך."
+
+#~ msgid "Security Information"
+#~ msgstr "פרטי אבטחה"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "ל&המשיך בטעינה"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: משא ומתן על SLL נכשל"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "אתה עומד להיכנס למצב מאובטח. כל התקשורת תוצפן אלא אם כן יצוין אחרת.\n"
+#~ "דבר זה אומר שאף צד שלישי לא יוכל להתבונן בקלות בנתונים הנשלחים על ידך."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "הצגת מי&דע על SSL"
+
+#~ msgid "C&onnect"
+#~ msgstr "ה&תחברות"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "אי אפשר למצוא סקריפט הגדרות מתווך שימושי"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "אי אפשר להוריד את סקריפט הגדרות המתווך:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "אי אפשר להוריד את סקריפט הגדרות המתווך"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "סקריפט הגדרות המתווך שגוי:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "סקריפט הגדרות המתווך החזיר שגיאה:\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "אי אפשר למצוא ‚FindProxyForURL’ או ‚FindProxyForURLEx’"
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "התקבלה תגובה שגויה בקריאה ל־%1 -> %2"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "לא יכול לשמור עוגיות"

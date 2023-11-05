@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2022-10-02 16:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2138,7 +2138,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Servern var för upptagen för att svara på andra begäran för att svara."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Okänt fel"
@@ -2443,87 +2443,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Kan inte avgöra filtyp för %1"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Att öppna anslutningar stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Att stänga anslutningar stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Att komma åt filer stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Skrivning till %1 stöds inte."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Det finns inga speciella åtgärder tillgängliga för protokollet %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Att lista kataloger stöds inte för protokollet %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Att ta emot data från %1 stöds inte."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Att ta emot Mime-typinformation från %1 stöds inte."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Att byta namn på eller flytta filer inom %1 stöds inte."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Att skapa symboliska länkar stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Att kopiera filer inom %1 stöds inte."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Att ta bort filer från %1 stöds inte."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Att skapa kataloger stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Att ändra attributet på filer stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Att ändra ägare av filer stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Att öppna filer stöds inte med protokollet %1."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokollet %1 stöder inte åtgärden %2."
@@ -2551,26 +2551,23 @@ msgstr "Kan inte skapa uttag för att starta I/O-slav för protokollet '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Kan inte hitta det körbara programmet 'kioslave5' i '%1'"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Detaljer"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&För alltid"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Forts&ätt"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "&Endast aktuell session"
@@ -4320,13 +4317,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Du måste ange ett användarnamn och lösenord för att komma åt den här platsen."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Plats:"
@@ -4355,8 +4352,7 @@ msgstr ""
 "\n"
 "Servern meddelade: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4365,14 +4361,12 @@ msgstr ""
 "Du måste ange ett användarnamn och ett lösenord för proxyservern som anges "
 "nedan innan du tillåts komma åt några webbplatser."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Behörighetskontroll till proxy misslyckades."
@@ -4417,100 +4411,96 @@ msgstr "Slår upp avsnitt"
 msgid "Could not find filename %1 in %2."
 msgstr "Kunde inte hitta filnamnet %1 i %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Ingen värddator specificerad."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> på <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars skulle begäran ha lyckats."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hämta egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ange egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "skapa den begärda katalogen"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiera den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "flytta den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "söka i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "låsa den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "låsa upp den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ta bort den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "fråga om serverns funktioner"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "hämta innehållet i angiven fil eller katalog"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "skapa en rapport i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ett oväntat fel (%1) uppstod vid försök att %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Servern stöder inte Webdav-protokollet."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4520,13 +4510,13 @@ msgstr ""
 "Ett fel uppstod vid försök att %1, %2. En sammanfattning av orsakerna anges "
 "nedan."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Åtkomst nekades vid försök att %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4535,7 +4525,7 @@ msgstr ""
 "En resurs kan inte skapas på destinationen innan en eller flera "
 "mellanliggande samlingar (kataloger) har skapats."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4550,28 +4540,28 @@ msgstr ""
 "begärde att filer inte ska skrivas över.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Den begärda låsningen kunde inte erhållas. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Servern stödjer inte typen av begäran i meddelandet."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Kan inte %1 eftersom resursen är låst."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Åtgärden förhindrades av ett annat fel."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4580,7 +4570,7 @@ msgid ""
 msgstr ""
 "Kan inte %1 eftersom målservern vägrar att acceptera filen eller katalogen."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4589,157 +4579,22 @@ msgstr ""
 "Målresursen har inte tillräckligt med utrymme för att registrera resursens "
 "tillstånd efter den här metoden har körts."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resursen kan inte tas bort."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ladda upp %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ett oväntat fel (%1) uppstod vid försök att %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 kontaktad. Väntar på svar..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Du ska just logga in på platsen \"%1\" med användarnamn \"%2\", men "
-"webbplatsen kräver inte behörighetskontroll. Det kan vara ett försök att "
-"lura dig.</p><p>Är \"%1\" platsen du vill besöka?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Bekräfta åtkomst av webbplats"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Servern behandlar begäran, vänta..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Skickar data till %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Hämtar %1 från %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> på <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Behörighetskontroll misslyckades."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "Behörighetskontroll misslyckades."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Okänd behörighetskontrollmetod."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Tar emot förvanskad data."
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Du är på väg att lämna det säkra läget. Överföringar kommer inte längre att "
-"krypteras.\n"
-"Det innebär att en tredje part kan läsa dina data under överföringen."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Säkerhetsinformation"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&Fortsätt laddning"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: SSL-förhandling misslyckades"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Du är på väg att gå in i det säkra läget. Överföringar kommer att krypteras "
-"såvida inget annat meddelas.\n"
-"Det innebär att det blir svårt för en tredje part att läsa dina data under "
-"överföringen."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "&Visa SSL-information"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "&Anslut"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Behörighetkontrollen misslyckades för servern (%1).\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Serverbehörighetskontroll"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr ""
-"Vill du acceptera det här certifikatet för alltid utan att bli tillfrågad?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4812,53 +4667,6 @@ msgstr "Återställ en fil släng i papperskorgen till dess ursprungliga plats"
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Papperskorgen är full. Töm den eller ta bort objekt manuellt."
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Kunde inte hitta ett användbart proxyinställningsskript."
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Kunde inte ladda ner proxyinställningsskriptet.\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Kunde inte ladda ner proxyinställningsskriptet."
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Proxyinställningsskriptet är ogiltigt:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Proxyinställningsskriptet returnerade ett fel.\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "Kunde inte hitta 'FindProxyForURL' eller 'FindProxyForURLEx'"
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Tog emot ett felaktigt svar vid anrop av %1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7278,6 +7086,28 @@ msgstr ""
 "Fjärrvärddatorn skickade inte några SSL-certifikat.\n"
 "Avbryter eftersom värddatorns identitet inte kan avgöras."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Behörighetkontrollen misslyckades för servern (%1).\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Serverbehörighetskontroll"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Vill du acceptera det här certifikatet för alltid utan att bli tillfrågad?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
@@ -7367,24 +7197,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Visa inte meddelandet igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Motpartens SSL-certifikatkedja verkar vara förvanskad."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7405,6 +7235,119 @@ msgstr "Detta startar programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Om du inte litar på programmet, klicka på Avbryt"
+
+#~ msgid "No host specified."
+#~ msgstr "Ingen värddator specificerad."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Servern stöder inte Webdav-protokollet."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1 kontaktad. Väntar på svar..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>Du ska just logga in på platsen \"%1\" med användarnamn \"%2\", men "
+#~ "webbplatsen kräver inte behörighetskontroll. Det kan vara ett försök att "
+#~ "lura dig.</p><p>Är \"%1\" platsen du vill besöka?</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "Bekräfta åtkomst av webbplats"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Servern behandlar begäran, vänta..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Skickar data till %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Hämtar %1 från %2..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Behörighetskontroll misslyckades."
+
+#~ msgid "Authorization failed."
+#~ msgstr "Behörighetskontroll misslyckades."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Okänd behörighetskontrollmetod."
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "Tar emot förvanskad data."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Du är på väg att lämna det säkra läget. Överföringar kommer inte längre "
+#~ "att krypteras.\n"
+#~ "Det innebär att en tredje part kan läsa dina data under överföringen."
+
+#~ msgid "Security Information"
+#~ msgstr "Säkerhetsinformation"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "&Fortsätt laddning"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: SSL-förhandling misslyckades"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Du är på väg att gå in i det säkra läget. Överföringar kommer att "
+#~ "krypteras såvida inget annat meddelas.\n"
+#~ "Det innebär att det blir svårt för en tredje part att läsa dina data "
+#~ "under överföringen."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "&Visa SSL-information"
+
+#~ msgid "C&onnect"
+#~ msgstr "&Anslut"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Kunde inte hitta ett användbart proxyinställningsskript."
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Kunde inte ladda ner proxyinställningsskriptet.\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Kunde inte ladda ner proxyinställningsskriptet."
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Proxyinställningsskriptet är ogiltigt:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Proxyinställningsskriptet returnerade ett fel.\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "Kunde inte hitta 'FindProxyForURL' eller 'FindProxyForURLEx'"
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "Tog emot ett felaktigt svar vid anrop av %1 -> %2"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "Kan inte spara kakor"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2134,7 +2134,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Pelayan terlalu sibuk memberikan respons kepada permintaan lain."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Ralat Tidak Diketahui"
@@ -2426,87 +2426,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Membuka sambungan tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Menutup sambungan tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Mengakses fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Menulis ke %1 tidak disokong."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Tiada tindakan istimewa boleh didapatkan untuk protokol %1"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Menyenaraikan folder tidak disokong untuk protokol %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Mendapatkan semula data dari %1 tidak disokong."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Mendapatkan semula maklumat jenis mime dari %1 tidak disokong."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Menamakan semula atau mengalihkan fail dalam %1 tidak disokong."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Mencipta tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Menyalin fail dalam %1 tidak disokong."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Menghapuskan fail dari %1 tidak disokong."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Mencipta folder tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Mengubah atribut fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Mengubah atribut fail tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Mencipta folder tidak disokong dengan protokol %1."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 tidak menyokong tindakan %2."
@@ -2532,26 +2532,23 @@ msgstr "Tidak dapat cari io-hamba untuk protokol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Tidak dapat cari io-hamba untuk protokol '%1'."
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Terperinci"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Selamanya"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Sambu&ng"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, fuzzy, kde-format
 msgid "&Current Session only"
 msgstr "Sesi Ini Saha&ja"
@@ -4266,13 +4263,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Anda perlu berikan nama pengguna dan kata laluan untuk mengakses tapak ini."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Laman Web:"
@@ -4299,8 +4296,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Melancarkan %1"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4309,14 +4305,12 @@ msgstr ""
 "Anda perlu menyediakan kata pengguna dan kata laluan untuk pelayan proksi "
 "yang tertera di bawah sebelum anda dibenarkan mengakses sebarang laman."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Proksi:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Pengesahan Proksi Gagal."
@@ -4361,100 +4355,96 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "Tidak dapat baca fail %1."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Hos tidak dinyatakan."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> pada <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Jika tidak, permintaan akan berjaya."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "mengambil nilai ciri-ciri"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "tetapkan ciri-ciri"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "Cipta folder yang dipinta"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "salin fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pindah fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cari pada folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "kunci fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "nyahkunci fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "padam fail atau folder dinyatakan"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "menanyakan keupayaan pelayan"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "Mengambil kandungan daripada fail atau folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "cari pada folder yang dinyatakan"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, fuzzy, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ralat yang tidak terjangka (%1) berlaku ketika cuba untuk %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Pelayan tidak menyokong protokol WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, fuzzy, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4463,13 +4453,13 @@ msgid ""
 msgstr ""
 "Ralat berlaku semasa mencuba ke %1, %2. Ringkasan alasan adalah di bawah.<ul>"
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Akses dinafikan ketika sedang mencuba untuk %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4478,7 +4468,7 @@ msgstr ""
 "Sumber tidak dapat dicipta di destinasi hingga satu atau lebih koleksi "
 "perantara (folder) telah dicipta."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, fuzzy, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4491,28 +4481,28 @@ msgstr ""
 "laku ciri elemen XML atau anda cuba menulis ganti semasa meminta agar fail "
 "tersebut tidak boleh ditulis ganti. %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Kunci yang dipinta tidak dapat diberikan. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Pelayan tidak menyokong jenis permintaan kandungan"
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Gagal untuk %1 kerana sumber dikunci."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Tindakan ini telah gagal dilaksanakan oleh masalah yang lain."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4520,7 +4510,7 @@ msgid ""
 "folder."
 msgstr "Gagal %1 kerana destinasi pelayan enggan menerima fail atau folder."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4529,150 +4519,22 @@ msgstr ""
 "Destinasi kepada sumber tidak mempunyai ruang yang cukup untuk merakam "
 "keadaan sumber tersebut selepas pelaksanaan kepada kaedah ini."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, fuzzy, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Sumber ditentukan mungkin tidak wujud."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "muatnaik %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, fuzzy, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ralat yang tidak terjangka (%1) berlaku ketika cuba untuk %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 dihubungi. Sedang menunggu balasan..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr ""
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Pelayan melayani permintaan, sila tunggu..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Menghantar data ke %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Mengambil %1 dari %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> pada <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Pengesahan Gagal."
-
-#: kioworkers/http/http.cpp:5266
-#, fuzzy, kde-format
-msgid "Authorization failed."
-msgstr "Dialog Keizinan"
-
-#: kioworkers/http/http.cpp:5283
-#, fuzzy, kde-format
-msgid "Unknown Authorization method."
-msgstr "Dialog Keizinan"
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Anda akan meninggalkan mod terlindung. Transmisi tidak akan dienkrip.\n"
-"Ini bermakna pihak ketiga boleh memerhatikan data di dalam transit."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Maklumat Sekuriti"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "Terus Muatkan"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, fuzzy, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "Pengesahan Gagal."
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Anda akan memasuki mod terlindung. Transmisi akan dienkrip.\n"
-"Ini bermakna pihak ketiga tidak boleh memerhatikan data di dalam transit "
-"dengan mudah."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Papar &Maklumat SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "&Sambung"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, fuzzy, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr "Sijil pelayan gagal ujian pengesahan (%1)."
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Autentikasi Pelayan"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr ""
-"Adakah anda mahu menerima sijil ini seterusnya selepas ini tanpa diberitahu?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format
@@ -4739,53 +4601,6 @@ msgstr ""
 #: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
-msgstr ""
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Tidak dapat cari skrip konfigurasi proksi boleh guna"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Tidak dapat muat turun skrip konfigurasi proksi:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Tidak dapat muat turun skrip konfigurasi proksi"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Skrip konfigurasi proksi tidak sah:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Skrip konfigurasi proksi mengembalikan ralat:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr ""
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
 msgstr ""
 
 #: kpasswdserver/kpasswdserver.cpp:529
@@ -7167,6 +6982,26 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, fuzzy, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr "Sijil pelayan gagal ujian pengesahan (%1)."
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Autentikasi Pelayan"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr ""
+"Adakah anda mahu menerima sijil ini seterusnya selepas ini tanpa diberitahu?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
@@ -7225,24 +7060,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, fuzzy, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Sijil SSL sebaya kelihatan rosak."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7263,6 +7098,97 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "No host specified."
+#~ msgstr "Hos tidak dinyatakan."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Pelayan tidak menyokong protokol WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1 dihubungi. Sedang menunggu balasan..."
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Pelayan melayani permintaan, sila tunggu..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Menghantar data ke %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Mengambil %1 dari %2..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Pengesahan Gagal."
+
+#, fuzzy
+#~ msgid "Authorization failed."
+#~ msgstr "Dialog Keizinan"
+
+#, fuzzy
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Dialog Keizinan"
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Anda akan meninggalkan mod terlindung. Transmisi tidak akan dienkrip.\n"
+#~ "Ini bermakna pihak ketiga boleh memerhatikan data di dalam transit."
+
+#~ msgid "Security Information"
+#~ msgstr "Maklumat Sekuriti"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "Terus Muatkan"
+
+#, fuzzy
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "Pengesahan Gagal."
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Anda akan memasuki mod terlindung. Transmisi akan dienkrip.\n"
+#~ "Ini bermakna pihak ketiga tidak boleh memerhatikan data di dalam transit "
+#~ "dengan mudah."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "Papar &Maklumat SSL"
+
+#~ msgid "C&onnect"
+#~ msgstr "&Sambung"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Tidak dapat cari skrip konfigurasi proksi boleh guna"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Tidak dapat muat turun skrip konfigurasi proksi:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Tidak dapat muat turun skrip konfigurasi proksi"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Skrip konfigurasi proksi tidak sah:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Skrip konfigurasi proksi mengembalikan ralat:\n"
+#~ "%1"
 
 #, fuzzy
 #~ msgid "Could not remove %1, check permissions"

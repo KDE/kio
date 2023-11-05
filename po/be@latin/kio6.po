@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2180,7 +2180,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Siervier byŭ zanadta zaniaty adkazami na inšyja zapyty, kab adkazać."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Nieviadomaja pamylka"
@@ -2489,87 +2489,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Nie ŭdalosia vyznačyć typ fajla %1"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje zakryccio zlučenniaŭ."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje dostup da fajlaŭ."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapis u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Admyslovyja dziejanni niedastupnyja dlia pratakola %1."
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Atrymannie spisa katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Atrymannie danych z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Atrymannie zviestak pra typy mime z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiena nazvy ci pieramiaščennie fajlaŭ u %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Stvarennie simvaličnych spasylak nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kapijavannie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Vydaliennie fajlaŭ z %1 nie padtrymlivajecca."
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Stvarennie katalohaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmiena atrybutaŭ fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiena ulasnika fajlaŭ nie padtrymlivajecca pratakolam %1."
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Pratakol %1 nie padtrymlivaje adkryccio fajlaŭ."
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Pratakol %1 nie padtrymlivaje dziejannie %2."
@@ -2599,26 +2599,23 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nie ŭdalosia znajsci vykanaĺny fajl \"kioslave5\" u \"%1\""
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Padrabiaznasci"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Zaŭsiody"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Pr&aciahnuć"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "T&oĺki biahučy sieans"
@@ -4400,13 +4397,13 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Kab atrymać dostup da hetaha sajta, treba paznačyć imia karystaĺnika i paroĺ."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Sajt:"
@@ -4435,8 +4432,7 @@ msgstr ""
 "\n"
 "Adkaz sierviera: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4445,14 +4441,12 @@ msgstr ""
 "Pierš čym vam budzie dazvolieny dostup da roznych sajtaŭ, treba paznačyć "
 "imia karystaĺnika i paroĺ dlia sierviera proksi."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Proksi:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Pamylka aŭtentyfikacyi proksi."
@@ -4497,71 +4491,72 @@ msgstr "Pošuk razdziela"
 msgid "Could not find filename %1 in %2."
 msgstr "Nie ŭdalosia znajsci nazvu %1 u %2."
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "Chost nie vyznačany."
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Inakš zapyt byŭ by ŭdalym."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "atrymać značenni ŭlascivasciaŭ"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "vyznačyć značenni ŭlascivasciaŭ"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "stvaryć zapytany kataloh"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "skapijavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pieramiascić vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "šukać u vyznačanym katalozie"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zablakavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "razblakavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "vydalić vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "query the servers capabilities"
@@ -4569,30 +4564,25 @@ msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "zapytać mahčymasci sierviera"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "atrymać zmiesciva vyznačanaha fajla abo kataloha"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "zapuscić stvarennie spravazdačy ŭ vyznačanym katalozie"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Padčas sproby %2 adbylasia niečakanaja pamylka (%1)."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Siervier nie padtrymlivaje pratakol WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4600,13 +4590,13 @@ msgid ""
 "below."
 msgstr "Padčas sproby %2 adbylasia pamylka %1. Zvodka znachodzicca nižej."
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Padčas sproby %1 bylo admoŭliena ŭ dostupie."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4615,7 +4605,7 @@ msgstr ""
 "Niemahčyma stvaryć resurs u miescy pryznačennia, pakuĺ nie budzie stvoranaja "
 "adna abo boĺš kaliekcyj (katalohaŭ)."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4630,28 +4620,28 @@ msgstr ""
 "hetyja fajly nie pierazapisvajucca.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Niemahčyma vykanać zapytanaje blakavannie. %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Siervier nie padtrymlivaje typ zapytu ciela."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie ŭdalosia %1, bo resurs zablakavany."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Hetaje dziejannie pierarvana inšaj pamylkaj."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4660,7 +4650,7 @@ msgid ""
 msgstr ""
 "Nie ŭdalosia %1, bo metavy siervier admaŭliajecca pryniać fajl abo kataloh."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4669,157 +4659,22 @@ msgstr ""
 "Metavy resurs nie maje miesca dlia zapisu stanu resursu paslia vykanannia "
 "hetaha mietadu."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Nie ŭdalosia vydalić resurs."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "zapampavać %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Padčas sproby %2 adbylasia niečakanaja pamylka (%1)."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 znojdziena. Čakannie adkazu..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>Vy chočacie ŭvajsci na sajt \"%1\" pad imiem karystaĺnika \"%2\", alie "
-"pry naviedvanni heta sajta niama patreby vykonvać aŭtentyfikacyju. Heta moža "
-"być sprobaj padmanuć vas.</p><p>Ci \"%1\" sapraŭdy toj sajt, jaki vy "
-"chočacie naviedać?</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "Pacviardžennie dostupu da veb-sajta"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Siervier apracoŭvaje zapyt. Kali laska, pačakajcie..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Adpraŭliennie danych na %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Atrymannie %1 z %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> na <b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "Pamylka aŭtentyfikacyi."
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "Nie ŭdalosia vykanać aŭtaryzacyju."
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "Nieviadomy mietad aŭtaryzacyi."
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "Atrymannie paškodžanych danych."
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Vy zbirajeciesia vyjsci z biaspiečnaha režymu. Pieradačy boĺš nie buduć "
-"šyfravacca.\n"
-"Heta aznačaje, što treci bok zmoža ŭbačyć vašyja danyja padčas pieradačy."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Zviestki pra biaspieku"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "P&raciahnuć zahruzku"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1: nie ŭdalosia vykanać uzhadniennie dlia SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Vy zbirajeciesia ŭvajsci ŭ biaspiečny režym. Usie pieradačy buduć "
-"šyfravacca, kali nie abrana inšaje.\n"
-"Heta aznačaje, što trecija asoby nie zmohuć liohka atrymać dostup la vašych "
-"danych padčas pieradačy."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "Pakazać &zviestki pra SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "Pad&lučycca"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"Siervier nie prajšoŭ praviarannie sapraŭdnasci (%1).\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Aŭtentyfikacyja sierviera"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Chočacie ŭchvalić hety siertyfikat nazaŭždy biez pacviardžennia?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4896,54 +4751,6 @@ msgstr "Adnaŭliennie fajla ŭ zychodnaje miesca"
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Smietnica poŭnaja. Ačyscicie jaje abo vydalicie eliemienty ŭručnuju."
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Nie ŭdalosia znajsci prydatny skrypt naladžvannia proksi"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"Nie ŭdalosia spampavać skrypt naladžvannia proksi:\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Nie ŭdalosia spampavać skrypt naladžvannia proksi"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"Skrypt naladžvannia proksi chibny:\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"Skrypt naladžvannia proksi viarnuŭ pamylku:\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, fuzzy, kde-format
-#| msgid "Could not find FindProxyForURL or FindProxyForURLEx"
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "Nie ŭdalosia znajsci \"FindProxyForURL\" abo \"FindProxyForURLEx\""
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Paslia vykliku atrymany chibny adkaz %1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7463,6 +7270,27 @@ msgstr ""
 "Adliehly chost nie adpraviŭ siertyfikaty SSL.\n"
 "Praces byŭ pierarvany, bo niemahčyma vyznačyć ulikovyja danyja chosta."
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"Siervier nie prajšoŭ praviarannie sapraŭdnasci (%1).\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Aŭtentyfikacyja sierviera"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Chočacie ŭchvalić hety siertyfikat nazaŭždy biez pacviardžennia?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
@@ -7573,24 +7401,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Boĺš nie pytacca"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Boĺš nie pytacca"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Boĺš nie pakazvać hetaje paviedamliennie"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Vyhliadaje, što lancužok adnaranhavych siertyfikataŭ SSL paškodžany."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7611,6 +7439,122 @@ msgstr "Heta zapuscić prahramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
+
+#~ msgid "No host specified."
+#~ msgstr "Chost nie vyznačany."
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Siervier nie padtrymlivaje pratakol WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1 znojdziena. Čakannie adkazu..."
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>Vy chočacie ŭvajsci na sajt \"%1\" pad imiem karystaĺnika \"%2\", alie "
+#~ "pry naviedvanni heta sajta niama patreby vykonvać aŭtentyfikacyju. Heta "
+#~ "moža być sprobaj padmanuć vas.</p><p>Ci \"%1\" sapraŭdy toj sajt, jaki vy "
+#~ "chočacie naviedać?</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "Pacviardžennie dostupu da veb-sajta"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Siervier apracoŭvaje zapyt. Kali laska, pačakajcie..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Adpraŭliennie danych na %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Atrymannie %1 z %2..."
+
+#~ msgid "Authentication Failed."
+#~ msgstr "Pamylka aŭtentyfikacyi."
+
+#~ msgid "Authorization failed."
+#~ msgstr "Nie ŭdalosia vykanać aŭtaryzacyju."
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Nieviadomy mietad aŭtaryzacyi."
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "Atrymannie paškodžanych danych."
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Vy zbirajeciesia vyjsci z biaspiečnaha režymu. Pieradačy boĺš nie buduć "
+#~ "šyfravacca.\n"
+#~ "Heta aznačaje, što treci bok zmoža ŭbačyć vašyja danyja padčas pieradačy."
+
+#~ msgid "Security Information"
+#~ msgstr "Zviestki pra biaspieku"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "P&raciahnuć zahruzku"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1: nie ŭdalosia vykanać uzhadniennie dlia SSL"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Vy zbirajeciesia ŭvajsci ŭ biaspiečny režym. Usie pieradačy buduć "
+#~ "šyfravacca, kali nie abrana inšaje.\n"
+#~ "Heta aznačaje, što trecija asoby nie zmohuć liohka atrymać dostup la "
+#~ "vašych danych padčas pieradačy."
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "Pakazać &zviestki pra SSL"
+
+#~ msgid "C&onnect"
+#~ msgstr "Pad&lučycca"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Nie ŭdalosia znajsci prydatny skrypt naladžvannia proksi"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Nie ŭdalosia spampavać skrypt naladžvannia proksi:\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Nie ŭdalosia spampavać skrypt naladžvannia proksi"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Skrypt naladžvannia proksi chibny:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Skrypt naladžvannia proksi viarnuŭ pamylku:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid "Could not find FindProxyForURL or FindProxyForURLEx"
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "Nie ŭdalosia znajsci \"FindProxyForURL\" abo \"FindProxyForURLEx\""
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "Paslia vykliku atrymany chibny adkaz %1 -> %2"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "Nie ŭdalosia zachavać cookie"

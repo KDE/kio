@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2154,7 +2154,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Umncedisi ebexakekile ephendulela ezinye izicelo."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Imposiso Engaziwayo"
@@ -2461,88 +2461,88 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, fuzzy, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, fuzzy, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, fuzzy, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ukunikeza iifayile aluxhaswa ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, fuzzy, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ukubhalo kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, fuzzy, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Akukho ntshukumo ezikhethekileyo ezifumaneka kumthetho olandelwayo %1"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, fuzzy, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ukudweliso lwabalawuli aluxhaselwanga umthetho olandelwayo %1"
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, fuzzy, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, fuzzy, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, fuzzy, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Ukunika igama kwakhona okanye ukususa iifayile ngaphakathi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, fuzzy, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ukwenza i symlinks akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, fuzzy, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ukukhuphela iifayile ngapakhathi kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, fuzzy, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ukucima iifayile kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, fuzzy, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, fuzzy, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, fuzzy, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
@@ -2570,26 +2570,23 @@ msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Iinkcukacha"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Okokoko"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Qhu&bekeka"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"
 msgid "&Current Session only"
@@ -4392,14 +4389,14 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, fuzzy, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Kufuneka unikezele ngegama lomsebenzisi kunye negama lokugqitha kolunikezelo "
 "lweli nxuwa."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "Inxuwa:"
@@ -4426,8 +4423,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Inyusa %1"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, fuzzy, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4437,14 +4433,12 @@ msgstr ""
 "lomncedisi onegunya lokusebenzela omnye kuluhlu olungezantsi phambi kokuba "
 "uvunyelwe ukusebenzisa naliphi na inxuwa."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "Umntu onegunya lokusebenzela omnye:"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, fuzzy, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Igunya lokusebenzela omnye lobubhali Aliphumelelanga!"
@@ -4490,104 +4484,100 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "Ayinakuyifunda ifayile %1"
 
-#: kioworkers/http/http.cpp:541
-#, fuzzy, kde-format
-msgid "No host specified."
-msgstr "Akukho mamkeli okhankanyiweyo!"
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b>ku-<b>%2</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Kungenjalo, isicelo besinga phumelela."
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, fuzzy, kde-format
 #| msgid "retrieve property values"
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "Fumana amaxabiso ezinto zobunini"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, fuzzy, kde-format
 #| msgid "set property values"
 msgctxt "request type"
 msgid "set property values"
 msgstr "cwangcisa amaxabiso ento yobunini"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "yenza ulawulo oluceliweyo"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "Khupela leyo fayili okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "hambisa ifayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "phendla kulawulo olukhankanyiweyo"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "tshixa leyo fayili ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "vula leyo fayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "cima leyo fayile ekhankanyiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, fuzzy, kde-format
 #| msgid "query the server's capabilities"
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "buza ukukwazi ukwenza bomncedisi "
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "vumbulula imixholo yefayile ekhankayiweyo okanye ulawulo"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "phendla kulawulo olukhankanyiweyo"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Imposiso engalindelekanga (%1) yenzekile ngexesha uzama ukulayisha %2."
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "Lomncedisi akaxhasi umthetho olandelwayo we WebDAV."
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -4600,14 +4590,14 @@ msgstr ""
 "Impazamo yenzekile ngexesha uzama uku %1, %2.  Isishwakathelo sezizathu "
 "sanga phantsi.<ul>"
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, fuzzy, kde-format
 #| msgid "Access was denied while attempting to %1."
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Unikezelo alwamkelekanga mgexesha uzama kwi %1."
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, fuzzy, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4616,7 +4606,7 @@ msgstr ""
 "Icebo alikwazi ukwenzeka kuze enye ye phakati yabaqhokeleli (abalawuli) "
 "sebenziwe."
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4633,29 +4623,29 @@ msgstr ""
 "okanye uzame uku bhala ngaphezulu i fayili ngexhesha bhala ngaphezulu cela "
 "ukuba ifayile zinga bhala ngaphezulu. %1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ikhonco oluceliweyo elitsixiweyo alenzekanga.%1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Umncedisi akakwazanga ukuncedisa isiscelo salomhlobo lomzimba."
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, fuzzy, kde-format
 #| msgid "Unable to %1 because the resource is locked."
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ayikwazanga %1 ngenxa yokuba icebo litshixiwe."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Lentshukumo ivimbelwa ngenye imposiso."
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, fuzzy, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4665,7 +4655,7 @@ msgstr ""
 "Ayikwazi %1 ngenxa yokuba indawo yesiphelo yomncedisi akavumi ukwamkela "
 "ifayile okanye ulawulo."
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4674,155 +4664,24 @@ msgstr ""
 "Icebo lendawo yesiphelo ayina sikhala esaneleyo uku shicilela imeko yecebo "
 "emva kokwenzeka kwale ndlela."
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "Ulawulo olukhankanyiweyo lunokungabikho."
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, fuzzy, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "Ulayisho %1"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Imposiso engalindelekanga (%1) yenzekile ngexesha uzama ukulayisha %2."
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1 ixhuamne. Ilindele impendulo..."
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr ""
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "Umncedisi uyaqhubekeka, yima kancinci..."
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "Ithumela i data ku %1"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "Ubuyiselo %1 ukusuka ku %2..."
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b>ku-<b>%2</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, fuzzy, kde-format
-msgid "Authentication Failed."
-msgstr "Ububhali Abuphumelelanga!"
-
-#: kioworkers/http/http.cpp:5266
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Authorization failed."
-msgstr "Incoko yababini Yogunyaziso"
-
-#: kioworkers/http/http.cpp:5283
-#, fuzzy, kde-format
-#| msgid "Authorization Dialog"
-msgid "Unknown Authorization method."
-msgstr "Incoko yababini Yogunyaziso"
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr ""
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"Umalunga nokulayisha indlela ekhuselekileyo. Uthumelo alusokuze lufihlwe.\n"
-"Oku kuthetha ukuba umntu wesithathu unokubona i data ethunyelwayo."
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "Iinkcukacha Zokhuseleko"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, fuzzy, kde-format
-msgid "C&ontinue Loading"
-msgstr "Qhubekeka Nolayisho"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, fuzzy, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "Ububhali Abuphumelelanga!"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"Umalunga nokungena indlela ekhuselekileyo. Lonke uthumelo aluzukolulisiswa "
-"ngaphandle kokuba luqwalaselwe ngenye indlela.\n"
-"Oku kuthethe ukuba akukho mntu wesithathu oyakubandakanyeka ozakuyibona "
-"ngokulula idata ethunyelweyo."
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, fuzzy, kde-format
-msgid "Display SSL &Information"
-msgstr "Ulwazi Lomboniso we SSL"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, fuzzy, kde-format
-msgid "C&onnect"
-msgstr "&Qhubekeka"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, fuzzy, kde-format
-#| msgid "The server certificate failed the authenticity test (%1)."
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr "Isiqinisekiso somncedisi asiluphumelelanga uvavanyo lobubhali (%1)"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "Ububhali Bomncedisi"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "Ungathanda ukusamkela esi siqinisekiso okokoko singathunyelwanga?"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, fuzzy, kde-format
@@ -4892,47 +4751,6 @@ msgstr ""
 #: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
-msgstr ""
-
-#: kpac/discovery.cpp:96
-#, fuzzy, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
-
-#: kpac/downloader.cpp:77
-#, fuzzy, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
-
-#: kpac/downloader.cpp:79
-#, fuzzy, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
-
-#: kpac/proxyscout.cpp:237
-#, fuzzy, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr ""
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
 msgstr ""
 
 #: kpasswdserver/kpasswdserver.cpp:529
@@ -7289,6 +7107,26 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, fuzzy, kde-format
+#| msgid "The server certificate failed the authenticity test (%1)."
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr "Isiqinisekiso somncedisi asiluphumelelanga uvavanyo lobubhali (%1)"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "Ububhali Bomncedisi"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "Ungathanda ukusamkela esi siqinisekiso okokoko singathunyelwanga?"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
 msgctxt "@info"
@@ -7347,25 +7185,25 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, fuzzy, kde-format
 #| msgid "The peer SSL certificate appears to be corrupt."
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Isiqinisekiso se SSL esilinganayo sibonakala njengokuba asilunganga."
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -7387,6 +7225,99 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#, fuzzy
+#~ msgid "No host specified."
+#~ msgstr "Akukho mamkeli okhankanyiweyo!"
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "Lomncedisi akaxhasi umthetho olandelwayo we WebDAV."
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1 ixhuamne. Ilindele impendulo..."
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "Umncedisi uyaqhubekeka, yima kancinci..."
+
+#~ msgid "Sending data to %1"
+#~ msgstr "Ithumela i data ku %1"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "Ubuyiselo %1 ukusuka ku %2..."
+
+#, fuzzy
+#~ msgid "Authentication Failed."
+#~ msgstr "Ububhali Abuphumelelanga!"
+
+#, fuzzy
+#~| msgid "Authorization Dialog"
+#~ msgid "Authorization failed."
+#~ msgstr "Incoko yababini Yogunyaziso"
+
+#, fuzzy
+#~| msgid "Authorization Dialog"
+#~ msgid "Unknown Authorization method."
+#~ msgstr "Incoko yababini Yogunyaziso"
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "Umalunga nokulayisha indlela ekhuselekileyo. Uthumelo alusokuze "
+#~ "lufihlwe.\n"
+#~ "Oku kuthetha ukuba umntu wesithathu unokubona i data ethunyelwayo."
+
+#~ msgid "Security Information"
+#~ msgstr "Iinkcukacha Zokhuseleko"
+
+#, fuzzy
+#~ msgid "C&ontinue Loading"
+#~ msgstr "Qhubekeka Nolayisho"
+
+#, fuzzy
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "Ububhali Abuphumelelanga!"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "Umalunga nokungena indlela ekhuselekileyo. Lonke uthumelo "
+#~ "aluzukolulisiswa ngaphandle kokuba luqwalaselwe ngenye indlela.\n"
+#~ "Oku kuthethe ukuba akukho mntu wesithathu oyakubandakanyeka ozakuyibona "
+#~ "ngokulula idata ethunyelweyo."
+
+#, fuzzy
+#~ msgid "Display SSL &Information"
+#~ msgstr "Ulwazi Lomboniso we SSL"
+
+#, fuzzy
+#~ msgid "C&onnect"
+#~ msgstr "&Qhubekeka"
+
+#, fuzzy
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
+
+#, fuzzy
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
+
+#, fuzzy
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
+
+#, fuzzy
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr "Ayinakuyenza ifayile yoqwalaselo entsha."
 
 #, fuzzy
 #~| msgid ""

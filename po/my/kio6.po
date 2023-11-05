@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 01:44+0000\n"
+"POT-Creation-Date: 2023-11-05 01:06+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2034,7 +2034,7 @@ msgstr ""
 msgid "The server was too busy responding to other requests to respond."
 msgstr "ဆာဗာသည် အခြားတောင်းခံမှုကို တုံ့ပြန်ရာ၌ မအားမလပ်ဖြစ်နေသဖြင့် မတုံ့ပြန်နိုင်သေးပါ။"
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1504
+#: core/job_error.cpp:1114 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "မသိသောအမှား"
@@ -2327,87 +2327,87 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1၏ ဖိုင်လ်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:840
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ချိတ်ဆက်မှုဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:842
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး '%1' တွင် ချိတ်ဆက်မှုပိတ်သောလုပ်ဆောင်ချက်မပါပါ။"
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:844
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:846
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 သို့ ရေးမရပါ။"
 
-#: core/slavebase.cpp:847
+#: core/slavebase.cpp:848
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 အတွက် အထူးပြုလုပ်ဆောင်ချက်များ မရှိပါ။"
 
-#: core/slavebase.cpp:849
+#: core/slavebase.cpp:850
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုလ်ဒါများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:851
+#: core/slavebase.cpp:852
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 မှ ဒေတာရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:853
+#: core/slavebase.cpp:854
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 မှ အမ်အိုင်အမ်အီးတိုက် ဆိုင်ရာ အချက်အလက် ရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:855
+#: core/slavebase.cpp:856
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်လ်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:857
+#: core/slavebase.cpp:858
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဆင်းလင့်ခ်များဖန်တီးခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:859
+#: core/slavebase.cpp:860
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်လ်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:861
+#: core/slavebase.cpp:862
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1မှဖိုင်လ်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/slavebase.cpp:863
+#: core/slavebase.cpp:864
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုလ်ဒါများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:865
+#: core/slavebase.cpp:866
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:867
+#: core/slavebase.cpp:868
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:869
+#: core/slavebase.cpp:870
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်လ်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:871
+#: core/slavebase.cpp:872
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
@@ -2435,26 +2435,23 @@ msgstr "လုပ်ရိုးလုပ်ထုံး'%1'အတွက် အ�
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'၌ 'ကေအိုင်အိုကျွန်၅' ဆောင်ရွက်ဖိုင်လ်ကို ရှာမတွေ့ပါ"
 
-#: core/workerinterface.cpp:350 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:61
+#: core/workerinterface.cpp:361 widgets/sslui.cpp:61
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "&Details"
 msgstr "&Dအသေးစိတ်"
 
-#: core/workerinterface.cpp:352 kioworkers/http/tcpworkerbase.cpp:545
-#: widgets/sslui.cpp:97
+#: core/workerinterface.cpp:363 widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Fထာဝရ"
 
-#: core/workerinterface.cpp:356 kioworkers/http/tcpworkerbase.cpp:532
-#: widgets/sslui.cpp:62
+#: core/workerinterface.cpp:367 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&nဆက်ရန်"
 
-#: core/workerinterface.cpp:358 kioworkers/http/tcpworkerbase.cpp:546
-#: widgets/sslui.cpp:98
+#: core/workerinterface.cpp:369 widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
 msgstr "&C လက်ရှိဆက်ရှင်အတွက်သာ"
@@ -4168,12 +4165,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:5106
+#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "ဤဆိုက်ကို ဝင်ရောက်အသုံးပြုရန် အသုံးပြုအမည်နှင့် စကားဝှက် ပေးရန်လိုအပ်သည်။"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:5108
+#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "Site:"
 msgstr "ဆိုက် -"
@@ -4202,8 +4199,7 @@ msgstr ""
 "\n"
 "ဆာဗာအကြောင်းပြန်ချက် - \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:4986
-#: kioworkers/http/http.cpp:5121
+#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4212,14 +4208,12 @@ msgstr ""
 "မည်သည့်ဆိုက်မဆို ဝင်ရောက်အသုံးပြုခွင့်မရမီ အောက်တွင်ပြထားသည့် ကြားခံဆာဗာစာရင်းအတွက် အသုံးပြုအမည်နှင့် စကားဝှက် "
 "ပေးရန်လိုအပ်သည်။"
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:4990
-#: kioworkers/http/http.cpp:5124
+#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
 #, kde-format
 msgid "Proxy:"
 msgstr "ကြားခံ -"
 
-#: kioworkers/ftp/ftp.cpp:2517 kioworkers/http/http.cpp:4993
-#: kioworkers/http/http.cpp:5139
+#: kioworkers/ftp/ftp.cpp:2517
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ကြားခံ ယုံကြည်မှုရယူခြင်း မအောင်မြင်ပါ။"
@@ -4264,100 +4258,96 @@ msgstr "အပိုင်းရှာဖွေနေသည်"
 msgid "Could not find filename %1 in %2."
 msgstr "%2 တွင် ဖိုင်လ်အမည် %1 ရှာမတွေ့ပါ။"
 
-#: kioworkers/http/http.cpp:541
+#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
+#: kioworkers/http/http.cpp:326
 #, kde-format
-msgid "No host specified."
-msgstr "အိမ်ရှင် မသတ်မှတ်ထားပါ။"
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%2</b> ၌ <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1504
+#: kioworkers/http/http.cpp:1177
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "အဲ့လိုမဟုတ်ခဲ့လျှင် တောင်းဆိုချက် အောင်မြင်ခဲ့လောက်သည်။"
 
-#: kioworkers/http/http.cpp:1508
+#: kioworkers/http/http.cpp:1180
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ကိုယ်ပိုင်လက္ခဏာ တန်ဖိုးများ ရယူရန်"
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1182
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ကိုယ်ပိုင်လက္ခဏာတန်ဖိုးများသတ်မှတ်မည်"
 
-#: kioworkers/http/http.cpp:1514
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "တောင်းဆိုထားသောဖိုလ်ဒါ တည်ဆောက်ရန်"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ကူးယူရန်"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ရွေ့ရန်"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုလ်ဒါတွင် ရှာရန်"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို သော့ခတ်ရန်"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို သော့ဖွင့်ရန်"
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါကို ဖျက်ရန်"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "ဆာဗာ၏စွမ်းဆောင်ရည်ကို စုံးစမ်းရန်"
 
-#: kioworkers/http/http.cpp:1538
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုင်လ် သို့ ဖိုလ်ဒါ၏ ပါဝင်ဒေတာများကို ရယူရန်"
 
-#: kioworkers/http/http.cpp:1541
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "ခွဲခြားသတ်မှတ်ထားသော ဖိုလ်ဒါကို အစီအရင်ခံစာတင်ရန်"
 
-#: kioworkers/http/http.cpp:1553
+#: kioworkers/http/http.cpp:1210
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် မမျှော်လင့်ထားသောအမှား (%1) ဖြစ်ပေါ်ခဲ့သည်။"
 
-#: kioworkers/http/http.cpp:1562
-#, kde-format
-msgid "The server does not support the WebDAV protocol."
-msgstr "WebDAV လုပ်ရိုးလုပ်ထုံးကို ဆာဗာမှ မထောက်ပံ့ပါ။"
-
-#: kioworkers/http/http.cpp:1606
+#: kioworkers/http/http.cpp:1250
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4365,13 +4355,13 @@ msgid ""
 "below."
 msgstr "%1၊ %2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်။ အကျဥ်းချုပ်ကိုအောက်တွင်ဖော်ပြထားသည်။"
 
-#: kioworkers/http/http.cpp:1624 kioworkers/http/http.cpp:1760
+#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 ကို ဆောင်ရွက်ဖို့ကြိုးပမ်းရာတွင် အသုံးပြုခွင့် ငြင်းပယ်ခံခဲ့ရသည်။"
 
-#: kioworkers/http/http.cpp:1638 kioworkers/http/http.cpp:1767
+#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4379,7 +4369,7 @@ msgid ""
 msgstr ""
 "တစ်ခု၊ တစ်ခုထက်ပိုသော ကြားခံဖိုလ်ဒါများ မတည်ဆောက်ရသေးမီ ရင်းမြစ်ကို ဦးတည်နေရာတွင် မဖန်တီးနိုင်ပါ။"
 
-#: kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1291
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4394,28 +4384,28 @@ msgstr ""
 "ဖိုင်လ်ကိုထပ်ရေးရန်ကြံခဲ့သည်\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1299
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "တောင်းဆိုထားသည့် သော့ကို ပေး၍မရပါ။ %1"
 
-#: kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1305
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "စာကိုယ်၏ တောင်းခံမှု အမျိုးအစားကို ဆာဗာမှ မထောက်ပံ့ပါ။"
 
-#: kioworkers/http/http.cpp:1666 kioworkers/http/http.cpp:1775
+#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "ရင်းမြစ်ကို ပိတ်ပင်ကန့်သတ်ထားသောကြောင့် %1 လုပ်မရပါ။"
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1314
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ဤလုပ်ဆောင်မှုကို အခြားအမှားမှ ရပ်တန့်ခဲ့သည်။"
 
-#: kioworkers/http/http.cpp:1677 kioworkers/http/http.cpp:1782
+#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4423,160 +4413,29 @@ msgid ""
 "folder."
 msgstr "ဦးတည်ဆာဗာမှ ဖိုင်လ် သို့ ဖိုလ်ဒါ လက်ခံရန် ငြင်းဆိုသဖြင့် %1 မလုပ်နိုင်ခဲ့ပါ။"
 
-#: kioworkers/http/http.cpp:1686 kioworkers/http/http.cpp:1791
+#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "ဦးတည်ရင်းမြစ်၌ လုံလောက်သော နေရာလွတ်မရှိပါ။"
 
-#: kioworkers/http/http.cpp:1738
+#: kioworkers/http/http.cpp:1383
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ရင်းမြစ်ကို ဖျက်၍မရပါ။"
 
-#: kioworkers/http/http.cpp:1751
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 တင်မည်"
 
-#: kioworkers/http/http.cpp:1802
+#: kioworkers/http/http.cpp:1454
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် မမျှော်လင့်ထားသောအမှား (%1) ဖြစ်ပေါ်ခဲ့သည်။"
-
-#: kioworkers/http/http.cpp:2502
-#, kde-format
-msgid "%1 contacted. Waiting for reply..."
-msgstr "%1အားဆက်သွယ်ခဲ့သည်။ အကြောင်းပြန်ခြင်းကိုစောင့်ဆိုင်းနေသည်…"
-
-#: kioworkers/http/http.cpp:2828
-#, kde-format
-msgctxt "@info Security check on url being accessed"
-msgid ""
-"<p>You are about to log in to the site \"%1\" with the username \"%2\", but "
-"the website does not require authentication. This may be an attempt to trick "
-"you.</p><p>Is \"%1\" the site you want to visit?</p>"
-msgstr ""
-"<p>ဆိုက် \"%1\" သို့ အသုံးပြုသူအမည် \"%2\" ဖြင့် သင် ဝင်ရောက်ပါတော့မည်။ ဒါပေမယ့် ဝက်ဘ်ဆိုက်မှ "
-"ယုံကြည်မှုရယူခြင်းဆောင်ရွက်ချက်ကို မလိုအပ်ပါ။ ဤအချက်အားဖြင့် ထိုဆိုက်သည် သင့်အား လှည့်စားရန် ကြိုးစားနေသည်ဟု "
-"ယူဆသည်။</p><p> \"%1\" သည် သင်တကယ်သွားရောက်ခြင်းသော ဆိုက်ဖြစ်ပါသလား။</p>"
-
-#: kioworkers/http/http.cpp:2835
-#, kde-format
-msgctxt "@title:window"
-msgid "Confirm Website Access"
-msgstr "ဝက်ဘ်ဆိုက်အသုံးပြုခွင့် အတည်ပြုမည်"
-
-#: kioworkers/http/http.cpp:2926
-#, kde-format
-msgid "Server processing request, please wait..."
-msgstr "ဆာဗာသည် တောင်းဆိုမှုကို သုံးသပ်လုပ်ဆောင်နေသည်"
-
-#: kioworkers/http/http.cpp:3615 kioworkers/http/http.cpp:3670
-#, kde-format
-msgid "Sending data to %1"
-msgstr "%1သို့ ဒေတာပို့နေသည်"
-
-#: kioworkers/http/http.cpp:4115
-#, kde-format
-msgid "Retrieving %1 from %2..."
-msgstr "%2 မှ %1 ရယူနေသည်…"
-
-#: kioworkers/http/http.cpp:4991 kioworkers/http/http.cpp:5228
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%2</b> ၌ <b>%1</b>"
-
-#: kioworkers/http/http.cpp:5139
-#, kde-format
-msgid "Authentication Failed."
-msgstr "ယုံကြည်မှုရယူခြင်း မအောင်မြင်ပါ။"
-
-#: kioworkers/http/http.cpp:5266
-#, kde-format
-msgid "Authorization failed."
-msgstr "အခွင့်အာဏာပေးခြင်း ရှုံးနိမ့်ခဲ့သည်။"
-
-#: kioworkers/http/http.cpp:5283
-#, kde-format
-msgid "Unknown Authorization method."
-msgstr "မသိသော ယုံကြည်မှုရယူခြင်းနည်းလမ်း"
-
-#: kioworkers/http/httpfilter.cpp:175
-#, kde-format
-msgid "Receiving corrupt data."
-msgstr "ပျက်စီး-ဒေတာ လက်ခံရရှိနေသည်။"
-
-#: kioworkers/http/tcpworkerbase.cpp:280
-#, kde-format
-msgid ""
-"You are about to leave secure mode. Transmissions will no longer be "
-"encrypted.\n"
-"This means that a third party could observe your data in transit."
-msgstr ""
-"လုံခြုံရေးတင်းကျပ်စနစ်ပိတ်တော့မည်ဖြစ်သည်။ ဆက်သွယ်မှုများကို ဝှက်စာမခံတော့ပါ။\n"
-"တတိယလူအနေဖြင့် သင်၏ရွေ့ပြောင်းဆဲဒေတာများကို ဖတ်နိုင်လိမ့်မည်။"
-
-#: kioworkers/http/tcpworkerbase.cpp:286 kioworkers/http/tcpworkerbase.cpp:482
-#, kde-format
-msgid "Security Information"
-msgstr "လုံခြုံရေးဆိုင်ရာသတင်းအချက်အလက်"
-
-#: kioworkers/http/tcpworkerbase.cpp:287
-#, kde-format
-msgid "C&ontinue Loading"
-msgstr "&oတင်သွင်းမှုဆက်လုပ်ရန်"
-
-#: kioworkers/http/tcpworkerbase.cpp:340
-#, kde-format
-msgctxt "%1 is a host name"
-msgid "%1: SSL negotiation failed"
-msgstr "%1 - အက်စ်အက်စ်အယ်လ် ညှိနှိုင်းမှု မအောင်မြင်"
-
-#: kioworkers/http/tcpworkerbase.cpp:476
-#, kde-format
-msgid ""
-"You are about to enter secure mode. All transmissions will be encrypted "
-"unless otherwise noted.\n"
-"This means that no third party will be able to easily observe your data in "
-"transit."
-msgstr ""
-"လုံခြုံရေးတင်းကျပ်စနစ်ဖွင့်တော့မည်ဖြစ်သည်။ တစ်စုံတစ်ရာမသတ်မှတ်ထားလျှင် ဆက်သွယ်မှုအားလုံး ဝှက်စာခံပါမည်။\n"
-"တတိယလူအနေဖြင့် သင်၏ရွေ့ပြောင်းဆဲဒေတာများကို အလွယ်တကူ မဖတ်နိုင်တော့ပါ။"
-
-#: kioworkers/http/tcpworkerbase.cpp:483
-#, kde-format
-msgid "Display SSL &Information"
-msgstr "&Iအက်စ်အက်စ်အယ်လ် အချက်အလက်များ ပြရန်"
-
-#: kioworkers/http/tcpworkerbase.cpp:484
-#, kde-format
-msgid "C&onnect"
-msgstr "&oချိတ်ဆက်"
-
-#: kioworkers/http/tcpworkerbase.cpp:523 widgets/sslui.cpp:50
-#, kde-format
-msgid ""
-"The server failed the authenticity check (%1).\n"
-"\n"
-msgstr ""
-"ဆာဗာအား ယုံကြည်ရမှုစစ်ဆေးရာ ကျရှုံးခဲ့သည်(%1).\n"
-"\n"
-
-#: kioworkers/http/tcpworkerbase.cpp:532 kioworkers/http/tcpworkerbase.cpp:544
-#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#, kde-format
-msgid "Server Authentication"
-msgstr "ဆာဗာ ယုံကြည်မှုရယူခြင်း"
-
-#: kioworkers/http/tcpworkerbase.cpp:541 widgets/sslui.cpp:93
-#, kde-format
-msgid ""
-"Would you like to accept this certificate forever without being prompted?"
-msgstr "ဤအသိအမှတ်ပြုစာချွန်ကို ခွင့်မတောင်းပဲ အမြဲလက်ခံချင်ပါသလား။"
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4647,53 +4506,6 @@ msgstr "အမှိုက်ပုံးသို့ ပို့ထားသ�
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "အမှိုက်ပုံးပြည့်သွားပါပြီ။ အကုန်ရှင်းပစ်ပါ သို့မဟုတ် တစ်ခုချင်းဆီရှင်းပါ။"
-
-#: kpac/discovery.cpp:96
-#, kde-format
-msgid "Could not find a usable proxy configuration script"
-msgstr "သုံး၍ရသော ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ရှာမတွေ့ပါ"
-
-#: kpac/downloader.cpp:77
-#, kde-format
-msgid ""
-"Could not download the proxy configuration script:\n"
-"%1"
-msgstr ""
-"ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ဒေါင်းလုတ်ဆွဲမရခဲ့ပါ -\n"
-"%1"
-
-#: kpac/downloader.cpp:79
-#, kde-format
-msgid "Could not download the proxy configuration script"
-msgstr "ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ဒေါင်းလုတ်ဆွဲမရခဲ့ပါ"
-
-#: kpac/proxyscout.cpp:237
-#, kde-format
-msgid ""
-"The proxy configuration script is invalid:\n"
-"%1"
-msgstr ""
-"ကြားခံပြင်ဆင်မှုညွှန်ကြားစာဖိုင်လ်သည် မမှန်ကန်ပါ-\n"
-"%1"
-
-#: kpac/proxyscout.cpp:351
-#, kde-format
-msgid ""
-"The proxy configuration script returned an error:\n"
-"%1"
-msgstr ""
-"ကြားခံပြင်ဆင်မှုညွှန်ကြားစာဖိုင်လ်မှ အမှားပြန်လာခဲ့သည်-\n"
-"%1"
-
-#: kpac/script.cpp:674
-#, kde-format
-msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-msgstr "'FindProxyForURL' သို့မဟုတ် 'FindProxyForURLEx' ရှာမတွေ့ပါ"
-
-#: kpac/script.cpp:692
-#, kde-format
-msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "%1 -> %2 ခေါ်သည့်အခါ အတည်မပြုနိုင်သော ပြန်ကြားချက်ရရှိခဲ့သည်"
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -7050,6 +6862,27 @@ msgstr ""
 "အဝေးအိမ်ရှင် မည်သည့် အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်မှ မပို့ခဲ့ပါ။\n"
 "အိမ်ရှင်၏ ဟုတ်မှန်မှုကို ခိုင်မာစွာမတည်ဆောက်နိုင်သောကြောင့် စွန့်လွတ်ဖျက်ချနေသည်။"
 
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#, kde-format
+msgid ""
+"The server failed the authenticity check (%1).\n"
+"\n"
+msgstr ""
+"ဆာဗာအား ယုံကြည်ရမှုစစ်ဆေးရာ ကျရှုံးခဲ့သည်(%1).\n"
+"\n"
+
+#: widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: widgets/widgetsaskuseractionhandler.cpp:500
+#, kde-format
+msgid "Server Authentication"
+msgstr "ဆာဗာ ယုံကြည်မှုရယူခြင်း"
+
+#: widgets/sslui.cpp:93
+#, kde-format
+msgid ""
+"Would you like to accept this certificate forever without being prompted?"
+msgstr "ဤအသိအမှတ်ပြုစာချွန်ကို ခွင့်မတောင်းပဲ အမြဲလက်ခံချင်ပါသလား။"
+
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
@@ -7130,24 +6963,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:389
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "ဤမှတ်စာကို နောက်ထပ်မပြပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:528
+#: widgets/widgetsaskuseractionhandler.cpp:560
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "မိတ်ဆွေ အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်အစဥ် ပျက်စီးနေပုံရသည်။"
 
-#: widgets/widgetsaskuseractionhandler.cpp:531
+#: widgets/widgetsaskuseractionhandler.cpp:563
 #, kde-format
 msgid "SSL"
 msgstr "အက်စ်အက်စ်အယ်လ်"
@@ -7168,6 +7001,116 @@ msgstr "ဤအရာသည် ပရိုဂရမ်ကို စတင်လ�
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "သင် ဤပရိုဂရမ်ကို မယုံကြည်လျှင် 'ပယ်ဖျက်ရန်' ခလုတ်ကိုနှိပ်ပါ"
+
+#~ msgid "No host specified."
+#~ msgstr "အိမ်ရှင် မသတ်မှတ်ထားပါ။"
+
+#~ msgid "The server does not support the WebDAV protocol."
+#~ msgstr "WebDAV လုပ်ရိုးလုပ်ထုံးကို ဆာဗာမှ မထောက်ပံ့ပါ။"
+
+#~ msgid "%1 contacted. Waiting for reply..."
+#~ msgstr "%1အားဆက်သွယ်ခဲ့သည်။ အကြောင်းပြန်ခြင်းကိုစောင့်ဆိုင်းနေသည်…"
+
+#~ msgctxt "@info Security check on url being accessed"
+#~ msgid ""
+#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
+#~ "but the website does not require authentication. This may be an attempt "
+#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
+#~ msgstr ""
+#~ "<p>ဆိုက် \"%1\" သို့ အသုံးပြုသူအမည် \"%2\" ဖြင့် သင် ဝင်ရောက်ပါတော့မည်။ ဒါပေမယ့် ဝက်ဘ်ဆိုက်မှ "
+#~ "ယုံကြည်မှုရယူခြင်းဆောင်ရွက်ချက်ကို မလိုအပ်ပါ။ ဤအချက်အားဖြင့် ထိုဆိုက်သည် သင့်အား လှည့်စားရန် ကြိုးစားနေသည်ဟု "
+#~ "ယူဆသည်။</p><p> \"%1\" သည် သင်တကယ်သွားရောက်ခြင်းသော ဆိုက်ဖြစ်ပါသလား။</p>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Confirm Website Access"
+#~ msgstr "ဝက်ဘ်ဆိုက်အသုံးပြုခွင့် အတည်ပြုမည်"
+
+#~ msgid "Server processing request, please wait..."
+#~ msgstr "ဆာဗာသည် တောင်းဆိုမှုကို သုံးသပ်လုပ်ဆောင်နေသည်"
+
+#~ msgid "Sending data to %1"
+#~ msgstr "%1သို့ ဒေတာပို့နေသည်"
+
+#~ msgid "Retrieving %1 from %2..."
+#~ msgstr "%2 မှ %1 ရယူနေသည်…"
+
+#~ msgid "Authentication Failed."
+#~ msgstr "ယုံကြည်မှုရယူခြင်း မအောင်မြင်ပါ။"
+
+#~ msgid "Authorization failed."
+#~ msgstr "အခွင့်အာဏာပေးခြင်း ရှုံးနိမ့်ခဲ့သည်။"
+
+#~ msgid "Unknown Authorization method."
+#~ msgstr "မသိသော ယုံကြည်မှုရယူခြင်းနည်းလမ်း"
+
+#~ msgid "Receiving corrupt data."
+#~ msgstr "ပျက်စီး-ဒေတာ လက်ခံရရှိနေသည်။"
+
+#~ msgid ""
+#~ "You are about to leave secure mode. Transmissions will no longer be "
+#~ "encrypted.\n"
+#~ "This means that a third party could observe your data in transit."
+#~ msgstr ""
+#~ "လုံခြုံရေးတင်းကျပ်စနစ်ပိတ်တော့မည်ဖြစ်သည်။ ဆက်သွယ်မှုများကို ဝှက်စာမခံတော့ပါ။\n"
+#~ "တတိယလူအနေဖြင့် သင်၏ရွေ့ပြောင်းဆဲဒေတာများကို ဖတ်နိုင်လိမ့်မည်။"
+
+#~ msgid "Security Information"
+#~ msgstr "လုံခြုံရေးဆိုင်ရာသတင်းအချက်အလက်"
+
+#~ msgid "C&ontinue Loading"
+#~ msgstr "&oတင်သွင်းမှုဆက်လုပ်ရန်"
+
+#~ msgctxt "%1 is a host name"
+#~ msgid "%1: SSL negotiation failed"
+#~ msgstr "%1 - အက်စ်အက်စ်အယ်လ် ညှိနှိုင်းမှု မအောင်မြင်"
+
+#~ msgid ""
+#~ "You are about to enter secure mode. All transmissions will be encrypted "
+#~ "unless otherwise noted.\n"
+#~ "This means that no third party will be able to easily observe your data "
+#~ "in transit."
+#~ msgstr ""
+#~ "လုံခြုံရေးတင်းကျပ်စနစ်ဖွင့်တော့မည်ဖြစ်သည်။ တစ်စုံတစ်ရာမသတ်မှတ်ထားလျှင် ဆက်သွယ်မှုအားလုံး ဝှက်စာခံပါမည်။\n"
+#~ "တတိယလူအနေဖြင့် သင်၏ရွေ့ပြောင်းဆဲဒေတာများကို အလွယ်တကူ မဖတ်နိုင်တော့ပါ။"
+
+#~ msgid "Display SSL &Information"
+#~ msgstr "&Iအက်စ်အက်စ်အယ်လ် အချက်အလက်များ ပြရန်"
+
+#~ msgid "C&onnect"
+#~ msgstr "&oချိတ်ဆက်"
+
+#~ msgid "Could not find a usable proxy configuration script"
+#~ msgstr "သုံး၍ရသော ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ရှာမတွေ့ပါ"
+
+#~ msgid ""
+#~ "Could not download the proxy configuration script:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ဒေါင်းလုတ်ဆွဲမရခဲ့ပါ -\n"
+#~ "%1"
+
+#~ msgid "Could not download the proxy configuration script"
+#~ msgstr "ကြားခံပြင်ဆင်မှုညွှန်ကြားချက်အား ဒေါင်းလုတ်ဆွဲမရခဲ့ပါ"
+
+#~ msgid ""
+#~ "The proxy configuration script is invalid:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "ကြားခံပြင်ဆင်မှုညွှန်ကြားစာဖိုင်လ်သည် မမှန်ကန်ပါ-\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "The proxy configuration script returned an error:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "ကြားခံပြင်ဆင်မှုညွှန်ကြားစာဖိုင်လ်မှ အမှားပြန်လာခဲ့သည်-\n"
+#~ "%1"
+
+#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
+#~ msgstr "'FindProxyForURL' သို့မဟုတ် 'FindProxyForURLEx' ရှာမတွေ့ပါ"
+
+#~ msgid "Got an invalid reply when calling %1 -> %2"
+#~ msgstr "%1 -> %2 ခေါ်သည့်အခါ အတည်မပြုနိုင်သော ပြန်ကြားချက်ရရှိခဲ့သည်"
 
 #~ msgid "Cannot Save Cookies"
 #~ msgstr "ကွတ်ကီးများ သိမ်းဆည်းမရပါ"
