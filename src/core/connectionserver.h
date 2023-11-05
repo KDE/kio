@@ -20,15 +20,10 @@ namespace KIO
 class ConnectionServerPrivate;
 class Connection;
 
-/**
- * @private
- * @internal
- *
+/*
  * This class provides a way to obtaining KIO::Connection connections.
- * Used by klauncher.
- * Do not use outside KIO and klauncher!
  */
-class KIOCORE_EXPORT ConnectionServer : public QObject
+class ConnectionServer : public QObject
 {
     Q_OBJECT
 public:

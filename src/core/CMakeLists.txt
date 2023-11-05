@@ -226,7 +226,6 @@ endif()
 # Headers prefixed with KIO/
 ecm_generate_headers(KIOCore_CamelCase_HEADERS
   HEADER_NAMES
-  ConnectionServer
   DirectorySizeJob
   Job #     ### should forward to job_base.h, not job.h...
   JobTracker
