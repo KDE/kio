@@ -308,7 +308,21 @@ void FtpInternal::setHost(const QString &_host, quint16 _port, const QString &_u
     qCDebug(KIO_FTP) << _host << "port=" << _port << "user=" << _user;
 
     m_proxyURL.clear();
-    m_proxyUrls = q->mapConfig().value(QStringLiteral("ProxyUrls"), QString()).toString().split(QLatin1Char(','), Qt::SkipEmptyParts);
+    m_proxyUrls.clear();
+    const auto proxies = QNetworkProxyFactory::proxyForQuery(QNetworkProxyQuery(_host, _port, QStringLiteral("ftp"), QNetworkProxyQuery::UrlRequest));
+
+    for (const QNetworkProxy &proxy : proxies) {
+        if (proxy.type() != QNetworkProxy::NoProxy) {
+            QUrl proxyUrl;
+            proxyUrl.setScheme(QStringLiteral("ftp"));
+            proxyUrl.setUserName(proxy.user());
+            proxyUrl.setPassword(proxy.password());
+            proxyUrl.setHost(proxy.hostName());
+            proxyUrl.setPort(proxy.port());
+
+            m_proxyUrls << proxyUrl.toString();
+        }
+    }
 
     qCDebug(KIO_FTP) << "proxy urls:" << m_proxyUrls;
 
