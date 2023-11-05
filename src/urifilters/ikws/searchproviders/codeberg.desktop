@@ -4,6 +4,7 @@ Hidden=false
 Keys=codeberg,cb
 Name=Codeberg
 Name[ca]=Codeberg
+Name[ca@valencia]=Codeberg
 Name[eo]=Codeberg
 Name[es]=Codeberg
 Name[eu]=Codeberg
@@ -19,6 +20,7 @@ Name[uk]=Codeberg
 Name[x-test]=xxCodebergxx
 Query=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[ca@valencia]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[eo]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[es]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[eu]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
