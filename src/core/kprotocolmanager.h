@@ -96,60 +96,6 @@ public:
      */
     static int responseTimeout();
 
-    /*=============================== PROXY CONFIG ==============================*/
-
-    /**
-     * Returns whether or not the user specified the
-     * use of proxy server to make connections.
-     * @return true to use a proxy
-     */
-    static bool useProxy();
-
-    /**
-     * Returns whether or not the proxy server
-     * lookup should be reversed or not.
-     * @return true to use a reversed proxy
-     */
-    static bool useReverseProxy();
-
-    /**
-     * Types of proxy configuration
-     * @li NoProxy     - No proxy is used
-     * @li ManualProxy - Proxies are manually configured
-     * @li PACProxy    - A Proxy configuration URL has been given
-     * @li WPADProxy   - A proxy should be automatically discovered
-     * @li EnvVarProxy - Use the proxy values set through environment variables.
-     */
-    enum ProxyType {
-        NoProxy,
-        ManualProxy,
-        PACProxy,
-        WPADProxy,
-        EnvVarProxy,
-    };
-
-    /**
-     * Returns the type of proxy configuration that is used.
-     * @return the proxy type
-     */
-    static ProxyType proxyType();
-
-    /**
-     * Returns the proxy server address for a given
-     * protocol.
-     *
-     * @param protocol the protocol whose proxy info is needed
-     * @returns the proxy server address if one is available,
-     *          or QString() if not available
-     */
-    static QString proxyFor(const QString &protocol);
-
-    /**
-     * Returns the URL of the script for automatic proxy configuration.
-     * @return the proxy configuration script
-     */
-    static QString proxyConfigScript();
-
     /*============================ DOWNLOAD CONFIG ==============================*/
 
     /**

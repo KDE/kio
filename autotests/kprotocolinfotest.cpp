@@ -83,7 +83,6 @@ void KProtocolInfoTest::testWorkerProtocol()
     QStringList proxy;
     QString protocol = KProtocolManagerPrivate::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
-    QVERIFY(!KProtocolManager::useProxy());
 
     // Just to test it doesn't deadlock
     KProtocolManager::reparseConfiguration();
@@ -96,10 +95,10 @@ void KProtocolInfoTest::testProxySettings_data()
     QTest::addColumn<int>("proxyType");
 
     // Just to test it doesn't deadlock (bug 346214)
-    QTest::newRow("manual") << static_cast<int>(KProtocolManager::ManualProxy);
-    QTest::newRow("wpad") << static_cast<int>(KProtocolManager::WPADProxy);
+    QTest::newRow("manual") << static_cast<int>(KProtocolManagerPrivate::ManualProxy);
+    QTest::newRow("wpad") << static_cast<int>(KProtocolManagerPrivate::WPADProxy);
     // Same for bug 350890
-    QTest::newRow("envvar") << static_cast<int>(KProtocolManager::EnvVarProxy);
+    QTest::newRow("envvar") << static_cast<int>(KProtocolManagerPrivate::EnvVarProxy);
 }
 
 void KProtocolInfoTest::testProxySettings()
@@ -113,10 +112,9 @@ void KProtocolInfoTest::testProxySettings()
     QStringList proxy;
     QString protocol = KProtocolManagerPrivate::workerProtocol(QUrl(QStringLiteral("http://bugs.kde.org")), proxy);
     QCOMPARE(protocol, QStringLiteral("http"));
-    QVERIFY(KProtocolManager::useProxy());
 
     // restore
-    cfg.writeEntry("ProxyType", static_cast<int>(KProtocolManager::NoProxy));
+    cfg.writeEntry("ProxyType", static_cast<int>(KProtocolManagerPrivate::NoProxy));
     cfg.sync();
     KProtocolManager::reparseConfiguration();
 }

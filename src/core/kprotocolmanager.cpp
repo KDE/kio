@@ -128,9 +128,9 @@ KProtocolManagerPrivate::~KProtocolManagerPrivate()
 bool KProtocolManagerPrivate::shouldIgnoreProxyFor(const QUrl &url)
 {
     bool isMatch = false;
-    const KProtocolManager::ProxyType type = proxyType();
-    const bool useRevProxy = ((type == KProtocolManager::ManualProxy) && useReverseProxy());
-    const bool useNoProxyList = (type == KProtocolManager::ManualProxy || type == KProtocolManager::EnvVarProxy);
+    const ProxyType type = proxyType();
+    const bool useRevProxy = ((type == ManualProxy) && useReverseProxy());
+    const bool useNoProxyList = (type == ManualProxy || type == EnvVarProxy);
 
     // No proxy only applies to ManualProxy and EnvVarProxy types...
     if (useNoProxyList && noProxyFor.isEmpty()) {
@@ -238,10 +238,10 @@ static KSharedConfig::Ptr config()
     return d->configPtr;
 }
 
-KProtocolManager::ProxyType KProtocolManagerPrivate::proxyType()
+KProtocolManagerPrivate::ProxyType KProtocolManagerPrivate::proxyType()
 {
     KConfigGroup cg(config(), QStringLiteral("Proxy Settings"));
-    return static_cast<KProtocolManager::ProxyType>(cg.readEntry("ProxyType", 0));
+    return static_cast<ProxyType>(cg.readEntry("ProxyType", 0));
 }
 
 bool KProtocolManagerPrivate::useReverseProxy()
@@ -253,7 +253,7 @@ bool KProtocolManagerPrivate::useReverseProxy()
 QString KProtocolManagerPrivate::readNoProxyFor()
 {
     QString noProxy = config()->group(QStringLiteral("Proxy Settings")).readEntry("NoProxyFor");
-    if (proxyType() == KProtocolManager::EnvVarProxy) {
+    if (proxyType() == EnvVarProxy) {
         noProxy = QString::fromLocal8Bit(qgetenv(noProxy.toLocal8Bit().constData()));
     }
     return noProxy;
@@ -304,27 +304,6 @@ int KProtocolManager::responseTimeout()
     return qMax(MIN_TIMEOUT_VALUE, val);
 }
 
-/*========================== PROXY SETTINGS =================================*/
-
-bool KProtocolManager::useProxy()
-{
-    return proxyType() != NoProxy;
-}
-
-bool KProtocolManager::useReverseProxy()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return d->useReverseProxy();
-}
-
-KProtocolManager::ProxyType KProtocolManager::proxyType()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return d->proxyType();
-}
-
 static QString adjustProtocol(const QString &scheme)
 {
     if (scheme.compare(QLatin1String("webdav"), Qt::CaseInsensitive) == 0) {
@@ -336,13 +315,6 @@ static QString adjustProtocol(const QString &scheme)
     }
 
     return scheme.toLower();
-}
-
-QString KProtocolManager::proxyFor(const QString &protocol)
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return d->proxyFor(protocol);
 }
 
 QString KProtocolManagerPrivate::proxyFor(const QString &protocol)
@@ -430,8 +402,8 @@ QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
     QMutexLocker lock(&d->mutex);
     if (!d->shouldIgnoreProxyFor(url)) {
         switch (d->proxyType()) {
-        case KProtocolManager::PACProxy:
-        case KProtocolManager::WPADProxy: {
+        case PACProxy:
+        case WPADProxy: {
             QUrl u(url);
             const QString protocol = adjustProtocol(u.scheme());
             u.setScheme(protocol);
@@ -446,10 +418,10 @@ QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
 #endif
             break;
         }
-        case KProtocolManager::EnvVarProxy:
+        case EnvVarProxy:
             proxyList = d->getSystemProxyFor(url);
             break;
-        case KProtocolManager::ManualProxy: {
+        case ManualProxy: {
             QString proxy(d->proxyFor(url.scheme()));
             if (!proxy.isEmpty()) {
                 proxyList << proxy;
@@ -465,7 +437,7 @@ QStringList KProtocolManagerPrivate::proxiesForUrl(const QUrl &url)
             }
             break;
         }
-        case KProtocolManager::NoProxy:
+        case NoProxy:
             break;
         }
     }
@@ -496,8 +468,7 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
     // Do not perform a proxy lookup for any url classified as a ":local" url or
     // one that does not have a host component or if proxy is disabled.
     QString protocol(url.scheme());
-    if (url.host().isEmpty() || KProtocolInfo::protocolClass(protocol) == QLatin1String(":local")
-        || KProtocolManager::proxyType() == KProtocolManager::NoProxy) {
+    if (url.host().isEmpty() || KProtocolInfo::protocolClass(protocol) == QLatin1String(":local") || kProtocolManagerPrivate->proxyType() == NoProxy) {
         return protocol;
     }
 
@@ -684,13 +655,6 @@ bool KProtocolManager::autoResume()
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->group(QString()).readEntry("AutoResume", false);
-}
-
-QString KProtocolManager::proxyConfigScript()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
-    return config()->group(QStringLiteral("Proxy Settings")).readEntry("Proxy Config Script");
 }
 
 /* =========================== PROTOCOL CAPABILITIES ============== */
