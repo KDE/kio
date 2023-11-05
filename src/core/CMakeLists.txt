@@ -253,7 +253,6 @@ ecm_generate_headers(KIOCore_CamelCase_HEADERS
   NameFinderJob
   StoredTransferJob
   TransferJob
-  Scheduler
   AuthInfo
   DavJob
   DesktopExecParser

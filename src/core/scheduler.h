@@ -19,8 +19,7 @@ namespace KIO
 class Worker;
 
 class SchedulerPrivate;
-/**
- * @class KIO::Scheduler scheduler.h <KIO/Scheduler>
+/*
  *
  * The KIO::Scheduler manages KIO workers for the application.
  * It also queues jobs and assigns the job to a worker when one
@@ -43,7 +42,7 @@ class SchedulerPrivate;
  *
  * @see KIO::Job
  */
-class KIOCORE_EXPORT Scheduler : public QObject
+class Scheduler : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KIO.Scheduler")
