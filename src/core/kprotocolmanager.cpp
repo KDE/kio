@@ -52,7 +52,6 @@
 
 #include <kprotocolinfofactory_p.h>
 
-#include "http_worker_defaults.h"
 #include "ioworker_defaults.h"
 #include "workerconfig.h"
 
@@ -265,16 +264,6 @@ QMap<QString, QString> KProtocolManager::entryMap(const QString &group)
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return config()->entryMap(group);
-}
-
-static KConfigGroup http_config()
-{
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    Q_ASSERT(!d->mutex.tryLock()); // the caller must have locked the mutex
-    if (!d->http_config) {
-        d->http_config = KSharedConfig::openConfig(QStringLiteral("kio_httprc"), KConfig::NoGlobals);
-    }
-    return KConfigGroup(d->http_config, QString());
 }
 
 /*=============================== TIMEOUT SETTINGS ==========================*/
@@ -590,7 +579,7 @@ QString KProtocolManagerPrivate::defaultUserAgent(const QString &_modifiers)
     QMutexLocker lock(&d->mutex);
     QString modifiers = _modifiers.toLower();
     if (modifiers.isEmpty()) {
-        modifiers = QString::fromLatin1(DEFAULT_USER_AGENT_KEYS);
+        modifiers = QStringLiteral("om"); // Show OS, Machine
     }
 
     if (d->modifiers == modifiers && !d->useragent.isEmpty()) {

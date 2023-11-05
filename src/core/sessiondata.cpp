@@ -13,10 +13,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <kprotocolmanager.h>
-
-#include "http_worker_defaults.h"
-#include "workerconfig.h"
+#include <kprotocolmanager_p.h>
 
 namespace KIO
 {
@@ -64,7 +61,7 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
             configData[QStringLiteral("CacheDir")] = httpCacheDir;
         }
         if (configData[QStringLiteral("UserAgent")].isEmpty()) {
-            configData[QStringLiteral("UserAgent")] = KProtocolManager::defaultUserAgent();
+            configData[QStringLiteral("UserAgent")] = KProtocolManagerPrivate::defaultUserAgent(QString());
         }
     }
 }

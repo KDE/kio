@@ -279,7 +279,6 @@ endif()
 install(TARGETS KF6KIOCore EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 list(APPEND KIO_namespaced_HEADERS
-  http_worker_defaults.h
   ioworker_defaults.h
   job_base.h
   jobclasses.h
