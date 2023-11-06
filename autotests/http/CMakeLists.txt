@@ -46,5 +46,5 @@ target_link_libraries(referrertest PRIVATE Qt::Network Qt::Test KF6::KIOCore)
 add_executable(customheadertest customheadertest.cpp)
 target_link_libraries(customheadertest PRIVATE Qt::Network Qt::Test KF6::KIOCore)
 
-add_executable(responsecodetest responsecodetest)
+add_executable(responsecodetest responsecodetest.cpp)
 target_link_libraries(responsecodetest PRIVATE Qt::Network Qt::Test KF6::KIOCore)
