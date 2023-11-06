@@ -457,13 +457,6 @@ public:
     static void reparseConfiguration();
 
     /**
-     * Return Accept-Languages header built up according to user's desktop
-     * language settings.
-     * @return Accept-Languages header string
-     */
-    static QString acceptLanguagesHeader();
-
-    /**
      * Returns the charset to use for the specified @ref url.
      *
      */

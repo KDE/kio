@@ -321,8 +321,6 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
 
-install(FILES accept-languages.codes DESTINATION ${KDE_INSTALL_CONFDIR})
-
 # make available to ecm_add_qch in parent folder
 set(KIOCore_QCH_SOURCES ${KIOCore_HEADERS} ${KIO_namespaced_HEADERS} PARENT_SCOPE)
 

@@ -29,7 +29,6 @@ public:
 
     bool initDone;
     QString charsets;
-    QString language;
 };
 
 SessionData::SessionData()
@@ -49,9 +48,6 @@ void SessionData::configDataFor(MetaData &configData, const QString &proto, cons
         // These might have already been set so check first
         // to make sure that we do not trumpt settings sent
         // by apps or end-user.
-        if (configData[QStringLiteral("Languages")].isEmpty()) {
-            configData[QStringLiteral("Languages")] = d->language;
-        }
         if (configData[QStringLiteral("Charsets")].isEmpty()) {
             configData[QStringLiteral("Charsets")] = d->charsets;
         }
@@ -70,7 +66,6 @@ void SessionData::reset()
 {
     d->initDone = true;
 
-    d->language = KProtocolManager::acceptLanguagesHeader();
     d->charsets = QStringLiteral("utf-8");
     KProtocolManager::reparseConfiguration();
 }
