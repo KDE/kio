@@ -1103,8 +1103,10 @@ KIO::WorkerResult HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD met
         extraHeaders.insert("Depth", QByteArray::number(depth));
     }
 
-    QByteArray inputData;
+    QByteArray inputData = getData();
     Response response = makeDavRequest(url, method, inputData, extraHeaders);
+
+    data(response.data);
 
     // TODO old code seems to use http error, not dav error
     return sendHttpError(url, method, response);
