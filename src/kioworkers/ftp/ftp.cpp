@@ -497,14 +497,6 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     QString user(m_user);
     QString pass(m_pass);
 
-    if (q->configValue(QStringLiteral("EnableAutoLogin"), false)) {
-        QString au = q->configValue(QStringLiteral("autoLoginUser"));
-        if (!au.isEmpty()) {
-            user = au;
-            pass = q->configValue(QStringLiteral("autoLoginPass"));
-        }
-    }
-
     AuthInfo info;
     info.url.setScheme(QStringLiteral("ftp"));
     info.url.setHost(m_host);
@@ -667,10 +659,6 @@ Result FtpInternal::ftpLogin(bool *userChanged)
         qCWarning(KIO_FTP) << "SYST failed";
     }
 
-    if (q->configValue(QStringLiteral("EnableAutoLoginMacro"), false)) {
-        ftpAutoLoginMacro();
-    }
-
     // Get the current working directory
     qCDebug(KIO_FTP) << "Searching for pwd";
     if (!ftpSendCmd(QByteArrayLiteral("PWD")) || (m_iRespType != 2)) {
@@ -691,31 +679,6 @@ Result FtpInternal::ftpLogin(bool *userChanged)
     }
 
     return Result::pass();
-}
-
-void FtpInternal::ftpAutoLoginMacro()
-{
-    QString macro = q->metaData(QStringLiteral("autoLoginMacro"));
-
-    if (macro.isEmpty()) {
-        return;
-    }
-
-    QStringList list = macro.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
-    auto initIt = std::find_if(list.cbegin(), list.cend(), [](const QString &s) {
-        return s.startsWith(QLatin1String("init"));
-    });
-
-    if (initIt != list.cend()) {
-        list = macro.split(QLatin1Char('\\'), Qt::SkipEmptyParts);
-        // Ignore the macro name, so start from list.cbegin() + 1
-        for (auto it = list.cbegin() + 1; it != list.cend(); ++it) {
-            // TODO: Add support for arbitrary commands besides simply changing directory!!
-            if ((*it).startsWith(QLatin1String("cwd"))) {
-                (void)ftpFolder((*it).mid(4));
-            }
-        }
-    }
 }
 
 /**

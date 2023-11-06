@@ -29,7 +29,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     kfilecustomdialogtest_gui_select_dir_mode
     kfilewidgettest_gui
     kfilewidgettest_saving_gui
-    kionetrctest
     kioworkertest
     kmountpoint_debug
     kopenwithtest

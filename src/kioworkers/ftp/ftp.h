@@ -175,11 +175,6 @@ public:
     Q_REQUIRED_RESULT Result ftpOpenConnection(LoginMode loginMode);
 
     /**
-     * Executes any auto login macro's as specified in a .netrc file.
-     */
-    void ftpAutoLoginMacro();
-
-    /**
      * Called by openConnection. It logs us in.
      * m_initialPath is set to the current working directory
      * if logging on was successful.
