@@ -173,16 +173,18 @@ void HTTPProtocol::handleSslErrors(QNetworkReply *reply, const QList<QSslError> 
 HTTPProtocol::Response
 HTTPProtocol::makeDavRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, const QMap<QByteArray, QByteArray> &extraHeaders)
 {
-    setMetaData(QStringLiteral("content-type"), QStringLiteral("text/xml; charset=utf-8"));
-
     auto headers = extraHeaders;
     const QString locks = davProcessLocks();
+
+    if (!headers.contains("Content-Type")) {
+        headers.insert("Content-Type", "text/xml; charset=utf-8");
+    }
 
     if (!locks.isEmpty()) {
         headers.insert("If", locks.toLatin1());
     }
 
-    return makeRequest(url, method, inputData, extraHeaders);
+    return makeRequest(url, method, inputData, headers);
 }
 
 HTTPProtocol::Response
