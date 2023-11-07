@@ -43,6 +43,7 @@ Name[sv]=Yandex
 Name[tr]=Yandex
 Name[uk]=Yandex
 Name[vi]=Yandex
+Name[x-test]=xxYandexxx
 Name[zh_CN]=Yandex
 Name[zh_TW]=Yandex
 Query=https://yandex.ru/search/?text=\\{@}
@@ -88,6 +89,7 @@ Query[sv]=https://yandex.ru/search/?text=\\{@}
 Query[tr]=https://yandex.ru/search/?text=\\{@}
 Query[uk]=https://yandex.ru/search/?text=\\{@}
 Query[vi]=https://yandex.ru/search/?text=\\{@}
+Query[x-test]=xxhttps://yandex.ru/search/?text=\\{@}xx
 Query[zh_CN]=https://yandex.ru/search/?text=\\{@}
 Query[zh_TW]=https://yandex.ru/search/?text=\\{@}
 Type=Service

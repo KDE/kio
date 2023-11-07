@@ -47,6 +47,7 @@ Name[tok]=tomo pali KDE Invent
 Name[tr]=KDE Invent
 Name[uk]=KDE Invent
 Name[vi]=Invent KDE
+Name[x-test]=xxKDE Inventxx
 Name[zh_CN]=KDE Invent
 Name[zh_TW]=KDE Invent
 Query=https://invent.kde.org/search?search=\\{@}
@@ -95,6 +96,7 @@ Query[tok]=https://invent.kde.org/search?search=\\{@}
 Query[tr]=https://invent.kde.org/search?search=\\{@}
 Query[uk]=https://invent.kde.org/search?search=\\{@}
 Query[vi]=https://invent.kde.org/search?search=\\{@}
+Query[x-test]=xxhttps://invent.kde.org/search?search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?search=\\{@}
 Query[zh_TW]=https://invent.kde.org/search?search=\\{@}
 Type=Service

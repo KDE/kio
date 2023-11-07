@@ -43,6 +43,7 @@ Name[sv]=Handbok Krita
 Name[tr]=Krita El Kitabı
 Name[uk]=Підручник з Krita
 Name[vi]=Sổ tay Krita
+Name[x-test]=xxKrita Manualxx
 Name[zh_CN]=Krita 使用手册
 Name[zh_TW]=Krita 手冊
 Type=Service
@@ -91,5 +92,6 @@ Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[tr]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[uk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[vi]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[x-test]=xxhttps://docs.krita.org/en/search.html?q=\\{@}xx
 Query[zh_CN]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[zh_TW]=https://docs.krita.org/en/search.html?q=\\{@}

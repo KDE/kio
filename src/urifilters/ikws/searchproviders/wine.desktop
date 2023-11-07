@@ -43,6 +43,7 @@ Name[sv]=WineHQ-databas
 Name[tr]=WineHQ Veritabanı
 Name[uk]=База даних WineHQ
 Name[vi]=Cơ sở dữ liệu WineHQ
+Name[x-test]=xxWineHQ Databasexx
 Name[zh_CN]=WineHQ 数据库
 Name[zh_TW]=WineHQ 資料庫
 Type=Service
@@ -91,6 +92,7 @@ Query[sv]=https://www.winehq.org/search?q=\\{@}
 Query[tr]=https://www.winehq.org/search?q=\\{@}
 Query[uk]=https://www.winehq.org/search?q=\\{@}
 Query[vi]=https://www.winehq.org/search?q=\\{@}
+Query[x-test]=xxhttps://www.winehq.org/search?q=\\{@}xx
 Query[zh_CN]=https://www.winehq.org/search?q=\\{@}
 Query[zh_TW]=https://www.winehq.org/search?q=\\{@}
 Icon=wine

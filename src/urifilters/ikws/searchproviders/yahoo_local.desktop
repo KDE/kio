@@ -75,6 +75,7 @@ Name[ug]=Yahoo يەرلىك
 Name[uk]=Yahoo Local
 Name[vi]=Yahoo Địa phương
 Name[wa]=Yahoo Coinrece
+Name[x-test]=xxYahoo Localxx
 Name[zh_CN]=Yahoo 本地信息
 Name[zh_TW]=Yahoo Local
 Query=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
@@ -127,6 +128,7 @@ Query[tok]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=t
 Query[tr]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[uk]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[vi]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[x-test]=xxhttps://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-imgxx
 Query[zh_CN]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[zh_TW]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Type=Service

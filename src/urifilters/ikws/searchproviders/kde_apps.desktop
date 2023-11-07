@@ -91,6 +91,7 @@ Name[uz@cyrillic]=KDE дастурларида қидириш
 Name[vi]=Tìm kiếm ứng dụng KDE
 Name[wa]=Programe di cweraedje di KDE
 Name[xh]=Uphendlo lwe KDE App
+Name[x-test]=xxKDE App Searchxx
 Name[zh_CN]=KDE 应用程序搜索
 Name[zh_TW]=KDE 程式搜尋
 Keys=apps,appsy
@@ -143,5 +144,6 @@ Query[tok]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[tr]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[uk]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[vi]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[x-test]=xxhttps://www.kde-apps.org/content/search.php?search=Search&name=\\{@}xx
 Query[zh_CN]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[zh_TW]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

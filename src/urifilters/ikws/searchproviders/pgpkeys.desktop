@@ -90,6 +90,7 @@ Name[uz@cyrillic]=OpenPGP калитларни қидириш
 Name[vi]=Tìm kiếm khoá OpenPGP
 Name[wa]=Cweraedje d' ene clé OpenPGP
 Name[xh]=Uphendlo Lwesitshixo se OpenPGP
+Name[x-test]=xxOpenPGP Key Searchxx
 Name[zh_CN]=OpenPGP 密钥搜索
 Name[zh_TW]=OpenPGP 金鑰搜尋
 Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
@@ -141,6 +142,7 @@ Query[tok]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[uk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[vi]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[x-test]=xxhttps://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindexxx
 Query[zh_CN]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[zh_TW]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Type=Service

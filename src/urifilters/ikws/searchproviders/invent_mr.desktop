@@ -42,6 +42,7 @@ Name[sv]=KDE-Invent sammanfogningsbegäran
 Name[tr]=KDE Invent Birleştirme İstekleri
 Name[uk]=Запити щодо об'єднання на KDE Invent
 Name[vi]=Các đề nghị hoà trộn ở Invent KDE
+Name[x-test]=xxKDE Invent Merge Requestsxx
 Name[zh_CN]=KDE Invent 合并请求
 Name[zh_TW]=KDE Invent 合併請求
 Query=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
@@ -87,6 +88,7 @@ Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[vi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[x-test]=xxhttps://invent.kde.org/search?scope=merge_requests&search=\\{@}xx
 Query[zh_CN]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[zh_TW]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Type=Service

@@ -90,6 +90,7 @@ Name[uz]=dict.cc tarjima: Inglizchadan Olmonchaga
 Name[uz@cyrillic]=dict.cc таржима: Инглизчадан Олмончага
 Name[vi]=dict.cc Dịch: Tiếng Anh sang tiếng Đức
 Name[wa]=Ratournaedje dict.cc: di l' inglès viè l' almand
+Name[x-test]=xxdict.cc Translation: English to Germanxx
 Name[zh_CN]=dict.cc 翻译：英语译德语
 Name[zh_TW]=dict.cc 翻譯: 英文至德文
 Query=https://www.dict.cc/?s=\\{@}
@@ -142,6 +143,7 @@ Query[tok]=https://www.dict.cc/?s=\\{@}
 Query[tr]=https://www.dict.cc/?s=\\{@}
 Query[uk]=https://www.dict.cc/?s=\\{@}
 Query[vi]=https://www.dict.cc/?s=\\{@}
+Query[x-test]=xxhttps://www.dict.cc/?s=\\{@}xx
 Query[zh_CN]=https://www.dict.cc/?s=\\{@}
 Query[zh_TW]=https://www.dict.cc/?s=\\{@}
 Type=Service

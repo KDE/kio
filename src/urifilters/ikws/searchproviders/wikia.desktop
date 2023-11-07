@@ -75,6 +75,7 @@ Name[ug]=Wikia
 Name[uk]=Wikia
 Name[vi]=Wikia
 Name[wa]=Wikia
+Name[x-test]=xxWikiaxx
 Name[zh_CN]=Wikia
 Name[zh_TW]=Wikia
 Query=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
@@ -126,6 +127,7 @@ Query[tok]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit
 Query[tr]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[uk]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[vi]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[x-test]=xxhttps://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Searchxx
 Query[zh_CN]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[zh_TW]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Type=Service

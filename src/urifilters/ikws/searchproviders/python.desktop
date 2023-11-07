@@ -92,6 +92,7 @@ Name[uz@cyrillic]=Python учун кўлланма
 Name[vi]=Sổ tay tham khảo Python
 Name[wa]=Manuel di referince di Python
 Name[xh]=Ubhekiso lwe Python yesandla
+Name[x-test]=xxPython Reference Manualxx
 Name[zh_CN]=Python 参考手册
 Name[zh_TW]=Python 參考手冊
 Query=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
@@ -155,6 +156,7 @@ Query[ug]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[uk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[vi]=https://www.google.com.vn/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[wa]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[x-test]=xxhttps://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.orgxx
 Query[zh_CN]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[zh_TW]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Type=Service

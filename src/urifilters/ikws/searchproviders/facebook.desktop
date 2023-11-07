@@ -76,6 +76,7 @@ Name[ug]=فېيىسبۇك(Facebook)
 Name[uk]=Facebook
 Name[vi]=Facebook
 Name[wa]=Facebook
+Name[x-test]=xxFacebookxx
 Name[zh_CN]=Facebook
 Name[zh_TW]=Facebook
 Query=https://www.facebook.com/search/?q=\\{@}&init=quick
@@ -139,6 +140,7 @@ Query[ug]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[uk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[vi]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[wa]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[x-test]=xxhttps://www.facebook.com/search/?q=\\{@}&init=quickxx
 Query[zh_CN]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[zh_TW]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Type=Service

@@ -99,6 +99,7 @@ Name[uk]=Спільні ресурси Windows
 Name[vi]=Chia sẻ Windows
 Name[wa]=Pårtaedjes Windows
 Name[xh]=Ulwahlulelwano lwe Windows
+Name[x-test]=xxWindows Sharesxx
 Name[zh_CN]=Windows 共享
 Name[zh_TW]=Windows 資源共享
 
@@ -157,6 +158,7 @@ Comment[tok]=nimi len tawa poki linluwi SMB
 Comment[tr]=SMB paylaşımlarına erişmek için kullanılan kimlik bilgileri
 Comment[uk]=Реєстраційні дані для доступу до спільних ресурсів SMB
 Comment[vi]=Thông tin dùng để truy cập các chia sẻ bằng SMB
+Comment[x-test]=xxCredentials used to access SMB sharesxx
 Comment[zh_CN]=用于访问 SMB 共享的身份验证信息
 Comment[zh_TW]=用於存取 SMB 分享的憑證
 
@@ -216,5 +218,6 @@ X-KDE-Keywords[tok]=SMB,SAMBA,ilo SMB,Windows,linluwi,LAN,ilo linluwi,nimi len
 X-KDE-Keywords[tr]=SMB,SAMBA,SMB istemcisi,Windows ağı,LAN,Ağ,komşu,Sunucu,Yayın,WINS,Paylaşım,Giriş,Parolalar,Oturum Açma
 X-KDE-Keywords[uk]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,клієнт,віндоус,віндовс,віндовз,оточення,локальна,сервер,трансляція,ресурс,спільний,пароль,вхід,реєстрація
 X-KDE-Keywords[vi]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,trình khách SMB,mạng Windows,mạng,lân cận,Máy chủ,Quảng bá,Chia sẻ,Đăng nhập,Mật khẩu
+X-KDE-Keywords[x-test]=xxSMBxx,xxSAMBAxx,xxSMB clientxx,xxWindows networkxx,xxLANxx,xxNetworkxx,xxneighborhoodxx,xxServerxx,xxBroadcastxx,xxWINSxx,xxSharexx,xxLoginxx,xxPasswordsxx
 X-KDE-Keywords[zh_CN]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords,SMB 客户端,Windows 网络,网络,网上邻居,服务器,广播,共享,登录,密码
 X-KDE-Keywords[zh_TW]=SMB,SAMBA,SMB client,Windows network,LAN,Network,neighborhood,Server,Broadcast,WINS,Share,Login,Passwords
