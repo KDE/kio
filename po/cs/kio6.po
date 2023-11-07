@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 01:06+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2023-08-10 14:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2489,7 +2489,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:504
 #, kde-format
 msgid "&Details"
 msgstr "Po&drobnosti"
@@ -3244,27 +3244,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Obrovské (%1x%)"
 
-#: filewidgets/kfilewidget.cpp:653
+#: filewidgets/kfilewidget.cpp:652
 #, kde-format
 msgid "You can only select one file"
 msgstr "Můžete vybrat pouze jeden soubor"
 
-#: filewidgets/kfilewidget.cpp:653
+#: filewidgets/kfilewidget.cpp:652
 #, kde-format
 msgid "More than one file provided"
 msgstr "Zadán více než jeden soubor"
 
-#: filewidgets/kfilewidget.cpp:824
+#: filewidgets/kfilewidget.cpp:823
 #, kde-format
 msgid "You can only select local files"
 msgstr "Můžete vybrat pouze lokální soubory"
 
-#: filewidgets/kfilewidget.cpp:824
+#: filewidgets/kfilewidget.cpp:823
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Vzdálené soubory nebyly přijaty"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3276,12 +3276,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: filewidgets/kfilewidget.cpp:837
+#: filewidgets/kfilewidget.cpp:836
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Nepodporované schéma URL"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3291,12 +3291,12 @@ msgstr ""
 "Byla vybrána více než jedna složka, ale tento dialog nepřijímá složky. "
 "Prosím, vyberte pouze jednu složku, kterou si přejete zobrazit."
 
-#: filewidgets/kfilewidget.cpp:855
+#: filewidgets/kfilewidget.cpp:854
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Zadána více než jedna složka"
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:864
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3305,22 +3305,22 @@ msgstr ""
 "Byla vybrána nejméně jedna složka a soubor. Vybrané soubory budou ignorované "
 "a obsah vybrané složky bude zobrazen"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Vybrány soubory a složky"
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nelze najít soubor \"%1\""
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nelze otevřít soubor"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3331,42 +3331,42 @@ msgstr ""
 ">Například pokud je vaše současné umístění file:/home/konqi, kliknutím na "
 "toto tlačítko se dostanete do složky file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Kliknutím na toto tlačítko se přesunete v historii o jeden krok zpět."
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "Kliknutím na toto tlačítko se přesunete v historii o jeden krok vpřed."
 
-#: filewidgets/kfilewidget.cpp:1218
+#: filewidgets/kfilewidget.cpp:1235
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Kliknutím na toto tlačítko obnovíte obsah pohledů."
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1237
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Kliknutím na toto tlačítko vytvoříte novou složku."
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Zobrazit panel míst"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1246
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Zobrazit tlačítko záložek"
 
-#: filewidgets/kfilewidget.cpp:1236
+#: filewidgets/kfilewidget.cpp:1253
 #, kde-format
 msgid "Options"
 msgstr "Možnosti"
 
-#: filewidgets/kfilewidget.cpp:1239
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3381,12 +3381,12 @@ msgstr ""
 "míst</li><li>náhledy souborů</li><li>oddělení souborů od složek</li></ul></"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1258
+#: filewidgets/kfilewidget.cpp:1275
 #, kde-format
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: filewidgets/kfilewidget.cpp:1262
+#: filewidgets/kfilewidget.cpp:1279
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3400,12 +3400,12 @@ msgstr ""
 "dialog, ale jinak fungují jako záložky v celém KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1301 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1318 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "&Název:"
 
-#: filewidgets/kfilewidget.cpp:1377
+#: filewidgets/kfilewidget.cpp:1395
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3417,12 +3417,12 @@ msgstr ""
 "souborů. Tuto funkci lze ovládat pomocí kliknutí pravého tlačítka myši a "
 "zvolení položky <b>Doplňování textu</b> z rozbalovací nabídky.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1402
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Toto je název, pod kterým bude soubor uložen."
 
-#: filewidgets/kfilewidget.cpp:1387
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3431,79 +3431,79 @@ msgstr ""
 "Toto je seznam souborů, které budou otevřeny. Lze vybrat více souborů tak, "
 "že jejich názvy oddělíte mezerami."
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1410
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Toto je název souboru, který bude otevřen."
 
-#: filewidgets/kfilewidget.cpp:1405
+#: filewidgets/kfilewidget.cpp:1423
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Místa"
 
-#: filewidgets/kfilewidget.cpp:1623
+#: filewidgets/kfilewidget.cpp:1636
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Soubor \"%1\" již existuje. Přejete si jej přepsat?"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1637
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Přepsat soubor?"
 
-#: filewidgets/kfilewidget.cpp:1820
+#: filewidgets/kfilewidget.cpp:1833
 #, kde-format
 msgid "You can only select local files."
 msgstr "Můžete vybrat pouze lokální soubory."
 
-#: filewidgets/kfilewidget.cpp:1820
+#: filewidgets/kfilewidget.cpp:1833
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Vzdálené soubory nebyly přijaty"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1927
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|Všechny složky"
 
-#: filewidgets/kfilewidget.cpp:1916
+#: filewidgets/kfilewidget.cpp:1929
 #, kde-format
 msgid "*|All Files"
 msgstr "*|Všechny soubory"
 
-#: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2079 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
 msgstr "&Otevřít"
 
-#: filewidgets/kfilewidget.cpp:2167
+#: filewidgets/kfilewidget.cpp:2179
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Velikost ikony: %1 pixelů"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2327
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Auto&maticky zvolit příponu souboru (%1)"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2328
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "přípona <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2322
+#: filewidgets/kfilewidget.cpp:2334
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Auto&maticky zvolit příponu souboru"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2335
 #, kde-format
 msgid "a suitable extension"
 msgstr "vhodná přípona"
 
-#: filewidgets/kfilewidget.cpp:2331
+#: filewidgets/kfilewidget.cpp:2343
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3529,24 +3529,24 @@ msgstr ""
 "automaticky později odstraněna.</li></ol> Pokud si nejste jisti, ponechte "
 "zapnuté - soubory tak lze lépe spravovat."
 
-#: filewidgets/kfilewidget.cpp:2783
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid "&File type:"
 msgstr "T&yp souboru:"
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2792
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2794
 #, kde-format
 msgid "&Filter:"
 msgstr "&Maska:"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2796
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4215,7 +4215,7 @@ msgstr "%1 (Chyba %2)"
 msgid "Sending login information"
 msgstr "Posílání přihlašovacích informací"
 
-#: kioworkers/ftp/ftp.cpp:551
+#: kioworkers/ftp/ftp.cpp:543
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4232,32 +4232,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
+#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Pro přístup k tomuto serveru potřebujete uživatelské jméno a heslo."
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "Server:"
 
-#: kioworkers/ftp/ftp.cpp:565 kioworkers/ftp/ftp.cpp:2515
+#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:649
+#: kioworkers/ftp/ftp.cpp:641
 #, kde-format
 msgid "Login OK"
 msgstr "Úspěšné přihlášení"
 
-#: kioworkers/ftp/ftp.cpp:678
+#: kioworkers/ftp/ftp.cpp:666
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Nelze se přihlásit na %1."
 
-#: kioworkers/ftp/ftp.cpp:1055
+#: kioworkers/ftp/ftp.cpp:1018
 #, kde-format
 msgid ""
 "\n"
@@ -4266,7 +4266,7 @@ msgstr ""
 "\n"
 "Server odpověděl: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
+#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4275,12 +4275,12 @@ msgstr ""
 "Dříve než přistoupíte k jakémukoliv serveru, musíte zadat uživatelské jméno "
 "a heslo pro proxy server uvedený níže."
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2517
+#: kioworkers/ftp/ftp.cpp:2480
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Ověření proxy selhalo."
@@ -4325,96 +4325,96 @@ msgstr "Vyhledávám oddíl"
 msgid "Could not find filename %1 in %2."
 msgstr "Nelze nalézt název souboru %1 v %2."
 
-#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
-#: kioworkers/http/http.cpp:326
+#: kioworkers/http/http.cpp:275 kioworkers/http/http.cpp:314
+#: kioworkers/http/http.cpp:328
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1177
+#: kioworkers/http/http.cpp:1181
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Jinak by požadavek byl uspěl."
 
-#: kioworkers/http/http.cpp:1180
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "získat hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1182
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "nastavit hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1184
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "vytvořit požadovanou složku"
 
-#: kioworkers/http/http.cpp:1186
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopírovat zadaný soubor nebo složku"
 
-#: kioworkers/http/http.cpp:1188
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "přesunout zadaný soubor nebo složku"
 
-#: kioworkers/http/http.cpp:1190
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "hledat v zadané složce"
 
-#: kioworkers/http/http.cpp:1192
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zamknout zadaný soubor nebo složku"
 
-#: kioworkers/http/http.cpp:1194
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "odemknout zadaný soubor nebo složku"
 
-#: kioworkers/http/http.cpp:1196
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "smazat zadaný soubor nebo složku"
 
-#: kioworkers/http/http.cpp:1198
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "zjistit možnosti serveru"
 
-#: kioworkers/http/http.cpp:1200
+#: kioworkers/http/http.cpp:1204
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "získat obsah zadaného souboru nebo složky"
 
-#: kioworkers/http/http.cpp:1202
+#: kioworkers/http/http.cpp:1206
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "spustit hlášení v dané složce"
 
-#: kioworkers/http/http.cpp:1210
+#: kioworkers/http/http.cpp:1214
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Nastala neočekávaná chyba (%1) při pokusu %2."
 
-#: kioworkers/http/http.cpp:1250
+#: kioworkers/http/http.cpp:1254
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4422,13 +4422,13 @@ msgid ""
 "below."
 msgstr "Nastala chyba při pokusu %1, %2. Shrnutí důvodů níže:"
 
-#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1272 kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Odmítnut přístup při pokusu %1."
 
-#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1286 kioworkers/http/http.cpp:1423
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4437,7 +4437,7 @@ msgstr ""
 "Zdroj nelze vytvořit, dokud aspoň jedna z dočasných sbírek (složek) nebude "
 "vytvořena."
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1295
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4452,28 +4452,28 @@ msgstr ""
 "aby nebylo možné soubor přepsat.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1299
+#: kioworkers/http/http.cpp:1303
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Požadované uzamčení nemůže být zaručeno. %1"
 
-#: kioworkers/http/http.cpp:1305
+#: kioworkers/http/http.cpp:1309
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server nepodporuje typ požadavku."
 
-#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1314 kioworkers/http/http.cpp:1431
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nelze %1, protože je zdroj uzamčen."
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Tato činnost byla zablokována jinou chybou."
 
-#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1438
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4481,7 +4481,7 @@ msgid ""
 "folder."
 msgstr "Nelze %1, protože cílový server odmítá přijmout soubor nebo složku."
 
-#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
+#: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4490,18 +4490,18 @@ msgstr ""
 "Cílový zdroj nemá dostatečný prostor, aby zaznamenal stav zdroje po vykonání "
 "této metody."
 
-#: kioworkers/http/http.cpp:1383
+#: kioworkers/http/http.cpp:1387
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Prostředek nelze smazat."
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "odeslat %1"
 
-#: kioworkers/http/http.cpp:1454
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -6963,7 +6963,7 @@ msgstr ""
 "Vzdálený hostitel neposlal žádné SSL certifikáty.\n"
 "Přerušuji, protože nelze zjistit identitu hostitele."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -6973,7 +6973,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:500
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "Server Authentication"
 msgstr "Ověření serveru"
@@ -7066,24 +7066,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Znovu se nedotazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:389
+#: widgets/widgetsaskuseractionhandler.cpp:391
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Znovu se nedotazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:415
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Tuto zprávu již nezobrazovat"
 
-#: widgets/widgetsaskuseractionhandler.cpp:560
+#: widgets/widgetsaskuseractionhandler.cpp:562
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "SSL certifikát protějšku se zdá být poškozen."
 
-#: widgets/widgetsaskuseractionhandler.cpp:563
+#: widgets/widgetsaskuseractionhandler.cpp:565
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

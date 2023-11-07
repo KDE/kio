@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 01:06+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2488,7 +2488,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "%1 プロトコルの io-slave が見つかりません。"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:504
 #, kde-format
 msgid "&Details"
 msgstr "詳細(&D)"
@@ -3248,27 +3248,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "巨大 (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:653
+#: filewidgets/kfilewidget.cpp:652
 #, kde-format
 msgid "You can only select one file"
 msgstr "1 つのファイルしか選択できません"
 
-#: filewidgets/kfilewidget.cpp:653
+#: filewidgets/kfilewidget.cpp:652
 #, kde-format
 msgid "More than one file provided"
 msgstr "複数のファイルが選択されました"
 
-#: filewidgets/kfilewidget.cpp:824
+#: filewidgets/kfilewidget.cpp:823
 #, kde-format
 msgid "You can only select local files"
 msgstr "ローカルファイルしか選択できません"
 
-#: filewidgets/kfilewidget.cpp:824
+#: filewidgets/kfilewidget.cpp:823
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "リモートファイルは扱えません"
 
-#: filewidgets/kfilewidget.cpp:831
+#: filewidgets/kfilewidget.cpp:830
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3278,12 +3278,12 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 
-#: filewidgets/kfilewidget.cpp:837
+#: filewidgets/kfilewidget.cpp:836
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "サポートされていない URL スキーム"
 
-#: filewidgets/kfilewidget.cpp:853
+#: filewidgets/kfilewidget.cpp:852
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3294,12 +3294,12 @@ msgstr ""
 "ダに移動すればよいのか判断できません。内容を表示するフォルダを 1 つだけ選択し"
 "てください。"
 
-#: filewidgets/kfilewidget.cpp:855
+#: filewidgets/kfilewidget.cpp:854
 #, kde-format
 msgid "More than one folder provided"
 msgstr "複数のフォルダが選択されました"
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:864
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3308,22 +3308,22 @@ msgstr ""
 "少なくとも 1 つのフォルダと 1 つのファイルが選択されました。ファイルは無視し"
 "て選択されたフォルダの内容を表示します"
 
-#: filewidgets/kfilewidget.cpp:866
+#: filewidgets/kfilewidget.cpp:865
 #, kde-format
 msgid "Files and folders selected"
 msgstr "ファイルとフォルダが選択されました"
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "ファイル ‘%1’ が見つかりませんでした"
 
-#: filewidgets/kfilewidget.cpp:884
+#: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "Cannot open file"
 msgstr "ファイルを開けません"
 
-#: filewidgets/kfilewidget.cpp:1211
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3334,42 +3334,42 @@ msgstr ""
 "場所が ‘file:/home/konqi なら、このボタンをクリックすると ‘file:/home’ に移動"
 "します。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1215
+#: filewidgets/kfilewidget.cpp:1232
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "このボタンをクリックしてブラウズ履歴の一つ前に戻ります。"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1233
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "このボタンをクリックしてブラウズ履歴の一つ先に進みます。"
 
-#: filewidgets/kfilewidget.cpp:1218
+#: filewidgets/kfilewidget.cpp:1235
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "現在の場所の内容を再読み込みするには、このボタンをクリックします。"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1237
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "新しいフォルダを作成するには、このボタンをクリックします。"
 
-#: filewidgets/kfilewidget.cpp:1222
+#: filewidgets/kfilewidget.cpp:1239
 #, kde-format
 msgid "Show Places Panel"
 msgstr "場所パネルを表示"
 
-#: filewidgets/kfilewidget.cpp:1229
+#: filewidgets/kfilewidget.cpp:1246
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "ブックマークボタンを表示"
 
-#: filewidgets/kfilewidget.cpp:1236
+#: filewidgets/kfilewidget.cpp:1253
 #, kde-format
 msgid "Options"
 msgstr "オプション"
 
-#: filewidgets/kfilewidget.cpp:1239
+#: filewidgets/kfilewidget.cpp:1256
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3384,12 +3384,12 @@ msgstr ""
 "示</li><li>場所ナビゲーションパネルの表示</li><li>ファイルのプレビューの表示"
 "</li><li>フォルダとファイルの分離</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1258
+#: filewidgets/kfilewidget.cpp:1275
 #, kde-format
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
-#: filewidgets/kfilewidget.cpp:1262
+#: filewidgets/kfilewidget.cpp:1279
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3404,12 +3404,12 @@ msgstr ""
 "と同じように機能します。</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1301 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1318 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "名前(&N):"
 
-#: filewidgets/kfilewidget.cpp:1377
+#: filewidgets/kfilewidget.cpp:1395
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3421,12 +3421,12 @@ msgstr ""
 "の挙動は、マウスの右ボタンをクリックして「テキスト補完」メニューから他のモー"
 "ドを選択することによって変更できます。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1384
+#: filewidgets/kfilewidget.cpp:1402
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "保存するファイルに付ける名前です。"
 
-#: filewidgets/kfilewidget.cpp:1387
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3435,79 +3435,79 @@ msgstr ""
 "開くファイルのリストです。スペースで区切って複数のファイル名を指定することが"
 "できます。"
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1410
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "開くファイルの名前です。"
 
-#: filewidgets/kfilewidget.cpp:1405
+#: filewidgets/kfilewidget.cpp:1423
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "場所"
 
-#: filewidgets/kfilewidget.cpp:1623
+#: filewidgets/kfilewidget.cpp:1636
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ファイル ‘%1’ は既に存在します。上書きしますか？"
 
-#: filewidgets/kfilewidget.cpp:1624
+#: filewidgets/kfilewidget.cpp:1637
 #, kde-format
 msgid "Overwrite File?"
 msgstr "上書きしますか？"
 
-#: filewidgets/kfilewidget.cpp:1820
+#: filewidgets/kfilewidget.cpp:1833
 #, kde-format
 msgid "You can only select local files."
 msgstr "ローカルファイルのみ選択できます。"
 
-#: filewidgets/kfilewidget.cpp:1820
+#: filewidgets/kfilewidget.cpp:1833
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "リモートファイルは指定できません"
 
-#: filewidgets/kfilewidget.cpp:1914
+#: filewidgets/kfilewidget.cpp:1927
 #, kde-format
 msgid "*|All Folders"
 msgstr "*|すべてのフォルダ"
 
-#: filewidgets/kfilewidget.cpp:1916
+#: filewidgets/kfilewidget.cpp:1929
 #, kde-format
 msgid "*|All Files"
 msgstr "*|すべてのファイル"
 
-#: filewidgets/kfilewidget.cpp:2066 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2079 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
 msgstr "開く(&O)"
 
-#: filewidgets/kfilewidget.cpp:2167
+#: filewidgets/kfilewidget.cpp:2179
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "アイコンサイズ: %1 ピクセル"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2327
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ファイル名の拡張子を自動的に選択する(&X) (%1)"
 
-#: filewidgets/kfilewidget.cpp:2316
+#: filewidgets/kfilewidget.cpp:2328
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "拡張子 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2322
+#: filewidgets/kfilewidget.cpp:2334
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ファイル名の拡張子を自動的に選択する(&X)"
 
-#: filewidgets/kfilewidget.cpp:2323
+#: filewidgets/kfilewidget.cpp:2335
 #, kde-format
 msgid "a suitable extension"
 msgstr "適切な拡張子"
 
-#: filewidgets/kfilewidget.cpp:2331
+#: filewidgets/kfilewidget.cpp:2343
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3532,24 +3532,24 @@ msgstr ""
 "(ピリオドは自動的に削除されます)。</li></ol>このオプションを利用するとファイ"
 "ルが管理しやすくなるので、よく分からなければ有効にしておきましょう。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2783
+#: filewidgets/kfilewidget.cpp:2791
 #, kde-format
 msgid "&File type:"
 msgstr "ファイルのタイプ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2784
+#: filewidgets/kfilewidget.cpp:2792
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2786
+#: filewidgets/kfilewidget.cpp:2794
 #, kde-format
 msgid "&Filter:"
 msgstr "フィルタ(&F):"
 
-#: filewidgets/kfilewidget.cpp:2788
+#: filewidgets/kfilewidget.cpp:2796
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -4219,7 +4219,7 @@ msgstr "%1 (エラー %2)"
 msgid "Sending login information"
 msgstr "ログイン情報を送信しています"
 
-#: kioworkers/ftp/ftp.cpp:551
+#: kioworkers/ftp/ftp.cpp:543
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4236,32 +4236,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:562 kioworkers/http/http.cpp:253
+#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "このサイトにアクセスするためにはユーザ名とパスワードが必要です。"
 
-#: kioworkers/ftp/ftp.cpp:564 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "サイト:"
 
-#: kioworkers/ftp/ftp.cpp:565 kioworkers/ftp/ftp.cpp:2515
+#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:649
+#: kioworkers/ftp/ftp.cpp:641
 #, kde-format
 msgid "Login OK"
 msgstr "ログイン OK"
 
-#: kioworkers/ftp/ftp.cpp:678
+#: kioworkers/ftp/ftp.cpp:666
 #, kde-format
 msgid "Could not login to %1."
 msgstr "%1 にログインできませんでした。"
 
-#: kioworkers/ftp/ftp.cpp:1055
+#: kioworkers/ftp/ftp.cpp:1018
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgid ""
@@ -4269,7 +4269,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "%1 を起動中"
 
-#: kioworkers/ftp/ftp.cpp:2510 kioworkers/http/http.cpp:303
+#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4278,12 +4278,12 @@ msgstr ""
 "サイトにアクセスするためには、下のプロキシサーバに対するユーザ名とパスワード"
 "が必要です。"
 
-#: kioworkers/ftp/ftp.cpp:2514 kioworkers/http/http.cpp:307
+#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "プロキシ:"
 
-#: kioworkers/ftp/ftp.cpp:2517
+#: kioworkers/ftp/ftp.cpp:2480
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "プロキシ認証に失敗しました。"
@@ -4331,96 +4331,96 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "ファイル <filename>%1</filename> を読めませんでした。"
 
-#: kioworkers/http/http.cpp:273 kioworkers/http/http.cpp:312
-#: kioworkers/http/http.cpp:326
+#: kioworkers/http/http.cpp:275 kioworkers/http/http.cpp:314
+#: kioworkers/http/http.cpp:328
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b> の <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1177
+#: kioworkers/http/http.cpp:1181
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "そうでなければ要求は成功していたでしょう。"
 
-#: kioworkers/http/http.cpp:1180
+#: kioworkers/http/http.cpp:1184
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "プロパティの値を取得"
 
-#: kioworkers/http/http.cpp:1182
+#: kioworkers/http/http.cpp:1186
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "プロパティの値をセット"
 
-#: kioworkers/http/http.cpp:1184
+#: kioworkers/http/http.cpp:1188
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "要求されたフォルダを作成"
 
-#: kioworkers/http/http.cpp:1186
+#: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをコピー"
 
-#: kioworkers/http/http.cpp:1188
+#: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを移動"
 
-#: kioworkers/http/http.cpp:1190
+#: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "指定されたフォルダで検索"
 
-#: kioworkers/http/http.cpp:1192
+#: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダをロック"
 
-#: kioworkers/http/http.cpp:1194
+#: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "指定されたファイルまたはフォルダのロックを解除"
 
-#: kioworkers/http/http.cpp:1196
+#: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "指定されたファイルまたはフォルダを削除"
 
-#: kioworkers/http/http.cpp:1198
+#: kioworkers/http/http.cpp:1202
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "サーバの機能を問い合わせ"
 
-#: kioworkers/http/http.cpp:1200
+#: kioworkers/http/http.cpp:1204
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "指定されたファイルまたはフォルダの内容を取得"
 
-#: kioworkers/http/http.cpp:1202
+#: kioworkers/http/http.cpp:1206
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "指定されたフォルダでレポートを実行"
 
-#: kioworkers/http/http.cpp:1210
+#: kioworkers/http/http.cpp:1214
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2しようとしていたときに予期しないエラー (%1) が発生しました。"
 
-#: kioworkers/http/http.cpp:1250
+#: kioworkers/http/http.cpp:1254
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4430,13 +4430,13 @@ msgstr ""
 "%1しようとしていたときにエラーが発生しました (%2)。原因の要約は以下のとおりで"
 "す。"
 
-#: kioworkers/http/http.cpp:1268 kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1272 kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1しようとしていたときにアクセスが拒否されました。"
 
-#: kioworkers/http/http.cpp:1282 kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1286 kioworkers/http/http.cpp:1423
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4445,7 +4445,7 @@ msgstr ""
 "一つ以上の中間コレクション (フォルダ) が作成されるまで、リソースはその場所に"
 "作成できません。"
 
-#: kioworkers/http/http.cpp:1291
+#: kioworkers/http/http.cpp:1295
 #, fuzzy, kde-format
 #| msgid ""
 #| "The server was unable to maintain the liveness of the properties listed "
@@ -4462,28 +4462,28 @@ msgstr ""
 "の liveness を保持できなかったか、ファイルを上書きしないよう要求しながら、あ"
 "なたがファイルを上書きしようとしました。%1"
 
-#: kioworkers/http/http.cpp:1299
+#: kioworkers/http/http.cpp:1303
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "要求されたロックは承諾されませんでした。%1"
 
-#: kioworkers/http/http.cpp:1305
+#: kioworkers/http/http.cpp:1309
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "サーバはこのタイプの body の要求をサポートしていません。"
 
-#: kioworkers/http/http.cpp:1310 kioworkers/http/http.cpp:1427
+#: kioworkers/http/http.cpp:1314 kioworkers/http/http.cpp:1431
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1できません。リソースがロックされています。"
 
-#: kioworkers/http/http.cpp:1314
+#: kioworkers/http/http.cpp:1318
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "このアクションは他のエラーによって妨害されました。"
 
-#: kioworkers/http/http.cpp:1321 kioworkers/http/http.cpp:1434
+#: kioworkers/http/http.cpp:1325 kioworkers/http/http.cpp:1438
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4493,7 +4493,7 @@ msgstr ""
 "%1できません。相手のサーバがファイルまたはフォルダの受け取りを拒否していま"
 "す。"
 
-#: kioworkers/http/http.cpp:1330 kioworkers/http/http.cpp:1443
+#: kioworkers/http/http.cpp:1334 kioworkers/http/http.cpp:1447
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4502,18 +4502,18 @@ msgstr ""
 "ターゲットのリソースには、このメソッドを実行した後にリソースの状態を保存する"
 "のに十分なスペースがありません。"
 
-#: kioworkers/http/http.cpp:1383
+#: kioworkers/http/http.cpp:1387
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "このリソースは削除できません。"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 をアップロード"
 
-#: kioworkers/http/http.cpp:1454
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -6984,7 +6984,7 @@ msgstr ""
 "リモートホストが SSL 証明書を送信してきません。\n"
 "ホストの同定が発行されなかったため中止します。"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:493
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -6994,7 +6994,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:500
+#: widgets/widgetsaskuseractionhandler.cpp:502
 #, kde-format
 msgid "Server Authentication"
 msgstr "サーバ認証"
@@ -7085,24 +7085,24 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "次回から確認しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:389
+#: widgets/widgetsaskuseractionhandler.cpp:391
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "次回から確認しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:415
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "次回からこのメッセージを表示しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:560
+#: widgets/widgetsaskuseractionhandler.cpp:562
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ピアの SSL 証明書チェーンが壊れているようです。"
 
-#: widgets/widgetsaskuseractionhandler.cpp:563
+#: widgets/widgetsaskuseractionhandler.cpp:565
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
