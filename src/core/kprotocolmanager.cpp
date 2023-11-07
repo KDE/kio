@@ -464,7 +464,8 @@ static QString extractProxyCacheKeyFromUrl(const QUrl &u)
 QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &proxyList)
 {
     proxyList.clear();
-
+    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
+    QMutexLocker lock(&d->mutex);
     // Do not perform a proxy lookup for any url classified as a ":local" url or
     // one that does not have a host component or if proxy is disabled.
     QString protocol(url.scheme());
@@ -474,8 +475,6 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
 
     const QString proxyCacheKey = extractProxyCacheKeyFromUrl(url);
 
-    KProtocolManagerPrivate *d = kProtocolManagerPrivate();
-    QMutexLocker lock(&d->mutex);
     // Look for cached proxy information to avoid more work.
     if (d->cachedProxyData.contains(proxyCacheKey)) {
         KProxyData *data = d->cachedProxyData.object(proxyCacheKey);
