@@ -53,15 +53,6 @@ class WorkerConfigPrivate;
 class KIOCORE_EXPORT KProtocolManager
 {
 public:
-    /*=========================== USER-AGENT SETTINGS ===========================*/
-
-    /**
-     * Returns the default user-agent string used for web browsing.
-     *
-     * @return the default user-agent string
-     */
-    static QString defaultUserAgent();
-
     /*=========================== TIMEOUT CONFIG ================================*/
 
     /**

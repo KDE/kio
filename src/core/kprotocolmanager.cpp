@@ -523,12 +523,6 @@ QString KProtocolManagerPrivate::workerProtocol(const QUrl &url, QStringList &pr
 
 /*================================= USER-AGENT SETTINGS =====================*/
 
-QString KProtocolManager::defaultUserAgent()
-{
-    const QString modifiers = KIO::WorkerConfig::self()->configData(QStringLiteral("http"), QString(), QStringLiteral("UserAgentKeys"));
-    return KProtocolManagerPrivate::defaultUserAgent(modifiers);
-}
-
 // This is not the OS, but the windowing system, e.g. X11 on Unix/Linux.
 static QString platform()
 {
