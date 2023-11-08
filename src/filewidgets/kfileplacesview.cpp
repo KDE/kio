@@ -643,9 +643,7 @@ int KFilePlacesViewDelegate::sectionHeaderHeight(const QModelIndex &index) const
     // Account for the spacing between header and item
     const int spacing = (s_lateralMargin + m_view->spacing());
     int height = m_view->fontMetrics().height() + spacing;
-    if (index.row() != 0) {
-        height += 2 * spacing;
-    }
+    height += 2 * spacing;
     return height;
 }
 
