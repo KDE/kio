@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-11-08 08:46+0000\n"
 "PO-Revision-Date: 2022-12-28 20:58+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2897,18 +2897,19 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Toate fișierele"
 
-#: filewidgets/kfilefiltercombo.cpp:203
+#: filewidgets/kfilefiltercombo.cpp:121
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:237
+#: filewidgets/kfilefiltercombo.cpp:156
 #, kde-format
 msgid "All Supported Files"
 msgstr "Toate fișierele susținute"
 
-#: filewidgets/kfilefiltercombo.cpp:247 filewidgets/kfilefiltercombo.cpp:248
+#: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilewidget.cpp:1876
 #, kde-format
 msgid "All Files"
 msgstr "Toate fișierele"
@@ -3320,27 +3321,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Foarte mare (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:600
 #, kde-format
 msgid "You can only select one file"
 msgstr "Puteți selecta numai un fișier"
 
-#: filewidgets/kfilewidget.cpp:652
+#: filewidgets/kfilewidget.cpp:600
 #, kde-format
 msgid "More than one file provided"
 msgstr "Mai mult de un fișier oferit"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:771
 #, kde-format
 msgid "You can only select local files"
 msgstr "Puteți selecta numai fișiere locale"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:771
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Fișierele distante nu sunt acceptate"
 
-#: filewidgets/kfilewidget.cpp:830
+#: filewidgets/kfilewidget.cpp:778
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3355,12 +3356,12 @@ msgstr[1] ""
 msgstr[2] ""
 "URL-ul ales folosește o schemă nesusținută. Folosiți următoarele scheme: %2"
 
-#: filewidgets/kfilewidget.cpp:836
+#: filewidgets/kfilewidget.cpp:784
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Schemă URL nesusținută"
 
-#: filewidgets/kfilewidget.cpp:852
+#: filewidgets/kfilewidget.cpp:800
 #, kde-format
 msgid ""
 "More than one folder has been selected and this dialog does not accept "
@@ -3371,12 +3372,12 @@ msgstr ""
 "se poate decide în care dintre ele să se intre. Alegeți doar un dosar pentru "
 "a-i enumera conținutul."
 
-#: filewidgets/kfilewidget.cpp:854
+#: filewidgets/kfilewidget.cpp:802
 #, kde-format
 msgid "More than one folder provided"
 msgstr "Mai mult de un dosar furnizat"
 
-#: filewidgets/kfilewidget.cpp:864
+#: filewidgets/kfilewidget.cpp:812
 #, kde-format
 msgid ""
 "At least one folder and one file has been selected. Selected files will be "
@@ -3385,22 +3386,22 @@ msgstr ""
 "Au fost alese cel puțin un dosar și un fișier. Fișierele alese vor fi "
 "ignorate iar conținutul dosarului ales va fi enumerat."
 
-#: filewidgets/kfilewidget.cpp:865
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Files and folders selected"
 msgstr "Fișiere și dosare alese"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Fișierul „%1” nu a fost găsit"
 
-#: filewidgets/kfilewidget.cpp:883
+#: filewidgets/kfilewidget.cpp:831
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nu se poate deschide fișierul"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1176
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3411,44 +3412,44 @@ msgstr ""
 "exemplu, dacă amplasarea curentă este file:/home/konqi, apăsând acest buton "
 "veți ajunge în file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1232
+#: filewidgets/kfilewidget.cpp:1180
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Apăsați acest buton pentru a merge cu un pas înapoi în istoricul navigării."
 
-#: filewidgets/kfilewidget.cpp:1233
+#: filewidgets/kfilewidget.cpp:1181
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Apăsați acest buton pentru a merge cu un pas înainte în istoricul navigării."
 
-#: filewidgets/kfilewidget.cpp:1235
+#: filewidgets/kfilewidget.cpp:1183
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Apăsați acest buton pentru a reîncărca conținutul amplasării curente."
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1185
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Apăsați acest buton pentru a crea un dosar nou."
 
-#: filewidgets/kfilewidget.cpp:1239
+#: filewidgets/kfilewidget.cpp:1187
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Arată panoul cu locuri"
 
-#: filewidgets/kfilewidget.cpp:1246
+#: filewidgets/kfilewidget.cpp:1194
 #, kde-format
 msgid "Show Bookmarks Button"
 msgstr "Arată butonul cu semne de carte"
 
-#: filewidgets/kfilewidget.cpp:1253
+#: filewidgets/kfilewidget.cpp:1201
 #, kde-format
 msgid "Options"
 msgstr "Opțiuni"
 
-#: filewidgets/kfilewidget.cpp:1256
+#: filewidgets/kfilewidget.cpp:1204
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3464,12 +3465,12 @@ msgstr ""
 "„Locuri”</li><li>previzualizarea fișierelor</li><li>separarea fișierelor de "
 "dosare</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1275
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: filewidgets/kfilewidget.cpp:1279
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3484,12 +3485,12 @@ msgstr ""
 "întâlnite în alte părți ale KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1318 widgets/kpropertiesdesktopbase.ui:25
+#: filewidgets/kfilewidget.cpp:1266 widgets/kpropertiesdesktopbase.ui:25
 #, kde-format
 msgid "&Name:"
 msgstr "De&numire:"
 
-#: filewidgets/kfilewidget.cpp:1395
+#: filewidgets/kfilewidget.cpp:1343
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3501,12 +3502,12 @@ msgstr ""
 "dacă există. Această caracteristică poate fi controlată dând clic dreapta și "
 "selectând modul preferat din meniul <b>Completare text</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1402
+#: filewidgets/kfilewidget.cpp:1350
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Aceasta e denumirea cu care va fi salvat fișierul."
 
-#: filewidgets/kfilewidget.cpp:1405
+#: filewidgets/kfilewidget.cpp:1353
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3515,79 +3516,75 @@ msgstr ""
 "Aceasta este lista fișierelor de deschis. Poate fi specificat mai mult de un "
 "fișier, separându-le prin spații."
 
-#: filewidgets/kfilewidget.cpp:1410
+#: filewidgets/kfilewidget.cpp:1358
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Aceasta e denumirea fișierului de deschis."
 
-#: filewidgets/kfilewidget.cpp:1423
+#: filewidgets/kfilewidget.cpp:1371
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Locuri"
 
-#: filewidgets/kfilewidget.cpp:1636
+#: filewidgets/kfilewidget.cpp:1583
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fișierul „%1” există deja. Doriți să îl suprascrieți?"
 
-#: filewidgets/kfilewidget.cpp:1637
+#: filewidgets/kfilewidget.cpp:1584
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Suprascrieți fișierul?"
 
-#: filewidgets/kfilewidget.cpp:1833
+#: filewidgets/kfilewidget.cpp:1780
 #, kde-format
 msgid "You can only select local files."
 msgstr "Puteți selecta numai fișiere locale."
 
-#: filewidgets/kfilewidget.cpp:1833
+#: filewidgets/kfilewidget.cpp:1780
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Fișierele distante nu sunt acceptate."
 
-#: filewidgets/kfilewidget.cpp:1927
-#, kde-format
-msgid "*|All Folders"
+#: filewidgets/kfilewidget.cpp:1874
+#, fuzzy, kde-format
+#| msgid "*|All Folders"
+msgid "All Folders"
 msgstr "*|Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:1929
-#, kde-format
-msgid "*|All Files"
-msgstr "*|Toate fișierele"
-
-#: filewidgets/kfilewidget.cpp:2079 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
 
-#: filewidgets/kfilewidget.cpp:2179
+#: filewidgets/kfilewidget.cpp:2126
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Dimensiune pictogramă: %1 pixeli"
 
-#: filewidgets/kfilewidget.cpp:2327
+#: filewidgets/kfilewidget.cpp:2274
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Selectează automat e&xtensia fișierului (%1)"
 
-#: filewidgets/kfilewidget.cpp:2328
+#: filewidgets/kfilewidget.cpp:2275
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "extensia <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2334
+#: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Selectează automat e&xtensia fișierului"
 
-#: filewidgets/kfilewidget.cpp:2335
+#: filewidgets/kfilewidget.cpp:2282
 #, kde-format
 msgid "a suitable extension"
 msgstr "o extensie corespunzătoare"
 
-#: filewidgets/kfilewidget.cpp:2343
+#: filewidgets/kfilewidget.cpp:2290
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3615,12 +3612,12 @@ msgstr ""
 "</li></ol> Dacă nu sunteți sigur, lăsați activată această opțiune deoarece "
 "face ca fișierele să fie mult mai ușor de administrat."
 
-#: filewidgets/kfilewidget.cpp:2791
+#: filewidgets/kfilewidget.cpp:2763
 #, kde-format
 msgid "&File type:"
 msgstr "Tip &fișier:"
 
-#: filewidgets/kfilewidget.cpp:2792
+#: filewidgets/kfilewidget.cpp:2764
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3629,12 +3626,12 @@ msgstr ""
 "<qt>Acesta e selectorul tipului de fișier, folosit pentru a alege formatul "
 "în care va fi salvat fișierul.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2794
+#: filewidgets/kfilewidget.cpp:2766
 #, kde-format
 msgid "&Filter:"
 msgstr "&Filtru:"
 
-#: filewidgets/kfilewidget.cpp:2796
+#: filewidgets/kfilewidget.cpp:2768
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -7307,6 +7304,9 @@ msgstr "Aceasta va porni programul:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Dacă nu aveți încredere în acest program, apăsați pe Renunță"
+
+#~ msgid "*|All Files"
+#~ msgstr "*|Toate fișierele"
 
 #~ msgid "No host specified."
 #~ msgstr "Nicio gazdă specificată."
