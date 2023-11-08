@@ -129,7 +129,9 @@ void KFileFilterComboTest::testSetMimeFilter()
     QStringList actual;
 
     for (int i = 0; i < combo.count(); ++i) {
-        const QString text = combo.itemData(i, Qt::DisplayRole).toString();
+        QString text = combo.itemData(i, Qt::DisplayRole).toString();
+        text.replace("Plain text document", "plain text document"); // shared-mime-info >= 2.3 uses title case
+        text.replace("Mailbox file", "mailbox file");
         actual << text;
     }
     QCOMPARE(actual, expectedComboboxText);
@@ -161,7 +163,9 @@ void KFileFilterComboTest::testSetMimeFilterDefault()
 
     combo.setMimeFilter(mimeTypes, defaultType);
 
-    QCOMPARE(combo.currentText(), expectedComboboxCurrentText);
+    QString currentText = combo.currentText();
+    currentText.replace("Plain text document", "plain text document"); // shared-mime-info >= 2.3 uses title case
+    QCOMPARE(currentText, expectedComboboxCurrentText);
 }
 
 void KFileFilterComboTest::testIsMimeFilter()
