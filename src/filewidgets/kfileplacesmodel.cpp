@@ -955,7 +955,28 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
     }
 
     // return a sorted list based on groups
+    // and sort devices by mount status
     std::stable_sort(items.begin(), items.end(), [](KFilePlacesItem *itemA, KFilePlacesItem *itemB) {
+        if (itemA->groupType() == itemB->groupType() && itemA->isDevice()) {
+            auto accessA = itemA->device().as<Solid::StorageAccess>();
+            auto accessB = itemB->device().as<Solid::StorageAccess>();
+
+            if (accessA && !accessB) {
+                return true;
+            }
+            if (!accessA && accessB) {
+                return false;
+            }
+            if (accessA && accessB) {
+                // show first mounted devices
+                if (accessA->isAccessible() && !accessB->isAccessible()) {
+                    return true;
+                }
+                if (!accessA->isAccessible() && accessB->isAccessible()) {
+                    return false;
+                }
+            }
+        }
         return (itemA->groupType() < itemB->groupType());
     });
 
