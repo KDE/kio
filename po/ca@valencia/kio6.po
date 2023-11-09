@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:46+0000\n"
-"PO-Revision-Date: 2023-09-20 20:20+0200\n"
+"PO-Revision-Date: 2023-11-08 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -474,12 +474,12 @@ msgstr "Ja existix una carpeta anomenada %1."
 #: core/job_error.cpp:73
 #, kde-format
 msgid "No hostname specified."
-msgstr "No s'ha especificat cap nom d'ordinador."
+msgstr "No s'ha especificat cap nom d'amfitrió."
 
 #: core/job_error.cpp:73
 #, kde-format
 msgid "Unknown host %1"
-msgstr "Ordinador desconegut %1"
+msgstr "Amfitrió desconegut %1"
 
 #: core/job_error.cpp:76
 #, kde-format
@@ -524,12 +524,12 @@ msgstr "No s'ha pogut crear el sòcol per a accedir a %1."
 #: core/job_error.cpp:97
 #, kde-format
 msgid "Could not connect to host %1."
-msgstr "No s'ha pogut connectar amb l'ordinador %1."
+msgstr "No s'ha pogut connectar amb l'amfitrió %1."
 
 #: core/job_error.cpp:100
 #, kde-format
 msgid "Connection to host %1 is broken."
-msgstr "La connexió amb l'ordinador %1 s'ha tallat."
+msgstr "La connexió amb l'amfitrió %1 s'ha tallat."
 
 #: core/job_error.cpp:103
 #, kde-format
@@ -1351,7 +1351,7 @@ msgstr "Seleccioneu un nom alternatiu per a la carpeta nova."
 #: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
-msgstr "Ordinador desconegut"
+msgstr "Amfitrió desconegut"
 
 #: core/job_error.cpp:594
 #, kde-format
@@ -1359,7 +1359,7 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"Un error d'ordinador desconegut indica que el servidor amb el nom demanat, "
+"Un error d'amfitrió desconegut indica que el servidor amb el nom demanat, "
 "<strong>%1</strong>, no s'ha pogut trobar a Internet."
 
 #: core/job_error.cpp:599
@@ -2031,7 +2031,7 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
-"S'ha trobat un error d'ordinador desconegut en recuperar la informació quant "
+"S'ha trobat un error d'amfitrió desconegut en recuperar la informació quant "
 "al servidor intermediari especificat <strong>%1</strong>. Un error d'este "
 "tipus indica que el nom sol·licitat no s'ha pogut localitzar a Internet."
 
@@ -3541,10 +3541,9 @@ msgid "Remote Files Not Accepted"
 msgstr "No s'accepten fitxers remots"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Totes les carpetes"
+msgstr "Totes les carpetes"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
@@ -3599,10 +3598,10 @@ msgstr ""
 "clicar <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el fitxer "
 "encara no existix). Esta extensió està basada en el tipus de fitxer que heu "
 "triat per a guardar.<br /><br />Si no voleu que KDE proporcione una extensió "
-"per al nom de fitxer, podeu desactivar esta opció o bé podeu suprimir-la "
+"per al nom de fitxer, podeu desseleccionar esta opció o bé podeu suprimir-la "
 "afegint un punt «.» al final del nom de fitxer (al final el punt s'eliminarà "
-"automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
-"farà més manejables els vostres fitxers."
+"automàticament).</li></ol>Si no esteu segur, deixeu l'opció seleccionada, ja "
+"que farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2763
 #, kde-format
@@ -4294,12 +4293,12 @@ msgstr "No s'ha pogut obtindre l'ID del grup per al nom de grup donat %1"
 #: kioworkers/ftp/ftp.cpp:340
 #, kde-format
 msgid "Opening connection to host %1"
-msgstr "S'està obrint la connexió amb l'ordinador %1"
+msgstr "S'està obrint la connexió amb l'amfitrió %1"
 
 #: kioworkers/ftp/ftp.cpp:355
 #, kde-format
 msgid "Connected to host %1"
-msgstr "S'ha connectat amb l'ordinador %1"
+msgstr "S'ha connectat amb l'amfitrió %1"
 
 #: kioworkers/ftp/ftp.cpp:463
 #, kde-format
@@ -5647,7 +5646,7 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Marqueu esta opció si l'aplicació que voleu executar és una aplicació en "
+"Seleccioneu esta opció si l'aplicació que voleu executar és una aplicació en "
 "mode text o si voleu la informació proporcionada per la finestra d'emulació "
 "de terminal."
 
@@ -5671,9 +5670,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Marqueu esta opció si l'aplicació de mode text oferix informació apropiada "
-"en acabar. Deixar obert l'emulador de terminal us permet recuperar esta "
-"informació."
+"Seleccioneu esta opció si l'aplicació de mode text oferix informació "
+"apropiada en acabar. Deixar obert l'emulador de terminal us permet recuperar "
+"esta informació."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
@@ -5699,7 +5698,7 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Marqueu esta opció si voleu executar esta aplicació amb un ID d'usuari "
+"Seleccioneu esta opció si voleu executar esta aplicació amb un ID d'usuari "
 "diferent. Cada procés té associat un ID d'usuari diferent. Este codi "
 "d'identificador determina l'accés al fitxer i altres permisos. Cal la "
 "contrasenya de l'usuari per a utilitzar esta opció."
@@ -5756,7 +5755,7 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Marqueu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
+"Seleccioneu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
 "confirmació visual pot aparéixer com un cursor ocupat o en la barra de "
 "tasques."
 
@@ -6224,10 +6223,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"Activeu esta opció per a permetre només al propietari de la carpeta suprimir "
-"o canviar de nom els fitxers i carpetes que conté. Els altres usuaris només "
-"podran afegir fitxers nous, el qual requerix permís de «Modifica el "
-"contingut»."
+"Seleccioneu esta opció per a permetre només al propietari de la carpeta "
+"suprimir o canviar de nom els fitxers i carpetes que conté. Els altres "
+"usuaris només podran afegir fitxers nous, el qual requerix permís de "
+"«Modifica el contingut»."
 
 #: widgets/kpropertiesdialog.cpp:1857
 #, kde-format
@@ -6235,7 +6234,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Activeu esta opció per a marcar el fitxer com executable. Açò només té "
+"Seleccioneu esta opció per a marcar el fitxer com executable. Açò només té "
 "sentit per a programes i scripts. Cal quan els voleu executar."
 
 #: widgets/kpropertiesdialog.cpp:1864
@@ -7097,8 +7096,8 @@ msgid ""
 "The remote host did not send any SSL certificates.\n"
 "Aborting because the identity of the host cannot be established."
 msgstr ""
-"L'ordinador remot no ha enviat cap certificat SSL.\n"
-"S'interromp perquè no s'ha pogut establir la identitat de l'ordinador."
+"L'amfitrió remot no ha enviat cap certificat SSL.\n"
+"S'interromp perquè no s'ha pogut establir la identitat de l'amfitrió."
 
 #: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
 #, kde-format
@@ -7233,123 +7232,3 @@ msgstr "Iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en este programa, cliqueu «Cancel·la»"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|Tots els fitxers"
-
-#~ msgid "No host specified."
-#~ msgstr "No s'ha especificat cap ordinador."
-
-#~ msgid "The server does not support the WebDAV protocol."
-#~ msgstr "El servidor no accepta el protocol WebDAV."
-
-#~ msgid "%1 contacted. Waiting for reply..."
-#~ msgstr "S'ha contactat amb %1. S'està esperant la resposta..."
-
-#~ msgctxt "@info Security check on url being accessed"
-#~ msgid ""
-#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
-#~ "but the website does not require authentication. This may be an attempt "
-#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
-#~ msgstr ""
-#~ "<p>Esteu a punt d'iniciar la sessió al lloc «%1» amb el nom d'usuari "
-#~ "«%2», però el lloc web no requerix autenticació. Açò pot ser un intent "
-#~ "d'enganyar-vos.</p><p>«%1» és el lloc que voleu visitar?</p>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Website Access"
-#~ msgstr "Confirmació d'accés al lloc web"
-
-#~ msgid "Server processing request, please wait..."
-#~ msgstr "El servidor està processant la petició, espereu..."
-
-#~ msgid "Sending data to %1"
-#~ msgstr "S'estan enviant les dades a %1"
-
-#~ msgid "Retrieving %1 from %2..."
-#~ msgstr "S'està recuperant %1 des de %2..."
-
-#~ msgid "Authentication Failed."
-#~ msgstr "No s'ha pogut fer l'autenticació."
-
-#~ msgid "Authorization failed."
-#~ msgstr "No s'ha pogut fer l'autorització."
-
-#~ msgid "Unknown Authorization method."
-#~ msgstr "Mètode d'autorització desconegut."
-
-#~ msgid "Receiving corrupt data."
-#~ msgstr "S'estan rebent dades corruptes."
-
-#~ msgid ""
-#~ "You are about to leave secure mode. Transmissions will no longer be "
-#~ "encrypted.\n"
-#~ "This means that a third party could observe your data in transit."
-#~ msgstr ""
-#~ "Esteu a punt d'eixir del mode segur. Les transmissions ja no seran "
-#~ "encriptades.\n"
-#~ "Açò significa que un tercer podria observar les vostres dades en trànsit."
-
-#~ msgid "Security Information"
-#~ msgstr "Informació de seguretat"
-
-#~ msgid "C&ontinue Loading"
-#~ msgstr "C&ontinua la càrrega"
-
-#~ msgctxt "%1 is a host name"
-#~ msgid "%1: SSL negotiation failed"
-#~ msgstr "%1: ha fallat la negociació SSL"
-
-# skip-rule: ff-enter
-#~ msgid ""
-#~ "You are about to enter secure mode. All transmissions will be encrypted "
-#~ "unless otherwise noted.\n"
-#~ "This means that no third party will be able to easily observe your data "
-#~ "in transit."
-#~ msgstr ""
-#~ "Esteu a punt d'entrar en mode segur. Totes les transmissions "
-#~ "s'encriptaran si no s'indica el contrari.\n"
-#~ "Açò significa que ningú més podrà observar amb facilitat les vostres "
-#~ "dades en trànsit."
-
-#~ msgid "Display SSL &Information"
-#~ msgstr "Mostra la &informació SSL"
-
-#~ msgid "C&onnect"
-#~ msgstr "C&onnecta"
-
-#~ msgid "Could not find a usable proxy configuration script"
-#~ msgstr ""
-#~ "No s'ha trobat cap script utilitzable de configuració del servidor "
-#~ "intermediari"
-
-#~ msgid ""
-#~ "Could not download the proxy configuration script:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "No s'ha pogut baixar l'script de configuració del servidor intermediari:\n"
-#~ "%1"
-
-#~ msgid "Could not download the proxy configuration script"
-#~ msgstr ""
-#~ "No s'ha pogut baixar l'script de configuració del servidor intermediari"
-
-#~ msgid ""
-#~ "The proxy configuration script is invalid:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "L'script de configuració del servidor intermediari no és vàlid:\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The proxy configuration script returned an error:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "L'script de configuració del servidor intermediari ha retornat un error:\n"
-#~ "%1"
-
-#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-#~ msgstr "No s'ha trobat «FindProxyForURL» o «FindProxyForURLEx»"
-
-#~ msgid "Got an invalid reply when calling %1 -> %2"
-#~ msgstr "S'ha obtingut una resposta no vàlida en cridar %1 -> %2"

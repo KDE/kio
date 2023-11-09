@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:46+0000\n"
-"PO-Revision-Date: 2023-08-08 09:34+0300\n"
+"PO-Revision-Date: 2023-11-08 23:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3526,10 +3526,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Віддалені файли не приймаються"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Всі теки"
+msgstr "Всі теки"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729

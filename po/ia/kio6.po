@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:46+0000\n"
-"PO-Revision-Date: 2023-09-04 10:12+0200\n"
+"PO-Revision-Date: 2023-11-08 12:27+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3534,10 +3534,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Files remote non ha acceptation"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Omne dossieres"
+msgstr "Omne dossieres"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
