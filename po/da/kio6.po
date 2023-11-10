@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:46+0000\n"
+"POT-Creation-Date: 2023-11-10 01:46+0000\n"
 "PO-Revision-Date: 2021-09-05 20:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2761,7 +2761,7 @@ msgstr "Se forhåndsvisning"
 msgid "Open Containing Folder"
 msgstr "Åbn indeholdende mappe"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgid "Properties"
 msgstr "Egenskaber"
@@ -3200,84 +3200,84 @@ msgstr ""
 msgid "%1 (hidden)"
 msgstr "%1 (skjult)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Tøm papirkurv"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montér"
 
-#: filewidgets/kfileplacesview.cpp:1150
+#: filewidgets/kfileplacesview.cpp:1148
 #, fuzzy, kde-format
 #| msgid "Open %1 in tab"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Åbn %1 i faneblad"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1151
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1162
+#: filewidgets/kfileplacesview.cpp:1160
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Tilføj indgang..."
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1166
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Redigér"
 
-#: filewidgets/kfileplacesview.cpp:1173
+#: filewidgets/kfileplacesview.cpp:1171
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Fjern fil"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Skjul sektion"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, fuzzy, kde-format
 #| msgid "Hide Section"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Skjul sektion"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1191
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Vi&s alle indgange"
 
-#: filewidgets/kfileplacesview.cpp:1198
+#: filewidgets/kfileplacesview.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Ikonstørrelse"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3285,25 +3285,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Tilpas størrelse automatisk"
 
-#: filewidgets/kfileplacesview.cpp:1330
+#: filewidgets/kfileplacesview.cpp:1328
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Lille (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1333
+#: filewidgets/kfileplacesview.cpp:1331
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Mellem (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1336
+#: filewidgets/kfileplacesview.cpp:1334
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Stor (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1339
+#: filewidgets/kfileplacesview.cpp:1337
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

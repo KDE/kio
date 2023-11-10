@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:46+0000\n"
-"PO-Revision-Date: 2023-08-24 05:38+0200\n"
+"POT-Creation-Date: 2023-11-10 01:46+0000\n"
+"PO-Revision-Date: 2023-11-09 02:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2714,7 +2714,7 @@ msgstr "გადახედვის ჩვენება"
 msgid "Open Containing Folder"
 msgstr "შემცველი საქაღალდის გახსნა"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgid "Properties"
 msgstr "პარამეტრები"
@@ -3143,78 +3143,78 @@ msgstr "დააფორმატეთ ან ჩაასწორეთ დ
 msgid "%1 (hidden)"
 msgstr "%1 (დამალული)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ნაგვის დაცარიელება"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "მიმაგრება"
 
-#: filewidgets/kfileplacesview.cpp:1150
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "ახალ ჩანართში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1151
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ახალ ფანჯარაში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1162
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "ელემენტის დამატება…"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1166
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&ჩასწორება…"
 
-#: filewidgets/kfileplacesview.cpp:1173
+#: filewidgets/kfileplacesview.cpp:1171
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ადგილებიდან წაშლა"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "სექციის დამალვა %1"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "სექციის დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1191
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&ყველა ელემენტის ჩვენება"
 
-#: filewidgets/kfileplacesview.cpp:1198
+#: filewidgets/kfileplacesview.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ხატულების ზომა"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3222,25 +3222,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ზომის ავტომატური შეცვლა"
 
-#: filewidgets/kfileplacesview.cpp:1330
+#: filewidgets/kfileplacesview.cpp:1328
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "პატარა (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1333
+#: filewidgets/kfileplacesview.cpp:1331
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "საშუალო (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1336
+#: filewidgets/kfileplacesview.cpp:1334
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "დიდი (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1339
+#: filewidgets/kfileplacesview.cpp:1337
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3469,10 +3469,9 @@ msgid "Remote Files Not Accepted"
 msgstr "დაშორებული ფაილები მიუღებელია"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|ყველა საქაღალდე"
+msgstr "ყველა საქაღალდე"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729

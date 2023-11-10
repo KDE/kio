@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:46+0000\n"
+"POT-Creation-Date: 2023-11-10 01:46+0000\n"
 "PO-Revision-Date: 2023-08-10 14:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2709,7 +2709,7 @@ msgstr "Zobrazit náhled"
 msgid "Open Containing Folder"
 msgstr "Otevřít odpovídající složku"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgid "Properties"
 msgstr "Vlastnosti"
@@ -3142,78 +3142,78 @@ msgstr "Přeformátovat nebo upravit pomocí Správce diskových oddílů"
 msgid "%1 (hidden)"
 msgstr "%1 (skryté)"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Vyprázdnit koš"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Připojit"
 
-#: filewidgets/kfileplacesview.cpp:1150
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Otevřít v nové kartě"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1151
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Otevřít v novém okně"
 
-#: filewidgets/kfileplacesview.cpp:1162
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Přidat položku…"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1166
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Upravit…"
 
-#: filewidgets/kfileplacesview.cpp:1173
+#: filewidgets/kfileplacesview.cpp:1171
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Odstranit z míst"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Skrýt"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Skrýt oddíl '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Skrýt oddíl"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1191
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Zo&brazit všechny položky"
 
-#: filewidgets/kfileplacesview.cpp:1198
+#: filewidgets/kfileplacesview.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Velikost ikon"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3221,25 +3221,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Automaticky změnit velikost"
 
-#: filewidgets/kfileplacesview.cpp:1330
+#: filewidgets/kfileplacesview.cpp:1328
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Malé (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1333
+#: filewidgets/kfileplacesview.cpp:1331
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Střední (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1336
+#: filewidgets/kfileplacesview.cpp:1334
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Velké (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1339
+#: filewidgets/kfileplacesview.cpp:1337
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

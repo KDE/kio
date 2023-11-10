@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:46+0000\n"
+"POT-Creation-Date: 2023-11-10 01:46+0000\n"
 "PO-Revision-Date: 2023-10-21 18:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2608,7 +2608,7 @@ msgstr "顯示預覽"
 msgid "Open Containing Folder"
 msgstr "開啟包含資料夾"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgid "Properties"
 msgstr "屬性"
@@ -3031,78 +3031,78 @@ msgstr "用分割區管理員進行重新格式化或編輯"
 msgid "%1 (hidden)"
 msgstr "%1（隱藏）"
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "清空垃圾桶"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "掛載"
 
-#: filewidgets/kfileplacesview.cpp:1150
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "在新分頁開啟"
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1151
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: filewidgets/kfileplacesview.cpp:1162
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "新增項目…"
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1166
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "編輯(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1173
+#: filewidgets/kfileplacesview.cpp:1171
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "從快速存取移除"
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "隱藏(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "隱藏區段「%1」"
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "隱藏區段"
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1191
 #, kde-format
 msgid "&Show All Entries"
 msgstr "顯示所有項目(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1198
+#: filewidgets/kfileplacesview.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "圖示大小"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3110,25 +3110,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "自動調整大小"
 
-#: filewidgets/kfileplacesview.cpp:1330
+#: filewidgets/kfileplacesview.cpp:1328
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "小 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1333
+#: filewidgets/kfileplacesview.cpp:1331
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "中 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1336
+#: filewidgets/kfileplacesview.cpp:1334
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "大 (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1339
+#: filewidgets/kfileplacesview.cpp:1337
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

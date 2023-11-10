@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:46+0000\n"
+"POT-Creation-Date: 2023-11-10 01:46+0000\n"
 "PO-Revision-Date: 2015-04-28 08:48+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -2662,7 +2662,7 @@ msgstr "Forhåndsvis"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1157
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgid "Properties"
 msgstr "Egenskaper"
@@ -3087,78 +3087,78 @@ msgstr ""
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1119
+#: filewidgets/kfileplacesview.cpp:1117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Tøm papirkurven"
 
-#: filewidgets/kfileplacesview.cpp:1144
+#: filewidgets/kfileplacesview.cpp:1142
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1150
+#: filewidgets/kfileplacesview.cpp:1148
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1153
+#: filewidgets/kfileplacesview.cpp:1151
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1162
+#: filewidgets/kfileplacesview.cpp:1160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1168
+#: filewidgets/kfileplacesview.cpp:1166
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1173
+#: filewidgets/kfileplacesview.cpp:1171
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1177
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1185
+#: filewidgets/kfileplacesview.cpp:1183
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1193
+#: filewidgets/kfileplacesview.cpp:1191
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Vis alle oppføringer"
 
-#: filewidgets/kfileplacesview.cpp:1198
+#: filewidgets/kfileplacesview.cpp:1196
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3166,25 +3166,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1330
+#: filewidgets/kfileplacesview.cpp:1328
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1333
+#: filewidgets/kfileplacesview.cpp:1331
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1336
+#: filewidgets/kfileplacesview.cpp:1334
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1339
+#: filewidgets/kfileplacesview.cpp:1337
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -6975,117 +6975,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk Avbryt"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|Alle filer"
-
-#~ msgid "No host specified."
-#~ msgstr "Ingen vert oppgitt."
-
-#~ msgid "The server does not support the WebDAV protocol."
-#~ msgstr "Tjeneren støtter ikke WebDAV-protokollen."
-
-#~ msgid "%1 contacted. Waiting for reply..."
-#~ msgstr "%1 kontaktet. Venter på svar …"
-
-#~ msgctxt "@info Security check on url being accessed"
-#~ msgid ""
-#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
-#~ "but the website does not require authentication. This may be an attempt "
-#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
-#~ msgstr ""
-#~ "<p>Du er i ferd med å logge inn til nettstedet «%1» med brukernavn «%2», "
-#~ "men nettstedet krever ikke autentisering. Dette kan være et forsøk på å "
-#~ "lure deg.</p><p>Er «%1» det nettstedet du vil besøke?</p>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Website Access"
-#~ msgstr "Bekreft tilgang til nettsted"
-
-#~ msgid "Server processing request, please wait..."
-#~ msgstr "Tjeneren behandler forespørselen, vent litt …"
-
-#~ msgid "Sending data to %1"
-#~ msgstr "Sender data til %1"
-
-#~ msgid "Retrieving %1 from %2..."
-#~ msgstr "Henter %1 fra %2 …"
-
-#~ msgid "Authentication Failed."
-#~ msgstr "Mislykket autentisering."
-
-#~ msgid "Authorization failed."
-#~ msgstr "Autorisering lyktes ikke."
-
-#~ msgid "Unknown Authorization method."
-#~ msgstr "Ukjent autorisasjonsmetode."
-
-#~ msgid "Receiving corrupt data."
-#~ msgstr "Mottar skadde data."
-
-#~ msgid ""
-#~ "You are about to leave secure mode. Transmissions will no longer be "
-#~ "encrypted.\n"
-#~ "This means that a third party could observe your data in transit."
-#~ msgstr ""
-#~ "Du er i ferd med å avslutte sikkermodus. Overføringene vil ikke lenger "
-#~ "være krypterte.\n"
-#~ "Dette innebærer at uvedkommende kan få tilgang til informasjonen du "
-#~ "overfører."
-
-#~ msgid "Security Information"
-#~ msgstr "Sikkerhetsinformasjon"
-
-#~ msgid "C&ontinue Loading"
-#~ msgstr "F&ortsett lasting"
-
-#~ msgctxt "%1 is a host name"
-#~ msgid "%1: SSL negotiation failed"
-#~ msgstr "%1: SSL-forhandling mislyktes"
-
-#~ msgid ""
-#~ "You are about to enter secure mode. All transmissions will be encrypted "
-#~ "unless otherwise noted.\n"
-#~ "This means that no third party will be able to easily observe your data "
-#~ "in transit."
-#~ msgstr ""
-#~ "Du er i ferd med å starte sikkermodus. Alle overføringer blir krypterte "
-#~ "om ikke annet er sagt.\n"
-#~ "Dette betyr at ingen uvedkommende lett kan få tilgang til det du "
-#~ "overfører."
-
-#~ msgid "Display SSL &Information"
-#~ msgstr "Vis SSL-&informasjon"
-
-#~ msgid "C&onnect"
-#~ msgstr "K&oble til"
-
-#~ msgid "Could not find a usable proxy configuration script"
-#~ msgstr "Kunne ikke finne et brukbart skript for mellomtjeneroppsett"
-
-#~ msgid ""
-#~ "Could not download the proxy configuration script:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Klarte ikke laste ned skriptet for mellomtjeneroppsett:\n"
-#~ "%1"
-
-#~ msgid "Could not download the proxy configuration script"
-#~ msgstr "Klarte ikke laste ned skriptet for mellomtjeneroppsett"
-
-#~ msgid ""
-#~ "The proxy configuration script is invalid:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Skriptet for mellomtjeneroppsett er ugyldig:\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The proxy configuration script returned an error:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Skriptet for mellomtjeneroppsett returnerte en feil:\n"
-#~ "%1"
-
-#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-#~ msgstr "Klarte ikke å finne 'FindProxyForURL' eller 'FindProxyForURLEx'"
