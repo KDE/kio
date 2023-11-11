@@ -21,10 +21,13 @@ QTEST_GUILESS_MAIN(DesktopExecParserTest)
 #include <KService>
 #include <KSharedConfig>
 #include <KShell>
+#include <KSycoca>
 
 void DesktopExecParserTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+
+    KSycoca::setupTestMenu();
 
     qputenv("PATH", QByteArray(qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath())));
 

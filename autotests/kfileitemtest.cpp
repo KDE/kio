@@ -13,6 +13,7 @@
 #include "kiotesthelper.h"
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KSycoca>
 #include <KUser>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
@@ -25,6 +26,7 @@ QTEST_MAIN(KFileItemTest)
 void KFileItemTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    KSycoca::setupTestMenu();
 }
 
 void KFileItemTest::testPermissionsString()

@@ -18,6 +18,7 @@
 #include <KDesktopFile>
 #include <KJobUiDelegate>
 #include <KService>
+#include <KSycoca>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -43,6 +44,7 @@ void OpenUrlJobTest::initTestCase()
 #endif
 
     QStandardPaths::setTestModeEnabled(true);
+    KSycoca::setupTestMenu();
 
     // Ensure no leftovers from other tests
     QDir(QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation)).removeRecursively();

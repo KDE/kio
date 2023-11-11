@@ -17,6 +17,7 @@
 #include <KDesktopFile>
 #include <KJobUiDelegate>
 #include <KService>
+#include <KSycoca>
 
 #ifdef Q_OS_UNIX
 #include <signal.h> // kill
@@ -32,6 +33,7 @@ QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
 void ApplicationLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    KSycoca::setupTestMenu();
     m_tempService = createTempService();
 }
 
