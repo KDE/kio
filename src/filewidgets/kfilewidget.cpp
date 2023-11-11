@@ -2413,7 +2413,7 @@ QString KFileWidgetPrivate::findMatchingFilter(const QString &filter, const QStr
 // (this prevents you from accidentally saving "file.kwd" as RTF, for example)
 void KFileWidgetPrivate::updateFilter()
 {
-    if ((m_operationMode != KFileWidget::Saving) && !(m_ops->mode() & KFile::File)) {
+    if ((m_operationMode == KFileWidget::Saving) && (m_ops->mode() & KFile::File)) {
         QString urlStr = locationEditCurrentText();
         if (urlStr.isEmpty()) {
             return;
