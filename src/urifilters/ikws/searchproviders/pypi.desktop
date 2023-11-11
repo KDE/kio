@@ -11,6 +11,7 @@ Name[eu]=PyPI
 Name[fr]=PyPI
 Name[he]=PyPI
 Name[ia]=PyPI
+Name[it]=PyPI
 Name[ka]=PyPI
 Name[nl]=PyPI
 Name[pl]=PyPI
@@ -19,16 +20,19 @@ Name[sl]=PyPI
 Name[tr]=PyPI
 Name[uk]=PyPI
 Name[x-test]=xxPyPIxx
+Name[zh_TW]=PyPI
 Query=https://pypi.org/search/?q=\\{@}
 Query[ast]=https://pypi.org/search/?q=\\{@}
 Query[ca]=https://pypi.org/search/?q=\\{@}
 Query[ca@valencia]=https://pypi.org/search/?q=\\{@}
+Query[cs]=https://pypi.org/search/?q=\\{@}
 Query[eo]=https://pypi.org/search/?q=\\{@}
 Query[es]=https://pypi.org/search/?q=\\{@}
 Query[eu]=https://pypi.org/search/?q=\\{@}
 Query[fr]=https://pypi.org/search/?q=\\{@}
 Query[he]=https://pypi.org/search/?q=\\{@}
 Query[ia]=https://pypi.org/search/?q=\\{@}
+Query[it]=https://pypi.org/search/?q=\\{@}
 Query[ka]=https://pypi.org/search/?q=\\{@}
 Query[nl]=https://pypi.org/search/?q=\\{@}
 Query[pl]=https://pypi.org/search/?q=\\{@}
@@ -37,4 +41,5 @@ Query[sl]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}
 Query[uk]=https://pypi.org/search/?q=\\{@}
 Query[x-test]=xxhttps://pypi.org/search/?q=\\{@}xx
+Query[zh_TW]=https://pypi.org/search/?q=\\{@}
 Type=Service

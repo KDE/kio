@@ -5,12 +5,14 @@ Keys=codeberg,cb
 Name=Codeberg
 Name[ca]=Codeberg
 Name[ca@valencia]=Codeberg
+Name[cs]=Codeberg
 Name[eo]=Codeberg
 Name[es]=Codeberg
 Name[eu]=Codeberg
 Name[fr]=Codeberg
 Name[he]=Codeberg
 Name[ia]=Codeberg
+Name[it]=Codeberg
 Name[ka]=Codeberg
 Name[nl]=Codeberg
 Name[pl]=Codeberg
@@ -19,6 +21,7 @@ Name[sl]=Codeberg
 Name[tr]=Codeberg
 Name[uk]=Codeberg
 Name[x-test]=xxCodebergxx
+Name[zh_TW]=Codeberg
 Query=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ca@valencia]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
@@ -28,6 +31,7 @@ Query[eu]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[fr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[he]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ia]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[it]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ka]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[nl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[pl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
@@ -36,4 +40,5 @@ Query[sl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[tr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[uk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[x-test]=xxhttps://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=truexx
+Query[zh_TW]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Type=Service
