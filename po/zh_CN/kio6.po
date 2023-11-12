@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:46+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3330,10 +3330,9 @@ msgid "Remote Files Not Accepted"
 msgstr "无法处理远程文件"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|所有文件夹"
+msgstr ""
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:729
@@ -6869,116 +6868,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|所有文件"
-
-#~ msgid "No host specified."
-#~ msgstr "没有指定主机。"
-
-#~ msgid "The server does not support the WebDAV protocol."
-#~ msgstr "服务器不支持 WebDAV 协议。"
-
-#~ msgid "%1 contacted. Waiting for reply..."
-#~ msgstr "已连接到 %1。正在等待响应..."
-
-#~ msgctxt "@info Security check on url being accessed"
-#~ msgid ""
-#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
-#~ "but the website does not require authentication. This may be an attempt "
-#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
-#~ msgstr ""
-#~ "<p>您即将使用用户名“%2”登录到“%1”网站，但是该网站并不需要进行身份验证。可"
-#~ "能有人企图骗取您的身份验证信息。</p><p>您确定“%1”是您想要访问的网站吗？</"
-#~ "p>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Website Access"
-#~ msgstr "确认访问该网站"
-
-#~ msgid "Server processing request, please wait..."
-#~ msgstr "服务器正在处理请求，请稍候..."
-
-#~ msgid "Sending data to %1"
-#~ msgstr "正在发送数据到 %1"
-
-#~ msgid "Retrieving %1 from %2..."
-#~ msgstr "正在从 %2 获取 %1..."
-
-#~ msgid "Authentication Failed."
-#~ msgstr "身份验证失败。"
-
-#~ msgid "Authorization failed."
-#~ msgstr "授权失败。"
-
-#~ msgid "Unknown Authorization method."
-#~ msgstr "未知的授权方法。"
-
-#~ msgid "Receiving corrupt data."
-#~ msgstr "正在接收损坏的数据。"
-
-#~ msgid ""
-#~ "You are about to leave secure mode. Transmissions will no longer be "
-#~ "encrypted.\n"
-#~ "This means that a third party could observe your data in transit."
-#~ msgstr ""
-#~ "您即将离开安全模式，数据传输将不再加密。\n"
-#~ "这意味着第三者可以监视您传输的数据。"
-
-#~ msgid "Security Information"
-#~ msgstr "安全信息"
-
-#~ msgid "C&ontinue Loading"
-#~ msgstr "继续加载(&O)"
-
-#~ msgctxt "%1 is a host name"
-#~ msgid "%1: SSL negotiation failed"
-#~ msgstr "%1：SSL 协商失败"
-
-#~ msgid ""
-#~ "You are about to enter secure mode. All transmissions will be encrypted "
-#~ "unless otherwise noted.\n"
-#~ "This means that no third party will be able to easily observe your data "
-#~ "in transit."
-#~ msgstr ""
-#~ "您即将进入安全模式。所有的传输将被加密，除非另有说明。\n"
-#~ "这意味着第三者将难以监视您传输的数据。"
-
-#~ msgid "Display SSL &Information"
-#~ msgstr "显示 SSL 信息(&I)"
-
-#~ msgid "C&onnect"
-#~ msgstr "连接(&O)"
-
-#~ msgid "Could not find a usable proxy configuration script"
-#~ msgstr "无法找到可用的代理服务器配置脚本"
-
-#~ msgid ""
-#~ "Could not download the proxy configuration script:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "无法下载代理服务器配置脚本：\n"
-#~ "%1"
-
-#~ msgid "Could not download the proxy configuration script"
-#~ msgstr "无法下载代理服务器配置脚本"
-
-#~ msgid ""
-#~ "The proxy configuration script is invalid:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "代理服务器配置脚本无效：\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The proxy configuration script returned an error:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "代理服务器配置脚本返回了错误：\n"
-#~ "%1"
-
-#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-#~ msgstr "无法找到“FindProxyForURL”或者“FindProxyForURLEx”"
-
-#~ msgid "Got an invalid reply when calling %1 -> %2"
-#~ msgstr "调用 %1 -> %2 时收到了无效回复"

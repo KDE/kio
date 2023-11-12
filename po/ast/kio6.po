@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:46+0000\n"
-"PO-Revision-Date: 2023-11-09 14:38+0100\n"
+"PO-Revision-Date: 2023-11-11 15:12+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -3196,7 +3196,7 @@ msgstr "Toles carpetes"
 #: widgets/kfileitemactions.cpp:729
 #, kde-format
 msgid "&Open"
-msgstr ""
+msgstr "&Abrir"
 
 #: filewidgets/kfilewidget.cpp:2126
 #, kde-format
