@@ -813,10 +813,14 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntr
                 }
             } else if (property.tagName() == QLatin1String("quota-used-bytes")) {
                 // Quota-used-bytes. "Contains the amount of storage already in use."
-                quotaUsed = property.text().toLongLong();
+                if (!property.text().isEmpty()) {
+                    quotaUsed = property.text().toLongLong();
+                }
             } else if (property.tagName() == QLatin1String("quota-available-bytes")) {
                 // Quota-available-bytes. "Indicates the maximum amount of additional storage available."
-                quotaAvailable = property.text().toLongLong();
+                if (!property.text().isEmpty()) {
+                    quotaAvailable = property.text().toLongLong();
+                }
             } else {
                 // qCDebug(KIO_HTTP) << "Found unknown webdav property:" << property.tagName();
             }

@@ -7,10 +7,12 @@
 // This test suite is based on those in ftptest.cpp and uses the same test files.
 
 #include <kio/copyjob.h>
+#include <kio/filesystemfreespacejob.h>
 #include <kio/storedtransferjob.h>
 
 #include <QBuffer>
 #include <QProcess>
+#include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
 
@@ -94,6 +96,40 @@ private Q_SLOTS:
     void init()
     {
         QCOMPARE(m_daemonProc.state(), QProcess::Running);
+    }
+
+    void testFreeSpace()
+    {
+        // check the root folder
+        {
+            auto *job = KIO::fileSystemFreeSpace(url("/"));
+            QSignalSpy spy(job, &KJob::finished);
+            spy.wait();
+            QVERIFY(spy.count() > 0);
+
+            QCOMPARE(job->error(), KJob::NoError);
+            // we can't assume a specific size, so just check that it's non-zero
+            QVERIFY(job->availableSize() > 0);
+            QVERIFY(job->size() > 0);
+        }
+
+        // test freespace on a file, this is unsupported
+        {
+            const QString path("/testFreeSpace");
+            const auto url = this->url(path);
+            const QString remotePath = m_remoteDir.path() + path;
+
+            QByteArray data("testFreeSpace");
+            QFile file(remotePath);
+            QVERIFY(file.open(QFile::WriteOnly));
+            file.write(data);
+            file.close();
+
+            auto *job = KIO::fileSystemFreeSpace(this->url(path));
+            QSignalSpy spy(job, &KJob::finished);
+            spy.wait();
+            QCOMPARE(job->error(), KIO::ERR_UNSUPPORTED_ACTION);
+        }
     }
 
     void testGet()
