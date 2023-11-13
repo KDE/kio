@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:46+0000\n"
-"PO-Revision-Date: 2023-11-09 20:08+0100\n"
+"PO-Revision-Date: 2023-11-12 16:39+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3809,7 +3809,7 @@ msgstr "Klaku por Redakti Lokon"
 #: gui/applicationlauncherjob.cpp:119 gui/kprocessrunner.cpp:227
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "Vi ne rajtas ekzekuti ĉi tiun dosieron."
+msgstr "Vi ne rajtas plenumi ĉi tiun dosieron."
 
 #: gui/applicationlauncherjob.cpp:130 gui/commandlauncherjob.cpp:109
 #, kde-format
@@ -3823,7 +3823,7 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"Ne eblas fari la servon %1 plenumebla, ĉesigante la ekzekuton.\n"
+"Ne eblas fari la servon %1 plenumebla, ĉesigante la plenumon.\n"
 "%2."
 
 #: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
@@ -3914,7 +3914,7 @@ msgstr ""
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
-"Pro sekurecaj kialoj, lanĉi ekzekutaĵojn ne estas permesita en ĉi tiu "
+"Pro sekurecaj kialoj, lanĉi plenumeblojn ne estas permesita en ĉi tiu "
 "kunteksto."
 
 #: gui/openurljob.cpp:430
@@ -4098,7 +4098,7 @@ msgstr "Sugestita dosiernomo por la elŝutita dosiero"
 #: kioexec/main.cpp:301
 #, kde-format
 msgid "Command to execute"
-msgstr "Ordono por ekzekuti"
+msgstr "Ordono por plenumi"
 
 #: kioexec/main.cpp:302
 #, kde-format
@@ -4539,7 +4539,7 @@ msgid ""
 "of the resource after the execution of this method."
 msgstr ""
 "La cela rimedo ne havas sufiĉan spacon por registri la staton de la rimedo "
-"post la ekzekuto de ĉi tiu metodo."
+"post la plenumo de ĉi tiu metodo."
 
 #: kioworkers/http/http.cpp:1387
 #, kde-format
@@ -4767,13 +4767,13 @@ msgstr ""
 #: widgets/checksumswidget.ui:29
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr "Atendita ĉeksumo (MD5, SHA1, SHA256 aŭ SHA512)..."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:36
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
-msgstr "Klaku por alglui la ĉeksumon de la tondujo al la eniga kampo."
+msgstr "Klaku por alglui la kontrolsumon de la tondujo al la eniga kampo."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
@@ -6281,7 +6281,7 @@ msgstr "Exec"
 #: widgets/kpropertiesdialog.cpp:2045
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "Ebligu ĉi tiun flagon por permesi ekzekuti la dosieron kiel programo."
+msgstr "Ebligu ĉi tiun flagon por permesi plenumi la dosieron kiel programo."
 
 #: widgets/kpropertiesdialog.cpp:2053
 #, kde-format
@@ -6431,7 +6431,7 @@ msgstr "Kalkulante..."
 #: widgets/kpropertiesdialog.cpp:2952
 #, kde-format
 msgid "Invalid checksum."
-msgstr "Nevalida ĉeksumo."
+msgstr "Nevalida kontrolsumo."
 
 #: widgets/kpropertiesdialog.cpp:2955
 #, kde-format
@@ -6448,7 +6448,7 @@ msgstr "Kontrolsumoj kongruas."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
-msgstr "La komputita ĉeksumo kaj la atendata ĉeksumo kongruas."
+msgstr "La komputita kontrolsumo kaj la atendata kontrolsumo kongruas."
 
 #: widgets/kpropertiesdialog.cpp:2981
 #, kde-format
@@ -6465,13 +6465,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
-msgstr "La kalkulita ĉeksumo kaj la atendata ĉeksumo malsamas."
+msgstr "La kalkulita kontrolsumo kaj la atendata kontrolsumo malsamas."
 
 #: widgets/kpropertiesdialog.cpp:2994
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr "Kontrolante ĉeksumon..."
+msgstr "Kontrolante kontrolsumon..."
 
 #: widgets/kpropertiesdialog.cpp:3083
 #, kde-format
