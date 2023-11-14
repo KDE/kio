@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset=
+Hidden=false
+Keys=boo,bsc
+Name=openSUSE Bugzilla
+Query=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+ServiceTypes=SearchProvider
+Type=Service
