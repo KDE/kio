@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:46+0000\n"
-"PO-Revision-Date: 2023-11-08 21:16+0300\n"
+"PO-Revision-Date: 2023-11-14 22:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -139,13 +139,12 @@ msgstr "'%1' programı bulunamadı"
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr ""
-"\"%1\" programı \"%2\" konumunda bulundu; ancak yürütme izinleri eksik."
+msgstr "'%1' programı '%2' konumunda bulundu; ancak yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:358
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "\"%1\" programında yürütme izinleri eksik."
+msgstr "'%1' programında yürütme izinleri eksik."
 
 #: core/desktopexecparser.cpp:372
 #, kde-format
@@ -436,7 +435,7 @@ msgid ""
 "Please send a full bug report at https://bugs.kde.org\n"
 "%1"
 msgstr ""
-"İç Hata\n"
+"İçsel Hata\n"
 "Lütfen https://bugs.kde.org'a bir hata bildirimi gönderin\n"
 "%1"
 
@@ -679,7 +678,7 @@ msgid ""
 "Internal error in server\n"
 "%1"
 msgstr ""
-"Sunucuda iç hata\n"
+"Sunucuda içsel hata\n"
 "%1"
 
 #: core/job_error.cpp:178
@@ -1113,7 +1112,7 @@ msgstr ""
 #: core/job_error.cpp:470
 #, kde-format
 msgid "Internal Error"
-msgstr "İç Hata"
+msgstr "İçsel Hata"
 
 #: core/job_error.cpp:472
 #, kde-format
@@ -1122,7 +1121,7 @@ msgid ""
 "strong> protocol has reported an internal error."
 msgstr ""
 "Bilgisayarınızda <strong>%1</strong> protokolüne erişim sağlayan program bir "
-"iç hata raporladı."
+"içsel hata raporladı."
 
 #: core/job_error.cpp:480
 #, kde-format
@@ -2028,7 +2027,7 @@ msgstr "İstek Durduruldu"
 #: core/job_error.cpp:1073
 #, kde-format
 msgid "Internal Error in Server"
-msgstr "Sunucuda İç Hata"
+msgstr "Sunucuda İçsel Hata"
 
 #: core/job_error.cpp:1075
 #, kde-format
@@ -2036,8 +2035,8 @@ msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
 "protocol has reported an internal error: %2."
 msgstr ""
-"Sunucunuzdaki, <strong>%1</strong> protokolüne erişim sağlayan program bir "
-"iç hata oluştuğunu bildirdi: %2."
+"Sunucudaki <strong>%1</strong> protokolüne erişim sağlayan program bir iç "
+"hata oluştuğunu bildirdi: %2."
 
 #: core/job_error.cpp:1081
 #, kde-format
@@ -4573,7 +4572,7 @@ msgstr "desteklenmiyor"
 #: kioworkers/trash/kio_trash_win.cpp:253
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
-msgstr "Kopyala veya Taşı içerisinde iç hata, asla olmamalı"
+msgstr "Kopyala veya Taşı içsel hatası, bu asla olmamalı"
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
