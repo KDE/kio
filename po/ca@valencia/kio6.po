@@ -2339,7 +2339,7 @@ msgstr ""
 #: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr "Moveu l'element a una carpeta diferent."
+msgstr "Moveu l'element cap a una carpeta diferent."
 
 #: core/job_error.cpp:1239
 #, kde-format
@@ -4661,8 +4661,8 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "Programa d'ajuda per a gestionar la paperera de KDE\n"
-"Nota: per a moure fitxers a la paperera no utilitzeu ktrash, sinó «kioclient "
-"move \"url\" trash:/»"
+"Nota: per a moure fitxers cap a dins de la paperera no utilitzeu ktrash, "
+"sinó «kioclient move \"url\" trash:/»"
 
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
@@ -5080,14 +5080,15 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
-"Segur que voleu moure este element a la paperera?<nl/><filename>%1</filename>"
+"Segur que voleu moure este element cap a dins de la paperera?<nl/><filename>"
+"%1</filename>"
 
 #: widgets/jobuidelegate.cpp:278
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Segur que voleu moure este element a la paperera?"
-msgstr[1] "Segur que voleu moure estos %1 elements a la paperera?"
+msgstr[0] "Segur que voleu moure este element cap a dins de la paperera?"
+msgstr[1] "Segur que voleu moure estos %1 elements cap a dins de la paperera?"
 
 #: widgets/kacleditwidget.cpp:71
 #, kde-format
@@ -7156,9 +7157,9 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"No s'ha pogut moure este element a la paperera perquè és massa gros. Voleu "
-"suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Esta acció no es podrà desfer.</emphasis>"
+"No s'ha pogut moure este element cap a dins de la paperera perquè és massa "
+"gros. Voleu suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
@@ -7172,12 +7173,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"No s'ha pogut moure este %1 element a la paperera perquè és massa gros. "
-"Voleu suprimir-lo permanentment?<filename></filename><emphasis "
+"No s'ha pogut moure este %1 element cap a dins de la paperera perquè és "
+"massa gros. Voleu suprimir-lo permanentment?<filename></filename><emphasis "
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 msgstr[1] ""
-"No s'ha pogut moure estos %1 elements a la paperera perquè són massa "
-"grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
+"No s'ha pogut moure estos %1 elements cap a dins de la paperera perquè són "
+"massa grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
 "><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:283
@@ -7185,8 +7186,8 @@ msgstr[1] ""
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Segur que voleu moure este %1 element a la paperera?"
-msgstr[1] "Segur que voleu moure estos %1 elements a la paperera?"
+msgstr[0] "Segur que voleu moure este %1 element cap a dins de la paperera?"
+msgstr[1] "Segur que voleu moure estos %1 elements cap a dins de la paperera?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
