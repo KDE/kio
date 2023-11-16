@@ -9,6 +9,7 @@
 */
 
 #include "kfileplacesview.h"
+#include "kfileplacesmodel_p.h"
 #include "kfileplacesview_p.h"
 
 #include <QAbstractItemDelegate>
@@ -1484,7 +1485,7 @@ void KFilePlacesView::dropEvent(QDropEvent *event)
             // overriding the acceptProposedAction() below.
             // This special mime type tells KFilePlacesModel to ignore it.
             auto *mime = const_cast<QMimeData *>(event->mimeData());
-            mime->setData(QStringLiteral("application/x-kfileplacesmodel-ignore"), QByteArrayLiteral("1"));
+            mime->setData(KFilePlacesModelPrivate::ignoreMimeType(), QByteArrayLiteral("1"));
             event->acceptProposedAction();
         }
     }

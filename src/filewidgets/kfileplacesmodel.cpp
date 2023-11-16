@@ -183,6 +183,11 @@ KFilePlacesModelPrivate::KFilePlacesModelPrivate(KFilePlacesModel *qq)
     }
 }
 
+QString KFilePlacesModelPrivate::ignoreMimeType()
+{
+    return QStringLiteral("application/x-kfileplacesmodel-ignore");
+}
+
 KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
 {
     KBookmarkGroup root = d->bookmarkManager->root();
@@ -1042,7 +1047,7 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         // let's do it in the views to get the good old drop menu
     }
 
-    if (data->hasFormat(QStringLiteral("application/x-kfileplacesmodel-ignore"))) {
+    if (data->hasFormat(KFilePlacesModelPrivate::ignoreMimeType())) {
         return false;
     }
 

@@ -38,6 +38,8 @@ public:
 
     KFilePlacesModel *const q;
 
+    static QString ignoreMimeType();
+
     QList<KFilePlacesItem *> items;
     QList<Solid::Device> availableDevices;
     QMap<QObject *, QPersistentModelIndex> setupInProgress;
