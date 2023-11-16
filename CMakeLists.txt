@@ -60,6 +60,8 @@ add_feature_info(DESIGNERPLUGIN ${BUILD_DESIGNERPLUGIN} "Build plugin for Qt Des
 
 option(USE_FTPD_WSGIDAV_UNITTEST "Use ftpd Ruby Gem (for ftptest) and wsgidav Python module (for webdavtest) in unittests. Note that this is a temporary option that will be removed when distros add those packages in their repos." OFF)
 
+option(KF6_COMPAT_BUILD "Don't install files that conflict with KF6" OFF)
+
 find_package(KF5Archive ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)

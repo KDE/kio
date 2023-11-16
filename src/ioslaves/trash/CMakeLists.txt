@@ -107,4 +107,7 @@ endif()
 ########### install files ###############
 
 install( FILES kcmtrash.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR} )
-install( FILES kcm_trash.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+
+if(NOT KF6_COMPAT_BUILD)
+    install( FILES kcm_trash.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+endif()
