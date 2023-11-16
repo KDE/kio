@@ -9,6 +9,7 @@
 
 #include "kfileplacesmodel.h"
 #include "kfileplacesitem_p.h"
+#include "kfileplacesmodel_p.h"
 
 #include <KCoreDirLister>
 #include <KLazyLocalizedString>
@@ -135,90 +136,52 @@ static QUrl createSearchUrl(const QUrl &url)
 }
 }
 
-class KFilePlacesModelPrivate
+KFilePlacesModelPrivate::KFilePlacesModelPrivate(KFilePlacesModel *qq)
+    : q(qq)
+    , fileIndexingEnabled(isFileIndexingEnabled())
+    , tagsLister(new KCoreDirLister(q))
 {
-public:
-    explicit KFilePlacesModelPrivate(KFilePlacesModel *qq)
-        : q(qq)
-        , bookmarkManager(nullptr)
-        , fileIndexingEnabled(isFileIndexingEnabled())
-        , tags()
-        , tagsLister(new KCoreDirLister(q))
-    {
-        if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
-            QObject::connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl &, const KFileItemList &items) {
-                if (tags.isEmpty()) {
-                    QList<QUrl> existingBookmarks;
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("tags"))) {
+        QObject::connect(tagsLister, &KCoreDirLister::itemsAdded, q, [this](const QUrl &, const KFileItemList &items) {
+            if (tags.isEmpty()) {
+                QList<QUrl> existingBookmarks;
 
-                    KBookmarkGroup root = bookmarkManager->root();
-                    KBookmark bookmark = root.first();
+                KBookmarkGroup root = bookmarkManager->root();
+                KBookmark bookmark = root.first();
 
-                    while (!bookmark.isNull()) {
-                        existingBookmarks.append(bookmark.url());
-                        bookmark = root.next(bookmark);
-                    }
-
-                    if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
-                        KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager,
-                                                                                  kli18nc("KFile System Bookmarks", "All tags").untranslatedText(),
-                                                                                  QUrl(tagsUrlBase),
-                                                                                  QStringLiteral("tag"));
-                    }
+                while (!bookmark.isNull()) {
+                    existingBookmarks.append(bookmark.url());
+                    bookmark = root.next(bookmark);
                 }
 
-                for (const KFileItem &item : items) {
-                    const QString name = item.name();
-
-                    if (!tags.contains(name)) {
-                        tags.append(name);
-                    }
+                if (!existingBookmarks.contains(QUrl(tagsUrlBase))) {
+                    KBookmark alltags = KFilePlacesItem::createSystemBookmark(bookmarkManager,
+                                                                              kli18nc("KFile System Bookmarks", "All tags").untranslatedText(),
+                                                                              QUrl(tagsUrlBase),
+                                                                              QStringLiteral("tag"));
                 }
-                reloadBookmarks();
-            });
+            }
 
-            QObject::connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList &items) {
-                for (const KFileItem &item : items) {
-                    tags.removeAll(item.name());
+            for (const KFileItem &item : items) {
+                const QString name = item.name();
+
+                if (!tags.contains(name)) {
+                    tags.append(name);
                 }
-                reloadBookmarks();
-            });
+            }
+            reloadBookmarks();
+        });
 
-            tagsLister->openUrl(QUrl(tagsUrlBase), KCoreDirLister::OpenUrlFlag::Reload);
-        }
+        QObject::connect(tagsLister, &KCoreDirLister::itemsDeleted, q, [this](const KFileItemList &items) {
+            for (const KFileItem &item : items) {
+                tags.removeAll(item.name());
+            }
+            reloadBookmarks();
+        });
+
+        tagsLister->openUrl(QUrl(tagsUrlBase), KCoreDirLister::OpenUrlFlag::Reload);
     }
-
-    KFilePlacesModel *const q;
-
-    QList<KFilePlacesItem *> items;
-    QList<Solid::Device> availableDevices;
-    QMap<QObject *, QPersistentModelIndex> setupInProgress;
-    QMap<QObject *, QPersistentModelIndex> teardownInProgress;
-    QStringList supportedSchemes;
-
-    Solid::Predicate predicate;
-    KBookmarkManager *bookmarkManager;
-
-    const bool fileIndexingEnabled;
-
-    void reloadAndSignal();
-    QList<KFilePlacesItem *> loadBookmarkList();
-    int findNearestPosition(int source, int target);
-
-    QList<QString> tags;
-    const QString tagsUrlBase = QStringLiteral("tags:/");
-    KCoreDirLister *tagsLister;
-
-    void initDeviceList();
-    void deviceAdded(const QString &udi);
-    void deviceRemoved(const QString &udi);
-    void itemChanged(const QString &udi, const QList<int> &roles);
-    void reloadBookmarks();
-    void storageSetupDone(Solid::ErrorType error, const QVariant &errorData, Solid::StorageAccess *sender);
-    void storageTeardownDone(const QString &filePath, Solid::ErrorType error, const QVariant &errorData, QObject *sender);
-
-private:
-    bool isBalooUrl(const QUrl &url) const;
-};
+}
 
 KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
 {
