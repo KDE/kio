@@ -474,12 +474,12 @@ msgstr "Ja existix una carpeta anomenada %1."
 #: core/job_error.cpp:73
 #, kde-format
 msgid "No hostname specified."
-msgstr "No s'ha especificat cap nom d'ordinador."
+msgstr "No s'ha especificat cap nom d'amfitrió."
 
 #: core/job_error.cpp:73
 #, kde-format
 msgid "Unknown host %1"
-msgstr "Ordinador desconegut %1"
+msgstr "Amfitrió desconegut %1"
 
 #: core/job_error.cpp:76
 #, kde-format
@@ -524,12 +524,12 @@ msgstr "No s'ha pogut crear el sòcol per a accedir a %1."
 #: core/job_error.cpp:97
 #, kde-format
 msgid "Could not connect to host %1."
-msgstr "No s'ha pogut connectar amb l'ordinador %1."
+msgstr "No s'ha pogut connectar amb l'amfitrió %1."
 
 #: core/job_error.cpp:100
 #, kde-format
 msgid "Connection to host %1 is broken."
-msgstr "La connexió amb l'ordinador %1 s'ha tallat."
+msgstr "La connexió amb l'amfitrió %1 s'ha tallat."
 
 #: core/job_error.cpp:103
 #, kde-format
@@ -1351,7 +1351,7 @@ msgstr "Seleccioneu un nom alternatiu per a la carpeta nova."
 #: core/job_error.cpp:592
 #, kde-format
 msgid "Unknown Host"
-msgstr "Ordinador desconegut"
+msgstr "Amfitrió desconegut"
 
 #: core/job_error.cpp:594
 #, kde-format
@@ -1359,7 +1359,7 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"Un error d'ordinador desconegut indica que el servidor amb el nom demanat, "
+"Un error d'amfitrió desconegut indica que el servidor amb el nom demanat, "
 "<strong>%1</strong>, no s'ha pogut trobar a Internet."
 
 #: core/job_error.cpp:599
@@ -2031,7 +2031,7 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
-"S'ha trobat un error d'ordinador desconegut en recuperar la informació quant "
+"S'ha trobat un error d'amfitrió desconegut en recuperar la informació quant "
 "al servidor intermediari especificat <strong>%1</strong>. Un error d'este "
 "tipus indica que el nom sol·licitat no s'ha pogut localitzar a Internet."
 
@@ -2339,7 +2339,7 @@ msgstr ""
 #: core/job_error.cpp:1235
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr "Moveu l'element a una carpeta diferent."
+msgstr "Moveu l'element cap a una carpeta diferent."
 
 #: core/job_error.cpp:1239
 #, kde-format
@@ -3698,10 +3698,10 @@ msgstr ""
 "clicar <b>Guarda</b>, s'afegirà %3 al final del nom de fitxer (si el fitxer "
 "encara no existix). Esta extensió està basada en el tipus de fitxer que heu "
 "triat per a guardar.<br /><br />Si no voleu que KDE proporcione una extensió "
-"per al nom de fitxer, podeu desactivar esta opció o bé podeu suprimir-la "
+"per al nom de fitxer, podeu desseleccionar esta opció o bé podeu suprimir-la "
 "afegint un punt «.» al final del nom de fitxer (al final el punt s'eliminarà "
-"automàticament).</li></ol>Si no esteu segur, deixeu l'opció activada, ja que "
-"farà més manejables els vostres fitxers."
+"automàticament).</li></ol>Si no esteu segur, deixeu l'opció seleccionada, ja "
+"que farà més manejables els vostres fitxers."
 
 #: filewidgets/kfilewidget.cpp:2946
 #, kde-format
@@ -4304,7 +4304,7 @@ msgid ""
 "disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
 "items after a certain timespan</para>"
 msgstr ""
-"<para>Marqueu esta casella per a permetre la <emphasis "
+"<para>Seleccioneu esta casella per a permetre la <emphasis "
 "strong='true'>supressió automàtica</emphasis> dels fitxers més antics que el "
 "valor indicat. Deixeu-ho desmarcat per a <emphasis strong='true'>no</"
 "emphasis> suprimir automàticament cap element després d'un lapse de temps "
@@ -4345,9 +4345,9 @@ msgid ""
 "<para>Check this box to limit the trash to the maximum amount of disk space "
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
-"<para>Marqueu esta casella per a limitar la paperera a la quantitat màxima "
-"d'espai en disc que indiqueu seguidament. En cas contrari, serà sense límit."
-"</para>"
+"<para>Seleccioneu esta casella per a limitar la paperera a la quantitat "
+"màxima d'espai en disc que indiqueu seguidament. En cas contrari, serà sense "
+"límit.</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
 #: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
@@ -4456,8 +4456,8 @@ msgid ""
 "'url' trash:/\""
 msgstr ""
 "Programa d'ajuda per a gestionar la paperera de KDE\n"
-"Nota: per a moure fitxers a la paperera no utilitzeu ktrash, sinó «kioclient "
-"move \"url\" trash:/»"
+"Nota: per a moure fitxers cap a dins de la paperera no utilitzeu ktrash, "
+"sinó «kioclient move \"url\" trash:/»"
 
 #: ioslaves/trash/ktrash.cpp:31
 #, kde-format
@@ -4575,7 +4575,7 @@ msgstr "Busca"
 #: kcms/cookies/kcookiesmanagement.ui:27
 #, kde-format
 msgid "Search interactively for domains and hosts"
-msgstr "Busca dominis i ordinadors remots interactivament"
+msgstr "Busca dominis o amfitrions remots interactivament"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, cookiesTreeWidget)
 #: kcms/cookies/kcookiesmanagement.ui:43
@@ -4742,7 +4742,7 @@ msgstr ""
 "les galetes. Potser voldreu establir la política predeterminada de KDE de "
 "manera que pregunte quan un servidor demane d'establir una galeta, o "
 "senzillament rebutjar o acceptar-ho tot. Per exemple, potser voldreu "
-"acceptar totes les galetes del vostre lloc web de compra preferit. Per a "
+"acceptar totes les galetes del vostre lloc web de compra preferit. Per a fer "
 "açò, tot el que cal fer és anar fins al lloc en concret i, quan se vos "
 "presenta el diàleg de galetes, cliqueu en <i>Este domini</i> davall la "
 "pestanya «Aplica a» i trieu acceptar o senzillament especificar el nom del "
@@ -4820,7 +4820,7 @@ msgstr ""
 "sessió actual. Estes galetes no es guardaran en el disc dur o dispositiu "
 "d'emmagatzematge. En comptes d'açò, se suprimiran quan tanqueu totes les "
 "aplicacions que les utilitzen (p. ex., el navegador).</p><p><u>NOTA:</u> Si "
-"activeu esta opció, s'anul·laran les polítiques de galetes de sessió "
+"seleccioneu esta opció, s'anul·laran les polítiques de galetes de sessió "
 "predeterminades i específiques de lloc.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
@@ -5014,8 +5014,8 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Introduïu el servidor o domini al qual s'aplica esta política, p. ex., "
-"<b>www.kde.org</b> o <b>.kde.org</b>.\n"
+"Introduïu l'amfitrió o domini al qual s'aplica esta política, p. ex., <b>www."
+"kde.org</b> o <b>.kde.org</b>.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDomain)
@@ -5029,7 +5029,7 @@ msgstr "Nom del lloc:"
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
 msgstr ""
-"Introduïu el nom de l'ordinador o del domini al qual s'aplica esta política, "
+"Introduïu el nom de l'amfitrió o del domini al qual s'aplica esta política, "
 "p. ex., kde.org."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
@@ -5198,7 +5198,7 @@ msgid ""
 "complete.</p>"
 msgstr ""
 "<p>Marca els fitxers carregats parcialment per a SMB, SFTP i altres "
-"protocols.</p><p>Quan esta opció està activada, els fitxers carregats "
+"protocols.</p><p>Quan se selecciona esta opció, els fitxers carregats "
 "parcialment tindran una extensió «.part». Esta extensió s'eliminarà una "
 "vegada s'haja completat la transferència.</p>"
 
@@ -5244,10 +5244,10 @@ msgid ""
 "partially uploaded files will have a \".part\" extension. This extension "
 "will be removed once the transfer is complete.</p>"
 msgstr ""
-"<p>Marca els fitxers carregats parcialment per FTP.</p><p>Quan esta opció "
-"està activada, els fitxers carregats parcialment tindran una extensió «."
-"part». Esta extensió serà eliminada una vegada s'haja completat la "
-"transferència.</p>"
+"<p>Marca els fitxers carregats parcialment per FTP.</p><p>Quan se selecciona "
+"esta opció, els fitxers carregats parcialment tindran una extensió «.part». "
+"Esta extensió serà eliminada una vegada s'haja completat la transferència.</"
+"p>"
 
 #: kcms/netpref/netpref.cpp:186
 #, kde-format
@@ -5713,12 +5713,12 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"<p>Introduïu una llista separada per comes de noms d'ordinador o adreces IP "
+"<p>Introduïu una llista separada per comes de noms d'amfitrió o adreces IP "
 "que cal excloure d'utilitzar la configuració del servidor intermediari "
 "anterior.</p>\n"
-"<p>Si voleu excloure tots els servidors d'un domini donat, introduïu només "
+"<p>Si voleu excloure tots els amfitrions d'un domini donat, introduïu només "
 "el nom de domini precedit amb un punt. Per exemple, per a excloure tots els "
-"servidors per a <i>kde.org</i>, introduïu <i>.kde.org</i>. Els caràcters de "
+"amfitrions per a <i>kde.org</i>, introduïu <i>.kde.org</i>. Els caràcters de "
 "comodí com «*» o «?» no estan admesos i no tindran cap efecte.</p>\n"
 "<p>De manera addicional, també podeu introduir adreces IP, p. ex., 127.0.0.1 "
 "i adreces IP amb una subxarxa, p. ex., 192.168.0.1/24.</p>\n"
@@ -5733,9 +5733,9 @@ msgid ""
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
 "<qt>\n"
-"Marqueu esta casella si voleu que la configuració del servidor intermediari "
-"anterior s'aplique només per a les adreces de la llista d'<i>excepcions</i>."
-"</qt>"
+"Seleccioneu esta casella si voleu que la configuració del servidor "
+"intermediari anterior s'aplique només per a les adreces de la llista "
+"d'<i>excepcions</i>.</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:642
@@ -5958,12 +5958,12 @@ msgstr "Els URL o fitxers locals utilitzats per l'«ordre»"
 #: kioworkers/ftp/ftp.cpp:339
 #, kde-format
 msgid "Opening connection to host %1"
-msgstr "S'està obrint la connexió amb l'ordinador %1"
+msgstr "S'està obrint la connexió amb l'amfitrió %1"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Connected to host %1"
-msgstr "S'ha connectat amb l'ordinador %1"
+msgstr "S'ha connectat amb l'amfitrió %1"
 
 #: kioworkers/ftp/ftp.cpp:462
 #, kde-format
@@ -6092,7 +6092,7 @@ msgstr "No s'ha pogut trobar el nom de fitxer %1 a %2."
 #: kioworkers/http/http.cpp:587
 #, kde-format
 msgid "No host specified."
-msgstr "No s'ha especificat cap ordinador."
+msgstr "No s'ha especificat cap nom d'amfitrió."
 
 #: kioworkers/http/http.cpp:1556
 #, kde-format
@@ -6652,8 +6652,8 @@ msgid ""
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
-"Marqueu esta casella per a seleccionar la paraula clau de busca en la web "
-"ressaltada com a preferida.<nl/>Les paraules clau de busca en la web "
+"Seleccioneu esta casella per a seleccionar la paraula clau de busca en la "
+"web ressaltada com a preferida.<nl/>Les paraules clau de busca en la web "
 "preferides s'utilitzen en llocs a on només es poden mostrar simultàniament "
 "poques paraules clau de selecció."
 
@@ -7391,14 +7391,15 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
-"Segur que voleu moure este element a la paperera?<nl/><filename>%1</filename>"
+"Segur que voleu moure este element cap a dins de la paperera?<nl/><filename>"
+"%1</filename>"
 
 #: widgets/jobuidelegate.cpp:329
 #, kde-format
 msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Segur que voleu moure este element a la paperera?"
-msgstr[1] "Segur que voleu moure estos %1 elements a la paperera?"
+msgstr[0] "Segur que voleu moure este element cap a dins de la paperera?"
+msgstr[1] "Segur que voleu moure estos %1 elements cap a dins de la paperera?"
 
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
 #, kde-format
@@ -7994,7 +7995,7 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Marqueu esta opció si l'aplicació que voleu executar és una aplicació en "
+"Seleccioneu esta opció si l'aplicació que voleu executar és una aplicació en "
 "mode text o si voleu la informació proporcionada per la finestra d'emulació "
 "de terminal."
 
@@ -8018,9 +8019,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Marqueu esta opció si l'aplicació de mode text oferix informació apropiada "
-"en acabar. Deixar obert l'emulador de terminal us permet recuperar esta "
-"informació."
+"Seleccioneu esta opció si l'aplicació de mode text oferix informació "
+"apropiada en acabar. Deixar obert l'emulador de terminal us permet recuperar "
+"esta informació."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
@@ -8046,7 +8047,7 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Marqueu esta opció si voleu executar esta aplicació amb un ID d'usuari "
+"Seleccioneu esta opció si voleu executar esta aplicació amb un ID d'usuari "
 "diferent. Cada procés té associat un ID d'usuari diferent. Este codi "
 "d'identificador determina l'accés al fitxer i altres permisos. Cal la "
 "contrasenya de l'usuari per a utilitzar esta opció."
@@ -8103,7 +8104,7 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Marqueu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
+"Seleccioneu esta opció si voleu aclarir que l'aplicació ha iniciat. Esta "
 "confirmació visual pot aparéixer com un cursor ocupat o en la barra de "
 "tasques."
 
@@ -8564,10 +8565,10 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
-"Activeu esta opció per a permetre només al propietari de la carpeta suprimir "
-"o canviar de nom els fitxers i carpetes que conté. Els altres usuaris només "
-"podran afegir fitxers nous, el qual requerix permís de «Modifica el "
-"contingut»."
+"Seleccioneu esta opció per a permetre només al propietari de la carpeta "
+"suprimir o canviar de nom els fitxers i carpetes que conté. Els altres "
+"usuaris només podran afegir fitxers nous, el qual requerix permís de "
+"«Modifica el contingut»."
 
 #: widgets/kpropertiesdialog.cpp:1922
 #, kde-format
@@ -8575,7 +8576,7 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
-"Activeu esta opció per a marcar el fitxer com executable. Açò només té "
+"Seleccioneu esta opció per a marcar el fitxer com executable. Açò només té "
 "sentit per a programes i scripts. Cal quan els voleu executar."
 
 #: widgets/kpropertiesdialog.cpp:1929
@@ -9460,8 +9461,8 @@ msgid ""
 "The remote host did not send any SSL certificates.\n"
 "Aborting because the identity of the host cannot be established."
 msgstr ""
-"L'ordinador remot no ha enviat cap certificat SSL.\n"
-"S'interromp perquè no s'ha pogut establir la identitat de l'ordinador."
+"L'amfitrió remot no ha enviat cap certificat SSL.\n"
+"S'interromp perquè no s'ha pogut establir la identitat de l'amfitrió."
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
 #, kde-kuit-format
@@ -9499,9 +9500,9 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"No s'ha pogut moure este element a la paperera perquè és massa gros. Voleu "
-"suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Esta acció no es podrà desfer.</emphasis>"
+"No s'ha pogut moure este element cap a dins de la paperera perquè és massa "
+"gros. Voleu suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
@@ -9515,12 +9516,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"No s'ha pogut moure este %1 element a la paperera perquè és massa gros. "
-"Voleu suprimir-lo permanentment?<filename></filename><emphasis "
+"No s'ha pogut moure este %1 element cap a dins de la paperera perquè és "
+"massa gros. Voleu suprimir-lo permanentment?<filename></filename><emphasis "
 "strong='true'>Esta acció no es podrà desfer.</emphasis>"
 msgstr[1] ""
-"No s'ha pogut moure estos %1 elements a la paperera perquè són massa "
-"grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
+"No s'ha pogut moure estos %1 elements cap a dins de la paperera perquè són "
+"massa grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
 "><emphasis strong='true'>Esta acció no es podrà desfer.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:283
@@ -9528,8 +9529,8 @@ msgstr[1] ""
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
-msgstr[0] "Segur que voleu moure este %1 element a la paperera?"
-msgstr[1] "Segur que voleu moure estos %1 elements a la paperera?"
+msgstr[0] "Segur que voleu moure este %1 element cap a dins de la paperera?"
+msgstr[1] "Segur que voleu moure estos %1 elements cap a dins de la paperera?"
 
 #: widgets/widgetsaskuseractionhandler.cpp:338
 #, kde-format
