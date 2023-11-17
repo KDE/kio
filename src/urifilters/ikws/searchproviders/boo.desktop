@@ -3,18 +3,28 @@ Charset=
 Hidden=false
 Keys=boo,bsc
 Name=openSUSE Bugzilla
+Name[bg]=openSUSE Bugzilla
 Name[ca]=openSUSE Bugzilla
 Name[ca@valencia]=Bugzilla d'openSUSE
+Name[eo]=openSUSE Bugzilla
+Name[es]=openSUSE Bugzilla
+Name[he]=הבאגזילה של openSUSE
 Name[ia]=openSUSE Bugzilla
+Name[ka]=openSUSE Bugzilla
 Name[nl]=openSUSE Bugzilla
 Name[sl]=openSUSE Bugzilla
 Name[tr]=openSUSE Bugzilla
 Name[uk]=Bugzilla openSUSE
 Name[x-test]=xxopenSUSE Bugzillaxx
 Query=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[bg]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ca]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ca@valencia]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[eo]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[es]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[he]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ia]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[ka]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[nl]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[sl]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[tr]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
