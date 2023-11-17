@@ -345,6 +345,15 @@ public:
     void replace(uint field, long long l);
 };
 
+// allows operator ^ and | between UDSEntry::StandardFieldTypes and UDSEntry::ItemTypes
+inline constexpr UDSEntry::StandardFieldTypes operator|(UDSEntry::StandardFieldTypes fieldType, UDSEntry::ItemTypes type)
+{
+    return static_cast<UDSEntry::StandardFieldTypes>((char)fieldType | (char)type);
+}
+inline constexpr UDSEntry::StandardFieldTypes operator^(UDSEntry::StandardFieldTypes fieldType, UDSEntry::ItemTypes type)
+{
+    return static_cast<UDSEntry::StandardFieldTypes>((char)fieldType ^ (char)type);
+}
 }
 
 Q_DECLARE_TYPEINFO(KIO::UDSEntry, Q_RELOCATABLE_TYPE);
