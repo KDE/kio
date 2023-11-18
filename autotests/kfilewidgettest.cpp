@@ -496,6 +496,32 @@ void KFileWidgetTest::testFilterChange()
     fw.filterWidget()->setCurrentFilter(filters[0]);
     QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("directory"));
     QCOMPARE(fw.filterWidget()->currentFilter(), filters[0]);
+
+    // The user types something into the combobox.
+    fw.filterWidget()->setCurrentText("qml");
+
+    QSignalSpy filterChangedSpy(&fw, &KFileWidget::filterChanged);
+    filterChangedSpy.wait();
+    QVERIFY(filterChangedSpy.count());
+
+    // Plain text is automatically upgraded to wildcard syntax
+    QCOMPARE(fw.dirOperator()->nameFilter(), "*qml*");
+
+    // But existing wildcards are left intact
+    fw.filterWidget()->setCurrentText("*.md");
+    filterChangedSpy.wait();
+    QVERIFY(filterChangedSpy.count());
+    QCOMPARE(fw.dirOperator()->nameFilter(), "*.md");
+
+    fw.filterWidget()->setCurrentText("[ab]c");
+    filterChangedSpy.wait();
+    QVERIFY(filterChangedSpy.count());
+    QCOMPARE(fw.dirOperator()->nameFilter(), "[ab]c");
+
+    fw.filterWidget()->setCurrentText("b?c");
+    filterChangedSpy.wait();
+    QVERIFY(filterChangedSpy.count());
+    QCOMPARE(fw.dirOperator()->nameFilter(), "b?c");
 }
 
 void KFileWidgetTest::testDropFile_data()

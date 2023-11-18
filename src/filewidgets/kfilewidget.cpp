@@ -1483,8 +1483,15 @@ void KFileWidgetPrivate::slotFilterChanged()
         m_ops->setMimeFilter(types);
     }
 
-    if (!filter.filePatterns().isEmpty()) {
+    const auto filePatterns = filter.filePatterns();
+    const bool hasRegExSyntax = std::any_of(filePatterns.constBegin(), filePatterns.constEnd(), [](const QString &filter) {
+        return filter.contains(QLatin1Char('*')) || filter.contains(QLatin1Char('?')) || filter.contains(QLatin1Char('['));
+    });
+
+    if (hasRegExSyntax) {
         m_ops->setNameFilter(filter.filePatterns().join(QLatin1Char(' ')));
+    } else {
+        m_ops->setNameFilter(QLatin1Char('*') + filePatterns.join(QLatin1Char('*')) + QLatin1Char('*'));
     }
 
     updateAutoSelectExtension();
