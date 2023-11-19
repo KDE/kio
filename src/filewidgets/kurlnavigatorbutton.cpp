@@ -394,7 +394,8 @@ void KUrlNavigatorButton::startSubDirsJob()
     const QUrl url = m_replaceButton ? KIO::upUrl(m_url) : m_url;
     const KUrlNavigator *urlNavigator = qobject_cast<KUrlNavigator *>(parent());
     Q_ASSERT(urlNavigator);
-    m_subDirsJob = KIO::listDir(url, KIO::HideProgressInfo, urlNavigator->showHiddenFolders());
+    m_subDirsJob =
+        KIO::listDir(url, KIO::HideProgressInfo, urlNavigator->showHiddenFolders() ? KIO::ListJob::ListFlag::IncludeHidden : KIO::ListJob::ListFlags{});
     m_subDirs.clear(); // just to be ++safe
 
     connect(m_subDirsJob, &KIO::ListJob::entries, this, &KUrlNavigatorButton::addEntriesToSubDirs);

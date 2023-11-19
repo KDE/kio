@@ -20,17 +20,17 @@ using namespace KIO;
 class KIO::ListJobPrivate : public KIO::SimpleJobPrivate
 {
 public:
-    ListJobPrivate(const QUrl &url, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden)
+    ListJobPrivate(const QUrl &url, bool _recursive, const QString &prefix, const QString &displayPrefix, ListJob::ListFlags listFlags)
         : SimpleJobPrivate(url, CMD_LISTDIR, QByteArray())
         , recursive(_recursive)
-        , includeHidden(_includeHidden)
+        , listFlags(listFlags)
         , m_prefix(prefix)
         , m_displayPrefix(displayPrefix)
         , m_processedEntries(0)
     {
     }
     bool recursive;
-    bool includeHidden;
+    ListJob::ListFlags listFlags;
     QString m_prefix;
     QString m_displayPrefix;
     unsigned long m_processedEntries;
@@ -52,18 +52,18 @@ public:
     Q_DECLARE_PUBLIC(ListJob)
 
     static inline ListJob *
-    newJob(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden, JobFlags flags = HideProgressInfo)
+    newJob(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, ListJob::ListFlags listFlags, JobFlags flags = HideProgressInfo)
     {
-        ListJob *job = new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, _includeHidden));
+        ListJob *job = new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, listFlags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
         }
         return job;
     }
-    static inline ListJob *newJobNoUi(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, bool _includeHidden)
+    static inline ListJob *newJobNoUi(const QUrl &u, bool _recursive, const QString &prefix, const QString &displayPrefix, ListJob::ListFlags listFlags)
     {
-        return new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, _includeHidden));
+        return new ListJob(*new ListJobPrivate(u, _recursive, prefix, displayPrefix, listFlags));
     }
 };
 
@@ -84,6 +84,9 @@ ListJob::~ListJob()
 void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
 {
     Q_Q(ListJob);
+
+    const bool includeHidden = listFlags.testFlag(ListJob::ListFlag::IncludeHidden);
+
     // Emit progress info (takes care of emit processedSize and percent)
     m_processedEntries += list.count();
     slotProcessedSize(m_processedEntries);
@@ -120,7 +123,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
                                                               true /*recursive*/,
                                                               m_prefix + filename + QLatin1Char('/'),
                                                               m_displayPrefix + displayName + QLatin1Char('/'),
-                                                              includeHidden);
+                                                              listFlags);
                     QObject::connect(job, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
                         gotEntries(job, list);
                     });
@@ -142,7 +145,7 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
     } else {
         UDSEntryList newlist = list;
 
-        auto removeFunc = [this](const UDSEntry &entry) {
+        auto removeFunc = [this, includeHidden](const UDSEntry &entry) {
             const QString filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
             // Avoid returning entries like subdir/. and subdir/.., but include . and .. for
             // the toplevel dir, and skip hidden files/dirs if that was requested
@@ -233,14 +236,14 @@ void ListJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
-ListJob *KIO::listDir(const QUrl &url, JobFlags flags, bool includeHidden)
+ListJob *KIO::listDir(const QUrl &url, JobFlags flags, ListJob::ListFlags listFlags)
 {
-    return ListJobPrivate::newJob(url, false, QString(), QString(), includeHidden, flags);
+    return ListJobPrivate::newJob(url, false, QString(), QString(), listFlags, flags);
 }
 
-ListJob *KIO::listRecursive(const QUrl &url, JobFlags flags, bool includeHidden)
+ListJob *KIO::listRecursive(const QUrl &url, JobFlags flags, ListJob::ListFlags listFlags)
 {
-    return ListJobPrivate::newJob(url, true, QString(), QString(), includeHidden, flags);
+    return ListJobPrivate::newJob(url, true, QString(), QString(), listFlags, flags);
 }
 
 void ListJob::setUnrestricted(bool unrestricted)
