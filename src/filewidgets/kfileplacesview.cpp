@@ -1081,10 +1081,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
-    QModelIndex index = indexAt(event->pos());
+    QModelIndex index = event->reason() == QContextMenuEvent::Keyboard ? selectionModel()->currentIndex() : indexAt(event->pos());
+    if (!selectedIndexes().contains(index)) {
+        index = QModelIndex();
+    }
     const QString groupName = index.data(KFilePlacesModel::GroupRole).toString();
     const QUrl placeUrl = placesModel->url(index);
-    const bool clickOverHeader = d->m_delegate->pointIsHeaderArea(event->pos());
+    const bool clickOverHeader = event->reason() == QContextMenuEvent::Keyboard ? false : d->m_delegate->pointIsHeaderArea(event->pos());
     const bool clickOverEmptyArea = clickOverHeader || !index.isValid();
     const KFilePlacesModel::GroupType type = placesModel->groupType(index);
 
@@ -1252,7 +1255,13 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         menu.winId();
         menu.windowHandle()->setTransientParent(window()->windowHandle());
     }
-    QAction *result = menu.exec(event->globalPos());
+    QAction *result;
+    if (event->reason() == QContextMenuEvent::Keyboard && index.isValid()) {
+        const QRect rect = visualRect(index);
+        result = menu.exec(mapToGlobal(QPoint(rect.x() + rect.width() / 2, rect.y() + rect.height() * 0.9)));
+    } else {
+        result = menu.exec(event->globalPos());
+    }
 
     if (result) {
         if (result == emptyTrash) {
@@ -1296,8 +1305,10 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         }
     }
 
-    index = placesModel->closestItem(d->m_currentUrl);
-    selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
+    if (event->reason() != QContextMenuEvent::Keyboard) {
+        index = placesModel->closestItem(d->m_currentUrl);
+        selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect);
+    }
 }
 
 void KFilePlacesViewPrivate::setupIconSizeSubMenu(QMenu *submenu)
