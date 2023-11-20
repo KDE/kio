@@ -54,7 +54,7 @@
 
 namespace
 {
-static int s_defaultDevicePixelRatio = 1;
+static qreal s_defaultDevicePixelRatio = 1.0;
 }
 
 namespace KIO
@@ -142,7 +142,7 @@ public:
     QString thumbRoot;
     // Metadata returned from the KIO thumbnail worker
     QMap<QString, QString> thumbnailWorkerMetaData;
-    int devicePixelRatio = s_defaultDevicePixelRatio;
+    qreal devicePixelRatio = s_defaultDevicePixelRatio;
     static const int idUnknown = -1;
     // Id of a device storing currently processed file
     int currentDeviceId = 0;
@@ -177,7 +177,7 @@ public:
 
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
 {
-    s_defaultDevicePixelRatio = std::ceil(defaultDevicePixelRatio);
+    s_defaultDevicePixelRatio = defaultDevicePixelRatio;
 }
 
 PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)
@@ -432,7 +432,7 @@ bool KIO::PreviewJob::handlesSequences() const
 
 void KIO::PreviewJob::setDevicePixelRatio(qreal dpr)
 {
-    d_func()->devicePixelRatio = std::ceil(dpr);
+    d_func()->devicePixelRatio = dpr;
 }
 
 void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
@@ -846,7 +846,7 @@ void PreviewJobPrivate::slotThumbData(KIO::Job *job, const QByteArray &data)
     int width;
     int height;
     QImage::Format format;
-    int imgDevicePixelRatio;
+    qreal imgDevicePixelRatio;
     // TODO KF6: add a version number as first parameter
     str >> width >> height >> format >> imgDevicePixelRatio;
 #if WITH_SHM
