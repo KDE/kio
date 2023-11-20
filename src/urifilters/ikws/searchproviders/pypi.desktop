@@ -21,6 +21,7 @@ Name[sl]=PyPI
 Name[tr]=PyPI
 Name[uk]=PyPI
 Name[x-test]=xxPyPIxx
+Name[zh_CN]=PyPI
 Name[zh_TW]=PyPI
 Query=https://pypi.org/search/?q=\\{@}
 Query[ast]=https://pypi.org/search/?q=\\{@}
@@ -43,5 +44,6 @@ Query[sl]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}
 Query[uk]=https://pypi.org/search/?q=\\{@}
 Query[x-test]=xxhttps://pypi.org/search/?q=\\{@}xx
+Query[zh_CN]=https://pypi.org/search/?q=\\{@}
 Query[zh_TW]=https://pypi.org/search/?q=\\{@}
 Type=Service
