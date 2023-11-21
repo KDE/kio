@@ -675,8 +675,8 @@ public:
     void adaptItemSize();
     void updateHiddenRows();
     void clearFreeSpaceInfos();
-    bool insertAbove(const QRect &itemRect, const QPoint &pos) const;
-    bool insertBelow(const QRect &itemRect, const QPoint &pos) const;
+    bool insertAbove(const QDropEvent *event, const QRect &itemRect) const;
+    bool insertBelow(const QDropEvent *event, const QRect &itemRect) const;
     int insertIndicatorHeight(int itemHeight) const;
     int sectionsCount() const;
 
@@ -1419,10 +1419,11 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
         d->m_dropIndex = index;
         const QRect rect = visualRect(index);
         const int gap = d->insertIndicatorHeight(rect.height());
-        if (d->insertAbove(rect, pos)) {
+
+        if (d->insertAbove(event, rect)) {
             // indicate that the item will be inserted above the current place
             d->m_dropRect = QRect(rect.left(), rect.top() - gap / 2, rect.width(), gap);
-        } else if (d->insertBelow(rect, pos)) {
+        } else if (d->insertBelow(event, rect)) {
             // indicate that the item will be inserted below the current place
             d->m_dropRect = QRect(rect.left(), rect.bottom() + 1 - gap / 2, rect.width(), gap);
         } else {
@@ -1451,11 +1452,10 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
 
 void KFilePlacesView::dropEvent(QDropEvent *event)
 {
-    const QPoint pos = event->position().toPoint();
-    const QModelIndex index = indexAt(pos);
+    const QModelIndex index = indexAt(event->position().toPoint());
     if (index.isValid()) {
         const QRect rect = visualRect(index);
-        if (!d->insertAbove(rect, pos) && !d->insertBelow(rect, pos)) {
+        if (!d->insertAbove(event, rect) && !d->insertBelow(event, rect)) {
             KFilePlacesModel *placesModel = qobject_cast<KFilePlacesModel *>(model());
             Q_ASSERT(placesModel != nullptr);
             if (placesModel->setupNeeded(index)) {
@@ -1771,22 +1771,22 @@ void KFilePlacesViewPrivate::updateHiddenRows()
     adaptItemSize();
 }
 
-bool KFilePlacesViewPrivate::insertAbove(const QRect &itemRect, const QPoint &pos) const
+bool KFilePlacesViewPrivate::insertAbove(const QDropEvent *event, const QRect &itemRect) const
 {
-    if (m_dropOnPlace) {
-        return pos.y() < itemRect.top() + insertIndicatorHeight(itemRect.height()) / 2;
+    if (m_dropOnPlace && !event->mimeData()->hasFormat(KFilePlacesModelPrivate::internalMimeType(qobject_cast<KFilePlacesModel *>(q->model())))) {
+        return event->position().y() < itemRect.top() + insertIndicatorHeight(itemRect.height()) / 2;
     }
 
-    return pos.y() < itemRect.top() + (itemRect.height() / 2);
+    return event->position().y() < itemRect.top() + (itemRect.height() / 2);
 }
 
-bool KFilePlacesViewPrivate::insertBelow(const QRect &itemRect, const QPoint &pos) const
+bool KFilePlacesViewPrivate::insertBelow(const QDropEvent *event, const QRect &itemRect) const
 {
-    if (m_dropOnPlace) {
-        return pos.y() > itemRect.bottom() - insertIndicatorHeight(itemRect.height()) / 2;
+    if (m_dropOnPlace && !event->mimeData()->hasFormat(KFilePlacesModelPrivate::internalMimeType(qobject_cast<KFilePlacesModel *>(q->model())))) {
+        return event->position().y() > itemRect.bottom() - insertIndicatorHeight(itemRect.height()) / 2;
     }
 
-    return pos.y() >= itemRect.top() + (itemRect.height() / 2);
+    return event->position().y() >= itemRect.top() + (itemRect.height() / 2);
 }
 
 int KFilePlacesViewPrivate::insertIndicatorHeight(int itemHeight) const
