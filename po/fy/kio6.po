@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:46+0000\n"
+"POT-Creation-Date: 2023-11-21 01:33+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -4008,7 +4008,7 @@ msgstr ""
 msgid "Show Full Path"
 msgstr "In foarbyld fan de skermbefeiliging sjen litte."
 
-#: filewidgets/kurlnavigatorbutton.cpp:698
+#: filewidgets/kurlnavigatorbutton.cpp:699
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"

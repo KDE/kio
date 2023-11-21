@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:46+0000\n"
+"POT-Creation-Date: 2023-11-21 01:33+0000\n"
 "PO-Revision-Date: 2023-08-12 07:01+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3801,7 +3801,7 @@ msgstr "Navigasi"
 msgid "Show Full Path"
 msgstr "Tampilkan Alur Penuh"
 
-#: filewidgets/kurlnavigatorbutton.cpp:698
+#: filewidgets/kurlnavigatorbutton.cpp:699
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

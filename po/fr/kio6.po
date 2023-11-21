@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:46+0000\n"
+"POT-Creation-Date: 2023-11-21 01:33+0000\n"
 "PO-Revision-Date: 2023-11-09 12:49+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -3865,7 +3865,7 @@ msgstr "Naviguer"
 msgid "Show Full Path"
 msgstr "Afficher l'emplacement complet"
 
-#: filewidgets/kurlnavigatorbutton.cpp:698
+#: filewidgets/kurlnavigatorbutton.cpp:699
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
