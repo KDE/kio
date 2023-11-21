@@ -188,6 +188,11 @@ QString KFilePlacesModelPrivate::ignoreMimeType()
     return QStringLiteral("application/x-kfileplacesmodel-ignore");
 }
 
+QString KFilePlacesModelPrivate::internalMimeType(const KFilePlacesModel *model)
+{
+    return QStringLiteral("application/x-kfileplacesmodel-") + QString::number(reinterpret_cast<qptrdiff>(model));
+}
+
 KBookmark KFilePlacesModel::bookmarkForUrl(const QUrl &searchUrl) const
 {
     KBookmarkGroup root = d->bookmarkManager->root();
@@ -990,16 +995,11 @@ Qt::ItemFlags KFilePlacesModel::flags(const QModelIndex &index) const
     return res;
 }
 
-static QString _k_internalMimetype(const KFilePlacesModel *const self)
-{
-    return QStringLiteral("application/x-kfileplacesmodel-") + QString::number(reinterpret_cast<qptrdiff>(self));
-}
-
 QStringList KFilePlacesModel::mimeTypes() const
 {
     QStringList types;
 
-    types << _k_internalMimetype(this) << QStringLiteral("text/uri-list");
+    types << KFilePlacesModelPrivate::internalMimeType(this) << QStringLiteral("text/uri-list");
 
     return types;
 }
@@ -1025,7 +1025,7 @@ QMimeData *KFilePlacesModel::mimeData(const QModelIndexList &indexes) const
         mimeData->setUrls(urls);
     }
 
-    mimeData->setData(_k_internalMimetype(this), itemData);
+    mimeData->setData(KFilePlacesModelPrivate::internalMimeType(this), itemData);
 
     return mimeData;
 }
@@ -1051,9 +1051,9 @@ bool KFilePlacesModel::dropMimeData(const QMimeData *data, Qt::DropAction action
         return false;
     }
 
-    if (data->hasFormat(_k_internalMimetype(this))) {
+    if (data->hasFormat(KFilePlacesModelPrivate::internalMimeType(this))) {
         // The operation is an internal move
-        QByteArray itemData = data->data(_k_internalMimetype(this));
+        QByteArray itemData = data->data(KFilePlacesModelPrivate::internalMimeType(this));
         QDataStream stream(&itemData, QIODevice::ReadOnly);
         int itemRow;
 

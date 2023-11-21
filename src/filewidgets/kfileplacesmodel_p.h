@@ -39,6 +39,7 @@ public:
     KFilePlacesModel *const q;
 
     static QString ignoreMimeType();
+    static QString internalMimeType(const KFilePlacesModel *model);
 
     QList<KFilePlacesItem *> items;
     QList<Solid::Device> availableDevices;
