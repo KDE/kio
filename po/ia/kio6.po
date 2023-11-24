@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 01:33+0000\n"
+"POT-Creation-Date: 2023-11-24 01:33+0000\n"
 "PO-Revision-Date: 2023-11-08 12:27+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2775,7 +2775,7 @@ msgstr "Monstrar vista preliminar"
 msgid "Open Containing Folder"
 msgstr "Aperi dossier continente"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1156
 #, kde-format
 msgid "Properties"
 msgstr "Proprietates"
@@ -3028,153 +3028,153 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "Etiquettas"
 
-#: filewidgets/kfileplacesmodel.cpp:163
+#: filewidgets/kfileplacesmodel.cpp:159
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Omne etiquettas"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:255
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Domo"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:264
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Scriptorio"
 
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:271
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Documentos"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:278
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Discargamentos"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:283
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Rete"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:288
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Corbe"
 
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:349
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Musica"
 
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:356
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Photos"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:365
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videos"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Files recente"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Locations recente"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:420
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Modificate hodie"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Modificate heri"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1095
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Il non pote  adder  al pennallo de Placias : %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1102
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Solmente dossieres pote esser addite al Pannello de Placias."
 
-#: filewidgets/kfileplacesmodel.cpp:1398
+#: filewidgets/kfileplacesmodel.cpp:1366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Liberante..."
 
-#: filewidgets/kfileplacesmodel.cpp:1400
+#: filewidgets/kfileplacesmodel.cpp:1368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Liberation"
 
-#: filewidgets/kfileplacesmodel.cpp:1404
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Removente con Securitate..."
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Remove con &Securitate"
 
-#: filewidgets/kfileplacesmodel.cpp:1411
+#: filewidgets/kfileplacesmodel.cpp:1379
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Dis-montante  …"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1381
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Dismonta"
 
-#: filewidgets/kfileplacesmodel.cpp:1437
+#: filewidgets/kfileplacesmodel.cpp:1405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Expelle"
 
-#: filewidgets/kfileplacesmodel.cpp:1484
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Le dispositivo '%1' non es un disco e non pote esser expellite."
 
-#: filewidgets/kfileplacesmodel.cpp:1519
+#: filewidgets/kfileplacesmodel.cpp:1487
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Un error occurreva durante que on accedeva '%1', le systema respondeva: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1489
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Un error occurreva durante que on accedeva '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1547
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "Un o plus files sur iste dispositivo es aperite intra un application."
 
-#: filewidgets/kfileplacesmodel.cpp:1550
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3187,95 +3187,95 @@ msgstr[0] ""
 "\"%2\"</application>."
 msgstr[1] "<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1599
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Re-Formatta o modifica con Partition Manager (Gerente de partition)"
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (Celate)"
 
-#: filewidgets/kfileplacesview.cpp:1117
+#: filewidgets/kfileplacesview.cpp:1118
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Vacua corbe"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1143
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Monta"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Aperi in scheda"
 
-#: filewidgets/kfileplacesview.cpp:1151
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Aperi in nove fenestra"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1161
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adde Entrata…"
 
-#: filewidgets/kfileplacesview.cpp:1166
+#: filewidgets/kfileplacesview.cpp:1167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Edita…"
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Remove ex placias"
 
-#: filewidgets/kfileplacesview.cpp:1175
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Celar"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Cela Section '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Cela Section"
 
-#: filewidgets/kfileplacesview.cpp:1191
+#: filewidgets/kfileplacesview.cpp:1192
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Monstra omne entratas"
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1197
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Dimension de Icone"
 
-#: filewidgets/kfileplacesview.cpp:1308
+#: filewidgets/kfileplacesview.cpp:1309
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3283,25 +3283,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Auto Redimensiona"
 
-#: filewidgets/kfileplacesview.cpp:1328
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Parve (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1331
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Medium (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1334
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Grande (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1337
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 01:33+0000\n"
+"POT-Creation-Date: 2023-11-24 01:33+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2663,7 +2663,7 @@ msgstr "미리 보기 표시"
 msgid "Open Containing Folder"
 msgstr "포함하는 폴더 열기"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1156
 #, kde-format
 msgid "Properties"
 msgstr "속성"
@@ -2915,152 +2915,152 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "태그"
 
-#: filewidgets/kfileplacesmodel.cpp:163
+#: filewidgets/kfileplacesmodel.cpp:159
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "모든 태그"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:255
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "홈"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:264
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "바탕 화면"
 
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:271
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "문서"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:278
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "다운로드"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:283
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "네트워크"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:288
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "휴지통"
 
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:349
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "음악"
 
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:356
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "사진"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:365
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "비디오"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "최근 파일"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "최근 위치"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:420
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "오늘 수정됨"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "어제 수정됨"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1095
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "위치 패널에 추가할 수 없음: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1102
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "폴더만 위치 패널에 추가할 수 있습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1398
+#: filewidgets/kfileplacesmodel.cpp:1366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "해제 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1400
+#: filewidgets/kfileplacesmodel.cpp:1368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "놓기(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1404
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "안전하게 제거 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "안전하게 제거(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1411
+#: filewidgets/kfileplacesmodel.cpp:1379
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "마운트 해제 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1381
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "마운트 해제(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1437
+#: filewidgets/kfileplacesmodel.cpp:1405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "꺼내기(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1484
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' 장치는 디스크가 아니므로 꺼낼 수 없습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1519
+#: filewidgets/kfileplacesmodel.cpp:1487
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1'에 접근하는 중 오류가 발생했습니다. 시스템 응답: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1489
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1'에 접근하는 중 오류가 발생했습니다"
 
-#: filewidgets/kfileplacesmodel.cpp:1547
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "이 장치에 있는 하나 이상의 파일이 다른 앱에서 열려 있습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1550
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3072,95 +3072,95 @@ msgstr[0] ""
 "이 장치에 있는 하나 이상의 파일이 다음 앱에서 열려 있습니다: <application>"
 "%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1599
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "파티션 관리자로 다시 포맷하거나 편집"
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1(숨겨짐)"
 
-#: filewidgets/kfileplacesview.cpp:1117
+#: filewidgets/kfileplacesview.cpp:1118
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1143
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "마운트"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "새 탭으로 열기"
 
-#: filewidgets/kfileplacesview.cpp:1151
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "새 창으로 열기"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1161
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "항목 추가…"
 
-#: filewidgets/kfileplacesview.cpp:1166
+#: filewidgets/kfileplacesview.cpp:1167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "편집(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "위치 목록에서 삭제"
 
-#: filewidgets/kfileplacesview.cpp:1175
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "숨기기(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "'%1' 부분 숨기기"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "부분 숨기기"
 
-#: filewidgets/kfileplacesview.cpp:1191
+#: filewidgets/kfileplacesview.cpp:1192
 #, kde-format
 msgid "&Show All Entries"
 msgstr "모든 항목 보기(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1197
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "아이콘 크기"
 
-#: filewidgets/kfileplacesview.cpp:1308
+#: filewidgets/kfileplacesview.cpp:1309
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3168,25 +3168,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "자동 크기 조정"
 
-#: filewidgets/kfileplacesview.cpp:1328
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "작게(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1331
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "중간(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1334
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "크게(%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1337
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

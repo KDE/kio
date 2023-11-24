@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 01:33+0000\n"
+"POT-Creation-Date: 2023-11-24 01:33+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2571,7 +2571,7 @@ msgstr "o sitelen e lukin lipu"
 msgid "Open Containing Folder"
 msgstr "o open e poki pi jo lipu ni"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1155
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1156
 #, kde-format
 msgid "Properties"
 msgstr "ijo lipu"
@@ -2814,92 +2814,92 @@ msgctxt "@item"
 msgid "Tags"
 msgstr "nimi lili"
 
-#: filewidgets/kfileplacesmodel.cpp:163
+#: filewidgets/kfileplacesmodel.cpp:159
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "nimi lili ale"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:255
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "tomo"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:264
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "supa pali"
 
-#: filewidgets/kfileplacesmodel.cpp:298
+#: filewidgets/kfileplacesmodel.cpp:271
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "lipu pali"
 
-#: filewidgets/kfileplacesmodel.cpp:305
+#: filewidgets/kfileplacesmodel.cpp:278
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "tan ilo ante"
 
-#: filewidgets/kfileplacesmodel.cpp:310
+#: filewidgets/kfileplacesmodel.cpp:283
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "ilo kulupu"
 
-#: filewidgets/kfileplacesmodel.cpp:315
+#: filewidgets/kfileplacesmodel.cpp:288
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "poki jaki"
 
-#: filewidgets/kfileplacesmodel.cpp:376
+#: filewidgets/kfileplacesmodel.cpp:349
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "kalama musi"
 
-#: filewidgets/kfileplacesmodel.cpp:383
+#: filewidgets/kfileplacesmodel.cpp:356
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "sitelen"
 
-#: filewidgets/kfileplacesmodel.cpp:392
+#: filewidgets/kfileplacesmodel.cpp:365
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "sitelen tawa"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:392
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "lipu pi tenpo poka"
 
-#: filewidgets/kfileplacesmodel.cpp:424
+#: filewidgets/kfileplacesmodel.cpp:397
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "ma pi tenpo poka"
 
-#: filewidgets/kfileplacesmodel.cpp:447
+#: filewidgets/kfileplacesmodel.cpp:420
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "ante li lon tenpo suno ni"
 
-#: filewidgets/kfileplacesmodel.cpp:451
+#: filewidgets/kfileplacesmodel.cpp:424
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "ante li lon tenpo suno pini"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1095
 #, fuzzy, kde-format
 #| msgid "Could not find the program '%1'"
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "mi ken ala alasa e ilo '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1102
 #, fuzzy, kde-format
 #| msgid "A folder cannot be moved into itself"
 msgid "Only folders can be added to the Places panel."
 msgstr "poki li ken ala tawa ma sama"
 
-#: filewidgets/kfileplacesmodel.cpp:1398
+#: filewidgets/kfileplacesmodel.cpp:1366
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -2907,13 +2907,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "o pini &pilin"
 
-#: filewidgets/kfileplacesmodel.cpp:1400
+#: filewidgets/kfileplacesmodel.cpp:1368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "o pini &pilin"
 
-#: filewidgets/kfileplacesmodel.cpp:1404
+#: filewidgets/kfileplacesmodel.cpp:1372
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -2921,13 +2921,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "o weka kepeken $nasin pona"
 
-#: filewidgets/kfileplacesmodel.cpp:1406
+#: filewidgets/kfileplacesmodel.cpp:1374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "o weka kepeken $nasin pona"
 
-#: filewidgets/kfileplacesmodel.cpp:1411
+#: filewidgets/kfileplacesmodel.cpp:1379
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -2935,39 +2935,39 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "mi weka e ken kepeken tawa poki poki"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1381
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&o weka e ilo"
 
-#: filewidgets/kfileplacesmodel.cpp:1437
+#: filewidgets/kfileplacesmodel.cpp:1405
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "o &weka"
 
-#: filewidgets/kfileplacesmodel.cpp:1484
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "ilo '%1' li poki sona ala li ken ala weka."
 
-#: filewidgets/kfileplacesmodel.cpp:1519
+#: filewidgets/kfileplacesmodel.cpp:1487
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "kepeken '%1' la ilo li pakala. ona li toki e ni: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1521
+#: filewidgets/kfileplacesmodel.cpp:1489
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "kepeken '%1' la ilo li pakala"
 
-#: filewidgets/kfileplacesmodel.cpp:1547
+#: filewidgets/kfileplacesmodel.cpp:1515
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1550
+#: filewidgets/kfileplacesmodel.cpp:1518
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -2980,79 +2980,79 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1553
+#: filewidgets/kfileplacesmodel.cpp:1521
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1599
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:591
+#: filewidgets/kfileplacesview.cpp:592
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (len tawa oko)"
 
-#: filewidgets/kfileplacesview.cpp:1117
+#: filewidgets/kfileplacesview.cpp:1118
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "poki jaki o jo e ala"
 
-#: filewidgets/kfileplacesview.cpp:1142
+#: filewidgets/kfileplacesview.cpp:1143
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "o kama insa e ilo"
 
-#: filewidgets/kfileplacesview.cpp:1148
+#: filewidgets/kfileplacesview.cpp:1149
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kfileplacesview.cpp:1151
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kfileplacesview.cpp:1160
+#: filewidgets/kfileplacesview.cpp:1161
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "o namako e ijo…"
 
-#: filewidgets/kfileplacesview.cpp:1166
+#: filewidgets/kfileplacesview.cpp:1167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&o ante…"
 
-#: filewidgets/kfileplacesview.cpp:1171
+#: filewidgets/kfileplacesview.cpp:1172
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "o weka e lipu"
 
-#: filewidgets/kfileplacesview.cpp:1175
+#: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "o &len e ni"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1183
+#: filewidgets/kfileplacesview.cpp:1184
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Hide Section '%1'"
@@ -3060,18 +3060,18 @@ msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "o len e ijo '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1191
+#: filewidgets/kfileplacesview.cpp:1192
 #, kde-format
 msgid "&Show All Entries"
 msgstr "o &ken e lukin tawa ijo ale"
 
-#: filewidgets/kfileplacesview.cpp:1196
+#: filewidgets/kfileplacesview.cpp:1197
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "suli pi sitelen lili"
 
-#: filewidgets/kfileplacesview.cpp:1308
+#: filewidgets/kfileplacesview.cpp:1309
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3079,25 +3079,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ilo o pona e suli"
 
-#: filewidgets/kfileplacesview.cpp:1328
+#: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "lili (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1331
+#: filewidgets/kfileplacesview.cpp:1332
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "lili ala (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1334
+#: filewidgets/kfileplacesview.cpp:1335
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "suli (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1337
+#: filewidgets/kfileplacesview.cpp:1338
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
