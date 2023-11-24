@@ -416,7 +416,7 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QIODevice *i
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
     setMetaData(QStringLiteral("responsecode"), QString::number(statusCode));
-    setMetaData(QStringLiteral("content-type"), reply->header(QNetworkRequest::ContentTypeHeader).toString());
+    setMetaData(QStringLiteral("content-type"), readMimeType(reply));
 
     reply->deleteLater();
 
