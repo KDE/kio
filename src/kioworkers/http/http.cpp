@@ -1480,12 +1480,12 @@ KIO::WorkerResult HTTPProtocol::sendHttpError(const QUrl &url, KIO::HTTP_METHOD 
 
     int responseCode = response.httpCode;
 
-    if (method == KIO::HTTP_GET || method == KIO::HTTP_POST) {
-        errorCode = httpGenericError(responseCode, &errorString);
-    } else if (method == KIO::HTTP_PUT) {
+    if (method == KIO::HTTP_PUT) {
         errorCode = httpPutError(url, responseCode, &errorString);
     } else if (method == KIO::HTTP_DELETE) {
         errorCode = httpDelError(responseCode, &errorString);
+    } else {
+        errorCode = httpGenericError(responseCode, &errorString);
     }
 
     if (errorCode) {
