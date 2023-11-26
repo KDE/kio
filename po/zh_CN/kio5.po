@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-11-19 03:40\n"
+"PO-Revision-Date: 2023-11-25 02:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -30,8 +30,7 @@ msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, rainofchaos@gmail.com, fundawang@linux.net.cn, "
 "guoyunhebrave@gmail.com, jxiong@offtopic.org, lilith.ex@gmail.com, "
-"shuizhuyuanluo@126.com, tysontan@tysontan.com lark@linux.net.cn, "
-"wengxt@gmail.com"
+"shuizhuyuanluo@126.com, tds00@qq.com, lark@linux.net.cn, wengxt@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -3499,7 +3498,7 @@ msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的�
 #: filewidgets/kfilewidget.cpp:2949
 #, kde-format
 msgid "&Filter:"
-msgstr "筛选(&F)："
+msgstr "过滤(&F)："
 
 #: filewidgets/kfilewidget.cpp:2951
 #, kde-format
@@ -3509,8 +3508,8 @@ msgid ""
 "filters in the drop down menu, or you may enter a custom filter directly "
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
-"<qt>这是应用到文件列表的筛选条件。不符合此筛选条件的文件名将不会显示。<p>您可"
-"以从下拉菜单中选择预设的筛选条件，或者直接在文本框中输入自定义筛选条件。</"
+"<qt>这是应用到文件列表的过滤条件。不符合此过滤条件的文件名将不会显示。<p>您可"
+"以从下拉菜单中选择预设的过滤条件，或者直接在文本框中输入自定义过滤条件。</"
 "p><p>允许使用 * 和 ? 等通配符。</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:474
@@ -7450,8 +7449,8 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
-"在此输入内容即可筛选下面的应用程序，您也可以直接指定一个命令名称。\n"
-"按方向键可以浏览筛选结果。"
+"在此输入内容即可过滤下面的应用程序，您也可以直接指定一个命令名称。\n"
+"按方向键可以浏览过滤结果。"
 
 #: widgets/kopenwithdialog.cpp:698
 #, kde-format

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-09-02 22:59+0300\n"
+"PO-Revision-Date: 2023-11-26 01:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3315,25 +3315,25 @@ msgstr "Otomatik Yeniden Boyutlandırma"
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
-msgstr "Küçük (%1x%1)"
+msgstr "Küçük (%1 × %1)"
 
 #: filewidgets/kfileplacesview.cpp:1323
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
-msgstr "Orta (%1x%1)"
+msgstr "Orta (%1 × %1)"
 
 #: filewidgets/kfileplacesview.cpp:1326
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
-msgstr "Büyük (%1x%1)"
+msgstr "Büyük (%1 × %1)"
 
 #: filewidgets/kfileplacesview.cpp:1329
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
-msgstr "Büyük (%1x%1)"
+msgstr "Devasa (%1 × %1)"
 
 #: filewidgets/kfilewidget.cpp:681
 #, kde-format
