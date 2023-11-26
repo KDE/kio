@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-24 01:33+0000\n"
+"POT-Creation-Date: 2023-11-26 01:58+0000\n"
 "PO-Revision-Date: 2023-08-11 13:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -3499,7 +3499,7 @@ msgid "All Folders"
 msgstr "*|Allar möppur"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:729
+#: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "&Opna"
@@ -5105,7 +5105,7 @@ msgstr "Eigandi"
 msgid "Owning Group"
 msgstr "Hópur sem á"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2075
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1432
 #, kde-format
 msgid "Others"
 msgstr "Aðrir"
@@ -5237,41 +5237,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aðgerðir"
 
-#: widgets/kfileitemactions.cpp:680
+#: widgets/kfileitemactions.cpp:678
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Opna möppu með..."
 
-#: widgets/kfileitemactions.cpp:680
+#: widgets/kfileitemactions.cpp:678
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Opna með..."
 
-#: widgets/kfileitemactions.cpp:718
+#: widgets/kfileitemactions.cpp:716
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Opna möppu með %1"
 
-#: widgets/kfileitemactions.cpp:718
+#: widgets/kfileitemactions.cpp:716
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Opna með %1"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:749
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Opna möppu með"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:749
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Opna með"
 
-#: widgets/kfileitemactions.cpp:762
+#: widgets/kfileitemactions.cpp:760
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -5930,7 +5930,27 @@ msgstr ""
 msgid "Ad&vanced Options"
 msgstr "Ítarlegri &valkostir"
 
-#: widgets/kpropertiesdialog.cpp:171
+#: widgets/kpropertiesdialog.cpp:144 widgets/kpropertiesdialog.cpp:159
+#: widgets/kpropertiesdialog.cpp:171 widgets/kpropertiesdialog.cpp:189
+#: widgets/kpropertiesdialog.cpp:207 widgets/kpropertiesdialog.cpp:231
+#, kde-format
+msgid "Properties for %1"
+msgstr "Eiginleikar %1"
+
+#: widgets/kpropertiesdialog.cpp:169 widgets/kpropertiesdialog.cpp:205
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "Eiginleikar eins hlutar"
+msgstr[1] "Eiginleikar %1 valinna hluta"
+
+#: widgets/kpropertiesdialog.cpp:347
+#, kde-format
+msgctxt "@title:tab"
+msgid "Share"
+msgstr "Deila"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:105
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5940,61 +5960,42 @@ msgstr ""
 "Ekki tókst að vista eiginleikana þar sem ekki eru nægar heimildir til að "
 "skrifa í:<nl/><filename>%1</filename>."
 
-#: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
-#: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
-#: widgets/kpropertiesdialog.cpp:291 widgets/kpropertiesdialog.cpp:315
-#, kde-format
-msgid "Properties for %1"
-msgstr "Eiginleikar %1"
-
-#: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
-#, kde-format
-msgid "Properties for 1 item"
-msgid_plural "Properties for %1 Selected Items"
-msgstr[0] "Eiginleikar eins hlutar"
-msgstr[1] "Eiginleikar %1 valinna hluta"
-
-#: widgets/kpropertiesdialog.cpp:431
-#, kde-format
-msgctxt "@title:tab"
-msgid "Share"
-msgstr "Deila"
-
-#: widgets/kpropertiesdialog.cpp:854
+#: widgets/kpropertiesdialogbuiltin_p.cpp:216
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "Al&mennt"
 
-#: widgets/kpropertiesdialog.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:413
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Skoða í %1"
 
-#: widgets/kpropertiesdialog.cpp:1062 widgets/kpropertiesdialog.cpp:1331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid "Refresh"
 msgstr "Endurlesa"
 
-#: widgets/kpropertiesdialog.cpp:1177
+#: widgets/kpropertiesdialogbuiltin_p.cpp:541
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialog.cpp:1291
+#: widgets/kpropertiesdialogbuiltin_p.cpp:655
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 laust af %2 (%3% í notkun)"
 
-#: widgets/kpropertiesdialog.cpp:1298
+#: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Óþekkt stærð"
 
-#: widgets/kpropertiesdialog.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:672
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -6003,134 +6004,138 @@ msgstr ""
 "Reikna...%1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
+#: widgets/kpropertiesdialogbuiltin_p.cpp:690
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "1 skrá"
 msgstr[1] "%1 skrár"
 
-#: widgets/kpropertiesdialog.cpp:1312 widgets/kpropertiesdialog.cpp:1327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:691
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "1 undirmappa"
 msgstr[1] "%1 undirmöppur"
 
-#: widgets/kpropertiesdialog.cpp:1340
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Reikna...\n"
 
-#: widgets/kpropertiesdialog.cpp:1363
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "At least %1\n"
 msgstr "Að minnsta kosti %1\n"
 
-#: widgets/kpropertiesdialog.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:773
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Nýja skráarheitið er tómt."
 
-#: widgets/kpropertiesdialog.cpp:1607
+#: widgets/kpropertiesdialogbuiltin_p.cpp:971
 #, kde-format
 msgid "No registered file type"
 msgstr "Engin skráð skráargerð"
 
-#: widgets/kpropertiesdialog.cpp:1609
+#: widgets/kpropertiesdialogbuiltin_p.cpp:973
 #, kde-format
 msgid "No associated application"
 msgstr "Ekkert tengt forrit"
 
-#: widgets/kpropertiesdialog.cpp:1615
+#: widgets/kpropertiesdialogbuiltin_p.cpp:979
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Búa til…"
 
-#: widgets/kpropertiesdialog.cpp:1618
+#: widgets/kpropertiesdialogbuiltin_p.cpp:982
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Breyta…"
 
-#: widgets/kpropertiesdialog.cpp:1694 widgets/kpropertiesdialog.cpp:1695
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "No Access"
 msgstr "Enginn aðgangur"
 
-#: widgets/kpropertiesdialog.cpp:1694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can Only View"
 msgstr "Getur einungis skoðað"
 
-#: widgets/kpropertiesdialog.cpp:1694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can View & Modify"
 msgstr "Má skoða og breyta"
 
-#: widgets/kpropertiesdialog.cpp:1695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can Only View Content"
 msgstr "Má aðeins skoða innihald"
 
-#: widgets/kpropertiesdialog.cpp:1695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can View & Modify Content"
 msgstr "Má skoða og breyta innihaldi"
 
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can Only View/Read Content"
 msgstr "Má aðeins skoða/lesa innihald"
 
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can View/Read & Modify/Write"
 msgstr "Má lesa/skrifa & breyta/skrifa"
 
-#: widgets/kpropertiesdialog.cpp:1796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1153
 #, kde-format
 msgid "&Permissions"
 msgstr "&Heimildir"
 
-#: widgets/kpropertiesdialog.cpp:1808 widgets/kpropertiesdialog.cpp:2004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1165
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1361
 #, kde-format
 msgid "Access Permissions"
 msgstr "Aðgangsheimildir"
 
-#: widgets/kpropertiesdialog.cpp:1817
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1174
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Skráin er tengill og hefur ekki aðgangsstillingar."
 msgstr[1] "Allar skrárnar eru tenglar og hafa ekki aðgangsstillingar."
 
-#: widgets/kpropertiesdialog.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1176
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Einungis eigandinn má breyta aðgangsheimildum."
 
-#: widgets/kpropertiesdialog.cpp:1823
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "O&wner:"
 msgstr "&Eigandi:"
 
-#: widgets/kpropertiesdialog.cpp:1829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Tiltekur aðgerðirnar sem eigandinn má gera."
 
-#: widgets/kpropertiesdialog.cpp:1831
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
 #, kde-format
 msgid "Gro&up:"
 msgstr "Hó&pur:"
 
-#: widgets/kpropertiesdialog.cpp:1837
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Tiltekur aðgerðirnar sem meðlimir hópsins mega gera."
 
-#: widgets/kpropertiesdialog.cpp:1839
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
 #, kde-format
 msgid "O&thers:"
 msgstr "&Aðrir:"
 
-#: widgets/kpropertiesdialog.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6139,17 +6144,17 @@ msgstr ""
 "Tiltekur aðgerðirnar sem allir notendur sem ekki eru eigendur eða í hópnum "
 "mega gera."
 
-#: widgets/kpropertiesdialog.cpp:1850
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "Einungis &eigandinn má endurnefna og eyða innihaldi möppunnar"
 
-#: widgets/kpropertiesdialog.cpp:1850
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Is &executable"
 msgstr "Er &keyranlegt"
 
-#: widgets/kpropertiesdialog.cpp:1853
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6160,7 +6165,7 @@ msgstr ""
 "eða endurnefna skrár og möppur í möppunni.  Aðrir notendur geta aðeins sett "
 "inn nýjar skrár, og það krefst leyfist til að 'Breyta innihaldi'."
 
-#: widgets/kpropertiesdialog.cpp:1857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1214
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6169,42 +6174,42 @@ msgstr ""
 "Virkjaðu þetta til að merkja skrána sem keyrsluskrá.  Þetta ættirðu bara að "
 "gera fyrir forrit og skriftur.  Þetta þarf að vera á þegar þú vilt keyra þau."
 
-#: widgets/kpropertiesdialog.cpp:1864
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Íta&rlegar aðgangsheimildir"
 
-#: widgets/kpropertiesdialog.cpp:1872
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Ownership"
 msgstr "Eigandi"
 
-#: widgets/kpropertiesdialog.cpp:1879
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "User:"
 msgstr "Notandi:"
 
-#: widgets/kpropertiesdialog.cpp:1918
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1275
 #, kde-format
 msgid "Group:"
 msgstr "Hópur:"
 
-#: widgets/kpropertiesdialog.cpp:1953
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1310
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Virkja breytingarnar í öllum undirmöppum og innihaldi þeirra"
 
-#: widgets/kpropertiesdialog.cpp:1995
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1352
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Ítarlegar aðgangsheimildir"
 
-#: widgets/kpropertiesdialog.cpp:2012
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Class"
 msgstr "Flokkur"
 
-#: widgets/kpropertiesdialog.cpp:2019
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid ""
 "Show\n"
@@ -6213,22 +6218,22 @@ msgstr ""
 "Sýna\n"
 "færslur"
 
-#: widgets/kpropertiesdialog.cpp:2020
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Þessi biti leyfir birtingu á innihaldi möppunnar."
 
-#: widgets/kpropertiesdialog.cpp:2022
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Read"
 msgstr "Lesa"
 
-#: widgets/kpropertiesdialog.cpp:2023
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Lesbitinn leyfir skoðun á innihaldi skrárinnar."
 
-#: widgets/kpropertiesdialog.cpp:2029
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid ""
 "Write\n"
@@ -6237,7 +6242,7 @@ msgstr ""
 "Skrifa\n"
 "færslur"
 
-#: widgets/kpropertiesdialog.cpp:2031
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6246,43 +6251,43 @@ msgstr ""
 "Þessi biti leyfir að bæta við, endurnefna og eyða skrám.  Athugaðu að hægt "
 "er að takmarka endurnefningu og eyðslu með festibitanum."
 
-#: widgets/kpropertiesdialog.cpp:2034
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1391
 #, kde-format
 msgid "Write"
 msgstr "Skrifa"
 
-#: widgets/kpropertiesdialog.cpp:2035
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Skrifbitinn leyfir breytingar á innihaldi skrárinnar."
 
-#: widgets/kpropertiesdialog.cpp:2041
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Fara í"
 
-#: widgets/kpropertiesdialog.cpp:2042
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Gerðu þennan bita virkan til að leyfa aðgang í möppuna."
 
-#: widgets/kpropertiesdialog.cpp:2044
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
 #, kde-format
 msgid "Exec"
 msgstr "Keyra"
 
-#: widgets/kpropertiesdialog.cpp:2045
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Gerðu þennan bita virkan til að leyfa að skráin sé keyrð sem forrit."
 
-#: widgets/kpropertiesdialog.cpp:2053
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Special"
 msgstr "Sérstök skrá"
 
-#: widgets/kpropertiesdialog.cpp:2058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1415
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6291,7 +6296,7 @@ msgstr ""
 "Sérstakur biti.  Gildir fyrir alla möppuna.  Hægt er að sjá nákvæma þýðingu "
 "bitans í dálknum hægra megin."
 
-#: widgets/kpropertiesdialog.cpp:2062
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6299,17 +6304,17 @@ msgid ""
 msgstr ""
 "Sérstakur biti.  Hægt er að sjá nákvæma þýðingu bitans í dálknum hægra megin."
 
-#: widgets/kpropertiesdialog.cpp:2067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1424
 #, kde-format
 msgid "User"
 msgstr "Notandi"
 
-#: widgets/kpropertiesdialog.cpp:2071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
 #, kde-format
 msgid "Group"
 msgstr "Hópur"
 
-#: widgets/kpropertiesdialog.cpp:2082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6318,7 +6323,7 @@ msgstr ""
 "Ef þessi biti er valinn verður eigandi þessarar möppu eigandi allra nýrra "
 "skráa."
 
-#: widgets/kpropertiesdialog.cpp:2086
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6327,7 +6332,7 @@ msgstr ""
 "Ef þetta er keyrsluskrá og bitinn er valinn, verður hún keyrð með "
 "aðgangsheimildum eigandans."
 
-#: widgets/kpropertiesdialog.cpp:2093
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6335,7 +6340,7 @@ msgstr ""
 "Ef þessi biti er valinn verður hópur þessarar möppu valinn fyrir allar nýjar "
 "skrár."
 
-#: widgets/kpropertiesdialog.cpp:2097
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1454
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6344,7 +6349,7 @@ msgstr ""
 "Ef þetta er keyrsluskrá og bitinn er valin verður hún keyrð með "
 "aðgangsheimildum hópsins."
 
-#: widgets/kpropertiesdialog.cpp:2104
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6354,7 +6359,7 @@ msgstr ""
 "rótarnotandinn eytt eða endurnefnt skrár.  Annars geta allir með "
 "skrifréttindi gert það."
 
-#: widgets/kpropertiesdialog.cpp:2109
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6362,87 +6367,89 @@ msgid ""
 msgstr ""
 "Festibitinn á skrá er hunsaður í Linux en kann að vera notaður í öðrum kerfum"
 
-#: widgets/kpropertiesdialog.cpp:2170
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1527
 #, kde-format
 msgid "Set UID"
 msgstr "Stilla UID"
 
-#: widgets/kpropertiesdialog.cpp:2174
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1531
 #, kde-format
 msgid "Set GID"
 msgstr "Stilla GID"
 
-#: widgets/kpropertiesdialog.cpp:2178
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Loðir við"
 
-#: widgets/kpropertiesdialog.cpp:2285
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1642
 #, kde-format
 msgid "Link"
 msgstr "Tengill"
 
-#: widgets/kpropertiesdialog.cpp:2305
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1662
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Breyti (engin breyting)"
 
-#: widgets/kpropertiesdialog.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1773
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Þessi skrá notar ítarlegar aðgangsheimildir."
 msgstr[1] "Þessar skrár nota ítarlegar aðgangsheimildir."
 
-#: widgets/kpropertiesdialog.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1795
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Þessi mappa notar ítarlegar aðgangsheimildir."
 msgstr[1] "Þessar möppur nota ítarlegar aðgangsheimildir."
 
-#: widgets/kpropertiesdialog.cpp:2452
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1809
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Þessar skrár nota ítarlegar aðgangsheimildir."
 
-#: widgets/kpropertiesdialog.cpp:2698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2047
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Gátsummur"
 
-#: widgets/kpropertiesdialog.cpp:2763 widgets/kpropertiesdialog.cpp:2774
-#: widgets/kpropertiesdialog.cpp:2785 widgets/kpropertiesdialog.cpp:2796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2112
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2134
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "Reikna..."
 
-#: widgets/kpropertiesdialog.cpp:2952
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Ógild gátsumma."
 
-#: widgets/kpropertiesdialog.cpp:2955
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2304
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Uppgefið inntak er ekki gild MD5, SHA1 eða SHA256 gátsumma."
 
-#: widgets/kpropertiesdialog.cpp:2966
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2315
 #, kde-format
 msgid "Checksums match."
 msgstr "Gátsummurnar passa."
 
-#: widgets/kpropertiesdialog.cpp:2969
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Reiknuð gátsumma og væntanleg gátsumma passa saman."
 
-#: widgets/kpropertiesdialog.cpp:2981
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6453,29 +6460,30 @@ msgstr ""
 "Prófaðu að sækja skrána aftur.<br/>Ef staðfestingin bregst samt sem áður "
 "skaltu hafa samband við upprunastað skráarinnar."
 
-#: widgets/kpropertiesdialog.cpp:2986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Reiknuð gátsumma og væntanleg gátsumma eru mismunandi."
 
-#: widgets/kpropertiesdialog.cpp:2994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
 msgstr "Yfirfer gátsummu..."
 
-#: widgets/kpropertiesdialog.cpp:3083
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
 msgid "U&RL"
 msgstr "&Slóð"
 
-#: widgets/kpropertiesdialog.cpp:3090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2432
 #, kde-format
 msgid "URL:"
 msgstr "Slóð:"
 
-#: widgets/kpropertiesdialog.cpp:3159 widgets/kpropertiesdialog.cpp:3424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6483,27 +6491,27 @@ msgstr ""
 "Tókst ekki að vista eiginleika. Það er aðeins hægt að keyra færslur í þessu "
 "skráakerfi."
 
-#: widgets/kpropertiesdialog.cpp:3231
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
 #, kde-format
 msgid "&Application"
 msgstr "&Forrit"
 
-#: widgets/kpropertiesdialog.cpp:3364
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Bæta við skrárgerð fyrir %1"
 
-#: widgets/kpropertiesdialog.cpp:3365
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Veldu eina eða fleiri skrárgerðir til að bæta við:"
 
-#: widgets/kpropertiesdialog.cpp:3507
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Það er aðeins hægt að keyra forrit í þessu skráakerfi."
 
-#: widgets/kpropertiesdialog.cpp:3521
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Ítarlegir valkostir fyrir %1"

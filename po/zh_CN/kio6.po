@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-24 01:33+0000\n"
-"PO-Revision-Date: 2023-11-19 03:37\n"
+"POT-Creation-Date: 2023-11-26 01:58+0000\n"
+"PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -30,8 +30,7 @@ msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, rainofchaos@gmail.com, fundawang@linux.net.cn, "
 "guoyunhebrave@gmail.com, jxiong@offtopic.org, lilith.ex@gmail.com, "
-"shuizhuyuanluo@126.com, tysontan@tysontan.com lark@linux.net.cn, "
-"wengxt@gmail.com"
+"shuizhuyuanluo@126.com, tds00@qq.com, lark@linux.net.cn, wengxt@gmail.com"
 
 #: core/chmodjob.cpp:201
 #, kde-format
@@ -3335,7 +3334,7 @@ msgid "All Folders"
 msgstr "所有文件夹"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:729
+#: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
@@ -3403,7 +3402,7 @@ msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的�
 #: filewidgets/kfilewidget.cpp:2766
 #, kde-format
 msgid "&Filter:"
-msgstr "筛选(&F)："
+msgstr "过滤(&F)："
 
 #: filewidgets/kfilewidget.cpp:2768
 #, kde-format
@@ -3413,8 +3412,8 @@ msgid ""
 "filters in the drop down menu, or you may enter a custom filter directly "
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
-"<qt>这是应用到文件列表的筛选条件。不符合此筛选条件的文件名将不会显示。<p>您可"
-"以从下拉菜单中选择预设的筛选条件，或者直接在文本框中输入自定义筛选条件。</"
+"<qt>这是应用到文件列表的过滤条件。不符合此过滤条件的文件名将不会显示。<p>您可"
+"以从下拉菜单中选择预设的过滤条件，或者直接在文本框中输入自定义过滤条件。</"
 "p><p>允许使用 * 和 ? 等通配符。</p></qt>"
 
 #: filewidgets/knewfilemenu.cpp:467
@@ -4904,7 +4903,7 @@ msgstr "所有者"
 msgid "Owning Group"
 msgstr "所有组"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialog.cpp:2075
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1432
 #, kde-format
 msgid "Others"
 msgstr "其他"
@@ -5036,41 +5035,41 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "操作(&A)"
 
-#: widgets/kfileitemactions.cpp:680
+#: widgets/kfileitemactions.cpp:678
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "打开文件夹方式(&O)..."
 
-#: widgets/kfileitemactions.cpp:680
+#: widgets/kfileitemactions.cpp:678
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "打开方式(&O)..."
 
-#: widgets/kfileitemactions.cpp:718
+#: widgets/kfileitemactions.cpp:716
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "用 %1 打开文件夹(&O)"
 
-#: widgets/kfileitemactions.cpp:718
+#: widgets/kfileitemactions.cpp:716
 #, kde-format
 msgid "&Open with %1"
 msgstr "使用 %1 打开(&O)"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:749
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "打开文件夹方式(&O)"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:749
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "打开方式(&O)"
 
-#: widgets/kfileitemactions.cpp:762
+#: widgets/kfileitemactions.cpp:760
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -5261,8 +5260,8 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
-"在此输入内容即可筛选下面的应用程序，您也可以直接指定一个命令名称。\n"
-"按方向键可以浏览筛选结果。"
+"在此输入内容即可过滤下面的应用程序，您也可以直接指定一个命令名称。\n"
+"按方向键可以浏览过滤结果。"
 
 #: widgets/kopenwithdialog.cpp:698
 #, kde-format
@@ -5694,7 +5693,26 @@ msgstr ""
 msgid "Ad&vanced Options"
 msgstr "高级选项(&V)"
 
-#: widgets/kpropertiesdialog.cpp:171
+#: widgets/kpropertiesdialog.cpp:144 widgets/kpropertiesdialog.cpp:159
+#: widgets/kpropertiesdialog.cpp:171 widgets/kpropertiesdialog.cpp:189
+#: widgets/kpropertiesdialog.cpp:207 widgets/kpropertiesdialog.cpp:231
+#, kde-format
+msgid "Properties for %1"
+msgstr "“%1”的属性"
+
+#: widgets/kpropertiesdialog.cpp:169 widgets/kpropertiesdialog.cpp:205
+#, kde-format
+msgid "Properties for 1 item"
+msgid_plural "Properties for %1 Selected Items"
+msgstr[0] "%1 个选中项目的属性"
+
+#: widgets/kpropertiesdialog.cpp:347
+#, kde-format
+msgctxt "@title:tab"
+msgid "Share"
+msgstr "共享"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:105
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5702,60 +5720,42 @@ msgid ""
 "%1</filename>."
 msgstr "无法保存属性，因为写入权限不足：<nl/><filename>%1</filename>。"
 
-#: widgets/kpropertiesdialog.cpp:228 widgets/kpropertiesdialog.cpp:243
-#: widgets/kpropertiesdialog.cpp:255 widgets/kpropertiesdialog.cpp:273
-#: widgets/kpropertiesdialog.cpp:291 widgets/kpropertiesdialog.cpp:315
-#, kde-format
-msgid "Properties for %1"
-msgstr "“%1”的属性"
-
-#: widgets/kpropertiesdialog.cpp:253 widgets/kpropertiesdialog.cpp:289
-#, kde-format
-msgid "Properties for 1 item"
-msgid_plural "Properties for %1 Selected Items"
-msgstr[0] "%1 个选中项目的属性"
-
-#: widgets/kpropertiesdialog.cpp:431
-#, kde-format
-msgctxt "@title:tab"
-msgid "Share"
-msgstr "共享"
-
-#: widgets/kpropertiesdialog.cpp:854
+#: widgets/kpropertiesdialogbuiltin_p.cpp:216
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "常规(&G)"
 
-#: widgets/kpropertiesdialog.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:413
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "使用 %1 浏览"
 
-#: widgets/kpropertiesdialog.cpp:1062 widgets/kpropertiesdialog.cpp:1331
+#: widgets/kpropertiesdialogbuiltin_p.cpp:424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:695
 #, kde-format
 msgid "Refresh"
 msgstr "刷新"
 
-#: widgets/kpropertiesdialog.cpp:1177
+#: widgets/kpropertiesdialogbuiltin_p.cpp:541
 #, kde-format
 msgid "%1:"
 msgstr "%1："
 
-#: widgets/kpropertiesdialog.cpp:1291
+#: widgets/kpropertiesdialogbuiltin_p.cpp:655
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "总共 %2，剩余 %1 (已用 %3%)"
 
-#: widgets/kpropertiesdialog.cpp:1298
+#: widgets/kpropertiesdialogbuiltin_p.cpp:662
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: widgets/kpropertiesdialog.cpp:1308
+#: widgets/kpropertiesdialogbuiltin_p.cpp:672
 #, kde-format
 msgid ""
 "Calculating... %1 (%2)\n"
@@ -5764,148 +5764,152 @@ msgstr ""
 "正在计算... %1 (%2)\n"
 "%3，%4"
 
-#: widgets/kpropertiesdialog.cpp:1311 widgets/kpropertiesdialog.cpp:1326
+#: widgets/kpropertiesdialogbuiltin_p.cpp:675
+#: widgets/kpropertiesdialogbuiltin_p.cpp:690
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 个文件"
 
-#: widgets/kpropertiesdialog.cpp:1312 widgets/kpropertiesdialog.cpp:1327
+#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:691
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 个子文件夹"
 
-#: widgets/kpropertiesdialog.cpp:1340
+#: widgets/kpropertiesdialogbuiltin_p.cpp:704
 #, kde-format
 msgid "Calculating...\n"
 msgstr "正在计算...\n"
 
-#: widgets/kpropertiesdialog.cpp:1363
+#: widgets/kpropertiesdialogbuiltin_p.cpp:727
 #, kde-format
 msgid "At least %1\n"
 msgstr "至少 %1\n"
 
-#: widgets/kpropertiesdialog.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:773
 #, kde-format
 msgid "The new file name is empty."
 msgstr "新文件名为空。"
 
-#: widgets/kpropertiesdialog.cpp:1607
+#: widgets/kpropertiesdialogbuiltin_p.cpp:971
 #, kde-format
 msgid "No registered file type"
 msgstr "没有已注册的文件类型"
 
-#: widgets/kpropertiesdialog.cpp:1609
+#: widgets/kpropertiesdialogbuiltin_p.cpp:973
 #, kde-format
 msgid "No associated application"
 msgstr "没有已关联的应用程序"
 
-#: widgets/kpropertiesdialog.cpp:1615
+#: widgets/kpropertiesdialogbuiltin_p.cpp:979
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "创建…"
 
-#: widgets/kpropertiesdialog.cpp:1618
+#: widgets/kpropertiesdialogbuiltin_p.cpp:982
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "更改…"
 
-#: widgets/kpropertiesdialog.cpp:1694 widgets/kpropertiesdialog.cpp:1695
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "No Access"
 msgstr "禁止访问"
 
-#: widgets/kpropertiesdialog.cpp:1694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can Only View"
 msgstr "可查看"
 
-#: widgets/kpropertiesdialog.cpp:1694
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1051
 msgid "Can View & Modify"
 msgstr "可查看、修改"
 
-#: widgets/kpropertiesdialog.cpp:1695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can Only View Content"
 msgstr "可查看内容"
 
-#: widgets/kpropertiesdialog.cpp:1695
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 msgid "Can View & Modify Content"
 msgstr "可查看、修改内容"
 
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can Only View/Read Content"
 msgstr "可查看/读取内容"
 
-#: widgets/kpropertiesdialog.cpp:1697
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 msgid "Can View/Read & Modify/Write"
 msgstr "可查看/读取、修改/写入内容"
 
-#: widgets/kpropertiesdialog.cpp:1796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1153
 #, kde-format
 msgid "&Permissions"
 msgstr "权限(&P)"
 
-#: widgets/kpropertiesdialog.cpp:1808 widgets/kpropertiesdialog.cpp:2004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1165
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1361
 #, kde-format
 msgid "Access Permissions"
 msgstr "访问权限"
 
-#: widgets/kpropertiesdialog.cpp:1817
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1174
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "文件为链接，且不具备所需权限。"
 
-#: widgets/kpropertiesdialog.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1176
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "只有所有者可以更改权限。"
 
-#: widgets/kpropertiesdialog.cpp:1823
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1180
 #, kde-format
 msgid "O&wner:"
 msgstr "所有者(&W)："
 
-#: widgets/kpropertiesdialog.cpp:1829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1186
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "指定允许所有者执行的操作。"
 
-#: widgets/kpropertiesdialog.cpp:1831
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1188
 #, kde-format
 msgid "Gro&up:"
 msgstr "所有组(&U)："
 
-#: widgets/kpropertiesdialog.cpp:1837
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1194
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "指定允许所有组用户执行的操作。"
 
-#: widgets/kpropertiesdialog.cpp:1839
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1196
 #, kde-format
 msgid "O&thers:"
 msgstr "其他(&T)："
 
-#: widgets/kpropertiesdialog.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1203
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "指定允许其他用户 (所有者和所有组成员之外的所有用户) 执行的操作。"
 
-#: widgets/kpropertiesdialog.cpp:1850
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Only own&er can rename and delete folder content"
 msgstr "只允许所有者重命名、删除文件夹内容(&E)"
 
-#: widgets/kpropertiesdialog.cpp:1850
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1207
 #, kde-format
 msgid "Is &executable"
 msgstr "可执行(&E)"
 
-#: widgets/kpropertiesdialog.cpp:1853
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -5915,7 +5919,7 @@ msgstr ""
 "勾选此项后，只有文件夹的所有者才能重命名、删除此文件夹中的文件和子文件夹。具"
 "备“修改内容”权限的用户只能新增文件。"
 
-#: widgets/kpropertiesdialog.cpp:1857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1214
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -5924,42 +5928,42 @@ msgstr ""
 "勾选此项后，此文件将被标记为可执行。程序和脚本必须勾选此项才能执行。您不应在"
 "程序和脚本之外的文件上勾选此项。"
 
-#: widgets/kpropertiesdialog.cpp:1864
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "高级权限(&D)"
 
-#: widgets/kpropertiesdialog.cpp:1872
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1229
 #, kde-format
 msgid "Ownership"
 msgstr "所有者"
 
-#: widgets/kpropertiesdialog.cpp:1879
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "User:"
 msgstr "用户："
 
-#: widgets/kpropertiesdialog.cpp:1918
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1275
 #, kde-format
 msgid "Group:"
 msgstr "用户组："
 
-#: widgets/kpropertiesdialog.cpp:1953
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1310
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "应用更改到所有的子文件夹和其中的文件"
 
-#: widgets/kpropertiesdialog.cpp:1995
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1352
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "高级权限"
 
-#: widgets/kpropertiesdialog.cpp:2012
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1369
 #, kde-format
 msgid "Class"
 msgstr "类"
 
-#: widgets/kpropertiesdialog.cpp:2019
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1376
 #, kde-format
 msgid ""
 "Show\n"
@@ -5968,22 +5972,22 @@ msgstr ""
 "显示\n"
 "项目"
 
-#: widgets/kpropertiesdialog.cpp:2020
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "此标记允许查看文件夹的内容。"
 
-#: widgets/kpropertiesdialog.cpp:2022
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1379
 #, kde-format
 msgid "Read"
 msgstr "读取"
 
-#: widgets/kpropertiesdialog.cpp:2023
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1380
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "此标记允许查看文件的内容。"
 
-#: widgets/kpropertiesdialog.cpp:2029
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1386
 #, kde-format
 msgid ""
 "Write\n"
@@ -5992,7 +5996,7 @@ msgstr ""
 "写入\n"
 "项目"
 
-#: widgets/kpropertiesdialog.cpp:2031
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1388
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6001,94 +6005,94 @@ msgstr ""
 "此标记允许添加、重命名和删除文件。请注意，删除和重命名可以使用“粘性”标记加以"
 "限制。"
 
-#: widgets/kpropertiesdialog.cpp:2034
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1391
 #, kde-format
 msgid "Write"
 msgstr "写入"
 
-#: widgets/kpropertiesdialog.cpp:2035
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "此标记允许修改文件内容。"
 
-#: widgets/kpropertiesdialog.cpp:2041
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "进入"
 
-#: widgets/kpropertiesdialog.cpp:2042
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "此标记允许进入文件夹。"
 
-#: widgets/kpropertiesdialog.cpp:2044
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1401
 #, kde-format
 msgid "Exec"
 msgstr "执行"
 
-#: widgets/kpropertiesdialog.cpp:2045
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1402
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "此标记允许将文件作为程序执行。"
 
-#: widgets/kpropertiesdialog.cpp:2053
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
 #, kde-format
 msgid "Special"
 msgstr "特殊"
 
-#: widgets/kpropertiesdialog.cpp:2058
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1415
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr "特殊标记。对整个文件夹有效，您可以在右侧一列中查看该标记的具体含义。"
 
-#: widgets/kpropertiesdialog.cpp:2062
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr "特殊标记。您可以在右侧一列中查看该标记的具体含义。"
 
-#: widgets/kpropertiesdialog.cpp:2067
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1424
 #, kde-format
 msgid "User"
 msgstr "用户"
 
-#: widgets/kpropertiesdialog.cpp:2071
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
 #, kde-format
 msgid "Group"
 msgstr "用户组"
 
-#: widgets/kpropertiesdialog.cpp:2082
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1439
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr "勾选此标记后，此文件夹的所有者将成为所有新文件的所有者。"
 
-#: widgets/kpropertiesdialog.cpp:2086
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有者的权限执行。"
 
-#: widgets/kpropertiesdialog.cpp:2093
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr "勾选此标记后，此文件夹的所有组将成为所有新文件的所有组。"
 
-#: widgets/kpropertiesdialog.cpp:2097
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1454
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr "勾选此标记后，如果此文件是可执行文件，它将以所有组的权限执行。"
 
-#: widgets/kpropertiesdialog.cpp:2104
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6097,7 +6101,7 @@ msgstr ""
 "勾选文件夹的“粘性”标记后，只有所有者和根用户可以删除或者重命名文件。不勾选"
 "时，拥有写入权限的所有用户均可删除或者重命名文件。"
 
-#: widgets/kpropertiesdialog.cpp:2109
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6105,85 +6109,87 @@ msgid ""
 msgstr ""
 "文件的“粘性”标记在 Linux 系统中会被忽略，但是它们可能会在其他系统中生效"
 
-#: widgets/kpropertiesdialog.cpp:2170
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1527
 #, kde-format
 msgid "Set UID"
 msgstr "设置 UID"
 
-#: widgets/kpropertiesdialog.cpp:2174
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1531
 #, kde-format
 msgid "Set GID"
 msgstr "设置 GID"
 
-#: widgets/kpropertiesdialog.cpp:2178
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "粘性"
 
-#: widgets/kpropertiesdialog.cpp:2285
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1642
 #, kde-format
 msgid "Link"
 msgstr "链接"
 
-#: widgets/kpropertiesdialog.cpp:2305
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1662
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "多种情况 (无更改)"
 
-#: widgets/kpropertiesdialog.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1773
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "文件使用了高级权限。"
 
-#: widgets/kpropertiesdialog.cpp:2438
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1795
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "文件夹使用了高级权限。"
 
-#: widgets/kpropertiesdialog.cpp:2452
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1809
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "文件使用了高级权限。"
 
-#: widgets/kpropertiesdialog.cpp:2698
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2047
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "校验和(&H)"
 
-#: widgets/kpropertiesdialog.cpp:2763 widgets/kpropertiesdialog.cpp:2774
-#: widgets/kpropertiesdialog.cpp:2785 widgets/kpropertiesdialog.cpp:2796
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2112
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2134
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2145
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "正在计算..."
 
-#: widgets/kpropertiesdialog.cpp:2952
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2301
 #, kde-format
 msgid "Invalid checksum."
 msgstr "无效的校验和。"
 
-#: widgets/kpropertiesdialog.cpp:2955
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2304
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "输入的内容并非有效的 MD5、SHA1 或者 SHA256 校验和。"
 
-#: widgets/kpropertiesdialog.cpp:2966
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2315
 #, kde-format
 msgid "Checksums match."
 msgstr "校验和一致。"
 
-#: widgets/kpropertiesdialog.cpp:2969
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "计算出的校验和与预期的校验和一致。"
 
-#: widgets/kpropertiesdialog.cpp:2981
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2330
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6193,55 +6199,56 @@ msgstr ""
 "<p>校验和不一致。</p>这可能是因为文件在下载过程中发生了错误。请尝试重新下载该"
 "文件。<br/>如果仍然无法通过一致性验证，请联系该文件的提供者。"
 
-#: widgets/kpropertiesdialog.cpp:2986
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "计算出的校验和与预期的校验和不一致。"
 
-#: widgets/kpropertiesdialog.cpp:2994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2343
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
 msgstr "正在验证校验和..."
 
-#: widgets/kpropertiesdialog.cpp:3083
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2425
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialog.cpp:3090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2432
 #, kde-format
 msgid "URL:"
 msgstr "URL："
 
-#: widgets/kpropertiesdialog.cpp:3159 widgets/kpropertiesdialog.cpp:3424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "无法保存属性。只支持本地文件系统中的项目。"
 
-#: widgets/kpropertiesdialog.cpp:3231
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2573
 #, kde-format
 msgid "&Application"
 msgstr "应用程序(&A)"
 
-#: widgets/kpropertiesdialog.cpp:3364
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "添加文件类型到 %1"
 
-#: widgets/kpropertiesdialog.cpp:3365
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "选择要添加的文件类型："
 
-#: widgets/kpropertiesdialog.cpp:3507
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "只支持本地文件系统中的可执行文件。"
 
-#: widgets/kpropertiesdialog.cpp:3521
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 的高级选项"
