@@ -10,8 +10,8 @@
 
 #include "kiowidgets_export.h"
 #include <QObject>
+#include <kpropertiesdialog.h>
 
-class KPropertiesDialog;
 class KPropertiesDialogPluginPrivate;
 /**
  * A Plugin in the Properties dialog
