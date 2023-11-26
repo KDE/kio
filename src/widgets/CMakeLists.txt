@@ -163,6 +163,7 @@ endif()
 ecm_generate_headers(KIOWidgets_HEADERS
   HEADER_NAMES
   KPropertiesDialog
+  KPropertiesDialogPlugin
   KUrlRequesterDialog
   KUrlComboBox
   KFileItemActions
