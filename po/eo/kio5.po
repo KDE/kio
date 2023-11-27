@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-07-08 11:57+0100\n"
+"PO-Revision-Date: 2023-11-26 20:12+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3912,7 +3912,7 @@ msgstr "Klaku por Redakti Lokon"
 #: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:229
 #, kde-format
 msgid "You are not authorized to execute this file."
-msgstr "Vi ne rajtas ekzekuti ĉi tiun dosieron."
+msgstr "Vi ne rajtas efektivigi ĉi tiun dosieron."
 
 #: gui/applicationlauncherjob.cpp:122 gui/commandlauncherjob.cpp:117
 #, kde-format
@@ -3926,7 +3926,7 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"Ne eblas fari la servon %1 plenumebla, ĉesigante la ekzekuton.\n"
+"Ne eblas fari la servon %1 plenumebla, ĉesigante la efektivigon.\n"
 "%2."
 
 #: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
@@ -4018,7 +4018,7 @@ msgstr ""
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
-"Pro sekurecaj kialoj, lanĉi ekzekutaĵojn ne estas permesita en ĉi tiu "
+"Pro sekurecaj kialoj, lanĉi plenumeblaĵojn ne estas permesita en ĉi tiu "
 "kunteksto."
 
 #: gui/openurljob.cpp:430
@@ -5863,7 +5863,7 @@ msgstr "Sugestita dosiernomo por la elŝutita dosiero"
 #: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
-msgstr "Ordono por ekzekuti"
+msgstr "Komando plenumenda"
 
 #: kioexec/main.cpp:304
 #, kde-format
@@ -6171,7 +6171,7 @@ msgid ""
 "of the resource after the execution of this method."
 msgstr ""
 "La cela rimedo ne havas sufiĉan spacon por registri la staton de la rimedo "
-"post la ekzekuto de ĉi tiu metodo."
+"post la plenumo de ĉi tiu metodo."
 
 #: kioworkers/http/http.cpp:1790
 #, kde-format
@@ -8566,7 +8566,7 @@ msgstr "Exec"
 #: widgets/kpropertiesdialog.cpp:2110
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "Ebligu ĉi tiun flagon por permesi ekzekuti la dosieron kiel programo."
+msgstr "Ebligu ĉi tiun flagon por permesi ruli la dosieron kiel programo."
 
 #: widgets/kpropertiesdialog.cpp:2118
 #, kde-format
