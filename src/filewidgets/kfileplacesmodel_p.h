@@ -60,7 +60,7 @@ public:
     const QString tagsUrlBase = QStringLiteral("tags:/");
     KCoreDirLister *tagsLister = nullptr;
 
-    void initDeviceList();
+    void init();
     void deviceAdded(const QString &udi);
     void deviceRemoved(const QString &udi);
     void itemChanged(const QString &udi, const QList<int> &roles);

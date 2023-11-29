@@ -459,9 +459,8 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
         d->reloadBookmarks();
     });
 
-    d->reloadBookmarks();
     QTimer::singleShot(0, this, [this]() {
-        d->initDeviceList();
+        d->init();
     });
 }
 
@@ -843,11 +842,79 @@ bool KFilePlacesModelPrivate::isBalooUrl(const QUrl &url) const
     return ((scheme == QLatin1String("timeline")) || (scheme == QLatin1String("search")));
 }
 
+QList<QDomElement> getChildElements(const QDomNode &e)
+{
+    QList<QDomElement> r;
+    for (int k = 0; k < e.childNodes().size(); ++k) {
+        auto n = e.childNodes().at(k);
+        if (n.isElement()) {
+            QDomElement elem = n.toElement();
+            r << elem;
+        }
+    }
+    return r;
+}
+
+bool compareElement(const QDomElement &element1, const QDomElement &element2)
+{
+    QString tag1 = element1.tagName(); // attribute("Name") ;
+    QString tag2 = element2.tagName();
+
+    if (tag1 != tag2) {
+        return false;
+    }
+
+    QList<QDomElement> elts1 = getChildElements(element1);
+    QList<QDomElement> elts2 = getChildElements(element2);
+    QDomElement c1, c2;
+
+    if (elts1.size() != elts2.size()) {
+        return false;
+    }
+
+    if (elts1.size() == 0) {
+        auto value1 = element1.nodeValue();
+        auto value2 = element2.nodeValue();
+
+        if (value1 != value2) {
+            return false;
+        }
+    }
+
+    for (int i = elts1.size() - 1; i > -1; i--) {
+        c1 = elts1.at(i);
+        auto name1 = c1.tagName();
+        auto equal_node_found = false;
+
+        for (int j = elts2.size() - 1; j > -1; j--) {
+            c2 = elts2.at(j);
+            auto name2 = c2.tagName();
+
+            if (name2 == name1) {
+                if (compareElement(c1, c2)) {
+                    equal_node_found = true;
+                    elts2.remove(j);
+                    break;
+                }
+            }
+        }
+
+        if (!equal_node_found) // if no node in elts2 could compare to this node in elts1
+            return false;
+    }
+
+    return true;
+}
+
 QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
 {
     QList<KFilePlacesItem *> items;
 
     KBookmarkGroup root = bookmarkManager->root();
+
+    auto clonedRootElement = root.internalElement().cloneNode(true).toElement();
+    KBookmarkGroup originalRoot = KBookmarkGroup(clonedRootElement);
+
     KBookmark bookmark = root.first();
     QList<Solid::Device> devices{availableDevices};
     QList<QString> tagsList = tags;
@@ -925,6 +992,22 @@ QList<KFilePlacesItem *> KFilePlacesModelPrivate::loadBookmarkList()
             });
             items << item;
         }
+    }
+
+    if (!compareElement(originalRoot.internalElement(), root.internalElement())) {
+        // ensure the backend file is up-to-date
+
+        QObject::disconnect(bookmarkManager, &KBookmarkManager::changed, q, nullptr);
+        QObject::disconnect(bookmarkManager, &KBookmarkManager::bookmarksChanged, q, nullptr);
+
+        reloadAndSignal();
+
+        QObject::connect(bookmarkManager, &KBookmarkManager::changed, q, [this]() {
+            reloadBookmarks();
+        });
+        QObject::connect(bookmarkManager, &KBookmarkManager::bookmarksChanged, q, [this]() {
+            reloadBookmarks();
+        });
     }
 
     // return a sorted list based on groups
