@@ -331,8 +331,7 @@ static bool isBinary(const QMimeType &mimeType)
     // - MIME types that inherit application/x-executable _and_ text/plain are scripts, these are
     //   handled by handleScripts()
 
-    return (mimeType.inherits(QStringLiteral("application/x-executable")) || mimeType.inherits(QStringLiteral("application/x-sharedlib"))
-            || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
+    return (mimeType.inherits(QStringLiteral("application/x-executable")) || mimeType.inherits(QStringLiteral("application/x-ms-dos-executable")));
 }
 
 // Helper function that returns whether a file is a text-based script
@@ -346,6 +345,17 @@ static bool isTextScript(const QMimeType &mimeType)
 static bool hasExecuteBit(const QString &fileName)
 {
     return QFileInfo(fileName).isExecutable();
+}
+
+bool KIO::OpenUrlJob::isExecutableFile(const QUrl &url, const QString &mimetypeString)
+{
+    if (!url.isLocalFile()) {
+        return false;
+    }
+
+    QMimeDatabase db;
+    QMimeType mimeType = db.mimeTypeForName(mimetypeString);
+    return (isBinary(mimeType) || isTextScript(mimeType)) && hasExecuteBit(url.toLocalFile());
 }
 
 // Handle native binaries (.e.g. /usr/bin/*); and .exe files

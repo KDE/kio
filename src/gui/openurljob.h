@@ -144,6 +144,15 @@ public:
      */
     void start() override;
 
+    /**
+     * Returns whether the @p url of @p mimetype is executable.
+     * To be executable the file must pass the following rules:
+     * -# Must reside on the local filesystem.
+     * -# Must be marked as executable for the user by the filesystem.
+     * -# The MIME type must inherit application/x-executable, application/x-executable-script
+     */
+    static bool isExecutableFile(const QUrl &url, const QString &mimetypeName);
+
 Q_SIGNALS:
     /**
      * Emitted when the MIME type is determined.
