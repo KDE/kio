@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QDialogButtonBox>
+#include <QPointer>
 #include <QRegularExpression>
 #include <QUrl>
 
@@ -40,7 +41,10 @@ public:
     void savePersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type, KConfigGroup &cg, const QString &dontAskAgainName, int result);
 
     WidgetsAskUserActionHandler *const q;
-    QWidget *m_parentWidget = nullptr;
+    QPointer<QWidget> m_parentWidget = nullptr;
+
+    QWidget *getParentWidget(KJob *job);
+    QWidget *getParentWidget(QWidget *widget);
 };
 
 bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type,
@@ -106,6 +110,36 @@ void KIO::WidgetsAskUserActionHandlerPrivate::savePersistentUserReply(KIO::AskUs
     }
 }
 
+QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(KJob *job)
+{
+    // This needs to be in qpointer, otherwise copying process
+    // will crash if done in background and dolphin is closed
+    QPointer<QWidget> parentWidget = nullptr;
+
+    if (job) {
+        parentWidget = KJobWidgets::window(job);
+    }
+
+    return getParentWidget(parentWidget);
+}
+
+QWidget *KIO::WidgetsAskUserActionHandlerPrivate::getParentWidget(QWidget *widget)
+{
+    // This needs to be in qpointer, otherwise copying process
+    // will crash if done in background and dolphin is closed
+    QPointer<QWidget> parentWidget = widget;
+
+    if (!parentWidget) {
+        parentWidget = this->m_parentWidget;
+    }
+
+    if (!parentWidget) {
+        parentWidget = qApp->activeWindow();
+    }
+
+    return parentWidget;
+}
+
 KIO::WidgetsAskUserActionHandler::WidgetsAskUserActionHandler(QObject *parent)
     : KIO::AskUserActionInterface(parent)
     , d(new WidgetsAskUserActionHandlerPrivate(this))
@@ -128,22 +162,8 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
                                                      const QDateTime &mtimeSrc,
                                                      const QDateTime &mtimeDest)
 {
-    QWidget *parentWidget = nullptr;
-
-    if (job) {
-        parentWidget = KJobWidgets::window(job);
-    }
-
-    if (!parentWidget) {
-        parentWidget = d->m_parentWidget;
-    }
-
-    if (!parentWidget) {
-        parentWidget = qApp->activeWindow();
-    }
-
     QMetaObject::invokeMethod(qGuiApp, [=] {
-        auto *dlg = new KIO::RenameDialog(parentWidget, title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
+        auto *dlg = new KIO::RenameDialog(d->getParentWidget(job), title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest);
 
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->setWindowModality(Qt::WindowModal);
@@ -161,22 +181,8 @@ void KIO::WidgetsAskUserActionHandler::askUserRename(KJob *job,
 
 void KIO::WidgetsAskUserActionHandler::askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &errorText)
 {
-    QWidget *parentWidget = nullptr;
-
-    if (job) {
-        parentWidget = KJobWidgets::window(job);
-    }
-
-    if (!parentWidget) {
-        parentWidget = d->m_parentWidget;
-    }
-
-    if (!parentWidget) {
-        parentWidget = qApp->activeWindow();
-    }
-
     QMetaObject::invokeMethod(qGuiApp, [=] {
-        auto *dlg = new KIO::SkipDialog(parentWidget, options, errorText);
+        auto *dlg = new KIO::SkipDialog(d->getParentWidget(job), options, errorText);
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->setWindowModality(Qt::WindowModal);
 
@@ -373,16 +379,6 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         return;
     }
 
-    QWidget *parentWidget = parent;
-
-    if (!parentWidget) {
-        parentWidget = d->m_parentWidget;
-    }
-
-    if (!parentWidget) {
-        parentWidget = qApp->activeWindow();
-    }
-
     const KGuiItem primaryActionButton(primaryActionText, primaryActionIconName);
     const KGuiItem secondaryActionButton(secondaryActionText, secondaryActionIconName);
 
@@ -442,7 +438,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
     QMetaObject::invokeMethod(qGuiApp, [=]() {
         auto cancelButton = hasCancelButton ? KStandardGuiItem::cancel() : KGuiItem();
-        auto *dialog = new KMessageDialog(dlgType, text, parentWidget);
+        auto *dialog = new KMessageDialog(dlgType, text, d->getParentWidget(parent));
 
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         dialog->setCaption(title);
@@ -492,15 +488,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
 void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
 {
-    QWidget *parentWidget = parent;
-
-    if (!parentWidget) {
-        parentWidget = m_parentWidget;
-    }
-
-    if (!parentWidget) {
-        parentWidget = qApp->activeWindow();
-    }
+    QWidget *parentWidget = d->getParentWidget(parent);
 
     const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), Qt::SkipEmptyParts);
 
