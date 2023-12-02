@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-26 01:58+0000\n"
+"POT-Creation-Date: 2023-12-02 01:35+0000\n"
 "PO-Revision-Date: 2023-11-08 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2557,7 +2557,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:504
+#: widgets/widgetsaskuseractionhandler.cpp:492
 #, kde-format
 msgid "&Details"
 msgstr "&Detalls"
@@ -2647,7 +2647,7 @@ msgstr "Carpeta nova..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Llença a la paperera"
@@ -5024,14 +5024,14 @@ msgstr ""
 "desfer.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Suprimeix definitivament"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5053,7 +5053,7 @@ msgstr[1] ""
 "Esteu segur que voleu suprimir permanentment aquests %1 elements?<nl/><nl/"
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5063,13 +5063,13 @@ msgstr ""
 "Voleu suprimir permanentment tots els elements de la Paperera?<nl/><nl/"
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Buida la paperera"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7102,7 +7102,7 @@ msgstr ""
 "L'ordinador remot no ha enviat cap certificat SSL.\n"
 "S'interromp perquè no s'ha pogut establir la identitat de l'ordinador."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7112,7 +7112,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:490
 #, kde-format
 msgid "Server Authentication"
 msgstr "Autenticació del servidor"
@@ -7123,7 +7123,7 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Voleu acceptar aquest certificat per sempre sense que se us demani?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7135,7 +7135,7 @@ msgstr ""
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'>Aquesta acció no "
 "es podrà desfer.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7151,7 +7151,7 @@ msgstr[1] ""
 "Esteu segur que voleu suprimir permanentment aquests %1 elements?<nl/><nl/"
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7163,7 +7163,7 @@ msgstr ""
 "suprimir-lo permanentment?<nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7183,7 +7183,7 @@ msgstr[1] ""
 "grossos. Voleu suprimir-los permanentment?<filename></filename><nl/"
 "><emphasis strong='true'>Aquesta acció no es podrà desfer.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7191,30 +7191,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Esteu segur que voleu moure aquest %1 element a la paperera?"
 msgstr[1] "Esteu segur que voleu moure aquests %1 elements a la paperera?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "No ho tornis a preguntar"
 
-#: widgets/widgetsaskuseractionhandler.cpp:391
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "No ho tornis a preguntar"
 
-#: widgets/widgetsaskuseractionhandler.cpp:417
+#: widgets/widgetsaskuseractionhandler.cpp:413
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "No tornis a mostrar aquest missatge"
 
-#: widgets/widgetsaskuseractionhandler.cpp:562
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "La cadena de certificats SSL del parell sembla estar malmesa."
 
-#: widgets/widgetsaskuseractionhandler.cpp:565
+#: widgets/widgetsaskuseractionhandler.cpp:553
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

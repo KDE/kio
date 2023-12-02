@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-26 01:58+0000\n"
+"POT-Creation-Date: 2023-12-02 01:35+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -2551,7 +2551,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ne mogu da pronađem izvršnu 'kioslave5' komandu na '%1'"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:504
+#: widgets/widgetsaskuseractionhandler.cpp:492
 #, kde-format
 msgid "&Details"
 msgstr "&Detalji"
@@ -2641,7 +2641,7 @@ msgstr "Novi direktorij..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Premjesti u smeÄ‡e"
@@ -5054,14 +5054,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Izbriši trajno"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -5091,7 +5091,7 @@ msgstr[2] ""
 "Da li zaista želite da trajno izbrišete ovih %1 stavke?<nl/><nl/><emphasis "
 "strong='true'>Ova radnja se ne može opozvati.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5101,13 +5101,13 @@ msgstr ""
 "Da li želite da trajno izbrišete sve stavke iz Smeća?<nl/><nl/><emphasis "
 "strong='true'>Ova radnja se ne može opozvati.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Isprazni smeÄ‡e"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7180,7 +7180,7 @@ msgstr ""
 "Udaljeni host nije poslao nijedan SSL certifikat.\n"
 "Prekidanje jer se ne može utvrditi identitet hosta."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7190,7 +7190,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:490
 #, kde-format
 msgid "Server Authentication"
 msgstr "Autentifikacija servera"
@@ -7202,7 +7202,7 @@ msgid ""
 msgstr ""
 "Å½elite li da prihvatite ovaj sertifikat zauvijek, bez pitanja ubuduÄ‡e?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7219,7 +7219,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Ova radnja se ne može opozvati.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7242,7 +7242,7 @@ msgstr[2] ""
 "Å½elite li da trajno obriÅ¡ete sve stavke u smeÄ‡u? Ova radnja se ne moÅ¾e "
 "poniÅ¡titi."
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7259,7 +7259,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Ova radnja se ne može opozvati.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7284,7 +7284,7 @@ msgstr[2] ""
 "Da li zaista želite da trajno izbrišete ovih %1 stavke?<nl/><nl/><emphasis "
 "strong='true'>Ova radnja se ne može opozvati.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7293,30 +7293,30 @@ msgstr[0] "Da li zaista želite premjestiti ovu %1 stavku u Smeće?"
 msgstr[1] "Å½elite li zaista da bacite ovu %1 stavku u smeÄ‡e?"
 msgstr[2] "Å½elite li zaista da bacite ovu %1 stavku u smeÄ‡e?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ne pitaj ponovo"
 
-#: widgets/widgetsaskuseractionhandler.cpp:391
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ne pitaj ponovo"
 
-#: widgets/widgetsaskuseractionhandler.cpp:417
+#: widgets/widgetsaskuseractionhandler.cpp:413
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Ne prikazuj ponovo ovu poruku"
 
-#: widgets/widgetsaskuseractionhandler.cpp:562
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Lanac parnjaka za SSL sertifikate djeluje iskvareno."
 
-#: widgets/widgetsaskuseractionhandler.cpp:565
+#: widgets/widgetsaskuseractionhandler.cpp:553
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

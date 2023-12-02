@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-26 01:58+0000\n"
+"POT-Creation-Date: 2023-12-02 01:35+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2457,7 +2457,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' इत्यत्र 'kioworker' कार्यान्वयनीयं न लभ्यते ।"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:504
+#: widgets/widgetsaskuseractionhandler.cpp:492
 #, kde-format
 msgid "&Details"
 msgstr "&विवरणम्"
@@ -2547,7 +2547,7 @@ msgstr "नूतनं पुटम्..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "पुनर्चक्रणबिन् मध्ये स्थानान्तरणम्"
@@ -4885,14 +4885,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "स्थायिरूपेण विलोपयन्तु"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -4914,7 +4914,7 @@ msgstr[1] ""
 "किं भवान् वास्तवमेव एतानि %1 द्रव्याणि स्थायिरूपेण विलोपयितुम् इच्छति?<nl/><nl/"
 "><emphasis strong='true'>एतत् कर्म निवर्तयितुं न शक्यते ।.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4924,13 +4924,13 @@ msgstr ""
 "किं भवन्तः पुनःप्रयोगस्य कूपतः सर्वाणि वस्तूनि स्थायिरूपेण विलोपयितुम् इच्छन्ति?<nl/><nl/"
 "><emphasis strong='true'>एतत् कर्म निवर्तयितुं न शक्यते ।.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "पुनःप्रयोगस्य कूपं रिक्तं कुर्वन्तु"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6922,7 +6922,7 @@ msgstr ""
 "दूरस्थः निमन्त्रक किमपि SSL प्रमाणपत्रं न प्रेषितवान् ।\n"
 "रद्दीकरणं यतः निमन्त्रकस्य तादात्म्यं स्थापयितुं न शक्यते।."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -6932,7 +6932,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:490
 #, kde-format
 msgid "Server Authentication"
 msgstr "वितारक प्रमाणीकरणम्"
@@ -6943,7 +6943,7 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "किं भवन्तः एतत् प्रमाणपत्रं सदा अप्रत्याशितरूपेण स्वीकुर्वितुं इच्छन्ति?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6955,7 +6955,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>एतत् कर्म निवर्तयितुं न शक्यते ।.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6971,7 +6971,7 @@ msgstr[1] ""
 "किं भवान् वास्तवमेव एतानि %1 वस्तूनि स्थायिरूपेण विलोपयितुम् इच्छति?<nl/><nl/><emphasis "
 "strong='true'>एतत् कर्म निवर्तयितुं न शक्यते ।.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6983,7 +6983,7 @@ msgstr ""
 "तस्य स्थाने स्थायिरूपेण विलोपयतु?<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>एतत् क्रिया अकृतुं न शक्यते ।</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7003,7 +7003,7 @@ msgstr[1] ""
 "स्थाने तान् स्थायिरूपेण लोपयन्तु?<nl/><nl/><emphasis strong='true'>एतत् कर्म अकृतुं न "
 "शक्यते।</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7011,30 +7011,30 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "किं भवान् वास्तवमेव एतत् %1 द्रव्यं पुनःप्रयोगकक्षे स्थानान्तरयितुम् इच्छति?"
 msgstr[1] "किं भवान् वास्तवमेव एतत् %1 द्रव्यं पुनःप्रयोगकक्षे स्थानान्तरयितुम् इच्छति?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "पुनः मा पृच्छतु"
 
-#: widgets/widgetsaskuseractionhandler.cpp:391
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "पुनः मा पृच्छतु"
 
-#: widgets/widgetsaskuseractionhandler.cpp:417
+#: widgets/widgetsaskuseractionhandler.cpp:413
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "एतत् सन्देशं पुनः न दर्शयतु"
 
-#: widgets/widgetsaskuseractionhandler.cpp:562
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "सहकर्मी (peer) SSL प्रमाणपत्रशृङ्खला दूषिता दृश्यते ।."
 
-#: widgets/widgetsaskuseractionhandler.cpp:565
+#: widgets/widgetsaskuseractionhandler.cpp:553
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

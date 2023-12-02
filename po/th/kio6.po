@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-26 01:58+0000\n"
+"POT-Creation-Date: 2023-12-02 01:35+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -2496,7 +2496,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "ไม่พบ io-slave สำหรับโพรโทคอล '%1'"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:504
+#: widgets/widgetsaskuseractionhandler.cpp:492
 #, kde-format
 msgid "&Details"
 msgstr "&รายละเอียด"
@@ -2586,7 +2586,7 @@ msgstr "โฟลเดอร์ใหม่..."
 
 #: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
-#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "ทิ้งลงถังขยะ"
@@ -5029,15 +5029,15 @@ msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
 #: widgets/jobuidelegate.cpp:232 widgets/jobuidelegate.cpp:246
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:204
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "ลบรายการ"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -5060,7 +5060,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:257 widgets/widgetsaskuseractionhandler.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5073,13 +5073,13 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "เทถังขยะทิ้ง"
 
-#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:269 widgets/widgetsaskuseractionhandler.cpp:284
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7137,7 +7137,7 @@ msgstr ""
 "เครื่องแม่ข่ายปลายทางยังไม่ได้ทำการส่งใบรับรอง SSL ใด ๆ มาให้\n"
 "จึงทำการยุติเนื่องจากไม่สามารถทำการตรวจสอบการยืนยันตัวของเครื่องแม่ข่ายได้"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:495
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:483
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7147,7 +7147,7 @@ msgstr ""
 "\n"
 
 #: widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:502
+#: widgets/widgetsaskuseractionhandler.cpp:490
 #, kde-format
 msgid "Server Authentication"
 msgstr "การตรวจสอบสิทธิ์ของแม่ข่าย"
@@ -7158,7 +7158,7 @@ msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "คุณต้องการให้ยอมรับใบรับรองนี้ตลอดไปหรือไม่ เพื่อจะได้ไม่มีการถามซ้ำอีก ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7172,7 +7172,7 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7188,7 +7188,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7202,7 +7202,7 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7220,7 +7220,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7229,33 +7229,33 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "คุณต้องการทิ้ง %1 รายการนี้ลงถังขยะจริงหรือไม่ ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:391
+#: widgets/widgetsaskuseractionhandler.cpp:387
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:417
+#: widgets/widgetsaskuseractionhandler.cpp:413
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:562
+#: widgets/widgetsaskuseractionhandler.cpp:550
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ดูเหมือนห่วงโซ่ของใบรับรอง SSL ที่เท่าเทียมกันจะมีข้อผิดพลาด"
 
-#: widgets/widgetsaskuseractionhandler.cpp:565
+#: widgets/widgetsaskuseractionhandler.cpp:553
 #, kde-format
 msgid "SSL"
 msgstr "แบบ SSL"
