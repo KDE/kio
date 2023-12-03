@@ -102,7 +102,7 @@ private Q_SLOTS:
     KIOWIDGETS_NO_EXPORT void resizePanels();
 
 private:
-    KIOWIDGETS_NO_EXPORT QScrollArea *createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview);
+    KIOWIDGETS_NO_EXPORT QWidget *createContainerWidget(QLabel *preview, QLabel *SizeLabel, QLabel *DateLabel);
 
     class RenameDialogPrivate;
     std::unique_ptr<RenameDialogPrivate> const d;

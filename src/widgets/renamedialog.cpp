@@ -44,7 +44,7 @@ using namespace KIO;
 
 static QLabel *createLabel(QWidget *parent, const QString &text, bool containerTitle = false)
 {
-    QLabel *label = new QLabel(parent);
+    auto *label = new QLabel(parent);
 
     if (containerTitle) {
         QFont font = label->font();
@@ -62,19 +62,23 @@ static QLabel *createDateLabel(QWidget *parent, const KFileItem &item)
 {
     const bool hasDate = item.entry().contains(KIO::UDSEntry::UDS_MODIFICATION_TIME);
     const QString text = hasDate ? i18n("Date: %1", item.timeString(KFileItem::ModificationTime)) : QString();
-    return createLabel(parent, text);
+    QLabel *dateLabel = createLabel(parent, text);
+    dateLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    return dateLabel;
 }
 
 static QLabel *createSizeLabel(QWidget *parent, const KFileItem &item)
 {
     const bool hasSize = item.entry().contains(KIO::UDSEntry::UDS_SIZE);
     const QString text = hasSize ? i18n("Size: %1", KIO::convertSize(item.size())) : QString();
-    return createLabel(parent, text);
+    QLabel *sizeLabel = createLabel(parent, text);
+    sizeLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
+    return sizeLabel;
 }
 
 static KSqueezedTextLabel *createSqueezedLabel(QWidget *parent, const QString &text)
 {
-    KSqueezedTextLabel *label = new KSqueezedTextLabel(text, parent);
+    auto *label = new KSqueezedTextLabel(text, parent);
     label->setAlignment(Qt::AlignHCenter);
     label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
     return label;
@@ -108,8 +112,6 @@ static CompareFilesResult compareFiles(const QString &filepath, const QString &s
     QByteArray buffer(bufferSize, 0);
     QByteArray buffer2(bufferSize, 0);
 
-    bool result = true;
-
     auto seekFillBuffer = [bufferSize](qint64 pos, QFile &f, QByteArray &buffer) {
         auto ioresult = f.seek(pos);
         if (ioresult) {
@@ -124,20 +126,20 @@ static CompareFilesResult compareFiles(const QString &filepath, const QString &s
     };
 
     // compare at the beginning of the files
-    result = result && seekFillBuffer(0, f, buffer);
+    bool result = seekFillBuffer(0, f, buffer);
     result = result && seekFillBuffer(0, f2, buffer2);
     result = result && buffer == buffer2;
 
     if (result && fileSize > 2 * bufferSize) {
         // compare the contents in the middle of the files
-        result = result && seekFillBuffer(fileSize / 2 - bufferSize / 2, f, buffer);
+        result = seekFillBuffer(fileSize / 2 - bufferSize / 2, f, buffer);
         result = result && seekFillBuffer(fileSize / 2 - bufferSize / 2, f2, buffer2);
         result = result && buffer == buffer2;
     }
 
     if (result && fileSize > bufferSize) {
         // compare the contents at the end of the files
-        result = result && seekFillBuffer(fileSize - bufferSize, f, buffer);
+        result = seekFillBuffer(fileSize - bufferSize, f, buffer);
         result = result && seekFillBuffer(fileSize - bufferSize, f2, buffer2);
         result = result && buffer == buffer2;
     }
@@ -192,8 +194,8 @@ public:
     bool m_destPendingPreview = false;
     QLabel *m_srcPreview = nullptr;
     QLabel *m_destPreview = nullptr;
-    QScrollArea *m_srcArea = nullptr;
-    QScrollArea *m_destArea = nullptr;
+    QLabel *m_srcDateLabel = nullptr;
+    QLabel *m_destDateLabel = nullptr;
     KFileItem srcItem;
     KFileItem destItem;
 };
@@ -271,7 +273,7 @@ RenameDialog::RenameDialog(QWidget *parent,
                 i18n("Destination files which have older modification times will be overwritten by the source, skipped otherwise."));
             connect(d->bOverwriteWhenOlder, &QAction::triggered, this, &RenameDialog::overwriteWhenOlderPressed);
 
-            QMenu *overwriteMenu = new QMenu();
+            auto *overwriteMenu = new QMenu();
             overwriteMenu->addAction(d->bOverwriteWhenOlder);
             d->bOverwrite->setMenu(overwriteMenu);
             d->bOverwrite->setPopupMode(QToolButton::MenuButtonPopup);
@@ -284,15 +286,15 @@ RenameDialog::RenameDialog(QWidget *parent,
         connect(d->bResume, &QAbstractButton::clicked, this, &RenameDialog::resumePressed);
     }
 
-    QVBoxLayout *pLayout = new QVBoxLayout(this);
+    auto *pLayout = new QVBoxLayout(this);
     pLayout->addStrut(400); // makes dlg at least that wide
 
     // User tries to overwrite a file with itself ?
     if (_options & RenameDialog_OverwriteItself) {
-        QLabel *lb = new QLabel(i18n("This action would overwrite '%1' with itself.\n"
-                                     "Please enter a new file name:",
-                                     KStringHandler::csqueeze(d->src.toDisplayString(QUrl::PreferLocalFile), 100)),
-                                this);
+        auto *lb = new QLabel(i18n("This action would overwrite '%1' with itself.\n"
+                                   "Please enter a new file name:",
+                                   KStringHandler::csqueeze(d->src.toDisplayString(QUrl::PreferLocalFile), 100)),
+                              this);
         lb->setTextFormat(Qt::PlainText);
 
         d->bRename->setText(i18n("C&ontinue"));
@@ -340,130 +342,119 @@ RenameDialog::RenameDialog(QWidget *parent,
 
         d->m_srcPreview = createLabel(this, QString());
         d->m_destPreview = createLabel(this, QString());
-        QLabel *srcToDestArrow = createLabel(this, QString());
 
-        d->m_srcPreview->setMinimumHeight(KIconLoader::SizeEnormous);
-        d->m_destPreview->setMinimumHeight(KIconLoader::SizeEnormous);
-        srcToDestArrow->setMinimumHeight(KIconLoader::SizeEnormous);
+        d->m_srcPreview->setMinimumHeight(KIconLoader::SizeHuge);
+        d->m_srcPreview->setMinimumWidth(KIconLoader::SizeHuge);
+        d->m_destPreview->setMinimumHeight(KIconLoader::SizeHuge);
+        d->m_destPreview->setMinimumWidth(KIconLoader::SizeHuge);
 
         d->m_srcPreview->setAlignment(Qt::AlignCenter);
         d->m_destPreview->setAlignment(Qt::AlignCenter);
-        srcToDestArrow->setAlignment(Qt::AlignCenter);
 
         d->m_srcPendingPreview = true;
         d->m_destPendingPreview = true;
 
-        // widget
-        d->m_srcArea = createContainerLayout(this, d->srcItem, d->m_srcPreview);
-        d->m_destArea = createContainerLayout(this, d->destItem, d->m_destPreview);
-
-        connect(d->m_srcArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_destArea->verticalScrollBar(), &QAbstractSlider::setValue);
-        connect(d->m_destArea->verticalScrollBar(), &QAbstractSlider::valueChanged, d->m_srcArea->verticalScrollBar(), &QAbstractSlider::setValue);
-        connect(d->m_srcArea->horizontalScrollBar(), &QAbstractSlider::valueChanged, d->m_destArea->horizontalScrollBar(), &QAbstractSlider::setValue);
-        connect(d->m_destArea->horizontalScrollBar(), &QAbstractSlider::valueChanged, d->m_srcArea->horizontalScrollBar(), &QAbstractSlider::setValue);
-
         // create layout
-        QGridLayout *gridLayout = new QGridLayout();
+        auto *gridLayout = new QGridLayout();
         pLayout->addLayout(gridLayout);
 
         int gridRow = 0;
-        auto title = i18n("This action will overwrite the destination.");
+        auto question = i18n("Would you like to overwrite the destination?");
         if (d->srcItem.isDir() && d->destItem.isDir()) {
-            title = i18n("This action will merge the contents of '%1' into '%2'.",
-                         KShell::tildeCollapse(d->src.toDisplayString(QUrl::PreferLocalFile)),
-                         KShell::tildeCollapse(d->dest.toDisplayString(QUrl::PreferLocalFile)));
+            question = i18n("Would you like to merge the contents of '%1' into '%2'?",
+                            KShell::tildeCollapse(d->src.toDisplayString(QUrl::PreferLocalFile)),
+                            KShell::tildeCollapse(d->dest.toDisplayString(QUrl::PreferLocalFile)));
         }
-        QLabel *titleLabel = new QLabel(title, this);
-        gridLayout->addWidget(titleLabel, gridRow, 0, 1, 2); // takes the complete first line
-
-        gridLayout->setRowMinimumHeight(++gridRow, 15); // spacer
+        auto *questionLabel = new QLabel(question, this);
+        questionLabel->setAlignment(Qt::AlignHCenter);
+        gridLayout->addWidget(questionLabel, gridRow, 0, 1, 4); // takes the complete first line
 
         QLabel *srcTitle = createLabel(this, i18n("Source"), true);
-        gridLayout->addWidget(srcTitle, ++gridRow, 0);
+        gridLayout->addWidget(srcTitle, ++gridRow, 0, 1, 2);
         QLabel *destTitle = createLabel(this, i18n("Destination"), true);
-        gridLayout->addWidget(destTitle, gridRow, 2);
+        gridLayout->addWidget(destTitle, gridRow, 2, 1, 2);
 
+        // The labels containing src and dest path
         QLabel *srcUrlLabel = createSqueezedLabel(this, d->src.toDisplayString(QUrl::PreferLocalFile));
         srcUrlLabel->setTextFormat(Qt::PlainText);
-        gridLayout->addWidget(srcUrlLabel, ++gridRow, 0);
+        gridLayout->addWidget(srcUrlLabel, ++gridRow, 0, 1, 2);
         QLabel *destUrlLabel = createSqueezedLabel(this, d->dest.toDisplayString(QUrl::PreferLocalFile));
         destUrlLabel->setTextFormat(Qt::PlainText);
-        gridLayout->addWidget(destUrlLabel, gridRow, 2);
+        gridLayout->addWidget(destUrlLabel, gridRow, 2, 1, 2);
 
-        gridLayout->addWidget(d->m_srcArea, ++gridRow, 0, 2, 1);
+        gridRow++;
 
-        // The labels containing previews or icons, and an arrow icon indicating
-        // direction from src to dest
-        const QString arrowName = qApp->isRightToLeft() ? QStringLiteral("go-previous") : QStringLiteral("go-next");
-        const QPixmap pix = QIcon::fromTheme(arrowName).pixmap(d->m_srcPreview->height());
-        srcToDestArrow->setPixmap(pix);
-        gridLayout->addWidget(srcToDestArrow, gridRow, 1);
-
-        gridLayout->addWidget(d->m_destArea, gridRow, 2);
-
-        QLabel *diffTitle = createLabel(this, i18n("Differences"), true);
-        gridLayout->addWidget(diffTitle, ++gridRow, 1);
-
-        QLabel *srcDateLabel = createDateLabel(this, d->srcItem);
-        gridLayout->addWidget(srcDateLabel, ++gridRow, 0);
-
-        if (mtimeDest > mtimeSrc) {
-            gridLayout->addWidget(createLabel(this, QStringLiteral("The destination is <b>more recent</b>")), gridRow, 1);
-        }
-        QLabel *destDateLabel = createLabel(this, i18n("Date: %1", d->destItem.timeString(KFileItem::ModificationTime)));
-        gridLayout->addWidget(destDateLabel, gridRow, 2);
-
+        // src container (preview, size, date)
         QLabel *srcSizeLabel = createSizeLabel(this, d->srcItem);
-        gridLayout->addWidget(srcSizeLabel, ++gridRow, 0);
+        d->m_srcDateLabel = createDateLabel(this, d->srcItem);
+        QWidget *srcContainer = createContainerWidget(d->m_srcPreview, srcSizeLabel, d->m_srcDateLabel);
+        gridLayout->addWidget(srcContainer, gridRow, 0, 1, 2);
+
+        // dest container (preview, size, date)
+        QLabel *destSizeLabel = createSizeLabel(this, d->destItem);
+        d->m_destDateLabel = createDateLabel(this, d->destItem);
+        QWidget *destContainer = createContainerWidget(d->m_destPreview, destSizeLabel, d->m_destDateLabel);
+        gridLayout->addWidget(destContainer, gridRow, 2, 1, 2);
+
+        // Verdicts
+        auto *hbox_verdicts = new QHBoxLayout();
+        pLayout->addLayout(hbox_verdicts);
+        hbox_verdicts->addStretch(1);
+
+        if (mtimeSrc > mtimeDest) {
+            hbox_verdicts->addWidget(createLabel(this, QStringLiteral("The source is <b>more recent</b>.")));
+        } else if (mtimeDest > mtimeSrc) {
+            hbox_verdicts->addWidget(createLabel(this, QStringLiteral("The source is <b>older</b>.")));
+        };
 
         if (d->srcItem.entry().contains(KIO::UDSEntry::UDS_SIZE) && d->destItem.entry().contains(KIO::UDSEntry::UDS_SIZE)
             && d->srcItem.size() != d->destItem.size()) {
             QString text;
             KIO::filesize_t diff = 0;
-            if (d->srcItem.size() > d->destItem.size()) {
-                diff = d->srcItem.size() - d->destItem.size();
-                text = i18n("The destination is <b>smaller by %1</b>", KIO::convertSize(diff));
-            } else {
+            if (d->destItem.size() > d->srcItem.size()) {
                 diff = d->destItem.size() - d->srcItem.size();
-                text = i18n("The destination is <b>bigger by %1</b>", KIO::convertSize(diff));
+                text = i18n("The source is <b>smaller by %1</b>.", KIO::convertSize(diff));
+            } else {
+                diff = d->srcItem.size() - d->destItem.size();
+                text = i18n("The source is <b>bigger by %1</b>.", KIO::convertSize(diff));
             }
-            gridLayout->addWidget(createLabel(this, text), gridRow, 1);
+            hbox_verdicts->addWidget(createLabel(this, text));
         }
-        QLabel *destSizeLabel = createLabel(this, i18n("Size: %1", KIO::convertSize(d->destItem.size())));
-        gridLayout->addWidget(destSizeLabel, gridRow, 2);
 
         // check files contents for local files
-        if ((d->dest.isLocalFile() && !(_options & RenameDialog_DestIsDirectory)) && (d->src.isLocalFile() && !(_options & RenameDialog_SourceIsDirectory))) {
+        if ((d->dest.isLocalFile() && !(_options & RenameDialog_DestIsDirectory)) && (d->src.isLocalFile() && !(_options & RenameDialog_SourceIsDirectory))
+            && (d->srcItem.size() == d->destItem.size())) {
             const CompareFilesResult CompareFilesResult = compareFiles(d->src.toLocalFile(), d->dest.toLocalFile());
 
             QString text;
             switch (CompareFilesResult) {
             case CompareFilesResult::Identical:
-                text = i18n("The files are identical.");
+                text = i18n("The files are <b>identical</b>.");
                 break;
             case CompareFilesResult::PartiallyIdentical:
-                text = i18n("The files seem identical.");
+                text = i18n("The files <b>seem identical</b>.");
                 break;
             case CompareFilesResult::Different:
-                text = i18n("The files are different.");
+                text = i18n("The files are <b>different</b>.");
                 break;
             }
-            QLabel *filesIdenticalLabel = createLabel(this, text, true);
+            QLabel *filesIdenticalLabel = createLabel(this, text);
             if (CompareFilesResult == CompareFilesResult::PartiallyIdentical) {
-                QLabel *pixmapLabel = new QLabel(this);
+                auto *pixmapLabel = new QLabel(this);
                 pixmapLabel->setPixmap(QIcon::fromTheme(QStringLiteral("help-about")).pixmap(QSize(16, 16)));
                 pixmapLabel->setToolTip(
                     i18n("The files are likely to be identical: they have the same size and their contents are the same at the beginning, middle and end."));
                 pixmapLabel->setCursor(Qt::WhatsThisCursor);
 
-                QHBoxLayout *hbox = new QHBoxLayout();
+                auto *hbox = new QHBoxLayout();
                 hbox->addWidget(filesIdenticalLabel);
                 hbox->addWidget(pixmapLabel);
-                gridLayout->addLayout(hbox, gridRow + 1, 1);
+                hbox_verdicts->addLayout(hbox);
             } else {
-                gridLayout->addWidget(filesIdenticalLabel, gridRow + 1, 1);
+                hbox_verdicts->addWidget(filesIdenticalLabel);
             }
         }
+        hbox_verdicts->addStretch(1);
 
     } else {
         // This is the case where we don't want to allow overwriting, the existing
@@ -488,11 +479,11 @@ RenameDialog::RenameDialog(QWidget *parent,
             pLayout->addSpacing(15); // spacer
         }
 
-        QLabel *lb2 = new QLabel(i18n("Rename:"), this);
+        auto *lb2 = new QLabel(i18n("Rename:"), this);
         pLayout->addWidget(lb2);
     }
 
-    QHBoxLayout *layout2 = new QHBoxLayout();
+    auto *layout2 = new QHBoxLayout();
     pLayout->addLayout(layout2);
 
     d->m_pLineEdit = new QLineEdit(this);
@@ -514,12 +505,10 @@ RenameDialog::RenameDialog(QWidget *parent,
         setTabOrder(d->m_pLineEdit, d->bSuggestNewName);
     }
 
-    KSeparator *separator = new KSeparator(this);
-    pLayout->addWidget(separator);
-
-    QHBoxLayout *layout = new QHBoxLayout();
+    auto *layout = new QHBoxLayout();
     pLayout->addLayout(layout);
 
+    layout->setContentsMargins(0, 10, 0, 0); // add some space above the bottom row with buttons
     layout->addStretch(1);
 
     if (d->bApplyAll) {
@@ -527,14 +516,14 @@ RenameDialog::RenameDialog(QWidget *parent,
         setTabOrder(d->bApplyAll, d->bCancel);
     }
 
-    if (d->bRename) {
-        layout->addWidget(d->bRename);
-        setTabOrder(d->bRename, d->bCancel);
-    }
-
     if (d->bSkip) {
         layout->addWidget(d->bSkip);
         setTabOrder(d->bSkip, d->bCancel);
+    }
+
+    if (d->bRename) {
+        layout->addWidget(d->bRename);
+        setTabOrder(d->bRename, d->bCancel);
     }
 
     if (d->bOverwrite) {
@@ -745,26 +734,15 @@ void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pix
 
 void RenameDialog::resizePanels()
 {
-    Q_ASSERT(d->m_srcArea != nullptr);
-    Q_ASSERT(d->m_destArea != nullptr);
     Q_ASSERT(d->m_srcPreview != nullptr);
     Q_ASSERT(d->m_destPreview != nullptr);
 
-    const QSize screenSize =
-        parentWidget() ? parentWidget()->screen()->availableGeometry().size() : QGuiApplication::primaryScreen()->availableGeometry().size();
-
-    QSize halfSize = d->m_srcArea->widget()->sizeHint().expandedTo(d->m_destArea->widget()->sizeHint());
-    const QSize currentSize = d->m_srcArea->size().expandedTo(d->m_destArea->size());
-    const int maxHeightPossible = screenSize.height() - (size().height() - currentSize.height());
-    QSize maxHalfSize = QSize(screenSize.width() / qreal(2.1), maxHeightPossible * qreal(0.9));
-
-    if (halfSize.height() > maxHalfSize.height() && halfSize.width() <= maxHalfSize.width() + d->m_srcArea->verticalScrollBar()->width()) {
-        halfSize.rwidth() += d->m_srcArea->verticalScrollBar()->width();
-        maxHalfSize.rwidth() += d->m_srcArea->verticalScrollBar()->width();
-    }
-
-    d->m_srcArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
-    d->m_destArea->setMinimumSize(halfSize.boundedTo(maxHalfSize));
+    // Force keep the same (max) width of date width for src and dest
+    int destDateWidth = d->m_destDateLabel->width();
+    int srcDateWidth = d->m_srcDateLabel->width();
+    int minDateWidth = std::max(destDateWidth, srcDateWidth);
+    d->m_srcDateLabel->setMinimumWidth(minDateWidth);
+    d->m_destDateLabel->setMinimumWidth(minDateWidth);
 
     KIO::PreviewJob *srcJob = KIO::filePreview(KFileItemList{d->srcItem}, QSize(d->m_srcPreview->width() * qreal(0.9), d->m_srcPreview->height()));
     srcJob->setScaleType(KIO::PreviewJob::Unscaled);
@@ -778,42 +756,24 @@ void RenameDialog::resizePanels()
     connect(destJob, &PreviewJob::failed, this, &RenameDialog::showDestIcon);
 }
 
-QScrollArea *RenameDialog::createContainerLayout(QWidget *parent, const KFileItem &item, QLabel *preview)
+QWidget *RenameDialog::createContainerWidget(QLabel *preview, QLabel *SizeLabel, QLabel *DateLabel)
 {
-    Q_UNUSED(item)
-#if 0 // PENDING
-    KFileItemList itemList;
-    itemList << item;
+    auto *widgetContainer = new QWidget();
+    auto *containerLayout = new QHBoxLayout(widgetContainer);
 
-    // KFileMetaDataWidget was deprecated for a Nepomuk widget, which is itself deprecated...
-    // If we still want metadata shown, we need a plugin that fetches data from KFileMetaData::ExtractorCollection
-    KFileMetaDataWidget *metaWidget =  new KFileMetaDataWidget(this);
-
-    metaWidget->setReadOnly(true);
-    metaWidget->setItems(itemList);
-    // ### This is going to call resizePanels twice! Need to split it up to do preview job only once on each side
-    connect(metaWidget, SIGNAL(metaDataRequestFinished(KFileItemList)), this, SLOT(resizePanels()));
-#endif
-
-    // Encapsulate the MetaDataWidgets inside a container with stretch at the bottom.
-    // This prevents that the meta data widgets get vertically stretched
-    // in the case where the height of m_metaDataArea > m_metaDataWidget.
-
-    QWidget *widgetContainer = new QWidget(parent);
-    QVBoxLayout *containerLayout = new QVBoxLayout(widgetContainer);
-
-    containerLayout->setContentsMargins(0, 0, 0, 0);
-    containerLayout->setSpacing(0);
+    containerLayout->addStretch(1);
     containerLayout->addWidget(preview);
+
+    auto *detailsLayout = new QVBoxLayout(widgetContainer);
+    detailsLayout->addStretch(1);
+    detailsLayout->addWidget(SizeLabel);
+    detailsLayout->addWidget(DateLabel);
+    detailsLayout->addStretch(1);
+
+    containerLayout->addLayout(detailsLayout);
     containerLayout->addStretch(1);
 
-    QScrollArea *metaDataArea = new QScrollArea(parent);
-
-    metaDataArea->setWidget(widgetContainer);
-    metaDataArea->setWidgetResizable(true);
-    metaDataArea->setFrameShape(QFrame::NoFrame);
-
-    return metaDataArea;
+    return widgetContainer;
 }
 
 #include "moc_renamedialog.cpp"
