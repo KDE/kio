@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2023-09-12 02:07+0900\n"
+"PO-Revision-Date: 2023-12-02 20:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -2217,10 +2217,7 @@ msgstr ""
 "因所致。"
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
@@ -4243,23 +4240,7 @@ msgid "&Management"
 msgstr "管理(&M)"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#| "using the HTTP protocol (like Konqueror) store on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#| "customize the way it handles cookies. So you might want to set the "
-#| "default policy to ask you whenever a server wants to set a cookie, "
-#| "allowing you to decide. For your favorite shopping web sites that you "
-#| "trust, you might want to set the policy to accept, then you can access "
-#| "the web sites without being prompted every time a cookie is received.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -5875,13 +5856,7 @@ msgid ""
 msgstr "資源無法在目標被建立，直到一個或多個中間集合(資料夾)已經被建立之後。"
 
 #: kioworkers/http/http.cpp:1699
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element\n"
-#| " or you attempted to overwrite a file while requesting that files are not "
-#| "overwritten.\n"
-#| " %1"
+#, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
 "properties listed in the propertybehavior XML element\n"
@@ -5889,9 +5864,10 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"伺服器無法維護列表在在屬性行為的 XML 元素中的屬性的生存或是您試圖在不被覆寫"
-"的\n"
-"檔案裡覆寫一個檔案。 %1"
+"伺服器無法維護在 propertybehavior（屬性行為）XML 元素\n"
+"中列舉的屬性的活性狀態，或是您要求檔案不被覆寫的同時\n"
+"仍然試圖覆寫檔案。\n"
+" %1"
 
 #: kioworkers/http/http.cpp:1707
 #, kde-format
@@ -7326,10 +7302,9 @@ msgstr "在 Filelight 瀏覽"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:131
-#, fuzzy, kde-format
-#| msgid "Mounted from:"
+#, kde-format
 msgid "Mounted From:"
-msgstr "掛載於："
+msgstr "掛載來源："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:207
@@ -7911,15 +7886,13 @@ msgid "Ad&vanced Options"
 msgstr "進階的選項(&V)"
 
 #: widgets/kpropertiesdialog.cpp:177
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<qt>Could not save properties. You do not have sufficient access to write "
-#| "to <b>%1</b>.</qt>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
-msgstr "<qt>無法儲存內容。您沒有足夠的存取權來寫入 <b>%1</b>。</qt>"
+msgstr ""
+"無法儲存屬性。沒有足夠的存取權來寫入檔案：<nl/><filename>%1</filename>。"
 
 #: widgets/kpropertiesdialog.cpp:234 widgets/kpropertiesdialog.cpp:249
 #: widgets/kpropertiesdialog.cpp:261 widgets/kpropertiesdialog.cpp:279
