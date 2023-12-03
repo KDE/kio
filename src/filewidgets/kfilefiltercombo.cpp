@@ -92,6 +92,10 @@ void KFileFilterCombo::setFilters(const QList<KFileFilter> &types, const KFileFi
     }
 
     for (const KFileFilter &filter : types) {
+        if (!filter.isValid()) {
+            continue;
+        }
+
         const QStringList mimeTypes = filter.mimePatterns();
 
         const bool isAllFileFilters = std::any_of(mimeTypes.cbegin(), mimeTypes.cend(), [&db](const QString &mimeTypeName) {

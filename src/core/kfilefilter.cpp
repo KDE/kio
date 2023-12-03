@@ -33,6 +33,7 @@ public:
     QString m_label;
     QStringList m_filePatterns;
     QStringList m_mimePatterns;
+    bool m_isValid = true;
 };
 
 QList<KFileFilter> KFileFilter::fromFilterString(const QString &filterString)
@@ -141,6 +142,11 @@ bool KFileFilter::isEmpty() const
     return d->m_filePatterns.isEmpty() && d->m_mimePatterns.isEmpty();
 }
 
+bool KFileFilter::isValid() const
+{
+    return d->m_isValid;
+}
+
 QString KFileFilter::toFilterString() const
 {
     if (!d->m_filePatterns.isEmpty() && !d->m_mimePatterns.isEmpty()) {
@@ -169,14 +175,26 @@ QString KFileFilter::toFilterString() const
 KFileFilter KFileFilter::fromMimeType(const QString &mimeType)
 {
     if (mimeType.isEmpty()) {
-        return KFileFilter();
+        qCWarning(KIO_CORE) << "KFileFilter::fromMimeType() called with empty input";
+
+        KFileFilter filter;
+        filter.d->m_isValid = false;
+        return filter;
     }
 
     static QMimeDatabase db;
     const QMimeType type = db.mimeTypeForName(mimeType);
 
-    KFileFilter filter(type.comment(), {}, {mimeType});
-    return filter;
+    if (type.isValid()) {
+        KFileFilter filter(type.comment(), {}, {mimeType});
+        return filter;
+    } else {
+        qCWarning(KIO_CORE) << "KFileFilter::fromMimeType() called with unknown MIME type" << mimeType;
+
+        KFileFilter filter;
+        filter.d->m_isValid = false;
+        return filter;
+    }
 }
 
 QList<KFileFilter> KFileFilter::fromMimeTypes(const QStringList &mimeTypes)

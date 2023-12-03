@@ -73,6 +73,15 @@ public:
      */
     bool isEmpty() const;
 
+    /**
+     * Whether the filter is valid.
+     *
+     * Creating a filter from an invalid/unkown MIME type will result in an invalid filter.
+     *
+     * @since 6.0
+     */
+    bool isValid() const;
+
     /*
      * Creates a filter for one MIME type.
      * The user-facing label is automatically determined from the MIME type.
