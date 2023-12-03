@@ -153,25 +153,28 @@ WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
         (setACL(_path.data(), permissions, false) == -1) ||
         /* if not a directory, cannot set default ACLs */
         (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
-        auto result = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errno);
+
+        Error errCode = KIO::ERR_CANNOT_CHMOD;
+        switch (errno) {
+        case EPERM:
+        case EACCES:
+            errCode = KIO::ERR_ACCESS_DENIED;
+            break;
+#if defined(ENOTSUP)
+        case ENOTSUP: // from setACL since chmod can't return ENOTSUP
+            errCode = KIO::ERR_UNSUPPORTED_ACTION;
+            break;
+#endif
+        case ENOSPC:
+            errCode = KIO::ERR_DISK_FULL;
+            break;
+        default:
+            break;
+        }
+        auto result = execWithElevatedPrivilege(CHMOD, {_path, permissions}, errCode);
         if (!result.success()) {
             if (!resultWasCancelled(result)) {
-                switch (result.error()) {
-                case EPERM:
-                case EACCES:
-                    return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
-                    break;
-#if defined(ENOTSUP)
-                case ENOTSUP: // from setACL since chmod can't return ENOTSUP
-                    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Setting ACL for %1", path));
-                    break;
-#endif
-                case ENOSPC:
-                    return WorkerResult::fail(KIO::ERR_DISK_FULL, path);
-                    break;
-                default:
-                    return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
-                }
+                return result;
             }
         }
     }
@@ -188,7 +191,8 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &url, const QDateTime 
         utbuf.actime = statbuf.st_atime; // access time, unchanged
         utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
         if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            auto result = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno);
+            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
+            auto result = execWithElevatedPrivilege(UTIME, {path, qint64(utbuf.actime), qint64(utbuf.modtime)}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
                     // TODO: errno could be EACCES, EPERM, EROFS
@@ -211,7 +215,8 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     // Remove existing file or symlink, if requested (#151851)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         if (!QFile::remove(path)) {
-            execWithElevatedPrivilege(DEL, {path}, errno);
+            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+            execWithElevatedPrivilege(DEL, {path}, errCode);
         }
     }
 
@@ -219,7 +224,8 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
         bool dirCreated = QDir().mkdir(path);
         if (!dirCreated) {
-            auto result = execWithElevatedPrivilege(MKDIR, {path}, errno);
+            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_MKDIR;
+            auto result = execWithElevatedPrivilege(MKDIR, {path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
                     // TODO: add access denied & disk full (or another reasons) handling (into Qt, possibly)
@@ -289,7 +295,8 @@ WorkerResult FileProtocol::get(const QUrl &url)
 
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        auto result = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errno);
+        Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_READING;
+        auto result = tryOpen(f, QFile::encodeName(path), O_RDONLY, S_IRUSR, errCode);
         if (!result.success()) {
             if (!resultWasCancelled(result)) {
                 return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
@@ -636,23 +643,16 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                         }
                     }
 
-                    auto result = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errno);
+                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_READ;
+                    auto result = tryOpen(f, QFile::encodeName(dest), oflags, filemode, errCode);
                     if (!result.success()) {
                         if (!resultWasCancelled(result)) {
-                            // qDebug() << "####################### COULD NOT WRITE" << dest << "_mode=" << _mode;
-                            // qDebug() << "QFile error==" << f.error() << "(" << f.errorString() << ")";
-
-                            if (f.error() == QFileDevice::PermissionsError) {
-                                return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-                            } else {
-                                return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
-                            }
+                            return result;
                         }
-                        return WorkerResult::pass();
                     } else {
 #ifndef Q_OS_WIN
                         if ((_flags & KIO::Resume)) {
-                            execWithElevatedPrivilege(CHOWN, {dest, getuid(), getgid()}, errno);
+                            execWithElevatedPrivilege(CHOWN, {dest, getuid(), getgid()}, errCode);
                             QFile::setPermissions(dest, modeToQFilePermissions(filemode));
                         }
 #endif
@@ -710,18 +710,19 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
         // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
             if (!QFile::remove(dest_orig)) {
-                execWithElevatedPrivilege(DEL, {dest_orig}, errno);
+                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                execWithElevatedPrivilege(DEL, {dest_orig}, errCode);
             }
         }
 
         if (!QFile::rename(dest, dest_orig)) {
-            auto result = execWithElevatedPrivilege(RENAME, {dest, dest_orig}, errno);
+            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RENAME_PARTIAL;
+            auto result = execWithElevatedPrivilege(RENAME, {dest, dest_orig}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
                     qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
                     return WorkerResult::fail(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
                 }
-                return WorkerResult::pass();
             }
         }
 #ifdef WITH_QTDBUS
@@ -735,7 +736,8 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
             // couldn't chmod. Eat the error if the filesystem apparently doesn't support it.
             KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(dest_orig);
             if (mp && mp->testFileSystemFlag(KMountPoint::SupportsChmod)) {
-                if (!tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errno).success()) {
+                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_CHOWN;
+                if (!tryChangeFileAttr(CHMOD, {dest_orig, _mode}, errCode).success()) {
                     warning(i18n("Could not change permissions for\n%1", dest_orig));
                 }
             }
@@ -975,11 +977,9 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
         } else {
             // qDebug() << "QFile::remove" << itemPath;
             if (!QFile::remove(itemPath)) {
-                auto result = execWithElevatedPrivilege(DEL, {itemPath}, errno);
+                Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_DELETE;
+                auto result = execWithElevatedPrivilege(DEL, {itemPath}, errCode);
                 if (!result.success()) {
-                    if (!resultWasCancelled(result)) {
-                        return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
-                    }
                     return result;
                 }
             }
@@ -989,11 +989,9 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
     for (const QString &itemPath : std::as_const(dirsToDelete)) {
         // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
-            auto result = execWithElevatedPrivilege(RMDIR, {itemPath}, errno);
+            Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
+            auto result = execWithElevatedPrivilege(RMDIR, {itemPath}, errCode);
             if (!result.success()) {
-                if (!resultWasCancelled(result)) {
-                    return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
-                }
                 return result;
             }
         }
