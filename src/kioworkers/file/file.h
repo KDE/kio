@@ -80,13 +80,13 @@ private:
     KIO::WorkerResult deleteRecursive(const QString &path);
 
     bool privilegeOperationUnitTestMode();
-    KIO::WorkerResult execWithElevatedPrivilege(ActionType action, const QVariantList &args, int errcode);
-    KIO::WorkerResult tryOpen(QFile &f, const QByteArray &path, int flags, int mode, int errcode);
+    KIO::WorkerResult execWithElevatedPrivilege(ActionType action, const QVariantList &args, KIO::Error errcode);
+    KIO::WorkerResult tryOpen(QFile &f, const QByteArray &path, int flags, int mode, KIO::Error errcode);
 
     // We want to execute chmod/chown/utime with elevated privileges (in copy & put)
     // only during the brief period privileges are elevated. If it's not the case show
     // a warning and continue.
-    KIO::WorkerResult tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode);
+    KIO::WorkerResult tryChangeFileAttr(ActionType action, const QVariantList &args, KIO::Error errcode);
 
     KIO::WorkerResult redirect(const QUrl &url);
 
