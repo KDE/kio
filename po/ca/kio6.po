@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-11-08 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3865,7 +3865,7 @@ msgstr ""
 "No s'ha pogut fer executable el servei %1, s'ha interromput l'execució.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3941,7 +3941,7 @@ msgstr ""
 "%1\n"
 "és de tipus «Link» però no té cap entrada URL=..."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3950,7 +3950,7 @@ msgstr ""
 "El fitxer executable «%1» està ubicat a un sistema de fitxers remot. No "
 "s'engegarà per motius de seguretat."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3958,7 +3958,7 @@ msgstr ""
 "Per motius de seguretat no es permet el llançament d'executables en aquest "
 "context."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3967,7 +3967,7 @@ msgstr ""
 "Cal que el programa «%1» tingui el permís d'execució abans que es pugui "
 "llançar."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3976,12 +3976,12 @@ msgstr ""
 "No es pot fer executable el fitxer «%1».\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "El fitxer d'entrades «desktop» %1 no té cap entrada Type=..."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3992,12 +3992,12 @@ msgstr ""
 "Comproveu les vostres aplicacions obertes i l'àrea de notificació per a "
 "qualsevol tasca o baixada pendent."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ha fallat en obrir el fitxer."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "No s'ha pogut llançar el programa «%1»."

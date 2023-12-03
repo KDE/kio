@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-11-09 02:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3792,7 +3792,7 @@ msgstr ""
 "სერვისის %1 გაშვებადად გადაკეთება შეუძლებებელია. შესრულება შეწყდება.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ამ ფაილის გასახსნელი აპლიკაციის არჩევის ავტორიზაცია არ გაგაჩნიათ."
@@ -3868,7 +3868,7 @@ msgstr ""
 "%1\n"
 "Link ტიპისაა, მაგრამ URL=... ჩანაწერი არ გააჩნია."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3877,21 +3877,21 @@ msgstr ""
 "გამშვები ფაილი \"%1\" დაშორებულ ფაილურ სისტემაზეა მოთავსებული. უსაფრთხოების "
 "მიზნით ის არ გაეშვება."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "უსაფრთხოებისთვის გამშვები ფაილების შესრულება ამ კონტექსტში დაშვებული არაა."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "პროგრამას \"%1\" გაშვებამდე შესრულებადობის წვდომა სჭირდება."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3900,12 +3900,12 @@ msgstr ""
 "\"%1\"-ის გამშვებ ფაილად გადაკეთების შეცდომა.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "სამუშაო მაგიდის ფაილს %1 Type= ჩანაწერი არ გააჩნია."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3916,12 +3916,12 @@ msgstr ""
 "შეამოწმეთ ღია აპლიკაციები და საათთან რამე ამოცანა ან გადმოწერა ხომ არ "
 "მიმდინარეობს."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ფაილის გახსნის შეცდომა."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "პროგრამა %1-ის გაშების შეცდომა."

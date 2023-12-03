@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -3767,7 +3767,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3838,7 +3838,7 @@ msgstr ""
 "%1\n"
 "дорои намуди Link мебошад ва лекин дорои қайдоти URL=...намебошад."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -3850,32 +3850,32 @@ msgstr ""
 "<qt>Файл <b>%1</b> барномаи иҷрошаванда мебошад. Ба мақсади ҳифз он "
 "муҳофизат намешавад.</qt>"
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Файли desktop %1 дорои қайдоти Type=... намебошад."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3883,12 +3883,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The program \"%1\" could not be launched."

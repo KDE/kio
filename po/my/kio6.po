@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3715,7 +3715,7 @@ msgstr ""
 "ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ဤဖိုင်လ်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
@@ -3790,27 +3790,27 @@ msgstr ""
 "%1\n"
 "သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "လုပ်ဆောင်-ဖိုင်လ် \"%1\" သည် အဝေးဖိုင်လ်စနစ်တွင်ရှိသည်။ လုံခြုရေးအရ ၎င်းကို စတင်မည်မဟုတ်ပါ။"
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "လုံခြုံရေးအရ ဤဆက်စပ်နေရာတွင် လုပ်ဆောင်-ဖိုင်လ်များ လွှင့်တင်ခြင်း ခွင့်မပြုထားပါ။"
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်နိုင်ရန် မောင်းနှင်ရန် ခွင့်ပြုချက် လိုအပ်သည်််။"
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3819,12 +3819,12 @@ msgstr ""
 "ဖိုင်လ် \"%1\" ကို လုပ်ဆောင်-ဖိုင်လ် မလုပ်နိုင်ခဲ့ပါ။\n"
 "%2။"
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင်လ် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3835,12 +3835,12 @@ msgstr ""
 "သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
 "စစ်ကြည့်ပါ။"
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ဖိုင်လ်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မရပါ။"

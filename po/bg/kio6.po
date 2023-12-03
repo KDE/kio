@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-11-11 16:01+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -3826,7 +3826,7 @@ msgstr ""
 "Услугата %1 не може да се изпълни, прекъсвайки изпълнението. \n"
 " %2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Нямате права за отварянето на файла."
@@ -3901,7 +3901,7 @@ msgstr ""
 "%1\n"
 "е от тип символна връзка, но не съдържа ред \"URL=...\"."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3910,7 +3910,7 @@ msgstr ""
 "Изпълнимият файл \"%1\" се намира в отдалечена файлова система. От "
 "съображения за безопасност няма да бъде стартиран."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3918,7 +3918,7 @@ msgstr ""
 "От съображения за сигурност в този контекст не е разрешено стартирането на "
 "изпълними файлове."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3927,7 +3927,7 @@ msgstr ""
 "Програмата \"%1\" трябва да има разрешение за изпълнение, преди да може да "
 "бъде стартира."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3936,12 +3936,12 @@ msgstr ""
 "Не може да се направи файл \"%1\" изпълним. \n"
 " %2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Записът във файл за работен плот \"%1\" не съдържа ред \"Type=...\"."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3952,12 +3952,12 @@ msgstr ""
 "Проверете отворените си приложения и областта за уведомяване за всички "
 "предстоящи задачи или изтегляния."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Неуспешно отваряне на файла."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Програмата \"%1 \" не можа да бъде стартирана."

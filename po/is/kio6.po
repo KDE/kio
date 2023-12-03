@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-08-11 13:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -3819,7 +3819,7 @@ msgstr ""
 "Tókst ekki að gera þjónustuna %1 keyranlega, hætt við keyrslu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Þú hefur ekki heimild til að velja forrit til að opna þessa skrá."
@@ -3894,7 +3894,7 @@ msgstr ""
 "%1\n"
 "er af gerðinni tengill en er ekki með neina URL=...-færslu."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3903,14 +3903,14 @@ msgstr ""
 "Keyrsluskráin \"%1\" er staðsett á fjartengdu skráakerfi.  Af öryggisástæðum "
 "verður hún ekki keyrð."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Öryggisins vegna er ekki leyfilegt að ræsa keyrsluskrár í þessu samhengi."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3918,7 +3918,7 @@ msgid ""
 msgstr ""
 "Forritið \"%1\" þarf að vera með keyrsluheimild til að hægt sé að ræsa það."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3927,12 +3927,12 @@ msgstr ""
 "Tókst ekki að gera skrána \"%1\" keyranlega.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skjáborðsfærsluskráin %1 er ekki með neina Type=...-færslu."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3943,12 +3943,12 @@ msgstr ""
 "Athugaðu hvort verk í bið eða niðurhal sé að finna í forritum sem eru opin "
 "og á tilkynningasvæðinu."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mistókst að opna skrána."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ekki var hægt að ræsa forritið \"%1\"."

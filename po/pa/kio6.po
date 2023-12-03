@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-01-25 07:39-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3637,7 +3637,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ਤੁਸੀਂ ਇਹ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣਨ ਲਈ ਪਰਮਾਣਿਤ ਨਹੀਂ ਹੋ।"
@@ -3712,7 +3712,7 @@ msgstr ""
 "%1\n"
 "ਇੱਕ ਲਿੰਕ ਕਿਸਮ ਦੀ ਹੈ, ਪਰ ਕੋਈ URL=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3721,20 +3721,20 @@ msgstr ""
 "ਚੱਲਣਯੋਗ ਫਾਈਲ \"%1\" ਰਿਮੋਟ ਫਾਈਲ-ਸਿਸਟਮ ਉੱਤੇ ਮੌਜੂਦ ਹੈ। ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ "
 "ਜਾ ਸਕੇਗਾ।"
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਚੱਲਣਯੋਗ ਨੂੰ ਇਸ ਰੂਪ ਵਿੱਚ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3743,12 +3743,12 @@ msgstr ""
 "\"%1\" ਫਾਈਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ।\n"
 "%2"
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਈਲ %1 ਵਿੱਚ ਕੋਈ  Type=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3756,12 +3756,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ਫ਼ਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ਪਰੋਗਰਾਮ \"%1\" ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"

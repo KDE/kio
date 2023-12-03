@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2023-02-15 16:10+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -3906,7 +3906,7 @@ msgstr ""
 "Não é possível tornar o serviço %1 executável; a interromper a execução.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3984,7 +3984,7 @@ msgstr ""
 "%1\n"
 "é do tipo Link mas não tem entrada URL=...."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3993,7 +3993,7 @@ msgstr ""
 "O ficheiro executável \"%1\" encontra-se num sistema de ficheiros remoto. "
 "Por motivos de segurança, não será iniciado."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4001,7 +4001,7 @@ msgstr ""
 "Por motivos de segurança, o lançamento de executáveis não é permitido neste "
 "contexto."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4010,7 +4010,7 @@ msgstr ""
 "O programa \"%1\" precisa de ter permissões de execução para poder ser "
 "lançado."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4019,12 +4019,12 @@ msgstr ""
 "Não é possível tornar o ficheiro \"%1\" executável.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "O ficheiro desktop %1 não tem uma entrada Type=...."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4035,12 +4035,12 @@ msgstr ""
 "Procure nas suas aplicações abertas e na área de notificações por tarefas ou "
 "transferências pendentes."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Não foi possível aceder ao ficheiro."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Não foi possível lançar o programa \"%1\"."

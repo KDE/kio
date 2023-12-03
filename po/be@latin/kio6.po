@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -3936,7 +3936,7 @@ msgstr ""
 "Nie ŭdalosia zrabić službu %1 vykanaĺnaj, skasavannie vykanannia.\n"
 " %2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4015,7 +4015,7 @@ msgstr ""
 " %1\n"
 "- spasylka, alie jon nie maje zapisu URL=…"
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4024,20 +4024,20 @@ msgstr ""
 "Vykanaĺny fajl \"%1\" razmieščany ŭ adliehlaj fajlavaj sistemie. Z pryčyn "
 "biaspieki jon nie byŭ zapuščany."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "Z pryčyn biaspieki zapusk vykanaĺnych fajlaŭ zabaronieny."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Pierad zapuskam prahramie \"%1\" treba dać pravy na vykanannie."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4046,12 +4046,12 @@ msgstr ""
 "Nie ŭdalosia zrabić fajl \"%1\" vykanaĺnym.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fajl zapisu pracoŭnaha stala %1 nie maje zapisu Type=…"
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4062,12 +4062,12 @@ msgstr ""
 "Praviercie adkrytyja prahramy i praastoru apaviaščenniaŭ na najaŭnasć "
 "niezavieršanych zadač abo spampoŭvanniaŭ."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nie ŭdalosia adkryć fajl."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Nie ŭdalosia zapuscić prahramu \"%1\"."

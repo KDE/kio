@@ -1,22 +1,22 @@
 # translation of kio5.po to Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2014, 2015, 2016, 2019.
 # Mthw <jari_45@hotmail.com>, 2019.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 # Ferdinand Galko <galko.ferdinand@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
-"PO-Revision-Date: 2023-06-03 21:00+0200\n"
-"Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
-"Language-Team: Slovak <opensuse-translation@opensuse.org>\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
+"PO-Revision-Date: 2023-12-02 20:03+0100\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -2518,7 +2518,7 @@ msgstr "Iba pre &aktuálne sedenia"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -3140,7 +3140,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Preformátovať alebo upraviť so správcom partícií"
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3184,11 +3184,10 @@ msgid "&Edit…"
 msgstr "&Upraviť..."
 
 #: filewidgets/kfileplacesview.cpp:1172
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Odstrániť súbor"
+msgstr "Odstrániť z miest"
 
 #: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
@@ -3478,10 +3477,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Vzdialené súbory nie sú akceptované"
 
 #: filewidgets/kfilewidget.cpp:1874
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Všetky priečinky"
+msgstr "Všetky priečinky"
 
 #: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
@@ -3803,7 +3801,7 @@ msgstr ""
 "Nie je možné nastaviť službu %1 ako spustiteľnú, prerušuje sa spustenie.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nemáte práva pre výber aplikácie na otvorenie tohto súboru."
@@ -3879,7 +3877,7 @@ msgstr ""
 "%1\n"
 "je typu Odkaz, ale nemá položku URL=..."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3888,7 +3886,7 @@ msgstr ""
 "Spustiteľný súbor \"%1\" je umiestnený na vzdialenom súborovom systéme. Z "
 "bezpečnostných dôvodov sa nespustí."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3896,14 +3894,14 @@ msgstr ""
 "Z bezpečnostných dôvodov nie je v tomto kontexte spustenie spustiteľných "
 "súborov povolené."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Program \"%1\" potrebuje oprávnenie na spustenie pred spustením."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3912,12 +3910,12 @@ msgstr ""
 "Nie je možné zmeniť súbor \"%1\" na spustiteľný.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Súbor položky plochy %1 nemá položku Type=..."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3928,12 +3926,12 @@ msgstr ""
 "Skontrolujte otvorené aplikácie a oblasť oznámení, či v nich nie sú čakajúce "
 "úlohy alebo stiahnutia."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nepodarilo sa otvoriť súbor."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ sa nepodarilo spustiť."
@@ -4096,13 +4094,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Nepodarilo sa zmeniť vlastníka pre %1."
+msgstr ""
+"Nepodarilo sa zmeniť vlastníka a skupinu pre\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -6791,10 +6790,9 @@ msgid "This action will overwrite the destination."
 msgstr "Táto akcia prepíše cieľ."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "Táto akcia prepíše cieľ."
+msgstr "Táto akcia zlúči obsah '%1' do '%2'."
 
 #: widgets/renamedialog.cpp:381
 #, kde-format

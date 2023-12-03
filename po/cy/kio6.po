@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3863,7 +3863,7 @@ msgstr ""
 "Ni all gwneud y wasanaeth %1 yn weithrediadwyolyn, yn erthylu gweithred.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nid ydych wedi cael eich awdurdodi i weithredu'r ffeil yma."
@@ -3938,7 +3938,7 @@ msgstr ""
 " %1\n"
 " o fath Link ond nid oes  cofnod URL= ... ganddo."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3947,7 +3947,7 @@ msgstr ""
 "Mae'r ffeil \"%1\" yn raglen weithredadwy ar y ffeilgyfundren anghysbell. Er "
 "mwyn diogelwch, ni fydd hi'n cael ei chychwyn."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3955,7 +3955,7 @@ msgstr ""
 "Ar gyfer rhesymau diogelwch, nid ydy cychwyn gweithrediadwyolion yn ei "
 "ganiatawyd yn y cytdestun yma."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3964,7 +3964,7 @@ msgstr ""
 "Mae'n angen rhaglen \"%1\" gyda hi caniatad gweithrediadwy cyn ei chael ei "
 "chychwynwyd."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3973,12 +3973,12 @@ msgstr ""
 "Methu gwneud ffeil \"%1\" yn weithrediadwyolyn.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Mae'r ffeil cofnod penbwrdd  %1 heb gofnod Type= ..."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3989,12 +3989,12 @@ msgstr ""
 "Gwiriwch eich cymhwysiadau a'r ardal hysbysebiad am unrhyw tasgiau neu "
 "lawrlwythiadau ymddibynniedig."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Methu i agor y ffeil."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ni allai lansio rhaglen \"%1\"."

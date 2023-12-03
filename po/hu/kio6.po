@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3858,7 +3858,7 @@ msgstr ""
 "megszakadt\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nincs jogosultsága alkalmazást választani ehhez a fájlhoz."
@@ -3935,7 +3935,7 @@ msgstr ""
 "asztalbejegyzés-fájl\n"
 "link típusú, de nincs URL=... sora."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3944,7 +3944,7 @@ msgstr ""
 "A(z) „%1” végrehajtható fájl egy távoli fájlrendszeren található. Biztonsági "
 "okokból nem lesz elindítva."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3952,7 +3952,7 @@ msgstr ""
 "Biztonsági okokból ebben a környezetben nem engedélyezett végrehajthatók "
 "indítása."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3961,7 +3961,7 @@ msgstr ""
 "A(z) „%1” programnak végrehajthatósági jogosultságra van szüksége, mielőtt "
 "elindulhatna."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3970,12 +3970,12 @@ msgstr ""
 "A(z) „%1” fájl nem tehető végrehajthatóvá.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "A(z) %1 asztalbejegyzés-fájl nem tartalmaz Type=... sort."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3986,12 +3986,12 @@ msgstr ""
 "Ellenőrizze a megnyitott alkalmazásokat és az értesítési területet függő "
 "feladatokért vagy letöltésekért."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "A fájl megnyitása meghiúsult."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "A(z) „%1” program nem indítható el."

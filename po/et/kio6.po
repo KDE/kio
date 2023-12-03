@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -3816,7 +3816,7 @@ msgstr ""
 "Teenust %1 ei õnnestunud muuta käivitatavaks, käivitamisest loobutakse.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Sul puuduvad õigused valida rakendust selle faili avamiseks."
@@ -3893,7 +3893,7 @@ msgstr ""
 "%1\n"
 "on viida tüüpi, kuid ei sisalda kirjet URL=..."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3902,7 +3902,7 @@ msgstr ""
 "Täitmisfail \"%1\" asub kaugfailisüsteemis. Turvalisuse huvides seda ei "
 "käivitata."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3910,14 +3910,14 @@ msgstr ""
 "Turvakaalutlustel ei ole selles kontekstis täitmisfailide käivitamine "
 "lubatud."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Programm \"%1\" vajab käivitusõigust, enne kui seda saab käivitada."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3926,12 +3926,12 @@ msgstr ""
 "Faili \"%1\" muutmine käivitatavaks nurjus.\n"
 "%2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Töölaua kirje fail %1 ei sisalda kirjet Type=..."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3942,12 +3942,12 @@ msgstr ""
 "Vaata, kas faili allalaadimine on ehk alles pooleli või kas mõni avatud "
 "rakendus salvestab parajasti seda faili."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Faili avamine nurjus."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmi \"%1\" pole võimalik käivitada."

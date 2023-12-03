@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 01:35+0000\n"
+"POT-Creation-Date: 2023-12-03 01:34+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3885,7 +3885,7 @@ msgid ""
 "%2."
 msgstr "Nije moguće učiniti uslugu %1 izvršnom, prekida se izvršavanje.\n"
 
-#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:627
+#: gui/applicationlauncherjob.cpp:282 gui/openurljob.cpp:637
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Niste ovlaÅ¡Ä‡eni da izaberete program za otvaranje ove datoteke."
@@ -3962,7 +3962,7 @@ msgstr ""
 "%1\n"
 "tipa je veze, ali nema unos <icode>URL=...</icode>."
 
-#: gui/openurljob.cpp:364
+#: gui/openurljob.cpp:374
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3971,7 +3971,7 @@ msgstr ""
 "Izvršna datoteka „%1“ se nalazi na udaljenom sistemu datoteka. Iz "
 "bezbednosnih razloga neće se pokrenuti."
 
-#: gui/openurljob.cpp:400
+#: gui/openurljob.cpp:410
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3979,7 +3979,7 @@ msgstr ""
 "Iz sigurnosnih razloga, pokretanje izvršnih datoteka nije dozvoljeno u ovom "
 "kontekstu."
 
-#: gui/openurljob.cpp:430
+#: gui/openurljob.cpp:440
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3987,7 +3987,7 @@ msgid ""
 msgstr ""
 "Program \"%1\" mora imati izvršnu dozvolu prije nego što može bitipokrenut."
 
-#: gui/openurljob.cpp:441
+#: gui/openurljob.cpp:451
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3996,14 +3996,14 @@ msgstr ""
 "Nije moguće učiniti datoteku \"%1\" izvršnom.\n"
 " %2."
 
-#: gui/openurljob.cpp:527
+#: gui/openurljob.cpp:537
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Datoteka s elementima radne povrÅ¡ine <filename>%1</filename> nema unos "
 "<icode>Type=...</icode>."
 
-#: gui/openurljob.cpp:613
+#: gui/openurljob.cpp:623
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4014,12 +4014,12 @@ msgstr ""
 "Provjerite svoje otvorene aplikacije i područje obavijesti da li ima "
 "zadataka na čekanjuili preuzimanja."
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:649
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Otvaranje datoteke nije uspelo."
 
-#: gui/openurljob.cpp:673
+#: gui/openurljob.cpp:683
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ nije mogao da se pokrene."
