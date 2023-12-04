@@ -185,10 +185,6 @@ void KUrlRequesterTest::testComboRequester_data()
 
 void KUrlRequesterTest::testNameFilters()
 {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QFETCH(QString, filter);
-    QFETCH(QStringList, dialogNameFilters);
-#endif
     QFETCH(QString, nameFilter);
     QFETCH(QStringList, nameFilters);
 
@@ -200,113 +196,52 @@ void KUrlRequesterTest::testNameFilters()
     QFileDialog *fileDialog = req.findChild<QFileDialog *>();
     QVERIFY(fileDialog);
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    // set filter
-    req.setFilter(filter);
-
-    // check all
-    QCOMPARE(req.filter(), filter);
-    QCOMPARE(req.nameFilters(), nameFilters);
-    QCOMPARE(fileDialog->nameFilters(), dialogNameFilters);
-#endif
-
     // set name filter
     req.setNameFilter(nameFilter);
 
     // check all
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QCOMPARE(req.filter(), filter);
-#endif
     QCOMPARE(req.nameFilters(), nameFilters);
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QCOMPARE(fileDialog->nameFilters(), dialogNameFilters);
-#else
     QCOMPARE(fileDialog->nameFilters(), nameFilters);
-#endif
 
     // set name filters
     req.setNameFilters(nameFilters);
 
     // check all
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QCOMPARE(req.filter(), filter);
-    QCOMPARE(req.filter(), filter);
-#endif
     QCOMPARE(req.nameFilters(), nameFilters);
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QCOMPARE(fileDialog->nameFilters(), dialogNameFilters);
-#else
     QCOMPARE(fileDialog->nameFilters(), nameFilters);
-#endif
 }
 
 void KUrlRequesterTest::testNameFilters_data()
 {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    QTest::addColumn<QString>("filter");
-    // result of backward compat to older Plasma Integration plugins:
-    // which expect a name with each filter entry
-    // and which has been always fabricated by KUrlRequester,
-    // so != nameFilters property
-    QTest::addColumn<QStringList>("dialogNameFilters");
-#endif
     QTest::addColumn<QString>("nameFilter");
     QTest::addColumn<QStringList>("nameFilters");
 
     /* clang-format off */
     QTest::newRow("singleglob-comment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo|Comment")
-        << QStringList{QStringLiteral("Comment (*.foo)")}
-#endif
         << QStringLiteral("Comment (*.foo)")
         << QStringList{QStringLiteral("Comment (*.foo)")};
 
     QTest::newRow("singleglob-nocomment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo")
-        << QStringList{QStringLiteral("*.foo (*.foo)")}
-#endif
         << QStringLiteral("*.foo")
         << QStringList{QStringLiteral("*.foo")};
 
     QTest::newRow("multiglob-comment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo *.bar|Comment")
-        << QStringList{QStringLiteral("Comment (*.foo *.bar)")}
-#endif
         << QStringLiteral("Comment (*.foo *.bar)")
         << QStringList{QStringLiteral("Comment (*.foo *.bar)")};
 
     QTest::newRow("multiglob-nocomment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo *.bar")
-        << QStringList{QStringLiteral("*.foo *.bar (*.foo *.bar)")}
-#endif
         << QStringLiteral("*.foo *.bar")
         << QStringList{QStringLiteral("*.foo *.bar")};
 
     QTest::newRow("multilines-comment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo *.bar|Comment\n*.kde|Comment2")
-        << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("Comment2 (*.kde)")}
-#endif
         << QStringLiteral("Comment (*.foo *.bar);;Comment2 (*.kde)")
         << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("Comment2 (*.kde)")};
 
     QTest::newRow("multilines-nocomment")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo *.bar\n*.kde")
-        << QStringList{QStringLiteral("*.foo *.bar (*.foo *.bar)"), QStringLiteral("*.kde (*.kde)")}
-#endif
         << QStringLiteral("*.foo *.bar;;*.kde")
         << QStringList{QStringLiteral("*.foo *.bar"), QStringLiteral("*.kde")};
 
     QTest::newRow("multilines-commentmixed")
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        << QStringLiteral("*.foo *.bar|Comment\n*.kde")
-        << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("*.kde (*.kde)")}
-#endif
         << QStringLiteral("Comment (*.foo *.bar);;*.kde")
         << QStringList{QStringLiteral("Comment (*.foo *.bar)"), QStringLiteral("*.kde")};
     /* clang-format on */

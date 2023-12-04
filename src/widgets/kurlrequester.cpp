@@ -76,11 +76,6 @@ private:
     QList<QUrl> m_urls;
 };
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-// regular expression string copied from QPlatformFileDialogHelper
-static const QString filterRegExpString = QStringLiteral("^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$");
-#endif
-
 class Q_DECL_HIDDEN KUrlRequester::KUrlRequesterPrivate
 {
 public:
@@ -217,61 +212,6 @@ public:
         dlg->setAcceptMode(acceptMode);
         dlg->setOption(QFileDialog::ShowDirsOnly, dirsOnly);
     }
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    // Converts from "*.foo *.bar|Comment" to "Comment (*.foo *.bar)"
-    QStringList kToQFilters(const QString &filters) const
-    {
-        QStringList qFilters = filters.split(QLatin1Char('\n'), Qt::SkipEmptyParts);
-
-        for (QString &qFilter : qFilters) {
-            int sep = qFilter.indexOf(QLatin1Char('|'));
-            if (sep != -1) {
-                const QStringView fView(qFilter);
-                const auto globs = fView.left(sep).trimmed();
-                const auto desc = fView.mid(sep + 1).trimmed();
-                qFilter = desc + QLatin1String(" (") + globs + QLatin1Char(')');
-            }
-        }
-
-        return qFilters;
-    }
-
-    // Makes a list of filters from a normal filter string "Image Files (*.png *.jpg)"
-    static QString qToKFilter(const QStringList &filters)
-    {
-        const QRegularExpression regexp(filterRegExpString);
-        QStringList result;
-        for (const QString &filter : filters) {
-            QRegularExpressionMatch match;
-            filter.indexOf(regexp, 0, &match);
-            if (match.hasMatch()) {
-                result.append(match.capturedView(2).trimmed() + QLatin1Char('|') + match.capturedView(1).trimmed());
-            } else {
-                result.append(filter);
-            }
-        }
-        return result.join(QLatin1Char('\n'));
-    }
-
-    // Provides work-around for older Plasma Qt Platform Theme integration versions
-    // only processing filters with explicit names (bug 470893),
-    // use the filter expressions as name as fallback if no name is given
-    // TODO: find a way to test if the current theme is a broken Plasma one, otherwise skip
-    static QStringList ensureNamedFilter(const QStringList &filters)
-    {
-        QStringList namedFilters(filters);
-        const QRegularExpression regexp(filterRegExpString);
-        for (QString &filter : namedFilters) {
-            QRegularExpressionMatch match;
-            filter.indexOf(regexp, 0, &match);
-            if (!match.hasMatch()) {
-                filter = filter + QLatin1String(" (") + filter + QLatin1Char(')');
-            }
-        }
-        return namedFilters;
-    }
-#endif
 
     QUrl getDirFromFileDialog(const QUrl &openUrl) const
     {
@@ -572,24 +512,6 @@ QFileDialog::AcceptMode KUrlRequester::acceptMode() const
     return d->fileDialogAcceptMode;
 }
 
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-void KUrlRequester::setFilter(const QString &filter)
-{
-    d->nameFilters = d->kToQFilters(filter);
-
-    if (d->myFileDialog) {
-        d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
-    }
-}
-#endif
-
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-QString KUrlRequester::filter() const
-{
-    return d->qToKFilter(d->nameFilters);
-}
-#endif
-
 QStringList KUrlRequester::nameFilters() const
 {
     return d->nameFilters;
@@ -600,11 +522,7 @@ void KUrlRequester::setNameFilters(const QStringList &filters)
     d->nameFilters = filters;
 
     if (d->myFileDialog) {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-        d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
-#else
         d->myFileDialog->setNameFilters(d->nameFilters);
-#endif
     }
 }
 
@@ -654,11 +572,7 @@ QFileDialog *KUrlRequester::fileDialog() const
         if (!d->mimeTypeFilters.isEmpty()) {
             d->myFileDialog->setMimeTypeFilters(d->mimeTypeFilters);
         } else {
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-            d->myFileDialog->setNameFilters(d->ensureNamedFilter(d->nameFilters));
-#else
             d->myFileDialog->setNameFilters(d->nameFilters);
-#endif
         }
 
         d->applyFileMode(d->myFileDialog, d->fileDialogMode, d->fileDialogAcceptMode);

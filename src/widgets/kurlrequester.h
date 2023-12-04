@@ -55,10 +55,6 @@ class KIOWIDGETS_EXPORT KUrlRequester : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY textChanged USER true)
-#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(5, 240)
-    /// @deprecated Since 5.108, use nameFilters
-    Q_PROPERTY(QString filter READ filter WRITE setFilter)
-#endif
     /// @since 5.108
     Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters)
     Q_PROPERTY(KFile::Modes mode READ mode WRITE setMode)
@@ -149,38 +145,6 @@ public:
      * @since 5.33
      */
     QFileDialog::AcceptMode acceptMode() const;
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 240)
-    /**
-     * Sets the filters for the file dialog, separated by \\n.
-     * Use "*.foo *.bar|Comment" syntax for each named filter.
-     * "*.foo *.bar" for name-less filters also is supported.
-     * @note This filter syntax is different from the one used in
-     * QFileDialog::nameFilters() and converted internally.
-     * @see filter()
-     * @deprecated Since 5.108, use setNameFilters(const QStringList &) or setNameFilter(const QString &).
-     *              Note: the filter argument might need adaption, due to the different filter syntax.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION_BELATED(
-        5,
-        240,
-        5,
-        108,
-        "Use KUrlRequester::setNameFilters(const QStringList &) or KUrlRequester::setNameFilter(const QString &). NOTE: different filter syntax.")
-    void setFilter(const QString &filter);
-#endif
-
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(5, 240)
-    /**
-     * Returns the filters for the file dialog, separated by \\n.
-     * @note This filter syntax is different from the one used in
-     * QFileDialog::nameFilters() and converted internally.
-     * @see setFilter()
-     * @deprecated Since 5.108, use nameFilters() const.
-     */
-    KIOWIDGETS_DEPRECATED_VERSION_BELATED(5, 240, 5, 108, "Use KUrlRequester::nameFilters() const")
-    QString filter() const;
-#endif
 
     /**
      * Sets the filters for the file dialog.
