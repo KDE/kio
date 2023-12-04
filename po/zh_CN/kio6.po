@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:34+0000\n"
+"POT-Creation-Date: 2023-12-04 01:36+0000\n"
 "PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2255,7 +2255,7 @@ msgid " (Points to %1)"
 msgstr " (指向 %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:617
+#: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -2720,7 +2720,7 @@ msgid "All Supported Files"
 msgstr "所有支持的文件"
 
 #: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
-#: filewidgets/kfilewidget.cpp:1876
+#: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
@@ -3308,63 +3308,63 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "常用位置"
 
-#: filewidgets/kfilewidget.cpp:1583
+#: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "文件“%1”已存在。您想要覆盖它吗？"
 
-#: filewidgets/kfilewidget.cpp:1584
+#: filewidgets/kfilewidget.cpp:1591
 #, kde-format
 msgid "Overwrite File?"
 msgstr "您想要覆盖文件吗？"
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "You can only select local files."
 msgstr "您只能选择本机文件。"
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "无法处理远程文件"
 
-#: filewidgets/kfilewidget.cpp:1874
+#: filewidgets/kfilewidget.cpp:1881
 #, kde-format
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
 
-#: filewidgets/kfilewidget.cpp:2126
+#: filewidgets/kfilewidget.cpp:2133
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "图标大小：%1 像素"
 
-#: filewidgets/kfilewidget.cpp:2274
+#: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "自动选择文件扩展名 (%1)(&X)"
 
-#: filewidgets/kfilewidget.cpp:2275
+#: filewidgets/kfilewidget.cpp:2282
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "扩展名 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2288
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "自动选择文件扩展名(&X)"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2289
 #, kde-format
 msgid "a suitable extension"
 msgstr "适合的扩展名"
 
-#: filewidgets/kfilewidget.cpp:2290
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3387,24 +3387,24 @@ msgstr ""
 "(.) 来阻止此功能 (该句点会在保存后自动去除)。</li></ol>如果您不确定，请保持此"
 "选项为启用，这样将使得文件管理更加方便。"
 
-#: filewidgets/kfilewidget.cpp:2763
+#: filewidgets/kfilewidget.cpp:2770
 #, kde-format
 msgid "&File type:"
 msgstr "文件类型(&F)："
 
-#: filewidgets/kfilewidget.cpp:2764
+#: filewidgets/kfilewidget.cpp:2771
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2766
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid "&Filter:"
 msgstr "过滤(&F)："
 
-#: filewidgets/kfilewidget.cpp:2768
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6410,22 +6410,22 @@ msgstr "数据格式："
 msgid "Filename for dropped contents:"
 msgstr "拖放内容的文件名："
 
-#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
+#: widgets/renamedialog.cpp:64
 #, kde-format
 msgid "Date: %1"
 msgstr "日期：%1"
 
-#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Size: %1"
 msgstr "大小：%1"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:229
 #, kde-format
 msgid "Appl&y to All"
 msgstr "应用到所有(&Y)"
 
-#: widgets/renamedialog.cpp:228
+#: widgets/renamedialog.cpp:230
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6436,45 +6436,45 @@ msgstr ""
 "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生冲突的所有文件夹。\n"
 "除非您点击“跳过”，否则当文件与目录中的已有文件发生冲突时仍然会提示您处理。"
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:234
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生的所有冲突。"
 
-#: widgets/renamedialog.cpp:238
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "&Rename"
 msgstr "重命名(&R)"
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "建议新名称(&N)"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "&Skip"
 msgstr "跳过(&S)"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:249
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "不复制或者移动此文件夹，跳过到下一项目"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "不复制或者移动此文件，跳过到下一项目"
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:261
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "写入(&W)"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6485,25 +6485,25 @@ msgstr ""
 "文件和文件夹将被复制到已有目录，与该目录的已有内容并列保存。\n"
 "如果复制的内容与目录中的已有内容冲突，程序会再次提示您处理。"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:269
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "覆盖旧文件(&O)"
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:273
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr "如果目标文件的修改时间比来源文件早，它将被覆盖，反之则会被跳过。"
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:285
 #, kde-format
 msgid "&Resume"
 msgstr "另存(&R)"
 
-#: widgets/renamedialog.cpp:292
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6512,62 +6512,64 @@ msgstr ""
 "此操作会造成“%1”被它自身覆盖。\n"
 "请输入新文件名："
 
-#: widgets/renamedialog.cpp:298
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "C&ontinue"
 msgstr "继续(&O)"
 
-#: widgets/renamedialog.cpp:370
-#, kde-format
-msgid "This action will overwrite the destination."
+#: widgets/renamedialog.cpp:362
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "Would you like to overwrite the destination?"
 msgstr "此操作将覆盖目标项目。"
 
-#: widgets/renamedialog.cpp:372
-#, kde-format
-msgid "This action will merge the contents of '%1' into '%2'."
+#: widgets/renamedialog.cpp:364
+#, fuzzy, kde-format
+#| msgid "This action will merge the contents of '%1' into '%2'."
+msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "此操作将把“%1”的内容合并到“%2”中。"
 
-#: widgets/renamedialog.cpp:381
+#: widgets/renamedialog.cpp:372
 #, kde-format
 msgid "Source"
 msgstr "来源"
 
-#: widgets/renamedialog.cpp:383
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Destination"
 msgstr "目标"
 
-#: widgets/renamedialog.cpp:404
-#, kde-format
-msgid "Differences"
-msgstr "差异"
-
-#: widgets/renamedialog.cpp:425
-#, kde-format
-msgid "The destination is <b>smaller by %1</b>"
+#: widgets/renamedialog.cpp:416
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>smaller by %1</b>."
 msgstr "目标项目要<b>小 %1</b>"
 
-#: widgets/renamedialog.cpp:428
-#, kde-format
-msgid "The destination is <b>bigger by %1</b>"
+#: widgets/renamedialog.cpp:419
+#, fuzzy, kde-format
+#| msgid "The destination is <b>bigger by %1</b>"
+msgid "The source is <b>bigger by %1</b>."
 msgstr "目标项目要<b>大 %1</b>"
 
-#: widgets/renamedialog.cpp:442
-#, kde-format
-msgid "The files are identical."
+#: widgets/renamedialog.cpp:432
+#, fuzzy, kde-format
+#| msgid "The files are identical."
+msgid "The files are <b>identical</b>."
 msgstr "文件相同。"
 
-#: widgets/renamedialog.cpp:445
-#, kde-format
-msgid "The files seem identical."
+#: widgets/renamedialog.cpp:435
+#, fuzzy, kde-format
+#| msgid "The files seem identical."
+msgid "The files <b>seem identical</b>."
 msgstr "文件可能相同。"
 
-#: widgets/renamedialog.cpp:448
-#, kde-format
-msgid "The files are different."
+#: widgets/renamedialog.cpp:438
+#, fuzzy, kde-format
+#| msgid "The files are different."
+msgid "The files are <b>different</b>."
 msgstr "文件不同。"
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:446
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6576,22 +6578,22 @@ msgstr ""
 "这些文件可能是相同的：它们具有相同的文件体积，且内容的开头、中间、末尾也相"
 "同。"
 
-#: widgets/renamedialog.cpp:474
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "已存在名为“%1”的较旧项目。"
 
-#: widgets/renamedialog.cpp:476
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "已存在名为“%1”的相似文件。"
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "已存在名为“%1”的较新项目。"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:482
 #, kde-format
 msgid "Rename:"
 msgstr "重命名："
@@ -6875,3 +6877,6 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "Differences"
+#~ msgstr "差异"

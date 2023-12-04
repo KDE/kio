@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:34+0000\n"
+"POT-Creation-Date: 2023-12-04 01:36+0000\n"
 "PO-Revision-Date: 2023-09-04 15:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2387,7 +2387,7 @@ msgid " (Points to %1)"
 msgstr " (Osoittaa kohteeseen %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:617
+#: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -2855,7 +2855,7 @@ msgid "All Supported Files"
 msgstr "Kaikki tuetut tiedostot"
 
 #: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
-#: filewidgets/kfilewidget.cpp:1876
+#: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
 msgstr "Kaikki tiedostot"
@@ -3469,64 +3469,64 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "Sijainnit"
 
-#: filewidgets/kfilewidget.cpp:1583
+#: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Tiedosto ”%1” on jo olemassa. Haluatko varmasti korvata sen?"
 
-#: filewidgets/kfilewidget.cpp:1584
+#: filewidgets/kfilewidget.cpp:1591
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Korvataanko tiedosto?"
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "You can only select local files."
 msgstr "Voit valita vain paikallisia tiedostoja."
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Etätiedostoja ei hyväksytä"
 
-#: filewidgets/kfilewidget.cpp:1874
+#: filewidgets/kfilewidget.cpp:1881
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Kaikki kansiot"
 
-#: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "&Avaa"
 
-#: filewidgets/kfilewidget.cpp:2126
+#: filewidgets/kfilewidget.cpp:2133
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Kuvakekoko: %1 kuvapistettä"
 
-#: filewidgets/kfilewidget.cpp:2274
+#: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Valitse &tiedostopääte automaattisesti (%1)"
 
-#: filewidgets/kfilewidget.cpp:2275
+#: filewidgets/kfilewidget.cpp:2282
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pääte <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2288
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Valitse tiedostopääte &automaattisesti"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2289
 #, kde-format
 msgid "a suitable extension"
 msgstr "sopiva tiedostopääte"
 
-#: filewidgets/kfilewidget.cpp:2290
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3553,12 +3553,12 @@ msgstr ""
 "li></ol>Asetus kannattaa pitää käytössä, koska se helpottaa tiedostojen "
 "käsittelyä."
 
-#: filewidgets/kfilewidget.cpp:2763
+#: filewidgets/kfilewidget.cpp:2770
 #, kde-format
 msgid "&File type:"
 msgstr "Tiedostot&yyppi:"
 
-#: filewidgets/kfilewidget.cpp:2764
+#: filewidgets/kfilewidget.cpp:2771
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3567,12 +3567,12 @@ msgstr ""
 "<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan muoto, jossa "
 "tiedosto tallennetaan.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2766
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid "&Filter:"
 msgstr "S&uodatin:"
 
-#: filewidgets/kfilewidget.cpp:2768
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6673,22 +6673,22 @@ msgstr "Tietomuoto:"
 msgid "Filename for dropped contents:"
 msgstr "Tiedostonimi pudotetulle sisällölle:"
 
-#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
+#: widgets/renamedialog.cpp:64
 #, kde-format
 msgid "Date: %1"
 msgstr "Päiväys: %1"
 
-#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Size: %1"
 msgstr "Koko: %1"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:229
 #, kde-format
 msgid "Appl&y to All"
 msgstr "K&äytä kaikkiin"
 
-#: widgets/renamedialog.cpp:228
+#: widgets/renamedialog.cpp:230
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6701,7 +6701,7 @@ msgstr ""
 "Ellet paina Ohita, sinulta kysytään yhä ristiriitatilanteessa, kun kansiossa "
 "on jo tiedosto olemassa."
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:234
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6710,38 +6710,38 @@ msgstr ""
 "Kun tämä asetus on valittu, painettua painikkeen toimintoa sovelletaan "
 "kaikkiin ristiriitoihin nykyisen työn ajan."
 
-#: widgets/renamedialog.cpp:238
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "&Rename"
 msgstr "M&uuta nimeä"
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Ehdota uutta &nimeä"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "&Skip"
 msgstr "&Ohita"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:249
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Älä kopioi tai siirrä tätä kansiota vaan siirry seuraavaan"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Älä kopioi tai siirrä tätä tiedostoa vaan siirry seuraavaan"
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:261
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Kirjoita"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6752,13 +6752,13 @@ msgstr ""
 "Tiedostot ja kansiot kopioidaan olemassa olevaan kansioon sisältöineen.\n"
 "Jos kansiossa on jo saman niminen tiedosto, sinulta kysytään uudelleen"
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:269
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Kor&vaa vanhemmat tiedostot"
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:273
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6767,12 +6767,12 @@ msgstr ""
 "Muokkausajaltaan vanhemmat kohdetiedostot korvataan lähteellä, muussa "
 "tapauksessa ohitetaan."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:285
 #, kde-format
 msgid "&Resume"
 msgstr "&Jatka"
 
-#: widgets/renamedialog.cpp:292
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6781,62 +6781,64 @@ msgstr ""
 "Tämä toiminto korvaisi tiedoston %1 itsellään.\n"
 "Uusi nimi:"
 
-#: widgets/renamedialog.cpp:298
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Jatka"
 
-#: widgets/renamedialog.cpp:370
-#, kde-format
-msgid "This action will overwrite the destination."
+#: widgets/renamedialog.cpp:362
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "Would you like to overwrite the destination?"
 msgstr "Tämä toiminta korvaa kohteen."
 
-#: widgets/renamedialog.cpp:372
-#, kde-format
-msgid "This action will merge the contents of '%1' into '%2'."
+#: widgets/renamedialog.cpp:364
+#, fuzzy, kde-format
+#| msgid "This action will merge the contents of '%1' into '%2'."
+msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Tämä toiminta yhdistää kohteiden ”%1” ja ”%2” sisällöt jälkimmäiseen."
 
-#: widgets/renamedialog.cpp:381
+#: widgets/renamedialog.cpp:372
 #, kde-format
 msgid "Source"
 msgstr "Lähde"
 
-#: widgets/renamedialog.cpp:383
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Destination"
 msgstr "Kohde"
 
-#: widgets/renamedialog.cpp:404
-#, kde-format
-msgid "Differences"
-msgstr "Erot"
-
-#: widgets/renamedialog.cpp:425
-#, kde-format
-msgid "The destination is <b>smaller by %1</b>"
+#: widgets/renamedialog.cpp:416
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>smaller by %1</b>."
 msgstr "Kohde on <b>%1 pienempi</b>"
 
-#: widgets/renamedialog.cpp:428
-#, kde-format
-msgid "The destination is <b>bigger by %1</b>"
+#: widgets/renamedialog.cpp:419
+#, fuzzy, kde-format
+#| msgid "The destination is <b>bigger by %1</b>"
+msgid "The source is <b>bigger by %1</b>."
 msgstr "Kohde on <b>%1 suurempi</b>"
 
-#: widgets/renamedialog.cpp:442
-#, kde-format
-msgid "The files are identical."
+#: widgets/renamedialog.cpp:432
+#, fuzzy, kde-format
+#| msgid "The files are identical."
+msgid "The files are <b>identical</b>."
 msgstr "Tiedostot ovat yhtenevät."
 
-#: widgets/renamedialog.cpp:445
-#, kde-format
-msgid "The files seem identical."
+#: widgets/renamedialog.cpp:435
+#, fuzzy, kde-format
+#| msgid "The files seem identical."
+msgid "The files <b>seem identical</b>."
 msgstr "Tiedostot vaikuttavat yhteneviltä."
 
-#: widgets/renamedialog.cpp:448
-#, kde-format
-msgid "The files are different."
+#: widgets/renamedialog.cpp:438
+#, fuzzy, kde-format
+#| msgid "The files are different."
+msgid "The files are <b>different</b>."
 msgstr "Tiedostot eroavat."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:446
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6845,22 +6847,22 @@ msgstr ""
 "Tiedostot ovat todennäköisesti yhtenevät: niiden koko on sama ja sisältö "
 "sama alussa, keskellä ja lopussa."
 
-#: widgets/renamedialog.cpp:474
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Vanhempi kohde nimeltä ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:476
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Samankaltainen tiedosto ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Uudempi kohde nimeltä ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:482
 #, kde-format
 msgid "Rename:"
 msgstr "Muuta nimeksi:"
@@ -7156,6 +7158,9 @@ msgstr "Tämä käynnistää ohjelman:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ellet luota tähän ohjelmaan, napsauta Peru"
+
+#~ msgid "Differences"
+#~ msgstr "Erot"
 
 #~ msgid "*|All Files"
 #~ msgstr "*|Kaikki tiedostot"

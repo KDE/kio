@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:34+0000\n"
+"POT-Creation-Date: 2023-12-04 01:36+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2378,7 +2378,7 @@ msgid " (Points to %1)"
 msgstr " (Trỏ đến %1)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:617
+#: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -2843,7 +2843,7 @@ msgid "All Supported Files"
 msgstr "Tất cả các tệp được hỗ trợ"
 
 #: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
-#: filewidgets/kfilewidget.cpp:1876
+#: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
 msgstr "Tất cả các tệp"
@@ -3450,64 +3450,64 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "Địa điểm"
 
-#: filewidgets/kfilewidget.cpp:1583
+#: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Tệp \"%1\" đã tồn tại. Bạn có muốn ghi đè lên nó?"
 
-#: filewidgets/kfilewidget.cpp:1584
+#: filewidgets/kfilewidget.cpp:1591
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Ghi đè tệp?"
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "You can only select local files."
 msgstr "Bạn chỉ có thể chọn tệp cục bộ."
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Không chấp nhận tệp ở xa"
 
-#: filewidgets/kfilewidget.cpp:1874
+#: filewidgets/kfilewidget.cpp:1881
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Tất cả thư mục"
 
-#: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "&Mở"
 
-#: filewidgets/kfilewidget.cpp:2126
+#: filewidgets/kfilewidget.cpp:2133
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Cỡ biểu tượng: %1 điểm ảnh"
 
-#: filewidgets/kfilewidget.cpp:2274
+#: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Tự động chọn &phần mở rộng tên tệp (%1)"
 
-#: filewidgets/kfilewidget.cpp:2275
+#: filewidgets/kfilewidget.cpp:2282
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "phần mở rộng <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2288
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Tự động chọn &phần mở rộng tên tệp"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2289
 #, kde-format
 msgid "a suitable extension"
 msgstr "một phần mở rộng phù hợp"
 
-#: filewidgets/kfilewidget.cpp:2290
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3533,12 +3533,12 @@ msgstr ""
 "(.) vào cuối tên tệp (dấu chấm sẽ tự động bị xoá đi).</li></ol>Nếu không "
 "chắc, hãy giữ lựa chọn này được bật, nó giúp dễ quản lí các tệp của bạn hơn."
 
-#: filewidgets/kfilewidget.cpp:2763
+#: filewidgets/kfilewidget.cpp:2770
 #, kde-format
 msgid "&File type:"
 msgstr "&Kiểu tệp:"
 
-#: filewidgets/kfilewidget.cpp:2764
+#: filewidgets/kfilewidget.cpp:2771
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3547,12 +3547,12 @@ msgstr ""
 "<qt>Đây là bộ chọn kiểu tệp. Nó được dùng để chọn định dạng mà tệp sẽ được "
 "lưu thành.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2766
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid "&Filter:"
 msgstr "&Lọc:"
 
-#: filewidgets/kfilewidget.cpp:2768
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6632,22 +6632,22 @@ msgstr "Định dạng dữ liệu:"
 msgid "Filename for dropped contents:"
 msgstr "Tên tệp cho nội dung được thả:"
 
-#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
+#: widgets/renamedialog.cpp:64
 #, kde-format
 msgid "Date: %1"
 msgstr "Ngày: %1"
 
-#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Size: %1"
 msgstr "Kích thước: %1"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:229
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Á&p dụng cho tất cả"
 
-#: widgets/renamedialog.cpp:228
+#: widgets/renamedialog.cpp:230
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6660,7 +6660,7 @@ msgstr ""
 "Trừ khi bạn ấn \"Bỏ qua\", bạn sẽ vẫn được hỏi trong trường hợp một xung đột "
 "với một tệp đã có bên trong thư mục."
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:234
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6669,38 +6669,38 @@ msgstr ""
 "Khi lựa chọn này được chọn, nút được ấn sẽ được áp dụng cho tất cả các xung "
 "đột tiếp theo cho phần còn lại của công việc hiện thời."
 
-#: widgets/renamedialog.cpp:238
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "&Rename"
 msgstr "Đổ&i tên"
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Gợi ý tên &mới"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "&Skip"
 msgstr "Bỏ &qua"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:249
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Đừng chép hay chuyển thư mục này, mà bỏ qua đến thứ tiếp sau"
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Đừng chép hay chuyển tệp này, mà bỏ qua đến thứ tiếp sau"
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:261
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Ghi vào"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6713,13 +6713,13 @@ msgstr ""
 "Bạn sẽ được hỏi lại trong trường hợp một xung đột với một tệp đã có bên "
 "trong thư mục."
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:269
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Ghi đè các tệ&p cũ"
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:273
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6728,12 +6728,12 @@ msgstr ""
 "Các tệp đích mà thời gian chỉnh sửa sớm hơn thì sẽ bị ghi đè bởi nguồn, còn "
 "ngược lại thì sẽ bỏ qua."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:285
 #, kde-format
 msgid "&Resume"
 msgstr "Tiếp tục t&rở lại"
 
-#: widgets/renamedialog.cpp:292
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6742,62 +6742,64 @@ msgstr ""
 "Hành động này sẽ ghi đè '%1' bằng chính nó.\n"
 "Vui lòng nhập một tên tệp mới:"
 
-#: widgets/renamedialog.cpp:298
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Tiếp tục"
 
-#: widgets/renamedialog.cpp:370
-#, kde-format
-msgid "This action will overwrite the destination."
+#: widgets/renamedialog.cpp:362
+#, fuzzy, kde-format
+#| msgid "This action will overwrite the destination."
+msgid "Would you like to overwrite the destination?"
 msgstr "Hành động này sẽ ghi đè lên đích."
 
-#: widgets/renamedialog.cpp:372
-#, kde-format
-msgid "This action will merge the contents of '%1' into '%2'."
+#: widgets/renamedialog.cpp:364
+#, fuzzy, kde-format
+#| msgid "This action will merge the contents of '%1' into '%2'."
+msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Hành động này sẽ trộn nội dung của '%1' vào '%2'."
 
-#: widgets/renamedialog.cpp:381
+#: widgets/renamedialog.cpp:372
 #, kde-format
 msgid "Source"
 msgstr "Nguồn"
 
-#: widgets/renamedialog.cpp:383
+#: widgets/renamedialog.cpp:374
 #, kde-format
 msgid "Destination"
 msgstr "Đích"
 
-#: widgets/renamedialog.cpp:404
-#, kde-format
-msgid "Differences"
-msgstr "Khác biệt"
-
-#: widgets/renamedialog.cpp:425
-#, kde-format
-msgid "The destination is <b>smaller by %1</b>"
+#: widgets/renamedialog.cpp:416
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>smaller by %1</b>."
 msgstr "Đích <b>nhỏ hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:428
-#, kde-format
-msgid "The destination is <b>bigger by %1</b>"
+#: widgets/renamedialog.cpp:419
+#, fuzzy, kde-format
+#| msgid "The destination is <b>bigger by %1</b>"
+msgid "The source is <b>bigger by %1</b>."
 msgstr "Đích <b>lớn hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:442
-#, kde-format
-msgid "The files are identical."
+#: widgets/renamedialog.cpp:432
+#, fuzzy, kde-format
+#| msgid "The files are identical."
+msgid "The files are <b>identical</b>."
 msgstr "Các tệp giống nhau."
 
-#: widgets/renamedialog.cpp:445
-#, kde-format
-msgid "The files seem identical."
+#: widgets/renamedialog.cpp:435
+#, fuzzy, kde-format
+#| msgid "The files seem identical."
+msgid "The files <b>seem identical</b>."
 msgstr "Các tệp có vẻ giống nhau."
 
-#: widgets/renamedialog.cpp:448
-#, kde-format
-msgid "The files are different."
+#: widgets/renamedialog.cpp:438
+#, fuzzy, kde-format
+#| msgid "The files are different."
+msgid "The files are <b>different</b>."
 msgstr "Các tệp khác nhau."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:446
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6806,22 +6808,22 @@ msgstr ""
 "Các tệp này nhiều khả năng là giống nhau: chúng có cùng kích thước và nội "
 "dung giống nhau ở phần đầu, giữa và cuối."
 
-#: widgets/renamedialog.cpp:474
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Một thứ cũ hơn tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:476
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Một tệp tương tự tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:469
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Một thứ được chỉnh sửa gần đây hơn tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:482
 #, kde-format
 msgid "Rename:"
 msgstr "Đổi tên:"
@@ -7108,6 +7110,9 @@ msgstr "Việc này sẽ khởi động chương trình đó:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nếu bạn không tin tưởng chương trình này, hãy bấm Huỷ"
+
+#~ msgid "Differences"
+#~ msgstr "Khác biệt"
 
 #~ msgid "*|All Files"
 #~ msgstr "*|Tất cả các tệp"

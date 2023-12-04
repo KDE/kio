@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:34+0000\n"
+"POT-Creation-Date: 2023-12-04 01:36+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -2143,7 +2143,7 @@ msgid " (Points to %1)"
 msgstr " (%1 સાથે જોડેલ)"
 
 #: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
-#: widgets/renamedialog.cpp:617
+#: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -2631,7 +2631,7 @@ msgid "All Supported Files"
 msgstr "બધી આધારિત ફાઇલો"
 
 #: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
-#: filewidgets/kfilewidget.cpp:1876
+#: filewidgets/kfilewidget.cpp:1883
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3275,64 +3275,64 @@ msgctxt "@title:window"
 msgid "Places"
 msgstr "જગ્યાઓ"
 
-#: filewidgets/kfilewidget.cpp:1583
+#: filewidgets/kfilewidget.cpp:1590
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ફાઇલ \"%1\" પહેલેથી હાજર છે. શું તમે તેના ઉપર લખવા માંગો છો?"
 
-#: filewidgets/kfilewidget.cpp:1584
+#: filewidgets/kfilewidget.cpp:1591
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ફાઇલ ઉપર લખશો?"
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "You can only select local files."
 msgstr "તમે માત્ર સ્થાનિક ફાઇલો પસંદ કરી શકો છો."
 
-#: filewidgets/kfilewidget.cpp:1780
+#: filewidgets/kfilewidget.cpp:1787
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "રીમોટ ફાઇલો સ્વીકાર્ય નથી"
 
-#: filewidgets/kfilewidget.cpp:1874
+#: filewidgets/kfilewidget.cpp:1881
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|બધાં ફોલ્ડરો"
 
-#: filewidgets/kfilewidget.cpp:2026 widgets/executablefileopendialog.cpp:44
+#: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
 #, kde-format
 msgid "&Open"
 msgstr "ખોલો (&O)"
 
-#: filewidgets/kfilewidget.cpp:2126
+#: filewidgets/kfilewidget.cpp:2133
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ચિહ્ન માપ: %1 પિક્સેલ્સ"
 
-#: filewidgets/kfilewidget.cpp:2274
+#: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "આપમેળે ફાઇલનામ એક્સટેન્શન પસંદ કરો (&x) (%1)"
 
-#: filewidgets/kfilewidget.cpp:2275
+#: filewidgets/kfilewidget.cpp:2282
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "એક્શટેન્શન <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2281
+#: filewidgets/kfilewidget.cpp:2288
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ફાઇલનામ એક્સટેન્શન આપમેળે પસંદ કરો (&x)"
 
-#: filewidgets/kfilewidget.cpp:2282
+#: filewidgets/kfilewidget.cpp:2289
 #, kde-format
 msgid "a suitable extension"
 msgstr "યોગ્ય એક્શટેન્શન"
 
-#: filewidgets/kfilewidget.cpp:2290
+#: filewidgets/kfilewidget.cpp:2297
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3358,25 +3358,25 @@ msgstr ""
 "ol>જો અચોક્કસ હોવ તો, આ વિકલ્પ ચાલુ રાખો કારણકે તે તમારી ફાઇલોને વધુ વ્યવસ્થિત "
 "બનાવવામાં મદદ કરશે."
 
-#: filewidgets/kfilewidget.cpp:2763
+#: filewidgets/kfilewidget.cpp:2770
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "ગાળક (&F):"
 
-#: filewidgets/kfilewidget.cpp:2764
+#: filewidgets/kfilewidget.cpp:2771
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2766
+#: filewidgets/kfilewidget.cpp:2773
 #, kde-format
 msgid "&Filter:"
 msgstr "ગાળક (&F):"
 
-#: filewidgets/kfilewidget.cpp:2768
+#: filewidgets/kfilewidget.cpp:2775
 #, kde-format
 msgid ""
 "<qt>This is the filter to apply to the file list. File names that do not "
@@ -6412,24 +6412,24 @@ msgstr "માહિતી બંધારણ:"
 msgid "Filename for dropped contents:"
 msgstr "ક્લિપબોર્ડ વિગતો માટે ફાઇલનામ:"
 
-#: widgets/renamedialog.cpp:64 widgets/renamedialog.cpp:413
+#: widgets/renamedialog.cpp:64
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgid "Date: %1"
 msgstr "ડ્રાઇવ: %1"
 
-#: widgets/renamedialog.cpp:71 widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Size:"
 msgid "Size: %1"
 msgstr "કદ:"
 
-#: widgets/renamedialog.cpp:227
+#: widgets/renamedialog.cpp:229
 #, kde-format
 msgid "Appl&y to All"
 msgstr ""
 
-#: widgets/renamedialog.cpp:228
+#: widgets/renamedialog.cpp:230
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
@@ -6438,45 +6438,45 @@ msgid ""
 "an existing file in the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:232
+#: widgets/renamedialog.cpp:234
 #, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 
-#: widgets/renamedialog.cpp:238
+#: widgets/renamedialog.cpp:240
 #, kde-format
 msgid "&Rename"
 msgstr "નામ બદલો (&R)"
 
-#: widgets/renamedialog.cpp:240
+#: widgets/renamedialog.cpp:242
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "નવું નામ સૂચવો (&N)"
 
-#: widgets/renamedialog.cpp:246
+#: widgets/renamedialog.cpp:248
 #, kde-format
 msgid "&Skip"
 msgstr "છોડો (&S)"
 
-#: widgets/renamedialog.cpp:247
+#: widgets/renamedialog.cpp:249
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:250
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:261
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "માહિતી લખો (&W)"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6485,121 +6485,117 @@ msgid ""
 "the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:267
+#: widgets/renamedialog.cpp:269
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "ફાઇલ ઉપર લખશો?"
 
-#: widgets/renamedialog.cpp:271
+#: widgets/renamedialog.cpp:273
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:285
 #, kde-format
 msgid "&Resume"
 msgstr "ફરી શરૂ કરો (&R)"
 
-#: widgets/renamedialog.cpp:292
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
 
-#: widgets/renamedialog.cpp:298
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "C&ontinue"
 msgstr "ચાલુ રાખો (&o)"
 
-#: widgets/renamedialog.cpp:370
+#: widgets/renamedialog.cpp:362
 #, fuzzy, kde-format
 #| msgid "This action was prevented by another error."
-msgid "This action will overwrite the destination."
+msgid "Would you like to overwrite the destination?"
+msgstr "આ ક્રિયા બીજી ક્ષતિ વડે રોકવામાં આવી હતી."
+
+#: widgets/renamedialog.cpp:364
+#, fuzzy, kde-format
+#| msgid "This action was prevented by another error."
+msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "આ ક્રિયા બીજી ક્ષતિ વડે રોકવામાં આવી હતી."
 
 #: widgets/renamedialog.cpp:372
-#, fuzzy, kde-format
-#| msgid "This action was prevented by another error."
-msgid "This action will merge the contents of '%1' into '%2'."
-msgstr "આ ક્રિયા બીજી ક્ષતિ વડે રોકવામાં આવી હતી."
-
-#: widgets/renamedialog.cpp:381
 #, fuzzy, kde-format
 #| msgctxt "The source of a file operation"
 #| msgid "Source"
 msgid "Source"
 msgstr "સ્ત્રોત"
 
-#: widgets/renamedialog.cpp:383
+#: widgets/renamedialog.cpp:374
 #, fuzzy, kde-format
 #| msgctxt "The destination of a file operation"
 #| msgid "Destination"
 msgid "Destination"
 msgstr "લક્ષ્ય"
 
-#: widgets/renamedialog.cpp:404
-#, kde-format
-msgid "Differences"
-msgstr ""
-
-#: widgets/renamedialog.cpp:425
+#: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
-msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>smaller by %1</b>."
 msgstr "એક્શટેન્શન <b>%1</b>"
 
-#: widgets/renamedialog.cpp:428
+#: widgets/renamedialog.cpp:419
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
-msgid "The destination is <b>bigger by %1</b>"
+msgid "The source is <b>bigger by %1</b>."
 msgstr "એક્શટેન્શન <b>%1</b>"
 
-#: widgets/renamedialog.cpp:442
+#: widgets/renamedialog.cpp:432
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
-msgid "The files are identical."
+msgid "The files are <b>identical</b>."
 msgstr "નવું ફાઇલ નામ ખાલી છે."
 
-#: widgets/renamedialog.cpp:445
-#, kde-format
-msgid "The files seem identical."
-msgstr ""
-
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:435
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
-msgid "The files are different."
+msgid "The files <b>seem identical</b>."
 msgstr "નવું ફાઇલ નામ ખાલી છે."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:438
+#, fuzzy, kde-format
+#| msgid "The new file name is empty."
+msgid "The files are <b>different</b>."
+msgstr "નવું ફાઇલ નામ ખાલી છે."
+
+#: widgets/renamedialog.cpp:446
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:474
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "'%1' નામની જૂની વસ્તુ પહેલેથી હાજર છે."
 
-#: widgets/renamedialog.cpp:476
+#: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' નાં સરખી ફાઇલ પહેલેથી હાજર છે."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:469
 #, fuzzy, kde-format
 #| msgid "An older item named '%1' already exists."
 msgid "A more recent item named '%1' already exists."
 msgstr "'%1' નામની જૂની વસ્તુ પહેલેથી હાજર છે."
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:482
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename:"
