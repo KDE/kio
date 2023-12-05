@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-08 22:45+0100\n"
+"PO-Revision-Date: 2023-12-04 07:03+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -4234,7 +4234,7 @@ msgid ""
 "%3"
 msgstr ""
 "Ekintza: %1\n"
-"Sorburua: %2\n"
+"Iturburua: %2\n"
 "%3"
 
 #: kioworkers/file/file_unix.cpp:833
@@ -6821,16 +6821,14 @@ msgid "C&ontinue"
 msgstr "&Jarraitu"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Ekintza honek helburua gainidatziko du."
+msgstr "Helburua gainidatzi nahi zenuke?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Ekintza honek '%1'(r)en edukia '%2' barruan bateratuko du."
+msgstr "'%1'(e)ren edukia '%2'(e)an bateratu nahi zenituzke?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6843,34 +6841,29 @@ msgid "Destination"
 msgstr "Helburua"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Jomuga <b>%1(e)an txikiagoa da</b>"
+msgstr "Iturburua <b>%1(e)an txikiagoa da</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Jomuga <b>%1(e)an handiagoa da</b>"
+msgstr "Iturburua <b>%1(e)an handiagoa da</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Fitxategiak berdin-berdinak dira."
+msgstr "Fitxategiak <b>berdin-berdinak</b> dira."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Fitxategiak berdin-berdinak direla ematen du."
+msgstr "Fitxategiak <b>berdin-berdinak dirudite</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Fitxategiak ezberdinak dira."
+msgstr "Fitxategiak <b>ezberdinak</b> dira."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format

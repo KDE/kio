@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-08 23:28+0200\n"
+"PO-Revision-Date: 2023-12-04 08:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -6883,16 +6883,14 @@ msgid "C&ontinue"
 msgstr "Пр&одовжити"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Ця дія призведе до перезапису файла у теці призначення."
+msgstr "Хочете переписати дані у теці призначення?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "У результаті вміст «%1» буде влито до «%2»."
+msgstr "Хочете влити вміст «%1» до «%2»?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6905,34 +6903,29 @@ msgid "Destination"
 msgstr "Призначення"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Файл призначення є <b>меншим на %1</b>"
+msgstr "Файл джерела є <b>меншим на %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Файл призначення є <b>більшим на %1</b>"
+msgstr "Файл джерела є <b>більшим на %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Ці файли однакові."
+msgstr "Файли є <b>однаковими</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Здається, файли є однаковими."
+msgstr "Файли <b>здаються однаковими</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Файли є різними."
+msgstr "Файли є <b>різними</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format

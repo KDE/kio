@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-24 07:30+0100\n"
+"PO-Revision-Date: 2023-12-04 15:25+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -2590,13 +2590,13 @@ msgstr "Gepatra Dosierujo"
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
-msgstr "Reiru"
+msgstr "Reiri"
 
 #: filewidgets/kdiroperator.cpp:1945
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
-msgstr "Iru antaŭen"
+msgstr "Iri antaŭen"
 
 #: filewidgets/kdiroperator.cpp:1949
 #, kde-format
@@ -2618,7 +2618,7 @@ msgstr "Nova dosierujo..."
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
-msgstr "Movu al Rubujo"
+msgstr "Movi al Rubujo"
 
 #: filewidgets/kdiroperator.cpp:1972
 #, kde-format
@@ -2723,27 +2723,27 @@ msgstr "Detala Arba Vido"
 #: filewidgets/kdiroperator.cpp:2128
 #, kde-format
 msgid "Allow Expansion in Details View"
-msgstr "Permesu Vastiĝon en Detala Vido"
+msgstr "Permesi Vastiĝon en Detala Vido"
 
 #: filewidgets/kdiroperator.cpp:2134
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Montru Kaŝitajn dosierojn"
+msgstr "Montri Kaŝitajn dosierojn"
 
 #: filewidgets/kdiroperator.cpp:2141
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Montru Antaŭrigardan Panelon"
+msgstr "Montri Antaŭrigardan Panelon"
 
 #: filewidgets/kdiroperator.cpp:2148
 #, kde-format
 msgid "Show Preview"
-msgstr "Montru Antaŭrigardon"
+msgstr "Montri Antaŭrigardon"
 
 #: filewidgets/kdiroperator.cpp:2155
 #, kde-format
 msgid "Open Containing Folder"
-msgstr "Malfermu Enhavan Dosierujon"
+msgstr "Malfermi Enhavan Dosierujon"
 
 #: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1156
 #, kde-format
@@ -2802,7 +2802,7 @@ msgstr "Kodigado:"
 #: filewidgets/kencodingfiledialog.cpp:166 widgets/kurlrequesterdialog.cpp:105
 #, kde-format
 msgid "Open"
-msgstr "Malfermu"
+msgstr "Malfermi"
 
 #: filewidgets/kencodingfiledialog.cpp:180
 #: filewidgets/kencodingfiledialog.cpp:198
@@ -2814,7 +2814,7 @@ msgstr "Konservi kiel"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Copy To"
-msgstr "Kopiu Al"
+msgstr "Kopii Al"
 
 #: filewidgets/kfilecopytomenu.cpp:77
 #, kde-format
@@ -2850,7 +2850,7 @@ msgstr "Kopiu Ĉi tie"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move Here"
-msgstr "Movu Ĉi tien"
+msgstr "Movi Ĉi tien"
 
 #: filewidgets/kfilefiltercombo.cpp:42
 #, kde-format
@@ -2878,12 +2878,12 @@ msgstr "Ĉiuj dosieroj"
 #: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
 msgid "Add Places Entry"
-msgstr "Aldonu Eniron de Lokoj"
+msgstr "Aldoni Eniron de Lokoj"
 
 #: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Edit Places Entry"
-msgstr "Redaktu Lokojn Eniron"
+msgstr "Redakti Lokojn Eniron"
 
 #: filewidgets/kfileplaceeditdialog.cpp:78
 #, kde-format
@@ -3191,19 +3191,19 @@ msgstr "Munti"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
-msgstr "Malfermu en Nova langeto"
+msgstr "Malfermi en Nova langeto"
 
 #: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
-msgstr "Malfermu en Nova Fenestro"
+msgstr "Malfermi en Nova Fenestro"
 
 #: filewidgets/kfileplacesview.cpp:1161
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
-msgstr "Aldonu eniron..."
+msgstr "Aldoni eniron…"
 
 #: filewidgets/kfileplacesview.cpp:1167
 #, kde-format
@@ -3391,7 +3391,7 @@ msgstr "Alklaku ĉi tiun butonon por krei novan dosierujon."
 #: filewidgets/kfilewidget.cpp:1187
 #, kde-format
 msgid "Show Places Panel"
-msgstr "Montru Lokojn Panelon"
+msgstr "Montri Lokojn Panelon"
 
 #: filewidgets/kfilewidget.cpp:1194
 #, kde-format
@@ -3699,7 +3699,7 @@ msgstr "Dosiero kun nomo <filename>%1</filename> jam ekzistas."
 #: filewidgets/knewfilemenu.cpp:1362
 #, kde-format
 msgid "Create New"
-msgstr "Kreu Novan"
+msgstr "Krei Novan"
 
 #: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
@@ -3721,7 +3721,7 @@ msgstr "Nova Dosierujo"
 #: filewidgets/knewfilemenu.cpp:1435
 #, kde-format
 msgid "Create new folder in %1:"
-msgstr "Kreu novan dosierujon en %1:"
+msgstr "Krei novan dosierujon en %1:"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3750,7 +3750,7 @@ msgstr "Malfermu \"%1\" en Nova Langeto"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Malfermu \"%1\" en Nova Fenestro"
+msgstr "Malfermi \"%1\" en Nova Fenestro"
 
 #: filewidgets/kurlnavigator.cpp:562
 #, kde-format
@@ -3760,7 +3760,7 @@ msgstr "Redakti"
 #: filewidgets/kurlnavigator.cpp:565
 #, kde-format
 msgid "Navigate"
-msgstr "Navigu"
+msgstr "Navigi"
 
 #: filewidgets/kurlnavigator.cpp:580
 #, kde-format
@@ -3783,7 +3783,7 @@ msgstr "Aparatoj"
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Subversion"
-msgstr "Subversio"
+msgstr "Subversion"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:163
 #, kde-format
@@ -3978,12 +3978,12 @@ msgstr "Dosiero Ŝanĝita"
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
 #, kde-format
 msgid "Upload"
-msgstr "Alŝutu"
+msgstr "Alŝuti"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
 #, kde-format
 msgid "Do Not Upload"
-msgstr "Ne Alŝutu"
+msgstr "Ne Alŝuti"
 
 #: kioexec/main.cpp:55
 #, kde-format
@@ -4029,7 +4029,7 @@ msgstr ""
 #: kioexec/main.cpp:237
 #, kde-format
 msgid "Do Not Delete"
-msgstr "Ne Forigu"
+msgstr "Ne Forigi"
 
 #: kioexec/main.cpp:244
 #, kde-format
@@ -4088,7 +4088,7 @@ msgstr "Oswald Buddenhagen"
 #: kioexec/main.cpp:298
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
-msgstr "Traktu URL-ojn kiel lokajn dosierojn kaj forigu ilin poste"
+msgstr "Trakti URL-ojn kiel lokajn dosierojn kaj forigu ilin poste"
 
 #: kioexec/main.cpp:300
 #, kde-format
@@ -4152,7 +4152,7 @@ msgstr "Novaj Permesoj: %1"
 #: kioworkers/file/file_unix.cpp:105
 #, kde-format
 msgid "Change File Owner"
-msgstr "Ŝanĝu Dosierposedanton"
+msgstr "Ŝanĝi Dosierposedanton"
 
 #: kioworkers/file/file_unix.cpp:106
 #, kde-format
@@ -4182,12 +4182,12 @@ msgstr "Dosierujaj Permesoj: %1"
 #: kioworkers/file/file_unix.cpp:119
 #, kde-format
 msgid "Open File"
-msgstr "Malfermu Dosieron"
+msgstr "Malfermi Dosieron"
 
 #: kioworkers/file/file_unix.cpp:122
 #, kde-format
 msgid "Open Directory"
-msgstr "Malfermu Dosierujon"
+msgstr "Malfermi Dosierujon"
 
 #: kioworkers/file/file_unix.cpp:126
 #, kde-format
@@ -4300,7 +4300,7 @@ msgstr "<b>%1</b>"
 #: kioworkers/ftp/ftp.cpp:641
 #, kde-format
 msgid "Login OK"
-msgstr "Ensalutu bone"
+msgstr "Ensaluto bone"
 
 #: kioworkers/ftp/ftp.cpp:666
 #, kde-format
@@ -4402,43 +4402,43 @@ msgstr "agordi proprecvalorojn"
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
-msgstr "kreu la petitan dosierujon"
+msgstr "krei la petitan dosierujon"
 
 #: kioworkers/http/http.cpp:1190
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
-msgstr "kopiu la specifitan dosieron aŭ dosierujon"
+msgstr "kopii la specifitan dosieron aŭ dosierujon"
 
 #: kioworkers/http/http.cpp:1192
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
-msgstr "movu la specifitan dosieron aŭ dosierujon"
+msgstr "movi la specifitan dosieron aŭ dosierujon"
 
 #: kioworkers/http/http.cpp:1194
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
-msgstr "serĉu en la specifita dosierujo"
+msgstr "serĉi en la specifita dosierujo"
 
 #: kioworkers/http/http.cpp:1196
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
-msgstr "ŝlosu la specifitan dosieron aŭ dosierujon"
+msgstr "ŝlosi la specifitan dosieron aŭ dosierujon"
 
 #: kioworkers/http/http.cpp:1198
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
-msgstr "malŝlosu la specifitan dosieron aŭ dosierujon"
+msgstr "malŝlosi la specifitan dosieron aŭ dosierujon"
 
 #: kioworkers/http/http.cpp:1200
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
-msgstr "forigu la specifitan dosieron aŭ dosierujon"
+msgstr "forigi la specifitan dosieron aŭ dosierujon"
 
 #: kioworkers/http/http.cpp:1202
 #, kde-format
@@ -4456,7 +4456,7 @@ msgstr "retrovi la enhavon de la specifita dosiero aŭ dosierujo"
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "rulu raporton en la specifita dosierujo"
+msgstr "ruli raporton en la specifita dosierujo"
 
 #: kioworkers/http/http.cpp:1214
 #, kde-format
@@ -4550,7 +4550,7 @@ msgstr "La rimedo ne povas esti forigita."
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "alŝutu %1"
+msgstr "alŝuti %1"
 
 #: kioworkers/http/http.cpp:1458
 #, kde-format
@@ -4617,12 +4617,12 @@ msgstr ""
 #: kioworkers/trash/ktrash.cpp:31
 #, kde-format
 msgid "Empty the contents of the trash"
-msgstr "Malplenigu la enhavon de la rubujo"
+msgstr "Malplenigi la enhavon de la rubujo"
 
 #: kioworkers/trash/ktrash.cpp:33
 #, kde-format
 msgid "Restore a trashed file to its original location"
-msgstr "Restarigu rubujon al ĝia originala loko"
+msgstr "Restarigi rubujon al ĝia originala loko"
 
 #: kioworkers/trash/trashimpl.cpp:1328
 #, kde-format
@@ -5226,7 +5226,7 @@ msgstr "Grupo"
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
-msgstr "Tajpu"
+msgstr "Tipo"
 
 #: widgets/kfileitemactions.cpp:372
 #, kde-format
@@ -5399,7 +5399,7 @@ msgstr "Alirita:"
 #: widgets/kfilepropspluginwidget.ui:498
 #, kde-format
 msgid "Open With:"
-msgstr "Malfermu Kun:"
+msgstr "Malfermi Kun:"
 
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
@@ -5409,7 +5409,7 @@ msgstr "Konataj Aplikoj"
 #: widgets/kopenwithdialog.cpp:556
 #, kde-format
 msgid "Open With"
-msgstr "Malfermu Kun"
+msgstr "Malfermi Kun"
 
 #: widgets/kopenwithdialog.cpp:561
 #, kde-format
@@ -5447,12 +5447,12 @@ msgstr[1] ""
 #: widgets/kopenwithdialog.cpp:596 widgets/kopenwithdialog.cpp:627
 #, kde-format
 msgid "Choose Application"
-msgstr "Elektu Aplikon"
+msgstr "Elekti Aplikon"
 
 #: widgets/kopenwithdialog.cpp:611
 #, kde-format
 msgid "Choose Application for %1"
-msgstr "Elektu Aplikon por %1"
+msgstr "Elekti Aplikon por %1"
 
 #: widgets/kopenwithdialog.cpp:613
 #, kde-format
@@ -5681,7 +5681,7 @@ msgstr "Diskreta GPU"
 #: widgets/kpropertiesdesktopadvbase.ui:148
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Kuru per dediĉita grafika karto"
+msgstr "Ruli per dediĉita grafika karto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:158
@@ -5706,7 +5706,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:167
 #, kde-format
 msgid "Enable launch feedback"
-msgstr "Ebligu lanĉajn komentojn"
+msgstr "Ebligi lanĉajn komentojn"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -6260,7 +6260,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1391
 #, kde-format
 msgid "Write"
-msgstr "Skribu"
+msgstr "Skribi"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1392
 #, kde-format
@@ -6271,7 +6271,7 @@ msgstr "La Skriba flago permesas modifi la enhavon de la dosiero."
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
-msgstr "Eniru"
+msgstr "Enigu"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1399
 #, kde-format
@@ -6378,12 +6378,12 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1527
 #, kde-format
 msgid "Set UID"
-msgstr "Agordu UID"
+msgstr "Agordi UID"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1531
 #, kde-format
 msgid "Set GID"
-msgstr "Agordu GID"
+msgstr "Agordi GID"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1535
 #, kde-format
@@ -6804,16 +6804,14 @@ msgid "C&ontinue"
 msgstr "K&ontinui"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Ĉi tiu ago anstataŭigos la celon."
+msgstr "Ĉu vi ŝatus anstataŭigi la celon?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Ĉi tiu ago kunfandos la enhavon de '%1' en '%2'."
+msgstr "Ĉu vi ŝatus kunfandi la enhavon de '%1' en '%2'?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6826,34 +6824,29 @@ msgid "Destination"
 msgstr "Celo"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "La celo estas <b>pli malgranda je %1</b>"
+msgstr "La fonto estas <b>pli malgranda je %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "La celo estas <b>pli granda je %1</b>"
+msgstr "La fonto estas <b>pli granda je %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "La dosieroj estas identaj."
+msgstr "La dosieroj estas <b>identaj</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "La dosieroj ŝajnas identaj."
+msgstr "La dosieroj <b>ŝajnas identaj</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "La dosieroj estas malsamaj."
+msgstr "La dosieroj estas <b>malsamaj</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -7175,121 +7168,3 @@ msgstr "Ĉi tio komencos la programon:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se vi ne fidas ĉi tiun programon, alklaku Nuligi"
-
-#~ msgid "Differences"
-#~ msgstr "Diferencoj"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|Ĉiuj dosieroj"
-
-#~ msgid "No host specified."
-#~ msgstr "Neniu gastiganto specifita."
-
-#~ msgid "The server does not support the WebDAV protocol."
-#~ msgstr "La servilo ne subtenas la WebDAV-protokolon."
-
-#~ msgid "%1 contacted. Waiting for reply..."
-#~ msgstr "%1 kontaktita. Atendante respondon..."
-
-#~ msgctxt "@info Security check on url being accessed"
-#~ msgid ""
-#~ "<p>You are about to log in to the site \"%1\" with the username \"%2\", "
-#~ "but the website does not require authentication. This may be an attempt "
-#~ "to trick you.</p><p>Is \"%1\" the site you want to visit?</p>"
-#~ msgstr ""
-#~ "<p>Vi estas ensalutinta al la retejo \"%1\" kun la uzantnomo \"%2\", sed "
-#~ "la retejo ne postulas aŭtentikigon. Ĉi tio eble estas provo trompi vin.</"
-#~ "p><p>Ĉu \"%1\" estas la retejo, kiun vi volas viziti?</p>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Confirm Website Access"
-#~ msgstr "Konfirmu Retejan Aliron"
-
-#~ msgid "Server processing request, please wait..."
-#~ msgstr "Peto pri procesado de servilo, bonvolu atendi..."
-
-#~ msgid "Sending data to %1"
-#~ msgstr "Sendante datumojn al %1"
-
-#~ msgid "Retrieving %1 from %2..."
-#~ msgstr "Prenante %1 de %2..."
-
-#~ msgid "Authentication Failed."
-#~ msgstr "Aŭtentigo Malsukcesis."
-
-#~ msgid "Authorization failed."
-#~ msgstr "Rajtigo malsukcesis."
-
-#~ msgid "Unknown Authorization method."
-#~ msgstr "Nekonata Rajtiga metodo."
-
-#~ msgid "Receiving corrupt data."
-#~ msgstr "Ricevante difektitajn datumojn."
-
-#~ msgid ""
-#~ "You are about to leave secure mode. Transmissions will no longer be "
-#~ "encrypted.\n"
-#~ "This means that a third party could observe your data in transit."
-#~ msgstr ""
-#~ "Vi estas elironta sekuran reĝimon. Transdonoj ne plu estos ĉifritaj.\n"
-#~ "Ĉi tio signifas, ke tria partio povus observi viajn datumojn dum transiro."
-
-#~ msgid "Security Information"
-#~ msgstr "Sekurecaj Informoj"
-
-#~ msgid "C&ontinue Loading"
-#~ msgstr "Daŭrigi Ŝargad&on"
-
-#~ msgctxt "%1 is a host name"
-#~ msgid "%1: SSL negotiation failed"
-#~ msgstr "%1: SSL-intertraktado malsukcesis"
-
-#~ msgid ""
-#~ "You are about to enter secure mode. All transmissions will be encrypted "
-#~ "unless otherwise noted.\n"
-#~ "This means that no third party will be able to easily observe your data "
-#~ "in transit."
-#~ msgstr ""
-#~ "Vi estas enironta sekuran reĝimon. Ĉiuj dissendoj estos ĉifritaj krom se "
-#~ "alie notite.\n"
-#~ "Ĉi tio signifas, ke neniu tria partio povos facile observi viajn datumojn "
-#~ "en trafiko."
-
-#~ msgid "Display SSL &Information"
-#~ msgstr "Montri SSL &Informojn"
-
-#~ msgid "C&onnect"
-#~ msgstr "K&onekti"
-
-#~ msgid "Could not find a usable proxy configuration script"
-#~ msgstr "Ne eblis trovi uzeblan prokuran agordan skripton"
-
-#~ msgid ""
-#~ "Could not download the proxy configuration script:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ne eblis elŝuti la prokuran agordan skripton:\n"
-#~ "%1"
-
-#~ msgid "Could not download the proxy configuration script"
-#~ msgstr "Ne eblis elŝuti la prokuran agordan skripton"
-
-#~ msgid ""
-#~ "The proxy configuration script is invalid:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "La prokura agorda skripto estas nevalida:\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "The proxy configuration script returned an error:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "La prokura agorda skripto redonis eraron:\n"
-#~ "%1"
-
-#~ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
-#~ msgstr "Ne eblis trovi 'FindProxyForURL' aŭ 'FindProxyForURLEx'"
-
-#~ msgid "Got an invalid reply when calling %1 -> %2"
-#~ msgstr "Ricevis nevalidan respondon dum vokado de %1 -> %2"
