@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-08 14:31+0100\n"
+"PO-Revision-Date: 2023-12-04 14:09+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -6890,16 +6890,14 @@ msgid "C&ontinue"
 msgstr "C&ontinua"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Questa azione sovrascriverà la destinazione."
+msgstr "Vuoi sovrascrivere la destinazione?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Questa azione fonderà i contenuti di «%1» in «%2»."
+msgstr "Vuoi fondere i contenuti di «%1» in «%2»?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6912,34 +6910,29 @@ msgid "Destination"
 msgstr "Destinazione"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "La destinazione è <b>più piccola di %1</b>"
+msgstr "La sorgente è <b>più piccola di %1</b>"
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "La destinazione è <b>più grande di %1</b>"
+msgstr "La sorgente è <b>più grande di %1</b>"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "I file sono identici."
+msgstr "I file sono <b>identici</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "I file sembrano identici."
+msgstr "I file <b>sembrano identici</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "I file sono diversi."
+msgstr "I file sono <b>diversi</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
