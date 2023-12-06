@@ -57,7 +57,7 @@
 <para
 >Si vous avez procédé ainsi, mais obtenez encore cette page affichée au lieu du manuel de l'application, vous avez probablement trouvé un bogue dans le système d'aide. Dans ce cas, veuillez le signaler sur le système de <ulink url="https://bugs.kde.org/"
 >suivi de bogues de &kde;</ulink
-> en choisissant le produit « kio ». </para>
+> en sélectionnant le produit « kio ». </para>
 
 <para
 >Si vous ne trouvez aucune documentation sur le <ulink url="https://docs.kde.org/fr"
