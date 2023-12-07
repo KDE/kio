@@ -134,6 +134,7 @@ Query[pt]=https://api.kde.org/search.html?query=\\{@}
 Query[pt_BR]=https://api.kde.org/search.html?query=\\{@}
 Query[ro]=https://api.kde.org/search.html?query=\\{@}
 Query[ru]=https://api.kde.org/search.html?query=\\{@}
+Query[sk]=https://api.kde.org/search.html?query=\\{@}
 Query[sl]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[tr]=https://api.kde.org/search.html?query=\\{@}

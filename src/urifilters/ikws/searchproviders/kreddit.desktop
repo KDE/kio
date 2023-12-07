@@ -38,6 +38,7 @@ Name[pt]=KDE Reddit
 Name[pt_BR]=KDE Reddit
 Name[ro]=KDE Reddit
 Name[ru]=Сообщество KDE на сайте Reddit
+Name[sk]=KDE Reddit
 Name[sl]=Reddit KDE
 Name[sv]=KDE Reddit
 Name[tr]=KDE Reddit
@@ -86,6 +87,7 @@ Query[pt]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[pt_BR]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ro]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ru]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
