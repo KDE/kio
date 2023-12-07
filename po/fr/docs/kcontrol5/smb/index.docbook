@@ -78,7 +78,7 @@ or file dialog manual -->
 >Utilisation</title>
 
 <para
->Bien que de nombreux réseaux &SMB; soient mal sécurisés acceptant n'importe qui, en principe, vous devrez vous authentifier pour accéder aux serveurs &SMB;. Par défaut, &kde; utiliserées saisies dans les champs <guilabel
+>Bien que de nombreux réseaux &SMB; soient mal sécurisés acceptant n'importe qui, en principe, vous devrez vous authentifier pour accéder aux serveurs &SMB;. Par défaut, &kde; utilisera les données saisies dans les champs <guilabel
 >Nom d'utilisateur par défaut :</guilabel
 > et <guilabel
 >Mot de passe par défaut :</guilabel

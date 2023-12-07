@@ -1,5 +1,5 @@
 # translation of kio5.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2014, 2015, 2016, 2019.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2019, 2023 Roman Paholik <wizzardsk@gmail.com>
 # Mthw <jari_45@hotmail.com>, 2019.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2022-02-14 19:53+0100\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
-"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-06 19:11+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -46,16 +46,12 @@ msgstr ""
 "prístupové práva k súboru na vykonanie tejto zmeny.</qt>"
 
 #: core/connectionbackend.cpp:108
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave: %1"
+#, kde-format
 msgid "Unable to create KIO worker: %1"
-msgstr "Nie je možné vytvoriť io-slave: %1"
+msgstr "Nie je možné vytvoriť obsluhu KIO: %1"
 
 #: core/copyjob.cpp:164 ioslaves/file/file_unix.cpp:1288
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
 "secondarg is the filesystem type (e.g. vfat, exfat)"
@@ -63,8 +59,8 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
-"Nepodarilo sa vytvoriť symbolický odkaz %1.\n"
-"Skontrolujte prístupové práva."
+"Nepodarilo sa vytvoriť symbolický odkaz \"%1\".\n"
+"Cieľový súborový systém (%2) nepodporuje symbolické odkazy."
 
 #: core/copyjob.cpp:176
 #, kde-format
@@ -75,6 +71,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"Nepodarilo sa vytvoriť \"%1\".\n"
+"Cieľový súborový systém (%2) nepovoľuje nasledujúce znaky v názvoch "
+"priečinkov: %3\n"
+"Výberom možnosti Nahradiť sa nahradia všetky neplatné znaky (v názve "
+"cieľového priečinka) podčiarkovníkom \"_\"."
 
 #: core/copyjob.cpp:184
 #, kde-format
@@ -85,6 +86,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"Nepodarilo sa vytvoriť \"%1\".\n"
+"Cieľový súborový systém (%2) nepovoľuje nasledujúce znaky v názvoch súborov: "
+"%3\n"
+"Výberom možnosti Nahradiť sa nahradia všetky neplatné znaky (v názve "
+"cieľového súboru) podčiarkovníkom \"_\"."
 
 #: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
@@ -221,11 +227,10 @@ msgid "Destination"
 msgstr "Cieľ"
 
 #: core/job.cpp:112
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Premenovať"
+msgstr "Premenovanie"
 
 #: core/job.cpp:120
 #, kde-format
@@ -735,16 +740,13 @@ msgstr ""
 "Skontrolujte prístupové práva."
 
 #: core/job_error.cpp:210
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
-"Nepodarilo sa vytvoriť symbolický odkaz %1.\n"
-"Skontrolujte prístupové práva."
+"Nie je možné vytvoriť symbolické odkazy v %1.\n"
+"Cieľový súborový systém nepodporuje symbolické odkazy."
 
 #: core/job_error.cpp:216
 #, kde-format
@@ -793,10 +795,9 @@ msgid "Communication with the local password server failed"
 msgstr "Komunikácia z lokálnym serverom hesiel zlyhala"
 
 #: core/job_error.cpp:245
-#, fuzzy, kde-format
-#| msgid "Unable to create io-slave. %1"
+#, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nie je možné vytvoriť io-slave. %1"
+msgstr "Nie je možné vytvoriť obsluhu KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -820,8 +821,7 @@ msgstr ""
 "Prosím skúste znova po zmene oprávnení."
 
 #: core/job_error.cpp:257
-#, fuzzy, kde-format
-#| msgid "The file is too large to be trashed."
+#, kde-format
 msgid "File is too large to be trashed."
 msgstr "Súbor je príliš veľký na vyhodenie do koša."
 
@@ -1166,21 +1166,15 @@ msgstr ""
 "nekompatibilná."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Môžete skúsiť vyhľadať na Internete program KDE (kioslave alebo ioslave), "
-"ktorý tento protokol podporuje. Skúste to napríklad na <a href=\"http://kde-"
-"apps.org/\">http://kde-apps.org/</a> a <a href=\"http://freshmeat.net/"
-"\">http://freshmeat.net/</a>."
+"Na internete môžete vyhľadať softvérový zásuvný modul (nazývaný \"KIO worker"
+"\"), ktorý podporuje tento protokol. Medzi miesta, kde môžete vyhľadávať, "
+"patria <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -2313,34 +2307,27 @@ msgid "Cannot Initiate the %1 Protocol"
 msgstr "Nie je možné inicializovať protokol %1"
 
 #: core/job_error.cpp:1248
-#, fuzzy, kde-format
-#| msgid "Unable to Create io-slave"
+#, kde-format
 msgid "Unable to Create KIO Worker"
-msgstr "Nie je možné vytvoriť io-slave"
+msgstr "Nie je možné vytvoriť obsluhu KIO "
 
 #: core/job_error.cpp:1250
-#, fuzzy, kde-format
-#| msgid ""
-#| "The io-slave which provides access to the <strong>%1</strong> protocol "
-#| "could not be started. This is usually due to technical reasons."
+#, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
-"Program io-slave, ktorý poskytuje prístup k protokolu <strong>%1</strong> sa "
+"Obsluhu KIO, ktorá poskytuje prístup k protokolu <strong>%1</strong> sa "
 "nepodarilo spustiť. To je obvykle spôsobené technickými problémami."
 
 #: core/job_error.cpp:1255
-#, fuzzy, kde-format
-#| msgid ""
-#| "klauncher could not find or start the plugin which provides the protocol."
-#| "This means you may have an outdated version of the plugin."
+#, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
-"klauncher nemohol nájsť alebo spustiť doplnok, ktorý poskytuje tento "
-"protokol. To znamená, že možno máte starú verziu tohto doplnku."
+"klauncher nemohol nájsť alebo spustiť zásuvný modul, ktorý poskytuje tento "
+"protokol. To znamená, že možno máte starú verziu tohto zásuvného modulu."
 
 #: core/job_error.cpp:1261
 #, kde-kuit-format
@@ -2408,16 +2395,15 @@ msgid "Unknown protocol '%1'."
 msgstr "Neznámy protokol '%1'."
 
 #: core/slave.cpp:440
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Nie je možné nájsť IO klienta pre protokol '%1'."
+msgstr "Nie je možné nájsť obsluhu KIO pre protokol '%1'."
 
 #: core/slave.cpp:448
-#, fuzzy, kde-format
-#| msgid "Can not create socket for launching io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr "Nie je možné vytvoriť socket pre spustenie IO slave pre protokol '%1'."
+msgstr ""
+"Nie je možné vytvoriť soket pre spustenie obsluhy KIO pre protokol '%1'."
 
 #: core/slave.cpp:488
 #, kde-format
@@ -2750,10 +2736,9 @@ msgid "Folders First"
 msgstr "Najskôr priečinky"
 
 #: filewidgets/kdiroperator.cpp:2178
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Hidden Files Last"
-msgstr "Zobraziť skryté súbory"
+msgstr "Skryté súbory na koniec"
 
 #: filewidgets/kdiroperator.cpp:2188
 #, kde-format
@@ -2836,10 +2821,9 @@ msgid "Properties"
 msgstr "Vlastnosti"
 
 #: filewidgets/kdiroperator.cpp:2369
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "&View Mode"
-msgstr "&Zobraziť"
+msgstr "Režim &zobrazenia"
 
 #: filewidgets/kdiroperator.cpp:2487 filewidgets/kdiroperator.cpp:2499
 #, kde-format
@@ -3155,25 +3139,21 @@ msgid "Modified Yesterday"
 msgstr "Zmenené včera"
 
 #: filewidgets/kfileplacesmodel.cpp:1144
-#, fuzzy, kde-format
-#| msgid "Could not find the program '%1'"
+#, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Nepodarilo sa nájsť program '%1'"
+msgstr "Nepodarilo sa pridať na panel Miesta: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1151
-#, fuzzy, kde-format
-#| msgid "A folder cannot be moved into itself"
+#, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Súbor nemôže byť presunutý sám do seba"
+msgstr "Na panel Miesta možno pridávať iba priečinky."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Release"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "&Odpojiť"
+msgstr "Uvoľňuje sa..."
 
 #: filewidgets/kfileplacesmodel.cpp:1417
 #, kde-format
@@ -3182,12 +3162,10 @@ msgid "&Release"
 msgstr "&Odpojiť"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Safely Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "&Bezpečne odstrániť"
+msgstr "Bezpečné odstraňovanie..."
 
 #: filewidgets/kfileplacesmodel.cpp:1423
 #, kde-format
@@ -3196,12 +3174,10 @@ msgid "&Safely Remove"
 msgstr "&Bezpečne odstrániť"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Unmounting"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Odpájanie"
+msgstr "Odpája sa..."
 
 #: filewidgets/kfileplacesmodel.cpp:1430
 #, kde-format
@@ -3234,6 +3210,8 @@ msgstr "Nastala chyba pri prístupe k '%1'"
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
+"Jeden alebo viac súborov na tomto zariadení sú stále otvorené v nejakej "
+"aplikácii."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3244,8 +3222,14 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
+"Jeden alebo viac súborov na tomto zariadení je otvorených v aplikácii "
+"<application>\"%2\"</application>."
 msgstr[1] ""
+"Jeden alebo viac súborov na tomto zariadení je otvorených v nasledujúcich "
+"aplikáciách: <application>%2</application>."
 msgstr[2] ""
+"Jeden alebo viac súborov na tomto zariadení je otvorených v nasledujúcich "
+"aplikáciách: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-format
@@ -3837,20 +3821,16 @@ msgid "Paste"
 msgstr "Vložiť"
 
 #: filewidgets/kurlnavigator.cpp:547
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Tab"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
-msgstr "Otvoriť v novej karte"
+msgstr "Otvoriť \"%1\" v novej karte"
 
 #: filewidgets/kurlnavigator.cpp:555
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "Open in New Window"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
-msgstr "Otvoriť v novom okne"
+msgstr "Otvoriť \"%1\" v novom okne"
 
 #: filewidgets/kurlnavigator.cpp:564
 #, kde-format
@@ -3977,11 +3957,10 @@ msgid "Launching %1"
 msgstr "Spúšťa sa %1"
 
 #: gui/kprocessrunner.cpp:466
-#, fuzzy, kde-kuit-format
-#| msgid "The file \"%1\" could not be found"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
-msgstr "Nepodarilo sa nájsť súbor \"%1\""
+msgstr "Príkaz <command>%1</command> sa nepodarilo nájsť."
 
 #: gui/kterminallauncherjob.cpp:124
 #, kde-format
@@ -4049,6 +4028,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"Tento súbor je neúplný a nemal by sa otvárať.\n"
+"Skontrolujte otvorené aplikácie a oblasť oznámení, či v nich nie sú čakajúce "
+"úlohy alebo stiahnutia."
 
 #: gui/openurljob.cpp:639
 #, kde-format
@@ -4171,7 +4153,7 @@ msgstr "Zmeniť časovú značku"
 #: ioslaves/file/file_unix.cpp:138
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "Z: %1, Na: %2"
 
 #: ioslaves/file/file_unix.cpp:141
 #, kde-format
@@ -5221,6 +5203,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"Nie všetky aplikácie budú používať toto nastavenie proxy. Najmä "
+"<application>Firefox</application> a <application>Chromium</application> "
+"alebo čokoľvek z nich odvodené, alebo čokoľvek, čo používa "
+"<application>QtWebEngine</application>&nbsp;- čo zahŕňa "
+"<application>Konqueror</application> používajúci <application>WebEnginePart</"
+"application>, <application>Akregator</application> a <application>Falkon</"
+"application>&nbsp;- nebudú používať tieto nastavenia. Niektoré aplikácie "
+"môžu umožniť konfiguráciu proxy vo vlastných nastaveniach."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -5288,16 +5278,7 @@ msgstr "Bez &proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5308,12 +5289,11 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Automaticky určiť a nastaviť proxy.<p>\n"
-"Automatické nastavenie sa urobí pomocou protokolu <b>Web Proxy Auto-"
-"Discovery Protocol (WPAD)</b>.<p>\n"
-"<b>Poznámka:</b> Táto voľba nemusí fungovať správne alebo vôbec na "
-"niektorých distribúciách Unix/Linux. Ak narazíte na problémy, prečítajte si "
-"sekciu FAQ na http://konqueror.kde.org.\n"
+"Automatické zisťovanie a konfigurácia nastavení proxy.<p>\n"
+"Automatické zisťovanie sa vykonáva pomocou <b>Web Proxy Auto-Discovery "
+"Protocol (WPAD)</b>.<p>\n"
+"<b>POZNÁMKA:</b> Táto možnosť nemusí v niektorých distribúciách UNIX/Linux "
+"fungovať správne alebo nemusí fungovať vôbec.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
@@ -5497,22 +5477,17 @@ msgstr "SOCKS Proxy:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
-#| "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
-#| "can click on the <b>\"Auto Detect\"</b> button to attempt an automatic "
-#| "discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>Zadajte meno premennej prostredia, napr. <b>HTTPS_PROXY</b>, ktorá sa má "
-"použiť ako adresa proxy serveru HTTPS.<p>Prípadne môžete stlačiť tlačidlo <b>"
-"\"Automaticky detekovať\"</b>, aby sa systém pokúsil automaticky určiť túto "
-"premennú.</p></qt>"
+"<qt>Zadajte názov premennej prostredia, napr. <b>SOCKS_PROXY</b>, ktorá sa "
+"používa na uloženie adresy proxy servera SOCKS.<p>Prípadne môžete kliknúť na "
+"tlačidlo <b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa o automatické "
+"zistenie tejto premennej.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5542,22 +5517,18 @@ msgstr "Výnimky:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store "
-#| "the addresses of sites for which the above proxy settings should not be "
-#| "used.<p>Alternatively, you can click on the <b>\"Auto Detect\"</b> button "
-#| "to attempt an automatic discovery of this variable.</p></qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
 "<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>Zadajte názov premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa má "
-"použiť na uloženie adries, pre ktoré sa proxy server používať nemá."
-"<p>Prípadne môžete stlačiť tlačidlo <b>\"Automaticky detekovať\"</b>, aby sa "
-"systém pokúsil automaticky určiť túto premennú.</p></qt>"
+"<qt>Zadajte názov premennej prostredia, napr. <b>NO_PROXY</b>, ktorá sa "
+"používa na uloženie adries lokalít, pre ktoré by sa vyššie uvedené "
+"nastavenia proxy nemali používať.<p>Prípadne môžete kliknúť na tlačidlo "
+"<b>&quot;Automatické zistenie&quot;</b> a pokúsiť sa o automatické zistenie "
+"tejto premennej.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
@@ -6153,13 +6124,7 @@ msgstr ""
 "Zdroj nie je možné vytvoriť na cieli kým nebudú vytvorené potrebné priečinky."
 
 #: kioworkers/http/http.cpp:1699
-#, fuzzy, kde-format
-#| msgid ""
-#| "The server was unable to maintain the liveness of the properties listed "
-#| "in the propertybehavior XML element\n"
-#| " or you attempted to overwrite a file while requesting that files are not "
-#| "overwritten.\n"
-#| " %1"
+#, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
 "properties listed in the propertybehavior XML element\n"
@@ -6167,10 +6132,10 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"Server nebol schopný udržať životnosť vlastností uvedených v XML prvku "
-"propertybehavior,\n"
-" alebo ste sa pokúsili prepísať súbor pričom ste požadovali, aby súbory "
-"nebolo možné prepísať.\n"
+"Server nebol schopný udržať životnosť vlastností\n"
+"uvedených v XML prvku propertybehavior,\n"
+"alebo ste sa pokúsili prepísať súbor, pričom ste\n"
+"požadovali, aby súbory nebolo možné prepísať.\n"
 " %1"
 
 #: kioworkers/http/http.cpp:1707
@@ -6595,21 +6560,17 @@ msgid "Preferred"
 msgstr "Preferované"
 
 #: urifilters/ikws/ikwsopts.cpp:102
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Check this box to select the highlighted web shortcut as preferred.<nl/"
-#| ">Preferred web shortcuts are used in places where only a few select "
-#| "shortcuts can be shown at one time."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Check this box to select the highlighted web search keyword as preferred.<nl/"
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
-"Zaškrtnite toto pole na výber zvýraznenej webovej skratky ako preferovanej."
-"<nl/> Preferované webové skratky sa používajú v miestach, kde sa dá zobraziť "
-"iba niekoľko skratiek súčasne."
+"Začiarknite toto políčko, ak chcete vybrať zvýraznené kľúčové slovo "
+"vyhľadávania na webe ako preferované.<nl/>Preferované kľúčové slová "
+"vyhľadávania na webe sa používajú na miestach, kde sa môže naraz zobraziť "
+"len niekoľko vybraných kľúčových slov."
 
 #: urifilters/ikws/ikwsopts.cpp:203
 #, kde-format
@@ -6655,15 +6616,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Enable or disable web shortcuts. </p><p>Web "
-#| "shortcuts allow you to quickly access or search for information located "
-#| "online or on your hard drive. </p><p>KDE comes with many predefined Web "
-#| "shortcuts. One such Web shortcut is the Google (TM) search shortcut. To "
-#| "use it, you simply type the keyword 'gg' followed by the keyword "
-#| "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
-#| "KDE</span>.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Enable or disable web search keywords. </p><p>Web "
 "search keywords allow you to quickly access or search for information "
@@ -6673,13 +6626,14 @@ msgid ""
 "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
 "KDE</span>.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Povoliť alebo zakázať webové skratky. </p><p>Webové "
-"skratkyvám umožnia rýchly prístup alebo hľadanie informácií online alebo na "
-"vašom disku</p><p>KDE prichádza s mnohými preddefinovanými webovými "
-"skratkami.Jedna z nich je skratka na hľadanie v Google (TM). Na jej použitie "
-"jednoduchonapíšte kľúčové slovo 'gg' nasledované oddeľovačom kľúčového slova "
-"a hľadaným textom, napr. <span style=\" font-weight:600;\">gg:KDE</span>.</"
-"p></body></html>"
+"<html><head/><body><p>Povolenie alebo zakázanie kľúčových slov vyhľadávania "
+"na webe. </p><p>Kľúčové slová vyhľadávania na webe umožňujú rýchly prístup "
+"alebo vyhľadávanie informácií umiestnených online alebo na pevnom disku.  </"
+"p><p>Prostredie KDE obsahuje mnoho preddefinovaných kľúčových slov. Jedno z "
+"takýchto kľúčových slov možno použiť na vyhľadávanie v Google (TM); stačí "
+"zadať kľúčové slovo \"gg\", za ktorým nasleduje oddeľovač kľúčových slov a "
+"hľadaný výraz, napr. <span style=\" font-weight:600;\">gg:KDE</span>.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
@@ -6747,13 +6701,7 @@ msgstr "Predvolené kľúčové slovo pre vyhľadávanie na webe:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Select a default web shortcut. </p><p>This allows "
-#| "applications to automatically convert the typed word or phrase to web "
-#| "shortcut queries when they cannot be filtered into a proper URL. </"
-#| "p><p>To disable this functionality select <span style=\" font-weight:600;"
-#| "\">None</span> from the list. </p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Select a default web search keyword. </p><p>This "
 "allows applications to automatically convert the typed word or phrase to web "
@@ -6761,11 +6709,12 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
-"<html><head/><body><p>Vyberte predvolenú webovú skratku. </p><p>Toto "
-"umožníaplikáciám automaticky konvertovať napísané slovo alebo frázu do "
-"dotazovwebových skratiek, keď sa nedajú skonvertovať na platné. </"
-"p><p>Nazakázanie tejto funkcionality vyberte <span style=\" font-weight:600;"
-"\">Žiadne</span> zo zoznamu. </p></body></html>"
+"<html><head/><body><p>Vyberte predvolené kľúčové slovo vyhľadávania na webe. "
+"</p><p>To umožňuje aplikáciám automaticky konvertovať napísané slovo alebo "
+"frázu na dopyty kľúčových slov vyhľadávania na webe, ak ich nie je možné "
+"odfiltrovať na správnu adresu URL. </p><p>Ak chcete túto funkciu zakázať, "
+"vyberte <span style=\" font-weight:600;\">Žiadne</span> zo zoznamu. </p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
@@ -7205,10 +7154,9 @@ msgid "Moving"
 msgstr "Presúvanie"
 
 #: widgets/fileundomanager.cpp:141
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Renaming"
-msgstr "Premenovať"
+msgstr "Premenovanie"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -7303,8 +7251,7 @@ msgstr "Trvalé odstránenie"
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:241
 #: widgets/widgetsaskuseractionhandler.cpp:263
-#, fuzzy, kde-format
-#| msgid "Delete Permanently"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
 msgstr "Trvalé odstránenie"
@@ -7884,16 +7831,13 @@ msgstr ""
 "\"%1\" (%2)"
 
 #: widgets/kopenwithdialog.cpp:743
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\" (%2)"
+#, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Zapamätať si asociáciu aplikácie pre všetky súbory typu\n"
-"\"%1\" (%2)"
+"Zapamätať si priradenie aplikácií pre všetky súbory typu\n"
+"\"%1\""
 
 #: widgets/kopenwithdialog.cpp:753
 #, kde-format
@@ -7913,7 +7857,7 @@ msgstr "&Nezatvárať po ukončení príkazu"
 #: widgets/kopenwithdialog.cpp:795
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Získajte ďalšie aplikácie z aplikácie Discover"
 
 #: widgets/kopenwithdialog.cpp:980
 #, kde-format
@@ -8120,7 +8064,7 @@ msgstr "Kom&entár:"
 #: widgets/kpropertiesdesktopbase.ui:82
 #, kde-format
 msgid "Environment Variables:"
-msgstr ""
+msgstr "Premenné prostredia:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -8174,7 +8118,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:108
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "Program:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:137
@@ -8207,11 +8151,9 @@ msgstr "&Pracovná cesta:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Documents"
+#, kde-format
 msgid "Arguments:"
-msgstr "Dokumenty"
+msgstr "Argumenty:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8407,10 +8349,9 @@ msgid "Calculating...\n"
 msgstr "Vypočítava sa...\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
-#, fuzzy, kde-format
-#| msgid "At least %1"
+#, kde-format
 msgid "At least %1\n"
-msgstr "Najmenej %1"
+msgstr "Najmenej %1\n"
 
 #: widgets/kpropertiesdialog.cpp:1474
 #, kde-format
@@ -8418,30 +8359,26 @@ msgid "The new file name is empty."
 msgstr "Nový názov súboru je prázdny."
 
 #: widgets/kpropertiesdialog.cpp:1672
-#, fuzzy, kde-format
-#| msgid "&Supported file types:"
+#, kde-format
 msgid "No registered file type"
-msgstr "&Podporované typy MIME:"
+msgstr "Žiadny registrovaný typ súboru"
 
 #: widgets/kpropertiesdialog.cpp:1674
-#, fuzzy, kde-format
-#| msgid "Choose Application"
+#, kde-format
 msgid "No associated application"
-msgstr "Vyberte aplikáciu"
+msgstr "Žiadna priradená aplikácia"
 
 #: widgets/kpropertiesdialog.cpp:1680
-#, fuzzy, kde-format
-#| msgid "Created:"
+#, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
-msgstr "Vytvorený:"
+msgstr "Vytvoriť..."
 
 #: widgets/kpropertiesdialog.cpp:1683
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change…"
-msgstr "Zmeniť..."
+msgstr "Zmeniť…"
 
 #: widgets/kpropertiesdialog.cpp:1759 widgets/kpropertiesdialog.cpp:1760
 #: widgets/kpropertiesdialog.cpp:1762
@@ -9447,19 +9384,14 @@ msgstr ""
 "Ruší sa, pretože sa nepodarilo zistiť identitu hostiteľa."
 
 #: widgets/widgetsaskuseractionhandler.cpp:229
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Do you really want to permanently delete this item?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
-"Naozaj chcete natrvalo odstrániť túto položku?<nl/><filename>%1</"
+"Naozaj chcete natrvalo odstrániť túto položku?<nl/><nl/><filename>%1</"
 "filename><nl/><nl/><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</"
 "emphasis>"
 
@@ -9483,31 +9415,19 @@ msgstr[2] ""
 "strong='true'>Táto akcia sa nedá vrátiť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:248
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Naozaj chcete natrvalo odstrániť túto položku?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</"
-"emphasis>"
+"Presunutie tejto položky do koša sa nepodarilo, pretože je príliš veľká. "
+"Vymazať ju namiesto toho natrvalo?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:255
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9518,8 +9438,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Naozaj chcete natrvalo odstrániť túto položku?<nl/><nl/><emphasis "
-"strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
+"Presunutie tejto položky %1 do koša sa nepodarilo, pretože je príliš veľká. "
+"Vymazať ju namiesto toho natrvalo?<nl/><emphasis strong='true'>Táto akcia sa "
+"nedá vrátiť späť.</emphasis>"
 msgstr[1] ""
 "Naozaj chcete natrvalo odstrániť tieto položky %1?<nl/><nl/><emphasis "
 "strong='true'>Táto akcia sa nedá vrátiť.</emphasis>"

@@ -178,7 +178,7 @@ How to enable Auto Detect button?
 >*</userinput
 > ou <userinput
 >?</userinput
-> ne sont pas pris en charge et n'auront aucun effet. De plus, vous pouvez également saisir des adresses IP (&pex; 127.0.0.1) ou des addresses IP incluant leurs masques de sous-réseau (&pex; 192.168.0.1/24).</para>
+> ne sont pas pris en charge et n'auront aucun effet. De plus, vous pouvez également saisir des adresses IP (&pex; 127.0.0.1) ou des adresses IP incluant leurs masques de sous-réseau (&pex; 192.168.0.1/24).</para>
 </listitem>
 </varlistentry>
 </variablelist>
