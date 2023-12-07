@@ -23,15 +23,15 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-09 12:49+0100\n"
+"PO-Revision-Date: 2023-12-05 11:52+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: fr\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2598,7 +2598,7 @@ msgstr ""
 #: core/worker.cpp:393
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Impossible de trouver le programme « kioworker5 »à « %1 »"
+msgstr "Impossible de trouver le programme « kioworker »à « %1 »"
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -6946,16 +6946,14 @@ msgid "C&ontinue"
 msgstr "&Continuer"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Cette action écrasera la destination."
+msgstr "Voulez-vous vraiment écraser la destination ?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Cette action fusionnera les contenus de « %1 » dans « %2 »."
+msgstr "Voulez-vous vraiment fusionner les contenus de « %1 » dans « %2 » ?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6968,34 +6966,29 @@ msgid "Destination"
 msgstr "Destination"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "La destination est plus <b>petit de %1</b>"
+msgstr "La source est plus <b>petite de %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "La destination est plus <b>grand de %1</b>"
+msgstr "La source est plus <b>grande de %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Les fichiers sont identiques."
+msgstr "Les fichiers sont <b>identiques</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Les fichiers semblent identiques."
+msgstr "Les fichiers <b>semblent identiques</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Les fichiers sont différents."
+msgstr "Les fichiers sont <b>différents</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
