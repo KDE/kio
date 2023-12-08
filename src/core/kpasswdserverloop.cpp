@@ -14,7 +14,7 @@ KPasswdServerLoop::KPasswdServerLoop()
     : m_seqNr(-1)
 {
     QDBusServiceWatcher *watcher =
-        new QDBusServiceWatcher(QStringLiteral("org.kde.kpasswdserver"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration, this);
+        new QDBusServiceWatcher(QStringLiteral("org.kde.kpasswdserver6"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration, this);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &KPasswdServerLoop::kdedServiceUnregistered);
 }
 
