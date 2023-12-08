@@ -132,7 +132,7 @@ KFileItemActionsPrivate::~KFileItemActionsPrivate()
 {
 }
 
-int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus, QMenu *menu, bool isBuiltin)
+int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus, QMenu *menu)
 {
     int count = 0;
     QMap<QString, ServiceList>::ConstIterator it;
@@ -143,7 +143,7 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
         }
 
         QMenu *actionSubmenu = new QMenu(menu);
-        const int servicesAddedCount = insertServices(it.value(), actionSubmenu, isBuiltin);
+        const int servicesAddedCount = insertServices(it.value(), actionSubmenu);
 
         if (servicesAddedCount > 0) {
             count += servicesAddedCount;
@@ -160,7 +160,7 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
     return count;
 }
 
-int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin)
+int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu)
 {
     ServiceList sortedList = list;
     std::sort(sortedList.begin(), sortedList.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
@@ -176,21 +176,19 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
             continue;
         }
 
-        if (isBuiltin) {
-            QAction *act = new QAction(q);
-            act->setObjectName(QStringLiteral("menuaction")); // for the unittest
-            QString text = serviceAction.name();
-            text.replace(QLatin1Char('&'), QLatin1String("&&"));
-            act->setText(text);
-            if (!serviceAction.icon().isEmpty()) {
-                act->setIcon(QIcon::fromTheme(serviceAction.icon()));
-            }
-            act->setData(QVariant::fromValue(serviceAction));
-            m_executeServiceActionGroup.addAction(act);
-
-            menu->addAction(act); // Add to toplevel menu
-            ++count;
+        QAction *act = new QAction(q);
+        act->setObjectName(QStringLiteral("menuaction")); // for the unittest
+        QString text = serviceAction.name();
+        text.replace(QLatin1Char('&'), QLatin1String("&&"));
+        act->setText(text);
+        if (!serviceAction.icon().isEmpty()) {
+            act->setIcon(QIcon::fromTheme(serviceAction.icon()));
         }
+        act->setData(QVariant::fromValue(serviceAction));
+        m_executeServiceActionGroup.addAction(act);
+
+        menu->addAction(act); // Add to toplevel menu
+        ++count;
     }
 
     return count;
@@ -513,13 +511,13 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
     for (QAction *action : additionalActions) {
         actionMenu->addAction(action);
     }
-    userItemCount += insertServicesSubmenus(s.userPrioritySubmenus, actionMenu, false);
-    userItemCount += insertServices(s.userPriority, actionMenu, false);
-    userItemCount += insertServicesSubmenus(s.userSubmenus, actionMenu, false);
-    userItemCount += insertServices(s.user, actionMenu, false);
+    userItemCount += insertServicesSubmenus(s.userPrioritySubmenus, actionMenu);
+    userItemCount += insertServices(s.userPriority, actionMenu);
+    userItemCount += insertServicesSubmenus(s.userSubmenus, actionMenu);
+    userItemCount += insertServices(s.user, actionMenu);
 
-    userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenu, false);
-    userItemCount += insertServices(s.userToplevel, mainMenu, false);
+    userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenu);
+    userItemCount += insertServices(s.userToplevel, mainMenu);
 
     return {userItemCount, actionMenu};
 }

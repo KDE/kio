@@ -31,8 +31,8 @@ public:
     explicit KFileItemActionsPrivate(KFileItemActions *qq);
     ~KFileItemActionsPrivate() override;
 
-    int insertServicesSubmenus(const QMap<QString, ServiceList> &list, QMenu *menu, bool isBuiltin);
-    int insertServices(const ServiceList &list, QMenu *menu, bool isBuiltin);
+    int insertServicesSubmenus(const QMap<QString, ServiceList> &list, QMenu *menu);
+    int insertServices(const ServiceList &list, QMenu *menu);
 
     // For "open with"
     KService::List associatedApplications(const QString &traderConstraint);
