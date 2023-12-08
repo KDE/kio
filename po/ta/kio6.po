@@ -9,13 +9,13 @@
 # Vasee Vaseeharan <vasee@ieee.org>, 2004.
 # Ambalam <tamilpc@ambalam.com>, 2004.
 # root <root@localhost.localdomain>, 2004.
-# Kishore G <kishore96@gmail.com>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-08-20 16:30+0530\n"
+"PO-Revision-Date: 2023-12-07 21:29+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3440,10 +3440,9 @@ msgid "Remote Files Not Accepted"
 msgstr "தொலைக் கோப்புகள் ஏற்றுக் கொள்ளப்படாது"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|எல்லா அடைவுகள்"
+msgstr "எல்லா அடைவுகள்"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:727
@@ -6717,16 +6716,14 @@ msgid "C&ontinue"
 msgstr "&தொடர்"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "இச்செயல் சேருமிடத்தை மேலெழுதும்."
+msgstr "சேருமிடத்தை மேலெழுத வேண்டுமா?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "இச்செயல் '%1' மற்றும் '%2' என்பவற்றின் உள்ளடக்கத்தை ஒன்றுசேர்க்கும்."
+msgstr "'%1' என்பதன் உள்ளடக்கத்தை '%2' என்பதுடன் ஒன்றுசேர்க்க வேண்டுமா?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6739,34 +6736,29 @@ msgid "Destination"
 msgstr "சேருமிடம்"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "சேருமிடம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
+msgstr "மூலம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "சேருமிடம் <b>%1 அளவால் பெரிதாக</b> உள்ளது"
+msgstr "மூலம் <b>%1 அளவால் பெரிதாக</b> உள்ளது"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "இந்த கோப்புகள் முழுதும் ஒத்தவையாக உள்ளன."
+msgstr "இந்த கோப்புகள் முழுதும் <b>ஒத்தவையாக</b> உள்ளன."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "கோப்புகள் ஒத்தவையாக இருக்கக் கூடும்."
+msgstr "கோப்புகள் <b>ஒத்தவையாக இருக்கக் கூடும்</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "கோப்புகள் வேறுபட்டு உள்ளன."
+msgstr "கோப்புகள் <b>வேறுபட்டு</b> உள்ளன."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
