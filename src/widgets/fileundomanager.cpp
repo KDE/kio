@@ -696,7 +696,7 @@ FileUndoManager::UiInterface *FileUndoManager::uiInterface() const
 class Q_DECL_HIDDEN FileUndoManager::UiInterface::UiInterfacePrivate
 {
 public:
-    QWidget *m_parentWidget = nullptr;
+    QPointer<QWidget> m_parentWidget;
     bool m_showProgressInfo = true;
 };
 
