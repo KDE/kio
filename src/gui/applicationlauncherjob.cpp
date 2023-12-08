@@ -74,7 +74,7 @@ KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KServiceAction &servic
     d->m_service->setExec(serviceAction.exec());
 }
 KIO::ApplicationLauncherJob::ApplicationLauncherJob(const KDesktopFileAction &desktopFileAction, QObject *parent)
-    : ApplicationLauncherJob(KService::serviceByDesktopPath(desktopFileAction.desktopFilePath()), parent)
+    : ApplicationLauncherJob(KService::Ptr(new KService(desktopFileAction.desktopFilePath())), parent)
 {
     Q_ASSERT(d->m_service);
     d->m_service.detach();
