@@ -131,7 +131,11 @@ public:
     void setItem(const KFileItem &item) override
     {
         KDirModelNode::setItem(item);
-        m_fsType = FsTypeUnknown;
+        if (item.isNull() || !item.url().isValid()) {
+            m_fsType = LocalFs;
+        } else {
+            m_fsType = FsTypeUnknown;
+        }
     }
 
     // If we listed the directory, the child count is known. Otherwise it can be set via setChildCount.
