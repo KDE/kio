@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:36+0000\n"
-"PO-Revision-Date: 2023-11-25 02:26\n"
+"PO-Revision-Date: 2023-12-09 09:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -6518,16 +6518,14 @@ msgid "C&ontinue"
 msgstr "继续(&O)"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "此操作将覆盖目标项目。"
+msgstr "您想要覆盖目标吗？"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "此操作将把“%1”的内容合并到“%2”中。"
+msgstr "您想要将“%1”的内容合并到“%2”中吗？"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6540,34 +6538,29 @@ msgid "Destination"
 msgstr "目标"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "目标项目要<b>小 %1</b>"
+msgstr "来源<b>小了 %1</b>。"
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "目标项目要<b>大 %1</b>"
+msgstr "来源<b>大了 %1</b>。"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "文件相同。"
+msgstr "文件是<b>相同的</b>。"
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "文件可能相同。"
+msgstr "文件<b>似乎是相同的</b>。"
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "文件不同。"
+msgstr "文件是<b>不同的</b>。"
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -6877,6 +6870,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "Differences"
-#~ msgstr "差异"
