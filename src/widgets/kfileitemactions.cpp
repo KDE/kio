@@ -431,6 +431,7 @@ bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
 {
     const QStringList types = cfg.readXdgListEntry("MimeType");
     if (types.isEmpty()) {
+        qCWarning(KIO_WIDGETS) << "The service menu file" << cfg.config()->name() << "does not contain the MimeType key, ignoring";
         return false;
     }
 
