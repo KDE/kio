@@ -402,9 +402,9 @@ RenameDialog::RenameDialog(QWidget *parent,
         hbox_verdicts->addStretch(1);
 
         if (mtimeSrc > mtimeDest) {
-            hbox_verdicts->addWidget(createLabel(this, QStringLiteral("The source is <b>more recent</b>.")));
+            hbox_verdicts->addWidget(createLabel(this, i18n("The source is <b>more recent</b>.")));
         } else if (mtimeDest > mtimeSrc) {
-            hbox_verdicts->addWidget(createLabel(this, QStringLiteral("The source is <b>older</b>.")));
+            hbox_verdicts->addWidget(createLabel(this, i18n("The source is <b>older</b>.")));
         };
 
         if (d->srcItem.entry().contains(KIO::UDSEntry::UDS_SIZE) && d->destItem.entry().contains(KIO::UDSEntry::UDS_SIZE)
