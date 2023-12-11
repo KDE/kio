@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3517,7 +3517,7 @@ msgid "All Folders"
 msgstr "*|تمام پوشه‌ها"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "&گشودن"
@@ -5220,58 +5220,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "نوع"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, kde-format
 msgid "Open &with %1"
 msgstr "&باز کردن %1 با"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&کنش‌ها‌"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&گشودن پوشه با…"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&گشودن با…"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&گشودن پوشه با %1"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open with %1"
 msgstr "&باز کردن %1 با‌"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&گشودن پوشه با"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&گشودن با"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -6807,6 +6807,18 @@ msgstr "مبدأ"
 #, kde-format
 msgid "Destination"
 msgstr "مقصد"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "مقصد <b>%1 بار کوچک‌تر</b> است"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>older</b>."
+msgstr "مقصد <b>%1 بار کوچک‌تر</b> است"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

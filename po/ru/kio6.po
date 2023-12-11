@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2023-12-05 16:21+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -3535,7 +3535,7 @@ msgid "All Folders"
 msgstr "*|Все папки"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "&Открыть"
@@ -5265,58 +5265,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Тип"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, kde-format
 msgid "Open &with %1"
 msgstr "Открыть &с помощью %1"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Действия"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&Открыть папку в приложении…"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&Открыть с помощью…"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Открыть папку в приложении %1"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open with %1"
 msgstr "Открыть &с помощью %1"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Открыть папку в приложении"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Открыть с помощью…"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -6898,6 +6898,18 @@ msgstr "Источник"
 #, kde-format
 msgid "Destination"
 msgstr "Назначение"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "Файл назначения меньше на %1<b>"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>older</b>."
+msgstr "Файл назначения меньше на %1<b>"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

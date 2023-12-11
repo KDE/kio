@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3433,7 +3433,7 @@ msgid "All Folders"
 msgstr "*|सर्वाणि पुटानि"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "&उद्घाटयतु"
@@ -5140,58 +5140,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकारः"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, kde-format
 msgid "Open &with %1"
 msgstr "&एतेन उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&क्रियाः"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "&एतेन सह पुटं उद्घाटयन्तु..."
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "&एतेन उद्घाटयन्तु..."
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open with %1"
 msgstr "&एतेन उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&एतेन उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -6706,6 +6706,18 @@ msgstr "स्रोत"
 #, kde-format
 msgid "Destination"
 msgstr "गन्तव्यम्"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "गन्तव्यस्थानं <b>%1 इत्यनेन लघुतरम्</b> अस्ति"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>older</b>."
+msgstr "गन्तव्यस्थानं <b>%1 इत्यनेन लघुतरम्</b> अस्ति"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

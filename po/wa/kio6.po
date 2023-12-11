@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3674,7 +3674,7 @@ msgid "All Folders"
 msgstr "*|Tos les ridants"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "Dr&ovi"
@@ -5445,66 +5445,66 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Sôre"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Accions"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7003,6 +7003,18 @@ msgstr "Sourdant"
 #| msgid "Destination"
 msgid "Destination"
 msgstr "Destinåcion"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "li cawete <b>%1</b>"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>older</b>."
+msgstr "li cawete <b>%1</b>"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

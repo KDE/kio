@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3638,7 +3638,7 @@ msgid "All Folders"
 msgstr "*|सबै फोल्डर"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "खोल्नुहोस्"
@@ -5459,66 +5459,66 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकार"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "यससँग खोल्नुहोस्:"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "कार्य"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "यससँग खोल्नुहोस्:"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "यससँग खोल्नुहोस्:"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7105,6 +7105,18 @@ msgstr "स्रोत:"
 #| msgid "Destination"
 msgid "Destination"
 msgstr "गन्तव्य"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "विस्तार <b>%1</b>"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>older</b>."
+msgstr "विस्तार <b>%1</b>"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

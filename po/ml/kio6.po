@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -3409,7 +3409,7 @@ msgid "All Folders"
 msgstr "എല്ലാ ഫയലുകളും"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "തുറക്കുക (&O)"
@@ -5031,61 +5031,61 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "തരം"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, kde-format
 msgid "Open &with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "New Folder..."
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "പുതിയ ഫോള്‍ഡര്‍..."
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 msgid "&Open folder with %1"
 msgstr ""
 "ഇവിടെ പുതിയ ഫോള്‍ഡര്‍ ഉണ്ടാക്കുക:\n"
 "%1"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "1 ഫയല്‍"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -6512,6 +6512,16 @@ msgstr "ശ്രോതസ്സ്"
 #, fuzzy, kde-format
 msgid "Destination"
 msgstr "ലക്ഷ്യസ്ഥാനം"
+
+#: widgets/renamedialog.cpp:405
+#, kde-format
+msgid "The source is <b>more recent</b>."
+msgstr ""
+
+#: widgets/renamedialog.cpp:407
+#, kde-format
+msgid "The source is <b>older</b>."
+msgstr ""
 
 #: widgets/renamedialog.cpp:416
 #, kde-format

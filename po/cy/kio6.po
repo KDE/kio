@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3543,7 +3543,7 @@ msgid "All Folders"
 msgstr "*|Pob Plygell"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "Ag&or"
@@ -5276,58 +5276,58 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Math"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, kde-format
 msgid "Open &with %1"
 msgstr "Agor &efo %1"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Gweithredi&adau"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Ag&or Plygell Efo..."
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Ag&or Efo..."
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Ag&or plygell efo %1"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, kde-format
 msgid "&Open with %1"
 msgstr "Ag&or efo %1"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Ag&or Plygell Efo"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Ag&or Efo"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
@@ -6903,6 +6903,18 @@ msgstr "Tarddiad"
 #, kde-format
 msgid "Destination"
 msgstr "Cyrchfan"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "Mae'r gyrchfan yn <b>llai gyda %1</b>"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "The destination is <b>smaller by %1</b>"
+msgid "The source is <b>older</b>."
+msgstr "Mae'r gyrchfan yn <b>llai gyda %1</b>"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format

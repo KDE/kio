@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:36+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3402,7 +3402,7 @@ msgid "All Folders"
 msgstr "*|Hamma jildlar"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
-#: widgets/kfileitemactions.cpp:727
+#: widgets/kfileitemactions.cpp:725
 #, kde-format
 msgid "&Open"
 msgstr "&Ochish"
@@ -5129,67 +5129,67 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Turi"
 
-#: widgets/kfileitemactions.cpp:372
+#: widgets/kfileitemactions.cpp:370
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "Dastur bilan ochish:"
 
-#: widgets/kfileitemactions.cpp:374
+#: widgets/kfileitemactions.cpp:372
 #, fuzzy, kde-format
 #| msgid "%1 B"
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1 B"
 
-#: widgets/kfileitemactions.cpp:506
+#: widgets/kfileitemactions.cpp:504
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Amallar"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:678
+#: widgets/kfileitemactions.cpp:676
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With..."
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Dastur bilan ochish:"
 
-#: widgets/kfileitemactions.cpp:716
+#: widgets/kfileitemactions.cpp:714
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Dastur bilan ochish:"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:749
+#: widgets/kfileitemactions.cpp:747
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:760
+#: widgets/kfileitemactions.cpp:758
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -6671,6 +6671,18 @@ msgstr "Manba"
 #| msgid "Destination"
 msgid "Destination"
 msgstr "Manzil"
+
+#: widgets/renamedialog.cpp:405
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>more recent</b>."
+msgstr "kengaytma <b>%1</b>"
+
+#: widgets/renamedialog.cpp:407
+#, fuzzy, kde-format
+#| msgid "the extension <b>%1</b>"
+msgid "The source is <b>older</b>."
+msgstr "kengaytma <b>%1</b>"
 
 #: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format
