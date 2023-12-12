@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-11-11 16:01+0100\n"
+"PO-Revision-Date: 2023-12-11 11:56+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
-"Language-Team: \n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6810,16 +6810,14 @@ msgid "C&ontinue"
 msgstr "Продъл&жение"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Това действие ще презапише назначението."
+msgstr "Искате ли да презапишете местоназначението?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Това действие ще слее съдържанието на \"'%1\" в \"%2\"."
+msgstr "Искате ли да се слее съдържанието на \"'%1\" в \"%2\"?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6832,46 +6830,39 @@ msgid "Destination"
 msgstr "Назначение"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Дестинацията е <b>по-малка с %1</b>"
+msgstr "Източникът е <b>по-нов</b>"
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Дестинацията е <b>по-малка с %1</b>"
+msgstr "Източникът е <b>по-стар</b>"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Дестинацията е <b>по-малка с %1</b>"
+msgstr "Източникът е <b>по-малък с %1</b>"
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Дестинацията е <b>по-голяма с %1</b>"
+msgstr "Източникът е <b>по-голям с %1</b>"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Файловете са идентични."
+msgstr "Файловете са <b>идентични</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Файловете изглеждат идентични."
+msgstr "Файловете <b>изглеждат идентични</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Файловете са различни."
+msgstr "Файловете са <b>различни</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-12-04 12:44+0100\n"
+"PO-Revision-Date: 2023-12-11 15:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6886,16 +6886,14 @@ msgid "Destination"
 msgstr "Destinació"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "L'origen és <b>més petit per %1</b>."
+msgstr "L'origen és <b>més recent</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "L'origen és <b>més petit per %1</b>."
+msgstr "L'origen és <b>més antic</b>."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format

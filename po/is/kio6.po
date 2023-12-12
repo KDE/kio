@@ -10,20 +10,20 @@
 # Þröstur Svanbergsson <throstur@bylur.net>, 2004.
 # Arnar Leosson <leosson@frisurf.no>, 2004, 2005.
 # Sveinn í Felli <sv1@fellsnet.is>, 2008, 2009, 2010, 2021, 2022, 2023.
-# Guðmundur Erlingsson <gudmundure@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-08-11 13:08+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-12-06 15:18+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -3493,10 +3493,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Ekki er tekið við fjartengdum skrám"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Allar möppur"
+msgstr "Allar möppur"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -5770,20 +5769,7 @@ msgstr "&Velja..."
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5798,10 +5784,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Sláðu inn skipunina til að ræsa forritið hér.\n"
+"Sláðu inn viðföngin sem á að nota þegar forritið er ræst hér.\n"
 "\n"
-"Hægt er að setja ýmsar færibreytur á eftir skipuninni.  Þeim verður skipt út "
-"fyrir raunveruleg gildi þegar forritið er keyrt:\n"
+"Hægt er að setja ýmis staðgengilstákn á eftir skipuninni.  Þeim verður skipt "
+"út fyrir raunveruleg gildi þegar forritið er keyrt:\n"
 "\n"
 "%f - stakt skrárheiti\n"
 "%F - listi yfir skrár (notist á forrit sem geta opnað margar skrár í einu)\n"
@@ -6794,16 +6780,14 @@ msgid "C&ontinue"
 msgstr "Á&fram"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Þessi aðgerð myndi skrifa yfir áfangastaðinn."
+msgstr "Viltu skrifa yfir áfangastaðinn."
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will merge the contents of '%1' into '%2'."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Þessi aðgerð mun sameina innihald '%1' inn í '%2'."
+msgstr "Viltu sameina innihald '%1' inn í '%2'."
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6817,45 +6801,40 @@ msgstr "Áfangastaður"
 
 #: widgets/renamedialog.cpp:405
 #, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#| msgid "The source is <b>smaller by %1</b>."
 msgid "The source is <b>more recent</b>."
-msgstr "Viðtökuskráin er <b>minni sem nemur %1</b>"
+msgstr "Uppsprettan er <b>minni um sem nemur %1</b>"
 
 #: widgets/renamedialog.cpp:407
 #, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#| msgid "The source is <b>smaller by %1</b>."
 msgid "The source is <b>older</b>."
-msgstr "Viðtökuskráin er <b>minni sem nemur %1</b>"
+msgstr "Uppsprettan er <b>minni um sem nemur %1</b>"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Viðtökuskráin er <b>minni sem nemur %1</b>"
+msgstr "Uppsprettan er <b>minni um sem nemur %1</b>"
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Viðtökuskráin er <b>stærri sem nemur %1</b>"
+msgstr "Uppsprettan er <b>stærri um sem nemur %1</b>"
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Skrárnar eru eins."
+msgstr "Skrárnar eru <b>eins</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Skrárnar virðast vera eins."
+msgstr "Skrárnar <b>virðast vera eins</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Skrárnar eru ólíkar."
+msgstr "Skrárnar eru <b>ólíkar</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format

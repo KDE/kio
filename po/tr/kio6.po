@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-12-04 20:02+0300\n"
+"PO-Revision-Date: 2023-12-11 16:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6798,26 +6798,24 @@ msgid "Destination"
 msgstr "Hedef"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Kaynak, <b>%1 daha küçük</b>."
+msgstr "Kaynak <b>daha yeni</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Kaynak, <b>%1 daha küçük</b>."
+msgstr "Kaynak <b>daha eski</b>."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Kaynak, <b>%1 daha küçük</b>."
+msgstr "Kaynak <b>%1 daha küçük</b>."
 
 #: widgets/renamedialog.cpp:419
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Kaynak, <b>%1 daha büyük</b>."
+msgstr "Kaynak <b>%1 daha büyük</b>."
 
 #: widgets/renamedialog.cpp:432
 #, kde-format
@@ -6840,18 +6838,18 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
-"Dosyalar büyük olasılıkla birbirine eş; boyutları ve dosyanın başlangıç, "
-"bitiş ve son içeriği aynı."
+"Dosyalar büyük olasılıkla birbirine eş; boyutları ve içerikleri dosyanın "
+"başında, ortasında ve sonunda aynı."
 
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "An older item named '%1' already exists."
-msgstr "'%1' adlı daha eski bir öge zaten var."
+msgstr "'%1' adlı daha eski bir öge halihazırda var."
 
 #: widgets/renamedialog.cpp:467
 #, kde-format
 msgid "A similar file named '%1' already exists."
-msgstr "'%1' adlı bir dosya zaten var."
+msgstr "'%1' adlı bir dosya halihazırda var."
 
 #: widgets/renamedialog.cpp:469
 #, kde-format
@@ -6867,13 +6865,13 @@ msgstr "Yeniden Adlandır:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
-msgstr "Ögeyi &Yeniden Adlandır"
+msgstr "Ögeyi Yeniden Adlandır"
 
 #: widgets/renamefiledialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
-msgstr "Ögeleri Ye&niden Adlandır"
+msgstr "Ögeleri Yeniden Adlandır"
 
 #: widgets/renamefiledialog.cpp:72
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-12-04 06:14+0100\n"
+"PO-Revision-Date: 2023-12-11 05:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6790,16 +6790,14 @@ msgid "Destination"
 msgstr "დანიშნულება"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "წყარო <b>%1-ით პატარაა</b>."
+msgstr "წყარო <b>უფრო ახალია</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "წყარო <b>%1-ით პატარაა</b>."
+msgstr "წყარო <b>უფრო ძველია</b>."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format
