@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:34+0000\n"
-"PO-Revision-Date: 2023-12-05 17:23+0100\n"
+"PO-Revision-Date: 2023-12-12 19:14+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -6805,16 +6805,14 @@ msgid "Destination"
 msgstr "Cieľ"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Cieľ je <b>menší o %1</b>."
+msgstr "Cieľ je <b>novší</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Cieľ je <b>menší o %1</b>."
+msgstr "Cieľ je <b>starší</b>."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format
