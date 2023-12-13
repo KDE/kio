@@ -2646,6 +2646,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->w->genNameEdit->setText(genNameStr);
     d->w->commentEdit->setText(commentStr);
 
+    const QStringList splitExecLine = KShell::splitArgs(commandStr);
     QStringList execLine = KShell::splitArgs(commandStr);
     QStringList enVars = {};
 
@@ -2656,6 +2657,12 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
             execLine.pop_front();
         }
         for (auto env : execLine) {
+            if (execLine.length() <= 1) {
+                // Don't empty out the list. If the last element contains an equal sign we have to treat it as part of the
+                // program name lest we have no program
+                // https://bugs.kde.org/show_bug.cgi?id=465290
+                break;
+            }
             if (!env.contains(QLatin1String("="))) {
                 break;
             }
@@ -2663,6 +2670,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
             execLine.pop_front();
         }
 
+        Q_ASSERT(!execLine.isEmpty());
         d->w->programEdit->setText(execLine.takeFirst());
     } else {
         d->w->programEdit->clear();
