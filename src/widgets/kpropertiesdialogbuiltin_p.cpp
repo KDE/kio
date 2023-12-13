@@ -2656,7 +2656,7 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
         if (execLine[0] == QLatin1String("env")) {
             execLine.pop_front();
         }
-        for (auto env : execLine) {
+        for (const auto &env : execLine) {
             if (execLine.length() <= 1) {
                 // Don't empty out the list. If the last element contains an equal sign we have to treat it as part of the
                 // program name lest we have no program
