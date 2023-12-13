@@ -3379,6 +3379,12 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
             execLine.pop_front();
         }
         for (auto env : execLine) {
+            if (execLine.length() <= 1) {
+                // Don't empty out the list. If the last element contains an equal sign we have to treat it as part of the
+                // program name lest we have no program
+                // https://bugs.kde.org/show_bug.cgi?id=465290
+                break;
+            }
             if (!env.contains(QLatin1String("="))) {
                 break;
             }
