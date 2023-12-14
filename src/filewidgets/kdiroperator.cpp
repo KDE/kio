@@ -1308,7 +1308,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     case QEvent::DragEnter: {
         // Accepts drops of one file or folder only
         QDragEnterEvent *evt = static_cast<QDragEnterEvent *>(event);
-        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::DecodeOptions::PreferLocalUrls);
+        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::PreferLocalUrls);
 
         // only one file/folder can be dropped at the moment
         if (urls.size() != 1) {
@@ -1343,7 +1343,7 @@ bool KDirOperator::eventFilter(QObject *watched, QEvent *event)
     }
     case QEvent::Drop: {
         QDropEvent *evt = static_cast<QDropEvent *>(event);
-        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::DecodeOptions::PreferLocalUrls);
+        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(evt->mimeData(), KUrlMimeData::PreferLocalUrls);
 
         const QUrl &url = urls.constFirst();
 
