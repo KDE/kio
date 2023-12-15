@@ -126,6 +126,15 @@ void KDynamicJobTracker::registerJob(KJob *job)
 
     const QString kuiserverService = QStringLiteral("org.kde.kuiserver");
 
+    org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
+    QDBusReply<bool> reply = interface.requiresJobTracker();
+    bool needsWidgetTracker = !reply.isValid() || reply.value();
+
+    if (needsWidgetTracker) {
+        useWidgetsFallback();
+        return;
+    }
+
     if (!d->jobViewServerWatcher) {
         d->jobViewServerWatcher = new QDBusServiceWatcher(kuiserverService,
                                                           QDBusConnection::sessionBus(),
@@ -177,24 +186,12 @@ void KDynamicJobTracker::registerJob(KJob *job)
         trackers.kuiserverTracker->registerJob(job);
     }
 
-    if (canHaveWidgets) {
-        bool needsWidgetTracker = d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error;
+    needsWidgetTracker |= d->jobViewServerSupport == KDynamicJobTrackerPrivate::Error;
 
-        if (!needsWidgetTracker) {
-            org::kde::kuiserver interface(kuiserverService, QStringLiteral("/JobViewServer"), QDBusConnection::sessionBus(), this);
-            QDBusReply<bool> reply = interface.requiresJobTracker();
-            needsWidgetTracker = !reply.isValid() || reply.value();
-        }
-
-        // If kuiserver isn't available or it tells us a job tracker is required
-        // create a widget tracker.
-        if (needsWidgetTracker) {
-            if (!d->widgetTracker) {
-                d->widgetTracker = new KWidgetJobTracker();
-            }
-            trackers.widgetTracker = d->widgetTracker;
-            trackers.widgetTracker->registerJob(job);
-        }
+    // If kuiserver isn't available or it tells us a job tracker is required
+    // create a widget tracker.
+    if (needsWidgetTracker) {
+        useWidgetsFallback();
     }
 }
 
