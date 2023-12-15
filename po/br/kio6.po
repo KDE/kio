@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-15 01:35+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -6229,7 +6229,7 @@ msgid "URL:"
 msgstr "URL :"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2774
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6240,22 +6240,22 @@ msgstr ""
 msgid "&Application"
 msgstr "&Meziant"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Ouzhpennañ ur seurt restr evit %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2715
 #, fuzzy, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Diuzit an teul da enlakaat"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Dibaboù barek evit %1"

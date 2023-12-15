@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-15 01:35+0000\n"
 "PO-Revision-Date: 2023-12-11 16:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -6464,7 +6464,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2774
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6477,22 +6477,22 @@ msgstr ""
 msgid "&Application"
 msgstr "&Uygulama"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 için Dosya Türü Ekle"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2715
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Eklenecek dosya türlerini seçin:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Yalnızca yerel dosya sistemindeki yürütülebilirler desteklenir."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 için Gelişmiş Seçenekler"

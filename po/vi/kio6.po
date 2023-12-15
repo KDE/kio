@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-15 01:35+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -6439,7 +6439,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2774
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6451,22 +6451,22 @@ msgstr ""
 msgid "&Application"
 msgstr "Ứ&ng dụng"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Thêm kiểu tệp cho %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2715
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Chọn một hoặc nhiều kiểu tệp để thêm:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Chỉ tệp thực thi trên các hệ thống tệp cục bộ mới được hỗ trợ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Các lựa chọn nâng cao cho %1"

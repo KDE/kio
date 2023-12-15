@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-15 01:35+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -6552,7 +6552,7 @@ msgid "URL:"
 msgstr "URL ៖"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2766
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2774
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -6564,22 +6564,22 @@ msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ
 msgid "&Application"
 msgstr "កម្មវិធី "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2706
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "បន្ថែម​ប្រភេទ​ឯកសារ​ទៅ​ឲ្យ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2707
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2715
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "ជ្រើស​ប្រភេទ​ឯកសារ​មួយ ឬ​ច្រើន ដើម្បី​បន្ថែម ៖"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ​នលើ​ប្រព័ន្ធ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2863
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "ជម្រើស​កម្រិត​ខ្ពស់សម្រាប់ %1"
