@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -2551,7 +2551,7 @@ msgstr "Янги жилд"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Чиқиндилар қутисига кўчириш"
@@ -6867,15 +6867,15 @@ msgid ""
 msgstr ""
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "Ўчириш"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -6893,7 +6893,7 @@ msgid_plural ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6901,13 +6901,13 @@ msgid ""
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Чиқиндилар қутисини бўшатиш"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -6921,12 +6921,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ростдан бу элементни ўчиришни истайсизми?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -8935,7 +8935,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8944,7 +8944,7 @@ msgid ""
 "emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8955,7 +8955,7 @@ msgid_plural ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8964,7 +8964,7 @@ msgid ""
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -8977,26 +8977,26 @@ msgid_plural ""
 "undone.</emphasis>"
 msgstr[0] ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Ростдан бу элементни ўчиришни истайсизми?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

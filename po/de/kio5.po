@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2023-08-14 21:31+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2795,7 +2795,7 @@ msgstr "Neuer Ordner ..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
@@ -7383,14 +7383,14 @@ msgstr ""
 "rückgängig gemacht werden.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Unwiderruflich löschen"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7412,7 +7412,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7423,13 +7423,13 @@ msgstr ""
 "<nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht rückgängig "
 "gemacht werden.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Papierkorb leeren"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7447,12 +7447,12 @@ msgstr[0] "Möchten Sie dieses Element wirklich in den Papierkorb verschieben?"
 msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich in den Papierkorb verschieben?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Die „Peer-SSL“-Zertifikatkette scheint schadhaft zu sein."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9522,7 +9522,7 @@ msgstr ""
 "Es wird abgebrochen, weil die Identität des entfernten Rechners nicht "
 "überprüft werden kann."
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9534,7 +9534,7 @@ msgstr ""
 "%1</filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
 "rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9550,7 +9550,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9567,7 +9567,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
 "rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9592,7 +9592,7 @@ msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9602,19 +9602,19 @@ msgstr[0] ""
 msgstr[1] ""
 "Möchten Sie diese %1 Elemente wirklich in den Papierkorb verschieben?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Diese Nachfrage nicht mehr anzeigen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

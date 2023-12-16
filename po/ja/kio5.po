@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2022-08-28 20:43-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2677,7 +2677,7 @@ msgstr "新しいフォルダ..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "ごみ箱に移動"
@@ -7250,14 +7250,14 @@ msgstr ""
 "><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "完全に削除"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -7277,7 +7277,7 @@ msgstr[0] ""
 "本当にこれら%1個のアイテムを完全に削除しますか<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7287,13 +7287,13 @@ msgstr ""
 "ごみ箱からすべてのアイテムを完全に削除しますか？<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "ごみ箱を空にする"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7307,12 +7307,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ピアの SSL 証明書チェーンが壊れているようです。"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9351,7 +9351,7 @@ msgstr ""
 "リモートホストが SSL 証明書を送信してきません。\n"
 "ホストの同定が発行されなかったため中止します。"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9367,7 +9367,7 @@ msgstr ""
 "本当にこのアイテムを完全に削除しますか？<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9380,7 +9380,7 @@ msgstr[0] ""
 "本当にこれら%1個のアイテムを完全に削除しますか？<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9396,7 +9396,7 @@ msgstr ""
 "本当にこのアイテムを完全に削除しますか？<nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>この操作はもとに戻せません。</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9418,26 +9418,26 @@ msgstr[0] ""
 "本当にこれら%1個のアイテムを完全に削除しますか<nl/><nl/><emphasis "
 "strong='true'>この操作はもとに戻せません</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "本当にこれら %1 個のアイテムをごみ箱に移動しますか？"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "次回から確認しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "次回から確認しない"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

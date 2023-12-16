@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2023-02-20 10:53+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2691,7 +2691,7 @@ msgstr "Thư mục mới..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Chuyển vào thùng rác"
@@ -7187,14 +7187,14 @@ msgstr ""
 "><nl/><emphasis strong='true'>Hành động này không thể đảo ngược.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Xoá hoàn toàn"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -7213,7 +7213,7 @@ msgstr[0] ""
 "Bạn có thật sự muốn xoá hoàn toàn %1 thứ này?<nl/><nl/><emphasis "
 "strong='true'>Hành động này không thể đảo ngược.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7223,13 +7223,13 @@ msgstr ""
 "Bạn có thật sự muốn xoá hoàn toàn tất cả các thứ trong Thùng rác?<nl/><nl/"
 "><emphasis strong='true'>Hành động này không thể đảo ngược.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Đổ rác"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7244,12 +7244,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Bạn có thật sự muốn chuyển %1 thứ này vào thùng rác?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Chuỗi chứng chỉ SSL ngang hàng có vẻ đã bị hỏng."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9274,7 +9274,7 @@ msgstr ""
 "Máy ở xa đã không gửi bất kì chứng chỉ SSL nào.\n"
 "Đang huỷ bỏ vì không thể xác lập được danh tính của máy đó."
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9286,7 +9286,7 @@ msgstr ""
 "<nl/><nl/><emphasis strong='true'>Hành động này không thể đảo ngược.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9299,7 +9299,7 @@ msgstr[0] ""
 "Bạn có thật sự muốn xoá hoàn toàn %1 thứ này?<nl/><nl/><emphasis "
 "strong='true'>Hành động này không thể đảo ngược.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9311,7 +9311,7 @@ msgstr ""
 "toàn không?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Hành động này không thể đảo ngược.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9327,26 +9327,26 @@ msgstr[0] ""
 "hoàn toàn không?<nl/><nl/><emphasis strong='true'>Hành động này không thể "
 "đảo ngược.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Bạn có thật sự muốn chuyển %1 thứ này vào thùng rác?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Đừng hỏi lại"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Đừng hỏi lại"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"

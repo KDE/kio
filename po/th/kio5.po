@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2010-12-17 20:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -2685,7 +2685,7 @@ msgstr "โฟลเดอร์ใหม่..."
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "ทิ้งลงถังขยะ"
@@ -7317,15 +7317,15 @@ msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "ลบรายการ"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -7348,7 +7348,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7361,13 +7361,13 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "เทถังขยะทิ้ง"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7385,12 +7385,12 @@ msgid "Do you really want to move this item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "คุณต้องการทิ้ง %1 รายการนี้ลงถังขยะจริงหรือไม่ ?"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ดูเหมือนห่วงโซ่ของใบรับรอง SSL ที่เท่าเทียมกันจะมีข้อผิดพลาด"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "แบบ SSL"
@@ -9466,7 +9466,7 @@ msgstr ""
 "เครื่องแม่ข่ายปลายทางยังไม่ได้ทำการส่งใบรับรอง SSL ใด ๆ มาให้\n"
 "จึงทำการยุติเนื่องจากไม่สามารถทำการตรวจสอบการยืนยันตัวของเครื่องแม่ข่ายได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9480,7 +9480,7 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9496,7 +9496,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9510,7 +9510,7 @@ msgid ""
 msgstr ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9528,7 +9528,7 @@ msgid_plural ""
 msgstr[0] ""
 "คุณต้องการจะลบรายการทั้งหมดแบบถาวรจากถังขยะหรือไม่? การกระทำนี้ไม่สามารถจะเรียกคืนได้"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -9537,21 +9537,21 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "คุณต้องการทิ้ง %1 รายการนี้ลงถังขยะจริงหรือไม่ ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"

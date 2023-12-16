@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2023-12-16 00:39+0000\n"
 "PO-Revision-Date: 2023-06-20 16:06+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2699,7 +2699,7 @@ msgstr "پوشه جدید…"
 
 #: filewidgets/kdiroperator.cpp:2083 widgets/jobuidelegate.cpp:321
 #: widgets/jobuidelegate.cpp:322 widgets/jobuidelegate.cpp:331
-#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:285
+#: widgets/jobuidelegate.cpp:332 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "حرکت به زباله"
@@ -7215,14 +7215,14 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:283 widgets/jobuidelegate.cpp:297
-#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:198
+#: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
 msgstr "حذف همیشگی"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
-#: widgets/widgetsaskuseractionhandler.cpp:241
-#: widgets/widgetsaskuseractionhandler.cpp:263
+#: widgets/widgetsaskuseractionhandler.cpp:247
+#: widgets/widgetsaskuseractionhandler.cpp:269
 #, fuzzy, kde-format
 #| msgid "Delete Permanently"
 msgctxt "@action:button"
@@ -7245,7 +7245,7 @@ msgstr[1] ""
 "آیا مطمئنید که می‌خواهید این مورد را برای همیشه حذف کنید؟<nl/><nl/><emphasis "
 "strong='true'>این عمل برگشت‌ناپذیر است.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/jobuidelegate.cpp:308 widgets/widgetsaskuseractionhandler.cpp:276
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7255,13 +7255,13 @@ msgstr ""
 "آیا مطمئنید که می‌خواهید تمامی موارد داخل زباله‌دان را برای همیشه حذف کنید؟<nl/"
 "><nl/><emphasis strong='true'>این عمل برگشت‌ناپذیر است.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:272
+#: widgets/jobuidelegate.cpp:310 widgets/widgetsaskuseractionhandler.cpp:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "تخلیهٔ زباله‌دان"
 
-#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:278
+#: widgets/jobuidelegate.cpp:320 widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7278,12 +7278,12 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "واقعاً می‌خواهید این %1 مورد را به زباله‌دان انتقال دهید؟"
 msgstr[1] "واقعاً می‌خواهید این مورد را به زباله‌دان انتقال دهید؟"
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:541
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "زنجیرهٔ گواهی‌نامهٔ SSL طرف مقابل فاسد به نظر می‌رسد."
 
-#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:544
+#: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
@@ -9302,7 +9302,7 @@ msgid ""
 "Aborting because the identity of the host cannot be established."
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:229
+#: widgets/widgetsaskuseractionhandler.cpp:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9319,7 +9319,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>این عمل برگشت‌ناپذیر است.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:235
+#: widgets/widgetsaskuseractionhandler.cpp:241
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9335,7 +9335,7 @@ msgstr[1] ""
 "آیا مطمئنید که می‌خواهید این %1 مورد را برای همیشه حذف کنید؟<nl/><nl/"
 "><emphasis strong='true'>این عمل برگشت‌ناپذیر است.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:254
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -9352,7 +9352,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>این عمل برگشت‌ناپذیر است.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:255
+#: widgets/widgetsaskuseractionhandler.cpp:261
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -9370,7 +9370,7 @@ msgstr[1] ""
 "آیا مطمئنید که می‌خواهید این مورد را برای همیشه حذف کنید؟<nl/><nl/><emphasis "
 "strong='true'>این عمل برگشت‌ناپذیر است.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:283
+#: widgets/widgetsaskuseractionhandler.cpp:289
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -9378,19 +9378,19 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "واقعاً می‌خواهید این %1 مورد را به زباله‌دان انتقال دهید؟"
 msgstr[1] "واقعاً می‌خواهید این %1 مورد را به زباله‌دان انتقال دهید؟"
 
-#: widgets/widgetsaskuseractionhandler.cpp:338
+#: widgets/widgetsaskuseractionhandler.cpp:344
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "دیگر نپرس"
 
-#: widgets/widgetsaskuseractionhandler.cpp:390
+#: widgets/widgetsaskuseractionhandler.cpp:386
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "دیگر نپرس"
 
-#: widgets/widgetsaskuseractionhandler.cpp:419
+#: widgets/widgetsaskuseractionhandler.cpp:415
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
