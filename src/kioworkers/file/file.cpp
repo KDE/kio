@@ -774,7 +774,8 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 utbuf.actime = dest_statbuf.st_atime;
                 utbuf.modtime = dt.toSecsSinceEpoch();
                 if (utime(QFile::encodeName(dest_orig).constData(), &utbuf) != 0) {
-                    tryChangeFileAttr(UTIME, {dest_orig, qint64(utbuf.actime), qint64(utbuf.modtime)}, errno);
+                    Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_SETTIME;
+                    tryChangeFileAttr(UTIME, {dest_orig, qint64(utbuf.actime), qint64(utbuf.modtime)}, errCode);
                 }
 #endif
             }
