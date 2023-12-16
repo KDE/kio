@@ -335,18 +335,18 @@ bool FileProtocol::privilegeOperationUnitTestMode()
     return false;
 }
 
-WorkerResult FileProtocol::execWithElevatedPrivilege(ActionType, const QVariantList &, int err)
+WorkerResult FileProtocol::execWithElevatedPrivilege(ActionType, const QVariantList &, KIO::Error errcode)
 {
-    return WorkerResult::fail(err);
+    return WorkerResult::fail(errcode);
 }
-WorkerResult FileProtocol::tryOpen(QFile &f, const QByteArray &, int, int, int err)
+WorkerResult FileProtocol::tryOpen(QFile &f, const QByteArray &, int, int, KIO::Error errcode)
 {
-    return WorkerResult::fail(err);
+    return WorkerResult::fail(errcode);
 }
 
-WorkerResult FileProtocol::tryChangeFileAttr(ActionType, const QVariantList &, int err)
+WorkerResult FileProtocol::tryChangeFileAttr(ActionType, const QVariantList &, KIO::Error errcode)
 {
-    return WorkerResult::fail(err);
+    return WorkerResult::fail(errcode);
 }
 
 int FileProtocol::setACL(const char *path, mode_t perm, bool directoryDefault)
