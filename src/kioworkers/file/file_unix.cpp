@@ -1184,18 +1184,12 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
             }
         }
         if (QT_RMDIR(_path.data()) == -1) {
-            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
+            const Error errCode = errno == EACCES || errno == EPERM ? KIO::ERR_ACCESS_DENIED : KIO::ERR_CANNOT_RMDIR;
             auto result = execWithElevatedPrivilege(RMDIR, {_path}, errCode);
             if (!result.success()) {
                 if (!resultWasCancelled(result)) {
-                    if ((result.error() == EACCES) || (result.error() == EPERM)) {
-                        return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
-                    } else {
-                        // qDebug() << "could not rmdir " << perror;
-                        return WorkerResult::fail(KIO::ERR_CANNOT_RMDIR, path);
-                    }
+                    return result;
                 }
-                return result;
             }
         }
     }
