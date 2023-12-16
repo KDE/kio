@@ -408,7 +408,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
         hasCancelButton = true;
         break;
     case AskUserActionInterface::SSLMessageBox:
-        d->sslMessageBox(text, metaData, parentWidget);
+        d->sslMessageBox(text, metaData, d->getParentWidget(parent));
         return;
     case AskUserActionInterface::Information:
         dlgType = KMessageDialog::Information;
@@ -488,7 +488,7 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 
 void KIO::WidgetsAskUserActionHandlerPrivate::sslMessageBox(const QString &text, const KIO::MetaData &metaData, QWidget *parent)
 {
-    QWidget *parentWidget = d->getParentWidget(parent);
+    QWidget *parentWidget = getParentWidget(parent);
 
     const QStringList sslList = metaData.value(QStringLiteral("ssl_peer_chain")).split(QLatin1Char('\x01'), Qt::SkipEmptyParts);
 
