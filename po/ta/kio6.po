@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-15 01:35+0000\n"
-"PO-Revision-Date: 2023-12-07 21:29+0530\n"
+"PO-Revision-Date: 2023-12-17 16:38+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5886,7 +5886,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
-msgstr "&பொது"
+msgstr "&பொதுவானவை"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:413
 #, kde-format
@@ -6736,16 +6736,14 @@ msgid "Destination"
 msgstr "சேருமிடம்"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "மூலம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
+msgstr "மூலம் <b>இதைவிட புதிதாக</b> உள்ளது."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "மூலம் <b>%1 அளவால் சிறிதாக</b> உள்ளது"
+msgstr "மூலம் <b>இதைவிட பழையதாக</b> உள்ளது."
 
 #: widgets/renamedialog.cpp:416
 #, kde-format

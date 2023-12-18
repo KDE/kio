@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-15 01:35+0000\n"
-"PO-Revision-Date: 2023-12-09 09:24\n"
+"PO-Revision-Date: 2023-12-17 11:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3347,7 +3347,7 @@ msgstr "图标大小：%1 像素"
 #: filewidgets/kfilewidget.cpp:2281
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "自动选择文件扩展名 (%1)(&X)"
+msgstr "自动选择文件扩展名 (%1) (&X)"
 
 #: filewidgets/kfilewidget.cpp:2282
 #, kde-format
@@ -6538,16 +6538,14 @@ msgid "Destination"
 msgstr "目标"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "来源<b>小了 %1</b>。"
+msgstr "来源<b>较新</b>。"
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The source is <b>smaller by %1</b>."
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "来源<b>小了 %1</b>。"
+msgstr "来源<b>较旧</b>。"
 
 #: widgets/renamedialog.cpp:416
 #, kde-format
