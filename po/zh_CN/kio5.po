@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 00:39+0000\n"
-"PO-Revision-Date: 2023-12-09 09:27\n"
+"PO-Revision-Date: 2023-12-17 11:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3443,7 +3443,7 @@ msgstr "图标大小：%1 像素"
 #: filewidgets/kfilewidget.cpp:2472
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
-msgstr "自动选择文件扩展名 (%1)(&X)"
+msgstr "自动选择文件扩展名 (%1) (&X)"
 
 #: filewidgets/kfilewidget.cpp:2473
 #, kde-format
@@ -4595,7 +4595,7 @@ msgstr "接受所有 Cookies(&T)"
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr "接受 (当次会话)(&U)"
+msgstr "接受 (当次会话) (&U)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
@@ -4919,7 +4919,7 @@ msgstr "FTP 选项"
 #: kcms/netpref/netpref.cpp:98
 #, kde-format
 msgid "Enable passive &mode (PASV)"
-msgstr "启用被动模式(PASV)(&M)"
+msgstr "启用被动模式 (PASV) (&M)"
 
 #: kcms/netpref/netpref.cpp:100
 #, kde-format
@@ -6020,7 +6020,7 @@ msgstr "查看或者修改 Cookie 信息"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:98
 #, kde-format
 msgid "Accept for this &session"
-msgstr "接受 (当次会话)(&S)"
+msgstr "接受 (当次会话) (&S)"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
