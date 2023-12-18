@@ -2646,7 +2646,6 @@ KDesktopPropsPlugin::KDesktopPropsPlugin(KPropertiesDialog *_props)
     d->w->genNameEdit->setText(genNameStr);
     d->w->commentEdit->setText(commentStr);
 
-    const QStringList splitExecLine = KShell::splitArgs(commandStr);
     QStringList execLine = KShell::splitArgs(commandStr);
     QStringList enVars = {};
 
