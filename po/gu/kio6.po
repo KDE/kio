@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 01:35+0000\n"
+"POT-Creation-Date: 2023-12-19 01:31+0000\n"
 "PO-Revision-Date: 2009-05-17 18:10+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -6211,7 +6211,7 @@ msgid "URL:"
 msgstr "URL:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2774
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2773
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -6223,22 +6223,22 @@ msgstr "માત્ર સ્થાનિક ફાઇલ સિસ્ટમ્
 msgid "&Application"
 msgstr "કાર્યક્રમ (&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2713
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 માટે ફાઇલ પ્રકાર ઉમેરો"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2715
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2714
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "એક અથવા વધુ ફાઇલ પ્રકારો ઉમેરવા માટે પસંદ કરો:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2857
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2856
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "માત્ર સ્થાનિક ફાઇલ સિસ્ટમ્સ પર જ ચલાવનાર આધાર અપાય છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2871
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2870
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 માટે ઉચ્ચ વિકલ્પો"
