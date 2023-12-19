@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:39+0000\n"
+"POT-Creation-Date: 2023-12-19 00:39+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -8932,7 +8932,7 @@ msgstr "URL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3489
+#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3495
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8945,22 +8945,22 @@ msgstr ""
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialog.cpp:3429
+#: widgets/kpropertiesdialog.cpp:3435
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Dodaj tip datoteke za %1"
 
-#: widgets/kpropertiesdialog.cpp:3430
+#: widgets/kpropertiesdialog.cpp:3436
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Odaberite jedan ili viÅ¡e tipova za dodavanje:"
 
-#: widgets/kpropertiesdialog.cpp:3572
+#: widgets/kpropertiesdialog.cpp:3578
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "IzvrÅ¡ne datoteke su podrÅ¾ani samo na lokalnom datoteÄnom sistemu."
 
-#: widgets/kpropertiesdialog.cpp:3586
+#: widgets/kpropertiesdialog.cpp:3592
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Napredne opcije za %1"

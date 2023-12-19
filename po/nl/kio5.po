@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:39+0000\n"
+"POT-Creation-Date: 2023-12-19 00:39+0000\n"
 "PO-Revision-Date: 2023-07-08 10:20+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -8917,7 +8917,7 @@ msgstr "U&RL-adres"
 msgid "URL:"
 msgstr "URL-adres:"
 
-#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3489
+#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3495
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -8930,23 +8930,23 @@ msgstr ""
 msgid "&Application"
 msgstr "Toep&assing"
 
-#: widgets/kpropertiesdialog.cpp:3429
+#: widgets/kpropertiesdialog.cpp:3435
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Bestandstype toevoegen voor %1"
 
-#: widgets/kpropertiesdialog.cpp:3430
+#: widgets/kpropertiesdialog.cpp:3436
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Selecteer een of meerdere bestandstypen om toe te voegen:"
 
-#: widgets/kpropertiesdialog.cpp:3572
+#: widgets/kpropertiesdialog.cpp:3578
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Alleen uitvoerbare bestanden op lokale bestandssystemen worden ondersteund."
 
-#: widgets/kpropertiesdialog.cpp:3586
+#: widgets/kpropertiesdialog.cpp:3592
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Geavanceerde opties voor %1"

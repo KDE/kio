@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:39+0000\n"
+"POT-Creation-Date: 2023-12-19 00:39+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -8860,7 +8860,7 @@ msgstr "U&RL"
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3489
+#: widgets/kpropertiesdialog.cpp:3224 widgets/kpropertiesdialog.cpp:3495
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
@@ -8872,22 +8872,22 @@ msgstr "Jenož programy za lokalnych datajowych systemach so podpěruja."
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialog.cpp:3429
+#: widgets/kpropertiesdialog.cpp:3435
 #, kde-format
 msgid "Add File Type for %1"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3430
+#: widgets/kpropertiesdialog.cpp:3436
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr ""
 
-#: widgets/kpropertiesdialog.cpp:3572
+#: widgets/kpropertiesdialog.cpp:3578
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Jenož programy za lokalnych datajowych systemach so podpěruja."
 
-#: widgets/kpropertiesdialog.cpp:3586
+#: widgets/kpropertiesdialog.cpp:3592
 #, fuzzy, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opcije za pokročenych"
