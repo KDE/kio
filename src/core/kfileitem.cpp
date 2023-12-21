@@ -1283,7 +1283,9 @@ bool KFileItem::isWritable() const
                     return S_IWGRP & d->m_permissions;
                 }
 
-                return S_IWOTH & d->m_permissions;
+                if (S_IWOTH & d->m_permissions) {
+                    return true;
+                }
             }
         }
 #else
