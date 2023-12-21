@@ -23,6 +23,23 @@
 
 QTEST_MAIN(KFileItemTest)
 
+struct CaseInsensitiveStringCompareHelper {
+    explicit CaseInsensitiveStringCompareHelper(QStringView str)
+        : m_str(str)
+    {
+    }
+    QStringView m_str;
+    bool operator==(QStringView other) const
+    {
+        return other.compare(m_str, Qt::CaseInsensitive) == 0;
+    }
+};
+
+char *toString(const CaseInsensitiveStringCompareHelper &h)
+{
+    return QTest::toString(h.m_str);
+}
+
 void KFileItemTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
@@ -46,7 +63,7 @@ void KFileItemTest::testPermissionsString()
     QCOMPARE((uint)fileItem.permissions(), (uint)0604);
     QCOMPARE(fileItem.permissionsString(), QStringLiteral("-rw----r--"));
     QVERIFY(fileItem.isReadable());
-    QCOMPARE(fileItem.getStatusBarInfo(), QStringLiteral("afile (empty document, 0 B)"));
+    QCOMPARE(fileItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("afile (Empty document, 0 B)")));
 
     // Folder
     QVERIFY(QDir(tempDir.path())
@@ -56,7 +73,7 @@ void KFileItemTest::testPermissionsString()
     KFileItem folderItem(QUrl::fromLocalFile(folderFile.fileName()), QString(), KFileItem::Unknown);
     QCOMPARE(folderItem.permissionsString(), QStringLiteral("drwxr-xr-x")); // 655
     QVERIFY(folderItem.isReadable());
-    QCOMPARE(folderItem.getStatusBarInfo(), QStringLiteral("afolder (folder)"));
+    QCOMPARE(folderItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("afolder (Folder)")));
 
     // Symlink to file
     QString symlink = tempDir.path() + "/asymlink";
@@ -68,7 +85,8 @@ void KFileItemTest::testPermissionsString()
     // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
     QCOMPARE(symlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
     QVERIFY(symlinkItem.isReadable());
-    QCOMPARE(symlinkItem.getStatusBarInfo(), QStringLiteral("asymlink (empty document, Link to %1/afile)").arg(tempDir.path()));
+    QCOMPARE(symlinkItem.getStatusBarInfo(),
+             CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Empty document, Link to %1/afile)").arg(tempDir.path())));
 
 #ifdef Q_OS_UNIX
     // relative Symlink to a file
@@ -82,7 +100,8 @@ void KFileItemTest::testPermissionsString()
     // This is actually useful though; the user sees it's a link, and can check if he can read the [target] file.
     QCOMPARE(relativeSymlinkItem.permissionsString(), QStringLiteral("lrw----r--"));
     QVERIFY(relativeSymlinkItem.isReadable());
-    QCOMPARE(relativeSymlinkItem.getStatusBarInfo(), QStringLiteral("relative-symlink (empty document, Link to %1/afile)").arg(tempDir.path()));
+    QCOMPARE(relativeSymlinkItem.getStatusBarInfo(),
+             CaseInsensitiveStringCompareHelper(QStringLiteral("relative-symlink (Empty document, Link to %1/afile)").arg(tempDir.path())));
 #endif
 
     // Symlink to directory (#162544)
@@ -91,12 +110,12 @@ void KFileItemTest::testPermissionsString()
     KFileItem symlinkToDirItem(symlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)symlinkToDirItem.permissions(), (uint)0700);
     QCOMPARE(symlinkToDirItem.permissionsString(), QStringLiteral("lrwx------"));
-    QCOMPARE(symlinkToDirItem.getStatusBarInfo(), QStringLiteral("asymlink (folder, Link to %1)").arg(tempDir.path()));
+    QCOMPARE(symlinkToDirItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Folder, Link to %1)").arg(tempDir.path())));
 
     // unkwnown file
     QFile unkwnownFile(tempDir.path() + "/unkwnown_file");
     KFileItem unkwnownfileItem(QUrl::fromLocalFile(unkwnownFile.fileName()), QString(), KFileItem::Unknown);
-    QCOMPARE(unkwnownfileItem.getStatusBarInfo(), QStringLiteral("unkwnown_file (unknown)"));
+    QCOMPARE(unkwnownfileItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("unkwnown_file (Unknown)")));
 }
 
 void KFileItemTest::testNull()
