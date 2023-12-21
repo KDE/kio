@@ -593,7 +593,7 @@ void KFilePlacesViewDelegate::drawSectionHeader(QPainter *painter, const QStyleO
         : groupLabel;
 
     QRect textRect(option.rect);
-    textRect.setLeft(textRect.left() + 3);
+    textRect.setLeft(textRect.left() + 6);
     /* Take spacing into account:
        The spacing to the previous section compensates for the spacing to the first item.*/
     textRect.setY(textRect.y() /* + qMax(2, m_view->spacing()) - qMax(2, m_view->spacing())*/);
