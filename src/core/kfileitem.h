@@ -615,7 +615,7 @@ private:
 Q_DECLARE_METATYPE(KFileItem)
 Q_DECLARE_TYPEINFO(KFileItem, Q_RELOCATABLE_TYPE);
 
-inline uint qHash(const KFileItem &item)
+inline size_t qHash(const KFileItem &item)
 {
     return qHash(item.url());
 }
