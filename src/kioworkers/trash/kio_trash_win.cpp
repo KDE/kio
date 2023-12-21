@@ -387,7 +387,7 @@ void TrashProtocol::updateRecycleBin()
         bEmpty = false;
         ILFree(i);
     }
-    KConfigGroup group = m_config.group("Status");
+    KConfigGroup group = m_config.group(QStringLiteral("Status"));
     group.writeEntry("Empty", bEmpty);
     m_config.sync();
     l->Release();
