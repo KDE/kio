@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:31+0000\n"
+"POT-Creation-Date: 2023-12-21 01:58+0000\n"
 "PO-Revision-Date: 2023-02-09 08:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -254,7 +254,7 @@ msgid "Creating directory"
 msgstr "Стварэнне каталога"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:498
+#: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
 msgstr "Каталог"
@@ -266,7 +266,7 @@ msgid "Deleting"
 msgstr "Выдаленне"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:497
+#: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
 msgstr "Файл"
@@ -2868,18 +2868,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Усе файлы"
 
-#: filewidgets/kfilefiltercombo.cpp:121
+#: filewidgets/kfilefiltercombo.cpp:125
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "Усе файлы, якія падтрымліваюцца"
 
-#: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
@@ -6713,7 +6713,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Наладжванне сеціўных скаротаў..."
 
-#: widgets/kurlrequester.cpp:389
+#: widgets/kurlrequester.cpp:329
 #, kde-format
 msgid "Open file dialog"
 msgstr "Адкрыць файлавы дыялог"

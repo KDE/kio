@@ -5,6 +5,7 @@
 # KDE2 - kcmkio.pot Russian translation.
 # Copyright (C) 2000, KDE Team.
 # Leon Kanter <leon@asplinux.ru>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2022, 2023 Alexander Yavorsky <kekcuha@gmail.com>
 # Mihail Kozlov <kmn@obladm.nso.ru>, 2000.
 # Gregory Mokhin <mokhin@bog.msu.ru>, 2000.
 # Leonid Kanter <leon@asplinux.ru>, 2004, 2005.
@@ -15,21 +16,21 @@
 # Yuri Efremov <yur.arh@gmail.com>, 2010.
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2022, 2023 Alexander Yavorsky <kekcuha@gmail.com>
 # Мария Шикунова <translation-team@basealt.ru>, 2022, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:31+0000\n"
-"PO-Revision-Date: 2023-12-05 16:21+0300\n"
+"POT-Creation-Date: 2023-12-21 01:58+0000\n"
+"PO-Revision-Date: 2023-12-20 12:27+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -270,7 +271,7 @@ msgid "Creating directory"
 msgstr "Создание папки"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:498
+#: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
 msgstr "Папка"
@@ -282,7 +283,7 @@ msgid "Deleting"
 msgstr "Удаление"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:497
+#: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
 msgstr "Файл"
@@ -2533,10 +2534,9 @@ msgstr ""
 "для протокола «%1»."
 
 #: core/worker.cpp:393
-#, fuzzy, kde-format
-#| msgid "Can not find 'kioslave5' executable at '%1'"
+#, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Не удалось найти исполняемый файл «kioslave5» в «%1»."
+msgstr "Не удалось найти исполняемый файл «kioworker» в «%1»."
 
 #: core/workerinterface.cpp:361 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:492
@@ -2563,7 +2563,7 @@ msgstr "Только для &текущего сеанса"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
 #, kde-format
@@ -2872,18 +2872,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|Все файлы"
 
-#: filewidgets/kfilefiltercombo.cpp:121
+#: filewidgets/kfilefiltercombo.cpp:125
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "Все поддерживаемые файлы"
 
-#: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
@@ -3189,7 +3189,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "Отформатировать или управлять разделами в диспетчере разделов от KDE"
 
 #: filewidgets/kfileplacesview.cpp:592
 #, kde-format
@@ -3233,11 +3233,10 @@ msgid "&Edit…"
 msgstr "&Изменить…"
 
 #: filewidgets/kfileplacesview.cpp:1172
-#, fuzzy, kde-format
-#| msgid "Remove File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Удаление файла"
+msgstr "Удалить из панели «Точки входа»"
 
 #: filewidgets/kfileplacesview.cpp:1176
 #, kde-format
@@ -3529,10 +3528,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Удалённые файлы не поддерживаются"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Все папки"
+msgstr "Все папки"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -5798,11 +5796,9 @@ msgstr "Переменные окружения:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Введите имя пользователя, от имени которого вы хотите выполнить приложение."
+msgstr "Введите команду, которая будет использована для запуска приложения."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -5827,20 +5823,7 @@ msgstr "&Просмотр…"
 #. i18n: ectx: property (whatsThis), widget (QLabel, argumentsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, argumentsEdit)
 #: widgets/kpropertiesdesktopbase.ui:139 widgets/kpropertiesdesktopbase.ui:162
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several placeholders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "\n"
-#| "%f - a single filename\n"
-#| "%F - a list of files (for apps that can open several files at once)\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%i - the icon of the .desktop file\n"
-#| "%c - the name of the .desktop file\n"
-#| "%k - the location of the .desktop file"
+#, no-c-format, kde-format
 msgid ""
 "Type the arguments to use when starting this application here.\n"
 "\n"
@@ -5855,10 +5838,10 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
-"Введите команду для запуска этого приложения.\n"
+"Введите аргументы, которые будут использованы при запуске этого приложения.\n"
 "\n"
-"Следом за командой можно указать список параметров, которые будут заменены "
-"реальными значениями при запуске программы:\n"
+"Возможно указать список параметров, которые будут заменены реальными "
+"значениями при запуске программы:\n"
 "\n"
 "\n"
 "%f — имя одного файла\n"
@@ -6691,7 +6674,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "Настроить веб-сокращения…"
 
-#: widgets/kurlrequester.cpp:389
+#: widgets/kurlrequester.cpp:329
 #, kde-format
 msgid "Open file dialog"
 msgstr "Выбрать файл или папку"
@@ -6878,16 +6861,14 @@ msgid "C&ontinue"
 msgstr "Пр&одолжить"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Это действие заменит существующий файл новым."
+msgstr "Перезаписать целевой файл?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Это действие заменит существующий файл новым."
+msgstr "Добавить содержимое «%1» в «%2»?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6900,46 +6881,39 @@ msgid "Destination"
 msgstr "Назначение"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Файл назначения меньше на %1<b>"
+msgstr "Исходный файл <b>новее</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Файл назначения меньше на %1<b>"
+msgstr "Исходный файл <b>старее</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Файл назначения меньше на %1<b>"
+msgstr "Исходный файл <b>меньше на %1</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Файл назначения больше на %1<b>"
+msgstr "Исходный файл <b>больше на %1</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Файлы идентичны."
+msgstr "Файлы <b>идентичны</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Файлы идентичны."
+msgstr "Файлы, вероятно, <b>идентичны</b>."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Файлы различаются."
+msgstr "Файлы <b>различаются</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format

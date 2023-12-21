@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:31+0000\n"
+"POT-Creation-Date: 2023-12-21 01:58+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -232,7 +232,7 @@ msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:498
+#: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
 msgstr "디렉터리"
@@ -244,7 +244,7 @@ msgid "Deleting"
 msgstr "삭제 중"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:497
+#: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
 msgstr "파일"
@@ -2776,18 +2776,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|모든 파일"
 
-#: filewidgets/kfilefiltercombo.cpp:121
+#: filewidgets/kfilefiltercombo.cpp:125
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "모든 지원하는 파일"
 
-#: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
@@ -6475,7 +6475,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
 
-#: widgets/kurlrequester.cpp:389
+#: widgets/kurlrequester.cpp:329
 #, kde-format
 msgid "Open file dialog"
 msgstr "파일 열기 대화 상자"

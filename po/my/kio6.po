@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:31+0000\n"
+"POT-Creation-Date: 2023-12-21 01:58+0000\n"
 "PO-Revision-Date: 2022-10-05 21:57+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -232,7 +232,7 @@ msgid "Creating directory"
 msgstr "ဒါရိုက်ထရီဖန်တီးနေသည်"
 
 #: core/job.cpp:122 widgets/fileundomanager.cpp:132
-#: widgets/kurlrequester.cpp:498
+#: widgets/kurlrequester.cpp:438
 #, kde-format
 msgid "Directory"
 msgstr "ဒါရိုက်ထရီ"
@@ -244,7 +244,7 @@ msgid "Deleting"
 msgstr "ဖျက်နေသည်"
 
 #: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:148
-#: widgets/kurlrequester.cpp:497
+#: widgets/kurlrequester.cpp:437
 #, kde-format
 msgid "File"
 msgstr "ဖိုင်လ်"
@@ -2769,18 +2769,18 @@ msgctxt "Default mime type filter that shows all file types"
 msgid "*|All Files"
 msgstr "*|ဖိုင်လ်အားလုံး"
 
-#: filewidgets/kfilefiltercombo.cpp:121
+#: filewidgets/kfilefiltercombo.cpp:125
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: filewidgets/kfilefiltercombo.cpp:156
+#: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
 msgid "All Supported Files"
 msgstr "အသုံးပြုနိုင်သော ဖိုင်များအားလုံး"
 
-#: filewidgets/kfilefiltercombo.cpp:166 filewidgets/kfilefiltercombo.cpp:167
+#: filewidgets/kfilefiltercombo.cpp:170 filewidgets/kfilefiltercombo.cpp:171
 #: filewidgets/kfilewidget.cpp:1883
 #, kde-format
 msgid "All Files"
@@ -6452,7 +6452,7 @@ msgstr "%1"
 msgid "Configure Web Shortcuts..."
 msgstr "ဝက်ဘ်ဆိုင်ရာဖြတ်လမ်းများ ပြင်ဆင်မည်…"
 
-#: widgets/kurlrequester.cpp:389
+#: widgets/kurlrequester.cpp:329
 #, kde-format
 msgid "Open file dialog"
 msgstr "ဖိုင်လ် အပြော-ဝင်းဒိုး ဖွင့်မည်"
