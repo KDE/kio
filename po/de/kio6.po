@@ -3,7 +3,7 @@
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2006, 2007, 2008, 2009.
 # Burkhard Lück <lueck@hube-lueck.de>, 2006, 2007, 2008, 2009, 2011, 2013, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # Stephan Johach <lucardus@onlinehome.de>, 2006.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
+# SPDX-FileCopyrightText: 2010, 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2011.
 # Kai Uwe Broulik <kde@privat.broulik.de>, 2021.
@@ -13,15 +13,15 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-21 01:58+0000\n"
-"PO-Revision-Date: 2023-08-14 21:31+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-20 23:14+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1196,23 +1196,16 @@ msgstr ""
 "unterstützt werden, sind möglicherweise nicht kompatibel miteinander."
 
 #: core/job_error.cpp:502
-#, fuzzy, kde-format
-#| msgid ""
-#| "You may perform a search on the Internet for a KDE program (called a "
-#| "kioslave or ioslave) which supports this protocol. Places to search "
-#| "include <a href=\"https://kde-apps.org/\">https://kde-apps.org/</a> and "
-#| "<a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
+#, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Sie könnten eventuell eine Internetsuche nach dem betreffenden KDE-Programm "
-"starten, das dieses Protokoll unterstützt. (Es handelt sich dabei um einen "
-"so genannten „kioslave“ oder „ioslave“ = Ein-/Ausgabemodul). Adressen, unter "
-"denen gesucht werden könnte, sind z. B. <a href=\"https://kde-apps.org/"
-"\">https://kde-apps.org/</a> und <a href=\"http://freshmeat.net/\">http://"
-"freshmeat.net/</a>. "
+"Sie können eine Internetsuche nach einem Softwaremodul (englische "
+"Bezeichnung: „KIO worker“) mit Unterstützung dieses Protokolls starten. "
+"Adressen, unter denen gesucht werden könnte, sind z. B. <a href=\"https://"
+"store.kde.org/\">https://store.kde.org</a>."
 
 #: core/job_error.cpp:510
 #, kde-format
@@ -3589,10 +3582,9 @@ msgid "Remote Files Not Accepted"
 msgstr "Dateien auf entfernten Rechnern sind nicht erlaubt"
 
 #: filewidgets/kfilewidget.cpp:1881
-#, fuzzy, kde-format
-#| msgid "*|All Folders"
+#, kde-format
 msgid "All Folders"
-msgstr "*|Alle Ordner"
+msgstr "Alle Ordner"
 
 #: filewidgets/kfilewidget.cpp:2033 widgets/executablefileopendialog.cpp:44
 #: widgets/kfileitemactions.cpp:725
@@ -4217,13 +4209,14 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:747
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Could not change owner and group for\n"
 "%1"
-msgstr "Der Eigentümer für %1 kann nicht geändert werden."
+msgstr ""
+"Der Eigentümer und die Gruppe können nicht geändert werden für\n"
+"%1"
 
 #: kioworkers/file/file.cpp:853
 #, kde-format
@@ -5882,12 +5875,9 @@ msgstr "Umgebungsvariablen:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:95 widgets/kpropertiesdesktopbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Enter the user name you want to run the application as here."
+#, kde-format
 msgid "Type the command to start this application here."
-msgstr ""
-"Geben Sie den Benutzernamen an, unter dem das Programm hier ausgeführt "
-"werden soll."
+msgstr "Geben Sie hier den Befehl zum Starten dieser Anwendung ein."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: widgets/kpropertiesdesktopbase.ui:98
@@ -6947,16 +6937,14 @@ msgid "C&ontinue"
 msgstr "&Fortsetzen"
 
 #: widgets/renamedialog.cpp:362
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "Dieser Vorgang überschreibt das Ziel."
+msgstr "Möchten Sie das Ziel überschreiben?"
 
 #: widgets/renamedialog.cpp:364
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
-msgstr "Dieser Vorgang überschreibt das Ziel."
+msgstr "Möchten Sie die Inhalte von „%1“ mit und in „%2“ zusammenführen?"
 
 #: widgets/renamedialog.cpp:372
 #, kde-format
@@ -6969,46 +6957,39 @@ msgid "Destination"
 msgstr "Ziel"
 
 #: widgets/renamedialog.cpp:405
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "Das Ziel ist <b>%1 kleiner</b>"
+msgstr "Das Quelle ist <b>aktueller</b>."
 
 #: widgets/renamedialog.cpp:407
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Das Ziel ist <b>%1 kleiner</b>"
+msgstr "Die Quelle ist <b>älter</b>."
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "Das Ziel ist <b>%1 kleiner</b>"
+msgstr "Das Quelle ist <b>%1 kleiner</b>."
 
 #: widgets/renamedialog.cpp:419
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "Das Ziel ist <b>%1 größer</b>"
+msgstr "Die Quelle ist <b>%1 größer</b>."
 
 #: widgets/renamedialog.cpp:432
-#, fuzzy, kde-format
-#| msgid "The files are identical."
+#, kde-format
 msgid "The files are <b>identical</b>."
-msgstr "Die Dateien sind identisch."
+msgstr "Die Dateien sind <b>identisch</b>."
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The files seem identical."
+#, kde-format
 msgid "The files <b>seem identical</b>."
-msgstr "Die Dateien scheinen identisch zu sein."
+msgstr "Die Dateien <b>scheinen identisch</b> zu sein."
 
 #: widgets/renamedialog.cpp:438
-#, fuzzy, kde-format
-#| msgid "The files are different."
+#, kde-format
 msgid "The files are <b>different</b>."
-msgstr "Die Dateien sind verschieden."
+msgstr "Die Dateien sind <b>verschieden</b>."
 
 #: widgets/renamedialog.cpp:446
 #, kde-format
@@ -7250,31 +7231,20 @@ msgstr[1] ""
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:254
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Möchten Sie dieses Element wirklich endgültig löschen?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang kann nicht "
-"rückgängig gemacht werden.</emphasis>"
+"Das Verschieben dieses Elements in den Papierkorb ist wegen seiner Größe "
+"fehlgeschlagen. Möchten Sie es stattdessen dauerhaft löschen?<nl/><nl/"
+"><filename>%1</filename><nl/><nl/><emphasis strong='true'>Dieser Vorgang "
+"kann nicht rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -7285,10 +7255,12 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Möchten Sie dieses Element wirklich endgültig löschen?<nl/><nl/><emphasis "
+"Das Verschieben dieses %1 Element in den Papierkorb ist wegen seiner Größe "
+"fehlgeschlagen. Möchten Sie es stattdessen dauerhaft löschen?<nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 msgstr[1] ""
-"Möchten Sie diese %1 Elemente wirklich endgültig löschen?<nl/><nl/><emphasis "
+"Das Verschieben diese %1 Elemente in den Papierkorb ist wegen ihrer Größe "
+"fehlgeschlagen. Möchten Sie sie stattdessen dauerhaft löschen?<nl/><emphasis "
 "strong='true'>Dieser Vorgang kann nicht rückgängig gemacht werden.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
