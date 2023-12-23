@@ -95,6 +95,7 @@ Name[zh_CN]=QRZ.com 呼号数据库
 Name[zh_TW]=QRZ.com Callsign 資料庫
 Query=https://www.qrz.com/db/\\{@}
 Query[ar]=https://www.qrz.com/db/\\{@}
+Query[ast]=https://www.qrz.com/db/\\{@}
 Query[az]=https://www.qrz.com/db/\\{@}
 Query[be]=https://www.qrz.com/db/\\{@}
 Query[be@latin]=https://www.qrz.com/db/\\{@}

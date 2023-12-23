@@ -26,6 +26,7 @@ Name[x-test]=xxopenSUSE Bugzillaxx
 Name[zh_CN]=openSUSE Bugzilla
 Name[zh_TW]=openSUSE Bugzilla
 Query=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[ast]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[bg]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ca]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ca@valencia]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}

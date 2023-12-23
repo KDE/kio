@@ -83,6 +83,7 @@ Name[zh_TW]=CNRTL/TILF 法語字典
 Keys=dictfr
 Query=https://www.cnrtl.fr/definition/\\{@}
 Query[ar]=https://www.cnrtl.fr/definition/\\{@}
+Query[ast]=https://www.cnrtl.fr/definition/\\{@}
 Query[az]=https://www.cnrtl.fr/definition/\\{@}
 Query[be]=https://www.cnrtl.fr/definition/\\{@}
 Query[be@latin]=https://www.cnrtl.fr/definition/\\{@}
