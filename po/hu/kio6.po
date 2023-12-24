@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 01:58+0000\n"
+"POT-Creation-Date: 2023-12-24 01:56+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -4280,27 +4280,27 @@ msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"
 
-#: kioworkers/ftp/ftp.cpp:340
+#: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "Kapcsolat létrehozása a(z) %1 kiszolgálóval"
 
-#: kioworkers/ftp/ftp.cpp:355
+#: kioworkers/ftp/ftp.cpp:369
 #, kde-format
 msgid "Connected to host %1"
 msgstr "Sikerült csatlakozni a(z) %1 kiszolgálóhoz"
 
-#: kioworkers/ftp/ftp.cpp:463
+#: kioworkers/ftp/ftp.cpp:477
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (Hiba: %2)"
 
-#: kioworkers/ftp/ftp.cpp:493
+#: kioworkers/ftp/ftp.cpp:507
 #, kde-format
 msgid "Sending login information"
 msgstr "A bejelentkezési adatok elküldése"
 
-#: kioworkers/ftp/ftp.cpp:543
+#: kioworkers/ftp/ftp.cpp:557
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4317,34 +4317,34 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "A site eléréséhez meg kell adni egy felhasználónevet és a hozzá tartozó "
 "jelszót."
 
-#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "Méret:"
 
-#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:641
+#: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
 msgstr "A bejelentkezés sikerült"
 
-#: kioworkers/ftp/ftp.cpp:666
+#: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Nem sikerült bejelentkezni ide: %1."
 
-#: kioworkers/ftp/ftp.cpp:1018
+#: kioworkers/ftp/ftp.cpp:1032
 #, kde-format
 msgid ""
 "\n"
@@ -4353,7 +4353,7 @@ msgstr ""
 "\n"
 "A kiszolgáló válasza: „%1”"
 
-#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4363,12 +4363,12 @@ msgstr ""
 "a hozzá tartozó jelszót. Csak sikeres azonosítás után lehet más site-okat "
 "elérni."
 
-#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2480
+#: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "A proxy-n nem sikerült a felhasználóazonosítás."

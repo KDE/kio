@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 01:58+0000\n"
+"POT-Creation-Date: 2023-12-24 01:56+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4160,27 +4160,27 @@ msgstr "दत्तस्य उपयोक्तृनाम %1 कृते 
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
 
-#: kioworkers/ftp/ftp.cpp:340
+#: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "निमन्त्रक %1 प्रति संयोजनं उद्घाटयति"
 
-#: kioworkers/ftp/ftp.cpp:355
+#: kioworkers/ftp/ftp.cpp:369
 #, kde-format
 msgid "Connected to host %1"
 msgstr "निमन्त्रक %1 इत्यनेन सह सम्बद्धम्"
 
-#: kioworkers/ftp/ftp.cpp:463
+#: kioworkers/ftp/ftp.cpp:477
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (त्रुटि %2)"
 
-#: kioworkers/ftp/ftp.cpp:493
+#: kioworkers/ftp/ftp.cpp:507
 #, kde-format
 msgid "Sending login information"
 msgstr "प्रवेशसूचनाः प्रेषयन्"
 
-#: kioworkers/ftp/ftp.cpp:543
+#: kioworkers/ftp/ftp.cpp:557
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4196,32 +4196,32 @@ msgstr ""
 "सर्वरः उत्तरितवान्:\n"
 "%2\n"
 
-#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "अस्मिन् स्थले प्रवेशार्थं भवद्भिः उपयोक्तृनाम गुप्तशब्दं च आपूर्तिः कर्तव्यः ।."
 
-#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "क्षेत्र (Site):"
 
-#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:641
+#: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
 msgstr "प्रवेशः ठीकः अस्ति"
 
-#: kioworkers/ftp/ftp.cpp:666
+#: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
 msgstr "%1 मध्ये प्रवेशं कर्तुं न शक्तम् ।."
 
-#: kioworkers/ftp/ftp.cpp:1018
+#: kioworkers/ftp/ftp.cpp:1032
 #, kde-format
 msgid ""
 "\n"
@@ -4230,7 +4230,7 @@ msgstr ""
 "\n"
 "वितारकः अवदत् - \"%1\" इति ।"
 
-#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4239,12 +4239,12 @@ msgstr ""
 "भवद्भिः कस्यापि साइट्-प्रवेशस्य अनुमतिः भवितुं पूर्वं अधोलिखितस्य प्रतिनिधि-वितारकस्य कृते "
 "उपयोक्तृनाम गुप्तशब्दं च प्रदातव्यम् ।."
 
-#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "प्रतिनिधि:"
 
-#: kioworkers/ftp/ftp.cpp:2480
+#: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "प्रतिनिधिस्य प्रमाणीकरणं विफलम्।."

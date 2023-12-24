@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 01:58+0000\n"
+"POT-Creation-Date: 2023-12-24 01:56+0000\n"
 "PO-Revision-Date: 2023-12-17 16:38+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -4175,27 +4175,27 @@ msgstr "%1 என்ற பயனர் பெயருக்கான பயன
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"
 
-#: kioworkers/ftp/ftp.cpp:340
+#: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "%1 எனும் புரவனுடன் இணைப்பு தொடக்கபடுகிறது"
 
-#: kioworkers/ftp/ftp.cpp:355
+#: kioworkers/ftp/ftp.cpp:369
 #, kde-format
 msgid "Connected to host %1"
 msgstr "%1 எனும் புரவனுடன் இணைப்பு உண்டாயிற்று"
 
-#: kioworkers/ftp/ftp.cpp:463
+#: kioworkers/ftp/ftp.cpp:477
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (சிக்கல் %2)"
 
-#: kioworkers/ftp/ftp.cpp:493
+#: kioworkers/ftp/ftp.cpp:507
 #, kde-format
 msgid "Sending login information"
 msgstr "நுழைவு விவரங்கள் அனுப்பப்படுகின்றன"
 
-#: kioworkers/ftp/ftp.cpp:543
+#: kioworkers/ftp/ftp.cpp:557
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4212,32 +4212,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு பயனர் பெயரையும், கடவுச்சொல்லையும் வழங்க வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "தளம்:"
 
-#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:641
+#: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
 msgstr "வெற்றிகரமான நுழைவு"
 
-#: kioworkers/ftp/ftp.cpp:666
+#: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
 msgstr "%1 -இல் நுழைய முடியவில்லை."
 
-#: kioworkers/ftp/ftp.cpp:1018
+#: kioworkers/ftp/ftp.cpp:1032
 #, kde-format
 msgid ""
 "\n"
@@ -4246,7 +4246,7 @@ msgstr ""
 "\n"
 "சேவையகம் கூறியது: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4255,12 +4255,12 @@ msgstr ""
 "எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
 "கடவுச்சொல்லையும் தர வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "பதிலி:"
 
-#: kioworkers/ftp/ftp.cpp:2480
+#: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"

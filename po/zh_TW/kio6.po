@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 01:58+0000\n"
+"POT-Creation-Date: 2023-12-24 01:56+0000\n"
 "PO-Revision-Date: 2023-12-12 17:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -4066,27 +4066,27 @@ msgstr "無法取得使用者 %1 的代碼。"
 msgid "Could not get group id for given group name %1"
 msgstr "無法取得群組 %1 的代碼。"
 
-#: kioworkers/ftp/ftp.cpp:340
+#: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "開啟連線到主機 %1"
 
-#: kioworkers/ftp/ftp.cpp:355
+#: kioworkers/ftp/ftp.cpp:369
 #, kde-format
 msgid "Connected to host %1"
 msgstr "連線到主機 %1"
 
-#: kioworkers/ftp/ftp.cpp:463
+#: kioworkers/ftp/ftp.cpp:477
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (錯誤 %2)"
 
-#: kioworkers/ftp/ftp.cpp:493
+#: kioworkers/ftp/ftp.cpp:507
 #, kde-format
 msgid "Sending login information"
 msgstr "送出登入資訊"
 
-#: kioworkers/ftp/ftp.cpp:543
+#: kioworkers/ftp/ftp.cpp:557
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4103,32 +4103,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:554 kioworkers/http/http.cpp:255
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:255
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "您必須提供一組使用者名稱和密碼來存取這個網站。"
 
-#: kioworkers/ftp/ftp.cpp:556 kioworkers/http/http.cpp:257
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:257
 #, kde-format
 msgid "Site:"
 msgstr "網站:"
 
-#: kioworkers/ftp/ftp.cpp:557 kioworkers/ftp/ftp.cpp:2478
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2492
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:641
+#: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
 msgstr "登入成功"
 
-#: kioworkers/ftp/ftp.cpp:666
+#: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
 msgstr "無法登入 %1。"
 
-#: kioworkers/ftp/ftp.cpp:1018
+#: kioworkers/ftp/ftp.cpp:1032
 #, kde-format
 msgid ""
 "\n"
@@ -4137,7 +4137,7 @@ msgstr ""
 "\n"
 "伺服器回傳：「%1」"
 
-#: kioworkers/ftp/ftp.cpp:2473 kioworkers/http/http.cpp:305
+#: kioworkers/ftp/ftp.cpp:2487 kioworkers/http/http.cpp:305
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4145,12 +4145,12 @@ msgid ""
 msgstr ""
 "您必須為下列的代理伺服器提供一組使用者名稱和密碼，才能夠取得存取網站的權限。"
 
-#: kioworkers/ftp/ftp.cpp:2477 kioworkers/http/http.cpp:309
+#: kioworkers/ftp/ftp.cpp:2491 kioworkers/http/http.cpp:309
 #, kde-format
 msgid "Proxy:"
 msgstr "代理伺服器:"
 
-#: kioworkers/ftp/ftp.cpp:2480
+#: kioworkers/ftp/ftp.cpp:2494
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "代理伺服器認證失敗。"
