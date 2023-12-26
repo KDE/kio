@@ -270,11 +270,12 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                 foundExistingApp = false;
                 firstBookmark = false;
 
-                const auto hrefValue = attributes.value(hrefAttribute);
+                const QStringView hrefValue = attributes.value(hrefAttribute);
                 inRightBookmark = hrefValue == newUrl;
 
                 // remove hidden files if some were added by GTK
-                if (ignoreHidden && QRegularExpression(QStringLiteral("/\\.")).match(hrefValue).hasMatch()) {
+                const static QRegularExpression isHiddenRegex(QStringLiteral("/\\."));
+                if (ignoreHidden && isHiddenRegex.matchView(hrefValue).hasMatch()) {
                     xml.skipCurrentElement();
                     break;
                 }
