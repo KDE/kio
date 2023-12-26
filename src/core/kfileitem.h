@@ -371,7 +371,7 @@ public:
      * @return the time asked for, QDateTime() if not available
      * @see timeString()
      */
-    Q_INVOKABLE QDateTime time(FileTimes which) const;
+    Q_INVOKABLE QDateTime time(KFileItem::FileTimes which) const;
 
     /**
      * Requests the modification, access or creation time as a string, depending
@@ -380,7 +380,7 @@ public:
      * @returns a formatted string of the requested time.
      * @see time
      */
-    Q_INVOKABLE QString timeString(FileTimes which = ModificationTime) const;
+    Q_INVOKABLE QString timeString(KFileItem::FileTimes which = ModificationTime) const;
 
     /**
      * Returns true if the file is a local file.
