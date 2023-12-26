@@ -18,8 +18,6 @@
 #include <QHash>
 #include <QString>
 
-#include "kiocoredebug.h"
-
 #if HAVE_POSIX_ACL
 using namespace KIO;
 #endif

@@ -6,7 +6,6 @@
 */
 
 #include "job.h"
-#include "kioglobal_p.h"
 #include <KLocalizedString>
 #include <KStringHandler>
 #include <kprotocolmanager.h>

@@ -37,9 +37,7 @@ private:
     QLocalServer *localServer;
     long len;
     int cmd;
-    int port;
     bool signalEmitted;
-    quint8 mode;
 
     static const int HeaderSize = 10;
     static const int StandardBufferSize = 32 * 1024;

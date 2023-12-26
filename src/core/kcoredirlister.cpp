@@ -28,8 +28,6 @@
 #include <QTextStream>
 #include <QThreadStorage>
 
-#include <list>
-
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_CORE_DIRLISTER)
 Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.core.dirlister", QtWarningMsg)
