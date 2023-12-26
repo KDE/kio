@@ -12,10 +12,7 @@
 #include <QDomDocument>
 
 #include "httpmethod_p.h"
-
-#include "job.h"
 #include "job_p.h"
-#include "jobclasses.h"
 
 using namespace KIO;
 

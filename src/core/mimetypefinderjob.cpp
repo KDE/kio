@@ -11,6 +11,7 @@
 #include "job.h" // for buildErrorString
 #include "kiocoredebug.h"
 #include "statjob.h"
+#include "transferjob.h"
 
 #include <KLocalizedString>
 #include <KProtocolManager>

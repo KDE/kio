@@ -10,9 +10,13 @@
 #include "../utils_p.h"
 
 #include "deletejob.h"
-#include "job.h"
+#include "filecopyjob.h"
 #include "kiocoredebug.h"
+#include "listjob.h"
+#include "mimetypejob.h"
 #include "mkdirjob.h"
+#include "statjob.h"
+#include "transferjob.h"
 
 #include <QEventLoop>
 #include <QMimeDatabase>

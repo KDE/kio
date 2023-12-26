@@ -279,7 +279,6 @@ install(TARGETS KF6KIOCore EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARG
 list(APPEND KIO_namespaced_HEADERS
   ioworker_defaults.h
   job_base.h
-  jobclasses.h
 )
 
 install(FILES

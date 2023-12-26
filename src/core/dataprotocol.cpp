@@ -9,6 +9,7 @@
 #include "dataprotocol_p.h"
 
 #include "global.h"
+#include "metadata.h"
 
 #include <QByteArray>
 #include <QStringDecoder>

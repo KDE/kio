@@ -10,6 +10,7 @@
 #include <QTest>
 
 #include "../../../utils_p.h"
+#include "filecopyjob.h"
 #include "kio_trash.h"
 
 #include <kprotocolinfo.h>
@@ -20,6 +21,8 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
+#include <kio/listjob.h>
+#include <kio/statjob.h>
 
 #include <KJobUiDelegate>
 
@@ -32,8 +35,6 @@
 #include <QTemporaryFile>
 #include <QUrl>
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 
 // There are two ways to test encoding things:

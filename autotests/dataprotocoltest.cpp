@@ -11,6 +11,7 @@
 
 #include <QDebug>
 #include <QTest>
+#include <kio/metadata.h>
 
 QTEST_MAIN(DataProtocolTest)
 

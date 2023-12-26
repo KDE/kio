@@ -14,6 +14,7 @@
 
 #include "commands_p.h"
 #include "global.h"
+#include "jobtracker.h"
 #include "kiocoredebug.h"
 #include "simplejob.h"
 #include "transferjob.h"

@@ -8,8 +8,10 @@
 */
 
 #include "main.h"
+#include "filecopyjob.h"
 #include "kio_version.h"
 #include "kioexecdinterface.h"
+#include "statjob.h"
 
 #include <QDir>
 #include <QFile>

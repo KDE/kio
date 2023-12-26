@@ -9,6 +9,7 @@
 #ifndef KIO_JOB_H
 #define KIO_JOB_H
 
+#include "job_base.h" // IWYU pragma: export
 #include "kiocore_export.h"
 
 #include <QUrl>
@@ -41,11 +42,5 @@ KIOCORE_EXPORT QString buildErrorString(int errorCode, const QString &errorText)
  */
 KIOCORE_EXPORT QByteArray rawErrorDetail(int errorCode, const QString &errorText, const QUrl *reqUrl = nullptr, int method = -1);
 }
-
-// kio/job.h is what apps include to get all jobs -> we include jobclasses.h to preserve SC
-// This required to move KIO::Job in a separate header kio/job_base.h
-#include "jobclasses.h"
-
-#include <QDateTime>
 
 #endif

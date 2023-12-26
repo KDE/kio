@@ -20,6 +20,7 @@
 #include "kfilemetapreview_p.h"
 #include "knewfilemenu.h"
 #include "kpreviewwidgetbase.h"
+#include "statjob.h"
 #include <KCompletion>
 #include <KConfigGroup>
 #include <KDirLister>

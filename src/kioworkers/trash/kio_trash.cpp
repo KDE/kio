@@ -8,6 +8,7 @@
 #include "kio_trash.h"
 #include "../../utils_p.h"
 #include "kiotrashdebug.h"
+#include "transferjob.h"
 
 #include <KDirNotify>
 #include <kio/jobuidelegateextension.h>
@@ -25,10 +26,8 @@
 
 #include <grp.h>
 #include <pwd.h>
-#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <time.h>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject

@@ -9,7 +9,8 @@
 #include "clipboardupdater_p.h"
 #include "copyjob.h"
 #include "deletejob.h"
-#include "jobclasses.h"
+#include "filecopyjob.h"
+#include "simplejob.h"
 #include <KUrlMimeData>
 
 #include <QClipboard>

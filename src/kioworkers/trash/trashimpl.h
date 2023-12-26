@@ -8,6 +8,8 @@
 #ifndef TRASHIMPL_H
 #define TRASHIMPL_H
 
+#include "global.h"
+#include "udsentry.h"
 #include <kio/job.h>
 
 #include <KConfig>

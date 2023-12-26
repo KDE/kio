@@ -14,9 +14,9 @@
 #include <QObject>
 #include <QTimer>
 
-#include "authinfo.h"
 #include "connection_p.h"
 #include "global.h"
+#include "metadata.h"
 #include "udsentry.h"
 
 class QUrl;

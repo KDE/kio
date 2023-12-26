@@ -6,7 +6,7 @@
 */
 
 #include <KIO/FavIconRequestJob>
-#include <KIO/Job>
+#include <KIO/TransferJob>
 #include <QDir>
 #include <QLoggingCategory>
 #include <QStandardPaths>

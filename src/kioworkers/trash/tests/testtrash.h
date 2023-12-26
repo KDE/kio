@@ -8,6 +8,7 @@
 #ifndef TESTTRASH_H
 #define TESTTRASH_H
 
+#include "udsentry.h"
 #include <QObject>
 #include <QTemporaryDir>
 

@@ -14,11 +14,7 @@
 
 #include <KJob>
 
-#include "jobtracker.h" // for source compat
-#include "metadata.h" // for source compat
-
 class QUrl;
-
 class QTime;
 
 #if defined(Q_OS_WIN) && defined(Q_CC_MSVC)

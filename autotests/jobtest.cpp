@@ -14,7 +14,11 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
+#include <kio/filecopyjob.h>
+#include <kio/listjob.h>
+#include <kio/mimetypejob.h>
 #include <kio/statjob.h>
+#include <kio/storedtransferjob.h>
 #include <kmountpoint.h>
 #include <kprotocolinfo.h>
 

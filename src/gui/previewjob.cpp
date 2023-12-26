@@ -9,7 +9,9 @@
 */
 
 #include "previewjob.h"
+#include "filecopyjob.h"
 #include "kiogui_debug.h"
+#include "statjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID)
 #define WITH_SHM 1
@@ -22,8 +24,8 @@
 #include <sys/shm.h>
 #endif
 
+#include <algorithm>
 #include <limits>
-#include <set>
 
 #include <QDir>
 #include <QFile>
@@ -46,9 +48,6 @@
 #include <Solid/Device>
 #include <Solid/StorageAccess>
 #include <kprotocolinfo.h>
-
-#include <algorithm>
-#include <cmath>
 
 #include "job_p.h"
 
