@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-24 01:56+0000\n"
+"POT-Creation-Date: 2023-12-27 01:32+0000\n"
 "PO-Revision-Date: 2023-09-25 13:28+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2677,7 +2677,7 @@ msgstr "पूर्वावलोकनम् दर्शयतु"
 msgid "Open Containing Folder"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1156
+#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "गुणाः"
@@ -3106,78 +3106,78 @@ msgstr "विभाजनप्रबन्धकेन पुनः स्व�
 msgid "%1 (hidden)"
 msgstr "%1 (अदृष्ट)"
 
-#: filewidgets/kfileplacesview.cpp:1118
+#: filewidgets/kfileplacesview.cpp:1121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "पुनःप्रयोगस्य कूपं रिक्तं कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1143
+#: filewidgets/kfileplacesview.cpp:1146
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "संचयतु"
 
-#: filewidgets/kfileplacesview.cpp:1149
+#: filewidgets/kfileplacesview.cpp:1152
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "नूतन टैब् मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1152
+#: filewidgets/kfileplacesview.cpp:1155
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "नूतनगवाक्ष मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1161
+#: filewidgets/kfileplacesview.cpp:1164
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "प्रविष्टि योजयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1167
+#: filewidgets/kfileplacesview.cpp:1170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&सम्पादयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1172
+#: filewidgets/kfileplacesview.cpp:1175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "स्थानेभ्यः निष्कासयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1176
+#: filewidgets/kfileplacesview.cpp:1179
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&गोपयतु"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "खण्डं गोपयन्तु '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1184
+#: filewidgets/kfileplacesview.cpp:1187
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "खण्डं गोपयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1192
+#: filewidgets/kfileplacesview.cpp:1195
 #, kde-format
 msgid "&Show All Entries"
 msgstr "सर्वाणि प्रविष्टयः दर्शयतु"
 
-#: filewidgets/kfileplacesview.cpp:1197
+#: filewidgets/kfileplacesview.cpp:1200
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "चिह्नस्य आकार"
 
-#: filewidgets/kfileplacesview.cpp:1309
+#: filewidgets/kfileplacesview.cpp:1320
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3185,25 +3185,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "स्वतः आकारं परिवर्तयतु"
 
-#: filewidgets/kfileplacesview.cpp:1329
+#: filewidgets/kfileplacesview.cpp:1340
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "लघु (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1332
+#: filewidgets/kfileplacesview.cpp:1343
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "मध्यम (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1335
+#: filewidgets/kfileplacesview.cpp:1346
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "बृहत्‌ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1338
+#: filewidgets/kfileplacesview.cpp:1349
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
