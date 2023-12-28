@@ -15,7 +15,6 @@
 #include <QDomDocument>
 #include <QLockFile>
 #include <QMimeDatabase>
-#include <QRegularExpression>
 #include <QSaveFile>
 #include <QXmlStreamWriter>
 
@@ -274,8 +273,7 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
                 inRightBookmark = hrefValue == newUrl;
 
                 // remove hidden files if some were added by GTK
-                const static QRegularExpression isHiddenRegex(QStringLiteral("/\\."));
-                if (ignoreHidden && isHiddenRegex.matchView(hrefValue).hasMatch()) {
+                if (ignoreHidden && hrefValue.contains(QLatin1String("/."))) {
                     xml.skipCurrentElement();
                     break;
                 }
@@ -520,7 +518,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
         clear();
         return;
     }
-    if (ignoreHidden && QRegularExpression(QStringLiteral("/\\.")).match(url.toLocalFile()).hasMatch()) {
+    if (ignoreHidden && url.toLocalFile().contains(QLatin1String("/."))) {
         return;
     }
 
