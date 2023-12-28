@@ -14,7 +14,12 @@
 #include <QDateTime>
 #include <QLocale>
 #include <QUrl>
+
+#ifdef Q_OS_WIN
+#include "kioglobal_p.h"
+#else
 #include <sys/stat.h> // S_IRUSR etc
+#endif
 
 static const int s_maxFilePathLength = 80;
 
