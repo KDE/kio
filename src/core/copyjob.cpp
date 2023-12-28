@@ -1365,7 +1365,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
             // fall through
             Q_FALLTHROUGH();
         case Result_Skip:
-            m_skipList.append(existingDest);
+            m_skipList.append(Utils::slashAppended(existingDest));
             skip((*it).uSource, true);
             // Move on to next dir
             dirs.erase(it);
@@ -1512,7 +1512,7 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
         m_autoSkipDirsWithInvalidChars = true;
         Q_FALLTHROUGH();
     case KIO::Result_Skip:
-        m_skipList.append(it->uDest.path());
+        m_skipList.append(Utils::slashAppended(it->uDest.path()));
         skip(it->uSource, true);
         dirs.erase(it); // Move on to next dir
         ++m_processedDirs;
