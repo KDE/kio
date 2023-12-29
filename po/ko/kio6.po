@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 01:32+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -88,13 +88,13 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
-#: core/job_error.cpp:570 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
@@ -381,22 +381,22 @@ msgid ""
 msgstr ""
 "데이터 전송 작업을 완료하려면 루트 권한이 필요합니다. 계속 진행하시겠습니까?"
 
-#: core/job_error.cpp:33
+#: core/job_error.cpp:37
 #, kde-format
 msgid "Could not read %1."
 msgstr "%1을(를) 읽을 수 없습니다."
 
-#: core/job_error.cpp:36
+#: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
 msgstr "%1에 쓸 수 없습니다."
 
-#: core/job_error.cpp:39
+#: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
 msgstr "%1 프로세스를 시작할 수 없습니다."
 
-#: core/job_error.cpp:42
+#: core/job_error.cpp:46
 #, kde-format
 msgid ""
 "Internal Error\n"
@@ -407,63 +407,63 @@ msgstr ""
 "https://bugs.kde.org/ 에 전체 버그 보고서를 보내 주십시오.\n"
 "%1"
 
-#: core/job_error.cpp:45
+#: core/job_error.cpp:49
 #, kde-format
 msgid "Malformed URL %1."
 msgstr "%1 URL의 형식이 잘못되었습니다."
 
-#: core/job_error.cpp:48
+#: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
 msgstr "%1 프로토콜은 지원되지 않습니다."
 
-#: core/job_error.cpp:51
+#: core/job_error.cpp:55
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
 msgstr "%1 프로토콜은 필터 프로토콜입니다."
 
-#: core/job_error.cpp:58
+#: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
 msgstr "%1은(는) 폴더이지만, 파일이 있어야 합니다."
 
-#: core/job_error.cpp:61
+#: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
 msgstr "%1은(는) 파일이지만, 폴더가 있어야 합니다."
 
-#: core/job_error.cpp:64
+#: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
 msgstr ""
 "파일이나 폴더 %1이(가) 없습니다.|/|파일이나 폴더 %1$[이가 %1] 없습니다."
 
-#: core/job_error.cpp:67
+#: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
 msgstr "이름이 %1인 파일이 이미 존재합니다."
 
-#: core/job_error.cpp:70
+#: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
 msgstr "이름이 %1인 폴더가 이미 존재합니다."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "No hostname specified."
 msgstr "호스트 이름이 지정되지 않았습니다."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "Unknown host %1"
 msgstr "알 수 없는 호스트 %1"
 
-#: core/job_error.cpp:76
+#: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
 msgstr "%1에 대한 접근이 거부되었습니다."
 
-#: core/job_error.cpp:79
+#: core/job_error.cpp:83
 #, kde-format
 msgid ""
 "Access denied.\n"
@@ -472,47 +472,47 @@ msgstr ""
 "접근이 거부됨\n"
 "%1에 쓸 수 없습니다."
 
-#: core/job_error.cpp:82
+#: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
 msgstr "폴더 %1에 들어갈 수 없습니다."
 
-#: core/job_error.cpp:85
+#: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
 msgstr "%1 프로토콜은 폴더 서비스를 제공하지 않습니다."
 
-#: core/job_error.cpp:88
+#: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
 msgstr "%1에서 순환 링크를 찾았습니다."
 
-#: core/job_error.cpp:91
+#: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
 msgstr "%1을(를) 복사하는 동안 순환 링크를 찾았습니다."
 
-#: core/job_error.cpp:94
+#: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
 msgstr "%1에 접속하는 소켓을 만들 수 없습니다."
 
-#: core/job_error.cpp:97
+#: core/job_error.cpp:101
 #, kde-format
 msgid "Could not connect to host %1."
 msgstr "%1 호스트에 접속할 수 없습니다."
 
-#: core/job_error.cpp:100
+#: core/job_error.cpp:104
 #, kde-format
 msgid "Connection to host %1 is broken."
 msgstr "%1 호스트와의 연결이 끊겼습니다."
 
-#: core/job_error.cpp:103
+#: core/job_error.cpp:107
 #, kde-format
 msgid "The protocol %1 is not a filter protocol."
 msgstr "%1 프로토콜은 필터 프로토콜이 아닙니다."
 
-#: core/job_error.cpp:106
+#: core/job_error.cpp:110
 #, kde-format
 msgid ""
 "Could not mount device.\n"
@@ -523,7 +523,7 @@ msgstr ""
 "보고된 오류는 다음과 같습니다:\n"
 "%1"
 
-#: core/job_error.cpp:109
+#: core/job_error.cpp:113
 #, kde-format
 msgid ""
 "Could not unmount device.\n"
@@ -534,82 +534,82 @@ msgstr ""
 "보고된 오류는 다음과 같습니다:\n"
 "%1"
 
-#: core/job_error.cpp:112
+#: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
 msgstr "%1 파일에서 읽을 수 없습니다."
 
-#: core/job_error.cpp:115
+#: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
 msgstr "%1 파일에 쓸 수 없습니다."
 
-#: core/job_error.cpp:118
+#: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
 msgstr "%1에 바인딩할 수 없습니다."
 
-#: core/job_error.cpp:121
+#: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
 msgstr "%1에서 들을 수 없습니다."
 
-#: core/job_error.cpp:124
+#: core/job_error.cpp:128
 #, kde-format
 msgid "Could not accept %1."
 msgstr "%1을(를) 수락할 수 없습니다."
 
-#: core/job_error.cpp:130
+#: core/job_error.cpp:134
 #, kde-format
 msgid "Could not access %1."
 msgstr "%1에 접근할 수 없습니다."
 
-#: core/job_error.cpp:133
+#: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
 msgstr "%1에서 듣는 것을 종료할 수 없습니다."
 
-#: core/job_error.cpp:136
+#: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
 msgstr "%1 폴더를 만들 수 없습니다."
 
-#: core/job_error.cpp:139
+#: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
 msgstr "%1 폴더를 삭제할 수 없습니다."
 
-#: core/job_error.cpp:142
+#: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
 msgstr "%1 파일을 다시 시작할 수 없습니다."
 
-#: core/job_error.cpp:145
+#: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
 msgstr "%1 파일의 이름을 바꿀 수 없습니다."
 
-#: core/job_error.cpp:148
+#: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
 msgstr "%1의 권한을 변경할 수 없습니다."
 
-#: core/job_error.cpp:151
+#: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
 msgstr "%1의 소유권을 변경할 수 없습니다."
 
-#: core/job_error.cpp:154
+#: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
 msgstr "%1 파일을 삭제할 수 없습니다."
 
-#: core/job_error.cpp:157
+#: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
 msgstr "%1 프로토콜의 프로세스가 예기치 않게 중지되었습니다."
 
-#: core/job_error.cpp:160
+#: core/job_error.cpp:164
 #, kde-format
 msgid ""
 "Error. Out of memory.\n"
@@ -618,7 +618,7 @@ msgstr ""
 "오류. 메모리 부족.\n"
 "%1"
 
-#: core/job_error.cpp:163
+#: core/job_error.cpp:167
 #, kde-format
 msgid ""
 "Unknown proxy host\n"
@@ -627,12 +627,12 @@ msgstr ""
 "알 수 없는 프록시 호스트\n"
 "%1"
 
-#: core/job_error.cpp:166
+#: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
 msgstr "인증 실패, %1 인증은 지원하지 않음"
 
-#: core/job_error.cpp:172
+#: core/job_error.cpp:176
 #, kde-format
 msgid ""
 "User canceled action\n"
@@ -641,7 +641,7 @@ msgstr ""
 "사용자가 작업을 취소함\n"
 "%1"
 
-#: core/job_error.cpp:175
+#: core/job_error.cpp:179
 #, kde-format
 msgid ""
 "Internal error in server\n"
@@ -650,7 +650,7 @@ msgstr ""
 "서버 내부 오류\n"
 "%1"
 
-#: core/job_error.cpp:178
+#: core/job_error.cpp:182
 #, kde-format
 msgid ""
 "Timeout on server\n"
@@ -659,7 +659,7 @@ msgstr ""
 "서버 시간 초과\n"
 "%1"
 
-#: core/job_error.cpp:181
+#: core/job_error.cpp:185
 #, kde-format
 msgid ""
 "Unknown error\n"
@@ -668,7 +668,7 @@ msgstr ""
 "알 수 없는 오류\n"
 "%1"
 
-#: core/job_error.cpp:184
+#: core/job_error.cpp:188
 #, kde-format
 msgid ""
 "Unknown interrupt\n"
@@ -677,7 +677,7 @@ msgstr ""
 "알 수 없는 인터럽트\n"
 "%1"
 
-#: core/job_error.cpp:195
+#: core/job_error.cpp:199
 #, kde-format
 msgid ""
 "Could not delete original file %1.\n"
@@ -686,7 +686,7 @@ msgstr ""
 "원본 파일 %1을(를) 삭제할 수 없습니다.\n"
 "권한을 확인하십시오."
 
-#: core/job_error.cpp:198
+#: core/job_error.cpp:202
 #, kde-format
 msgid ""
 "Could not delete partial file %1.\n"
@@ -695,7 +695,7 @@ msgstr ""
 "부분 파일 %1을(를) 삭제할 수 없습니다.\n"
 "권한을 확인하십시오."
 
-#: core/job_error.cpp:201
+#: core/job_error.cpp:205
 #, kde-format
 msgid ""
 "Could not rename original file %1.\n"
@@ -704,7 +704,7 @@ msgstr ""
 "원본 파일 %1의 이름을 바꿀 수 없습니다.\n"
 "권한을 확인하십시오."
 
-#: core/job_error.cpp:204
+#: core/job_error.cpp:208
 #, kde-format
 msgid ""
 "Could not rename partial file %1.\n"
@@ -713,7 +713,7 @@ msgstr ""
 "부분 파일 %1의 이름을 바꿀 수 없습니다.\n"
 "권한을 확인하십시오."
 
-#: core/job_error.cpp:207
+#: core/job_error.cpp:211
 #, kde-format
 msgid ""
 "Could not create symlink %1.\n"
@@ -722,7 +722,7 @@ msgstr ""
 "심볼릭 링크 %1을(를) 만들 수 없습니다.\n"
 "권한을 확인하십시오."
 
-#: core/job_error.cpp:210
+#: core/job_error.cpp:214
 #, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
@@ -731,12 +731,12 @@ msgstr ""
 "심볼릭 링크 \"%1\"을(를) 만들 수 없습니다.\n"
 "대상 파일 시스템에서 심볼릭 링크를 지원하지 않습니다."
 
-#: core/job_error.cpp:216
+#: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
 msgstr "디스크에 공간이 부족하여 %1을(를) 쓸 수 없습니다."
 
-#: core/job_error.cpp:219
+#: core/job_error.cpp:223
 #, kde-format
 msgid ""
 "The source and destination are the same file.\n"
@@ -745,43 +745,43 @@ msgstr ""
 "원본 파일과 대상 파일이 같습니다.\n"
 "%1"
 
-#: core/job_error.cpp:227
+#: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
 msgstr "서버에서 %1을(를) 요청했지만 사용할 수 없습니다."
 
-#: core/job_error.cpp:230
+#: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
 msgstr "제한된 포트로의 POST 요청이 거부되었습니다."
 
-#: core/job_error.cpp:233
+#: core/job_error.cpp:237
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr "POST 요청에 필요한 내용 크기 정보가 제공되지 않았습니다."
 
-#: core/job_error.cpp:236
+#: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
 msgstr "파일이나 폴더 위로 자기 자신을 끌어다 놓을 수 없음"
 
-#: core/job_error.cpp:239
+#: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
 msgstr "폴더를 자기 자신으로 이동할 수 없음"
 
-#: core/job_error.cpp:242
+#: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
 msgstr "로컬 암호 서버와 통신할 수 없음"
 
-#: core/job_error.cpp:245
+#: core/job_error.cpp:249
 #, kde-format
 msgid "Unable to create KIO worker. %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/job_error.cpp:249
+#: core/job_error.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -791,7 +791,7 @@ msgstr ""
 "<filename>%1</filename>이(가) 너무 크기 때문에 전송할 수 없습니다. 대상 파일 "
 "시스템의 최대 파일 크기는 4 GiB입니다"
 
-#: core/job_error.cpp:254
+#: core/job_error.cpp:258
 #, kde-format
 msgid ""
 "Privilege escalation is not necessary because \n"
@@ -802,12 +802,12 @@ msgstr ""
 "권한 상승이 필요하지 않습니다.\n"
 "권한을 변경한 후 다시 시도하십시오."
 
-#: core/job_error.cpp:257
+#: core/job_error.cpp:261
 #, kde-format
 msgid "File is too large to be trashed."
 msgstr "파일이 휴지통에 버리기에 너무 큽니다."
 
-#: core/job_error.cpp:260
+#: core/job_error.cpp:264
 #, kde-format
 msgid ""
 "Unknown error code %1\n"
@@ -818,65 +818,65 @@ msgstr ""
 "%2\n"
 "https://bugs.kde.org로 전체 버그 보고서를 보내 주십시오."
 
-#: core/job_error.cpp:291
+#: core/job_error.cpp:295
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(알 수 없음)"
 
-#: core/job_error.cpp:297
+#: core/job_error.cpp:301
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>기술적 이유</b>: "
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>요청의 자세한 정보</b>:"
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>프로토콜: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>날짜 및 시간: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>추가 정보: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>가능한 이유</b>:"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:317
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>가능한 해결책</b>:"
 
-#: core/job_error.cpp:357
+#: core/job_error.cpp:361
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(알 수 없음)"
 
-#: core/job_error.cpp:370
+#: core/job_error.cpp:374
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -885,17 +885,17 @@ msgstr ""
 "추가 지원이 필요하면 시스템 관리자나 기술 지원 그룹 등 컴퓨터 지원 시스템에 "
 "문의하십시오."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "추가 지원이 필요하면 서버 관리자에게 문의하십시오."
 
-#: core/job_error.cpp:377
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "이 리소스에 대한 접근 권한을 확인하십시오."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:383
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -903,13 +903,13 @@ msgid ""
 msgstr ""
 "이 리소스에 요청한 작업을 수행하기에 충분한 접근 권한이 없을 수도 있습니다."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
 msgstr "이 파일은 다른 사용자나 앱이 사용하고 있거나 잠겼을 수 있습니다."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -918,17 +918,17 @@ msgstr ""
 "다른 앱이나 사용자가 파일을 사용하고 있지 않거나 파일을 잠갔는지 확인하십시"
 "오."
 
-#: core/job_error.cpp:388
+#: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "가능성은 낮지만 하드웨어 오류가 발생했을 수도 있습니다."
 
-#: core/job_error.cpp:390
+#: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "프로그램의 버그가 발생했을 수도 있습니다."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:396
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -937,7 +937,7 @@ msgstr ""
 "이것은 프로그램의 버그 때문에 일어난 것 같습니다. 아래 사항과 같이 전체 버그 "
 "보고서를 작성해 주십시오."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -946,7 +946,7 @@ msgstr ""
 "소프트웨어를 최신 버전으로 업데이트하십시오. 배포판에서 소프트웨어를 업데이트"
 "할 수 있는 도구를 제공합니다."
 
-#: core/job_error.cpp:398
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -965,12 +965,12 @@ msgstr ""
 "정보 및 도움이 될 수 있는 다른 세부 정보 여러 가지와 같이 버그 보고를 제출해 "
 "주십시오."
 
-#: core/job_error.cpp:407
+#: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "네트워크 연결에 문제가 있는 것 같습니다."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -979,7 +979,7 @@ msgstr ""
 "네트워크 설정에 문제가 있는 것 같습니다. 최근에 인터넷에 연결하는 데 문제가 "
 "없었다면, 그렇지 않을 수도 있습니다."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:419
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -987,42 +987,42 @@ msgid ""
 msgstr ""
 "서버와 이 컴퓨터 사이의 네트워크의 일부 지점에서 문제가 생긴 것 같습니다."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "지금 또는 나중에 다시 시도하십시오."
 
-#: core/job_error.cpp:418
+#: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "프로토콜 오류가 발생했거나 호환되지 않을 수 있습니다."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "리소스가 있는지 확인하고 다시 시도하십시오."
 
-#: core/job_error.cpp:420
+#: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "지정한 리소스가 없을 수 있습니다."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "정확한 주소를 입력했는지 다시 확인하고 다시 시도하십시오."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
 msgstr "네트워크 연결 상태를 확인하십시오."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:432
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "리소스에서 읽으려고 열 수 없음"
 
-#: core/job_error.cpp:430
+#: core/job_error.cpp:434
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1031,17 +1031,17 @@ msgstr ""
 "읽기 권한이 없기 때문에 요청한 파일이나 폴더 <strong>%1</strong>의 내용을 가"
 "져올 수 없음을 뜻합니다."
 
-#: core/job_error.cpp:435
+#: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "파일을 읽거나 폴더를 열 권한이 없습니다."
 
-#: core/job_error.cpp:442
+#: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "리소스에 쓰려고 열 수 없음"
 
-#: core/job_error.cpp:444
+#: core/job_error.cpp:448
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1050,17 +1050,17 @@ msgstr ""
 "쓰기 권한이 없기 때문에 요청한 파일이나 폴더 <strong>%1</strong>에 요청한 대"
 "로 쓸 수 없음을 뜻합니다."
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:457
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "%1 프로토콜에서 필요한 프로세스를 실행할 수 없음"
 
-#: core/job_error.cpp:454
+#: core/job_error.cpp:458
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "프로세스를 시작할 수 없음"
 
-#: core/job_error.cpp:456
+#: core/job_error.cpp:460
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1070,7 +1070,7 @@ msgstr ""
 "<strong>%1</strong> 프로토콜을 구현하는 프로그램을 찾거나 시작할 수 없습니"
 "다. 기술적인 문제일 가능성이 큽니다."
 
-#: core/job_error.cpp:461
+#: core/job_error.cpp:465
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1081,12 +1081,12 @@ msgstr ""
 "트되지 않았을 수도 있습니다. 따라서 프로그램이 현재 버전과 호환되지 않으며 시"
 "작할 수 없습니다."
 
-#: core/job_error.cpp:470
+#: core/job_error.cpp:474
 #, kde-format
 msgid "Internal Error"
 msgstr "내부 오류"
 
-#: core/job_error.cpp:472
+#: core/job_error.cpp:476
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1095,12 +1095,12 @@ msgstr ""
 "<strong>%1</strong> 프로토콜에 대한 접근를 제공하는 컴퓨터의 프로그램이 내부 "
 "오류를 보고했습니다."
 
-#: core/job_error.cpp:480
+#: core/job_error.cpp:484
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "URL 형식이 잘못됨"
 
-#: core/job_error.cpp:482
+#: core/job_error.cpp:486
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1114,12 +1114,12 @@ msgstr ""
 "<blockquote><strong>protocol://user:password@www.example.kr:port/folder/"
 "filename.extension?query=value</strong></blockquote>"
 
-#: core/job_error.cpp:491
+#: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "%1 프로토콜이 지원되지 않음"
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1128,12 +1128,12 @@ msgstr ""
 "<strong>%1</strong> 프로토콜은 이 컴퓨터에 설치된 KDE 프로그램에서 지원하지 "
 "않습니다."
 
-#: core/job_error.cpp:496
+#: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "요청한 프로토콜이 지원되지 않을 수 있습니다."
 
-#: core/job_error.cpp:498
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1142,7 +1142,7 @@ msgstr ""
 "서버와 이 컴퓨터에서 사용하는 %1 프로토콜의 버전이 호환되지 않을 수도 있습니"
 "다."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:506
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
@@ -1153,17 +1153,17 @@ msgstr ""
 "있습니다. <a href=\"https://store.kde.org/\">https://store.kde.org</a>에서 검"
 "색할 수 있습니다."
 
-#: core/job_error.cpp:510
+#: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "URL이 리소스를 참조하지 않습니다."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:515
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "프로토콜이 필터 프로토콜입니다"
 
-#: core/job_error.cpp:513
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1172,7 +1172,7 @@ msgstr ""
 "입력한 URL(<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator)이 특정 리소스를 참조하지 않았습니다."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:521
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1183,12 +1183,12 @@ msgstr ""
 "KDE는 프로토콜을 통해서 통신할 수 있습니다. 지정한 프로토콜은 현재 상황에서 "
 "사용되면 안 되는 것입니다. 이것은 흔치 않은 일로 프로그램 오류일 수 있습니다."
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "지원하지 않는 작업: %1"
 
-#: core/job_error.cpp:527
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1197,7 +1197,7 @@ msgstr ""
 "요청한 작업은 <strong>%1</strong> 프로토콜을 구현하는 KDE 프로그램에서 지원하"
 "지 않습니다."
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:535
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1207,17 +1207,17 @@ msgstr ""
 "이 오류는 KDE 프로그램에 의존합니다. KDE 입출력 아키텍처보다 해당 프로그램에"
 "서 더 많은 추가 정보를 제공합니다."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:539
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "같은 결과를 얻는 또 다른 방법을 찾는 중입니다."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
 msgstr "파일 예상됨"
 
-#: core/job_error.cpp:542
+#: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1225,17 +1225,17 @@ msgid ""
 msgstr ""
 "요청에서는 파일을 예상했지만, 대신 <strong>%1</strong> 폴더가 발견되었습니다."
 
-#: core/job_error.cpp:545
+#: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "서버 상에서의 오류일 수 있습니다."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
 msgstr "폴더 예상됨"
 
-#: core/job_error.cpp:552
+#: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1243,66 +1243,66 @@ msgid ""
 msgstr ""
 "요청에서는 폴더를 예상했지만, 대신 <strong>%1</strong> 파일이 발견되었습니다."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "파일이나 폴더가 없음"
 
-#: core/job_error.cpp:562
+#: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "지정한 파일이나 폴더 <strong>%1</strong>이(가) 없습니다."
 
-#: core/job_error.cpp:572
+#: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
 "already exists."
 msgstr "같은 이름의 파일이 이미 있기 때문에 요청한 파일을 만들 수 없습니다."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "현재 파일을 먼저 이동한 다음 다시 시도하십시오."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "현재 파일을 삭제하고 다시 시도하십시오."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "새 파일의 대체 파일 이름을 지정하십시오."
 
-#: core/job_error.cpp:583
+#: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
 msgstr "같은 이름의 폴더가 이미 있기 때문에 요청한 폴더를 만들 수 없습니다."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "먼저 현재 폴더를 이동한 다음 다시 시도하십시오."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "현재 폴더를 삭제하고 다시 시도하십시오."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "새 폴더의 대체 이름을 선택하십시오."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:596
 #, kde-format
 msgid "Unknown Host"
 msgstr "알 수 없는 호스트"
 
-#: core/job_error.cpp:594
+#: core/job_error.cpp:598
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1311,33 +1311,33 @@ msgstr ""
 "알 수 없는 호스트 오류는 <strong>%1</strong> 호스트를 인터넷에서 찾을 수 없음"
 "을 의미합니다."
 
-#: core/job_error.cpp:599
+#: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr "입력한 %1 이름이 없을 수 있음: 잘못 입력되었을 수 있습니다."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
 msgstr "접근 거부됨"
 
-#: core/job_error.cpp:609
+#: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "지정된 <strong>%1</strong> 리소스에 대한 접근이 거부되었습니다."
 
-#: core/job_error.cpp:613 core/job_error.cpp:889
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "잘못된 인증 세부 정보를 제공했거나 전혀 제공하지 않았을 수 있습니다."
 
-#: core/job_error.cpp:616 core/job_error.cpp:892
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "계정에 지정된 리소스에 접근할 권한이 없을 수 있습니다."
 
-#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
+#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1345,41 +1345,41 @@ msgid ""
 msgstr ""
 "요청을 다시 시도하고 인증 세부 정보를 올바르게 입력했는지 확인하십시오."
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
 msgstr "쓰기 접근 거부됨"
 
-#: core/job_error.cpp:630
+#: core/job_error.cpp:634
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
 msgstr "지정한 파일 <strong>%1</strong>에 쓰려는 시도가 거부되었습니다."
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "폴더에 들어갈 수 없음"
 
-#: core/job_error.cpp:640
+#: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr "요청한 <strong>%1</strong> 폴더에 들어가려는 시도가 거부되었습니다."
 
-#: core/job_error.cpp:648
+#: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "폴더 목록을 볼 수 없음"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "%1 프로토콜은 파일 시스템이 아님"
 
-#: core/job_error.cpp:651
+#: core/job_error.cpp:655
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1389,12 +1389,12 @@ msgstr ""
 "폴더 내용을 보여 달라는 요청이 들어왔지만 이 프로토콜을 지원하는 KDE 프로그램"
 "에서 지원하지 않습니다."
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "재귀적 연결 감지됨"
 
-#: core/job_error.cpp:661
+#: core/job_error.cpp:665
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1406,7 +1406,7 @@ msgstr ""
 "히 반복되는 링크를 감지했습니다. 이는 파일이 자기 자신으로 직접 및 간접적으"
 "로 연결된 것일 수 있습니다."
 
-#: core/job_error.cpp:666 core/job_error.cpp:692
+#: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1414,27 +1414,27 @@ msgid ""
 msgstr ""
 "무한 루프가 발생하지 않도록 루프의 한 부분을 삭제하고 다시 시도하십시오."
 
-#: core/job_error.cpp:676
+#: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "사용자가 요청을 취소함"
 
-#: core/job_error.cpp:678 core/job_error.cpp:1067
+#: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "요청이 취소되었기 때문에 완료되지 않았습니다."
 
-#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
+#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
 msgstr "요청을 다시 시도하십시오."
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "복사하는 중 재귀적 연결 감지됨"
 
-#: core/job_error.cpp:686
+#: core/job_error.cpp:690
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1446,17 +1446,17 @@ msgstr ""
 "작업을 처리하는 중 KDE에서 무한히 반복되는 링크를 감지했습니다. 이는 파일이 "
 "자기 자신으로 직접 및 간접적으로 연결된 것일 수 있습니다."
 
-#: core/job_error.cpp:698
+#: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "네트워크 연결을 만들 수 없음"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "소켓을 만들 수 없음"
 
-#: core/job_error.cpp:701
+#: core/job_error.cpp:705
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1464,8 +1464,8 @@ msgid ""
 msgstr ""
 "주어진 장치에서 네트워크 연결(소켓)을 만들 수 없는 기술적인 오류입니다."
 
-#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
-#: core/job_error.cpp:877
+#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1473,19 +1473,19 @@ msgid ""
 msgstr ""
 "네트워크 연결 설정이 잘못되었거나 인터페이스가 비활성화되었을 수도 있습니다."
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "서버로의 연결 거부됨"
 
-#: core/job_error.cpp:712
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "<strong>%1</strong> 서버에서 이 컴퓨터가 연결하는 것을 거부했습니다."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1494,7 +1494,7 @@ msgstr ""
 "서버가 인터넷에 연결은 되어 있지만 요청을 받아들이도록 설정되어 있지 않았을 "
 "수도 있습니다."
 
-#: core/job_error.cpp:719
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1503,7 +1503,7 @@ msgstr ""
 "서버가 인터넷에 연결은 되어 있지만 요청한 서비스(%1)를 실행하고 있지 않을 수"
 "도 있습니다."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:727
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1513,12 +1513,12 @@ msgstr ""
 "현재 사용 중인 네트워크 또는 서버가 속해 있는 네트워크를 보호하는 방화벽에서 "
 "이 요청을 차단했을 수도 있습니다."
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "서버와의 연결이 예상하지 못하게 종료됨"
 
-#: core/job_error.cpp:732
+#: core/job_error.cpp:736
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1527,7 +1527,7 @@ msgstr ""
 "비록 <strong>%1</strong>와(과)의 연결은 성공했지만, 통신하는 중 예상하지 못했"
 "던 지점에서 연결이 종료되었습니다."
 
-#: core/job_error.cpp:738
+#: core/job_error.cpp:742
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1536,17 +1536,17 @@ msgstr ""
 "프로토콜 오류가 발생해서 서버에서 오류에 대한 응답으로 연결을 닫도록 했을 수"
 "도 있습니다."
 
-#: core/job_error.cpp:744
+#: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "URL 리소스가 잘못됨"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:749
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "%1 프로토콜은 필터 프로토콜이 아님"
 
-#: core/job_error.cpp:747
+#: core/job_error.cpp:751
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1557,7 +1557,7 @@ msgstr ""
 "strong>ocator)은 지정한 리소스 <strong>%1%2</strong>에 대한 올바른 접근 방법"
 "을 제공하지 않습니다."
 
-#: core/job_error.cpp:754
+#: core/job_error.cpp:758
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1569,17 +1569,17 @@ msgstr ""
 "을 그대로 사용하도록 지정했지만 이 프로토콜은 그러한 작업을 수행할 수 없습니"
 "다. 이 이벤트는 드문 이벤트이며 프로그래밍 오류를 나타낼 수 있습니다."
 
-#: core/job_error.cpp:762
+#: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "입출력 장치를 초기화할 수 없음"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "장치를 마운트할 수 없음"
 
-#: core/job_error.cpp:765
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1588,7 +1588,7 @@ msgstr ""
 "요청한 장치를 초기화(\"마운트\")할 수 없습니다. 보고된 오류는 다음과 같습니"
 "다: <strong>%1</strong>"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:773
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1599,7 +1599,7 @@ msgstr ""
 "예를 들어 CD 드라이브에 CD-ROM이 없을 수도 있습니다. 또한 장치가 올바르게 연"
 "결되지 않았을 수도 있습니다."
 
-#: core/job_error.cpp:774
+#: core/job_error.cpp:778
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1609,7 +1609,7 @@ msgstr ""
 "장치를 초기화(\"마운트\")할 권한이 없습니다. 유닉스 시스템에서는 장치를 초기"
 "화하려면 시스템 관리자 권한이 필요합니다."
 
-#: core/job_error.cpp:779
+#: core/job_error.cpp:783
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1619,17 +1619,17 @@ msgstr ""
 "며 휴대용 장치는 연결되어 있고 전원이 켜져 있어야 합니다. 확인한 다음 다시 시"
 "도하십시오."
 
-#: core/job_error.cpp:786
+#: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "입출력 장치를 초기화 해제할 수 없음"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "장치를 마운트 해제할 수 없음"
 
-#: core/job_error.cpp:789
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1638,7 +1638,7 @@ msgstr ""
 "요청한 장치를 마운트 해제할 수 없습니다. 보고된 오류는 다음과 같습니다: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:797
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1649,7 +1649,7 @@ msgstr ""
 "가 이 장치로 설정되어 있는 파일 탐색기 창을 열어 두는 것만으로도 장치를 사용"
 "하고 있는 것으로 간주될 수 있습니다."
 
-#: core/job_error.cpp:798
+#: core/job_error.cpp:802
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1659,19 +1659,19 @@ msgstr ""
 "장치를 마운트 해제할 권한이 없습니다. 유닉스 시스템에서는 장치를 마운트 해제"
 "하려면 시스템 관리자 권한이 필요합니다."
 
-#: core/job_error.cpp:803
+#: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "이 리소스에 대한 접근 권한을 확인하십시오. 장치에 접근하는 앱이 없는지 확인하"
 "고 다시 시도하십시오."
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "리소스에서 읽을 수 없음"
 
-#: core/job_error.cpp:811
+#: core/job_error.cpp:815
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1680,17 +1680,17 @@ msgstr ""
 "비록 <strong>%1</strong> 리소스를 열 수 있었지만, 내용을 읽는 동안 오류가 발"
 "생했습니다."
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "리소스에서 읽기 권한이 없을 수 있습니다."
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "리소스에 쓸 수 없음"
 
-#: core/job_error.cpp:830
+#: core/job_error.cpp:834
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1699,22 +1699,22 @@ msgstr ""
 "비록 <strong>%1</strong> 리소스를 열 수 있었지만, 리소스에 쓰는 동안 오류가 "
 "발생했습니다."
 
-#: core/job_error.cpp:833
+#: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "리소스에 쓸 수 있는 권한이 없을 수 있습니다."
 
-#: core/job_error.cpp:846 core/job_error.cpp:859
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "네트워크 연결을 들을 수 없음"
 
-#: core/job_error.cpp:847
+#: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
 msgstr "바인드할 수 없음"
 
-#: core/job_error.cpp:849 core/job_error.cpp:862
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1724,50 +1724,50 @@ msgstr ""
 "주어진 장치에서 들어오는 네트워크 연결을 듣는 소켓을 만들 수 없는 기술적인 오"
 "류입니다."
 
-#: core/job_error.cpp:860
+#: core/job_error.cpp:864
 #, kde-format
 msgid "Could Not Listen"
 msgstr "들을 수 없음"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "네트워크 연결을 수락할 수 없음"
 
-#: core/job_error.cpp:874
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr "들어오는 네트워크 연결을 수락할 수 없는 기술적인 오류입니다."
 
-#: core/job_error.cpp:879
+#: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "연결을 받아들일 권한이 없습니다."
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "로그인할 수 없음: %1"
 
-#: core/job_error.cpp:886
+#: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "요청한 동작을 수행하려고 로그인하려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:902
+#: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "리소스 상태를 확인할 수 없음"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "상태 리소스를 사용할 수 없음"
 
-#: core/job_error.cpp:905
+#: core/job_error.cpp:909
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1776,68 +1776,68 @@ msgstr ""
 "리소스 이름, 형식, 크기 등과 같은 <strong>%1</strong> 리소스의 상태에 대한 정"
 "보를 확인하려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:910
+#: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "지정한 리소스가 없거나 접근하지 못할 수 있습니다."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:921
+#: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "목록 보기를 취소할 수 없음"
 
-#: core/job_error.cpp:922
+#: core/job_error.cpp:926
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: 문서화 필요"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "폴더를 만들 수 없음"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "요청한 폴더를 만들려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "폴더가 만들어졌어야 하는 위치가 없을 수도 있습니다."
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "폴더를 삭제할 수 없음"
 
-#: core/job_error.cpp:941
+#: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "지정된 <strong>%1</strong> 폴더를 삭제하려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "지정한 폴더가 없습니다."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "지정한 폴더가 비어 있지 않을 수 있습니다."
 
-#: core/job_error.cpp:949
+#: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "폴더가 존재하고 비어 있는지 확인한 후 다시 시도하십시오."
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "파일 전송을 다시 시작할 수 없음"
 
-#: core/job_error.cpp:957
+#: core/job_error.cpp:961
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1846,45 +1846,45 @@ msgstr ""
 "지정한 요청이 파일 <strong>%1</strong>의 전송이 특정한 지점에서 다시 시작해"
 "야 한다고 했으나, 가능하지 않았습니다."
 
-#: core/job_error.cpp:962
+#: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "프로토콜이나 서버에서 파일 다시 시작을 지원하지 않을 수 있습니다."
 
-#: core/job_error.cpp:965
+#: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "전송을 다시 시작하지 않도록 않고 요청을 다시 시도하십시오."
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "리소스 이름을 변경할 수 없음"
 
-#: core/job_error.cpp:972
+#: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "지정된 <strong>%1</strong> 리소스의 이름을 바꾸려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "리소스 권한을 변경할 수 없음"
 
-#: core/job_error.cpp:985
+#: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr "지정된 <strong>%1</strong> 리소스의 권한을 변경하지 못했습니다."
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:997
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "리소스 소유권을 변경할 수 없음"
 
-#: core/job_error.cpp:995
+#: core/job_error.cpp:999
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1892,22 +1892,22 @@ msgid ""
 msgstr ""
 "지정된 <strong>%1</strong> 리소스의 소유권을 변경하려는 시도가 실패했습니다."
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "리소스를 삭제할 수 없음"
 
-#: core/job_error.cpp:1005
+#: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "지정된 <strong>%1</strong> 리소스를 삭제하지 못했습니다."
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1017
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "예상하지 못한 프로그램 종료"
 
-#: core/job_error.cpp:1015
+#: core/job_error.cpp:1019
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1916,12 +1916,12 @@ msgstr ""
 "<strong>%1</strong> 프로토콜에 접근하는 컴퓨터의 프로그램이 예기치 않게 종료"
 "되었습니다."
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
 msgstr "메모리 부족"
 
-#: core/job_error.cpp:1025
+#: core/job_error.cpp:1029
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1929,12 +1929,12 @@ msgid ""
 msgstr ""
 "<strong>%1</strong> 프로토콜에 접근하는 프로그램의 메모리가 부족합니다."
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1038
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "알 수 없는 프록시 호스트"
 
-#: core/job_error.cpp:1036
+#: core/job_error.cpp:1040
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1945,7 +1945,7 @@ msgstr ""
 "트 오류가 발생했습니다. 알 수 없는 호스트 오류는 지정한 이름을 인터넷에서 찾"
 "을 수 없다는 것을 뜻합니다."
 
-#: core/job_error.cpp:1042
+#: core/job_error.cpp:1046
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1955,17 +1955,17 @@ msgstr ""
 "프록시의 호스트 이름과 같은 네트워크 설정 문제가 있습니다. 최근에 인터넷에 아"
 "무 문제 없이 연결했다면 해당하지 않습니다."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "프록시 설정을 다시 확인하고 다시 시도하십시오."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "인증 실패: %1 방식이 지원되지 않음"
 
-#: core/job_error.cpp:1052
+#: core/job_error.cpp:1056
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -1975,7 +1975,7 @@ msgstr ""
 "올바른 인증 정보를 입력했다고 하더라도 %1 프로토콜을 구현하는 KDE 프로그램에"
 "서 서버가 사용 중인 방법을 지원하지 않기 때문에 인증에 실패했습니다."
 
-#: core/job_error.cpp:1058
+#: core/job_error.cpp:1062
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -1984,17 +1984,17 @@ msgstr ""
 "지원되지 않는 인증 방법을 KDE 팀에 알리려면 <a href=\"https://bugs.kde.org/"
 "\">https://bugs.kde.org/</a> 사이트에 버그를 제출하십시오."
 
-#: core/job_error.cpp:1065
+#: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
 msgstr "요청 중단됨"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "서버 내부 오류"
 
-#: core/job_error.cpp:1075
+#: core/job_error.cpp:1079
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2003,7 +2003,7 @@ msgstr ""
 "서버에서 <strong>%1</strong> 프로토콜을 구현하는 프로그램에서 내부 오류를 보"
 "고함: %2."
 
-#: core/job_error.cpp:1081
+#: core/job_error.cpp:1085
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2012,12 +2012,12 @@ msgstr ""
 "이는 서버 프로그램의 버그로 인해 발생할 가능성이 높습니다. 아래에 자세히 설명"
 "된 대로 전체 버그 보고서를 제출하는 것이 좋습니다."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "서버 관리자에게 연락하여 문제점을 알려 주십시오."
 
-#: core/job_error.cpp:1088
+#: core/job_error.cpp:1092
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2026,12 +2026,12 @@ msgstr ""
 "서버 소프트웨어의 작성자가 누구인지 알고 있는 경우 버그 보고서를 직접 제출하"
 "십시오."
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1097
 #, kde-format
 msgid "Timeout Error"
 msgstr "시간 초과 오류"
 
-#: core/job_error.cpp:1095
+#: core/job_error.cpp:1099
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2047,17 +2047,17 @@ msgstr ""
 "한: %2초</li><li>프록시 서버에 접근하는 시간 제한: %3초</li></ul>KDE 시스템 "
 "설정의 네트워크 설정 -> 연결 설정에서 이 시간 제한 설정을 바꿀 수 있습니다."
 
-#: core/job_error.cpp:1108
+#: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "서버가 요청을 응답한다고 매우 바빴습니다."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "알 수 없는 오류"
 
-#: core/job_error.cpp:1116
+#: core/job_error.cpp:1120
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2066,12 +2066,12 @@ msgstr ""
 "내 컴퓨터에서 <strong>%1</strong> 프로토콜을 구현하는 프로그램에서 알 수 없"
 "는 오류를 보고함: %2."
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1130
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "알 수 없는 인터럽트"
 
-#: core/job_error.cpp:1128
+#: core/job_error.cpp:1132
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2080,12 +2080,12 @@ msgstr ""
 "내 컴퓨터에서 <strong>%1</strong> 프로토콜을 구현하는 프로그램에서 알 수 없"
 "는 중단을 보고함: %2."
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "원본 파일을 지울 수 없음"
 
-#: core/job_error.cpp:1140
+#: core/job_error.cpp:1144
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2095,12 +2095,12 @@ msgstr ""
 "원본 파일을 삭제하도록 요청했습니다. 이는 대개 파일 이동 작업의 끝에 일어납니"
 "다. <strong>%1</strong> 원본 파일을 삭제할 수 없습니다."
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "임시 파일을 지울 수 없음"
 
-#: core/job_error.cpp:1151
+#: core/job_error.cpp:1155
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2110,12 +2110,12 @@ msgstr ""
 "다운로드하고 있는 파일의 내용을 저장하는 임시 파일을 만들도록 요청했습니다. "
 "이 <strong>%1</strong> 임시 파일을 삭제할 수 없습니다."
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "원본 파일 이름을 바꿀 수 없음"
 
-#: core/job_error.cpp:1163
+#: core/job_error.cpp:1167
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2124,12 +2124,12 @@ msgstr ""
 "요청한 작업을 실행하는 중 <strong>%1</strong> 원본 파일의 이름을 바꾸어야 했"
 "지만 바꿀 수 없었습니다."
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "임시 파일 이름을 바꿀 수 없음"
 
-#: core/job_error.cpp:1174
+#: core/job_error.cpp:1178
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2138,32 +2138,32 @@ msgstr ""
 "요청한 작업을 실행하는 중 <strong>%1</strong>의 임시 파일을 만들어야 했지만 "
 "만들 수 없었습니다."
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "링크를 만들 수 없음"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "심볼릭 링크를 만들 수 없음"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "요청한 %1 심볼릭 링크를 만들 수 없습니다."
 
-#: core/job_error.cpp:1191
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "No Content"
 msgstr "내용 없음"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1200
 #, kde-format
 msgid "Disk Full"
 msgstr "디스크가 가득 참"
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2172,7 +2172,7 @@ msgstr ""
 "디스크 공간이 부족하기 때문에 요청한 <strong>%1</strong> 파일에 쓸 수 없습니"
 "다."
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1206
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2183,85 +2183,85 @@ msgstr ""
 "미디어 저장소에 파일을 보관, 3) 더 큰 저장 장치 확보하기 등으로 충분한 디스"
 "크 공간을 확보할 수 있습니다."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "원본과 대상 파일이 같음"
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr "원본과 대상 파일이 같은 파일이므로 이 동작을 수행할 수 없습니다."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "대상 파일에 다른 이름을 지정해 보십시오."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "파일이나 폴더 자신 위로 끌어다 놓임"
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr "원본과 대상 파일나 폴더가 같으므로 작업을 수행할 수 없습니다."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "항목을 다른 파일 또는 폴더에 끌어다 놓으십시오."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "폴더 자체로 이동함"
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr "원본과 대상 파일이 같은 파일이므로 작업을 완료할 수 없습니다."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "항목을 다른 폴더로 이동하십시오."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "암호 서버와 통신할 수 없음"
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1245
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr "암호 요청 서비스(kpasswdserver)에 연결할 수 없어 작업을 완료할 수 없음"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr "세션을 다시 시작하거나 로그에서 kiod의 오류를 확인하십시오."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "%1 프로토콜을 초기화할 수 없음"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1252
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "KIO 워커를 만들 수 없음"
 
-#: core/job_error.cpp:1250
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2270,7 +2270,7 @@ msgstr ""
 "<strong>%1</strong> 프로토콜을 구현하는 KIO 워커를 시작할 수 없습니다. 기술적"
 "인 문제일 가능성이 큽니다."
 
-#: core/job_error.cpp:1255
+#: core/job_error.cpp:1259
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2279,13 +2279,13 @@ msgstr ""
 "klauncher에서 프로토콜을 제공하는 플러그인을 찾거나 시작할 수 없습니다. 플러"
 "그인의 버전이 오래된 것일 수 있습니다."
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1265
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "<filename>%1</filename>을(를) 전송할 수 없음"
 
-#: core/job_error.cpp:1263
+#: core/job_error.cpp:1267
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2295,14 +2295,14 @@ msgstr ""
 "<filename>%1</filename> 파일을 전송할 수 없습니다. 대상 파일 시스템의 최대 파"
 "일 크기를 초과합니다"
 
-#: core/job_error.cpp:1266
+#: core/job_error.cpp:1270
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로 다시 포맷하십시오."
 
-#: core/job_error.cpp:1271
+#: core/job_error.cpp:1275
 #, kde-format
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 01:32+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2022-02-08 09:30+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -91,13 +91,13 @@ msgstr ""
 "A Csere kiválasztása helyettesíti az érvénytelen karaktereket (a célfájl "
 "nevében) egy aláhúzással („_”)."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "A mappa már létezik"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
-#: core/job_error.cpp:570 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "A fájl már létezik"
@@ -398,22 +398,22 @@ msgid ""
 msgstr ""
 "Root jogosultság szükséges az adatátvitel befejezéséhez. Szeretné folytatni?"
 
-#: core/job_error.cpp:33
+#: core/job_error.cpp:37
 #, kde-format
 msgid "Could not read %1."
 msgstr "Nem sikerült olvasni innen: %1."
 
-#: core/job_error.cpp:36
+#: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
 msgstr "Nem sikerült írni ide: %1."
 
-#: core/job_error.cpp:39
+#: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
 msgstr "Nem sikerült elindítani ezt a folyamatot: %1."
 
-#: core/job_error.cpp:42
+#: core/job_error.cpp:46
 #, kde-format
 msgid ""
 "Internal Error\n"
@@ -424,62 +424,62 @@ msgstr ""
 "Kérem küldjön részletes hibajelentést (https://bugs.kde.org címről)\n"
 "%1"
 
-#: core/job_error.cpp:45
+#: core/job_error.cpp:49
 #, kde-format
 msgid "Malformed URL %1."
 msgstr "Hibás URL: %1."
 
-#: core/job_error.cpp:48
+#: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
 msgstr "A(z) %1 protokoll nem támogatott."
 
-#: core/job_error.cpp:51
+#: core/job_error.cpp:55
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
 msgstr "A(z) %1 protokoll csak egy szűrőprotokoll."
 
-#: core/job_error.cpp:58
+#: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
 msgstr "%1 mappa, de fájlt kellett megadni."
 
-#: core/job_error.cpp:61
+#: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
 msgstr "%1 fájl, de mappát kellett megadni."
 
-#: core/job_error.cpp:64
+#: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
 msgstr "Nem létezik %1 nevű fájl vagy mappa."
 
-#: core/job_error.cpp:67
+#: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
 msgstr "%1 nevű fájl már létezik."
 
-#: core/job_error.cpp:70
+#: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
 msgstr "%1 nevű mappa már létezik."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "No hostname specified."
 msgstr "Nem adott meg gépnevet."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "Unknown host %1"
 msgstr "Ismeretlen gépnév: %1"
 
-#: core/job_error.cpp:76
+#: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
 msgstr "A hozzáférés megtagadva: %1."
 
-#: core/job_error.cpp:79
+#: core/job_error.cpp:83
 #, kde-format
 msgid ""
 "Access denied.\n"
@@ -488,47 +488,47 @@ msgstr ""
 "A hozzáférés megtagadva.\n"
 "Nem sikerült írni ide: %1."
 
-#: core/job_error.cpp:82
+#: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
 msgstr "Nem sikerült belépni ebbe a mappába: %1."
 
-#: core/job_error.cpp:85
+#: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
 msgstr "A(z) %1 protokoll nem támogat mappakezelést."
 
-#: core/job_error.cpp:88
+#: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
 msgstr "Ciklikus link található itt: %1."
 
-#: core/job_error.cpp:91
+#: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
 msgstr "%1 másolása közben ciklikus linket találtam."
 
-#: core/job_error.cpp:94
+#: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
 msgstr "Nem sikerült aljazatot létrehozni %1 eléréséhez."
 
-#: core/job_error.cpp:97
+#: core/job_error.cpp:101
 #, kde-format
 msgid "Could not connect to host %1."
 msgstr "Nem sikerült csatlakozni a(z) %1 kiszolgálóhoz."
 
-#: core/job_error.cpp:100
+#: core/job_error.cpp:104
 #, kde-format
 msgid "Connection to host %1 is broken."
 msgstr "A(z) %1 kiszolgálóval megszakadt a kapcsolat."
 
-#: core/job_error.cpp:103
+#: core/job_error.cpp:107
 #, kde-format
 msgid "The protocol %1 is not a filter protocol."
 msgstr "A(z) %1 protokoll nem szűrőprotokoll."
 
-#: core/job_error.cpp:106
+#: core/job_error.cpp:110
 #, kde-format
 msgid ""
 "Could not mount device.\n"
@@ -539,7 +539,7 @@ msgstr ""
 "A hibaüzenet:\n"
 "%1"
 
-#: core/job_error.cpp:109
+#: core/job_error.cpp:113
 #, kde-format
 msgid ""
 "Could not unmount device.\n"
@@ -550,82 +550,82 @@ msgstr ""
 "A hibaüzenet:\n"
 "%1"
 
-#: core/job_error.cpp:112
+#: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
 msgstr "Nem sikerült olvasni a(z) %1 fájlból."
 
-#: core/job_error.cpp:115
+#: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
 msgstr "Nem sikerült írni a(z) %1 fájlba."
 
-#: core/job_error.cpp:118
+#: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
 msgstr "%1 kapcsolása („bind” művelet) nem sikerült."
 
-#: core/job_error.cpp:121
+#: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
 msgstr "%1 figyelése („listen” művelet) nem sikerült."
 
-#: core/job_error.cpp:124
+#: core/job_error.cpp:128
 #, kde-format
 msgid "Could not accept %1."
 msgstr "Egy „accept” művelet nem sikerült: %1."
 
-#: core/job_error.cpp:130
+#: core/job_error.cpp:134
 #, kde-format
 msgid "Could not access %1."
 msgstr "Nem sikerült elérni: %1."
 
-#: core/job_error.cpp:133
+#: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
 msgstr "Nem sikerült befejezni %1 listázását."
 
-#: core/job_error.cpp:136
+#: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
 msgstr "Nem sikerült létrehozni ezt a mappát: %1."
 
-#: core/job_error.cpp:139
+#: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
 msgstr "Nem sikerült eltávolítani ezt a mappát: %1."
 
-#: core/job_error.cpp:142
+#: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
 msgstr "Nem sikerült folytatni ezt a fájlt: %1."
 
-#: core/job_error.cpp:145
+#: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
 msgstr "Nem sikerült átnevezni ezt a fájlt: %1."
 
-#: core/job_error.cpp:148
+#: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
 msgstr "Nem sikerült megváltoztatni %1 hozzáférési jogait."
 
-#: core/job_error.cpp:151
+#: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
 msgstr "Nem sikerült megváltoztatni %1 tulajdonosát."
 
-#: core/job_error.cpp:154
+#: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
 msgstr "Nem sikerült törölni ezt a fájlt: %1."
 
-#: core/job_error.cpp:157
+#: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
 msgstr "A(z) %1 protokollt kezelő folyamat váratlanul véget ért."
 
-#: core/job_error.cpp:160
+#: core/job_error.cpp:164
 #, kde-format
 msgid ""
 "Error. Out of memory.\n"
@@ -634,7 +634,7 @@ msgstr ""
 "Hiba: nincs elég memória.\n"
 "%1"
 
-#: core/job_error.cpp:163
+#: core/job_error.cpp:167
 #, kde-format
 msgid ""
 "Unknown proxy host\n"
@@ -643,12 +643,12 @@ msgstr ""
 "Ismeretlen proxy kiszolgáló:\n"
 "%1"
 
-#: core/job_error.cpp:166
+#: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
 msgstr "Sikertelen azonosítás, a(z) %1 azonosítás nem támogatott."
 
-#: core/job_error.cpp:172
+#: core/job_error.cpp:176
 #, kde-format
 msgid ""
 "User canceled action\n"
@@ -657,7 +657,7 @@ msgstr ""
 "A felhasználó megszakította ezt a műveletet:\n"
 "%1"
 
-#: core/job_error.cpp:175
+#: core/job_error.cpp:179
 #, kde-format
 msgid ""
 "Internal error in server\n"
@@ -666,7 +666,7 @@ msgstr ""
 "Belső hiba a kiszolgálóban:\n"
 "%1"
 
-#: core/job_error.cpp:178
+#: core/job_error.cpp:182
 #, kde-format
 msgid ""
 "Timeout on server\n"
@@ -675,7 +675,7 @@ msgstr ""
 "Időtúllépés a kiszolgálón:\n"
 "%1"
 
-#: core/job_error.cpp:181
+#: core/job_error.cpp:185
 #, kde-format
 msgid ""
 "Unknown error\n"
@@ -684,7 +684,7 @@ msgstr ""
 "Azonosíthatatlan hiba:\n"
 "%1"
 
-#: core/job_error.cpp:184
+#: core/job_error.cpp:188
 #, kde-format
 msgid ""
 "Unknown interrupt\n"
@@ -693,7 +693,7 @@ msgstr ""
 "Ismeretlen megszakítás:\n"
 "%1"
 
-#: core/job_error.cpp:195
+#: core/job_error.cpp:199
 #, kde-format
 msgid ""
 "Could not delete original file %1.\n"
@@ -702,7 +702,7 @@ msgstr ""
 "Nem sikerült letörölni a(z) %1 eredeti fájlt.\n"
 "Ellenőrizze a jogosultságokat."
 
-#: core/job_error.cpp:198
+#: core/job_error.cpp:202
 #, kde-format
 msgid ""
 "Could not delete partial file %1.\n"
@@ -711,7 +711,7 @@ msgstr ""
 "Nem sikerült letörölni a(z) %1 töredékfájlt.\n"
 "Ellenőrizze a jogosultságokat."
 
-#: core/job_error.cpp:201
+#: core/job_error.cpp:205
 #, kde-format
 msgid ""
 "Could not rename original file %1.\n"
@@ -720,7 +720,7 @@ msgstr ""
 "Nem sikerült átnevezni a(z) %1 eredeti fájlt.\n"
 "Ellenőrizze a jogosultságokat."
 
-#: core/job_error.cpp:204
+#: core/job_error.cpp:208
 #, kde-format
 msgid ""
 "Could not rename partial file %1.\n"
@@ -729,7 +729,7 @@ msgstr ""
 "Nem sikerült átnevezni a(z) %1 töredékfájlt.\n"
 "Ellenőrizze a jogosultságokat."
 
-#: core/job_error.cpp:207
+#: core/job_error.cpp:211
 #, kde-format
 msgid ""
 "Could not create symlink %1.\n"
@@ -738,7 +738,7 @@ msgstr ""
 "Nem sikerült létrehozni a(z) %1 szimbolikus linket.\n"
 "Ellenőrizze a jogosultságokat."
 
-#: core/job_error.cpp:210
+#: core/job_error.cpp:214
 #, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
@@ -747,12 +747,12 @@ msgstr ""
 "Nem lehet szimbolikus linkeket létrehozni itt: %1.\n"
 "A célfájlrendszer nem támogatja a szimbolikus linkeket."
 
-#: core/job_error.cpp:216
+#: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
 msgstr "Nincs elég szabad hely a lemezen a(z) %1 írásához."
 
-#: core/job_error.cpp:219
+#: core/job_error.cpp:223
 #, kde-format
 msgid ""
 "The source and destination are the same file.\n"
@@ -761,45 +761,45 @@ msgstr ""
 "A forrásfájl nem egyezhet meg a célfájllal.\n"
 "%1"
 
-#: core/job_error.cpp:227
+#: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
 msgstr "A kiszolgáló kérte ezt: %1, de nem áll rendelkezésre."
 
-#: core/job_error.cpp:230
+#: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
 msgstr "Védett port elérése POST kérésben - a kérés megtagadva."
 
-#: core/job_error.cpp:233
+#: core/job_error.cpp:237
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
 "A POST művelethez szükséges tartalomméret-információ nem került megadásra."
 
-#: core/job_error.cpp:236
+#: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
 msgstr "Fájl vagy mappa nem ejthető önmagára"
 
-#: core/job_error.cpp:239
+#: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
 msgstr "Mappa nem helyezhető át önmagába"
 
-#: core/job_error.cpp:242
+#: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
 msgstr "Nem sikerült kapcsolatba lépni a helyi jelszókiszolgálóval"
 
-#: core/job_error.cpp:245
+#: core/job_error.cpp:249
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave. %1"
 msgid "Unable to create KIO worker. %1"
 msgstr "Nem sikerült létrehozni ezt a KDE protokollt. %1"
 
-#: core/job_error.cpp:249
+#: core/job_error.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -809,7 +809,7 @@ msgstr ""
 "A(z) <filename>%1</filename> fájl nem vihető át, mivel túl nagy. A "
 "célfájlrendszer csak legfeljebb 4 GiB-os fájlokat támogat"
 
-#: core/job_error.cpp:254
+#: core/job_error.cpp:258
 #, kde-format
 msgid ""
 "Privilege escalation is not necessary because \n"
@@ -820,13 +820,13 @@ msgstr ""
 "a(z) „%1” tulajdonosa a jelenlegi felhasználó.\n"
 "Próbálja meg újra a jogosultságok módosítása után."
 
-#: core/job_error.cpp:257
+#: core/job_error.cpp:261
 #, fuzzy, kde-format
 #| msgid "The file is too large to be trashed."
 msgid "File is too large to be trashed."
 msgstr "Ez a fájl túl nagy, nem helyezhető a kukába."
 
-#: core/job_error.cpp:260
+#: core/job_error.cpp:264
 #, kde-format
 msgid ""
 "Unknown error code %1\n"
@@ -837,65 +837,65 @@ msgstr ""
 "%2\n"
 "Kérjük küldjön részletes hibabejelentést a https://bugs.kde.org címről."
 
-#: core/job_error.cpp:291
+#: core/job_error.cpp:295
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(ismeretlen)"
 
-#: core/job_error.cpp:297
+#: core/job_error.cpp:301
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Ok (technikai)</b>: "
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>A kérés részletei</b>:"
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protokoll: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Dátum és idő: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>További információ: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>A lehetséges okok</b>:"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:317
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Lehetséges megoldási módok</b>:"
 
-#: core/job_error.cpp:357
+#: core/job_error.cpp:361
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(ismeretlen)"
 
-#: core/job_error.cpp:370
+#: core/job_error.cpp:374
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -905,18 +905,18 @@ msgstr ""
 "rendszergazdával vagy a technikai támogató csoporttal a további teendőkkel "
 "kapcsolatban."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr ""
 "Konzultáljon a kiszolgáló rendszergazdájával a probléma elhárítása érdekében."
 
-#: core/job_error.cpp:377
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Ellenőrizze az erőforrás hozzáférési jogosultságait."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:383
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -925,7 +925,7 @@ msgstr ""
 "Lehet, hogy az Ön hozzáférési jogosultságai nem elegendőek a kért művelet "
 "elvégzéséhez ennél az erőforrásnál."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -933,7 +933,7 @@ msgstr ""
 "Lehet, hogy a fájlt foglalja (és emiatt zárolta) egy másik felhasználó vagy "
 "alkalmazás."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -942,17 +942,17 @@ msgstr ""
 "Ellenőrizze, hogy nem használja (nem zárolta-e) egy másik felhasználó vagy "
 "alkalmazás a fájlt."
 
-#: core/job_error.cpp:388
+#: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Bár valószínűtlen, de a hardver is meghibásodhatott."
 
-#: core/job_error.cpp:390
+#: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Lehet, hogy eddig nem azonosított hibára bukkant a programban."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:396
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -961,7 +961,7 @@ msgstr ""
 "Ezt valószínűleg valamilyen programhiba okozta. Érdemes ebben az esetben "
 "hibajelentést küldeni (lásd alább)."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -970,7 +970,7 @@ msgstr ""
 "Frissítse fel a szoftvert a legújabb verzióra. Az ehhez szükséges eszközöket "
 "a legtöbb disztribúció biztosítja."
 
-#: core/job_error.cpp:398
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -989,12 +989,12 @@ msgstr ""
 "valaki más a hibát. Ha nem, akkor jegyezze fel a fenti adatokat és "
 "mellékelje azokat a hibajelentéshez, a többi kiegészítő információval együtt."
 
-#: core/job_error.cpp:407
+#: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Valószínűleg hiba történt a hálózati kapcsolatban."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -1004,7 +1004,7 @@ msgstr ""
 "mostanában sikerült problémák nélkül használni az internetet, akkor ennek "
 "kicsi a valószínűsége."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:419
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -1013,44 +1013,44 @@ msgstr ""
 "Valószínűleg valamilyen hiba történt a hálózati kapcsolatban a kliens és a "
 "kiszolgáló között."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Próbálkozzon újból (vagy most vagy kicsit később)."
 
-#: core/job_error.cpp:418
+#: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Valószínűleg hiba vagy inkompatibilitás lépett fel a protokollnál."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Ellenőrizze, hogy az erőforrás létezik-e, majd próbálkozzon újra."
 
-#: core/job_error.cpp:420
+#: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "A megadott erőforrás valószínűleg nem létezik."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "Ellenőrizze, hogy valóban a megfelelő helyet adta-e meg, majd próbálkozzon "
 "újra."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Ellenőrizze a hálózati kapcsolat állapotát."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:432
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Az erőforrás nem nyitható meg olvasásra."
 
-#: core/job_error.cpp:430
+#: core/job_error.cpp:434
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1059,19 +1059,19 @@ msgstr ""
 "Ez azt jelenti, hogy a kért fájl vagy mappa (<strong>%1</strong>) tartalmát "
 "nem lehetett elérni, mert nem sikerült olvasási jogosultságot szerezni."
 
-#: core/job_error.cpp:435
+#: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr ""
 "Valószínűleg nincs jogosultsága a fájl olvasásához vagy a mappa "
 "megnyitásásához."
 
-#: core/job_error.cpp:442
+#: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Az erőforrás nem nyitható meg írásra."
 
-#: core/job_error.cpp:444
+#: core/job_error.cpp:448
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1080,17 +1080,17 @@ msgstr ""
 "Ez azt jelenti, hogy egy fájlba (<strong>%1</strong>) írási kérés nem "
 "teljesült, mert nem sikerült írási jogosultságot szerezni."
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:457
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "A(z) %1 protokoll által kért folyamat indítása nem sikerült"
 
-#: core/job_error.cpp:454
+#: core/job_error.cpp:458
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "A folyamatot nem sikerült elindítani"
 
-#: core/job_error.cpp:456
+#: core/job_error.cpp:460
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1100,7 +1100,7 @@ msgstr ""
 "Nem sikerült megtalálni vagy elindítani azt a programot, amely a(z) <strong>"
 "%1</strong> protokollt kezeli. Ennek különféle technikai okai lehetnek."
 
-#: core/job_error.cpp:461
+#: core/job_error.cpp:465
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1111,12 +1111,12 @@ msgstr ""
 "valószínűleg régebbi, mint a KDE többi része. Ebben az esetben lehet, hogy a "
 "program nem kompatibilis a KDE többi részével és emiatt nem indul el."
 
-#: core/job_error.cpp:470
+#: core/job_error.cpp:474
 #, kde-format
 msgid "Internal Error"
 msgstr "Belső hiba"
 
-#: core/job_error.cpp:472
+#: core/job_error.cpp:476
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1125,12 +1125,12 @@ msgstr ""
 "Az a program, amely a gépen a(z) <strong>%1</strong> protokollt kezeli, "
 "belső hibát jelzett."
 
-#: core/job_error.cpp:480
+#: core/job_error.cpp:484
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Hibás formátumú URL"
 
-#: core/job_error.cpp:482
+#: core/job_error.cpp:486
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1145,12 +1145,12 @@ msgstr ""
 "jelszó@www.minta.hu:port/mappa/fájlnév.kiterjesztés?lekérdezés=érték</"
 "strong></blockquote>"
 
-#: core/job_error.cpp:491
+#: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Nem támogatott protokoll: %1"
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1159,12 +1159,12 @@ msgstr ""
 "A(z) <strong>%1</strong> protokoll használatát jelen pillanatban nem "
 "támogatják a telepített programok."
 
-#: core/job_error.cpp:496
+#: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Lehet, hogy a kért protokoll nem támogatott."
 
-#: core/job_error.cpp:498
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1173,7 +1173,7 @@ msgstr ""
 "A(z) %1 protokoll kliensoldali verziója valószínűleg nem kompatibilis a "
 "kiszolgálón elérhető verzióval."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:506
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1190,17 +1190,17 @@ msgstr ""
 "A javasolt keresési helyek: <a href=\"https://kde-apps.org/\">https://kde-"
 "apps.org/</a> és <a href=\"http://freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:510
+#: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Az URL nem egy erőforrásra mutat."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:515
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "A protokoll egy szűrőprotokoll"
 
-#: core/job_error.cpp:513
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1209,7 +1209,7 @@ msgstr ""
 "A megadott URL (<strong>U</strong>niversal <strong>R</strong>esource "
 "<strong>L</strong>ocator) nem egy meghatározott erőforrásra mutat."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:521
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1222,12 +1222,12 @@ msgstr ""
 "tartozik közéjük. Ez az esemény ritkán fordul elő, általában valamilyen "
 "programozási hiba hatására."
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Nem támogatott művelet: %1"
 
-#: core/job_error.cpp:527
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1236,7 +1236,7 @@ msgstr ""
 "A kért műveletet nem támogatja a(z) <strong>%1</strong> protokollt "
 "megvalósító KDE program."
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:535
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1247,34 +1247,34 @@ msgstr ""
 "alapján tisztább kép alkotható a hiba okáról, mint a KDE kimeneti/bemeneti "
 "architektúra keretein belül."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:539
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Megkísérlem ugyanezt az eredményt másképp is elérni."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
 msgstr "A fájlt kellett megadni"
 
-#: core/job_error.cpp:542
+#: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr "A kérés fájlt várt, de a(z) <strong>%1</strong> mappát kapta helyette."
 
-#: core/job_error.cpp:545
+#: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Lehet, hogy hiba történt a kiszolgáló oldalán."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
 msgstr "Mappát kell megadni"
 
-#: core/job_error.cpp:552
+#: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1282,17 +1282,17 @@ msgid ""
 msgstr ""
 "A kérés mappanevet várt, de a(z) <strong>%1</strong> fájlt kapta helyette."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "A megadott fájl vagy mappa nem létezik"
 
-#: core/job_error.cpp:562
+#: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Nem létezik <strong>%1</strong> nevű fájl vagy mappa."
 
-#: core/job_error.cpp:572
+#: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1300,24 +1300,24 @@ msgid ""
 msgstr ""
 "A kért fájl létrehozása nem sikerült, mert már létezik ilyen nevű fájl."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Próbálja meg a mostani fájlt elmozgatni erről a helyről, majd próbálkozzon "
 "újból."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Törölje le a fájlt és próbálkozzon újra."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Válasszon egy másik fájlnevet az új fájlnak."
 
-#: core/job_error.cpp:583
+#: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1325,29 +1325,29 @@ msgid ""
 msgstr ""
 "A kért mappát nem sikerült létrehozni, mert már létezik ilyen nevű mappa."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Próbálja meg az aktuális mappát elmozgatni erről a helyről, majd "
 "próbálkozzon újból."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Törölje le az aktuális mappát és próbálkozzon újra."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Válasszon egy másik nevet az új mappának."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:596
 #, kde-format
 msgid "Unknown Host"
 msgstr "Ismeretlen gépnév"
 
-#: core/job_error.cpp:594
+#: core/job_error.cpp:598
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1356,36 +1356,36 @@ msgstr ""
 "A kiszolgáló ismeretlen, ami azt jelenti, hogy a megadott nevű (<strong>%1</"
 "strong>) kiszolgáló nem érhető el az interneten."
 
-#: core/job_error.cpp:599
+#: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "A beírt név (%1) valószínűleg nem létezik: ellenőrizze a nevet még egyszer."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
 msgstr "Hozzáférés megtagadva"
 
-#: core/job_error.cpp:609
+#: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr ""
 "A megadott erőforráshoz (<strong>%1</strong>) meg lett tagadva a hozzáférés."
 
-#: core/job_error.cpp:613 core/job_error.cpp:889
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Lehet, hogy a nevet, a jelszót, vagy esetleg mindkettőt hibásan adta meg."
 
-#: core/job_error.cpp:616 core/job_error.cpp:892
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Lehet, hogy nincs jogosultsága a megadott erőforrás eléréséhez."
 
-#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
+#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1394,12 +1394,12 @@ msgstr ""
 "Ismételje meg a kérést, de biztosítsa, hogy a név, a jelszó stb. helyesen "
 "legyen megadva."
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Az írási hozzférés megtagadva"
 
-#: core/job_error.cpp:630
+#: core/job_error.cpp:634
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1408,12 +1408,12 @@ msgstr ""
 "Ez azt jelenti, hogy egy írási művelet nem sikerült a(z) <strong>%1</strong> "
 "fájlban."
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Nem sikerült belépni a mappába"
 
-#: core/job_error.cpp:640
+#: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1422,17 +1422,17 @@ msgstr ""
 "Ez azt jelenti, hogy a megadott mappába (<strong>%1</strong>) való belépési "
 "kérés (azaz megnyitás) vissza lett utasítva."
 
-#: core/job_error.cpp:648
+#: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "A mappalista nem érhető el"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "A(z) %1 protokoll nem fájlrendszer"
 
-#: core/job_error.cpp:651
+#: core/job_error.cpp:655
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1442,12 +1442,12 @@ msgstr ""
 "Ez azt jelenti, hogy a mappa tartalmának lekérdezésére jött egy kérés, de a "
 "protokollt megvalósító KDE program nem tudta azt végrehajtani."
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Ciklikus linket találtam"
 
-#: core/job_error.cpp:661
+#: core/job_error.cpp:665
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1460,7 +1460,7 @@ msgstr ""
 "mutat vagy zárt láncot alkot - tehát a hivatkozás előbb-utóbb visszajut "
 "saját magára."
 
-#: core/job_error.cpp:666 core/job_error.cpp:692
+#: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1469,27 +1469,27 @@ msgstr ""
 "Szakítsa meg ezt a zárt láncot (pl. törölje a lánc egyik elemét), majd "
 "próbálkozzon újra."
 
-#: core/job_error.cpp:676
+#: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "A felhasználó félbeszakította a kérést"
 
-#: core/job_error.cpp:678 core/job_error.cpp:1067
+#: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "A kérés nem teljesült, a végrehajtása félbeszakadt."
 
-#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
+#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
 msgstr "A kérés megismétlése."
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Ciklikus linket találtam másolás közben"
 
-#: core/job_error.cpp:686
+#: core/job_error.cpp:690
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1502,17 +1502,17 @@ msgstr ""
 "linksorozatot talált, amely önmagára mutat, tehát a hivatkozás előbb-utóbb "
 "visszajut saját magára."
 
-#: core/job_error.cpp:698
+#: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "A hálózati kapcsolat létrehozása nem sikerült"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Az aljazat létrehozása nem sikerült"
 
-#: core/job_error.cpp:701
+#: core/job_error.cpp:705
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1521,8 +1521,8 @@ msgstr ""
 "Ez egy technikai jellegű hiba - a kért hálózati kommunikációs eszköz "
 "(aljazat) létrehozása nem sikerült."
 
-#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
-#: core/job_error.cpp:877
+#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1531,19 +1531,19 @@ msgstr ""
 "Elképzelhető, hogy a hálózati kapcsolat nem megfelelően van beállítva, vagy "
 "a hálózati felület nincs engedélyezve."
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "A csatlakozási kérést a kiszolgáló elutasította."
 
-#: core/job_error.cpp:712
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "A(z) <strong>%1</strong> kiszolgáló nem engedélyezte a csatlakozást."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1552,7 +1552,7 @@ msgstr ""
 "A kiszolgáló csatlakoztatva van az internethez, de valószínűleg nincs "
 "engedélyezve rajta a kérések fogadása."
 
-#: core/job_error.cpp:719
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1561,7 +1561,7 @@ msgstr ""
 "A kiszolgáló csatlakoztatva van az internethez, de valószínűleg nem fut "
 "rajta a szükséges szolgáltatás (%1)."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:727
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1571,12 +1571,12 @@ msgstr ""
 "Lehet, hogy a tűzfal (mely az internetről érkezett kéréseket szűri) úgy van "
 "beállítva, hogy nem engedi át ezt a kérést."
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "A kiszolgálóval váratlanul megszakadt a kapcsolat"
 
-#: core/job_error.cpp:732
+#: core/job_error.cpp:736
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1585,7 +1585,7 @@ msgstr ""
 "Létrejött a kapcsolat ezzel: <strong>%1</strong>, de a kommunikáció "
 "elkezdése után a kapcsolat váratlanul megszakadt."
 
-#: core/job_error.cpp:738
+#: core/job_error.cpp:742
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1594,17 +1594,17 @@ msgstr ""
 "Valószínűleg protokollhiba történt, melynek következtében a kiszolgáló "
 "bezárta a kapcsolatot."
 
-#: core/job_error.cpp:744
+#: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Az URL erőforrás érvénytelen"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:749
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "A(z) %1 protokoll nem szűrőprotokoll"
 
-#: core/job_error.cpp:747
+#: core/job_error.cpp:751
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1615,7 +1615,7 @@ msgstr ""
 "<strong>L</strong>ocator) érvénytelen erőforrás-elérési módot jelez: <strong>"
 "%1%2</strong>."
 
-#: core/job_error.cpp:754
+#: core/job_error.cpp:758
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1628,17 +1628,17 @@ msgstr ""
 "erre nem képes. Ez az esemény ritkán fordul elő, általában valamilyen "
 "programozási hibát jelez."
 
-#: core/job_error.cpp:762
+#: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Nem sikerült inicializálni a bemeneti/kimeneti eszközt"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Az eszköz csatlakoztatása (mountolása) nem sikerült"
 
-#: core/job_error.cpp:765
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1647,7 +1647,7 @@ msgstr ""
 "A kért eszköz csatlakoztatása (\"mountolása\") nem sikerült. A hibaüzenet: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:773
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1658,7 +1658,7 @@ msgstr ""
 "eszközből (pl. nincs CD-ROM a CD-meghajtóban) ill. csatlakoztatható vagy "
 "hordozható az eszköz, és nincs megfelelően összekötve a számítógéppel."
 
-#: core/job_error.cpp:774
+#: core/job_error.cpp:778
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1669,7 +1669,7 @@ msgstr ""
 "(„mountolásához”). UNIX rendszerekben gyakran csak rendszergazdai "
 "jogosultsággal lehet eszközöket csatlakoztatni."
 
-#: core/job_error.cpp:779
+#: core/job_error.cpp:783
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1679,17 +1679,17 @@ msgstr ""
 "meghajtóban, be van-e kapcsolva és csatlakoztatva van-e a külső eszköz) majd "
 "próbálkozzon újra."
 
-#: core/job_error.cpp:786
+#: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Nem sikerült inicializálni a kimeneti/bemeneti eszközt"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Az eszköz leválasztása (unmount) nem sikerült"
 
-#: core/job_error.cpp:789
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1698,7 +1698,7 @@ msgstr ""
 "Az eszköz leválasztása (\"unmountolása\") nem sikerült. A hibaüzenet: "
 "<strong>%1</strong>"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:797
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1709,7 +1709,7 @@ msgstr ""
 "felhasználó lefoglalta. Elég, ha pl. egy böngészőablakban meg van nyitva az "
 "eszközhöz tartozó valamelyik mappa."
 
-#: core/job_error.cpp:798
+#: core/job_error.cpp:802
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1720,19 +1720,19 @@ msgstr ""
 "(„unmountolásához”). Sok UNIX rendszerben csak rendszergazdai jogosultsággal "
 "lehet eszközöket leválasztani."
 
-#: core/job_error.cpp:803
+#: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Ellenőrizze, hogy más alkalmazás nem használja-e az eszközt, majd "
 "próbálkozzon újra."
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Nem lehet olvasni az erőforrásból"
 
-#: core/job_error.cpp:811
+#: core/job_error.cpp:815
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1741,17 +1741,17 @@ msgstr ""
 "Ez azt jelenti, hogy a(z) <strong>%1</strong> erőforrás megnyitása sikerült, "
 "de a tartalmának olvasása közben hiba lépett fel."
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Valószínűleg nincs olvasási jogosultsga az erőforráshoz."
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Nem lehet írni az erőforrásba"
 
-#: core/job_error.cpp:830
+#: core/job_error.cpp:834
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1760,22 +1760,22 @@ msgstr ""
 "Ez azt jelenti, hogy a(z) <strong>%1</strong> erőforrás megnyitása sikerült, "
 "de a bele való írás közben hiba lépett fel."
 
-#: core/job_error.cpp:833
+#: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Valószínűleg nincs írási jogosultsága ehhez az erőforráshoz."
 
-#: core/job_error.cpp:846 core/job_error.cpp:859
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "A hálózati kérések figyelése („listen” művelet) nem sikerült"
 
-#: core/job_error.cpp:847
+#: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Nem sikerült a kapcsolás („bind” művelet)"
 
-#: core/job_error.cpp:849 core/job_error.cpp:862
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1785,17 +1785,17 @@ msgstr ""
 "Ez egy eléggé technikai jellegű hiba: a létrehozott hálózati kommunikációs "
 "objektum (aljazat) nem tudta elkezdeni a hálózati kérések figyelését."
 
-#: core/job_error.cpp:860
+#: core/job_error.cpp:864
 #, kde-format
 msgid "Could Not Listen"
 msgstr "A figyelés megkezdése („listen” művelet) nem sikerült"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "A hálózati kapcsolat létrehozása („accept” művelet) nem sikerült"
 
-#: core/job_error.cpp:874
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1804,34 +1804,34 @@ msgstr ""
 "Ez egy meglehetősen technikai jellegű hiba - egy bejövő hálózati "
 "csatlakozási kérés elfogadása („accept” művelet) nem sikerült."
 
-#: core/job_error.cpp:879
+#: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr ""
 "Valószínűleg nincs jogosultsága a kapcsolat elfogadásához („accept” művelet)."
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Nem sikerült bejelentkezni ide: %1"
 
-#: core/job_error.cpp:886
+#: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr "A kért művelet elvégzéséhez nem sikerült bejelentkezni."
 
-#: core/job_error.cpp:902
+#: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Az erőforrás állapotának meghatározása nem sikerült"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Nem sikerült elvégezni a „stat” műveletet az erőforráson"
 
-#: core/job_error.cpp:905
+#: core/job_error.cpp:909
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1840,70 +1840,70 @@ msgstr ""
 "Nem sikerült lekérdezni a(z) <strong>%1</strong> erőforrás valamilyen "
 "jellemzőjét, például a nevét, típusát vagy méretét."
 
-#: core/job_error.cpp:910
+#: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "A megadott erőforrás valószínűleg nem létezik vagy nem érhető el."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:921
+#: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "A listázás megszakítása nem sikerült"
 
-#: core/job_error.cpp:922
+#: core/job_error.cpp:926
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "JAVÍTANI: dokumentáció ehhez"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "A mappát nem sikerült létrehozni"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "A mappát nem sikerült létrehozni."
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Valószínűleg nem létezik az a hely, ahol a mappát létre kell hozni."
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "A mappát nem sikerült eltávolítani"
 
-#: core/job_error.cpp:941
+#: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "A(z) <strong>%1</strong> mappa eltávolítása nem sikerült."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "A megadott mappa valószínűleg nem létezik."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "A megadott mappa valószínűleg nem üres."
 
-#: core/job_error.cpp:949
+#: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr ""
 "Ellenőrizze, hogy a mappa valóban létezik-e és üres-e, majd próbálkozzon "
 "újra."
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "A fájlátvitel nem sikerült"
 
-#: core/job_error.cpp:957
+#: core/job_error.cpp:961
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1912,33 +1912,33 @@ msgstr ""
 "Kérés érkezett a(z) <strong>%1</strong> fájl átvitelének folytatására, de ez "
 "nem lehetséges."
 
-#: core/job_error.cpp:962
+#: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr "A protokoll vagy a kiszolgáló nem támogatja a fájlátvitel folytatását."
 
-#: core/job_error.cpp:965
+#: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr ""
 "A kérés újbóli megismétlése a fájlművelet folytatásának megkísérlése nélkül."
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Az erőforrás átnevezése nem sikerült"
 
-#: core/job_error.cpp:972
+#: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Nem sikerült átnevezni a megadott erőforrást (<strong>%1</strong>)."
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Az erőforrás jogosultságainak megváltoztatása nem sikerült"
 
-#: core/job_error.cpp:985
+#: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1947,12 +1947,12 @@ msgstr ""
 "A(z) <strong>%1</strong> erőforrás jogosultságainak megváltoztatása nem "
 "sikerült."
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:997
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Az erőforrás tulajdonosát nem sikerült megváltoztatni"
 
-#: core/job_error.cpp:995
+#: core/job_error.cpp:999
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1961,22 +1961,22 @@ msgstr ""
 "A(z) <strong>%1</strong> erőforrás tulajdonosának megváltoztatása nem "
 "sikerült."
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Az erőforrás törlése nem sikerült"
 
-#: core/job_error.cpp:1005
+#: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Nem sikerült törölni a megadott erőforrást (<strong>%1</strong>)."
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1017
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "A program futása váratlanul befejeződött"
 
-#: core/job_error.cpp:1015
+#: core/job_error.cpp:1019
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1985,12 +1985,12 @@ msgstr ""
 "Annak a programnak a futása, mely a gépen a(z) <strong>%1</strong> "
 "protokollt kezeli, váratlanul megszakadt."
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
 msgstr "Nincs elég memória"
 
-#: core/job_error.cpp:1025
+#: core/job_error.cpp:1029
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1999,12 +1999,12 @@ msgstr ""
 "Az a program, amely a(z) <strong>%1</strong> protokollt kezeli, nem tudott "
 "annyi memóriát lefoglalni, amennyi a működés folytatásához szükséges."
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1038
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Ismeretlen proxy kiszolgáló"
 
-#: core/job_error.cpp:1036
+#: core/job_error.cpp:1040
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2015,7 +2015,7 @@ msgstr ""
 "kiszolgálót nem sikerült megtalálni. Ez azt jelenti, hogy a megadott nevet "
 "nem lehet elérni az interneten."
 
-#: core/job_error.cpp:1042
+#: core/job_error.cpp:1046
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2026,18 +2026,18 @@ msgstr ""
 "kiszolgáló neve nem megfelelő. Ha mostanában sikerült problémák nélkül "
 "használni az internetet erről a gépről, akkor ennek kicsi a valószínűsége."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Ellenőrizze a proxy kiszolgáló beállításait, majd próbálkozzon újra."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr ""
 "A jelszó ellenőrzése nem sikerült: a(z) %1 azonosítási mód nem támogatott"
 
-#: core/job_error.cpp:1052
+#: core/job_error.cpp:1056
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2048,7 +2048,7 @@ msgstr ""
 "sikerült, mert a kiszolgáló olyan jelszóazonosítást használ, amelyet a(z) %1 "
 "protokollt kezelő KDE program nem tud kezelni."
 
-#: core/job_error.cpp:1058
+#: core/job_error.cpp:1062
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -2058,17 +2058,17 @@ msgstr ""
 "bugs.kde.org/</a> oldalról, hogy a KDE karbantartói meg tudják vizsgálni ezt "
 "a nem támogatott jelszóazonosítási módot."
 
-#: core/job_error.cpp:1065
+#: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
 msgstr "A kérés teljesítése megszakadt"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Belső hiba a kiszolgálón"
 
-#: core/job_error.cpp:1075
+#: core/job_error.cpp:1079
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2077,7 +2077,7 @@ msgstr ""
 "Az a program, amely a kiszolgálón a(z) <strong>%1</strong> protokollt "
 "kezeli, belső hibát jelzett: %2."
 
-#: core/job_error.cpp:1081
+#: core/job_error.cpp:1085
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2086,12 +2086,12 @@ msgstr ""
 "Ezt valószínűleg valamilyen programhiba okozta a kiszolgálón. Ebben az "
 "esetben kérjük készítsen hibajelentést (lásd alább)."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "A probléma elhárítása érdekében konzultáljon a rendszergazdával."
 
-#: core/job_error.cpp:1088
+#: core/job_error.cpp:1092
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2100,12 +2100,12 @@ msgstr ""
 "Ha tudja, hogy kik a kiszolgálón futó szoftver karbantartói, kérjük, hogy "
 "közvetlenül nekik jelezze a hibát."
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1097
 #, kde-format
 msgid "Timeout Error"
 msgstr "Időtúllépési hiba"
 
-#: core/job_error.cpp:1095
+#: core/job_error.cpp:1099
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2123,17 +2123,17 @@ msgstr ""
 "értékek megváltoztathatók a KDE Rendszerbeállításoknál (Hálózat -> "
 "kapcsolatbeállítások)."
 
-#: core/job_error.cpp:1108
+#: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "A kiszolgáló a nagy terhelés miatt nem tudott válaszolni a kérésre."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Ismeretlen hiba"
 
-#: core/job_error.cpp:1116
+#: core/job_error.cpp:1120
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2142,12 +2142,12 @@ msgstr ""
 "Az a program, amely a gépen a(z) <strong>%1</strong> protokollt kezeli, "
 "ismeretlen hibát jelzett (%2)."
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1130
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Ismeretlen megszakítás"
 
-#: core/job_error.cpp:1128
+#: core/job_error.cpp:1132
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2156,12 +2156,12 @@ msgstr ""
 "Az a program, amely a gépen a(z) <strong>%1</strong> protokollt kezeli, "
 "ismeretlen típusú megszakítást jelzett (%2)."
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Nem sikerült törölni az eredeti fájlt"
 
-#: core/job_error.cpp:1140
+#: core/job_error.cpp:1144
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2172,12 +2172,12 @@ msgstr ""
 "fájlmozgatási művelet végén szokott ez előfordulni). A(z) <strong>%1</"
 "strong> nevű kiindulási fájl törlése nem sikerült."
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Egy ideiglenes fájl törlése nem sikerült"
 
-#: core/job_error.cpp:1151
+#: core/job_error.cpp:1155
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2188,12 +2188,12 @@ msgstr ""
 "lehessen tárolni. A(z) <strong>%1</strong> nevű ideiglenes fájl törlése nem "
 "sikerült."
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Nem sikerült átnevezni az eredeti fájlt"
 
-#: core/job_error.cpp:1163
+#: core/job_error.cpp:1167
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2202,12 +2202,12 @@ msgstr ""
 "A kérés a(z) <strong>%1</strong> fájl átnevezésére vonatkozott, azonban az "
 "átnevezés nem sikerült."
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Nem sikerült átnevezni egy ideiglenes fájlt"
 
-#: core/job_error.cpp:1174
+#: core/job_error.cpp:1178
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2216,32 +2216,32 @@ msgstr ""
 "A kért művelet egy ideiglenes fájl létrehozását igényli (<strong>%1</"
 "strong>), de a létrehozás nem sikerült."
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "A link létrehozása nem sikerült"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Egy szimbolikus link létrehozása nem sikerült"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "A kért szimbolikus link (%1) létrehozása nem sikerült."
 
-#: core/job_error.cpp:1191
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "No Content"
 msgstr "Nincs tartalom"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1200
 #, kde-format
 msgid "Disk Full"
 msgstr "Betelt a lemez"
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2250,7 +2250,7 @@ msgstr ""
 "A(z) <strong>%1</strong> fájlba nem sikerült írni, mert nincs elegendő "
 "lemezterület."
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1206
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2261,12 +2261,12 @@ msgstr ""
 "fájl egy másik tárolóra való átmozgatásával vagy archiválásával 3) a "
 "lemezkapacitás bővítésével."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "A forrásfájl megegyezik a célfájllal"
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2275,17 +2275,17 @@ msgstr ""
 "A műveletet nem lehet végrehajtani, mert a forrásfájl és a célfájl "
 "megegyezik."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Válasszon egy másik fájlnevet a célfájlhoz."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fájl vagy mappa önmagára ejtve"
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2294,17 +2294,17 @@ msgstr ""
 "A műveletet nem lehet végrehajtani, mert a forrás- és a célfájl vagy forrás- "
 "és célmappa megegyezik."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Ejtse az elemet másik fájra vagy mappára."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "A mappa önmagába áthelyezve"
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2312,17 +2312,17 @@ msgid ""
 msgstr ""
 "A művelet nem hajtható végre, mert a forrás nem helyezhető át önmagába."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Elem áthelyezése másik mappába."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Nem sikerült kommunikálni a jelszókiszolgálóval"
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1245
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2331,25 +2331,25 @@ msgstr ""
 "A művelet nem hajtható végre, mert a jelszókérő szolgáltatás (kpasswdserver) "
 "nem érhető el"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Próbálja meg újraindítani a munkamenetet, vagy ellenőrizze a naplókat a kiod "
 "hibáit keresve."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "A(z) %1 protokoll inicializálása nem sikerült"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1252
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "Nem sikerült létrehozni a KDE protokollt"
 
-#: core/job_error.cpp:1250
+#: core/job_error.cpp:1254
 #, fuzzy, kde-format
 #| msgid ""
 #| "The io-slave which provides access to the <strong>%1</strong> protocol "
@@ -2361,7 +2361,7 @@ msgstr ""
 "Nem sikerült elindítani azt az I/O-szolgáltatás, amely a(z) <strong>%1</"
 "strong> protokollt kezeli. Ennek különféle technikai okai lehetnek."
 
-#: core/job_error.cpp:1255
+#: core/job_error.cpp:1259
 #, fuzzy, kde-format
 #| msgid ""
 #| "klauncher could not find or start the plugin which provides the protocol."
@@ -2373,13 +2373,13 @@ msgstr ""
 "A klauncher nem találja, vagy nem tudja elindítani a protokollt biztosító "
 "bővítményt. Ez jelentheti azt, hogy a bővítmény elavult."
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1265
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "A(z) <filename>%1</filename> nem vihető át"
 
-#: core/job_error.cpp:1263
+#: core/job_error.cpp:1267
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2389,7 +2389,7 @@ msgstr ""
 "A(z) <filename>%1</filename> fájl nem vihető át, mivel a cálfájlrendszer nem "
 "támogat ilyen nagy méretű fájlokat"
 
-#: core/job_error.cpp:1266
+#: core/job_error.cpp:1270
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2398,7 +2398,7 @@ msgstr ""
 "Formázza újra az eszközt egy olyan fájlrendszerrel, ami támogat ilyen nagy "
 "méretű fájlokat."
 
-#: core/job_error.cpp:1271
+#: core/job_error.cpp:1275
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Nem dokumentált hibakód"

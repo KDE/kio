@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 01:32+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -96,13 +96,13 @@ msgstr ""
 "Fe fydd dewis Ail-osod yn ail-osod unrhyw arwyddnodiau annilys (yn y "
 "ffeilenw cyrhaeddle) gyda thanlinell \"_\"."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Plygell yn Bodoli'n Barod"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
-#: core/job_error.cpp:570 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Ffeil yn Bodoli'n Barod"
@@ -408,22 +408,22 @@ msgstr ""
 "Mae'r breintiau gwreiddyn yn eu herfynwyd i gwblhau trosglwyddo data. Ai "
 "ydych yn eisiau i barhau?"
 
-#: core/job_error.cpp:33
+#: core/job_error.cpp:37
 #, kde-format
 msgid "Could not read %1."
 msgstr "Methu darllen %1."
 
-#: core/job_error.cpp:36
+#: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
 msgstr "Methu ysgrifennu at %1."
 
-#: core/job_error.cpp:39
+#: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
 msgstr "Methu dechrau proses %1."
 
-#: core/job_error.cpp:42
+#: core/job_error.cpp:46
 #, kde-format
 msgid ""
 "Internal Error\n"
@@ -434,62 +434,62 @@ msgstr ""
 " Gyrrwch adroddiad nam llawn i http://bugs.kde.org\n"
 " %1"
 
-#: core/job_error.cpp:45
+#: core/job_error.cpp:49
 #, kde-format
 msgid "Malformed URL %1."
 msgstr "URL annilys %1."
 
-#: core/job_error.cpp:48
+#: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
 msgstr "Ni chefnogir y protocol %1."
 
-#: core/job_error.cpp:51
+#: core/job_error.cpp:55
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
 msgstr "Dim ond protocol hidlo yw protocol %1."
 
-#: core/job_error.cpp:58
+#: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
 msgstr "Plygell yw %1, ond disgwylwyd ffeil."
 
-#: core/job_error.cpp:61
+#: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
 msgstr "Ffeil yw %1, ond disgwylwyd plygell."
 
-#: core/job_error.cpp:64
+#: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
 msgstr "Nid ydy'r ffeil neu plygell %1 mewn bod."
 
-#: core/job_error.cpp:67
+#: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
 msgstr "Mae ffeil o'r enw %1 mewn bod yn barod."
 
-#: core/job_error.cpp:70
+#: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
 msgstr "Mae plygell o'r enw %1 mewn bod yn barod."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "No hostname specified."
 msgstr "Nid yw enw'r gwesteiwr wedi'i benodi."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "Unknown host %1"
 msgstr "Gwesteiwr anhysbys %1"
 
-#: core/job_error.cpp:76
+#: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
 msgstr "Gwaharddwyd cyrchiad i %1."
 
-#: core/job_error.cpp:79
+#: core/job_error.cpp:83
 #, kde-format
 msgid ""
 "Access denied.\n"
@@ -498,47 +498,47 @@ msgstr ""
 "Gwaharddwyd cyrchiad. \n"
 "Methu ysgrifennu i %1."
 
-#: core/job_error.cpp:82
+#: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
 msgstr "Methu mynd i mewn i blygell %1."
 
-#: core/job_error.cpp:85
+#: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
 msgstr "Nid yw'r protocol %1 yn gweithredoli gwasanaeth plygell."
 
-#: core/job_error.cpp:88
+#: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
 msgstr "Wedi canfod cyswllt cylchredol yn %1."
 
-#: core/job_error.cpp:91
+#: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
 msgstr "Wedi canfod cyswllt cylchredol wrth gopïo %1."
 
-#: core/job_error.cpp:94
+#: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
 msgstr "Methu creu soced i gyrchu %1."
 
-#: core/job_error.cpp:97
+#: core/job_error.cpp:101
 #, kde-format
 msgid "Could not connect to host %1."
 msgstr "Methu cysylltu i westeiwr %1."
 
-#: core/job_error.cpp:100
+#: core/job_error.cpp:104
 #, kde-format
 msgid "Connection to host %1 is broken."
 msgstr "Cysylltiad i westeiwr %1 wedi torri."
 
-#: core/job_error.cpp:103
+#: core/job_error.cpp:107
 #, kde-format
 msgid "The protocol %1 is not a filter protocol."
 msgstr "Nid yw'r protocol %1 yn protocol hidl."
 
-#: core/job_error.cpp:106
+#: core/job_error.cpp:110
 #, kde-format
 msgid ""
 "Could not mount device.\n"
@@ -549,7 +549,7 @@ msgstr ""
 " Y gwall a adroddwyd oedd:\n"
 " %1"
 
-#: core/job_error.cpp:109
+#: core/job_error.cpp:113
 #, kde-format
 msgid ""
 "Could not unmount device.\n"
@@ -560,82 +560,82 @@ msgstr ""
 " Y gwall a adroddwyd oedd:\n"
 " %1"
 
-#: core/job_error.cpp:112
+#: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
 msgstr "Methu darllen ffeil %1."
 
-#: core/job_error.cpp:115
+#: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
 msgstr "Methu ysgrifennu i ffeil %1."
 
-#: core/job_error.cpp:118
+#: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
 msgstr "Methu rhwymo %1."
 
-#: core/job_error.cpp:121
+#: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
 msgstr "Methu gwrando %1."
 
-#: core/job_error.cpp:124
+#: core/job_error.cpp:128
 #, kde-format
 msgid "Could not accept %1."
 msgstr "Methu derbyn %1."
 
-#: core/job_error.cpp:130
+#: core/job_error.cpp:134
 #, kde-format
 msgid "Could not access %1."
 msgstr "Methu cyrchu %1."
 
-#: core/job_error.cpp:133
+#: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
 msgstr "Methu terfynnu rhestriad %1."
 
-#: core/job_error.cpp:136
+#: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
 msgstr "Methu creu plygell %1."
 
-#: core/job_error.cpp:139
+#: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
 msgstr "Methu gwaredu plygell %1."
 
-#: core/job_error.cpp:142
+#: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
 msgstr "Methu ail-ddechrau ffeil %1."
 
-#: core/job_error.cpp:145
+#: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
 msgstr "Methu ail-enwi ffeil %1."
 
-#: core/job_error.cpp:148
+#: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
 msgstr "Methu newid caniatad i %1."
 
-#: core/job_error.cpp:151
+#: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
 msgstr "Methu newid perchennog ar gyfer %1."
 
-#: core/job_error.cpp:154
+#: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
 msgstr "Methu dileu ffeil %1."
 
-#: core/job_error.cpp:157
+#: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
 msgstr "Marwodd y broses i brotocol %1 yn annisgwyl."
 
-#: core/job_error.cpp:160
+#: core/job_error.cpp:164
 #, kde-format
 msgid ""
 "Error. Out of memory.\n"
@@ -644,7 +644,7 @@ msgstr ""
 "Gwall.  Allan o Gof. \n"
 " %1"
 
-#: core/job_error.cpp:163
+#: core/job_error.cpp:167
 #, kde-format
 msgid ""
 "Unknown proxy host\n"
@@ -653,12 +653,12 @@ msgstr ""
 "Gwesteiwr dirprwy anhysbys\n"
 " %1"
 
-#: core/job_error.cpp:166
+#: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
 msgstr "Methu awdurdodi, ni chynhelir dilysiant %1"
 
-#: core/job_error.cpp:172
+#: core/job_error.cpp:176
 #, kde-format
 msgid ""
 "User canceled action\n"
@@ -667,7 +667,7 @@ msgstr ""
 "Diddymodd y defnyddiwr y weithred\n"
 " %1"
 
-#: core/job_error.cpp:175
+#: core/job_error.cpp:179
 #, kde-format
 msgid ""
 "Internal error in server\n"
@@ -676,7 +676,7 @@ msgstr ""
 "Gwall mewnol yng gweinydd\n"
 " %1"
 
-#: core/job_error.cpp:178
+#: core/job_error.cpp:182
 #, kde-format
 msgid ""
 "Timeout on server\n"
@@ -685,7 +685,7 @@ msgstr ""
 "Goramser ar y gweinydd \n"
 " %1"
 
-#: core/job_error.cpp:181
+#: core/job_error.cpp:185
 #, kde-format
 msgid ""
 "Unknown error\n"
@@ -694,7 +694,7 @@ msgstr ""
 "Gwall anhysbys \n"
 " %1"
 
-#: core/job_error.cpp:184
+#: core/job_error.cpp:188
 #, kde-format
 msgid ""
 "Unknown interrupt\n"
@@ -703,7 +703,7 @@ msgstr ""
 "Ymyriad anhysbys\n"
 " %1"
 
-#: core/job_error.cpp:195
+#: core/job_error.cpp:199
 #, kde-format
 msgid ""
 "Could not delete original file %1.\n"
@@ -712,7 +712,7 @@ msgstr ""
 "Methu dileu'r ffeil gwreiddiol %1.\n"
 " Cywirwch y caniatadau."
 
-#: core/job_error.cpp:198
+#: core/job_error.cpp:202
 #, kde-format
 msgid ""
 "Could not delete partial file %1.\n"
@@ -721,7 +721,7 @@ msgstr ""
 "Methu dileu ffeil rhannol %1.\n"
 " Cywirwch y caniatadau."
 
-#: core/job_error.cpp:201
+#: core/job_error.cpp:205
 #, kde-format
 msgid ""
 "Could not rename original file %1.\n"
@@ -730,7 +730,7 @@ msgstr ""
 "Methu ail-enwi ffeil gwreiddiol %1.\n"
 " Cywirwch y caniatadau."
 
-#: core/job_error.cpp:204
+#: core/job_error.cpp:208
 #, kde-format
 msgid ""
 "Could not rename partial file %1.\n"
@@ -739,7 +739,7 @@ msgstr ""
 "Methu ail-enwi ffeil rhannol %1.\n"
 " Cywirwch y caniatadau."
 
-#: core/job_error.cpp:207
+#: core/job_error.cpp:211
 #, kde-format
 msgid ""
 "Could not create symlink %1.\n"
@@ -748,7 +748,7 @@ msgstr ""
 "Methu creu cyswllt symbolaidd %1.\n"
 " Cywirwch y caniatadau."
 
-#: core/job_error.cpp:210
+#: core/job_error.cpp:214
 #, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
@@ -757,12 +757,12 @@ msgstr ""
 "Methu creu cyswllt symbolaidd %1.\n"
 "Ni chynhelir ffeilgyfundrefn cyrhaeddle cysylltiau symbolaidd."
 
-#: core/job_error.cpp:216
+#: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
 msgstr "Nid ydy digon o ofod ar y ddisg i ysgrifennu %1."
 
-#: core/job_error.cpp:219
+#: core/job_error.cpp:223
 #, kde-format
 msgid ""
 "The source and destination are the same file.\n"
@@ -771,45 +771,45 @@ msgstr ""
 "Yr un un ffeil yw'r tarddiad a'r cyrchfan. \n"
 " %1"
 
-#: core/job_error.cpp:227
+#: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
 msgstr "Mae angen %1 gan y gweinydd, ond nid yw ar gael."
 
-#: core/job_error.cpp:230
+#: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
 msgstr "Gwaharddwyd cyrchiad i borth cyfyngedig yn POST."
 
-#: core/job_error.cpp:233
+#: core/job_error.cpp:237
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
 "Ni chynnigwyd gwybodaeth maint cynhwysiad erfyniedig am weithrediad POST."
 
-#: core/job_error.cpp:236
+#: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
 msgstr "Ni all plygell ei gollwng ar ei hunan"
 
-#: core/job_error.cpp:239
+#: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
 msgstr "Ni all plygell ei symud i mewn ei hunan"
 
-#: core/job_error.cpp:242
+#: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
 msgstr "Methodd cyfathrebiad gyda'r gweiniwr cyfrinair lleol"
 
-#: core/job_error.cpp:245
+#: core/job_error.cpp:249
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave. %1"
 msgid "Unable to create KIO worker. %1"
 msgstr "Methu creu gwas-io: %1"
 
-#: core/job_error.cpp:249
+#: core/job_error.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -819,7 +819,7 @@ msgstr ""
 "Ni all trosglwyddo <filename>%1</filename> achos mae'n rhy fawr. Mae'r "
 "ffeilgyfundrefn cyrhaeddle dim ond yn cynnal ffeiliau hyd at 4GiB"
 
-#: core/job_error.cpp:254
+#: core/job_error.cpp:258
 #, kde-format
 msgid ""
 "Privilege escalation is not necessary because \n"
@@ -830,13 +830,13 @@ msgstr ""
 "mae'r '%1' yn eiddo o'r defnyddiwr cyfredol.\n"
 "Atolwg ailgeisiwch ar ôl newid caniatadau."
 
-#: core/job_error.cpp:257
+#: core/job_error.cpp:261
 #, fuzzy, kde-format
 #| msgid "The file is too large to be trashed."
 msgid "File is too large to be trashed."
 msgstr "Mae'r ffeil yn rhy fawr i'w daflu."
 
-#: core/job_error.cpp:260
+#: core/job_error.cpp:264
 #, kde-format
 msgid ""
 "Unknown error code %1\n"
@@ -847,65 +847,65 @@ msgstr ""
 " %2\n"
 " Anfonwch adroddiad nam llawn i http://bugs.kde.org."
 
-#: core/job_error.cpp:291
+#: core/job_error.cpp:295
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(anhysbys)"
 
-#: core/job_error.cpp:297
+#: core/job_error.cpp:301
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Rheswm technegol</b>: "
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, fuzzy, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Manylion y cais</b>:"
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protocol: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Dyddiad ac Amser: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Gwybodaeth ychwanegol: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:313
 #, fuzzy, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Achosion Posibl</b>:"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:317
 #, fuzzy, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Datrysiadau Posibl</b>:"
 
-#: core/job_error.cpp:357
+#: core/job_error.cpp:361
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(anhysbys)"
 
-#: core/job_error.cpp:370
+#: core/job_error.cpp:374
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -914,17 +914,17 @@ msgstr ""
 "Cysylltwch â'ch cysawd cynnal cyfrifiadur addas (ai'r gwasanaethwr cysawd, "
 "neu'r grw^p cynnal technegol) am fwy o gymorth."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Cysylltwch â gwasanaethwr y gweinydd am fwy o gymorth."
 
-#: core/job_error.cpp:377
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Cywirwch eich caniatadau cyrch ar yr adnodd yma."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:383
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -933,7 +933,7 @@ msgstr ""
 "Efallai bod eich caniatadau cyrch yn annigonol i gyflawni'r gweithrediad a "
 "gofynwyd ar yr adnodd yma."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -941,7 +941,7 @@ msgstr ""
 "Efallai y defnyddir y ffeil gan ddefnyddiwr neu cymhwysiad arall (felly mae "
 "o ar glo)."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -950,17 +950,17 @@ msgstr ""
 "Cywirwch i sicrhau nad yw cymhwysiad neu ddefnyddiwr arall yn defnyddio'r "
 "ffeil, neu wedi cloi'r ffeil."
 
-#: core/job_error.cpp:388
+#: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Er annhebygol, efallai bod gwall caletwedd wedi digwydd."
 
-#: core/job_error.cpp:390
+#: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Efallai eich bod wedi cyfarfod nam yn y rhaglen."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:396
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -969,7 +969,7 @@ msgstr ""
 "Mae'n eitha debyg yr achosir hynny gan nam yn y rhaglen.  Ystyriedwch "
 "gyflwyno adroddiad nam llawn fel yn y manylion isod."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -978,7 +978,7 @@ msgstr ""
 "Diweddarwch eich meddalwedd i'r fersiwn diweddaraf.  Mae'n debyg y mae eich "
 "dosbarthiad yn darparu offer i ddiweddaru eich meddalwedd."
 
-#: core/job_error.cpp:398
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -998,12 +998,12 @@ msgstr ""
 "cynnwys yn eich adroddiad nam, efo cymaint o fanylion eraill ac y meddyliwch "
 "bydd o gymorth."
 
-#: core/job_error.cpp:407
+#: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Efallai yr oedd problem efo'ch cysylltiad rhwydwaith."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -1012,7 +1012,7 @@ msgstr ""
 "Efallai yr oedd problem efo'ch ffurfweddiad rhwydwaith.  Os ydych wedi bod "
 "yn cyrchu'r Rhyngrwyd yn ddiweddar heb broblemau, mae hynny'n annhebyg."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:419
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -1021,43 +1021,43 @@ msgstr ""
 "Efallai yr oedd problem rhywle ar y llwybr rhwydwaith rhwng y gweinydd a'r "
 "cyfrifiadur yma."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Ceisiwch eto, un ai rwan neu yn hwyrach."
 
-#: core/job_error.cpp:418
+#: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Effallai y ddigwyddodd gwall protocol neu anghydnawsedd."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Sicrhewch fod yr adnodd mewn bod, a ceisiwch eto."
 
-#: core/job_error.cpp:420
+#: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Efallai nad yw'r adnodd penodol mewn bod."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr ""
 "Sicrhewch yn ofalus yr ydych wedi mewnosod y lleoliad cywir a ceisiwch eto."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Cywirwch statws eich cysylltiad rhwydwaith."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:432
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Methu Agor Adnodd i'w Ddarllen"
 
-#: core/job_error.cpp:430
+#: core/job_error.cpp:434
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1066,18 +1066,18 @@ msgstr ""
 "Golygir hwn nad oedd yn bosib nôl cynnwys y ffeil neu blygell<strong>%1</"
 "strong> a ofynwyd amdano, gan ni ellid cael cyrchiad darllen."
 
-#: core/job_error.cpp:435
+#: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr ""
 "Efallai nid oes ganddoch ganiatadau i ddarllen y ffeil neu agor y plygell."
 
-#: core/job_error.cpp:442
+#: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Methu Agor Adnodd i Ysgrifennu"
 
-#: core/job_error.cpp:444
+#: core/job_error.cpp:448
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1086,17 +1086,17 @@ msgstr ""
 "Golygir hwn nad oedd yn bosib ysgrifennu at y ffeil, <strong>%1</strong>, a "
 "ofynwyd amdano, gan ni ellid cael cyrchiad ysgrifennu."
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:457
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Methu Cychwyn Llwybreiddiad Lansio erfynwyd gyda'r Protocol %1"
 
-#: core/job_error.cpp:454
+#: core/job_error.cpp:458
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Methu Lansio Proses"
 
-#: core/job_error.cpp:456
+#: core/job_error.cpp:460
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1107,7 +1107,7 @@ msgstr ""
 "protocol <strong>%1</strong>.  Fel arfer, mae hynny o achos rhesymau "
 "technegol."
 
-#: core/job_error.cpp:461
+#: core/job_error.cpp:465
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1118,12 +1118,12 @@ msgstr ""
 "diweddaru efo'ch diweddariad diwetha o KDE.  Gall hynny achosi'r rhaglen i "
 "fod yn anghytu^n efo'r fersiwn cyfredol, ac felly ni fydd hi'n cychwyn."
 
-#: core/job_error.cpp:470
+#: core/job_error.cpp:474
 #, kde-format
 msgid "Internal Error"
 msgstr "Gwall Mewnol"
 
-#: core/job_error.cpp:472
+#: core/job_error.cpp:476
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1132,12 +1132,12 @@ msgstr ""
 "Mae'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol <strong>"
 "%1</strong> wedi adrodd gwall mewnol."
 
-#: core/job_error.cpp:480
+#: core/job_error.cpp:484
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "URL heb ei Fformatio yn Ddilys"
 
-#: core/job_error.cpp:482
+#: core/job_error.cpp:486
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1152,12 +1152,12 @@ msgstr ""
 "user@password:www.example.org:port/directory/filename.extension?query "
 "=value</strong></blockquote>"
 
-#: core/job_error.cpp:491
+#: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Ni chyhelir y Protocol %1"
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1166,12 +1166,12 @@ msgstr ""
 "Ni chynhelir y protocol <strong>%1</strong> gan y rhaglenni KDE sydd wedi eu "
 "gosod ar hyn o bryd ar y cyfrifiadur yma."
 
-#: core/job_error.cpp:496
+#: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Efallai na chynhelir y protocol a ofynwyd amdano."
 
-#: core/job_error.cpp:498
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1180,7 +1180,7 @@ msgstr ""
 "Efallai mae fersiynau'r protocol %1 a gynhelir gan y cyfrifiadur yma a'r "
 "gweinydd yn anghytûn."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:506
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1197,17 +1197,17 @@ msgstr ""
 "\"https://kde-apps.org/\">http://apps.kde.com/</a> a <a href=\"http://"
 "freshmeat.net/\">http://freshmeat.net/</a>."
 
-#: core/job_error.cpp:510
+#: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Nid yw'r URL yn cyfeirio at adnodd."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:515
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protocol Hidl yw'r Protocol"
 
-#: core/job_error.cpp:513
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1216,7 +1216,7 @@ msgstr ""
 "Nid oedd y <strong>L</strong>leolydd <strong>A</strong>dnoddau <strong>U</"
 "strong>nffurf (URL) yr ydych wedi cyflwyno yn cyfeirio at adnodd penodol."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:521
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1229,12 +1229,12 @@ msgstr ""
 "o'r sefyllfaoedd yma. Mae hwn yn ddigwyddiad eithriadol, a mae'n debyg o "
 "ddynodi gwall rhaglennu."
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Ni Chynhelir y Gweithrediad: %1"
 
-#: core/job_error.cpp:527
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1243,7 +1243,7 @@ msgstr ""
 "Ni chynhelir y gwethrediad a gofynwyd amdano gan y rhaglen KDE sydd yn "
 "gweithredu y protocol <strong>%1</strong>."
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:535
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1254,17 +1254,17 @@ msgstr ""
 "ychwanegol rhoi fwy o wybodaeth i chi nag sydd ar gael i'r pensaernïaeth "
 "mewnbwn/allbwn KDE."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:539
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Ceisio canfod ffordd arall i gyflawni'r un canlyniad."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
 msgstr "Ffeil a Ddisgwylir"
 
-#: core/job_error.cpp:542
+#: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1273,17 +1273,17 @@ msgstr ""
 "Disgwylodd y cais ffeil, ond wnaeth ganfod y plygell <strong>%1</strong> yn "
 "lle."
 
-#: core/job_error.cpp:545
+#: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Efallai mae gwall ar ochr y gweinydd."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
 msgstr "Plygell a Ddisgwylir"
 
-#: core/job_error.cpp:552
+#: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1292,17 +1292,17 @@ msgstr ""
 "Disgwylodd y cais blygell, ond wnaeth ganfod y ffeil <strong>%1</strong> yn "
 "lle."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Nid yw'r Ffeil neu'r Plygell mewn Bod"
 
-#: core/job_error.cpp:562
+#: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Nid yw'r ffeil neu'r plygell penodol <strong>%1</strong> mewn bod."
 
-#: core/job_error.cpp:572
+#: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1311,24 +1311,24 @@ msgstr ""
 "Ni ellir creu'r ffeil a ofynwyd amdano gan fod ffeil efo'r un enw mewn bod "
 "yn barod."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Ceisiwch symud y ffeil cyfredol allan o'r ffordd yn gyntaf, ac wedyn "
 "ceisiwch eto."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Dileuwch y ffeil cyfredol a ceisiwch eto."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Dewiswch enw ffeil amgen i'r ffeil newydd."
 
-#: core/job_error.cpp:583
+#: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1337,29 +1337,29 @@ msgstr ""
 "Ni ellir creu'r plygell a ofynwyd amdano gan fod plygell efo'r un enw mewn "
 "bod yn barod."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Ceisiwch symud y plygell cyfredol allan o'r ffordd yn gyntaf, ac wedyn "
 "ceisiwch eto."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Dileuwch y plygell cyfredol a ceisiwch eto."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Dewiswch enw amgen i'r plygell newydd."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:596
 #, kde-format
 msgid "Unknown Host"
 msgstr "Gwesteiwr anhysbys"
 
-#: core/job_error.cpp:594
+#: core/job_error.cpp:598
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1368,7 +1368,7 @@ msgstr ""
 "Mae gwall gweinydd anhysbys yn dynodi na allir darganfod y gwesteiwr efo'r "
 "enw a ofynwyd amdano, <strong>%1</strong>, ar y Rhyngrwyd."
 
-#: core/job_error.cpp:599
+#: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
@@ -1376,28 +1376,28 @@ msgstr ""
 "Efallai nad yw'r enw yr ydych wedi ei deipio, %1, mewn bod: efallai mae o "
 "wedi ei deipio yn anghywir."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
 msgstr "Gwaharddwyd Cyrchiad"
 
-#: core/job_error.cpp:609
+#: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Gwaharddwyd cyrchiad i'r adnodd penodol, <strong>%1</strong>."
 
-#: core/job_error.cpp:613 core/job_error.cpp:889
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr ""
 "Efallai yr ydych wedi darparu manylion dilysu anghywir, neu dim byd o gwbl."
 
-#: core/job_error.cpp:616 core/job_error.cpp:892
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Efallai nad oes caniatàd gan eich cyfrif i gyrchu'r adnodd penodol."
 
-#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
+#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1405,12 +1405,12 @@ msgid ""
 msgstr ""
 "Ail-geisiwch, a sicrhewch bod eich manylion dilysu wedi eu mewnosod yn gywir."
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Gwaharddwyd Cyrchiad Ysgrifennu"
 
-#: core/job_error.cpp:630
+#: core/job_error.cpp:634
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1419,12 +1419,12 @@ msgstr ""
 "Golygir hwn y gafodd cais i ysgrifennu i'r ffeil <strong>%1</strong> ei "
 "wrthod."
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Methu Mynd i mewn i'r Plygell"
 
-#: core/job_error.cpp:640
+#: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1433,17 +1433,17 @@ msgstr ""
 "Golygir hwn y gafodd cais i fynd i mewn i'r plygell <strong>%1</strong> "
 "(hynny yw, i'w agor) ei wrthod."
 
-#: core/job_error.cpp:648
+#: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Nid oes Rhestriad Plygell ar Gael"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Dim cysawd ffeil yw Protocol %1"
 
-#: core/job_error.cpp:651
+#: core/job_error.cpp:655
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1453,12 +1453,12 @@ msgstr ""
 "Golygir hwn y gwnaed cais lle mae angen pederfynu cynnwys y plygell, ac "
 "mae'r rhaglen KDE sy'n cynnal y protocol yma yn methu gwneud."
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Datgelwyd Cyswllt Cylchol"
 
-#: core/job_error.cpp:661
+#: core/job_error.cpp:665
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1471,7 +1471,7 @@ msgstr ""
 "gysylltiadau sy'n creu dolen ddiddiwedd - h.y., roedd y ffeil wedi ei "
 "gysylltu (efallai mewn ffordd cylchfannol) i'w hun."
 
-#: core/job_error.cpp:666 core/job_error.cpp:692
+#: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1480,27 +1480,27 @@ msgstr ""
 "Dileuwch un rhan o'r ddolen fel nad yw'n achosi dolen ddiddiwedd, a ceisiwch "
 "eto."
 
-#: core/job_error.cpp:676
+#: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Terfynwyd y Cais gan y Defnyddiwr"
 
-#: core/job_error.cpp:678 core/job_error.cpp:1067
+#: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Ni chyflawnwyd y cais achos terfynwyd."
 
-#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
+#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
 msgstr "Ail-geisio'r cais."
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Datgelwyd Cyswllt Cylchol wrth Gopïo"
 
-#: core/job_error.cpp:686
+#: core/job_error.cpp:690
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1514,17 +1514,17 @@ msgstr ""
 "- h.y., roedd y ffeil wedi ei gysylltu (efallai mewn ffordd cylchfannol) i'w "
 "hun."
 
-#: core/job_error.cpp:698
+#: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Methu Creu Cysylltiad Rhwydwaith"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Methu Creu Soced"
 
-#: core/job_error.cpp:701
+#: core/job_error.cpp:705
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1533,8 +1533,8 @@ msgstr ""
 "Mae hwn yn wall go dechnegol, lle ni ellir creu dyfais gofynnol (soced) i "
 "gyfathrebion rhwydwaith."
 
-#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
-#: core/job_error.cpp:877
+#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1543,12 +1543,12 @@ msgstr ""
 "Efallai mae'r cysylltiad rhwydwaith wedi ei ffurfweddu yn anghywir, neu "
 "analluogir y rhyngwyneb rhwydwaith."
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Gwrthodwyd y Cysylltiad i'r Gweinydd"
 
-#: core/job_error.cpp:712
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1557,7 +1557,7 @@ msgstr ""
 "Gwrthododd y gweinydd <strong>%1</strong> adael i'r cyfrifiadur yma wneud "
 "cyswlltiad."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1566,7 +1566,7 @@ msgstr ""
 "Efallai nad yw'r gweinydd, er ei fod yn gysylltiedig i'r Rhyngrwyd ar hyn o "
 "bryd, wedi ei ffurfweddu i ganiatáu ceisiadau."
 
-#: core/job_error.cpp:719
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1575,7 +1575,7 @@ msgstr ""
 "Efallai nad yw'r gweinydd, er ei fod yn gysylltiedig i'r Rhyngrwyd ar hyn o "
 "bryd, yn rhedeg y wasanaeth a ofynwyd amdani (%1)."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:727
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1586,12 +1586,12 @@ msgstr ""
 "Rhyngrwyd), sy'n amddiffyn un ai eich rhwydwaith neu rhwydwaith y gweinydd, "
 "wedi ymyrryd, a gwrthod y cais yma."
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Cauwyd y Cysylltiad i'r Gweinydd yn Annisgwyl"
 
-#: core/job_error.cpp:732
+#: core/job_error.cpp:736
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1600,7 +1600,7 @@ msgstr ""
 "Er bod cysylltiad wedi eu greu i <strong>%1</strong>, cauwyd y cysylltiad "
 "wrth fan annisgwyl yn y cyfathrebu."
 
-#: core/job_error.cpp:738
+#: core/job_error.cpp:742
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1609,17 +1609,17 @@ msgstr ""
 "Efallai mae gwall protocol wedi digwydd, yn achosi i'r gweinydd gau'r "
 "cysylltiad fel ymateb i'r gwall."
 
-#: core/job_error.cpp:744
+#: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Adnodd URL Annilys"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:749
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Nid yw protocol %1 yn Brotocol Hidl"
 
-#: core/job_error.cpp:747
+#: core/job_error.cpp:751
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1630,7 +1630,7 @@ msgstr ""
 "strong>nffurf (URL) yr ydych wedi cyflwyno yn cyfeirio at ffordd dilys o "
 "gyrchu'r adnodd penodol, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:754
+#: core/job_error.cpp:758
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1643,17 +1643,17 @@ msgstr ""
 "gweithrediad o'r fath.  Mae hwn yn ddigwyddiad eithriadol, a mae'n debyg o "
 "ddynodi gwall rhaglennu."
 
-#: core/job_error.cpp:762
+#: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Methu Cychwyn Dyfais Mewnbwn/Allbwn"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Methu Gosod Dyfais"
 
-#: core/job_error.cpp:765
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1662,7 +1662,7 @@ msgstr ""
 "Ni ellid ymgychwyn (\"mount\") y dyfais a ofynwyd amdano.  Y gwall a "
 "adroddwyd oedd: <strong>%1</strong>"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:773
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1674,7 +1674,7 @@ msgstr ""
 "achos dyfais perifferol/cludadwy efallai nad yw'r dyfais wedi ei gysylltu yn "
 "gywir."
 
-#: core/job_error.cpp:774
+#: core/job_error.cpp:778
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1685,7 +1685,7 @@ msgstr ""
 "gysodau Unix, y rhan fwyaf o'r amser mae angen hawliau gwasanaethydd cysawd "
 "i ymgychwyn dyfais."
 
-#: core/job_error.cpp:779
+#: core/job_error.cpp:783
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1695,17 +1695,17 @@ msgstr ""
 "cyfryngau, a rhaid i dyfeisiau cludadwy fod wedi eu cysylltu a bod arnodd; "
 "ceisiwch eto."
 
-#: core/job_error.cpp:786
+#: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Methu Ddi-ymgychwyn Dyfais Mewnbwn/Allbwn"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Methu Datosod Dyfais"
 
-#: core/job_error.cpp:789
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1714,7 +1714,7 @@ msgstr ""
 "Ni ellid ddi-ymgychwyn (\"unmount\") y dyfais a ofynwyd amdano.  Y gwall a "
 "adroddwyd oedd: <strong>%1</strong>"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:797
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1726,7 +1726,7 @@ msgstr ""
 "ar agor ar leoliad ar y dyfais yma yn gallu achosi i'r dyfais barhau  mewn "
 "defnydd."
 
-#: core/job_error.cpp:798
+#: core/job_error.cpp:802
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1737,17 +1737,17 @@ msgstr ""
 "Ar gysodau Unix, y rhan fwyaf o'r amser mae angen hawliau gwasanaethydd "
 "cysawd i ddi-ymgychwyn dyfais."
 
-#: core/job_error.cpp:803
+#: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "Cywirwch nad oes cymhwysiadau yn cyrchu'r dyfais, a ceisiwch eto."
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Methu Darllen oddiwrth yr Adnodd"
 
-#: core/job_error.cpp:811
+#: core/job_error.cpp:815
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1756,17 +1756,17 @@ msgstr ""
 "Golygir hwn bod, er roedd yn bosib agor yr adnodd <strong>%1</strong>, "
 "digwyddodd gwall wrth ddarllen cynnwys yr adnodd."
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Efallai nad oes ganddoch caniatadau i ddarllen oddiwrth yr adnodd."
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Methu ysgrifennu at yr adnodd"
 
-#: core/job_error.cpp:830
+#: core/job_error.cpp:834
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1775,22 +1775,22 @@ msgstr ""
 "Golygir hwn bod, er roedd yn bosib agor yr adnodd <strong>%1</strong>, "
 "digwyddodd gwall wrth ysgrifennu at yr adnodd."
 
-#: core/job_error.cpp:833
+#: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Efallai nad oes ganddoch caniatadau i ysgrifennu at yr adnodd."
 
-#: core/job_error.cpp:846 core/job_error.cpp:859
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Methu Gwrando am Gysylltiadau Rhwydwaith"
 
-#: core/job_error.cpp:847
+#: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Methu Ymrwymo"
 
-#: core/job_error.cpp:849 core/job_error.cpp:862
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1800,17 +1800,17 @@ msgstr ""
 "Mae hwn yn wall go dechnegol, lle ni ellir creu dyfais gofynnol (soced) i "
 "gyfathrebion rhwydwaith i wrando am gysylltiadau rhwydwaith cyrhaeddol."
 
-#: core/job_error.cpp:860
+#: core/job_error.cpp:864
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Methu Gwrando"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Methu Derbyn Cysylltiad Rhwydwaith"
 
-#: core/job_error.cpp:874
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1819,17 +1819,17 @@ msgstr ""
 "Mae hwn yn wall go dechnegol, lle ddigwyddodd gwall wrth ceisio derbyn "
 "cysylltiad rhwydwaith cyrhaeddol."
 
-#: core/job_error.cpp:879
+#: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Efallai nad oes ganddoch caniatadau i dderbyn y cysylltiad."
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Methu Mewngofnodi: %1"
 
-#: core/job_error.cpp:886
+#: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
@@ -1837,17 +1837,17 @@ msgstr ""
 "Roedd cais i fewngofnodi i gyflawni'r gweithrediad ceisiedig yn "
 "aflwyddiannus."
 
-#: core/job_error.cpp:902
+#: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Methu Pennu Statws yr Adnodd"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Methu Canfod Statws yr Adnodd"
 
-#: core/job_error.cpp:905
+#: core/job_error.cpp:909
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1856,68 +1856,68 @@ msgstr ""
 "Roedd cais i bennu gwybodaeth am statws yr adnodd <strong>%1</strong>, er "
 "enghraifft enw yr adnodd, ei fath, ei faint ac yn y blaen, yn aflwyddiannus."
 
-#: core/job_error.cpp:910
+#: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Efallai nad oedd yr adnodd penodol mewn bod, neu ar gael."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:921
+#: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Methu Diddymu'r Rhestriad"
 
-#: core/job_error.cpp:922
+#: core/job_error.cpp:926
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIXME: Mae angen dogfennu hyn"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Methu Creu Plygell"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Methwyd cais i greu'r plygell a ofynwyd amdano."
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Efallai nad oedd y lleoliad lle roedd eisiau creu'r plygell mewn bod."
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Methu Gwaredu Plygell"
 
-#: core/job_error.cpp:941
+#: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Methwyd cais i ddileu'r plygell penodol, <strong>%1</strong>."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Efallai nad yw'r plygell penodol mewn bod."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Efallai nad yw'r plygell penodol yn wag."
 
-#: core/job_error.cpp:949
+#: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Sicrhewch fod y plygell mewn bod ac yn wag, a ceisiwch eto."
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Methu Ail-gychwyn Trosglwyddo'r Ffeil"
 
-#: core/job_error.cpp:957
+#: core/job_error.cpp:961
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1926,33 +1926,33 @@ msgstr ""
 "Gofynnodd y cais penodol i trosglwyddiad y ffeil <strong>%1</strong> gael ei "
 "ail-gychwyn mewn man arbennig o'r trosglwyddiad.  Nid oedd hyn yn bosib."
 
-#: core/job_error.cpp:962
+#: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Efallai nid yw'r protocol neu'r gweinydd yn cynnal ail-gychwyn y ffeil."
 
-#: core/job_error.cpp:965
+#: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Ail-geisiwch, heb geisio ail-gychwyn y trosgwyddiad."
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Methu Ail-enwi yr Adnodd"
 
-#: core/job_error.cpp:972
+#: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr "Methwyd cais i ail-enwi'r adnodd penodol <strong>%1</strong>."
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Methu Newid Caniatadau'r Adnodd"
 
-#: core/job_error.cpp:985
+#: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1960,12 +1960,12 @@ msgid ""
 msgstr ""
 "Methwyd cais i newid caniatadau ar yr adnodd penodol <strong>%1</strong>."
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:997
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Methu Newid Caniatadau'r Adnodd"
 
-#: core/job_error.cpp:995
+#: core/job_error.cpp:999
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1973,22 +1973,22 @@ msgid ""
 msgstr ""
 "Methwyd cais i newid caniatadau ar yr adnodd penodol <strong>%1</strong>."
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Methu Dileu'r Adnodd"
 
-#: core/job_error.cpp:1005
+#: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr "Methwyd cais i ddileu'r adnodd penodol <strong>%1</strong>."
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1017
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Terfynwyd y Rhaglen yn Annisgwyl"
 
-#: core/job_error.cpp:1015
+#: core/job_error.cpp:1019
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1997,12 +1997,12 @@ msgstr ""
 "Mae'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol <strong>"
 "%1</strong> wedi terfynu yn annisgwyl."
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
 msgstr "Allan o Gof"
 
-#: core/job_error.cpp:1025
+#: core/job_error.cpp:1029
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2011,12 +2011,12 @@ msgstr ""
 "Ni allai'r rhaglen ar eich cyfrifiadur sy'n darparu cyrchiad i'r protocol "
 "<strong>%1</strong> gael digon o gof i barhau."
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1038
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Gwesteiwr Dirpwry Anhysbys"
 
-#: core/job_error.cpp:1036
+#: core/job_error.cpp:1040
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2027,7 +2027,7 @@ msgstr ""
 "canfodwyd gwall Gwesteiwr Anhysbys.  Mae gwall gwesteiwr anhysbys yn dynodi "
 "na ellid lleoli'r enw ceisiedig ar y Rhyngrwyd."
 
-#: core/job_error.cpp:1042
+#: core/job_error.cpp:1046
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2038,17 +2038,17 @@ msgstr ""
 "gwesteiwr dirpwry.  Os ydych wedi bod yn cyrchu'r Rhyngrwyd heb broblemau yn "
 "ddiweddar, mae hyn yn anhebyg."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Cywirwch eich gosodiadau dirprwy a ceisiwch eto."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Methodd Dilysiant: Ni Chynhelir Dull %1"
 
-#: core/job_error.cpp:1052
+#: core/job_error.cpp:1056
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2059,7 +2059,7 @@ msgstr ""
 "achos ni chynhelir y dull a ddefnyddir gan y gweinydd gan y rhaglen KDE sy'n "
 "cyflawni'r protocol %1."
 
-#: core/job_error.cpp:1058
+#: core/job_error.cpp:1062
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -2068,17 +2068,17 @@ msgstr ""
 "Cyflwynwch nam wrth <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/</"
 "a> i hysbysu'r tîm KDE am y dull dilysiant na chynhelir."
 
-#: core/job_error.cpp:1065
+#: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
 msgstr "Ataliwyd y Cais"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Camgymeriad Mewnol yn y Gweinydd"
 
-#: core/job_error.cpp:1075
+#: core/job_error.cpp:1079
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2087,7 +2087,7 @@ msgstr ""
 "Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
 "strong> wedi adrodd gwall mewnol: %2."
 
-#: core/job_error.cpp:1081
+#: core/job_error.cpp:1085
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2096,12 +2096,12 @@ msgstr ""
 "Achosir hyn gan nam, mwy na thebyg.  Ystyriedwch cyflwyno adrodd nam llawn, "
 "yn ôl y manylion isod."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Cysylltwch â gwasanaethwr y gweinuydd i'w gynghori am y problem."
 
-#: core/job_error.cpp:1088
+#: core/job_error.cpp:1092
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2110,12 +2110,12 @@ msgstr ""
 "Os wyddoch pwy yw awduron y feddalwedd weinydd, cyflwynwch yr adrodd nam yn "
 "uniongyrchol iddynt."
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1097
 #, kde-format
 msgid "Timeout Error"
 msgstr "Gwall goramser"
 
-#: core/job_error.cpp:1095
+#: core/job_error.cpp:1099
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2133,17 +2133,17 @@ msgstr ""
 "gallwch newid y gosodiadau goramser yn y Ganolfan Rheoli KDE, drwy ddewis "
 "Gosodiadau Rhwydwaith -> Hoffiannau Cysylltiad."
 
-#: core/job_error.cpp:1108
+#: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Roedd y gweinydd yn rhy brysur yn ymateb i geisiadau eraill i ymateb."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Gwall Anhysbys"
 
-#: core/job_error.cpp:1116
+#: core/job_error.cpp:1120
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2152,12 +2152,12 @@ msgstr ""
 "Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
 "strong> wedi adrodd gwall mewnol: %2."
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1130
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Ymyriad Anhysbys"
 
-#: core/job_error.cpp:1128
+#: core/job_error.cpp:1132
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2166,12 +2166,12 @@ msgstr ""
 "Mae'r rhaglen ar y gweinydd sy'n darparu cyrchiad i'r protocol <strong>%1</"
 "strong> wedi adrodd ymyriad o fath anhysbys: %2."
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Methu Dileu Ffeil Gwreiddiol"
 
-#: core/job_error.cpp:1140
+#: core/job_error.cpp:1144
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2182,12 +2182,12 @@ msgstr ""
 "ddiwedd gweithrediad symud ffeil, mwy na thebyg.  Ni ellid dileu'r ffeil "
 "gwreiddiol <strong>%1</strong>."
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Methu Dileu Ffeil Dros Dro"
 
-#: core/job_error.cpp:1151
+#: core/job_error.cpp:1155
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2198,12 +2198,12 @@ msgstr ""
 "newydd  wrth iddo gael ei lawrlwytho.  Ni ellid dileu'r ffeil dros dro "
 "<strong>%1</strong>."
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Methu Ail-enwi Ffeil Gwreiddiol"
 
-#: core/job_error.cpp:1163
+#: core/job_error.cpp:1167
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2212,12 +2212,12 @@ msgstr ""
 "Roedd gan y weithrediad ceisiedig angen ail-enwi'r ffeil gwreiddiol <strong>"
 "%1</strong>.  Ond ni ellid ail-enwi'r ffeil."
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Methu Ail-enwi Ffeil Dro Dro"
 
-#: core/job_error.cpp:1174
+#: core/job_error.cpp:1178
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2226,32 +2226,32 @@ msgstr ""
 "Roedd gan y weithrediad ceisiedig angen greu ffeil dros dro <strong>%1</"
 "strong>.  Ond ni ellid creu'r ffeil."
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Methu Creu Cyswllt"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Methu Creu Cyswllt Symbolaidd"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Methu creu y cyswllt symbolaidd %1 a ofynwyd amdano."
 
-#: core/job_error.cpp:1191
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "No Content"
 msgstr "Dim Cynnwys"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1200
 #, kde-format
 msgid "Disk Full"
 msgstr "Disg Llawn"
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2260,7 +2260,7 @@ msgstr ""
 "Ni ellid ysgrifennu at y ffeil ceisiedig <strong>%1</strong> gan fod diffyg "
 "lle ar y ddisg."
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1206
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2271,12 +2271,12 @@ msgstr ""
 "2) archifo ffeiliau i gronfa cyfryngau symudadwy fel disgiau CD-Cofnodi; neu "
 "3) darganfod mwy o le cronfa."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Ffeiliau Tarddiad a Cyrchfan yn Unwedd"
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2285,17 +2285,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Dewiswch enw ffeil gwahanol i'r ffeil cyrchfan."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Gollyngodd y ffeil neu blygell ar ei hunan"
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2304,17 +2304,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Gollwng yr eitem i mewn ffeil neu blygell wahanol."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Symudodd y blygell i mewn ei hunan"
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2323,17 +2323,17 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod ffeil tarddiad a ffeil cyrchfan yr un "
 "un ffeil."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Symud yr eitem i mewn plygell wahanol."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Ni allai cyfathrebu gyda'r gweiniwr cyfrinair"
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1245
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2342,25 +2342,25 @@ msgstr ""
 "Methu cwblhau'r gweithrediad gan fod na aller y wasanaeth yn erfyn "
 "cyfrineiriau (kpasswdserver) yn ei gysylltwyd"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Ceisiwch ailddechreu eich cyfeistedd, neu edrych i mewn y cyffnodiau ar "
 "gyfer gwallau oddiwrth kiod."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Methu Cychwyn y protocol %1"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1252
 #, fuzzy, kde-format
 #| msgid "Unable to Create io-slave"
 msgid "Unable to Create KIO Worker"
 msgstr "Methu Creu gwas-io"
 
-#: core/job_error.cpp:1250
+#: core/job_error.cpp:1254
 #, fuzzy, kde-format
 #| msgid ""
 #| "The io-slave which provides access to the <strong>%1</strong> protocol "
@@ -2373,7 +2373,7 @@ msgstr ""
 "protocol <strong>%1</strong>.  Fel arfer, mae hynny o achos rhesymau "
 "technegol."
 
-#: core/job_error.cpp:1255
+#: core/job_error.cpp:1259
 #, fuzzy, kde-format
 #| msgid ""
 #| "klauncher could not find or start the plugin which provides the protocol."
@@ -2385,13 +2385,13 @@ msgstr ""
 "ni allai klauncher canfod neu ddechreu y mewnbillgyn sydd yn darparu y "
 "protocol. Mae'r hyn yn ystyru y caffoch fersiwn allamserwyd o'r mewnbillgyn."
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1265
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Ni all trosglwyddo <filename>%1</filename>"
 
-#: core/job_error.cpp:1263
+#: core/job_error.cpp:1267
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2401,7 +2401,7 @@ msgstr ""
 "Ni all y ffeil <filename>%1</filename> yn cael ei drosglwyddo, achos nad "
 "ydy'r ffeilgyfundrefn cyrhaeddfa yn cynnal ffeiliau mor enfawr"
 
-#: core/job_error.cpp:1266
+#: core/job_error.cpp:1270
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
@@ -2410,7 +2410,7 @@ msgstr ""
 "Ailffurfiadaethu y gyrrwr cyrhaeddfa i ddefnyddio ffeilgyfundrefn sydd yn "
 "cynnal ffeiliau mor enfawr."
 
-#: core/job_error.cpp:1271
+#: core/job_error.cpp:1275
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Gwall Heb ei Ddogfennu"

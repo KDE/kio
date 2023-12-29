@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 01:32+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2016-12-09 15:05+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -95,13 +95,13 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Φάκελος υπάρχει ήδη"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
-#: core/job_error.cpp:570 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Το αρχείο υπάρχει ήδη"
@@ -399,22 +399,22 @@ msgid ""
 "continue?"
 msgstr ""
 
-#: core/job_error.cpp:33
+#: core/job_error.cpp:37
 #, kde-format
 msgid "Could not read %1."
 msgstr "Δεν ήταν δυνατή η ανάγνωση του %1."
 
-#: core/job_error.cpp:36
+#: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
 msgstr "Δεν ήταν δυνατή η εγγραφή στο %1."
 
-#: core/job_error.cpp:39
+#: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
 msgstr "Δεν ήταν δυνατή η εκκίνηση της διεργασίας %1."
 
-#: core/job_error.cpp:42
+#: core/job_error.cpp:46
 #, fuzzy, kde-format
 #| msgid ""
 #| "Internal Error\n"
@@ -429,62 +429,62 @@ msgstr ""
 "Παρακαλώ στείλτε μια πλήρη αναφορά σφάλματος στο http://bugs.kde.org\n"
 "%1"
 
-#: core/job_error.cpp:45
+#: core/job_error.cpp:49
 #, kde-format
 msgid "Malformed URL %1."
 msgstr "Κακοδιατυπωμένο URL %1."
 
-#: core/job_error.cpp:48
+#: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
 msgstr "Το πρωτόκολλο %1 δεν υποστηρίζεται."
 
-#: core/job_error.cpp:51
+#: core/job_error.cpp:55
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
 msgstr "Το πρωτόκολλο %1 είναι μόνο ένα πρωτόκολλο-φίλτρο."
 
-#: core/job_error.cpp:58
+#: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
 msgstr "Το %1 είναι φάκελος, ενώ αναμενόταν αρχείο."
 
-#: core/job_error.cpp:61
+#: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
 msgstr "Το %1 είναι αρχείο, ενώ αναμενόταν φάκελος."
 
-#: core/job_error.cpp:64
+#: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
 msgstr "Το αρχείο ή ο φάκελος %1 δεν υπάρχει."
 
-#: core/job_error.cpp:67
+#: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
 msgstr "Ένα αρχείο με όνομα %1 υπάρχει ήδη."
 
-#: core/job_error.cpp:70
+#: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
 msgstr "Ένας φάκελος με όνομα %1 υπάρχει ήδη."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "No hostname specified."
 msgstr "Δεν καθορίστηκε όνομα υπολογιστή."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "Unknown host %1"
 msgstr "Άγνωστος υπολογιστής %1"
 
-#: core/job_error.cpp:76
+#: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
 msgstr "Άρνηση πρόσβασης στο %1."
 
-#: core/job_error.cpp:79
+#: core/job_error.cpp:83
 #, kde-format
 msgid ""
 "Access denied.\n"
@@ -493,47 +493,47 @@ msgstr ""
 "Άρνηση πρόσβασης\n"
 "Δεν ήταν δυνατή η εγγραφή στο %1."
 
-#: core/job_error.cpp:82
+#: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
 msgstr "Αδύνατη η είσοδος στο φάκελο %1."
 
-#: core/job_error.cpp:85
+#: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
 msgstr "Το πρωτόκολλο %1 δεν υλοποιεί υπηρεσία φακέλου."
 
-#: core/job_error.cpp:88
+#: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
 msgstr "Βρέθηκε ένας κυκλικός δεσμός στο %1."
 
-#: core/job_error.cpp:91
+#: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
 msgstr "Βρέθηκε ένας κυκλικός δεσμός κατά την αντιγραφή του %1."
 
-#: core/job_error.cpp:94
+#: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
 msgstr "Αδύνατη η δημιουργία υποδοχής για πρόσβαση στο %1."
 
-#: core/job_error.cpp:97
+#: core/job_error.cpp:101
 #, kde-format
 msgid "Could not connect to host %1."
 msgstr "Αδύνατη η σύνδεση στον υπολογιστή %1."
 
-#: core/job_error.cpp:100
+#: core/job_error.cpp:104
 #, kde-format
 msgid "Connection to host %1 is broken."
 msgstr "Η σύνδεση με τον υπολογιστή %1 είναι σπασμένη."
 
-#: core/job_error.cpp:103
+#: core/job_error.cpp:107
 #, kde-format
 msgid "The protocol %1 is not a filter protocol."
 msgstr "Το πρωτόκολλο %1 δεν είναι πρωτόκολλο-φίλτρο."
 
-#: core/job_error.cpp:106
+#: core/job_error.cpp:110
 #, kde-format
 msgid ""
 "Could not mount device.\n"
@@ -544,7 +544,7 @@ msgstr ""
 "Το σφάλμα που αναφέρθηκε ήταν:\n"
 "%1"
 
-#: core/job_error.cpp:109
+#: core/job_error.cpp:113
 #, kde-format
 msgid ""
 "Could not unmount device.\n"
@@ -555,82 +555,82 @@ msgstr ""
 "Το σφάλμα που αναφέρθηκε ήταν:\n"
 "%1"
 
-#: core/job_error.cpp:112
+#: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου %1."
 
-#: core/job_error.cpp:115
+#: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
 msgstr "Δεν ήταν δυνατή η εγγραφή στο αρχείο %1."
 
-#: core/job_error.cpp:118
+#: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
 msgstr "Δεν ήταν δυνατή ή σύνδεση του %1."
 
-#: core/job_error.cpp:121
+#: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
 msgstr "Δεν ήταν δυνατό να ακούσω το %1."
 
-#: core/job_error.cpp:124
+#: core/job_error.cpp:128
 #, kde-format
 msgid "Could not accept %1."
 msgstr "Δεν ήταν δυνατή η αποδοχή του %1."
 
-#: core/job_error.cpp:130
+#: core/job_error.cpp:134
 #, kde-format
 msgid "Could not access %1."
 msgstr "Δεν ήταν δυνατή η προσπέλαση του %1."
 
-#: core/job_error.cpp:133
+#: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
 msgstr "Δεν ήταν δυνατός ο τερματισμός της εμφάνισης των περιεχομένων του %1."
 
-#: core/job_error.cpp:136
+#: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
 msgstr "Αδύνατη η δημιουργία του φακέλου %1."
 
-#: core/job_error.cpp:139
+#: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
 msgstr "Αδύνατη η αφαίρεση του φακέλου %1."
 
-#: core/job_error.cpp:142
+#: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
 msgstr "Αδύνατη η συνέχιση του αρχείου %1."
 
-#: core/job_error.cpp:145
+#: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
 msgstr "Δεν ήταν δυνατή η μετονομασία του αρχείου %1."
 
-#: core/job_error.cpp:148
+#: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
 msgstr "Αδύνατη η αλλαγή των αδειών του %1."
 
-#: core/job_error.cpp:151
+#: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
 msgstr "Αδύνατη η αλλαγή της ιδιοκτησίας του %1."
 
-#: core/job_error.cpp:154
+#: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
 msgstr "Δεν ήταν δυνατή η διαγραφή του αρχείου %1."
 
-#: core/job_error.cpp:157
+#: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
 msgstr "Η διεργασία για το πρωτόκολλο %1 πέθανε ξαφνικά."
 
-#: core/job_error.cpp:160
+#: core/job_error.cpp:164
 #, kde-format
 msgid ""
 "Error. Out of memory.\n"
@@ -639,7 +639,7 @@ msgstr ""
 "Σφάλμα. Έλλειψη μνήμης.\n"
 "%1"
 
-#: core/job_error.cpp:163
+#: core/job_error.cpp:167
 #, kde-format
 msgid ""
 "Unknown proxy host\n"
@@ -648,12 +648,12 @@ msgstr ""
 "Άγνωστος διαμεσολαβητής\n"
 "%1"
 
-#: core/job_error.cpp:166
+#: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
 msgstr "Αποτυχία εξουσιοδότησης, δεν υποστηρίζεται η ταυτοποίηση %1"
 
-#: core/job_error.cpp:172
+#: core/job_error.cpp:176
 #, kde-format
 msgid ""
 "User canceled action\n"
@@ -662,7 +662,7 @@ msgstr ""
 "Ο χρήστης ακύρωσε την ενέργεια\n"
 "%1"
 
-#: core/job_error.cpp:175
+#: core/job_error.cpp:179
 #, kde-format
 msgid ""
 "Internal error in server\n"
@@ -671,7 +671,7 @@ msgstr ""
 "Εσωτερικό σφάλμα στον εξυπηρετητή\n"
 "%1"
 
-#: core/job_error.cpp:178
+#: core/job_error.cpp:182
 #, kde-format
 msgid ""
 "Timeout on server\n"
@@ -680,7 +680,7 @@ msgstr ""
 "Τέλος χρονικού ορίου στον εξυπηρετητή\n"
 "%1"
 
-#: core/job_error.cpp:181
+#: core/job_error.cpp:185
 #, kde-format
 msgid ""
 "Unknown error\n"
@@ -689,7 +689,7 @@ msgstr ""
 "Άγνωστο σφάλμα\n"
 "%1"
 
-#: core/job_error.cpp:184
+#: core/job_error.cpp:188
 #, kde-format
 msgid ""
 "Unknown interrupt\n"
@@ -698,7 +698,7 @@ msgstr ""
 "Άγνωστη διακοπή\n"
 "%1"
 
-#: core/job_error.cpp:195
+#: core/job_error.cpp:199
 #, kde-format
 msgid ""
 "Could not delete original file %1.\n"
@@ -707,7 +707,7 @@ msgstr ""
 "Αδύνατη η διαγραφή του πρωτότυπου αρχείου %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:198
+#: core/job_error.cpp:202
 #, kde-format
 msgid ""
 "Could not delete partial file %1.\n"
@@ -716,7 +716,7 @@ msgstr ""
 "Αδύνατη η διαγραφή του μερικού αρχείου %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:201
+#: core/job_error.cpp:205
 #, kde-format
 msgid ""
 "Could not rename original file %1.\n"
@@ -725,7 +725,7 @@ msgstr ""
 "Αδύνατη η μετονομασία του πρωτότυπου αρχείου %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:204
+#: core/job_error.cpp:208
 #, kde-format
 msgid ""
 "Could not rename partial file %1.\n"
@@ -734,7 +734,7 @@ msgstr ""
 "Αδύνατη η μετονομασία του μερικού αρχείου %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:207
+#: core/job_error.cpp:211
 #, kde-format
 msgid ""
 "Could not create symlink %1.\n"
@@ -743,7 +743,7 @@ msgstr ""
 "Αδύνατη η δημιουργία του συμβολικού δεσμού %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:210
+#: core/job_error.cpp:214
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -755,12 +755,12 @@ msgstr ""
 "Αδύνατη η δημιουργία του συμβολικού δεσμού %1.\n"
 "Παρακαλώ ελέγξτε τις άδειες."
 
-#: core/job_error.cpp:216
+#: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
 msgstr ""
 
-#: core/job_error.cpp:219
+#: core/job_error.cpp:223
 #, kde-format
 msgid ""
 "The source and destination are the same file.\n"
@@ -769,17 +769,17 @@ msgstr ""
 "Η πηγή και ο προορισμός είναι το ίδιο αρχείο.\n"
 "%1"
 
-#: core/job_error.cpp:227
+#: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
 msgstr "Το %1 απαιτείται από τον εξυπηρετητή, αλλά δεν είναι διαθέσιμο."
 
-#: core/job_error.cpp:230
+#: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
 msgstr "Η πρόσβαση σε απαγορευμένη θύρα στο POST δεν επιτράπηκε."
 
-#: core/job_error.cpp:233
+#: core/job_error.cpp:237
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
@@ -787,28 +787,28 @@ msgstr ""
 "Οι απαιτούμενες πληροφορίες για το μέγεθος του περιεχομένου δεν προέβλεπε "
 "την λειτουργία POST."
 
-#: core/job_error.cpp:236
+#: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
 msgstr "Αδυναμία απόθεσης αρχείου ή φακέλου στον εαυτό του"
 
-#: core/job_error.cpp:239
+#: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
 msgstr "Αδυναμία μετακίνησης ενός φακέλου στον εαυτό του"
 
-#: core/job_error.cpp:242
+#: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
 msgstr "Αποτυχία επικοινωνίας με τον τοπικό εξυπηρετητή κωδικών"
 
-#: core/job_error.cpp:245
+#: core/job_error.cpp:249
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker. %1"
 msgstr "Αδύνατη η δημιουργία io-slave: %1"
 
-#: core/job_error.cpp:249
+#: core/job_error.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -816,7 +816,7 @@ msgid ""
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
 
-#: core/job_error.cpp:254
+#: core/job_error.cpp:258
 #, kde-format
 msgid ""
 "Privilege escalation is not necessary because \n"
@@ -824,13 +824,13 @@ msgid ""
 "Please retry after changing permissions."
 msgstr ""
 
-#: core/job_error.cpp:257
+#: core/job_error.cpp:261
 #, fuzzy, kde-format
 #| msgid "The file is too large to be trashed."
 msgid "File is too large to be trashed."
 msgstr "Το αρχείο είναι πολύ μεγάλο για τα απορρίμματα."
 
-#: core/job_error.cpp:260
+#: core/job_error.cpp:264
 #, fuzzy, kde-format
 #| msgid ""
 #| "Unknown error code %1\n"
@@ -845,65 +845,65 @@ msgstr ""
 "%2\n"
 "Παρακαλώ στείλτε μια πλήρη αναφορά σφάλματος στο http://bugs.kde.org."
 
-#: core/job_error.cpp:291
+#: core/job_error.cpp:295
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(άγνωστο)"
 
-#: core/job_error.cpp:297
+#: core/job_error.cpp:301
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Τεχνικός λόγος</b>: "
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Λεπτομέρειες της αίτησης</b>:"
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>URL: %1</li>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Πρωτόκολλο: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Ημερομηνία και ώρα: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Πρόσθετες πληροφορίες: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Πιθανές αιτίες</b>:"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:317
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Πιθανές λύσεις</b>:"
 
-#: core/job_error.cpp:357
+#: core/job_error.cpp:361
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(άγνωστο)"
 
-#: core/job_error.cpp:370
+#: core/job_error.cpp:374
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
@@ -913,18 +913,18 @@ msgstr ""
 "σας, είτε τον διαχειριστή σας συστημάτων είτε μια ομάδα τεχνικής "
 "υποστήριξης, για περισσότερη βοήθεια."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr ""
 "Επικοινωνήστε με το διαχειριστή του εξυπηρετητή για περισσότερη βοήθεια."
 
-#: core/job_error.cpp:377
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Ελέγξτε τις άδειες πρόσβασης που έχετε για αυτόν τον πόρο."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:383
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -933,7 +933,7 @@ msgstr ""
 "Οι άδειες πρόσβασής σας ίσως να μην επαρκούν για να πραγματοποιηθεί η "
 "ζητούμενη ενέργεια σε αυτόν τον πόρο."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -941,7 +941,7 @@ msgstr ""
 "Το αρχείο ίσως να χρησιμοποιείται (και άρα να είναι κλειδωμένο) από άλλο "
 "χρήστη ή εφαρμογή."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -950,17 +950,17 @@ msgstr ""
 "Βεβαιωθείτε ότι δεν υπάρχει εφαρμογή ή χρήστης που χρησιμοποιεί ή έχει "
 "κλειδώσει το αρχείο."
 
-#: core/job_error.cpp:388
+#: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr "Αν και απίθανο, μπορεί να έχει συμβεί κάποιο πρόβλημα στο υλικό."
 
-#: core/job_error.cpp:390
+#: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Μπορεί να συναντήσατε ένα σφάλμα στο πρόγραμμα."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:396
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -970,7 +970,7 @@ msgstr ""
 "πρόγραμμα. Σκεφτείτε το ενδεχόμενο να υποβάλετε μια πλήρη αναφορά σφάλματος "
 "όπως περιγράφεται παρακάτω."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -979,7 +979,7 @@ msgstr ""
 "Ενημερώστε το λογισμικό σας στην τελευταία έκδοση. Η διανομή σας θα πρέπει "
 "να παρέχει εργαλεία για την ενημέρωση του λογισμικού."
 
-#: core/job_error.cpp:398
+#: core/job_error.cpp:402
 #, fuzzy, kde-format
 #| msgid ""
 #| "When all else fails, please consider helping the KDE team or the third "
@@ -1009,12 +1009,12 @@ msgstr ""
 "αναφορά σφάλματος σας, μαζί με όσες περισσότερες λεπτομέρειες θεωρείτε "
 "απαραίτητες για να βοηθήσετε."
 
-#: core/job_error.cpp:407
+#: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Ίσως να υπήρξε πρόβλημα με τη σύνδεσή σας στο δίκτυο."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -1024,7 +1024,7 @@ msgstr ""
 "διαδίκτυο χωρίς προβλήματα τον τελευταίο καιρό, τότε αυτό είναι μάλλον "
 "απίθανο."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:419
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -1033,42 +1033,42 @@ msgstr ""
 "Ίσως να υπήρξε πρόβλημα σε κάποιο σημείο της δικτυακής διαδρομής ανάμεσα "
 "στον εξυπηρετητή και σε αυτόν τον υπολογιστή."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Δοκιμάστε ξανά, είτε τώρα είτε αργότερα."
 
-#: core/job_error.cpp:418
+#: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Ίσως προέκυψε σφάλμα ή ασυμβατότητα σε επίπεδο πρωτοκόλλου."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Βεβαιωθείτε ότι ο πόρος υπάρχει και ξαναδοκιμάστε."
 
-#: core/job_error.cpp:420
+#: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Ο καθορισμένος πόρος ίσως να μην υπάρχει."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "Βεβαιωθείτε ότι δώσατε τη σωστή τοποθεσία και ξαναδοκιμάστε."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Ελέγξτε την κατάσταση της δικτυακής σας σύνδεσης."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:432
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Δεν είναι δυνατό το άνοιγμα του πόρου για ανάγνωση"
 
-#: core/job_error.cpp:430
+#: core/job_error.cpp:434
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1078,17 +1078,17 @@ msgstr ""
 "%1</strong> ήταν αδύνατο να ανακτηθούν, καθώς ήταν αδύνατο να αποκτηθεί "
 "άδεια ανάγνωσης."
 
-#: core/job_error.cpp:435
+#: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "Ίσως δεν έχετε άδειες ανάγνωσης του αρχείου ή ανοίγματος του φακέλου."
 
-#: core/job_error.cpp:442
+#: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Δεν είναι δυνατό το άνοιγμα του πόρου για εγγραφή"
 
-#: core/job_error.cpp:444
+#: core/job_error.cpp:448
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1098,18 +1098,18 @@ msgstr ""
 "τροποποιηθεί, όπως ζητήθηκε, γιατί δεν ήταν δυνατό να αποκτηθεί πρόσβαση με "
 "άδεια για εγγραφή."
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:457
 #, fuzzy, kde-format
 #| msgid "Cannot Initiate the %1 Protocol"
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Δεν είναι δυνατή η αρχικοποίηση του πρωτοκόλλου %1"
 
-#: core/job_error.cpp:454
+#: core/job_error.cpp:458
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Δεν είναι δυνατή η εκκίνηση της διεργασίας"
 
-#: core/job_error.cpp:456
+#: core/job_error.cpp:460
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -1124,7 +1124,7 @@ msgstr ""
 "<strong>%1</strong> δεν ήταν δυνατό να εκκινηθεί. Αυτό συνήθως οφείλεται σε "
 "τεχνικούς λόγους."
 
-#: core/job_error.cpp:461
+#: core/job_error.cpp:465
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1136,12 +1136,12 @@ msgstr ""
 "καταστήσει το πρόγραμμα ασύμβατο με την τρέχουσα έκδοση και έτσι να μην "
 "ξεκινάει."
 
-#: core/job_error.cpp:470
+#: core/job_error.cpp:474
 #, kde-format
 msgid "Internal Error"
 msgstr "Εσωτερικό σφάλμα"
 
-#: core/job_error.cpp:472
+#: core/job_error.cpp:476
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1150,12 +1150,12 @@ msgstr ""
 "Το πρόγραμμα στον υπολογιστή σας που προσφέρει πρόσβαση στο πρωτόκολλο "
 "<strong>%1</strong> ανέφερε ένα εσωτερικό σφάλμα."
 
-#: core/job_error.cpp:480
+#: core/job_error.cpp:484
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Λανθασμένα μορφοποιημένο URL"
 
-#: core/job_error.cpp:482
+#: core/job_error.cpp:486
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1170,12 +1170,12 @@ msgstr ""
 "πρόσβασης@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 
-#: core/job_error.cpp:491
+#: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Μη υποστηριζόμενο πρωτόκολλο %1"
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1184,12 +1184,12 @@ msgstr ""
 "Το πρωτόκολλο <strong>%1</strong> δεν υποστηρίζεται από τα προγράμματα του "
 "KDE που είναι εγκατεστημένα σε αυτόν τον υπολογιστή."
 
-#: core/job_error.cpp:496
+#: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Το ζητούμενο πρωτόκολλο μπορεί να μην υποστηρίζεται."
 
-#: core/job_error.cpp:498
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1198,7 +1198,7 @@ msgstr ""
 "Οι εκδόσεις του πρωτοκόλλου %1 που υποστηρίζονται από αυτόν τον υπολογιστή "
 "και τον εξυπηρετητή μπορεί να μην είναι συμβατές."
 
-#: core/job_error.cpp:502
+#: core/job_error.cpp:506
 #, fuzzy, kde-format
 #| msgid ""
 #| "You may perform a search on the Internet for a KDE program (called a "
@@ -1216,17 +1216,17 @@ msgstr ""
 "\">http://kde-apps.org/</a> και <a href=\"http://freshmeat.net/\">http://"
 "freshmeat.net/</a>."
 
-#: core/job_error.cpp:510
+#: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "To URL δεν αναφέρεται σε κάποιον πόρο."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:515
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Το πρωτόκολλο είναι ένα πρωτόκολλο-φίλτρο"
 
-#: core/job_error.cpp:513
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1235,7 +1235,7 @@ msgstr ""
 "Το <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) που δώσατε δεν αναφερόταν σε έναν συγκεκριμένο πόρο."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:521
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1248,12 +1248,12 @@ msgstr ""
 "περιπτώσεις, ωστόσο αυτή δεν είναι μία τέτοια περίπτωση. Αυτό είναι ένα "
 "σπάνιο συμβάν, και πιθανότατα οφείλετε σε προγραμματιστικό σφάλμα."
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Μη υποστηριζόμενη ενέργεια: %1"
 
-#: core/job_error.cpp:527
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1262,7 +1262,7 @@ msgstr ""
 "Η ζητούμενη ενέργεια δεν υποστηρίζεται από το πρόγραμμα του KDE που υλοποιεί "
 "το πρωτόκολλο <strong>%1</strong>."
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:535
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1273,17 +1273,17 @@ msgstr ""
 "πληροφορίες θα σας δώσουν περισσότερες λεπτομέρειες από όσες είναι "
 "διαθέσιμες στην αρχιτεκτονική εισόδου/εξόδου του KDE."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:539
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Προσπάθεια εύρεσης άλλου τρόπου επίτευξης του ίδιου αποτελέσματος."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
 msgstr "Αναμενόταν αρχείο"
 
-#: core/job_error.cpp:542
+#: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1292,17 +1292,17 @@ msgstr ""
 "Η αίτηση περίμενε αρχείο, αλλά αντί για αυτό βρέθηκε ο φάκελος <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:545
+#: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Αυτό ίσως να είναι σφάλμα από τη μεριά του εξυπηρετητή."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
 msgstr "Αναμενόταν φάκελος"
 
-#: core/job_error.cpp:552
+#: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1311,17 +1311,17 @@ msgstr ""
 "Η αίτηση περίμενε φάκελο, αλλά αντί για αυτό βρέθηκε το αρχείο <strong>%1</"
 "strong>."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Το αρχείο ή φάκελος δεν υπάρχει"
 
-#: core/job_error.cpp:562
+#: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Το καθορισμένο αρχείο ή φάκελος <strong>%1</strong> δεν υπάρχει."
 
-#: core/job_error.cpp:572
+#: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1330,24 +1330,24 @@ msgstr ""
 "Το ζητούμενο αρχείο δεν ήταν δυνατό να δημιουργηθεί γιατί ένα αρχείο με το "
 "ίδιο όνομα υπάρχει ήδη."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr ""
 "Προσπαθήστε να μετακινήσετε το τρέχον αρχείο κάπου αλλού πρώτα και μετά "
 "προσπαθήστε ξανά."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Διαγράψτε το τρέχον αρχείο και ξαναδοκιμάστε."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Επιλέξτε ένα άλλο όνομα για το νέο αρχείο."
 
-#: core/job_error.cpp:583
+#: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1356,29 +1356,29 @@ msgstr ""
 "Ο ζητούμενος φάκελος ήταν αδύνατο να δημιουργηθεί γιατί ένας φάκελος με το "
 "ίδιο όνομα υπάρχει ήδη."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr ""
 "Προσπαθήστε να μετακινήσετε τον τρέχοντα φάκελο κάπου αλλού πρώτα και μετά "
 "προσπαθήστε ξανά."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Διαγραφή του τρέχοντος φακέλου και προσπάθεια ξανά."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Επιλογή ενός άλλου ονόματος για το νέο φάκελο."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:596
 #, kde-format
 msgid "Unknown Host"
 msgstr "Άγνωστος υπολογιστής"
 
-#: core/job_error.cpp:594
+#: core/job_error.cpp:598
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1387,35 +1387,35 @@ msgstr ""
 "Ένα σφάλμα άγνωστου υπολογιστή δηλώνει ότι ο εξυπηρετητής με το ζητούμενο "
 "όνομα, <strong>%1</strong>, ήταν αδύνατο να βρεθεί στο διαδίκτυο."
 
-#: core/job_error.cpp:599
+#: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Το όνομα που γράψατε, %1, μπορεί να μην υπάρχει: μπορεί να το γράψατε λάθος."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
 msgstr "Άρνηση πρόσβασης"
 
-#: core/job_error.cpp:609
+#: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Δε δόθηκε πρόσβαση στον καθορισμένο πόρο, <strong>%1</strong>."
 
-#: core/job_error.cpp:613 core/job_error.cpp:889
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "Μπορεί να δώσατε λανθασμένες ή καθόλου πληροφορίες ταυτοποίησης."
 
-#: core/job_error.cpp:616 core/job_error.cpp:892
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr ""
 "Ο λογαριασμός σας μπορεί να μην έχει άδειες πρόσβασης στον καθορισμένο πόρο."
 
-#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
+#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1424,12 +1424,12 @@ msgstr ""
 "Ξαναδοκιμάστε την αίτηση και βεβαιωθείτε ότι οι πληροφορίες ταυτοποίησής σας "
 "δίνονται σωστά."
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Άρνηση πρόσβασης εγγραφής"
 
-#: core/job_error.cpp:630
+#: core/job_error.cpp:634
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1438,12 +1438,12 @@ msgstr ""
 "Αυτό σημαίνει ότι μια προσπάθεια για εγγραφή στο αρχείο <strong>%1</strong> "
 "απορρίφθηκε."
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Αδύνατη η είσοδος στο φάκελο"
 
-#: core/job_error.cpp:640
+#: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1452,17 +1452,17 @@ msgstr ""
 "Αυτό σημαίνει ότι μια προσπάθεια για είσοδο (με άλλα λόγια, για άνοιγμα) στο "
 "ζητούμενο φάκελο <strong>%1</strong> απορρίφθηκε."
 
-#: core/job_error.cpp:648
+#: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Προβολή φακέλων μη διαθέσιμη"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Το πρωτόκολλο %1 δεν είναι σύστημα αρχείων"
 
-#: core/job_error.cpp:651
+#: core/job_error.cpp:655
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1473,12 +1473,12 @@ msgstr ""
 "περιεχομένων του φακέλου και το πρόγραμμα του KDE που υποστηρίζει αυτό το "
 "πρωτόκολλο δεν είναι ικανό να το κάνει."
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Ανιχνεύθηκε κυκλικός δεσμός"
 
-#: core/job_error.cpp:661
+#: core/job_error.cpp:665
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1491,7 +1491,7 @@ msgstr ""
 "σειρά δεσμών που οδηγεί σε ένα αέναο βρόχο - π.χ. το αρχείο ήταν συνδεδεμένο "
 "(πιθανόν με έναν έμμεσο τρόπο) με τον εαυτό του."
 
-#: core/job_error.cpp:666 core/job_error.cpp:692
+#: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1500,27 +1500,27 @@ msgstr ""
 "Διαγραφή ενός τμήματος του βρόχου έτσι ώστε δεν προκαλεί έναν αέναο βρόχο, "
 "και προσπαθήστε ξανά."
 
-#: core/job_error.cpp:676
+#: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Αίτηση διεκόπη από το χρήστη"
 
-#: core/job_error.cpp:678 core/job_error.cpp:1067
+#: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Η αίτηση δεν ολοκληρώθηκε γιατί διεκόπη."
 
-#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
+#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
 msgstr "Ξαναδοκιμάστε την αίτηση."
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Ανιχνεύθηκε κυκλικός δεσμός κατά την αντιγραφή"
 
-#: core/job_error.cpp:686
+#: core/job_error.cpp:690
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1534,17 +1534,17 @@ msgstr ""
 "οδηγεί σε ένα αέναο βρόχο - π.χ. το αρχείο ήταν συνδεδεμένο (πιθανόν με έναν "
 "έμμεσο τρόπο) με τον εαυτό του."
 
-#: core/job_error.cpp:698
+#: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Αδύνατη η δημιουργία δικτυακής σύνδεσης"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Αδύνατη η δημιουργία υποδοχής"
 
-#: core/job_error.cpp:701
+#: core/job_error.cpp:705
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1553,8 +1553,8 @@ msgstr ""
 "Αυτό είναι ένα αρκετά τεχνικό σφάλμα στο οποίο μια απαιτούμενη συσκευή για "
 "δικτυακή επικοινωνία (μια υποδοχή) ήταν αδύνατο να δημιουργηθεί."
 
-#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
-#: core/job_error.cpp:877
+#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1563,12 +1563,12 @@ msgstr ""
 "Η δικτυακή σύνδεση μπορεί να είναι λανθασμένα ρυθμισμένη, ή η δικτυακή "
 "διασύνδεση μπορεί να μην είναι ενεργοποιημένη."
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Άρνηση σύνδεσης με τον εξυπηρετητή"
 
-#: core/job_error.cpp:712
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
@@ -1577,7 +1577,7 @@ msgstr ""
 "Ο εξυπηρετητής <strong>%1</strong> δεν επέτρεψε σε αυτόν τον υπολογιστή να "
 "συνδεθεί."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1586,7 +1586,7 @@ msgstr ""
 "Ο εξυπηρετητής, αν και είναι συνδεδεμένος με το Διαδίκτυο, μπορεί να μην "
 "είναι ρυθμισμένος να επιτρέπει αιτήσεις."
 
-#: core/job_error.cpp:719
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1595,7 +1595,7 @@ msgstr ""
 "Ο εξυπηρετητής, αν και είναι συνδεδεμένος με το Διαδίκτυο, μπορεί να μην "
 "τρέχει τη ζητούμενη υπηρεσία (%1)."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:727
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1606,12 +1606,12 @@ msgstr ""
 "είτε προστατεύοντας το δίκτυό σας ή το δίκτυο του εξυπηρετητή, μπορεί να "
 "παρενέβη, εμποδίζοντας αυτή την αίτηση."
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Απροσδόκητο κλείσιμο σύνδεσης με τον εξυπηρετητή"
 
-#: core/job_error.cpp:732
+#: core/job_error.cpp:736
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1620,7 +1620,7 @@ msgstr ""
 "Αν και η σύνδεση επετεύχθη με το <strong>%1</strong>, η σύνδεση έκλεισε σε "
 "ένα απροσδόκητο σημείο κατά την επικοινωνία."
 
-#: core/job_error.cpp:738
+#: core/job_error.cpp:742
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1629,17 +1629,17 @@ msgstr ""
 "Ένα σφάλμα πρωτοκόλλου μπορεί να έχει συμβεί προκαλώντας τον εξυπηρετητή να "
 "κλείσει τη σύνδεση σαν απάντηση στο σφάλμα."
 
-#: core/job_error.cpp:744
+#: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Μη έγκυρος πόρος URL"
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:749
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Το πρωτόκολλο %1 δεν είναι ένα πρωτόκολλο - φίλτρο"
 
-#: core/job_error.cpp:747
+#: core/job_error.cpp:751
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1650,7 +1650,7 @@ msgstr ""
 "strong>ocator (URL) που δώσατε δεν αναφερόταν σε ένα έγκυρο μηχανισμό "
 "πρόσβασης στο ζητούμενο πόρο, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:754
+#: core/job_error.cpp:758
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1664,17 +1664,17 @@ msgstr ""
 "σπάνια περίπτωση, και είναι πολύ πιθανό να σημαίνει ότι υπάρχει σφάλμα στο "
 "πρόγραμμα."
 
-#: core/job_error.cpp:762
+#: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Δεν είναι δυνατή η αρχικοποίηση της συσκευής Εισόδου/Εξόδου"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Δεν ήταν δυνατή η προσάρτηση της συσκευής"
 
-#: core/job_error.cpp:765
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1683,7 +1683,7 @@ msgstr ""
 "Η ζητούμενη συσκευή δεν ήταν δυνατό να αρχικοποιηθεί (\"προσαρτηθεί\"). Το "
 "σφάλμα που αναφέρθηκε ήταν: <strong>%1</strong>"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:773
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1695,7 +1695,7 @@ msgstr ""
 "CD), ή στην περίπτωση μιας περιφερειακής/φορητής συσκευής, η συσκευή μπορεί "
 "να μην είναι συνδεδεμένη σωστά."
 
-#: core/job_error.cpp:774
+#: core/job_error.cpp:778
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1706,7 +1706,7 @@ msgstr ""
 "συσκευή. Στα συστήματα UNIX, συχνά απαιτούνται προνόμια διαχειριστή για την "
 "αρχικοποίηση μιας συσκευής."
 
-#: core/job_error.cpp:779
+#: core/job_error.cpp:783
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1716,17 +1716,17 @@ msgstr ""
 "περιέχουν ένα μέσο και οι φορητές συσκευές πρέπει να είναι συνδεδεμένες και "
 "ανοικτές, και προσπαθήστε ξανά."
 
-#: core/job_error.cpp:786
+#: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Δεν είναι δυνατή η απο-αρχικοποίηση της συσκευής Εισόδου/Εξόδου"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Δεν ήταν δυνατή η αποπροσάρτηση της συσκευής"
 
-#: core/job_error.cpp:789
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1735,7 +1735,7 @@ msgstr ""
 "Η ζητούμενη συσκευή δεν ήταν δυνατό να απο-αρχικοποιηθεί (\"αποπροσαρτηθεί"
 "\"). Το σφάλμα που αναφέρθηκε ήταν: <strong>%1</strong>"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:797
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1746,7 +1746,7 @@ msgstr ""
 "μια άλλη εφαρμογή ή χρήστη. Ακόμη και ένα ανοικτό παράθυρο περιηγητή σε μια "
 "τοποθεσία μέσα στη συσκευή αυτή μπορεί να κρατά τη συσκευή σε χρήση."
 
-#: core/job_error.cpp:798
+#: core/job_error.cpp:802
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1757,18 +1757,18 @@ msgstr ""
 "τη συσκευή. Στα συστήματα UNIX, συχνά απαιτούνται προνόμια διαχειριστή για "
 "την απο-αρχικοποίηση μιας συσκευής."
 
-#: core/job_error.cpp:803
+#: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
 "Ελέγξτε ότι καμία εφαρμογή δε χρησιμοποιεί τη συσκευή και προσπαθήστε ξανά."
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Δεν είναι δυνατή η ανάγνωση από τον πόρο"
 
-#: core/job_error.cpp:811
+#: core/job_error.cpp:815
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1777,17 +1777,17 @@ msgstr ""
 "Αυτό σημαίνει ότι αν και ο πόρος <strong>%1</strong> ανοίχτηκε, ένα σφάλμα "
 "συνέβη κατά την ανάγνωση των περιεχομένων του πόρου."
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Ίσως δεν έχετε άδειες ανάγνωσης από τον πόρο."
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Δεν είναι δυνατή η εγγραφή στον πόρο"
 
-#: core/job_error.cpp:830
+#: core/job_error.cpp:834
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1796,22 +1796,22 @@ msgstr ""
 "Αυτό σημαίνει ότι αν και ο πόρος <strong>%1</strong> ανοίχτηκε, ένα σφάλμα "
 "συνέβη κατά την εγγραφή στον πόρο."
 
-#: core/job_error.cpp:833
+#: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Ίσως δεν έχετε άδειες εγγραφής στον πόρο."
 
-#: core/job_error.cpp:846 core/job_error.cpp:859
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Δεν ήταν δυνατό να \"ακούσω\" για δικτυακές συνδέσεις"
 
-#: core/job_error.cpp:847
+#: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Αδυναμία σύνδεσης"
 
-#: core/job_error.cpp:849 core/job_error.cpp:862
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1822,17 +1822,17 @@ msgstr ""
 "δικτυακή επικοινωνία (μια υποδοχή) ήταν αδύνατο να εγκατασταθεί για αναμονή "
 "εισερχόμενων δικτυακών συνδέσεων."
 
-#: core/job_error.cpp:860
+#: core/job_error.cpp:864
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Δεν ήταν δυνατό να \"ακούσω\""
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Δεν ήταν δυνατή η αποδοχή δικτυακής σύνδεσης"
 
-#: core/job_error.cpp:874
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1841,17 +1841,17 @@ msgstr ""
 "Αυτό είναι ένα αρκετά τεχνικό σφάλμα στο οποίο ένα σφάλμα συνέβη κατά την "
 "προσπάθεια αποδοχής μιας εισερχόμενης δικτυακής σύνδεσης."
 
-#: core/job_error.cpp:879
+#: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Ίσως δεν έχετε άδειες για αποδοχή της σύνδεσης."
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Αδύνατη η σύνδεση: %1"
 
-#: core/job_error.cpp:886
+#: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
@@ -1859,17 +1859,17 @@ msgstr ""
 "Μια προσπάθεια σύνδεσης για την εκτέλεση της ζητούμενης ενέργειας ήταν "
 "ανεπιτυχής."
 
-#: core/job_error.cpp:902
+#: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Δεν ήταν δυνατό να καθοριστεί η κατάσταση του πόρου"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Αδύνατη η εκκίνηση του Πόρου"
 
-#: core/job_error.cpp:905
+#: core/job_error.cpp:909
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1879,71 +1879,71 @@ msgstr ""
 "<strong>%1</strong>, όπως το όνομα του πόρου, ο τύπος, το μέγεθος, κτλ., "
 "ήταν ανεπιτυχής."
 
-#: core/job_error.cpp:910
+#: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Ο καθορισμένος πόρος ίσως να μην υπήρχε ή να μην είναι προσπελάσιμος."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:921
+#: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Αδύνατη η ακύρωση της εμφάνισης των περιεχομένων"
 
-#: core/job_error.cpp:922
+#: core/job_error.cpp:926
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "ΦΤΙΑΞΕ ΜΕ: Τεκμηρίωση αυτού"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Αδύνατη η δημιουργία φακέλου"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Μια προσπάθεια δημιουργίας του ζητηθέντος φακέλου απέτυχε."
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Η τοποθεσία όπου θα δημιουργούνταν ο φάκελος ίσως να μην υπάρχει."
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Αδύνατη η αφαίρεση φακέλου"
 
-#: core/job_error.cpp:941
+#: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr ""
 "Μια προσπάθεια αφαίρεσης του καθορισμένου φακέλου, <strong>%1</strong>, "
 "απέτυχε."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Ο καθορισμένος φάκελος ίσως να μην υπάρχει."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Ο καθορισμένος φάκελος ίσως να μην είναι κενός."
 
-#: core/job_error.cpp:949
+#: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr ""
 "Βεβαιωθείτε ότι ο φάκελος υπάρχει και είναι κενός, και προσπαθήστε ξανά."
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Αδύνατη η συνέχιση μεταφοράς αρχείου"
 
-#: core/job_error.cpp:957
+#: core/job_error.cpp:961
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1952,35 +1952,35 @@ msgstr ""
 "Η καθορισμένη αίτηση ζήτησε η μεταφορά του αρχείου <strong>%1</strong> να "
 "συνεχιστεί σε ένα συγκεκριμένο σημείο της μεταφοράς. Αυτό δεν ήταν δυνατό."
 
-#: core/job_error.cpp:962
+#: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Το πρωτόκολλο, ή ο εξυπηρετητής, ίσως δεν υποστηρίζει διακεκομμένη λήψη."
 
-#: core/job_error.cpp:965
+#: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Ξαναδοκιμάστε την αίτηση χωρίς προσπάθεια για συνέχιση της μεταφοράς."
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Δεν ήταν δυνατή η μετονομασία του πόρου"
 
-#: core/job_error.cpp:972
+#: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Μια προσπάθεια μετονομασίας του καθορισμένου πόρου <strong>%1</strong> "
 "απέτυχε."
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Αδύνατη η τροποποίηση των αδειών του πόρου"
 
-#: core/job_error.cpp:985
+#: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1989,12 +1989,12 @@ msgstr ""
 "Μια προσπάθεια τροποποίησης των αδειών στον καθορισμένο πόρο <strong>%1</"
 "strong> απέτυχε."
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:997
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Αδύνατη η τροποποίηση ιδιοκτησίας του πόρου"
 
-#: core/job_error.cpp:995
+#: core/job_error.cpp:999
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -2003,23 +2003,23 @@ msgstr ""
 "Μια προσπάθεια τροποποίησης της ιδιοκτησίας στον καθορισμένο πόρο <strong>"
 "%1</strong> απέτυχε."
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Δεν ήταν δυνατή η διαγραφή του πόρου"
 
-#: core/job_error.cpp:1005
+#: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Μια προσπάθεια διαγραφής του καθορισμένου πόρου <strong>%1</strong> απέτυχε."
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1017
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Απροσδόκητος τερματισμός προγράμματος"
 
-#: core/job_error.cpp:1015
+#: core/job_error.cpp:1019
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2028,12 +2028,12 @@ msgstr ""
 "Το πρόγραμμα στον υπολογιστή σας που παρέχει πρόσβαση στο πρωτόκολλο <strong>"
 "%1</strong> τερμάτισε απροσδόκητα."
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
 msgstr "Τελείωσε η μνήμη"
 
-#: core/job_error.cpp:1025
+#: core/job_error.cpp:1029
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2042,12 +2042,12 @@ msgstr ""
 "Το πρόγραμμα στον υπολογιστή σας που παρέχει πρόσβαση στο πρωτόκολλο <strong>"
 "%1</strong> δεν μπόρεσε να αποκτήσει την αναγκαία μνήμη για να συνεχίσει."
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1038
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Άγνωστος διαμεσολαβητής"
 
-#: core/job_error.cpp:1036
+#: core/job_error.cpp:1040
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -2059,7 +2059,7 @@ msgstr ""
 "υπολογιστή υποδηλώνει ότι το ζητούμενο όνομα ήταν αδύνατο να εντοπιστεί στο "
 "Διαδίκτυο."
 
-#: core/job_error.cpp:1042
+#: core/job_error.cpp:1046
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -2070,17 +2070,17 @@ msgstr ""
 "όνομα του διαμεσολαβητή σας. Αυτό όμως είναι απίθανο αν είχατε, μέχρι "
 "πρόσφατα, πρόσβαση στο διαδίκτυο χωρίς προβλήματα."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Ελέγξτε καλά τις ρυθμίσεις διαμεσολαβητή σας και ξαναδοκιμάστε."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Η ταυτοποίηση απέτυχε: Η μέθοδος %1 δεν υποστηρίζεται"
 
-#: core/job_error.cpp:1052
+#: core/job_error.cpp:1056
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2091,7 +2091,7 @@ msgstr ""
 "απέτυχε επειδή η μέθοδος που χρησιμοποιεί ο εξυπηρετητής δεν υποστηρίζεται "
 "από το πρόγραμμα του KDE που υλοποιεί το πρωτόκολλο %1."
 
-#: core/job_error.cpp:1058
+#: core/job_error.cpp:1062
 #, fuzzy, kde-format
 #| msgid ""
 #| "Please file a bug at <a href=\"http://bugs.kde.org/\">http://bugs.kde.org/"
@@ -2104,17 +2104,17 @@ msgstr ""
 "\">http://bugs.kde.org</a> για να πληροφορήσετε την ομάδα του KDE για τη μη "
 "υποστηριζόμενη μέθοδο ταυτοποίησης."
 
-#: core/job_error.cpp:1065
+#: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
 msgstr "Αίτηση διεκόπη"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Εσωτερικό σφάλμα στον εξυπηρετητή"
 
-#: core/job_error.cpp:1075
+#: core/job_error.cpp:1079
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2123,7 +2123,7 @@ msgstr ""
 "Το πρόγραμμα στον εξυπηρετητή που παρέχει πρόσβαση στο πρωτόκολλο <strong>"
 "%1</strong> ανέφερε ένα εσωτερικό σφάλμα: %2."
 
-#: core/job_error.cpp:1081
+#: core/job_error.cpp:1085
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2133,14 +2133,14 @@ msgstr ""
 "εξυπηρετητή. Παρακαλώ σκεφτείτε το ενδεχόμενο να υποβάλετε μια πλήρη αναφορά "
 "σφάλματος όπως περιγράφεται παρακάτω."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr ""
 "Επικοινωνήστε με το διαχειριστή του εξυπηρετητή για να τους επισημάνετε το "
 "πρόβλημα."
 
-#: core/job_error.cpp:1088
+#: core/job_error.cpp:1092
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2149,12 +2149,12 @@ msgstr ""
 "Αν ξέρετε ποιοι είναι οι συγγραφείς του λογισμικού του εξυπηρετητή, "
 "υποβάλετε σε αυτούς την αναφορά σφάλματος."
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1097
 #, kde-format
 msgid "Timeout Error"
 msgstr "Σφάλμα χρονικού ορίου"
 
-#: core/job_error.cpp:1095
+#: core/job_error.cpp:1099
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2173,18 +2173,18 @@ msgstr ""
 "μπορείτε να τροποποιήσετε αυτές τις ρυθμίσεις για τα χρονικά όρια στις "
 "ρυθμίσεις συστήματος του KDE, επιλέγοντας Δίκτυο->Προτιμήσεις σύνδεσης."
 
-#: core/job_error.cpp:1108
+#: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr ""
 "Ο εξυπηρετητής ήταν πολύ απασχολημένος με άλλες αιτήσεις, για να απαντήσει."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Άγνωστο σφάλμα"
 
-#: core/job_error.cpp:1116
+#: core/job_error.cpp:1120
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2193,12 +2193,12 @@ msgstr ""
 "Το πρόγραμμα στον υπολογιστή σας που παρέχει πρόσβαση στο πρωτόκολλο <strong>"
 "%1</strong> ανέφερε ένα άγνωστο σφάλμα: %2."
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1130
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Άγνωστη διακοπή"
 
-#: core/job_error.cpp:1128
+#: core/job_error.cpp:1132
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2207,12 +2207,12 @@ msgstr ""
 "Το πρόγραμμα στον υπολογιστή σας που παρέχει πρόσβαση στο πρωτόκολλο <strong>"
 "%1</strong> ανέφερε μια διακοπή άγνωστου τύπου: %2."
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Δεν ήταν δυνατή η διαγραφή του πρωτότυπου αρχείου"
 
-#: core/job_error.cpp:1140
+#: core/job_error.cpp:1144
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2223,12 +2223,12 @@ msgstr ""
 "πιθανότατα στο τέλος μιας ενέργειας μετακίνησης αρχείου. Το πρωτότυπο αρχείο "
 "<strong>%1</strong> ήταν αδύνατο να διαγραφεί."
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Δεν ήταν δυνατό να διαγραφεί το προσωρινό αρχείο"
 
-#: core/job_error.cpp:1151
+#: core/job_error.cpp:1155
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2239,12 +2239,12 @@ msgstr ""
 "οποίο θα αποθηκευόταν το αρχείο κατά τη λήψη του. Αυτό το προσωρινό αρχείο "
 "<strong>%1</strong> ήταν αδύνατο να διαγραφεί."
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Δεν ήταν δυνατή η μετονομασία του πρωτότυπου αρχείου"
 
-#: core/job_error.cpp:1163
+#: core/job_error.cpp:1167
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2253,12 +2253,12 @@ msgstr ""
 "Η ζητούμενη ενέργεια απαιτούσε τη μετονομασία του πρωτότυπου αρχείου <strong>"
 "%1</strong>, αλλά δεν ήταν δυνατή."
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Δεν ήταν δυνατή η μετονομασία του προσωρινού αρχείου"
 
-#: core/job_error.cpp:1174
+#: core/job_error.cpp:1178
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2267,32 +2267,32 @@ msgstr ""
 "Η ζητούμενη ενέργεια απαιτούσε τη δημιουργία ενός προσωρινού αρχείου <strong>"
 "%1</strong>, αλλά δεν ήταν δυνατό να δημιουργηθεί."
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Δεν ήταν δυνατή η δημιουργία δεσμού"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Δεν ήταν δυνατή η δημιουργία συμβολικού δεσμού"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Ο ζητούμενος συμβολικός δεσμός %1 δεν ήταν δυνατό να δημιουργηθεί."
 
-#: core/job_error.cpp:1191
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "No Content"
 msgstr "Κανένα περιεχόμενο"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1200
 #, kde-format
 msgid "Disk Full"
 msgstr "Ο δίσκος γέμισε"
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2301,7 +2301,7 @@ msgstr ""
 "Το ζητούμενο αρχείο <strong>%1</strong> δεν ήταν δυνατό να γραφτεί γιατί δεν "
 "υπάρχει αρκετός χώρος στο δίσκο."
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1206
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2312,12 +2312,12 @@ msgstr ""
 "αρχείων· 2) αρχειοθέτηση αρχείων σε αφαιρούμενα μέσα όπως το CD· ή 3) "
 "αγοράστε ένα μεγαλύτερο δίσκο."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Ταυτόσημα αρχεία πηγής και προορισμού"
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2326,17 +2326,17 @@ msgstr ""
 "Η ενέργεια δεν ολοκληρώθηκε γιατί η πηγή και ο προορισμός είναι το ίδιο "
 "αρχείο."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Επιλέξτε διαφορετικό όνομα για το αρχείο προορισμού."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Απόθεση αρχείου ή φακέλου στον εαυτό του"
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2345,17 +2345,17 @@ msgstr ""
 "Η ενέργεια δεν ολοκληρώθηκε γιατί το αρχείο ή ο φάκελος πηγής και προορισμού "
 "είναι τα ίδια."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Απόθεση του αντικειμένου σε διαφορετικό αρχείο ή φάκελο."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Μετακίνηση φακέλου στον εαυτό του"
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2364,17 +2364,17 @@ msgstr ""
 "Η ενέργεια δεν ολοκληρώθηκε γιατί η πηγή δεν μπορεί να μετακινηθεί στον "
 "εαυτό της."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Μετακίνηση του αντικειμένου σε διαφορετικό φάκελο."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Αδυναμία επικοινωνίας με τον εξυπηρετητή κωδικών"
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1245
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2383,25 +2383,25 @@ msgstr ""
 "Η ενέργεια δεν ολοκληρώθηκε λόγω αδυναμίας επικοινωνίας με την υπηρεσία "
 "αίτησης κωδικών (kpasswdserver)"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
 "Δοκιμάστε επανεκκίνηση συνεδρίας ή δείτε τα αρχεία καταγραφής για σφάλματα "
 "από το kiod."
 
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Δεν είναι δυνατή η αρχικοποίηση του πρωτοκόλλου %1"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1252
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to Create KIO Worker"
 msgstr "Αδύνατη η δημιουργία io-slave: %1"
 
-#: core/job_error.cpp:1250
+#: core/job_error.cpp:1254
 #, fuzzy, kde-format
 #| msgid ""
 #| "The program on your computer which provides access to the <strong>%1</"
@@ -2415,20 +2415,20 @@ msgstr ""
 "<strong>%1</strong> δεν ήταν δυνατό να εκκινηθεί. Αυτό συνήθως οφείλεται σε "
 "τεχνικούς λόγους."
 
-#: core/job_error.cpp:1255
+#: core/job_error.cpp:1259
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1265
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr ""
 
-#: core/job_error.cpp:1263
+#: core/job_error.cpp:1267
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2436,14 +2436,14 @@ msgid ""
 "destination filesystem does not support files that large"
 msgstr ""
 
-#: core/job_error.cpp:1266
+#: core/job_error.cpp:1270
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
 
-#: core/job_error.cpp:1271
+#: core/job_error.cpp:1275
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Μη τεκμηριωμένο σφάλμα"

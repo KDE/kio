@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 01:32+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2023-08-10 18:43+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -90,13 +90,13 @@ msgstr ""
 "Filsystemet (%2) til målfila godtek ikkje desse teikna i filnamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målfila) med underteikn («_»)."
 
-#: core/copyjob.cpp:1385 core/job_error.cpp:581
+#: core/copyjob.cpp:1385 core/job_error.cpp:585
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
 #: core/copyjob.cpp:1709 core/copyjob.cpp:2393 core/filecopyjob.cpp:373
-#: core/job_error.cpp:570 widgets/paste.cpp:49
+#: core/job_error.cpp:574 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
@@ -386,22 +386,22 @@ msgid ""
 msgstr ""
 "Du treng rotløyve for å fullføra overføring av data. Vil du halda fram?"
 
-#: core/job_error.cpp:33
+#: core/job_error.cpp:37
 #, kde-format
 msgid "Could not read %1."
 msgstr "Klarte ikkje lesa %1."
 
-#: core/job_error.cpp:36
+#: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
 msgstr "Klarte ikkje skriva til %1."
 
-#: core/job_error.cpp:39
+#: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
 msgstr "Klarte ikkje starta prosessen %1."
 
-#: core/job_error.cpp:42
+#: core/job_error.cpp:46
 #, kde-format
 msgid ""
 "Internal Error\n"
@@ -412,62 +412,62 @@ msgstr ""
 "Legg inn ein fullstendig feilrapport på https://bugs.kde.org/.\n"
 "%1"
 
-#: core/job_error.cpp:45
+#: core/job_error.cpp:49
 #, kde-format
 msgid "Malformed URL %1."
 msgstr "Misforma URL %1."
 
-#: core/job_error.cpp:48
+#: core/job_error.cpp:52
 #, kde-format
 msgid "The protocol %1 is not supported."
 msgstr "Protokollen %1 er ikkje støtta."
 
-#: core/job_error.cpp:51
+#: core/job_error.cpp:55
 #, kde-format
 msgid "The protocol %1 is only a filter protocol."
 msgstr "Protokollen %1 er berre ein filterprotokoll."
 
-#: core/job_error.cpp:58
+#: core/job_error.cpp:62
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
 msgstr "%1 er ei mappe, men ei fil var venta."
 
-#: core/job_error.cpp:61
+#: core/job_error.cpp:65
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
 msgstr "%1 er ei fil, men ei mappe var venta."
 
-#: core/job_error.cpp:64
+#: core/job_error.cpp:68
 #, kde-format
 msgid "The file or folder %1 does not exist."
 msgstr "Fila eller mappa %1 finst ikkje."
 
-#: core/job_error.cpp:67
+#: core/job_error.cpp:71
 #, kde-format
 msgid "A file named %1 already exists."
 msgstr "Ei fil med namnet %1 finst frå før."
 
-#: core/job_error.cpp:70
+#: core/job_error.cpp:74
 #, kde-format
 msgid "A folder named %1 already exists."
 msgstr "Ei mappe med namnet %1 finst frå før."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "No hostname specified."
 msgstr "Ingen vert er oppgjeve."
 
-#: core/job_error.cpp:73
+#: core/job_error.cpp:77
 #, kde-format
 msgid "Unknown host %1"
 msgstr "Ukjend vert %1"
 
-#: core/job_error.cpp:76
+#: core/job_error.cpp:80
 #, kde-format
 msgid "Access denied to %1."
 msgstr "Nekta tilgang til %1."
 
-#: core/job_error.cpp:79
+#: core/job_error.cpp:83
 #, kde-format
 msgid ""
 "Access denied.\n"
@@ -476,47 +476,47 @@ msgstr ""
 "Nekta tilgang.\n"
 "Klarte ikkje skriva til %1."
 
-#: core/job_error.cpp:82
+#: core/job_error.cpp:86
 #, kde-format
 msgid "Could not enter folder %1."
 msgstr "Klarte ikkje gå inn i mappa %1."
 
-#: core/job_error.cpp:85
+#: core/job_error.cpp:89
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
 msgstr "Protokollen %1 implementerer ikkje ei katalogteneste."
 
-#: core/job_error.cpp:88
+#: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
 msgstr "Fann ei syklisk lenkje i %1."
 
-#: core/job_error.cpp:91
+#: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
 msgstr "Fann ei syklisk lenkje under kopiering av %1."
 
-#: core/job_error.cpp:94
+#: core/job_error.cpp:98
 #, kde-format
 msgid "Could not create socket for accessing %1."
 msgstr "Klarte ikkje laga socket for tilgang til %1."
 
-#: core/job_error.cpp:97
+#: core/job_error.cpp:101
 #, kde-format
 msgid "Could not connect to host %1."
 msgstr "Klarte ikkje kopla til verten %1."
 
-#: core/job_error.cpp:100
+#: core/job_error.cpp:104
 #, kde-format
 msgid "Connection to host %1 is broken."
 msgstr "Tilkoplinga til verten %1 er broten."
 
-#: core/job_error.cpp:103
+#: core/job_error.cpp:107
 #, kde-format
 msgid "The protocol %1 is not a filter protocol."
 msgstr "Protokollen %1 er ingen filterprotokoll."
 
-#: core/job_error.cpp:106
+#: core/job_error.cpp:110
 #, kde-format
 msgid ""
 "Could not mount device.\n"
@@ -527,7 +527,7 @@ msgstr ""
 "Den rapporterte feilen var:\n"
 "%1"
 
-#: core/job_error.cpp:109
+#: core/job_error.cpp:113
 #, kde-format
 msgid ""
 "Could not unmount device.\n"
@@ -538,82 +538,82 @@ msgstr ""
 "Den rapporterte feilen var:\n"
 "%1"
 
-#: core/job_error.cpp:112
+#: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
 msgstr "Klarte ikkje lesa fila %1."
 
-#: core/job_error.cpp:115
+#: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
 msgstr "Klarte ikkje skriva til fila %1."
 
-#: core/job_error.cpp:118
+#: core/job_error.cpp:122
 #, kde-format
 msgid "Could not bind %1."
 msgstr "Klarte ikkje binda %1."
 
-#: core/job_error.cpp:121
+#: core/job_error.cpp:125
 #, kde-format
 msgid "Could not listen %1."
 msgstr "Klarte ikkje lytta til %1."
 
-#: core/job_error.cpp:124
+#: core/job_error.cpp:128
 #, kde-format
 msgid "Could not accept %1."
 msgstr "Klarte ikkje akseptera %1."
 
-#: core/job_error.cpp:130
+#: core/job_error.cpp:134
 #, kde-format
 msgid "Could not access %1."
 msgstr "Fekk ikkje tilgang til %1."
 
-#: core/job_error.cpp:133
+#: core/job_error.cpp:137
 #, kde-format
 msgid "Could not terminate listing %1."
 msgstr "Klarte ikkje stoppa listing %1."
 
-#: core/job_error.cpp:136
+#: core/job_error.cpp:140
 #, kde-format
 msgid "Could not make folder %1."
 msgstr "Klarte ikkje laga mappa %1."
 
-#: core/job_error.cpp:139
+#: core/job_error.cpp:143
 #, kde-format
 msgid "Could not remove folder %1."
 msgstr "Klarte ikkje fjerna mappa %1."
 
-#: core/job_error.cpp:142
+#: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
 msgstr "Klarte ikkje gjenoppta fila %1."
 
-#: core/job_error.cpp:145
+#: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
 msgstr "Klarte ikkje endra namnet på fila %1."
 
-#: core/job_error.cpp:148
+#: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
 msgstr "Klarte ikkje endra løyve for %1."
 
-#: core/job_error.cpp:151
+#: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
 msgstr "Klarte ikkje endra løyve for %1."
 
-#: core/job_error.cpp:154
+#: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
 msgstr "Klarte ikkje sletta fila %1."
 
-#: core/job_error.cpp:157
+#: core/job_error.cpp:161
 #, kde-format
 msgid "The process for the %1 protocol died unexpectedly."
 msgstr "Prosessen til %1-protokollen døydde uventa."
 
-#: core/job_error.cpp:160
+#: core/job_error.cpp:164
 #, kde-format
 msgid ""
 "Error. Out of memory.\n"
@@ -622,7 +622,7 @@ msgstr ""
 "Feil. Ikkje nok minne.\n"
 "%1"
 
-#: core/job_error.cpp:163
+#: core/job_error.cpp:167
 #, kde-format
 msgid ""
 "Unknown proxy host\n"
@@ -631,12 +631,12 @@ msgstr ""
 "Ukjend mellomtenar\n"
 "%1"
 
-#: core/job_error.cpp:166
+#: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
 msgstr "Feil ved autorisering. %1-autentisering er ikkje støtta"
 
-#: core/job_error.cpp:172
+#: core/job_error.cpp:176
 #, kde-format
 msgid ""
 "User canceled action\n"
@@ -645,7 +645,7 @@ msgstr ""
 "Brukaren avbraut handling\n"
 "%1"
 
-#: core/job_error.cpp:175
+#: core/job_error.cpp:179
 #, kde-format
 msgid ""
 "Internal error in server\n"
@@ -654,7 +654,7 @@ msgstr ""
 "Intern feil i tenar\n"
 "%1"
 
-#: core/job_error.cpp:178
+#: core/job_error.cpp:182
 #, kde-format
 msgid ""
 "Timeout on server\n"
@@ -663,7 +663,7 @@ msgstr ""
 "Tidsgrense på tenar\n"
 "%1"
 
-#: core/job_error.cpp:181
+#: core/job_error.cpp:185
 #, kde-format
 msgid ""
 "Unknown error\n"
@@ -672,7 +672,7 @@ msgstr ""
 "Ukjend feil\n"
 "%1"
 
-#: core/job_error.cpp:184
+#: core/job_error.cpp:188
 #, kde-format
 msgid ""
 "Unknown interrupt\n"
@@ -681,7 +681,7 @@ msgstr ""
 "Ukjend avbrot\n"
 "%1"
 
-#: core/job_error.cpp:195
+#: core/job_error.cpp:199
 #, kde-format
 msgid ""
 "Could not delete original file %1.\n"
@@ -690,7 +690,7 @@ msgstr ""
 "Klarte ikkje sletta originalfila %1.\n"
 "Kontroller tilgangsløyva."
 
-#: core/job_error.cpp:198
+#: core/job_error.cpp:202
 #, kde-format
 msgid ""
 "Could not delete partial file %1.\n"
@@ -699,7 +699,7 @@ msgstr ""
 "Klarte ikkje sletta den delvis nedlasta fila %1.\n"
 "Kontroller tilgangsløyva."
 
-#: core/job_error.cpp:201
+#: core/job_error.cpp:205
 #, kde-format
 msgid ""
 "Could not rename original file %1.\n"
@@ -708,7 +708,7 @@ msgstr ""
 "Klarte ikkje endra namnet på originalfila %1\n"
 "Kontroller tilgangsløyva."
 
-#: core/job_error.cpp:204
+#: core/job_error.cpp:208
 #, kde-format
 msgid ""
 "Could not rename partial file %1.\n"
@@ -717,7 +717,7 @@ msgstr ""
 "Klarte ikkje endra namnet på den delvis nedlasta fila %1.\n"
 "Kontroller tilgangsløyva."
 
-#: core/job_error.cpp:207
+#: core/job_error.cpp:211
 #, kde-format
 msgid ""
 "Could not create symlink %1.\n"
@@ -726,7 +726,7 @@ msgstr ""
 "Klarte ikkje laga symbolsk lenkje %1.\n"
 "Kontroller tilgangsløyva."
 
-#: core/job_error.cpp:210
+#: core/job_error.cpp:214
 #, kde-format
 msgid ""
 "Cannot create symlinks at %1.\n"
@@ -735,12 +735,12 @@ msgstr ""
 "Kan ikkje oppretta symbolske lenkjer på %1.\n"
 "Filsystemet du overfører til støttar ikkje symbolske lenkjer."
 
-#: core/job_error.cpp:216
+#: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
 msgstr "Du har ikkje nok ledig diskplass til å lagra %1."
 
-#: core/job_error.cpp:219
+#: core/job_error.cpp:223
 #, kde-format
 msgid ""
 "The source and destination are the same file.\n"
@@ -749,17 +749,17 @@ msgstr ""
 "Kjelda og målet er den same fila.\n"
 "%1"
 
-#: core/job_error.cpp:227
+#: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
 msgstr "%1 er ikkje tilgjengeleg, men tenaren treng han."
 
-#: core/job_error.cpp:230
+#: core/job_error.cpp:234
 #, kde-format
 msgid "Access to restricted port in POST denied."
 msgstr "Tilgang nekta til avgrensa port i POST."
 
-#: core/job_error.cpp:233
+#: core/job_error.cpp:237
 #, kde-format
 msgid ""
 "The required content size information was not provided for a POST operation."
@@ -767,27 +767,27 @@ msgstr ""
 "Den nødvendige informasjon om storleiken på innhaldet var ikkje oppgitt for "
 "POST-operasjon."
 
-#: core/job_error.cpp:236
+#: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
 msgstr "Du kan ikkje sleppa ei fil eller mappe på seg sjølv"
 
-#: core/job_error.cpp:239
+#: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
 msgstr "Du kan ikkje flytta ei mappe til seg sjølv"
 
-#: core/job_error.cpp:242
+#: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
 msgstr "Klarte ikkje kommunisera med den lokale passordtenaren"
 
-#: core/job_error.cpp:245
+#: core/job_error.cpp:249
 #, kde-format
 msgid "Unable to create KIO worker. %1"
 msgstr "Klarte ikkje laga KIO-arbeidar. %1"
 
-#: core/job_error.cpp:249
+#: core/job_error.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -797,7 +797,7 @@ msgstr ""
 "Fila <filename>%1</filename> er for stor til å overførast. Filsystemet du "
 "overfører til støttar berre filer opp til 4 GiB."
 
-#: core/job_error.cpp:254
+#: core/job_error.cpp:258
 #, kde-format
 msgid ""
 "Privilege escalation is not necessary because \n"
@@ -808,12 +808,12 @@ msgstr ""
 "då «%1» er eigd av gjeldande brukar.\n"
 "Prøv på nytt etter å ha endra løyva."
 
-#: core/job_error.cpp:257
+#: core/job_error.cpp:261
 #, kde-format
 msgid "File is too large to be trashed."
 msgstr "Fila er for stor til å få plass i papirkorga."
 
-#: core/job_error.cpp:260
+#: core/job_error.cpp:264
 #, kde-format
 msgid ""
 "Unknown error code %1\n"
@@ -824,82 +824,82 @@ msgstr ""
 "%2\n"
 "Legg inn ein fullstendig feilrapport på https://bugs.kde.org/."
 
-#: core/job_error.cpp:291
+#: core/job_error.cpp:295
 #, kde-format
 msgctxt "@info url"
 msgid "(unknown)"
 msgstr "(ukjend)"
 
-#: core/job_error.cpp:297
+#: core/job_error.cpp:301
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
 msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
-#: core/job_error.cpp:301
+#: core/job_error.cpp:305
 #, kde-format
 msgid "<b>Technical reason</b>: "
 msgstr "<b>Teknisk grunngjeving</b>: "
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<b>Details of the request</b>:"
 msgstr "<b>Detaljar om førespurnaden</b>:"
 
-#: core/job_error.cpp:303
+#: core/job_error.cpp:307
 #, kde-format
 msgid "<li>URL: %1</li>"
 msgstr "<li>Nettadresse: %1</li>"
 
-#: core/job_error.cpp:305
+#: core/job_error.cpp:309
 #, kde-format
 msgid "<li>Protocol: %1</li>"
 msgstr "<li>Protokoll: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Date and time: %1</li>"
 msgstr "<li>Dato og klokkeslett: %1</li>"
 
-#: core/job_error.cpp:307
+#: core/job_error.cpp:311
 #, kde-format
 msgid "<li>Additional information: %1</li>"
 msgstr "<li>Tilleggsinformasjon: %1</li>"
 
-#: core/job_error.cpp:309
+#: core/job_error.cpp:313
 #, kde-format
 msgid "<b>Possible causes</b>:"
 msgstr "<b>Moglege årsaker</b>:"
 
-#: core/job_error.cpp:313
+#: core/job_error.cpp:317
 #, kde-format
 msgid "<b>Possible solutions</b>:"
 msgstr "<b>Moglege løysingar</b>:"
 
-#: core/job_error.cpp:357
+#: core/job_error.cpp:361
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
 msgstr "(ukjend)"
 
-#: core/job_error.cpp:370
+#: core/job_error.cpp:374
 #, kde-format
 msgid ""
 "Contact your appropriate computer support system, whether the system "
 "administrator, or technical support group for further assistance."
 msgstr "Ta kontakt med brukarstøtta eller systemadministratoren for hjelp."
 
-#: core/job_error.cpp:374
+#: core/job_error.cpp:378
 #, kde-format
 msgid "Contact the administrator of the server for further assistance."
 msgstr "Ta kontakt med tenaradministratoren for hjelp."
 
-#: core/job_error.cpp:377
+#: core/job_error.cpp:381
 #, kde-format
 msgid "Check your access permissions on this resource."
 msgstr "Kontroller tilgangsløyva dine til denne ressursen."
 
-#: core/job_error.cpp:379
+#: core/job_error.cpp:383
 #, kde-format
 msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
@@ -908,7 +908,7 @@ msgstr ""
 "Du har kanskje ikkje tilstrekkelege tilgangsløyve til å gjennomføra denne "
 "operasjonen på denne ressursen."
 
-#: core/job_error.cpp:382
+#: core/job_error.cpp:386
 #, kde-format
 msgid ""
 "The file may be in use (and thus locked) by another user or application."
@@ -916,7 +916,7 @@ msgstr ""
 "Fila er kanskje i bruk (og dermed låst) av ein annan brukar eller eit anna "
 "program."
 
-#: core/job_error.cpp:385
+#: core/job_error.cpp:389
 #, kde-format
 msgid ""
 "Check to make sure that no other application or user is using the file or "
@@ -924,18 +924,18 @@ msgid ""
 msgstr ""
 "Sjå til at ingen andre program eller brukarar har låst fila eller brukar ho."
 
-#: core/job_error.cpp:388
+#: core/job_error.cpp:392
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
 msgstr ""
 "Det kan òg henda at det er feil ved maskinvara, men det er lite sannsynleg."
 
-#: core/job_error.cpp:390
+#: core/job_error.cpp:394
 #, kde-format
 msgid "You may have encountered a bug in the program."
 msgstr "Du har kanskje støytt på ein feil i programmet."
 
-#: core/job_error.cpp:392
+#: core/job_error.cpp:396
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
@@ -944,7 +944,7 @@ msgstr ""
 "Dette skjer sannsynlegvis på grunn av ein feil i programmet. Du bør kanskje "
 "senda inn ein full feilrapport som skildra under."
 
-#: core/job_error.cpp:395
+#: core/job_error.cpp:399
 #, kde-format
 msgid ""
 "Update your software to the latest version. Your distribution should provide "
@@ -953,7 +953,7 @@ msgstr ""
 "Oppdater programvara di til siste versjon. Distribusjonen din har "
 "sannsynlegvis verktøy til å oppdatera programma med."
 
-#: core/job_error.cpp:398
+#: core/job_error.cpp:402
 #, kde-format
 msgid ""
 "When all else fails, please consider helping the KDE team or the third party "
@@ -972,12 +972,12 @@ msgstr ""
 "er rapportert, bør du notera alle opplysningane over og ta dei med i "
 "feilrapporten saman med alle andre detaljar du trur kan hjelpa."
 
-#: core/job_error.cpp:407
+#: core/job_error.cpp:411
 #, kde-format
 msgid "There may have been a problem with your network connection."
 msgstr "Det er kanskje eit problem med nettverkssambandet."
 
-#: core/job_error.cpp:411
+#: core/job_error.cpp:415
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration. If you have "
@@ -986,7 +986,7 @@ msgstr ""
 "Det kan vera eit problem med nettverksoppsettet. Det er lite sannsynleg "
 "dersom du ikkje nyleg har hatt problem med tilgangen til Internett."
 
-#: core/job_error.cpp:415
+#: core/job_error.cpp:419
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
@@ -995,42 +995,42 @@ msgstr ""
 "Problemet kan liggja ein stad i nettverket mellom tenaren og denne "
 "datamaskina."
 
-#: core/job_error.cpp:417
+#: core/job_error.cpp:421
 #, kde-format
 msgid "Try again, either now or at a later time."
 msgstr "Prøv igjen, anten no eller seinare ein gong."
 
-#: core/job_error.cpp:418
+#: core/job_error.cpp:422
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
 msgstr "Ein protokollfeil eller inkompatibilitet kan ha oppstått."
 
-#: core/job_error.cpp:419
+#: core/job_error.cpp:423
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
 msgstr "Sjå til at ressursen faktisk finst og prøv igjen."
 
-#: core/job_error.cpp:420
+#: core/job_error.cpp:424
 #, kde-format
 msgid "The specified resource may not exist."
 msgstr "Ressursen finst kanskje ikkje."
 
-#: core/job_error.cpp:422
+#: core/job_error.cpp:426
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
 msgstr "Dobbeltsjekk at adressa er rett og prøv igjen."
 
-#: core/job_error.cpp:424
+#: core/job_error.cpp:428
 #, kde-format
 msgid "Check your network connection status."
 msgstr "Kontroller nettverkssambandet."
 
-#: core/job_error.cpp:428
+#: core/job_error.cpp:432
 #, kde-format
 msgid "Cannot Open Resource For Reading"
 msgstr "Klarar ikkje opna ressurs for lesing"
 
-#: core/job_error.cpp:430
+#: core/job_error.cpp:434
 #, kde-format
 msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
@@ -1039,17 +1039,17 @@ msgstr ""
 "Dette tyder at innhaldet i fila eller mappa <strong>%1</strong> ikkje kunne "
 "lesast, sidan du ikkje fekk lesetilgang."
 
-#: core/job_error.cpp:435
+#: core/job_error.cpp:439
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
 msgstr "Du har kanskje ikkje løyve til å lesa fila eller opna mappa."
 
-#: core/job_error.cpp:442
+#: core/job_error.cpp:446
 #, kde-format
 msgid "Cannot Open Resource For Writing"
 msgstr "Klarar ikkje opna ressurs for skriving"
 
-#: core/job_error.cpp:444
+#: core/job_error.cpp:448
 #, kde-format
 msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
@@ -1058,17 +1058,17 @@ msgstr ""
 "Dette tyder at fila <strong>%1</strong> ikkje kunne skrivast til, sidan du "
 "ikkje fekk skrivetilgang."
 
-#: core/job_error.cpp:453
+#: core/job_error.cpp:457
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
 msgstr "Klarte ikkje starta prosess som %1-protokollen krev"
 
-#: core/job_error.cpp:454
+#: core/job_error.cpp:458
 #, kde-format
 msgid "Unable to Launch Process"
 msgstr "Kan ikkje starta prosess"
 
-#: core/job_error.cpp:456
+#: core/job_error.cpp:460
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1078,7 +1078,7 @@ msgstr ""
 "Klarte ikkje finna/starta programmet som gjev tilgang til <strong>%1</"
 "strong>-protokollen. Dette skjer oftast grunna tekniske feil."
 
-#: core/job_error.cpp:461
+#: core/job_error.cpp:465
 #, kde-format
 msgid ""
 "The program which provides compatibility with this protocol may not have "
@@ -1089,12 +1089,12 @@ msgstr ""
 "oppdatert då du sist oppdaterte KDE. I så fall kan det henda programmet "
 "ikkje startar fordi det er inkompatibelt med denne versjonen."
 
-#: core/job_error.cpp:470
+#: core/job_error.cpp:474
 #, kde-format
 msgid "Internal Error"
 msgstr "Intern feil"
 
-#: core/job_error.cpp:472
+#: core/job_error.cpp:476
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1103,12 +1103,12 @@ msgstr ""
 "Programmet som gjev tilgang til <strong>%1</strong>-protokollen har "
 "rapportert ein intern feil."
 
-#: core/job_error.cpp:480
+#: core/job_error.cpp:484
 #, kde-format
 msgid "Improperly Formatted URL"
 msgstr "Feil nettadresseformatering"
 
-#: core/job_error.cpp:482
+#: core/job_error.cpp:486
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1121,12 +1121,12 @@ msgstr ""
 "slik:<blockquote><strong>protokoll://brukar:passord@www.eksempel.no:port/"
 "mappe/filnamn.etternamn?spørjing=verdi</strong></blockquote>"
 
-#: core/job_error.cpp:491
+#: core/job_error.cpp:495
 #, kde-format
 msgid "Unsupported Protocol %1"
 msgstr "Protokollen %1 er ikkje støtta"
 
-#: core/job_error.cpp:493
+#: core/job_error.cpp:497
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
@@ -1135,12 +1135,12 @@ msgstr ""
 "Protokollen <strong>%1</strong> er ikkje støtta av KDE-programma som er "
 "installerte på denne maskina."
 
-#: core/job_error.cpp:496
+#: core/job_error.cpp:500
 #, kde-format
 msgid "The requested protocol may not be supported."
 msgstr "Den førespurde protokollen er kanskje ikkje støtta."
 
-#: core/job_error.cpp:498
+#: core/job_error.cpp:502
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
@@ -1150,7 +1150,7 @@ msgstr ""
 "protokollen."
 
 # Lèt «KIO worker» òg stå på engelsk, då det er eit nyttigare søkeord.
-#: core/job_error.cpp:502
+#: core/job_error.cpp:506
 #, kde-format
 msgid ""
 "You may perform a search on the Internet for a software plugin (called a "
@@ -1161,24 +1161,24 @@ msgstr ""
 "arbeidar»/«KIO worker») som støttar denne protokollen. Ein mogleg stad å "
 "prøva er <a href=\"https://store.kde.org/\">https://store.kde.org/</a>."
 
-#: core/job_error.cpp:510
+#: core/job_error.cpp:514
 #, kde-format
 msgid "URL Does Not Refer to a Resource."
 msgstr "Nettadressa viser ikkje til nokon ressurs."
 
-#: core/job_error.cpp:511
+#: core/job_error.cpp:515
 #, kde-format
 msgid "Protocol is a Filter Protocol"
 msgstr "Protokollen er ein filterprotokoll"
 
-#: core/job_error.cpp:513
+#: core/job_error.cpp:517
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr "Nettadressa du oppgav viser ikkje til nokon ressurs."
 
-#: core/job_error.cpp:517
+#: core/job_error.cpp:521
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol; the "
@@ -1191,12 +1191,12 @@ msgstr ""
 "eit slikt tilfelle. Denne hendinga er sjeldan, og skuldast sannsynlegvis ein "
 "programmeringsfeil."
 
-#: core/job_error.cpp:525
+#: core/job_error.cpp:529
 #, kde-format
 msgid "Unsupported Action: %1"
 msgstr "Ustøtta handling: %1"
 
-#: core/job_error.cpp:527
+#: core/job_error.cpp:531
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
@@ -1205,7 +1205,7 @@ msgstr ""
 "Den førespurde handlinga er ikkje støtta av KDE-programmet som implementerer "
 "<strong>%1</strong>-protokollen."
 
-#: core/job_error.cpp:531
+#: core/job_error.cpp:535
 #, kde-format
 msgid ""
 "This error is very much dependent on the KDE program. The additional "
@@ -1215,17 +1215,17 @@ msgstr ""
 "Denne feilen er i stor grad avhengig av KDE-programmet. Ekstrainformasjonen "
 "bør gje deg meir informasjon enn du kan få gjennom inn/ut-arkitekturen i KDE."
 
-#: core/job_error.cpp:535
+#: core/job_error.cpp:539
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
 msgstr "Forsøk å finna ein annan måte å gjera det same på."
 
-#: core/job_error.cpp:540
+#: core/job_error.cpp:544
 #, kde-format
 msgid "File Expected"
 msgstr "Fil venta"
 
-#: core/job_error.cpp:542
+#: core/job_error.cpp:546
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
@@ -1233,17 +1233,17 @@ msgid ""
 msgstr ""
 "Førespurnaden forventa ei fil, men fann mappa <strong>%1</strong> i staden."
 
-#: core/job_error.cpp:545
+#: core/job_error.cpp:549
 #, kde-format
 msgid "This may be an error on the server side."
 msgstr "Dette kan skuldast ein feil på tenarsida."
 
-#: core/job_error.cpp:550
+#: core/job_error.cpp:554
 #, kde-format
 msgid "Folder Expected"
 msgstr "Mappe venta"
 
-#: core/job_error.cpp:552
+#: core/job_error.cpp:556
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
@@ -1251,17 +1251,17 @@ msgid ""
 msgstr ""
 "Førespurnaden forventa ei mappe, men fann fila <strong>%1</strong> i staden."
 
-#: core/job_error.cpp:560
+#: core/job_error.cpp:564
 #, kde-format
 msgid "File or Folder Does Not Exist"
 msgstr "Fila eller mappa finst ikkje."
 
-#: core/job_error.cpp:562
+#: core/job_error.cpp:566
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
 msgstr "Den oppgjevne fila eller mappa <strong>%1</strong> finst ikkje."
 
-#: core/job_error.cpp:572
+#: core/job_error.cpp:576
 #, kde-format
 msgid ""
 "The requested file could not be created because a file with the same name "
@@ -1270,22 +1270,22 @@ msgstr ""
 "Den førespurde fila kunne ikkje opprettast fordi det alt finst ei fil med "
 "det namnet."
 
-#: core/job_error.cpp:575
+#: core/job_error.cpp:579
 #, kde-format
 msgid "Try moving the current file out of the way first, and then try again."
 msgstr "Prøv å flytta den gamle fila vekk først."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Delete the current file and try again."
 msgstr "Slett den gamle fila og prøv igjen."
 
-#: core/job_error.cpp:577
+#: core/job_error.cpp:581
 #, kde-format
 msgid "Choose an alternate filename for the new file."
 msgstr "Vel eit anna namn på den nye fila."
 
-#: core/job_error.cpp:583
+#: core/job_error.cpp:587
 #, kde-format
 msgid ""
 "The requested folder could not be created because a folder with the same "
@@ -1294,27 +1294,27 @@ msgstr ""
 "Den førespurde mappa kunne ikkje opprettast fordi det alt finst ei mappe med "
 "det namnet."
 
-#: core/job_error.cpp:586
+#: core/job_error.cpp:590
 #, kde-format
 msgid "Try moving the current folder out of the way first, and then try again."
 msgstr "Prøv å flytta den gamle mappa vekk først, og så prøv igjen."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Delete the current folder and try again."
 msgstr "Slett den gamle mappa og prøv igjen."
 
-#: core/job_error.cpp:588
+#: core/job_error.cpp:592
 #, kde-format
 msgid "Choose an alternate name for the new folder."
 msgstr "Vel eit anna namn på den nye mappa."
 
-#: core/job_error.cpp:592
+#: core/job_error.cpp:596
 #, kde-format
 msgid "Unknown Host"
 msgstr "Ukjend vert"
 
-#: core/job_error.cpp:594
+#: core/job_error.cpp:598
 #, kde-format
 msgid ""
 "An unknown host error indicates that the server with the requested name, "
@@ -1323,34 +1323,34 @@ msgstr ""
 "Feilmeldinga ukjend vert tyder at tenaren med namnet <strong>%1</strong> "
 "ikkje vart funnen på Internett."
 
-#: core/job_error.cpp:599
+#: core/job_error.cpp:603
 #, kde-format
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
 "Namnet %1, som du oppgav, finst kanskje ikkje. Kanskje du har skrive feil."
 
-#: core/job_error.cpp:607
+#: core/job_error.cpp:611
 #, kde-format
 msgid "Access Denied"
 msgstr "Nekta tilgang"
 
-#: core/job_error.cpp:609
+#: core/job_error.cpp:613
 #, kde-format
 msgid "Access was denied to the specified resource, <strong>%1</strong>."
 msgstr "Nekta tilgang til den spesifiserte ressursen <strong>%1</strong>."
 
-#: core/job_error.cpp:613 core/job_error.cpp:889
+#: core/job_error.cpp:617 core/job_error.cpp:893
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
 msgstr "Du har kanskje oppgjeve feil eller ingen autentiseringsinformasjon."
 
-#: core/job_error.cpp:616 core/job_error.cpp:892
+#: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
 msgstr "Kontoen din har kanskje ikkje tilgangsløyve til denne ressursen."
 
-#: core/job_error.cpp:619 core/job_error.cpp:896 core/job_error.cpp:914
+#: core/job_error.cpp:623 core/job_error.cpp:900 core/job_error.cpp:918
 #, kde-format
 msgid ""
 "Retry the request and ensure your authentication details are entered "
@@ -1358,12 +1358,12 @@ msgid ""
 msgstr ""
 "Prøv førespurnaden på nytt og sjå til at autentiseringsinformasjonen er rett."
 
-#: core/job_error.cpp:628
+#: core/job_error.cpp:632
 #, kde-format
 msgid "Write Access Denied"
 msgstr "Nekta skrivetilgang"
 
-#: core/job_error.cpp:630
+#: core/job_error.cpp:634
 #, kde-format
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
@@ -1371,12 +1371,12 @@ msgid ""
 msgstr ""
 "Dette tyder at forsøket på å skriva til fila <strong>%1</strong> vart nekta."
 
-#: core/job_error.cpp:638
+#: core/job_error.cpp:642
 #, kde-format
 msgid "Unable to Enter Folder"
 msgstr "Klarar ikkje gå inn i mappe"
 
-#: core/job_error.cpp:640
+#: core/job_error.cpp:644
 #, kde-format
 msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
@@ -1384,17 +1384,17 @@ msgid ""
 msgstr ""
 "Dette tyder at eit forsøk på å opna mappa <strong>%1</strong> vart nekta."
 
-#: core/job_error.cpp:648
+#: core/job_error.cpp:652
 #, kde-format
 msgid "Folder Listing Unavailable"
 msgstr "Mappeliste ikkje tilgjengeleg"
 
-#: core/job_error.cpp:649
+#: core/job_error.cpp:653
 #, kde-format
 msgid "Protocol %1 is not a Filesystem"
 msgstr "Protokollen %1 er ikkje noko filsystem"
 
-#: core/job_error.cpp:651
+#: core/job_error.cpp:655
 #, kde-format
 msgid ""
 "This means that a request was made which requires determining the contents "
@@ -1404,12 +1404,12 @@ msgstr ""
 "Dette tyder at førespurnaden ikkje klarte å avgjera innhaldet i mappa fordi "
 "KDE-programmet som støttar protokollen ikkje klarar det."
 
-#: core/job_error.cpp:659
+#: core/job_error.cpp:663
 #, kde-format
 msgid "Cyclic Link Detected"
 msgstr "Syklisk lenkje oppdaga"
 
-#: core/job_error.cpp:661
+#: core/job_error.cpp:665
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1421,7 +1421,7 @@ msgstr ""
 "plasseringar. KDE oppdaga ei lenkje eller ei lenkjefølgje som går i uendeleg "
 "lykkje. Fila er altså (kanskje via omvegar) ei lenkje til seg sjølv."
 
-#: core/job_error.cpp:666 core/job_error.cpp:692
+#: core/job_error.cpp:670 core/job_error.cpp:696
 #, kde-format
 msgid ""
 "Delete one part of the loop in order that it does not cause an infinite "
@@ -1430,27 +1430,27 @@ msgstr ""
 "Slett ein del av lenkjefølgja slik at ho ikkje lenger er ei uendeleg lykkje, "
 "og prøv igjen."
 
-#: core/job_error.cpp:676
+#: core/job_error.cpp:680
 #, kde-format
 msgid "Request Aborted By User"
 msgstr "Førespurnad avbroten av brukaren"
 
-#: core/job_error.cpp:678 core/job_error.cpp:1067
+#: core/job_error.cpp:682 core/job_error.cpp:1071
 #, kde-format
 msgid "The request was not completed because it was aborted."
 msgstr "Fullførte ikkje førespurnaden, fordi han vart avbroten."
 
-#: core/job_error.cpp:680 core/job_error.cpp:935 core/job_error.cpp:1069
+#: core/job_error.cpp:684 core/job_error.cpp:939 core/job_error.cpp:1073
 #, kde-format
 msgid "Retry the request."
 msgstr "Prøv førespurnaden om att."
 
-#: core/job_error.cpp:684
+#: core/job_error.cpp:688
 #, kde-format
 msgid "Cyclic Link Detected During Copy"
 msgstr "Syklisk lenkje oppdaga under kopiering"
 
-#: core/job_error.cpp:686
+#: core/job_error.cpp:690
 #, kde-format
 msgid ""
 "UNIX environments are commonly able to link a file or folder to a separate "
@@ -1463,17 +1463,17 @@ msgstr ""
 "ei lenkjefølgje som går i uendeleg lykkje. Fila er altså (kanskje via "
 "omvegar) ei lenkje til seg sjølv."
 
-#: core/job_error.cpp:698
+#: core/job_error.cpp:702
 #, kde-format
 msgid "Could Not Create Network Connection"
 msgstr "Klarte ikkje opna nettverkssamband"
 
-#: core/job_error.cpp:699
+#: core/job_error.cpp:703
 #, kde-format
 msgid "Could Not Create Socket"
 msgstr "Klarte ikkje laga socket"
 
-#: core/job_error.cpp:701
+#: core/job_error.cpp:705
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1482,8 +1482,8 @@ msgstr ""
 "Dette er ein nokså teknisk feil som inneber at ei eining for "
 "nettverkskommunikasjon (ein socket) ikkje kunne opprettast."
 
-#: core/job_error.cpp:704 core/job_error.cpp:853 core/job_error.cpp:866
-#: core/job_error.cpp:877
+#: core/job_error.cpp:708 core/job_error.cpp:857 core/job_error.cpp:870
+#: core/job_error.cpp:881
 #, kde-format
 msgid ""
 "The network connection may be incorrectly configured, or the network "
@@ -1492,19 +1492,19 @@ msgstr ""
 "Nettverkssambandet er kanskje feil sett opp eller nettverksgrensesnittet er "
 "ikkje aktivt."
 
-#: core/job_error.cpp:710
+#: core/job_error.cpp:714
 #, kde-format
 msgid "Connection to Server Refused"
 msgstr "Nekta tilgang til tenar"
 
-#: core/job_error.cpp:712
+#: core/job_error.cpp:716
 #, kde-format
 msgid ""
 "The server <strong>%1</strong> refused to allow this computer to make a "
 "connection."
 msgstr "Tenaren <strong>%1</strong> nekta tilkoplinga frå denne datamaskina."
 
-#: core/job_error.cpp:716
+#: core/job_error.cpp:720
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
@@ -1513,7 +1513,7 @@ msgstr ""
 "Tenaren er kanskje ikkje sett opp til å tillata førespurnadar, sjølv om han "
 "er kopla til Internett."
 
-#: core/job_error.cpp:719
+#: core/job_error.cpp:723
 #, kde-format
 msgid ""
 "The server, while currently connected to the Internet, may not be running "
@@ -1522,7 +1522,7 @@ msgstr ""
 "Tenaren køyrer kanskje ikkje den førespurde tenesta (%1), sjølv om han er "
 "kopla til Internett."
 
-#: core/job_error.cpp:723
+#: core/job_error.cpp:727
 #, kde-format
 msgid ""
 "A network firewall (a device which restricts Internet requests), either "
@@ -1533,12 +1533,12 @@ msgstr ""
 "innskrenkar Internett-tilgang) i nettverket ditt eller nettverket til "
 "tenaren."
 
-#: core/job_error.cpp:730
+#: core/job_error.cpp:734
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
 msgstr "Sambandet til tenaren vart uventa kopla ned"
 
-#: core/job_error.cpp:732
+#: core/job_error.cpp:736
 #, kde-format
 msgid ""
 "Although a connection was established to <strong>%1</strong>, the connection "
@@ -1547,7 +1547,7 @@ msgstr ""
 "Sjølv om sambandet til <strong>%1</strong> vart oppretta, vart det kopla ned "
 "på eit uventa tidspunkt."
 
-#: core/job_error.cpp:738
+#: core/job_error.cpp:742
 #, kde-format
 msgid ""
 "A protocol error may have occurred, causing the server to close the "
@@ -1555,17 +1555,17 @@ msgid ""
 msgstr ""
 "Ein protokollfeil kan ha oppstått, slik at tenaren kopla ned sambandet."
 
-#: core/job_error.cpp:744
+#: core/job_error.cpp:748
 #, kde-format
 msgid "URL Resource Invalid"
 msgstr "Ugyldig nettadresseressurs."
 
-#: core/job_error.cpp:745
+#: core/job_error.cpp:749
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
 msgstr "Protokollen %1 er ingen filterprotokoll"
 
-#: core/job_error.cpp:747
+#: core/job_error.cpp:751
 #, kde-format
 msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
@@ -1574,7 +1574,7 @@ msgid ""
 msgstr ""
 "Nettadressa du oppgav viser ikkje til nokon ressurs, <strong>%1%2</strong>."
 
-#: core/job_error.cpp:754
+#: core/job_error.cpp:758
 #, kde-format
 msgid ""
 "KDE is able to communicate through a protocol within a protocol. This "
@@ -1587,17 +1587,17 @@ msgstr ""
 "ikkje kommunisera på den måten. Dette skjer sjeldan, og skuldast vanlegvis "
 "programmeringsfeil."
 
-#: core/job_error.cpp:762
+#: core/job_error.cpp:766
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
 msgstr "Klarar ikkje montera inn/ut-eining"
 
-#: core/job_error.cpp:763
+#: core/job_error.cpp:767
 #, kde-format
 msgid "Could Not Mount Device"
 msgstr "Klarte ikkje montera eining"
 
-#: core/job_error.cpp:765
+#: core/job_error.cpp:769
 #, kde-format
 msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
@@ -1605,7 +1605,7 @@ msgid ""
 msgstr ""
 "Klarte ikkje montera eininga. Den rapporterte feilen var: <strong>%1</strong>"
 
-#: core/job_error.cpp:769
+#: core/job_error.cpp:773
 #, kde-format
 msgid ""
 "The device may not be ready, for example there may be no media in a "
@@ -1616,7 +1616,7 @@ msgstr ""
 "i eininga (for eksempel inga CD-plate i CD-spelaren), eller at eininga ikkje "
 "er kopla til."
 
-#: core/job_error.cpp:774
+#: core/job_error.cpp:778
 #, kde-format
 msgid ""
 "You may not have permissions to initialize (\"mount\") the device. On UNIX "
@@ -1626,7 +1626,7 @@ msgstr ""
 "Du har kanskje ikkje løyve til å montera eininga. På UNIX-system er det "
 "vanleg at berre systemadministratoren kan montera ei eining."
 
-#: core/job_error.cpp:779
+#: core/job_error.cpp:783
 #, kde-format
 msgid ""
 "Check that the device is ready; removable drives must contain media, and "
@@ -1635,17 +1635,17 @@ msgstr ""
 "Sjå til at eininga er klar; at eit lagringsmedium er sett inn og at eininga "
 "er kopla til og slått på."
 
-#: core/job_error.cpp:786
+#: core/job_error.cpp:790
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
 msgstr "Klarar ikkje avmontera inn/ut-eining"
 
-#: core/job_error.cpp:787
+#: core/job_error.cpp:791
 #, kde-format
 msgid "Could Not Unmount Device"
 msgstr "Klarte ikkje avmontera eining"
 
-#: core/job_error.cpp:789
+#: core/job_error.cpp:793
 #, kde-format
 msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
@@ -1654,7 +1654,7 @@ msgstr ""
 "Klarte ikkje avmontera eininga. Den rapporterte feilen var: <strong>%1</"
 "strong>"
 
-#: core/job_error.cpp:793
+#: core/job_error.cpp:797
 #, kde-format
 msgid ""
 "The device may be busy, that is, still in use by another application or "
@@ -1665,7 +1665,7 @@ msgstr ""
 "ein annan brukar. Eit ope vindauge i filhandsamaren er nok til at eininga er "
 "i bruk."
 
-#: core/job_error.cpp:798
+#: core/job_error.cpp:802
 #, kde-format
 msgid ""
 "You may not have permissions to uninitialize (\"unmount\") the device. On "
@@ -1675,17 +1675,17 @@ msgstr ""
 "Du har kanskje ikkje løyve til å avmontera eininga. På UNIX-system er det "
 "vanleg at berre systemadministratoren kan avmontera ei eining."
 
-#: core/job_error.cpp:803
+#: core/job_error.cpp:807
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr "Sjå til at ingen program brukar eininga og prøv igjen."
 
-#: core/job_error.cpp:809
+#: core/job_error.cpp:813
 #, kde-format
 msgid "Cannot Read From Resource"
 msgstr "Klarar ikkje lesa frå ressursen"
 
-#: core/job_error.cpp:811
+#: core/job_error.cpp:815
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1694,17 +1694,17 @@ msgstr ""
 "Dette tyder at ein feil oppstod under lesing av innhaldet frå ressursen "
 "<strong>%1</strong>, sjølv om ressursen kunne opnast."
 
-#: core/job_error.cpp:815
+#: core/job_error.cpp:819
 #, kde-format
 msgid "You may not have permissions to read from the resource."
 msgstr "Du har kanskje ikkje løyve til å lesa frå ressursen."
 
-#: core/job_error.cpp:828
+#: core/job_error.cpp:832
 #, kde-format
 msgid "Cannot Write to Resource"
 msgstr "Kan ikkje skriva til ressursen"
 
-#: core/job_error.cpp:830
+#: core/job_error.cpp:834
 #, kde-format
 msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
@@ -1713,22 +1713,22 @@ msgstr ""
 "Dette tyder at ein feil oppstod under skriving til ressursen <strong>%1</"
 "strong>, sjølv om ressursen kunne opnast."
 
-#: core/job_error.cpp:833
+#: core/job_error.cpp:837
 #, kde-format
 msgid "You may not have permissions to write to the resource."
 msgstr "Du har kanskje ikkje løyve til å skriva til ressursen."
 
-#: core/job_error.cpp:846 core/job_error.cpp:859
+#: core/job_error.cpp:850 core/job_error.cpp:863
 #, kde-format
 msgid "Could Not Listen for Network Connections"
 msgstr "Klarte ikkje lytta etter nettverkssamband"
 
-#: core/job_error.cpp:847
+#: core/job_error.cpp:851
 #, kde-format
 msgid "Could Not Bind"
 msgstr "Klarte ikkje binda"
 
-#: core/job_error.cpp:849 core/job_error.cpp:862
+#: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
 msgid ""
 "This is a fairly technical error in which a required device for network "
@@ -1739,17 +1739,17 @@ msgstr ""
 "nettverkskommunikasjon (ein socket) ikkje kunne opprettast for lytting etter "
 "innkommande nettverkstilkoplingar."
 
-#: core/job_error.cpp:860
+#: core/job_error.cpp:864
 #, kde-format
 msgid "Could Not Listen"
 msgstr "Klarte ikkje lytta"
 
-#: core/job_error.cpp:872
+#: core/job_error.cpp:876
 #, kde-format
 msgid "Could Not Accept Network Connection"
 msgstr "Klarte ikkje akseptera nettverkssamband"
 
-#: core/job_error.cpp:874
+#: core/job_error.cpp:878
 #, kde-format
 msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
@@ -1758,34 +1758,34 @@ msgstr ""
 "Dette er ein nokså teknisk feil som oppstod ved forsøk på å godta ei "
 "innkommande nettverkstilkopling."
 
-#: core/job_error.cpp:879
+#: core/job_error.cpp:883
 #, kde-format
 msgid "You may not have permissions to accept the connection."
 msgstr "Du har kanskje ikkje løyve til å ta i mot sambandet."
 
-#: core/job_error.cpp:884
+#: core/job_error.cpp:888
 #, kde-format
 msgid "Could Not Login: %1"
 msgstr "Klarte ikkje logga inn: %1"
 
-#: core/job_error.cpp:886
+#: core/job_error.cpp:890
 #, kde-format
 msgid ""
 "An attempt to login to perform the requested operation was unsuccessful."
 msgstr ""
 "Eit forsøk på å logga inn og utføra den førespurde operasjonen mislukkast."
 
-#: core/job_error.cpp:902
+#: core/job_error.cpp:906
 #, kde-format
 msgid "Could Not Determine Resource Status"
 msgstr "Klarte ikkje avgjera ressurstilstand"
 
-#: core/job_error.cpp:903
+#: core/job_error.cpp:907
 #, kde-format
 msgid "Could Not Stat Resource"
 msgstr "Klarte ikkje avgjera tilstanden til ressursen"
 
-#: core/job_error.cpp:905
+#: core/job_error.cpp:909
 #, kde-format
 msgid ""
 "An attempt to determine information about the status of the resource <strong>"
@@ -1795,68 +1795,68 @@ msgstr ""
 "strong> mislukkast. Slik informasjon kan for eksempel vera namn, type, "
 "storleik, osv. til ressursen."
 
-#: core/job_error.cpp:910
+#: core/job_error.cpp:914
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
 msgstr "Den valte ressursen finst ikkje eller er ikkje lesbar."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
-#: core/job_error.cpp:921
+#: core/job_error.cpp:925
 #, kde-format
 msgid "Could Not Cancel Listing"
 msgstr "Klarte ikkje avbryta listing"
 
-#: core/job_error.cpp:922
+#: core/job_error.cpp:926
 #, kde-format
 msgid "FIXME: Document this"
 msgstr "FIKSMEG: Dokumenter dette"
 
-#: core/job_error.cpp:926
+#: core/job_error.cpp:930
 #, kde-format
 msgid "Could Not Create Folder"
 msgstr "Klarte ikkje laga mappe"
 
-#: core/job_error.cpp:927
+#: core/job_error.cpp:931
 #, kde-format
 msgid "An attempt to create the requested folder failed."
 msgstr "Eit forsøk på å oppretta den førespurde mappa mislukkast."
 
-#: core/job_error.cpp:930
+#: core/job_error.cpp:934
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr "Staden der mappa skulle opprettast finst kanskje ikkje."
 
-#: core/job_error.cpp:939
+#: core/job_error.cpp:943
 #, kde-format
 msgid "Could Not Remove Folder"
 msgstr "Klarte ikkje fjerna mappe"
 
-#: core/job_error.cpp:941
+#: core/job_error.cpp:945
 #, kde-format
 msgid "An attempt to remove the specified folder, <strong>%1</strong>, failed."
 msgstr "Eit forsøk på å flytta den valde mappa <strong>%1</strong> mislukkast."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not exist."
 msgstr "Den valde mappa finst kanskje ikkje."
 
-#: core/job_error.cpp:944
+#: core/job_error.cpp:948
 #, kde-format
 msgid "The specified folder may not be empty."
 msgstr "Den valde mappa er kanskje ikkje tom."
 
-#: core/job_error.cpp:949
+#: core/job_error.cpp:953
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
 msgstr "Sjå til at mappa finst og er tom før du prøver om att."
 
-#: core/job_error.cpp:955
+#: core/job_error.cpp:959
 #, kde-format
 msgid "Could Not Resume File Transfer"
 msgstr "Klarte ikkje gjenoppta filoverføring"
 
-#: core/job_error.cpp:957
+#: core/job_error.cpp:961
 #, kde-format
 msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
@@ -1865,35 +1865,35 @@ msgstr ""
 "Førespurnaden kravde at overføringa av fila <strong>%1</strong> vart teken "
 "opp att på eit visst punkt. Det var ikkje mogleg."
 
-#: core/job_error.cpp:962
+#: core/job_error.cpp:966
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
 "Protokollen eller tenaren støttar kanskje ikkje å ta opp att overføringar."
 
-#: core/job_error.cpp:965
+#: core/job_error.cpp:969
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
 msgstr "Prøv ein gong til utan å ta opp att overføringa."
 
-#: core/job_error.cpp:970
+#: core/job_error.cpp:974
 #, kde-format
 msgid "Could Not Rename Resource"
 msgstr "Klarte ikkje endra namnet på ressursen"
 
-#: core/job_error.cpp:972
+#: core/job_error.cpp:976
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Eit forsøk på å endra namnet på den valde ressursen <strong>%1</strong> "
 "mislukkast."
 
-#: core/job_error.cpp:983
+#: core/job_error.cpp:987
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
 msgstr "Klarte ikkje endra løyva for ressursen"
 
-#: core/job_error.cpp:985
+#: core/job_error.cpp:989
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
@@ -1902,12 +1902,12 @@ msgstr ""
 "Eit forsøk på å endra tilgangsløyva til den valde ressursen <strong>%1</"
 "strong> mislukkast."
 
-#: core/job_error.cpp:993
+#: core/job_error.cpp:997
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
 msgstr "Klarte ikkje endra løyva for ressursen"
 
-#: core/job_error.cpp:995
+#: core/job_error.cpp:999
 #, kde-format
 msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
@@ -1916,23 +1916,23 @@ msgstr ""
 "Eit forsøk på å endra tilgangsløyva til den valde ressursen <strong>%1</"
 "strong> mislukkast."
 
-#: core/job_error.cpp:1003
+#: core/job_error.cpp:1007
 #, kde-format
 msgid "Could Not Delete Resource"
 msgstr "Klarte ikkje sletta ressursen"
 
-#: core/job_error.cpp:1005
+#: core/job_error.cpp:1009
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
 "Eit forsøk på å sletta den valde ressursen <strong>%1</strong> mislukkast."
 
-#: core/job_error.cpp:1013
+#: core/job_error.cpp:1017
 #, kde-format
 msgid "Unexpected Program Termination"
 msgstr "Uventa programavslutting"
 
-#: core/job_error.cpp:1015
+#: core/job_error.cpp:1019
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1941,12 +1941,12 @@ msgstr ""
 "Programmet som gjev tilgang til protokollen <strong>%1</strong> har avslutta "
 "utan varsel."
 
-#: core/job_error.cpp:1023
+#: core/job_error.cpp:1027
 #, kde-format
 msgid "Out of Memory"
 msgstr "Ikkje nok minne"
 
-#: core/job_error.cpp:1025
+#: core/job_error.cpp:1029
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -1955,12 +1955,12 @@ msgstr ""
 "Programmet som gjev tilgang til protokollen <strong>%1</strong> har ikkje "
 "nok minne til å halda fram."
 
-#: core/job_error.cpp:1034
+#: core/job_error.cpp:1038
 #, kde-format
 msgid "Unknown Proxy Host"
 msgstr "Ukjend mellomtenar"
 
-#: core/job_error.cpp:1036
+#: core/job_error.cpp:1040
 #, kde-format
 msgid ""
 "While retrieving information about the specified proxy host, <strong>%1</"
@@ -1971,7 +1971,7 @@ msgstr ""
 "feilen «ukjend vert». Ein slik feil indikerer at namnet på tenaren ikkje "
 "vart funne på Internett."
 
-#: core/job_error.cpp:1042
+#: core/job_error.cpp:1046
 #, kde-format
 msgid ""
 "There may have been a problem with your network configuration, specifically "
@@ -1982,17 +1982,17 @@ msgstr ""
 "til mellomtenaren. Dersom du nyleg har hatt tilgang til Internett utan "
 "problem, er det truleg ikkje årsaka."
 
-#: core/job_error.cpp:1046
+#: core/job_error.cpp:1050
 #, kde-format
 msgid "Double-check your proxy settings and try again."
 msgstr "Dobbeltsjekk mellomtenarinnstillingane og prøv om att."
 
-#: core/job_error.cpp:1050
+#: core/job_error.cpp:1054
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
 msgstr "Feil ved autentisering, Metoden %1 er ikkje støtta"
 
-#: core/job_error.cpp:1052
+#: core/job_error.cpp:1056
 #, kde-format
 msgid ""
 "Although you may have supplied the correct authentication details, the "
@@ -2003,7 +2003,7 @@ msgstr ""
 "ha mislukkast fordi metoden som tenaren brukar ikkje er støtta av KDE-"
 "programmet som implementerer protokollen %1."
 
-#: core/job_error.cpp:1058
+#: core/job_error.cpp:1062
 #, kde-format
 msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
@@ -2013,17 +2013,17 @@ msgstr ""
 "kde.org/</a> for å melda frå til utviklarane av autentiseringsmetoden som "
 "ikkje er støtta."
 
-#: core/job_error.cpp:1065
+#: core/job_error.cpp:1069
 #, kde-format
 msgid "Request Aborted"
 msgstr "Førespurnad avbroten"
 
-#: core/job_error.cpp:1073
+#: core/job_error.cpp:1077
 #, kde-format
 msgid "Internal Error in Server"
 msgstr "Intern feil i tenar"
 
-#: core/job_error.cpp:1075
+#: core/job_error.cpp:1079
 #, kde-format
 msgid ""
 "The program on the server which provides access to the <strong>%1</strong> "
@@ -2032,7 +2032,7 @@ msgstr ""
 "Programmet på tenaren som gjev tilgang til <strong>%1</strong>-protokollen "
 "har rapportert ein intern feil: %2."
 
-#: core/job_error.cpp:1081
+#: core/job_error.cpp:1085
 #, kde-format
 msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
@@ -2041,12 +2041,12 @@ msgstr ""
 "Ein feil i tenarprogrammet er truleg grunnen til dette. Rapporter gjerne om "
 "feilen slik det er forklart nedanfor."
 
-#: core/job_error.cpp:1085
+#: core/job_error.cpp:1089
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr "Kontakt administratoren av tenaren for å melda frå om problemet."
 
-#: core/job_error.cpp:1088
+#: core/job_error.cpp:1092
 #, kde-format
 msgid ""
 "If you know who the authors of the server software are, submit the bug "
@@ -2055,12 +2055,12 @@ msgstr ""
 "Dersom du veit kven som har laga programmet på tenaren, kan du senda "
 "feilrapporten direkte til dei."
 
-#: core/job_error.cpp:1093
+#: core/job_error.cpp:1097
 #, kde-format
 msgid "Timeout Error"
 msgstr "Tidsgrensefeil"
 
-#: core/job_error.cpp:1095
+#: core/job_error.cpp:1099
 #, kde-format
 msgid ""
 "Although contact was made with the server, a response was not received "
@@ -2078,17 +2078,17 @@ msgstr ""
 "tidsgrensene i KDE-systemoppsettet, ved å velja «Nettverk → Instillingar for "
 "samband»."
 
-#: core/job_error.cpp:1108
+#: core/job_error.cpp:1112
 #, kde-format
 msgid "The server was too busy responding to other requests to respond."
 msgstr "Tenaren var for oppteken med å svara på andre førespurnadar."
 
-#: core/job_error.cpp:1114 core/slavebase.cpp:1518
+#: core/job_error.cpp:1118 core/slavebase.cpp:1518
 #, kde-format
 msgid "Unknown Error"
 msgstr "Ukjend feil"
 
-#: core/job_error.cpp:1116
+#: core/job_error.cpp:1120
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2097,12 +2097,12 @@ msgstr ""
 "Programmet som gjev tilgang til <strong>%1</strong>-protokollen har "
 "rapportert ein intern feil: %2."
 
-#: core/job_error.cpp:1126
+#: core/job_error.cpp:1130
 #, kde-format
 msgid "Unknown Interruption"
 msgstr "Ukjend avbrot"
 
-#: core/job_error.cpp:1128
+#: core/job_error.cpp:1132
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
@@ -2111,12 +2111,12 @@ msgstr ""
 "Programmet som gjev tilgang til <strong>%1</strong>-protokollen har "
 "rapportert eit avbrot av ein ukjend type: %2."
 
-#: core/job_error.cpp:1138
+#: core/job_error.cpp:1142
 #, kde-format
 msgid "Could Not Delete Original File"
 msgstr "Klarte ikkje sletta den opphavlege fila"
 
-#: core/job_error.cpp:1140
+#: core/job_error.cpp:1144
 #, kde-format
 msgid ""
 "The requested operation required the deleting of the original file, most "
@@ -2127,12 +2127,12 @@ msgstr ""
 "fordi fila skulle flyttast. Den opphavlege fila <strong>%1</strong> kunne "
 "ikkje slettast."
 
-#: core/job_error.cpp:1149
+#: core/job_error.cpp:1153
 #, kde-format
 msgid "Could Not Delete Temporary File"
 msgstr "Klarte ikkje sletta den mellombelse fila"
 
-#: core/job_error.cpp:1151
+#: core/job_error.cpp:1155
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file in which "
@@ -2143,12 +2143,12 @@ msgstr ""
 "nye fila vert lagra under nedlastinga. Denne mellombelse fila <strong>%1</"
 "strong> kunne ikkje slettast."
 
-#: core/job_error.cpp:1161
+#: core/job_error.cpp:1165
 #, kde-format
 msgid "Could Not Rename Original File"
 msgstr "Klarte ikkje endra namnet på den opphavlege fila"
 
-#: core/job_error.cpp:1163
+#: core/job_error.cpp:1167
 #, kde-format
 msgid ""
 "The requested operation required the renaming of the original file <strong>"
@@ -2157,12 +2157,12 @@ msgstr ""
 "Den førespurde operasjonen kravde at namnet på den opphavlege fila <strong>"
 "%1</strong> skulle endrast, men det lot seg ikkje gjera."
 
-#: core/job_error.cpp:1172
+#: core/job_error.cpp:1176
 #, kde-format
 msgid "Could Not Rename Temporary File"
 msgstr "Klarte ikkje endra namnet på den mellombelse fila"
 
-#: core/job_error.cpp:1174
+#: core/job_error.cpp:1178
 #, kde-format
 msgid ""
 "The requested operation required the creation of a temporary file <strong>"
@@ -2171,32 +2171,32 @@ msgstr ""
 "Den førespurde operasjonen kravde at ei mellombels fil <strong>%1</strong> "
 "skulle opprettast, men det lot seg ikkje gjera."
 
-#: core/job_error.cpp:1183
+#: core/job_error.cpp:1187
 #, kde-format
 msgid "Could Not Create Link"
 msgstr "Klarte ikkje oppretta lenkje"
 
-#: core/job_error.cpp:1184
+#: core/job_error.cpp:1188
 #, kde-format
 msgid "Could Not Create Symbolic Link"
 msgstr "Klarte ikkje oppretta symbolsk lenkje"
 
-#: core/job_error.cpp:1185
+#: core/job_error.cpp:1189
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
 msgstr "Den førespurde symbolske lenkja %1 kunne ikkje opprettast."
 
-#: core/job_error.cpp:1191
+#: core/job_error.cpp:1195
 #, kde-format
 msgid "No Content"
 msgstr "Utan innhald"
 
-#: core/job_error.cpp:1196
+#: core/job_error.cpp:1200
 #, kde-format
 msgid "Disk Full"
 msgstr "Full disk "
 
-#: core/job_error.cpp:1198
+#: core/job_error.cpp:1202
 #, kde-format
 msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
@@ -2205,7 +2205,7 @@ msgstr ""
 "Den førespurde fila <strong>%1</strong> kunne ikkje skrivast til sidan det "
 "ikkje er nok diskplass."
 
-#: core/job_error.cpp:1202
+#: core/job_error.cpp:1206
 #, kde-format
 msgid ""
 "Free up enough disk space by 1) deleting unwanted and temporary files; 2) "
@@ -2215,12 +2215,12 @@ msgstr ""
 "Lag meir ledig diskplass ved å 1) sletta filer du ikkje treng; 2) arkivera "
 "filer med CD-brennar eller liknande; eller 3) skaffa deg meir diskplass."
 
-#: core/job_error.cpp:1209
+#: core/job_error.cpp:1213
 #, kde-format
 msgid "Source and Destination Files Identical"
 msgstr "Kjelda og målet er den same fila."
 
-#: core/job_error.cpp:1211
+#: core/job_error.cpp:1215
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination "
@@ -2228,17 +2228,17 @@ msgid ""
 msgstr ""
 "Operasjonen kunne ikkje fullførast fordi kjelda og målet er den same fila."
 
-#: core/job_error.cpp:1213
+#: core/job_error.cpp:1217
 #, kde-format
 msgid "Choose a different filename for the destination file."
 msgstr "Vel eit anna filnamn for målfila."
 
-#: core/job_error.cpp:1217
+#: core/job_error.cpp:1221
 #, kde-format
 msgid "File or Folder dropped onto itself"
 msgstr "Fila eller mappa sleppt på seg sjølv"
 
-#: core/job_error.cpp:1219
+#: core/job_error.cpp:1223
 #, kde-format
 msgid ""
 "The operation could not be completed because the source and destination file "
@@ -2247,17 +2247,17 @@ msgstr ""
 "Operasjonen kunne ikkje fullførast fordi kjelda og målet er den same fila/"
 "mappa."
 
-#: core/job_error.cpp:1221
+#: core/job_error.cpp:1225
 #, kde-format
 msgid "Drop the item into a different file or folder."
 msgstr "Slepp elementet på ei anna fil eller mappe."
 
-#: core/job_error.cpp:1231
+#: core/job_error.cpp:1235
 #, kde-format
 msgid "Folder moved into itself"
 msgstr "Mappe flytta til seg sjølv"
 
-#: core/job_error.cpp:1233
+#: core/job_error.cpp:1237
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
@@ -2266,17 +2266,17 @@ msgstr ""
 "Operasjonen kunne ikkje fullførast fordi kjelda ikkje kan flyttast til seg "
 "sjølv."
 
-#: core/job_error.cpp:1235
+#: core/job_error.cpp:1239
 #, kde-format
 msgid "Move the item into a different folder."
 msgstr "Flytt elementet til ei anna mappe."
 
-#: core/job_error.cpp:1239
+#: core/job_error.cpp:1243
 #, kde-format
 msgid "Could not communicate with password server"
 msgstr "Klarte ikkje kommunisera med passordtenaren"
 
-#: core/job_error.cpp:1241
+#: core/job_error.cpp:1245
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
@@ -2285,7 +2285,7 @@ msgstr ""
 "Klarte ikkje fullføra den førespurde handlinga, på grunn av mangel på "
 "kontakt med tenesta for passordførespurnadar (kpasswdserver)"
 
-#: core/job_error.cpp:1243
+#: core/job_error.cpp:1247
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
@@ -2293,17 +2293,17 @@ msgstr ""
 "loggen."
 
 # Passar betre med preteritum her.
-#: core/job_error.cpp:1247
+#: core/job_error.cpp:1251
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
 msgstr "Klarte ikkje starta %1-protokollen"
 
-#: core/job_error.cpp:1248
+#: core/job_error.cpp:1252
 #, kde-format
 msgid "Unable to Create KIO Worker"
 msgstr "Klarte ikkje laga KIO-arbeidar"
 
-#: core/job_error.cpp:1250
+#: core/job_error.cpp:1254
 #, kde-format
 msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
@@ -2312,7 +2312,7 @@ msgstr ""
 "Klarte ikkje starta KIO-arbeidaren som som gjev tilgang til <strong>%1</"
 "strong>-protokollen. Dette skjer oftast grunna tekniske feil."
 
-#: core/job_error.cpp:1255
+#: core/job_error.cpp:1259
 #, kde-format
 msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
@@ -2322,13 +2322,13 @@ msgstr ""
 "støtte for protokollen. Dette kan skuldast at du har ein utdatert versjon av "
 "tillegget."
 
-#: core/job_error.cpp:1261
+#: core/job_error.cpp:1265
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot transfer <filename>%1</filename>"
 msgstr "Kan ikkje overføra <filename>%1</filename>"
 
-#: core/job_error.cpp:1263
+#: core/job_error.cpp:1267
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2338,14 +2338,14 @@ msgstr ""
 "Kan ikkje overføra fila <filename>%1</filename>, sidan filsystemet du "
 "overfører til ikkje støttar så store filer."
 
-#: core/job_error.cpp:1266
+#: core/job_error.cpp:1270
 #, kde-format
 msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr "Prøv å reformatera til eit filsystem som støttar så store filer."
 
-#: core/job_error.cpp:1271
+#: core/job_error.cpp:1275
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Udokumentert feil"
