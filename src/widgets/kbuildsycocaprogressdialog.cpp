@@ -29,7 +29,7 @@ public:
 
 void KBuildSycocaProgressDialog::rebuildKSycoca(QWidget *parent)
 {
-    KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration."));
+    KBuildSycocaProgressDialog dlg(parent, i18n("Updating System Configuration"), i18n("Updating system configuration…"));
 
     const QString exec = QStandardPaths::findExecutable(QStringLiteral(KBUILDSYCOCA_EXENAME));
     if (exec.isEmpty()) {
