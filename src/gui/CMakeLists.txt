@@ -15,6 +15,7 @@ target_sources(KF6KIOGui PRIVATE
    dndpopupmenuplugin.cpp
    faviconrequestjob.cpp
    kcoreurlnavigator.cpp
+   mimetypeeditorlauncherjob.cpp
    openurljob.cpp
    openwithhandlerinterface.cpp
    openorexecutefileinterface.cpp
@@ -103,6 +104,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   CommandLauncherJob
   DndPopupMenuPlugin
   FavIconRequestJob
+  MimeTypeEditorLauncherJob
   OpenFileManagerWindowJob
   OpenUrlJob
   OpenWithHandlerInterface
