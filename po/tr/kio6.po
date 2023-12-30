@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-29 01:36+0000\n"
-"PO-Revision-Date: 2023-12-11 16:04+0300\n"
+"PO-Revision-Date: 2023-12-29 13:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4661,7 +4661,7 @@ msgstr "Ortak ad:"
 #: widgets/certificateparty.ui:38
 #, kde-format
 msgid "Acme Co."
-msgstr "Acme Co."
+msgstr "Acme A.Ş."
 
 #. i18n: ectx: property (text), widget (QLabel, organizationTag)
 #: widgets/certificateparty.ui:48
@@ -4673,7 +4673,7 @@ msgstr "Kurum:"
 #: widgets/certificateparty.ui:58
 #, kde-format
 msgid "Acme Sundry Products Company"
-msgstr "Acme Sundry Products Company"
+msgstr "Acme Fişek Sanayii"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnitTag)
 #: widgets/certificateparty.ui:68
@@ -4685,7 +4685,7 @@ msgstr "Departman:"
 #: widgets/certificateparty.ui:78
 #, kde-format
 msgid "Fraud Department"
-msgstr "Fraud Department"
+msgstr "Müşteri Hizmetleri Departmanı"
 
 #. i18n: ectx: property (text), widget (QLabel, countryTag)
 #: widgets/certificateparty.ui:88
@@ -4697,7 +4697,7 @@ msgstr "Ülke:"
 #: widgets/certificateparty.ui:98
 #, kde-format
 msgid "Canada"
-msgstr "Kanada"
+msgstr "Türkiye"
 
 #. i18n: ectx: property (text), widget (QLabel, stateTag)
 #: widgets/certificateparty.ui:108
@@ -4709,7 +4709,7 @@ msgstr "Eyalet:"
 #: widgets/certificateparty.ui:118
 #, kde-format
 msgid "Quebec"
-msgstr "Quebec"
+msgstr "Bilecik"
 
 #. i18n: ectx: property (text), widget (QLabel, cityTag)
 #: widgets/certificateparty.ui:128
@@ -4721,7 +4721,7 @@ msgstr "Şehir:"
 #: widgets/certificateparty.ui:138
 #, kde-format
 msgid "Lakeridge Meadows"
-msgstr "Lakeridge Meadows"
+msgstr "Bilecik"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/checksumswidget.ui:17
@@ -5149,12 +5149,12 @@ msgstr "Etkin"
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating System Configuration"
-msgstr "Sistem Yapılandırması Güncelleniyor"
+msgstr "Sistem Yapılandırmasını Güncelle"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating system configuration."
-msgstr "Sistem yapılandırması güncelleniyor."
+msgstr "Sistem yapılandırması güncelleniyor…"
 
 #: widgets/kdirmodel.cpp:1219
 #, kde-format
