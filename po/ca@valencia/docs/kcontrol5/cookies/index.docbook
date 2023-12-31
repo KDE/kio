@@ -45,7 +45,7 @@
 >El servidor web és capaç de recordar les vostres preferències emmagatzemant una galeta en el vostre ordinador. De manera que, en les pròximes visites, el lloc web rebrà la informació emmagatzemada en esta galeta per a donar format al contingut del lloc d'acord amb les vostres preferències establides prèviament.</para>
 
 <para
->Així que, les galetes resulten molt útils en la navegació web. Malauradament, els llocs web emmagatzemen i extrauen informació amb freqüència sense el vostre consentiment explícit. Part d'esta informació pot resultar de gran utilitat per als propietaris dels llocs web, per exemple, permetent-los arreplegar estadístiques del nombre de visites a diferents àrees dels seus llocs web i personalitzar-ne els anuncis.</para>
+>Així que, les galetes resulten molt útils en la navegació web. Desgraciadament, els llocs web emmagatzemen i extrauen informació amb freqüència sense el vostre consentiment explícit. Part d'esta informació pot resultar de gran utilitat per als propietaris dels llocs web, per exemple, permetent-los arreplegar estadístiques del nombre de visites a diferents àrees dels seus llocs web i personalitzar-ne els anuncis.</para>
 
 <para
 >La pàgina de les galetes permet establir les polítiques d'ús per a les galetes quan navegueu per la web amb el navegador web &konqueror;.</para>
@@ -86,9 +86,9 @@
 ></term>
 <listitem>
 <para
->Algunes pàgines intenten establir galetes des d'altres servidors als quals proporcionen la pàgina &HTML; que s'està visualitzant. Per exemple, mostren anuncis publicitaris, i estos anuncis estan en un altre ordinador, que normalment pertany a una empresa publicitària. Estos anuncis poden intentar establir una galeta, que els permetrà conéixer -fer un seguiment- les pàgines que visiteu en múltiples llocs web.</para>
+>Algunes pàgines intenten establir galetes des d'altres servidors als quals proporcionen la pàgina &HTML; que s'està visualitzant. Per exemple, mostren anuncis publicitaris, i estos anuncis estan en un altre ordinador, que normalment pertany a una empresa publicitària. Estos anuncis poden intentar establir una galeta, el qual els permetrà conéixer -fer un seguiment- les pàgines que visiteu en múltiples llocs web.</para>
 <para
->Si desactiveu esta opció, tan sols s'acceptaran explícitament les galetes que provinguen del mateix servidor web amb el qual heu connectat.</para>
+>Si desseleccioneu esta opció, tan sols s'acceptaran explícitament les galetes que provinguen del mateix servidor web amb el qual heu connectat.</para>
 </listitem>
 </varlistentry>
 <varlistentry>

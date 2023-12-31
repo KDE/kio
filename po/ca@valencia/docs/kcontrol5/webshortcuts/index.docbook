@@ -72,13 +72,13 @@
 >paràmetres</emphasis
 > en els &URI; d'ús freqüent. Per exemple, si vos agrada el motor de busca de Google, podeu configurar &kde; de manera que un pseudo &URL; com <emphasis
 >gg:</emphasis
-> active una busca a Google. D'esta manera, introduint <userinput
+> active una busca en Google. D'esta manera, introduint <userinput
 >gg:<replaceable
 >la meua busca</replaceable
 ></userinput
 > es buscarà <replaceable
 >la meua busca</replaceable
-> a Google.</para>
+> en Google.</para>
 
 <note
 ><para

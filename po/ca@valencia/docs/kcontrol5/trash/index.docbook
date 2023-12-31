@@ -40,7 +40,7 @@
 ></term>
 <listitem
 ><para
->Marqueu esta casella per a permetre l'eliminació automàtica de fitxers que són més grans que el valor especificat. Deixeu-la sense marca per a <emphasis
+>Seleccioneu esta casella per a permetre l'eliminació automàtica de fitxers que són més grans que el valor especificat. Deixeu-la sense marca per a <emphasis
 >no</emphasis
 > eliminar automàticament cap element fins després d'un cert lapse de temps. Establir el nombre de dies que els fitxers poden romandre en la paperera. Tots els fitxers més antics que este seran eliminats automàticament. </para
 ></listitem>
@@ -53,7 +53,7 @@
 ></term>
 <listitem
 ><para
->Marqueu esta casella per a limitar la paperera a la quantitat màxima d'espai en disc que especifiqueu. D'altra manera, restarà sense límit. </para
+>Seleccioneu esta casella per a limitar la paperera a la quantitat màxima d'espai en disc que especifiqueu. D'altra manera, restarà sense límit. </para
 ></listitem>
 </varlistentry>
 

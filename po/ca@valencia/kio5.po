@@ -639,7 +639,7 @@ msgid ""
 "Error. Out of memory.\n"
 "%1"
 msgstr ""
-"Error. Memòria exhaurida.\n"
+"S'ha produït un error. Memòria exhaurida.\n"
 "%1"
 
 #: core/job_error.cpp:163
@@ -680,7 +680,7 @@ msgid ""
 "Timeout on server\n"
 "%1"
 msgstr ""
-"Ha caducat al servidor\n"
+"Ha caducat en el servidor\n"
 "%1"
 
 #: core/job_error.cpp:181
@@ -777,7 +777,7 @@ msgstr "Al servidor li cal %1, però no està disponible."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "S'ha denegat l'accés a un port restringit a POST."
+msgstr "S'ha denegat l'accés a un port restringit en POST."
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -800,7 +800,7 @@ msgstr "No es pot deixar anar una carpeta en si mateixa"
 #: core/job_error.cpp:242
 #, kde-format
 msgid "Communication with the local password server failed"
-msgstr "Ha fallat la comunicació amb el servidor local de contrasenyes"
+msgstr "No s'ha pogut comunicar amb el servidor local de contrasenyes"
 
 #: core/job_error.cpp:245
 #, kde-format
@@ -989,7 +989,7 @@ msgstr ""
 "Quan tota la resta falla, per favor, penseu a ajudar a l'equip KDE o al "
 "mantenidor d'este programa enviant un informe d'error de qualitat. Si el "
 "programa el proporciona un tercer, contacteu-hi directament. Altrament, "
-"primer mireu si algú altre ha enviat el mateix error buscant al <a href="
+"primer mireu si algú altre ha enviat el mateix error buscant en el <a href="
 "\"https://bugs.kde.org/\">lloc d'informació d'errors KDE</a>. Si no és així, "
 "anoteu els detalls que se vos han donat més amunt i incloeu-los al vostre "
 "informe d'errada, juntament amb tants detalls com creieu que puguen ajudar."
@@ -1186,7 +1186,7 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"Podeu realitzar una busca a Internet d'un connector de programari (anomenat "
+"Podeu realitzar una busca en Internet d'un connector de programari (anomenat "
 "un «procés de treball KIO») que accepte este protocol. Els llocs a buscar "
 "inclouen <a href=\"https://store.kde.org/\">https://store.kde.org</a>."
 
@@ -1677,7 +1677,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Potser no teniu permisos per a restablir («muntar») el dispositiu. Als "
+"Potser no teniu permisos per a restablir («muntar») el dispositiu. En els "
 "sistemes UNIX, sovint calen privilegis d'administrador del sistema per a "
 "restablir un dispositiu."
 
@@ -1719,7 +1719,7 @@ msgid ""
 msgstr ""
 "El dispositiu pot estar ocupat, açò és, encara l'està utilitzant una altra "
 "aplicació o usuari. Fins i tot el fet de tindre oberta una finestra del "
-"navegador a una ubicació d'este dispositiu pot causar que el dispositiu "
+"navegador en una ubicació d'este dispositiu pot causar que el dispositiu "
 "romanga en ús."
 
 #: core/job_error.cpp:798
@@ -1730,8 +1730,8 @@ msgid ""
 "uninitialize a device."
 msgstr ""
 "Potser no teniu permisos per a desinicialitzar («desmuntar») el dispositiu. "
-"Als sistemes UNIX sovint calen privilegis d'administrador del sistema per a "
-"desinicialitzar un dispositiu."
+"En els sistemes UNIX sovint calen privilegis d'administrador del sistema per "
+"a desinicialitzar un dispositiu."
 
 #: core/job_error.cpp:803
 #, kde-format
@@ -2033,7 +2033,7 @@ msgid ""
 msgstr ""
 "S'ha trobat un error d'amfitrió desconegut en recuperar la informació quant "
 "al servidor intermediari especificat <strong>%1</strong>. Un error d'este "
-"tipus indica que el nom sol·licitat no s'ha pogut localitzar a Internet."
+"tipus indica que el nom sol·licitat no s'ha pogut localitzar en Internet."
 
 #: core/job_error.cpp:1042
 #, kde-format
@@ -2064,9 +2064,9 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"Encara que potser heu proporcionat els detalls d'autenticació correctes, ha "
-"fallat en l'autenticació perquè el mètode que utilitza el servidor no és "
-"acceptat pel programa KDE que implementa el protocol %1."
+"Encara que potser heu proporcionat els detalls d'autenticació correctes, no "
+"s'ha pogut fer l'autenticació perquè el mètode que utilitza el servidor no "
+"és acceptat pel programa KDE que implementa el protocol %1."
 
 #: core/job_error.cpp:1058
 #, kde-format
@@ -2629,7 +2629,7 @@ msgstr "Informació de seguretat"
 #, kde-format
 msgctxt "%1 is a host name"
 msgid "%1: SSL negotiation failed"
-msgstr "%1: ha fallat la negociació SSL"
+msgstr "%1: no s'ha pogut fer la negociació SSL"
 
 # skip-rule: ff-enter
 #: core/tcpslavebase.cpp:482 core/tcpworkerbase.cpp:474
@@ -2661,7 +2661,7 @@ msgid ""
 "The server failed the authenticity check (%1).\n"
 "\n"
 msgstr ""
-"El servidor ha fallat la comprovació d'autenticitat (%1).\n"
+"El servidor no ha pogut fer la comprovació d'autenticitat (%1).\n"
 "\n"
 
 #: core/tcpslavebase.cpp:537 core/tcpslavebase.cpp:549
@@ -3089,7 +3089,7 @@ msgid ""
 msgstr ""
 "<qt>Seleccioneu esta opció si voleu que esta entrada només es mostre en "
 "utilitzar l'aplicació actual (%1).<br /><br />Si no se selecciona esta "
-"opció, l'entrada estarà disponible a totes les aplicacions.</qt>"
+"opció, l'entrada estarà disponible en totes les aplicacions.</qt>"
 
 #: filewidgets/kfileplacesitem.cpp:177
 #, kde-format
@@ -3276,7 +3276,7 @@ msgstr "S'ha produït un error en accedir a «%1»"
 #: filewidgets/kfileplacesmodel.cpp:1564
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr "Un o més fitxers d'este dispositiu estan oberts a una aplicació."
+msgstr "Un o més fitxers d'este dispositiu estan oberts en una aplicació."
 
 #: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-kuit-format
@@ -3780,7 +3780,7 @@ msgid ""
 "default."
 msgstr ""
 "El nom <filename>%1</filename> comença amb un punt, per tant, estarà ocult "
-"per defecte."
+"de manera predeterminada."
 
 #: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
@@ -4138,7 +4138,7 @@ msgstr ""
 #: ioslaves/file/file.cpp:828
 #, kde-format
 msgid "mounting is not supported by Windows CE."
-msgstr "el muntatge no està disponible a Windows CE."
+msgstr "el muntatge no està disponible en Windows CE."
 
 #: ioslaves/file/file.cpp:858
 #, kde-format
@@ -4148,7 +4148,7 @@ msgstr "No s'ha pogut trobar el programa «mount»"
 #: ioslaves/file/file.cpp:925
 #, kde-format
 msgid "unmounting is not supported by Windows CE."
-msgstr "el desmuntatge no està disponible a Windows CE."
+msgstr "el desmuntatge no està disponible en Windows CE."
 
 #: ioslaves/file/file.cpp:940
 #, kde-format
@@ -4249,7 +4249,7 @@ msgstr "No s'ha pogut copiar el fitxer des de %1 a %2 (Número d'error: %3)"
 #: ioslaves/file/file_unix.cpp:1080
 #, kde-format
 msgid "No media in device for %1"
-msgstr "No hi ha cap suport al dispositiu per a %1"
+msgstr "No hi ha cap suport en el dispositiu per a %1"
 
 #: ioslaves/file/file_unix.cpp:1373
 #, kde-format
@@ -4545,7 +4545,7 @@ msgstr "<h1>Ajuda ràpida de la gestió de galetes</h1>"
 #: kcms/cookies/kcookiesmanagement.cpp:228
 #, kde-format
 msgid "Information Lookup Failure"
-msgstr "Ha fallat la busca d'informació"
+msgstr "No s'ha pogut fer la busca d'informació"
 
 #: kcms/cookies/kcookiesmanagement.cpp:230
 #, kde-format
@@ -4790,11 +4790,11 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Rebutja les galetes anomenades de tercers. Són galetes originades des d'un "
-"lloc diferent del que esteu navegant. Per exemple, si visiteu <b>www.example."
+"lloc diferent del que esteu navegant. Per exemple, si visiteu <b>www.exemple."
 "com</b> amb esta opció seleccionada, la configuració només processarà les "
-"galetes originades a www.example.com. Es rebutjaran les galetes de qualsevol "
-"altre lloc. Açò reduirà les possibilitats que els operadors dels llocs "
-"apleguen informació quant als vostres hàbits de navegació diaris.\n"
+"galetes originades des de www.exemple.com. Es rebutjaran les galetes de "
+"qualsevol altre lloc. Açò reduirà les possibilitats que els operadors dels "
+"llocs apleguen informació quant als vostres hàbits de navegació diaris.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
@@ -5097,7 +5097,7 @@ msgstr "Cal tornar a iniciar KDE perquè estos canvis tinguen efecte."
 #: kcms/netpref/kio_ftprc.kcfg:10
 #, kde-format
 msgid "Disable Passive FTP"
-msgstr "Desactiva l'FTP passiu"
+msgstr "Desactiva FTP passiu"
 
 #. i18n: ectx: whatsthis, entry (DisablePassiveMode), group (DesktopIcons)
 #: kcms/netpref/kio_ftprc.kcfg:11
@@ -5109,7 +5109,7 @@ msgid ""
 msgstr ""
 "Quan les connexions FTP són passives el client es connecta amb el servidor, "
 "en comptes de l'inrevés, per tant, els tallafocs no bloquegen la connexió; "
-"encara que els servidors FTP antics poden no acceptar l'FTP passiu."
+"encara que els servidors FTP antics poden no acceptar FTP passiu."
 
 #. i18n: ectx: label, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: label, entry (MarkPartial), group (Global Options)
@@ -5234,7 +5234,7 @@ msgid ""
 "Enables FTP's \"passive\" mode. This is required to allow FTP to work from "
 "behind firewalls."
 msgstr ""
-"Activa el mode d'FTP «passiu». Açò és necessari per a permetre que l'FTP "
+"Activa el mode d'FTP «passiu». Açò és necessari per a permetre que FTP "
 "funcione darrere de tallafocs."
 
 #: kcms/netpref/netpref.cpp:108
@@ -7187,7 +7187,7 @@ msgstr "Calcula"
 #: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "Feu clic per a copiar la suma de verificació al porta-retalls."
+msgstr "Feu clic per a copiar la suma de verificació a dins del porta-retalls."
 
 #: widgets/dropjob.cpp:181
 #, kde-format
@@ -8545,7 +8545,7 @@ msgid ""
 "group, are allowed to do."
 msgstr ""
 "Especifica les accions que tots els usuaris, que no són el propietari ni "
-"estan al grup, tenen permés fer."
+"estan en el grup, tenen permés fer."
 
 #: widgets/kpropertiesdialog.cpp:1915
 #, kde-format
@@ -8728,7 +8728,7 @@ msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
 "files."
 msgstr ""
-"Si este indicador està activat, el propietari d'esta carpeta serà el "
+"Si este indicador està establit, el propietari d'esta carpeta serà el "
 "propietari de tots els fitxers nous."
 
 #: widgets/kpropertiesdialog.cpp:2151
@@ -8737,7 +8737,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"Si este fitxer és un executable i l'indicador està activat, s'executarà amb "
+"Si este fitxer és un executable i l'indicador està establit, s'executarà amb "
 "els permisos de l'usuari."
 
 #: widgets/kpropertiesdialog.cpp:2158
@@ -8745,7 +8745,7 @@ msgstr ""
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
-"Si este indicador està activat, el grup d'esta carpeta s'associarà amb tots "
+"Si este indicador està establit, el grup d'esta carpeta s'associarà amb tots "
 "els fitxers nous."
 
 #: widgets/kpropertiesdialog.cpp:2162
@@ -8754,7 +8754,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"Si este fitxer és un executable i l'indicador està activat, s'executarà amb "
+"Si este fitxer és un executable i l'indicador està establit, s'executarà amb "
 "els permisos del grup."
 
 #: widgets/kpropertiesdialog.cpp:2169
@@ -8763,8 +8763,8 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"Si l'indicador d'apegalós està activat en una carpeta, només el propietari i "
-"l'administrador poden suprimir o canviar de nom fitxers. Altrament, tothom "
+"Si l'indicador d'apegalós està establit en una carpeta, només el propietari "
+"i l'administrador poden suprimir o canviar de nom fitxers. Altrament, tothom "
 "amb permisos d'escriptura ho pot fer."
 
 #: widgets/kpropertiesdialog.cpp:2174
@@ -8773,7 +8773,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"L'indicador d'apegalós a un fitxer s'ignora a Linux, però pot utilitzar-se "
+"L'indicador d'apegalós a un fitxer s'ignora en Linux, però pot utilitzar-se "
 "en alguns sistemes"
 
 #: widgets/kpropertiesdialog.cpp:2235
@@ -8916,7 +8916,7 @@ msgstr "Seleccioneu un o més tipus de fitxers que s'hagen d'afegir:"
 #: widgets/kpropertiesdialog.cpp:3578
 #, kde-format
 msgid "Only executables on local file systems are supported."
-msgstr "Només s'accepten executables al sistema de fitxers local."
+msgstr "Només s'accepten executables en el sistema de fitxers local."
 
 #: widgets/kpropertiesdialog.cpp:3592
 #, kde-format
@@ -9143,7 +9143,7 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Quan este està activat, el botó premut s'aplicarà a tots els conflictes de "
+"Quan està seleccionada, el botó premut s'aplicarà a tots els conflictes de "
 "carpeta següents per a la resta del treball actual.\n"
 "A menys que premeu «Omet», també se vos preguntarà en cas de conflicte amb "
 "un fitxer existent en un directori."
@@ -9154,7 +9154,7 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Quan este està activat, el botó premut s'aplicarà a tots els conflictes de "
+"Quan està seleccionada, el botó premut s'aplicarà a tots els conflictes de "
 "carpeta següents per a la resta del treball actual."
 
 #: widgets/renamedialog.cpp:237

@@ -158,7 +158,7 @@ How to enable Auto Detect button?
 <listitem>
 
 <para
->La informació completa de l'adreçament cap a l'intermediari inclou tant l'adreça d'Internet com un número de port. Hauríeu d'introduir estos valors en els seus quadros de text corresponents. Marqueu <guilabel
+>La informació completa de l'adreçament cap a l'intermediari inclou tant l'adreça d'Internet com un número de port. Hauríeu d'introduir estos valors en els seus quadros de text corresponents. Seleccioneu <guilabel
 >Utilitza este mateix servidor intermediari per a tots els protocols</guilabel
 > per a copiar les adreces i el port del servidor intermediari &HTTP; en tots els altres camps de l'intermediari, per tal d'ajudar a estalviar una mica de mecanografia.</para>
 
