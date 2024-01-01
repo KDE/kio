@@ -831,7 +831,7 @@ msgstr ""
 #: core/job_error.cpp:261
 #, kde-format
 msgid "File is too large to be trashed."
-msgstr "El fitxer és massa gros per a anar a la paperera."
+msgstr "El fitxer és massa gros per a anar a dins de la paperera."
 
 #: core/job_error.cpp:264
 #, kde-format
@@ -2652,7 +2652,7 @@ msgstr "Carpeta nova..."
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
-msgstr "Llença a la paperera"
+msgstr "Llença a dins de la paperera"
 
 #: filewidgets/kdiroperator.cpp:1972
 #, kde-format
