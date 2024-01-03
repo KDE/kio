@@ -352,7 +352,6 @@ void KFilePlacesModelTest::testReparse()
 
     // reparse the bookmark file
     KBookmarkManager bookmarkManager(bookmarksFile());
-    bookmarkManager.notifyCompleteChange(QString());
 
     // check if they are the same
     CHECK_PLACES_URLS(urls);
@@ -643,7 +642,6 @@ void KFilePlacesModelTest::testPlacesLifecycle()
 
     foo = m_places->bookmarkForIndex(m_places->index(1, 0));
     foo.setFullText(QStringLiteral("Bar"));
-    bookmarkManager.notifyCompleteChange(QString());
 
     urls.clear();
     urls << QDir::homePath() << QStringLiteral("/mnt/foo") << QStringLiteral("trash:/") << initialListOfShared() << initialListOfRecent()
