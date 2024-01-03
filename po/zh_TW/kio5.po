@@ -10,13 +10,13 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-19 00:39+0000\n"
-"PO-Revision-Date: 2023-12-12 17:42+0900\n"
+"PO-Revision-Date: 2024-01-03 04:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -3802,7 +3802,7 @@ msgstr ""
 #: gui/kprocessrunner.cpp:253
 #, kde-format
 msgid "Launching %1"
-msgstr "裝載 %1 中"
+msgstr "正在啟動 %1"
 
 #: gui/kprocessrunner.cpp:466
 #, kde-kuit-format
