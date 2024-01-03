@@ -32,7 +32,6 @@ KFileBookmarkHandler::KFileBookmarkHandler(KFileWidget *widget)
     }
 
     m_bookmarkManager = new KBookmarkManager(file, this);
-    m_bookmarkManager->setUpdate(true);
 
     m_bookmarkMenu = new KBookmarkMenu(m_bookmarkManager, this, m_menu);
 }
