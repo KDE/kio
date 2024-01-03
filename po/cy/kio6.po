@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-01-03 01:34+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -112,7 +112,7 @@ msgstr "Ffeil yn Bodoli'n Barod"
 msgid "Already Exists as Folder"
 msgstr "Yn Bodoli'n Barod fel Blygell"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
 #, kde-format
 msgid "Trash"
 msgstr "Sbwriel"
@@ -2430,7 +2430,7 @@ msgstr "(%1, Cyswllt i %2)"
 msgid " (Points to %1)"
 msgstr " (Cyfeirio at %1)"
 
-#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
 #: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
@@ -2440,7 +2440,7 @@ msgstr ""
 "URL Annilys \n"
 " %1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Methu cynghlyddu math o ffeil am %1"
@@ -2574,248 +2574,248 @@ msgstr "Par&hau"
 msgid "&Current Session only"
 msgstr "&Sesiynau Cyfredol yn Unig"
 
-#: filewidgets/kdiroperator.cpp:302
+#: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Wnaethoch chi ddim dewis ffeil i ddileu."
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Dim byd i'w dileu"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Wnaethoch chi ddim dewis ffeil i ddileu."
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Dim byd i Sbwriel"
 
-#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
+#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Nid ydy'r plygell penodol yn bodoli, neu doedd o ddim yn ddarllenadwy."
 
-#: filewidgets/kdiroperator.cpp:1929
+#: filewidgets/kdiroperator.cpp:1930
 #, kde-format
 msgid "Menu"
 msgstr "Dewislen"
 
-#: filewidgets/kdiroperator.cpp:1934
+#: filewidgets/kdiroperator.cpp:1935
 #, kde-format
 msgid "Parent Folder"
 msgstr "Plygell Rhiant"
 
-#: filewidgets/kdiroperator.cpp:1941
+#: filewidgets/kdiroperator.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Mynd yn ôl"
 
-#: filewidgets/kdiroperator.cpp:1945
+#: filewidgets/kdiroperator.cpp:1946
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Mynd yn mlaen"
 
-#: filewidgets/kdiroperator.cpp:1949
+#: filewidgets/kdiroperator.cpp:1950
 #, kde-format
 msgid "Home Folder"
 msgstr "Plygell Cartref"
 
-#: filewidgets/kdiroperator.cpp:1953
+#: filewidgets/kdiroperator.cpp:1954
 #, kde-format
 msgid "Reload"
 msgstr "Adlwytho"
 
-#: filewidgets/kdiroperator.cpp:1956
+#: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
 msgstr "Plygell Newydd..."
 
-#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Symud i'r Sbwriel"
 
-#: filewidgets/kdiroperator.cpp:1972
+#: filewidgets/kdiroperator.cpp:1973
 #, kde-format
 msgid "Delete"
 msgstr "Dileu"
 
-#: filewidgets/kdiroperator.cpp:1979
+#: filewidgets/kdiroperator.cpp:1980
 #, kde-format
 msgid "Sorting"
 msgstr "Didoli"
 
-#: filewidgets/kdiroperator.cpp:1984
+#: filewidgets/kdiroperator.cpp:1985
 #, kde-format
 msgid "Sort by Name"
 msgstr "Didoli gyda Enw"
 
-#: filewidgets/kdiroperator.cpp:1990
+#: filewidgets/kdiroperator.cpp:1991
 #, kde-format
 msgid "Sort by Size"
 msgstr "Didoli gyda Maint"
 
-#: filewidgets/kdiroperator.cpp:1996
+#: filewidgets/kdiroperator.cpp:1997
 #, kde-format
 msgid "Sort by Date"
 msgstr "Didoli gyda Dyddiad"
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Sort by Type"
 msgstr "Didoli gyda Math"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Ascending"
 msgstr "Esgynniedig"
 
-#: filewidgets/kdiroperator.cpp:2018
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgid "Descending"
 msgstr "Disgynniedig"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, kde-format
 msgid "Folders First"
 msgstr "Plygyll yn Gyntaf"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Ffeiliau Cudd yn Olaf"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Icons View"
 msgstr "Golwg Eiconau"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, kde-format
 msgid "Compact View"
 msgstr "Golwg Byr"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Details View"
 msgstr "Golwg Manwl"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Icon Position"
 msgstr "Safle Eicon"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
 msgstr "Ar yr Ochr Enw Ffeil"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Above File Name"
 msgstr "Uwchben Enw Ffeil"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
 msgstr "Golwg Byr"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
 msgstr "Golwg Manwl"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Tree View"
 msgstr "Golwg Coeden"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Golwg Coeden Manwl"
 
-#: filewidgets/kdiroperator.cpp:2128
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Caniatáu Ehangiad yn Olygfa Manylion"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Dangos Ffeiliau Cudd"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Dangos Panel Rhagolwg"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
 msgstr "Dangos Rhagolwg"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Agor Plygell Argynhwysiedig"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "Priodweddau"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2172
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "&Edrych"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Newyddaf yn Gyntaf"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2280
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Hŷnaf yn Gyntaf"
 
-#: filewidgets/kdiroperator.cpp:2282
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Mwyaf yn Gyntaf"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2284
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -4008,32 +4008,32 @@ msgstr ""
 "Mae'r ffeil %1\n"
 "wedi ei newid. Ydych eisiau lanlwytho'r newidiadau?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
+#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "Newidwyd y ffeil"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "Lanlwytho"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Peidiwch â Uwchlwytho"
 
-#: kioexec/main.cpp:55
+#: kioexec/main.cpp:57
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "URL annilys: %1"
 
-#: kioexec/main.cpp:61
+#: kioexec/main.cpp:63
 #, kde-format
 msgid "File not found: %1"
 msgstr "Ni ganfuwyd ffeil: %1"
 
-#: kioexec/main.cpp:78
+#: kioexec/main.cpp:80
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -4042,7 +4042,7 @@ msgstr ""
 "Mae'r URL %1\n"
 "wedi'i gam-fformatio"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:82
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -4051,7 +4051,7 @@ msgstr ""
 "Ni chaniateir URL pell %1\n"
 "efo'r cymal --tempfiles"
 
-#: kioexec/main.cpp:234
+#: kioexec/main.cpp:236
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -4064,12 +4064,12 @@ msgstr ""
 "wedi cael ei amnewid. \n"
 "Ydych yn dal eisiau ei dileu?"
 
-#: kioexec/main.cpp:237
+#: kioexec/main.cpp:239
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Peidiwch â Dileu"
 
-#: kioexec/main.cpp:244
+#: kioexec/main.cpp:246
 #, kde-format
 msgid ""
 "The file\n"
@@ -4082,62 +4082,62 @@ msgstr ""
 "wedi ei newid. \n"
 "Ydych eisiau lanlwytho'r newidiadau?"
 
-#: kioexec/main.cpp:284
+#: kioexec/main.cpp:286
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:288
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "KIO Exec - Agor ffeiliau pell, arsylwi newidiadau, gofyn am lanlwytho"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998-2000,2003 Y Datblygwyr KFM/Konqueror"
 
-#: kioexec/main.cpp:289
+#: kioexec/main.cpp:291
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:292
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:293
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:294
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:295
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:298
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "Trin URLau fel ffeiliau lleol a'u dileu wedyn"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "Enw ffeil awgrymwyd ar gyfer y ffeil llawrlwythwyd"
 
-#: kioexec/main.cpp:301
+#: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
 msgstr "Gorchymyn i weithredu"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(au) neu ffeil(iau) lleol i'w defnyddio fel 'gorchymyn'"
@@ -4602,15 +4602,15 @@ msgstr "Digwyddodd gwall annisgwyl (%1) wrth geisio cysylltu i %2."
 msgid "Network"
 msgstr "Rhwydwaith"
 
-#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
-#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
-#: kioworkers/trash/kio_trash.cpp:597
+#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
+#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
+#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL annilys %1"
 
-#: kioworkers/trash/kio_trash.cpp:133
+#: kioworkers/trash/kio_trash.cpp:132
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4623,12 +4623,12 @@ msgstr ""
 "cyfeiriadur hynny ac yn defnyddio y gweithrediad adfer unwaith eto, neu ar y "
 "llall ochr llusgo yr eitem unrhywle arall i'w adfer."
 
-#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
+#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Ymuniad annilys o brotocoliau."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Mae'r ffeil yma yn gyswllt ac nid oes ganddo ganiatadau."

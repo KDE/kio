@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-01-03 01:34+0000\n"
 "PO-Revision-Date: 2023-12-13 08:34+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -117,7 +117,7 @@ msgstr "O ficheiro xa existe"
 msgid "Already Exists as Folder"
 msgstr "Xa existe como un cartafol"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
 #, kde-format
 msgid "Trash"
 msgstr "Lixo"
@@ -2415,7 +2415,7 @@ msgstr "(%1, ligazón para %2)"
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
 
-#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
 #: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
@@ -2425,7 +2425,7 @@ msgstr ""
 "O URL está mal escrito:\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Non é posíbel determinar o tipo de ficheiro de %1"
@@ -2558,247 +2558,247 @@ msgstr "&Continuar"
 msgid "&Current Session only"
 msgstr "Só nesta &sesión"
 
-#: filewidgets/kdiroperator.cpp:302
+#: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Non escolleu un ficheiro para eliminar."
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Non hai nada para eliminar"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Non escolleu un ficheiro para botar no lixo."
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Non hai nada para botar no lixo"
 
-#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
+#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "O cartafol indicado non existe ou non é lexíbel."
 
-#: filewidgets/kdiroperator.cpp:1929
+#: filewidgets/kdiroperator.cpp:1930
 #, kde-format
 msgid "Menu"
 msgstr "Menú"
 
-#: filewidgets/kdiroperator.cpp:1934
+#: filewidgets/kdiroperator.cpp:1935
 #, kde-format
 msgid "Parent Folder"
 msgstr "Cartafol superior"
 
-#: filewidgets/kdiroperator.cpp:1941
+#: filewidgets/kdiroperator.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Retroceder"
 
-#: filewidgets/kdiroperator.cpp:1945
+#: filewidgets/kdiroperator.cpp:1946
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Avanzar"
 
-#: filewidgets/kdiroperator.cpp:1949
+#: filewidgets/kdiroperator.cpp:1950
 #, kde-format
 msgid "Home Folder"
 msgstr "Cartafol persoal"
 
-#: filewidgets/kdiroperator.cpp:1953
+#: filewidgets/kdiroperator.cpp:1954
 #, kde-format
 msgid "Reload"
 msgstr "Cargar de novo"
 
-#: filewidgets/kdiroperator.cpp:1956
+#: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
 msgstr "Novo cartafol…"
 
-#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "Botar no lixo"
 
-#: filewidgets/kdiroperator.cpp:1972
+#: filewidgets/kdiroperator.cpp:1973
 #, kde-format
 msgid "Delete"
 msgstr "Eliminar"
 
-#: filewidgets/kdiroperator.cpp:1979
+#: filewidgets/kdiroperator.cpp:1980
 #, kde-format
 msgid "Sorting"
 msgstr "Ordenación"
 
-#: filewidgets/kdiroperator.cpp:1984
+#: filewidgets/kdiroperator.cpp:1985
 #, kde-format
 msgid "Sort by Name"
 msgstr "Ordenar polo nome"
 
-#: filewidgets/kdiroperator.cpp:1990
+#: filewidgets/kdiroperator.cpp:1991
 #, kde-format
 msgid "Sort by Size"
 msgstr "Ordenar polo tamaño"
 
-#: filewidgets/kdiroperator.cpp:1996
+#: filewidgets/kdiroperator.cpp:1997
 #, kde-format
 msgid "Sort by Date"
 msgstr "Ordenar pola data"
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Sort by Type"
 msgstr "Ordenar por tipo"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: filewidgets/kdiroperator.cpp:2018
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgid "Descending"
 msgstr "Descendente"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, kde-format
 msgid "Folders First"
 msgstr "Os cartafoles primeiro"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Ficheiros agochados ao final"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Icons View"
 msgstr "Vista de iconas"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, kde-format
 msgid "Compact View"
 msgstr "Vista compacta"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Details View"
 msgstr "Vista detallada"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Icon Position"
 msgstr "Posición das iconas"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
 msgstr "Xunto ao nome do ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Above File Name"
 msgstr "Sobre o nome do ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
 msgstr "Vista abreviada"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
 msgstr "Vista detallada"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Tree View"
 msgstr "Vista en árbore"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Vista en árbore detallada"
 
-#: filewidgets/kdiroperator.cpp:2128
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Permite expandir na vista detallada"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Amosar os ficheiros agochados"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Amosar o panel de vista previa"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
 msgstr "Amosar a vista previa"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Abrir o cartafol contedor"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "Propiedades"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2172
 #, kde-format
 msgid "&View Mode"
 msgstr "Modo da &vista"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "De novo a vello"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2280
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "De vello a novo"
 
-#: filewidgets/kdiroperator.cpp:2282
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "De grande a pequeno"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2284
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3987,32 +3987,32 @@ msgstr ""
 "Modificouse o ficheiro %1.\n"
 "Quere enviar os cambios?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
+#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "Ficheiro cambiado"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "Enviar"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "Non enviar"
 
-#: kioexec/main.cpp:55
+#: kioexec/main.cpp:57
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "O URL é incorrecto: %1"
 
-#: kioexec/main.cpp:61
+#: kioexec/main.cpp:63
 #, kde-format
 msgid "File not found: %1"
 msgstr "Non se atopou o ficheiro %1"
 
-#: kioexec/main.cpp:78
+#: kioexec/main.cpp:80
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -4021,7 +4021,7 @@ msgstr ""
 "O URL %1\n"
 "está mal formado"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:82
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -4030,7 +4030,7 @@ msgstr ""
 "URL remoto %1\n"
 "non permitido coa opción --tempfiles"
 
-#: kioexec/main.cpp:234
+#: kioexec/main.cpp:236
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -4042,12 +4042,12 @@ msgstr ""
 "%1.\n"
 "Quere aínda así eliminalo?"
 
-#: kioexec/main.cpp:237
+#: kioexec/main.cpp:239
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Non eliminar"
 
-#: kioexec/main.cpp:244
+#: kioexec/main.cpp:246
 #, kde-format
 msgid ""
 "The file\n"
@@ -4059,64 +4059,64 @@ msgstr ""
 "%1.\n"
 "Quere enviar os cambios?"
 
-#: kioexec/main.cpp:284
+#: kioexec/main.cpp:286
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:288
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 "KIO Exec, abre ficheiros remotos, vixía as modificación, intermedia nos "
 "envíos"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "© 1998-2000, 2003 Equipo de desenvolvemento de KFM e Konqueror"
 
-#: kioexec/main.cpp:289
+#: kioexec/main.cpp:291
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:292
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:293
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "Bernhard Rosenkraenzer"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:294
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "Waldo Bastian"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:295
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "Oswald Buddenhagen"
 
-#: kioexec/main.cpp:298
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "Tratar os URL como ficheiros locais e eliminalos despois"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "Nome de ficheiro suxerido para o ficheiro descargado"
 
-#: kioexec/main.cpp:301
+#: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
 msgstr "A orde que se vai executar"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Os URL ou ficheiros locais usados para a «orde»"
@@ -4586,15 +4586,15 @@ msgstr "Produciuse un erro inesperado (%1) mentres se intentaba %2."
 msgid "Network"
 msgstr "Rede"
 
-#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
-#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
-#: kioworkers/trash/kio_trash.cpp:597
+#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
+#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
+#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL mal formado (%1)"
 
-#: kioworkers/trash/kio_trash.cpp:133
+#: kioworkers/trash/kio_trash.cpp:132
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4606,12 +4606,12 @@ msgstr ""
 "onde estaba. Pode volver crear ese cartafol de novo e usar a operación de "
 "devolución outra vez ou arrastrar o elemento a outra parte e así recuperalo."
 
-#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
+#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Combinación de protocolos incorrecta."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Este ficheiro xa está no lixo."

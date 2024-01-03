@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-01-03 01:34+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -106,7 +106,7 @@ msgstr "ফাইল আগে থেকেই আছে"
 msgid "Already Exists as Folder"
 msgstr "ফোল্ডার হিসেবে আগে থেকেই আছে"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
 #, fuzzy, kde-format
 msgid "Trash"
 msgstr "ক্যাশ (Cache) ফাঁকা করো"
@@ -2187,7 +2187,7 @@ msgstr "%1-এ লিঙ্ক (%2)"
 msgid " (Points to %1)"
 msgstr "%1-এ লিঙ্ক (%2)"
 
-#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
 #: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
@@ -2197,7 +2197,7 @@ msgstr ""
 "ত্রুটিপূর্ণ ইউ-আর-এল\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr ""
@@ -2329,258 +2329,258 @@ msgstr "চালিয়ে যা&ও"
 msgid "&Current Session only"
 msgstr "শুধু &এই সেশনের জন্য"
 
-#: filewidgets/kdiroperator.cpp:302
+#: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "আপনি মোছার জন্য কোন ফাইল বাছেননি।"
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "কিছু মোছার নেই"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "আপনি আবর্জনার বাক্সে পাঠাবার জন্য কোন ফাইল বাছেননি।"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "আবর্জনার বাক্সে পাঠাবার মত কিছু নেই"
 
-#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
+#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1929
+#: filewidgets/kdiroperator.cpp:1930
 #, kde-format
 msgid "Menu"
 msgstr "মেনু"
 
-#: filewidgets/kdiroperator.cpp:1934
+#: filewidgets/kdiroperator.cpp:1935
 #, kde-format
 msgid "Parent Folder"
 msgstr "উর্ধ্বস্থ ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:1941
+#: filewidgets/kdiroperator.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1945
+#: filewidgets/kdiroperator.cpp:1946
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1949
+#: filewidgets/kdiroperator.cpp:1950
 #, kde-format
 msgid "Home Folder"
 msgstr "ব্যক্তিগত ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:1953
+#: filewidgets/kdiroperator.cpp:1954
 #, fuzzy, kde-format
 msgid "Reload"
 msgstr "হ্যাঁ"
 
-#: filewidgets/kdiroperator.cpp:1956
+#: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
 msgstr "নতুন ফোল্ডার..."
 
-#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:1972
+#: filewidgets/kdiroperator.cpp:1973
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "মুছে ফেলা হচ্ছে"
 
-#: filewidgets/kdiroperator.cpp:1979
+#: filewidgets/kdiroperator.cpp:1980
 #, kde-format
 msgid "Sorting"
 msgstr "ক্রমবিন্যাস"
 
-#: filewidgets/kdiroperator.cpp:1984
+#: filewidgets/kdiroperator.cpp:1985
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "সাইটের নাম"
 
-#: filewidgets/kdiroperator.cpp:1990
+#: filewidgets/kdiroperator.cpp:1991
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "সংক্ষিপ্ত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:1996
+#: filewidgets/kdiroperator.cpp:1997
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "তারিখ অনুসারে"
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, fuzzy, kde-format
 msgid "Sort by Type"
 msgstr "ধরন"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2012
 #, fuzzy, kde-format
 msgid "Ascending"
 msgstr "মুছে ফেলা হচ্ছে"
 
-#: filewidgets/kdiroperator.cpp:2018
+#: filewidgets/kdiroperator.cpp:2019
 #, fuzzy, kde-format
 msgid "Descending"
 msgstr "মুছে ফেলা হচ্ছে"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, kde-format
 msgid "Folders First"
 msgstr "প্রথমে ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2032
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "গুপ্ত ফাইল দেখাও"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2039
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "সংক্ষিপ্ত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "সংক্ষিপ্ত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "বিস্তারিত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Icon Position"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2081
 #, fuzzy, kde-format
 msgid "Above File Name"
 msgstr "স্থানীয় ফাইলের নাম"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
 msgstr "সংক্ষিপ্ত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
 msgstr "বিস্তারিত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, fuzzy, kde-format
 msgid "Tree View"
 msgstr "বিস্তারিত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, fuzzy, kde-format
 msgid "Detailed Tree View"
 msgstr "বিস্তারিত ভিউ"
 
-#: filewidgets/kdiroperator.cpp:2128
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "গুপ্ত ফাইল দেখাও"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2142
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "প্রাকদর্শন দেখাও"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
 msgstr "প্রাকদর্শন দেখাও"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2172
 #, fuzzy, kde-format
 msgid "&View Mode"
 msgstr "প্রাক&দর্শন"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2279
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "প্রথমে ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2280
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "প্রথমে ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:2282
+#: filewidgets/kdiroperator.cpp:2283
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "প্রথমে ফোল্ডার"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2284
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -3733,47 +3733,47 @@ msgid ""
 "has been modified. Do you want to upload the changes?"
 msgstr ""
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
+#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "ফাইল পরিবর্তিত"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "হ্যাঁ"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "না"
 
-#: kioexec/main.cpp:55
+#: kioexec/main.cpp:57
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Invalid URL: %1"
 msgstr "বিকৃত ইউ-আর-এল  %1।"
 
-#: kioexec/main.cpp:61
+#: kioexec/main.cpp:63
 #, kde-format
 msgid "File not found: %1"
 msgstr ""
 
-#: kioexec/main.cpp:78
+#: kioexec/main.cpp:80
 #, kde-format
 msgid ""
 "The URL %1\n"
 "is malformed"
 msgstr ""
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:82
 #, kde-format
 msgid ""
 "Remote URL %1\n"
 "not allowed with --tempfiles switch"
 msgstr ""
 
-#: kioexec/main.cpp:234
+#: kioexec/main.cpp:236
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -3782,13 +3782,13 @@ msgid ""
 "Do you still want to delete it?"
 msgstr ""
 
-#: kioexec/main.cpp:237
+#: kioexec/main.cpp:239
 #, fuzzy, kde-format
 #| msgid "Do Not Store"
 msgid "Do Not Delete"
 msgstr "না"
 
-#: kioexec/main.cpp:244
+#: kioexec/main.cpp:246
 #, kde-format
 msgid ""
 "The file\n"
@@ -3797,62 +3797,62 @@ msgid ""
 "Do you want to upload the changes?"
 msgstr ""
 
-#: kioexec/main.cpp:284
+#: kioexec/main.cpp:286
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:288
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr ""
 
-#: kioexec/main.cpp:289
+#: kioexec/main.cpp:291
 #, kde-format
 msgid "David Faure"
 msgstr ""
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:292
 #, kde-format
 msgid "Stephan Kulow"
 msgstr ""
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:293
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr ""
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:294
 #, kde-format
 msgid "Waldo Bastian"
 msgstr ""
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:295
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr ""
 
-#: kioexec/main.cpp:298
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr ""
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, fuzzy, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "নতুন ফাইলটির জন্য অন্য একটি নাম বাছুন।"
 
-#: kioexec/main.cpp:301
+#: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
 msgstr "যে কমান্ড চালানো হবে"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
@@ -4310,16 +4310,16 @@ msgstr "%2 করার চেষ্টা চলাকালীন অপ্র
 msgid "Network"
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
-#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
-#: kioworkers/trash/kio_trash.cpp:597
+#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
+#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
+#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"
 msgstr "বিকৃত ইউ-আর-এল  %1।"
 
-#: kioworkers/trash/kio_trash.cpp:133
+#: kioworkers/trash/kio_trash.cpp:132
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4328,12 +4328,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
+#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr ""

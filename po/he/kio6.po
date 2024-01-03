@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-01-03 01:34+0000\n"
 "PO-Revision-Date: 2023-12-12 08:32+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -114,7 +114,7 @@ msgstr "הקובץ כבר קיים"
 msgid "Already Exists as Folder"
 msgstr "כבר קיים בתור תיקייה"
 
-#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:290
+#: core/copyjob.cpp:1863 kioworkers/trash/kio_trash.cpp:289
 #, kde-format
 msgid "Trash"
 msgstr "אשפה"
@@ -2319,7 +2319,7 @@ msgstr "(%1, קישור אל %2)"
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"
 
-#: core/mimetypefinderjob.cpp:56 gui/openurljob.cpp:145
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:145
 #: widgets/renamedialog.cpp:606
 #, kde-format
 msgid ""
@@ -2329,7 +2329,7 @@ msgstr ""
 "כתובת משובשת\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:224
+#: core/mimetypefinderjob.cpp:225
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "לא ניתן לאתר את סוג הקובץ של %1"
@@ -2460,247 +2460,247 @@ msgstr "המ&שך"
 msgid "&Current Session only"
 msgstr "להפעלה ה&נוכחית בלבד"
 
-#: filewidgets/kdiroperator.cpp:302
+#: filewidgets/kdiroperator.cpp:303
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "לא בחרת קובץ למחיקה."
 
-#: filewidgets/kdiroperator.cpp:711 filewidgets/kdiroperator.cpp:743
+#: filewidgets/kdiroperator.cpp:712 filewidgets/kdiroperator.cpp:744
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "אין מה למחוק"
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "לא בחרת קובץ להעברה לאשפה."
 
-#: filewidgets/kdiroperator.cpp:755 filewidgets/kdiroperator.cpp:842
+#: filewidgets/kdiroperator.cpp:756 filewidgets/kdiroperator.cpp:843
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "אין מה להעביר לאשפה"
 
-#: filewidgets/kdiroperator.cpp:914 filewidgets/kdiroperator.cpp:1046
+#: filewidgets/kdiroperator.cpp:915 filewidgets/kdiroperator.cpp:1047
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "התיקייה שצוינה לא קיימת או שאי אפשר לקרוא אותה."
 
-#: filewidgets/kdiroperator.cpp:1929
+#: filewidgets/kdiroperator.cpp:1930
 #, kde-format
 msgid "Menu"
 msgstr "תפריט"
 
-#: filewidgets/kdiroperator.cpp:1934
+#: filewidgets/kdiroperator.cpp:1935
 #, kde-format
 msgid "Parent Folder"
 msgstr "תיקיית ההורה"
 
-#: filewidgets/kdiroperator.cpp:1941
+#: filewidgets/kdiroperator.cpp:1942
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "חזרה"
 
-#: filewidgets/kdiroperator.cpp:1945
+#: filewidgets/kdiroperator.cpp:1946
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "התקדמות"
 
-#: filewidgets/kdiroperator.cpp:1949
+#: filewidgets/kdiroperator.cpp:1950
 #, kde-format
 msgid "Home Folder"
 msgstr "תיקיית הבית"
 
-#: filewidgets/kdiroperator.cpp:1953
+#: filewidgets/kdiroperator.cpp:1954
 #, kde-format
 msgid "Reload"
 msgstr "טעינה מחדש"
 
-#: filewidgets/kdiroperator.cpp:1956
+#: filewidgets/kdiroperator.cpp:1957
 #, kde-format
 msgid "New Folder..."
 msgstr "תיקייה חדשה…"
 
-#: filewidgets/kdiroperator.cpp:1966 widgets/jobuidelegate.cpp:270
+#: filewidgets/kdiroperator.cpp:1967 widgets/jobuidelegate.cpp:270
 #: widgets/jobuidelegate.cpp:271 widgets/jobuidelegate.cpp:280
 #: widgets/jobuidelegate.cpp:281 widgets/widgetsaskuseractionhandler.cpp:291
 #, kde-format
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
 
-#: filewidgets/kdiroperator.cpp:1972
+#: filewidgets/kdiroperator.cpp:1973
 #, kde-format
 msgid "Delete"
 msgstr "מחיקה"
 
-#: filewidgets/kdiroperator.cpp:1979
+#: filewidgets/kdiroperator.cpp:1980
 #, kde-format
 msgid "Sorting"
 msgstr "מיון"
 
-#: filewidgets/kdiroperator.cpp:1984
+#: filewidgets/kdiroperator.cpp:1985
 #, kde-format
 msgid "Sort by Name"
 msgstr "סידור לפי שם"
 
-#: filewidgets/kdiroperator.cpp:1990
+#: filewidgets/kdiroperator.cpp:1991
 #, kde-format
 msgid "Sort by Size"
 msgstr "סידור לפי גודל"
 
-#: filewidgets/kdiroperator.cpp:1996
+#: filewidgets/kdiroperator.cpp:1997
 #, kde-format
 msgid "Sort by Date"
 msgstr "סידור לפי תאריך"
 
-#: filewidgets/kdiroperator.cpp:2002
+#: filewidgets/kdiroperator.cpp:2003
 #, kde-format
 msgid "Sort by Type"
 msgstr "סידור לפי סוג"
 
-#: filewidgets/kdiroperator.cpp:2011
+#: filewidgets/kdiroperator.cpp:2012
 #, kde-format
 msgid "Ascending"
 msgstr "סדר עולה"
 
-#: filewidgets/kdiroperator.cpp:2018
+#: filewidgets/kdiroperator.cpp:2019
 #, kde-format
 msgid "Descending"
 msgstr "סדר יורד"
 
-#: filewidgets/kdiroperator.cpp:2025
+#: filewidgets/kdiroperator.cpp:2026
 #, kde-format
 msgid "Folders First"
 msgstr "תיקיות ראשונות"
 
-#: filewidgets/kdiroperator.cpp:2031
+#: filewidgets/kdiroperator.cpp:2032
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "קבצים מוסתרים בסוף"
 
-#: filewidgets/kdiroperator.cpp:2038
+#: filewidgets/kdiroperator.cpp:2039
 #, kde-format
 msgid "Icons View"
 msgstr "תצוגת סמלים"
 
-#: filewidgets/kdiroperator.cpp:2045
+#: filewidgets/kdiroperator.cpp:2046
 #, kde-format
 msgid "Compact View"
 msgstr "תצוגה מצומצמת"
 
-#: filewidgets/kdiroperator.cpp:2052
+#: filewidgets/kdiroperator.cpp:2053
 #, kde-format
 msgid "Details View"
 msgstr "תצוגה מפורטת"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2072
 #, kde-format
 msgid "Icon Position"
 msgstr "מיקום הסמל"
 
-#: filewidgets/kdiroperator.cpp:2074
+#: filewidgets/kdiroperator.cpp:2075
 #, kde-format
 msgid "Next to File Name"
 msgstr "ליד שם הקובץ"
 
-#: filewidgets/kdiroperator.cpp:2080
+#: filewidgets/kdiroperator.cpp:2081
 #, kde-format
 msgid "Above File Name"
 msgstr "מעל שם הקובץ"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2095
 #, kde-format
 msgid "Short View"
 msgstr "תצוגה מקוצרת"
 
-#: filewidgets/kdiroperator.cpp:2101
+#: filewidgets/kdiroperator.cpp:2102
 #, kde-format
 msgid "Detailed View"
 msgstr "תצוגה מפורטת"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2109
 #, kde-format
 msgid "Tree View"
 msgstr "תצוגת עץ"
 
-#: filewidgets/kdiroperator.cpp:2115
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "תצוגת עץ מפורטת"
 
-#: filewidgets/kdiroperator.cpp:2128
+#: filewidgets/kdiroperator.cpp:2129
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "לאפשר הרחבת פרטים בתצוגת הפירוט"
 
-#: filewidgets/kdiroperator.cpp:2134
+#: filewidgets/kdiroperator.cpp:2135
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "הצגת קבצים מוסתרים"
 
-#: filewidgets/kdiroperator.cpp:2141
+#: filewidgets/kdiroperator.cpp:2142
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "הצגת לוח תצוגה מקדימה"
 
-#: filewidgets/kdiroperator.cpp:2148
+#: filewidgets/kdiroperator.cpp:2149
 #, kde-format
 msgid "Show Preview"
 msgstr "הצגת תצוגה מקדימה"
 
-#: filewidgets/kdiroperator.cpp:2155
+#: filewidgets/kdiroperator.cpp:2156
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "פתיחת התיקייה המכיל"
 
-#: filewidgets/kdiroperator.cpp:2162 filewidgets/kfileplacesview.cpp:1159
+#: filewidgets/kdiroperator.cpp:2163 filewidgets/kfileplacesview.cpp:1159
 #, kde-format
 msgid "Properties"
 msgstr "מאפיינים"
 
-#: filewidgets/kdiroperator.cpp:2171
+#: filewidgets/kdiroperator.cpp:2172
 #, kde-format
 msgid "&View Mode"
 msgstr "מצב ת&צוגה"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "ת-א"
 
-#: filewidgets/kdiroperator.cpp:2275 filewidgets/kdiroperator.cpp:2287
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kdiroperator.cpp:2288
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "א-ת"
 
-#: filewidgets/kdiroperator.cpp:2278
+#: filewidgets/kdiroperator.cpp:2279
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "חדשים בהתחלה"
 
-#: filewidgets/kdiroperator.cpp:2279
+#: filewidgets/kdiroperator.cpp:2280
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "ישנים בהתחלה"
 
-#: filewidgets/kdiroperator.cpp:2282
+#: filewidgets/kdiroperator.cpp:2283
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "גדולים בהתחלה"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2284
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3866,32 +3866,32 @@ msgstr ""
 "הקובץ %1\n"
 "השתנה. להעלות את השינוי?"
 
-#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:235 kioexec/main.cpp:245
+#: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
 msgid "File Changed"
 msgstr "הקובץ השתנה"
 
-#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:246
+#: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
 msgstr "להעלות"
 
-#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:247
+#: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
 msgid "Do Not Upload"
 msgstr "לא להעלות"
 
-#: kioexec/main.cpp:55
+#: kioexec/main.cpp:57
 #, kde-format
 msgid "Invalid URL: %1"
 msgstr "כתובת שגויה: %1"
 
-#: kioexec/main.cpp:61
+#: kioexec/main.cpp:63
 #, kde-format
 msgid "File not found: %1"
 msgstr "הקובץ לא נמצא: %1"
 
-#: kioexec/main.cpp:78
+#: kioexec/main.cpp:80
 #, kde-format
 msgid ""
 "The URL %1\n"
@@ -3900,7 +3900,7 @@ msgstr ""
 "מבנה הכתובת %1\n"
 "שגוי"
 
-#: kioexec/main.cpp:80
+#: kioexec/main.cpp:82
 #, kde-format
 msgid ""
 "Remote URL %1\n"
@@ -3909,7 +3909,7 @@ msgstr ""
 "אסור להשתמש בכתובת המרוחקת %1\n"
 "עם ההנחיה ‎--tempfiles"
 
-#: kioexec/main.cpp:234
+#: kioexec/main.cpp:236
 #, kde-format
 msgid ""
 "The supposedly temporary file\n"
@@ -3922,12 +3922,12 @@ msgstr ""
 "השתנה.\n"
 "למחוק אותו?"
 
-#: kioexec/main.cpp:237
+#: kioexec/main.cpp:239
 #, kde-format
 msgid "Do Not Delete"
 msgstr "לא למחוק"
 
-#: kioexec/main.cpp:244
+#: kioexec/main.cpp:246
 #, kde-format
 msgid ""
 "The file\n"
@@ -3940,62 +3940,62 @@ msgstr ""
 "השתנה.\n"
 "להעלות את השינויים?"
 
-#: kioexec/main.cpp:284
+#: kioexec/main.cpp:286
 #, kde-format
 msgid "KIOExec"
 msgstr "KIOExec"
 
-#: kioexec/main.cpp:286
+#: kioexec/main.cpp:288
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr "KIO Exec - פתיחת קבצים מרוחקים, מעקב אחר שינויים, בקשות להעלאות"
 
-#: kioexec/main.cpp:288
+#: kioexec/main.cpp:290
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
 msgstr "(c) 1998‏-2000,‏2003 מפתחי KFM/Konqueror"
 
-#: kioexec/main.cpp:289
+#: kioexec/main.cpp:291
 #, kde-format
 msgid "David Faure"
 msgstr "דיויד פור"
 
-#: kioexec/main.cpp:290
+#: kioexec/main.cpp:292
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "סטפן קולו"
 
-#: kioexec/main.cpp:291
+#: kioexec/main.cpp:293
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
 msgstr "ברנרד רוזנקריינצר"
 
-#: kioexec/main.cpp:292
+#: kioexec/main.cpp:294
 #, kde-format
 msgid "Waldo Bastian"
 msgstr "ולדו בסטיאן"
 
-#: kioexec/main.cpp:293
+#: kioexec/main.cpp:295
 #, kde-format
 msgid "Oswald Buddenhagen"
 msgstr "אוזוולד בודנהאגן"
 
-#: kioexec/main.cpp:298
+#: kioexec/main.cpp:300
 #, kde-format
 msgid "Treat URLs as local files and delete them afterwards"
 msgstr "להתייחס לכתובות כקבצים מקומיים ולמחוק אותם לאחר מכן"
 
-#: kioexec/main.cpp:300
+#: kioexec/main.cpp:302
 #, kde-format
 msgid "Suggested file name for the downloaded file"
 msgstr "שם קובץ מוצע לקובץ שירד"
 
-#: kioexec/main.cpp:301
+#: kioexec/main.cpp:303
 #, kde-format
 msgid "Command to execute"
 msgstr "פקודה להרצה"
 
-#: kioexec/main.cpp:302
+#: kioexec/main.cpp:304
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "כתובות או קבצים מקומיים שמשמשים לטובת ‚command’ (פקודה)"
@@ -4453,15 +4453,15 @@ msgstr "אירעה שגיאה לא צפויה (%1) במהלך הניסיון ל�
 msgid "Network"
 msgstr "רשת"
 
-#: kioworkers/trash/kio_trash.cpp:114 kioworkers/trash/kio_trash.cpp:158
-#: kioworkers/trash/kio_trash.cpp:216 kioworkers/trash/kio_trash.cpp:379
-#: kioworkers/trash/kio_trash.cpp:411 kioworkers/trash/kio_trash.cpp:587
-#: kioworkers/trash/kio_trash.cpp:597
+#: kioworkers/trash/kio_trash.cpp:113 kioworkers/trash/kio_trash.cpp:157
+#: kioworkers/trash/kio_trash.cpp:215 kioworkers/trash/kio_trash.cpp:378
+#: kioworkers/trash/kio_trash.cpp:410 kioworkers/trash/kio_trash.cpp:586
+#: kioworkers/trash/kio_trash.cpp:596
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "הכתובת %1 משובשת"
 
-#: kioworkers/trash/kio_trash.cpp:133
+#: kioworkers/trash/kio_trash.cpp:132
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4473,12 +4473,12 @@ msgstr ""
 "ליצור את התיקייה הזאת מחדש ולהשתמש בפעולת השחזור שוב או לגרור את הפריט למקום "
 "אחר כדי לשחזר אותו."
 
-#: kioworkers/trash/kio_trash.cpp:184 kioworkers/trash/kio_trash.cpp:205
+#: kioworkers/trash/kio_trash.cpp:183 kioworkers/trash/kio_trash.cpp:204
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "שילוב שגוי של פרוטוקולים."
 
-#: kioworkers/trash/kio_trash.cpp:196 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:195 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "הקובץ הזה כבר נמצא באשפה."
