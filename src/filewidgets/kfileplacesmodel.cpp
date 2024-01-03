@@ -455,9 +455,6 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
     connect(d->bookmarkManager, &KBookmarkManager::changed, this, [this]() {
         d->reloadBookmarks();
     });
-    connect(d->bookmarkManager, &KBookmarkManager::bookmarksChanged, this, [this]() {
-        d->reloadBookmarks();
-    });
 
     d->reloadBookmarks();
     QTimer::singleShot(0, this, [this]() {
